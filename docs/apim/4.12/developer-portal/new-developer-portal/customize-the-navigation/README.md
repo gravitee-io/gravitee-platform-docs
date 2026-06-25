@@ -12,7 +12,15 @@ You can create the following elements for your navigation:
 * **Links**: Connect your documentation to external sites or other internal resources.
 * **APIs**: List your APIs in the New Developer Portal documentation.
 
-When you add a new page, you can customize the page with Gravitee Markdown, which is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see[gravitee-markdown-components.md](../gravitee-markdown-components.md "mention").
+When you add a new page, you can choose **Gravitee Markdown**, **OpenAPI**, or **AsyncAPI** as the page type. Gravitee Markdown is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see [gravitee-markdown-components.md](../gravitee-markdown-components.md "mention"). For OpenAPI pages, see [creating-openapi-documentation-pages.md](./creating-openapi-documentation-pages.md). For AsyncAPI pages, see [creating-asyncapi-documentation-pages.md](./creating-asyncapi-documentation-pages.md).
+
+### Supported documentation page types
+
+| Page type | What it contains | How it is edited in the Console | How it appears in the portal |
+|:----------|:-----------------|:--------------------------------|:-----------------------------|
+| Gravitee Markdown | Markdown content | Markdown editor | Rendered markdown |
+| OpenAPI | OpenAPI specification | Split editor with live preview | Swagger UI or Redoc (configurable) |
+| AsyncAPI | AsyncAPI specification | Split YAML editor with live preview | Interactive AsyncAPI documentation viewer |
 
 ### Default navigation items
 
@@ -70,11 +78,13 @@ When you add a page that is not in a folder, the page appears as a root level me
 
     <figure><img src="../../../.gitbook/assets/FB8F0725-08EB-4B68-B365-122337D12C4F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2. In the **Add page** pop-up screen, type a title for your page.
-3.  The pop-up screen allows you to select one of 2 types of pages: Gravitee Markdown or OpenAPI specification.<br>
+3.  The pop-up screen allows you to select one of 3 types of pages: Gravitee Markdown, OpenAPI specification, or AsyncAPI.<br>
 
     <figure><img src="../../../.gitbook/assets/devportal-new-portal-customize-the--251.png" alt=""><figcaption><p>Add page pop-up with Markdown selected</p></figcaption></figure>
 
     <figure><img src="../../../.gitbook/assets/devportal-new-portal-customize-the--252.png" alt=""><figcaption><p>Add page pop-up with OpenAPI selected</p></figcaption></figure>
+
+    For OpenAPI pages, you can configure Swagger UI or Redoc viewers. For more information, see [Creating OpenAPI Documentation Pages](./creating-openapi-documentation-pages.md). For AsyncAPI pages, see [Creating AsyncAPI Documentation Pages](./creating-asyncapi-documentation-pages.md).
 4. (Optional) Turn on the **Authentication is required to view this page.** toggle. This toggle ensures that the user must be signed in to the New Developer Portal to see the page.
 5. Click **Add**.
 6. Customize your page. The page contains default content that you can use to customize your new page with unique content. For more information about customizing your page with Gravitee Markdown, see [gravitee-markdown-components.md](../gravitee-markdown-components.md "mention").

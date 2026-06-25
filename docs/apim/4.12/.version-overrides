@@ -53,7 +53,6 @@ kafka-gateway/configure-the-kafka-client-and-gateway.md
 kafka-gateway/configuring-kafka-port-routing-gateway-and-console.md
 kafka-gateway/creating-and-updating-plans-with-port-routing.md
 create-and-configure-apis/configure-v4-apis/documentation.md
-developer-portal/classic-developer-portal/api-documentation.md
 developer-portal/classic-developer-portal/api-model-object-reference-for-portal-templates.md
 developer-portal/classic-developer-portal/portal-navigation-templating-concepts.md
 developer-portal/new-developer-portal/customize-the-navigation/creating-and-managing-templated-portal-pages.md
@@ -137,7 +136,6 @@ secure-and-expose-apis/api-products/manage-api-product-members-and-ownership-con
 .gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-02.png
 .gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-03.png
 .gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-01.png
-.gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-01.png
 upgrade-guides/README.md
 .gitbook/assets/federated-api-catalog-view.png
 .gitbook/assets/federated-api-console-subscriptions.png
@@ -184,3 +182,6 @@ prepare-a-production-environment/sensitive-data-management/api-secrets/configura
 prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis.md
 prepare-a-production-environment/sensitive-data-management/configure-secrets/configuration.md
 prepare-a-production-environment/sensitive-data-management/configure-secrets/reference-secrets-in-configurations.md
+developer-portal/new-developer-portal/customize-the-navigation/creating-asyncapi-documentation-pages.md
+developer-portal/new-developer-portal/customize-the-navigation/creating-openapi-documentation-pages.md
+developer-portal/new-developer-portal/customize-the-navigation/structure-the-navigation-with-the-management-api.md
