@@ -100,7 +100,7 @@ ds:
 
 <mark style="color:yellow;">`password`</mark>: The desired `key` (optional in some cases, but not here).
 
-`?keymap`: Maps custom JSON keys to well-known identifiers (e.g., `?keymap=usr:username&keymap=pwd:password`).
+`?keymap`: Maps custom JSON keys to well-known identifiers. For example, `?keymap=usr:username&keymap=pwd:password`.
 {% endtab %}
 {% endtabs %}
 
