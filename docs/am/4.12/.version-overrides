@@ -26,3 +26,4 @@ guides/applications/create-and-manage-agent-applications.md
 guides/applications/spiffe-workload-identity-and-agent-applications-overview.md
 guides/manage-spiffe-trust-domains.md
 guides/security-domains/configure-spiffe-and-cimd-settings.md
+overview/plugins/compatibility-matrices.md
