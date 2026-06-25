@@ -1,37 +1,63 @@
+---
+description: Create and manage AsyncAPI documentation pages in the New Developer Portal navigation.
+---
+
 # Creating AsyncAPI Documentation Pages
 
-## AsyncAPI pages
+## Overview
 
-AsyncAPI pages use a single interactive documentation viewer. When creating a new AsyncAPI page, the Console loads a starter AsyncAPI 3.0 template. The Console validates that content is valid YAML with a properly formatted `asyncapi` version field (semantic version format like `3.0.0`) before saving.
+The New Developer Portal supports **AsyncAPI** documentation pages alongside Gravitee Markdown and OpenAPI pages. Portal administrators create and edit AsyncAPI pages in the portal navigation editor; portal users browse published content in the portal UI.
+
+AsyncAPI pages use a single interactive documentation viewer — there is no choice of viewer.
 
 ## Prerequisites
 
-Before configuring OpenAPI viewer settings, ensure you have the following:
+Before creating AsyncAPI documentation pages, ensure you have the following:
 
-* `ENVIRONMENT_DOCUMENTATION[update]` permission
-* For Try It Out functionality: CORS may need to be configured on the API entrypoint
-* For OAuth with PKCE: OAuth provider must support PKCE flows
+* The New Developer Portal enabled. For more information, see [configure-the-new-portal.md](../configure-the-new-portal.md).
+* Access to the portal navigation editor in the Management Console.
 
-## Creating Documentation Pages
+## Add an AsyncAPI page
 
-1. Navigate to **Portal → Navigation** in the Console.
-2. To add a new documentation page, select the page type from the type selector:
-   * **Gravitee Markdown**: For markdown content
-   * **OpenAPI**: For OpenAPI specifications with configurable viewers
-   * **AsyncAPI**: For AsyncAPI specifications
+When creating a new documentation page in portal navigation, administrators can choose **AsyncAPI** from the page type selector (alongside Gravitee Markdown and OpenAPI).
 
-When creating an AsyncAPI page, the Console loads a starter AsyncAPI 3.0 template with a sample channel and operation. Edit the specification in the YAML editor on the left; the live preview on the right updates as you type.
+1. From the **Dashboard**, click **Settings**.
+2. From the **Settings** menu, click **Settings**.
+3. Navigate to the **New Developer Portal** section, and then click **Open Settings**. The New Developer Portal settings open on the navigation tab.
+4. Click **Add**, and then click **Add Page**.
+5. In the **Add page** pop-up screen, type a title for your page.
+6. Select **AsyncAPI** as the page type.
+7. (Optional) Turn on the **Authentication is required to view this page** toggle.
+8. Click **Add**.
 
-Before saving, the Console validates that the content is valid YAML and includes a properly formatted `asyncapi` version field. If validation fails, an error message appears and the page is not saved.
+New AsyncAPI pages are created with a **starter AsyncAPI 3.0 template** so editing can begin immediately, similar to default content for other page types.
 
-For OpenAPI pages, the editor displays a split layout with the specification on one side and a live preview on the other. The preview matches the selected viewer (Swagger UI or Redoc) and reflects configuration changes during the editing session without requiring a separate save.
+## Editing experience
 
-## Viewing Documentation in the Portal
+The AsyncAPI editor follows the same split-panel pattern as the OpenAPI editor:
 
-Published OpenAPI pages render according to the saved viewer configuration. Swagger UI honors all configured options, including Try It Out (authenticated and optionally anonymous), OAuth with PKCE, custom or entrypoint-derived server URLs, and display settings. When entrypoint or context-path options are enabled, the platform resolves the enclosing API and serves a specification with the correct server URLs applied so Try It Out targets the live API gateway.
+* **Left:** YAML editor for the specification
+* **Right:** Live preview of the rendered documentation
 
-Redoc shows the page with the Redoc viewer; an optional base URL can be supplied where relevant.
+The preview is optimised for the Console's side-by-side layout so the specification remains readable while editing.
 
-Try It Out is available when **Enable Try It Out mode** is enabled and the user is authenticated. If **Enable Try It Out mode for anonymous users** is also enabled, Try It Out is available for users who are not logged in.
+## Validation on save
 
-Published AsyncAPI pages render using an interactive AsyncAPI documentation viewer. Visitors can browse channels, messages, and other specification details.
+Before a page is saved, the Console checks that the content is valid YAML and looks like an AsyncAPI document:
+
+* The YAML must parse correctly
+* The document must include an `asyncapi` version field
+* The version must be a valid semantic version (e.g. `3.0.0`)
+
+If validation fails, the user sees an error message and the page is not saved. The platform also rejects empty content.
+
+## Viewing in the portal
+
+Published AsyncAPI pages are rendered using an interactive AsyncAPI documentation viewer. Visitors can browse channels, messages, and other spec details in the same way as for other embedded API documentation formats.
+
+## Typical workflow
+
+1. In the Console, add a new page to portal navigation and select **AsyncAPI** as the type.
+2. Edit the starter specification in the YAML editor; use the live preview to check the result.
+3. Save and publish the page in the desired folder.
+4. Portal users open the page and browse the rendered AsyncAPI documentation.
