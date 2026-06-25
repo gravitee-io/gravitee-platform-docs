@@ -1,6 +1,7 @@
+
 # Dictionary management overview
 
-Dictionary management lets administrators create, update, and delete dictionaries through the Automation API and the Kubernetes CRD. Dictionaries store key-value pairs that can be referenced in API policies and configurations using Gravitee Expression Language. Manual dictionaries hold static properties, while dynamic dictionaries poll an external HTTP provider to refresh values automatically.
+Dictionary management lets administrators create, update, and delete dictionaries through the Automation API and the Kubernetes CRD. Dictionaries provide environment-scoped key-value data stores that can be referenced in API policies and configurations using Gravitee Expression Language. Policies can reference dictionary data at runtime. For configuration details, see [Dictionary Management](../../guides/managing-dictionaries-via-automation-api.md). Manual dictionaries hold static properties, while dynamic dictionaries poll an external HTTP provider to refresh values automatically.
 
 ## Key concepts
 

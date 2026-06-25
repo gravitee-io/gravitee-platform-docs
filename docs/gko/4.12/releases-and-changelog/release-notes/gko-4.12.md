@@ -34,6 +34,16 @@ title: Gravitee Kubernetes Operator 4.12 Release Notes.
 * Requires `ENVIRONMENT_DICTIONARY` permissions with `CREATE`, `UPDATE`, `DELETE`, and `READ` actions; dynamic dictionaries require a reachable HTTP endpoint and valid JOLT specification.
 <!-- /PIPELINE:GKO-2567 -->
 
+
+<!-- PIPELINE:GKO-2584 -->
+#### **Dictionary Management via Kubernetes CRD and Automation API**
+
+* Dictionaries can now be managed declaratively using the `ManagementContext` CRD or programmatically via the Automation API, enabling GitOps workflows and infrastructure-as-code practices.
+* Supports both MANUAL dictionaries (static key-value pairs) and DYNAMIC dictionaries (auto-refreshing data from external HTTP endpoints with JOLT transformations).
+* Dictionary deployment states control gateway availability: deployed MANUAL dictionaries expose data to policies, while started DYNAMIC dictionaries enable scheduled polling.
+* Requires `CREATE`/`UPDATE`/`DELETE` permissions on `ENVIRONMENT_DICTIONARY` to view provider and trigger configurations for DYNAMIC dictionaries.
+<!-- /PIPELINE:GKO-2584 -->
+
 ## Improvements
 
 ## Bug Fixes
