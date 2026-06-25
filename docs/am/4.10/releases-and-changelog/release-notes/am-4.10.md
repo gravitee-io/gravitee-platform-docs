@@ -16,7 +16,7 @@ Access Management supports [Kafka reporter](../../getting-started/configuration/
 This functionality is currently exclusive to the **Certificate** **Plugin**.&#x20;
 {% endhint %}
 
-AM 4.10 extends our Secret Provider capabilities beyond the global `gravitee.yaml` configuration. Administrators can utilize [secret references](../../getting-started/configuration/domain-secrets/) within specific plugin configurations defined at the Domain level.
+AM 4.10 extends our Secret Provider capabilities beyond the global `gravitee.yaml` configuration. Administrators can utilize [secret references](../../getting-started/configuration/domain-secrets/README.md) within specific plugin configurations defined at the Domain level.
 
 ### User Authentication via Certificate
 
@@ -30,7 +30,7 @@ Access Management supports [Certificate-Based Authentication](../../guides/login
 
 Access Management is now taking its first steps toward becoming a first-class citizen in the MCP ecosystem. This feature allows for secure and standardized communication between AI models and your internal tools.
 
-* **Dedicated MCP App Type**: A new "[MCP Resource Server](../../guides/mcp-servers/)" application type is available in the creation wizard.
+* **Dedicated MCP App Type**: A new "[MCP Resource Server](../../guides/mcp-servers/README.md)" application type is available in the creation wizard.
 * **RFC 8707 Compliance**: AM now validates the `resource` parameter, ensuring tokens are scoped correctly for specific MCP servers and tools.
 
 ### Authorization Engine (OpenFGA & AuthZen)

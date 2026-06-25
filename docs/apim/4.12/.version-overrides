@@ -144,6 +144,7 @@ upgrade-guides/README.md
 .gitbook/assets/federated-api-plans-list.png
 configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md
 govern-apis/federation/federated-apis.md
+release-information/breaking-changes-and-deprecations.md
 configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis/gateway-cluster-sync-with-redis-using-kubernetes-helm.md
 create-and-configure-apis/apply-policies/configure-cache-policies-to-use-redis-cache-resources.md
 create-and-configure-apis/apply-policies/create-and-configure-redis-cache-resources.md

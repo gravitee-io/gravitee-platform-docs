@@ -16,14 +16,14 @@ The high-level steps are:
 ## Prerequisites
 
 * A running Gravitee API Management instance
-* An existing API that proxies a backend service (or follow the [Create an API guide ](https://documentation.gravitee.io/apim/getting-started/create-and-publish-your-first-api/create-an-api)to create one)
+* An existing API that proxies a backend service (or follow the [Create an API guide ](../../getting-started/create-and-publish-your-first-api/create-an-api.md)to create one)
 * Access to the API's **Policies** in the Gravitee Console
 
 ### Create your API
 
 You first need an API that already proxies an existing service. You just need to proxy a single endpoint at this stage.
 
-If you do not yet have an API, review the[ Create an API guide](https://documentation.gravitee.io/apim/getting-started/create-and-publish-your-first-api/create-an-api), otherwise skip to the next step.
+If you do not yet have an API, review the[ Create an API guide](../../getting-started/create-and-publish-your-first-api/create-an-api.md), otherwise skip to the next step.
 
 ### Test #1
 
