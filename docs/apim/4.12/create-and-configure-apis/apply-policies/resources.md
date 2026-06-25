@@ -224,7 +224,7 @@ The LDAP Authentication Provider resource authenticates a user in LDAP.
 
 **Configuration**
 
-The following table shows the available configurations for the LDAP Authentication provider, including if the resource supports Secrets. For more information about Secrets, see [API Secrets.](https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets)
+The following table shows the available configurations for the LDAP Authentication provider, including if the resource supports Secrets. For more information about Secrets, see [API Secrets.](../../prepare-a-production-environment/sensitive-data-management/api-secrets/README.md)
 
 | Property              | Required | Description                                                                                                                                                    | Type             | Default                         | Supports EL | Supports Secrets |
 | --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------- | ----------- | ---------------- |

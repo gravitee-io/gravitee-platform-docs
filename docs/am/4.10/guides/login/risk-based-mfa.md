@@ -6,7 +6,7 @@ Gravitee Access Management (AM) brings up a new way to configure Multi-Factor au
 
 It is composed of four steps:
 
-* The first step allows you to select your [application factors](../multi-factor-authentication/)
+* The first step allows you to select your [application factors](../multi-factor-authentication/README.md)
 * The second step allows you to configure the way end users will be prompted MFA
 * The third step allows you to configure [remember device](remember-authentication-device.md)
 * The last step allows you to configure [step-up authentication](step-up-authentication.md)

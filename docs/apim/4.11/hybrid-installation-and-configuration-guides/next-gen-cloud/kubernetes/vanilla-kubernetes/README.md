@@ -234,7 +234,7 @@ The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtim
 
 ### Ingress Configuration with Custom Domain and Kubernetes Secrets
 
-To configure Ingress and TLS rules, Copy the following `values.yaml` file to deploy the gateway and expose it via an Ingress controller. Fill in the required [placeholders](./#prepare-values.yaml-for-helm) like your license key and domain. To enable HTTPS, uncomment and configure the optional TLS section.
+To configure Ingress and TLS rules, Copy the following `values.yaml` file to deploy the gateway and expose it via an Ingress controller. Fill in the required [placeholders](README.md#prepare-values.yaml-for-helm) like your license key and domain. To enable HTTPS, uncomment and configure the optional TLS section.
 
 ```yaml
 # Hybrid Gateway values.yaml with Ingress and Optional TLS
@@ -520,7 +520,7 @@ gateway:
       value: "<proxy-port>"
 ```
 
-For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../../../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../../../proxy-configuration/).
+For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../../../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../../../proxy-configuration/README.md).
 
 ## Next steps
 

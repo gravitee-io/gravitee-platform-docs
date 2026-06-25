@@ -14,7 +14,7 @@ The Kafka endpoint **mediates the protocol** between the Kafka cluster and the c
 {% hint style="info" %}
 This page covers the **Kafka endpoint connector**, which mediates between HTTP-based entrypoints and a Kafka cluster (protocol mediation). The configuration options, record metadata, and attribute keys documented on this page apply to v4 Message APIs that attach this connector.
 
-To proxy a Kafka cluster using the native Kafka protocol (over TCP), use the [Gravitee Kafka Gateway](../../../kafka-gateway/) instead. The attribute keys on this page have no effect on Kafka APIs built on the Kafka Gateway.
+To proxy a Kafka cluster using the native Kafka protocol (over TCP), use the [Gravitee Kafka Gateway](../../../kafka-gateway/README.md) instead. The attribute keys on this page have no effect on Kafka APIs built on the Kafka Gateway.
 {% endhint %}
 
 This page discusses the [configuration](kafka.md#configuration) and [implementation](kafka.md#implementation) of the Kafka endpoint and includes a [reference](kafka.md#reference) section.
@@ -26,7 +26,7 @@ Native Kafka APIs support the following two routing strategies, controlled by th
 - **Host routing (SNI-based):** Uses a single bootstrap port for all APIs and routes traffic based on the hostname in the TLS handshake. This is the default mode when `kafka.routingMode` is unset or unrecognized.
 - **Port routing:** Assigns each plan a dedicated bootstrap port and broker port range, routing traffic based on the destination port. This mode allows multiple Kafka APIs to coexist on the same gateway instance without requiring distinct hostnames.
 
-Port routing is designed for environments where SNI-based routing is impractical or unavailable. To enable port routing, set `kafka.routingMode=port` in the gateway configuration. For detailed configuration and usage instructions, refer to the [Kafka Gateway documentation](../../../kafka-gateway/).
+Port routing is designed for environments where SNI-based routing is impractical or unavailable. To enable port routing, set `kafka.routingMode=port` in the gateway configuration. For detailed configuration and usage instructions, refer to the [Kafka Gateway documentation](../../../kafka-gateway/README.md).
 
 ## Configuration
 

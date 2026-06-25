@@ -14,7 +14,7 @@ metaLinks:
 
 [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) Servers in Gravitee Access Management (AM) provide a standardized way to secure and manage access to AI-integrated services and tools.
 
-An MCP Server represents a protected resource that exposes one or more MCP Tools to MCP client applications. Access to these tools is protected by OAuth 2.1 and can be further refined using [Authorization Engines](../authorization-engines/) such as OpenFGA for fine-grained, attribute-based, and relationship-based authorization.
+An MCP Server represents a protected resource that exposes one or more MCP Tools to MCP client applications. Access to these tools is protected by OAuth 2.1 and can be further refined using [Authorization Engines](../authorization-engines/README.md) such as OpenFGA for fine-grained, attribute-based, and relationship-based authorization.
 
 This page provides a high-level overview of MCP Servers and points to the detailed pages for configuration and integration.
 
