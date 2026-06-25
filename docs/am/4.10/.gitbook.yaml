@@ -1,0 +1,58 @@
+root: ./
+
+structure:
+  readme: README.md
+  summary: SUMMARY.md
+
+redirects:
+ create: README.md
+ getting-started/configuration/configure-automation-api: getting-started/configuration/configure-am-api/README.md
+ guides/applications/application-types: guides/applications/README.md
+ guides/applications/create-and-manage-agent-applications: guides/applications/README.md
+ guides/applications/spiffe-workload-identity-and-agent-applications-overview: guides/applications/README.md
+ guides/auth-protocols/oauth-2.0/cimd: guides/auth-protocols/openid-connect.md
+ guides/automation-api: guides/alerts/README.md
+ guides/certificates/configure-domain-certificate-fallback: guides/certificates/README.md
+ guides/login/magic-link-authentication: guides/login/certificate-based-authentication.md
+ guides/manage-spiffe-trust-domains: guides/security-domains/README.md
+ guides/multi-factor-authentication/alternative-methods: guides/multi-factor-authentication/managing-factors/alternative-methods.md
+ guides/multi-factor-authentication/factors: guides/multi-factor-authentication/managing-factors/README.md
+ guides/multi-factor-authentication/mfa-security: guides/multi-factor-authentication/mfa-brute-force-and-rate-limit.md
+ guides/multi-factor-authentication/mfa-with-fido2: guides/multi-factor-authentication/managing-factors/mfa-with-fido2.md
+ guides/multi-factor-authentication/recovery-codes: guides/multi-factor-authentication/managing-factors/recovery-codes.md
+ guides/multi-factor-authentication/reset-mfa: guides/multi-factor-authentication/manage-user-mfa.md
+ guides/oauth-2.0-token-exchange-concepts: guides/auth-protocols/oauth-2.0/extension-grants.md
+ guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference: guides/auth-protocols/oauth-2.0/extension-grants.md
+ guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-configuration-reference: guides/auth-protocols/oauth-2.0/best-practices.md
+ guides/resources/smtp-resource: guides/resources.md
+ guides/resources/twilio: guides/resources.md
+ guides/security-domains/configure-spiffe-and-cimd-settings: guides/security-domains/configure-cors-for-security-domains.md
+ guides/using-oauth-2.0-token-exchange: guides/auth-protocols/oauth-2.0/which-flow-should-i-use.md
+ placeholder: README.md
+ reference/application-filtering-cursor-pagination-and-expand-parameters: reference/am-api-reference.md
+ reference/automation-api-reference: reference/am-api-reference.md
+ reference/azure-regions-for-saas-and-hybrid-deployments: reference/am-api-reference.md
+ release: README.md
+ releases-and-changelog/changelog/am-4.0.x: releases-and-changelog/changelog/am-4.10.x.md
+ releases-and-changelog/changelog/am-4.1.x: releases-and-changelog/changelog/am-4.10.x.md
+ releases-and-changelog/changelog/am-4.11.x: releases-and-changelog/changelog/am-4.10.x.md
+ releases-and-changelog/changelog/am-4.2.x: releases-and-changelog/changelog/am-4.10.x.md
+ releases-and-changelog/changelog/am-4.3.x: releases-and-changelog/changelog/am-4.10.x.md
+ releases-and-changelog/changelog/am-4.4.x: releases-and-changelog/changelog/am-4.10.x.md
+ releases-and-changelog/changelog/am-4.5.x: releases-and-changelog/changelog/am-4.10.x.md
+ releases-and-changelog/changelog/am-4.6.x: releases-and-changelog/changelog/am-4.10.x.md
+ releases-and-changelog/changelog/am-4.7.x: releases-and-changelog/changelog/am-4.10.x.md
+ releases-and-changelog/changelog/am-4.8.x: releases-and-changelog/changelog/am-4.10.x.md
+ releases-and-changelog/changelog/am-4.9.x: releases-and-changelog/changelog/am-4.10.x.md
+ releases-and-changelog/release-notes/am-4.0: releases-and-changelog/release-notes/am-4.10.md
+ releases-and-changelog/release-notes/am-4.1: releases-and-changelog/release-notes/am-4.10.md
+ releases-and-changelog/release-notes/am-4.11: releases-and-changelog/release-notes/am-4.10.md
+ releases-and-changelog/release-notes/am-4.12: releases-and-changelog/changelog/am-4.10.x.md
+ releases-and-changelog/release-notes/am-4.2: releases-and-changelog/release-notes/am-4.10.md
+ releases-and-changelog/release-notes/am-4.3: releases-and-changelog/release-notes/am-4.10.md
+ releases-and-changelog/release-notes/am-4.4: releases-and-changelog/release-notes/am-4.10.md
+ releases-and-changelog/release-notes/am-4.5: releases-and-changelog/release-notes/am-4.10.md
+ releases-and-changelog/release-notes/am-4.6: releases-and-changelog/changelog/am-4.10.x.md
+ releases-and-changelog/release-notes/am-4.7: releases-and-changelog/release-notes/am-4.10.md
+ releases-and-changelog/release-notes/am-4.8: releases-and-changelog/changelog/am-4.10.x.md
+ releases-and-changelog/release-notes/am-4.9: releases-and-changelog/release-notes/am-4.10.md
