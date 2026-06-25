@@ -20,5 +20,5 @@ The link will redirect the user to the registration page to create an account.
 <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-um-registration-form.png" alt=""><figcaption><p>Create a new account</p></figcaption></figure>
 
 {% hint style="info" %}
-You can change the look and feel of the login form and registration form. See [Custom forms](../branding/#custom-pages) for more information.
+You can change the look and feel of the login form and registration form. See [Custom forms](../branding/README.md#custom-pages) for more information.
 {% endhint %}

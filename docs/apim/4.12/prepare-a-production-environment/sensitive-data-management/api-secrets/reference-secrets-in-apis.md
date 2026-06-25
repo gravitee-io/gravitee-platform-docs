@@ -40,7 +40,7 @@ Use a secret reference in any field within these locations that contains sensiti
 
 ## Reference a secret with specialized syntax
 
-Secrets can be resolved in fields that support [Gravitee Expression Language (EL)](./). Only some fields that support EL allow the resolution of secrets. In general, any field supporting EL that may contain sensitive information support secrets, such as URLs, header values, passwords, and SSL/TLS settings.
+Secrets can be resolved in fields that support [Gravitee Expression Language (EL)](README.md). Only some fields that support EL allow the resolution of secrets. In general, any field supporting EL that may contain sensitive information support secrets, such as URLs, header values, passwords, and SSL/TLS settings.
 
 ### General syntax
 

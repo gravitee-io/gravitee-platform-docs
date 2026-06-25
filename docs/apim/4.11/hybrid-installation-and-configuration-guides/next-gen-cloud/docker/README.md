@@ -9,5 +9,5 @@ metaLinks:
 
 ## Deployment Methods
 
-* [Docker Compose](https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-compose)
-* [Docker CLI](https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-cli)
+* [Docker Compose](docker-compose.md)
+* [Docker CLI](docker-cli.md)

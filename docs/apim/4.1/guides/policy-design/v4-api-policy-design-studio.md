@@ -165,7 +165,7 @@ Some policies support the addition of resources, which can be used for authentic
 | HTTP signature                                       | HTTP Authentication Provider                                                        |
 | Basic authentication                                 | <p>LDAP Authentication Provider<br>Inline Authentication Provider</p>               |
 
-After these resources are created, you will be able to reference them when designing policies using the **Policy Studio**. Refer to the [Resources](../api-configuration/resources.md) and [Policy Reference](./#v4) documentation for more information on resources and how they are used by policies.
+After these resources are created, you will be able to reference them when designing policies using the **Policy Studio**. Refer to the [Resources](../api-configuration/resources.md) and [Policy Reference](README.md#v4) documentation for more information on resources and how they are used by policies.
 
 {% hint style="info" %}
 Global resources are globally available to all flows associated with the Gateway API. However, they will not be available to other Gateway APIs.

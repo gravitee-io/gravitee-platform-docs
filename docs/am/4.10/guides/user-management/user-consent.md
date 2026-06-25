@@ -7,7 +7,7 @@ As described in [RFC 6819](https://tools.ietf.org/html/rfc6819#section-5.1.3), u
 If you want users to acknowledge and accept that they are giving an app access to their data, you can configure AM to display a consent page during the OAuth 2.0/OIDC authentication flow.
 
 {% hint style="info" %}
-You can change the look and feel of the user consent form. See [custom pages](../branding/#custom-pages) for more information.
+You can change the look and feel of the user consent form. See [custom pages](../branding/README.md#custom-pages) for more information.
 {% endhint %}
 
 ## Revoke user consent

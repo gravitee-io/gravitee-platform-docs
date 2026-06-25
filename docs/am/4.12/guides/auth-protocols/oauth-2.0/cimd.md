@@ -27,7 +27,7 @@ The template application defines default settings and restrictions for all CIMD 
 Applications are individually elected to be templates in their **Settings** > **General tab**.
 {% endhint %}
 
-Non-OAuth application configurations (identity providers, metadata, token validity, certificates, MFA) can only be defined in the [template application](../../applications/). The template application cannot be deleted or un-templated while CIMD is enabled.
+Non-OAuth application configurations (identity providers, metadata, token validity, certificates, MFA) can only be defined in the [template application](../../applications/README.md). The template application cannot be deleted or un-templated while CIMD is enabled.
 
 ### Metadata Caching and Change Detection
 
@@ -36,7 +36,7 @@ CIMD metadata documents are cached in-memory with a configurable TTL (default 24
 Stored hashes persist indefinitely while the policy is enabled and are deleted when it is disabled.
 
 {% hint style="info" %}
-When clients declare a `jwks_uri`, public keys are resolved using the [JWKS resolver and cache](../../../getting-started/configuration/configure-am-gateway/#jwks-resolver-and-cache), separate from the CIMD cache.
+When clients declare a `jwks_uri`, public keys are resolved using the [JWKS resolver and cache](../../../getting-started/configuration/configure-am-gateway/README.md#jwks-resolver-and-cache), separate from the CIMD cache.
 {% endhint %}
 
 ### SSRF Protection

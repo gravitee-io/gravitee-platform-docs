@@ -94,7 +94,7 @@ Kubernetes namespaces provide logical isolation and organization within a cluste
 ### Install MongoDB
 
 {% hint style="info" %}
-You can use other databases to store configuration management data (see [JDBC repositories](../../../prepare-a-production-environment/repositories/)). For example; to use PostgreSQL, see [#optional-install-postgresql](./#optional-install-postgresql "mention").
+You can use other databases to store configuration management data (see [JDBC repositories](../../../prepare-a-production-environment/repositories/README.md)). For example; to use PostgreSQL, see [#optional-install-postgresql](./#optional-install-postgresql "mention").
 {% endhint %}
 
 To support API definitions and configuration, you must install MongoDB into your Kubernetes cluster. For more information about installing MongoDB, see the [official chart documentation](https://artifacthub.io/packages/helm/bitnami/mongodb)
@@ -901,13 +901,13 @@ gateway:
       value: "<proxy-port>"
 ```
 
-For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../../proxy-configuration/).
+For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../../proxy-configuration/README.md).
 
 ## Ingress body size limit
 
 This guide installs the NGINX Ingress Controller to route external traffic into APIM. NGINX enforces a request body size limit on every ingress it fronts, and the APIM Helm chart doesn't set this limit by default. Requests to the Gateway, the Management API, or the Portal API that exceed the limit are rejected with `413 Request Entity Too Large` before they reach any Gravitee component.
 
-To raise the limit, set the `nginx.ingress.kubernetes.io/proxy-body-size` annotation on each affected ingress in your `values.yaml`. For the list of ingress Helm paths, example annotation values, and guidance for Hybrid Gateway deployments, see [Ingress body size limit](../#ingress-body-size-limit) in the Kubernetes overview.
+To raise the limit, set the `nginx.ingress.kubernetes.io/proxy-body-size` annotation on each affected ingress in your `values.yaml`. For the list of ingress Helm paths, example annotation values, and guidance for Hybrid Gateway deployments, see [Ingress body size limit](../README.md#ingress-body-size-limit) in the Kubernetes overview.
 
 ## Next steps
 

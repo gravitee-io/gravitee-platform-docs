@@ -377,4 +377,4 @@ gravitee_system_proxy_https_host=<proxy-host>
 gravitee_system_proxy_https_port=<proxy-port>
 ```
 
-For the full configuration reference including proxy authentication, see [System Proxy for Backend APIs](../proxy-configuration/system-proxy-for-backend-apis.md). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/).
+For the full configuration reference including proxy authentication, see [System Proxy for Backend APIs](../proxy-configuration/system-proxy-for-backend-apis.md). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/README.md).

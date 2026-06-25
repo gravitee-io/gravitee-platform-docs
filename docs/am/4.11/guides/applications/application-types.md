@@ -14,7 +14,7 @@ Application definitions apply at the *security domain* level.
 2. If you want to create your application in a different security domain, select the domain from the user menu at the top right.
 3. Click **Applications**.
 4. Click the plus icon <img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FR4vk3bTTm3nNj9lAynM3%2Fimage.png?alt=media&#x26;token=704ca395-1cf0-48ba-baeb-05ba669ddab5" alt="" data-size="line">.
-5. Select the [application type](../applications/application-types.md) and click **Next**.
+5. Select the [application type](application-types.md) and click **Next**.
 
    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FBUA3LgGgCOdrW4VrUn6u%2Fimage.png?alt=media&#x26;token=f8e06806-b745-43ae-b641-19bfee0c580e" alt=""><figcaption><p>Select application type</p></figcaption></figure>
 6. Specify the application details and click **Create**.
@@ -43,11 +43,11 @@ After you have created the new application, you will be redirected to the applic
 
 ### Test the application
 
-The quickest way to test your newly created application is to request an OAuth2 access token, as described in [set up your first application](https://documentation.gravitee.io/apim/~/changes/337/broken-reference). If you manage to retrieve an access token, your application is all set.
+The quickest way to test your newly created application is to request an OAuth2 access token, as described in [set up your first application](../../getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md). If you manage to retrieve an access token, your application is all set.
 
 ## Application identity providers
 
-AM allows your application to use different identity providers (IdPs). If you haven’t configured your providers yet, visit the [Identity Provider guide.](https://documentation.gravitee.io/apim/~/changes/337/broken-reference)
+AM allows your application to use different identity providers (IdPs). If you haven’t configured your providers yet, visit the [Identity Provider guide.](../identity-providers/README.md)
 
 The application identity providers are separated into two sections:
 
@@ -72,7 +72,7 @@ In order to change the priority of the providers:
 
 Identity provider selection rules also give you more control over the authentication via Gravitee's Expression Language.
 
-When coupled with [flows](https://documentation.gravitee.io/apim/~/changes/337/broken-reference) you can decide which provider will be used to authenticate your end users.
+When coupled with [flows](../flows/README.md) you can decide which provider will be used to authenticate your end users.
 
 <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2F7UVSKkrgAwci5ByULvnt%2Fimage.png?alt=media&#x26;token=b2467736-9baf-4377-a096-f407879c4658" alt="Define selection rule for Identity Provider"><figcaption><p>Define selection rule for Identity Provider</p></figcaption></figure>
 
@@ -87,7 +87,7 @@ When applying rules on **regular** Identity Providers:
 * If the rule is empty, the provider **will be** taken into account (this is to be retro-compatible when migrating from a previous version)
 * Otherwise, AM will authenticate with the first identity provider where the rule matches.
 
-If you are not using[ identifier-first login](https://documentation.gravitee.io/apim/~/changes/337/broken-reference), the rule won’t be effective on Social/Enterprise providers
+If you are not using[ identifier-first login](../login/identifier-first-login-flow.md), the rule won’t be effective on Social/Enterprise providers
 
 However, if you are using identifier-first login:
 

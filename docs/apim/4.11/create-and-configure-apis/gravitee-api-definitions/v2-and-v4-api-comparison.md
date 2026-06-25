@@ -104,7 +104,7 @@ Both paths share the same shape, with parameters in positions 2 and 4 and matchi
 | Custom Dashboards                                                 | ✅                          | 🚫                                                       | 🚫                                                       |
 | Path Mappings                                                     | ✅                          | 🚫                                                       | 🚫                                                       |
 | Logs                                                              | ✅                          | ✅                                                        | ✅                                                        |
-| API Quality                                                       | ✅                          | ⚠️ Replaced by [API score](../../govern-apis/api-score/) | ⚠️ Replaced by[ API score](../../govern-apis/api-score/) |
+| API Quality                                                       | ✅                          | ⚠️ Replaced by [API score](../../govern-apis/api-score/README.md) | ⚠️ Replaced by[ API score](../../govern-apis/api-score/README.md) |
 | API Review                                                        | ✅                          | ✅                                                        | ✅                                                        |
 | Export API as Gravitee def (+options)                             | ✅                          | ✅                                                        | ✅                                                        |
 | Export API as GKO spec                                            | ✅                          | ✅                                                        | ✅                                                        |
@@ -167,4 +167,4 @@ Both paths share the same shape, with parameters in positions 2 and 4 and matchi
 
 ## Policy support
 
-v2 APIs and v4 APIs support subsets of Gravitee policies. Supported policies are applied to one or more phases of the API transaction. For more information, see [Policies](./).
+v2 APIs and v4 APIs support subsets of Gravitee policies. Supported policies are applied to one or more phases of the API transaction. For more information, see [Policies](README.md).

@@ -11,13 +11,13 @@ metaLinks:
 
 During Gravitee Access Management (AM) installation, some default settings are created. While these default settings can be useful for testing your new installation, some of them may not be suitable for a production environment, where security is more of a consideration.
 
-This how-to gives some tips on important settings to check in AM when preparing to move to a production environment. AM includes many other configuration options and every environment is unique. We recommend you also read the [Configuration Guide](../configuration/) to determine if you have completed all the configuration you need before you deploy AM in production.
+This how-to gives some tips on important settings to check in AM when preparing to move to a production environment. AM includes many other configuration options and every environment is unique. We recommend you also read the [Configuration Guide](../configuration/README.md) to determine if you have completed all the configuration you need before you deploy AM in production.
 
 {% hint style="info" %}
 You can also read the [OAuth 2.0 best practices](../../guides/auth-protocols/oauth-2.0/best-practices.md) for more details about configuring your AM environment.
 {% endhint %}
 
-You can configure AM settings in various ways — the `gravitee.yml` file, the AM Console settings, and environment and system variables. When you configure new settings, it is important to understand that one configuration type can override another. [Configure AM API](../configuration/configure-am-api/) gives a good overview of this topic.
+You can configure AM settings in various ways — the `gravitee.yml` file, the AM Console settings, and environment and system variables. When you configure new settings, it is important to understand that one configuration type can override another. [Configure AM API](../configuration/configure-am-api/README.md) gives a good overview of this topic.
 
 {% code title="gravitee.yml" %}
 ````
@@ -170,7 +170,7 @@ jwt:
    * the `cookie-secure` to adapt the Secure flag for the Session Cookie (should be set to true).
 
 {% hint style="info" %}
-Since HMAC256 uses a symmetric key, consider configuring a [domain-level fallback certificate](../../guides/certificates/#fallback-certificate) instead, which provides an asymmetric-key safety net.
+Since HMAC256 uses a symmetric key, consider configuring a [domain-level fallback certificate](../../guides/certificates/README.md#fallback-certificate) instead, which provides an asymmetric-key safety net.
 {% endhint %}
 
 ### Step 4: Update CORS policy

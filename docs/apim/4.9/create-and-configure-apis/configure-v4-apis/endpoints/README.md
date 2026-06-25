@@ -10,7 +10,7 @@ metaLinks:
 
 ## Overview
 
-You can choose to configure either [v4 proxy API endpoints](./#proxy-api-endpoints) or [v4 message API endpoints](./#message-api-endpoints).
+You can choose to configure either [v4 proxy API endpoints](README.md#proxy-api-endpoints) or [v4 message API endpoints](README.md#message-api-endpoints).
 
 ## Proxy API endpoints
 

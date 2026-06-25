@@ -24,7 +24,7 @@ Eight models are available across three families:
 * **Multi-label toxicity detection** (Detoxify ONNX, MiniLMv2 Toxic Jigsaw). Multi-label toxicity models return scores across multiple toxicity categories (e.g., `severe_toxicity`, `obscene`, `threat`, `identity_attack`) and demographic targets.
 * **Prompt injection detection** (Llama Prompt Guard 22M, Llama Prompt Guard 86M). Prompt injection models identify attempts to override or manipulate system instructions in LLM prompts.
 
-All models are sourced from HuggingFace repositories (gravitee-io, minuva, meta-llama namespaces). For detailed model specifications, performance metrics, and language support, see [AI Model Text Classification - Overview and Model Selection](../guides/ai-model-text-classification-overview-and-model-selection.md).
+All models are sourced from HuggingFace repositories (gravitee-io, minuva, meta-llama namespaces). For detailed model specifications, performance metrics, and language support, see [AI Model Text Classification - Overview and Model Selection](ai-model-text-classification-overview-and-model-selection.md).
 
 {% code title="Example" %}
 ```json

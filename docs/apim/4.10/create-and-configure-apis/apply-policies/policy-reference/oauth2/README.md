@@ -54,7 +54,7 @@ You can extract the `username` from the payload using the following JsonPath:
 
 When an API has multiple OAuth2 plans, each backed by a different OAuth2 resource and the Gateway calls the introspection endpoint on **every** configured OAuth2 resource before evaluating plan selection rules. Selection rules can reference fields from `oauth.payload` (for example, `client_id`, `scope`, or `username`), which is only available after introspection completes.
 
-For more details on this behavior and its implications, see [OAuth2 plans: Introspection behavior with multiple OAuth2 plans.](https://documentation.gravitee.io/apim/secure-and-expose-apis/plans/oauth2#introspection-behaviour-with-multiple-oauth2-plans)
+For more details on this behavior and its implications, see [OAuth2 plans: Introspection behavior with multiple OAuth2 plans.](../../../../secure-and-expose-apis/plans/oauth2.md#introspection-behaviour-with-multiple-oauth2-plans)
 
 ## Configuration
 

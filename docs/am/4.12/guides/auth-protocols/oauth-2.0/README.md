@@ -41,13 +41,13 @@ An authorization grant is a flow used by the client to obtain an access token.
 
 The specification defines four grant types:
 
-* [Authorization code](./#authorization-code)
-* [Implicit](./#implicit)
-* [Resource owner password credentials](./#resource-owner-password-credentials)
-* [Client credentials](./#client-credentials)
+* [Authorization code](README.md#authorization-code)
+* [Implicit](README.md#implicit)
+* [Resource owner password credentials](README.md#resource-owner-password-credentials)
+* [Client credentials](README.md#client-credentials)
 
 {% hint style="info" %}
-OAuth 2.0 also supports the use of [refresh tokens](./#refresh-token) to obtain new access tokens.
+OAuth 2.0 also supports the use of [refresh tokens](README.md#refresh-token) to obtain new access tokens.
 
 AM provides a mechanism for defining additional types. See [extension grants](extension-grants.md) for more information.
 
@@ -78,7 +78,7 @@ The authorization code is used by applications to obtain a temporary code after 
 ### Implicit
 
 {% hint style="warning" %}
-The OAuth standard now discourages the use of an implicit grant to request access tokens from Javascript applications. You should consider using the [Authorization code ](./#authorization-code)grant with a PKCE extension for all your applications.
+The OAuth standard now discourages the use of an implicit grant to request access tokens from Javascript applications. You should consider using the [Authorization code ](README.md#authorization-code)grant with a PKCE extension for all your applications.
 {% endhint %}
 
 The implicit grant is a simplified authorization code flow. Instead of getting a temporary code first, you can retrieve an access token directly from web browser redirection.
@@ -149,7 +149,7 @@ The endpoints are the same as the endpoints described in the [AM API specificati
 The [authorization endpoint](https://tools.ietf.org/html/rfc6749#section-3.1) is used to interact with the resource owner and obtain an authorization grant. The authorization server must first verify the identity of the resource owner.
 
 {% hint style="info" %}
-This endpoint supports [resource indicators](https://tools.ietf.org/html/rfc8707#section-2.1) for clients to signal where protected resources intend to be used. This is limited to the [MCP](../../mcp-servers/) use case where the `resource` parameter must be a single, absolute URI.
+This endpoint supports [resource indicators](https://tools.ietf.org/html/rfc8707#section-2.1) for clients to signal where protected resources intend to be used. This is limited to the [MCP](../../mcp-servers/README.md) use case where the `resource` parameter must be a single, absolute URI.
 {% endhint %}
 
 Authorization endpoint URL: `https://am-gateway/{domain}/oauth/authorize`
@@ -159,7 +159,7 @@ Authorization endpoint URL: `https://am-gateway/{domain}/oauth/authorize`
 The [token endpoint](https://tools.ietf.org/html/rfc6749#section-3.2) is used by the client to obtain an access token by presenting its authorization grant or refresh token.
 
 {% hint style="info" %}
-This endpoint supports [resource indicators](https://tools.ietf.org/html/rfc8707#section-2.2) for clients to signal where protected resources intend to be used. This is limited to the [MCP](../../mcp-servers/) use case where the `resource` parameter must be a single, absolute URI.
+This endpoint supports [resource indicators](https://tools.ietf.org/html/rfc8707#section-2.2) for clients to signal where protected resources intend to be used. This is limited to the [MCP](../../mcp-servers/README.md) use case where the `resource` parameter must be a single, absolute URI.
 {% endhint %}
 
 Token endpoint URL: `https://am-gateway/{domain}/oauth/token`
@@ -169,7 +169,7 @@ Token endpoint URL: `https://am-gateway/{domain}/oauth/token`
 The [introspection endpoint](https://tools.ietf.org/html/rfc7662#section-2) takes a parameter representing an OAuth 2.0 token and returns a JSON \[RFC7159] document containing meta-information about the token, including whether it is currently active.
 
 {% hint style="info" %}
-When a token has audience claims relating to an [MCP Server](../../mcp-servers/), by default, introspection is restricted to the authorizing client for that MCP Server.
+When a token has audience claims relating to an [MCP Server](../../mcp-servers/README.md), by default, introspection is restricted to the authorizing client for that MCP Server.
 {% endhint %}
 
 Introspection endpoint URL: `https://am-gateway/{domain}/oauth/introspect`

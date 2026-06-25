@@ -363,7 +363,7 @@ URL rewrite supports the same path replacement types as request redirects (`Repl
 
 ## What's next
 
-* [Kubernetes Gateway API overview](./): Set up GatewayClass, GatewayClassParameters, and Gateway resources.
+* [Kubernetes Gateway API overview](README.md): Set up GatewayClass, GatewayClassParameters, and Gateway resources.
 * [GatewayClassParameters](../../overview/custom-resource-definitions/gatewayclassparameters.md): Configure autoscaling, pod disruption budgets, and deployment strategies.
 * [KafkaRoute](../../overview/custom-resource-definitions/kafkaroute.md): Route Kafka traffic through the Gateway (experimental).
 * [Example manifests](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/examples/gateway-api): Complete YAML examples for all Gateway API resources in the GKO repository.

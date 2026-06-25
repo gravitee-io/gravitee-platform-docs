@@ -20,7 +20,7 @@ You can create Domain Certificate Settings with either of the following methods:
 
 ### Create the Domain Certificate Settings using the Access Management UI
 
-1. Create a certificate. For more information about creating a certificate, see [Certificates](./).
+1. Create a certificate. For more information about creating a certificate, see [Certificates](README.md).
 2. From the Access Management (AM) dashboard, click **Settings**.
 
 <figure><img src="../../.gitbook/assets/Fallback_certificate_dashboard.jpg" alt="Access Management dashboard"><figcaption></figcaption></figure>

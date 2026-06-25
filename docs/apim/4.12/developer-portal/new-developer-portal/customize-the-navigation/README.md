@@ -44,10 +44,10 @@ Welcome page in the Developer Portal:
 
 With the New Developer Portal, you can customize your navigation in the following ways:
 
-* [Add a page](./#pages)
-* [Add a folder](./#folders)
-* [Add a link](./#links)
-* [Add an API](./#api)
+* [Add a page](README.md#pages)
+* [Add a folder](README.md#folders)
+* [Add a link](README.md#links)
+* [Add an API](README.md#api)
 
 1.  From the **Dashboard**, click **Settings**.<br>
 

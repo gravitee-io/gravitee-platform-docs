@@ -23,7 +23,7 @@ Before you install the Gravitee APIM, complete the following steps:
 * Install [helm](https://helm.sh/docs/intro/install/)
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/)
 * Have a valid [Azure subscription](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account)
-* (Optional) [License key](https://documentation.gravitee.io/apim/readme/enterprise-edition-licensing) for Enterprise features
+* (Optional) [License key](../../readme/enterprise-edition-licensing.md) for Enterprise features
 * (Optional) Register a domain name in Azure DNS or have access to DNS management
 
 ## Components Overview
@@ -120,7 +120,7 @@ This guide requires MongoDB and Elasticsearch to be installed for the complete A
 ### Install MongoDB
 
 {% hint style="info" %}
-You can use other databases to store configuration management data (see [JDBC repositories](../../prepare-a-production-environment/repositories/)).
+You can use other databases to store configuration management data (see [JDBC repositories](../../prepare-a-production-environment/repositories/README.md)).
 {% endhint %}
 
 To support API definitions and configuration, you must install MongoDB into your Kubernetes cluster. For more information about installing MongoDB, see the [official chart documentation](https://artifacthub.io/packages/helm/bitnami/mongodb)
@@ -925,15 +925,15 @@ gateway:
       value: "<proxy-port>"
 ```
 
-For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/).
+For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/README.md).
 
 ## Ingress body size limit
 
 The reference `values.yaml` in this guide sets `nginx.ingress.kubernetes.io/proxy-body-size: "50m"` as a starting point on the NGINX ingresses that accept request bodies: Management API (`api.ingress.management.annotations`), Portal API (`api.ingress.portal.annotations`), Gateway (`gateway.ingress.annotations`), and Developer Portal (`portal.ingress.annotations`). This annotation raises the NGINX Ingress Controller's body size limit for each affected ingress so clients aren't rejected with `413 Request Entity Too Large` for payloads up to 50 MB.
 
-Adjust the `50m` value on each ingress to match the largest payload you expect to send through it. For the role each ingress plays and guidance for Hybrid Gateway deployments, see [Ingress body size limit](./#ingress-body-size-limit) in the Kubernetes overview.
+Adjust the `50m` value on each ingress to match the largest payload you expect to send through it. For the role each ingress plays and guidance for Hybrid Gateway deployments, see [Ingress body size limit](README.md#ingress-body-size-limit) in the Kubernetes overview.
 
 ## Next steps <a href="#next-steps" id="next-steps"></a>
 
-* Create your first API. For more information about creating your first API, see [Create & Publish Your First API](../../getting-started/create-and-publish-your-first-api/).
+* Create your first API. For more information about creating your first API, see [Create & Publish Your First API](../../getting-started/create-and-publish-your-first-api/README.md).
 * Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [Configure the Kafka Client & Gateway](../../kafka-gateway/configure-the-kafka-client-and-gateway.md).

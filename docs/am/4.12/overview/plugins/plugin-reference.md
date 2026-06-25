@@ -56,7 +56,7 @@ _No additional documentation available._
 
 <summary>Bot Detection reCAPTCHA v3</summary>
 
-→ [Full documentation](../../../guides/bot-detection.md)
+→ [Full documentation](../../guides/bot-detection.md)
 
 **Plugin ID**: `gravitee-am-botdetection-recaptcha-v3`
 
@@ -68,7 +68,7 @@ _No additional documentation available._
 
 <summary>Certificate AWS</summary>
 
-→ [Full documentation](../../../guides/certificates/aws-certificate-plugin.md)
+→ [Full documentation](../../guides/certificates/aws-certificate-plugin.md)
 
 **Plugin ID**: `gravitee-am-certificate-aws`
 
@@ -94,7 +94,7 @@ A new entry will be available in the resource list `AM -> Settings -> Certificat
 
 <summary>Certificate HSM AWS</summary>
 
-→ [Full documentation](../../../guides/certificates/aws-cloudhsm-plugin.md)
+→ [Full documentation](../../guides/certificates/aws-cloudhsm-plugin.md)
 
 **Plugin ID**: `gravitee-am-certificate-hsm-aws`
 
@@ -165,7 +165,7 @@ _No additional documentation available._
 
 <summary>Device Identifier FingerprintJS v3 Community</summary>
 
-→ [Full documentation](../../../guides/device-identifier.md)
+→ [Full documentation](../../guides/device-identifier.md)
 
 **Plugin ID**: `gravitee-am-deviceidentifier-fingerprintjs-v3-community`
 
@@ -175,7 +175,7 @@ _No additional documentation available._
 
 <summary>Device Identifier FingerprintJS v3 Pro</summary>
 
-→ [Full documentation](../../../guides/device-identifier.md)
+→ [Full documentation](../../guides/device-identifier.md)
 
 **Plugin ID**: `gravitee-am-deviceidentifier-fingerprintjs-v3-pro`
 
@@ -187,7 +187,7 @@ _No additional documentation available._
 
 <summary>Authenticator CBA</summary>
 
-→ [Full documentation](../../../guides/login/certificate-based-authentication.md)
+→ [Full documentation](../../guides/login/certificate-based-authentication.md)
 
 **Plugin ID**: `gravitee-am-authenticator-cba`
 
@@ -211,7 +211,7 @@ This plugin is part of Gravitee Enterprise Edition.
 
 <summary>Authenticator Magic Link</summary>
 
-→ [Full documentation](../../../guides/login/magic-link-authentication.md)
+→ [Full documentation](../../guides/login/magic-link-authentication.md)
 
 **Plugin ID**: `gravitee-am-authenticator-magiclink`
 
@@ -235,7 +235,7 @@ This plugin is part of Gravitee Enterprise Edition.
 
 <summary>Factor Call</summary>
 
-→ [Full documentation](../../../guides/multi-factor-authentication/managing-factors/phone-call.md)
+→ [Full documentation](../../guides/multi-factor-authentication/managing-factors/phone-call.md)
 
 **Plugin ID**: `gravitee-am-factor-call`
 
@@ -253,7 +253,7 @@ Allows Multi Factor Authentication to be used over phone call.
 
 <summary>Factor Email</summary>
 
-→ [Full documentation](../../../guides/multi-factor-authentication/managing-factors/email.md)
+→ [Full documentation](../../guides/multi-factor-authentication/managing-factors/email.md)
 
 **Plugin ID**: `gravitee-am-factor-email`
 
@@ -263,7 +263,7 @@ Allows Multi Factor Authentication to be used over phone call.
 
 <summary>Factor FIDO2</summary>
 
-→ [Full documentation](../../../guides/multi-factor-authentication/managing-factors/mfa-with-fido2.md)
+→ [Full documentation](../../guides/multi-factor-authentication/managing-factors/mfa-with-fido2.md)
 
 **Plugin ID**: `gravitee-am-factor-fido2`
 
@@ -288,7 +288,7 @@ FIDO2 can be added as a MFA factor at: `AM_UI -> Settings -> Multifactor Auth ->
 
 <summary>Access Management - HTTP Factor</summary>
 
-→ [Full documentation](../../../guides/multi-factor-authentication/managing-factors/http-factor.md)
+→ [Full documentation](../../guides/multi-factor-authentication/managing-factors/http-factor.md)
 
 **Plugin ID**: `gravitee-am-factor-http`
 
@@ -336,7 +336,7 @@ A new entry will be available in the factor list `AM_UI -> Multifactor Auth -> M
 
 <summary>Factor OTP</summary>
 
-→ [Full documentation](../../../guides/multi-factor-authentication/managing-factors/one-time-password-otp.md)
+→ [Full documentation](../../guides/multi-factor-authentication/managing-factors/one-time-password-otp.md)
 
 **Plugin ID**: `gravitee-am-factor-otp`
 
@@ -369,7 +369,7 @@ OTP Sender factor can be added as a MFA factor at: `AM_UI -> Settings -> Multifa
 
 <summary>Factor Recovery Code</summary>
 
-→ [Full documentation](../../../guides/multi-factor-authentication/managing-factors/recovery-codes.md)
+→ [Full documentation](../../guides/multi-factor-authentication/managing-factors/recovery-codes.md)
 
 **Plugin ID**: `gravitee-am-factor-recovery-code`
 
@@ -387,7 +387,7 @@ Allows Multi-Factor Authentication to provide recovery codes. This plugin needs 
 
 <summary>Factor SMS</summary>
 
-→ [Full documentation](../../../guides/multi-factor-authentication/managing-factors/sms.md)
+→ [Full documentation](../../guides/multi-factor-authentication/managing-factors/sms.md)
 
 **Plugin ID**: `gravitee-am-factor-sms`
 
@@ -407,7 +407,7 @@ Allows Multi Factor Authentication to be used over SMS.
 
 <summary>Identity Provider Azure AD</summary>
 
-→ [Full documentation](../../../guides/identity-providers/social-identity-providers/azure-ad.md)
+→ [Full documentation](../../guides/identity-providers/social-identity-providers/azure-ad.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-azure-ad`
 
@@ -417,7 +417,7 @@ Allows Multi Factor Authentication to be used over SMS.
 
 <summary>Identity Provider - CAS</summary>
 
-→ [Full documentation](../../../guides/identity-providers/enterprise-identity-providers/cas.md)
+→ [Full documentation](../../guides/identity-providers/enterprise-identity-providers/cas.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-cas`
 
@@ -442,7 +442,7 @@ A new entry will be available in the provider list `AM_UI -> Domain Settings -> 
 
 <summary>Identity Provider Facebook</summary>
 
-→ [Full documentation](../../../guides/identity-providers/social-identity-providers/facebook.md)
+→ [Full documentation](../../guides/identity-providers/social-identity-providers/facebook.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-facebook`
 
@@ -452,7 +452,7 @@ A new entry will be available in the provider list `AM_UI -> Domain Settings -> 
 
 <summary>Identity Provider FranceConnect</summary>
 
-→ [Full documentation](../../../guides/identity-providers/legal-identity-providers/franceconnect.md)
+→ [Full documentation](../../guides/identity-providers/legal-identity-providers/franceconnect.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-franceconnect`
 
@@ -514,7 +514,7 @@ The parameter `acr_values` needs to be provided with `eidas1` as value.
 
 <summary>Identity Provider GitHub</summary>
 
-→ [Full documentation](../../../guides/identity-providers/social-identity-providers/github.md)
+→ [Full documentation](../../guides/identity-providers/social-identity-providers/github.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-github`
 
@@ -544,7 +544,7 @@ This Identity Provider is dedicated to organization users. This implementation i
 
 <summary>Identity Provider HTTP</summary>
 
-→ [Full documentation](../../../guides/identity-providers/enterprise-identity-providers/http-web-service.md)
+→ [Full documentation](../../guides/identity-providers/enterprise-identity-providers/http-web-service.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-http`
 
@@ -554,7 +554,7 @@ This Identity Provider is dedicated to organization users. This implementation i
 
 <summary>Identity Provider HTTP Flow</summary>
 
-→ [Full documentation](../../../guides/identity-providers/enterprise-identity-providers/http-web-service.md)
+→ [Full documentation](../../guides/identity-providers/enterprise-identity-providers/http-web-service.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-http-flow`
 
@@ -564,7 +564,7 @@ This Identity Provider is dedicated to organization users. This implementation i
 
 <summary>Identity Provider Inline</summary>
 
-→ [Full documentation](../../../guides/identity-providers/database-identity-providers/inline.md)
+→ [Full documentation](../../guides/identity-providers/database-identity-providers/inline.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-inline`
 
@@ -574,7 +574,7 @@ This Identity Provider is dedicated to organization users. This implementation i
 
 <summary>Identity Provider JDBC</summary>
 
-→ [Full documentation](../../../guides/identity-providers/database-identity-providers/jdbc.md)
+→ [Full documentation](../../guides/identity-providers/database-identity-providers/jdbc.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-jdbc`
 
@@ -584,7 +584,7 @@ This Identity Provider is dedicated to organization users. This implementation i
 
 <summary>Identity Provider - Kerberos</summary>
 
-→ [Full documentation](../../../guides/identity-providers/enterprise-identity-providers/kerberos.md)
+→ [Full documentation](../../guides/identity-providers/enterprise-identity-providers/kerberos.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-kerberos`
 
@@ -781,7 +781,7 @@ ldapsearch -LLL -H ldapi:/// -Y EXTERNAL -b "olcDatabase={1}mdb,cn=config" olcAc
 
 <summary>Identity Provider LinkedIn</summary>
 
-→ [Full documentation](../../../guides/identity-providers/social-identity-providers/linkedin.md)
+→ [Full documentation](../../guides/identity-providers/social-identity-providers/linkedin.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-linkedin`
 
@@ -791,7 +791,7 @@ ldapsearch -LLL -H ldapi:/// -Y EXTERNAL -b "olcDatabase={1}mdb,cn=config" olcAc
 
 <summary>Identity Provider Mongo</summary>
 
-→ [Full documentation](../../../guides/identity-providers/database-identity-providers/mongodb.md)
+→ [Full documentation](../../guides/identity-providers/database-identity-providers/mongodb.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-mongo`
 
@@ -801,7 +801,7 @@ ldapsearch -LLL -H ldapi:/// -Y EXTERNAL -b "olcDatabase={1}mdb,cn=config" olcAc
 
 <summary>Identity Provider OAuth2 Generic</summary>
 
-→ [Full documentation](../../../guides/identity-providers/social-identity-providers/openid-connect.md)
+→ [Full documentation](../../guides/identity-providers/social-identity-providers/openid-connect.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-oauth2-generic`
 
@@ -811,7 +811,7 @@ ldapsearch -LLL -H ldapi:/// -Y EXTERNAL -b "olcDatabase={1}mdb,cn=config" olcAc
 
 <summary>Identity Provider Salesforce</summary>
 
-→ [Full documentation](../../../guides/identity-providers/social-identity-providers/salesforce.md)
+→ [Full documentation](../../guides/identity-providers/social-identity-providers/salesforce.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-salesforce`
 
@@ -821,7 +821,7 @@ ldapsearch -LLL -H ldapi:/// -Y EXTERNAL -b "olcDatabase={1}mdb,cn=config" olcAc
 
 <summary>Identity Provider - SAML</summary>
 
-→ [Full documentation](../../../guides/identity-providers/enterprise-identity-providers/saml-2.0.md)
+→ [Full documentation](../../guides/identity-providers/enterprise-identity-providers/saml-2.0.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-saml`
 
@@ -846,7 +846,7 @@ A new entry will be available in the provider list `AM_UI -> Domain Settings -> 
 
 <summary>Identity Provider Twitter</summary>
 
-→ [Full documentation](../../../guides/identity-providers/social-identity-providers/twitter.md)
+→ [Full documentation](../../guides/identity-providers/social-identity-providers/twitter.md)
 
 **Plugin ID**: `gravitee-am-identityprovider-twitter`
 
@@ -860,7 +860,7 @@ A new entry will be available in the provider list `AM_UI -> Domain Settings -> 
 
 <summary>Secret Provider AWS</summary>
 
-→ [Full documentation](../../../getting-started/configuration/secret-providers.md)
+→ [Full documentation](../../getting-started/configuration/secret-providers.md)
 
 **Plugin ID**: `gravitee-secret-provider-aws`
 
@@ -930,7 +930,7 @@ api:
 
 <summary>Secret Provider HC Vault</summary>
 
-→ [Full documentation](../../../getting-started/configuration/secret-providers.md)
+→ [Full documentation](../../getting-started/configuration/secret-providers.md)
 
 **Plugin ID**: `gravitee-secret-provider-hc-vault`
 
@@ -1581,7 +1581,7 @@ license:
 
 <summary>Secret Provider Kubernetes</summary>
 
-→ [Full documentation](../../../getting-started/configuration/secret-providers.md)
+→ [Full documentation](../../getting-started/configuration/secret-providers.md)
 
 **Plugin ID**: `gravitee-secret-provider-kubernetes`
 
@@ -1619,7 +1619,7 @@ TODO provide link to documentation.gravitee.io
 
 <summary>Account Linking</summary>
 
-→ [Full documentation](../../../guides/user-management/account-linking.md)
+→ [Full documentation](../../guides/user-management/account-linking.md)
 
 **Plugin ID**: `gravitee-am-policy-account-linking`
 
@@ -1757,7 +1757,7 @@ _No additional documentation available._
 
 <summary>Protocol - SAML 2.0 Identity Provider</summary>
 
-→ [Full documentation](../../../guides/auth-protocols/saml-2.0.md)
+→ [Full documentation](../../guides/auth-protocols/saml-2.0.md)
 
 **Plugin ID**: `gravitee-am-gateway-handler-saml2-idp`
 

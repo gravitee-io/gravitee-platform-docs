@@ -55,7 +55,7 @@ Use-case-specific guidance on role selection:
 
 * **Federation Agent:** requires CRUD permissions on the Integration object at environment level. For details, see [Federation Agent Service Account](../../govern-apis/federation/federation-agent-service-account.md).
 * **Terraform:** requires the `ADMIN` role on the organization and the `API_PUBLISHER` role on the environment. For details, see [Define an APIM service account for Terraform](../../terraform/define-an-apim-service-account-for-terraform.md).
-* **Third-party federation providers:** see the provider-specific guide under [3rd-party providers](../../govern-apis/federation/3rd-party-providers/).
+* **Third-party federation providers:** see the provider-specific guide under [3rd-party providers](../../govern-apis/federation/3rd-party-providers/README.md).
 
 ## Generate a personal access token
 

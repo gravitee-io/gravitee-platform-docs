@@ -19,8 +19,8 @@ This tutorial explores various use cases where rate limiting plays a critical ro
 Before proceeding with this tutorial, be sure you're familiar with the following:
 
 * **REST APIs:** Review the key elements, methods, and design and architecture constraints of a RESTful architecture.
-* **Gravitee** [**policies**](https://documentation.gravitee.io/apim/create-and-configure-apis/apply-policies/policy-reference)**:** Rules or logic that the Gateway can execute during the request or response of an API call, e.g., to enhance security, ensure reliability, or enable API monetization.
-* **Gravitee APIs:** Refer to our API creation wizards for step-by-step guides to create APIs using the Gravitee [v2](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis/v2-api-creation-wizard) and [v4](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis/v4-api-creation-wizard) API definitions.
+* **Gravitee** [**policies**](../../create-and-configure-apis/apply-policies/policy-reference/README.md)**:** Rules or logic that the Gateway can execute during the request or response of an API call, e.g., to enhance security, ensure reliability, or enable API monetization.
+* **Gravitee APIs:** Refer to our API creation wizards for step-by-step guides to create APIs using the Gravitee [v2](../../create-and-configure-apis/create-apis/v2-api-creation-wizard.md) and [v4](../../create-and-configure-apis/create-apis/v4-api-creation-wizard.md) API definitions.
 
 ### Introduction to Gravitee rate limiting <a href="#introduction-to-gravitee-rate-limiting" id="introduction-to-gravitee-rate-limiting"></a>
 
