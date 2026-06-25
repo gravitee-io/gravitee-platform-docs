@@ -134,5 +134,5 @@ gateway:
 6. Click **Create**
 
 {% hint style="info" %}
-If you're using AWS-based certificates (Secret Manager or CloudHSM) where transient connectivity issues may cause signing failures, consider configuring a Fallback Certificate at the domain level. See [Fallback Certificate](./) for details.
+If you're using AWS-based certificates (Secret Manager or CloudHSM) where transient connectivity issues may cause signing failures, consider configuring a Fallback Certificate at the domain level. See [Fallback Certificate](README.md) for details.
 {% endhint %}

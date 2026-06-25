@@ -14,7 +14,7 @@ The Kafka endpoint **mediates the protocol** between the Kafka cluster and the c
 {% hint style="info" %}
 This page covers the **Kafka endpoint connector**, which mediates between HTTP-based entrypoints and a Kafka cluster (protocol mediation). The configuration options, record metadata, and attribute keys documented on this page apply to v4 Message APIs that attach this connector.
 
-To proxy a Kafka cluster using the native Kafka protocol (over TCP), use the [Gravitee Kafka Gateway](../../../kafka-gateway/) instead. The attribute keys on this page have no effect on Kafka APIs built on the Kafka Gateway.
+To proxy a Kafka cluster using the native Kafka protocol (over TCP), use the [Gravitee Kafka Gateway](../../../kafka-gateway/README.md) instead. The attribute keys on this page have no effect on Kafka APIs built on the Kafka Gateway.
 {% endhint %}
 
 This page discusses the [configuration](kafka.md#configuration) and [implementation](kafka.md#implementation) of the Kafka endpoint and includes a [reference](kafka.md#reference) section.
