@@ -2,15 +2,43 @@
 
 ## Highlights
 
+#### [Deprecation Notice] Removal of Application-Level Password Policy
+
+The application-level password policy (deprecated since version 4.4.0) will be officially removed in AM 4.13.
+
+Action Required: If you are currently using this feature, you must transition to one of the following configurations before upgrading to AM 4.13 or higher:
+
+ * Define password policies and link them directly to your Identity Providers.
+ * Implement a default password policy at the Domain level.
+
 ## Breaking Changes
 
 #### **Java 25 runtime requirement**
 
 Gravitee AM 4.12 now runs on Java 25. If you deploy AM using the distribution ZIP file or the RPM package, make sure a JRE 25 is installed and available in your environment before upgrading.
 
+The Groovy Policy has been upgraded to Groovy 4.
+
+Action Required: If you are using Groovy scripts within your domain or application flows, please review them for compatibility before upgrading. You may need to update classes and methods defined in your allowlist/whitelist to align with Groovy 4 specifications.
+
 #### **Upgrade to Eclipse Vert.x 5**
 
 Gravitee AM now runs on Eclipse Vert.x 5. If you develop custom plugins, make sure they are compatible with this new version before upgrading, as APIs and behaviors may have changed between Vert.x versions.
+
+Due to this change some AM plugins need to be upgraded:
+* gravitee-am-identity-provider-ldap: 3.0.0
+* gravitee-am-identityprovider-azure-ad: 3.0.0
+* gravitee-am-identityprovider-franceconnect: 4.0.0
+* gravitee-am-gateway-handler-saml2-idp: 5.0.0
+* gravitee-am-factor-fido2: 4.0.0
+* gravitee-am-authenticator-cba: 2.0.0
+* gravitee-am-resource-sfr: 2.0.0
+* gravitee-am-resource-http: 5.0.0
+* gravitee-am-resource-http-factor: 5.0.0
+* gravitee-am-resource-orange-contact-everyone: 2.0.0
+* gravitee-am-identityprovider-cas: 5.0.0
+* gravitee-am-identityprovider-http-flow: 5.0.0
+
 
 #### **Resend code on MFA challenge screen**
 
@@ -100,6 +128,3 @@ This release includes the following capabilities:
 * SPIFFE authentication uses the `spiffe_jwt` token endpoint authentication method and requires trust domain configuration at the security domain level.
 <!-- /PIPELINE:AM-7077 -->
 
-## Improvements
-
-## Bug Fixes
