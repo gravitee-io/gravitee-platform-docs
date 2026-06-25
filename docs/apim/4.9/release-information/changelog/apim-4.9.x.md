@@ -8,6 +8,11 @@ metaLinks:
 # APIM 4.9.x
  
 ## Gravitee API Management 4.9.23 - June 20, 2026
+
+{% hint style="warning" %}
+There are known issues with the flows in this version of APIM. Do not upgrade to this version of APIM. Upgrade to the next available version of APIM. We are investigating the issue.
+{% endhint %}
+
 <details>
 
 <summary>Bug Fixes</summary>
