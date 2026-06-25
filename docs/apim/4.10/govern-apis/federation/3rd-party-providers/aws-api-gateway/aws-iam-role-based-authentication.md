@@ -17,8 +17,8 @@ To use IAM role-based authentication, deploy the federation agent on AWS (for ex
 Before you begin, verify the following:
 
 * Gravitee API Management version 4.4 or later, with an enterprise license. For more information about Enterprise edition, see [Enterprise Edition Licensing](https://documentation.gravitee.io/apim/readme/enterprise-edition-licensing#license-support).
-* A Federation agent service account. For more information, see [Federation agent service account](https://documentation.gravitee.io/apim/govern-apis/federation/federation-agent-service-account).
-* An AWS API Gateway integration created in the Gravitee APIM Console. For more information, see [Create an AWS API Management integration in the Gravitee APIM Console](https://documentation.gravitee.io/apim/govern-apis/federation/3rd-party-providers/aws-api-gateway#create-an-aws-api-management-integration-in-the-gravitee-apim-console).
+* A Federation agent service account. For more information, see [Federation agent service account](../../federation-agent-service-account.md).
+* An AWS API Gateway integration created in the Gravitee APIM Console. For more information, see [Create an AWS API Management integration in the Gravitee APIM Console](README.md#create-an-aws-api-management-integration-in-the-gravitee-apim-console).
 * An EC2 instance running Amazon Linux 2 or Ubuntu, with Docker installed.
 * The EC2 instance has internet access, or an appropriate NAT setup if it is in a private subnet.
 
@@ -228,6 +228,6 @@ After setting up the IAM roles, deploy the federation agent on the EC2 instance 
 
 ### What's next
 
-* To discover APIs across multiple AWS accounts and regions using IAM roles, see [Multi-account and multi-region AWS API Gateway federation](https://documentation.gravitee.io/apim/govern-apis/federation/3rd-party-providers/aws-api-gateway/multi-account-and-multi-region-aws-api-gateway-federation).
-* To learn about minimum AWS permissions required by the agent, see [Minimum AWS permissions required by the agent](https://documentation.gravitee.io/apim/govern-apis/federation/3rd-party-providers/aws-api-gateway#minimum-aws-permissions-required-by-the-agent).
-* For more information about federation agent service accounts, see [Federation agent service account](https://documentation.gravitee.io/apim/govern-apis/federation/federation-agent-service-account).
+* To discover APIs across multiple AWS accounts and regions using IAM roles, see [Multi-account and multi-region AWS API Gateway federation](multi-account-and-multi-region-aws-api-gateway-federation.md).
+* To learn about minimum AWS permissions required by the agent, see [Minimum AWS permissions required by the agent](README.md#minimum-aws-permissions-required-by-the-agent).
+* For more information about federation agent service accounts, see [Federation agent service account](../../federation-agent-service-account.md).

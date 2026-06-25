@@ -23,4 +23,4 @@ To skip ArchUnit checks during packaging or local development:
 mvn clean package -Dgravitee.archrules.skip=true
 ```
 
-For more information on the logging patterns these rules enforce, see [Context-aware logging in plugins](../../../plugins/context-aware-logging.md).
+For more information on the logging patterns these rules enforce, see [Context-aware logging in plugins](context-aware-logging.md).

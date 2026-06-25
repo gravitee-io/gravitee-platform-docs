@@ -8,7 +8,7 @@
 
 [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) Servers in Gravitee Access Management (AM) provide a standardized way to secure and manage access to AI-integrated services and tools.
 
-An MCP Server represents a protected resource that exposes one or more MCP Tools to MCP client applications. Access to these tools is protected by OAuth 2.1 and can be further refined using [Authorization Engines](../authorization-engines/) such as OpenFGA for fine-grained, attribute-based, and relationship-based authorization.
+An MCP Server represents a protected resource that exposes one or more MCP Tools to MCP client applications. Access to these tools is protected by OAuth 2.1 and can be further refined using [Authorization Engines](../authorization-engines/README.md) such as OpenFGA for fine-grained, attribute-based, and relationship-based authorization.
 
 This page provides a high-level overview of MCP Servers and points to the detailed pages for configuration and integration.
 
@@ -68,7 +68,7 @@ This section explains how they work together, why they must remain separate, and
 
 ### **OAuth 2.1 scopes**
 
-[OAuth](../auth-protocols/oauth-2.0/) 2.1 scopes represent what the user allows a client application to do on their behalf. Scopes are requested by the client and explicitly approved by the user during the authorization flow.
+[OAuth](../auth-protocols/oauth-2.0/README.md) 2.1 scopes represent what the user allows a client application to do on their behalf. Scopes are requested by the client and explicitly approved by the user during the authorization flow.
 
 OAuth 2.1 scopes have the following characteristics:
 
