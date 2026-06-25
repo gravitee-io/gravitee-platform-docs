@@ -388,11 +388,11 @@ Here are more options that can be used to configure your AWS secret manager:
 
 ### Azure Key Vault
 
-Reference Azure Key Vault secrets in API configurations, policies, and authentication flows. Only JSON secrets are supported, append `:<key>` to extract a specific field. Use the `keymap` query parameter to map custom JSON keys to well-known identifiers.
+Reference Azure Key Vault secrets in API configurations, policies, and authentication flows. Only JSON secrets are supported. Append `:<key>` to extract a specific field. Use the `keymap` query parameter to map custom JSON keys to well-known identifiers.
 
-The Azure Key Vault Secret Provider supports six authentication methods: `CLIENT_SECRET`, `CERTIFICATE`, `DEFAULT_AZURE_CREDENTIAL`, `MANAGED_IDENTITY`, `ENVIRONMENT`, and `WORKLOAD_IDENTITY`. The `MANAGED_IDENTITY` and `DEFAULT_AZURE_CREDENTIAL` providers support Azure managed identities (system-assigned and user-assigned). When using user-assigned managed identities, the plugin selects the identifier in the following priority order: `resourceId` > `objectId` > `clientId`.
+The Azure Key Vault Secret Provider supports six authentication methods: `CLIENT_SECRET`, `CERTIFICATE`, `DEFAULT_AZURE_CREDENTIAL`, `MANAGED_IDENTITY`, `ENVIRONMENT`, and `WORKLOAD_IDENTITY`. The `MANAGED_IDENTITY` and `DEFAULT_AZURE_CREDENTIAL` providers support Azure managed identities, both system-assigned and user-assigned. When using user-assigned managed identities, the plugin selects the identifier in the following priority order: `resourceId`, then `objectId`, and then `clientId`.
 
-Here is an example configuration using client secret authentication:
+The following example shows a `gravitee.yml` configuration using Client Secret authentication:
 
 {% code title="gravitee.yml" %}
 ```yaml
@@ -412,7 +412,7 @@ api:
 ```
 {% endcode %}
 
-Here is an example configuration using managed identity authentication:
+The following example shows a `gravitee.yml` configuration using Managed Identity authentication:
 
 {% code title="gravitee.yml" %}
 ```yaml
@@ -430,7 +430,7 @@ api:
 ```
 {% endcode %}
 
-Here is an example configuration using default azure credentials:
+The following example shows a `gravitee.yml` configuration using Default Azure Credentials:
 
 {% code title="gravitee.yml" %}
 ```yaml
@@ -447,7 +447,7 @@ api:
 ```
 {% endcode %}
 
-Here are more options that can be used to configure Azure Key Vault:
+The following options are available to configure Azure Key Vault:
 
 * `ssl.verify` to verify TLS server certificates. The default value is `true`.
 * `ssl.pemFile` to specify a PEM file with custom CA certificates for TLS trust.

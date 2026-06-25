@@ -307,35 +307,36 @@ Before configuring the Azure Key Vault Secret Provider, ensure the following req
 
 * Azure Key Vault instance with JSON formatted secrets configured
 * Azure AD tenant and appropriate credentials based on the selected authentication provider:
-  * **Client Secret**: Azure AD app registration with client secret
-  * **Certificate**: Azure AD app registration with client certificate in PEM format
-  * **Default Azure Credentials**: SDK Will try to find configured credentials on the host
-  * **Managed Identity**: Azure VM, App Service, or AKS with system-assigned or user-assigned managed identity
-  * **Workload Identity**: Kubernetes cluster with workload identity federation configured and federated token file mounted (beta)
-  * **Environment**: `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables set on the Gravitee host
+  * **Client Secret.** Azure AD app registration with a client secret.
+  * **Certificate.** Azure AD app registration with a client certificate in PEM format.
+  * **Default Azure Credentials.** The SDK tries to find configured credentials on the host.
+  * **Managed Identity.** Azure VM, App Service, or AKS with a system-assigned or user-assigned managed identity.
+  * **Workload Identity.** Kubernetes cluster with workload identity federation configured and a federated token file mounted, currently in beta.
+  * **Environment.** The `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables must be set on the Gravitee host.
 
 #### Global secret provider configuration
 
-Configure the Azure Key Vault secret provider in `gravitee.yml` to make secrets available across all APIs and applications. The configuration requires the Key Vault URL and authentication provider details.
+Configure the Azure Key Vault secret provider in `gravitee.yml` to make secrets available across all APIs and applications. The following table describes the available configuration properties:
 
 | Property | Description | Example |
 |----------|-------------|---------|
-| `secrets.azure-keyvault.enabled` | Enable or disable the plugin | `true` |
-| `secrets.azure-keyvault.vaultUrl` | Azure Key Vault URL (required when enabled) | `https://my-vault.vault.azure.net` |
-| `secrets.azure-keyvault.auth.provider` | Authentication provider (required when enabled) | `CLIENT_SECRET`, `CERTIFICATE`, `DEFAULT_AZURE_CREDENTIAL`, `MANAGED_IDENTITY`, `ENVIRONMENT`, `WORKLOAD_IDENTITY` |
-| `secrets.azure-keyvault.auth.tenantId` | Azure AD tenant ID (required for `CLIENT_SECRET` and `CERTIFICATE`; optional for `WORKLOAD_IDENTITY`) | `my-tenant-id` |
-| `secrets.azure-keyvault.auth.clientId` | App registration client ID (required for `CLIENT_SECRET` and `CERTIFICATE`; user-assigned managed identity client ID for `MANAGED_IDENTITY` and `DEFAULT_AZURE_CREDENTIAL` when `auth.managedIdentityClientId` is unset; optional for `WORKLOAD_IDENTITY`) | `my-client-id` |
-| `secrets.azure-keyvault.auth.clientSecret` | Client secret (required for `CLIENT_SECRET`) | `my-client-secret` |
-| `secrets.azure-keyvault.auth.certificateFile` | Path to PEM certificate (required for `CERTIFICATE`) | `/path/to/cert.pem` |
-| `secrets.azure-keyvault.auth.managedIdentityClientId` | User-assigned managed identity client ID | `mi-client-id` |
-| `secrets.azure-keyvault.auth.managedIdentityResourceId` | User-assigned managed identity ARM resource ID (mutually exclusive with client ID and object ID at runtime) | `/subscriptions/.../resourceGroups/.../providers/Microsoft.ManagedIdentity/userAssignedIdentities/...` |
-| `secrets.azure-keyvault.auth.managedIdentityObjectId` | User-assigned managed identity object ID (used when resource ID and client ID are unset) | `mi-object-id` |
-| `secrets.azure-keyvault.auth.workloadIdentityTokenFile` | Federated token file path (defaults to `AZURE_FEDERATED_TOKEN_FILE` environment variable when unset) | `/var/run/secrets/azure/tokens/azure-identity-token` |
-| `secrets.azure-keyvault.ssl.verify` | Verify TLS server certificates (set `false` only for local test) | `true` (default) |
-| `secrets.azure-keyvault.ssl.pemFile` | PEM file with custom CA certificate(s) for TLS trust | `/path/to/ca-bundle.pem` |
+| `secrets.azure-keyvault.enabled` | Enable or disable the plugin. | `true` |
+| `secrets.azure-keyvault.vaultUrl` | Azure Key Vault URL. Required when enabled. | `https://my-vault.vault.azure.net` |
+| `secrets.azure-keyvault.auth.provider` | Authentication provider. Required when enabled. | `CLIENT_SECRET`, `CERTIFICATE`, `DEFAULT_AZURE_CREDENTIAL`, `MANAGED_IDENTITY`, `ENVIRONMENT`, `WORKLOAD_IDENTITY` |
+| `secrets.azure-keyvault.auth.tenantId` | Azure AD tenant ID. Required for `CLIENT_SECRET` and `CERTIFICATE`. Optional for `WORKLOAD_IDENTITY`. | `my-tenant-id` |
+| `secrets.azure-keyvault.auth.clientId` | App registration client ID. Required for `CLIENT_SECRET` and `CERTIFICATE`. For `MANAGED_IDENTITY` and `DEFAULT_AZURE_CREDENTIAL`, used as the user-assigned managed identity client ID when `auth.managedIdentityClientId` is unset. Optional for `WORKLOAD_IDENTITY`. | `my-client-id` |
+| `secrets.azure-keyvault.auth.clientSecret` | Client secret. Required for `CLIENT_SECRET`. | `my-client-secret` |
+| `secrets.azure-keyvault.auth.certificateFile` | Path to PEM certificate. Required for `CERTIFICATE`. | `/path/to/cert.pem` |
+| `secrets.azure-keyvault.auth.managedIdentityClientId` | User-assigned managed identity client ID. | `mi-client-id` |
+| `secrets.azure-keyvault.auth.managedIdentityResourceId` | User-assigned managed identity ARM resource ID. Mutually exclusive with client ID and object ID at runtime. | `/subscriptions/.../resourceGroups/.../providers/Microsoft.ManagedIdentity/userAssignedIdentities/...` |
+| `secrets.azure-keyvault.auth.managedIdentityObjectId` | User-assigned managed identity object ID. Used when resource ID and client ID are unset. | `mi-object-id` |
+| `secrets.azure-keyvault.auth.workloadIdentityTokenFile` | Federated token file path. Defaults to the `AZURE_FEDERATED_TOKEN_FILE` environment variable when unset. | `/var/run/secrets/azure/tokens/azure-identity-token` |
+| `secrets.azure-keyvault.ssl.verify` | Verify TLS server certificates. Set to `false` only for local testing. | `true` |
+| `secrets.azure-keyvault.ssl.pemFile` | PEM file with custom CA certificates for TLS trust. | `/path/to/ca-bundle.pem` |
 
-**Example configuration (Client Secret):**
+The following example shows a `gravitee.yml` configuration using Client Secret authentication:
 
+{% code title="gravitee.yml" %}
 ```yaml
 secrets:
   azure-keyvault:
@@ -347,9 +348,11 @@ secrets:
       clientId: my-client-id
       clientSecret: my-client-secret
 ```
+{% endcode %}
 
-**Example configuration (Managed Identity):**
+The following example shows a `gravitee.yml` configuration using Managed Identity authentication:
 
+{% code title="gravitee.yml" %}
 ```yaml
 secrets:
   azure-keyvault:
@@ -359,11 +362,13 @@ secrets:
       provider: MANAGED_IDENTITY
       managedIdentityClientId: mi-client-id
 ```
+{% endcode %}
 
 #### API-level secret provider configuration
 
-APIs can override the global secret provider configuration or define their own Azure Key Vault connection. API-level configuration follows the same property structure as global configuration.
+APIs can override the global secret provider configuration or define their own Azure Key Vault connection. API-level configuration follows the same property structure as global configuration. The following example shows a `gravitee.yml` API-level configuration override:
 
+{% code title="gravitee.yml" %}
 ```yaml
 api:
   secrets:
@@ -377,10 +382,11 @@ api:
             tenantId: my-tenant-id
             managedIdentityClientId: mi-client-id
 ```
+{% endcode %}
 
 #### Managed identity identifier selection
 
-When using the **Managed Identity** provider, the Azure SDK accepts only one identifier: `auth.managedIdentityResourceId`, `auth.managedIdentityObjectId`, or `auth.managedIdentityClientId` / `auth.clientId` (in that priority order). Omit all identifiers to use the system-assigned managed identity. Specifying multiple identifiers will cause the SDK to use only the highest-priority value.
+When using the **Managed Identity** provider, the Azure SDK accepts only one identifier, in this priority order: `auth.managedIdentityResourceId`, `auth.managedIdentityObjectId`, or `auth.managedIdentityClientId` / `auth.clientId`. Omit all identifiers to use the system-assigned managed identity. If you specify multiple identifiers, the SDK uses only the highest-priority value.
 
 #### Environment variables for environment provider
 

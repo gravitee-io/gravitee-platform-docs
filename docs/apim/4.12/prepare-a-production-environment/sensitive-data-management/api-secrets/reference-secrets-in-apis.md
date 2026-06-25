@@ -154,7 +154,7 @@ When the key is an EL, those plugins can access: dictionaries, API properties, a
 If the secret cannot be resolved and retry is activated, the API is deployed, but executing the policy or endpoint fails until retry resolves the secret.
 {% endhint %}
 
-### Azure Key Vault secret value parsing
+### Azure Key Vault secret value format
 
 When the Azure Key Vault Secret Provider retrieves a secret, it parses the value based on its format. If the value is a flat JSON object, each key-value pair becomes a separate secret entry accessible with the `:<key>` suffix. If the value is plain text, it's returned under the `secretValue` key. The provider extracts only top-level key-value pairs. It doesn't support nested JSON objects.
 
@@ -171,7 +171,7 @@ The provider also maps common secret keys to well-known identifiers for use in a
 
 The Azure Key Vault Secret Provider doesn't support secret watching, so a `?watch=true` query parameter on a secret URL has no effect. Secrets are fetched on demand and cached according to the Gravitee secret manager cache policy.
 
-### Azure Key Vault error handling
+### Azure Key Vault errors
 
 If a secret isn't found in Azure Key Vault, the provider returns an empty result rather than failing. Authentication, network, or TLS errors fail secret resolution with a descriptive message. Configuration errors, such as a missing vault URL or a blank required credential, fail at gateway startup.
 
