@@ -2,9 +2,9 @@
 
 ## Overview
 
-This guide shows how to programmatically manage your Gravitee Developer Portal (v4.11) with the Gravitee Management API (mAPI) v2. It shows how to create a folder structure for organization and publish APIs and their documentation to the New Developer Portal.
+This guide shows how to programmatically manage your Gravitee Developer Portal (v4.12) with the Gravitee Management API (mAPI) v2. It shows how to create a folder structure for organization and publish APIs and their documentation to the New Developer Portal.
 
-In Gravitee APIM 4.11, the Developer Portal has a tree-based publishing model. You manage your content with Portal Pages, which is content such as markdown and OpenAPI specs, and Portal Navigation Items, which is the structure that determines what is visible in the portal menu.
+In Gravitee APIM 4.12, the Developer Portal has a tree-based publishing model. You manage your content with Portal Pages, which is content such as markdown, OpenAPI specs, and AsyncAPI specs, and Portal Navigation Items, which is the structure that determines what is visible in the portal menu.
 
 In contrast to the Classic Developer Portal, where you used the `/portal` mAPI - the "Next Gen" Developer Portal uses new endpoints in the `/management/v2` mAPI, and are environment specific.
 
@@ -343,12 +343,12 @@ curl --location 'https://<your-gravitee-mapi-host>/management/v2/organizations/D
 ### Add content to your new Page
 
 {% hint style="info" %}
-&#x20;For OpenAPI specs, ensure the `content` is a valid JSON string and `type` is `SWAGGER`. If you use Markdown, ensure the `type` is set to `MARKDOWN`.
+Supported page content types are `GRAVITEE_MARKDOWN`, `SWAGGER` (OpenAPI), and `ASYNCAPI`. For OpenAPI specs, ensure the `content` is a valid JSON string. For AsyncAPI specs, ensure the `content` is valid YAML.
 {% endhint %}
 
 Documentation pages are attached to the API directly. Once you publish the page to the Developer Portal, you will see the API in the Catalog and a button to subscribe to it. To add content to your Page, complete the following steps:
 
-1. Obtain the new `portalPageContentId` from the response in [#add-a-new-page-to-your-api](structure-the-navigation-with-the-management-api.md#add-a-new-page-to-your-api "mention").  Your payload must include the page type, for example, GRAVITEE\_MARKDOWN or SWAGGER, and the `content`.  This update requires the HTTP `PUT` method on the `/portal-page-contents` endpoint.
+1. Obtain the new `portalPageContentId` from the response in [#add-a-new-page-to-your-api](structure-the-navigation-with-the-management-api.md#add-a-new-page-to-your-api "mention").  Your payload must include the page type (`GRAVITEE_MARKDOWN`, `SWAGGER`, or `ASYNCAPI`) and the `content`.  This update requires the HTTP `PUT` method on the `/portal-page-contents` endpoint.
 
 {% tabs %}
 {% tab title="curl" %}
@@ -396,6 +396,28 @@ curl --location --request PUT 'https://<your-gravitee-mapi-host>/management/v2/o
   "name": "OpenAPI Technical Reference",
   "type": "SWAGGER",
   "content": "{\"openapi\": \"3.0.0\", ...}"
+}'
+```
+
+* Replace `<your-gravitee-mapi-host>` with your mAPI host.
+* Replace `<DEFAULT>` with your organization ID.
+* Replace `<DEFAULT>` with your environment ID.
+* Replace `{portalPageContentId}` with the ID from the previous response.
+* Replace `{your_personal_access_token}` with your Personal Access Token.
+{% endtab %}
+{% endtabs %}
+
+If you want to include AsyncAPI Specification as the content, please refer to this example:
+
+{% tabs %}
+{% tab title="curl" %}
+```shellscript
+curl --location --request PUT 'https://<your-gravitee-mapi-host>/management/v2/organizations/DEFAULT/environments/DEFAULT/portal-page-contents/{portalPageContentId}' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer {your_personal_access_token}' \
+--data '{
+  "type": "ASYNCAPI",
+  "content": "asyncapi: 3.0.0\ninfo:\n  title: Example\n  version: 1.0.0\n..."
 }'
 ```
 
@@ -461,6 +483,43 @@ curl --location --request PUT 'https://<your-gravitee-mapi-host>/management/v2/o
 ```
 
 </details>
+
+### Update OpenAPI viewer configuration
+
+For OpenAPI pages, you can update viewer settings without modifying page content using the `PATCH` method on `/portal-page-contents/{portalPageContentId}/configuration`. This requires the `ENVIRONMENT_DOCUMENTATION[update]` permission.
+
+When `viewer` is `REDOC`, only `tryItURL` is configurable. When `viewer` is `SWAGGER`, all Swagger UI options are available. Existing pages without configuration render as Redoc.
+
+{% tabs %}
+{% tab title="curl (Swagger UI)" %}
+```shellscript
+curl --location --request PATCH 'https://<your-gravitee-mapi-host>/management/v2/organizations/DEFAULT/environments/DEFAULT/portal-page-contents/{portalPageContentId}/configuration' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer {your_personal_access_token}' \
+--data '{
+  "viewer": "SWAGGER",
+  "tryIt": true,
+  "tryItURL": "https://example.com",
+  "entrypointsAsServers": true,
+  "docExpansion": "full"
+}'
+```
+{% endtab %}
+
+{% tab title="curl (Redoc)" %}
+```shellscript
+curl --location --request PATCH 'https://<your-gravitee-mapi-host>/management/v2/organizations/DEFAULT/environments/DEFAULT/portal-page-contents/{portalPageContentId}/configuration' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer {your_personal_access_token}' \
+--data '{
+  "viewer": "REDOC",
+  "tryItURL": "https://example.com"
+}'
+```
+{% endtab %}
+{% endtabs %}
+
+For Console configuration details, see [Creating OpenAPI Documentation Pages](creating-openapi-documentation-pages.md).
 
 ### Verification
 
