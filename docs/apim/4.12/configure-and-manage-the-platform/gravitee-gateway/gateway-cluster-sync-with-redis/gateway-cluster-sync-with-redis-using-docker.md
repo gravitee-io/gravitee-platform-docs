@@ -20,6 +20,21 @@ A standard Redis deployment without the Search module appears to connect success
 * Deploy a fully Self-Hosted Installation or a Hybrid Installation of APIM. For more information about self-hosted installation, see [Self-Hosted Installation Guides](/apim/4.10/self-hosted-installation-guides.md) or [Hybrid Installation & Configuration Guides](/apim/4.10/hybrid-installation-and-configuration-guides.md).
 * Deploy at least two API Gateway replicas. Distributed sync works only when `gateway.replicaCount` is greater than or equal to 2, and `gateway.autoscaling.enabled` is `false`, because the Helm chart only honors `replicaCount` when the HPA is disabled.
 
+## Cluster-scoped Redis and Hazelcast cluster naming
+
+From APIM 4.12, distributed sync keys in Redis are scoped by **cluster ID** (the Hazelcast `cluster-name`). When several gateway groups share one Redis instance—for example, `external` and `internal` gateway hosts—each group must use a **different** `<cluster-name>` in `hazelcast-cluster.xml`.
+
+| Gateway group | Example `cluster-name` | Redis key prefix |
+|:--------------|:-----------------------|:-----------------|
+| External gateways | `gio-apim-external` | `distributed_event:gio-apim-external:...` |
+| Internal gateways | `gio-apim-internal` | `distributed_event:gio-apim-internal:...` |
+
+If you change `cluster-name` or sharding tags, delete stale `distributed_event:*` and `distributed_sync_state:*` keys for the old cluster ID in Redis.
+
+{% hint style="warning" %}
+**Deployment constraints:** Start with one gateway instance per group, wait for the primary to sync, then add peers one at a time. During upgrades, replace gateways sequentially so the primary populates Redis before secondaries join.
+{% endhint %}
+
 ## Enable Distributed sync
 
 To configure Distributed sync with Redis, complete the following steps:
@@ -42,7 +57,7 @@ To configure Distributed sync with Redis, complete the following steps:
               xsi:schemaLocation="[http://www.hazelcast.com/schema/config](http://www.hazelcast.com/schema/config)
               [http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd](http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd)">
 
-       &#x3C;cluster-name>gio-apim-cluster&#x3C;/cluster-name>
+       &#x3C;cluster-name>gio-apim-external&#x3C;/cluster-name>
        &#x3C;network>
            &#x3C;port auto-increment="true" port-count="100">5701&#x3C;/port>
            &#x3C;join>
@@ -63,6 +78,10 @@ To configure Distributed sync with Redis, complete the following steps:
    * `<gateway_client>`. Replace this with the name of your first API Gateway.
    * `<gateway_client_2>`. Replace this with the name of your second API Gateway.
    * `<gateway_server>`. Replace this with the name of your third API Gateway.
+
+   {% hint style="info" %}
+   All gateways in the **same** sharding-tag group must share the **same** `cluster-name`. Gateways in a **different** group (for example, internal vs external) that share Redis must use a **different** `cluster-name`.
+   {% endhint %}
 
 ### Configure your Redis Repository
 
@@ -138,6 +157,14 @@ To enable your distributed sync repository, enable the Search module on your Red
 
    ```bash
    docker compose up -d
+   ```
+
+4. (Optional) Verify cluster-scoped keys in Redis:
+
+   ```bash
+   redis-cli KEYS 'distributed_sync_state:*'
+   redis-cli KEYS 'distributed_event:*' | head
+   # Expect prefixes matching your cluster-name, e.g. distributed_event:gio-apim-external:...
    ```
 
 ## Verification
