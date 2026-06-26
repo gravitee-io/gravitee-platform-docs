@@ -17,6 +17,7 @@ Use the following variables for the environment of your Ambassador Edge Stack co
 | [`AMBASSADOR_AMBEX_SNAPSHOT_COUNT`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_ambex_snapshot_count)                     | `30`                                                           | Integer                                                                                                       |
 | [`AMBASSADOR_CLUSTER_ID`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_cluster_id)                                         | Empty                                                          | String                                                                                                        |
 | [`AMBASSADOR_CONFIG_BASE_DIR`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_config_base_dir)                               | `/ambassador`                                                  | String                                                                                                        |
+| [`AMBASSADOR_DISABLE_ANNOTATION_MAPPINGS`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_disable_annotation_mappings)       | `false`                                                        | Boolean; `true`=true, any other value=false                                                                   |
 | [`AMBASSADOR_DISABLE_FEATURES`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_disable_features)                             | Empty                                                          | Any                                                                                                           |
 | [`AMBASSADOR_DRAIN_TIME`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_drain_time)                                         | `600`                                                          | Integer                                                                                                       |
 | [`AMBASSADOR_ENVOY_API_VERSION`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_envoy_api_version)                           | `V3`                                                           | String Enum; `V3` or `V2`                                                                                     |
@@ -51,6 +52,7 @@ Use the following variables for the environment of your Ambassador Edge Stack co
 | [`AMBASSADOR_DISABLE_SNAPSHOT_SERVER`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_disable_snapshot_server)               | `false`                                                        | Boolean; non-empty=true, empty=false                                                                          |
 | [`AMBASSADOR_ENVOY_BASE_ID`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_envoy_base_id)                                   | `0`                                                            | Integer                                                                                                       |
 | [`AES_RATELIMIT_PREVIEW`](ambassador-edge-stack-environment-variables-and-ports.md#aes_ratelimit_preview)                                         | `false`                                                        | Boolean; [Go `strconv.ParseBool`](https://golang.org/pkg/strconv/#ParseBool)                                  |
+| [`AES_RATELIMIT_VERBOSE_LOGGING`](ambassador-edge-stack-environment-variables-and-ports.md#aes_ratelimit_verbose_logging)                         | `false`                                                        | Boolean; [Go `strconv.ParseBool`](https://golang.org/pkg/strconv/#ParseBool)                                  |
 | [`AES_AUTH_TIMEOUT`](ambassador-edge-stack-environment-variables-and-ports.md#aes_auth_timeout)                                                   | `4s`                                                           | Duration; [Go `time.ParseDuration`](https://pkg.go.dev/time#ParseDuration)                                    |
 | [`REDIS_SOCKET_TYPE`](ambassador-edge-stack-environment-variables-and-ports.md#redis_socket_type)                                                 | `tcp`                                                          | Go network such as `tcp` or `unix`; see [Go `net.Dial`](https://golang.org/pkg/net/#Dial)                     |
 | [`REDIS_URL`](ambassador-edge-stack-environment-variables-and-ports.md#redis_url)                                                                 | None, must be set explicitly                                   | Go network address; for TCP this is a `host:port` pair; see [Go `net.Dial`](https://golang.org/pkg/net/#Dial) |
@@ -162,6 +164,12 @@ More information: [#ambassador-edge-stack-usage-telemetry-scout](advanced-deploy
 Controls where Ambassador Edge Stack will store snapshots. By default, the latest configuration will be in `/ambassador/snapshots`. If you have overridden it, Ambassador Edge Stack saves configurations in `$AMBASSADOR_CONFIG_BASE_DIR/snapshots`.
 
 More information: [#examine-pod-and-container-contents](../../troubleshooting.md#examine-pod-and-container-contents "mention")
+
+### `AMBASSADOR_DISABLE_ANNOTATION_MAPPINGS`
+
+Defining `Mapping` resources through `getambassador.io/config` annotations on other Kubernetes objects (such as `Service`s) is supported for backwards compatibility, but the recommended approach is to use the `Mapping` CRD directly. When `AMBASSADOR_DISABLE_ANNOTATION_MAPPINGS` is set to `true`, Ambassador Edge Stack stops creating `Mapping` resources defined via annotations and instead surfaces an error on the annotated object in diagnostics, prompting you to migrate to a `Mapping` CRD. Other annotation-based resource types are unaffected.
+
+The default is `false`, which preserves the existing behavior. Use this variable to find and migrate annotation-based Mappings before they are removed in a future release.
 
 ### `AMBASSADOR_DISABLE_FEATURES`
 
@@ -348,6 +356,12 @@ Base ID of the Envoy process
 Enables support for redis clustering, local caching, and an upgraded redis client with improved scalability in preview mode.
 
 More information: [#aes\_ratelimit\_preview](ambassador-edge-stack-and-redis.md#aes_ratelimit_preview "mention")
+
+### `AES_RATELIMIT_VERBOSE_LOGGING`
+
+When `AES_RATELIMIT_VERBOSE_LOGGING` is set to `true`, the rate limit service emits a structured `INFO` log line for each rate limit decision. Each line summarizes the matched descriptors, the configured limit, the current consumption, and the time until the limit resets, which makes it easier to debug why requests are being rate limited. The default is `false`.
+
+More information: [rate-limiting-extension.md](../rate-limiting/rate-limiting-extension.md "mention")
 
 ### `AES_AUTH_TIMEOUT`
 
