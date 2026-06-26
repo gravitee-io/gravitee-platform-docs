@@ -12,6 +12,8 @@ In contrast to the Classic Developer Portal, where you used the `/portal` mAPI -
 
 For CI/CD-driven workflows, manage portal structure, API listings, and documentation declaratively using the Automation API and Gravitee Kubernetes Operator (GKO). This approach supports automated portal management by declaring navigation hierarchies, published APIs, and documentation pages as code. V4 API definitions now support a `portalNavigation` field for declaring internal documentation folder hierarchies in the next-gen developer portal. This field is portal-only metadata and is not propagated to the gateway. It has no effect on the classic portal.
 
+For full details, see the [Portal automation](portal-automation/README.md) documentation, which covers portal instances, listings, portal-scoped documentation, and API-scoped documentation.
+
 <figure><img src="../../../.gitbook/assets/navigation-with-mapi-4.png" alt=""><figcaption><p>Hierarchical structure of Folder, API, Page, and Content</p></figcaption></figure>
 
 ## Prerequisites
