@@ -28,6 +28,7 @@ This page lists the available AM plugins and provides compatibility matrices wit
 | 1.x+           | 3.18+      |
 | 2.x+           | 3.21+      |
 | 3.x+           | 4.0+       |
+| 4.x+           | 4.12+       |
 
 #### [gravitee-am-factor-http](https://download.gravitee.io/#graviteeio-ee/am/plugins/factors/gravitee-am-factor-http/)
 
@@ -69,6 +70,7 @@ This page lists the available AM plugins and provides compatibility matrices wit
 | 2.0.2+         | 3.21.12+   |
 | 3.0.x          | 4.0.x+     |
 | 4.0.x          | 4.5.x +    |
+| 5.0.x          | 4.12.x +   |
 
 ### IdPs
 
@@ -79,6 +81,7 @@ This page lists the available AM plugins and provides compatibility matrices wit
 | 1.x            | 4.0 +      |
 | 1.2.x          | 4.5 +      |
 | 2.x            | 4.5 +      |
+| 3.x            | 4.12 +      |
 
 #### [gravitee-am-identityprovider-azure-ad](https://download.gravitee.io/#graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-azure-ad/)
 
@@ -86,6 +89,7 @@ This page lists the available AM plugins and provides compatibility matrices wit
 | -------------- | ---------- |
 | 1.x+           | 4.0+       |
 | 2.x            | 4.5.x +    |
+| 3.x            | 4.12.x +    |
 
 #### [gravitee-am-identityprovider-cas](https://download.gravitee.io/#graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-cas/)
 
@@ -95,6 +99,7 @@ This page lists the available AM plugins and provides compatibility matrices wit
 | 2.x+           | 3.21+      |
 | 3.x+           | 4.0+       |
 | 4.x +          | 4.5 +      |
+| 5.x +          | 4.12 +      |
 
 #### [gravitee-am-identityprovider-franceconnect](https://download.gravitee.io/#graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-franceconnect/)
 
@@ -103,6 +108,7 @@ This page lists the available AM plugins and provides compatibility matrices wit
 | 1.x+           | 4.0+       |
 | 2.x+           | 4.1+       |
 | 3.x +          | 4.5+       |
+| 4.x +          | 4.12+       |
 
 #### [gravitee-am-identityprovider-http-flow](https://download.gravitee.io/#graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-http-flow/)
 
@@ -112,6 +118,7 @@ This page lists the available AM plugins and provides compatibility matrices wit
 | 2.x+           | 3.21+      |
 | 3.x+           | 4.0+       |
 | 4.x+           | 4.5+       |
+| 5.x+           | 4.12+       |
 
 #### [gravitee-am-identityprovider-kerberos](https://download.gravitee.io/#graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-kerberos/)
 
@@ -167,12 +174,14 @@ This page lists the available AM plugins and provides compatibility matrices wit
 | 2.x+           | 3.21+      |
 | 3.x+           | 4.0+       |
 | 4.x+           | 4.9+       |
+| 5.x+           | 4.12+       |
 
 #### [gravitee-am-resource-sfr](https://download.gravitee.io/#graviteeio-ee/am/plugins/resources/gravitee-am-resource-sfr/)
 
 | Plugin Version | AM Version |
 | -------------- | ---------- |
 | 1.x+           | 4.0+       |
+| 2.x+           | 4.12+       |
 
 #### [gravitee-am-resource-orange-contact-everyone](https://download.gravitee.io/#graviteeio-ee/am/plugins/resources/gravitee-am-resource-orange-contact-everyone/)
 
@@ -180,6 +189,7 @@ This page lists the available AM plugins and provides compatibility matrices wit
 | -------------- | ---------- |
 | 1.x            | 3.20       |
 | 1.3.x          | 4.0+       |
+| 2.x            | 4.12+       |
 
 #### [gravitee-am-resource-twilio](https://download.gravitee.io/#graviteeio-ee/am/plugins/resources/gravitee-am-resource-twilio/)
 
@@ -203,3 +213,4 @@ This page lists the available AM plugins and provides compatibility matrices wit
 | Plugin Version | AM Version |
 | -------------- | ---------- |
 | 1.x            | 4.10+      |
+| 2.x            | 4.12+      |
