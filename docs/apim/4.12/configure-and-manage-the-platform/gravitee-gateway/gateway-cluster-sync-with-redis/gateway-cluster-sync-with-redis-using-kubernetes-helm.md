@@ -20,6 +20,52 @@ A standard Redis deployment without the Search module appears to connect success
 * Deploy a fully Self-Hosted Installation or a Hybrid Installation of APIM. For more information about self-hosted installation, see [Self-Hosted Installation Guides](../../../self-hosted-installation-guides/README.md) or [Hybrid Installation & Configuration Guides](../../../hybrid-installation-and-configuration-guides/README.md).
 * Deploy at least two API Gateway replicas. Distributed sync works only when `gateway.replicaCount` is greater than or equal to 2, and `gateway.autoscaling.enabled` is `false`, because the Helm chart only honors `replicaCount` when the HPA is disabled.
 
+## Cluster-scoped Redis and Hazelcast cluster naming
+
+When multiple gateway Helm releases share one Redis instance (for example, one release per sharding tag: `external`, `internal`, `aog`), each release must form its **own Hazelcast cluster** with a **unique `cluster-name`**. That name becomes the runtime **cluster ID** and scopes all distributed sync keys in Redis.
+
+| Setting | Description |
+|:--------|:------------|
+| `gateway.sharding_tags` | Comma-separated sharding tags for this release (for example, `external`). Deploy one Helm release per tag set. |
+| `gateway.cluster.type` | Set to `hazelcast` when distributed sync is enabled. The chart renders `hazelcast.xml` and validates this pairing. |
+| `gateway.cluster.hazelcast.clusterName` | Optional override. Default: `<helm-release-name>-<sharding_tags>` (slugged, max 63 characters). Must differ across releases that share Redis. |
+
+{% hint style="info" %}
+From APIM 4.12, the Helm chart can render `config/hazelcast.xml` automatically when `gateway.cluster.type` is `hazelcast`. You do not need a separate `extraObjects` ConfigMap unless you override `gateway.cluster.hazelcast.configPath` with a custom file.
+{% endhint %}
+
+### Deployment constraints
+
+Secondary gateways read distributed state from Redis. Initial sync on a secondary is one-shot; the primary must publish state and events before secondaries can serve APIs.
+
+| Scenario | Requirement |
+|:---------|:--------------|
+| **Fresh install** | Set `gateway.replicaCount: 1` (or `gateway.autoscaling.minReplicas: 1`). Wait until the primary has synchronized. Scale up **one replica at a time**. |
+| **Upgrade** | Set `gateway.deployment.strategy.rollingUpdate.maxUnavailable: 0` and `maxSurge: 1` so pods join the Hazelcast cluster one at a time. |
+| **Autoscaling** | Do not set a high `minReplicas` on first install. Configure HPA `behavior.scaleUp` to add at most one pod per interval when distributed sync is enabled. |
+
+Example rolling strategy:
+
+<pre class="language-yaml" data-title="values.yaml"><code class="lang-yaml">gateway:
+  deployment:
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxUnavailable: 0
+        maxSurge: 1
+</code></pre>
+
+### Upgrade from legacy Redis keys
+
+Cluster-scoped keys are introduced in APIM 4.12. After upgrade:
+
+* New pods use keys such as `distributed_event:&lt;clusterId&gt;:...` and RediSearch index `distributed-event-search-idx-v2`.
+* Legacy keys without a cluster ID prefix are not read.
+* The primary repopulates Redis from the management repository during rollout; a second manual restart is not required if MongoDB is reachable.
+* Optionally delete stale `distributed_event:*` and `distributed_sync_state:*` entries and drop the old search index after all gateways are healthy.
+
+If `gateway.sharding_tags` or `gateway.cluster.hazelcast.clusterName` change, treat it as a new cluster: delete Redis keys for the old cluster ID.
+
 ## Configure the distributed sync on the APIM Gateway
 
 1. In your `values.yaml` file, navigate to the `gateway.additionalPlugins` section, and then add the `gravitee-node-cluster-plugin-hazelcast` plugin. You must download the Hazelcast plugin at pod startup, and it must match the `gravitee-node` version of your APIM release. For example, for 4.10.x, the `gravitee-node` version is 7.26.x, and the URL of the Hazelcast plugin is `https://repo1.maven.org/maven2/io/gravitee/node/gravitee-node-cluster-plugin-hazelcast/7.26.3/gravitee-node-cluster-plugin-hazelcast-7.26.3.zip`. To confirm the bundled `gravitee-node`, check the `gravitee-api-management` `pom.xml` on the matching branch by using `grep gravitee-node.version`.
@@ -69,7 +115,7 @@ A standard Redis deployment without the Search module appears to connect success
        maxPoolSize: 10
        maxPoolWaiting: 2048
    </code></pre>
-2. Create the Hazelcast configuration `ConfigMap` using the top-level `extraObjects` value. Hazelcast requires an XML configuration for pods to discover each other. For Kubernetes, use Hazelcast Kubernetes discovery. For more information about Hazelcast Kubernetes discovery, see the [Kubernetes auto discovery documentation](https://docs.hazelcast.com/hazelcast/5.4/kubernetes/kubernetes-auto-discovery).
+2. Create the Hazelcast configuration `ConfigMap` using the top-level `extraObjects` value. **Skip this step** if you rely on the chart-rendered `hazelcast.xml` (`gateway.cluster.type: hazelcast` without a custom `configPath`). Hazelcast requires an XML configuration for pods to discover each other. For Kubernetes, use Hazelcast Kubernetes discovery. For more information about Hazelcast Kubernetes discovery, see the [Kubernetes auto discovery documentation](https://docs.hazelcast.com/hazelcast/5.4/kubernetes/kubernetes-auto-discovery).
 
    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p><code>&#x3C;service-port>5701&#x3C;/service-port></code> is mandatory. Without the service port, the pod-label discovery of Hazelcast silently fails. Peer pods are discovered, but the cluster never forms because port <code>5701</code> is not declared as a <code>containerPort</code> on the Gateway deployment. The <code>&#x3C;service-port></code> element tells Hazelcast which port to use against the discovered pods directly. This bypasses the missing <code>containerPort</code> or Service entry.</p></div>
 
@@ -146,13 +192,15 @@ A standard Redis deployment without the Search module appears to connect success
 
    <pre class="language-yaml" data-title="values.yaml"><code class="lang-yaml">gateway:
      replicaCount: 2
+     sharding_tags: external   # one tag set per Helm release; cluster-name defaults to &lt;release&gt;-external
      autoscaling:
        enabled: false
 
      cluster:
        type: hazelcast
-       hazelcast:
-         configPath: /opt/graviteeio-gateway/config/hazelcast.xml
+       # hazelcast.xml is rendered by the chart; optional override:
+       # hazelcast:
+       #   clusterName: my-release-external
 
      distributedSync:
        enabled: true
@@ -296,12 +344,18 @@ After the `helm upgrade --install ... --wait` command completes, complete the fo
    ```
    INFO  i.g.p.r.i.RepositoryPluginHandler - Repository [DISTRIBUTED_SYNC] loaded by redis
    ```
-4. Ensure that the Distributed sync writes to Redis for the primary node only using the following command:
+4. Ensure that the Distributed sync writes to Redis for the primary node only using the following commands:
 
    ```bash
    kubectl -n gravitee-apim exec deploy/redis-stack -- redis-cli FT._LIST
-   # Expect at least: idx:distributed-sync-state, idx:distributed-sync-events
+   # Expect: distributed-event-search-idx-v2 (cluster-scoped index)
+
+   kubectl -n gravitee-apim exec deploy/redis-stack -- redis-cli KEYS 'distributed_sync_state:*'
+   kubectl -n gravitee-apim exec deploy/redis-stack -- redis-cli KEYS 'distributed_event:*' | head
+   # Expect cluster-scoped prefixes, e.g. distributed_event:my-gw-external:...
    ```
+
+   With multiple sharding-tag releases on shared Redis, you should see **one `distributed_sync_state:<clusterId>` per release**, each with a distinct cluster ID.
 5. Ensure that All probes return `200` with the following command:
 
    ```bash

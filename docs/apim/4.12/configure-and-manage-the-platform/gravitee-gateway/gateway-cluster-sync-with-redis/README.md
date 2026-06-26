@@ -51,6 +51,35 @@ The objects are used to know what needs to be deployed or undeployed across the 
 
 After any business object is deployed, and only if distributed sync is enabled, the primary node stores those objects in the new distributed sync repository.
 
+#### Cluster-scoped Redis (multi sharding-tag deployments)
+
+From APIM 4.12, distributed sync events and sync state in Redis are **scoped by cluster ID**. The cluster ID is the Hazelcast `cluster-name` configured on each gateway deployment.
+
+Use this model when several gateway deployments share one Redis instance—for example, separate Helm releases for `external`, `internal`, and `aog` sharding tags:
+
+* Deploy **one gateway Helm release per sharding-tag cluster**.
+* Give each release a **unique Hazelcast `cluster-name`** (runtime cluster ID). With the APIM Helm chart, the default is `<release-name>-<sharding_tags>`; override with `gateway.cluster.hazelcast.clusterName` if needed.
+* All releases may use the **same Redis** host; keys are isolated by cluster ID.
+
+Redis key layout:
+
+| Key pattern | Purpose |
+|:------------|:--------|
+| `distributed_sync_state:<clusterId>` | Last successful sync timeframe for that cluster |
+| `distributed_event:<clusterId>:<type>:<id>` | Deploy/undeploy events for that cluster |
+
+If `sharding_tags` or `cluster-name` change, a **new** cluster ID is used. Delete stale `distributed_event:*` and `distributed_sync_state:*` keys for the old cluster ID in Redis.
+
+{% hint style="warning" %}
+**Deployment constraints:** The primary gateway must populate Redis before secondaries rely on it. On **fresh install**, start with one gateway replica, wait for sync, then scale up one replica at a time. On **upgrade**, use `maxUnavailable: 0` and `maxSurge: 1`. If autoscaling is enabled, throttle scale-up so new pods join one at a time. See the [Helm guide](gateway-cluster-sync-with-redis-using-kubernetes-helm.md#deployment-constraints) for details.
+{% endhint %}
+
+#### Upgrade from pre-cluster-scoped Redis keys
+
+Upgrading to a version with cluster-scoped keys changes the Redis key format. New gateway pods do not read legacy global keys (`distributed_event:API:...`). During rolling upgrade, the primary repopulates Redis from the management repository into the new cluster-scoped format. **Cluster name and sharding tags do not need to change** for a routine version upgrade—only the Redis encoding changes once.
+
+Future version upgrades (for example, 4.12 to 4.13) reuse the same cluster ID and Redis namespace; sync is incremental, not a full reload from the database.
+
 ***
 
 ## Agent Instructions: Querying This Documentation
