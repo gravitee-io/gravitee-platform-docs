@@ -12,7 +12,7 @@ The Gravitee Kubernetes Operator (GKO) comes with several custom resource defini
 * [`Notification`](notification.md)
 * [`GatewayClassParameters`](gatewayclassparameters.md)
 * [`KafkaRoute`](kafkaroute.md)
-* `Portal` — declares a next-gen developer portal instance with navigation hierarchy
+* `Portal` — declares a next-gen Developer Portal instance with navigation hierarchy
 * `PortalListing` — publishes APIs to specific locations in a portal's navigation
 * `Documentation` — creates portal-scoped or API-scoped documentation pages (Gravitee Markdown, OpenAPI, or AsyncAPI)
 
