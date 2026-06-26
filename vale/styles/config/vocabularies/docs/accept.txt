@@ -843,3 +843,8 @@ Levenshtein
 [Rr]ollingUpdate
 maxUnavailable
 maxSurge
+
+# ============================================
+# Additional accepted terms (2026-06-26)
+# ============================================
+[Bb]ackfill(ed|s|ing)?
