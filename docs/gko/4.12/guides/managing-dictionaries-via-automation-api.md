@@ -193,7 +193,7 @@ PUT /organizations/{orgId}/environments/{envId}/dictionaries?dryRun=true
 
 After a dictionary exists, you can retrieve, update, or delete it through the Automation API.
 
-### Dictionary management API
+### Automation API reference
 
 **Base path:** `/organizations/{orgId}/environments/{envId}/dictionaries`
 
