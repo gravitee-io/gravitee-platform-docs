@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.25 - June 26, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* MAPI doesn't start when HTTP idp is invalid [#11561](https://github.com/gravitee-io/issues/issues/11561)
+* User search error trying to use equality filters SCIM 2.0 query syntax (filterCriteriaParser) [#11564](https://github.com/gravitee-io/issues/issues/11564)
+
+</details>
+
+
 ## Gravitee Access Management 4.9.24 - June 16, 2026
 
 <details>
