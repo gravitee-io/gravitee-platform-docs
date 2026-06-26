@@ -46,14 +46,17 @@ Secondary gateways read distributed state from Redis. Initial sync on a secondar
 
 Example rolling strategy:
 
-<pre class="language-yaml" data-title="values.yaml"><code class="lang-yaml">gateway:
+{% code title="values.yaml" %}
+```yaml
+gateway:
   deployment:
     strategy:
       type: RollingUpdate
       rollingUpdate:
         maxUnavailable: 0
         maxSurge: 1
-</code></pre>
+```
+{% endcode %}
 
 ### Upgrade from legacy Redis keys
 
@@ -70,10 +73,13 @@ If `gateway.sharding_tags` or `gateway.cluster.hazelcast.clusterName` change, tr
 
 1. In your `values.yaml` file, navigate to the `gateway.additionalPlugins` section, and then add the `gravitee-node-cluster-plugin-hazelcast` plugin. You must download the Hazelcast plugin at pod startup, and it must match the `gravitee-node` version of your APIM release. For example, for 4.10.x, the `gravitee-node` version is 7.26.x, and the URL of the Hazelcast plugin is `https://repo1.maven.org/maven2/io/gravitee/node/gravitee-node-cluster-plugin-hazelcast/7.26.3/gravitee-node-cluster-plugin-hazelcast-7.26.3.zip`. To confirm the bundled `gravitee-node`, check the `gravitee-api-management` `pom.xml` on the matching branch by using `grep gravitee-node.version`.
 
-   <pre class="language-yaml" data-title="values.yaml"><code class="lang-yaml">gateway:
-     additionalPlugins:
-       - [https://repo1.maven.org/maven2/io/gravitee/node/gravitee-node-cluster-plugin-hazelcast/7.26.3/gravitee-node-cluster-plugin-hazelcast-7.26.3.zip](https://repo1.maven.org/maven2/io/gravitee/node/gravitee-node-cluster-plugin-hazelcast/7.26.3/gravitee-node-cluster-plugin-hazelcast-7.26.3.zip)
-   </code></pre>
+   {% code title="values.yaml" %}
+   ```yaml
+   gateway:
+        additionalPlugins:
+          - https://repo1.maven.org/maven2/io/gravitee/node/gravitee-node-cluster-plugin-hazelcast/7.26.3/gravitee-node-cluster-plugin-hazelcast-7.26.3.zip
+   ```
+   {% endcode %}
 
    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>The Helm chart automatically downloads plugins listed in <code>additionalPlugins</code> using an init container at pod startup. Ensure that the pod has outbound access to <code>repo1.maven.org</code>, or mirror the file internally and adjust the URL.</p></div>
 1a. (Optional) Configure Redis Cluster nodes for rate limiting and Redis resource pool settings for cache and AI vector store resources. These settings apply gateway-wide and are sourced from `gravitee.yml` in production deployments.
@@ -95,145 +101,163 @@ If `gateway.sharding_tags` or `gateway.cluster.hazelcast.clusterName` change, tr
    | `gateway.aiVectorStoreRedis.connectTimeout` | AI vector store Redis resource TCP connect timeout (ms) | `2000` |
 
    **Example**:
-   <pre class="language-yaml" data-title="values.yaml"><code class="lang-yaml">gateway:
-     ratelimit:
-       redis:
-         cluster:
-           nodes:
-             - host: redis-node-1.example.com
-               port: 6379
-             - host: redis-node-2.example.com
-               port: 6379
-     cacheRedis:
-       maxPoolSize: 10
-       maxPoolWaiting: 2048
-       poolCleanerInterval: 30000
-       poolRecycleTimeout: 180000
-       maxWaitingHandlers: 1024
-       connectTimeout: 2000
-     aiVectorStoreRedis:
-       maxPoolSize: 10
-       maxPoolWaiting: 2048
-   </code></pre>
+   {% code title="values.yaml" %}
+   ```yaml
+   gateway:
+        ratelimit:
+          redis:
+            cluster:
+              nodes:
+                - host: redis-node-1.example.com
+                  port: 6379
+                - host: redis-node-2.example.com
+                  port: 6379
+        cacheRedis:
+          maxPoolSize: 10
+          maxPoolWaiting: 2048
+          poolCleanerInterval: 30000
+          poolRecycleTimeout: 180000
+          maxWaitingHandlers: 1024
+          connectTimeout: 2000
+        aiVectorStoreRedis:
+          maxPoolSize: 10
+          maxPoolWaiting: 2048
+   ```
+   {% endcode %}
 2. Create the Hazelcast configuration `ConfigMap` using the top-level `extraObjects` value. **Skip this step** if you rely on the chart-rendered `hazelcast.xml` (`gateway.cluster.type: hazelcast` without a custom `configPath`). Hazelcast requires an XML configuration for pods to discover each other. For Kubernetes, use Hazelcast Kubernetes discovery. For more information about Hazelcast Kubernetes discovery, see the [Kubernetes auto discovery documentation](https://docs.hazelcast.com/hazelcast/5.4/kubernetes/kubernetes-auto-discovery).
 
    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p><code>&#x3C;service-port>5701&#x3C;/service-port></code> is mandatory. Without the service port, the pod-label discovery of Hazelcast silently fails. Peer pods are discovered, but the cluster never forms because port <code>5701</code> is not declared as a <code>containerPort</code> on the Gateway deployment. The <code>&#x3C;service-port></code> element tells Hazelcast which port to use against the discovered pods directly. This bypasses the missing <code>containerPort</code> or Service entry.</p></div>
 
-   <pre class="language-yaml" data-title="values.yaml"><code class="lang-yaml">extraObjects:
-     - apiVersion: v1
-       kind: ConfigMap
-       metadata:
-         name: hazelcast-config
-       data:
-         hazelcast.xml: |
-           &#x3C;?xml version="1.0" encoding="UTF-8"?>
-           &#x3C;hazelcast xmlns="[http://www.hazelcast.com/schema/config](http://www.hazelcast.com/schema/config)"
-                      xmlns:xsi="[http://www.w3.org/2001/XMLSchema-instance](http://www.w3.org/2001/XMLSchema-instance)"
-                      xsi:schemaLocation="[http://www.hazelcast.com/schema/config](http://www.hazelcast.com/schema/config)
-                      [http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd](http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd)">
-
-               &#x3C;cluster-name>gio-apim-cluster&#x3C;/cluster-name>
-
-               &#x3C;properties>
-                   &#x3C;property name="hazelcast.logging.type">slf4j&#x3C;/property>
-                   &#x3C;property name="hazelcast.max.wait.seconds.before.join">20&#x3C;/property>
-                   &#x3C;property name="hazelcast.member.list.publish.interval.seconds">10&#x3C;/property>
-                   &#x3C;property name="hazelcast.socket.client.bind.any">false&#x3C;/property>
-                   &#x3C;property name="hazelcast.max.no.heartbeat.seconds">20&#x3C;/property>
-               &#x3C;/properties>
-
-               &#x3C;network>
-                   &#x3C;port auto-increment="false">5701&#x3C;/port>
-                   &#x3C;join>
-                       &#x3C;multicast enabled="false"/>
-                       &#x3C;tcp-ip enabled="false"/>
-                       &#x3C;kubernetes enabled="true">
-                           &#x3C;namespace>YOUR_NAMESPACE&#x3C;/namespace>
-                           &#x3C;pod-label-name>app.kubernetes.io/component&#x3C;/pod-label-name>
-                           &#x3C;pod-label-value>gateway&#x3C;/pod-label-value>
-                           &#x3C;service-port>5701&#x3C;/service-port>
-                       &#x3C;/kubernetes>
-                   &#x3C;/join>
-               &#x3C;/network>
-           &#x3C;/hazelcast>
-   </code></pre>
+   {% code title="values.yaml" %}
+   ```yaml
+   extraObjects:
+        - apiVersion: v1
+          kind: ConfigMap
+          metadata:
+            name: hazelcast-config
+          data:
+            hazelcast.xml: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <hazelcast xmlns="http://www.hazelcast.com/schema/config"
+                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                         xsi:schemaLocation="http://www.hazelcast.com/schema/config
+                         http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd">
+   
+                  <cluster-name>gio-apim-cluster</cluster-name>
+   
+                  <properties>
+                      <property name="hazelcast.logging.type">slf4j</property>
+                      <property name="hazelcast.max.wait.seconds.before.join">20</property>
+                      <property name="hazelcast.member.list.publish.interval.seconds">10</property>
+                      <property name="hazelcast.socket.client.bind.any">false</property>
+                      <property name="hazelcast.max.no.heartbeat.seconds">20</property>
+                  </properties>
+   
+                  <network>
+                      <port auto-increment="false">5701</port>
+                      <join>
+                          <multicast enabled="false"/>
+                          <tcp-ip enabled="false"/>
+                          <kubernetes enabled="true">
+                              <namespace>YOUR_NAMESPACE</namespace>
+                              <pod-label-name>app.kubernetes.io/component</pod-label-name>
+                              <pod-label-value>gateway</pod-label-value>
+                              <service-port>5701</service-port>
+                          </kubernetes>
+                      </join>
+                  </network>
+              </hazelcast>
+   ```
+   {% endcode %}
 
    To complete the configuration, replace `YOUR_NAMESPACE` with the Kubernetes namespace where your gateways are deployed.
 3. Mount the ConfigMap into the API Gateway with `extraVolumes` and `extraVolumeMounts`.
 
-   <pre class="language-yaml" data-title="values.yaml"><code class="lang-yaml">gateway:
-     extraVolumes: |
-       - name: hazelcast-config
-         configMap:
-           name: hazelcast-config
-     extraVolumeMounts: |
-       - name: hazelcast-config
-         mountPath: /opt/graviteeio-gateway/config/hazelcast.xml
-         subPath: hazelcast.xml
-   </code></pre>
+   {% code title="values.yaml" %}
+   ```yaml
+   gateway:
+        extraVolumes: |
+          - name: hazelcast-config
+            configMap:
+              name: hazelcast-config
+        extraVolumeMounts: |
+          - name: hazelcast-config
+            mountPath: /opt/graviteeio-gateway/config/hazelcast.xml
+            subPath: hazelcast.xml
+   ```
+   {% endcode %}
 4. Grant the API Gateway `ServiceAccount` the RBAC permissions it needs to list pods. The Kubernetes discovery plugin for Hazelcast calls the Kubernetes API to list pods. The API Gateway `ServiceAccount` therefore needs `pods`, `endpoints`, `nodes`, and `services` read permissions. The default role of the chart only includes `configmaps` and `secrets`. Append the Hazelcast rules with `apim.roleRules`:
 
-   <pre class="language-yaml" data-title="values.yaml"><code class="lang-yaml">apim:
-     roleRules:
-       # Default chart rules — keep these.
-       - apiGroups: [""]
-         resources: [configmaps, secrets]
-         verbs: [get, list, watch]
-       # Required for Hazelcast Kubernetes auto-discovery.
-       - apiGroups: [""]
-         resources: [pods, endpoints, nodes, services]
-         verbs: [get, list]
-   </code></pre>
+   {% code title="values.yaml" %}
+   ```yaml
+   apim:
+        roleRules:
+          # Default chart rules — keep these.
+          - apiGroups: [""]
+            resources: [configmaps, secrets]
+            verbs: [get, list, watch]
+          # Required for Hazelcast Kubernetes auto-discovery.
+          - apiGroups: [""]
+            resources: [pods, endpoints, nodes, services]
+            verbs: [get, list]
+   ```
+   {% endcode %}
 
    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>Without these RBAC rules, the Hazelcast plugin starts but fails to discover peers. You see <code>Forbidden: cannot list resource "pods"</code> in the gateway logs, and the second API Gateway never joins the cluster.</p></div>
 5. Enable clustering and distributed sync by setting the following configuration in your `values.yaml` file:
 
    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>Do not enable <code>services.sync.kubernetes.enabled</code> unless you are running the Gravitee Kubernetes Operator (GKO). That property turns on a parallel sync source that reads API definitions from Kubernetes <code>ConfigMap</code>s, not a "use Kubernetes in distributed-sync mode" switch.</p></div>
 
-   <pre class="language-yaml" data-title="values.yaml"><code class="lang-yaml">gateway:
-     replicaCount: 2
-     sharding_tags: external   # one tag set per Helm release; cluster-name defaults to &lt;release&gt;-external
-     autoscaling:
-       enabled: false
-
-     cluster:
-       type: hazelcast
-       # hazelcast.xml is rendered by the chart; optional override:
-       # hazelcast:
-       #   clusterName: my-release-external
-
-     distributedSync:
-       enabled: true
-       type: redis
-       redis:
-         host: redis
-         port: 6379
-         # password:                  # if Redis requires auth
-         # ssl: false
-         # trustAll: true
-         # tlsProtocols: TLSv1.2
-         # sentinel:                  # uncomment for Sentinel
-         #   master: redis-master
-         #   nodes:
-         #     - host: sentinel1
-         #       port: 26379
-
-     services:
-       sync:
-         repository:
-           enabled: true
-         distributed:
-           enabled: true
-         # Do NOT enable services.sync.kubernetes.enabled unless you are running
-         # the Gravitee Kubernetes Operator (GKO / dbLess mode). It is unrelated to
-         # distributed sync and is a frequent source of failing startup probes
-         # on secondary nodes — see the Troubleshooting section.
-   </code></pre>
+   {% code title="values.yaml" %}
+   ```yaml
+   gateway:
+        replicaCount: 2
+        sharding_tags: external   # one tag set per Helm release; cluster-name defaults to <release>-external
+        autoscaling:
+          enabled: false
+   
+        cluster:
+          type: hazelcast
+          # hazelcast.xml is rendered by the chart; optional override:
+          # hazelcast:
+          #   clusterName: my-release-external
+   
+        distributedSync:
+          enabled: true
+          type: redis
+          redis:
+            host: redis
+            port: 6379
+            # password:                  # if Redis requires auth
+            # ssl: false
+            # trustAll: true
+            # tlsProtocols: TLSv1.2
+            # sentinel:                  # uncomment for Sentinel
+            #   master: redis-master
+            #   nodes:
+            #     - host: sentinel1
+            #       port: 26379
+   
+        services:
+          sync:
+            repository:
+              enabled: true
+            distributed:
+              enabled: true
+            # Do NOT enable services.sync.kubernetes.enabled unless you are running
+            # the Gravitee Kubernetes Operator (GKO / dbLess mode). It is unrelated to
+            # distributed sync and is a frequent source of failing startup probes
+            # on secondary nodes — see the Troubleshooting section.
+   ```
+   {% endcode %}
 6. Mount your Enterprise license, and then create the secret using the following configurations:
 
-   <pre class="language-yaml" data-title="values.yaml"><code class="lang-yaml">license:
-     name: licensekey-apim   # K8s secret name holding key 'licensekey'
-   </code></pre>
+   {% code title="values.yaml" %}
+   ```yaml
+   license:
+        name: licensekey-apim   # K8s secret name holding key 'licensekey'
+   ```
+   {% endcode %}
 
    ```bash
    kubectl -n gravitee-apim create secret generic licensekey-apim \
@@ -242,90 +266,93 @@ If `gateway.sharding_tags` or `gateway.cluster.hazelcast.clusterName` change, tr
 
    Review the following full `values.yaml` example:
 
-   <pre class="language-yaml" data-title="values.yaml"><code class="lang-yaml">extraObjects:
-     - apiVersion: v1
-       kind: ConfigMap
-       metadata:
-         name: hazelcast-config
-       data:
-         hazelcast.xml: |
-           &#x3C;?xml version="1.0" encoding="UTF-8"?>
-           &#x3C;hazelcast xmlns="[http://www.hazelcast.com/schema/config](http://www.hazelcast.com/schema/config)"
-                      xmlns:xsi="[http://www.w3.org/2001/XMLSchema-instance](http://www.w3.org/2001/XMLSchema-instance)"
-                      xsi:schemaLocation="[http://www.hazelcast.com/schema/config](http://www.hazelcast.com/schema/config)
-                      [http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd](http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd)">
-               &#x3C;cluster-name>gio-apim-cluster&#x3C;/cluster-name>
-               &#x3C;properties>
-                   &#x3C;property name="hazelcast.logging.type">slf4j&#x3C;/property>
-                   &#x3C;property name="hazelcast.max.wait.seconds.before.join">20&#x3C;/property>
-                   &#x3C;property name="hazelcast.member.list.publish.interval.seconds">10&#x3C;/property>
-                   &#x3C;property name="hazelcast.socket.client.bind.any">false&#x3C;/property>
-                   &#x3C;property name="hazelcast.max.no.heartbeat.seconds">20&#x3C;/property>
-               &#x3C;/properties>
-               &#x3C;network>
-                   &#x3C;port auto-increment="false">5701&#x3C;/port>
-                   &#x3C;join>
-                       &#x3C;multicast enabled="false"/>
-                       &#x3C;tcp-ip enabled="false"/>
-                       &#x3C;kubernetes enabled="true">
-                           &#x3C;namespace>gravitee-apim&#x3C;/namespace>
-                           &#x3C;pod-label-name>app.kubernetes.io/component&#x3C;/pod-label-name>
-                           &#x3C;pod-label-value>gateway&#x3C;/pod-label-value>
-                           &#x3C;service-port>5701&#x3C;/service-port>
-                       &#x3C;/kubernetes>
-                   &#x3C;/join>
-               &#x3C;/network>
-           &#x3C;/hazelcast>
-
-   apim:
-     roleRules:
-       - apiGroups: [""]
-         resources: [configmaps, secrets]
-         verbs: [get, list, watch]
-       - apiGroups: [""]
-         resources: [pods, endpoints, nodes, services]
-         verbs: [get, list]
-
-   license:
-     name: licensekey-apim
-
-   gateway:
-     enabled: true
-     replicaCount: 2
-     autoscaling:
-       enabled: false
-
-     additionalPlugins:
-       - [https://repo1.maven.org/maven2/io/gravitee/node/gravitee-node-cluster-plugin-hazelcast/7.26.3/gravitee-node-cluster-plugin-hazelcast-7.26.3.zip](https://repo1.maven.org/maven2/io/gravitee/node/gravitee-node-cluster-plugin-hazelcast/7.26.3/gravitee-node-cluster-plugin-hazelcast-7.26.3.zip)
-
-     cluster:
-       type: hazelcast
-       hazelcast:
-         configPath: /opt/graviteeio-gateway/config/hazelcast.xml
-
-     distributedSync:
-       enabled: true
-       type: redis
-       redis:
-         host: redis-stack
-         port: 6379
-
-     services:
-       sync:
-         repository:
-           enabled: true
-         distributed:
-           enabled: true
-
-     extraVolumes: |
-       - name: hazelcast-config
-         configMap:
-           name: hazelcast-config
-     extraVolumeMounts: |
-       - name: hazelcast-config
-         mountPath: /opt/graviteeio-gateway/config/hazelcast.xml
-         subPath: hazelcast.xml
-   </code></pre>
+   {% code title="values.yaml" %}
+   ```yaml
+   extraObjects:
+        - apiVersion: v1
+          kind: ConfigMap
+          metadata:
+            name: hazelcast-config
+          data:
+            hazelcast.xml: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <hazelcast xmlns="http://www.hazelcast.com/schema/config"
+                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                         xsi:schemaLocation="http://www.hazelcast.com/schema/config
+                         http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd">
+                  <cluster-name>gio-apim-cluster</cluster-name>
+                  <properties>
+                      <property name="hazelcast.logging.type">slf4j</property>
+                      <property name="hazelcast.max.wait.seconds.before.join">20</property>
+                      <property name="hazelcast.member.list.publish.interval.seconds">10</property>
+                      <property name="hazelcast.socket.client.bind.any">false</property>
+                      <property name="hazelcast.max.no.heartbeat.seconds">20</property>
+                  </properties>
+                  <network>
+                      <port auto-increment="false">5701</port>
+                      <join>
+                          <multicast enabled="false"/>
+                          <tcp-ip enabled="false"/>
+                          <kubernetes enabled="true">
+                              <namespace>gravitee-apim</namespace>
+                              <pod-label-name>app.kubernetes.io/component</pod-label-name>
+                              <pod-label-value>gateway</pod-label-value>
+                              <service-port>5701</service-port>
+                          </kubernetes>
+                      </join>
+                  </network>
+              </hazelcast>
+   
+      apim:
+        roleRules:
+          - apiGroups: [""]
+            resources: [configmaps, secrets]
+            verbs: [get, list, watch]
+          - apiGroups: [""]
+            resources: [pods, endpoints, nodes, services]
+            verbs: [get, list]
+   
+      license:
+        name: licensekey-apim
+   
+      gateway:
+        enabled: true
+        replicaCount: 2
+        autoscaling:
+          enabled: false
+   
+        additionalPlugins:
+          - https://repo1.maven.org/maven2/io/gravitee/node/gravitee-node-cluster-plugin-hazelcast/7.26.3/gravitee-node-cluster-plugin-hazelcast-7.26.3.zip
+   
+        cluster:
+          type: hazelcast
+          hazelcast:
+            configPath: /opt/graviteeio-gateway/config/hazelcast.xml
+   
+        distributedSync:
+          enabled: true
+          type: redis
+          redis:
+            host: redis-stack
+            port: 6379
+   
+        services:
+          sync:
+            repository:
+              enabled: true
+            distributed:
+              enabled: true
+   
+        extraVolumes: |
+          - name: hazelcast-config
+            configMap:
+              name: hazelcast-config
+        extraVolumeMounts: |
+          - name: hazelcast-config
+            mountPath: /opt/graviteeio-gateway/config/hazelcast.xml
+            subPath: hazelcast.xml
+   ```
+   {% endcode %}
 
 ## Verification&#x20;
 
