@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.41 - June 26, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* MAPI doesn't start when HTTP idp is invalid [#11561](https://github.com/gravitee-io/issues/issues/11561)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.40 - June 16, 2026
 
 <details>
