@@ -20,6 +20,21 @@ A standard Redis deployment without the Search module appears to connect success
 * Deploy a fully Self-Hosted Installation or a Hybrid Installation of APIM. For more information about self-hosted installation, see [Self-Hosted Installation Guides](/apim/4.10/self-hosted-installation-guides.md) or [Hybrid Installation & Configuration Guides](/apim/4.10/hybrid-installation-and-configuration-guides.md).
 * Deploy at least two API Gateway replicas. Distributed sync works only when `gateway.replicaCount` is greater than or equal to 2, and `gateway.autoscaling.enabled` is `false`, because the Helm chart only honors `replicaCount` when the HPA is disabled.
 
+## Cluster-scoped Redis and Hazelcast cluster naming
+
+From APIM 4.12, distributed sync keys in Redis are scoped by **cluster ID** (the Hazelcast `cluster-name`). When several gateway groups share one Redis instance—for example, `external` and `internal` gateway hosts—each group must use a **different** `<cluster-name>` in `hazelcast-cluster.xml`.
+
+| Gateway group | Example `cluster-name` | Redis key prefix |
+|:--------------|:-----------------------|:-----------------|
+| External gateways | `gio-apim-external` | `distributed_event:gio-apim-external:...` |
+| Internal gateways | `gio-apim-internal` | `distributed_event:gio-apim-internal:...` |
+
+If you change `cluster-name` or sharding tags, delete stale `distributed_event:*` and `distributed_sync_state:*` keys for the old cluster ID in Redis.
+
+{% hint style="warning" %}
+**Deployment constraints:** Start with one gateway instance per group, wait for the primary to sync, then add peers one at a time. During upgrades, replace gateways sequentially so the primary populates Redis before secondaries join.
+{% endhint %}
+
 ## Enable Distributed sync
 
 To configure Distributed sync with Redis, complete the following steps:
@@ -32,37 +47,47 @@ To configure Distributed sync with Redis, complete the following steps:
 
 1. In your `gravitee.yml` file, navigate to the `cluster` section, and then add the following configuration:
 
-   <pre class="language-yaml" data-title="gravitee.yml"><code class="lang-yaml">cluster:
-       type: hazelcast
-   </code></pre>
+   {% code title="gravitee.yml" %}
+   ```yaml
+   cluster:
+          type: hazelcast
+   ```
+   {% endcode %}
 2. In the `${gravitee.home}/config/hazelcast-cluster.xml` file, add the following configuration:
 
-   <pre class="language-xml" data-title="hazelcast-cluster.xml"><code class="lang-xml">&#x3C;hazelcast xmlns="[http://www.hazelcast.com/schema/config](http://www.hazelcast.com/schema/config)"
-              xmlns:xsi="[http://www.w3.org/2001/XMLSchema-instance](http://www.w3.org/2001/XMLSchema-instance)"
-              xsi:schemaLocation="[http://www.hazelcast.com/schema/config](http://www.hazelcast.com/schema/config)
-              [http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd](http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd)">
-
-       &#x3C;cluster-name>gio-apim-cluster&#x3C;/cluster-name>
-       &#x3C;network>
-           &#x3C;port auto-increment="true" port-count="100">5701&#x3C;/port>
-           &#x3C;join>
-               &#x3C;auto-detection enabled="true"/>
-               &#x3C;multicast enabled="false"/>
-               &#x3C;tcp-ip enabled="true">
-                   &#x3C;member>&#x3C;gateway_client>&#x3C;/member>
-                   &#x3C;member>&#x3C;gateway_client_2>&#x3C;/member>
-                   &#x3C;member>&#x3C;gateway_server>&#x3C;/member>
-               &#x3C;/tcp-ip>
-           &#x3C;/join>
-       &#x3C;/network>
-   &#x3C;/hazelcast>
-   </code></pre>
+   {% code title="hazelcast-cluster.xml" %}
+   ```xml
+   <hazelcast xmlns="http://www.hazelcast.com/schema/config"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://www.hazelcast.com/schema/config
+                 http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd">
+   
+          <cluster-name>gio-apim-external</cluster-name>
+          <network>
+              <port auto-increment="true" port-count="100">5701</port>
+              <join>
+                  <auto-detection enabled="true"/>
+                  <multicast enabled="false"/>
+                  <tcp-ip enabled="true">
+                      <member><gateway_client></member>
+                      <member><gateway_client_2></member>
+                      <member><gateway_server></member>
+                  </tcp-ip>
+              </join>
+          </network>
+      </hazelcast>
+   ```
+   {% endcode %}
 
    Use the following values to replace the variables:
 
    * `<gateway_client>`. Replace this with the name of your first API Gateway.
    * `<gateway_client_2>`. Replace this with the name of your second API Gateway.
    * `<gateway_server>`. Replace this with the name of your third API Gateway.
+
+   {% hint style="info" %}
+   All gateways in the **same** sharding-tag group must share the **same** `cluster-name`. Gateways in a **different** group (for example, internal vs external) that share Redis must use a **different** `cluster-name`.
+   {% endhint %}
 
 ### Configure your Redis Repository
 
@@ -78,66 +103,80 @@ To enable your distributed sync repository, enable the Search module on your Red
 
 1. In your Docker Compose file, navigate to the `distributed-sync` section, and then add the following configuration:
 
-   <pre class="language-yaml" data-title="docker-compose.yml"><code class="lang-yaml">distributed-sync:
-    type: redis
-    redis:
-      # Redis Standalone settings
-      host: localhost
-      port: 6379
-      password:
-      # Redis Sentinel settings
-      sentinel:
-        master: redis-master
-        nodes:
-          - host: sentinel1
-            port: 26379
-          - host: sentinel2
-            port: 26379
-      # SSL settings
-      ssl: false
-      trustAll: true # default value is true to keep backward compatibility but you should set it to false and configure a truststore for security concerns
-      tlsProtocols: # List of TLS protocols to allow comma separated i.e: TLSv1.2, TLSv1.3
-      tlsCiphers: # List of TLS ciphers to allow comma separated i.e: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-      alpn: false
-      openssl: false # Used to rely on OpenSSL Engine instead of default JDK SSL Engine
-      # Keystore for redis mTLS (client certificate)
-      keystore:
-        type: pem # Supports jks, pem, pkcs12
-        path: ${gravitee.home}/security/redis-keystore.jks # A path is required if certificate's type is jks or pkcs12
-        password: secret
-        keyPassword:
-        alias:
-        certificates: # Certificates are required if keystore's type is pem
-          - cert: ${gravitee.home}/security/redis-mycompany.org.pem
-        key: ${gravitee.home}/security/redis-mycompany.org.key
-          - cert: ${gravitee.home}/security/redis-mycompany.com.pem
-        key: ${gravitee.home}/security/redis-mycompany.com.key
-      truststore:
-        type: pem # Supports jks, pem, pkcs12
-        path: ${gravitee.home}/security/redis-truststore.jks
-        password: secret
-        alias:
-   </code></pre>
+   {% code title="docker-compose.yml" %}
+   ```yaml
+   distributed-sync:
+       type: redis
+       redis:
+         # Redis Standalone settings
+         host: localhost
+         port: 6379
+         password:
+         # Redis Sentinel settings
+         sentinel:
+           master: redis-master
+           nodes:
+             - host: sentinel1
+               port: 26379
+             - host: sentinel2
+               port: 26379
+         # SSL settings
+         ssl: false
+         trustAll: true # default value is true to keep backward compatibility but you should set it to false and configure a truststore for security concerns
+         tlsProtocols: # List of TLS protocols to allow comma separated i.e: TLSv1.2, TLSv1.3
+         tlsCiphers: # List of TLS ciphers to allow comma separated i.e: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+         alpn: false
+         openssl: false # Used to rely on OpenSSL Engine instead of default JDK SSL Engine
+         # Keystore for redis mTLS (client certificate)
+         keystore:
+           type: pem # Supports jks, pem, pkcs12
+           path: ${gravitee.home}/security/redis-keystore.jks # A path is required if certificate's type is jks or pkcs12
+           password: secret
+           keyPassword:
+           alias:
+           certificates: # Certificates are required if keystore's type is pem
+             - cert: ${gravitee.home}/security/redis-mycompany.org.pem
+           key: ${gravitee.home}/security/redis-mycompany.org.key
+             - cert: ${gravitee.home}/security/redis-mycompany.com.pem
+           key: ${gravitee.home}/security/redis-mycompany.com.key
+         truststore:
+           type: pem # Supports jks, pem, pkcs12
+           path: ${gravitee.home}/security/redis-truststore.jks
+           password: secret
+           alias:
+   ```
+   {% endcode %}
 2. In the `services` section, add the following configuration:
 
-   <pre class="language-yaml" data-title="docker-compose.yml"><code class="lang-yaml">services:
-     # Synchronization daemon used to keep the gateway state in sync with the configuration from the management repository
-     # Be aware that, by disabling it, the gateway will not be sync with the configuration done through management API
-     # and management UI
-     sync:
-       # Synchronization is done each 5 seconds
-       delay: 5000
-       unit: MILLISECONDS
-       repository:
-         enabled : true
-       distributed:
-         enabled : true # By enabling this mode, data synchronization process is distributed over clustered API gateways. You must configure distributed-sync repository.
-       bulk_items: 100 # Defines the number of items to retrieve during synchronization (events, plans, API Keys, ...).
-   </code></pre>
+   {% code title="docker-compose.yml" %}
+   ```yaml
+   services:
+        # Synchronization daemon used to keep the gateway state in sync with the configuration from the management repository
+        # Be aware that, by disabling it, the gateway will not be sync with the configuration done through management API
+        # and management UI
+        sync:
+          # Synchronization is done each 5 seconds
+          delay: 5000
+          unit: MILLISECONDS
+          repository:
+            enabled : true
+          distributed:
+            enabled : true # By enabling this mode, data synchronization process is distributed over clustered API gateways. You must configure distributed-sync repository.
+          bulk_items: 100 # Defines the number of items to retrieve during synchronization (events, plans, API Keys, ...).
+   ```
+   {% endcode %}
 3. Start the API Gateway using the following command:
 
    ```bash
    docker compose up -d
+   ```
+
+4. (Optional) Verify cluster-scoped keys in Redis:
+
+   ```bash
+   redis-cli KEYS 'distributed_sync_state:*'
+   redis-cli KEYS 'distributed_event:*' | head
+   # Expect prefixes matching your cluster-name, e.g. distributed_event:gio-apim-external:...
    ```
 
 ## Verification
