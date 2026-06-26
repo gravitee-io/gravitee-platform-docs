@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.11.x
 
+## Gravitee Access Management 4.11.10 - June 26, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* User search error trying to use equality filters SCIM 2.0 query syntax (filterCriteriaParser) [#11564](https://github.com/gravitee-io/issues/issues/11564)
+
+</details>
+
+
 ## Gravitee Access Management 4.11.9 - June 19, 2026
 
 <details>
