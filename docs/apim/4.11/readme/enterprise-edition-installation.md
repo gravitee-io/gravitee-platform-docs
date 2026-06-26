@@ -29,9 +29,9 @@ AE isn't part of the Community Edition. It's an exclusive Enterprise feature and
 To perform a new EE installation:
 
 1. Download the full bundles of the desired products (APIM, AM, AE) from [the Gravitee platform downloads page](https://www.gravitee.io/downloads).
-2. Install the relevant product bundles by following the [APIM](https://documentation.gravitee.io/apim/getting-started) and [AM](https://documentation.gravitee.io/am/getting-started/install-and-upgrade-guides) installation guides.
+2. Install the relevant product bundles by following the [APIM](../getting-started/README.md) and [AM](https://documentation.gravitee.io/am/getting-started/install-and-upgrade-guides) installation guides.
 3. Download and install the desired EE modules.
-   1. To install AE, consult the Alert Engine section on the [Gravitee downloads page](https://www.gravitee.io/downloads) and follow the [AE](https://documentation.gravitee.io/ae/getting-started/install-and-upgrade-guides) installation guide.
+   1. To install AE, consult the Alert Engine section on the [Gravitee downloads page](https://www.gravitee.io/downloads) and follow the [AE](../alert-engine/getting-started/install-and-upgrade-guides/README.md) installation guide.
    2. EE plugins are installed from their respective repositories in GitHub. Gravitee's EE plugin repositories are private and their names are prefixed as `gravitee-io/gravitee-policy-<plugin-name>`. For example, the Data Logging Masking policy repository is at `https://github.com/gravitee-io/gravitee-policy-data-logging-masking`. To request access to private EE plugin repositories, email [contact@graviteesource.com](mailto:contact@graviteesource.com) if you haven't been granted access already as part of your EE license request process.
 4. Request an EE license by emailing [contact@graviteesource.com](mailto:contact@graviteesource.com).
 5. [Apply the EE license](enterprise-edition-licensing.md#apply-an-ee-license) to the relevant existing product instances.

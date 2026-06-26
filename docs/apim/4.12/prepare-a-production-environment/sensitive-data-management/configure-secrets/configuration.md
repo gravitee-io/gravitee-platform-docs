@@ -14,9 +14,9 @@ This section explains how to configure secret managers to reference secrets in G
 Secrets manager integrations are handled by `secret-provider` plugins. These plugins allow you to access 3rd-party secret managers to resolve secrets.
 
 {% hint style="info" %}
-To learn more about Gravitee [Enterprise Edition](../../../readme/enterprise-edition.md) and what's included in various enterprise packages:
+To learn more about Gravitee [Enterprise Edition](../../../introduction/enterprise-edition.md) and what's included in various enterprise packages:
 
-* [Book a demo](https://documentation.gravitee.io/apim/)
+* [Book a demo](../../../README.md)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 
@@ -78,7 +78,7 @@ This plugin enables all possible options to access Vault's K/V engine. It can ma
 * Token
 * Userpass
 * App Role
-* Github
+* GitHub
 * Certificate (mTLS)
 * Kubernetes (short and long lived tokens)
 
@@ -292,6 +292,117 @@ Here are more options that can be used to configure your AWS secret manager:
 {% hint style="info" %}
 The `secret://aws/<path>:<key>` URI syntax shown on this page applies to `gravitee.yml`, Helm `values.yaml`, and environment variables only. To reference an AWS Secrets Manager value from inside a v4 API definition, for example, in an endpoint's SSL or mTLS configuration, request headers, URL, or authentication credentials, use the `{#secrets.get('/aws/<path>:<key>')}` Gravitee Expression Language syntax instead. For details, see reference-secrets-in-apis.md.
 {% endhint %}
+
+### Azure Key Vault
+
+The Azure Key Vault secret provider plugin enables integration with Azure Key Vault for secret management. The plugin supports multiple authentication providers to accommodate different deployment scenarios.
+
+{% hint style="info" %}
+The Azure Key Vault Secret Provider is a paid plugin available in Gravitee API Management and Access Management 4.11.x or later. Plugin version 1.0.0 or later is required.
+{% endhint %}
+
+#### Prerequisites
+
+Before configuring the Azure Key Vault Secret Provider, ensure the following requirements are met:
+
+* Azure Key Vault instance with JSON formatted secrets configured
+* Azure AD tenant and appropriate credentials based on the selected authentication provider:
+  * **Client Secret.** Azure AD app registration with a client secret.
+  * **Certificate.** Azure AD app registration with a client certificate in PEM format.
+  * **Default Azure Credentials.** The SDK tries to find configured credentials on the host.
+  * **Managed Identity.** Azure VM, App Service, or AKS with a system-assigned or user-assigned managed identity.
+  * **Workload Identity.** Kubernetes cluster with workload identity federation configured and a federated token file mounted, currently in beta.
+  * **Environment.** The `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables must be set on the Gravitee host.
+
+#### Global secret provider configuration
+
+Configure the Azure Key Vault secret provider in `gravitee.yml` to make secrets available across all APIs and applications. The following table describes the available configuration properties:
+
+| Property | Description | Example |
+|----------|-------------|---------|
+| `secrets.azure-keyvault.enabled` | Enable or disable the plugin. | `true` |
+| `secrets.azure-keyvault.vaultUrl` | Azure Key Vault URL. Required when enabled. | `https://my-vault.vault.azure.net` |
+| `secrets.azure-keyvault.auth.provider` | Authentication provider. Required when enabled. | `CLIENT_SECRET`, `CERTIFICATE`, `DEFAULT_AZURE_CREDENTIAL`, `MANAGED_IDENTITY`, `ENVIRONMENT`, `WORKLOAD_IDENTITY` |
+| `secrets.azure-keyvault.auth.tenantId` | Azure AD tenant ID. Required for `CLIENT_SECRET` and `CERTIFICATE`. Optional for `WORKLOAD_IDENTITY`. | `my-tenant-id` |
+| `secrets.azure-keyvault.auth.clientId` | App registration client ID. Required for `CLIENT_SECRET` and `CERTIFICATE`. For `MANAGED_IDENTITY` and `DEFAULT_AZURE_CREDENTIAL`, used as the user-assigned managed identity client ID when `auth.managedIdentityClientId` is unset. Optional for `WORKLOAD_IDENTITY`. | `my-client-id` |
+| `secrets.azure-keyvault.auth.clientSecret` | Client secret. Required for `CLIENT_SECRET`. | `my-client-secret` |
+| `secrets.azure-keyvault.auth.certificateFile` | Path to PEM certificate. Required for `CERTIFICATE`. | `/path/to/cert.pem` |
+| `secrets.azure-keyvault.auth.managedIdentityClientId` | User-assigned managed identity client ID. | `mi-client-id` |
+| `secrets.azure-keyvault.auth.managedIdentityResourceId` | User-assigned managed identity ARM resource ID. Mutually exclusive with client ID and object ID at runtime. | `/subscriptions/.../resourceGroups/.../providers/Microsoft.ManagedIdentity/userAssignedIdentities/...` |
+| `secrets.azure-keyvault.auth.managedIdentityObjectId` | User-assigned managed identity object ID. Used when resource ID and client ID are unset. | `mi-object-id` |
+| `secrets.azure-keyvault.auth.workloadIdentityTokenFile` | Federated token file path. Defaults to the `AZURE_FEDERATED_TOKEN_FILE` environment variable when unset. | `/var/run/secrets/azure/tokens/azure-identity-token` |
+| `secrets.azure-keyvault.ssl.verify` | Verify TLS server certificates. Set to `false` only for local testing. | `true` |
+| `secrets.azure-keyvault.ssl.pemFile` | PEM file with custom CA certificates for TLS trust. | `/path/to/ca-bundle.pem` |
+
+The following example shows a `gravitee.yml` configuration using Client Secret authentication:
+
+{% code title="gravitee.yml" %}
+```yaml
+secrets:
+  azure-keyvault:
+    enabled: true
+    vaultUrl: https://my-vault.vault.azure.net
+    auth:
+      provider: CLIENT_SECRET
+      tenantId: my-tenant-id
+      clientId: my-client-id
+      clientSecret: my-client-secret
+```
+{% endcode %}
+
+The following example shows a `gravitee.yml` configuration using Managed Identity authentication:
+
+{% code title="gravitee.yml" %}
+```yaml
+secrets:
+  azure-keyvault:
+    enabled: true
+    vaultUrl: https://my-vault.vault.azure.net
+    auth:
+      provider: MANAGED_IDENTITY
+      managedIdentityClientId: mi-client-id
+```
+{% endcode %}
+
+#### API-level secret provider configuration
+
+APIs can override the global secret provider configuration or define their own Azure Key Vault connection. API-level configuration follows the same property structure as global configuration. The following example shows a `gravitee.yml` API-level configuration override:
+
+{% code title="gravitee.yml" %}
+```yaml
+api:
+  secrets:
+    providers:
+      - plugin: azure-keyvault
+        configuration:
+          enabled: true
+          vaultUrl: https://api-specific-vault.vault.azure.net
+          auth:
+            provider: DEFAULT_AZURE_CREDENTIAL
+            tenantId: my-tenant-id
+            managedIdentityClientId: mi-client-id
+```
+{% endcode %}
+
+#### Managed identity identifier selection
+
+When using the **Managed Identity** provider, the Azure SDK accepts only one identifier, in this priority order: `auth.managedIdentityResourceId`, `auth.managedIdentityObjectId`, or `auth.managedIdentityClientId` / `auth.clientId`. Omit all identifiers to use the system-assigned managed identity. If you specify multiple identifiers, the SDK uses only the highest-priority value.
+
+#### Environment variables for environment provider
+
+The **Environment** provider reads credentials from the following environment variables on the Gravitee host:
+
+| Variable | Purpose |
+|----------|---------|
+| `AZURE_TENANT_ID` | Azure AD tenant ID |
+| `AZURE_CLIENT_ID` | App registration client ID |
+| `AZURE_CLIENT_SECRET` | Client secret |
+
+The **Workload Identity** provider reads the federated token file path from `AZURE_FEDERATED_TOKEN_FILE` when `auth.workloadIdentityTokenFile` is not set.
+
+#### SSL trust store behavior
+
+When `ssl.pemFile` is set, the plugin builds a custom trust store from that file and does **not** merge it with the JVM default trust store. Include the full certificate chain needed to validate the Azure Key Vault endpoint or any intermediate proxies. When `ssl.verify` is `false`, the plugin trusts all certificates regardless of the `ssl.pemFile` setting. Use this only for local test environments.
 
 ## Combine several secret managers
 

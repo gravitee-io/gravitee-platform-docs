@@ -12,7 +12,7 @@ metaLinks:
 Gravitee offers an [integration](../../../readme/integrations.md#secret-managers-integration) with secrets managers to obscure secrets in configuration files and environment variables. This page shows how to enable `secret-provider` plugins.
 
 {% hint style="info" %}
-Please refer to [Secret Provider Plugins Configuration](./) to learn how configure them in depth using `gravitee.yml` or environment variables, as well as how to set up hosts, authentication, SSL, retries, and other configurations.
+Please refer to [Secret Provider Plugins Configuration](README.md) to learn how configure them in depth using `gravitee.yml` or environment variables, as well as how to set up hosts, authentication, SSL, retries, and other configurations.
 {% endhint %}
 
 ## Prerequisites <a href="#resolving-secrets-in-configuration-files" id="resolving-secrets-in-configuration-files"></a>
@@ -88,6 +88,20 @@ ds:
 
 <mark style="color:yellow;">`password`</mark>: The desired `key` (optional in some cases, but not here).
 {% endtab %}
+
+{% tab title="Azure Key Vault" %}
+```yaml
+ds:
+  mongodb:
+    password: secret://azure-keyvault/gravitee-mongo:password
+```
+
+<mark style="color:green;">`gravitee-mongo`</mark>: The secret name in Azure Key Vault (required).
+
+<mark style="color:yellow;">`password`</mark>: The desired `key` (optional in some cases, but not here).
+
+`?keymap`: Maps custom JSON keys to well-known identifiers. For example, `?keymap=usr:username&keymap=pwd:password`.
+{% endtab %}
 {% endtabs %}
 
 ## Resolve secrets for TLS <a href="#resolving-secrets-for-tls" id="resolving-secrets-for-tls"></a>
@@ -119,7 +133,7 @@ To extract the certificate and private key and create a keystore to secure Gravi
 
 Here is an example:
 
-```
+```yaml
 secret://kubernetes/giotls?
   keymap=certificate:frontend-tls-cert&keymap=private_key:frontend-tls-priv-key
 ```

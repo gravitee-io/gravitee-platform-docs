@@ -194,7 +194,7 @@ Currently, the Agent to agent reuses the configuration model from the http-proxy
 
 <summary>Azure Service Bus</summary>
 
-→ [Full documentation](../../create-and-configure-apis/configure-v4-apis/endpoints/azure-service-bus.md)
+→ [Full documentation](../create-and-configure-apis/configure-v4-apis/endpoints/azure-service-bus.md)
 
 **Plugin ID**: `gravitee-endpoint-azure-service-bus`
 
@@ -298,7 +298,7 @@ In order to use this version, you have to declare the following identifier `asb`
 
 <summary>Kafka</summary>
 
-→ [Full documentation](../../create-and-configure-apis/configure-v4-apis/endpoints/kafka.md)
+→ [Full documentation](../create-and-configure-apis/configure-v4-apis/endpoints/kafka.md)
 
 **Plugin ID**: `gravitee-endpoint-kafka`
 
@@ -564,7 +564,7 @@ This endpoint has the dynamic configuration feature meaning that you can:
 
 <summary>MQTT5</summary>
 
-→ [Full documentation](../../create-and-configure-apis/configure-v4-apis/endpoints/mqtt5.md)
+→ [Full documentation](../create-and-configure-apis/configure-v4-apis/endpoints/mqtt5.md)
 
 **Plugin ID**: `gravitee-endpoint-mqtt5`
 
@@ -774,7 +774,7 @@ Here are some recommendations to increase stability when consuming messages with
 
 <summary>Rabbitmq</summary>
 
-→ [Full documentation](../../create-and-configure-apis/configure-v4-apis/endpoints/rabbitmq.md)
+→ [Full documentation](../create-and-configure-apis/configure-v4-apis/endpoints/rabbitmq.md)
 
 **Plugin ID**: `gravitee-endpoint-rabbitmq`
 
@@ -1048,7 +1048,7 @@ This endpoint has the dynamic configuration feature meaning that you can:
 
 <summary>Solace</summary>
 
-→ [Full documentation](../../create-and-configure-apis/configure-v4-apis/endpoints/solace.md)
+→ [Full documentation](../create-and-configure-apis/configure-v4-apis/endpoints/solace.md)
 
 **Plugin ID**: `gravitee-endpoint-solace`
 
@@ -1188,7 +1188,7 @@ In order to use this _Advanced_ version, you only have to declare the following 
 
 <summary>HTTP Get</summary>
 
-→ [Full documentation](../../create-and-configure-apis/configure-v4-apis/entrypoints/http-get.md)
+→ [Full documentation](../create-and-configure-apis/configure-v4-apis/entrypoints/http-get.md)
 
 **Plugin ID**: `gravitee-entrypoint-http-get`
 
@@ -1208,7 +1208,7 @@ In order to use this _Advanced_ version, you only have to declare the following 
 
 <summary>HTTP Post</summary>
 
-→ [Full documentation](../../create-and-configure-apis/configure-v4-apis/entrypoints/http-post.md)
+→ [Full documentation](../create-and-configure-apis/configure-v4-apis/entrypoints/http-post.md)
 
 **Plugin ID**: `gravitee-entrypoint-http-post`
 
@@ -1253,7 +1253,7 @@ TBD
 
 <summary>SSE</summary>
 
-→ [Full documentation](../../create-and-configure-apis/configure-v4-apis/entrypoints/server-sent-events.md)
+→ [Full documentation](../create-and-configure-apis/configure-v4-apis/entrypoints/server-sent-events.md)
 
 **Plugin ID**: `gravitee-entrypoint-sse`
 
@@ -1334,7 +1334,7 @@ _metadataAsComment_: Allow sending messages metadata to client as SSE comments. 
 
 <summary>Webhook</summary>
 
-→ [Full documentation](../../create-and-configure-apis/configure-v4-apis/entrypoints/webhook.md)
+→ [Full documentation](../create-and-configure-apis/configure-v4-apis/entrypoints/webhook.md)
 
 **Plugin ID**: `gravitee-entrypoint-webhook`
 
@@ -1565,7 +1565,7 @@ They describe what happened during the webhook call
 
 <summary>Websocket</summary>
 
-→ [Full documentation](../../create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md)
+→ [Full documentation](../create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md)
 
 **Plugin ID**: `gravitee-entrypoint-websocket`
 
@@ -1581,7 +1581,7 @@ They describe what happened during the webhook call
 
 <summary>Apigee</summary>
 
-→ [Full documentation](../../govern-apis/federation/3rd-party-providers/apigee-x.md)
+→ [Full documentation](../govern-apis/federation/3rd-party-providers/apigee-x.md)
 
 **Plugin ID**: `gravitee-federation-agent-apigee`
 
@@ -1717,7 +1717,7 @@ kubernetes:
 
 <summary>AWS API Gateway</summary>
 
-→ [Full documentation](../../govern-apis/federation/3rd-party-providers/aws-api-gateway/)
+→ [Full documentation](../govern-apis/federation/3rd-party-providers/aws-api-gateway/)
 
 **Plugin ID**: `gravitee-federation-agent-aws-api-gateway`
 
@@ -1996,7 +1996,7 @@ kubernetes:
 
 <summary>Azure API Management</summary>
 
-→ [Full documentation](../../govern-apis/federation/3rd-party-providers/azure-api-management.md)
+→ [Full documentation](../govern-apis/federation/3rd-party-providers/azure-api-management.md)
 
 **Plugin ID**: `gravitee-federation-agent-azure-api-management`
 
@@ -2082,7 +2082,7 @@ kubernetes:
 
 <summary>Confluent Platform</summary>
 
-→ [Full documentation](../../govern-apis/federation/3rd-party-providers/confluent-platform.md)
+→ [Full documentation](../govern-apis/federation/3rd-party-providers/confluent-platform.md)
 
 **Plugin ID**: `gravitee-federation-agent-confluent-platform`
 
@@ -2173,7 +2173,7 @@ kubernetes:
 
 <summary>Edge Stack</summary>
 
-→ [Full documentation](../../govern-apis/federation/3rd-party-providers/edge-stack.md)
+→ [Full documentation](../govern-apis/federation/3rd-party-providers/edge-stack.md)
 
 **Plugin ID**: `gravitee-federation-agent-edge-stack`
 
@@ -2292,7 +2292,7 @@ kubernetes:
 
 <summary>IBM API Connect</summary>
 
-→ [Full documentation](../../govern-apis/federation/3rd-party-providers/ibm-api-connect.md)
+→ [Full documentation](../govern-apis/federation/3rd-party-providers/ibm-api-connect.md)
 
 **Plugin ID**: `gravitee-federation-agent-ibm-api-connect`
 
@@ -2415,7 +2415,7 @@ kubernetes:
 
 <summary>Mulesoft</summary>
 
-→ [Full documentation](../../govern-apis/federation/3rd-party-providers/mulesoft-anypoint.md)
+→ [Full documentation](../govern-apis/federation/3rd-party-providers/mulesoft-anypoint.md)
 
 **Plugin ID**: `gravitee-federation-agent-mulesoft`
 
@@ -2524,7 +2524,7 @@ kubernetes:
 
 <summary>Solace</summary>
 
-→ [Full documentation](../../govern-apis/federation/3rd-party-providers/solace.md)
+→ [Full documentation](../govern-apis/federation/3rd-party-providers/solace.md)
 
 **Plugin ID**: `gravitee-federation-agent-solace`
 
@@ -2907,7 +2907,7 @@ The reactor is used to handle HTTP-based APIs dealing with messages.
 
 <summary>Secret Provider AWS</summary>
 
-→ [Full documentation](../../prepare-a-production-environment/sensitive-data-management/plugin-support.md)
+→ [Full documentation](../prepare-a-production-environment/sensitive-data-management/plugin-support.md)
 
 **Plugin ID**: `gravitee-secret-provider-aws`
 
@@ -2977,7 +2977,7 @@ api:
 
 <summary>Secret Provider HC Vault</summary>
 
-→ [Full documentation](../../prepare-a-production-environment/sensitive-data-management/plugin-support.md)
+→ [Full documentation](../prepare-a-production-environment/sensitive-data-management/plugin-support.md)
 
 **Plugin ID**: `gravitee-secret-provider-hc-vault`
 
@@ -3628,7 +3628,7 @@ license:
 
 <summary>Secret Provider Kubernetes</summary>
 
-→ [Full documentation](../../prepare-a-production-environment/sensitive-data-management/plugin-support.md)
+→ [Full documentation](../prepare-a-production-environment/sensitive-data-management/plugin-support.md)
 
 **Plugin ID**: `gravitee-secret-provider-kubernetes`
 
@@ -3666,7 +3666,7 @@ TODO provide link to documentation.gravitee.io
 
 <summary>AI Prompt Guard Rails</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/ai-prompt-guard-rails.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/ai-prompt-guard-rails.md)
 
 **Plugin ID**: `gravitee-policy-ai-prompt-guard-rails`
 
@@ -3974,7 +3974,7 @@ _Provide a custom sensitivity threshold for inappropriate prompts_
 
 <summary>AI Prompt Token Tracking</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/ai-prompt-token-tracking.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/ai-prompt-token-tracking.md)
 
 **Plugin ID**: `gravitee-policy-ai-prompt-token-tracking`
 
@@ -4336,7 +4336,7 @@ If no information was submitted, just answer you do not know.
 
 **License**
 
-This project is licensed under the [Apache License 2.0](LICENSE/).
+This project is licensed under the Apache License 2.0.
 
 </details>
 
@@ -4344,7 +4344,7 @@ This project is licensed under the [Apache License 2.0](LICENSE/).
 
 <summary>AI Semantic Caching</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md)
 
 **Plugin ID**: `gravitee-policy-ai-semantic-caching`
 
@@ -4618,7 +4618,7 @@ _TODO_
 
 <summary>API Key</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/api-key.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/api-key.md)
 
 **Plugin ID**: `gravitee-policy-apikey`
 
@@ -4691,7 +4691,7 @@ The error keys sent by this policy are as follows:
 
 <summary>Assign attributes</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/assign-attributes.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/assign-attributes.md)
 
 **Plugin ID**: `gravitee-policy-assign-attributes`
 
@@ -5014,7 +5014,7 @@ spec:
 
 <summary>Assign content</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/assign-content.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/assign-content.md)
 
 **Plugin ID**: `gravitee-policy-assign-content`
 
@@ -5129,7 +5129,7 @@ Expected output:
 
 <summary>Policy - Metrics Properties</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md)
 
 **Plugin ID**: `gravitee-policy-assign-metrics`
 
@@ -5196,7 +5196,7 @@ To display your request distribution based on a particular HTTP header in your d
 
 <summary>Policy - AWS Lambda</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/aws-lambda.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/aws-lambda.md)
 
 **Plugin ID**: `gravitee-policy-aws-lambda`
 
@@ -5339,7 +5339,7 @@ The error keys sent by this policy are as follows:
 
 <summary>Policy - Basic Authentication</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/basic-authentication.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/basic-authentication.md)
 
 **Plugin ID**: `gravitee-policy-basic-authentication`
 
@@ -5393,7 +5393,7 @@ The policy configuration is as follows:
 
 <summary>Caching</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/cache.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/cache.md)
 
 **Plugin ID**: `gravitee-policy-cache`
 
@@ -5495,7 +5495,7 @@ The default value is `text` but you can also use `binary` to use a binary serial
 
 <summary>Callout HTTP</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/http-callout.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/http-callout.md)
 
 **Plugin ID**: `gravitee-policy-callout-http`
 
@@ -5896,7 +5896,7 @@ This policy plugin only works in this version with certificate provided by HTTP 
 
 <summary>Policy - Circuit Breaker</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/circuit-breaker.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/circuit-breaker.md)
 
 **Plugin ID**: `gravitee-policy-circuit-breaker`
 
@@ -5960,7 +5960,7 @@ A new line to generate a new version
 
 <summary>Cloud Events</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/cloudevents.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/cloudevents.md)
 
 **Plugin ID**: `gravitee-policy-cloud-events`
 
@@ -6029,7 +6029,7 @@ Here you can document your ContentBasedRouting Gravitee Policy.
 
 <summary>Custom Query Parameters Parser</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/custom-query-parameters-parser.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/custom-query-parameters-parser.md)
 
 **Plugin ID**: `gravitee-policy-custom-query-parameters-parser`
 
@@ -6076,7 +6076,7 @@ Semicolon character (`;`) is not considered as a separator:
 
 <summary>Data Cache</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/data-cache.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/data-cache.md)
 
 **Plugin ID**: `gravitee-policy-data-cache`
 
@@ -6147,7 +6147,7 @@ With the provided default implementation, policy will fail if header `X-Template
 
 <summary>Data Logging Masking</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/data-logging-masking.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/data-logging-masking.md)
 
 **Plugin ID**: `gravitee-policy-data-logging-masking`
 
@@ -6568,7 +6568,7 @@ _Mask JSON response content_
 
 <summary>Dynamic Routing</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/dynamic-routing.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/dynamic-routing.md)
 
 **Plugin ID**: `gravitee-policy-dynamic-routing`
 
@@ -6659,7 +6659,7 @@ You can also select endpoints configured for your API by name using expression l
 
 <summary>Policies - Generate HTTP Signature</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/generate-http-signature.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/generate-http-signature.md)
 
 **Plugin ID**: `gravitee-policy-generate-http-signature`
 
@@ -6751,7 +6751,7 @@ Here are the error keys send by this policy:
 
 <summary>Generate JWT</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/generate-jwt.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/generate-jwt.md)
 
 **Plugin ID**: `gravitee-policy-generate-jwt`
 
@@ -6836,7 +6836,7 @@ You can read the token using Expression Language:
 
 <summary>GeoIP Filtering</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/geoip-filtering.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/geoip-filtering.md)
 
 **Plugin ID**: `gravitee-policy-geoip-filtering`
 
@@ -6950,7 +6950,7 @@ You can configure the policy with the following options:
 
 <summary>GraphQL Rate Limit</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/graphql-rate-limit.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/graphql-rate-limit.md)
 
 **Plugin ID**: `gravitee-policy-graphql-rate-limit`
 
@@ -7033,7 +7033,7 @@ The total cost for the above GraphQL query is: ((((4 \* 10 + 1) + 1) + 1) \* 20 
 
 <summary>Groovy script</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/4.9-groovy.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/4.9-groovy.md)
 
 **Plugin ID**: `gravitee-policy-groovy`
 
@@ -7633,7 +7633,7 @@ spec:
 
 <summary>HTML JSON</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/html-to-json.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/html-to-json.md)
 
 **Plugin ID**: `gravitee-policy-html-json`
 
@@ -7694,7 +7694,7 @@ You can configure the policy with the following options:
 
 <summary>HTTP Redirect</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/http-redirect.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/http-redirect.md)
 
 **Plugin ID**: `gravitee-policy-http-redirect`
 
@@ -7907,7 +7907,7 @@ spec:
 
 <summary>HTTP Signature</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/http-signature.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/http-signature.md)
 
 **Plugin ID**: `gravitee-policy-http-signature`
 
@@ -8006,7 +8006,7 @@ mvn -Dlicense.skip  clean package
 
 <summary>Interrupt</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/interrupt.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/interrupt.md)
 
 **Plugin ID**: `gravitee-policy-interrupt`
 
@@ -8078,7 +8078,7 @@ If you want to override this standard response from the policy, you can define a
 
 <summary>Filter request by IP based on blacklist or whitelist</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/ip-filtering.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/ip-filtering.md)
 
 **Plugin ID**: `gravitee-policy-ipfiltering`
 
@@ -8187,7 +8187,7 @@ policy:
 
 <summary>Javascript</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/javascript.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/javascript.md)
 
 **Plugin ID**: `gravitee-policy-javascript`
 
@@ -8907,7 +8907,7 @@ Co-authored-by: Michal Balinski [michal@incubly.com](mailto:michal@incubly.com)
 
 <summary>Js</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/javascript-policy-new-reference.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/javascript-policy-new-reference.md)
 
 **Plugin ID**: `gravitee-policy-js`
 
@@ -9506,7 +9506,7 @@ spec:
 
 <summary>JSON Threat Protection</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/json-threat-protection.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/json-threat-protection.md)
 
 **Plugin ID**: `gravitee-policy-json-threat-protection`
 
@@ -9658,7 +9658,7 @@ _Default configuration_
 
 <summary>JSON to JSON</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/json-to-json.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/json-to-json.md)
 
 **Plugin ID**: `gravitee-policy-json-to-json`
 
@@ -9934,7 +9934,7 @@ Strikethrough text indicates that a version is deprecated.
 
 <summary>JSON Validation</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/json-validation.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/json-validation.md)
 
 **Plugin ID**: `gravitee-policy-json-validation`
 
@@ -10012,7 +10012,7 @@ The policy sends the following error keys:
 
 <summary>JSON XML</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/json-to-xml.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/json-to-xml.md)
 
 **Plugin ID**: `gravitee-policy-json-xml`
 
@@ -10090,7 +10090,7 @@ To limit the processing time in case of nested object, a default max depth of ne
 
 <summary>JSON Web Signature</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/jws-validator.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/jws-validator.md)
 
 **Plugin ID**: `gravitee-policy-jws`
 
@@ -10209,7 +10209,7 @@ The gateway will be able to retrieve the corresponding public key and the JOSE H
 
 <summary>JSON Web Tokens</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/4.9-jwt-validator.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/4.9-jwt-validator.md)
 
 **Plugin ID**: `gravitee-policy-jwt`
 
@@ -10827,7 +10827,7 @@ policy:
 
 <summary>Kafka ACL</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/kafka-acl.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/kafka-acl.md)
 
 **Plugin ID**: `gravitee-policy-kafka-acl`
 
@@ -10946,7 +10946,7 @@ ApiKeys:
 
 <summary>Kafka Message Encryption/Decryption</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/kafka-message-encryption-decryption-policy-reference.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/kafka-message-encryption-decryption-policy-reference.md)
 
 **Plugin ID**: `gravitee-policy-kafka-message-encryption-decryption`
 
@@ -11414,7 +11414,7 @@ spec:
 
 <summary>Kafka Message Filtering</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/kafka-message-filtering.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/kafka-message-filtering.md)
 
 **Plugin ID**: `gravitee-policy-kafka-message-filtering`
 
@@ -11507,7 +11507,7 @@ The policy supports double-evaluation: if the `filter` expression resolves to a 
 
 <summary>Kafka Quota</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md)
 
 **Plugin ID**: `gravitee-policy-kafka-quota`
 
@@ -11559,7 +11559,7 @@ The Kafka Gateway requires an enterprise license of Gravitee, so you will need t
 
 <summary>Kafka Topic Mapping</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md)
 
 **Plugin ID**: `gravitee-policy-kafka-topic-mapping`
 
@@ -11677,7 +11677,7 @@ This policy supports the following https://kafka.apache.org/0101/protocol.html#p
 
 <summary>Kafka Transform Key</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/kafka-transform-key.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/kafka-transform-key.md)
 
 **Plugin ID**: `gravitee-policy-kafka-transform-key`
 
@@ -11722,7 +11722,7 @@ _No additional documentation available._
 
 <summary>APIM - Policy - Keyless</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/keyless.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/keyless.md)
 
 **Plugin ID**: `gravitee-policy-keyless`
 
@@ -11762,7 +11762,7 @@ This policy cannot fail as it does not carry out any validation.
 
 <summary>Latency</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/latency.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/latency.md)
 
 **Plugin ID**: `gravitee-policy-latency`
 
@@ -11855,7 +11855,7 @@ This policy is particularly useful in two scenarios:
 
 <summary>MCP ACL</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/ai-mcp-acl.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/ai-mcp-acl.md)
 
 **Plugin ID**: `gravitee-policy-mcp-acl`
 
@@ -12146,7 +12146,7 @@ _Configure the MCP ACL policy to allow only the `get_weather` tool to be listed 
 
 <summary>Message Filtering</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/message-filtering.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/message-filtering.md)
 
 **Plugin ID**: `gravitee-policy-message-filtering`
 
@@ -12204,7 +12204,7 @@ I will be able to filter any messages according to subscriptions metadata `produ
 
 <summary>APIM - Policy Metric Reporter</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/metrics-reporter.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/metrics-reporter.md)
 
 **Plugin ID**: `gravitee-policy-metrics-reporter`
 
@@ -12328,7 +12328,7 @@ Example:
 
 <summary>Mock</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/mock.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/mock.md)
 
 **Plugin ID**: `gravitee-policy-mock`
 
@@ -12607,7 +12607,7 @@ _Mock a JSON response on MCP Proxy API_
 
 <summary>mTLS</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/mtls.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/mtls.md)
 
 **Plugin ID**: `gravitee-policy-mtls`
 
@@ -12741,7 +12741,7 @@ Strikethrough text indicates that a version is deprecated.
 
 <summary>Native IP Filtering</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/native-ip-filtering.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/native-ip-filtering.md)
 
 **Plugin ID**: `gravitee-policy-native-ip-filtering`
 
@@ -13198,7 +13198,7 @@ spec:
 
 <summary>OAS Validation</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/oas-validation.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/oas-validation.md)
 
 **Plugin ID**: `gravitee-policy-oas-validation`
 
@@ -13264,7 +13264,7 @@ You can configure the policy with the following options:
 
 <summary>API Management - Policy - OAuth2</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/oauth2/)
+→ [Full documentation](../secure-and-expose-apis/plans/oauth2.md)
 
 **Plugin ID**: `gravitee-policy-oauth2`
 
@@ -13395,7 +13395,7 @@ The error keys sent by this policy are as follows:
 
 <summary>API Management - Policy - OpenID Connect UserInfo</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/openid-connect-userinfo.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/openid-connect-userinfo.md)
 
 **Plugin ID**: `gravitee-policy-openid-connect-userinfo`
 
@@ -13429,7 +13429,7 @@ Use the following options to configure the policy:
 
 <summary>API Management - Policy - Override HTTP method</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/override-http-method.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/override-http-method.md)
 
 **Plugin ID**: `gravitee-policy-override-http-method`
 
@@ -13476,7 +13476,7 @@ You can use the `override-http-method` policy to override the HTTP method provid
 
 <summary>PII Filtering</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/pii-filtering.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/pii-filtering.md)
 
 **Plugin ID**: `gravitee-policy-pii-filtering`
 
@@ -13818,7 +13818,7 @@ The output is as follows:
 
 <summary>Quota</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/rate-limit.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/rate-limit.md)
 
 **Plugin ID**: `gravitee-policy-quota`
 
@@ -14098,7 +14098,7 @@ The error keys sent by these policies are as follows:
 
 <summary>Rate Limit</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/rate-limit.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/rate-limit.md)
 
 **Plugin ID**: `gravitee-policy-ratelimit`
 
@@ -14378,7 +14378,7 @@ The error keys sent by these policies are as follows:
 
 <summary>Regex Threat Protection</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/regex-threat-protection.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/regex-threat-protection.md)
 
 **Plugin ID**: `gravitee-policy-regex-threat-protection`
 
@@ -14446,7 +14446,7 @@ The error keys sent by this policy are as follows:
 
 <summary>Request content size limit</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/request-content-limit.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/request-content-limit.md)
 
 **Plugin ID**: `gravitee-policy-request-content-limit`
 
@@ -14520,7 +14520,7 @@ The error keys sent by this policy are as follows:
 
 <summary>API Management - Policy - Request Validation</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/request-validation.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/request-validation.md)
 
 **Plugin ID**: `gravitee-policy-request-validation`
 
@@ -14614,7 +14614,7 @@ The error keys sent by this policy are as follows:
 
 <summary>Resource Filtering</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/resource-filtering.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/resource-filtering.md)
 
 **Plugin ID**: `gravitee-policy-resource-filtering`
 
@@ -14703,7 +14703,7 @@ The error keys sent by this policy are as follows:
 
 <summary>Rest to SOAP</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md)
 
 **Plugin ID**: `gravitee-policy-rest-to-soap`
 
@@ -14935,7 +14935,7 @@ _Proxy API on Request phase_
 
 <summary>Retry</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/retry.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/retry.md)
 
 **Plugin ID**: `gravitee-policy-retry`
 
@@ -15198,7 +15198,7 @@ _Returns the last attempt response, even if it's a failure_
 
 <summary>API Management - Policy - RBAC</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/role-based-access-control-rbac.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/role-based-access-control-rbac.md)
 
 **Plugin ID**: `gravitee-policy-role-based-access-control`
 
@@ -15288,7 +15288,7 @@ The error keys sent by this policy are as follows:
 
 <summary>Spike Arrest</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/rate-limit.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/rate-limit.md)
 
 **Plugin ID**: `gravitee-policy-spikearrest`
 
@@ -15568,7 +15568,7 @@ The error keys sent by these policies are as follows:
 
 <summary>SSL Enforcement</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/ssl-enforcement.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/ssl-enforcement.md)
 
 **Plugin ID**: `gravitee-policy-ssl-enforcement`
 
@@ -15668,7 +15668,7 @@ The error keys sent by this policy are as follows:
 
 <summary>Template</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/template.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/template.md)
 
 **Plugin ID**: `gravitee-policy-template`
 
@@ -15728,7 +15728,7 @@ With the provided default implementation, policy will fail if header `X-Template
 
 <summary>Token Rate Limit</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/ai-token-rate-limit.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/ai-token-rate-limit.md)
 
 **Plugin ID**: `gravitee-policy-token-ratelimit`
 
@@ -16026,7 +16026,7 @@ _Fallback pass through_
 
 <summary>Policy : Traffic Shadowing</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/traffic-shadowing.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/traffic-shadowing.md)
 
 **Plugin ID**: `gravitee-policy-traffic-shadowing`
 
@@ -16089,7 +16089,7 @@ Traffic shadowing allows to asynchronously copy the traffic to another service. 
 
 <summary>Transform Avro JSON</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/avro-to-json.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/avro-to-json.md)
 
 **Plugin ID**: `gravitee-policy-transform-avro-json`
 
@@ -16605,7 +16605,7 @@ Strikethrough text indicates that a version is deprecated.
 
 <summary>Transform Avro Protobuf</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/avro-to-protobuf.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/avro-to-protobuf.md)
 
 **Plugin ID**: `gravitee-policy-transform-avro-protobuf`
 
@@ -16713,7 +16713,7 @@ The policy is supporting the serialization formats:
 
 <summary>Transform Protobuf JSON</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/protobuf-to-json.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/protobuf-to-json.md)
 
 **Plugin ID**: `gravitee-policy-transform-protobuf-json`
 
@@ -16820,7 +16820,7 @@ The policy is supporting the serialization formats:
 
 <summary>Transform Status Code</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/status-code-transformation.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/status-code-transformation.md)
 
 **Plugin ID**: `gravitee-policy-transform-status-code`
 
@@ -16932,7 +16932,7 @@ By using the `status-code` policy, you can have finer control over the status co
 
 <summary>Policy : Transform Headers</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/transform-headers.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/transform-headers.md)
 
 **Plugin ID**: `gravitee-policy-transformheaders`
 
@@ -17531,7 +17531,7 @@ spec:
 
 <summary>Transform Query Parameters</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/transform-query-parameters.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/transform-query-parameters.md)
 
 **Plugin ID**: `gravitee-policy-transformqueryparams`
 
@@ -17677,7 +17677,7 @@ The query parameter values of the incoming request are accessible via the `{#req
 
 <summary>URL Rewriting</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/url-rewriting.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/url-rewriting.md)
 
 **Plugin ID**: `gravitee-policy-url-rewriting`
 
@@ -17900,7 +17900,7 @@ Here are the error keys sent by this policy:
 
 <summary>Policy - WS-Security Authentication</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/ws-security-authentication.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/ws-security-authentication.md)
 
 **Plugin ID**: `gravitee-policy-wssecurity-authentication`
 
@@ -17965,7 +17965,7 @@ The policy configuration is as follows:
 
 <summary>WS-Security Sign</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/ws-security-sign.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/ws-security-sign.md)
 
 **Plugin ID**: `gravitee-policy-wssecurity-sign`
 
@@ -18018,7 +18018,7 @@ The policy will fail under the following conditions:
 
 <summary>XML to JSON Transformation</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/xml-to-json.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/xml-to-json.md)
 
 **Plugin ID**: `gravitee-policy-xml-json`
 
@@ -18078,7 +18078,7 @@ To limit the processing time and memory consumption in case of nested object, a 
 
 <summary>XML Threat Protection</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/xml-threat-protection.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/xml-threat-protection.md)
 
 **Plugin ID**: `gravitee-policy-xml-threat-protection`
 
@@ -18154,7 +18154,7 @@ The error keys sent by this policy are as follows:
 
 <summary>Policy - XML Validation</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/xml-validation.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/xml-validation.md)
 
 **Plugin ID**: `gravitee-policy-xml-validation`
 
@@ -18201,7 +18201,7 @@ You can use the `xml-validation` policy to validate XML using an XSD schema. Thi
 
 <summary>XSLT Transformation</summary>
 
-→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/xslt.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/xslt.md)
 
 **Plugin ID**: `gravitee-policy-xslt`
 
@@ -18468,7 +18468,7 @@ In the worse case, a bulk of reports will be dropped after 6 retries and \~62s.
 
 <summary>Datadog</summary>
 
-→ [Full documentation](../../analyze-and-monitor-apis/reporters/datadog-reporter.md)
+→ [Full documentation](../analyze-and-monitor-apis/reporters/datadog-reporter.md)
 
 **Plugin ID**: `gravitee-reporter-datadog`
 
@@ -18680,7 +18680,7 @@ The id of the node is added as a tag using this syntax: `node.id:the_id_of_the_n
 
 <summary>Elasticsearch</summary>
 
-→ [Full documentation](../../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md)
+→ [Full documentation](../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md)
 
 **Plugin ID**: `gravitee-reporter-elasticsearch`
 
@@ -18741,7 +18741,7 @@ By default, unit tests are run with a TestContainer version of ElasticSearch 8.5
 
 <summary>Reporter - Accesslog</summary>
 
-→ [Full documentation](../../analyze-and-monitor-apis/reporters/file-reporter.md)
+→ [Full documentation](../analyze-and-monitor-apis/reporters/file-reporter.md)
 
 **Plugin ID**: `gravitee-reporter-file`
 
@@ -18894,7 +18894,7 @@ reporters:
 
 <summary>Reporter- TCP</summary>
 
-→ [Full documentation](../../analyze-and-monitor-apis/reporters/tcp-reporter.md)
+→ [Full documentation](../analyze-and-monitor-apis/reporters/tcp-reporter.md)
 
 **Plugin ID**: `gravitee-reporter-tcp`
 
@@ -21664,7 +21664,7 @@ Don't forget to activate the tracing service with:
 
 <summary>Tracer OpenTelemetry</summary>
 
-→ [Full documentation](../../analyze-and-monitor-apis/opentelemetry.md)
+→ [Full documentation](../analyze-and-monitor-apis/opentelemetry.md)
 
 **Plugin ID**: `gravitee-tracer-opentelemetry`
 

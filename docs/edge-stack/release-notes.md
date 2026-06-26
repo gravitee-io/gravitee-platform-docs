@@ -5,6 +5,24 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.14.0 (June 24, 2026) <a href="#id-3.14.0" id="id-3.14.0"></a>
+
+#### Upgrade to Envoy 1.37.4
+
+Ambassador Edge Stack is now built on Envoy v1.37.4, which includes security and stability fixes, including a patch for CVE-2026-49975. For more information, see [Envoy Proxy 1.37.4 Release Notes](https://www.envoyproxy.io/docs/envoy/v1.37.4/version_history/version_history).
+
+#### Upgrade Redis to 8.6.3
+
+The Redis instance shipped with Ambassador Edge Stack has been upgraded from 5.0.14 to 8.6.3, and the `go-redis` client library was updated to v9.20.0. This brings the bundled Redis up to a current, supported release with the associated security and stability fixes.
+
+#### Verbose rate limit logging
+
+Added an opt-in verbose logging mode for the rate limit service. When enabled, Ambassador Edge Stack emits a structured log line for each rate limit decision that summarizes the matched descriptors, the configured limit, the current consumption, and the time until reset. This makes it easier to debug why requests are being rate limited. The feature is disabled by default and can be enabled by setting the `AES_RATELIMIT_VERBOSE_LOGGING=true` environment variable.
+
+#### Option to disable annotation-based Mapping resources
+
+Added a new environment variable, `AMBASSADOR_DISABLE_ANNOTATION_MAPPINGS`, that prevents `Mapping` resources defined through `getambassador.io/config` annotations from being created. When set to `true`, annotation-based Mappings are no longer applied and an error is surfaced on the object in diagnostics, prompting you to migrate to the `Mapping` CRD. Other annotation-based resource types are unaffected. The variable defaults to `false`, so existing behavior is preserved unless you opt in.
+
 ### Version 3.13.2 (May 21, 2026) <a href="#id-3.13.2" id="id-3.13.2"></a>
 
 #### Upgrade to Envoy 1.37.1
@@ -365,7 +383,7 @@ Upgrading to the latest release of Golang as part of our general dependency upgr
 
 #### Ambassador Edge Stack will fail to run if a valid license is not present
 
-Ambassador Edge Stack will now require a valid non-expired license to run the product. If a valid license is not present or your clusters are not connected to and showing licensed in Ambassador Cloud, then Ambassador Edge Stack will refuse to startup. If you already have an enterprise license then you do not need to do anything so long as it is properly applied and not expired. Please view the [license documentation](ambassador-edge-stack-licenses.md) page for more information on your license. If you do not have an enterprise license for Ambassador Edge Stack then you can visit [the quickstart guide](./) to get setup with a free community license by signing into Ambassador Cloud and connecting your installation.
+Ambassador Edge Stack will now require a valid non-expired license to run the product. If a valid license is not present or your clusters are not connected to and showing licensed in Ambassador Cloud, then Ambassador Edge Stack will refuse to startup. If you already have an enterprise license then you do not need to do anything so long as it is properly applied and not expired. Please view the [license documentation](ambassador-edge-stack-licenses.md) page for more information on your license. If you do not have an enterprise license for Ambassador Edge Stack then you can visit [the quickstart guide](README.md) to get setup with a free community license by signing into Ambassador Cloud and connecting your installation.
 
 #### Account for matchLabels when associating mappings with the same prefix to different Hosts
 

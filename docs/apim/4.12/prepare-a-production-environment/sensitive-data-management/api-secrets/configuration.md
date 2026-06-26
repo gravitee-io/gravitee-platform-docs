@@ -20,9 +20,9 @@ Secret provider plugins extend the operable range of secret managers to resolve 
 This article explains the syntax Gravitee uses to resolve secrets in v4 APIs and configure secret managers.
 
 {% hint style="info" %}
-To learn more about Gravitee [Enterprise Edition](../../../readme/enterprise-edition.md) and what's included in various enterprise packages, please:
+To learn more about Gravitee [Enterprise Edition](../../../introduction/enterprise-edition.md) and what's included in various enterprise packages, please:
 
-* [Book a demo](https://documentation.gravitee.io/apim/)
+* [Book a demo](../../../README.md)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 
@@ -88,7 +88,7 @@ This plugin enables all possible option to access KV engine of Vault. It can man
 * Token
 * Userpass
 * App Role
-* Github
+* GitHub
 * Certificate (mTLS)
 * Kubernetes (short-lived and long-lived tokens)
 
@@ -385,6 +385,72 @@ Here are more options that can be used to configure your AWS secret manager:
 * `fipsEnabled` to enable FIPS. The default value is `false` .
 * `connectionTimeoutMs` to control connection the timeout. The default value is `5000` .
 * `endpointOverride` to use a non default AWS endpoint.
+
+### Azure Key Vault
+
+Reference Azure Key Vault secrets in API configurations, policies, and authentication flows. Only JSON secrets are supported. Append `:<key>` to extract a specific field. Use the `keymap` query parameter to map custom JSON keys to well-known identifiers.
+
+The Azure Key Vault Secret Provider supports six authentication methods: `CLIENT_SECRET`, `CERTIFICATE`, `DEFAULT_AZURE_CREDENTIAL`, `MANAGED_IDENTITY`, `ENVIRONMENT`, and `WORKLOAD_IDENTITY`. The `MANAGED_IDENTITY` and `DEFAULT_AZURE_CREDENTIAL` providers support Azure managed identities, both system-assigned and user-assigned. When using user-assigned managed identities, the plugin selects the identifier in the following priority order: `resourceId`, then `objectId`, and then `clientId`.
+
+The following example shows a `gravitee.yml` configuration using Client Secret authentication:
+
+{% code title="gravitee.yml" %}
+```yaml
+api:
+  secrets:
+    providers:
+      - id: azure-keyvault
+        plugin: azure-keyvault
+        configuration:
+          enabled: true
+          vaultUrl: https://my-vault.vault.azure.net
+          auth:
+            provider: CLIENT_SECRET
+            tenantId: my-tenant-id
+            clientId: my-client-id
+            clientSecret: my-client-secret
+```
+{% endcode %}
+
+The following example shows a `gravitee.yml` configuration using Managed Identity authentication:
+
+{% code title="gravitee.yml" %}
+```yaml
+api:
+  secrets:
+    providers:
+      - id: azure-keyvault
+        plugin: azure-keyvault
+        configuration:
+          enabled: true
+          vaultUrl: https://my-vault.vault.azure.net
+          auth:
+            provider: MANAGED_IDENTITY
+            managedIdentityClientId: mi-client-id
+```
+{% endcode %}
+
+The following example shows a `gravitee.yml` configuration using Default Azure Credentials:
+
+{% code title="gravitee.yml" %}
+```yaml
+api:
+  secrets:
+    providers:
+      - id: azure-keyvault
+        plugin: azure-keyvault
+        configuration:
+          enabled: true
+          vaultUrl: https://my-vault.vault.azure.net
+          auth:
+            provider: DEFAULT_AZURE_CREDENTIAL
+```
+{% endcode %}
+
+The following options are available to configure Azure Key Vault:
+
+* `ssl.verify` to verify TLS server certificates. The default value is `true`.
+* `ssl.pemFile` to specify a PEM file with custom CA certificates for TLS trust.
 
 ## Advanced configuration <a href="#advanced-configuration" id="advanced-configuration"></a>
 

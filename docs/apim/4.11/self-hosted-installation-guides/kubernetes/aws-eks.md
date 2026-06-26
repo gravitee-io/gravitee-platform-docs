@@ -426,7 +426,7 @@ This guide requires MongoDB and Elasticsearch to be installed for the complete A
 ### Install MongoDB
 
 {% hint style="info" %}
-You can use other databases to store configuration management data (see [JDBC repositories](../../prepare-a-production-environment/repositories/)).
+You can use other databases to store configuration management data (see [JDBC repositories](../../prepare-a-production-environment/repositories/README.md)).
 {% endhint %}
 
 To support API definitions and configuration, you must install MongoDB into your Kubernetes cluster. For more information about installing MongoDB, see the [official chart documentation](https://artifacthub.io/packages/helm/bitnami/mongodb)
@@ -1204,9 +1204,9 @@ gateway:
       value: "<proxy-port>"
 ```
 
-For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/).
+For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/README.md).
 
 ## Next steps <a href="#next-steps" id="next-steps"></a>
 
-* Create your first API. For more information about creating your first API, see [Create & Publish Your First API](../../getting-started/create-and-publish-your-first-api/).
+* Create your first API. For more information about creating your first API, see [Create & Publish Your First API](../../getting-started/create-and-publish-your-first-api/README.md).
 * Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [Configure the Kafka Client & Gateway](../../kafka-gateway/configure-the-kafka-client-and-gateway.md).

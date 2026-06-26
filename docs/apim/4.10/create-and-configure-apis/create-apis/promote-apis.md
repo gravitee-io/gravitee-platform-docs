@@ -30,7 +30,7 @@ The following diagram shows an example organization (UK) with multiple environme
 
 ### Request a promotion for an API
 
-To request a promotion, you need to have API `DEFINITION` [permissions](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/manage-organizations-and-environments/user-management#permissions). Promotion requests are logged in the [Audit trail](https://documentation.gravitee.io/apim/guides/api-measurement-tracking-and-analytics#the-audit-trail).
+To request a promotion, you need to have API `DEFINITION` [permissions](../../configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md#permissions). Promotion requests are logged in the [Audit trail](https://documentation.gravitee.io/apim/guides/api-measurement-tracking-and-analytics#the-audit-trail).
 
 1.  From the dashboard, click APIs.
 
@@ -61,7 +61,7 @@ The promotion request is logged in the Audit trail and sent to administrators of
 
 ### Accept or reject a promotion
 
-Users with environment `API` [permissions](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/manage-organizations-and-environments/user-management#permissions) in the target environment can accept or reject promotion requests.
+Users with environment `API` [permissions](../../configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md#permissions) in the target environment can accept or reject promotion requests.
 
 1.  Log in to the APIM Console in the **target environment.**
 

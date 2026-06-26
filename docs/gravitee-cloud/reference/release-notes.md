@@ -16,7 +16,7 @@ This section contains an overview of the new features in Gravitee Cloud's releas
 
 You can now configure Alert Engine in Gravitee Cloud. With this feature, you can ensure your APIs function efficiently with real-time monitoring, track performance, and get instant alerts so you can resolve downtime.
 
-For more information about Alert Engine, see [Introduction to Alert Engine](/docs/ae/README.md).
+For more information about Alert Engine, see [Introduction to Alert Engine](../../apim/4.11/alert-engine/README.md).
 
 </details>
 
@@ -182,7 +182,7 @@ We’re thrilled to introduce **Cloud Hosted Gateways** for Gravitee Cloud API M
 
 Deploying a Cloud Hosted Gateway takes just a few minutes. Simply navigate to your Gravitee Cloud Dashboard, select your environment to deploy Cloud hosted gateways for, and Gravitee will handle the rest!
 
-[Read more about deploying Cloud Hosted Gateways here](../guides/gravitee-hosted-gateways/)
+[Read more about deploying Cloud Hosted Gateways here](../guides/gravitee-hosted-gateways/README.md)
 
 </details>
 

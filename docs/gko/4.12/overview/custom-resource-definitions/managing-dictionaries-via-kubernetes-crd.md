@@ -42,6 +42,8 @@ A dynamic dictionary fetches its properties from an external HTTP provider on a 
 * `dynamic.provider`: HTTP provider configuration with `type` (`HTTP`), `url`, `method`, and `specification` (JOLT), plus optional `body`, `useSystemProxy`, and `headers`
 * `dynamic.trigger`: Polling schedule with `rate` and `unit` (one of `MICROSECONDS`, `MILLISECONDS`, `SECONDS`, `MINUTES`, `HOURS`, or `DAYS`)
 
+The JOLT `specification` transforms the HTTP response into a flat key-value structure.
+
 The following example polls the Gravitee echo API every five seconds and exposes its response headers as properties:
 
 ```yaml
@@ -88,9 +90,7 @@ spec:
 
 The Gravitee Kubernetes Operator builds the dictionary key by joining the namespace and name of the `Dictionary` resource with a hyphen: `<namespace>-<name>`. A dictionary created as `e2e-dict-manual` in the `default` namespace has the key `default-e2e-dict-manual`. The same rule applies to manual and dynamic dictionaries.
 
-Reference the key in Gravitee Expression Language to read a property: `{#dictionaries['<namespace>-<name>']['<property>']}`.
-
-The following `ApiV4Definition` adds a request header whose value comes from the `env` property of the `default-e2e-dict-manual` dictionary. Listeners, endpoint groups, and plans are omitted for brevity:
+The following `ApiV4Definition` adds a request header whose value comes from the `env` property of the `default-e2e-dict-manual` dictionary. Listeners, endpoint groups, and plans are omitted for brevity. Reference the key in Gravitee Expression Language to read a property: `{#dictionaries['<namespace>-<name>']['<property>']}`.
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1

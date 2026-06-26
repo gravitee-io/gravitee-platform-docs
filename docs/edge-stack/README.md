@@ -15,7 +15,7 @@ We recommend saving your license as a variable using the `export LICENSE_KEY="yo
 
 ### Applying the JWT to your environment
 
-After you obtain your JWT, apply it to your environment either manually or using Helm. If you're using the Helm installation option, we recommend applying the JWT during installation. For more information, see [Install using Helm](./#install-using-helm).
+After you obtain your JWT, apply it to your environment either manually or using Helm. If you're using the Helm installation option, we recommend applying the JWT during installation. For more information, see [Install using Helm](README.md#install-using-helm).
 
 #### Apply the JWT manually
 
@@ -51,13 +51,13 @@ Use the following procedure to install Ambassador Edge Stack manually.
 1.  Apply Kubernetes Custom Resource Definitions (CRDs) and wait for the deployment.
 
     ```shell
-    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.13.1/aes-crds.yaml && \
+    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.14.0/aes-crds.yaml && \
     kubectl wait --timeout=90s --for=condition=available deployment emissary-apiext -n emissary-system
     ```
 2.  Install the components and wait for Ambassador Edge Stack.
 
     ```shell
-    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.13.1/aes.yaml && \
+    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.14.0/aes.yaml && \
     kubectl -n ambassador wait --for condition=available --timeout=90s deploy -l product=aes
     ```
 
@@ -80,7 +80,7 @@ Use the following procedure to install Ambassador Edge Stack using Helm.
 
     ```shell
     kubectl create namespace ambassador && \
-    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.13.1/aes-crds.yaml
+    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.14.0/aes-crds.yaml
     ```
 
     ```shell
