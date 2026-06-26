@@ -52,6 +52,10 @@ See the [Redis documentation](../deployment/ambassador-edge-stack-and-redis.md) 
 
 If `REDIS_PERSECOND` is true, a second Redis connection pool is created (to a potentially different Redis instance) that is only used for per-second RateLimits; this second connection pool is configured by the `REDIS_PERSECOND_*` variables rather than the usual `REDIS_*` variables.
 
+#### `AES_RATELIMIT_VERBOSE_LOGGING`
+
+Set `AES_RATELIMIT_VERBOSE_LOGGING` to `true` to emit a structured `INFO` log line for each rate limit decision. Each line summarizes the matched descriptors, the configured limit, the current consumption, and the time until the limit resets, which is useful for debugging why requests are being rate limited. Defaults to `false`.
+
 #### `AES_RATELIMIT_PREVIEW`
 
 Set `AES_RATELIMIT_PREVIEW` to `true` to access support for redis clustering, local caching, and an upgraded redis client with improved scalability in preview mode.
