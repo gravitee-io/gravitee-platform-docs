@@ -105,7 +105,7 @@ https
 # ============================================
 # Kubernetes & Containers
 # ============================================
-Kubernetes
+[Kk]ubernetes
 kubectl
 Helm
 ConfigMap[s]?
@@ -127,7 +127,7 @@ PostgreSQL
 MySQL
 MariaDB
 Elasticsearch
-Hazelcast
+[Hh]azelcast
 [Rr]edis
 DocumentDB
 R2DBC
@@ -836,3 +836,10 @@ tlsCiphers
 # Search & algorithm terms (2026-06-25)
 # ============================================
 Levenshtein
+
+# ============================================
+# Kubernetes deployment strategy keys (2026-06-26)
+# ============================================
+[Rr]ollingUpdate
+maxUnavailable
+maxSurge
