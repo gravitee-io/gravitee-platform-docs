@@ -1,6 +1,11 @@
 # APIM 4.10.x
  
 ## Gravitee API Management 4.10.19 - June 24, 2026
+
+{% hint style="warning" %}
+There is a known issue with LLM Proxy APIs in this version of APIM. If you have at least an LLM Proxy API deployed to your Gateway, do not upgrade to this version of APIM. Upgrade to version 4.10.20+.
+{% endhint %}
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -18,6 +23,11 @@
 
  
 ## Gravitee API Management 4.10.18 - June 20, 2026
+
+{% hint style="warning" %}
+There is a known issue with the flows in this version of APIM. Do not upgrade to this version of APIM. Upgrade to version 4.10.20+.
+{% endhint %}
+
 <details>
 
 <summary>Bug Fixes</summary>
