@@ -14,6 +14,8 @@ You can create the following elements for your navigation:
 
 When you add a new page, you can choose **Gravitee Markdown**, **OpenAPI**, or **AsyncAPI** as the page type. Gravitee Markdown is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention"). For OpenAPI pages, see [creating-openapi-documentation-pages.md](customize-the-navigation/creating-openapi-documentation-pages.md). For AsyncAPI pages, see [creating-asyncapi-documentation-pages.md](customize-the-navigation/creating-asyncapi-documentation-pages.md).
 
+For CI/CD-driven declarative management of portal navigation, API listings, and documentation using the Automation API or GKO CRDs, see [Portal automation](customize-the-navigation/portal-automation/README.md).
+
 ### Supported documentation page types
 
 | Page type | What it contains | How it is edited in the Console | How it appears in the portal |

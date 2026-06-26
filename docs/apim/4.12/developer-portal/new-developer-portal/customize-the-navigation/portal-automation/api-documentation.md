@@ -1,4 +1,4 @@
-# API documentation management (Next-Gen Developer Portal)
+# API documentation
 
 ## Create API documentation
 
@@ -19,8 +19,9 @@ Only v4 APIs support API-scoped documentation. The `portalNavigation` field has 
 
 {% code overflow="wrap" %}
 ```http
-PUT /organizations/{orgId}/environments/{envId}/apis/pets-api/documentations
+PUT /organizations/{orgId}/environments/{envId}/apis/pets-api/documentations?dryRun=false
 Content-Type: application/json
+Authorization: Bearer {token}
 
 {
   "hrid": "api-overview",
@@ -40,6 +41,8 @@ When `dryRun` validation fails, the response returns the errors under the `error
 | `name` | Required | `name must not be blank` |
 | `type` | Required: `GRAVITEE_MARKDOWN`, `OPENAPI`, or `ASYNCAPI` | `type must not be null` |
 | `content` | Required | `content must not be null` |
+
+These endpoints require the `API_DOCUMENTATION` permission. For the full endpoint reference, see [Automation API endpoint reference](README.md#automation-api-endpoint-reference).
 
 ### Using Kubernetes CRDs
 
@@ -130,39 +133,3 @@ spec:
 {% endcode %}
 
 When the API is published through a portal listing, the internal folder tree is materialized under each published API entry, and API-scoped documentation pages are placed relative to this tree. When a documentation page references a location that does not exist yet in the API's internal tree, the page is created as an orphan and reconnects when the folder is added.
-
-## Automation API endpoints
-
-The following endpoints belong to the Automation API. The portal, portal listing, and portal documentation endpoints require the `ENVIRONMENT_PORTAL` permission. The API documentation endpoints require the `API_DOCUMENTATION` permission. The `dryRun` query parameter validates the request and returns validation errors without persisting changes. Validation errors are returned in the response body under the `errors` field, categorized as `severe` (block creation) or `warning` (informational).
-
-### Portal endpoints
-
-| Endpoint | Method | Description |
-|:---------|:-------|:------------|
-| `/organizations/{orgId}/environments/{envId}/portals` | PUT | Create or update a portal. Supports the `dryRun` query parameter. |
-| `/organizations/{orgId}/environments/{envId}/portals/{hrid}` | GET | Retrieve a portal by HRID. Returns the persisted navigation array exactly as written. |
-| `/organizations/{orgId}/environments/{envId}/portals/{hrid}` | DELETE | Delete a portal by HRID. Returns HTTP 204 on success. |
-
-### Portal listing endpoints
-
-| Endpoint | Method | Description |
-|:---------|:-------|:------------|
-| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/listings` | PUT | Create or update a portal listing. Supports the `dryRun` query parameter. |
-| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/listings/{hrid}` | GET | Retrieve a portal listing by HRID. |
-| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/listings/{hrid}` | DELETE | Delete a portal listing by HRID. Returns HTTP 204 on success. |
-
-### Portal documentation endpoints
-
-| Endpoint | Method | Description |
-|:---------|:-------|:------------|
-| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/documentations` | PUT | Create or update portal-scoped documentation. Supports the `dryRun` query parameter. |
-| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/documentations/{docHrid}` | GET | Retrieve portal-scoped documentation by HRID. |
-| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/documentations/{docHrid}` | DELETE | Delete portal-scoped documentation by HRID. Returns HTTP 204 on success. |
-
-### API documentation endpoints
-
-| Endpoint | Method | Description |
-|:---------|:-------|:------------|
-| `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/documentations` | PUT | Create or update API-scoped documentation. Supports the `dryRun` query parameter. |
-| `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/documentations/{docHrid}` | GET | Retrieve API-scoped documentation by HRID. |
-| `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/documentations/{docHrid}` | DELETE | Delete API-scoped documentation by HRID. Returns HTTP 204 on success. |

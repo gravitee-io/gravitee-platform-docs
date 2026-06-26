@@ -265,10 +265,10 @@
 #### **Portal and Documentation Management via Automation API**
 
 * Enables CI/CD-driven configuration of next-generation Developer Portal structure, API listings, and documentation through the Automation API.
-* Supports declarative portal management using Gravitee Kubernetes Operator (GKO) CRDs or Terraform providers to define navigation hierarchies, publish APIs, and attach documentation pages.
-* Navigation paths use slash-separated strings (e.g., `/projects/alpha`) with optional display names and ordering; portal listings control API placement and sequence within the navigation tree.
+* Supports declarative portal management using Gravitee Kubernetes Operator (GKO) CRDs or the Terraform provider to define navigation hierarchies, publish APIs, and attach documentation pages.
+* Navigation paths use slash-separated strings (`/projects/alpha`) with optional display names and ordering. Portal listings control API placement and sequence within the navigation tree.
 * Documentation pages support Gravitee Markdown, OpenAPI, and AsyncAPI formats and can be scoped to either the portal (platform-level) or specific APIs (appearing under each published API instance).
-* Currently supports one portal per environment (HRID: `default-portal`) with navigation sync limited to the top navigation bar area.
+* In 4.12, one portal instance per environment is supported (multi-portal is planned for a future release). All requests must target the HRID `default-portal`. Navigation sync is limited to the top navigation bar area.
 <!-- /PIPELINE:APIM-14124 -->
 
 ## Improvements

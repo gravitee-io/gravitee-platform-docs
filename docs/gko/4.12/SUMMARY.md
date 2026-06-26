@@ -18,6 +18,9 @@
   * [Notification](overview/custom-resource-definitions/notification.md)
   * [GatewayClassParameters](overview/custom-resource-definitions/gatewayclassparameters.md)
   * [KafkaRoute](overview/custom-resource-definitions/kafkaroute.md)
+  * [Portal](overview/custom-resource-definitions/portal.md)
+  * [PortalListing](overview/custom-resource-definitions/portallisting.md)
+  * [Documentation](overview/custom-resource-definitions/documentation.md)
 * [Example Architecture](overview/example-architecture.md)
 * [Compatibility and Limitations](overview/compatibility-and-limitations.md)
 
