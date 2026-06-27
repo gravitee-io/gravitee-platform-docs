@@ -8,6 +8,12 @@ In Gravitee APIM 4.12, the Developer Portal has a tree-based publishing model. Y
 
 In contrast to the Classic Developer Portal, where you used the `/portal` mAPI - the "Next Gen" Developer Portal uses new endpoints in the `/management/v2` mAPI, and are environment specific.
 
+### Declarative portal management
+
+For CI/CD-driven workflows, manage portal structure, API listings, and documentation declaratively using the Automation API and Gravitee Kubernetes Operator (GKO). This approach supports automated portal management by declaring navigation hierarchies, published APIs, and documentation pages as code. V4 API definitions now support a `portalNavigation` field for declaring internal documentation folder hierarchies in the next-gen Developer Portal. This field is portal-only metadata and is not propagated to the gateway. It has no effect on the classic portal.
+
+For full details, see the [Portal automation](portal-automation/README.md) documentation, which covers portal instances, listings, portal-scoped documentation, and API-scoped documentation.
+
 <figure><img src="../../../.gitbook/assets/navigation-with-mapi-4.png" alt=""><figcaption><p>Hierarchical structure of Folder, API, Page, and Content</p></figcaption></figure>
 
 ## Prerequisites

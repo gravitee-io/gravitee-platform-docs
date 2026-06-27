@@ -188,4 +188,11 @@ developer-portal/new-developer-portal/customize-the-navigation/creating-asyncapi
 developer-portal/new-developer-portal/customize-the-navigation/creating-openapi-documentation-pages.md
 developer-portal/new-developer-portal/customize-the-navigation/structure-the-navigation-with-the-management-api.md
 developer-portal/typo-tolerant-api-search.md
+developer-portal/README.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-automation/README.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-listings.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-documentation.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-automation/api-documentation.md
+terraform/example-resource-configurations.md
+hybrid-installation-and-configuration-guides/classic-cloud/README.md
 release-information/support-model.md

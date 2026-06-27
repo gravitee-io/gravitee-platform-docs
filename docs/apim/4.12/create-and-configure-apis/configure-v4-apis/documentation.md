@@ -15,6 +15,10 @@ As of Gravitee 4.3, the APIM Documentation feature is only available for v4 APIs
 
 Documentation can be added via the APIM Management Console to inform API consumers how to use an API. If the API and documentation are both published to the Developer Portal, the documentation will appear in the Portal for consumers to discover.
 
+{% hint style="info" %}
+For CI/CD-driven workflows using the Automation API or Gravitee Kubernetes Operator (GKO), v4 APIs support a `portalNavigation` field that declares the API's internal documentation folder hierarchy for the next-gen Developer Portal. Documentation pages can also be managed declaratively. For details, see [Portal automation](../../developer-portal/new-developer-portal/customize-the-navigation/portal-automation/README.md).
+{% endhint %}
+
 ## Add documentation
 
 To add documentation to an API:

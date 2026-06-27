@@ -18,6 +18,7 @@ Gravitee Access Management
 Gravitee Alert Engine
 Gravitee API Designer
 Gravitee Cloud
+[Dd]eveloper [Pp]ortal
 
 # ============================================
 # API & Protocol Terms
@@ -843,3 +844,8 @@ Levenshtein
 [Rr]ollingUpdate
 maxUnavailable
 maxSurge
+
+# ============================================
+# Additional accepted terms (2026-06-26)
+# ============================================
+[Bb]ackfill(ed|s|ing)?
