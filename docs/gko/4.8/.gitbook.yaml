@@ -1,0 +1,37 @@
+root: ./
+
+structure:
+  readme: README.md
+  summary: SUMMARY.md
+
+redirects:
+ getting-started/installation/install-from-operatorhub: getting-started/api-storage-and-control-options/README.md
+ gko-4.10: releases-and-changelog/release-notes/gko-4.8.md
+ guides/gateway-api: guides/create-your-own-helm-charts.md
+ guides/gateway-api/dns-with-external-dns: guides/create-your-own-helm-charts.md
+ guides/gateway-api/full-example-of-configuring-self-hosted-gravitee-apim-with-k8s-gateway-api: guides/export-an-api-as-a-kubernetes-manifest.md
+ guides/gateway-api/httproute: guides/create-your-own-helm-charts.md
+ guides/gateway-api/tls-with-cert-manager: guides/create-your-own-helm-charts.md
+ guides/gko-http-client: guides/define-an-apim-service-account-for-gko.md
+ guides/kubernetes-crd-configuration-for-client-certificates: guides/create-your-own-helm-charts.md
+ guides/manage-api-key-subscriptions-with-gko: guides/manage-jwt-subscriptions-with-gko.md
+ guides/managing-dictionaries-via-automation-api: guides/create-your-own-helm-charts.md
+ overview/custom-resource-definitions/dictionary-management-overview: overview/custom-resource-definitions/managementcontext.md
+ overview/custom-resource-definitions/dictionary-management-restrictions-and-validation: overview/custom-resource-definitions/group.md
+ overview/custom-resource-definitions/managing-dictionaries-via-kubernetes-crd: overview/custom-resource-definitions/apidefinition.md
+ releases-and-changelog/changelog/gko-4.10.x: releases-and-changelog/changelog/gko-4.8.x.md
+ releases-and-changelog/changelog/gko-4.11.x: releases-and-changelog/changelog/gko-4.8.x.md
+ releases-and-changelog/changelog/gko-4.3.x: releases-and-changelog/changelog/gko-4.8.x.md
+ releases-and-changelog/changelog/gko-4.4.x: releases-and-changelog/changelog/gko-4.8.x.md
+ releases-and-changelog/changelog/gko-4.5.x: releases-and-changelog/changelog/gko-4.8.x.md
+ releases-and-changelog/changelog/gko-4.6.x: releases-and-changelog/changelog/gko-4.8.x.md
+ releases-and-changelog/changelog/gko-4.7.x: releases-and-changelog/changelog/gko-4.8.x.md
+ releases-and-changelog/changelog/gko-4.9.x: releases-and-changelog/changelog/gko-4.8.x.md
+ releases-and-changelog/release-notes/gko-4.11: releases-and-changelog/release-notes/gko-4.8.md
+ releases-and-changelog/release-notes/gko-4.12: releases-and-changelog/release-notes/gko-4.8.md
+ releases-and-changelog/release-notes/gko-4.3: releases-and-changelog/release-notes/gko-4.8.md
+ releases-and-changelog/release-notes/gko-4.4: releases-and-changelog/release-notes/gko-4.8.md
+ releases-and-changelog/release-notes/gko-4.5: releases-and-changelog/changelog/gko-4.8.x.md
+ releases-and-changelog/release-notes/gko-4.6: releases-and-changelog/release-notes/gko-4.8.md
+ releases-and-changelog/release-notes/gko-4.7: releases-and-changelog/release-notes/gko-4.8.md
+ releases-and-changelog/release-notes/gko-4.9: releases-and-changelog/release-notes/gko-4.8.md
