@@ -58,6 +58,7 @@
 
 * [Get started](event-stream-management/get-started/README.md)
   * [Event Stream Management overview](event-stream-management/get-started/event-stream-management-overview.md)
+  * [Register your first cluster](event-stream-management/get-started/register-your-first-cluster.md)
   * [Create your first Kafka service](event-stream-management/get-started/create-your-first-kafka-service.md)
   * [Create your first Virtual Cluster](event-stream-management/get-started/create-your-first-virtual-cluster.md)
 * [Import](event-stream-management/import/README.md)
@@ -153,6 +154,7 @@
 
 ## Platform Management
 
+* [Overview](platform-management/overview.md)
 * [Configure Access Management](platform-management/configure-access-management.md)
 * [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
 * [Manage applications](platform-management/manage-applications.md)
