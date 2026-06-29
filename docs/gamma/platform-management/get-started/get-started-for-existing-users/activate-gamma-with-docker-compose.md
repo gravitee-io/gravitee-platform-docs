@@ -13,7 +13,7 @@ Gamma ships in 4.12 (`4.12.0`). Activating Gamma moves your stack to that build.
 
 ## Overview
 
-If you already run Gravitee API Management with Docker Compose, you turn Gamma on by moving to the Gamma build, enabling Gamma on the Management API, and adding the Gamma console. This page covers only those changes. For the full stack from scratch, see [Run Gamma with Docker Compose](../self-hosted-installation-guides/docker/docker-compose.md).
+If you already run Gravitee API Management with Docker Compose, you turn Gamma on by moving to the Gamma build, enabling Gamma on the Management API, and adding the Gamma console. This page covers only those changes. For the full stack from scratch, see [Run Gamma with Docker Compose](../../install/self-hosted-installation-guides/docker/docker-compose.md).
 
 ## Activate Gamma
 
@@ -47,7 +47,7 @@ If you already run Gravitee API Management with Docker Compose, you turn Gamma o
    docker compose up -d
    ```
 
-For the full single-host layout, the complete CORS and cookie reasoning, and the enterprise license step for Agent Management, see [Run Gamma with Docker Compose](../self-hosted-installation-guides/docker/docker-compose.md).
+For the full single-host layout, the complete CORS and cookie reasoning, and the enterprise license step for Agent Management, see [Run Gamma with Docker Compose](../../install/self-hosted-installation-guides/docker/docker-compose.md).
 
 ## Verification
 
@@ -62,4 +62,4 @@ For the full single-host layout, the complete CORS and cookie reasoning, and the
 
 ## Next steps
 
-* Create your first MCP server. For more information, see [Create your first MCP server](../../agent-management/get-started/create-your-first-mcp-server.md).
+* Create your first MCP server. For more information, see [Create your first MCP server](../../../agent-management/get-started/create-your-first-mcp-server.md).

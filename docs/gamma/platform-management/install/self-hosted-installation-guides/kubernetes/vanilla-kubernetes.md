@@ -39,10 +39,6 @@ The platform also requires two datastores:
 * MongoDB: stores API definitions, configurations, and rate-limiting data.
 * Elasticsearch: provides analytics, logging, and search.
 
-{% hint style="info" %}
-This guide doesn't deploy Access Management (AM). You don't need AM to run Gamma or to sign in. AM is required only for Gamma's agent-identity features in Agent Management. To add those features, deploy AM separately and wire it to Gamma after the platform is up.
-{% endhint %}
-
 ## Install Gamma
 
 To install Gamma, complete the following steps:
@@ -752,5 +748,5 @@ If you need the consoles on separate subdomains (for example, `console.example.c
 
 ## Next steps
 
-* Create your first MCP server. For more information, see [Create your first MCP server](../../../agent-management/get-started/create-your-first-mcp-server.md).
-* Add Gamma's agent-identity features. Deploy Access Management and wire it to Gamma. For more information, see [Configure your Access Management instance](../../../agent-management/build/configure-your-access-management-instance.md).
+* Create your first MCP server. For more information, see [Create your first MCP server](../../../../agent-management/get-started/create-your-first-mcp-server.md).
+* Add Gamma's agent-identity features. Deploy Access Management and wire it to Gamma. For more information, see [Configure your Access Management instance](../../../../agent-management/build/configure-your-access-management-instance.md).

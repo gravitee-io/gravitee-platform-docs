@@ -522,4 +522,4 @@ The Gamma console (`/`) and the API (`/gamma`, `/management`) are on the same ho
 
 ## Next steps
 
-* Create your first MCP server. For more information, see [Create your first MCP server](../../../agent-management/get-started/create-your-first-mcp-server.md).
+* Create your first MCP server. For more information, see [Create your first MCP server](../../../../agent-management/get-started/create-your-first-mcp-server.md).

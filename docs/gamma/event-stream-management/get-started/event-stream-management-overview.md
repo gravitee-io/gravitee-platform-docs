@@ -30,7 +30,7 @@ Gamma unifies four product lines — API Management, Event Stream Management, Ag
 2. **A common authorization engine** that defines fine-grained policies against those cataloged assets
 3. **Common enforcement points** (AI Gateway, API Gateway, Event Gateway) that evaluate the same policies at the wire level
 
-Event Stream Management contributes Kafka APIs and event streams to the Catalog. Those Kafka APIs can be exposed as **Kafka API Tools** in Agent Management, making existing event infrastructure accessible to AI agents without redevelopment. For details on bridging event streams to the agent layer, see [Create Event tools](../../agent-management/import/create-event-tools.md).
+Event Stream Management contributes Kafka APIs and event streams to the Catalog. Those Kafka APIs can be exposed as **Kafka API Tools** in Agent Management, making existing event infrastructure accessible to AI agents without redevelopment.
 
 ## Get started
 
