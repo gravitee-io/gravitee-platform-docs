@@ -28,3 +28,7 @@ tools/.cache/
 # Build outputs (future-proof)
 dist/
 build/
+
+# Gamma docs use "Build" as a documentation section, so keep those doc folders tracked
+!docs/gamma/**/build/
+!docs/gamma/**/build/**
