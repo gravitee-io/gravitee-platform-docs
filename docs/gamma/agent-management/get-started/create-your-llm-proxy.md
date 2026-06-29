@@ -87,5 +87,5 @@ A successful response returns the model's reply, confirming that the AI Gateway 
 
 * **Add more models** — Configure additional providers and routing strategies to distribute traffic. See [Configure an LLM Proxy](../build/configure-an-llm-proxy.md).
 * **Secure with an API key plan** — Replace the keyless plan with an API key to track usage and enforce rate limits.
-* **Route Claude Code through the proxy** — Set `ANTHROPIC_BASE_URL` to point at your LLM Proxy for zero-code integration. See [Connect Claude Code to the Edge Daemon](../edge-daemon/connect-claude-code-to-daemon.md).
+* **Route Claude Code through the proxy** — Set `ANTHROPIC_BASE_URL` to point at your LLM Proxy for zero-code integration. See [Connect Claude Code to the Edge Daemon](../../edge-management/connect-claude-code-to-daemon.md).
 * **Publish** — Make the LLM Proxy discoverable. See [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md).

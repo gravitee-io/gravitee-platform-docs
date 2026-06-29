@@ -13,7 +13,7 @@ Gamma ships in 4.12 (`4.12.0`). Activating Gamma moves your deployment to that b
 
 ## Overview
 
-If you already run Gravitee API Management with the Helm chart, you turn Gamma on by moving to the Gamma build, enabling Gamma, and adding the Gamma console to your `values.yaml`. This page covers only those changes. For a full install, follow the Helm guide for your cluster: [Vanilla Kubernetes](../self-hosted-installation-guides/kubernetes/vanilla-kubernetes.md), [AWS EKS](../self-hosted-installation-guides/kubernetes/aws-eks.md), [Azure AKS](../self-hosted-installation-guides/kubernetes/azure-aks.md), or [OpenShift](../self-hosted-installation-guides/kubernetes/openshift.md).
+If you already run Gravitee API Management with the Helm chart, you turn Gamma on by moving to the Gamma build, enabling Gamma, and adding the Gamma console to your `values.yaml`. This page covers only those changes. For a full install, follow the Helm guide for your cluster: [Vanilla Kubernetes](../../install/self-hosted-installation-guides/kubernetes/vanilla-kubernetes.md), [AWS EKS](../../install/self-hosted-installation-guides/kubernetes/aws-eks.md), [Azure AKS](../../install/self-hosted-installation-guides/kubernetes/azure-aks.md), or [OpenShift](../../install/self-hosted-installation-guides/kubernetes/openshift.md).
 
 ## Activate Gamma
 
@@ -83,4 +83,4 @@ For the complete `values.yaml`, the ingress and single-host layout, and the ente
 
 ## Next steps
 
-* Create your first MCP server. For more information, see [Create your first MCP server](../../agent-management/get-started/create-your-first-mcp-server.md).
+* Create your first MCP server. For more information, see [Create your first MCP server](../../../agent-management/get-started/create-your-first-mcp-server.md).

@@ -196,4 +196,4 @@ The cross-origin cookie problem that breaks Gamma login on separate hostnames do
 
 ## Next steps
 
-* Create your first MCP server. For more information, see [Create your first MCP server](../../../agent-management/get-started/create-your-first-mcp-server.md).
+* Create your first MCP server. For more information, see [Create your first MCP server](../../../../agent-management/get-started/create-your-first-mcp-server.md).

@@ -66,7 +66,7 @@ After creating a policy in Draft status:
 * Select **Deploy to PDP** to activate it. The gateway syncs the policy within 30 seconds — no restart required.
 * Select **Undeploy** on a deployed policy to disable it. The gateway drops it within 30 seconds.
 
-For more details on the full policy language and all service categories, see [Create authorization policies](../../../authorization-management/build/create-authorization-policies.md).
+For more details on the full policy language and all service categories, see [Create authorization policies](../../../authorization-management/configure/create-update-delete-policies.md).
 
 ## Common policy types
 

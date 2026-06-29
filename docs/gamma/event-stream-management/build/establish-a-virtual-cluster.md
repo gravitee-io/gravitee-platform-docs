@@ -82,5 +82,5 @@ Removing a backend from a deployed Virtual Cluster affects any clients consuming
 
 ## Next steps
 
-* **Create topics** — Set up Kafka topics inside your Virtual Cluster. See [Create Kafka topics](../explorer/create-kafka-topics.md).
+* **Create topics** — Set up Kafka topics inside your Virtual Cluster.
 * **Create a Kafka Service** — Add governance, security plans, and policies on top of the Virtual Cluster. See [Create a Kafka service with a virtual cluster](create-a-kafka-service-with-a-virtual-cluster.md).

@@ -82,9 +82,7 @@ Once a plan is established, you can apply **Policies** to enforce quotas, messag
 
 Once a Kafka Service is running, you can expose its topics as **Kafka API Tools** in the Catalog, bridging your event infrastructure to the AI agent layer. Kafka API Tools become available as building blocks in MCP Studio alongside other tools, resources, and prompts.
 
-For details, see [Create Event tools](../../agent-management/import/create-event-tools.md).
-
 ## Next steps
 
 * **Provision a Virtual Cluster** — Add multi-tenant isolation on top of your Kafka Service. See [Establish a virtual cluster](establish-a-virtual-cluster.md).
-* **Create topics** — Set up Kafka topics for producing and consuming messages. See [Create Kafka topics](../explorer/create-kafka-topics.md).
+* **Create topics** — Set up Kafka topics for producing and consuming messages.
