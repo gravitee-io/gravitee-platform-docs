@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 ---
 <-- to be published -->
 # Event Stream Management overview

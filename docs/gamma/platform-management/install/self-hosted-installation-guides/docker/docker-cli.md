@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 ---
 # Run Gamma with Docker CLI
 <!-- GAP-STRUCTURAL: Missing procedural content source -->

@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 ---
 # Install Gamma on Vanilla Kubernetes
 <!-- GAP-STRUCTURAL: Missing procedural content source -->

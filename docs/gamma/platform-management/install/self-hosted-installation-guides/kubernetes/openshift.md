@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 ---
 # Install Gamma on OpenShift
 <!-- GAP-STRUCTURAL: Missing procedural content source -->

@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 ---
 # Install a hybrid Gamma Gateway on Vanilla Kubernetes
 <!-- GAP-STRUCTURAL: Missing procedural content source -->

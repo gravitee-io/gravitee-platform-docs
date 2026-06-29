@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 ---
 # Activate Gamma with Kubernetes (Helm)
 <!-- GAP-STRUCTURAL: Missing procedural content source -->

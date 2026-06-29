@@ -1,6 +1,5 @@
 ---
-hidden: false
-noIndex: true
+description: Overview of Gravitee Gamma.
 ---
 
 # Gravitee Gamma

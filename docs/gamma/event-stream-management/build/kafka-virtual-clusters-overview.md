@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 ---
 <-- to be published -->
 # Virtual Clusters overview

@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 ---
 <-- to be published -->
 # Create your first Kafka service
