@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 ---
 
 # Create an action
