@@ -7,25 +7,25 @@ root: ./
 redirects:
   gravitee-cloud/guides/hybrid/install-on-docker: gravitee-cloud/guides/hybrid.md
   gravitee-cloud/guides/hybrid/install-on-kubernetes: gravitee-cloud/guides/hybrid.md
-  # platform-overview section removed in PR #1650 — old URLs redirect into APIM (bump 4.11 at each version cutover)
-  platform-overview: apim/4.11/README.md
-  platform-overview/gravitee-platform/gravitee-core-concepts: apim/4.11/readme/core-concepts.md
-  platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee: apim/4.11/readme/enterprise-edition.md
-  platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-installation: apim/4.11/readme/enterprise-edition-installation.md
-  platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing: apim/4.11/readme/enterprise-edition-licensing.md
-  platform-overview/gravitee-platform/release-types-and-support-model: apim/4.11/release-information/release-types.md
-  platform-overview/gravitee-platform/release-schedule: apim/4.11/release-information/release-schedule.md
-  platform-overview/gravitee-platform/support-model: apim/4.11/release-information/support-model.md
-  platform-overview/gravitee-platform/support-model/support-for-v1-apis: apim/4.11/release-information/support-for-v1-apis.md
-  platform-overview/before-you-begin/api-fundamentals: apim/4.11/readme/api-fundamentals/README.md
-  platform-overview/before-you-begin/api-fundamentals/api-basics: apim/4.11/readme/api-fundamentals/api-basics.md
-  platform-overview/before-you-begin/api-fundamentals/web-apis: apim/4.11/readme/api-fundamentals/web-apis.md
-  platform-overview/before-you-begin/api-fundamentals/categorizing-web-apis: apim/4.11/readme/api-fundamentals/categorizing-web-apis.md
-  platform-overview/before-you-begin/glossary: apim/4.11/readme/glossary.md
-  platform-overview/community/community: apim/4.11/readme/community-forum.md
-  platform-overview/community/enterprise-support: apim/4.11/readme/enterprise-edition.md
-  platform-overview/contribute/contribute-to-gravitee-docs: apim/4.11/readme/contribute-to-apim.md
-  platform-overview/contribute/contribute-to-the-codebase: apim/4.11/readme/contribute-to-apim.md
+  # platform-overview section removed in PR #1650 — old URLs redirect into APIM (bump 4.12 at each version cutover)
+  platform-overview: apim/4.12/README.md
+  platform-overview/gravitee-platform/gravitee-core-concepts: apim/4.12/readme/core-concepts.md
+  platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee: apim/4.12/readme/enterprise-edition.md
+  platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-installation: apim/4.12/readme/enterprise-edition-installation.md
+  platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing: apim/4.12/readme/enterprise-edition-licensing.md
+  platform-overview/gravitee-platform/release-types-and-support-model: apim/4.12/release-information/release-types.md
+  platform-overview/gravitee-platform/release-schedule: apim/4.12/release-information/release-schedule.md
+  platform-overview/gravitee-platform/support-model: apim/4.12/release-information/support-model.md
+  platform-overview/gravitee-platform/support-model/support-for-v1-apis: apim/4.12/release-information/support-for-v1-apis.md
+  platform-overview/before-you-begin/api-fundamentals: apim/4.12/readme/api-fundamentals/README.md
+  platform-overview/before-you-begin/api-fundamentals/api-basics: apim/4.12/readme/api-fundamentals/api-basics.md
+  platform-overview/before-you-begin/api-fundamentals/web-apis: apim/4.12/readme/api-fundamentals/web-apis.md
+  platform-overview/before-you-begin/api-fundamentals/categorizing-web-apis: apim/4.12/readme/api-fundamentals/categorizing-web-apis.md
+  platform-overview/before-you-begin/glossary: apim/4.12/readme/glossary.md
+  platform-overview/community/community: apim/4.12/readme/community-forum.md
+  platform-overview/community/enterprise-support: apim/4.12/readme/enterprise-edition.md
+  platform-overview/contribute/contribute-to-gravitee-docs: apim/4.12/readme/contribute-to-apim.md
+  platform-overview/contribute/contribute-to-the-codebase: apim/4.12/readme/contribute-to-apim.md
   # apid (API Designer) section migrated into Gravitee Cloud — old URLs redirect into gravitee-cloud/api-designer
   apid: gravitee-cloud/api-designer/README.md
   apid/getting-started/get-started-with-api-designer: gravitee-cloud/api-designer/getting-started/get-started-with-api-designer.md
@@ -34,31 +34,31 @@ redirects:
   apid/guides/api-designer-workspace/push-interface: gravitee-cloud/api-designer/guides/api-designer-workspace/push-interface.md
   apid/community-and-support/community: gravitee-cloud/community-and-support/community/README.md
   apid/community-and-support/enterprise-support: gravitee-cloud/community-and-support/enterprise-support.md
-  # ae (Alert Engine) section migrated into APIM — old URLs redirect into apim/4.11/alert-engine (bump 4.11 at each version cutover)
-  ae: apim/4.11/alert-engine/README.md
-  ae/overview/architecture: apim/4.11/alert-engine/overview/architecture.md
-  ae/overview/integrations: apim/4.11/alert-engine/overview/integrations.md
-  ae/getting-started/install-and-upgrade-guides: apim/4.11/alert-engine/getting-started/install-and-upgrade-guides/README.md
-  ae/getting-started/install-and-upgrade-guides/sizing-requirements: apim/4.11/alert-engine/getting-started/install-and-upgrade-guides/sizing-requirements.md
-  ae/getting-started/install-and-upgrade-guides/install-via-.zip-file: apim/4.11/alert-engine/getting-started/install-and-upgrade-guides/install-via-.zip-file.md
-  ae/getting-started/install-and-upgrade-guides/install-via-docker: apim/4.11/alert-engine/getting-started/install-and-upgrade-guides/install-via-docker.md
-  ae/getting-started/install-and-upgrade-guides/install-via-kubernetes: apim/4.11/alert-engine/getting-started/install-and-upgrade-guides/install-via-kubernetes.md
-  ae/getting-started/install-and-upgrade-guides/upgrade-guide: apim/4.11/alert-engine/getting-started/install-and-upgrade-guides/upgrade-guide.md
-  ae/getting-started/configuration: apim/4.11/alert-engine/getting-started/configuration/README.md
-  ae/getting-started/configuration/configure-alert-engine: apim/4.11/alert-engine/getting-started/configuration/configure-alert-engine.md
-  ae/getting-started/configuration/configure-the-internal-api: apim/4.11/alert-engine/getting-started/configuration/configure-the-internal-api.md
-  ae/guides/alerts-and-conditions: apim/4.11/alert-engine/guides/alerts-and-conditions.md
-  ae/guides/dampening: apim/4.11/alert-engine/guides/dampening.md
-  ae/guides/notifications: apim/4.11/alert-engine/guides/notifications.md
-  ae/guides/integration-set-up: apim/4.11/alert-engine/guides/integration-set-up/README.md
-  ae/guides/integration-set-up/gravitee-api-management: apim/4.11/alert-engine/guides/integration-set-up/gravitee-api-management/README.md
-  ae/guides/integration-set-up/gravitee-api-management/installation: apim/4.11/alert-engine/guides/integration-set-up/gravitee-api-management/installation.md
-  ae/guides/integration-set-up/gravitee-api-management/configure-notifications: apim/4.11/alert-engine/guides/integration-set-up/gravitee-api-management/configure-notifications.md
-  ae/guides/integration-set-up/gravitee-api-management/gravitee-api-management-alerts-dashboard: apim/4.11/alert-engine/guides/integration-set-up/gravitee-api-management/gravitee-api-management-alerts-dashboard.md
-  ae/guides/integration-set-up/gravitee-access-management: apim/4.11/alert-engine/guides/integration-set-up/gravitee-access-management.md
-  ae/guides/integration-set-up/gravitee-access-management/installation: apim/4.11/alert-engine/guides/integration-set-up/gravitee-access-management/installation.md
-  ae/guides/integration-set-up/gravitee-access-management/configuration: apim/4.11/alert-engine/guides/integration-set-up/gravitee-access-management/configuration.md
-  ae/reference/azure-regions-for-saas-and-hybrid-deployments: apim/4.11/alert-engine/reference/azure-regions-for-saas-and-hybrid-deployments.md
-  ae/releases-and-changelog/page-6: apim/4.11/alert-engine/releases-and-changelog/page-6.md
-  ae/community-and-support/enterprise-support: apim/4.11/readme/enterprise-edition.md
-  ae/community-and-support/community: apim/4.11/readme/community-forum.md
+  # ae (Alert Engine) section migrated into APIM — old URLs redirect into apim/4.12/alert-engine (bump 4.12 at each version cutover)
+  ae: apim/4.12/alert-engine/README.md
+  ae/overview/architecture: apim/4.12/alert-engine/overview/architecture.md
+  ae/overview/integrations: apim/4.12/alert-engine/overview/integrations.md
+  ae/getting-started/install-and-upgrade-guides: apim/4.12/alert-engine/getting-started/install-and-upgrade-guides/README.md
+  ae/getting-started/install-and-upgrade-guides/sizing-requirements: apim/4.12/alert-engine/getting-started/install-and-upgrade-guides/sizing-requirements.md
+  ae/getting-started/install-and-upgrade-guides/install-via-.zip-file: apim/4.12/alert-engine/getting-started/install-and-upgrade-guides/install-via-.zip-file.md
+  ae/getting-started/install-and-upgrade-guides/install-via-docker: apim/4.12/alert-engine/getting-started/install-and-upgrade-guides/install-via-docker.md
+  ae/getting-started/install-and-upgrade-guides/install-via-kubernetes: apim/4.12/alert-engine/getting-started/install-and-upgrade-guides/install-via-kubernetes.md
+  ae/getting-started/install-and-upgrade-guides/upgrade-guide: apim/4.12/alert-engine/getting-started/install-and-upgrade-guides/upgrade-guide.md
+  ae/getting-started/configuration: apim/4.12/alert-engine/getting-started/configuration/README.md
+  ae/getting-started/configuration/configure-alert-engine: apim/4.12/alert-engine/getting-started/configuration/configure-alert-engine.md
+  ae/getting-started/configuration/configure-the-internal-api: apim/4.12/alert-engine/getting-started/configuration/configure-the-internal-api.md
+  ae/guides/alerts-and-conditions: apim/4.12/alert-engine/guides/alerts-and-conditions.md
+  ae/guides/dampening: apim/4.12/alert-engine/guides/dampening.md
+  ae/guides/notifications: apim/4.12/alert-engine/guides/notifications.md
+  ae/guides/integration-set-up: apim/4.12/alert-engine/guides/integration-set-up/README.md
+  ae/guides/integration-set-up/gravitee-api-management: apim/4.12/alert-engine/guides/integration-set-up/gravitee-api-management/README.md
+  ae/guides/integration-set-up/gravitee-api-management/installation: apim/4.12/alert-engine/guides/integration-set-up/gravitee-api-management/installation.md
+  ae/guides/integration-set-up/gravitee-api-management/configure-notifications: apim/4.12/alert-engine/guides/integration-set-up/gravitee-api-management/configure-notifications.md
+  ae/guides/integration-set-up/gravitee-api-management/gravitee-api-management-alerts-dashboard: apim/4.12/alert-engine/guides/integration-set-up/gravitee-api-management/gravitee-api-management-alerts-dashboard.md
+  ae/guides/integration-set-up/gravitee-access-management: apim/4.12/alert-engine/guides/integration-set-up/gravitee-access-management.md
+  ae/guides/integration-set-up/gravitee-access-management/installation: apim/4.12/alert-engine/guides/integration-set-up/gravitee-access-management/installation.md
+  ae/guides/integration-set-up/gravitee-access-management/configuration: apim/4.12/alert-engine/guides/integration-set-up/gravitee-access-management/configuration.md
+  ae/reference/azure-regions-for-saas-and-hybrid-deployments: apim/4.12/alert-engine/reference/azure-regions-for-saas-and-hybrid-deployments.md
+  ae/releases-and-changelog/page-6: apim/4.12/alert-engine/releases-and-changelog/page-6.md
+  ae/community-and-support/enterprise-support: apim/4.12/readme/enterprise-edition.md
+  ae/community-and-support/community: apim/4.12/readme/community-forum.md
