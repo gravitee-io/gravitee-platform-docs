@@ -17,7 +17,7 @@ When a signed JWT is generated, it is put in the `jwt.generated` attribute of th
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 message APIs or v4 TCP proxy APIs.
+This policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. It cannot be applied to v4 TCP proxy APIs.
 {% endhint %}
 
 {% tabs %}
