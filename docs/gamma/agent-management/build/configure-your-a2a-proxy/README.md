@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 ---
 
 # Configure your A2A Proxy

@@ -1,7 +1,7 @@
 ---
 description: Reference for the LLM Proxy and HTTP proxy APIs in APIM that handle traffic intercepted by the Edge Daemon.
 hidden: false
-noIndex: true
+noIndex: false
 ---
  
 # Proxy API reference

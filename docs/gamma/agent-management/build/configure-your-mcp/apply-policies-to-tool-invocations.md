@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 ---
 
 # Apply policies to individual tool invocations

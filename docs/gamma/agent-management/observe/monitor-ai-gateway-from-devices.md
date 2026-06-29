@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 ---
 
 # Monitor AI Gateway usage from employee systems

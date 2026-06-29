@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 ---
 # Fully self-hosted installation with Vanilla Kubernetes
 
