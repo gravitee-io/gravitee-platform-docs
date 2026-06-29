@@ -4,8 +4,7 @@
 
 ## Platform Management
 
-* [Overview](platform-management/overview.md)
-* [Gamma Release Notes](platform-management/gamma-release-notes.md)
+* [Gamma Release](platform-management/gamma-release-notes.md)
 * [Get started](platform-management/get-started/README.md)
   * [Get started for new users](platform-management/get-started/get-started-for-new-users/README.md)
     * [Fully self-hosted installation with Vanilla Kubernetes](platform-management/get-started/get-started-for-new-users/fully-self-hosted-with-vanilla-kubernetes.md)
@@ -32,6 +31,7 @@
       * [AWS EKS](platform-management/install/hybrid-installation-guides/kubernetes/aws-eks.md)
       * [Azure AKS](platform-management/install/hybrid-installation-guides/kubernetes/azure-aks.md)
       * [OpenShift](platform-management/install/hybrid-installation-guides/kubernetes/openshift.md)
+* [Overview](platform-management/overview.md)
 * [Configure Access Management](platform-management/configure-access-management.md)
 * [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
 * [Manage applications](platform-management/manage-applications.md)
