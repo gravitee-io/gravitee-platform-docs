@@ -301,8 +301,8 @@ gateway:
 
 ## Next steps
 
-* Create your first MCP server. For more information, see [Create your first MCP server](../../../agent-management/get-started/create-your-first-mcp-server.md).
-* Create your first API. For more information, see [Create your first API](../../../api-management/get-started/create-your-first-api.md).
+* Create your first MCP server. For more information, see [Create your first MCP server](../../../../agent-management/get-started/create-your-first-mcp-server.md).
+* Create your first API. For more information, see [Create your first API](../../../../api-management/get-started/create-your-first-api.md).
 
 {% hint style="warning" %}
 To access your Gateway from outside of your Kubernetes cluster, you must implement a load balancer or ingress.

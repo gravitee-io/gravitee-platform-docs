@@ -94,4 +94,4 @@ Once devices are reporting, the Gamma console provides the following dashboards:
 
 ## Next steps
 
-* **Connect AI tools.** Route Claude Code through the Edge Daemon. See [Connect Claude Code to the Edge Daemon](connect-claude-code-to-daemon.md).
+* **Connect AI tools.** Route Claude Code through the Edge Daemon. See [Connect Claude Code to the Edge Daemon](../connect-claude-code-to-daemon.md).

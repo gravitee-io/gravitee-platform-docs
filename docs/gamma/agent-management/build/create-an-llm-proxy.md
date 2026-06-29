@@ -89,4 +89,4 @@ This is the recommended path for routing Claude Code, Cursor, and other developm
 
 * **Configure routing** — Add models and routing strategies. See [Configure an LLM Proxy](configure-an-llm-proxy.md).
 * **Publish** — Make the LLM Proxy discoverable. See [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md).
-* **Route through Edge Daemon** — For employee device traffic, route through Edge Management. See [Connect Claude Code to the Edge Daemon](../edge-daemon/connect-claude-code-to-daemon.md).
+* **Route through Edge Daemon** — For employee device traffic, route through Edge Management. See [Connect Claude Code to the Edge Daemon](../../edge-management/connect-claude-code-to-daemon.md).

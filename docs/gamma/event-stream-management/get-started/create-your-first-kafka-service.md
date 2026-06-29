@@ -86,5 +86,5 @@ Once the plan is created and published, your Kafka Service is active. You can no
 ## Next steps
 
 * **Create a Virtual Cluster** — Provision a logically isolated Kafka environment on top of your service. See [Establish a virtual cluster](../build/establish-a-virtual-cluster.md).
-* **Create a topic** — Start producing and consuming messages. See [Create Kafka topics](../explorer/create-kafka-topics.md).
+* **Create a topic** — Start producing and consuming messages.
 * **Explore all configuration options** — Security plans, policies, and advanced settings. See [Create a Kafka service with a registered cluster](../build/create-a-kafka-service-with-a-registered-cluster.md).

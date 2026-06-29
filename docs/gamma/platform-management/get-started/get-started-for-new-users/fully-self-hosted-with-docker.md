@@ -10,9 +10,9 @@ To run a full Gamma platform yourself with Docker, use one of the Docker install
 
 ## Choose a Docker guide
 
-* [Run Gamma with Docker Compose](../self-hosted-installation-guides/docker/docker-compose.md): one Compose file that brings up every component together. Use this for the simplest path.
-* [Run Gamma with Docker CLI](../self-hosted-installation-guides/docker/docker-cli.md): start each container yourself with `docker run`. Use this when you want to see each component or fit Gamma into an existing setup.
-* **Hybrid with Docker:** run a self-hosted Docker Gateway against a Gravitee Cloud (Next-Gen Cloud) control plane. See [Run a hybrid Gateway with Docker Compose](../hybrid-installation-guides/docker/docker-compose.md) or [with the Docker CLI](../hybrid-installation-guides/docker/docker-cli.md).
+* [Run Gamma with Docker Compose](../../install/self-hosted-installation-guides/docker/docker-compose.md): one Compose file that brings up every component together. Use this for the simplest path.
+* [Run Gamma with Docker CLI](../../install/self-hosted-installation-guides/docker/docker-cli.md): start each container yourself with `docker run`. Use this when you want to see each component or fit Gamma into an existing setup.
+* **Hybrid with Docker:** run a self-hosted Docker Gateway against a Gravitee Cloud (Next-Gen Cloud) control plane. See [Run a hybrid Gateway with Docker Compose](../../install/hybrid-installation-guides/docker/docker-compose.md) or [with the Docker CLI](../../install/hybrid-installation-guides/docker/docker-cli.md).
 
 ## What to expect
 
@@ -20,4 +20,4 @@ Both guides serve every console and the Management API on one host so the Gamma 
 
 ## Next steps
 
-* Once Gamma is running, create your first MCP server. For more information, see [Create your first MCP server](../../agent-management/get-started/create-your-first-mcp-server.md).
+* Once Gamma is running, create your first MCP server. For more information, see [Create your first MCP server](../../../agent-management/get-started/create-your-first-mcp-server.md).

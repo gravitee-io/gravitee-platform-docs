@@ -4,7 +4,7 @@ Once the Edge Daemon is installed on an employee device, you can route Claude Co
 
 ## Prerequisites
 
-* Edge Daemon installed and running on the device (see [Configure Kandji to deploy the Edge Daemon](configure-kandji-daemon.md))
+* Edge Daemon installed and running on the device (see [Configure Kandji to deploy the Edge Daemon](connect/configure-kandji-daemon.md))
 * Claude Code installed on the same device
 * The Edge Daemon is listening on its default local port (`8990`)
 
@@ -20,7 +20,7 @@ The Edge Daemon runs as a local reverse proxy on the employee's device. When you
 {% hint style="warning" %}
 Only LLM traffic is redirected through the Edge Daemon using this method. Claude Code also makes direct calls to `api.anthropic.com` for telemetry, authentication, and other operations — these requests bypass the Edge Daemon and reach Anthropic directly.
 
-An interception mode is in development that will redirect all traffic (including telemetry and auth) using local DNS resolution. This requires additional certificate configuration. See [Edge Daemon](/broken/pages/RC7T5TFQ2SjqcnMJnzfQ) for details.
+An interception mode is in development that will redirect all traffic (including telemetry and auth) using local DNS resolution. This requires additional certificate configuration.
 {% endhint %}
 
 No code changes are required in Claude Code — the base URL override is the only configuration needed.
@@ -55,4 +55,4 @@ Send a test prompt through Claude Code and confirm that traffic is routed throug
 
 ## Next steps
 
-* **Monitor traffic** — View AI usage from this device in the Edge Management dashboard. See [Monitor AI Gateway usage from employee systems](../observe/monitor-ai-gateway-from-devices.md).
+* **Monitor traffic** — View AI usage from this device in the Edge Management dashboard. See [Monitor AI Gateway usage from employee systems](../agent-management/observe/monitor-ai-gateway-from-devices.md).

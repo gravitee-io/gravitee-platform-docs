@@ -15,10 +15,10 @@ The first time you open the page, there is no configuration. Configure the field
 ## Configure Edge Management 
 
 To configure Edge Management, complete the following steps:
-* [Configure the Gateway](/docs/gamma/edge-management/connect/configure-edge-management.md#configure-the-gateway)
-* [Configure the Proxy](/docs/gamma/edge-management/connect/configure-edge-management.md#configure-the-proxy)
-* [Configure Shadow AI monitoring](/docs/gamma/edge-management/connect/configure-edge-management.md#configure-shadow-ai-monitoring)
-* [Save the configuration](/docs/gamma/edge-management/connect/configure-edge-management.md#save-the-configuration)
+* [Configure the Gateway](configure-edge-management.md#configure-the-gateway)
+* [Configure the Proxy](configure-edge-management.md#configure-the-proxy)
+* [Configure Shadow AI monitoring](configure-edge-management.md#configure-shadow-ai-monitoring)
+* [Save the configuration](configure-edge-management.md#save-the-configuration)
 
 ## Configure the Gateway
 
@@ -82,4 +82,4 @@ Configure the following settings:
 ## Next steps
 
 * **Deploy the Edge Daemon.** See [Configure Kandji to deploy the Edge Daemon](configure-kandji-daemon.md).
-* **Connect AI tools.** See [Connect Claude Code to the Edge Daemon](connect-claude-code-to-daemon.md).
+* **Connect AI tools.** See [Connect Claude Code to the Edge Daemon](../connect-claude-code-to-daemon.md).

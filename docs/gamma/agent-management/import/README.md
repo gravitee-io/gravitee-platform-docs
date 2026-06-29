@@ -16,7 +16,6 @@ Populate the Catalog with the assets your agents need — models, MCP servers, t
 * [**Import prompts**](import-prompts.md) — Upload reusable, parameterized prompt templates to the Catalog.
 * [**Add MCP resources**](add-mcp-resources.md) — Catalog server resources from connected MCP servers and repository resources from Git.
 * [**Create API tools**](create-api-tools.md) — Expose REST APIs from API Management as agent-accessible tools in the Catalog.
-* [**Create Event tools**](create-event-tools.md) — Expose Kafka APIs from Event Stream Management as agent-accessible tools in the Catalog.
 * [**Add a knowledge source**](add-knowledge-source.md) — Add external knowledge (documentation, knowledge bases) to the Catalog for agent consumption.
 * [**Upload skills**](upload-skills.md) — Catalog skill folders that agents can consume as MCP resources.
 * [**Import an agent from an integration**](import-an-agent.md) — Import A2A agents and hyperscaler-federated agents from connected integrations.

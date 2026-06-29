@@ -55,7 +55,7 @@ The traffic forwarded by the Edge Daemon is captured by standard APIM APIs that 
 | **HTTP Proxy API** | Handles classic HTTP traffic (telemetry, authentication). Enables HTTP-specific policies.                |
 
 {% hint style="info" %}
-For the API types, context paths, and required keyless plan, see [Create the proxy APIs](../connect/create-proxy-apis.md). Routing of proxied traffic to these APIs is then configured from the Gamma console — see [Configure Edge Management](../connect/configure-edge-management.md).
+For the API types, context paths, and required keyless plan, see [Create the proxy APIs](../connect/proxy-api-reference.md). Routing of proxied traffic to these APIs is then configured from the Gamma console — see [Configure Edge Management](../connect/configure-edge-management.md).
 {% endhint %}
 
 ## Gateway-side requirements
@@ -77,5 +77,5 @@ The traffic the daemon forwards is captured by the proxy APIs deployed on the AI
 
 ## Next steps
 
-* **Deploy the Edge Daemon** — Use an MDM solution to distribute the Edge Daemon to your device fleet. See [Configure Kandji to deploy the Edge Daemon](configure-kandji-daemon.md).
-* **Connect AI tools** — Route Claude Code through the Edge Daemon. See [Connect Claude Code to the Edge Daemon](connect-claude-code-to-daemon.md).
+* **Deploy the Edge Daemon** — Use an MDM solution to distribute the Edge Daemon to your device fleet. See [Configure Kandji to deploy the Edge Daemon](../connect/configure-kandji-daemon.md).
+* **Connect AI tools** — Route Claude Code through the Edge Daemon. See [Connect Claude Code to the Edge Daemon](../connect-claude-code-to-daemon.md).

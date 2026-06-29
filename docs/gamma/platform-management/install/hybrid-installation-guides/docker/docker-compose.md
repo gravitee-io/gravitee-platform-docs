@@ -215,5 +215,5 @@ gravitee_system_proxy_https_port=<proxy-port>
 
 ## Next steps
 
-* Create your first MCP server. For more information, see [Create your first MCP server](../../../agent-management/get-started/create-your-first-mcp-server.md).
-* Create your first API. For more information, see [Create your first API](../../../api-management/get-started/create-your-first-api.md).
+* Create your first MCP server. For more information, see [Create your first MCP server](../../../../agent-management/get-started/create-your-first-mcp-server.md).
+* Create your first API. For more information, see [Create your first API](../../../../api-management/get-started/create-your-first-api.md).
