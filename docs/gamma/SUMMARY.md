@@ -151,16 +151,15 @@
   * [API policy examples](authorization-management/configure/api-policy-examples.md)
   * [MCP policy examples](authorization-management/configure/mcp-policy-examples.md)
   * [AI policy example](authorization-management/configure/ai-policy-example.md)
+  * [AuthZEN PDP synchronization](authorization-management/configure/authz-gateway-sync.md)
 * [Evaluate](authorization-management/evaluate/README.md)
   * [Configure the Gravitee Gateway as a runtime](authorization-management/evaluate/configure-gravitee-gateway-as-runtime.md)
   * [Configure a sidecar as runtime](authorization-management/evaluate/configure-sidecar-as-runtime.md)
   * [Policy syncs](authorization-management/evaluate/policy-syncs.md)
   * [Analytics sent to the control plane](authorization-management/evaluate/analytics-sent-to-control-plane.md)
-* [AuthZEN PDP synchronization](authorization-management/authz-gateway-sync.md)
 
 ## Edge Management
 
-* [Edge Management](edge-management/README.md)
 * [Get started](edge-management/get-started/README.md)
   * [Edge Management overview](edge-management/get-started/edge-management-overview.md)
 * [Connect](edge-management/connect/README.md)
