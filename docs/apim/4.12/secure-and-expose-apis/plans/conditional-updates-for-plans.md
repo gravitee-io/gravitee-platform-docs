@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Conditional Updates for Plans
 
 ## Overview
@@ -20,9 +25,9 @@ Optimistic concurrency control prevents lost updates when multiple clients modif
 
 ## Prerequisites
 
-- Access to the Management API v2 (`/management/v2/environments/{envId}/apis/{apiId}/plans/{planId}`)
-- The `API_PLAN[UPDATE]` permission on the API (required for plan PATCH operations)
-- A plan with a non-null `updatedAt` timestamp (plans without this field will not return ETag or Last-Modified headers)
+* Access to the Management API v2 (`/management/v2/environments/{envId}/apis/{apiId}/plans/{planId}`)
+* The `API_PLAN[UPDATE]` permission on the API (required for plan PATCH operations)
+* A plan with a non-null `updatedAt` timestamp (plans without this field will not return ETag or Last-Modified headers)
 
 ## Managing Plan Updates
 
@@ -86,10 +91,10 @@ Omitting the `If-Match` header (or sending `If-Match: *`) skips the concurrency 
 
 ### Response Header Reference
 
-| Header | Description | Example |
-|:-------|:------------|:--------|
-| **ETag** | Opaque quoted string identifying the plan version. Derived from the plan's `updatedAt` timestamp as epoch milliseconds. Use this value in `If-Match` headers for conditional requests. | `"1705314645123"` |
-| **Last-Modified** | Plan's last-updated timestamp in RFC 7231 HTTP-date format (one-second resolution). Informational only; do not use for conditional requests due to precision loss. | `Mon, 15 Jan 2024 10:30:45 GMT` |
+| Header            | Description                                                                                                                                                                            | Example                         |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| **ETag**          | Opaque quoted string identifying the plan version. Derived from the plan's `updatedAt` timestamp as epoch milliseconds. Use this value in `If-Match` headers for conditional requests. | `"1705314645123"`               |
+| **Last-Modified** | Plan's last-updated timestamp in RFC 7231 HTTP-date format (one-second resolution). Informational only; do not use for conditional requests due to precision loss.                     | `Mon, 15 Jan 2024 10:30:45 GMT` |
 
 ### Partial Plan Updates
 
@@ -97,34 +102,34 @@ To partially update a V4 HTTP Proxy API plan, send a PATCH request to `/manageme
 
 **Query Parameters**:
 
-| Parameter | Type    | Default | Description                                 |
-| :-------- | :------ | :------ | :------------------------------------------ |
-| `dryRun`  | Boolean | `false` | Preview the result without persisting       |
+| Parameter | Type    | Default | Description                           |
+| --------- | ------- | ------- | ------------------------------------- |
+| `dryRun`  | Boolean | `false` | Preview the result without persisting |
 
 **Patchable Plan Fields**:
 
-| Field              | Nullable | Description                                                                                                                                                                                                                                                |
-| :----------------- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`             | No       | Plan name                                                                                                                                                                                                                                                  |
-| `description`      | Yes      | Plan description                                                                                                                                                                                                                                           |
-| `security`         | No       | Security configuration; type is frozen, only `configuration` sub-fields are patchable; when patching `selectionRule` or `security` on a plan without an HTTP V4 definition (`planDefinitionHttpV4` is `null`), the operation is a no-op and does not throw an error |
-| `validation`       | No       | Plan validation type (`AUTO`, `MANUAL`)                                                                                                                                                                                                                    |
-| `selectionRule`    | Yes      | EL expression for plan selection; when patching `selectionRule` or `security` on a plan without an HTTP V4 definition (`planDefinitionHttpV4` is `null`), the operation is a no-op and does not throw an error                                             |
-| `tags`             | Yes      | Plan tags                                                                                                                                                                                                                                                  |
-| `excludedGroups`   | Yes      | Group IDs excluded from the plan                                                                                                                                                                                                                           |
-| `characteristics`  | Yes      | Plan characteristics                                                                                                                                                                                                                                       |
-| `commentRequired`  | No       | Whether subscription comments are required                                                                                                                                                                                                                 |
-| `generalConditions`| Yes      | General conditions page reference                                                                                                                                                                                                                          |
-| `flows`            | Yes      | Plan flows                                                                                                                                                                                                                                                 |
+| Field               | Nullable | Description                                                                                                                                                                                                                                                         |
+| ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`              | No       | Plan name                                                                                                                                                                                                                                                           |
+| `description`       | Yes      | Plan description                                                                                                                                                                                                                                                    |
+| `security`          | No       | Security configuration; type is frozen, only `configuration` sub-fields are patchable; when patching `selectionRule` or `security` on a plan without an HTTP V4 definition (`planDefinitionHttpV4` is `null`), the operation is a no-op and does not throw an error |
+| `validation`        | No       | Plan validation type (`AUTO`, `MANUAL`)                                                                                                                                                                                                                             |
+| `selectionRule`     | Yes      | EL expression for plan selection; when patching `selectionRule` or `security` on a plan without an HTTP V4 definition (`planDefinitionHttpV4` is `null`), the operation is a no-op and does not throw an error                                                      |
+| `tags`              | Yes      | Plan tags                                                                                                                                                                                                                                                           |
+| `excludedGroups`    | Yes      | Group IDs excluded from the plan                                                                                                                                                                                                                                    |
+| `characteristics`   | Yes      | Plan characteristics                                                                                                                                                                                                                                                |
+| `commentRequired`   | No       | Whether subscription comments are required                                                                                                                                                                                                                          |
+| `generalConditions` | Yes      | General conditions page reference                                                                                                                                                                                                                                   |
+| `flows`             | Yes      | Plan flows                                                                                                                                                                                                                                                          |
 
 **Non-Patchable Plan Fields**:
 
-| Field            | Reason                                                                   |
-| :--------------- | :----------------------------------------------------------------------- |
-| `status`         | Use plan lifecycle endpoints to change plan status                       |
-| `id`             | Field is not patchable                                                   |
-| `createdAt`      | Field is not patchable                                                   |
-| `security.type`  | Type is frozen; only `security.configuration` is patchable               |
+| Field           | Reason                                                     |
+| --------------- | ---------------------------------------------------------- |
+| `status`        | Use plan lifecycle endpoints to change plan status         |
+| `id`            | Field is not patchable                                     |
+| `createdAt`     | Field is not patchable                                     |
+| `security.type` | Type is frozen; only `security.configuration` is patchable |
 
 **Response**:
 
