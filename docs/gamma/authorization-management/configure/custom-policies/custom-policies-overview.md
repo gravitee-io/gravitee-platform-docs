@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 ---
 
 # Custom policies overview
