@@ -1,5 +1,7 @@
 # Dictionary management restrictions and validation
 
+
+
 ## Restrictions
 
 Dictionary management enforces the following constraints and validation rules.
@@ -9,16 +11,18 @@ Dictionary management enforces the following constraints and validation rules.
 The following rules apply per dictionary type.
 
 **Manual dictionaries:**
-- Include at least one property in `manual.properties`.
-- Don't define `dynamic.provider` or `dynamic.trigger`.
+
+* Include at least one property in `manual.properties`.
+* Don't define `dynamic.provider` or `dynamic.trigger`.
 
 **Dynamic dictionaries:**
-- Define both `dynamic.provider` and `dynamic.trigger`.
-- Don't include `manual.properties`.
+
+* Define both `dynamic.provider` and `dynamic.trigger`.
+* Don't include `manual.properties`.
 
 ### Validation limitations
 
-Dry-run validation checks the structure of the specification. It doesn't test provider connectivity for dynamic dictionaries.
+Dry-run validation checks the specification's structure. It doesn't test provider connectivity for dynamic dictionaries.
 
 ### Kubernetes resource dependencies
 
