@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: false
+noIndex: true
 ---
 
 # Manage actions
