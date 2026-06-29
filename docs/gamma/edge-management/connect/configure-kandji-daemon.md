@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 description: How to deploy the Edge Daemon to your macOS device fleet using Kandji MDM.
 ---
 

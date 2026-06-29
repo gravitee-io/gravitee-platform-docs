@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 description: How to configure the Edge Management settings, proxy routes, and shadow AI monitoring in the Gamma console.
 ---
 

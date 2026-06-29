@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 ---
 # Run Gamma with Docker Compose
 <!-- GAP-STRUCTURAL: Missing procedural content source -->

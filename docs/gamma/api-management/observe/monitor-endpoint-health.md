@@ -1,5 +1,5 @@
 ---
-noIndex: true
+noIndex: false
 ---
 
 # Monitor endpoint health
