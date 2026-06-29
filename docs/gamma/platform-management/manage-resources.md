@@ -1,10 +1,9 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 ---
 
 # Manage resources
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 Resources are shared, reusable components that API proxies reference at runtime. Common examples include OAuth2 token validation endpoints, cache stores, and authentication providers.
 
@@ -13,9 +12,11 @@ The Resources tab is marked **Coming soon** in the current build. No resource ma
 {% endhint %}
 
 ## Resource types
+
 Gamma supports all existing APIM resource types. It inherits the API Management resource model rather than introducing a separate resource system. Available resources include: Cache, OAuth2 (Generic, Gravitee AM), Authentication Provider, Confluent Schema Registry, and Keycloak adapter.
 
 ## Create a resource
+
 Resource creation forms use the same field definitions as the classic APIM Console.
 
 1. From the Gamma console sidebar, select **API Management**.
