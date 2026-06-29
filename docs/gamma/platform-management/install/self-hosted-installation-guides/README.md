@@ -6,10 +6,6 @@ noIndex: false
 
 ## Overview
 
-{% hint style="info" %}
-Gravitee Cloud is recommended for new installations to reduce deployment complexity. Let Gravitee host the control plane and database for you, and run only the data plane. To register for a Gravitee Cloud account, go to the [Gravitee Cloud sign in page](https://cloud.gravitee.io), and then click **Register**.
-{% endhint %}
-
 A fully self-hosted Gamma installation runs every component in your own infrastructure: the Management API with Gamma enabled, the API Gateway, the Gamma console, the APIM Console, the Developer Portal, and the MongoDB and Elasticsearch datastores. Choose one of the following deployment methods.
 
 ## Deployment methods
