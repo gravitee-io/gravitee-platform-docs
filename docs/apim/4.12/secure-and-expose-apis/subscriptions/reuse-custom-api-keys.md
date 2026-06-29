@@ -45,15 +45,15 @@ Before you reuse a custom API key, ensure the following settings are enabled:
 4. Create a new subscription.
 5. In the **Custom API key** field, paste the API key value copied from the previous subscription.<br>
 
-    <figure><img src="../../.gitbook/assets/apim-custom-api-key-reuse-step-02.png" alt=""><figcaption><p>Subscription creation dialog with custom API key field</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/apim-custom-api-key-reuse-step-02.png" alt="Subscription creation dialog with custom API key field"><figcaption></figcaption></figure>
 
 6. Observe that the same API Key is used for the new subscription. The API Keys table displays the updated timestamp for the reused key.<br>
 
-    <figure><img src="../../.gitbook/assets/apim-custom-api-key-reuse-step-03.png" alt=""><figcaption><p>API Keys table showing updated timestamp for reused key</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/apim-custom-api-key-reuse-step-03.png" alt="API Keys table showing updated timestamp for reused key"><figcaption></figcaption></figure>
 
 7. The revoked key from the closed subscription is displayed separately in the API Keys table.<br>
 
-    <figure><img src="../../.gitbook/assets/apim-custom-api-key-reuse-step-04.png" alt=""><figcaption><p>Revoked key display in API Keys table</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/apim-custom-api-key-reuse-step-04.png" alt="Revoked key display in API Keys table"><figcaption></figcaption></figure>
 
 ## Reuse Validation
 

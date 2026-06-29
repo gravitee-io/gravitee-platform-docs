@@ -72,7 +72,7 @@ To enable custom API key reuse in the Console:
 4. Navigate to the **Portal** section
 5. Under **Plan**, locate the **Allow custom API Key reuse** toggle<br>
 
-    <figure><img src="../../.gitbook/assets/apim-custom-api-key-reuse-step-01.png" alt=""><figcaption><p>Custom API key reuse setting</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/apim-custom-api-key-reuse-step-01.png" alt="Custom API key reuse setting"><figcaption></figcaption></figure>
 
 6. Toggle **Allow custom API Key reuse** to ON
 
