@@ -81,3 +81,7 @@ Subscriptions to API Key plans include additional security management settings:
 *   **Expire:** Set a date/time to automatically invalidate an existing API key
 
     <figure><img src="../../.gitbook/assets/subscription_api key expire.png" alt=""><figcaption><p>Expire an API key</p></figcaption></figure>
+
+### Custom API Key Reuse
+
+When custom API key reuse is enabled (controlled by the `plan.security.apikey.allowCustomReuse.enabled` property and Console toggle), you can reactivate inactive custom API keys for new subscriptions. This allows you to reuse a custom API key value that was previously revoked or expired. For more information, see [Reuse Custom API Keys](reuse-custom-api-keys.md).

@@ -20,7 +20,7 @@ An API Key plan offers only basic security, acting more like a unique identifier
 * **Propagate API Key to upstream API:** Toggle ON to ensure the request to the backend API includes the API key header sent by the API consumer. This is useful for backend APIs that already have integrated API key authentication.
 * **Additional selection rule:** Allows you to use Gravitee Expression Language (EL) to filter plans of the same type by contextual data (request headers, tokens, attributes, etc.). For example, if there are multiple API key plans, you can set different selection rules on each plan to determine which plan handles each request.
 
-## **API Key generation**
+## API Key generation
 
 By default, API keys are randomly generated for each subscription, but Gravitee also offers custom API key generation and shared API key generation. Both of these settings can be enabled at the environment level:
 
@@ -45,6 +45,51 @@ You can provide a custom API key when:
 *   Renewing a subscription
 
     <figure><img src="../../.gitbook/assets/plan_renew api key.png" alt=""><figcaption><p>Renew a subscription</p></figcaption></figure>
+
+#### Custom API key reuse
+
+Custom API key reuse allows you to reuse inactive (revoked or expired) custom API keys for new subscriptions. This feature is disabled by default and must be explicitly enabled by administrators.
+
+**Gateway configuration**
+
+Configure custom API key reuse at the environment, organization, or system level using the `plan.security.apikey.allowCustomReuse.enabled` property.
+
+| Property | Description | Default |
+|:---------|:------------|:--------|
+| `plan.security.apikey.allowCustomReuse.enabled` | Allows reuse of inactive (revoked or expired) custom API keys for new subscriptions | `false` |
+
+{% hint style="info" %}
+This property is only effective when `plan.security.apikey.allowCustom.enabled` is set to `true`.
+{% endhint %}
+
+**Console configuration**
+
+To enable custom API key reuse in the Console:
+
+1. Log in to your APIM Console
+2. Select **Settings** from the left nav
+3. Select **Settings** from the inner left nav
+4. Navigate to the **Portal** section
+5. Under **Plan**, locate the **Allow custom API Key reuse** toggle
+
+    <figure><img src="../../.gitbook/assets/apim-custom-api-key-reuse-step-01.png" alt=""><figcaption><p>Custom API key reuse setting</p></figcaption></figure>
+
+6. Toggle **Allow custom API Key reuse** to ON
+
+{% hint style="warning" %}
+The **Allow custom API Key reuse** toggle is disabled when:
+- API Key security is disabled
+- Custom API Key is disabled
+- The setting is marked as read-only (configured at the system level)
+{% endhint %}
+
+**Cascade behavior:**
+- Disabling **API Key** security automatically disables **Allow custom API Key** and **Allow custom API Key reuse**
+- Disabling **Allow custom API Key** automatically disables **Allow custom API Key reuse**
+
+{% hint style="info" %}
+Custom API key reuse defaults to disabled on new installations and upgrades. Administrators must explicitly enable the feature via Console settings or gateway configuration.
+{% endhint %}
 
 ### Shared API key
 
