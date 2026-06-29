@@ -100,4 +100,4 @@ Authorization Management is not isolated — it integrates with the API Gateway,
 
 ## Next steps
 
-* [Create authorization policies](../configure/create-update-delete-policies.md) — Learn how to create, edit, and deploy policies for each service category.
+* [Create authorization policies](../build/create-authorization-policies.md) — Learn how to create, edit, and deploy policies for each service category.
