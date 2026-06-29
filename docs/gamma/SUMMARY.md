@@ -2,7 +2,7 @@
 
 ## Release Notes
 
-* [Gamma Release](release-notes/gamma-release-notes.md)
+* [Gamma Release](platform-management/gamma-release-notes.md)
 
 ## Install Gamma
 
