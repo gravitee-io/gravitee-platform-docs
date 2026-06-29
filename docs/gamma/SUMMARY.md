@@ -1,5 +1,7 @@
 # Table of contents
 
+* [Overview](README.md)
+
 ## Release Notes
 
 * [Gamma Release](platform-management/gamma-release-notes.md)
@@ -39,15 +41,15 @@
 * [Build](api-management/build/README.md)
   * [Create an API proxy](api-management/build/create-an-api-proxy.md)
   * [Secure your API proxy](api-management/build/secure-your-api-proxy.md)
-  * [Configure your API proxy](api-management/build/configure-your-api-proxy/README.md) <!-- covered -->
-    * [Configure endpoints](api-management/build/configure-your-api-proxy/configure-backend-security.md) <!-- covered -->
-    * [Establish consumer access](api-management/build/configure-your-api-proxy/establish-consumer-access.md) <!-- covered -->
-    * [Apply security policies](api-management/build/configure-your-api-proxy/apply-security-policies.md) <!-- covered -->
-    * [Control how policy flows are matched to requests](api-management/build/configure-your-api-proxy/configure-flow-execution.md) <!-- audience: advanced --> <!-- new -->
+  * [Configure your API proxy](api-management/build/configure-your-api-proxy/README.md)
+    * [Configure endpoints](api-management/build/configure-your-api-proxy/configure-backend-security.md)
+    * [Establish consumer access](api-management/build/configure-your-api-proxy/establish-consumer-access.md)
+    * [Apply security policies](api-management/build/configure-your-api-proxy/apply-security-policies.md)
+    * [Control how policy flows are matched to requests](api-management/build/configure-your-api-proxy/configure-flow-execution.md)
   * [Create API Products](api-management/build/api-products.md)
   * [Configure API products](api-management/build/configure-your-api-product/README.md)
     * [Manage product APIs](api-management/build/configure-your-api-product/manage-product-apis.md)
-  * [Reuse policies with shared policy groups](api-management/build/shared-policy-groups.md) <!-- audience: intermediate --> <!-- new -->
+  * [Reuse policies with shared policy groups](api-management/build/shared-policy-groups.md)
 * [Observe](api-management/observe/README.md)
   * [Dashboard and metrics](api-management/observe/api-dashboard.md)
   * [Monitor API usage](api-management/observe/monitor-api-usage.md)
@@ -89,20 +91,20 @@
   * [Upload skills](agent-management/import/upload-skills.md)
   * [Import an agent from an integration](agent-management/import/import-an-agent.md)
 * [Build](agent-management/build/README.md)
-  * [Create an MCP proxy](agent-management/build/create-an-mcp-proxy.md) <!-- covered -->
-  * [Configure your MCP proxy](agent-management/build/configure-your-mcp/README.md) <!-- covered -->
-    * [Add policies to your MCP server](agent-management/build/configure-your-mcp/add-policies-to-mcp-server.md) <!-- covered -->
-    * [Apply policies to specific MCP methods](agent-management/build/configure-your-mcp/apply-policies-to-mcp-methods.md) <!-- audience: advanced --> <!-- new -->
-    * [Apply policies to individual tool invocations](agent-management/build/configure-your-mcp/apply-policies-to-tool-invocations.md) <!-- audience: advanced --> <!-- new -->
-  * [Create an MCP Studio](agent-management/build/create-an-mcp-studio.md) <!-- covered -->
+  * [Create an MCP proxy](agent-management/build/create-an-mcp-proxy.md)
+  * [Configure your MCP proxy](agent-management/build/configure-your-mcp/README.md)
+    * [Add policies to your MCP server](agent-management/build/configure-your-mcp/add-policies-to-mcp-server.md)
+    * [Apply policies to specific MCP methods](agent-management/build/configure-your-mcp/apply-policies-to-mcp-methods.md)
+    * [Apply policies to individual tool invocations](agent-management/build/configure-your-mcp/apply-policies-to-tool-invocations.md)
+  * [Create an MCP Studio](agent-management/build/create-an-mcp-studio.md)
     * [Edit tool composition](agent-management/build/edit-mcp-studio-composition.md)
-  * [Create an LLM Proxy](agent-management/build/create-an-llm-proxy.md) <!-- covered -->
-  * [Configure an LLM Proxy](agent-management/build/configure-an-llm-proxy.md) <!-- covered -->
+  * [Create an LLM Proxy](agent-management/build/create-an-llm-proxy.md)
+  * [Configure an LLM Proxy](agent-management/build/configure-an-llm-proxy.md)
   * [Create an agent identity](agent-management/build/create-an-agent-identity.md)
   * [Configure your Access Management instance](agent-management/build/configure-your-access-management-instance.md)
-  * [Expose your agent with the A2A Proxy](agent-management/build/expose-agent-with-a2a-proxy.md) <!-- covered -->
-  * [Configure your A2A Proxy](agent-management/build/configure-your-a2a-proxy/README.md) <!-- audience: intermediate --> <!-- new -->
-    * [Add policies to your A2A Proxy](agent-management/build/configure-your-a2a-proxy/add-policies-to-a2a-proxy.md) <!-- new -->
+  * [Expose your agent with the A2A Proxy](agent-management/build/expose-agent-with-a2a-proxy.md)
+  * [Configure your A2A Proxy](agent-management/build/configure-your-a2a-proxy/README.md)
+    * [Add policies to your A2A Proxy](agent-management/build/configure-your-a2a-proxy/add-policies-to-a2a-proxy.md)
 * [Publish](agent-management/publish/README.md)
   * [Publish your LLM Proxy](agent-management/publish/publish-your-llm-proxy.md)
   * [Expose an MCP Registry](agent-management/publish/expose-an-mcp-registry.md)
@@ -115,9 +117,9 @@
 ## Authorization Management
 
 * [Get started](authorization-management/get-started/README.md)
-  * [Authorization Management overview](authorization-management/get-started/authorization-management-overview.md) <!-- Include core concepts for structuring policies -->
+  * [Authorization Management overview](authorization-management/get-started/authorization-management-overview.md)
   * [Create your first user](authorization-management/get-started/create-your-first-user.md)
-  * [Import your first resource from Agent catalog](authorization-management/get-started/import-your-first-resource-from-agent-catalog.md) <!-- Maybe for June 26th -->
+  * [Import your first resource from Agent catalog](authorization-management/get-started/import-your-first-resource-from-agent-catalog.md)
   * [Create your first policy](authorization-management/get-started/create-your-first-policy.md)
 * [Manage](authorization-management/manage/README.md)
   * [Manage principals](authorization-management/manage/principals/README.md)
@@ -135,22 +137,22 @@
     * [Action naming and scope](authorization-management/manage/actions/action-naming-and-scope.md)
   * [Manage schemas](authorization-management/manage/schemas/README.md)
     * [Schema generation](authorization-management/manage/schemas/schema-generation.md)
-    * [Edit your schema](authorization-management/manage/schemas/edit-your-schema.md) <!-- Not coming for June 26th -->
-    * [Validate schema changes](authorization-management/manage/schemas/validate-schema-changes.md) <!-- Not coming for June 26th -->
+    * [Edit your schema](authorization-management/manage/schemas/edit-your-schema.md)
+    * [Validate schema changes](authorization-management/manage/schemas/validate-schema-changes.md)
 * [Configure](authorization-management/configure/README.md)
   * [Create, update, and delete policies](authorization-management/configure/create-update-delete-policies.md)
   * [Custom policies](authorization-management/configure/custom-policies/README.md)
     * [Custom policies overview](authorization-management/configure/custom-policies/custom-policies-overview.md)
     * [Create a custom policy](authorization-management/configure/custom-policies/create-a-custom-policy.md)
-  * [API policy examples](authorization-management/configure/api-policy-examples.md) <!-- Atlassian and GitHub examples -->
+  * [API policy examples](authorization-management/configure/api-policy-examples.md)
   * [MCP policy examples](authorization-management/configure/mcp-policy-examples.md)
-  * [AI policy example](authorization-management/configure/ai-policy-example.md) <!-- Anthropic and OpenAI model -->
+  * [AI policy example](authorization-management/configure/ai-policy-example.md)
 * [Evaluate](authorization-management/evaluate/README.md)
   * [Configure the Gravitee Gateway as a runtime](authorization-management/evaluate/configure-gravitee-gateway-as-runtime.md)
   * [Configure a sidecar as runtime](authorization-management/evaluate/configure-sidecar-as-runtime.md)
   * [AuthZEN PDP synchronization](authorization-management/authz-gateway-sync.md)
   * [Policy syncs](authorization-management/evaluate/policy-syncs.md)
-  * [Analytics sent to the control plane](authorization-management/evaluate/analytics-sent-to-control-plane.md) <!-- Not coming for June 26th -->
+  * [Analytics sent to the control plane](authorization-management/evaluate/analytics-sent-to-control-plane.md)
 
 ## Platform Management
 
@@ -160,7 +162,8 @@
 * [Manage applications](platform-management/manage-applications.md)
 * [Manage resources](platform-management/manage-resources.md)
 
-## Edge Management 
+## Edge Management
+
 * [Get started](edge-management/get-started/README.md)
   * [Edge Management overview](edge-management/get-started/edge-management-overview.md)
 * [Connect](edge-management/connect/README.md)
