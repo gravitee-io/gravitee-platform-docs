@@ -2,36 +2,40 @@
 
 * [Overview](README.md)
 
-## Release Notes
+## Platform Management
 
 * [Gamma Release](platform-management/gamma-release-notes.md)
-
-## Install Gamma
-
-* [Get started for new users](platform-management/get-started/get-started-for-new-users/README.md)
-  * [Fully self-hosted installation with Vanilla Kubernetes](platform-management/get-started/get-started-for-new-users/fully-self-hosted-with-vanilla-kubernetes.md)
-  * [Fully self-hosted installation with Docker](platform-management/get-started/get-started-for-new-users/fully-self-hosted-with-docker.md)
-* [Get started for existing users](platform-management/get-started/get-started-for-existing-users/README.md)
-  * [Activate Gamma with Docker Compose](platform-management/get-started/get-started-for-existing-users/activate-gamma-with-docker-compose.md)
-  * [Activate Gamma with Kubernetes (Helm)](platform-management/get-started/get-started-for-existing-users/activate-gamma-with-kubernetes-helm.md)
-* [Self-hosted installation guides](platform-management/install/self-hosted-installation-guides/README.md)
-  * [Docker](platform-management/install/self-hosted-installation-guides/docker/README.md)
-    * [Docker Compose](platform-management/install/self-hosted-installation-guides/docker/docker-compose.md)
-    * [Docker CLI](platform-management/install/self-hosted-installation-guides/docker/docker-cli.md)
-  * [Kubernetes](platform-management/install/self-hosted-installation-guides/kubernetes/README.md)
-    * [Vanilla Kubernetes](platform-management/install/self-hosted-installation-guides/kubernetes/vanilla-kubernetes.md)
-    * [AWS EKS](platform-management/install/self-hosted-installation-guides/kubernetes/aws-eks.md)
-    * [Azure AKS](platform-management/install/self-hosted-installation-guides/kubernetes/azure-aks.md)
-    * [OpenShift](platform-management/install/self-hosted-installation-guides/kubernetes/openshift.md)
-* [Hybrid installation guides](platform-management/install/hybrid-installation-guides/README.md)
-  * [Docker](platform-management/install/hybrid-installation-guides/docker/README.md)
-    * [Docker Compose](platform-management/install/hybrid-installation-guides/docker/docker-compose.md)
-    * [Docker CLI](platform-management/install/hybrid-installation-guides/docker/docker-cli.md)
-  * [Kubernetes](platform-management/install/hybrid-installation-guides/kubernetes/README.md)
-    * [Vanilla Kubernetes](platform-management/install/hybrid-installation-guides/kubernetes/vanilla-kubernetes.md)
-    * [AWS EKS](platform-management/install/hybrid-installation-guides/kubernetes/aws-eks.md)
-    * [Azure AKS](platform-management/install/hybrid-installation-guides/kubernetes/azure-aks.md)
-    * [OpenShift](platform-management/install/hybrid-installation-guides/kubernetes/openshift.md)
+* [Get started](platform-management/get-started/README.md)
+  * [Get started for new users](platform-management/get-started/get-started-for-new-users/README.md)
+    * [Fully self-hosted installation with Vanilla Kubernetes](platform-management/get-started/get-started-for-new-users/fully-self-hosted-with-vanilla-kubernetes.md)
+    * [Fully self-hosted installation with Docker](platform-management/get-started/get-started-for-new-users/fully-self-hosted-with-docker.md)
+  * [Get started for existing users](platform-management/get-started/get-started-for-existing-users/README.md)
+    * [Activate Gamma with Docker Compose](platform-management/get-started/get-started-for-existing-users/activate-gamma-with-docker-compose.md)
+    * [Activate Gamma with Kubernetes (Helm)](platform-management/get-started/get-started-for-existing-users/activate-gamma-with-kubernetes-helm.md)
+* [Install](platform-management/install/README.md)
+  * [Self-hosted installation guides](platform-management/install/self-hosted-installation-guides/README.md)
+    * [Docker](platform-management/install/self-hosted-installation-guides/docker/README.md)
+      * [Docker Compose](platform-management/install/self-hosted-installation-guides/docker/docker-compose.md)
+      * [Docker CLI](platform-management/install/self-hosted-installation-guides/docker/docker-cli.md)
+    * [Kubernetes](platform-management/install/self-hosted-installation-guides/kubernetes/README.md)
+      * [Vanilla Kubernetes](platform-management/install/self-hosted-installation-guides/kubernetes/vanilla-kubernetes.md)
+      * [AWS EKS](platform-management/install/self-hosted-installation-guides/kubernetes/aws-eks.md)
+      * [Azure AKS](platform-management/install/self-hosted-installation-guides/kubernetes/azure-aks.md)
+      * [OpenShift](platform-management/install/self-hosted-installation-guides/kubernetes/openshift.md)
+  * [Hybrid installation guides](platform-management/install/hybrid-installation-guides/README.md)
+    * [Docker](platform-management/install/hybrid-installation-guides/docker/README.md)
+      * [Docker Compose](platform-management/install/hybrid-installation-guides/docker/docker-compose.md)
+      * [Docker CLI](platform-management/install/hybrid-installation-guides/docker/docker-cli.md)
+    * [Kubernetes](platform-management/install/hybrid-installation-guides/kubernetes/README.md)
+      * [Vanilla Kubernetes](platform-management/install/hybrid-installation-guides/kubernetes/vanilla-kubernetes.md)
+      * [AWS EKS](platform-management/install/hybrid-installation-guides/kubernetes/aws-eks.md)
+      * [Azure AKS](platform-management/install/hybrid-installation-guides/kubernetes/azure-aks.md)
+      * [OpenShift](platform-management/install/hybrid-installation-guides/kubernetes/openshift.md)
+* [Overview](platform-management/overview.md)
+* [Configure Access Management](platform-management/configure-access-management.md)
+* [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
+* [Manage applications](platform-management/manage-applications.md)
+* [Manage resources](platform-management/manage-resources.md)
 
 ## API Management
 
@@ -150,20 +154,13 @@
 * [Evaluate](authorization-management/evaluate/README.md)
   * [Configure the Gravitee Gateway as a runtime](authorization-management/evaluate/configure-gravitee-gateway-as-runtime.md)
   * [Configure a sidecar as runtime](authorization-management/evaluate/configure-sidecar-as-runtime.md)
-  * [AuthZEN PDP synchronization](authorization-management/authz-gateway-sync.md)
   * [Policy syncs](authorization-management/evaluate/policy-syncs.md)
   * [Analytics sent to the control plane](authorization-management/evaluate/analytics-sent-to-control-plane.md)
-
-## Platform Management
-
-* [Overview](platform-management/overview.md)
-* [Configure Access Management](platform-management/configure-access-management.md)
-* [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
-* [Manage applications](platform-management/manage-applications.md)
-* [Manage resources](platform-management/manage-resources.md)
+* [AuthZEN PDP synchronization](authorization-management/authz-gateway-sync.md)
 
 ## Edge Management
 
+* [Edge Management](edge-management/README.md)
 * [Get started](edge-management/get-started/README.md)
   * [Edge Management overview](edge-management/get-started/edge-management-overview.md)
 * [Connect](edge-management/connect/README.md)
@@ -171,6 +168,7 @@
   * [Configure Edge Management](edge-management/connect/configure-edge-management.md)
   * [Configure Edge Ingress](edge-management/connect/configure-edge-ingress.md)
   * [Configure Kandji to deploy the Edge Daemon](edge-management/connect/configure-kandji-daemon.md)
+* [Connect Claude Code to the Edge Daemon](edge-management/connect-claude-code-to-daemon.md)
 * [Observe](edge-management/observe/README.md)
   * [Monitor your shadow AI traffic](edge-management/observe/monitor-shadow-ai-traffic.md)
   * [Monitor your proxied traffic](edge-management/observe/monitor-proxied-traffic.md)
