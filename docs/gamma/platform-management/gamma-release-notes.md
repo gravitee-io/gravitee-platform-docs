@@ -1,4 +1,4 @@
-# Gavitee Gamma Release
+# Gravitee Gamma Release
 
 Released June 26, 2026
 
