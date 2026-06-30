@@ -196,3 +196,9 @@ developer-portal/new-developer-portal/customize-the-navigation/portal-automation
 terraform/example-resource-configurations.md
 hybrid-installation-and-configuration-guides/classic-cloud/README.md
 release-information/support-model.md
+.gitbook/assets/apim-custom-api-key-reuse-step-01.png
+.gitbook/assets/apim-custom-api-key-reuse-step-02.png
+.gitbook/assets/apim-custom-api-key-reuse-step-03.png
+.gitbook/assets/apim-custom-api-key-reuse-step-04.png
+secure-and-expose-apis/plans/api-key.md
+secure-and-expose-apis/subscriptions/reuse-custom-api-keys.md

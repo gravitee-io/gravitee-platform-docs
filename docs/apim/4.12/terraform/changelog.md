@@ -8,6 +8,35 @@ metaLinks:
 
 # Changelogs
 <!--INSERT_BELOW-->
+## v1.0.0
+
+### Features
+
+* Add multiple certificate support and rotation acceptance test
+* Allow binding groups to APIs and Applications
+* Custom API key field
+* Dictionary
+* Export to HCL
+* Groups
+* Manage API Keys with revocation
+* Support of API console notifications
+* Webhook APIs
+
+### Bug Fixes
+
+* Remove the beta status
+* Add an example for HTTP Proxy with shared endpoint configuration
+* Add branch name to Slack notifications
+* Add missing fields for analytics and native plan
+* Forbid changes to immutable fields and add test for them
+* Handle trailing slash in listener
+* SSL changes in APIM
+
+### Documentation
+
+* Add link and description for OpenTofu prerequisite
+* Move issue tracking to contribution doc
+
 
 ## 0.5.x
 
