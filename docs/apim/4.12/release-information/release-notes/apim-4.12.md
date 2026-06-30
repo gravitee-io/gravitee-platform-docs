@@ -213,6 +213,16 @@
 * Documentation pages support Gravitee Markdown, OpenAPI, and AsyncAPI formats and can be scoped to either the portal (platform-level) or specific APIs (appearing under each published API instance).
 * In 4.12, one portal instance per environment is supported (multi-portal is planned for a future release). All requests must target the HRID `default-portal`. Navigation sync is limited to the top navigation bar area.
 
+
+<!-- PIPELINE:APIM-14537 -->
+#### **Custom API Key Reuse**
+
+* API consumers can now reuse inactive custom API keys—revoked, expired, or from closed subscriptions—when creating new subscriptions, providing greater flexibility in key management.
+* When enabled, the system reactivates the existing key record and associates it with the new subscription. The system updates the expiration date to match the new subscription's end date and retains the audit history.
+* Requires `plan.security.apikey.allowCustomReuse.enabled=true` in the environment configuration and must be used with custom API keys enabled, configured with `plan.security.apikey.allowCustom.enabled=true`.
+* Paused API keys cannot be reused because their subscriptions remain active; only inactive keys are eligible for reuse.
+<!-- /PIPELINE:APIM-14537 -->
+
 ## Improvements
 
 #### **Policy Description Tracing**

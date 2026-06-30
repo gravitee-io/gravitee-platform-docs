@@ -308,6 +308,7 @@
     * [User and Group Access](secure-and-expose-apis/applications/user-and-group-access.md)
   * [Subscriptions](secure-and-expose-apis/subscriptions/README.md)
     * [Creating and managing subscription forms](secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms.md)
+    * [Reuse Custom API Keys](secure-and-expose-apis/subscriptions/reuse-custom-api-keys.md)
     * [Subscription form feature overview](secure-and-expose-apis/subscriptions/subscription-form-feature-overview.md)
     * [Subscription Requests](secure-and-expose-apis/subscriptions/subscription-requests.md)
     * [Manage Subscriptions](secure-and-expose-apis/subscriptions/manage-subscriptions.md)
