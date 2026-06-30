@@ -84,4 +84,4 @@ Subscriptions to API Key plans include additional security management settings:
 
 ### Custom API Key Reuse
 
-When custom API key reuse is enabled (controlled by the `plan.security.apikey.allowCustomReuse.enabled` property and Console toggle), you can reactivate inactive custom API keys for new subscriptions. This allows you to reuse a custom API key value that was previously revoked or expired. For more information, see [Reuse Custom API Keys](reuse-custom-api-keys.md).
+When custom API key reuse is enabled, controlled by the `plan.security.apikey.allowCustomReuse.enabled` property and the Console toggle, you can reactivate inactive custom API keys for new subscriptions. This allows you to reuse a custom API key value that was previously revoked or expired. For more information, see [Reuse Custom API Keys](reuse-custom-api-keys.md).

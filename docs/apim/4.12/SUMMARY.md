@@ -447,6 +447,7 @@
     * [Gravitee Access Management](alert-engine/guides/integration-set-up/gravitee-access-management.md)
       * [Installation](alert-engine/guides/integration-set-up/gravitee-access-management/installation.md)
       * [Configuration](alert-engine/guides/integration-set-up/gravitee-access-management/configuration.md)
+    * [Third Party Integrations](alert-engine/overview/integrations.md#integrating-with-third-party-solutions)
   * [API reference](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/ae/spec/2.0/alert-engine-spec.yml)
   * [Azure regions for SaaS and Hybrid Deployments](alert-engine/reference/azure-regions-for-saas-and-hybrid-deployments.md)
   * [Changelog](alert-engine/releases-and-changelog/page-6.md)

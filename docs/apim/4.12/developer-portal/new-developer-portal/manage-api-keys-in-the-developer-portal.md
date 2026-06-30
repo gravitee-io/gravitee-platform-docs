@@ -37,7 +37,7 @@ Before managing API keys, ensure the following conditions are met:
 
 API keys are generated automatically when a subscription to an API-Key-secured plan is accepted. The subscription details page displays all keys in a table under the "API keys" section. Each row shows the key's status icon, the key value, the creation timestamp, and—for inactive keys—the revocation or expiration timestamp. Active keys include a **Revoke** action button in the rightmost column.
 
-When creating subscriptions with custom API keys, inactive keys (revoked or expired) from previous subscriptions can be reused if the reuse feature is enabled and the key belongs to the same application. For more information, see [Reusing Custom API Keys](../../secure-and-expose-apis/subscriptions/reuse-custom-api-keys.md).
+When creating subscriptions with custom API keys, inactive keys—revoked or expired—from previous subscriptions can be reused. This requires the reuse feature to be enabled and the key to belong to the same application. For more information, see [Reuse Custom API Keys](../../secure-and-expose-apis/subscriptions/reuse-custom-api-keys.md).
 
 The table supports pagination with a default page size of 5 and options for 10 or 25 rows per page.
  When no API keys are available, the table displays the message "No API keys available."

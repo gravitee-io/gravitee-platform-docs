@@ -217,10 +217,10 @@
 <!-- PIPELINE:APIM-14537 -->
 #### **Custom API Key Reuse**
 
-* API consumers can now reuse inactive custom API keys (revoked, expired, or from closed subscriptions) when creating new subscriptions, providing greater flexibility in key management.
-* When enabled, the system reactivates the existing key record and associates it with the new subscription, updating the expiration date to match the new subscription's end date while retaining audit history.
-* Requires `plan.security.apikey.allowCustomReuse.enabled=true` in environment configuration and must be used with custom API keys enabled (`plan.security.apikey.allowCustom.enabled=true`).
-* Paused API keys cannot be reused as their subscriptions remain active; only truly inactive keys are eligible for reuse.
+* API consumers can now reuse inactive custom API keys—revoked, expired, or from closed subscriptions—when creating new subscriptions, providing greater flexibility in key management.
+* When enabled, the system reactivates the existing key record and associates it with the new subscription. The system updates the expiration date to match the new subscription's end date and retains the audit history.
+* Requires `plan.security.apikey.allowCustomReuse.enabled=true` in the environment configuration and must be used with custom API keys enabled, configured with `plan.security.apikey.allowCustom.enabled=true`.
+* Paused API keys cannot be reused because their subscriptions remain active; only inactive keys are eligible for reuse.
 <!-- /PIPELINE:APIM-14537 -->
 
 ## Improvements

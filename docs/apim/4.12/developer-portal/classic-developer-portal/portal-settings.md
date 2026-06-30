@@ -26,10 +26,10 @@ The general settings of the Developer Portal can be overridden with the `gravite
 {% endhint %}
 
 * **Api-key Header:** Modify the `api-key` header shown in the Developer Portal's cURL commands. This only impacts what is displayed in the Developer Portal's UI. You must modify the `gravitee.yaml` file to change how the Gateway handles the `api-key` header. This setting corresponds to the `portal.apikeyHeader` configuration parameter and controls the HTTP header name used in the cURL command example displayed in the "Calling the API" section.
-* **Security plans type available:**
-  * **Api-key plans:** Enable API Key security plans
-    * **Allow custom API Key:** Allow API consumers to provide their own API key values when subscribing to an API
-      * **Allow custom API Key reuse:** Enable reuse of revoked or expired custom API keys for new subscriptions. This toggle is disabled when API Key security is disabled or when custom API keys are disabled.
+* **Security plans type available**
+  * **API Key plans.** Enable API Key security plans.
+    * **Allow custom API Key.** Allow API consumers to provide their own API key values when subscribing to an API.
+      * **Allow custom API Key reuse.** Enable reuse of revoked or expired custom API keys for new subscriptions. This toggle is disabled when API Key security is disabled or when custom API keys are disabled.
 *   **Portal URL:** Enter the URL of the Developer Portal. This will add a link to the Developer Portal on the top navigation bar of the Management Console. Additionally, the [theme editor](portal-settings.md#theme-customization) will show a live preview of the Developer Portal.
 
     <figure><img src="../../.gitbook/assets/dev_portal_link.png" alt=""><figcaption><p>Link to Developer Portal from Management Console</p></figcaption></figure>

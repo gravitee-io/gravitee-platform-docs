@@ -48,15 +48,15 @@ You can provide a custom API key when:
 
 #### Custom API key reuse
 
-Custom API key reuse allows you to reuse inactive (revoked or expired) custom API keys for new subscriptions. This feature is disabled by default and must be explicitly enabled by administrators.
+Custom API key reuse allows you to reuse revoked or expired custom API keys for new subscriptions. This feature is disabled by default, and you must explicitly enable it.
 
 **Gateway configuration**
 
-Configure custom API key reuse at the environment, organization, or system level using the `plan.security.apikey.allowCustomReuse.enabled` property.
+Configure custom API key reuse at the environment, organization, or system level using the `plan.security.apikey.allowCustomReuse.enabled` property. The following table describes this property:
 
 | Property | Description | Default |
 |:---------|:------------|:--------|
-| `plan.security.apikey.allowCustomReuse.enabled` | Allows reuse of inactive (revoked or expired) custom API keys for new subscriptions | `false` |
+| `plan.security.apikey.allowCustomReuse.enabled` | Allows reuse of revoked or expired custom API keys for new subscriptions. | `false` |
 
 {% hint style="info" %}
 This property is only effective when `plan.security.apikey.allowCustom.enabled` is set to `true`.
@@ -64,31 +64,33 @@ This property is only effective when `plan.security.apikey.allowCustom.enabled` 
 
 **Console configuration**
 
-To enable custom API key reuse in the Console:
+To enable custom API key reuse in the Console, complete the following steps:
 
-1. Log in to your APIM Console
-2. Select **Settings** from the left nav
-3. Select **Settings** from the inner left nav
-4. Navigate to the **Portal** section
-5. Under **Plan**, locate the **Allow custom API Key reuse** toggle<br>
+1. Log in to your APIM Console.
+2. Select **Settings** from the left navigation menu.
+3. Select **Settings** from the inner left navigation menu.
+4. Navigate to the **Portal** section.
+5. Under **Plan**, locate the **Allow custom API Key reuse** toggle.<br>
 
     <figure><img src="../../.gitbook/assets/apim-custom-api-key-reuse-step-01.png" alt="Custom API key reuse setting"><figcaption></figcaption></figure>
 
-6. Toggle **Allow custom API Key reuse** to ON
+6. Toggle **Allow custom API Key reuse** to ON.
 
 {% hint style="warning" %}
-The **Allow custom API Key reuse** toggle is disabled when:
-- API Key security is disabled
-- Custom API Key is disabled
-- The setting is marked as read-only (configured at the system level)
+The **Allow custom API Key reuse** toggle is disabled when any of the following conditions apply:
+
+* API Key security is disabled.
+* Custom API Key is disabled.
+* The setting is marked as read-only, configured at the system level.
 {% endhint %}
 
-**Cascade behavior:**
-- Disabling **API Key** security automatically disables **Allow custom API Key** and **Allow custom API Key reuse**
-- Disabling **Allow custom API Key** automatically disables **Allow custom API Key reuse**
+Disabling settings has the following cascade behavior:
+
+* Disabling **API Key** security automatically disables **Allow custom API Key** and **Allow custom API Key reuse**.
+* Disabling **Allow custom API Key** automatically disables **Allow custom API Key reuse**.
 
 {% hint style="info" %}
-Custom API key reuse defaults to disabled on new installations and upgrades. Administrators must explicitly enable the feature via Console settings or gateway configuration.
+Custom API key reuse defaults to disabled on new installations and upgrades. You must explicitly enable the feature using Console settings or gateway configuration.
 {% endhint %}
 
 ### Shared API key
