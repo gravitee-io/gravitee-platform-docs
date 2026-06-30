@@ -12,7 +12,7 @@ Send a `PUT` request to `/organizations/{orgId}/environments/{envId}/portals/{po
 
 {% code overflow="wrap" %}
 ```http
-PUT /organizations/{orgId}/environments/{envId}/portals/default-portal/listings?dryRun=false
+PUT /organizations/{orgId}/environments/{envId}/portals/{portalHrid}/listings?dryRun=false
 Content-Type: application/json
 Authorization: Bearer {token}
 
@@ -72,16 +72,16 @@ spec:
 {% hint style="warning" %}
 **Constraints:**
 
-* The `portalRef` field is immutable after creation. A listing cannot be moved to a different portal.
-* Only v4 APIs are supported. The `kind` field defaults to `ApiV4Definition` when omitted.
-* The GKO admission webhook blocks deletion of portals or APIs that are referenced by active listings.
+- The `portalRef` field is immutable after creation. A listing cannot be moved to a different portal.
+- Only v4 APIs are supported. The `kind` field defaults to `ApiV4Definition` when omitted.
+- The GKO admission webhook blocks deletion of portals or APIs that are referenced by active listings.
 {% endhint %}
 
 ### Automation API vs GKO validation differences
 
 The Automation API and GKO CRDs validate references differently:
 
-* **Automation API:** A listing tolerates references to API HRIDs and portal HRIDs that do not exist yet. No validation errors are raised for missing references. Orphan entries wait for the referenced resource to be created, so apply order does not matter.
-* **GKO admission webhooks:** All referenced APIs must resolve to existing `ApiV4Definition` resources in the cluster and must share the portal's management context. The webhook rejects listings that reference APIs that cannot be found.
+- **Automation API:** A listing tolerates references to API HRIDs and portal HRIDs that do not exist yet. No validation errors are raised for missing references. Orphan entries wait for the referenced resource to be created, so apply order does not matter.
+- **GKO admission webhooks:** All referenced APIs must resolve to existing `ApiV4Definition` resources in the cluster and must share the portal's management context. The webhook rejects listings that reference APIs that cannot be found.
 
 This difference means the Automation API supports order-independent applies across multiple resources, while GKO requires APIs and portals to exist before a listing references them.

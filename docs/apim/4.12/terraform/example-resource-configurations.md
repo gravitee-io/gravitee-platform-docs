@@ -28,9 +28,8 @@ The Gravitee Terraform provider supports the following Gravitee resource types:
 * Shared Policy Group
 * Application
 * Subscription
-* Portal, Portal Listing, and Documentation (for next-gen Developer Portal automation)
 
-Terraform can create, update, or delete these resources as part of its workflow. The Terraform provider connects to the Automation API at the `/automation` base path. For portal automation resources (portal instances, listings, and documentation pages), see the [Terraform registry documentation](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs) and the [Portal automation](../developer-portal/new-developer-portal/customize-the-navigation/portal-automation/README.md) guide.
+Terraform can create, update, or delete these resources as part of its workflow.
 
 {% hint style="info" %}
 Guides and examples can be found in the [Gravitee "apim" Terraform Registry documentation](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs).

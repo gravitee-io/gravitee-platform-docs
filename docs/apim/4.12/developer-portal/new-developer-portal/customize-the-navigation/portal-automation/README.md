@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Next-Gen Developer Portal supports CI/CD-driven setup of portal structure, published APIs, and documentation through the Automation API. You declare portal configuration, navigation hierarchies, API listings, and documentation pages declaratively with Gravitee Kubernetes Operator (GKO) custom resources or the Terraform provider, and APIM reconciles the desired state into the live portal navigation tree.
+The Next-Gen Developer Portal supports CI/CD-driven setup of portal structure, published APIs, and documentation through the Automation API. You declare portal configuration, navigation hierarchies, API listings, and documentation pages declaratively with Gravitee Kubernetes Operator (GKO) custom resources and APIM reconciles the desired state into the live portal navigation tree.
 
 The Automation API supports Gravitee Markdown, OpenAPI, and AsyncAPI documentation types. External link navigation items remain a Console concern.
 
@@ -18,18 +18,16 @@ The Automation API is served at the `/automation` base path on your Management A
 
 For example, the full URL for portal operations is `https://<your-gravitee-mapi-host>/automation/organizations/{orgId}/environments/{envId}/portals`.
 
-For Terraform provider setup, see the [quick start guide](../../../../terraform/quick-start-guide.md). For Kubernetes, see the [GKO quickstart](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/getting-started/quickstart-guide).
-
 ## Concepts
 
 The following concepts describe how the Automation API models a portal and its content.
 
 ### Portal instance
 
-A portal is a Next-Gen Developer Portal bound to an environment. Each portal has a human-readable ID (HRID) that you provide, a display name, and a top-level navigation hierarchy. In APIM 4.12, only one portal instance can be created per environment. Use the HRID `default-portal` for all portal operations. The portal is created on the first successful `PUT` request.
+A portal is a Next-Gen Developer Portal bound to an environment. Each portal has a human-readable ID (HRID) that you provide, a display name, and a top-level navigation hierarchy. In APIM 4.12, only one portal instance can be created per environment. The portal is created on the first successful `PUT` request.
 
 {% hint style="info" %}
-Multi-portal support (multiple portal instances per environment) is planned for a future release. In 4.12, all portal, listing, and documentation requests must target the HRID `default-portal`. Requests targeting any other HRID are rejected with HTTP 400.
+Multi-portal support (multiple portal instances per environment) is planned for a future release.
 {% endhint %}
 
 The portal's navigation is declared as a flat list of slash-separated paths. Intermediate folders are created implicitly when they are not listed explicitly. The persisted navigation array is returned exactly as written on `GET`.
@@ -84,33 +82,6 @@ The `portalNavigation` field is portal-only metadata. It is not propagated to th
 {% hint style="info" %}
 Resources can reference each other before all dependencies exist. Documentation pages and portal listings tolerate missing navigation paths, API HRIDs, and parent portals. Orphan entries reconnect when the referenced resource is created, so apply order does not matter.
 {% endhint %}
-
-## Multi-portal support
-
-In APIM 4.12, each environment supports a single portal instance. Full multi-portal support (multiple independent portals per environment with separate navigation trees) is planned for a future release.
-
-The `allowMultiplePortalPerEnv` setting controls whether the Automation API accepts portal HRIDs other than `default-portal`. When set to `true`, multiple portal records can be created, but navigation tree materialization (folder sync, listing materialization, and documentation materialization) still runs only for the environment's first-created portal. Setting this flag is primarily useful for forward-compatibility testing.
-
-| Property | Description | Default |
-|:---------|:------------|:--------|
-| `automation.portal.allowMultiplePortalPerEnv` | When `false`, only `default-portal` is accepted as the HRID. Requests targeting a different HRID are rejected with HTTP 400 and the message `{fieldName} does not match the established portal for this environment`. When `true`, multiple portal records are allowed, but navigation tree materialization runs only for the first-created portal. | `false` |
-
-Configure it in `gravitee.yml`:
-
-```yaml
-automation:
-  portal:
-    allowMultiplePortalPerEnv: false
-```
-
-For Kubernetes deployments, set it in the APIM Helm chart values:
-
-```yaml
-api:
-  automation:
-    portal:
-      allowMultiplePortalPerEnv: false
-```
 
 ## Create a portal
 
