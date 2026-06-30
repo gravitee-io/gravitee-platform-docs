@@ -4,9 +4,6 @@ SUMMARY.md
 overview/custom-resource-definitions/subscription.md
 releases-and-changelog/release-notes/gko-4.12.md
 guides/managing-dictionaries-via-automation-api.md
-overview/custom-resource-definitions/dictionary-management-overview.md
-overview/custom-resource-definitions/dictionary-management-restrictions-and-validation.md
-overview/custom-resource-definitions/managing-dictionaries-via-kubernetes-crd.md
 overview/custom-resource-definitions/README.md
 overview/custom-resource-definitions/portal.md
 overview/custom-resource-definitions/portallisting.md
