@@ -3,6 +3,7 @@
 SUMMARY.md
 overview/custom-resource-definitions/subscription.md
 releases-and-changelog/release-notes/gko-4.12.md
+releases-and-changelog/changelog/gko-4.11.x.md
 guides/managing-dictionaries-via-automation-api.md
 overview/custom-resource-definitions/dictionary-management-overview.md
 overview/custom-resource-definitions/dictionary-management-restrictions-and-validation.md
