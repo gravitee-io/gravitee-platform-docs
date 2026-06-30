@@ -22,6 +22,16 @@ You can use dictionaries anywhere in APIM where [Gravitee Expression Language](s
 Access a dictionary property with `{#dictionaries['<dictionary-id>']['<property-key>']}`, where `<dictionary-id>` identifies the dictionary and `<property-key>` is the name of the property. For example, if a dictionary with the ID `countries` holds a property `FR` set to `France`, then `{#dictionaries['countries']['FR']}` resolves to `France`. The identifier is the dictionary's key if one is set, and otherwise its ID.
 {% endhint %}
 
+## Reference a dictionary property in the Expression Language
+
+You reference manual and dynamic dictionaries the same way. After a dictionary is deployed to the Gateway, read any of its properties in policy configuration, or anywhere else [Gravitee Expression Language](services.md) is supported, with:
+
+`{#dictionaries['<dictionary-id>']['<property-key>']}`
+
+For example, a dynamic dictionary with the ID `app-versions`, whose properties are refreshed from an HTTP source on a schedule, exposes each returned key as a property. To read the value for the `checkout-service` key, use `{#dictionaries['app-versions']['checkout-service']}`. Use this in a policy, for example to set a header value or build a backend URL from a centrally managed property.
+
+Deploy the dictionary to the Gateway before you reference it. The identifier in the expression is the dictionary's key when one is set, and otherwise its ID.
+
 ## Create a new dictionary
 
 To create a new dictionary, select **Settings** in the left hand nav, then select **Dictionaries.**
