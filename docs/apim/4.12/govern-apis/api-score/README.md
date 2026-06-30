@@ -30,16 +30,21 @@ When API Score scores your API, it returns issues in the form of errors, warning
 
 ## How your API score is calculated
 
-Your API's score is calculated using the following formula:
+API Score evaluates each component of your API as a separate [asset](types-of-assets.md):
 
-`100 · e^−0.1·(1.0·nbErrors + 0.5·nbWarnings + 0.2·nbInfos + 0.1·nbHints)` which is the same as `nbErrors + 0.5·nbWarnings + 0.2·nbInfos + 0.1·nbHints` .
+* The Gravitee API definition is always evaluated as one asset.
+* Each attached OpenAPI or AsyncAPI documentation page is evaluated as an additional asset. Other documentation page types aren't scored.
 
-Your API's score is projected onto a function that has the following shape:
+Each asset is scored individually with the following formula, using only the issues raised for that asset:
+
+`asset_score = 100 · e^−0.1·(1.0·nbErrors + 0.5·nbWarnings + 0.2·nbInfos + 0.1·nbHints)`
+
+Each asset's score is projected onto a function that has the following shape:
 
 <figure><img src="../../.gitbook/assets/govern-api-score-readme-77.png" alt=""><figcaption></figcaption></figure>
 
-For example, if your API has 1 error, 0 warnings, 2 infos, and 1 hint, the score is calculated as follows:
+The API score shown in the Console is the arithmetic average of all per-asset scores. The error, warning, info, and hint counts shown next to the score are totals summed across every asset.
 
-`math.exp(-.1*(1e + .5 w + .2i + .1h)) * 100`
+For example, an API with two assets, a Gravitee definition with no issues (score 100%) and an OpenAPI page with 11 errors (score `100 · e^−1.1` ≈ 33%), displays 11 errors and an overall score of (100% + 33%) / 2 ≈ 66%.
 
-This formula results in a score of `22.31%`.
+An asset whose analysis fails, for example a documentation page that fails to parse, is excluded from both the average and the totals. If no asset is successfully analyzed, no score is available.

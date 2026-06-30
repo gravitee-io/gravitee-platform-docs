@@ -160,6 +160,8 @@ Storage concerns reside at the analytics database level and depend on:
 To avoid generating excessive data and reducing Gateway capacity, refrain from [activating the advanced logs](../analyze-and-monitor-apis/logging/README.md) on all API requests and responses.
 
 For example, if you have activated the advanced logs on requests and responses with an average (requests + responses) payload size of 10kB and at 10 RPS, then retaining the logs for 6 months will require 1.5 TB of storage.
+
+Request metrics are stored separately from advanced logs, in the request metrics index (`v4-metrics`). Each proxied request consumes an average of 180 bytes in this index, independent of payload size, because metrics documents don't carry the request or response body. Size the request metrics index on its own, since it grows at a very different rate from the logs. For example, at 100 RPS, retaining request metrics for 6 months requires approximately 280 GB of storage.
 {% endtab %}
 
 {% tab title="Memory" %}
