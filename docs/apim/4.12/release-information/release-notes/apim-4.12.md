@@ -46,6 +46,14 @@
 * OpenAPI imports automatically generate flows and endpoints, with optional documentation page creation and OAS Validation policy attachment.
 * Requires `API_DEFINITION[UPDATE]` permission and is unavailable for Kubernetes-managed APIs or v2 APIs (which use the legacy import dialog).
 
+#### **PATCH Endpoint for v4 HTTP Proxy APIs**
+
+* Apply standards-based partial updates to a v4 HTTP proxy API definition through the Management API, using JSON Merge Patch (`application/merge-patch+json`, RFC 7396) or JSON Patch (`application/json-patch+json`, RFC 6902). The format is selected from the request `Content-Type`.
+* Send only the fields you change instead of resubmitting the entire API definition, which reduces the risk of accidental overwrites during minor updates.
+* Add the `dryRun` query parameter to validate the resulting definition and return it without saving, to test a change before applying it.
+* Patchable fields cover the core definition, including name, description, version, visibility, labels, tags, categories, lifecycle state, analytics, failover, properties, response templates, flows, listeners, endpoint groups, resources, and groups. Changing the runtime state uses the existing start and stop actions instead.
+* The endpoint applies only to v4 HTTP proxy APIs. Requests against v2 APIs or v4 message and native APIs are rejected with a validation error. Requires `API_DEFINITION[UPDATE]` or `API_GATEWAY_DEFINITION[UPDATE]` permission.
+
 #### **OpenTelemetry Logs Integration for Log-to-Trace Correlation**
 
 * Injects active trace IDs and span IDs into runtime log records captured during request processing, enabling direct navigation from logs in Loki to corresponding traces in Tempo via Grafana.
