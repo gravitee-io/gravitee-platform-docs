@@ -19,7 +19,7 @@ When a documentation page references a `location` that does not exist yet in the
 
 {% code overflow="wrap" %}
 ```http
-PUT /organizations/{orgId}/environments/{envId}/portals/default-portal/documentations?dryRun=false
+PUT /organizations/{orgId}/environments/{envId}/portals/{portalHrid}/documentations?dryRun=false
 Content-Type: application/json
 Authorization: Bearer {token}
 

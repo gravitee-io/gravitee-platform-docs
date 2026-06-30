@@ -6,7 +6,7 @@ The `Portal` custom resource declares a next-gen Developer Portal instance bound
 
 A Portal resource defines the desired state of a Developer Portal, including its navigation tree. The GKO controller reconciles this resource by calling the Automation API's portal endpoints. Admission webhooks validate the resource before apply using the `dryRun` endpoint.
 
-In APIM 4.12, only one portal instance is supported per environment. All portal operations must target the HRID `default-portal`. Multi-portal support is planned for a future release.
+In APIM 4.12, only one portal instance is supported per environment. Multi-portal support is planned for a future release.
 
 ## Example
 
