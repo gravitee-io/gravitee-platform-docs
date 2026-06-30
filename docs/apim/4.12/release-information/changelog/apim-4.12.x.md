@@ -1,6 +1,6 @@
 ---
-hidden: true
-noIndex: true
+hidden: false
+noIndex: false
 ---
 
 # APIM 4.12.x
