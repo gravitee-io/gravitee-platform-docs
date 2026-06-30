@@ -17,7 +17,9 @@ Dictionaries need to be deployed to the API Gateway before you can use them. You
 {% hint style="info" %}
 **How are dictionaries used?**
 
-You can use dictionaries anywhere in APIM where [Gravitee Expression Language](services.md) is supported, such as when defining policies for API flows. You can access dictionary properties with the Expression Language statement `#dictionaries`.
+You can use dictionaries anywhere in APIM where [Gravitee Expression Language](services.md) is supported, such as when defining policies for API flows.
+
+Access a dictionary property with `{#dictionaries['<dictionary-id>']['<property-key>']}`, where `<dictionary-id>` identifies the dictionary and `<property-key>` is the name of the property. For example, if a dictionary with the ID `countries` holds a property `FR` set to `France`, then `{#dictionaries['countries']['FR']}` resolves to `France`. The identifier is the dictionary's key if one is set, and otherwise its ID.
 {% endhint %}
 
 ## Create a new dictionary
