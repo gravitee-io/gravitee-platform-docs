@@ -12,9 +12,9 @@ Use this pattern when you want APIM-level governance, subscription control, anal
 
 ### How authentication works
 
-There are two separate credentials in this flow:
+Here are the two separate credentials in this flow:
 
-* The **Gravitee API key** authenticates the consumer to the Gravitee Gateway. Claude Code sends it as a custom header, for example `X-Gravitee-Api-Key`.
+* The **Gravitee API key** authenticates the consumer to the Gravitee Gateway. Claude Code sends it as a custom header. For example `X-Gravitee-Api-Key`.
 * The **Claude OAuth token** authenticates the end user to Anthropic. Claude Code obtains and manages this token after the user runs `/login`.
 
 The LLM Proxy endpoint must be configured with **Authentication: None**. Do not configure Bearer authentication or an Expression Language expression to copy the `Authorization` header. With no endpoint authentication configured, the request's existing `Authorization: Bearer <Claude OAuth token>` header can pass through to Anthropic.
