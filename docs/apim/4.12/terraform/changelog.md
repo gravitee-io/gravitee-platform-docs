@@ -11,26 +11,26 @@ metaLinks:
 ## v1.0.0
 
 ### Features
-* feat: Add multiple certificate support and rotation acceptance test
-* feat: allow binding groups to APIs and Applications
-* feat: custom API key field
-* feat: dictionary
-* feat: export to HCL
-* feat: groups
-* feat: manage API Keys with revocation
-* feat: support of API console notifications
-* feat: webhook APIs
+* Add multiple certificate support and rotation acceptance test
+* Allow binding groups to APIs and Applications
+* Custom API key field
+* Dictionary
+* Export to HCL
+* Groups
+* Manage API Keys with revocation
+* Support of API console notifications
+* Webhook APIs
 ### Bug Fixes
-* fix: Remove the beta status
-* fix: add an example for HTTP Proxy with shared endpoint configuration
-* fix: add branch name to slack notifications
-* fix: add missing fields for analytics and native plan
-* fix: forbid changes to immutable fields and add test for them
-* fix: handle trailing slash in listener
-* fix: ssl changes in APIM
+* Remove the beta status
+* Add an example for HTTP Proxy with shared endpoint configuration
+* Add branch name to slack notifications
+* Add missing fields for analytics and native plan
+* Forbid changes to immutable fields and add test for them
+* Handle trailing slash in listener
+* Ssl changes in APIM
 ### Other
-* docs: add link and description for OpenTofu prerequisite
-* docs: move issue tracking to contribution doc
+* Add link and description for OpenTofu prerequisite
+* Move issue tracking to contribution doc
 
 
 ## 0.5.x
