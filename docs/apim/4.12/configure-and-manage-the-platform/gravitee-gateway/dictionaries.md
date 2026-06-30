@@ -17,8 +17,37 @@ Dictionaries need to be deployed to the API Gateway before you can use them. You
 {% hint style="info" %}
 **How are dictionaries used?**
 
-You can use dictionaries anywhere in APIM where [Gravitee Expression Language](services.md) is supported, such as when defining policies for API flows. You can access dictionary properties with the Expression Language statement `#dictionaries`.
+You can use dictionaries anywhere in APIM where [Gravitee Expression Language](services.md) is supported, such as when defining policies for API flows.
+
+Access a dictionary property with `{#dictionaries['<dictionary-id>']['<property-key>']}`, where `<dictionary-id>` identifies the dictionary and `<property-key>` is the name of the property. For example, if a dictionary with the ID `countries` holds a property `FR` set to `France`, then `{#dictionaries['countries']['FR']}` resolves to `France`. The identifier is the dictionary's key if one is set, and otherwise its ID.
 {% endhint %}
+
+## Reference a dictionary property in the Expression Language
+
+You reference manual and dynamic dictionaries the same way. After a dictionary is deployed to the Gateway, read any of its properties in policy configuration, or anywhere else [Gravitee Expression Language](services.md) is supported, with:
+
+`{#dictionaries['<dictionary-id>']['<property-key>']}`
+
+You reference a dynamic dictionary by its ID, the same as a manual one. A dynamic dictionary refreshes its properties from an HTTP source on the schedule you define, and exposes each returned key as a property.
+
+For example, a dynamic dictionary with the ID `partner-routing` is refreshed every few minutes from an internal service and holds these properties:
+
+| Property key | Value |
+| --- | --- |
+| `acme-host` | `https://acme.api.internal` |
+| `acme-tier` | `premium` |
+| `maintenance` | `false` |
+
+Reference its properties anywhere Expression Language is supported:
+
+* **Read a value.** `{#dictionaries['partner-routing']['acme-host']}` resolves to `https://acme.api.internal`. Use it to set a backend target or build a URL from a centrally managed value.
+* **Set a header.** In a header transformation policy, set the `X-Backend-Tier` header to `{#dictionaries['partner-routing']['acme-tier']}`.
+* **Drive a flow condition.** Run a flow only during maintenance with the condition `{#dictionaries['partner-routing']['maintenance'] == 'true'}`.
+* **Look up a value with a request attribute.** Build the property key from the request. For a dictionary `tenant-config` keyed by tenant ID, `{#dictionaries['tenant-config'][#request.headers['X-Tenant-Id'][0]]}` reads the value stored under the incoming tenant ID.
+
+The outer key is the dictionary's ID, or its key if one is set. The inner key is the property name. Each expression resolves to the current value held for that property, so a dynamic dictionary serves the latest values it has retrieved from the source.
+
+Deploy the dictionary to the Gateway before you reference it.
 
 ## Create a new dictionary
 

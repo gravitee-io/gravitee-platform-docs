@@ -11,6 +11,8 @@ metaLinks:
 
 The AM Expression Language (EL for short) is one of the key features that can be used to configure various aspects of an AM domain.
 
+AM's Expression Language is built on the Spring Expression Language (SpEL), the same expression engine that Gravitee API Management (APIM) uses, so expressions behave consistently across both products. Gravitee evaluates each expression against a context that exposes the variables documented on this page, such as `request` and `context`. For the full SpEL syntax, see the [Spring Expression Language reference](https://docs.spring.io/spring-framework/reference/core/expressions.html).
+
 ## Usage
 
 The basic expression language syntax is as follows:
