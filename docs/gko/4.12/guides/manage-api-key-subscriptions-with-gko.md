@@ -144,31 +144,15 @@ To verify API key rotation is working as expected, follow these steps:
 
 1.  Apply the resources from Steps 1-3 and confirm GKO sets the `Subscription` `Accepted` condition to `True`:
 
-
     ```bash
     kubectl describe subscription api-key-subscription
     ```
 
-
     The output's `Conditions` section lists a row whose `Type` is `Accepted` and `Status` is `True`.
-
-
 2.  Open the API Management Console, navigate to the subscription's edit page, and confirm that the **API Keys** card lists each value from the `apiKeys` array. Hover the status icon next to a key: the tooltip reads `Valid` for an active key.
 
-
-    The page also displays the banner *"This subscription was created by the Kubernetes Operator and cannot be managed through the console."*
-
-
-    <!-- TODO: Screenshot of the subscription edit page in APIM Console showing the API Keys card with two valid keys and the GKO banner -->
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-gko-2550-active-keys.png" alt=""><figcaption><p>Subscription edit page showing the two custom API keys with Valid status</p></figcaption></figure>
-
-
-3.  Apply an updated `Subscription` whose `apiKeys` array swaps the first key for a new value. Reload the Console and confirm:
-
-    * The new key appears in the **API Keys** card with the `Valid` tooltip.
-    * The removed key's tooltip now reads `Revoked or Expired`, and the **Revoked/Expired at** column displays the time of revocation.
-    * For each remaining valid key, the **Revoked/Expired at** column shows the `expireAt` value from the manifest, or `-` if `expireAt` was omitted.
-
-
-    <!-- TODO: Screenshot of subscription edit page after rotation -->
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-gko-2550-rotated-keys.png" alt=""><figcaption><p>Subscription edit page after key rotation</p></figcaption></figure>
+    The page also displays the banner _"This subscription was created by the Kubernetes Operator and cannot be managed through the console."_
+3. Apply an updated `Subscription` whose `apiKeys` array swaps the first key for a new value. Reload the Console and confirm:
+   * The new key appears in the **API Keys** card with the `Valid` tooltip.
+   * The removed key's tooltip now reads `Revoked or Expired`, and the **Revoked/Expired at** column displays the time of revocation.
+   * For each remaining valid key, the **Revoked/Expired at** column shows the `expireAt` value from the manifest, or `-` if `expireAt` was omitted.
