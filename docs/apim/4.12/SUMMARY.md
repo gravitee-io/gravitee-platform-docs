@@ -474,6 +474,7 @@
   * [Changelog](terraform/changelog.md)
 * [Kafka Gateway](kafka-gateway/README.md)
   * [Configure the Kafka Client & Gateway](kafka-gateway/configure-the-kafka-client-and-gateway.md)
+  * [Deploy the Kafka Gateway for High Availability](kafka-gateway/deploy-the-kafka-gateway-for-high-availability.md)
   * [Configuring Kafka Port Routing (Gateway and Console)](kafka-gateway/configuring-kafka-port-routing-gateway-and-console.md)
   * [Creating and Updating Plans with Port Routing](kafka-gateway/creating-and-updating-plans-with-port-routing.md)
   * [Deploy a Kafka Gateway with Gravitee Cloud](kafka-gateway/deploy-a-kafka-gateway-with-gravitee-cloud.md)
