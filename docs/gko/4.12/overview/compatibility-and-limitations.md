@@ -2,7 +2,7 @@
 
 ## Overview
 
-In its early iterations, the Gravitee Kubernetes Operator (GKO) focused on managing the most important aspect of any API management platform: the APIs themselves. Over time, GKO has evolved to manage API documentation pages, API access controls, API resources such as authentication servers and caches, and more. In the future, GKO will continue to expand its reach to cover new parts of the API lifecycle.
+In its early iterations, the Gravitee Kubernetes Operator (GKO) focused on managing the most important aspect of any API management platform: APIs. Over time, GKO has evolved to manage API documentation pages, API access controls, API resources such as authentication servers and caches, and more. In the future, GKO will continue to expand its reach to cover new parts of the API lifecycle.
 
 ## Versioning & compatibility with APIM
 
@@ -12,9 +12,13 @@ Since the release of GKO 4.4, GKO follows the same release cycle and versioning 
 
 We maintain backward compatibility between APIM and GKO for up to three minor versions. This means you can safely upgrade your APIM instance while using an older GKO version, provided it is within this three-version window. For example, upgrading APIM 4.8.0 to 4.9.0 is supported if your GKO instance is running on 4.7.0 or higher.
 
+{% hint style="warning" %}
+For GKO 4.12.x you must upgrade to APIM 4.12
+{% endhint %}
+
 ### Forward compatibility
 
-Forward compatibility is not supported. You cannot upgrade your GKO instance while using an older APIM version. For example, upgrading GKO from 4.8.0 to 4.9.0 with APIM 4.8.0 will result in unexpected behaviors. Always ensure your APIM minor version is equal to or newer than your GKO version.
+Forward compatibility is not supported. You cannot upgrade your GKO instance while using an older APIM version. For example, upgrading GKO from 4.8.0 to 4.9.0 with APIM 4.8.0 will result in unexpected behaviours. Always ensure your APIM minor version is equal to or newer than your GKO version.
 
 ## Deprecation policy
 
@@ -29,7 +33,7 @@ Gravitee is committed to providing a transparent and predictable process for fea
 
 ## Known limitations and future direction
 
-Below are examples of resources that are not managed by GKO.&#x20;
+Below are examples of resources that are not managed by GKO.
 
 {% hint style="info" %}
 GKO management is planned for several of the following examples. Please contact us to discuss expanding GKO's scope in one of these areas.
