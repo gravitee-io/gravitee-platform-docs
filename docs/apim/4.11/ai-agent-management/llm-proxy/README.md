@@ -61,7 +61,7 @@ The proxy automatically routes requests to the right provider and model, which d
 | <p><strong>Tool calling</strong><br><br>Note: This feature is for only chat completions.</p> | <p><code>tools</code><br></p> | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |  |
 |  | `tool_choice` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |  |
 | **Seed** | `seed` | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | Reproducible generation |
-| **Streaming** | `stream` | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | SSE streaming |
+| **Streaming** | `stream` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | SSE streaming. Bedrock streams over the AWS EventStream protocol, decoded to SSE. |
 | **Frequency Penalty** | `frequency_penalty` | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |  |
 | **Presence Penalty** | `presence_penalty` | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |  |
 | **Logit Bias** | `logit_bias` | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |  |
