@@ -57,7 +57,7 @@ Do not add `/v1` to the target URL. Claude Code calls `/v1/messages`, and then t
 
 Claude Code sends Anthropic model IDs without a provider prefix. The LLM Proxy must allow unprefixed model names.
 
-1. In the provider's model governance settings, set **Prefix needs** to the following message:
+1. In the provider's model governance settings, navigate to **prefix policy**, and then set it to the following:
 
    ```text
    Models and aliases do not require a prefix
