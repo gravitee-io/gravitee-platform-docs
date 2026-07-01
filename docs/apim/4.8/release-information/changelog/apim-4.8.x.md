@@ -4,6 +4,28 @@ description: Documentation about apim 4.8.x in the context of APIs.
 
 # APIM 4.8.x
  
+## Gravitee API Management 4.8.32 - July 1, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Gateway requestTimeout ignored in helm charts [#11500](https://github.com/gravitee-io/issues/issues/11500)
+
+**Console**
+
+* User details - Groups roles name are truncated [#11545](https://github.com/gravitee-io/issues/issues/11545)
+
+**Other**
+
+* Long version number breaks the layout in the Developer Portal [#11364](https://github.com/gravitee-io/issues/issues/11364)
+* Traffic shadowing does not work with failover for v2 APIs [#11477](https://github.com/gravitee-io/issues/issues/11477)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.8.31 - June 24, 2026
 <details>
 
