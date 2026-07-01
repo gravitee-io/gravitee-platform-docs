@@ -14,9 +14,51 @@ metaLinks:
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+### 4.12.0
+
+**Java 25 runtime requirement**
+
+Gravitee AM 4.12 now runs on Java 25. If you deploy AM using the distribution ZIP file or the RPM package, make sure a JRE 25 is installed and available in your environment before upgrading.
+
+The Groovy Policy has been upgraded to Groovy 4.
+
+Action Required: If you are using Groovy scripts within your domain or application flows, please review them for compatibility before upgrading. You may need to update classes and methods defined in your allowlist/whitelist to align with Groovy 4 specifications.
+
+**Upgrade to Eclipse Vert.x 5**
+
+Gravitee AM now runs on Eclipse Vert.x 5. If you develop custom plugins, make sure they are compatible with this new version before upgrading, as APIs and behaviors may have changed between Vert.x versions.
+
+Due to this change some AM plugins need to be upgraded:
+* gravitee-am-identity-provider-ldap: 3.0.0
+* gravitee-am-identityprovider-azure-ad: 3.0.0
+* gravitee-am-identityprovider-franceconnect: 4.0.0
+* gravitee-am-gateway-handler-saml2-idp: 5.0.0
+* gravitee-am-factor-fido2: 4.0.0
+* gravitee-am-authenticator-cba: 2.0.0
+* gravitee-am-resource-sfr: 2.0.0
+* gravitee-am-resource-http: 5.0.0
+* gravitee-am-resource-http-factor: 5.0.0
+* gravitee-am-resource-orange-contact-everyone: 2.0.0
+* gravitee-am-identityprovider-cas: 5.0.0
+* gravitee-am-identityprovider-http-flow: 5.0.0
+
+
+**Resend code on MFA challenge screen**
+
+The behavior of the MFA challenge screen has changed. Previously, refreshing the page would invalidate (end) the existing code; now resending a code is handled explicitly through the resend option. If you use a custom MFA challenge template, it may need to be updated to take advantage of this feature. Refer to the [reference template](https://github.com/gravitee-io/gravitee-access-management/tree/4.12.x/gravitee-am-gateway/gravitee-am-gateway-handler/gravitee-am-gateway-handler-core/src/main/resources/webroot/views/mfa_challenge.html#L93) for the expected markup.
+
+**[Deprecation Notice] Removal of Application-Level Password Policy**
+
+The application-level password policy (deprecated since version 4.4.0) will be officially removed in AM 4.13.
+
+Action Required: If you are currently using this feature, you must transition to one of the following configurations before upgrading to AM 4.13 or higher:
+
+ * Define password policies and link them directly to your Identity Providers.
+ * Implement a default password policy at the Domain level.
+
 ### 4.11.0
 
-**Modified Token Signing Behavior**&#x20;
+**Modified Token Signing Behavior**
 
 Previously, a certificate loading error would trigger an automatic fallback to HMAC signing. This behavior is disabled by default in AM 4.11. (see [Domain certificate fallback](../../guides/certificates/configure-domain-certificate-fallback.md))
 
