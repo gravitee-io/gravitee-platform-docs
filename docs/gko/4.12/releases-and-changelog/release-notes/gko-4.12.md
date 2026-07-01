@@ -4,46 +4,49 @@ title: Gravitee Kubernetes Operator 4.12 Release Notes.
 
 # GKO 4.12
 
+{% hint style="warning" %}
+For GKO 4.12.x you must upgrade to APIM 4.12\
+GKO 4.12.x is only compatible with Gravitee APIM 4.12.x there is no backward compatibility.
+{% endhint %}
+
 ## Highlights
 
 * The `Subscription` CRD supports API Key plan subscriptions, including multiple custom keys per subscription with optional expiry dates and zero-downtime rotation through the operator and the APIM Automation API.
 
 ## Breaking Changes
 
+* GKO now relies on Automation API. Helm Charts users need to configure ingress configuration for `api.ingress.automation`  when migrating to 4.12
 * The `customApiKey` field is removed from the `Subscription` CRD schema. Update existing manifests to the `apiKeys` array format before upgrading. See [API key subscriptions](../../overview/custom-resource-definitions/subscription.md#api-key-subscriptions) for the new schema.
 
 ## New Features
 
-
-<!-- PIPELINE:GKO-2550 -->
 #### **API key rotation for subscriptions**
 
 * The `Subscription` CRD accepts an `apiKeys` array, allowing multiple custom API keys per subscription with optional `expireAt` values.
 * On every apply, GKO forwards the desired keys to APIM. APIM creates new keys, reactivates revoked keys whose values match entries in the spec, and revokes keys removed from the spec.
 * Each key value is between 32 and 256 characters. Duplicate keys within the array are rejected by the admission webhook.
 * Available for `API_KEY` plan types through the GKO `Subscription` CRD and the APIM Automation REST API.
-<!-- /PIPELINE:GKO-2550 -->
 
+#### Full support of webhook APIs
 
-<!-- PIPELINE:GKO-2567 -->
-#### **Dictionary Management via Automation API and Kubernetes CRD**
+&#x20;The `Subscription` CRD now accepts a `consumerConfiguration`  object, allowing to configure an entrypoint and webhook configuration ( `callbackUrl`, `auth`, `headers`, `ssl`...).
 
-* Create, update, and delete dictionaries programmatically using the Automation API or Kubernetes CRD to store key-value pairs for use in API policies and configurations.
-* Manual dictionaries hold static properties, while dynamic dictionaries poll external HTTP endpoints at scheduled intervals using JOLT transformations to refresh values automatically.
-* Dictionaries are identified by a human-readable ID (HRID) unique within an environment and can be deployed to the gateway (manual) or started/stopped (dynamic) to control availability.
-* Requires `ENVIRONMENT_DICTIONARY` permissions with `CREATE`, `UPDATE`, `DELETE`, and `READ` actions; dynamic dictionaries require a reachable HTTP endpoint and valid JOLT specification.
-<!-- /PIPELINE:GKO-2567 -->
+#### **Dictionary Management**&#x20;
 
-
-<!-- PIPELINE:GKO-2584 -->
-#### **Dictionary Management via Kubernetes CRD and Automation API**
-
-* Dictionaries can now be managed declaratively using the `ManagementContext` CRD or programmatically via the Automation API, enabling GitOps workflows and infrastructure-as-code practices.
+* New Dictionary CRD allow to manage Dictionaries declaratively in association with the `ManagementContext` CRD
 * Supports both MANUAL dictionaries (static key-value pairs) and DYNAMIC dictionaries (auto-refreshing data from external HTTP endpoints with JOLT transformations).
 * Dictionary deployment states control gateway availability: deployed MANUAL dictionaries expose data to policies, while started DYNAMIC dictionaries enable scheduled polling.
-* Requires `CREATE`/`UPDATE`/`DELETE` permissions on `ENVIRONMENT_DICTIONARY` to view provider and trigger configurations for DYNAMIC dictionaries.
-<!-- /PIPELINE:GKO-2584 -->
+*
+* Requires `ENVIRONMENT_DICTIONARY` permissions with `CREATE`, `UPDATE`, `DELETE`, and `READ` actions; dynamic dictionaries require a reachable HTTP endpoint and a valid JOLT specification.
 
-## Improvements
+#### Next-generation Developer Portal structure and Document Management
+
+* Three CRD are now available to manage navigation in the next-generation Developer Portal.
+  * `Portal`Only one CR instance is allowed per environment, and it maintains the navigation tree.
+  * `PortalListing`: control API placement and sequence within the navigation tree.
+  * `Documentation`: represents a page, supports Gravitee Markdown, OpenAPI, and AsyncAPI formats and can be bound to either the portal or a specific API.&#x20;
+* API Definition (v4) now has a new property: `portalNavigation`. It gives an API publisher the opportunity to control the navigation structure of the docs pages for that API.
 
 ## Bug Fixes
+
+* Updating ApiV4Definition to change plan generalConditions to a new page HRID causes reconciliation failure (HTTP 500) [#11327](https://github.com/gravitee-io/issues/issues/11327)

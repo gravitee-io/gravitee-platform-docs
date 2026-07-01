@@ -1,7 +1,3 @@
----
-hidden: true
-noIndex: true
----
 # GKO 4.11.x
 
 ## Gravitee Kubernetes Operator 4.11.13 - June 25, 2026
