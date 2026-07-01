@@ -508,6 +508,16 @@ curl -X PATCH \
   http://GRAVITEEIO-AM-MGT-API-HOST/management/domains/:domainId
 ```
 
+#### Configure a client for use as a template
+
+To define a client template you must first create an application, and then mark it for use as a template. To mark an application for use as a template, complete the following steps:
+
+1. Navigate to your application in **Applications**.
+2. Select **Settings**, and then select the **General** tab.
+3. Turn on the **Use as DCR / CIMD registration template** on to mark the application as a registration template.
+
+When you mark an application as a template, it cannot be used directly to authenticate OAuth 2.0 clients.
+
 #### Register call with template example
 
 You need to retrieve the `software_id` of the template, which is available under the `registration_templates_endpoint` provided by the OpenID discovery endpoint.
