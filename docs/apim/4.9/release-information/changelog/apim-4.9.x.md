@@ -7,29 +7,6 @@ metaLinks:
 
 # APIM 4.9.x
  
-## Gravitee API Management 4.9.25 - July 1, 2026
-<details>
-
-<summary>Bug Fixes</summary>
-
-**Gateway**
-
-* Problème de timeout non prit en compte sur des Apis [#11500](https://github.com/gravitee-io/issues/issues/11500)
-* #request.xmlContent on malformed XML blocks the Vert.x event loop (sanitizeContent infinite loop) [#11522](https://github.com/gravitee-io/issues/issues/11522)
-
-**Console**
-
-* User details - Groups roles name are truncated [#11545](https://github.com/gravitee-io/issues/issues/11545)
-
-**Other**
-
-* Long version number breaks the layout in the Developer Portal [#11364](https://github.com/gravitee-io/issues/issues/11364)
-* Traffic shadowing does not work with failover for v2 APIs [#11477](https://github.com/gravitee-io/issues/issues/11477)
-
-</details>
-
-
- 
 ## Gravitee API Management 4.9.24 - June 24, 2026
 <details>
 
