@@ -56,6 +56,8 @@ To run the Gateway, complete the following steps:
          gio-gamma-hybrid-redis:
            condition: service_healthy
        environment:
+         # Turn on Gamma in the Gateway (required for AuthZ policy/PDP sync)
+         - gravitee_gamma_enabled=true
          # Rate limit store - Redis
          - gravitee_ratelimit_type=redis
          - gravitee_ratelimit_redis_host=redis

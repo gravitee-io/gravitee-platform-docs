@@ -68,6 +68,7 @@ To run the Gateway, complete the following steps:
      --hostname gamma-gateway \
      --network gravitee-network \
      -p 8082:8082 \
+     -e gravitee_gamma_enabled=true \
      -e gravitee_ratelimit_type=redis \
      -e gravitee_ratelimit_redis_host=redis \
      -e gravitee_ratelimit_redis_port=6379 \
