@@ -510,13 +510,13 @@ curl -X PATCH \
 
 #### Configure a client for use as a template
 
-To define a client template you must first create an application, then mark it for use as a template.
+To define a client template you must first create an application, and then mark it for use as a template. To mark an application for use as a template, complete the following steps:
 
 1. Navigate to your application in **Applications**.
-2. Select **Settings** and then **General** tab.
-3. Toggle **Use as DCR / CIMD registration template** to mark the application as a registration template.
+2. Select **Settings**, and then select the **General** tab.
+3. Turn on the **Use as DCR / CIMD registration template** on to mark the application as a registration template.
 
-When marked as a template, an application cannot be used directly to authenticate OAuth 2.0 clients.
+When you mark an application as a template, it cannot be used directly to authenticate OAuth 2.0 clients.
 
 #### Register call with template example
 
