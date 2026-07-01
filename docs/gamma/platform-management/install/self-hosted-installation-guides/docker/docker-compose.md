@@ -8,7 +8,7 @@ This installation guide is for development and quick-start purposes only. Don't 
 
 This guide explains how to run a self-hosted Gravitee Gamma platform on your own machine with Docker Compose, from a single self-contained file.
 
-You run the standard APIM containers, turn on Gamma in the Management API with `gravitee_gamma_enabled=true`, and add the Gamma console (`graviteeio/gamma-ui`). The Gamma console isn't a separate backend. It talks to the Management API, which runs with Gamma enabled.
+You run the standard APIM containers, turn on Gamma in both the Management API and the Gateway with `gravitee_gamma_enabled=true`, and add the Gamma console (`graviteeio/gamma-ui`). The Gamma console isn't a separate backend. It talks to the Management API, which runs with Gamma enabled. Enabling Gamma on the Gateway is required to sync AuthZ policies (PDP) for Authorization Management.
 
 Every component is published on `localhost` on its own port. On a single host, `localhost:8084`, `localhost:8086`, and `localhost:8083` are the **same site**, so the login session cookie is sent across ports and the consoles log in. For the detail, see [Why this works on one host](docker-compose.md#why-this-works-on-one-host).
 
@@ -70,6 +70,8 @@ To run Gamma, complete the following steps:
         ports:
           - "8082:8082"
         environment:
+          # Turn on Gamma in the Gateway (required for AuthZ policy/PDP sync)
+          - gravitee_gamma_enabled=true
           - gravitee_management_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
           - gravitee_ratelimit_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
           - gravitee_reporters_elasticsearch_endpoints_0=http://elasticsearch:9200
@@ -155,7 +157,7 @@ To run Gamma, complete the following steps:
 
 **Turn on Gamma**
 
-`gravitee_gamma_enabled=true` on the `management_api` service activates the Gamma platform and mounts the Gamma API at `/gamma` on port `8083`. The `gamma_console` service (`graviteeio/gamma-ui`) is the Gamma user interface.
+`gravitee_gamma_enabled=true` activates Gamma and must be set on both the `management_api` and `gateway` services. On `management_api`, it mounts the Gamma API at `/gamma` on port `8083`. On `gateway`, it enables AuthZ policy (PDP) synchronization, which is required for Authorization Management. The `gamma_console` service (`graviteeio/gamma-ui`) is the Gamma user interface.
 
 **Gamma console wiring**
 
