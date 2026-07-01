@@ -7,7 +7,7 @@
 
 **Gateway**
 
-* Problème de timeout non prit en compte sur des Apis [#11500](https://github.com/gravitee-io/issues/issues/11500)
+* Gateway requestTimeout ignored in helm charts [#11500](https://github.com/gravitee-io/issues/issues/11500)
 * #request.xmlContent on malformed XML blocks the Vert.x event loop (sanitizeContent infinite loop) [#11522](https://github.com/gravitee-io/issues/issues/11522)
 
 **Console**
