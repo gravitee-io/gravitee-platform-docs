@@ -193,7 +193,7 @@ The LLM Proxy did not resolve the requested model.
 
 Check that:
 
-* **Prefix needs** is set to **Models and aliases do not require a prefix**.
+* **Prefix Policy** is set to **Models and aliases do not require a prefix**.
 * The requested model is explicitly added, or unregistered model globbing matches it.
 * The API was redeployed after changing model governance.
 * Claude Code is sending the expected model ID, for example `claude-sonnet-4-6`.
