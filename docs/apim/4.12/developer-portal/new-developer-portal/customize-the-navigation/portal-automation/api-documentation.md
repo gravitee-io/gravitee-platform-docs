@@ -36,13 +36,13 @@ Authorization: Bearer {token}
 
 When `dryRun` validation fails, the response returns the errors under the `errors` field. The validation messages are:
 
-| Field | Constraint | Validation message |
-|:------|:-----------|:-------------------|
-| `name` | Required | `name must not be blank` |
-| `type` | Required: `GRAVITEE_MARKDOWN`, `OPENAPI`, or `ASYNCAPI` | `type must not be null` |
-| `content` | Required | `content must not be null` |
+| Field     | Constraint                                              | Validation message         |
+| --------- | ------------------------------------------------------- | -------------------------- |
+| `name`    | Required                                                | `name must not be blank`   |
+| `type`    | Required: `GRAVITEE_MARKDOWN`, `OPENAPI`, or `ASYNCAPI` | `type must not be null`    |
+| `content` | Required                                                | `content must not be null` |
 
-These endpoints require the `API_DOCUMENTATION` permission. For the full endpoint reference, see [Automation API endpoint reference](README.md#automation-api-endpoint-reference).
+These endpoints require the `API_DOCUMENTATION` permission. For the full endpoint reference, see [Automation API endpoint reference](./#automation-api-endpoint-reference).
 
 ### Using Kubernetes CRDs
 
@@ -94,6 +94,7 @@ Include the `portalNavigation` field in the API specification when you create or
 {
   "hrid": "pets-api",
   "name": "Pets API",
+  // ... rest of the API definition
   "portalNavigation": [
     {
       "path": "/docs",
@@ -123,6 +124,7 @@ metadata:
   namespace: gravitee
 spec:
   name: "Pets API"
+  # ... rest of the API definition
   portalNavigation:
     - path: /docs
       displayName: Documentation
