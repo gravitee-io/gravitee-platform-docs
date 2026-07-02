@@ -8,13 +8,26 @@ The Automation API supports Gravitee Markdown, OpenAPI, and AsyncAPI documentati
 
 ## Automation API access
 
-The Automation API is served at the `/automation` base path on your Management API host. All endpoints in this section use this base path.
+{% hint style="warning" %}
+On premise Helm Charts users need to configure ingress configuration for `api.ingress.automation`  when using Automation API or GKO.
 
-| Property | Value |
-|:---------|:------|
-| Base URL | `https://<your-gravitee-mapi-host>/automation` |
+You need to:
+
+* enable it
+* configure hosts & tls
+{% endhint %}
+
+The Automation API is served at the `/automation` base path on your Management API host by default. All endpoints in this section use this base path.&#x20;
+
+{% hint style="info" %}
+Gravitee Cloud users must use `/apim/automation` as a base path and have proper access token to Automation/GKO configured.&#x20;
+{% endhint %}
+
+| Property       | Value                                                                             |
+| -------------- | --------------------------------------------------------------------------------- |
+| Base URL       | `https://<your-gravitee-mapi-host>/automation`                                    |
 | Authentication | Bearer token (Personal Access Token or Cloud Token) in the `Authorization` header |
-| Content type | `application/json` |
+| Content type   | `application/json`                                                                |
 
 For example, the full URL for portal operations is `https://<your-gravitee-mapi-host>/automation/organizations/{orgId}/environments/{envId}/portals`.
 
@@ -36,34 +49,34 @@ The portal's navigation is declared as a flat list of slash-separated paths. Int
 
 Navigation paths define the portal's folder hierarchy using slash-separated strings, such as `/projects/alpha` or `/projects/alpha/docs`. Each path optionally includes a display name and an order. The sequence in the declaration list is preserved. Navigation sync operates only on the top navigation bar. Other areas, such as the homepage, are untouched.
 
-| Property | Description | Example |
-|----------|-------------|---------|
-| `path` | Slash-separated navigation hierarchy. Required, and starts with `/`. | `/projects/alpha` |
-| `displayName` | Human-friendly label for the node. Optional. | `Alpha` |
-| `order` | Display order relative to siblings at the same level. Optional integer. | `1` |
+| Property      | Description                                                             | Example           |
+| ------------- | ----------------------------------------------------------------------- | ----------------- |
+| `path`        | Slash-separated navigation hierarchy. Required, and starts with `/`.    | `/projects/alpha` |
+| `displayName` | Human-friendly label for the node. Optional.                            | `Alpha`           |
+| `order`       | Display order relative to siblings at the same level. Optional integer. | `1`               |
 
 ### Portal listing
 
 A portal listing publishes one or more APIs to specific locations in the portal navigation. Each API entry specifies the API's HRID, the navigation path where it appears, and an optional order. Within a single listing, multiple APIs can share the same location, with the `order` field controlling the display sequence. Across listings, validation rejects two different listings that place different APIs at the same location segment.
 
-| Property | Description | Example |
-|:---------|:------------|:--------|
-| `apiHrid` | Human-readable ID of the API to publish. Required. | `pets-api` |
+| Property   | Description                                                                                          | Example           |
+| ---------- | ---------------------------------------------------------------------------------------------------- | ----------------- |
+| `apiHrid`  | Human-readable ID of the API to publish. Required.                                                   | `pets-api`        |
 | `location` | Path in the portal's navigation where the API appears. Required, and matches a declared portal path. | `/projects/alpha` |
-| `order` | Display order relative to siblings at the same location. Optional integer. | `1` |
+| `order`    | Display order relative to siblings at the same location. Optional integer.                           | `1`               |
 
 ### Documentation pages
 
 Documentation pages attach to either a portal (platform-level guides) or an API (API-specific documentation). Each page has a type (Gravitee Markdown, OpenAPI, or AsyncAPI), content, and a location in the navigation hierarchy. Portal-scoped documentation appears at the specified location in the portal's top-level navigation. API-scoped documentation appears under every published instance of the API, relative to the API's internal documentation folder tree.
 
-| Property | Description | Example |
-|:---------|:------------|:--------|
-| `hrid` | Human-readable ID of the documentation page. Required. | `getting-started` |
-| `name` | Display name of the page. Required. | `Getting Started` |
-| `type` | Documentation type. Required: `GRAVITEE_MARKDOWN`, `OPENAPI`, or `ASYNCAPI`. | `GRAVITEE_MARKDOWN` |
-| `content` | Content of the documentation page. Required. | `# Getting Started\nWelcome...` |
-| `location` | Path in the navigation hierarchy where the page appears. When omitted, the page is placed at the root of the portal or API navigation tree. | `/projects/alpha/docs` |
-| `order` | Display order relative to siblings at the same location. Optional integer. | `1` |
+| Property   | Description                                                                                                                                 | Example                         |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `hrid`     | Human-readable ID of the documentation page. Required.                                                                                      | `getting-started`               |
+| `name`     | Display name of the page. Required.                                                                                                         | `Getting Started`               |
+| `type`     | Documentation type. Required: `GRAVITEE_MARKDOWN`, `OPENAPI`, or `ASYNCAPI`.                                                                | `GRAVITEE_MARKDOWN`             |
+| `content`  | Content of the documentation page. Required.                                                                                                | `# Getting Started\nWelcome...` |
+| `location` | Path in the navigation hierarchy where the page appears. When omitted, the page is placed at the root of the portal or API navigation tree. | `/projects/alpha/docs`          |
+| `order`    | Display order relative to siblings at the same location. Optional integer.                                                                  | `1`                             |
 
 ### API internal documentation tree
 
@@ -180,11 +193,11 @@ The GKO controller reconciles the desired state by calling the Automation API. A
 
 Navigation paths are normalized during processing:
 
-| Input | Normalized output | Notes |
-|:------|:------------------|:------|
-| `/a/b/` | `/a/b` | Trailing slash stripped, except for root |
+| Input                   | Normalized output       | Notes                                                                              |
+| ----------------------- | ----------------------- | ---------------------------------------------------------------------------------- |
+| `/a/b/`                 | `/a/b`                  | Trailing slash stripped, except for root                                           |
 | `/Docs/Getting Started` | `/docs/getting-started` | Segments are lowercased, and non-alphanumeric characters are replaced with hyphens |
-| `/a` | `/a` | Single segment accepted |
+| `/a`                    | `/a`                    | Single segment accepted                                                            |
 
 When you provide a path such as `/a/b/c` and do not list `/a` and `/a/b` explicitly, the intermediate ancestor folders are created implicitly.
 
@@ -208,38 +221,38 @@ The following endpoints belong to the Automation API, served at the `/automation
 
 These endpoints require the `ENVIRONMENT_PORTAL` permission.
 
-| Endpoint | Method | Description |
-|:---------|:-------|:------------|
-| `/organizations/{orgId}/environments/{envId}/portals` | PUT | Create or update a portal. Supports `dryRun`. |
-| `/organizations/{orgId}/environments/{envId}/portals/{hrid}` | GET | Retrieve a portal by HRID. Returns the persisted navigation array exactly as written. |
-| `/organizations/{orgId}/environments/{envId}/portals/{hrid}` | DELETE | Delete a portal by HRID. Returns HTTP 204. |
+| Endpoint                                                     | Method | Description                                                                           |
+| ------------------------------------------------------------ | ------ | ------------------------------------------------------------------------------------- |
+| `/organizations/{orgId}/environments/{envId}/portals`        | PUT    | Create or update a portal. Supports `dryRun`.                                         |
+| `/organizations/{orgId}/environments/{envId}/portals/{hrid}` | GET    | Retrieve a portal by HRID. Returns the persisted navigation array exactly as written. |
+| `/organizations/{orgId}/environments/{envId}/portals/{hrid}` | DELETE | Delete a portal by HRID. Returns HTTP 204.                                            |
 
 ### Portal listing endpoints
 
 These endpoints require the `ENVIRONMENT_PORTAL` permission.
 
-| Endpoint | Method | Description |
-|:---------|:-------|:------------|
-| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/listings` | PUT | Create or update a portal listing. Supports `dryRun`. |
-| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/listings/{hrid}` | GET | Retrieve a portal listing by HRID. |
-| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/listings/{hrid}` | DELETE | Delete a portal listing by HRID. Returns HTTP 204. |
+| Endpoint                                                                           | Method | Description                                           |
+| ---------------------------------------------------------------------------------- | ------ | ----------------------------------------------------- |
+| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/listings`        | PUT    | Create or update a portal listing. Supports `dryRun`. |
+| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/listings/{hrid}` | GET    | Retrieve a portal listing by HRID.                    |
+| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/listings/{hrid}` | DELETE | Delete a portal listing by HRID. Returns HTTP 204.    |
 
 ### Portal documentation endpoints
 
 These endpoints require the `ENVIRONMENT_PORTAL` permission.
 
-| Endpoint | Method | Description |
-|:---------|:-------|:------------|
-| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/documentations` | PUT | Create or update portal documentation. Supports `dryRun`. |
-| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/documentations/{docHrid}` | GET | Retrieve portal documentation by HRID. |
-| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/documentations/{docHrid}` | DELETE | Delete portal documentation by HRID. Returns HTTP 204. |
+| Endpoint                                                                                    | Method | Description                                               |
+| ------------------------------------------------------------------------------------------- | ------ | --------------------------------------------------------- |
+| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/documentations`           | PUT    | Create or update portal documentation. Supports `dryRun`. |
+| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/documentations/{docHrid}` | GET    | Retrieve portal documentation by HRID.                    |
+| `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/documentations/{docHrid}` | DELETE | Delete portal documentation by HRID. Returns HTTP 204.    |
 
 ### API documentation endpoints
 
 These endpoints require the `API_DOCUMENTATION` permission.
 
-| Endpoint | Method | Description |
-|:---------|:-------|:------------|
-| `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/documentations` | PUT | Create or update API-scoped documentation. Supports `dryRun`. |
-| `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/documentations/{docHrid}` | GET | Retrieve API-scoped documentation by HRID. |
-| `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/documentations/{docHrid}` | DELETE | Delete API-scoped documentation by HRID. Returns HTTP 204. |
+| Endpoint                                                                              | Method | Description                                                   |
+| ------------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------- |
+| `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/documentations`           | PUT    | Create or update API-scoped documentation. Supports `dryRun`. |
+| `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/documentations/{docHrid}` | GET    | Retrieve API-scoped documentation by HRID.                    |
+| `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/documentations/{docHrid}` | DELETE | Delete API-scoped documentation by HRID. Returns HTTP 204.    |
