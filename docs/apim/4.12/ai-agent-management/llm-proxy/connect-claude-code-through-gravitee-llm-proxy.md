@@ -105,7 +105,7 @@ If the UI requires at least one model entry even when globbing is enabled, add a
 
    * The LLM Proxy base URL.
    * The subscription API key.
-   * The custom header definition. Here is an example custoemr header definition:
+   * The custom header definition. Here is an example custom header definition:
 
      ```text
      X-Gravitee-Api-Key: <subscription-api-key>
@@ -157,13 +157,13 @@ Do not set `ANTHROPIC_API_KEY` or `ANTHROPIC_AUTH_TOKEN` for this flow. Those va
 Reply with exactly: proxy-ok
 ```
 
-Claude Code makes the foolowing `POST` call:
+Claude Code makes the following `POST` call:
 
 ```text
 POST /v1/messages?beta=true
 ```
 
-The call passesthrough the Gravitee Gateway with the following information:
+The call passes through the Gravitee Gateway with the following information:
 
 ```text
 X-Gravitee-Api-Key: <subscription-api-key>
