@@ -7,6 +7,23 @@ metaLinks:
 
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.26 - July 3, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Client abort does not release the http-proxy endpoint connection pool slot (v4 API) [#11596](https://github.com/gravitee-io/issues/issues/11596)
+
+**Management API**
+
+* DELETE API returns 500 instead of 404 when API doesn't exist - causes GKO reconcile loop [#11597](https://github.com/gravitee-io/issues/issues/11597)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.9.25 - July 1, 2026
 <details>
 
