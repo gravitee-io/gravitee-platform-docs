@@ -96,6 +96,10 @@ The Helm values deploy the Gateway only. They set `openshift.enabled: true`, set
    es:
      enabled: false
 
+   # Turn on Gamma in the Gateway (required for AuthZ policy/PDP sync)
+   gamma:
+     enabled: true
+
    gateway:
      replicaCount: 1
      image:

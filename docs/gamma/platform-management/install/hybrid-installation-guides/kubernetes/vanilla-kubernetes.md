@@ -102,6 +102,10 @@ The Helm values deploy the Gateway only. They disable the control-plane componen
    es:
      enabled: false
 
+   # Turn on Gamma in the Gateway (required for AuthZ policy/PDP sync)
+   gamma:
+     enabled: true
+
    gateway:
      replicaCount: 1
      image:
@@ -186,6 +190,10 @@ The Helm values deploy the Gateway only. They disable the control-plane componen
 **Disabled control-plane components**
 
 `api`, `portal`, `ui`, `gammaUi`, `alerts`, and `es` are disabled because the Management API, the consoles, the Gamma console, and the analytics database run in Gravitee Cloud. A hybrid install deploys the Gateway only.
+
+**Turn on Gamma**
+
+`gamma.enabled: true` turns on Gamma in the Gateway. It's required to sync Authorization Management (AuthZ) policies to the Gateway's policy decision point (PDP).
 
 **Gravitee Cloud connection**
 
