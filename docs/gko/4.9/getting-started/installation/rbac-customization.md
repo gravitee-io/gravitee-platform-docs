@@ -23,7 +23,7 @@ With Namespaced Mode, GKO only listens to a single namespace or specific namespa
 
 The following diagram provides a visual breakdown of the resources GKO might need access to, along with the corresponding permissions required for each.
 
-<figure><img src="../../.gitbook/assets/gs-install-rbac-customization-18.png" alt=""><figcaption><p>GKO required permissions</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-install-rbac-customization-18 (1).png" alt=""><figcaption><p>GKO required permissions</p></figcaption></figure>
 
 GKO needs access to the following resources:
 
@@ -117,7 +117,7 @@ rbac:
 
 You can customize RBAC with Gravitee's RBAC templates. To learn more about Gravitee's templates, go to Gravitee's following GitHub repository:
 
-* If you are deploying to a single namespace, go to the [manager-role.yaml](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/helm/gko/templates/rbac/manager-role.yaml).&#x20;
+* If you are deploying to a single namespace, go to the [manager-role.yaml](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/helm/gko/templates/rbac/manager-role.yaml).
 * If you are deploying to multiple namespaces, go to [manager-cluster-role.yaml](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/helm/gko/templates/rbac/manager-cluster-role.yaml).
 
 Here is a summary of what is needed for GKO to work properly:
