@@ -23,7 +23,7 @@ Before you install the Gravitee APIM, complete the following steps:
 * Install [helm](https://helm.sh/docs/intro/install/).
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * Ensure you have access to the self-hosted Kubernetes cluster where you want to install Gravitee APIM.
-* **(Enterprise Edition only)** Obtain a license key. For more information about obtaining a license key, see [Enterprise Edition Licensing.](../readme/enterprise-edition.md)
+* **(Enterprise Edition only)** Obtain a license key. For more information about obtaining a license key, see [Enterprise Edition Licensing.](../introduction/enterprise-edition.md)
 
 ## Components Overview
 

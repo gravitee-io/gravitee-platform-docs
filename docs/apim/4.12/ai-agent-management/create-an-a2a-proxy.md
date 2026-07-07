@@ -33,7 +33,7 @@ Agents require access to both synchronous (request-response) and asynchronous (e
 
 Before configuring an A2A Proxy Gateway, ensure the following requirements are met:
 
-* You must have the Enterprise Edition of Gravitee with the AI Agent Management pack enabled. For more information, see [Enterprise Edition](../readme/enterprise-edition.md).
+* You must have the Enterprise Edition of Gravitee with the AI Agent Management pack enabled. For more information, see [Enterprise Edition](../introduction/enterprise-edition.md).
 * Gravitee API Management 4.10 or later
 * APIM Gateway distribution path configured for plugin deployment
 * APIM Management API distribution path configured for plugin deployment

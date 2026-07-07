@@ -12,7 +12,7 @@ You might receive an error when you use this policy using the Gravitee's docker 
 
 * Access to one of the following LLM providers: OpenAI API, Gemini, or Bedrock, and an OpenAI-compatible LLM.
 * A fully Self-Hosted Installation of APIM or a Hybrid Installation of APIM. For more information about installing APIM, see [self-hosted-installation-guides](../../self-hosted-installation-guides/ "mention") and [hybrid-installation-and-configuration-guides](../../hybrid-installation-and-configuration-guides/ "mention").
-* An Enterprise License. For more information about obtaining an Enterprise license, see [enterprise-edition.md](../../readme/enterprise-edition.md "mention").
+* An Enterprise License. For more information about obtaining an Enterprise license, see [enterprise-edition.md](../../introduction/enterprise-edition.md "mention").
 * Complete the steps in [proxy-your-llms.md](proxy-your-llms.md "mention").
 
 ## Add the token rate limit policy to your LLM proxy

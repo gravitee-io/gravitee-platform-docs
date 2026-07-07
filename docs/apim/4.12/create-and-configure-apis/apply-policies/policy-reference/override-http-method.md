@@ -8,7 +8,7 @@ metaLinks:
 # Override HTTP Method
 
 {% hint style="warning" %}
-This feature requires [Gravitee's Enterprise Edition](../../../readme/enterprise-edition.md)
+This feature requires [Gravitee's Enterprise Edition](../../../introduction/enterprise-edition.md)
 {% endhint %}
 
 ## Overview

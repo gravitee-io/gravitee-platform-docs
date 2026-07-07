@@ -34,8 +34,8 @@ redirects:
  community-and-support/contributing-to-the-gravitee-api-management-developement: README.md
  community-and-support/developer-contributions: README.md
  community-and-support/enterprise-support: README.md
- community/community-forum: readme/community-forum.md
- community/contribute-to-apim: readme/contribute-to-apim.md
+ community/community-forum: introduction/community-forum.md
+ community/contribute-to-apim: introduction/contribute-to-apim.md
  configuration/authentication: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md
  configuration/authentication/authentication-providers: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers.md
  configuration/authentication/azure-ad-entra-id: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id.md
@@ -635,8 +635,8 @@ redirects:
  overview/changelog/apim-4.5.x: release-information/changelog/apim-4.11.x.md
  overview/changelog/apim-4.6.x: release-information/changelog/apim-4.11.x.md
  overview/changelog/apim-4.7.x: release-information/changelog/apim-4.11.x.md
- overview/ee-vs-oss: readme/enterprise-edition.md
- overview/enterprise-edition: readme/enterprise-edition.md
+ overview/ee-vs-oss: introduction/enterprise-edition.md
+ overview/enterprise-edition: introduction/enterprise-edition.md
  overview/execution-engine: create-and-configure-apis/gravitee-api-definitions/execution-engine.md
  overview/gravitee-api-definitions-and-execution-engines: create-and-configure-apis/gravitee-api-definitions/execution-engine.md
  overview/gravitee-api-definitions-and-execution-engines/access-control-allowed-origin: create-and-configure-apis/gravitee-api-definitions/execution-engine.md
@@ -651,8 +651,8 @@ redirects:
  overview/gravitee-api-definitions-and-execution-engines/policy-execution: create-and-configure-apis/gravitee-api-definitions/execution-engine.md
  overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine: create-and-configure-apis/gravitee-api-definitions/execution-engine.md
  overview/gravitee-api-definitions-and-execution-engines/timeout-management: create-and-configure-apis/gravitee-api-definitions/execution-engine.md
- overview/gravitee-apim-enterprise-edition: readme/enterprise-edition.md
- overview/gravitee-apim-enterprise-edition/enterprise-support: readme/enterprise-edition.md
+ overview/gravitee-apim-enterprise-edition: introduction/enterprise-edition.md
+ overview/gravitee-apim-enterprise-edition/enterprise-support: introduction/enterprise-edition.md
  overview/integrations: README.md
  overview/introduction-to-gravitee-api-management-apim/apim-architecture: README.md
  overview/introduction-to-gravitee-api-management-apim/plugins: plugins/README.md
