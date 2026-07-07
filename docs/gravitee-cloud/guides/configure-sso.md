@@ -51,8 +51,8 @@ The Single Sign On screen will display an Identity Provider that has been create
 
 ## Troubleshooting
 
-### Microsoft Entra ID (Azure AD): sign-in fails with `AADSTS50146`
+### Microsoft Entra ID (Azure AD): Sign-in fails with `AADSTS50146`
 
-If your Entra App Registration uses claims mapping to customize the token's claims (custom or transformed claims, or a claims-mapping policy), Entra won't issue the token unless the app is configured to accept mapped claims, and returns `AADSTS50146`. The error text mentions an application signing key, but the cause is the mapped claims.
+This error occurs when your Entra App Registration uses claims mapping to customize the token's claims (custom or transformed claims, or a claims-mapping policy). Entra won't issue the token unless the app is configured to accept mapped claims, and returns `AADSTS50146`. The error text mentions an application signing key, but the cause is the mapped claims.
 
 In the App Registration manifest, set `"acceptMappedClaims": true` under the `api` section, then sign in again. (This setting applies to single-tenant app registrations.) No change is needed in your Cockpit SSO configuration.
