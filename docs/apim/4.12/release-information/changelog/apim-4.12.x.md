@@ -5,6 +5,9 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.4 - July 7, 2026
+
+ 
 ## Gravitee API Management 4.12.3 - July 3, 2026
 <details>
 
