@@ -25,7 +25,7 @@ To learn more about Gravitee API definitions and how they're treated, see the fo
 
 To learn more about how to create APIs, see the following articles:
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>v4 API Creation Wizard</td><td><a href="create-apis/v4-api-creation-wizard.md">v4-api-creation-wizard.md</a></td></tr><tr><td>v2 API Creation Wizard</td><td><a href="create-apis/v2-api-creation-wizard.md">v2-api-creation-wizard.md</a></td></tr><tr><td>Import APIs</td><td><a href="create-apis/import-apis.md">import-apis.md</a></td></tr><tr><td>Search for APIs in the Console</td><td><a href="broken-reference/">broken-reference</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>v4 API Creation Wizard</td><td><a href="create-apis/v4-api-creation-wizard.md">v4-api-creation-wizard.md</a></td></tr><tr><td>v2 API Creation Wizard</td><td><a href="create-apis/v2-api-creation-wizard.md">v2-api-creation-wizard.md</a></td></tr><tr><td>Import APIs</td><td><a href="create-apis/import-apis.md">import-apis.md</a></td></tr><tr><td>Search for APIs in the Console</td><td><a href="https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.9/create-and-configure-apis/broken-reference/README.md">https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.9/create-and-configure-apis/broken-reference/README.md</a></td></tr></tbody></table>
 
 ## Configure v4 APIs
 

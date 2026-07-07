@@ -140,7 +140,7 @@ However, depending on the content-type, you can have access to specific content.
 {% hint style="warning" %}
 If a JSON payload that has duplicate keys, APIM keeps the last key.
 
-To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../4.10/create-and-configure-apis/apply-policies/policy-reference/json-threat-protection.md "mention").
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.10/create-and-configure-apis/apply-policies/policy-reference/json-threat-protection.md](https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.10/create-and-configure-apis/apply-policies/policy-reference/json-threat-protection.md "mention").
 {% endhint %}
 
 You can access specific attribute of a JSON request/response payload with `{#request.jsonContent.foo.bar}` , where the request body is similar to the following example:
@@ -171,7 +171,7 @@ You can access specific tag of a XML request/response payload with `{#request.xm
 
 The Expression Language (EL) Assistant helps you write the EL expression needed for the field. You provide the Assistant with the prompt for the EL you want, and the Assistant returns the corresponding EL.
 
-<figure><img src=".gitbook/assets/anim (1) (1).gif" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/anim.gif" alt=""><figcaption></figcaption></figure>
 
 ### Prerequisites
 
@@ -217,14 +217,14 @@ Any field that supports Expression Language, supports the AI assistant.
 
 1.  In the field that supports expression language, click the **{EL}** icon.
 
-    <figure><img src=".gitbook/assets/304A887B-9FD1-4011-961A-7DB7D91D3478_1_201_a (1) (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src=".gitbook/assets/304A887B-9FD1-4011-961A-7DB7D91D3478_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2. In the **EL Assistant** pop-up window, type the prompt for the Expression Language that you want the AI assistant to generate. For example, only run this policy if the header equals test.
 3.  Click **Ask Newt AI**. The AI assistant generates the Expression Language.
 
-    <figure><img src=".gitbook/assets/DBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a (1) (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src=".gitbook/assets/DBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 4.  (Optional) Provide feedback about the answer. To provide feedback, click either the **thumbs u**p or the **thumbs down**.
 
-    <figure><img src=".gitbook/assets/6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a (1) (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src=".gitbook/assets/6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Use case examples
 

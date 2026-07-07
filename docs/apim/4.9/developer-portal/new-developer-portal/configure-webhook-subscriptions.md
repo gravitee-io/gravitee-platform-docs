@@ -8,7 +8,6 @@ metaLinks:
 
 # Configure Webhook Subscriptions
 
-
 ## Prerequisites
 
 * Enable the New Developer Portal. For more information about enabling the New Developer Portal, see [configure-the-new-portal.md](configure-the-new-portal.md "mention").
@@ -20,16 +19,16 @@ metaLinks:
     <figure><img src="../../.gitbook/assets/developer-portal-new-developer-portal-co-299-1.png" alt=""><figcaption></figcaption></figure>
 2.  Click **Learn More**.
 
-    <figure><img src="../../.gitbook/assets/805EA5C8-A387-48A8-962F-8BAF3149889F (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/805EA5C8-A387-48A8-962F-8BAF3149889F.jpeg" alt=""><figcaption></figcaption></figure>
 3.  Click **Subscribe**.
 
-    <figure><img src="../../.gitbook/assets/E4E7D948-D35F-4E44-A370-DF4E3D384B10_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/E4E7D948-D35F-4E44-A370-DF4E3D384B10_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 4.  Click the plan that you want to subscribe to, and then click **Next**.
 
-    <figure><img src="../../.gitbook/assets/622A15C9-2CBA-4959-9F9E-6F5CF8A8B548 (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/622A15C9-2CBA-4959-9F9E-6F5CF8A8B548.jpeg" alt=""><figcaption></figcaption></figure>
 5.  Select the application that you want to use to subscribe to the API, and then click **Next**.
 
-    <figure><img src="../../.gitbook/assets/35DBD082-6975-44A2-90E6-DD6C5F5BBA59 (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/35DBD082-6975-44A2-90E6-DD6C5F5BBA59.jpeg" alt=""><figcaption></figcaption></figure>
 6.  In the **Configure Consumer** page, complete the following steps:
 
     1. (Optional) In the **Channel** field, select the channel that sends events to your callback URL.
@@ -42,11 +41,11 @@ metaLinks:
     <figure><img src="../../.gitbook/assets/developer-portal-new-developer-portal-co-300-1.png" alt=""><figcaption></figcaption></figure>
 7.  Click **Next**.
 
-    <figure><img src="../../.gitbook/assets/E64B2895-B6B3-43C2-BE7A-DD162CC6E029 (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/E64B2895-B6B3-43C2-BE7A-DD162CC6E029.jpeg" alt=""><figcaption></figcaption></figure>
 8. In the **Add a comment** field, enter a message to explain why you want to subscribe to the API.
 9.  Click **Subscribe**.
 
-    <figure><img src="../../.gitbook/assets/11C5B4EE-F95D-4A58-A9FC-51BD9FF03EC1 (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/11C5B4EE-F95D-4A58-A9FC-51BD9FF03EC1.jpeg" alt=""><figcaption></figcaption></figure>
 
 ## Verification
 

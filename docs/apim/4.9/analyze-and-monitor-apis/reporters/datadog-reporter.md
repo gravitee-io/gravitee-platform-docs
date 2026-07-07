@@ -9,7 +9,7 @@ metaLinks:
 
 ## Download and install
 
-To configure the Datadog Reporter, download the reporter plugin [here](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-datadog/). Once you’ve downloaded the .ZIP file, you can add it to the Gateway in the same way as [other plugins](../../../4.10/plugins/README.md). Typically, you’ll install plugins in the `/plugins` directory of your installation. As with other reporters, the Datadog Reporter plugin only needs to be installed on the Gateway, not the Management API.
+To configure the Datadog Reporter, download the reporter plugin [here](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-datadog/). Once you’ve downloaded the .ZIP file, you can add it to the Gateway in the same way as [other plugins](https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.10/plugins/README.md). Typically, you’ll install plugins in the `/plugins` directory of your installation. As with other reporters, the Datadog Reporter plugin only needs to be installed on the Gateway, not the Management API.
 
 {% hint style="info" %}
 If you want to collect system metrics and logs from the Management API service, use the [Datadog Agent](https://docs.datadoghq.com/agent/?tab=Linux) to tail the Management API logs or collect them from stdout.
@@ -75,7 +75,7 @@ reporters:
 Authentication is required for the Gateway to send reporting data to Datadog. Gravitee sends data to Datadog as an [API client](https://docs.datadoghq.com/api/latest/) over HTTP, and so needs to authenticate to Datadog. The basic way to do this is via an [API key](https://docs.datadoghq.com/account_management/api-app-keys/), but you can also configure application keys and client tokens, depending on what your Datadog account requires.
 
 {% hint style="info" %}
-You can obscure the value of this API key by using [configuration-level secrets](../../../4.10/prepare-a-production-environment/sensitive-data-management/configure-secrets/README.md) in `gravitee.yml`.
+You can obscure the value of this API key by using [configuration-level secrets](https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.10/prepare-a-production-environment/sensitive-data-management/configure-secrets/README.md) in `gravitee.yml`.
 {% endhint %}
 
 ## Compatibility with APIM
@@ -94,13 +94,13 @@ You can obscure the value of this API key by using [configuration-level secrets]
 
 Gravitee has different types of reporting data, and each type maps to a different resource type in Datadog. The mapping is as follows:
 
-| Gravitee Convention                                                                     | Examples                                                                     | Datadog Convention |
-| --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------ |
-| Metadata                                                                                | API name, user agent                                                         | Tags               |
-| Monitoring                                                                              | CPU load, memory usage, JVM heap, uptime                                     | Metrics            |
-| EndpointStatus                                                                          | Health check status                                                          | Events             |
-| [Metrics](../../../4.10/analyze-and-monitor-apis/reporters/README.md#metrics-sent-via-reporters) | Response time (for both gateway and endpoint), content length, request count | Metrics            |
-| [Logs](../../../4.10/analyze-and-monitor-apis/reporters/README.md#log-data-sent-via-reporters)   | Request body, response body, headers, request id, method                     | Log                |
+| Gravitee Convention                                                                                                                                               | Examples                                                                     | Datadog Convention |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------ |
+| Metadata                                                                                                                                                          | API name, user agent                                                         | Tags               |
+| Monitoring                                                                                                                                                        | CPU load, memory usage, JVM heap, uptime                                     | Metrics            |
+| EndpointStatus                                                                                                                                                    | Health check status                                                          | Events             |
+| [Metrics](https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.10/analyze-and-monitor-apis/reporters/README.md#metrics-sent-via-reporters) | Response time (for both gateway and endpoint), content length, request count | Metrics            |
+| [Logs](https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.10/analyze-and-monitor-apis/reporters/README.md#log-data-sent-via-reporters)   | Request body, response body, headers, request id, method                     | Log                |
 
 The reporter sends metrics to Datadog with the prefix `gravitee.apim`. Metrics in Datadog appear with underscores between words, instead of the CamelCase default shown in the metrics page. For example, `proxyResponseTimeMs` appears in Datadog as `proxy_response_time_ms`.
 
@@ -133,7 +133,7 @@ The tags that Gravitee includes by default are shown in the table below. You can
 | securitytoken  | The security token, if any type of security was used when processing the request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                              |
 | status         | HTTP response status code integer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `200`                                                                                        |
 | subscriptionid | The subscription ID; for a keyless plan, this value will be the same as the value of the remote address field                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `192.168.65.1`                                                                               |
-| tenant         | ID of the tenant evaluated for the API (see [tenants](../../../4.10/configure-and-manage-the-platform/gravitee-gateway/tenants.md))                                                                                                                                                                                                                                                                                                                                                                                                                                        |                                                                                              |
+| tenant         | ID of the tenant evaluated for the API (see [tenants](https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.10/configure-and-manage-the-platform/gravitee-gateway/tenants.md))                                                                                                                                                                                                                                                                                                                                                                       |                                                                                              |
 | transactionid  | Used to track end-to-end transactions spanning across multiple HTTP requests. The Gateway configuration allows defining an expected correlation ID header passed by a client request. If this header is set, the content of this field will be set to the value of the header. If no correlation header has been passed, the content of this field will be the same as the content of the request ID. This value will be propagated to the upstream service using the correlation header defined in the configuration (the default header is `X-Gravitee-Transaction-Id`). | `00014685-82af-4b15-8146-8582af9b15f4`                                                       |
 | uri            | The URI used by the client to perform its request (this includes the context path of the request and query parameters)                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `/demo-dynamic-routing/`                                                                     |
 | user           | The authenticated user, if any type of security was used when processing the request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                              |
@@ -151,7 +151,7 @@ For LLM-Proxy, the metrics in Datadog are:
 The `keyword_llm-proxy_provider` and `keyword_llm-proxy_model` tags will be attached to metrics. In MCP-Proxy, metrics are `keyword`-type, meaning these tags apply to metrics such as `gravitee.apim.endpoint_response_time_ms`.
 
 {% hint style="info" %}
-If there is no cost defined on the LLM-Proxy endpoint, then Gravitee won't calculate and publish the `double_*` metrics. See step 8 [here](../../../4.10/agent-mesh/llm-proxy/proxy-your-llms.md#create-an-llm-proxy-api) to define costs per model.
+If there is no cost defined on the LLM-Proxy endpoint, then Gravitee won't calculate and publish the `double_*` metrics. See step 8 [here](https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.10/agent-mesh/llm-proxy/proxy-your-llms.md#create-an-llm-proxy-api) to define costs per model.
 {% endhint %}
 
 ## Custom tags
@@ -175,7 +175,7 @@ reporters:
 You can use the Assign Metrics policy to add custom metrics to the output of the Datadog Reporter. They appear in Datadog with the name `gravitee.apim.{metricName}`, where `metricName` is configured in the policy.
 
 {% hint style="info" %}
-The default metrics published by Gravitee can be found [here](../../../4.10/analyze-and-monitor-apis/reporters/README.md#metrics-sent-via-reporters).
+The default metrics published by Gravitee can be found [here](https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.10/analyze-and-monitor-apis/reporters/README.md#metrics-sent-via-reporters).
 {% endhint %}
 
 ## Removing fields from the Datadog Reporter
@@ -219,4 +219,4 @@ Gravitee offers a pre-built Datadog dashboard that is available from the [Datado
 
 The Gravitee Datadog Dashboard is preconfigured to display the Datadog reporting data generated by your Gateway(s), such as information on Gateway performance and API usage. An example of the entire Gravitee Datadog Dashboard is shown below.
 
-<div data-full-width="false"><figure><img src="../../.gitbook/assets/gravitee-full-datadog-dashboard-screenshot (1) (1).png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div data-full-width="false"><figure><img src="../../.gitbook/assets/gravitee-full-datadog-dashboard-screenshot.png" alt="" width="563"><figcaption></figcaption></figure></div>

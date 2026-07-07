@@ -229,7 +229,7 @@ The LDAP Authentication Provider resource authenticates a user in LDAP.
 
 #### Configuration
 
-The following table shows the available configurations for the LDAP Authentication provider, including if the resource supports Secrets. For more information about Secrets, see [broken-reference](broken-reference/ "mention").
+The following table shows the available configurations for the LDAP Authentication provider, including if the resource supports Secrets. For more information about Secrets, see [https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.9/create-and-configure-apis/apply-policies/broken-reference/README.md](https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.9/create-and-configure-apis/apply-policies/broken-reference/README.md "mention").
 
 | Property              | Required | Description                                                                                                                                                    | Type             | Default                         | Supports EL | Supports Secrets |
 | --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------- | ----------- | ---------------- |

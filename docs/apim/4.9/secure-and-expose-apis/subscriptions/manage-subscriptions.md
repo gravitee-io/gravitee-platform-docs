@@ -12,7 +12,7 @@ metaLinks:
 
 To find an application's subscriptions, log in to your APIM Console, and then select **Applications** from the menu.
 
-<figure><img src="../../.gitbook/assets/00 sub 1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 sub 1.png" alt=""><figcaption></figcaption></figure>
 
 Select the application you're looking for, and then select **Subscriptions** from the menu.
 
@@ -28,7 +28,7 @@ To filter subscriptions, use the **API** and **API Key** search fields and/or th
 
 <figure><img src="../../.gitbook/assets/1 app sub 2.png" alt=""><figcaption></figcaption></figure>
 
-To create a new subscription, click **+ Create a subscription** and search for the API you'd like to subscribe to. Refer to the [subscription](README.md) documentation for more information.
+To create a new subscription, click **+ Create a subscription** and search for the API you'd like to subscribe to. Refer to the [subscription](./) documentation for more information.
 
 ## Subscription validation
 

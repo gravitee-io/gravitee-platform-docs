@@ -215,7 +215,7 @@ If you export your API, you see the Authorization header as part of the definiti
     <figure><img src="../../../.gitbook/assets/5DF13AD2-0BEC-4D40-9D2E-33BFED89E109.jpeg" alt=""><figcaption></figcaption></figure>
 3.  Click the **Configuration** tab, and then navigate to **HTTP Headers**.
 
-    <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-15.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/gs-first-api-add-security-15.png" alt=""><figcaption></figcaption></figure>
 4. In the **VALUE** field, replace `ApiKey 123465798` with `ApiKey{#secrets.get('/vault/secret/gravitee/apikeys:username')}` .
 5.  In the **You have unsaved changes** pop-up window, click **Save.**
 

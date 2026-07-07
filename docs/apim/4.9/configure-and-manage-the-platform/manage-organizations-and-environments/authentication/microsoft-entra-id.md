@@ -1,5 +1,9 @@
 ---
 description: An overview about microsoft entra id.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id
 ---
 
 # Microsoft Entra ID
@@ -9,7 +13,7 @@ description: An overview about microsoft entra id.
 This article provides information about setting up APIM authentication in the APIM Console UI to use Microsoft Entra ID (formerly known as Azure AD) as an IDP.
 
 {% hint style="info" %}
-For documentation about securing your APIs with OAuth2 and Entra ID, see the documentation on the [JWT Plan](../../../../4.10/secure-and-expose-apis/plans/jwt.md).
+For documentation about securing your APIs with OAuth2 and Entra ID, see the documentation on the [JWT Plan](https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.10/secure-and-expose-apis/plans/jwt.md).
 {% endhint %}
 
 ## Prerequisites
