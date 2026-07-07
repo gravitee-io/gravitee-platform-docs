@@ -8,7 +8,7 @@ metaLinks:
 # Multi-tenancy
 
 {% hint style="warning" %}
-Multi-tenancy requires running APIM 4.2 and an [enterprise-enabled Gravitee Cloud account](../readme/enterprise-edition.md#enterprise-version-of-gravitee-cockpit).
+Multi-tenancy requires running APIM 4.2 and an [enterprise-enabled Gravitee Cloud account](../introduction/enterprise-edition.md#enterprise-version-of-gravitee-cockpit).
 
 To learn more about Gravitee Enterprise and what's included in various enterprise packages, [book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/) or [check out the pricing page](https://www.gravitee.io/pricing).
 {% endhint %}
