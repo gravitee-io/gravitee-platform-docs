@@ -166,9 +166,7 @@ logging:
       limit: PT1S 
 ```
 {% endcode %}
-{% endtab %}
 
-{% tab title="v4 proxy APIs" %}
 {% hint style="info" %}
 Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance.
 {% endhint %}
@@ -181,9 +179,6 @@ To configure which information is recorded, select from the following options:
 *   **Display conditions:** You have the ability to filter data based on **Request phase condition**. This field supports the use of [Gravitee Expression Language](../gravitee-expression-language.md).
 
     <figure><img src="../.gitbook/assets/analytics-logging-1-365.png" alt=""><figcaption></figcaption></figure>
-
-{% endtab %}
-{% endtabs %}
 
 ### View messages
 
@@ -215,15 +210,16 @@ Under the **Messages** header, entrypoint and endpoint message details are group
 Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty.
 {% endtab %}
 
-{% tab title="v4 proxy APIs" %} In the logs screen, you see the following information about your API logs:
+{% tab title="v4 proxy APIs" %}
+In the logs screen, you see the following information about your API logs:
 
-#### Overview
+**Overview**
 
 The overview section provides information about the Request and Response phase of the API.
 
 <figure><img src="../.gitbook/assets/analytics-logging-1-368.png" alt=""><figcaption></figcaption></figure>
 
-#### More details
+**More details**
 
 The more detail drop-down menu shows information about the following topics:
 
@@ -235,7 +231,7 @@ The more detail drop-down menu shows information about the following topics:
 
 <figure><img src="../.gitbook/assets/E28EB0D9-6405-4876-8730-BFA28645A4D5_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
-#### Details
+**Details**
 
 The details menu shows the information about the following topics:
 
@@ -266,7 +262,6 @@ In the request section, you see the information about the following topics:
   *   Shows the body returned in the response
 
       <figure><img src="../.gitbook/assets/2421DA4C-35BB-4DAD-A6FA-642B70A17486_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
-
 {% endtab %}
 {% endtabs %}
 

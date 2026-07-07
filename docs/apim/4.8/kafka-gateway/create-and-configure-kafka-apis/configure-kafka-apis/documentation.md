@@ -20,14 +20,14 @@ To create a homepage:
     <figure><img src="../../../.gitbook/assets/1 docs 1 (1).png" alt=""><figcaption></figcaption></figure>
 3.  Choose whether to set your page visibility to **Public** or **Private**.
 
-    <figure><img src="../../../.gitbook/assets/01 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/01.png" alt=""><figcaption></figcaption></figure>
 
     If you select **Private**, you have the option to choose which groups can view your page. You can also exclude the selected groups, in which case the groups that are not selected will be able to view your page. If you do not select any groups, all groups will be able to view your page.
 
     <figure><img src="../../../.gitbook/assets/10 1 (1).png" alt=""><figcaption></figcaption></figure>
 4.  Choose how to create the content. You can fill in the content yourself, import a file, or link to an external source.
 
-    <figure><img src="../../../.gitbook/assets/02 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/02.png" alt=""><figcaption></figcaption></figure>
 
     The format you chose for the page content may impact how you create page content:
 
@@ -60,7 +60,7 @@ Click the **Documentation Pages** header to view a directory of the pages you've
 
 The process for creating a documentation page is identical to that for creating a homepage, except a documentation page requires a name.
 
-<figure><img src="../../../.gitbook/assets/05 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/05.png" alt=""><figcaption></figcaption></figure>
 
 In addition, **Documentation Pages** supports the creation of folders. To create a folder, click **Add new folder**.
 

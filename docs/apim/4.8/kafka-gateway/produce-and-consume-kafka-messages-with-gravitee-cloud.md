@@ -12,13 +12,13 @@ This guide explains how to produce and consume Kafka messages using Gravitee Clo
 
 Before you produce and consume Kafka messages, complete the following steps:
 
-* Deploy a Kafka Gateway with Gravitee Cloud. For more information about Deploying a Kafka Gateway with Gravitee Cloud, see [Deploy a Kafka Gateway with Gravitee Cloud](deploy-a-kafka-gateway-with-gravitee-cloud.md "mention").
+* Deploy a Kafka Gateway with Gravitee Cloud. For more information about Deploying a Kafka Gateway with Gravitee Cloud, see [deploy-a-kafka-gateway-with-gravitee-cloud.md](deploy-a-kafka-gateway-with-gravitee-cloud.md "mention").
 
 ## Produce and Consume Kafka messages with Gravitee Cloud
 
 1.  Sign in to [Gravitee Cloud](https://cloud.gravitee.io/).
 
-    <figure><img src="../.gitbook/assets/kafka-gw-produce-and-consume-kafka--272.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/kafka-gw-deploy-a-kafka-gateway-wit-272.png" alt=""><figcaption></figcaption></figure>
 2.  From the **Dashboard**, navigate to the **Gateways** section, and then click the Gateway that you deployed.
 
     <figure><img src="../.gitbook/assets/kafka-gw-produce-and-consume-kafka--304.png" alt=""><figcaption></figcaption></figure>

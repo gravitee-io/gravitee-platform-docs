@@ -29,10 +29,10 @@ To integrate AWS API Gateway with Gravitee APIM, complete the following steps:
 
 1.  From the Dashboard, click **Integrations.**<br>
 
-    <figure><img src="../../../../.gitbook/assets/govern-federation-aws-api-gateway-r-16.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/govern-federation-solace-16.png" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration.**<br>
 
-    <figure><img src="../../../../.gitbook/assets/govern-federation-aws-api-gateway-r-18.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/govern-federation-solace-18.png" alt=""><figcaption></figcaption></figure>
 3.  Select **AWS API Gateway**, and then click **Next.**
 
     <figure><img src="../../../../.gitbook/assets/select-aws-api-gateway.png" alt=""><figcaption></figcaption></figure>

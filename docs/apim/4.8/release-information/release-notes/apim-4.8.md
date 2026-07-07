@@ -57,11 +57,11 @@ description: Documentation about apim 4.8 in the context of APIs.
 
     ⚠️ Debian based images are required to use the new Guard Rails policy introduced in APIM 4.8.
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
-      <p>Debian based images are required to use the new Guard Rails policy introduced in APIM 4.8.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>Debian based images are required to use the new Guard Rails policy introduced in APIM 4.8.</p></div>
+
 #### Debug mode is now compatible with V4 Proxy APIs
-* Before APIM 4.8, Debug mode worked only with V2 APIs. Starting with 4.8, Debug mode now works with V2 APIs and V4 Proxy APIs. For more information about how to use Debug mode, see [broken-reference](broken-reference/ "mention").
+
+* Before APIM 4.8, Debug mode worked only with V2 APIs. Starting with 4.8, Debug mode now works with V2 APIs and V4 Proxy APIs. For more information about how to use Debug mode, see [https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.8/release-information/release-notes/broken-reference/README.md](https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.8/release-information/release-notes/broken-reference/README.md "mention").
 
 #### Webhook Improvements
 

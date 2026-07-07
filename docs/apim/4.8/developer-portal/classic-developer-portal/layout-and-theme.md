@@ -197,7 +197,7 @@ The top menu includes the following options:
 
 ### Basic customization
 
-<table><thead><tr><th width="157.5">Property</th><th>Use case</th></tr></thead><tbody><tr><td>Images</td><td>Show logos. Optional logo is used for the homepage and the footer. Using the default logo overrides the optional logo.</td></tr><tr><td>Homepage</td><td>Add a Homepage background image.</td></tr><tr><td>Colors</td><td>Define primary, neutral, and font colors.</td></tr><tr><td>Fonts</td><td>Choose font family and sizes. Medium sizes are used by default. For more information about Fonts, see <a data-mention href="broken-reference/">broken-reference</a></td></tr></tbody></table>
+<table><thead><tr><th width="157.5">Property</th><th>Use case</th></tr></thead><tbody><tr><td>Images</td><td>Show logos. Optional logo is used for the homepage and the footer. Using the default logo overrides the optional logo.</td></tr><tr><td>Homepage</td><td>Add a Homepage background image.</td></tr><tr><td>Colors</td><td>Define primary, neutral, and font colors.</td></tr><tr><td>Fonts</td><td>Choose font family and sizes. Medium sizes are used by default. For more information about Fonts, see <a data-mention href="https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.8/developer-portal/classic-developer-portal/broken-reference/README.md">https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.8/developer-portal/classic-developer-portal/broken-reference/README.md</a></td></tr></tbody></table>
 
 #### Fonts
 
