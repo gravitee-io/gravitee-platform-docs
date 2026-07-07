@@ -90,7 +90,7 @@ Both DEPRECATED and ARCHIVED are terminal states. Once applied, the lifecycle st
 {% endhint %}
 
 {% hint style="info" %}
-For the full list of allowed lifecycle state transitions and validation rules, see [API lifecycle states](../../../apim/4.10/create-and-configure-apis/configure-v4-apis/api-lifecycle-states.md) in the APIM documentation.
+For the full list of allowed lifecycle state transitions and validation rules, see [API lifecycle states](https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.10/create-and-configure-apis/configure-v4-apis/api-lifecycle-states.md) in the APIM documentation.
 {% endhint %}
 
 ## Setting a category for an API
