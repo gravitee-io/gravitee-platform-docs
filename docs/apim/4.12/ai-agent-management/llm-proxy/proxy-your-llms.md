@@ -12,7 +12,7 @@ This guide explains how to set up your LLM in Gravitee.
 
 * Access to one of the following LLM providers: OpenAI API, Gemini, or Bedrock, and an OpenAI-compatible LLM.
 * A fully Self-Hosted Installation of APIM or a Hybrid Installation of APIM. For more information about installing APIM, see [self-hosted-installation-guides](../../self-hosted-installation-guides/ "mention") and [hybrid-installation-and-configuration-guides](../../hybrid-installation-and-configuration-guides/ "mention").
-* An Enterprise License. For more information about obtaining an Enterprise license, see [enterprise-edition.md](../../readme/enterprise-edition.md "mention").
+* An Enterprise License. For more information about obtaining an Enterprise license, see [enterprise-edition.md](../../introduction/enterprise-edition.md "mention").
 
 ## Proxy your LLM
 
