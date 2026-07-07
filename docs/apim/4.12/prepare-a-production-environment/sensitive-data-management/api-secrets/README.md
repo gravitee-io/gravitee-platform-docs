@@ -7,7 +7,7 @@ metaLinks:
 
 # API Secrets
 
-Gravitee offers an [integration](../../../readme/integrations.md#secret-managers-integration) with secret managers to obscure secrets and avoid clear text credentials stored in configuration files. Gravitee's secret manager integrations rely on the `secret-provider` plugin type.
+Gravitee offers an [integration](../../../introduction/integrations.md#secret-managers-integration) with secret managers to obscure secrets and avoid clear text credentials stored in configuration files. Gravitee's secret manager integrations rely on the `secret-provider` plugin type.
 
 You can obscure secrets in `gravitee.yml`, Helm charts, and environment variables.
 

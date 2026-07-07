@@ -46,6 +46,14 @@
 * OpenAPI imports automatically generate flows and endpoints, with optional documentation page creation and OAS Validation policy attachment.
 * Requires `API_DEFINITION[UPDATE]` permission and is unavailable for Kubernetes-managed APIs or v2 APIs (which use the legacy import dialog).
 
+#### **PATCH Endpoint for v4 HTTP Proxy APIs**
+
+* Apply standards-based partial updates to a v4 HTTP proxy API definition through the Management API, using JSON Merge Patch (`application/merge-patch+json`, RFC 7396) or JSON Patch (`application/json-patch+json`, RFC 6902). The format is selected from the request `Content-Type`.
+* Send only the fields you change instead of resubmitting the entire API definition, which reduces the risk of accidental overwrites during minor updates.
+* Add the `dryRun` query parameter to validate the resulting definition and return it without saving, to test a change before applying it.
+* Patchable fields cover the core definition, including name, description, version, visibility, labels, tags, categories, lifecycle state, analytics, failover, properties, response templates, flows, listeners, endpoint groups, resources, and groups. Changing the runtime state uses the existing start and stop actions instead.
+* The endpoint applies only to v4 HTTP proxy APIs. Requests against v2 APIs or v4 message and native APIs are rejected with a validation error. Requires `API_DEFINITION[UPDATE]` or `API_GATEWAY_DEFINITION[UPDATE]` permission.
+
 #### **OpenTelemetry Logs Integration for Log-to-Trace Correlation**
 
 * Injects active trace IDs and span IDs into runtime log records captured during request processing, enabling direct navigation from logs in Loki to corresponding traces in Tempo via Grafana.
@@ -208,20 +216,19 @@
 #### **Portal and Documentation Management via Automation API**
 
 * Enables CI/CD-driven configuration of next-generation Developer Portal structure, API listings, and documentation through the Automation API.
-* Supports declarative portal management using Gravitee Kubernetes Operator (GKO) CRDs or the Terraform provider to define navigation hierarchies, publish APIs, and attach documentation pages.
 * Navigation paths use slash-separated strings (`/projects/alpha`) with optional display names and ordering. Portal listings control API placement and sequence within the navigation tree.
 * Documentation pages support Gravitee Markdown, OpenAPI, and AsyncAPI formats and can be scoped to either the portal (platform-level) or specific APIs (appearing under each published API instance).
-* In 4.12, one portal instance per environment is supported (multi-portal is planned for a future release). All requests must target the HRID `default-portal`. Navigation sync is limited to the top navigation bar area.
 
+{% hint style="warning" %}
+Automation API is not enabled by default. On premise Helm Charts users must enable api.ingress.automation and configure host and tls.
+{% endhint %}
 
-<!-- PIPELINE:APIM-14537 -->
 #### **Custom API Key Reuse**
 
 * API consumers can now reuse inactive custom API keys—revoked, expired, or from closed subscriptions—when creating new subscriptions, providing greater flexibility in key management.
 * When enabled, the system reactivates the existing key record and associates it with the new subscription. The system updates the expiration date to match the new subscription's end date and retains the audit history.
 * Requires `plan.security.apikey.allowCustomReuse.enabled=true` in the environment configuration and must be used with custom API keys enabled, configured with `plan.security.apikey.allowCustom.enabled=true`.
 * Paused API keys cannot be reused because their subscriptions remain active; only inactive keys are eligible for reuse.
-<!-- /PIPELINE:APIM-14537 -->
 
 ## Improvements
 

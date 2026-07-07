@@ -4,13 +4,36 @@ title: Gravitee Kubernetes Operator 4.12 Release Notes.
 
 # GKO 4.12
 
+GKO introduce
+
 ## Highlights
 
-* The `Subscription` CRD supports API Key plan subscriptions, including multiple custom keys per subscription with optional expiry dates and zero-downtime rotation through the operator and the APIM Automation API.
+* Dictionaries vie Dictionary CRD are not supported (manual and dynamic)
+* Next-generation documentation and navigation management via 3 new CRDs
+* The `Subscription` CRD supports API Key plan subscriptions, including multiple expiring custom keys per subscription. It also support consumer configuration for PUSH plans (webhook APIs)
+* Gaps in API (Kafka Native, API types, a few missing fields in API V4 object)
 
 ## Breaking Changes
 
-* The `customApiKey` field is removed from the `Subscription` CRD schema. Update existing manifests to the `apiKeys` array format before upgrading. See [API key subscriptions](../../overview/custom-resource-definitions/subscription.md#api-key-subscriptions) for the new schema.
+Customer with on-premise install must be comply to the following before upgrading to GKO 4.12
+
+### Compatibility
+
+{% hint style="warning" %}
+For GKO 4.12.x you must upgrade to APIM 4.12 first.\
+GKO 4.12.x is only compatible with Gravitee APIM 4.12.x there is no backward compatibility.
+{% endhint %}
+
+### Helm Chart update
+
+{% hint style="warning" %}
+GKO now relies on Automation API. Helm Charts users need to configure ingress configuration for `api.ingress.automation`  when migrating to 4.12.
+
+You need to:
+
+* enable it
+* configure hosts & tls
+{% endhint %}
 
 ## New Features
 

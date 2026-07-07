@@ -8,7 +8,7 @@ This installation guide is for development and quick-start purposes only. Don't 
 
 This guide explains how to run a self-hosted Gravitee Gamma platform with the Docker CLI, one container at a time.
 
-You run the standard APIM containers, turn on Gamma in the Management API with `gravitee_gamma_enabled=true`, and add the Gamma console (`graviteeio/gamma-ui`). The Gamma console isn't a separate backend. It talks to the Management API, which runs with Gamma enabled.
+You run the standard APIM containers, turn on Gamma in both the Management API and the Gateway with `gravitee_gamma_enabled=true`, and add the Gamma console (`graviteeio/gamma-ui`). The Gamma console isn't a separate backend. It talks to the Management API, which runs with Gamma enabled. Enabling Gamma on the Gateway is required to sync AuthZ policies (PDP) for Authorization Management.
 
 Every component is published on `localhost` on its own port. On a single host, `localhost:8084`, `localhost:8086`, and `localhost:8083` are the **same site**, so the login session cookie is sent across ports and the consoles log in. For the detail, see [Why this works on one host](docker-cli.md#why-this-works-on-one-host).
 
@@ -114,6 +114,7 @@ On macOS, use `base64 -D` (capital `D`) if `base64 -d` returns an error.
     docker run --detach --name gamma-gateway \
       --net storage \
       --publish 8082:8082 \
+      --env gravitee_gamma_enabled=true \
       --env gravitee_management_mongodb_uri="mongodb://gamma-mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000" \
       --env gravitee_ratelimit_mongodb_uri="mongodb://gamma-mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000" \
       --env gravitee_reporters_elasticsearch_endpoints_0="http://gamma-elasticsearch:9200" \
