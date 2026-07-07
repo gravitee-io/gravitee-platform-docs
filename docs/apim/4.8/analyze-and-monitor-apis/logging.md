@@ -109,7 +109,7 @@ To configure which information is recorded, select from the following options:
 
 <figure><img src="../.gitbook/assets/runtime logs_settings message CROP.png" alt=""><figcaption><p>Runtime logs settings</p></figcaption></figure>
 
-#### Configure sampling methods with `gravitee.yml`
+**Configure sampling methods with `gravitee.yml`**
 
 {% hint style="info" %}
 If a setting is configured in `gravitee.yml`, the corresponding field is disabled in the Management Console.
@@ -175,14 +175,13 @@ Under the **Messages** header, entrypoint and endpoint message details are group
 
 <figure><img src="../.gitbook/assets/message details_CROP.png" alt=""><figcaption><p>View message details</p></figcaption></figure>
 
-Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty. 
+Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty.
 {% endtab %}
 
 {% tab title="v4 proxy APIs" %}
 Under **Details**, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**, with **Headers** and **Payload** as the content:
 
 <figure><img src="../.gitbook/assets/proxy logs_CROP.png" alt=""><figcaption><p>View log details</p></figcaption></figure>
-
 {% endtab %}
 {% endtabs %}
 

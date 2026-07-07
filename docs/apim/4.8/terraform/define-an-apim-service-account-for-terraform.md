@@ -6,7 +6,6 @@ description: An overview about define an apim service account for terraform.
 
 ## Overview
 
-
 For Terraform to use APIM, it needs to authenticate as a user of the APIM instance.
 
 To set Terraform up as an APIM user, you need to create a service account with specific roles on the organization and environment. This provides Terraform with the minimum set of permissions to manage APIs, applications, and other assets in APIM.
@@ -44,7 +43,7 @@ To create a Terraform service account, complete the following steps:
     <figure><img src="../.gitbook/assets/06.png" alt=""><figcaption></figcaption></figure>
 9.  Give your token a name, and then click **Generate**.
 
-    <figure><img src="../.gitbook/assets/07 (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/07 (1).png" alt=""><figcaption></figcaption></figure>
 10. Copy your token and store it securely. You won’t be able to see it again.
 
 {% hint style="success" %}
