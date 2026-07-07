@@ -17,7 +17,7 @@ This installation guide is for only development and quick start purposes. Do not
 
 * Install Docker. For more information about installing Docker, see [Docker Desktop](https://docs.docker.com/desktop/).
 * Create a working directory for Gravitee.
-* **(Enterprise Edition only)** Obtain a license key. For more information about Enterprise Edition, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").
+* **(Enterprise Edition only)** Obtain a license key. For more information about Enterprise Edition, see [enterprise-edition.md](../introduction/enterprise-edition.md "mention").
 
 ## Install Gravitee API Management with Docker
 

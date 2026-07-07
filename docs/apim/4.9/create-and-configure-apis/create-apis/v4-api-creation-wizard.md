@@ -22,7 +22,7 @@ The v4 API creation wizard makes it easy to create new Gateway APIs from scratch
 2. Click on **APIs** in the left nav
 3. In the Create New API , click on **Create V4 API**.
 
-<figure><img src="../../.gitbook/assets/config-apis-create-apis-v4-api-crea-138.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/config-apis-create-apis-v2-api-crea-138.png" alt=""><figcaption></figcaption></figure>
 
 The API creation wizard comprises several steps, each of which requires you to define certain sets of information.
 
@@ -32,7 +32,7 @@ Define a name, version number, and description for your API.
 
 The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="../../.gitbook/assets/v4 wizard_step 1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/v4 wizard_step 1.png" alt=""><figcaption></figcaption></figure>
 
 ## Entrypoints
 
@@ -94,7 +94,7 @@ Gravitee supports several different types of entrypoints that cater to different
 
 <table><thead><tr><th width="198">Entrypoint</th><th>Description</th></tr></thead><tbody><tr><td><a href="v4-api-creation-wizard.md#http-get">HTTP GET</a></td><td>Front a backend or data source with a Gateway REST API that supports the HTTP GET request.</td></tr><tr><td><a href="v4-api-creation-wizard.md#http-post">HTTP POST</a></td><td>Front a backend or data source with a Gateway REST API that supports the HTTP POST request.</td></tr><tr><td><a href="v4-api-creation-wizard.md#server-sent-events">Server-sent events</a></td><td>Front a backend or data source with a Gateway SSE API for unidirectional communication between server and client.</td></tr><tr><td><a href="v4-api-creation-wizard.md#webhook">Webhook</a></td><td>Front a backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.</td></tr><tr><td><a href="v4-api-creation-wizard.md#websocket">WebSocket</a></td><td>Front a backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.</td></tr></tbody></table>
 
-<figure><img src="../../.gitbook/assets/v4 wizard_step 2 message entrypoints (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/v4 wizard_step 2 message entrypoints.png" alt=""><figcaption></figcaption></figure>
 
 Once you select your entrypoint(s), configure the fields common to all entrypoints:
 
@@ -523,7 +523,7 @@ Click **+ Add plan** to create additional plans. The plan types offered by Gravi
 <table><thead><tr><th width="165">Plan</th><th width="399">Description</th><th>API compatibility</th></tr></thead><tbody><tr><td>API Key</td><td>The API Gateway rejects calls from consumers that do not pass the correct API key in a request.</td><td><ul class="contains-task-list"><li><input type="checkbox" checked>HTTP proxy</li><li><input type="checkbox">TCP proxy</li><li><input type="checkbox">Message API</li></ul></td></tr><tr><td>JWT</td><td>An open standard that defines a compact and URL-safe way to securely transmit information, in the form of a JSON object, between parties.</td><td><ul class="contains-task-list"><li><input type="checkbox" checked>HTTP proxy</li><li>TCP proxy</li><li>Message API</li></ul></td></tr><tr><td>Keyless (public)</td><td>When configured, this plan does not add security. It is considered an "open" plan.</td><td><ul class="contains-task-list"><li><input type="checkbox" checked>HTTP proxy</li><li><input type="checkbox" checked>TCP proxy</li><li><input type="checkbox">Message API</li></ul></td></tr><tr><td>mTLS</td><td></td><td><ul class="contains-task-list"><li><input type="checkbox" checked>HTTP proxy</li><li>TCP proxy</li><li>Message API</li></ul></td></tr><tr><td>OAuth2</td><td>A standard designed to allow a website or application to access resources hosted by other web apps on behalf of a user.</td><td><ul class="contains-task-list"><li><input type="checkbox" checked>HTTP proxy</li><li>TCP proxy</li><li>Message API</li></ul></td></tr><tr><td>Push</td><td>Provides an access layer for the Gateway pushing data to consumers. This is used for subscribers.</td><td><ul class="contains-task-list"><li><input type="checkbox">HTTP proxy</li><li><input type="checkbox">TCP proxy</li><li><input type="checkbox" checked>Message API</li></ul></td></tr></tbody></table>
 
 {% hint style="info" %}
-To learn more about how plans function in Gravitee, refer to the [plans](../../secure-and-expose-apis/plans/README.md) documentation.
+To learn more about how plans function in Gravitee, refer to the [plans](../../secure-and-expose-apis/plans/) documentation.
 {% endhint %}
 
 Individual plan configurations as they pertain to each API type are described in detail below.
