@@ -23,27 +23,21 @@ GKO-managed subscriptions only work when GKO is configured to sync APIs with a G
 
 To set up a subscription, complete the following steps.
 
-1.  Generate a public key using the following command. You can use a hardcoded public key to configure the plan. 
-
+1.  Generate a public key using the following command. You can use a hardcoded public key to configure the plan.
 
     ```bash
     ssh-keygen -t rsa -b 4096 -m PEM -f pki/private.key
     openssl rsa -in jwt-demo.key -pubout -outform PEM -out pki/public.key
     ```
-
-
 2.  Store the public key in a Secret using the following command:
-
 
     ```
     kubectl create secret generic jwt --from-file=pki/public.key --dry-run=client -o yaml > resources/jwt-key.yml
     ```
-
-
 3.  Configure the JSON Web Token (JWT) plan in the API definition. Here is an example of an API definition that is configured with a JSON Web Token plan:
 
+    \{% code lineNumbers="true" %\}
 
-    {% code lineNumbers="true" %}
     ```bash
     apiVersion: "gravitee.io/v1alpha1"
     kind: "ApiV4Definition"
@@ -90,13 +84,12 @@ To set up a subscription, complete the following steps.
               clientIdClaim: "client_id"
           status: "PUBLISHED"
     ```
-    {% endcode %}
 
-
+    \{% endcode %\}
 4.  Configure the application resource based on your setup. The `client_Id` must match the client ID of the token. Here is an example of the client resource:
 
+    \{% code lineNumbers="true" %\}
 
-    {% code lineNumbers="true" %}
     ```
     apiVersion: gravitee.io/v1alpha1
     kind: Application
@@ -112,24 +105,16 @@ To set up a subscription, complete the following steps.
           type: WEB
           clientId: echo-client
     ```
-    {% endcode %}
 
-
-5.  Configure the subscription resource. For a subscription to be valid, it must reference the following:
+    \{% endcode %\}5. Configure the subscription resource. For a subscription to be valid, it must reference the following:
 
     1. A valid API, using the APIs name and an optional namespace. If you do not provide a namespace, the namespace of the subscription is used.
     2. A valid plan key defined in the API.
     3. A valid application and an optional namespace.
 
-
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <p>If your API reference points to a v2 API, you must add the <code>kind</code> property with the <code>ApiDefinition</code> value to your API reference.</p>
-    </div>
-
-
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>If your API reference points to a v2 API, you must add the <code>kind</code> property with the <code>ApiDefinition</code> value to your API reference.</p></div>
 
     Here is an example of a subscription resource:
-
 
     ```
     apiVersion: gravitee.io/v1alpha1
@@ -147,25 +132,13 @@ To set up a subscription, complete the following steps.
     \
     Here is an example of a subscription resource:
 
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>If your API reference points to a v2 API, you must add the <code>kind</code> property with the <code>ApiDefinition</code> value to your API reference.</p></div>
+5.  Apply the resource.
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <p>If your API reference points to a v2 API, you must add the <code>kind</code> property with the <code>ApiDefinition</code> value to your API reference.</p>
-    </div>
-
-
-6.  Apply the resource.
-
-
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
-      <ul>
-        <li>Only resources with a management context reference are supported.</li>
-        <li>The management context must be configured for your setup. To configure the management context, use the Management API URL and credentials.</li>
-      </ul>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><ul><li>Only resources with a management context reference are supported.</li><li>The management context must be configured for your setup. To configure the management context, use the Management API URL and credentials.</li></ul></div>
 
     \
     To apply the resource, use the following commands:
-
 
     ```
     kubectl apply -f resources/management-context.yml
@@ -174,13 +147,9 @@ To set up a subscription, complete the following steps.
     kubectl apply -f resources/application.yml
     kubectl apply -f resources/subscription.yml
     ```
-
-
-7.  Retrieve a token. Forge a token using the JWT debugger. For more information about the JWT debugger, go to [jwt.io](https://jwt.io/).
-
+6.  Retrieve a token. Forge a token using the JWT debugger. For more information about the JWT debugger, go to [jwt.io](https://jwt.io/).
 
     Set the algorithm to `RS256` and sign your token with the provided keys and the following claims:
-
 
     ```json
     {
@@ -190,27 +159,18 @@ To set up a subscription, complete the following steps.
     }
     ```
 
-
-
     Alternatively, if you are following this guide on macOS or Linux, you can get a token by running this [get\_token.sh](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/examples/usecase/subscribe-to-jwt-plan/pki/get_token.sh) bash script:
-
 
     ```sh
     export TOKEN=$(bash pki/get_token.sh)
     ```
-
-
-8.  Invoke the API. You can now call your API using the following command. Replace \<GATEWAY\_URL> with your Gateway's URL.
-
+7.  Invoke the API. You can now call your API using the following command. Replace \<GATEWAY\_URL> with your Gateway's URL.
 
     ```
     GW_URL=<GATEWAY_URL>
     curl -H "Authorization: Bearer $TOKEN" "$GW_URL/jwt-demo"
     ```
-
-
-9.  Close the subscription. Deleting the subscription resource results in the subscription being closed. This means that the client ID associated with your token will be rejected with a 401 status on subsequent calls to the Gateway.
-
+8.  Close the subscription. Deleting the subscription resource results in the subscription being closed. This means that the client ID associated with your token will be rejected with a 401 status on subsequent calls to the Gateway.
 
     ```
     kubectl delete -f resources/subscription.yml
