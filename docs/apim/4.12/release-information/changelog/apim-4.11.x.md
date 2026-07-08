@@ -1,5 +1,72 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.16 - July 8, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Custom API Key header toggle is hidden in the console, blocking custom-header configuration on gateways < 4.11.1 [#11616](https://github.com/gravitee-io/issues/issues/11616)
+* Groovy policy configuration form shows the wrong fields in the console [#11617](https://github.com/gravitee-io/issues/issues/11617)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* API Product - distributed sync enablement [#11579](https://github.com/gravitee-io/issues/issues/11579)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.11.15 - July 3, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Client abort does not release the http-proxy endpoint connection pool slot (v4 API) [#11596](https://github.com/gravitee-io/issues/issues/11596)
+
+**Management API**
+
+* DELETE API returns 500 instead of 404 when API doesn't exist - causes GKO reconcile loop [#11597](https://github.com/gravitee-io/issues/issues/11597)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.11.14 - July 1, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Gateway requestTimeout ignored in helm charts [#11500](https://github.com/gravitee-io/issues/issues/11500)
+* #request.xmlContent on malformed XML blocks the Vert.x event loop (sanitizeContent infinite loop) [#11522](https://github.com/gravitee-io/issues/issues/11522)
+
+**Console**
+
+* Impossible to set a group admin [#11544](https://github.com/gravitee-io/issues/issues/11544)
+* User details - Groups roles name are truncated [#11545](https://github.com/gravitee-io/issues/issues/11545)
+* Certificate expire date time is missing [#11559](https://github.com/gravitee-io/issues/issues/11559)
+
+**Other**
+
+* Long version number breaks the layout in the Developer Portal [#11364](https://github.com/gravitee-io/issues/issues/11364)
+* Traffic shadowing does not work with failover for v2 APIs [#11477](https://github.com/gravitee-io/issues/issues/11477)
+* Cannot edit existing subscription in developer portal for API with a custom subscription form [#11563](https://github.com/gravitee-io/issues/issues/11563)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.13 - June 25, 2026
 <details>
 
