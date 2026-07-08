@@ -12,7 +12,7 @@ Set up Gravitee quickly and easily with Gravitee Cloud's 14-day **free** trial.
 
 Install the OSS version of Gravitee locally with Docker.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Local Install with Docker</td><td><a href="broken-reference/">broken-reference</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Local Install with Docker</td><td><a href="https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.8/getting-started/broken-reference/README.md">https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.8/getting-started/broken-reference/README.md</a></td></tr></tbody></table>
 
 ## Deployment Options
 

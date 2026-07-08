@@ -30,10 +30,10 @@ These settings can be overridden by logging settings that are applied at the ind
 
 1.  From the **Dashboard**, click **Settings**.
 
-    <figure><img src="../.gitbook/assets/CFB0E2FD-AF9C-4175-80FF-C1F227860D8A_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/CFB0E2FD-AF9C-4175-80FF-C1F227860D8A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2.  In the **Settings** menu, click **API Logging**.
 
-    <figure><img src="../.gitbook/assets/0AA53CCF-8D03-400B-8BB2-A3081C3FDCFD_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/0AA53CCF-8D03-400B-8BB2-A3081C3FDCFD_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
 Configurable settings are grouped in the following categories:
 
@@ -84,13 +84,13 @@ Comprehensive connection logs allow you to analyze the usage of your v4 message 
 
 1.  From the **Dashboard**, click **APIs**.<br>
 
-    <figure><img src="../.gitbook/assets/DB2B50A2-4291-41F4-8BE4-87694C0FCDDC (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/DB2B50A2-4291-41F4-8BE4-87694C0FCDDC.jpeg" alt=""><figcaption></figcaption></figure>
 2.  Select your API that you want to view the logs for.
 
-    <figure><img src="../.gitbook/assets/EF1F9221-58FE-470A-8192-7A9468FEF998_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/EF1F9221-58FE-470A-8192-7A9468FEF998_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 3.  From the menu, click **Logs.**
 
-    <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
 The filters above the list of logs allow you to filter records by timeframe, HTTP method, or plan. The **More** button offers additional filtering options.
 
@@ -113,16 +113,16 @@ You can modify logging information can be modified by configuring the options un
 
 1.  From the **Dashboard**, click **APIs**.
 
-    <figure><img src="../.gitbook/assets/DB2B50A2-4291-41F4-8BE4-87694C0FCDDC (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/DB2B50A2-4291-41F4-8BE4-87694C0FCDDC.jpeg" alt=""><figcaption></figcaption></figure>
 2.  Select your API that you want to modify the logs for.
 
-    <figure><img src="../.gitbook/assets/EF1F9221-58FE-470A-8192-7A9468FEF998_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/EF1F9221-58FE-470A-8192-7A9468FEF998_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 3.  From the menu, click **Logs.**
 
-    <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 4.  Click **Configure Reporting**.
 
-    <figure><img src="../.gitbook/assets/4BE464F6-77A8-4B28-AFDB-EC8790CA8E94_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/4BE464F6-77A8-4B28-AFDB-EC8790CA8E94_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
 {% tabs %}
 {% tab title="V4 message APIs" %}
@@ -193,7 +193,7 @@ To view the details of any entry in the list of runtime logs:
 
 1.  From the **Dashboard**, click **APIs**.
 
-    <figure><img src="../.gitbook/assets/7142A579-577C-48F7-BF1F-35F6229DBB88_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/7142A579-577C-48F7-BF1F-35F6229DBB88_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2.  Select the API that you want to view the runtime logs for.
 
     <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-366-1.png" alt=""><figcaption></figcaption></figure>
@@ -202,17 +202,17 @@ To view the details of any entry in the list of runtime logs:
     <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-367-1.png" alt=""><figcaption></figcaption></figure>
 4.  Click **the eye symbol** next to the log that you want to view the details of.
 
-    <figure><img src="../.gitbook/assets/321F6892-812F-4DAA-AEE6-0CA0C44BEFF4_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/321F6892-812F-4DAA-AEE6-0CA0C44BEFF4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
 {% tabs %}
 {% tab title="V4 message APIs" %}
 Under the **Connection Logs** tab, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**:
 
-<figure><img src="../.gitbook/assets/connection details_CROP (1).png" alt=""><figcaption><p>View log details</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/connection details_CROP.png" alt=""><figcaption><p>View log details</p></figcaption></figure>
 
 Under the **Messages** header, entrypoint and endpoint message details are grouped by date code:
 
-<figure><img src="../.gitbook/assets/message details_CROP (1).png" alt=""><figcaption><p>View message details</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/message details_CROP.png" alt=""><figcaption><p>View message details</p></figcaption></figure>
 
 Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty.
 {% endtab %}
@@ -238,7 +238,7 @@ The more detail drop-down menu shows information about the following topics:
 * Gateway Host
 * Gateway IP
 
-<figure><img src="../.gitbook/assets/E28EB0D9-6405-4876-8730-BFA28645A4D5_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/E28EB0D9-6405-4876-8730-BFA28645A4D5_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
 **Details**
 
@@ -270,7 +270,7 @@ In the request section, you see the information about the following topics:
 * Body
   *   Shows the body returned in the response
 
-      <figure><img src="../.gitbook/assets/2421DA4C-35BB-4DAD-A6FA-642B70A17486_4_5005_c (1).jpeg" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../.gitbook/assets/2421DA4C-35BB-4DAD-A6FA-642B70A17486_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
