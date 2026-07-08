@@ -27,7 +27,7 @@ Gamma addresses the following core challenges:
 
 Gamma unifies four product lines—API Management, Event Stream Management, Agent Management, and Authorization Management—under a shared platform. All four share a common Catalog of assets and a common authorization engine that defines fine-grained policies against those cataloged assets. They also share common enforcement points—the AI Gateway, API Gateway, and Event Gateway—that evaluate the same policies at the wire level.
 
-```
+```sh
 ┌─────────────────────────────────────────────────────────────────────┐
 │                           Gravitee Gamma                            │
 │                                                                     │
