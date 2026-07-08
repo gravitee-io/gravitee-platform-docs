@@ -1,5 +1,29 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.16 - July 8, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Custom API Key header toggle is hidden in the console, blocking custom-header configuration on gateways < 4.11.1 [#11616](https://github.com/gravitee-io/issues/issues/11616)
+* Groovy policy configuration form shows the wrong fields in the console [#11617](https://github.com/gravitee-io/issues/issues/11617)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* API Product - distributed sync enablement [#11579](https://github.com/gravitee-io/issues/issues/11579)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.15 - July 3, 2026
 <details>
 
