@@ -5,9 +5,13 @@
 <details>
 <summary>Bug fixes</summary>
 
-  **Others**
+  **Automation API**
 
-  * Automation API enforces strict enum casing, breaking upgrades from GKO 4.11 [#11606](https://github.com/gravitee-io/issues/issues/11606)
+  * Automation API enforces strict enum casing, breaking API CRD updates after GKO 4.11 upgrade [#11606](https://github.com/gravitee-io/issues/issues/11606)
+
+  **GKO**
+
+  * Comply to Automation API no spaces or dot in plan and page key policy, breaking API CRD updates after GKO 4.11 upgrade [#11606](https://github.com/gravitee-io/issues/issues/11606)
 
 </details>
 
