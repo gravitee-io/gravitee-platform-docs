@@ -101,6 +101,24 @@ In single-server mode the Helm chart fixes `host` to `0.0.0.0` and doesn't expos
 {% endtab %}
 {% endtabs %}
 
+## Request timeout behavior
+
+The `requestTimeout` setting caps the total time the Gateway spends processing a request, including the time the backend takes to respond and the time response policies take to execute. The value is in milliseconds. When the setting is absent, the Gateway applies a default of `30000` ms and logs a warning at startup. A value of `0` or less disables the timeout.
+
+When the timeout fires, the API consumer receives HTTP status `504` with the error key `REQUEST_TIMEOUT`. Responses that consistently fail at exactly 30 seconds usually indicate that this default is in effect.
+
+The `requestTimeoutGraceDelay` setting, also in milliseconds with a default of `30`, guarantees a minimum execution window for the response phase. When a request has already consumed most of its `requestTimeout` budget, the Gateway still grants at least `requestTimeoutGraceDelay` milliseconds to the platform and response flows.
+
+### Response statuses for connection failures
+
+The status the API consumer receives indicates where a connection problem occurred:
+
+* `502`: the Gateway couldn't establish or keep a usable connection to the backend. This status covers refused connections, DNS resolution failures, unreachable hosts, TLS handshake failures, and connections reset or closed by the backend.
+* `504`: a timeout fired. This status covers the Gateway-level `requestTimeout` and the connect and read timeouts configured on the API's endpoint.
+* `499`: the API consumer closed the connection before the Gateway finished writing the response. These entries don't indicate a backend fault.
+
+Each status is accompanied by an error key in the Gateway logs and analytics. For the full list of connection-related error keys, see [Execution Transparency error keys](../analyze-and-monitor-apis/execution-transparency-analytics.md#connectivity-and-timeout-error-keys).
+
 ## Enable HTTPS support
 
 To enable HTTPS, turn on secure mode and provide a keystore. Generate a keystore if you don't already have one, or reference an existing file path or Kubernetes location.

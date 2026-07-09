@@ -22,7 +22,7 @@ An API Key plan offers only basic security, acting more like a unique identifier
 
 ## API Key generation
 
-By default, API keys are randomly generated for each subscription, but Gravitee also offers custom API key generation and shared API key generation. Both of these settings can be enabled at the environment level:
+By default, API keys are generated as random values for each subscription, but Gravitee also offers custom API key generation and shared API key generation. Both of these settings can be enabled at the environment level:
 
 1. Log in to your APIM Console
 2. Select Settings from the left nav
@@ -32,7 +32,7 @@ By default, API keys are randomly generated for each subscription, but Gravitee 
 
 ### Custom API key
 
-You can specify a custom API key for an API Key plan. This is particularly useful when you want to silently migrate to APIM and have a pre-defined API key. When prompted, you can choose to provide your custom API key or let APIM generate one for you by leaving the field empty.
+You can specify a custom API key for an API Key plan. This is useful when you want to migrate to APIM without changing a pre-defined API key. When prompted, you can choose to provide your custom API key or let APIM generate one for you by leaving the field empty.
 
 The custom API key must have between 8 and 64 characters and be URL-compliant. `^ # % @ \ / ; = ? | ~ ,`and the 'space' character are invalid.
 
@@ -122,3 +122,13 @@ A shared API key may be used to call APIs that are owned by other API publishers
     <figure><img src="../../.gitbook/assets/shared-api-key-4.png" alt=""><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
 
     <figure><img src="../../.gitbook/assets/shared-api-key-4-portal.png" alt=""><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>
+
+## Diagnose 401 responses on API Key plans
+
+When a request to an API with an API Key plan returns status `401`, work through the following checks:
+
+* Verify that the subscription is active. A paused, closed, or expired subscription rejects the key even when the key itself looks valid.
+* Verify that the key is active. A revoked or expired key returns `401` until the application owner renews it.
+* Check where the plan expects the key. By default, the Gateway reads the key from the `X-Gravitee-Api-Key` header or the `api-key` query parameter. From APIM 4.10.0, a plan can define a custom API key header, and keys sent on the default header are rejected when the plan configures a custom one.
+* Check the application's API key type. With a shared API key, renewing or revoking the key affects every subscription of the application at once, so a change made for one API also changes the key that all other subscribed APIs accept.
+* Generate a new key and test with it. If the new key works, the previous key was revoked, expired, or superseded by a renewal.
