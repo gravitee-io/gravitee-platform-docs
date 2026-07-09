@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for kafka gateway.
+description: Configuration guide for Kafka Gateway.
 metaLinks:
   alternates:
     - ./
@@ -9,7 +9,7 @@ metaLinks:
 
 The Gravitee Kafka Gateway applies Gravitee's API management capabilities directly to native Kafka to address the security, cost, and scalability issues that exist in traditional Kafka deployments.
 
-With the Kafka Gateway, you can apply [policies](create-and-configure-kafka-apis/configure-kafka-apis/policies.md) on native Kafka topics at runtime. These policies are designed for Kafka-specific use cases. For example, you can easily restrict topic access to approved tenants or require client certificates for mTLS as an additional security layer.
+With the Kafka Gateway, you can apply [policies](create-and-configure-kafka-apis/configure-kafka-apis/policies.md) on native Kafka topics at runtime. These policies are designed for Kafka-specific use cases. For example, you can restrict topic access to approved tenants or require client certificates for mTLS as an additional security layer.
 
 Kafka APIs support multi-tenant endpoint configurations, allowing a single API definition to route to different backend clusters based on gateway tenant assignment. For details, see [Multi-tenant endpoint support](create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md#multi-tenant-endpoint-support).
 
@@ -18,6 +18,14 @@ The Kafka Gateway is linked to Gravitee's Developer Portal to facilitate topic a
 The Kafka Gateway natively supports the Kafka protocol and is treated like a traditional Kafka broker by consumers and producers. As a Gravitee user, you expose Kafka topics using the Gravitee concept of an API, called a [Kafka API](create-and-configure-kafka-apis/create-kafka-apis.md#introduction). However, consumers and producers see a regular client connection to a Kafka bootstrap server, so don't need to change existing application logic.
 
 You can expose multiple Kafka topics within a single Kafka API, and expose multiple Kafka APIs through the Gravitee Kafka Gateway. Using the Kafka Gateway, data is processed in real time, and virtual topics and partitions enable scalable, cost-effective deployments.
+
+## Kafka protocol support
+
+The Kafka Gateway embeds the Apache Kafka 3.9 client libraries and supports the Kafka wire protocol APIs that Apache Kafka 3.9 defines.
+
+The Kafka Gateway doesn't pin a fixed protocol version range. When a client connects, the Kafka Gateway negotiates the version of each Kafka protocol API dynamically. For each API, the Kafka Gateway advertises the version range that both the backend Kafka cluster and the Kafka Gateway support, and it doesn't advertise APIs that it doesn't recognize. Clients then select a mutually supported version through standard Kafka version negotiation.
+
+As a result, the Kafka Gateway is compatible with Kafka clients and brokers whose protocol versions overlap the versions that Apache Kafka 3.9 supports. For client requirements and setup, see [Configure the Kafka Client & Gateway](configure-the-kafka-client-and-gateway.md).
 
 To learn more about the Kafka Gateway, see the following articles:
 
