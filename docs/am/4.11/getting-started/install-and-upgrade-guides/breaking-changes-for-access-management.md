@@ -58,6 +58,8 @@ The OAuth2 Introspective endpoint has been updated to include the `aud` (audienc
 
 While this change improves security, we recognize it may impact existing deployments that do not expect the `aud` claim in the introspection response ([Issue #3111](https://github.com/gravitee-io/issues/issues/3111)). To ensure a smooth transition, we have included a configuration toggle to disable this behavior if necessary.
 
+The `handlers.oauth2.introspect.allowAudience` setting defaults to `true`, so every introspection response includes the `aud` claim from AM 4.10.0 onward. Before AM 4.10.0, the `aud` claim was always removed from the introspection response. If token validation by resource servers or backend APIs starts failing after an upgrade to AM 4.10.0 or later because they don't expect or don't accept the `aud` claim, set the toggle to `false` to restore the previous response content. The toggle only controls the presence of the `aud` claim. It doesn't change the `active` value or any other introspection field.
+
 To remove the `aud` claim from the introspection response, update your `gravitee.yaml` with the following configuration:
 
 ```yaml
@@ -68,6 +70,10 @@ handlers:
 ```
 
 ### 4.9.0
+
+#### Gateway performance in 4.9.0
+
+AM 4.9.0 introduced additional thread context switching in policy execution, which degrades Gateway performance on flows that execute policies, including token requests. AM 4.9.1 removes the extra context switching. Releases before 4.9.0 aren't affected, and neither are 4.10.0 and later. If you run AM 4.9.0, upgrade to AM 4.9.1 or later.
 
 #### MongoDB search on User profiles
 
@@ -657,7 +663,7 @@ Pior to this update, the application OAuth settings contained multiple collectio
 }
 ```
 
-More settings are related to a scope, the OAuth settings for an application have to be refactored to provide a single list — `scopeSettings` — containing objects with scope settings. **This object has the following attributes**:
+More settings are related to a scope, the OAuth settings for an application have to be refactored to provide a single list, `scopeSettings`, containing objects with scope settings. **This object has the following attributes**:
 
 * **scope**: the scope name.
 * **defautlScope**: boolean to defined this scope as a default one if the authorize request doesn’t specify a list of scopes.
