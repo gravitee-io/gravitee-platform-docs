@@ -19,6 +19,38 @@ noIndex: false
 
 
  
+## Gravitee API Management 4.12.5 - July 9, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Rate limit silently bypassed on 4.11.16 (Redis: Connection is closed) [#11621](https://github.com/gravitee-io/issues/issues/11621)
+
+**Console**
+
+* Custom API Key header toggle is hidden in the console, blocking custom-header configuration on gateways < 4.11.1 [#11616](https://github.com/gravitee-io/issues/issues/11616)
+* Groovy policy configuration form shows the wrong fields in the console [#11617](https://github.com/gravitee-io/issues/issues/11617)
+
+**Other**
+
+* MCP Studio: tools/call -> -32602 'Unknown tool' — tools-http endpoint connector loads 0 tools (4.12.0/4.12.1) [#11588](https://github.com/gravitee-io/issues/issues/11588)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* API Product - distributed sync enablement [#11579](https://github.com/gravitee-io/issues/issues/11579)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.4 - July 7, 2026
 
  
