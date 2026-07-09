@@ -24,8 +24,8 @@ This guide explains how to access and interpret your API traffic dashboard.
 
 You can view the following metrics for your V4 proxy API:
 
-* [#key-metrics](4.9-api-proxy-dashboard.md#key-metrics "mention")
-* [#tables-and-graphs](4.9-api-proxy-dashboard.md#tables-and-graphs "mention")
+* [#key-metrics](api-proxy-dashboard.md#key-metrics "mention")
+* [#tables-and-graphs](api-proxy-dashboard.md#tables-and-graphs "mention")
 
 ### Key metrics
 

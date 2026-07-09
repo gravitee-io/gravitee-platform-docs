@@ -2,7 +2,7 @@
 description: An overview about jwt validator.
 metaLinks:
   alternates:
-    - 4.9-jwt-validator.md
+    - jwt-validator.md
 ---
 
 # JWT Validator
