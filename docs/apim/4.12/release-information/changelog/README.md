@@ -1,3 +1,9 @@
+---
+description: An overview about changelog.
+metaLinks:
+  alternates:
+    - ./
+---
 
 # Changelog
 
