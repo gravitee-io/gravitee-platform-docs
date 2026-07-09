@@ -2,7 +2,7 @@
 description: An overview about groovy.
 metaLinks:
   alternates:
-    - 4.9-groovy.md
+    - groovy.md
 ---
 
 # Groovy
@@ -32,7 +32,7 @@ Several variables are automatically bound to the Groovy script. These let you re
 | `context`  | Context usable to access external components such as services and resources |
 | `result`   | Object to return to alter the outcome of the request/response               |
 
-See the [Usage](4.9-groovy.md#usage) section for object attributes and methods.
+See the [Usage](groovy.md#usage) section for object attributes and methods.
 
 ### Content
 
@@ -129,9 +129,9 @@ return JsonOutput.toJson(content)
 | `contextPath`      | `String`                     |         | API context path.                                                                                                                                                          |
 | `pathInfo`         | `String`                     |         | Path beyond the context path.                                                                                                                                              |
 | `path`             | `String`                     |         | The full path component of the request URI.                                                                                                                                |
-| `parameters`       | `Map<String, <List<String>>` | ✅️      | Query parameters as a multi-value map. For methods, refer to [Multimap methods](4.9-groovy.md#multimap-methods).                                                           |
-| `pathParameters`   | `Map<String, <List<String>>` |         | Parameters extracted from path templates. For methods, refer to [Multimap methods](4.9-groovy.md#multimap-methods). Note that altering method are useless in this context. |
-| `headers`          | `Map<String, String>`        | ✅       | HTTP headers. For methods, refer to [Headers methods](4.9-groovy.md#headers-methods).                                                                                      |
+| `parameters`       | `Map<String, <List<String>>` | ✅️      | Query parameters as a multi-value map. For methods, refer to [Multimap methods](groovy.md#multimap-methods).                                                           |
+| `pathParameters`   | `Map<String, <List<String>>` |         | Parameters extracted from path templates. For methods, refer to [Multimap methods](groovy.md#multimap-methods). Note that altering method are useless in this context. |
+| `headers`          | `Map<String, String>`        | ✅       | HTTP headers. For methods, refer to [Headers methods](groovy.md#headers-methods).                                                                                      |
 | `method`           | `HttpMethod` (enum)          |         | HTTP method used in the request (e.g., GET, POST).                                                                                                                         |
 | `scheme`           | `String`                     |         | The scheme (HTTP or HTTPS) used by the request.                                                                                                                            |
 | `version`          | `HttpVersion` (enum)         |         | HTTP protocol version: `HTTP_1_0`, `HTTP_1_1`, `HTTP_2`.                                                                                                                   |
@@ -148,7 +148,7 @@ return JsonOutput.toJson(content)
 | `content` | `String`              |         | Body of the response.                                                                                              |
 | `status`  | `int`                 |         | Response status code.                                                                                              |
 | `reason`  | `String`              |         | Reason for the status.                                                                                             |
-| `headers` | `Map<String, String>` | ✅       | HTTP headers wrapped in a bindable object. For methods, refer to [Headers methods](4.9-groovy.md#headers-methods). |
+| `headers` | `Map<String, String>` | ✅       | HTTP headers wrapped in a bindable object. For methods, refer to [Headers methods](groovy.md#headers-methods). |
 
 ### Message
 
@@ -161,7 +161,7 @@ return JsonOutput.toJson(content)
 | `timestamp`           | long                 |         | Epoch (ms) timestamp.                                                                    |
 | `error`               | boolean              |         | Message is an error message.                                                             |
 | `metadata`            | Map\<String, Object> | ✅       | Message metadata. Dependent on the messaging system.                                     |
-| `headers`             | Map\<String, String> | ✅       | Message headers. For methods, refer to [Headers methods](4.9-groovy.md#headers-methods). |
+| `headers`             | Map\<String, String> | ✅       | Message headers. For methods, refer to [Headers methods](groovy.md#headers-methods). |
 | `content`             | String               |         | Message body as a string.                                                                |
 | `contentAsBase64`     | String               |         | Message body bytes as a basic base64 string.                                             |
 | `contentAsByteArray`  | byte\[]              |         | Message body bytes.                                                                      |

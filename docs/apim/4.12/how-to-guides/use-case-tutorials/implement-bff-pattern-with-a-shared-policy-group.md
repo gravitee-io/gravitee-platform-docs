@@ -38,7 +38,7 @@ This guide assumes that the `clientId` property has been created in your API. Th
 3.  Specify a name for this SPG, and ensure the **Request** phase is selected. Then click on the **\[Save]** button.<br>
 
     <figure><img src="../../.gitbook/assets/add-shared-policy-group-for-proxy-api.png" alt=""><figcaption></figcaption></figure>
-4. Add the [**Groovy**](../../create-and-configure-apis/apply-policies/policy-reference/4.9-groovy.md) **Policy**
+4. Add the [**Groovy**](../../create-and-configure-apis/apply-policies/policy-reference/groovy.md) **Policy**
    1. Use the following GroovyScript to get the Auth BFF cookie
 
 ```groovy

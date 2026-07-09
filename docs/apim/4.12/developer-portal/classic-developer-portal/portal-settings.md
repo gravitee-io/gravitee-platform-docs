@@ -38,7 +38,7 @@ The general settings of the Developer Portal can be overridden with the `gravite
   * **Use Tiles Mode:** Sets the default view of APIs to tiles as opposed to a list
   * **Activate Support:** Adds a **Contact** and **Tickets** tab to each API. Email must be configured per the [Email configuration](portal-settings.md#email-notifications) section to use the contact form.
   * **Activate Rating:** Allow API consumers to leave written reviews and ratings
-  * **Force user to fill comment:** Requires all subscription requests to include a comment
+  * **Force user to fill comment before to save a rating:** Requires API consumers to enter a comment before they submit a rating for an API
   * **Allow User Registration:** Allow API consumers to create an account from the Developer Portal. Email must be configured per the [Email configuration](portal-settings.md#email-notifications) section to enable registration.
     * **Enable automatic validation:** Automatically approve all accounts created on the Developer Portal
   * **Add Google Analytics:** Add a Google Analytics tracking ID to the Developer Portal
