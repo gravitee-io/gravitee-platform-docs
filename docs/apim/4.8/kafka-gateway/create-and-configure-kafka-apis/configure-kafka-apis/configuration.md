@@ -163,7 +163,7 @@ The **Notifications** tab allows you to subscribe to notifications related to a 
 4. Select **Configuration** from the inner left nav.
 5.  Select the **Notifications** header.
 
-    <figure><img src="../../../.gitbook/assets/A 1 config notifications (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/A 1 config notifications.png" alt=""><figcaption></figcaption></figure>
 6. Click **+ Add notification** to create a new one.
 7. Give your notification a name and select either:
    * **Default Email Notifier:**

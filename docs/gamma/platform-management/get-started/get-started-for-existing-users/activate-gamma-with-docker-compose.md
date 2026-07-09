@@ -28,7 +28,12 @@ If you already run Gravitee API Management with Docker Compose, you turn Gamma o
    - gravitee_http_cookie_sameSite=Lax
    - gravitee_http_cookie_secure=false
    ```
-3. Add the Gamma console. Add a service for `graviteeio/gamma-ui`, pointed at the Management API `/gamma`:
+3. Enable Gamma on the Gateway. Add the following environment variable to the Gateway service. This is required to sync AuthZ policies (PDP) for Authorization Management:
+
+   ```yaml
+   - gravitee_gamma_enabled=true
+   ```
+4. Add the Gamma console. Add a service for `graviteeio/gamma-ui`, pointed at the Management API `/gamma`:
 
    ```yaml
    gamma-console:
@@ -41,7 +46,7 @@ If you already run Gravitee API Management with Docker Compose, you turn Gamma o
        - HTTP_PORT=8080
        - SERVER_NAME=localhost
    ```
-4. Recreate the stack:
+5. Recreate the stack:
 
    ```bash
    docker compose up -d
