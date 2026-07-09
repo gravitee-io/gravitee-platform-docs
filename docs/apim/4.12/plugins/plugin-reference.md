@@ -7031,7 +7031,7 @@ The total cost for the above GraphQL query is: ((((4 \* 10 + 1) + 1) + 1) \* 20 
 
 <summary>Groovy script</summary>
 
-→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/4.9-groovy.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/groovy.md)
 
 **Plugin ID**: `gravitee-policy-groovy`
 
@@ -10207,7 +10207,7 @@ The gateway will be able to retrieve the corresponding public key and the JOSE H
 
 <summary>JSON Web Tokens</summary>
 
-→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/4.9-jwt-validator.md)
+→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/jwt-validator.md)
 
 **Plugin ID**: `gravitee-policy-jwt`
 

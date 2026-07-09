@@ -2,7 +2,7 @@
 description: An overview about expose apim as an mcp server.
 metaLinks:
   alternates:
-    - 4.9-expose-apim-as-an-mcp-server.md
+    - expose-apim-as-an-mcp-server.md
 ---
 
 # Expose APIM as an MCP Server
@@ -27,9 +27,9 @@ For more information about how the MCP server is configured, go to [gravitee-api
 
 To install the APIM MCP Server, complete the following steps:
 
-1. [#install-the-mcp-server](4.9-expose-apim-as-an-mcp-server.md#install-the-mcp-server "mention")
-2. [#create-a-service-account-and-generate-a-token](4.9-expose-apim-as-an-mcp-server.md#create-a-service-account-and-generate-a-token "mention")
-3. [#install-the-mcp-server-in-your-mcp-client](4.9-expose-apim-as-an-mcp-server.md#install-the-mcp-server-in-your-mcp-client "mention")
+1. [#install-the-mcp-server](expose-apim-as-an-mcp-server.md#install-the-mcp-server "mention")
+2. [#create-a-service-account-and-generate-a-token](expose-apim-as-an-mcp-server.md#create-a-service-account-and-generate-a-token "mention")
+3. [#install-the-mcp-server-in-your-mcp-client](expose-apim-as-an-mcp-server.md#install-the-mcp-server-in-your-mcp-client "mention")
 
 ### Create a service account and generate a token
 
@@ -125,7 +125,7 @@ For more information about installing the MCP Server in specific MCP Clients, go
     ```
 
     * Replace `</absolute/path/to/gravitee-apim-mcp-server/bin/mcp-server.js>` with the absolute path to the location of your `mcp-server.js` file.
-    * Replace `<YOUR_BEARER_TOKEN>` with the token that you created in the [#create-a-service-account-and-generate-a-token](4.9-expose-apim-as-an-mcp-server.md#create-a-service-account-and-generate-a-token "mention") section.
+    * Replace `<YOUR_BEARER_TOKEN>` with the token that you created in the [#create-a-service-account-and-generate-a-token](expose-apim-as-an-mcp-server.md#create-a-service-account-and-generate-a-token "mention") section.
     * Replace `<https://your-management-api-url/management/v2>` with the server URL for your installation:
       * Self-hosted URL: The server URL is the base URL of your Management API. For example, `http://localhost:8083/management/v2`.
       * Cloud: The server URL is your organization-specific API URL. For example, `https://<your-org>.<region>.api.gravitee.io/management/v2`.
