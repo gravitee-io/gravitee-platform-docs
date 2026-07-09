@@ -48,7 +48,7 @@ Execution transparency analytics requires the following components before you ca
 
 ## Configure Execution Transparency
 
-Warning reporting is enabled by default. To disable it or re-enable it  use the tab that matches your deployment method.
+Warning reporting is enabled by default. To disable it or re-enable it, use the tab that matches your deployment method.
 
 {% tabs %}
 {% tab title="gravitee.yaml" %}
@@ -261,3 +261,25 @@ Example warning:
   "componentName": "rate-limit-policy"
 }
 ```
+
+## Connectivity and timeout error keys
+
+The Gateway sets one of the following error keys when a request fails on a connection problem or a timeout. The keys appear in the Error Key field of the log details and in the Gateway analytics.
+
+| Error key | Status | Meaning |
+| --------- | ------ | ------- |
+| `REQUEST_TIMEOUT` | 504 | The Gateway-level `requestTimeout` elapsed before the response completed. |
+| `GATEWAY_CLIENT_CONNECT_TIMEOUT` | 504 | The connection to the backend didn't complete within the endpoint's connect timeout. |
+| `GATEWAY_CLIENT_READ_TIMEOUT` | 504 | The backend connection was established, but no response arrived within the endpoint's read timeout. |
+| `GATEWAY_CLIENT_CONNECTION_ERROR` | 502 | A backend connection failed for a reason not covered by a more specific key. |
+| `GATEWAY_CLIENT_CONNECTION_REFUSED` | 502 | The backend refused the connection. |
+| `GATEWAY_CLIENT_DNS_RESOLUTION_ERROR` | 502 | The backend hostname didn't resolve. |
+| `GATEWAY_CLIENT_UNREACHABLE` | 502 | No network route to the backend host exists. |
+| `GATEWAY_CLIENT_TLS_HANDSHAKE_ERROR` | 502 | The TLS handshake with the backend failed. |
+| `GATEWAY_CLIENT_CONNECTION_RESET` | 502 | The backend reset the connection. |
+| `GATEWAY_CLIENT_CONNECTION_CLOSED` | 502 | The backend closed the connection before the response completed. |
+| `CLIENT_ABORTED_TCP_RESET` | 499 | The API consumer reset the connection. |
+| `CLIENT_ABORTED_BROKEN_PIPE` | 499 | The API consumer closed the connection while the response was being written. |
+| `CLIENT_ABORTED_CHANNEL_CLOSED` | 499 | The API consumer closed the connection. |
+
+Keys that start with `GATEWAY_CLIENT_` indicate a backend-side fault. The fine-grained timeout keys carry `REQUEST_TIMEOUT` as a parent key, and the fine-grained connection keys carry `GATEWAY_CLIENT_CONNECTION_ERROR` as a parent key. Keys that start with `CLIENT_ABORTED_` indicate that the API consumer went away, and don't point to a backend problem.
