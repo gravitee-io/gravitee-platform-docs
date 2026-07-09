@@ -10,9 +10,13 @@ The **Gravitee Developer Portal** is a user-friendly web application designed to
 
 * **API discovery and exploration:** Browse and search through a catalog of available APIs that contains comprehensive documentation and usage guidelines.
 * **Interactive testing**: Test API endpoints directly within the Portal to understand their behavior and responses.
-* **Subscription management**: Easily subscribe to APIs, manage your subscriptions, and obtain the necessary access credentials.
+* **Subscription management**: Subscribe to APIs, manage your subscriptions, and obtain the necessary access credentials.
 * **Application management**: Create and manage applications that consume APIs, monitor usage through an analytics dashboard and API logs, and analyze performance metrics.
 * **Full customization capabilities:** The Portal is fully customizable, where its appearance can be tailored to match company branding. Logos, colors, fonts, and layout elements can be adjusted to deliver a consistent and branded developer experience.
+
+{% hint style="warning" %}
+Application analytics and logs support depends on the API definition version and the Developer Portal implementation. Aggregate application analytics, such as status codes, response times, and top APIs, display traffic from v2 APIs only. Traffic from v4 APIs doesn't appear in these views, even when the APIs report data correctly. Application logs include v4 API traffic in the New Developer Portal only. For the detailed support matrix, see [Application-level analytics](../create-and-configure-apis/gravitee-api-definitions/v2-and-v4-api-comparison.md#application-level-analytics).
+{% endhint %}
 
 ## Developer Portal implementations
 
@@ -29,6 +33,6 @@ The **New Developer Portal**, introduced as a Tech Preview in APIM 4.4 (Enterpri
 Key characteristics:
 
 * A modern, appealing UI based on refreshed design principles and reusable UI components.
-* Advanced navigation features for catalog pages, such as infinite scrolling, to easily browse large API catalogs.
+* Advanced navigation features for catalog pages, such as infinite scrolling, to browse large API catalogs.
 * Improvements to theming and customization flow, with simplified overrides for styles, fonts, and layout.
 * Built with a future-ready architecture to enable faster iteration and new feature rollouts.
