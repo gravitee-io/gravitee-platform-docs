@@ -10,6 +10,10 @@ metaLinks:
 
 As an API subscriber, you can view paginated logs for all of the APIs your application has subscribed to. The list of logs displays the name, timestamp, HTTP method, and response status of each API.
 
+{% hint style="info" %}
+Application logs in the New Developer Portal include traffic from both v2 and v4 APIs. Aggregate application analytics, such as status codes, response times, and top APIs, aren't available for v4 APIs. For the detailed support matrix, see [Application-level analytics](../../create-and-configure-apis/gravitee-api-definitions/v2-and-v4-api-comparison.md#application-level-analytics).
+{% endhint %}
+
 If you have [set the new Developer Portal as your default Developer Portal](configure-the-new-portal.md), you can access it from the Developer Portal button in your APIM Console header. If you have not set the new Developer Portal as your default, follow the instructions to [enable the new Developer Portal](configure-the-new-portal.md).
 
 The Developer Portal opens in a new browser tab. To view the logs for an API:
@@ -17,11 +21,12 @@ The Developer Portal opens in a new browser tab. To view the logs for an API:
 1.  Click **Applications** from its header menu.
 
     <figure><img src="../../.gitbook/assets/00 apps.png" alt=""><figcaption></figcaption></figure>
-2. Click on an application, then select the **Analytics & Logs** tab.
-3.  Use the filters to set constraints on which API logs are shown.
+2. Click an application.
+3. Click the **Logs** tab.
+4.  Use the filters to set constraints on which API logs are shown.
 
     <figure><img src="../../.gitbook/assets/00 logs.png" alt=""><figcaption></figcaption></figure>
-4.  Click the arrow to view the details for a particular log entry. **The Connection Logs** tab shows request and response information, which can be recorded for all APIs. The **Messages** tab is used for message logs, which can only be recorded for v4 message APIs.
+5.  Click the arrow to view the details for a particular log entry. **The Connection Logs** tab shows request and response information, which can be recorded for all APIs. The **Messages** tab is used for message logs, which can only be recorded for v4 message APIs.
 
     <figure><img src="../../.gitbook/assets/00 log.png" alt=""><figcaption></figcaption></figure>
 

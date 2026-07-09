@@ -130,10 +130,10 @@ Once you've created an application, you can click on it and use the header optio
   *   **INHERITED MEMBERS:** View the names and roles of members inherited from other groups.
 
       <figure><img src="../../.gitbook/assets/application_inherited members.png" alt=""><figcaption><p>Inherited members</p></figcaption></figure>
-*   **Analytics:** Use the available filters to refine the application logs. Scroll down to view other metrics related to the application (top paths, top APIs, response times, etc.).
+*   **Analytics:** Use the available filters to refine the application logs. Scroll down to view other metrics related to the application (top paths, top APIs, response times, etc.). The application analytics view displays traffic from v2 APIs only. Calls made through v4 APIs don't appear in these metrics. For the detailed support matrix, see [Application-level analytics](../../create-and-configure-apis/gravitee-api-definitions/v2-and-v4-api-comparison.md#application-level-analytics).
 
     <figure><img src="../../.gitbook/assets/application_analytics.png" alt=""><figcaption><p>Analytics</p></figcaption></figure>
-*   **Logs:** Use the available filters to view and optionally export refined application analytics. Scroll down to view the logs.
+*   **Logs:** Use the available filters to view and optionally export refined application analytics. Scroll down to view the logs. The Classic Developer Portal displays application logs for v2 APIs only. To view application logs for v4 APIs, use the [New Developer Portal](../new-developer-portal/application-logs.md).
 
     <figure><img src="../../.gitbook/assets/application_logs.png" alt=""><figcaption><p>Logs</p></figcaption></figure>
 *   **Notifications:** Specify which of your application's subscription events you would like to be notified of.
