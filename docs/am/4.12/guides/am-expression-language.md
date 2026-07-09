@@ -13,6 +13,8 @@ The AM Expression Language (EL for short) is one of the key features that can be
 
 AM's Expression Language is built on the Spring Expression Language (SpEL), the same expression engine that Gravitee API Management (APIM) uses, so expressions behave consistently across both products. Gravitee evaluates each expression against a context that exposes the variables documented on this page, such as `request` and `context`. For the full SpEL syntax, see the [Spring Expression Language reference](https://docs.spring.io/spring-framework/reference/core/expressions.html).
 
+Not every SpEL capability is available in an expression. For security, the Gravitee Expression Language engine restricts the expressions it evaluates: only the Java methods and constructors on its allowlist are callable, property access is read-only, and bean references aren't available. To make additional classes or methods callable, configure the `el.whitelist` section in the `gravitee.yml` file of the AM Gateway and the AM Management API.
+
 ## Usage
 
 The basic expression language syntax is as follows:
@@ -57,7 +59,7 @@ You can access the client/app properties using this EL `{#context.attributes['cl
 | clientId   | The client\_id of the application                               | {#context.attributes\['client']\['clientId']}                      |
 | clientName | The name of the application                                     | {#context.attributes\['client']\['clientName']}                    |
 | name       | The name of the application (Same as clientName)                | {#context.attributes\['client']\['name']}                          |
-| metadata   | Map of Metadata associated to the application                   | {#context.attributes\['client']\['metadata']\['my-metadata-name']} |
+| metadata   | Map of Metadata associated to the application                   | {#context.attributes\['client']\['metadata']\['custom-metadata-name']} |
 
 ### **User Profile information**
 
@@ -104,7 +106,7 @@ The context attributes contain all the information you can add to AM Flows using
 
 | Attribute                  | Description                                            | Syntax                                                             |
 | -------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------ |
-| authFlow                   | Map of data managed by the Enrich Authentication Flow. | {#context.attributes\['authFlow']\['my-data']}                     |
+| authFlow                   | Map of data managed by the Enrich Authentication Flow. | {#context.attributes\['authFlow']\['custom-data']}                     |
 | authFlow.requestParameters | Parameters provided through PAR specification          | {#context.attributes\['authFlow']\['requestParameters']\['scope']} |
 
 ## Add information into the EL context
