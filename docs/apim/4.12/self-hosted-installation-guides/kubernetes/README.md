@@ -15,6 +15,12 @@ metaLinks:
 * [OpenShift](openshift.md)
 * GCP GKE
 
+## Kubernetes version support
+
+The APIM Helm chart requires Kubernetes version 1.14 or later. The chart declares this requirement in its `kubeVersion` field, which Helm validates when you install or upgrade the chart. For details about how Helm applies this constraint, see the [Helm documentation](https://helm.sh/docs/topics/charts/#the-chartyaml-file).
+
+The chart doesn't set an upper Kubernetes version bound, and it doesn't impose version constraints specific to managed Kubernetes services such as Azure AKS, Amazon EKS, or Google GKE. The same minimum Kubernetes version applies to any cluster where you install the chart.
+
 ## Proxy configuration
 
 To route Gateway traffic through a corporate proxy (for example, for backend API calls or JWKS retrieval from external identity providers like Microsoft Entra ID), add the following `gravitee_system_proxy_*` environment variables to the Gateway section of your `values.yaml`:
