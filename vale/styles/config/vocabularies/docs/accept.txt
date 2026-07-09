@@ -206,6 +206,7 @@ Human-in-the-Loop
 [Pp]asswordless
 client_id
 client_secret
+elasticsearch-reporter\.md
 clientId
 clientName
 clientSecret
