@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Connect Claude Code to the Edge Daemon
 
 Once the Edge Daemon is installed on an employee device, you can route Claude Code LLM traffic through it for local policy enforcement and centralized observability.
