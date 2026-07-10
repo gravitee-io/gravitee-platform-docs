@@ -7,6 +7,23 @@ metaLinks:
 
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.27 - July 9, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Rate limit silently bypassed on 4.11.16 (Redis: Connection is closed) [#11621](https://github.com/gravitee-io/issues/issues/11621)
+
+**Console**
+
+* Groovy policy configuration form shows the wrong fields in the console [#11617](https://github.com/gravitee-io/issues/issues/11617)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.9.26 - July 3, 2026
 <details>
 
