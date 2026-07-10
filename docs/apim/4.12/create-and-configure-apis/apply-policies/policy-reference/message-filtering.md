@@ -23,7 +23,7 @@ This policy can be applied to v4 message APIs. It cannot be applied to v2 APIs o
 
 {% tabs %}
 {% tab title="Basic example: Match subscription metadata" %}
-If this is my message:
+Consider the following message:
 
 ```json
 {
@@ -128,7 +128,9 @@ The phases checked below are supported by the `message-filtering` policy:
 
 You can configure the `message-filtering` policy with the following options:
 
-<table><thead><tr><th width="116">Property</th><th width="105" data-type="checkbox">Required</th><th width="152">Description</th><th width="100">Type</th><th>Default</th></tr></thead><tbody><tr><td>filter</td><td>true</td><td>The filter's rule</td><td>string</td><td>-</td></tr></tbody></table>
+<table><thead><tr><th width="116">Property</th><th width="105" data-type="checkbox">Required</th><th width="152">Description</th><th width="100">Type</th><th>Default</th></tr></thead><tbody><tr><td>filter</td><td>true</td><td>The filter's rule</td><td>string</td><td>-</td></tr><tr><td>ackFilteredMessage</td><td>false</td><td>Acknowledge a message when the filter drops it</td><td>boolean</td><td><code>true</code></td></tr><tr><td>filterMessageOnFilteringError</td><td>false</td><td>Drop a message when the filter expression fails to evaluate</td><td>boolean</td><td><code>true</code></td></tr></tbody></table>
+
+The filter expression is evaluated for each message. When the expression evaluates to `true`, the message is kept. When it evaluates to `false`, the message is dropped, and acknowledged when `ackFilteredMessage` is enabled. When the expression fails to evaluate, the message is dropped when `filterMessageOnFilteringError` is enabled, and kept otherwise.
 
 ## Changelogs
 

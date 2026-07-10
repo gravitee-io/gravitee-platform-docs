@@ -51,3 +51,11 @@ This page documents the APIM Console V4 analytics dashboard. For the New Develop
 *   **Top 5 Applications**. This graph shows the top five applications by HTTP requests.<br>
 
     <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-76.png" alt=""><figcaption></figcaption></figure>
+
+## Data visibility in earlier releases
+
+The following fixes affect which requests appear on this dashboard and in the related logs. If data is missing on an earlier release, upgrade to the release that carries the fix:
+
+* Requests rejected by the security chain, such as `401` responses for an invalid key, don't appear on the dashboard in releases earlier than 4.10.7.
+* `404` responses for unmatched requests aren't visible in Console analytics in releases earlier than 4.10.8.
+* v4 API logs are inaccessible when the analytics type is `none` in releases earlier than 4.10.12.
