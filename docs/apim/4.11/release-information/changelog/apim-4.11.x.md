@@ -1,5 +1,18 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.17 - July 9, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Rate limit silently bypassed on 4.11.16 (Redis: Connection is closed) [#11621](https://github.com/gravitee-io/issues/issues/11621)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.16 - July 8, 2026
 <details>
 
