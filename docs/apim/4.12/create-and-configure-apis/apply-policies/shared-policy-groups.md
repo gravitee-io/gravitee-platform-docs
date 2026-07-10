@@ -174,5 +174,5 @@ curl --request POST \
 ```
 
 * If you import an API with a shared policy group reference that does not exist in the higher environment, the API executes with no issues. Future versions of Gravitee will allow the platform administrator to configure whether to allow APIs to run or be imported with missing shared policy groups.
-* APIM 4.9.10, 4.8.17, 4.7.22, and 4.6.28 fix an issue where a shared policy group containing the Data Cache policy lost its cached data when the API was redeployed ([#10797](https://github.com/gravitee-io/issues/issues/10797)). On earlier releases in those lines, redeploying an API resets the cache that the shared policy group uses.
-* APIM 4.9.4 and 4.8.13 fix an issue where shared policy groups weren't executed in Debug Mode ([#10885](https://github.com/gravitee-io/issues/issues/10885)).
+* APIM 4.9.10, 4.8.17, 4.7.22, and 4.6.28 fix an issue where a shared policy group containing the Data Cache policy lost its cached data when the API was redeployed. On earlier releases in those lines, redeploying an API resets the cache that the shared policy group uses.
+* APIM 4.9.4 and 4.8.13 fix an issue where shared policy groups weren't executed in Debug Mode.
