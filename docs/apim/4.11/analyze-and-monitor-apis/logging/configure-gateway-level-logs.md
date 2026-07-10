@@ -178,6 +178,14 @@ gateway:
 {% endtab %}
 {% endtabs %}
 
+## Exclude response types from logging
+
+The `reporters.logging.excluded_response_types` setting excludes responses from payload logging based on their content type. The default value is the regular expression `video.*|audio.*|image.*|application\/octet-stream|application\/pdf`, so binary media responses aren't logged even when payload logging is enabled for an API.
+
+## Logging under memory pressure
+
+The Gateway suspends payload capture when it detects garbage collection pressure, and logs record the literal value `BODY NOT CAPTURED` in place of the payload while the protection is active. For the configuration of this mechanism, see [LogGuard in the production best practices](../../prepare-a-production-environment/production-best-practices/deployments.md).
+
 You can use the following convention to set the max size: `{positive integer}[unit]`.&#x20;
 
 * `G` or `GB` for gigabytes

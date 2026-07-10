@@ -22,7 +22,7 @@ Installations are monitored at node level. The first REST API node connected whe
 
 If the primary node goes down, another REST API node takes over as primary node. If no REST API nodes are left, after 5 minutes all nodes are considered unhealthy, since GC is no longer able to retrieve health information from the installation.
 
-Nodes can be in a `STARTED` or `STOPPED` state.
+Nodes can be in a `STARTED`, `STOPPED`, or `UNKNOWN` state. A node in the `STARTED` state that stops reporting is moved to the `UNKNOWN` state by a daily check when its last health check is older than 24 hours. When the node reports a fresh health check, it returns to its reported state.
 
 You can view all the nodes of an installation which are in a `STARTED` state in the Dashboard, with a color indicating the state of their health. You can click on a node to access more details about that node, including general details about the node (for example, name and version), the list of plugins.
 
