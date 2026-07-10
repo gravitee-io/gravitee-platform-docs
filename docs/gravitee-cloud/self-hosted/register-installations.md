@@ -46,6 +46,8 @@ cloud:
 
 The `username` and `password` fields are only required when the proxy enforces authentication. The WebSocket connection to Gravitee Cloud remains secured with TLS when routed through the proxy.
 
+The `type` field accepts `HTTP`, `SOCKS4`, or `SOCKS5` and defaults to `HTTP`. The `port` field defaults to `3128`. To reuse the proxy defined at the system level of the installation through the `system.proxy.host`, `system.proxy.port`, and related settings, set `cloud.connector.ws.proxy.useSystemProxy` to `true` instead of repeating the proxy settings.
+
 {% endhint %}
 
 Register the installation using the detailed instructions in the **How to register a new installation** link, below **Installations** in the dashboard. After registration, the installation is displayed as a pending installation in GC:

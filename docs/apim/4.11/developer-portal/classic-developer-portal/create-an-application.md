@@ -117,7 +117,7 @@ Once you've created an application, you can click on it and use the header optio
 *   **Subscriptions:** View the APIs your application is subscribed to. Use the **API** drop-down menu to choose a particular API and the **status** drop-down menu to list all APIs with the selected status.
 
     <figure><img src="../../.gitbook/assets/application_subscription info.png" alt=""><figcaption><p>Subscriptions</p></figcaption></figure>
-* **Members:** View and edit member information:
+* **Members:** View and edit member information. Adding a member requires the create permission on application members, and transferring ownership requires the update permission. A user whose application role lacks these permissions doesn't see or complete these actions. An application keeps exactly one primary owner at all times.
   *   **MEMBERS LIST:** View the names and roles of current application members.
 
       <figure><img src="../../.gitbook/assets/application_members list.png" alt=""><figcaption><p>Members list</p></figcaption></figure>
