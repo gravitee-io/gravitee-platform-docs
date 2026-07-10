@@ -121,6 +121,10 @@ To verify if the complete the following steps:
 
 When you set a response template body, the Gateway evaluates it with the [Gravitee Expression Language](../../gravitee-expression-language.md). Two variables are bound to the templating context inside a response template body:
 
+{% hint style="info" %}
+The Gateway evaluates Expression Language in the response template body only. The header values and the status code of a response template are applied literally, without Expression Language evaluation.
+{% endhint %}
+
 | Variable      | Description                                                                                   |
 | ------------- | --------------------------------------------------------------------------------------------- |
 | `#error`      | The execution failure that triggered the template.                                            |

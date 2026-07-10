@@ -1,5 +1,5 @@
 ---
-description: An overview about opentelemetry.
+description: An overview about OpenTelemetry.
 ---
 
 # OpenTelemetry
@@ -159,7 +159,7 @@ To enable OpenTelemetry for your Gateway, follow the steps for your installation
 {% endtab %}
 
 {% tab title="Environment variables" %}
-*   To enable enable OpenTelemetry, add the following environment variable to your `.env` file:
+*   To enable OpenTelemetry, add the following environment variable to your `.env` file:
 
     ```bash
     GRAVITEE_SERVICES_OPENTELEMETRY_ENABLED=true
@@ -177,7 +177,7 @@ The `services.opentelemetry.kafka.tracedApiKeys` property restricts per-request 
 **Recommended for production:** set `tracedApiKeys: [PRODUCE, FETCH]`. This keeps full visibility on the data path while dropping high-frequency housekeeping operations such as `METADATA`, `HEARTBEAT`, `FIND_COORDINATOR`, and `API_VERSIONS`, which significantly reduces trace volume on busy Kafka APIs.
 {% endhint %}
 
-Connection-setup spans (`Kafka connection`, `Authentication`, `Broker connect`) are emitted on every traced connection and are not affected by this filter — only per-request spans are gated by it.
+Connection-setup spans (`Kafka connection`, `Authentication`, `Broker connect`) are emitted on every traced connection and are not affected by this filter. Only per-request spans are gated by it.
 
 ### Verification
 
@@ -195,9 +195,9 @@ Connection-setup spans (`Kafka connection`, `Authentication`, `Broker connect`) 
 To enable OpenTelemetry for an API, you must have OpenTelemetry enabled on your Gateway. For more information, see [#enable-opentelemetry-for-your-gateway](opentelemetry.md#enable-opentelemetry-for-your-gateway "mention").
 {% endhint %}
 
-### Per-API tracing configuration for V4 native APIs
+### Per-API tracing configuration for v4 APIs
 
-V4 NATIVE APIs support per-API OpenTelemetry tracing configuration through the following properties:
+V4 APIs support per-API OpenTelemetry tracing configuration through the following properties:
 
 | Property | Description | Example |
 |:---------|:------------|:--------|
@@ -218,7 +218,7 @@ Gravitee APIM offers two levels of tracing to capture API request execution data
 
 Standard tracing is enabled by default. It captures request and response flow, policy execution timing, backend invocation spans, error tracking, and conditional policy trigger recording.
 
-For Kafka native APIs, standard mode creates a root connection span (SpanKind.SERVER), an authentication span (SpanKind.INTERNAL), a broker connect span (SpanKind.CLIENT), and one per-request grouping span per Kafka operation processed on the connection (e.g., PRODUCE with SpanKind.PRODUCER, FETCH with SpanKind.CLIENT).
+For Kafka native APIs, standard mode creates a root connection span (SpanKind SERVER), an authentication span (SpanKind INTERNAL), a broker connect span (SpanKind CLIENT), and one per-request grouping span per Kafka operation processed on the connection (e.g., PRODUCE with SpanKind PRODUCER, FETCH with SpanKind CLIENT).
 
 ### (Optional) Verbose mode
 
@@ -232,7 +232,7 @@ Verbose mode records the following execution data:
 
 * Detailed header captures (request & response).
 * Context attribute snapshots.
-* Pre and post policy execution events.
+* Events before and after policy execution.
 * Complete state visibility before and after each policy.
 * Policy descriptions from policy step definitions.
 * For Kafka native APIs: per-phase / per-flow spans (`Entrypoint connect`, `Interact request`, `Interact response`, `Publish`, `Subscribe`) and individual policy spans. Each policy span carries a `flow` attribute identifying which flow level it ran on (`plan` or `api`).
@@ -258,7 +258,7 @@ Verbose mode affects resource usage in the following ways:
 * Results in minimal performance impact (< 1ms per policy).
 
 {% hint style="warning" %}
-Enable verbose mode only for deep debugging — it significantly increases trace volume on high-throughput Kafka APIs.
+Enable verbose mode only for deep debugging: it increases trace volume on high-throughput Kafka APIs.
 {% endhint %}
 
 ### Verification
@@ -289,7 +289,7 @@ Shared Policy Groups allow reusable policy chains to be referenced across multip
 
 ### Creating policy descriptions
 
-To create policy description tracing, configure a description for each policy step in your API flow definition. When the gateway executes the policy, it stores the description in an internal execution context attribute. The tracing hook reads this attribute and adds the `gravitee.policy.description` span attribute if  you enable verbose tracing. For Shared Policy Groups, descriptions from individual steps within the group are captured and traced in the same way. If a policy step has no description or the description is blank, the attribute is not included in the span.
+To create policy description tracing, configure a description for each policy step in your API flow definition. When the gateway executes the policy, it stores the description in an internal execution context attribute. The tracing hook reads this attribute and adds the `gravitee.policy.description` span attribute if you enable verbose tracing. For Shared Policy Groups, descriptions from individual steps within the group are captured and traced in the same way. If a policy step has no description or the description is blank, the attribute is not included in the span.
 
 ### Viewing tracing data
 
@@ -305,7 +305,7 @@ The attribute is visible on the span corresponding to the policy execution in an
 Policy description tracing has the following restrictions:
 
 * Policy descriptions are included in tracing spans only when verbose tracing is explicitly enabled using the internal execution context attribute.
-* Nested Shared Policy Groups are not supported. Steps with policy ID matching the Shared Policy Group identifier are skipped and a warning is logged with the following message: "Nested Shared Policy Group is not supported. The Shared Policy Group {name}will be ignored".
+* Nested Shared Policy Groups are not supported. Steps with policy ID matching the Shared Policy Group identifier are skipped and a warning is logged with the following message: `Nested Shared Policy Group is not supported. The Shared Policy Group {name}will be ignored`.
 * Blank or whitespace-only descriptions are treated as absent and not added to spans.
 * The description attribute is cleared between policy executions; if a policy has no description, the attribute is set to `null`.
 * Disabled steps are excluded from tracing.
@@ -337,6 +337,41 @@ You can use OpenTelemetry traces to view the following API transaction details:
 * If you call an API with invalid authentication, you can see a trace with a warning and logs with details about the errors.
 * For a POST or GET request, you see the following information: `request_body_size`, `request_content_length`, `context-path`, `host.name` and `http_status_code`.
 
+## Span status and attributes for HTTP APIs
+
+This section describes the span status semantics, the attributes the Gateway sets on spans, and how trace context propagates for HTTP APIs.
+
+### Span status
+
+The Gateway doesn't set the span status to `OK` on success. A span keeps the status `UNSET` unless a failure occurs:
+
+* The root HTTP server span follows the OpenTelemetry HTTP conventions: the status becomes `ERROR` for server errors, and stays `UNSET` otherwise.
+* Internal spans, such as phase, flow, and policy spans, are set to `ERROR` only when the step fails.
+
+A trace full of `UNSET` spans therefore indicates successful processing, not missing data.
+
+### Attribute placement
+
+The HTTP response status code and the API identity attributes aren't repeated on every span:
+
+* `http.request.method`, `http.response.status_code`, `url.path`, `url.query`, `url.scheme`, `client.address`, `http.request.body.size`, and `http.response.body.size` appear on the root HTTP server span. Calls to the backend carry `http.request.method`, `http.response.status_code`, `url.full`, `server.address`, and `server.port` on the client span.
+* The API identity is carried as tracer resource attributes: `gravitee.module`, `gravitee.api.id`, `gravitee.api.name`, `gravitee.api.type`, `gravitee.org.id`, and `gravitee.env.id`.
+* Internal spans carry `gravitee.execution.phase`, `gravitee.request.id`, and `gravitee.transaction.id`. The invoker span adds `gravitee.endpoint.id`. Policy spans add `gravitee.policy`, `gravitee.policy.description`, `gravitee.policy.trigger.executed`, and `gravitee.policy.trigger.condition`. Failed steps add `gravitee.execution-failure.key`, `gravitee.execution-failure.status-code`, and `gravitee.execution-failure.content-type`.
+
+When a tracing backend shows a child span without a status code or API name, inspect the root span and the resource attributes of the trace instead.
+
+### Span names
+
+The root HTTP server span is named from the method and route, for example `GET /v2/orders`. Policy spans are named from the phase and the policy identifier, for example `REQUEST policy-rate-limit`.
+
+### Trace context propagation
+
+The Gateway reads the W3C `traceparent` header from incoming requests, validates it, and generates a new one when the header is absent or invalid. The header is set on both the backend request and the client response, so traces link across services that propagate it.
+
+### Tracing for v2 APIs
+
+V2 APIs don't have a per-API tracing toggle. When OpenTelemetry is enabled on the Gateway, v2 APIs are traced according to the `services.opentelemetry.tracing.v2.enabled` setting, which defaults to `true`.
+
 ## Span Attribute Redaction
 
 Span Attribute Redaction masks sensitive metadata in OpenTelemetry traces before they leave the Gateway. Administrators configure pattern-based rules to replace or obscure span attributes such as authorization headers, API keys, consumer identifiers, and query parameters. Redaction occurs in-process before OTLP export, ensuring that sensitive observability data never reaches external collectors or tracing backends.
@@ -355,7 +390,7 @@ For detailed configuration instructions, see:
 
 OpenTelemetry tracing for Kafka native APIs covers the full Kafka protocol exchange between client and Gateway: connection lifecycle, authentication, and per-request spans with protocol-specific attributes (topics, batch counts, consumer groups, error codes).
 
-Each Gateway-side trace is self-contained — every Kafka client connection starts a fresh trace at the Gateway. The Kafka wire protocol does not carry trace context the way HTTP does, so traces are not automatically chained from upstream Kafka clients or to the backend broker.
+Each Gateway-side trace is self-contained: every Kafka client connection starts a fresh trace at the Gateway. The Kafka wire protocol does not carry trace context the way HTTP does, so traces are not automatically chained from upstream Kafka clients or to the backend broker.
 
 ### Dual-level enablement
 
@@ -380,7 +415,7 @@ Kafka connection
        messaging.operation.type=send
 ```
 
-**Verbose mode** — adds the policy / flow / phase hierarchy under each per-request span:
+**Verbose mode** adds the policy, flow, and phase hierarchy under each per-request span:
 
 ```
 Kafka connection
@@ -399,7 +434,7 @@ Kafka connection
 
 For consumer connections, `Subscribe` replaces `Publish` under each `FETCH` span.
 
-**With `tracedApiKeys: [PRODUCE, FETCH]`** — connection-setup spans are still emitted, only listed operations get per-request spans:
+**With `tracedApiKeys: [PRODUCE, FETCH]`**, connection-setup spans are still emitted, and only listed operations get per-request spans:
 
 ```
 Kafka connection
@@ -407,7 +442,7 @@ Kafka connection
 ├─ Broker connect
 ├─ PRODUCE
 └─ FETCH
-   (METADATA, API_VERSIONS, JOIN_GROUP, HEARTBEAT, OFFSET_COMMIT, etc. — not traced)
+   (METADATA, API_VERSIONS, JOIN_GROUP, HEARTBEAT, OFFSET_COMMIT, and others: not traced)
 ```
 
 ### Span attributes
@@ -417,7 +452,7 @@ Spans include OpenTelemetry semantic conventions for messaging systems and Gravi
 | Attribute | Description |
 |:----------|:------------|
 | `messaging.system` | Always `"kafka"` |
-| `messaging.destination.name` | Topic name(s), comma-separated; falls back to `"id:<uuid>"` for Kafka protocol v12+ where requests use topic UUIDs |
+| `messaging.destination.name` | Topic names, comma-separated; falls back to `"id:<uuid>"` for Kafka protocol v12+ where requests use topic UUIDs |
 | `messaging.consumer.group.name` | Consumer group ID (JOIN_GROUP, HEARTBEAT, OFFSET_COMMIT, LEAVE_GROUP, SYNC_GROUP) |
 | `messaging.batch.message_count` | Number of records in a PRODUCE request or FETCH response |
 | `messaging.operation.type` | `"send"` (PRODUCE, HEARTBEAT, LEAVE_GROUP), `"receive"` (FETCH, JOIN_GROUP, SYNC_GROUP), `"settle"` (OFFSET_COMMIT) |
@@ -441,4 +476,4 @@ Spans include OpenTelemetry semantic conventions for messaging systems and Gravi
 
 When something fails, the affected span and the root `Kafka connection` span are tagged `otel.status_code=ERROR` with `error.type`, `gravitee.error.origin`, and `gravitee.error.recommendation`.
 
-`gravitee.error.origin` is designed for fast triage — it tells you immediately whether a failure was caused by a misconfigured policy (`policy`), an authentication problem (`security`), an invalid API configuration such as a missing endpoint (`config`), an unreachable broker (`broker`), or an unexpected Gateway error (`internal`).
+`gravitee.error.origin` is designed for fast triage: it tells you immediately whether a failure was caused by a misconfigured policy (`policy`), an authentication problem (`security`), an invalid API configuration such as a missing endpoint (`config`), an unreachable broker (`broker`), or an unexpected Gateway error (`internal`).

@@ -20,7 +20,7 @@ This policy is applicable to the following API types:
 
 **Note:** The Groovy policy is not supported by v4 TCP or Native APIs.
 
-Several variables are automatically bound to the Groovy script. These let you read, and potentially modify, their values to define the behavior of the policy.
+Several variables are automatically bound to the Groovy script. These let you read, and optionally modify, their values to define the behavior of the policy.
 
 ### Request/response
 
@@ -50,7 +50,7 @@ To change the outcome of the request or response to access the `result` object, 
 
 | Attribute | Type               | Description                    |
 | --------- | ------------------ | ------------------------------ |
-| `state`   | PolicyResult.State | To indicate a failure          |
+| `state`   | `PolicyResult.State` | To indicate a failure          |
 | `code`    | integer            | An HTTP status code            |
 | `error`   | string             | The error message              |
 | `key`     | string             | The key of a response template |
@@ -321,9 +321,11 @@ Exercise care when using classes or methods. In some cases, giving access to all
 
 | <p>Name<br><code>json name</code></p>                   | <p>Type<br><code>constraint</code></p> | Mandatory | Default | Description                                                                                       |
 | ------------------------------------------------------- | -------------------------------------- | :-------: | ------- | ------------------------------------------------------------------------------------------------- |
-| <p>Override content<br><code>overrideContent</code></p> | boolean                                |           |         | Enable to override the content of the request or response with the value returned by your script. |
-| <p>Read content<br><code>readContent</code></p>         | boolean                                |           |         | Enable if your script needs to access the content of the HTTP request or response in your script. |
+| <p>Override content<br><code>overrideContent</code></p> | boolean                                |           | `false` | Enable to override the content of the request or response with the value returned by your script. |
+| <p>Read content<br><code>readContent</code></p>         | boolean                                |           | `false` | Enable if your script needs to access the content of the HTTP request or response in your script. |
 | <p>Script<br><code>script</code></p>                    | string                                 |           |         | Groovy script to evaluate.                                                                        |
+
+When a script accesses the request or response content while **Read content** is disabled, the script fails. The API consumer receives status `500` with the body `Internal Server Error` and the error key `GROOVY_EXECUTION_FAILURE`, and the Gateway log records `An error occurred while executing Groovy script` with the reason `Accessing request content must be enabled in the policy configuration`, or the response equivalent. The same `500` behavior applies when a script calls a method that isn't on the allowlist: the Gateway log records a security error with the reason `Failed to resolve method` and the method signature.
 
 ## Examples
 
