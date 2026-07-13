@@ -7,6 +7,19 @@ metaLinks:
 
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.28 - July 11, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Groovy error after upgrading from APIM 4.9.26 to 4.9.27 [#11625](https://github.com/gravitee-io/issues/issues/11625)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.9.27 - July 9, 2026
 <details>
 
