@@ -5,6 +5,19 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.7 - July 13, 2026
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Improve the GW performance (subscriptions cache improved) [#11627](https://github.com/gravitee-io/issues/issues/11627)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.6 - July 11, 2026
 <details>
 
