@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.26 - July 13, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* Application Flows are not accessible for APPLICATION_OWNER roles [#11592](https://github.com/gravitee-io/issues/issues/11592)
+
+
+
+**Other**
+
+* Mutualize hmac and noop Certificates across domains [#11582](https://github.com/gravitee-io/issues/issues/11582)
+* Partial PATCHes of login settings cause disabled settings to be disabled in subsequent updates [#11600](https://github.com/gravitee-io/issues/issues/11600)
+
+</details>
+
+
 ## Gravitee Access Management 4.9.25 - June 26, 2026
 
 <details>
