@@ -1,5 +1,18 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.19 - July 13, 2026
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Improve Gateway performance (subscriptions cache improved) [#11627](https://github.com/gravitee-io/issues/issues/11627)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.18 - July 11, 2026
 <details>
 
