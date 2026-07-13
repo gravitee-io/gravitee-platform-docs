@@ -1,5 +1,19 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.18 - July 11, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* SSE Messages Received Out of Order [#11587](https://github.com/gravitee-io/issues/issues/11587)
+* Groovy error after upgrading from APIM 4.9.26 to 4.9.27 [#11625](https://github.com/gravitee-io/issues/issues/11625)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.17 - July 9, 2026
 <details>
 
