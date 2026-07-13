@@ -53,7 +53,7 @@ Before you begin, you must create an API flow.
 You can see only deployed shared policy groups.
 {% endhint %}
 
-<figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXc49eNncnilBcCaupXY123kIumNnlez_NNk0YpMlO8EZhOJrMgcwdp5H8IjBYPno0fvkjW24zQ35hJNSrLF1oaZnOybddq13K-443sunBJXjjqXeLrMxrzAklPdofqGd-hQnV_zSEcHm-x9kx7KSgJ84go?key=PrMp2J0zWBtqrsqO75zcMw" alt="Policies for request phase screenshot"><figcaption><p>Policies for Request phase screen with the Shared Policy group filter appiled</p></figcaption></figure>
+<figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXc49eNncnilBcCaupXY123kIumNnlez_NNk0YpMlO8EZhOJrMgcwdp5H8IjBYPno0fvkjW24zQ35hJNSrLF1oaZnOybddq13K-443sunBJXjjqXeLrMxrzAklPdofqGd-hQnV_zSEcHm-x9kx7KSgJ84go?key=PrMp2J0zWBtqrsqO75zcMw" alt="Policies for request phase screenshot"><figcaption><p>Policies for Request phase screen with the Shared Policy group filter applied</p></figcaption></figure>
 
 3. Click **Select** for the shared policy group that you want to add to the chain.
 4. (Optional) In the **Policies for Request phase**, add a description and trigger condition. If you added a prerequisite message for your policy chain, it is shown here.
@@ -62,7 +62,7 @@ You can see only deployed shared policy groups.
 The trigger condition works the same as for a regular policy. But when the trigger condition evaluates to false, all policies in the shared policy group are skipped.
 {% endhint %}
 
-<figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXdBSOmAx2_odvERZdo9W0byoOS_o9Clx_dsaJa_pWGZWHrirXdt9KXPo8sdcvOn2huz_9IalLRCPjpRA_8yge669fWn8CPGX0zPXFt9QfqkSsh7n4U1LxqxtyhkeL82MUtRHlHVJnvCvk7D2fZ7CaIis15d?key=PrMp2J0zWBtqrsqO75zcMw" alt="Policy for Request phase  screen with a shared policy group selected"><figcaption><p>Policies for Request phase screen with a shared policy group selected</p></figcaption></figure>
+<figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXdBSOmAx2_odvERZdo9W0byoOS_o9Clx_dsaJa_pWGZWHrirXdt9KXPo8sdcvOn2huz_9IalLRCPjpRA_8yge669fWn8CPGX0zPXFt9QfqkSsh7n4U1LxqxtyhkeL82MUtRHlHVJnvCvk7D2fZ7CaIis15d?key=PrMp2J0zWBtqrsqO75zcMw" alt="Policy for Request phase screen with a shared policy group selected"><figcaption><p>Policies for Request phase screen with a shared policy group selected</p></figcaption></figure>
 
 5. Click **Add policy**.
 
@@ -111,7 +111,7 @@ To compare two versions, select two versions to compare. You can compare the ver
 
 ### Restore
 
-To restore a previous version, click **Restore version i**n the **version details** window. This action creates a pending version that you must deploy.
+To restore a previous version, click **Restore version** in the **version details** window. This action creates a pending version that you must deploy.
 
 ## AI flows
 
@@ -119,9 +119,9 @@ By default, Gravitee APIM 4.5 has three shared policy groups that empowers AI us
 
 Here are the default shared policy groups:
 
-* **Rate Limit & Request token limit**: This policy limits the number of requests and number of tokens sent in a request. To use this policy, set context attributes prompt, maxTokens, and maxRequests.
+* **Rate Limit & Request token limit**: This policy limits the number of requests and number of tokens sent in a request. To use this policy, set the context attributes `prompt`, `maxTokens`, and `maxRequests`.
 * **Prompt Templating Example**: Uses the Assign Content policy to create and enhance a prompt from external data.
-  * In this example, the shared policy group takes an input field of **ip** in the request body and adds it as an attribute.
+  * In this example, the shared policy group takes an input field of `ip` in the request body and adds it as an attribute.
   * It runs an HTTP Callout policy to find the IP address set in the context attribute and return its country and city as context attributes.
   * From the context attributes, it crafts a prompt in the Assign Attributes policy.
 * **Redirect to HuggingFace**: This policy group crafts the body of a request to HuggingFace, which includes model parameters and options, and then it sends that request to a Dynamic Routing policy that redirects to HuggingFace.
@@ -174,3 +174,5 @@ curl --request POST \
 ```
 
 * If you import an API with a shared policy group reference that does not exist in the higher environment, the API executes with no issues. Future versions of Gravitee will allow the platform administrator to configure whether to allow APIs to run or be imported with missing shared policy groups.
+* APIM 4.9.10, 4.8.17, 4.7.22, and 4.6.28 fix an issue where a shared policy group containing the Data Cache policy lost its cached data when the API was redeployed. On earlier releases in those lines, redeploying an API resets the cache that the shared policy group uses.
+* APIM 4.9.4 and 4.8.13 fix an issue where shared policy groups weren't executed in Debug Mode.

@@ -1,7 +1,7 @@
 # MCP Server Installation Widget for Portal Pages
 
 {% hint style="info" %}
-This page documents the `<gmd-install-mcp>` widget for embedding MCP client configuration in New Developer Portal pages. If you are looking to interact with Gravitee API Management itself via MCP (using an AI assistant to manage your APIs), see [Expose APIM as an MCP Server](4.9-expose-apim-as-an-mcp-server.md).
+This page documents the `<gmd-install-mcp>` widget for embedding MCP client configuration in New Developer Portal pages. If you are looking to interact with Gravitee API Management itself via MCP (using an AI assistant to manage your APIs), see [Expose APIM as an MCP Server](expose-apim-as-an-mcp-server.md).
 {% endhint %}
 
 ## Overview

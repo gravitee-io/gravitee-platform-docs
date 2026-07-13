@@ -25,7 +25,12 @@ redirects:
  agent-mesh/llm-proxy/consume-your-llm-proxy-with-the-openai-python-sdk: ai-agent-management/llm-proxy/consume-your-llm-proxy-with-the-openai-python-sdk.md
  agent-mesh/llm-proxy/proxy-your-llms: ai-agent-management/llm-proxy/proxy-your-llms.md
  agent-mesh/secure-mcp-proxy-with-oauth2: ai-agent-management/secure-mcp-proxy-with-oauth2.md
- analyze-and-monitor-apis/4.9-api-proxy-dashboard: analyze-and-monitor-apis/dashboards/4.9-api-proxy-dashboard.md
+ analyze-and-monitor-apis/4.9-api-proxy-dashboard: analyze-and-monitor-apis/dashboards/api-proxy-dashboard.md
+ analyze-and-monitor-apis/dashboards/4.9-api-proxy-dashboard: analyze-and-monitor-apis/dashboards/api-proxy-dashboard.md
+ 4.9-expose-apim-as-an-mcp-server: expose-apim-as-an-mcp-server.md
+ create-and-configure-apis/create-apis/4.9-migrate-apis: create-and-configure-apis/create-apis/migrate-apis.md
+ create-and-configure-apis/apply-policies/policy-reference/4.9-groovy: create-and-configure-apis/apply-policies/policy-reference/groovy.md
+ create-and-configure-apis/apply-policies/policy-reference/4.9-jwt-validator: create-and-configure-apis/apply-policies/policy-reference/jwt-validator.md
  analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs: analyze-and-monitor-apis/README.md
  analyze-and-monitor-apis/dashboards/creating-portal-analytics-dashboards: analyze-and-monitor-apis/dashboards/README.md
  analyze-and-monitor-apis/dashboards/portal-analytics-dashboards-overview: analyze-and-monitor-apis/dashboards/README.md

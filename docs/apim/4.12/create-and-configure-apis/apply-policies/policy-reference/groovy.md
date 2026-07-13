@@ -2,7 +2,7 @@
 description: An overview about groovy.
 metaLinks:
   alternates:
-    - 4.9-groovy.md
+    - groovy.md
 ---
 
 # Groovy
@@ -20,7 +20,7 @@ This policy is applicable to the following API types:
 
 **Note:** The Groovy policy is not supported by v4 TCP or Native APIs.
 
-Several variables are automatically bound to the Groovy script. These let you read, and potentially modify, their values to define the behavior of the policy.
+Several variables are automatically bound to the Groovy script. These let you read, and optionally modify, their values to define the behavior of the policy.
 
 ### Request/response
 
@@ -32,7 +32,7 @@ Several variables are automatically bound to the Groovy script. These let you re
 | `context`  | Context usable to access external components such as services and resources |
 | `result`   | Object to return to alter the outcome of the request/response               |
 
-See the [Usage](4.9-groovy.md#usage) section for object attributes and methods.
+See the [Usage](groovy.md#usage) section for object attributes and methods.
 
 ### Content
 
@@ -50,7 +50,7 @@ To change the outcome of the request or response to access the `result` object, 
 
 | Attribute | Type               | Description                    |
 | --------- | ------------------ | ------------------------------ |
-| `state`   | PolicyResult.State | To indicate a failure          |
+| `state`   | `PolicyResult.State` | To indicate a failure          |
 | `code`    | integer            | An HTTP status code            |
 | `error`   | string             | The error message              |
 | `key`     | string             | The key of a response template |
@@ -129,9 +129,9 @@ return JsonOutput.toJson(content)
 | `contextPath`      | `String`                     |         | API context path.                                                                                                                                                          |
 | `pathInfo`         | `String`                     |         | Path beyond the context path.                                                                                                                                              |
 | `path`             | `String`                     |         | The full path component of the request URI.                                                                                                                                |
-| `parameters`       | `Map<String, <List<String>>` | ✅️      | Query parameters as a multi-value map. For methods, refer to [Multimap methods](4.9-groovy.md#multimap-methods).                                                           |
-| `pathParameters`   | `Map<String, <List<String>>` |         | Parameters extracted from path templates. For methods, refer to [Multimap methods](4.9-groovy.md#multimap-methods). Note that altering method are useless in this context. |
-| `headers`          | `Map<String, String>`        | ✅       | HTTP headers. For methods, refer to [Headers methods](4.9-groovy.md#headers-methods).                                                                                      |
+| `parameters`       | `Map<String, <List<String>>` | ✅️      | Query parameters as a multi-value map. For methods, refer to [Multimap methods](groovy.md#multimap-methods).                                                           |
+| `pathParameters`   | `Map<String, <List<String>>` |         | Parameters extracted from path templates. For methods, refer to [Multimap methods](groovy.md#multimap-methods). Note that altering method are useless in this context. |
+| `headers`          | `Map<String, String>`        | ✅       | HTTP headers. For methods, refer to [Headers methods](groovy.md#headers-methods).                                                                                      |
 | `method`           | `HttpMethod` (enum)          |         | HTTP method used in the request (e.g., GET, POST).                                                                                                                         |
 | `scheme`           | `String`                     |         | The scheme (HTTP or HTTPS) used by the request.                                                                                                                            |
 | `version`          | `HttpVersion` (enum)         |         | HTTP protocol version: `HTTP_1_0`, `HTTP_1_1`, `HTTP_2`.                                                                                                                   |
@@ -148,7 +148,7 @@ return JsonOutput.toJson(content)
 | `content` | `String`              |         | Body of the response.                                                                                              |
 | `status`  | `int`                 |         | Response status code.                                                                                              |
 | `reason`  | `String`              |         | Reason for the status.                                                                                             |
-| `headers` | `Map<String, String>` | ✅       | HTTP headers wrapped in a bindable object. For methods, refer to [Headers methods](4.9-groovy.md#headers-methods). |
+| `headers` | `Map<String, String>` | ✅       | HTTP headers wrapped in a bindable object. For methods, refer to [Headers methods](groovy.md#headers-methods). |
 
 ### Message
 
@@ -161,7 +161,7 @@ return JsonOutput.toJson(content)
 | `timestamp`           | long                 |         | Epoch (ms) timestamp.                                                                    |
 | `error`               | boolean              |         | Message is an error message.                                                             |
 | `metadata`            | Map\<String, Object> | ✅       | Message metadata. Dependent on the messaging system.                                     |
-| `headers`             | Map\<String, String> | ✅       | Message headers. For methods, refer to [Headers methods](4.9-groovy.md#headers-methods). |
+| `headers`             | Map\<String, String> | ✅       | Message headers. For methods, refer to [Headers methods](groovy.md#headers-methods). |
 | `content`             | String               |         | Message body as a string.                                                                |
 | `contentAsBase64`     | String               |         | Message body bytes as a basic base64 string.                                             |
 | `contentAsByteArray`  | byte\[]              |         | Message body bytes.                                                                      |
@@ -321,9 +321,11 @@ Exercise care when using classes or methods. In some cases, giving access to all
 
 | <p>Name<br><code>json name</code></p>                   | <p>Type<br><code>constraint</code></p> | Mandatory | Default | Description                                                                                       |
 | ------------------------------------------------------- | -------------------------------------- | :-------: | ------- | ------------------------------------------------------------------------------------------------- |
-| <p>Override content<br><code>overrideContent</code></p> | boolean                                |           |         | Enable to override the content of the request or response with the value returned by your script. |
-| <p>Read content<br><code>readContent</code></p>         | boolean                                |           |         | Enable if your script needs to access the content of the HTTP request or response in your script. |
+| <p>Override content<br><code>overrideContent</code></p> | boolean                                |           | `false` | Enable to override the content of the request or response with the value returned by your script. |
+| <p>Read content<br><code>readContent</code></p>         | boolean                                |           | `false` | Enable if your script needs to access the content of the HTTP request or response in your script. |
 | <p>Script<br><code>script</code></p>                    | string                                 |           |         | Groovy script to evaluate.                                                                        |
+
+When a script accesses the request or response content while **Read content** is disabled, the script fails. The API consumer receives status `500` with the body `Internal Server Error` and the error key `GROOVY_EXECUTION_FAILURE`, and the Gateway log records `An error occurred while executing Groovy script` with the reason `Accessing request content must be enabled in the policy configuration`, or the response equivalent. The same `500` behavior applies when a script calls a method that isn't on the allowlist: the Gateway log records a security error with the reason `Failed to resolve method` and the method signature.
 
 ## Examples
 

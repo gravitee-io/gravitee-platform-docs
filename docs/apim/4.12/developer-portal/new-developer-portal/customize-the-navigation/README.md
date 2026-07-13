@@ -14,6 +14,10 @@ You can create the following elements for your navigation:
 
 When you add a new page, you can choose **Gravitee Markdown**, **OpenAPI**, or **AsyncAPI** as the page type. Gravitee Markdown is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see [gravitee-markdown-components.md](../gravitee-markdown-components.md "mention"). For OpenAPI pages, see [creating-openapi-documentation-pages.md](./creating-openapi-documentation-pages.md). For AsyncAPI pages, see [creating-asyncapi-documentation-pages.md](./creating-asyncapi-documentation-pages.md).
 
+{% hint style="info" %}
+In releases earlier than APIM 4.10.5, navigation items aren't shown to unauthenticated users of the New Developer Portal. If anonymous visitors don't see public navigation items, upgrade to APIM 4.10.5 or later. AsyncAPI page rendering in the New Developer Portal also requires APIM 4.10.7 or later.
+{% endhint %}
+
 ### Supported documentation page types
 
 | Page type | What it contains | How it is edited in the Console | How it appears in the portal |
@@ -139,7 +143,7 @@ You can publish, unpublish, and delete folders along with all nested content in 
 
 When you add a page to a folder, that page becomes a menu item within that section of the New Developer Portal.
 
-1. Navigate to the the folder in the **Navigation items** menu.
+1. Navigate to the folder in the **Navigation items** menu.
 2. Click **the ellipsis**.
 3.  Click **Add page**.<br>
 
@@ -211,7 +215,7 @@ However, there are some limitations of APIs compared to folders:
 
 When you add a page to an API, that page becomes a menu item within that API in the New Developer Portal.
 
-1. Navigate to the the folder in the **Navigation items** menu.
+1. Navigate to the folder in the **Navigation items** menu.
 2. Click **the ellipsis**.
 3. Click **Add page**.
 
@@ -219,7 +223,7 @@ When you add a page to an API, that page becomes a menu item within that API in 
 
 When you add a folder to an API, that folder becomes nested within that API in the New Developer Portal.
 
-1. Navigate to the the folder in the **Navigation items** menu.
+1. Navigate to the folder in the **Navigation items** menu.
 2. Click **the ellipsis**.
 3. Click **Add folder**.
 {% endtab %}

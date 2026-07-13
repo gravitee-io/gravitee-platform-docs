@@ -1,5 +1,5 @@
 ---
-description: An overview about kafka acl.
+description: An overview about the Kafka ACL policy.
 metaLinks:
   alternates:
     - kafka-acl.md
@@ -63,15 +63,19 @@ For example, when using a clustered processing framework like [Apache Spark](htt
 
 ### Transactional ID resource
 
-The `Transactional ID` resource is used when producers encounter application restarts, and is necessary for exactly-once semantics. For more information, see the [Confluent documentation](https://docs.confluent.io/platform/current/security/authorization/acls/overview.html#resources).
+The `Transactional ID` resource is used when producers encounter application restarts, and is necessary for exactly once semantics. For more information, see the [Confluent documentation](https://docs.confluent.io/platform/current/security/authorization/acls/overview.html#resources).
 
 ## In combination with the Kafka Topic Mapping policy
 
 When using the Kafka ACL policy together with the [Kafka Topic Mapping](kafka-topic-mapping.md) policy, order is important. If topic mapping occurs before ACL, the ACL policy must use the broker-side name of the topic mapping. Conversely, if ACL occurs before topic mapping, the ACL policy must use the mapped name, which is the client-side name of the topic mapping.
 
+{% hint style="warning" %}
+Versions of the Kafka ACL policy earlier than 3.0.1 fail incremental fetch requests when the ACL policy runs before the Kafka Topic Mapping policy. Kafka consumers reuse a fetch session across polls, and in affected versions the topic names that the ACL policy stored for the session were later rewritten by the Kafka Topic Mapping policy, so subsequent polls in the same session failed with `TOPIC_AUTHORIZATION_FAILED` even though the initial fetch succeeded. Version 3.0.1 and later of the Kafka ACL policy keep the session state independent of topic mapping. If consumers fail with `TOPIC_AUTHORIZATION_FAILED` only after the first successful poll, upgrade the Kafka ACL policy to 3.0.1 or later.
+{% endhint %}
+
 The following examples show how you can place the topic mapping and ACL policies in relation to one another to achieve specific results.
 
-### Example 1: I want to execute the ACL policy after topic mapping
+### Example 1: Execute the ACL policy after topic mapping
 
 An API Gateway enforces Kafka ACL rules to control access to topics. However, if ACL checks happen before topic mapping, requests may be rejected because the client-side topic name isn't recognized.
 
@@ -141,7 +145,7 @@ This shows how to implement the example above in a v4 API definition:
 {% endtab %}
 {% endtabs %}
 
-### Example 2: I want to enforce ACL before topic mapping with wildcard permissions
+### Example 2: Enforce ACL before topic mapping with wildcard permissions
 
 Suppose a security-first organization requires Kafka ACL rules to be enforced before topic mapping, but some applications need wildcard-based access control to produce or consume messages from any topic that matches a pattern.
 

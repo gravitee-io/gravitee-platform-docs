@@ -36,7 +36,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [Generate JWT](generate-jwt.md)
 * [GeoIP Filtering](geoip-filtering.md)\*
 * [GraphQL Rate Limit](graphql-rate-limit.md)\*
-* [Groovy](retry.md)
+* [Groovy](groovy.md)
 * [HTML to JSON Transformation](html-to-json.md)
 * [HTTP Callout](http-callout.md)
 * [HTTP Redirect](http-redirect.md)
@@ -50,7 +50,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [JSON Threat Protection](json-threat-protection.md)
 * [JSON Validation](json-validation.md)
 * [JWS Validator](jws-validator.md)
-* [JWT Validator](retry.md)
+* [JWT Validator](jwt-validator.md)
 * [Kafka ACL](kafka-acl.md)\*
 * [Kafka Message Filtering](kafka-message-filtering.md)\*
 * [Kafka Offloading](kafka-offloading.md)\*
@@ -60,6 +60,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [Keyless](keyless.md)
 * [Latency](latency.md)
 * [Maven Archetype](maven-archetype.md)
+* [MCP ACL](ai-mcp-acl.md)\*
 * [Message Filtering](message-filtering.md)
 * [Metrics Reporter](metrics-reporter.md)
 * [Mock](mock.md)
@@ -68,6 +69,8 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [OAuth2](oauth2/README.md)
 * [OpenID Connect UserInfo](openid-connect-userinfo.md)
 * [Override HTTP Method](override-http-method.md)
+* [Prompt Guard Rails](ai-prompt-guard-rails.md)\*
+* [Prompt Token Tracking](ai-prompt-token-tracking.md)\*
 * [Protobuf to JSON Transformation](protobuf-to-json.md)\*
 * [Rate Limit](rate-limit.md)
 * [Regex Threat Protection](regex-threat-protection.md)
@@ -80,6 +83,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [SSL Enforcement](ssl-enforcement.md)
 * [Status Code Transformation](status-code-transformation.md)
 * [Template](template.md)
+* [Token Rate Limit](ai-token-rate-limit.md)
 * [Traffic Shadowing](traffic-shadowing.md)
 * [Transform Headers](transform-headers.md)
 * [Transform Query Parameters](transform-query-parameters.md)
