@@ -7,7 +7,7 @@
 
 **Gateway**
 
-* Improve the GW performance (subscriptions cache improved) [#11627](https://github.com/gravitee-io/issues/issues/11627)
+* Improve Gateway performance (subscriptions cache improved) [#11627](https://github.com/gravitee-io/issues/issues/11627)
 
 </details>
 
