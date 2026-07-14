@@ -1,7 +1,8 @@
 ---
 description: >-
-  These configuration settings and recommendations are critical to the security
-  of your production environment
+  Configuration settings are critical to the security of your production
+  environment. Gravitee's guide provides a high-level checklist when creating
+  your APIM environment.
 ---
 
 # Configure a Production-ready APIM Environment
@@ -132,7 +133,7 @@ To learn more about internal APIs, see:
 
 #### Console and Portal APIs
 
-Gravitee APIM Management API allows the simultaneous exposure of both Console and Developer Portal REST APIs. This enables quick setup when discovering the platform.
+[Gravitee APIM Management](https://www.gravitee.io/platform/api-management) API allows the simultaneous exposure of both Console and Developer Portal REST APIs. This enables quick setup when discovering the platform.
 
 If the Console and Developer Portal are not intended to be used by the same category of users, it is **recommended to deploy them on distinct instances**.
 
@@ -433,25 +434,25 @@ Perform the following steps in APIM Console to update the most common default se
     1. Select **Settings** in the inner sidebar.
     2. Update the **Company name.**
 
-    <figure><img src="../../.gitbook/assets/prod_def apim1.png" alt=""><figcaption><p>Portal settings</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/prod_def apim1.png" alt="How To Update Company Name Default Settings in Gravitee's Developer Portal"><figcaption><p>Portal settings</p></figcaption></figure>
 4.  In the **Gateway** section:
 
     1. Select **API Logging**.
     2. Update the maximum logging duration for APIM API logging to avoid flooding. In this example, we have configured a logging duration of 15 minutes:
 
-    <figure><img src="../../.gitbook/assets/prod_def apim2.png" alt=""><figcaption><p>API logging settings</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/prod_def apim2.png" alt="Demo of API Logging to avoid Flooding"><figcaption><p>API logging settings</p></figcaption></figure>
 5. Select **Organization** in the main sidebar:
    1.  In the **Gateway** section:
 
        1. Select **Sharding Tags**.
        2. In the **Entrypoint mappings** section of the page, update the **Entrypoint** field with your APIM API endpoint.
 
-       <figure><img src="../../.gitbook/assets/prod_def apim3.png" alt=""><figcaption><p>Save sharding tag</p></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/prod_def apim3.png" alt="Entrypoint mappings screenshot in Gravitee Gateway setting"><figcaption><p>Save sharding tag</p></figcaption></figure>
    2. Select **Settings** in the inner sidebar:
       * Update the **Title** of APIM Console to make it more appropriate to your own environment.
       * Update the **Management URL** to your APIM Console URL.
 
-<div align="right" data-full-width="true"><figure><img src="../../.gitbook/assets/prod_def apim4.png" alt="" width="563"><figcaption><p>Organization settings</p></figcaption></figure></div>
+<div align="right" data-full-width="true"><figure><img src="../../.gitbook/assets/prod_def apim4.png" alt="Screenshot of Management URL in Gravitee's APIM Console URL" width="563"><figcaption><p>Organization settings</p></figcaption></figure></div>
 
 #### Portal & Console default Nginx security config
 
