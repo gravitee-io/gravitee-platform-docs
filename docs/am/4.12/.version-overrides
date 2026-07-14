@@ -30,3 +30,6 @@ overview/plugins/compatibility-matrices.md
 .gitbook/assets/guide-applications-readme-84.png
 .gitbook/assets/guide-applications-readme-84 (1).png
 releases-and-changelog/changelog/am-4.12.x.md
+
+# Downgrade policy statement (4.12-only; 4.11 keeps the previous wording)
+getting-started/install-and-upgrade-guides/README.md

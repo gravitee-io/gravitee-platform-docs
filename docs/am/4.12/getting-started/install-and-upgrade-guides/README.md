@@ -26,3 +26,15 @@ As described in the Introduction to Gravitee Access Management (AM), AM is split
 * AM Management Console
 
 The guides in this section provide the details of how you can setup, configure, and upgrade your AM environment.
+
+## Downgrades aren't supported
+
+Gravitee supports upgrades only. After you upgrade an installation, don't roll it back to an earlier version.
+
+AM applies data migrations the first time the new version starts. Those migrations run forward only, and the new version writes values that an earlier version doesn't recognize. For example, AM 4.9.0 added the MFA challenge and MFA enrollment flows. A security domain that uses one of those flows can't be read by AM 4.8.x, and the earlier version fails when it loads the domain. Pointing an earlier version of AM at a database that a later version has already migrated leads to startup failures and data errors.
+
+To move back to an earlier version, restore the backup of your database that you took before the upgrade, and then start the earlier version against the restored database. Take that backup before every upgrade, and confirm that it restores into an empty instance.
+
+To evaluate an earlier version alongside your current installation, point the earlier version at a separate, empty database, or at a restored copy of a pre-upgrade backup. Never point it at your current database.
+
+For the changes that each version introduces, see [Breaking changes for Access Management](breaking-changes-for-access-management.md).
