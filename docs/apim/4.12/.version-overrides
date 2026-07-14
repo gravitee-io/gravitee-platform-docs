@@ -255,3 +255,31 @@ self-hosted-installation-guides/multi-tenancy.md
 
 # LLM proxy model override page (4.12 only — requires the LLM Proxy plugin 3.x bundled with APIM 4.12)
 ai-agent-management/llm-proxy/override-the-model-at-runtime.md
+
+# Platform-overview pages re-homed readme/ -> introduction/ in 4.12 (4.11 keeps readme/),
+# plus licensing-link repoints and orphan cleanup
+introduction/glossary.md
+introduction/enterprise-edition-installation.md
+introduction/enterprise-edition-licensing.md
+introduction/api-fundamentals/README.md
+introduction/api-fundamentals/api-basics.md
+introduction/api-fundamentals/web-apis.md
+introduction/api-fundamentals/categorizing-web-apis.md
+readme/glossary.md
+readme/enterprise-edition-installation.md
+readme/enterprise-edition-licensing.md
+readme/api-fundamentals/README.md
+readme/api-fundamentals/api-basics.md
+readme/api-fundamentals/web-apis.md
+readme/api-fundamentals/categorizing-web-apis.md
+readme/enterprise-edition.md
+readme/contribute-to-apim.md
+secure-and-expose-apis/api-products/manage-api-products-via-management-api.md
+govern-apis/federation/3rd-party-providers/apigee-x.md
+govern-apis/federation/3rd-party-providers/aws-api-gateway/README.md
+govern-apis/federation/3rd-party-providers/aws-api-gateway/aws-iam-role-based-authentication.md
+govern-apis/federation/3rd-party-providers/azure-api-management.md
+govern-apis/federation/3rd-party-providers/confluent-platform.md
+govern-apis/federation/3rd-party-providers/ibm-api-connect.md
+govern-apis/federation/3rd-party-providers/mulesoft-anypoint.md
+govern-apis/federation/3rd-party-providers/solace.md
