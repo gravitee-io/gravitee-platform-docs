@@ -127,7 +127,7 @@ The reactive execution engine does not consider the `REQUEST_CONTENT` and `RESPO
 {% hint style="info" %}
 **Migration considerations**
 
-If you have designed your APIs assuming the policy ordering imposed by the legacy execution engine, you must review your existing flows when enabling compatibility mode or migrating to a v4 API definition. There may be policy execution behavior changes due to the changes in execution order at runtime. You can use the debug mode to test the new behavior and adapt your APIs to ensure they are safely redeployed.
+If you have designed your APIs assuming the policy ordering imposed by the legacy execution engine, you must review your existing flows when enabling compatibility mode or migrating to a v4 API definition. There may be policy execution behavior changes due to the changes in execution order at runtime. You can use the debug mode to test the new behavior and adapt your APIs before you redeploy them.
 {% endhint %}
 
 ### Plan selection
@@ -440,6 +440,12 @@ If no configuration is provided, a default configuration is set to default to 30
 {% endhint %}
 {% endtab %}
 {% endtabs %}
+
+{% hint style="warning" %}
+**API timeouts don't override the Gateway request timeout**
+
+`http.requestTimeout` is a Gateway-level setting that applies to every API deployed on that Gateway. The **Read timeout** configured in an API's endpoint settings doesn't supersede it. The two timeouts run independently. Whichever elapses first interrupts the request, and the API consumer receives a `504` response. In particular, if the endpoint **Read timeout** is longer than `http.requestTimeout`, the Gateway still interrupts the request when `http.requestTimeout` elapses. To give an API more time to respond, increase `http.requestTimeout` in the Gateway configuration, then set the endpoint **Read timeout** to the duration that your backend needs. For more information about `requestTimeout` and `requestTimeoutGraceDelay`, see [Request timeout behavior](../../prepare-a-production-environment/configure-your-http-server.md#request-timeout-behavior).
+{% endhint %}
 
 #### **Example**
 
