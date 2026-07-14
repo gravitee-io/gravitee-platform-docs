@@ -15,6 +15,7 @@
 * [Deploy a Gravitee Hosted Gateway](guides/gravitee-hosted-gateways/README.md)
   * [Delete a Gravitee Hosted Gateway](guides/gravitee-hosted-gateways/delete-a-gravitee-hosted-gateway.md)
 * [Configure a Custom Domain for a Gateway](guides/custom-domains.md)
+* [Configure a Custom Domain for the Developer Portal](guides/portal-custom-domains.md)
 * [Configure Single Sign On](guides/configure-sso.md)
 * [Account Token](guides/account-token.md)
 * [Cloud Tokens](guides/cloud-tokens.md)

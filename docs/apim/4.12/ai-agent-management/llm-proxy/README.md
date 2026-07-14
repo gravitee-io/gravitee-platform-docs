@@ -8,13 +8,13 @@ An LLM Proxy is an API that is dedicated to proxying calls between an LLM consum
 
 The proxy exposes an OpenAI-compatible API so that the consumer does not have to adapt their APIs calls.
 
-The Gravitee LLM Proxy accepts OpenAI-compatible API requests and translates them to provider-specific formats. Each provider has different levels of support for OpenAI features based on their underlying API capabilities. We support only text generation.
+The Gravitee LLM Proxy accepts OpenAI-compatible API requests and translates them to provider-specific formats. Each provider has different levels of support for OpenAI features based on their underlying API capabilities. The LLM Proxy supports only text generation.
 
 ## What Issues does it solve?
 
 Developers might not know the details of the APIs for each LLM provider or know which LLM providers that their company has access to. The LLM proxy provides developers with a single API that they can call.
 
-The LLM proxy also reduces token consumption and API latency through semantic caching. When users submit queries that are semantically equivalent to previously processed prompts—even if phrased differently—the proxy serves cached results without invoking the LLM backend. This reduces costs and improves response times for common or similar queries.
+The LLM proxy also reduces token consumption and API latency through semantic caching. When users submit queries that are semantically equivalent to previously processed prompts, even if phrased differently, the proxy serves cached results without invoking the LLM backend. This reduces costs and improves response times for common or similar queries.
 
 ## How does it work?
 
@@ -44,7 +44,7 @@ The proxy automatically routes requests to the right provider and model, which d
 **Legend:**
 
 * ✅ Fully supported
-* ⚠️ Partially supported (see notes)
+* ⚠️ Partial support (see notes)
 * ❌ Not supported
 
 #### Chat Completions and Responses
@@ -267,6 +267,7 @@ Token data extracted from Bedrock's usage metadata.
 * Limited dimension support: only 256, 512, or 1024
 * Each embedding requires separate API call
 * Only "float" encoding format
+* No streaming support. Streaming applies to chat completions and responses only
 
 These constraints come from the underlying Bedrock embedding models.
 {% endtab %}
@@ -633,6 +634,13 @@ The following OpenAI features are not currently supported by any provider:
 * Invalid/incompatible parameters return explicit errors
 * Provider-specific constraints may limit parameter ranges
 
+**Response Buffering**
+
+The LLM Proxy handles response bodies differently from a generic v4 proxy API, which forwards response bytes to the client as they arrive:
+
+* For non-streaming requests, the LLM Proxy reads the complete provider response into memory and translates it to the client format before it returns the response. The client starts receiving the response only after the provider response is complete.
+* For streaming requests (`"stream": true`), the LLM Proxy translates and forwards the response chunk by chunk as it arrives from the provider.
+
 #### Gemini-Specific Limitations
 
 {% tabs %}
@@ -650,12 +658,6 @@ The following OpenAI features are not currently supported by any provider:
 #### Bedrock-Specific Limitations
 
 {% tabs %}
-{% tab title="No Streaming" %}
-* Streaming not implemented for any endpoint
-* Requires AWS EventStream format support (future work)
-* All responses are complete, non-streaming only
-{% endtab %}
-
 {% tab title="Embeddings" %}
 * No array input support (single strings only)
 * Very limited dimension options (256, 512, 1024 only)

@@ -1,8 +1,8 @@
 ---
-description: An overview about expose your apis as ai-ready tools with mcp.
+description: An overview of how to expose your APIs as AI-ready tools with MCP.
 ---
 
-# Convert REST APIS to an MCP Server
+# Convert REST APIs to an MCP Server
 
 {% hint style="warning" %}
 This feature only works with v4 proxy APIs.
@@ -12,7 +12,7 @@ This feature only works with v4 proxy APIs.
 
 {% hint style="info" %}
 **What is MCP?**\
-The Model Context Protocol (MCP) is an emerging standard that enables AI agents to understand and interact with external tools and APIs. It defines a common interface for describing operations, authentication, and capabilities, which bridges the gap between LLMs and real-world services (APIs).
+The Model Context Protocol (MCP) is an emerging standard that enables AI agents to understand and interact with external tools and APIs. It defines a common interface for describing operations, authentication, and capabilities, which connects LLMs to real-world services (APIs).
 {% endhint %}
 
 **Effortlessly transform your existing RESTful APIs into powerful, AI-ready tools for AI agents, without writing a single line of new code.** With just your OpenAPI Specification (OAS) as input, Gravitee automatically interprets and exposes your API operations as structured, actionable tools through the embedded MCP server running at the Gateway level.
@@ -23,7 +23,7 @@ In this guide, you’ll learn how to publish and expose your API operations thro
 
 ## Prerequisites
 
-* Create a v4 proxy API. For more information about creating a v4 proxy API, see .
+* Create a v4 proxy API. For more information about creating a v4 proxy API, see [v4-api-creation-wizard.md](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md "mention").
 * The OpenAPI Specification describing your API, to generate the MCP tools definition.
 
 ## Deploy your API as an MCP Server
@@ -57,3 +57,45 @@ In this guide, you’ll learn how to publish and expose your API operations thro
 11. Click **Deploy**. You receive the message **API successfully deployed**.
 
     <figure><img src="../.gitbook/assets/B3BAF69E-C256-402C-B4F2-C45D15B9CDC9_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+
+## How the OpenAPI Specification maps to MCP tools
+
+Gravitee generates one MCP tool for each operation in the OpenAPI Specification. The quality of the generated tools depends on the specification, because AI agents select and call a tool based on its name and description.
+
+Gravitee maps each operation as follows:
+
+<table>
+    <thead>
+        <tr>
+            <th width="220">MCP tool field</th>
+            <th>Source in the OpenAPI Specification</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Tool name</td>
+            <td>The operation's <code>operationId</code>. When the operation has no <code>operationId</code>, Gravitee derives the name from the HTTP method and the path.</td>
+        </tr>
+        <tr>
+            <td>Tool description</td>
+            <td>The operation's <code>summary</code> and <code>description</code>, joined together. When the operation has neither, Gravitee falls back to a generic description built from the HTTP method and the path.</td>
+        </tr>
+        <tr>
+            <td>Tool input schema</td>
+            <td>The operation's path parameters, query parameters, and header parameters, followed by the JSON request body schema. Parameters declared once for a whole path apply to every operation on that path.</td>
+        </tr>
+        <tr>
+            <td>Tool output schema</td>
+            <td>The JSON response body schema and the response headers of the successful (<code>2xx</code>) response.</td>
+        </tr>
+    </tbody>
+</table>
+
+Recommended: give every operation an `operationId`, a `summary`, and a `description` in your OpenAPI Specification before you generate the tools. Operations without them produce tools that are named and described only by their HTTP method and path, which gives an AI agent little to reason about.
+
+## Current limitations
+
+* This feature works only with v4 proxy APIs.
+* Generating tools replaces the entire set of tools for the API. Gravitee doesn't merge new tools into the tools that already exist.
+* The generated tools are read-only in the Console. To change a tool's name, description, or schema, update the source OpenAPI Specification, and then generate the tools again from the updated specification.
+* Each tool name is unique. When two operations resolve to the same tool name, Gravitee reports a duplicate name error at generation time. Give those operations distinct `operationId` values in the specification.
