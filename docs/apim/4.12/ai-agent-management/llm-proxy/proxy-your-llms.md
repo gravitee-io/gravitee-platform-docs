@@ -2,9 +2,9 @@
 
 ## Overview
 
-The LLM proxy exposes an OpenAI compatible API to the consumer, which you can easily plug in any OpenAI-compatible client. On the backend, the LLM proxy automatically maps and adapts requests to different LLM providers.
+The LLM proxy exposes an OpenAI compatible API to the consumer, which you can plug in any OpenAI-compatible client. On the backend, the LLM proxy automatically maps and adapts requests to different LLM providers.
 
-This allows you to leverage the Gravitee ecosystem with your LLMs. You can apply our policies, manage subscriptions and track analytics, but you also have new features tailored to LLMs such as statistics and rate limiting based on LLM tokens.
+This allows you to leverage the Gravitee ecosystem with your LLMs. You can apply Gravitee policies, manage subscriptions and track analytics, but you also have new features tailored to LLMs such as statistics and rate limiting based on LLM tokens.
 
 This guide explains how to set up your LLM in Gravitee.
 
@@ -85,3 +85,4 @@ The response lists all of the models that you can call with that API:
 
 * [add-the-token-rate-limit-policy-to-your-llm-proxy.md](add-the-token-rate-limit-policy-to-your-llm-proxy.md "mention")
 * [add-the-guard-rails-policy-to-your-llm-proxy.md](add-the-guard-rails-policy-to-your-llm-proxy.md "mention")
+* [override-the-model-at-runtime.md](override-the-model-at-runtime.md "mention")
