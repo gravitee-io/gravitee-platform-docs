@@ -15,7 +15,7 @@ Confluent Platform is a comprehensive event streaming platform built on Apache K
 Before you install the Confluent Platform federation agent, complete the following steps:
 
 * Access to a Confluent Platform instance.
-* Verify Gravitee API Management version 4.5 or later, with an enterprise license. For more information about Enterprise edition, see [Enterprise Edition Licensing](../../../readme/enterprise-edition-licensing.md#license-support).
+* Verify Gravitee API Management version 4.5 or later, with an enterprise license. For more information about Enterprise edition, see [Enterprise Edition Licensing](../../../introduction/enterprise-edition-licensing.md#license-support).
 * An access token. For more information, see [how to create a service account and an access token.](../federation-agent-service-account.md)
 * Identify your Confluent Platform cluster API endpoint and schema registry endpoint.
 * Obtain Confluent Platform credentials, including username and password.
