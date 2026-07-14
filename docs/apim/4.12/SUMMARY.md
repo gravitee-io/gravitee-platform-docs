@@ -461,6 +461,7 @@
     * [Accepted request formats](ai-agent-management/llm-proxy/accepted-request-formats.md)
     * [Add the Token Rate Limit policy to your LLM proxy](ai-agent-management/llm-proxy/add-the-token-rate-limit-policy-to-your-llm-proxy.md)
     * [Add the Guard Rails policy to your LLM proxy](ai-agent-management/llm-proxy/add-the-guard-rails-policy-to-your-llm-proxy.md)
+    * [Override the model at runtime](ai-agent-management/llm-proxy/override-the-model-at-runtime.md)
     * [Consume your LLM proxy with the OpenAI Python SDK](ai-agent-management/llm-proxy/consume-your-llm-proxy-with-the-openai-python-sdk.md)
     * [Connect Claude Code through a Gravitee LLM Proxy](ai-agent-management/llm-proxy/connect-claude-code-through-gravitee-llm-proxy.md)
   * [Secure MCP Proxy with OAuth2](ai-agent-management/secure-mcp-proxy-with-oauth2.md)

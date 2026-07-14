@@ -252,3 +252,6 @@ self-hosted-installation-guides/kubernetes/aws-eks.md
 self-hosted-installation-guides/kubernetes/azure-aks.md
 self-hosted-installation-guides/kubernetes/vanilla-kubernetes/README.md
 self-hosted-installation-guides/multi-tenancy.md
+
+# LLM proxy model override page (4.12 only — requires the LLM Proxy plugin 3.x bundled with APIM 4.12)
+ai-agent-management/llm-proxy/override-the-model-at-runtime.md
