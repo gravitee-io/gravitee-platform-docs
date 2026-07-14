@@ -256,6 +256,12 @@ self-hosted-installation-guides/multi-tenancy.md
 # LLM proxy model override page (4.12 only — requires the LLM Proxy plugin 3.x bundled with APIM 4.12)
 ai-agent-management/llm-proxy/override-the-model-at-runtime.md
 
+# Support-deflection docs batch: LLM Proxy streaming/buffering, MCP tool generation,
+# 4.8.x -> 4.10.x upgrade checklist, downgrade policy
+ai-agent-management/llm-proxy/README.md
+ai-agent-management/convert-your-apis-to-mcp-servers.md
+upgrade-guides/upgrade-apim-from-4.8.x-to-4.10.x.md
+
 # Platform-overview pages re-homed readme/ -> introduction/ in 4.12 (4.11 keeps readme/),
 # plus licensing-link repoints and orphan cleanup
 introduction/glossary.md
