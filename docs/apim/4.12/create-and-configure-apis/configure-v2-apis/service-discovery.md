@@ -1,5 +1,5 @@
 ---
-description: An overview about service discovery.
+description: View Gravitee's complete guide to configure service discovery using the HashiCorp Consul solution.
 metaLinks:
   alternates:
     - service-discovery.md
@@ -27,7 +27,7 @@ Consul agents that run in server mode become the centralized registry for servic
 Refer to the [official Consul documentation](https://www.consul.io/docs/install) to learn how to install a Consul server.
 {% endhint %}
 
-To use `docker-compose` to set up an integration between Gravitee APIM and HashiCorp Consul:
+To use `docker-compose` to set up an integration between [Gravitee APIM](https://www.gravitee.io/platform/api-management) and HashiCorp Consul:
 
 1. Edit the `docker-compose.yml` used to install Gravitee and declare an additional service for the Consul server. The example below declares a read-only volume to mount the directory containing Consul configuration files.
 
@@ -96,7 +96,7 @@ curl -X PUT -d '{ "ID": "whattimeisit_1", "Name": "whattimeisit", "Address": "ap
 
 The Consul web UI should display a new service named `whattimeisit`:
 
-<figure><img src="../../.gitbook/assets/service-discovery-consul-services.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/service-discovery-consul-services.png" alt="Consul web UI Environment with whattimeisit photo"><figcaption></figcaption></figure>
 
 You can also verify that your service is successfully registered in Consul by interacting with Consul Agent API.
 
