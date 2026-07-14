@@ -16,7 +16,7 @@ metaLinks:
 If you enable logging on APIs, you can use the `data-logging-masking` policy to configure rules to conceal sensitive data. You can use `json-path`, `xml-path` or a regular expression to identify the information to hide.
 
 {% hint style="info" %}
-**When using V2 APIs:** Place the `data-logging-masking` policy last in both the request and response flows. Putting it at the end ensures that any other policy altering the content is well caught and properly masked in the logs.
+**When using V2 APIs:** Place the `data-logging-masking` policy last in both the request and response flows. Putting it at the end ensures that content altered by any other policy is masked in the logs.
 
 **When using V4 APIs:** Data masking is automatically operated just before the reporting phase, so manual positioning is not required.
 {% endhint %}
@@ -24,6 +24,76 @@ If you enable logging on APIs, you can use the `data-logging-masking` policy to 
 ## Examples
 
 {% tabs %}
+{% tab title="v4 API example" %}
+Sample policy configuration for a v4 proxy API:
+
+```json
+{
+  "api": {
+    "definitionVersion": "V4",
+    "type": "PROXY",
+    "name": "Data Logging Masking example API",
+    "flows": [
+      {
+        "name": "Common Flow",
+        "enabled": true,
+        "selectors": [
+          {
+            "type": "HTTP",
+            "path": "/",
+            "pathOperator": "STARTS_WITH"
+          }
+        ],
+        "request": [
+          {
+            "name": "Data Logging Masking",
+            "enabled": true,
+            "policy": "policy-data-logging-masking",
+            "configuration":
+              {
+                  "scope": "REQUEST_CONTENT",
+                  "headerRules": [
+                      {
+                          "path": "X-Header-To-Mask",
+                          "replacer": "*"
+                      }
+                  ],
+                  "bodyRules": [
+                      {
+                          "path": "$.field",
+                          "replacer": "-"
+                      },
+                      {
+                          "type": "EMAIL",
+                          "replacer": "@"
+                      },
+                      {
+                          "type": "URI",
+                          "replacer": "U"
+                      },
+                      {
+                          "type": "IP",
+                          "replacer": "IP"
+                      },
+                      {
+                          "type": "CREDIT_CARD",
+                          "replacer": "$"
+                      },
+                      {
+                          "regex": "(proto?:/.w*)(:\\d*)?\\/?(.*?)",
+                          "replacer": "S"
+                      }
+                  ]
+              }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+{% endtab %}
+
 {% tab title="v2 API example" %}
 Sample policy configuration:
 
@@ -92,17 +162,17 @@ You can enable or disable the policy with policy identifier `policy-data-logging
 
 The phases checked below are supported by the `data-logging-masking` policy:
 
-<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>false</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ### Options
 
 You can configure the `data-logging-masking` policy with the following options:
 
-<table><thead><tr><th width="153">Property</th><th data-type="checkbox">Required</th><th width="164">Description</th><th width="209">Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>Scope where the policy is executed</td><td>Policy scope</td><td>REQUEST_CONTENT</td></tr><tr><td>headerRules</td><td>false</td><td>List of mask rules to apply on client and proxy headers</td><td>List&#x3C;MaskHeaderRule></td><td></td></tr><tr><td>bodyRules</td><td>false</td><td>List of mask rules to apply on client and proxy body</td><td>List&#x3C;MaskBodyRule></td><td></td></tr></tbody></table>
+<table><thead><tr><th width="153">Property</th><th data-type="checkbox">Required</th><th width="164">Description</th><th width="209">Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>false</td><td>Scope where the policy is executed</td><td>Policy scope</td><td>REQUEST_CONTENT</td></tr><tr><td>headerRules</td><td>false</td><td>List of mask rules to apply on client and proxy headers</td><td>List&#x3C;MaskHeaderRule></td><td></td></tr><tr><td>bodyRules</td><td>false</td><td>List of mask rules to apply on client and proxy body</td><td>List&#x3C;MaskBodyRule></td><td></td></tr></tbody></table>
 
 #### Mask header rule
 
-<table><thead><tr><th width="129">Property</th><th data-type="checkbox">Required</th><th width="165">Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>path</td><td>false</td><td>Header name to transform</td><td>String</td><td></td></tr><tr><td>replacer</td><td>false</td><td>Replacement character</td><td>String</td><td>*</td></tr></tbody></table>
+<table><thead><tr><th width="129">Property</th><th data-type="checkbox">Required</th><th width="165">Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>path</td><td>true</td><td>Header name to transform</td><td>String</td><td></td></tr><tr><td>replacer</td><td>false</td><td>Replacement character</td><td>String</td><td>*</td></tr></tbody></table>
 
 #### Mask body rule
 
@@ -113,5 +183,3 @@ You can configure the `data-logging-masking` policy with the following options:
 The following is the compatibility matrix for APIM and the `data-logging-masking` policy:
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>Up to 1.x</td><td>Up to 3.17.x</td></tr><tr><td>2.0 to 2.x</td><td>3.18.x to 3.20.x</td></tr><tr><td>3.0+</td><td>4.0+</td></tr></tbody></table>
-
-xx
