@@ -2,7 +2,7 @@
 
 ## Overview
 
-Gateway Cluster sync leverages Redis to synchronize the state of APIs, keys, and other configurations across your API Gateways in memory, significantly improving system scalability and resilience. Instead of every gateway directly calling the central management repository, a primary node fetches the state and stores it in a Redis-backed Distributed Sync repository, from which all secondary nodes read. This architecture minimizes the load on the main database and ensures high availability, allowing gateways to continue serving traffic—and new instances to bootstrap—even if the central control plane experiences downtime. By actively tracking synchronization states and deployment events, the cluster maintains consistent, incremental updates and supports seamless failovers if the primary node goes offline.
+Gateway Cluster sync leverages Redis to synchronize the state of APIs, keys, and other configurations across your API Gateways in memory, significantly improving system scalability and resilience. Instead of every gateway directly calling the central management repository, a primary node fetches the state and stores it in a Redis-backed Distributed Sync repository, from which all secondary nodes read. This architecture minimizes the load on the main database and ensures high availability, allowing gateways to continue serving traffic, and new instances to bootstrap, even if the central control plane experiences downtime. By actively tracking synchronization states and deployment events, the cluster maintains consistent, incremental updates and supports seamless failover if the primary node goes offline.
 
 ## Prerequisites
 
@@ -16,13 +16,13 @@ A standard Redis deployment without the Search module appears to connect success
   * The `redis/redis-stack` Docker image, which bundles RediSearch.
   * Redis 8+, which includes the Search module natively.
   * Redis 7 or earlier with the RediSearch module loaded. You can load the module by adding `loadmodule /usr/local/lib/redis/modules/redisearch.so` to your Redis configuration. For more information about Redis and RedisSearch, see [Redis](/apim/4.10/prepare-a-production-environment/repositories/redis.md) and the [RedisSearch documentation](https://redis.io/docs/latest/develop/interact/search-and-query/).
-* Obtain an Enterprise License. You must mount the license into every API Gateway pod to start the `repository-redis` plugin and load `DISTRIBUTED_SYNC`. For more information about obtaining an enterprise license, see [Enterprise Edition](/apim/4.10/readme/enterprise-edition.md).
+* Obtain an Enterprise License. You must mount the license into every API Gateway pod to start the `repository-redis` plugin and load `DISTRIBUTED_SYNC`. For more information about obtaining an enterprise license, see [Enterprise Edition](../../../introduction/enterprise-edition.md).
 * Deploy a fully Self-Hosted Installation or a Hybrid Installation of APIM. For more information about self-hosted installation, see [Self-Hosted Installation Guides](/apim/4.10/self-hosted-installation-guides.md) or [Hybrid Installation & Configuration Guides](/apim/4.10/hybrid-installation-and-configuration-guides.md).
 * Deploy at least two API Gateway replicas. Distributed sync works only when `gateway.replicaCount` is greater than or equal to 2, and `gateway.autoscaling.enabled` is `false`, because the Helm chart only honors `replicaCount` when the HPA is disabled.
 
 ## Cluster-scoped Redis and Hazelcast cluster naming
 
-From APIM 4.12, distributed sync keys in Redis are scoped by **cluster ID** (the Hazelcast `cluster-name`). When several gateway groups share one Redis instance—for example, `external` and `internal` gateway hosts—each group must use a **different** `<cluster-name>` in `hazelcast-cluster.xml`.
+From APIM 4.12, distributed sync keys in Redis are scoped by **cluster ID** (the Hazelcast `cluster-name`). When several gateway groups share one Redis instance (for example, `external` and `internal` gateway hosts), each group must use a **different** `<cluster-name>` in `hazelcast-cluster.xml`.
 
 | Gateway group | Example `cluster-name` | Redis key prefix |
 |:--------------|:-----------------------|:-----------------|
