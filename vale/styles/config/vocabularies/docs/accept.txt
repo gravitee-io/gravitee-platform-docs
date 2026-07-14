@@ -868,3 +868,4 @@ maxSurge
 # Additional accepted terms (2026-07-14)
 # ============================================
 llmtest
+[Pp]reconfigured
