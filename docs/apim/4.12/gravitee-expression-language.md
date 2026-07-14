@@ -1,3 +1,7 @@
+---
+description: Access our comprehensive guide on Gravitee Expression Language (EL) queries and usage.
+---
+
 # Gravitee Expression Language
 
 ## Overview
@@ -219,7 +223,7 @@ The notifier body is processed by FreeMarker, not the EL template engine. The EL
 
 The Expression Language (EL) Assistant generates EL expressions based on natural language prompts. You describe the condition or logic you need, and the Assistant returns the corresponding EL syntax.
 
-<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-7672c60e0db5e4b1f2a071af3eba3f0b759cb7e3%2Fanim.gif?alt=media" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-7672c60e0db5e4b1f2a071af3eba3f0b759cb7e3%2Fanim.gif?alt=media" alt="Demo of Expression Language (EL) Assistant to generate EL syntax from prompt"><figcaption></figcaption></figure>
 
 ### Prerequisites
 
@@ -281,14 +285,14 @@ The EL Assistant is available in any field that supports Expression Language.
 
 1.  In the field that supports Expression Language, click the **{EL}** icon.
 
-    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-008c4fc76a06b5570f9af67bb2cfc51457ab629f%2F304A887B-9FD1-4011-961A-7DB7D91D3478_1_201_a.jpeg?alt=media" alt=""><figcaption></figcaption></figure>
+    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-008c4fc76a06b5570f9af67bb2cfc51457ab629f%2F304A887B-9FD1-4011-961A-7DB7D91D3478_1_201_a.jpeg?alt=media" alt="Image of Gravitee Developer Portal and Create a New Flow with EL Assistant"><figcaption></figcaption></figure>
 2. In the **EL Assistant** pop-up window, enter a natural language prompt describing the Expression Language you need. For example: "Only run this policy if the header equals test."
 3.  Click **Ask Newt AI**. The Assistant generates the corresponding Expression Language.
 
-    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-7d9c2dbfbfb15a07488aef31b1f2ff476bc84c4c%2FDBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a.jpeg?alt=media" alt=""><figcaption></figcaption></figure>
+    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-7d9c2dbfbfb15a07488aef31b1f2ff476bc84c4c%2FDBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a.jpeg?alt=media" alt="Demo image of Gravitee Ask Newt AI to generate Expression Language"><figcaption></figcaption></figure>
 4.  (Optional) Provide feedback by clicking the **thumbs up** or **thumbs down** icon.
 
-    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-fdfd3541a28f3f38863088cd442a5d75838cbcc3%2F6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a.jpeg?alt=media" alt=""><figcaption></figcaption></figure>
+    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-fdfd3541a28f3f38863088cd442a5d75838cbcc3%2F6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a.jpeg?alt=media" alt="Photo of feedback option on Gravitee Expression Language (EL) Assistant"><figcaption></figcaption></figure>
 
 ### Use case examples
 

@@ -1,5 +1,5 @@
 ---
-description: An overview about management api reference.
+description: An overview guide for Gravitee's management api reference.
 metaLinks:
   alternates:
     - management-api-reference.md
@@ -9,7 +9,7 @@ metaLinks:
 
 ## Overview
 
-The Gravitee Management API is the programmatic interface to the Gravitee APIM backend. The Management API consists of two main subcomponents:
+The Gravitee Management API is the programmatic interface to the [Gravitee APIM](https://www.gravitee.io/platform/api-management) backend. The Management API consists of two main subcomponents:
 
 * The **Management** component. This component exposes the core functionality of APIM. For example, creating APIs, deploying APIs to the gateway, and analytics.
 * The **Portal** component. This component exposes endpoints for listing and managing APIs and applications in Gravitee's Developer Portal UI. Also, you can use the Portal API endpoints to build custom developer portals.

@@ -1,4 +1,5 @@
 ---
+description: Dive into use case for AM as well as an overview of core components, concepts, and authorization mechanisms with Gravitee.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/overview/readme
@@ -6,9 +7,9 @@ metaLinks:
 
 # Introduction to Gravitee Access Management (AM)
 
-Gravitee Access Management (AM) is a flexible, lightweight, and easy-to-use open source Identity and Access Management (IAM) solution. It offers a centralized authentication and authorization service to deliver secure access to your applications and APIs from any device.
+[Gravitee Access Management (AM)](https://www.gravitee.io/platform/ai-identity-access-management) is a flexible, lightweight, and easy-to-use open source Identity and Access Management (IAM) solution. It offers a centralized authentication and authorization service to deliver secure access to your applications and APIs from any device.
 
-With its intuitive design and seamless integration with our API Management product, Access Management is the natural Identity and Access Management platform choice for our customers.
+With its intuitive design and seamless integration with [our API Management product](https://www.gravitee.io/platform/api-management), Access Management is the natural Identity and Access Management platform choice for our customers.
 
 This article describes the use case for AM and gives a high-level overview of its core components, concepts, and authorization mechanisms.
 
