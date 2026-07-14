@@ -1,6 +1,10 @@
+---
+description: Checklists, step-by-step guides, tutorials, and more - all found on Gravitee's Documentation site.
+---
+
 # gravitee-platform-docs
 
-The [Gravitee platform documentation](https://documentation.gravitee.io/platform-overview/) is intended for both business stakeholders and developers as an introduction to the core concepts and technologies comprising Gravitee’s best-in-class API management solution. Gravitee’s standalone and integrated products position customers to easily adopt and maintain complex API architectures and communication in a versatile and innovative ecosystem.
+The [Gravitee platform documentation](https://documentation.gravitee.io/platform-overview/) is intended for both business stakeholders and developers as an introduction to the core concepts and technologies comprising Gravitee’s best-in-class [API management platform](https://www.gravitee.io/platform/api-management). Gravitee’s standalone and integrated products position customers to easily adopt and maintain complex API architectures and communication in a versatile and innovative ecosystem.
 
 The UX of the docs site is structured to promote intuitive navigation and an informative exploration of platform features and capabilities. The fundamental functionality of each Gravitee product is presented in the context of satisfying the business needs of real-world use cases. The complementary relationships between and extensibility of individual platform components demonstrate a centralized, comprehensive approach to API management that is compatible with a wide variety of customer roadmaps and infrastructures. Exhaustive implementation details organized into user guides and reference materials provide clarified guidance with which to harness the potential of Gravitee’s flexible, customizable, and sophisticated feature sets. 
 

@@ -1,5 +1,5 @@
 ---
-description: An overview about release notes.
+description: An overview about Gravitee's release notes on news, overviews, and patch releases.
 metaLinks:
   alternates:
     - ./
