@@ -5,6 +5,19 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.8 - July 14, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* APIM -  Traffic Shadowing Policy giving status 0 [#11506](https://github.com/gravitee-io/issues/issues/11506)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.7 - July 13, 2026
 <details>
 
