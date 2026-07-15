@@ -10,6 +10,10 @@ While API publishers can create properties for their own APIs, dictionaries prov
 
 Dictionary properties are based on key-value pairs. You can create two types of dictionaries: manual and dynamic.
 
+{% hint style="warning" %}
+APIM doesn't support encrypting dictionary property values. Dictionaries don't have an encryption option, in contrast to API properties. For sensitive values that are scoped to a single API, use encrypted API properties instead of a dictionary. For more information, see [Property Encryption](../../prepare-a-production-environment/production-best-practices/general-recommendations/property-encryption.md).
+{% endhint %}
+
 Dictionaries need to be deployed to the API Gateway before you can use them. You can see the date and time the dictionary was last deployed in the dictionary list:
 
 <figure><img src="../../.gitbook/assets/dictionaries-screenshot-1.png" alt=""><figcaption></figcaption></figure>

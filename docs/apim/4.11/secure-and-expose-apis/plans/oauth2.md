@@ -17,6 +17,10 @@ The OAuth2 authentication type checks access token validity during request proce
 When an Identity Provider does not fully support the [OAuth2](oauth2.md) standard, you can use Gravitee's [JWT Plan](jwt.md).
 {% endhint %}
 
+{% hint style="warning" %}
+APIM supports OAuth 2.0 only. There's no OAuth 1.0 plan security type, policy, or resource. The OAuth2 policy and its authorization server resources validate OAuth 2.0 access tokens only. To secure an API whose client applications use OAuth 1.0, migrate the applications to OAuth 2.0, and secure the API with an OAuth2 plan.
+{% endhint %}
+
 ## Configuration
 
 To configure an OAuth2 plan, you must first create an [OAuth2 client resource](../../create-and-configure-apis/apply-policies/resources.md) that represents your OAuth 2.0 authorization server.
