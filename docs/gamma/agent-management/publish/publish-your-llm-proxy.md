@@ -44,5 +44,5 @@ For plan management and subscription workflows, see [Configure an LLM Proxy](../
 
 ## Next steps
 
-* [Configure an LLM Proxy](../build/configure-an-llm-proxy.md) — Add routing strategies, guardrails, and additional security plans.
-* [Monitor AI Gateway usage from employee systems](../observe/monitor-ai-gateway-from-devices.md) — View traffic and cost attribution for published LLM Proxies.
+* [Configure an LLM Proxy](../build/configure-an-llm-proxy.md): Add guardrails and additional security plans.
+* [Monitor AI Gateway usage from employee systems](../observe/monitor-ai-gateway-from-devices.md): View traffic and cost attribution for published LLM Proxies.
