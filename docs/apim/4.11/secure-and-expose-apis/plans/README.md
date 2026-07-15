@@ -21,6 +21,13 @@ Example access scenarios APIM can manage with plans include:
 
 Each plan must include at least one security type by which subscribers can be authenticated. A security type is a policy integrated directly into a plan. Once a plan is created, the security type can not be changed. However, you can add additional security at the API or plan level with policies.
 
+### NTLM authentication
+
+APIM doesn't support NTLM authentication. There's no NTLM plan security type for authenticating client applications, and no NTLM option for authenticating the Gateway against backend endpoints.
+
+* To secure client access to an API, use one of the supported plan security types: Keyless, API Key, JWT, OAuth2, or mTLS.
+* To authenticate the Gateway against a backend endpoint, configure a client certificate in the SSL options of the endpoint, or add an `Authorization` header with the Transform Headers policy. For more information, see [Transform Headers](../../create-and-configure-apis/apply-policies/policy-reference/transform-headers.md).
+
 ## Create a plan
 
 To create a plan:
