@@ -7,10 +7,10 @@ noIndex: false
 <!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 
-This quickstart walks you through creating an LLM Proxy, connecting it to an upstream model provider, and sending a test prompt through the AI Gateway. You'll use the simplest configuration — a single model with API key authentication and a keyless consumer plan — to get a working LLM Proxy in under five minutes.
+This quickstart walks you through creating an LLM Proxy, connecting it to an upstream model provider, and sending a test prompt through the AI Gateway. You'll use the simplest configuration, a single model with API key authentication and a keyless consumer plan, to get a working LLM Proxy in under five minutes.
 
 {% hint style="info" %}
-The Gamma console refers to the LLM Proxy creation flow as the **LLM Router wizard**. The Router is the routing configuration of your LLM Proxy — they are the same artifact. For a complete reference on all configuration options, see [Create an LLM Proxy](../build/create-an-llm-proxy.md).
+The Gamma console refers to the LLM Proxy creation flow as the **LLM Router wizard**. The Router is the routing configuration of your LLM Proxy. They are the same artifact. For a complete reference on all configuration options, see [Create an LLM Proxy](../build/create-an-llm-proxy.md).
 {% endhint %}
 
 ## Prerequisites
@@ -53,7 +53,7 @@ Select **Next** to proceed.
 
 The third wizard step controls how consumers authenticate when sending prompts through the LLM Proxy.
 
-For this quickstart, select **Keyless**. A keyless plan requires no consumer authentication — any client can send prompts without credentials. This is the fastest way to verify your proxy works.
+For this quickstart, select **Keyless**. A keyless plan requires no consumer authentication. Any client can send prompts without credentials. This is the fastest way to verify your proxy works.
 
 {% hint style="warning" %}
 Keyless plans are intended for testing. For production use, select an API Key plan to track usage per consumer, enforce rate limits, and attribute costs. See [Configure an LLM Proxy](../build/configure-an-llm-proxy.md).
@@ -63,7 +63,7 @@ Select **Next** to proceed.
 
 ## Step 5: Review and create
 
-Review the LLM Proxy configuration — provider, model, authentication, context path, and consumer plan — then select **Create**.
+Review the LLM Proxy configuration (provider, model, authentication, context path, and consumer plan), then select **Create**.
 
 The console creates the LLM Proxy and deploys it to the AI Gateway.
 
@@ -85,7 +85,7 @@ A successful response returns the model's reply, confirming that the AI Gateway 
 
 ## Next steps
 
-* **Add more models** — Configure additional providers and routing strategies to distribute traffic. See [Configure an LLM Proxy](../build/configure-an-llm-proxy.md).
-* **Secure with an API key plan** — Replace the keyless plan with an API key to track usage and enforce rate limits.
-* **Route Claude Code through the proxy** — Set `ANTHROPIC_BASE_URL` to point at your LLM Proxy for zero-code integration. See [Connect Claude Code to the Edge Daemon](../../edge-management/connect-claude-code-to-daemon.md).
-* **Publish** — Make the LLM Proxy discoverable. See [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md).
+* **Add more models**: Configure additional providers. See [Configure an LLM Proxy](../build/configure-an-llm-proxy.md).
+* **Secure with an API key plan**: Replace the keyless plan with an API key to track usage and enforce rate limits.
+* **Route Claude Code through the proxy**: Set `ANTHROPIC_BASE_URL` to point at your LLM Proxy for zero-code integration. See [Connect Claude Code to the Edge Daemon](../../edge-management/connect-claude-code-to-daemon.md).
+* **Publish**: Make the LLM Proxy discoverable. See [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md).
