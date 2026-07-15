@@ -20,14 +20,14 @@ Each AI model in the Catalog records the following metadata:
 | **Family**             | The model family.                                                             |
 | **Context window**     | The maximum token context length supported by this model.                     |
 | **Capabilities**       | Supported interaction types (e.g., `chat`, `embeddings`).                     |
-| **Pricing**            | Input and output cost per 1M tokens, used for cost attribution and routing.   |
+| **Pricing**            | Input and output cost per 1M tokens, used for cost attribution.               |
 
 ## Import models
 
 To add new AI models to your catalog, connect a provider and import them:
 
 1. From the Gamma console sidebar, select **Agent Management**.
-2. Navigate to the **Catalog** → **AI Models** list.
+2. In the **Catalog** section of the sidebar, select **AI Models**.
 3. Select **Add AI Model**.
 4. **Choose source type**: Select an LLM provider or Azure AI Foundry to import deployed models.
 5. **Configure connection**: Enter the required credentials (e.g., Azure Subscription ID, Resource Group, Account Name, and Bearer Token).
@@ -35,22 +35,21 @@ To add new AI models to your catalog, connect a provider and import them:
 7. **Review**: Confirm the inventory result (available models vs. active models) and the detected capabilities.
 8. Select **Import**.
 
-The selected models appear in the Catalog and become available for use in LLM Proxy routing configurations.
+The selected models appear in the Catalog and become available for use in LLM Proxy configurations.
 
 ## Edit model details
 
 You can adjust the display name and description of an imported model:
 
-1. Navigate to the **Catalog** → **AI Models** list.
+1. In the **Catalog** section of the sidebar, select **AI Models**.
 2. Select the model.
-3. Update the **Display name** and **Description**. 
+3. Update the **Display name** and **Description**.
    _Note: The Provider, Query name, Family, Context window, Capabilities, and Pricing are derived from the model source and cannot be changed._
 4. Select **Save**.
 
 ## Next steps
 
-* **Create an LLM Proxy** — Route traffic to cataloged models. See [Create an LLM Proxy](../build/create-an-llm-proxy.md).
-* **Configure routing** — Use cost-based or latency-based routing across multiple cataloged models. See [Configure an LLM Proxy](../build/configure-an-llm-proxy.md).
+* **Create an LLM Proxy**: Route traffic to cataloged models. See [Create an LLM Proxy](../build/create-an-llm-proxy.md).
 
 <!-- Source: gravitee-gamma-module-aim/src/main/ui/app/features/catalog/models/ModelForm.tsx -->
 <!-- Source: gravitee-gamma-module-aim/src/main/ui/app/features/catalog/models/ImportModelsPage.tsx -->
