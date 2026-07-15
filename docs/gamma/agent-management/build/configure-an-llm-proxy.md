@@ -6,23 +6,12 @@ noIndex: false
 # Configure an LLM Proxy
 
 
-After creating an LLM Proxy, configure routing strategies, guardrails, PII filtering, rate limiting, security plans, and policies. This page covers all post-creation configuration options.
-
-## Routing strategies
-
-<!-- Source: src/main/ui/lib/api/llm-proxy.types.ts -->
-When multiple models are configured on an LLM Proxy, routing strategies determine which model handles each request.
-
-| Strategy          | How it works                                                                                                                                              |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Cost-based**    | (`COST`) Routes to the cheapest model that satisfies a constraint.                                                                                        |
-| **Latency-based** | (`LATENCY`) Routes to the fastest available endpoint.                                                                                                     |
-| **Random**        | (`RANDOM`) Distributes load randomly across configured models.                                                                                            |
+After creating an LLM Proxy, configure guardrails, PII filtering, rate limiting, security plans, and policies. This page covers all post-creation configuration options.
 
 ## Guardrails, PII filtering, and Rate limiting
 
 <!-- Source: src/main/ui/app/features/secure/pages/llm-router-detail/llm-studio/LlmStudioPage.tsx -->
-Guardrails, PII filtering, and rate limiting are implemented using standard Gravitee policies. You configure them by attaching policies with the LLM Studio. 
+Guardrails, PII filtering, and rate limiting are implemented using standard Gravitee policies. You configure them by attaching policies with the LLM Studio.
 
 The LLM Studio operates just like the API Management policy studio, supporting request/response phases. To attach these controls:
 
@@ -66,6 +55,6 @@ This data is visualized in the **LLM — Overview** dashboard, which tracks `LLM
 
 ## Next steps
 
-* [Create an LLM Proxy](create-an-llm-proxy.md) — Create a new LLM Proxy if you haven't already.
-* [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md) — Make the LLM Proxy discoverable.
-* [Monitor AI Gateway usage from employee systems](../observe/monitor-ai-gateway-from-devices.md) — View AI traffic from employee devices.
+* [Create an LLM Proxy](create-an-llm-proxy.md): Create a new LLM Proxy if you haven't already.
+* [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md): Make the LLM Proxy discoverable.
+* [Monitor AI Gateway usage from employee systems](../observe/monitor-ai-gateway-from-devices.md): View AI traffic from employee devices.
