@@ -8,7 +8,7 @@ noIndex: false
 An LLM Proxy routes traffic to upstream model providers (Anthropic, OpenAI, Bedrock, Vertex AI, Azure) through the AI Gateway, adding authentication, cost attribution, observability, guardrails, and fine-grained authorization to every model call.
 
 {% hint style="info" %}
-The Gamma console refers to the LLM Proxy creation flow as the **LLM Router wizard**. The Router is the routing configuration of your LLM Proxy — they are the same artifact. For a simplified quickstart, see [Create your LLM Proxy](../get-started/create-your-llm-proxy.md).
+The Gamma console refers to the LLM Proxy creation flow as the **LLM Router wizard**. The Router is the routing configuration of your LLM Proxy. They are the same artifact. For a simplified quickstart, see [Create your LLM Proxy](../get-started/create-your-llm-proxy.md).
 {% endhint %}
 
 ## Step 1: Open the LLM Proxy wizard
@@ -23,7 +23,7 @@ The console opens the LLM Router wizard.
 
 The LLM Proxy supports two modes for selecting upstream models:
 
-**Inline mode** — Configure the provider and model directly in the wizard:
+In **Inline mode**, you configure the provider and model directly in the wizard:
 
 <!-- Source: src/main/ui/app/features/secure/pages/llm-router-create/Step1Models.tsx -->
 | Field                     | Required | Description                                                                                                      |
@@ -33,15 +33,15 @@ The LLM Proxy supports two modes for selecting upstream models:
 | **Authentication method** | Yes      | How the LLM Proxy authenticates with the upstream provider. Options: **None**, **API key** (custom header), **Bearer token**, or **Service account**. |
 | **Credentials**           | Depends  | The API key or bearer token for the selected provider. Not required if authentication is set to None.            |
 
-**Catalog mode** — Select models already registered in the AI Models catalog:
+In **Catalog mode**, you select models already registered in the AI Models catalog:
 
 1. Select **Use Catalog** to browse registered providers.
 2. Select a provider to view its available models.
 3. The provider name, target URL, and authentication type are pre-populated from the catalog entry.
-4. Enter the provider-specific credentials (e.g., API key) — these are not stored in the catalog and must be supplied per LLM Proxy.
+4. Enter the provider-specific credentials (for example, an API key). Credentials aren't stored in the catalog, so supply them for each LLM Proxy.
 
 {% hint style="info" %}
-You can configure multiple models on a single LLM Proxy to enable routing strategies like cost-based or latency-based routing. See [Configure an LLM Proxy](configure-an-llm-proxy.md) for post-creation routing configuration.
+You can configure multiple models on a single LLM Proxy. See [Configure an LLM Proxy](configure-an-llm-proxy.md) for post-creation configuration options.
 {% endhint %}
 
 ## Step 3: Set the context path and name
@@ -70,13 +70,13 @@ Keyless plans provide no consumer identification. You cannot track usage per con
 
 ## Step 5: Review and create
 
-Review the LLM Proxy configuration — provider, model, authentication, context path, and consumer plan — then select **Create**.
+Review the LLM Proxy configuration (provider, model, authentication, context path, and consumer plan), then select **Create**.
 
 The console creates the LLM Proxy and deploys it to the AI Gateway. All consumer traffic to this context path now flows through the AI Gateway with the configured authentication and observability.
 
 ## Zero-code integration
 
-The LLM Proxy is API-compatible with the Anthropic and OpenAI Messages APIs. You can route existing AI tool traffic through the proxy by setting environment variables — no code changes required:
+The LLM Proxy is API-compatible with the Anthropic and OpenAI Messages APIs. You can route existing AI tool traffic through the proxy by setting environment variables, with no code changes required:
 
 ```bash
 export ANTHROPIC_BASE_URL=https://<your-gateway-host>/my-llm-proxy
@@ -87,6 +87,6 @@ This is the recommended path for routing Claude Code, Cursor, and other developm
 
 ## After creation
 
-* **Configure routing** — Add models and routing strategies. See [Configure an LLM Proxy](configure-an-llm-proxy.md).
-* **Publish** — Make the LLM Proxy discoverable. See [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md).
-* **Route through Edge Daemon** — For employee device traffic, route through Edge Management. See [Connect Claude Code to the Edge Daemon](../../edge-management/connect-claude-code-to-daemon.md).
+* **Configure your LLM Proxy**: Add guardrails, security plans, and policies. See [Configure an LLM Proxy](configure-an-llm-proxy.md).
+* **Publish**: Make the LLM Proxy discoverable. See [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md).
+* **Route through Edge Daemon**: For employee device traffic, route through Edge Management. See [Connect Claude Code to the Edge Daemon](../../edge-management/connect-claude-code-to-daemon.md).
