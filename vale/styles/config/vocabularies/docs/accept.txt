@@ -868,4 +868,11 @@ maxSurge
 # Additional accepted terms (2026-07-14)
 # ============================================
 llmtest
-[Pp]reconfigured
+[Pp]reconfigure[ds]?
+
+# ============================================
+# Additional accepted terms (2026-07-15)
+# ============================================
+# GitBook page frontmatter key
+noIndex
+[Ww]alkthroughs?
