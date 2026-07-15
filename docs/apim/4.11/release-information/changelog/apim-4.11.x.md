@@ -8,6 +8,7 @@
 **Other**
 
 * APIM -  Traffic Shadowing Policy giving status 0 [#11506](https://github.com/gravitee-io/issues/issues/11506)
+* Support EL in the headers of MCP Proxy endpoint
 
 </details>
 
