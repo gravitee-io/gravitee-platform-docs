@@ -109,6 +109,17 @@ When the timeout fires, the API consumer receives HTTP status `504` with the err
 
 The `requestTimeoutGraceDelay` setting, also in milliseconds with a default of `30`, guarantees a minimum execution window for the response phase. When a request has already consumed most of its `requestTimeout` budget, the Gateway still grants at least `requestTimeoutGraceDelay` milliseconds to the platform and response flows.
 
+### Timeout scopes
+
+Request timeouts can't be configured per plan. A plan doesn't carry any timeout setting. Timeouts are configured at two other scopes:
+
+* Gateway level: the `http.requestTimeout` setting applies to every request that the Gateway handles.
+* Endpoint level: connection timeouts, such as the connect timeout, read timeout, and idle timeout, are configured on the HTTP client of each endpoint or endpoint group of an API.
+
+API-level timeouts don't override the Gateway request timeout. For more information, see [Execution Engine](../create-and-configure-apis/gravitee-api-definitions/execution-engine.md#timeout-management).
+
+To apply different timeout behavior to different consumers, expose the backend through separate APIs with different endpoint timeout configurations.
+
 ### Response statuses for connection failures
 
 The status the API consumer receives indicates where a connection problem occurred:
@@ -118,6 +129,12 @@ The status the API consumer receives indicates where a connection problem occurr
 * `499`: the API consumer closed the connection before the Gateway finished writing the response. These entries don't indicate a backend fault.
 
 Each status is accompanied by an error key in the Gateway logs and analytics. For the full list of connection-related error keys, see [Execution Transparency error keys](../analyze-and-monitor-apis/execution-transparency-analytics.md#connectivity-and-timeout-error-keys).
+
+## Chunked transfer encoding behavior
+
+No Gateway, API, or policy configuration option forces or disables chunked transfer encoding. The Gateway determines the framing of proxied requests and responses automatically, based on the `Content-Length` and `Transfer-Encoding` headers of the message, and adjusts these headers where required to keep the framing valid.
+
+To influence the framing of a proxied message, add or remove the `Content-Length` and `Transfer-Encoding` headers with the Transform Headers policy. The Gateway still normalizes the final framing, so header changes don't guarantee a specific transfer encoding on the wire. For more information, see [Transform Headers](../create-and-configure-apis/apply-policies/policy-reference/transform-headers.md).
 
 ## Enable HTTPS support
 
