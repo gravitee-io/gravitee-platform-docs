@@ -4,8 +4,6 @@
 
 API Products enable administrators to bundle multiple V4 HTTP Proxy APIs into a single subscribable package with unified access control. Instead of managing subscriptions to individual APIs, organizations define API Product-level plans that grant access to all APIs within the API Product.
 
-This feature requires an Enterprise Universe tier license.
-
 <figure><img src="../../.gitbook/assets/api-products-list.png" alt=""><figcaption><p>API Products list page in the APIM Console</p></figcaption></figure>
 
 ## What is an API Product?
