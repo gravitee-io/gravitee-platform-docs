@@ -1,0 +1,14 @@
+# Files with version-specific content — do NOT sync from previous version
+# Auto-managed by the documentation pipeline
+SUMMARY.md
+overview/custom-resource-definitions/subscription.md
+releases-and-changelog/release-notes/gko-4.12.md
+releases-and-changelog/changelog/gko-4.12.x.md
+guides/managing-dictionaries-via-automation-api.md
+overview/custom-resource-definitions/README.md
+overview/custom-resource-definitions/portal.md
+overview/custom-resource-definitions/portallisting.md
+overview/custom-resource-definitions/documentation.md
+
+guides/manage-api-key-subscriptions-with-gko.md
+overview/compatibility-and-limitations.md
