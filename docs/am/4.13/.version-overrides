@@ -1,0 +1,35 @@
+# Files with version-specific content — do NOT sync from previous version
+# Auto-managed by the documentation pipeline
+SUMMARY.md
+guides/auth-protocols/saml-2.0.md
+releases-and-changelog/release-notes/am-4.12.md
+.gitbook/assets/am-cimd-allowed-domains.png
+.gitbook/assets/am-cimd-settings-overview.png
+guides/applications/README.md
+guides/auth-protocols/oauth-2.0/cimd.md
+getting-started/install-and-upgrade-guides/upgrade-guide.md
+reference/application-filtering-cursor-pagination-and-expand-parameters.md
+getting-started/configuration/configure-automation-api.md
+guides/automation-api.md
+reference/automation-api-reference.md
+.gitbook/assets/am-agent-wizard-cimd-toggle.png
+.gitbook/assets/am-agent-wizard-cimd-url.png
+.gitbook/assets/am-agents-list.png
+.gitbook/assets/am-spiffe-settings-overview.png
+.gitbook/assets/am-trust-domain-bundle-source.png
+.gitbook/assets/am-trust-domain-create-form.png
+.gitbook/assets/am-trust-domain-jwks-url.png
+.gitbook/assets/am-trust-domain-name-description.png
+.gitbook/assets/am-trust-domains-list.png
+guides/applications/application-types.md
+guides/applications/create-and-manage-agent-applications.md
+guides/applications/spiffe-workload-identity-and-agent-applications-overview.md
+guides/manage-spiffe-trust-domains.md
+guides/security-domains/configure-spiffe-and-cimd-settings.md
+overview/plugins/compatibility-matrices.md
+.gitbook/assets/guide-applications-readme-84.png
+.gitbook/assets/guide-applications-readme-84 (1).png
+releases-and-changelog/changelog/am-4.12.x.md
+
+# Downgrade policy statement (4.12-only; 4.11 keeps the previous wording)
+getting-started/install-and-upgrade-guides/README.md
