@@ -504,6 +504,7 @@ redirects:
  guides/gravitee-kubernetes-operator/installation/helm: configure-and-manage-the-platform/gravitee-gateway/deploying-the-hazelcast-rate-limit-repository-with-helm-and-kubernetes-discovery.md
  guides/gravitee-kubernetes-operator/quick-start: govern-apis/README.md
  guides/gravitee-kubernetes-operator/test-gko-after-deployment: govern-apis/README.md
+ guides/policies: create-and-configure-apis/apply-policies/README.md
  guides/policy-design: create-and-configure-apis/apply-policies/v4-api-policy-studio.md
  guides/policy-design/gravitee-api-definitions-compared: create-and-configure-apis/gravitee-api-definitions/execution-engine.md
  guides/policy-design/gravitee-expression-language: gravitee-expression-language.md
@@ -701,6 +702,9 @@ redirects:
  prepare-a-production-environment/sensitive-data-management/apply-secrets-to-apis: prepare-a-production-environment/sensitive-data-management/api-secrets/configuration.md
  prepare-a-production-environment/sensitive-data-management/apply-secrets-to-configurations: prepare-a-production-environment/sensitive-data-management/configure-secrets/reference-secrets-in-configurations.md
  prepare-a-production-environment/sensitive-data-management/configure-secret-provider-plugins: prepare-a-production-environment/sensitive-data-management/api-secrets/configuration.md
+ readme/core-concepts: introduction/core-concepts.md
+ readme/enterprise-edition: introduction/enterprise-edition.md
+ readme/enterprise-edition-licensing: introduction/enterprise-edition-licensing.md
  reference/endpoint-reference: README.md
  reference/endpoint-reference/kafka: create-and-configure-apis/configure-v4-apis/endpoints/kafka.md
  reference/endpoint-reference/mqtt5: create-and-configure-apis/configure-v4-apis/endpoints/mqtt5.md
@@ -787,6 +791,8 @@ redirects:
  releases-and-changelog/release-notes: release-information/release-notes/README.md
  releases-and-changelog/release-notes/apim-4.0: release-information/changelog/apim-4.11.x.md
  releases-and-changelog/release-notes/apim-4.1: release-information/changelog/apim-4.11.x.md
+ releases-and-changelog/release-notes/apim-4.5: release-information/changelog/apim-4.11.x.md
+ releases-and-changelog/release-notes/gravitee-4.x/apim-4.0: release-information/changelog/apim-4.11.x.md
  using-the-product/administration: README.md
  using-the-product/administration/administering-organizations-and-environments: configure-and-manage-the-platform/manage-organizations-and-environments/README.md
  using-the-product/administration/authentication: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md
