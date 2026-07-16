@@ -1,0 +1,39 @@
+# Dictionary management restrictions and validation
+
+
+
+## Restrictions
+
+Dictionary management enforces the following constraints and validation rules.
+
+### Type-specific constraints
+
+The following rules apply per dictionary type.
+
+**Manual dictionaries:**
+
+* Include at least one property in `manual.properties`.
+* Don't define `dynamic.provider` or `dynamic.trigger`.
+
+**Dynamic dictionaries:**
+
+* Define both `dynamic.provider` and `dynamic.trigger`.
+* Don't include `manual.properties`.
+
+### Validation limitations
+
+Dry-run validation checks the specification's structure. It doesn't test provider connectivity for dynamic dictionaries.
+
+### Kubernetes resource dependencies
+
+When a dynamic dictionary references a Kubernetes Secret or ConfigMap, create that Secret or ConfigMap before you create the dictionary. The operator reads the referenced value during reconciliation, and reconciliation fails if the value isn't found. Each template expression uses `[[ ]]` delimiters and takes a single `<resource-name>/<key>` argument:
+
+```yaml
+dynamic:
+  provider:
+    type: HTTP
+    url: "[[ secret `my-secret/url` ]]"
+    headers:
+      - name: Authorization
+        value: "[[ secret `my-secret/token` ]]"
+```
