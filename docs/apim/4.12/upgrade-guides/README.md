@@ -15,6 +15,17 @@ Gravitee includes [Release Notes](../release-information/release-notes/README.md
 * **Upgrade your license file:** If you are an existing Gravitee Enterprise customer upgrading to 4.x, you must upgrade your Gravitee license file. Reach out to your Customer Success Manager or Support to receive a new 4.x license.
 * **Run scripts on the correct database:** `gravitee` is not always the default database. Run `show dbs` to return your database name.
 
+## Upgrade components in order
+
+An APIM upgrade touches several components. Upgrade them in the following order:
+
+1. Upgrade the Management API first, and let it finish starting before you upgrade the other components. The Management API applies the data migrations for the new version on startup, and each migration runs once.
+2. Upgrade the Console and the Developer Portal.
+3. Upgrade the Gateways. Recommended: upgrade Gateways progressively instead of stopping the whole fleet at once. Before you upgrade a hybrid Gateway, confirm that the Gateway and control plane versions are compatible: Classic Cloud deployments follow the [Gateway and Bridge compatibility tables](../hybrid-installation-and-configuration-guides/classic-cloud/README.md#gateway-and-bridge-compatibility-versions), and Next-Gen Cloud hybrid Gateways match the Control Plane version.
+4. If you manage APIs with the Gravitee Kubernetes Operator (GKO), upgrade GKO after APIM. Keep your APIM version equal to or newer than your GKO version at every step. For the supported version window, see [GKO Compatibility and Limitations](../../../gko/4.12/overview/compatibility-and-limitations.md).
+
+Validate each environment before you move to the next one: upgrade and test a non-production environment first, and then repeat the same sequence in production.
+
 ## Downgrades aren't supported
 
 Gravitee supports upgrades only. After you upgrade an installation, don't roll it back to an earlier version.
