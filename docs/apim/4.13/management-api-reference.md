@@ -1,0 +1,40 @@
+---
+description: An overview guide for Gravitee's management api reference.
+metaLinks:
+  alternates:
+    - management-api-reference.md
+---
+
+# Management API Reference
+
+## Overview
+
+The Gravitee Management API is the programmatic interface to the [Gravitee APIM](https://www.gravitee.io/platform/api-management) backend. The Management API consists of two main subcomponents:
+
+* The **Management** component. This component exposes the core functionality of APIM. For example, creating APIs, deploying APIs to the gateway, and analytics.
+* The **Portal** component. This component exposes endpoints for listing and managing APIs and applications in Gravitee's Developer Portal UI. Also, you can use the Portal API endpoints to build custom developer portals.
+
+Gravitee V4 and Federated APIs are managed within the **v2** subcomponent of the management API. You can access the v2 subcomponent through the `/management/v2` subpath.
+
+## Documentation
+
+To explore the API documentation, select any of the following endpoint categories to open an integrated API viewer and client. The viewer includes an option to download the API specification.
+
+* [**/management component documentation**](https://apim-api-docs.gravitee.io/?v=4.11&api=management)**:** provides the specification for the `management` endpoints. Use this component to complete the following actions:
+  * Manage V2 APIs
+  * Configure applications, dictionaries, sharding tags, users, and other entities
+  * Manage application membership and invitations using the following endpoints:
+    * `POST /applications/{applicationId}/members/_search`. Search application members.
+    * `POST /applications/{applicationId}/members`. Add a member to an application.
+    * `PUT /applications/{applicationId}/members/{memberId}`. Update a member's role.
+    * `DELETE /applications/{applicationId}/members/{memberId}`. Remove a member from an application.
+    * `POST /applications/{applicationId}/members/_transfer_ownership`. Transfer application ownership.
+    * `POST /applications/{applicationId}/invitations`. Create application invitations.
+    * `POST /applications/{applicationId}/invitations/_search`. Search application invitations.
+    * `PUT /applications/{applicationId}/invitations/{invitationId}`. Update an invitation's role.
+    * `DELETE /applications/{applicationId}/invitations/{invitationId}`. Delete an invitation.
+    * `POST /applications/{applicationId}/invitations/{invitationId}/_resend`. Resend an invitation email.
+* [**/management/v2 subcomponent documentation**](https://apim-api-docs.gravitee.io/?v=4.11&api=mgmt-v2-apis)**:** provides the specification for `management/v2` endpoints. Use this component to complete the following actions:
+  * Manage V4 and Federated APIs
+  * Configure multi-tenant aspects of APIM such as licenses, plugins, and OEM customization
+* [**/portal component documentation**](https://apim-api-docs.gravitee.io/?v=4.11&api=portal)**:** productize APIs and manage applications and subscriptions
