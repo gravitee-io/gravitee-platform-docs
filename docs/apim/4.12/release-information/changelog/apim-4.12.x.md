@@ -5,6 +5,34 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.9 - July 16, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* API list no longer shows when an API is out of sync [#11610](https://github.com/gravitee-io/issues/issues/11610)
+
+**Other**
+
+* EL Not Evaluated in List<CustomObject> Fields by ConfigurationEvaluatorProcessor [#11589](https://github.com/gravitee-io/issues/issues/11589)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Write OTEL trace ID in logs [#11609](https://github.com/gravitee-io/issues/issues/11609)
+* Response templates: expose the analytics error detail via {#error.cause} [#11630](https://github.com/gravitee-io/issues/issues/11630)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.8 - July 14, 2026
 <details>
 
