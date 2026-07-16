@@ -58,7 +58,6 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 
 ## Prerequisites
 
-- Gravitee APIM Enterprise license with Universe tier
 - Environment-level permissions for API Product management (`api_product-definition-*`)
 - V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled
 
@@ -153,8 +152,6 @@ After creating plans and adding APIs, deploy the API Product to make it availabl
 
 1. Click **Deploy API Product** in the banner.
 2. In the **Deploy your API Product** dialog, click **Deploy**.
-
-Deployment requires an active Enterprise Universe tier license.
 
 <figure><img src="../../.gitbook/assets/deploy-api-product.png" alt=""><figcaption><p>Deploy API Product confirmation dialog</p></figcaption></figure>
 
