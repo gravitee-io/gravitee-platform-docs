@@ -24,6 +24,8 @@
 
 V1 APIs have been deprecated since version 4.0.0 of API Management (APIM). From 4.12.0 of APIM, V1 APIs are no longer supported. To prepare for the end of support, you must migrate your V1 APIs to at least V2 before upgrading to 4.12.0.
 
+From 4.12.0, the V1 API schemas are also removed from the Management API v2 OpenAPI specification. For details, see [Breaking changes and deprecations](https://documentation.gravitee.io/apim/4.12/release-information/breaking-changes-and-deprecations).
+
 #### **A2A proxy APIs**
 
 The A2A proxy architecture introduces the `A2A_PROXY` API type. With this change, you must create your A2A Proxy APIs again to avoid any issues and to align with the new architecture.
