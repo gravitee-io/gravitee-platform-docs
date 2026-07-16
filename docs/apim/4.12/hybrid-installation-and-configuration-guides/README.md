@@ -141,3 +141,87 @@ The API Gateways communicate with the Gravitee Cloud Control Plane using an outb
 Other non-typical architectural options exist, such as connecting a fully self-hosted Control Plane to Gravitee Cloud.
 
 This configuration enables multi-organization and multi-environment support in a single hierarchy. Users and policies can be configured in Gravitee Cloud, and these configurations proliferate to the child Control Planes.
+
+## Bridge deployment options
+
+In a hybrid deployment where you host the Control Plane yourself, remote Gateways don't open a direct connection to the configuration database. Instead, they pull their configuration from a bridge server: an HTTP service that sits in front of the configuration database and serves configuration data, such as APIs, plans, subscriptions, and dictionaries, on paths prefixed with `/_bridge`. The bridge is an [Enterprise Edition](../introduction/enterprise-edition.md) capability.
+
+The bridge server runs inside a component you already deploy. Enable it on the Management API or on a dedicated Gateway. Both options run the same service with the same defaults: the bridge listens on port `18092` inside the container and supports the `none`, `basic`, and `jwt` authentication types. When you enable the bridge with the Helm chart, the chart adds a `bridge` port (default `92`) to the component's Kubernetes Service and creates a dedicated Ingress for the bridge paths.
+
+### Bridge server on the Management API
+
+The Management API serves the `/_bridge` paths alongside its regular endpoints. To enable the bridge on the Management API with the Helm chart, configure `api.services.bridge` in your `values.yaml`:
+
+```yaml
+api:
+  services:
+    bridge:
+      enabled: true
+      authentication:
+        type: basic
+        users:
+          bridge-user: your-password
+      ingress:
+        enabled: true
+        path: /api/_bridge
+        hosts:
+          - bridge.example.com
+```
+
+The default Ingress path on the Management API side is `/api/_bridge`.
+
+Choose this option when:
+
+* Your remote Gateway fleet is small, so bridge traffic adds little load to the Management API.
+* You prefer fewer components over an additional Gateway that only hosts the bridge.
+
+### Bridge server on a dedicated Gateway
+
+A dedicated Gateway pod runs only the bridge service. Disabling the synchronization service stops the pod from deploying APIs, and disabling the Gateway's data plane Ingress keeps API traffic away from it. To configure a dedicated bridge Gateway with the Helm chart, set the following values:
+
+```yaml
+gateway:
+  ingress:
+    enabled: false
+  services:
+    sync:
+      enabled: false
+    bridge:
+      enabled: true
+      authentication:
+        type: basic
+        users:
+          bridge-user: your-password
+      ingress:
+        enabled: true
+        path: /_bridge
+        hosts:
+          - bridge.example.com
+```
+
+The default Ingress path on the Gateway side is `/_bridge`.
+
+Choose this option when:
+
+* You run many remote Gateways, or expect bridge traffic to grow. A dedicated bridge Gateway lets you scale the bridge tier independently of the Management API.
+* Network isolation between administration traffic and configuration-sync traffic matters in your environment. Each surface then sits behind its own Ingress and host name.
+
+### Connect remote Gateways to the bridge server
+
+On each remote Gateway, replace the management repository configuration with an HTTP connection to the bridge server. Configure the following in the Gateway's `gravitee.yml`:
+
+```yaml
+management:
+  type: http
+  http:
+    url: https://bridge.example.com
+    authentication:
+      type: basic
+      basic:
+        username: bridge-user
+        password: your-password
+```
+
+The Gateway appends `/_bridge` to the URL it calls. The bridge serves only the management repository, so remote Gateways keep their own rate-limiting repository and analytics reporter configuration.
+
+To route the Gateway-to-bridge connection through a corporate proxy, see [Hybrid Gateway Proxy Configuration](proxy-configuration/hybrid-gateway-proxy-configuration.md).
