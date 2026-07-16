@@ -14,9 +14,9 @@ on:
   push:
     branches: [main]
     paths:
-      - 'docs/apim/4.11/**'
-      - 'docs/am/4.11/**'
-      - 'docs/gko/4.11/**'
+      - 'docs/apim/4.12/**'
+      - 'docs/am/4.12/**'
+      - 'docs/gko/4.12/**'
   workflow_dispatch:
 
 # Grant write access so the bot can create branches and PRs
@@ -31,14 +31,14 @@ jobs:
       matrix:
         include:
           - product: apim
-            current: "4.11"
-            next: "4.12"
+            current: "4.12"
+            next: "4.13"
           - product: am
-            current: "4.11"
-            next: "4.12"
+            current: "4.12"
+            next: "4.13"
           - product: gko
-            current: "4.11"
-            next: "4.12"
+            current: "4.12"
+            next: "4.13"
 
     steps:
       - uses: actions/checkout@v4
