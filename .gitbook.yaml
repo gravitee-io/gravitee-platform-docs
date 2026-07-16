@@ -65,6 +65,8 @@ redirects:
   ae/community-and-support/enterprise-support: apim/4.12/readme/enterprise-edition.md
   ae/community-and-support/community: apim/4.12/readme/community-forum.md
   # legacy alert-engine/* URLs (older prefix, predates the "ae" rename) — consolidated into the single gateway alerts page rather than mirrored 1:1 like ae/* above
+  alert-engine: apim/4.12/configure-and-manage-the-platform/gravitee-gateway/alerts.md
+  alert-engine/overview/integrations: apim/4.12/configure-and-manage-the-platform/gravitee-gateway/alerts.md
   alert-engine/getting-started/install-and-upgrade-guides/install-via-kubernetes: apim/4.12/configure-and-manage-the-platform/gravitee-gateway/alerts.md
   alert-engine/getting-started/install-and-upgrade-guides/install-via-.zip-file: apim/4.12/configure-and-manage-the-platform/gravitee-gateway/alerts.md
   alert-engine/getting-started/install-and-upgrade-guides/install-via-docker: apim/4.12/configure-and-manage-the-platform/gravitee-gateway/alerts.md
