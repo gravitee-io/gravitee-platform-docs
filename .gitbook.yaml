@@ -65,6 +65,8 @@ redirects:
   ae/community-and-support/enterprise-support: apim/4.12/readme/enterprise-edition.md
   ae/community-and-support/community: apim/4.12/readme/community-forum.md
   # legacy alert-engine/* URLs (older prefix, predates the "ae" rename) — consolidated into the single gateway alerts page rather than mirrored 1:1 like ae/* above
+  alert-engine: apim/4.12/configure-and-manage-the-platform/gravitee-gateway/alerts.md
+  alert-engine/overview/integrations: apim/4.12/configure-and-manage-the-platform/gravitee-gateway/alerts.md
   alert-engine/getting-started/install-and-upgrade-guides/install-via-kubernetes: apim/4.12/configure-and-manage-the-platform/gravitee-gateway/alerts.md
   alert-engine/getting-started/install-and-upgrade-guides/install-via-.zip-file: apim/4.12/configure-and-manage-the-platform/gravitee-gateway/alerts.md
   alert-engine/getting-started/install-and-upgrade-guides/install-via-docker: apim/4.12/configure-and-manage-the-platform/gravitee-gateway/alerts.md
@@ -72,12 +74,19 @@ redirects:
   alert-engine/changelog/page-6: apim/4.12/configure-and-manage-the-platform/gravitee-gateway/alerts.md
   # legacy apim/* URL structure (pre-reorg) — redirect into the current apim/4.12 structure (bump 4.12 at each version cutover)
   apim/guides/federation: apim/4.12/govern-apis/federation/README.md
+  apim/guides/policies: apim/4.12/create-and-configure-apis/apply-policies/README.md
   apim/overview/gravitee-apim-enterprise-edition: apim/4.12/introduction/enterprise-edition.md
   apim/overview/release-notes/apim-4.6: apim/4.12/release-information/release-notes/README.md
   apim/release-information/release-notes/apim-4.9: apim/4.12/release-information/release-notes/README.md
   apim/release-information/release-notes/apim-4.10: apim/4.12/release-information/release-notes/README.md
   apim/release-information/release-notes/apim-4.11: apim/4.12/release-information/release-notes/README.md
   apim/releases-and-changelog/release-notes/apim-4.3: apim/4.12/release-information/release-notes/README.md
+  apim/releases-and-changelog/release-notes/apim-4.5: apim/4.5/overview/release-notes/apim-4.5.md
+  apim/releases-and-changelog/release-notes/gravitee-4.x/apim-4.0: apim/4.0/releases-and-changelog/release-notes/apim-4.0.md
+  apim/4.2/overview/changelog/apim-4.2: apim/4.2/overview/release-notes/apim-4.2.md
+  apim/readme/core-concepts: apim/4.12/introduction/core-concepts.md
+  apim/readme/enterprise-edition: apim/4.12/introduction/enterprise-edition.md
+  apim/readme/enterprise-edition-licensing: apim/4.12/introduction/enterprise-edition-licensing.md
   # legacy api-designer/* prefix (different from apid/* above)
   api-designer/overview/readme: gravitee-cloud/api-designer/guides/api-designer-workspace/README.md
   # deprecated telepresence page — send traffic home
