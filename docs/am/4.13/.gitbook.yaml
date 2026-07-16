@@ -1,0 +1,41 @@
+root: ./
+
+structure:
+  readme: README.md
+  summary: SUMMARY.md
+
+redirects:
+ create: README.md
+ guides/multi-factor-authentication/alternative-methods: guides/multi-factor-authentication/managing-factors/alternative-methods.md
+ guides/multi-factor-authentication/factors: guides/multi-factor-authentication/managing-factors/README.md
+ guides/multi-factor-authentication/mfa-security: guides/multi-factor-authentication/mfa-brute-force-and-rate-limit.md
+ guides/multi-factor-authentication/mfa-with-fido2: guides/multi-factor-authentication/managing-factors/mfa-with-fido2.md
+ guides/multi-factor-authentication/recovery-codes: guides/multi-factor-authentication/managing-factors/recovery-codes.md
+ guides/multi-factor-authentication/reset-mfa: guides/multi-factor-authentication/manage-user-mfa.md
+ guides/resources/smtp-resource: guides/resources.md
+ guides/resources/twilio: guides/resources.md
+ placeholder: README.md
+ reference/azure-regions-for-saas-and-hybrid-deployments: reference/am-api-reference.md
+ release: README.md
+ releases-and-changelog/changelog/am-4.0.x: releases-and-changelog/changelog/am-4.11.x.md
+ releases-and-changelog/changelog/am-4.1.x: releases-and-changelog/changelog/am-4.11.x.md
+ releases-and-changelog/changelog/am-4.10.x: releases-and-changelog/changelog/am-4.11.x.md
+ releases-and-changelog/changelog/am-4.2.x: releases-and-changelog/changelog/am-4.11.x.md
+ releases-and-changelog/changelog/am-4.3.x: releases-and-changelog/changelog/am-4.11.x.md
+ releases-and-changelog/changelog/am-4.4.x: releases-and-changelog/changelog/am-4.11.x.md
+ releases-and-changelog/changelog/am-4.5.x: releases-and-changelog/changelog/am-4.11.x.md
+ releases-and-changelog/changelog/am-4.6.x: releases-and-changelog/changelog/am-4.11.x.md
+ releases-and-changelog/changelog/am-4.7.x: releases-and-changelog/changelog/am-4.11.x.md
+ releases-and-changelog/changelog/am-4.8.x: releases-and-changelog/changelog/am-4.11.x.md
+ releases-and-changelog/changelog/am-4.9.x: releases-and-changelog/changelog/am-4.11.x.md
+ releases-and-changelog/release-notes/am-4.0: releases-and-changelog/release-notes/am-4.12.md
+ releases-and-changelog/release-notes/am-4.1: releases-and-changelog/release-notes/am-4.12.md
+ releases-and-changelog/release-notes/am-4.10: releases-and-changelog/release-notes/am-4.12.md
+ releases-and-changelog/release-notes/am-4.2: releases-and-changelog/release-notes/am-4.12.md
+ releases-and-changelog/release-notes/am-4.3: releases-and-changelog/release-notes/am-4.12.md
+ releases-and-changelog/release-notes/am-4.4: releases-and-changelog/release-notes/am-4.11.md
+ releases-and-changelog/release-notes/am-4.5: releases-and-changelog/release-notes/am-4.11.md
+ releases-and-changelog/release-notes/am-4.6: releases-and-changelog/release-notes/am-4.11.md
+ releases-and-changelog/release-notes/am-4.7: releases-and-changelog/release-notes/am-4.12.md
+ releases-and-changelog/release-notes/am-4.8: releases-and-changelog/release-notes/am-4.11.md
+ releases-and-changelog/release-notes/am-4.9: releases-and-changelog/release-notes/am-4.11.md
