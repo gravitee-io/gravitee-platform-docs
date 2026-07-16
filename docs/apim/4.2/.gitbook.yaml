@@ -875,6 +875,7 @@ redirects:
  most-common-use-cases/secure-and-expose-grpc-services-with-gravitee: README.md
  new-release: README.md
  overview/architecture: overview/apim-architecture/README.md
+ overview/changelog/apim-4.2: overview/release-notes/apim-4.2.md
  overview/changelog/apim-4.3.x: overview/changelog/apim-4.2.x.md
  overview/changelog/apim-4.4.x: overview/changelog/apim-4.2.x.md
  overview/changelog/apim-4.5.x: overview/changelog/apim-4.2.x.md
