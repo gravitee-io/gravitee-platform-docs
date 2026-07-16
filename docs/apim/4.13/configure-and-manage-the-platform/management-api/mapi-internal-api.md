@@ -1,0 +1,277 @@
+---
+description: An overview about mapi internal api.
+metaLinks:
+  alternates:
+    - mapi-internal-api.md
+---
+
+# MAPI Internal API
+
+## Overview
+
+The Gravitee API Management (APIM) Management API component includes its own internal API for monitoring and retrieving technical information about the component.
+
+## Configuration
+
+Enable the API as a service and update any other required configuration. Use the tab that matches your deployment method.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+{% code title="gravitee.yml" %}
+```yaml
+services:
+  core:
+    http:
+      enabled: true
+      port: 18083
+      host: localhost
+      authentication:
+        type: basic
+        users:
+          admin: adminadmin
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Management API service:
+
+```bash
+gravitee_services_core_http_enabled=true
+gravitee_services_core_http_port=18083
+gravitee_services_core_http_host=localhost
+gravitee_services_core_http_authentication_type=basic
+gravitee_services_core_http_authentication_users_admin=adminadmin
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Set the `api.http.services.core.http` block in your `values.yaml` file. The APIM Helm chart renders these values into the Management API `gravitee.yml` at install time:
+
+```yaml
+api:
+  http:
+    services:
+      core:
+        http:
+          enabled: true
+          port: 18083
+          host: localhost
+          authentication:
+            type: basic
+            password: adminadmin
+```
+
+{% hint style="info" %}
+The chart hardcodes the username to `admin`. To configure additional users, mount a custom `gravitee.yml` into the Management API container or inject indexed environment variables through the `api.env` array (for example, `gravitee_services_core_http_authentication_users_<username>`).
+{% endhint %}
+{% endtab %}
+{% endtabs %}
+
+The above values are defined as follows:
+
+* `enabled`**:** Whether the service is enabled (default `true`).
+* `port`**:** The port the service listens on (default `18083`). Ensure you use a port not already in use by another APIM component.
+* `host`**:** The host (default `localhost`).
+* `authentication.type`**:** Authentication type for requests (default `basic`). Use the value `none` if no authentication is required.
+* `authentication.users`**:** A list of `user: password` combinations. Only required if authentication type is `basic`.
+
+## Endpoints
+
+<table><thead><tr><th width="201.62630208333331">Operation</th><th width="244.75">Description</th><th>Example</th></tr></thead><tbody><tr><td><code>GET /_node</code></td><td>Gets generic node information.</td><td><pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+    "id": "a70b9fd9-9deb-4ccd-8b9f-d99deb6ccd32",
+    "metadata": {},
+    "name": "Gravitee.io - Management API",
+    "version": {
+        "BUILD_ID": "309",
+        "BUILD_NUMBER": "309",
+        "MAJOR_VERSION": "1.20.14",
+        "REVISION": "132e719ef314b40f352e6399034d68a9a95e95ef"
+    }
+}
+</code></pre></td></tr><tr><td><code>GET /_node/health</code></td><td><p>Gets the health status of the component.</p><p>Probes can be filtered using the optional <code>probes</code> query parameter, which can handle a list of probes separated by commas (<code>,</code>). If no query param is provided, the health of all probes is returned. If the return status is 200, everything is ok; if it is 500, there is at least one error.</p><p>This endpoint can be used by a load balancer, e.g., to determine if a component instance is not in the pool.</p><p>⚠ The following probes are not displayed by default and you must explicitly use the query param to retrieve them:</p><ul><li><strong>cpu</strong></li><li><strong>memory</strong></li><li><strong>api-sync</strong></li></ul><p>These probes are considered healthy if they are under a configurable threshold (default is 80%). To configure the default, add it to your <code>gravitee.yml</code>:</p><pre><code>
+services:
+health:
+threshold:
+cpu: 80
+memory: 80
+</code></pre></td><td><p><code>GET /_node/health</code></p><pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+    "management-repository": {
+        "healthy": true
+    },
+    "gravitee-apis": {
+        "healthy": true
+    },
+    "repository-analytics": {
+        "healthy": true
+    }
+}
+</code></pre><p><code>GET /_node/health?probes=management-repository,gravitee-apis</code></p><pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+    "management-repository": {
+        "healthy": true
+    },
+    "gravitee-apis": {
+        "healthy": true
+    }
+}
+</code></pre></td></tr><tr><td><code>GET /_node/configuration</code></td><td>Gets the node configuration from the <code>gravitee.yml</code> file and/or environment variables.</td><td><pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+    "analytics.elasticsearch.endpoints[0]": "http://${ds.elastic.host}:${ds.elastic.port}",
+    "analytics.type": "elasticsearch",
+    "ds.elastic.host": "localhost",
+    "ds.elastic.port": 9200,
+    ...
+}
+</code></pre></td></tr><tr><td><code>GET /_node/monitor</code></td><td>Gets monitoring information from the JVM and the server.</td><td><pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+    "jvm": {
+        "gc": {
+            "collectors": [
+                {
+                    "collectionCount": 7,
+                    "collectionTime": 98,
+                    "name": "young"
+                },
+                {
+                    "collectionCount": 3,
+                    "collectionTime": 189,
+                    "name": "old"
+                }
+            ]
+        },
+        "mem": {
+            ...
+        }
+    }
+}
+</code></pre></td></tr><tr><td><code>GET /_node/logging</code><br><code>POST /_node/logging</code></td><td><p>Gets or updates the logging configuration.</p><p>Use a <code>GET</code> request to view the current logging configuration. Use a <code>POST</code> request to dynamically change the logging level of a specific package. To reset a logger level, send the same payload with an empty or <code>null</code> level.</p></td><td><p><strong>POST payload example:</strong></p><pre><code>{"org.springframework.data.mongodb.core.MongoTemplate": "DEBUG"}
+</code></pre><p><strong>GET/POST response example:</strong></p><pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+    "org.eclipse.jetty": "INFO",
+    "ROOT": "WARN",
+    "io.gravitee": "INFO",
+    "org.springframework.data.mongodb.core.MongoTemplate": "DEBUG"
+}
+</code></pre></td></tr><tr><td><code>GET /_node/cluster</code></td><td>Gets the current state of the cluster with information about its members.</td><td><pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+    "clusterId": "gio-apim-gateway-cluster-manager-hz55",
+    "running": true,
+    "self": {
+        "primary": true,
+        "running": true,
+        "attributes": {
+            "gio_node_hostname": "node_hostname",
+            "gio_node_id": "node_id"
+        },
+        "version": "5.5.0",
+        "host": "127.0.0.1",
+        "id": "member_id",
+        "self": true
+    },
+    "members": [
+        {
+            "primary": true,
+            "attributes": {
+                "gio_node_hostname": "node_hostname",
+                "gio_node_id": "node_id"
+            },
+            "version": "5.5.0",
+            "host": "127.0.0.1",
+            "id": "member_id",
+            "self": true
+        }
+    ]
+}
+</code></pre></td></tr></tbody></table>
+
+## Heap dump and thread dump endpoints
+
+The Management API internal API exposes two endpoints for capturing JVM heap dumps and thread dumps to help with troubleshooting. Both endpoints are disabled by default for security reasons. Enable them only when you need them, and confirm the Management API internal API has authentication configured before exposing them.
+
+<table data-full-width="true"><thead><tr><th width="220">Operation</th><th>Description</th></tr></thead><tbody><tr><td><pre data-overflow="wrap"><code>GET /_node/heapdump
+</code></pre></td><td><p>Returns a JVM heap dump file as the response body. The file extension is <code>.hprof</code> for HotSpot JVMs and <code>.phd</code> for OpenJ9 JVMs.</p><p>Pass the optional <code>?live=true</code> query parameter to forward the <code>live</code> flag to the HotSpot heap dump API (default <code>false</code>). The flag has no effect on OpenJ9.</p><p>The endpoint serializes heap dump requests. Only one heap dump runs at a time.</p></td></tr><tr><td><pre data-overflow="wrap"><code>GET /_node/threaddump
+</code></pre></td><td>Returns a plain-text dump of all live threads as the response body (<code>Content-Type: text/plain;charset=UTF-8</code>). Each request reports locked monitors and locked synchronizers.</td></tr></tbody></table>
+
+### Enable the endpoints
+
+Set the enable flags on the Management API and restart it. Use the tab that matches your deployment method.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+{% code title="gravitee.yml" %}
+```yaml
+services:
+  core:
+    endpoints:
+      heapdump:
+        enabled: true
+      threaddump:
+        enabled: true
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Management API service:
+
+```bash
+gravitee_services_core_endpoints_heapdump_enabled=true
+gravitee_services_core_endpoints_threaddump_enabled=true
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+The APIM Helm chart doesn't expose dedicated values for these endpoints, so inject them as environment variables through the `api.env` array. The Management API container picks them up through Gravitee's `gravitee_` env-var prefix:
+
+```yaml
+api:
+  env:
+    - name: gravitee_services_core_endpoints_heapdump_enabled
+      value: "true"
+    - name: gravitee_services_core_endpoints_threaddump_enabled
+      value: "true"
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="warning" %}
+These endpoints expose JVM internals and the contents of process memory. Don't enable them on a Management API that's reachable without authentication, and disable them again once you've captured the dumps you need.
+{% endhint %}
+
+### Capture a heap dump
+
+Request the heap dump from the host running the Management API, replacing the host, port, and credentials with values from your `services.core.http` configuration. The endpoint streams the dump in the response body, so write it to a file:
+
+```bash
+curl -u admin:adminadmin \
+  http://localhost:18083/_node/heapdump \
+  -o heap-$(date +%Y-%m-%d-%H-%M).hprof
+```
+
+If the Management API runs in a Kubernetes pod, forward the internal API port from the Management API pod first, then run the same `curl` against `localhost`:
+
+```bash
+kubectl port-forward -n <namespace> <management-api-pod> 18083:18083
+```
+
+To analyze the dump, open the `.hprof` file in a HotSpot-compatible heap analyzer, or open the `.phd` file in an OpenJ9-compatible analyzer. The file format depends on the JVM the Management API runs on.
+
+### Capture a thread dump
+
+Request the thread dump the same way. The response body is plain text and opens in any text editor:
+
+```bash
+curl -u admin:adminadmin \
+  http://localhost:18083/_node/threaddump \
+  -o thread-$(date +%Y-%m-%d-%H-%M).txt
+```

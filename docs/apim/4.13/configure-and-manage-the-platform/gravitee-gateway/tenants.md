@@ -1,0 +1,125 @@
+---
+description: An overview about tenants.
+metaLinks:
+  alternates:
+    - tenants.md
+---
+
+# Tenants
+
+Overview
+
+Tenants are a way to leverage Gravitee's multi-endpoint capability, which is the ability to specify multiple upstream systems per single API. Gravitee allows you to assign endpoints and Gateways to specific tenants to control the endpoints to which requests are proxied.
+
+## Tagged Gateway / API endpoint behavior
+
+Endpoint deployment is impacted by how tags are applied to API endpoints and Gateways.
+
+### Rules
+
+* A Gateway that isn't configured with a tenant deploys all API endpoints, regardless of whether the endpoint has a tenant.
+* An API endpoint that isn't configured with a tenant is deployed to all Gateways, regardless of whether the Gateway is configured with a tenant.
+* A Gateway configured with the tenant `foo` deploys all API endpoints that include `foo` in their tenant list.
+
+### Tenant-Based Endpoint Filtering for Native Kafka APIs
+
+For Native Kafka APIs, each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that don't match are skipped entirely.
+
+**Behavior:**
+
+| Gateway Tenant                         | Endpoint Tenants             | Match Result                                  |
+| -------------------------------------- | ---------------------------- | --------------------------------------------- |
+| Not configured                         | Any value or empty           | Match (gateway participates in all endpoints) |
+| Configured (for example, `"tenant-a"`) | `null` or `[]`               | Match (shared endpoint)                       |
+| Configured (for example, `"tenant-b"`) | Contains `"tenant-b"`        | Match                                         |
+| Configured (for example, `"tenant-c"`) | Doesn't contain `"tenant-c"` | No Match                                      |
+
+**Shared Endpoints:**
+
+An endpoint with an empty or null tenant list is considered shared and always matches any gateway, regardless of the gateway's tenant configuration. Shared endpoints are included in the filtered set alongside tenant-specific endpoints.
+
+**No-match behavior:**
+
+If all endpoints in the group are tenant-specific and none match the gateway's tenant, the gateway can't route to the API. Connections fail in this scenario. Include at least one shared (untagged) endpoint in the group to ensure the API remains accessible to all gateways.
+
+## Configuring Tenants <a href="#id-9c4f" id="id-9c4f"></a>
+
+To explain tenant usage and behavior, we will build off of our example use case for [sharding tags](sharding-tags.md#configure-sharding-tags-for-your-gravitee-api-gateways). A single API can be deployed to many different Gateways and endpoints, but by using sharding tags you can specify the target Gateway(s), and by using tenants you can specify the target endpoint(s).
+
+Similar to sharding tags, tenant configuration is a two-step process. You must "tag" a Gateway to identify in which region it has been deployed. The following examples show how to tag USA-deployed Gateways with `usa` and EU-deployed Gateways with `eu`. Use the tab that matches your deployment method.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+Add the following to each Gateway's `gravitee.yml` file:
+
+```yaml
+# Multi-tenant configuration
+# Allow only a single-value
+
+# USA Region:
+tenant: 'usa'
+
+# ...or...
+
+# EU Region:
+tenant: 'eu'
+```
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variable to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of each Gateway service:
+
+```bash
+# USA Region:
+gravitee_tenant=usa
+
+# ...or...
+
+# EU Region:
+gravitee_tenant=eu
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Set the `gateway.tenant` value in your `values.yaml` file. The APIM Helm chart renders this value into the Gateway `gravitee.yml` at install time:
+
+```yaml
+# USA Region:
+gateway:
+  tenant: usa
+
+# ...or...
+
+# EU Region:
+gateway:
+  tenant: eu
+```
+{% endtab %}
+{% endtabs %}
+
+Once the Gateway has been configured, the tenant definition must be added via the API Management Console:
+
+1.  Navigate to **Organization Settings** and select **Tenants**. Click **Add a tenant** and enter the following information:
+
+    1. In the **Name** field, enter a descriptive name for the tenant, for example, "USA" or "EU."
+    2. In the **Key** field, enter a unique key for the tenant. The key accepts 1–64 lowercase alphanumeric characters and hyphens only. The key is immutable after creation and is the value used in `gravitee.yml` to tag Gateways with a tenant.
+
+    <figure><img src="../../.gitbook/assets/create-a-tenant-with-key-field.png" alt=""><figcaption><p>Create a tenant dialog with Name, Key, and Description fields</p></figcaption></figure>
+2.  Next, configure the Backend and Customer APIs by adding two different endpoints. In our example, these will point to the USA and EU upstream systems (the backend server or the Customer API, depending on which API you are configuring).
+
+    <figure><img src="../../.gitbook/assets/tenant_BE &#x26; customer.png" alt=""><figcaption></figcaption></figure>
+3.  Specify which tenant a backend will apply to. Our two endpoints each point to different backends and are each assigned to a different tenant:
+
+    <figure><img src="../../.gitbook/assets/tenant_specify.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+Now that the two endpoints are defined, Gateways GWI1, GWI2, GWI3 and GWI4 will apply this logic:
+
+* If a tenant configuration is "eu," a request to Backend API is proxied to `https://eu.backend.com`
+* If a tenant configuration is "usa," a request to Backend API is proxied to `https://usa.backend.com`
+
+Similarly, Gateways GWE1, GWE2, GWE3, GWE4 will apply the following logic when serving partner requests to the Customer API:
+
+* If a tenant configuration is "eu," a request to Customer API is proxied to `https://eu.customer-api.com`
+* If a tenant configuration is "usa," a request to Backend API is proxied to `https://usa.backend-api.com`
+{% endhint %}

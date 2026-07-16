@@ -1,0 +1,239 @@
+---
+description: An overview about ai - prompt guard rails.
+metaLinks:
+  alternates:
+    - ai-prompt-guard-rails.md
+---
+
+# AI - Prompt Guard Rails
+
+## Overview
+
+This policy uses an AI-powered text classification model to evaluate user prompts for potentially inappropriate or malicious content. It can detect a wide range of violations, such as profanity, sexually explicit language, harmful intent, and jailbreak prompt injections, which are adversarial inputs crafted to bypass AI safety mechanisms.
+
+For LLM-backed APIs, the policy supports prompt injection detection using Llama Prompt Guard models (22M and 86M variants). These models identify attempts to override or manipulate system instructions in user prompts, returning `BENIGN` (safe prompt) or `MALICIOUS` (injection/jailbreak attempt). Both variants support 8 languages (English, French, German, Hindi, Italian, Portuguese, Spanish, Thai) and a 512-token context window. The 22M variant is recommended for production use due to superior accuracy and performance.
+
+Depending on the configuration, when a prompt is flagged:
+
+* **Blocked and flagged** – the request is denied at the gateway
+* **Allowed but flagged** – the request proceeds but is logged for monitoring
+
+{% hint style="info" %}
+You may face an error when using this policy using the Gravitee's docker image. This is due to the fact that the default image are based on Alpine Linux, which does not support the ONNX Runtime. To resolve this issue you need to use the Gravitee's docker image based on Debian, which is available at graviteeio/apim-gateway:latest-debian.
+{% endhint %}
+
+## Content Checks
+
+The `contentChecks` property is a comma-separated list of the classification labels the policy evaluates. The policy compares every label the model returns against this list using an exact, case-sensitive string match. Enter each label exactly as the model returns it, including case (`toxic`, not `TOXIC`). Whitespace around commas is ignored. Leave `contentChecks` empty to evaluate against every label the model returns.
+
+The valid labels depend on the model selected in the AI Model Text Classification resource. Each model returns its own fixed label set, for example, binary `toxic` / `not-toxic`, the six-label Jigsaw set, or `BENIGN` / `MALICIOUS` for the Llama Prompt Guard models. For the full per-model label list, see[ AI Model Text Classification - Model Reference and Performance Metrics.](ai-model-text-classification-model-reference-and-performance-metrics.md)
+
+## AI Model Resource
+
+The policy requires an **AI Model Text Classification Resource** to be defined at the API level. This resource serves as the classification engine for evaluating prompts' content during policy execution.
+
+For more information about creating and managing resources, go to [Resources](https://documentation.gravitee.io/apim/policies/resources)
+
+{% hint style="info" %}
+The policy will load the model while handling the first request made to the API. Therefore, this first call will take longer than usual because it includes model loading time. Subsequent requests will be processed faster. When multiple APIs use the same **AI Model Text Classification Resource**, the gateway will load it into memory only once. So if you have 50 APIs, each with the same resource, then the gateway only loads that model once.
+{% endhint %}
+
+After the resource is created, the policy must be configured with the corresponding name using the **AI Model Resource Name** property.
+
+{% hint style="warning" %}
+Without sufficient Java heap, the Gateway throws an `OutOfMemoryError` when the AI Model Text Classification resource loads the selected model on the first request. The Llama Prompt Guard 86M variant expands to approximately 300M parameters in ONNX F32 representation, while the smallest option (BERT Tiny) carries 4.39M parameters. Size the Gateway heap based on the selected model and the number of APIs that use the resource. For per-model parameter counts and footprints, see [AI Model Text Classification - Model Reference and Performance Metrics](ai-model-text-classification-model-reference-and-performance-metrics.md). For JVM heap configuration on Docker Compose or Kubernetes, see [Gateway Resource Sizing](../../../prepare-a-production-environment/gateway-resource-sizing-guidelines.md).
+{% endhint %}
+
+## Notice
+
+This plugin allows usage of models based on meta LLama4:
+
+* [gravitee-io/Llama-Prompt-Guard-2-22M-onxx](https://huggingface.co/gravitee-io/Llama-Prompt-Guard-2-22M-onnx)
+* [gravitee-io/Llama-Prompt-Guard-2-86M-onxx](https://huggingface.co/gravitee-io/Llama-Prompt-Guard-2-86M-onnx)
+
+> Llama 4 is licensed under the Llama 4 Community License, Copyright © Meta Platforms, Inc. All Rights Reserved.
+
+## Phases
+
+The `ai-prompt-guard-rails` policy can be applied to the following API types and flow phases.
+
+### Compatible API types
+
+* `PROXY`
+
+### Supported flow phases
+
+* Request
+
+## Compatibility matrix
+
+Strikethrough text indicates that a version is deprecated.
+
+| Plugin version  | APIM            | Java version |
+| --------------- | --------------- | ------------ |
+| 1.0.0 and after | 4.8.x and after | 21           |
+
+## Configuration options
+
+| <p>Name<br><code>json name</code></p>                             | <p>Type<br><code>constraint</code></p> | Mandatory | Default       | Description                                                                          |
+| ----------------------------------------------------------------- | -------------------------------------- | :-------: | ------------- | ------------------------------------------------------------------------------------ |
+| <p>Content Checks<br><code>contentChecks</code></p>               | string                                 |           |               | Comma-separated list of model labels (e.g., TOXIC,OBSCENE)                           |
+| <p>Prompt Location<br><code>promptLocation</code></p>             | string                                 |           |               | Prompt Location                                                                      |
+| <p>Request Policy<br><code>requestPolicy</code></p>               | enum (string)                          |           | `LOG_REQUEST` | <p>Request Policy<br>Values: <code>BLOCK_REQUEST</code> <code>LOG_REQUEST</code></p> |
+| <p>Resource Name<br><code>resourceName</code></p>                 | string                                 |           |               | The resource name loading the Text Classification model                              |
+| <p>Sensitivity threshold<br><code>sensitivityThreshold</code></p> | number                                 |           | `0.5`         |                                                                                      |
+
+## Examples
+
+Only log the request when inappropriate prompt detected
+
+```json
+{
+  "api": {
+    "definitionVersion": "V4",
+    "type": "PROXY",
+    "name": "AI - Prompt Guard Rails example API",
+    "resources": [
+      {
+        "name": "ai-model-text-classification-resource",
+        "type": "ai-model-text-classification",
+        "configuration": "{\"model\":{\"type\":\"MINILMV2_TOXIC_JIGSAW_MODEL\"}}",
+        "enabled": true
+      }
+    ],
+    "flows": [
+      {
+        "name": "Common Flow",
+        "enabled": true,
+        "selectors": [
+          {
+            "type": "HTTP",
+            "path": "/",
+            "pathOperator": "STARTS_WITH"
+          }
+        ],
+        "request": [
+          {
+            "name": "AI - Prompt Guard Rails",
+            "enabled": true,
+            "policy": "ai-prompt-guard-rails",
+            "configuration":
+              {
+                  "resourceName": "ai-model-text-classification-resource",
+                  "promptLocation": "{#request.jsonContent.prompt}",
+                  "contentChecks": "identity_hate,insult,obscene,severe_toxic,threat,toxic",
+                  "requestPolicy": "LOG_REQUEST"
+              }
+          }
+        ]
+      }
+    ]
+  }
+}
+
+```
+
+_Block request when inappropriate prompt detected_
+
+```json
+{
+  "api": {
+    "definitionVersion": "V4",
+    "type": "PROXY",
+    "name": "AI - Prompt Guard Rails example API",
+    "resources": [
+      {
+        "name": "ai-model-text-classification-resource",
+        "type": "ai-model-text-classification",
+        "configuration": "{\"model\":{\"type\":\"MINILMV2_TOXIC_JIGSAW_MODEL\"}}",
+        "enabled": true
+      }
+    ],
+    "flows": [
+      {
+        "name": "Common Flow",
+        "enabled": true,
+        "selectors": [
+          {
+            "type": "HTTP",
+            "path": "/",
+            "pathOperator": "STARTS_WITH"
+          }
+        ],
+        "request": [
+          {
+            "name": "AI - Prompt Guard Rails",
+            "enabled": true,
+            "policy": "ai-prompt-guard-rails",
+            "configuration":
+              {
+                  "resourceName": "ai-model-text-classification-resource",
+                  "promptLocation": "{#request.jsonContent.prompt}",
+                  "contentChecks": "identity_hate,insult,obscene,severe_toxic,threat,toxic",
+                  "requestPolicy": "BLOCK_REQUEST"
+              }
+          }
+        ]
+      }
+    ]
+  }
+}
+
+```
+
+_Provide a custom sensitivity threshold for inappropriate prompts_
+
+```json
+{
+  "api": {
+    "definitionVersion": "V4",
+    "type": "PROXY",
+    "name": "AI - Prompt Guard Rails example API",
+    "resources": [
+      {
+        "name": "ai-model-text-classification-resource",
+        "type": "ai-model-text-classification",
+        "configuration": "{\"model\":{\"type\":\"MINILMV2_TOXIC_JIGSAW_MODEL\"}}",
+        "enabled": true
+      }
+    ],
+    "flows": [
+      {
+        "name": "Common Flow",
+        "enabled": true,
+        "selectors": [
+          {
+            "type": "HTTP",
+            "path": "/",
+            "pathOperator": "STARTS_WITH"
+          }
+        ],
+        "request": [
+          {
+            "name": "AI - Prompt Guard Rails",
+            "enabled": true,
+            "policy": "ai-prompt-guard-rails",
+            "configuration":
+              {
+                  "resourceName": "ai-model-text-classification-resource",
+                  "promptLocation": "{#request.jsonContent.prompt}",
+                  "sensitivityThreshold": 0.1,
+                  "contentChecks": "identity_hate,insult,obscene,severe_toxic,threat,toxic",
+                  "requestPolicy": "BLOCK_REQUEST"
+              }
+          }
+        ]
+      }
+    ]
+  }
+}
+
+```
+
+## Changelog
+
+#### 1.0.0-alpha.1 (2025-06-18)
+
+#### **Features**
+
+* implementation of AI prompt guard rails policy ([b101445](https://github.com/gravitee-io/gravitee-policy-ai-prompt-guard-rails/commit/b1014451356cf708dab05f9df1d7a67eaa9fb63b))
