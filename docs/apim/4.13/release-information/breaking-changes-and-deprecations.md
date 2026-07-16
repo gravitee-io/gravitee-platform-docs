@@ -37,6 +37,24 @@ If you use the `gravitee-resource-cache-redis` or `aiVectorStoreRedis` resource,
 * `gateway.cacheRedis.maxPoolSize`
 * Timeout settings for both resources
 
+**v1 API definitions removed from the Management API v2 contract**
+
+From 4.12.0, APIM no longer supports v1 APIs. The `ApiV1` and `Rule` schemas and the `V1` value of the `DefinitionVersion` enum are removed from the Management API v2 OpenAPI specification. Migrate any remaining v1 APIs to at least a v2 definition before you upgrade. For more information about how APIM handles v1 APIs, see [Support for v1 APIs](support-for-v1-apis.md).
+
+**Automation API restricts shared policy group API types and phases**
+
+The Automation API now accepts shared policy groups only for the `PROXY` and `MESSAGE` API types. The `apiType` property of a shared policy group no longer accepts `NATIVE`, `A2A_PROXY`, `LLM_PROXY`, or `MCP_PROXY`, and the `FlowPhase` schema no longer includes the `ENTRYPOINT_CONNECT` and `INTERACT` values. The Automation API rejects a shared policy group specification that uses one of the removed values.
+
+This change affects Automation API clients, including the Gravitee Kubernetes Operator (GKO) and the Gravitee Terraform provider. These API types and phases remain available for shared policy groups in the Management API v2 and the Console.
+
+**`hidden` property removed from the Automation API metadata schema**
+
+The `Metadata` schema of the Automation API no longer includes the `hidden` property. This change affects API and application metadata that you manage through the Automation API. If you use the Terraform provider, see the migration steps in the [Terraform provider release notes](../terraform/release-notes.md).
+
+**Cluster creation through the Management API v2 requires a cluster type**
+
+The request body of the Create Cluster endpoint of the Management API v2 (`POST /environments/{envId}/clusters`) now requires a `type` property with one of the following values: `KAFKA_CLUSTER_STANDALONE`, `KAFKA_CLUSTER`, or `KAFKA_VIRTUAL_CLUSTER`. In earlier versions, the request body schema didn't include a `type` property. Update any clients or scripts that create clusters to include the `type` property.
+
 #### 4.11.0
 
 **A2A Proxy APIs architecture**
