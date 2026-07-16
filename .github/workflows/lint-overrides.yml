@@ -1,8 +1,8 @@
 # Lint Overrides Action
 #
-# Blocks PRs that contain divergent version edits (e.g. editing 4.12 but not 4.11)
+# Blocks PRs that contain divergent version edits (e.g. editing 4.13 but not 4.12)
 # unless those files are explicitly added to .version-overrides.
-# This prevents the version-sync bot from silently destroying manual 4.12 work.
+# This prevents the version-sync bot from silently destroying manual 4.13 work.
 
 name: Lint Version Overrides
 
@@ -10,9 +10,9 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
-      - 'docs/apim/4.12/**'
-      - 'docs/am/4.12/**'
-      - 'docs/gko/4.12/**'
+      - 'docs/apim/4.13/**'
+      - 'docs/am/4.13/**'
+      - 'docs/gko/4.13/**'
 
 jobs:
   lint:
@@ -24,14 +24,14 @@ jobs:
       matrix:
         include:
           - product: apim
-            current: "4.11"
-            next: "4.12"
+            current: "4.12"
+            next: "4.13"
           - product: am
-            current: "4.11"
-            next: "4.12"
+            current: "4.12"
+            next: "4.13"
           - product: gko
-            current: "4.11"
-            next: "4.12"
+            current: "4.12"
+            next: "4.13"
 
     steps:
       - uses: actions/checkout@v4
