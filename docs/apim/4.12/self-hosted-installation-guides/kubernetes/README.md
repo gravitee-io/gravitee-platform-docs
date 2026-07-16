@@ -21,6 +21,46 @@ The APIM Helm chart requires Kubernetes version 1.14 or later. The chart declare
 
 The chart doesn't set an upper Kubernetes version bound, and it doesn't impose version constraints specific to managed Kubernetes services such as Azure AKS, Amazon EKS, or Google GKE. The same minimum Kubernetes version applies to any cluster where you install the chart.
 
+## Pin the chart and image versions
+
+The APIM Helm chart and the APIM product share the same version number. Since chart 4.2.0, the chart version and its `appVersion` are identical, so chart `4.12.x` deploys the APIM `4.12.x` component images.
+
+When you don't set an image tag, the chart derives each component's tag from its `appVersion`: the Gateway and the Management API images default to the `<version>-debian` tag, and the Console and the Developer Portal images default to the `<version>` tag. Pinning the chart version therefore pins the component versions.
+
+Gravitee recommends pinning the chart version in production and pre-production so that a chart repository update or a pod restart never changes the version you run:
+
+```bash
+helm repo add graviteeio https://helm.gravitee.io
+helm upgrade --install graviteeio-apim graviteeio/apim \
+  --namespace gravitee-apim \
+  -f values.yaml \
+  --version 4.12.8
+```
+
+Optional: pin each component's image tag explicitly with the `gateway.image.tag`, `api.image.tag`, `ui.image.tag`, and `portal.image.tag` values for an extra layer of auditability in GitOps workflows. Keep any explicit image tag aligned with the chart version.
+
+{% hint style="warning" %}
+Don't use the `latest` image tag in production. The default image `pullPolicy` is `Always`, so a pod restart can pull a newer image without warning. APIM applies forward-only data migrations when a newer Management API version starts, so an uncontrolled upgrade isn't reversible. For more information, see [Upgrade Guides](../../upgrade-guides/README.md).
+{% endhint %}
+
+## Configure the chart for production
+
+The chart defaults favor quick starts. The following table lists the chart options to review before you run APIM in production. Replace the `<component>` placeholder with `gateway`, `api`, `ui`, or `portal`.
+
+| Concern | Helm values | Notes |
+|:--------|:------------|:------|
+| Replicas and autoscaling | `<component>.autoscaling`, `<component>.replicaCount` | Autoscaling is enabled by default with `minReplicas: 1` and `maxReplicas: 3`, and it supports a `behavior` block. `replicaCount` applies only when `autoscaling.enabled` is `false`. |
+| Pod disruption budgets | `<component>.pdb` | Disabled by default. Set `enabled: true` with `minAvailable` or `maxUnavailable`. The default `maxUnavailable` is `50%`. |
+| Zone and node spreading | `<component>.deployment.affinity`, `<component>.deployment.topologySpreadConstraints` | Empty by default. The chart doesn't generate anti-affinity rules, so supply the full block yourself. |
+| Node placement | `<component>.deployment.nodeSelector`, `<component>.deployment.tolerations`, `<component>.priorityClassName` | Empty by default. |
+| Resource requests and limits | `<component>.resources` | The defaults are modest. For example, the Gateway ships with a `500m` CPU and `512Mi` memory limit. Size each component per the [sizing guidelines](../../prepare-a-production-environment/gateway-resource-sizing-guidelines.md). |
+| Rollout strategy | `<component>.deployment.strategy` | Defaults to `RollingUpdate` with `maxUnavailable: 1`. |
+| Graceful shutdown | `<component>.terminationGracePeriod`, `<component>.lifecycle` | The grace period defaults to `30` seconds. `lifecycle` accepts `preStop` and `postStart` commands. |
+| Probes | `<component>.deployment.livenessProbe`, `<component>.deployment.readinessProbe`, `<component>.deployment.startupProbe` | For the Management API, Console, and Developer Portal, every probe field is configurable in values. For the Gateway, disable the built-in probe with `enabled: false` and set the matching `customLivenessProbe`, `customReadinessProbe`, or `customStartupProbe` block. |
+| Network policy | `networkPolicy` (top level) | Empty by default. The chart renders a single `NetworkPolicy` resource from the spec you provide. |
+| Service account and IAM annotations | `apim.managedServiceAccount`, `apim.serviceAccount`, `apim.serviceAccountAnnotations`, `<component>.deployment.serviceAccount` | The chart manages one ServiceAccount by default. `apim.serviceAccountAnnotations` attaches annotations to it, such as an AWS IAM role ARN for IAM Roles for Service Accounts (IRSA). |
+| JVM tuning | `<component>.env` | The chart has no dedicated JVM values. Pass JVM-related environment variables through `env`. For memory sizing guidance, see the [sizing guidelines](../../prepare-a-production-environment/gateway-resource-sizing-guidelines.md). |
+
 ## Proxy configuration
 
 To route Gateway traffic through a corporate proxy (for example, for backend API calls or JWKS retrieval from external identity providers like Microsoft Entra ID), add the following `gravitee_system_proxy_*` environment variables to the Gateway section of your `values.yaml`:
@@ -47,8 +87,6 @@ For the full configuration reference including proxy authentication and `gravite
 ## Ingress body size limit
 
 Kubernetes deployments that front APIM components with the NGINX Ingress Controller are subject to a request body size limit enforced by the ingress, not by Gravitee. When a client sends a request larger than this limit, the ingress rejects it with `413 Request Entity Too Large` before the request reaches any Gravitee component.
-
-The APIM Helm chart doesn't set a body size annotation on any ingress by default. If requests to the Gateway, the Management API, or the Portal API exceed the limit configured on your ingress controller, raise the limit by setting the `nginx.ingress.kubernetes.io/proxy-body-size` annotation on the affected ingress.
 
 The APIM Helm chart doesn't set a body size annotation on any ingress by default. If requests to the Gateway, the Management API, or the Portal API exceed the limit configured on your ingress controller, raise the limit by setting the `nginx.ingress.kubernetes.io/proxy-body-size` annotation on the affected ingress.
 
