@@ -99,7 +99,9 @@ You can now add a new Identity Provider to Gravitee APIM.
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>You can include your Tenant ID in your Endpoint URLs. To include your Tenant ID, replace <code>common</code> with your Tenant ID.</p></div>
 3. In the **Token Endpoint** field, enter the following endpoint: [`https://login.microsoftonline.com/common/oauth2/token`](https://login.microsoftonline.com/common/oauth2/token).
-4. For the **Token Introspect Endpoint**, leave this field blank. Microsoft Entra ID does not provide an Introspective endpoint.
+4.  For the **Token Introspect Endpoint**, leave this field blank. Microsoft Entra ID doesn't provide an Introspective endpoint.
+
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The Portal API <code>tokenExchange</code> operation requires the identity provider to define a token introspection endpoint. Because this field is blank, token exchange isn't available with Microsoft Entra ID, and the operation returns HTTP <code>400</code> with the message "Token exchange is not supported for this identity provider".</p></div>
 5. In the **Authorization Endpoint** field, enter the following endpoint: [`https://login.microsoftonline.com/common/oauth2/authorize`](https://login.microsoftonline.com/common/oauth2/authorize).
 6. In the **UserInfo Endpoint** field, enter the following endpoint: [`https://login.microsoftonline.com/common/openid/userinfo`](https://login.microsoftonline.com/common/openid/userinfo).
 7. In the **UserInfo Logout Endpoint** field, enter the following endpoint: [`https://login.microsoftonline.com/common/oauth2/logout`](https://login.microsoftonline.com/common/oauth2/logout).
