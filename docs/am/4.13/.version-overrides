@@ -7,3 +7,8 @@ SUMMARY.md
 .gitbook.yaml
 releases-and-changelog/release-notes/am-4.12.md
 releases-and-changelog/changelog/am-4.12.x.md
+getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md
+guides/applications/README.md
+guides/applications/configure-selective-scope-approval.md
+guides/user-management/user-consent.md
+releases-and-changelog/release-notes/am-4.13.md

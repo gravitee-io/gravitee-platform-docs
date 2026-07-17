@@ -363,10 +363,38 @@ curl -X POST \
   -d '{ \
         "application_type": "agent", \
         "grant_types": [ "authorization_code","client_credentials" ], \
-        "redirect_uris": ["https://example.com/callback"] \
+        "redirect_uris": ["https://example.com/callback"], \
+        "settings": { \
+          "oauth": { \
+            "scopeSettings": [ \
+              { \
+                "scope": "read", \
+                "scopeApproval": 3600, \
+                "defaultScope": true, \
+                "scopeRequired": false \
+              }, \
+              { \
+                "scope": "admin", \
+                "scopeApproval": 7200, \
+                "defaultScope": false, \
+                "scopeRequired": true \
+              } \
+            ], \
+            "isConsentRequired": true, \
+            "isConsentImplicit": false \
+          } \
+        } \
       }' \
   http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register
 ```
+
+The `settings.oauth.scopeSettings` array configures scope behavior:
+- `scope`: Scope key
+- `scopeApproval`: User consent duration in seconds
+- `defaultScope`: When enabled, the scope is added to authorization requests that don't specify any scopes
+- `scopeRequired`: When enabled, the scope is mandatory and can't be deselected during consent
+
+The `settings.oauth.isConsentImplicit` field controls whether scopes are preselected on the consent page. When `false` (default), all requested scopes are checked by default and users can deselect individual permissions. When `true`, no scopes are preselected and users must explicitly opt in to each permission.
 
 #### Read/update/delete client information
 

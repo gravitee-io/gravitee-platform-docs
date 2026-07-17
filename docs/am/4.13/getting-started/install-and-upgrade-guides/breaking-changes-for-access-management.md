@@ -14,6 +14,16 @@ metaLinks:
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+### 4.13.0
+
+**Selective Scope Approval**
+
+The consent page now supports selective scope approval, allowing users to grant or deny individual OAuth 2.0 permissions instead of accepting or rejecting all requested scopes as a single block. The consent page displays scopes as checkboxes, and users can selectively approve individual permissions before clicking "Allow". Administrators can mark critical scopes as required to ensure they are always granted; required scopes appear as checked and disabled checkboxes, and the authorization request fails with an `access_denied` error if the user attempts to submit consent without approving them. The consent page includes search, filter, and bulk action controls when more than 10 scopes are presented.
+
+**Migration note:** Existing applications retain the legacy consent behavior (all scopes preselected) because the **Preselect consent for all scopes** setting defaults to enabled for existing apps. Newly created applications have this setting disabled by default, requiring users to explicitly opt in to each permission. The **Required** flag defaults to disabled for all existing scope settings.
+
+For more information, see [Configure Selective Scope Approval](../../guides/applications/configure-selective-scope-approval.md).
+
 ### 4.12.0
 
 **Java 25 runtime requirement**
@@ -123,7 +133,7 @@ Starting with AM versions 4.5.20, 4.6.14, 4.7.8, and 4.8.1, GitHub issue [10573]
 
 In version 4.9.0, this option is enabled by default, making MongoDB queries for SCIM and user searches on the Management API case-sensitive. To revert to the previous behavior of case-insensitive searches, you must explicitly configure this option in the `gravitee.yaml` file:
 
-```
+```yaml
 legacy:
   mongodb:
     regexCaseInsensitive: true
@@ -380,7 +390,7 @@ select id, username from idp_table where username = 'duplicateuser';
 "yyyyyyyy-ef9b-4c6a-bc0b-7bef9bec6af4"	"duplicateuser"
 ```
 
-4. Based on the users table query output, choose the one that you want to preserve, and then rename to order into the the users table and into the idp table. Ensure that the user you are updating the exrernal\_id in the users table matching the user id into the idp table.
+4. Based on the users table query output, choose the one that you want to preserve, and then rename to order into the the users table and into the IdP table. Ensure that the user you are updating the exrernal\_id in the users table matching the user id into the IdP table.
 
 **Rename duplicate from Organization users Table**
 
@@ -455,7 +465,7 @@ By default in AM 3.20, to improve security on default installations of AccessMan
 
 Gateway CSP:
 
-```
+```yaml
 csp:
     script-inline-nonce: true
     directives:
@@ -469,14 +479,14 @@ csp:
 
 Gateway XSS-Protection:
 
-```
+```yaml
  xss:
     action: 1; mode=block
 ```
 
 Gateway X-Frame-Option:
 
-```
+```yaml
  xframe:
     action: DENY
 ```
@@ -498,7 +508,7 @@ If you use docker to start AM, after a docker-compose, you find a snippet that m
 * To deploy enterprise plugins in an additional plugin directory.
 * To deploy the license file.
 
-```
+```yaml
 management:
     image: graviteeio/am-management-api:3.18.0
     container_name: gio_am_management
@@ -525,7 +535,7 @@ _Deploy AM EE with Helm_
 
 If you use helm, you have to mount the license file using a secret, and then in the `additionalPlugins` section for the gateway and the api, specify which EE plugin to download.
 
-```
+```yaml
 gateway:
   additionalPlugins:
   - https://download.gravitee.io/graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-saml2-generic/gravitee-am-identityprovider-saml2-generic-<version>.zip
@@ -555,7 +565,7 @@ api:
 
 To better match the recommendation asked by Apple to use biometric devices for WebAuthn (passwordless) feature, backend APIs and JavaScript scripts have been updated to reflect that change.
 
-If you use webauthn JavaScript scripts in your custom HTML templates, we strongly advise you to use the v2 version started from the 3.18.0 version.
+If you use WebAuthn JavaScript scripts in your custom HTML templates, we strongly advise you to use the v2 version started from the 3.18.0 version.
 
 For more information about the recommendation from Apple, go to [WebKit Bugzilla](https://bugs.webkit.org/show_bug.cgi?id=213595).
 
@@ -637,7 +647,7 @@ Also, at management-api level, the schema changes to save the new application co
 
 * Prior to this update:
 
-```
+```json
 {
     ...
     "identities": [
@@ -649,7 +659,7 @@ Also, at management-api level, the schema changes to save the new application co
 
 * After this update:
 
-```
+```json
 {
     ...
     "identityProviders":[

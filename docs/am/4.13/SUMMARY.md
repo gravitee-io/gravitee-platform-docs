@@ -105,6 +105,7 @@
   * [AuthZen](guides/authorization-engines/authzen.md)
 * [Applications](guides/applications/README.md)
   * [Client Secrets](guides/applications/client-secrets.md)
+  * [Configure Selective Scope Approval](guides/applications/configure-selective-scope-approval.md)
   * [Create and Manage Agent Applications](guides/applications/create-and-manage-agent-applications.md)
   * [SPIFFE Workload Identity and Agent Applications Overview](guides/applications/spiffe-workload-identity-and-agent-applications-overview.md)
 * [Branding](guides/branding/README.md)
@@ -183,6 +184,7 @@
 ## Releases & Changelog
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
+  * [AM 4.13](releases-and-changelog/release-notes/am-4.13.md)
   * [AM 4.12](releases-and-changelog/release-notes/am-4.12.md)
   * [AM 4.11](https://app.gitbook.com/s/O4b17m2YAjS2X1XTCh88/releases-and-changelog/release-notes/am-4.11)
   * [AM 4.10](https://documentation.gravitee.io/am/releases-and-changelog/release-notes/am-4.10)
