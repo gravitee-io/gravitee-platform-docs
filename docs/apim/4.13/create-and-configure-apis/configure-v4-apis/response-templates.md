@@ -132,21 +132,24 @@ The Gateway evaluates Expression Language in the response template body only. Th
 
 The `#error` object exposes the following fields:
 
-| Field               | Description                                                                  |
-| ------------------- | ---------------------------------------------------------------------------- |
-| `#error.statusCode` | The HTTP status code set by the failing policy or component.                 |
-| `#error.key`        | The error key that triggered the template, for example `CALLOUT_HTTP_ERROR`. |
-| `#error.message`    | The error message produced by the failing policy or component.               |
-| `#error.parameters` | The same map as `#parameters`, exposed as a property of the error object.    |
+| Field               | Description                                                                                                                                                                       |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `#error.statusCode` | The HTTP status code set by the failing policy or component.                                                                                                                      |
+| `#error.key`        | The error key that triggered the template, for example `CALLOUT_HTTP_ERROR`.                                                                                                      |
+| `#error.message`    | The error message produced by the failing policy or component.                                                                                                                    |
+| `#error.cause`      | The failure detail that the Gateway records for the request. When the Gateway doesn't record a detail for the failure, `#error.cause` falls back to the value of `#error.message`. |
+| `#error.parameters` | The same map as `#parameters`, exposed as a property of the error object.                                                                                                          |
 
-Example response template body that returns the error key, status code, and message in a JSON envelope:
+For every type of error, `#error.cause` exposes the same failure detail that appears for the request in [execution transparency analytics](../../analyze-and-monitor-apis/execution-transparency-analytics.md). Some failures don't produce an error message, for example connection failures between the Gateway and the backend such as a TLS handshake error or a refused connection. For these failures, `#error.message` renders as an empty string, and `#error.cause` contains the failure detail. The `#error.cause` field is available from APIM 4.12.9.
+
+Example response template body that returns the error key, status code, and failure detail in a JSON envelope:
 
 ```json
 {
   "error": {
     "code": "{#error.key}",
     "status": {#error.statusCode},
-    "detail": "{#error.message}"
+    "detail": "{#error.cause}"
   }
 }
 ```
