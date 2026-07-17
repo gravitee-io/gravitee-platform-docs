@@ -1,5 +1,5 @@
 ---
-description: An overview about mongodb.
+description: An overview about MongoDB.
 metaLinks:
   alternates:
     - mongodb.md
@@ -69,7 +69,7 @@ management:
     port:                       # mongodb port (default 27017)
 
 ## Client settings
-    description:                # mongodb description (default gravitee.io)
+    description:                # MongoDB description (default gravitee.io)
     username:                   # mongodb username (default null)
     password:                   # mongodb password (default null)
     authSource:                 # mongodb authentication source (when at least a user or a password is defined, default gravitee)
@@ -116,6 +116,46 @@ management:
     keystorePassword:           # KeyStore password (when sslEnabled is true, default null)
     keyPassword:                # password for recovering keys in the KeyStore (when sslEnabled is true, default null)
 ```
+
+### Rate limit repository configuration
+
+The APIM Gateway requires both a `management` repository and a `ratelimit` repository. The `ratelimit` repository stores the counters that rate limiting policies share across APIM Gateway instances. Each repository is configured independently, and the `ratelimit` section doesn't inherit any settings, including credentials, from the `management` section. If your MongoDB deployment requires authentication, define the credentials in the `ratelimit` section too, even when both repositories point to the same database.
+
+```yaml
+management:
+  type: mongodb                 # repository type
+  mongodb:                      # mongodb repository
+    dbname:                     # mongodb name (default gravitee)
+    host:                       # mongodb host (default localhost)
+    port:                       # mongodb port (default 27017)
+    username:                   # mongodb username (default null)
+    password:                   # mongodb password (default null)
+    authSource:                 # mongodb authentication source (default gravitee)
+ratelimit:
+  type: mongodb                 # repository type
+  mongodb:                      # mongodb repository
+    dbname:                     # mongodb name (default gravitee)
+    host:                       # mongodb host (default localhost)
+    port:                       # mongodb port (default 27017)
+    username:                   # mongodb username (default null)
+    password:                   # mongodb password (default null)
+    authSource:                 # mongodb authentication source (default gravitee)
+```
+
+If you define the `uri` property, it takes precedence over the other connection properties. In that case, include the credentials and the authentication database in the connection string:
+
+```yaml
+ratelimit:
+  type: mongodb
+  mongodb:
+    uri: mongodb://username:password@host:27017/gravitee?authSource=gravitee
+```
+
+For the connection string format, see the [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/connection-string/).
+
+{% hint style="info" %}
+The default `gravitee.yml` file shipped with the APIM Gateway nests the `management` and `ratelimit` sections under a top-level `repositories` section. The APIM Gateway reads both structures.
+{% endhint %}
 
 ## Use a custom prefix
 
