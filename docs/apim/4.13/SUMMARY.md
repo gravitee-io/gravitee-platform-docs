@@ -49,6 +49,7 @@
       * [GCP GKE](hybrid-installation-and-configuration-guides/classic-cloud/kubernetes/gcp-gke.md)
     * [.ZIP](hybrid-installation-and-configuration-guides/classic-cloud/.zip.md)
     * [Cloud Certificate Renewal](hybrid-installation-and-configuration-guides/classic-cloud/cloud-certificate-renewal.md)
+    * [Add Classic Cloud IP ranges to your firewall rules](hybrid-installation-and-configuration-guides/classic-cloud/classic-cloud-ip-ranges.md)
   * [Proxy Configuration](hybrid-installation-and-configuration-guides/proxy-configuration/README.md)
   * [Hybrid Gateway Proxy Configuration](hybrid-installation-and-configuration-guides/proxy-configuration/hybrid-gateway-proxy-configuration.md)
   * [System Proxy for Backend APIs](hybrid-installation-and-configuration-guides/proxy-configuration/system-proxy-for-backend-apis.md)
