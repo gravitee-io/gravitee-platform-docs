@@ -35,6 +35,10 @@ You need to:
 * configure hosts & tls
 {% endhint %}
 
+### Automation API schema changes
+
+GKO 4.12 manages resources through the APIM Automation API. APIM 4.12.0 introduces breaking changes to the Automation API schemas, including restrictions on shared policy group API types and phases and the removal of the `hidden` metadata property. For details, see [Breaking changes and deprecations](https://documentation.gravitee.io/apim/4.12/release-information/breaking-changes-and-deprecations) in the APIM documentation.
+
 ## New Features
 
 #### **API key rotation for subscriptions**

@@ -40,3 +40,5 @@ From 4.12.0 of APIM, Gravitee no longer supports v1 APIs. Before you upgrade to 
 * The APIM Gateway ignores v1 APIs.
 * The Management API automatically stops running v1 APIs.
 * In the UI, v1 APIs display an error indicating an invalid version.
+
+The 4.12.0 breaking changes include the removal of the v1 API schemas from the Management API v2 OpenAPI specification. For details, see [Breaking changes and deprecations](breaking-changes-and-deprecations.md).
