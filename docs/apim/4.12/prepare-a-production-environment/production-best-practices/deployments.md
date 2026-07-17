@@ -155,6 +155,16 @@ The Gravitee Helm chart ships conservative defaults that are safe for a first in
 | `gammaUi` | `gammaUi.replicaCount` | `1` | `2`+ if enabled |
 | `kafkaConsole` | `kafkaConsole.replicaCount` | `1` | `2`+ if enabled |
 
+**Example** (`values-production.yaml`):
+
+```yaml
+api:
+  replicaCount: 2
+
+gateway:
+  replicaCount: 3
+```
+
 ### Pod Disruption Budgets
 
 {% hint style="warning" %}
@@ -169,6 +179,22 @@ Every component ships with `pdb.enabled: false`. Nothing stops a node drain or c
 | `ui` | `ui.pdb.*` | `false` / `""` / `"50%"` | Enable; set `minAvailable: 1` |
 | `gammaUi` | `gammaUi.pdb.*` | `false` / `""` / `"50%"` | Enable if the component is in use |
 | `kafkaConsole` | `kafkaConsole.pdb.*` | `false` / `""` / `"50%"` | Enable if the component is in use |
+
+**Example** (`values-production.yaml`):
+
+```yaml
+api:
+  pdb:
+    enabled: true
+    minAvailable: 1
+    maxUnavailable: ""   # must clear this — Kubernetes rejects a PDB with both set
+
+gateway:
+  pdb:
+    enabled: true
+    minAvailable: 2      # gateway runs 3+ replicas, so keep 2 available during a drain
+    maxUnavailable: ""
+```
 
 ### Pod anti-affinity
 
@@ -185,6 +211,42 @@ No component configures anti-affinity out of the box (`deployment.affinity: {}` 
 | `gammaUi` | `gammaUi.deployment.affinity` | `{}` (none) | Add if the component is in use |
 | `kafkaConsole` | `kafkaConsole.deployment.affinity` | `{}` (none) | Add if the component is in use |
 
+**Example** (`values-production.yaml`):
+
+The chart injects this value as literal YAML (no templating), so reference the real pod labels directly. Each component is labeled with `app.kubernetes.io/name: apim` and `app.kubernetes.io/component: <api|gateway|portal|ui|gamma|kafkaConsole>` (note: `gammaUi`'s component label value is `gamma`, not `gammaUi`). Add `app.kubernetes.io/instance: <your-release-name>` too if more than one `apim` release runs in the same namespace.
+
+```yaml
+api:
+  deployment:
+    affinity:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              topologyKey: kubernetes.io/hostname
+              labelSelector:
+                matchLabels:
+                  app.kubernetes.io/name: apim
+                  app.kubernetes.io/component: api
+
+gateway:
+  deployment:
+    affinity:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              topologyKey: kubernetes.io/hostname
+              labelSelector:
+                matchLabels:
+                  app.kubernetes.io/name: apim
+                  app.kubernetes.io/component: gateway
+```
+
+{% hint style="info" %}
+`preferredDuringSchedulingIgnoredDuringExecution` (soft anti-affinity) is used here rather than `requiredDuringSchedulingIgnoredDuringExecution` (hard). Hard anti-affinity blocks scheduling entirely if there aren't enough nodes to spread every replica, which is usually worse than accepting occasional co-location.
+{% endhint %}
+
 ### Controlled HPA scaling behavior
 
 | Component | Helm value | Chart default | Recommendation |
@@ -198,4 +260,54 @@ No component configures anti-affinity out of the box (`deployment.affinity: {}` 
 
 {% hint style="info" %}
 `autoscaling.enabled` defaults to `true` for every component, so a `HorizontalPodAutoscaler` is created out of the box. The chart leaves `behavior` commented out, so Kubernetes' own default scaling behavior applies (near-instant scale-up, a 300-second scale-down stabilization window) until you set it explicitly.
+{% endhint %}
+
+**Example** (`values-production.yaml`):
+
+```yaml
+api:
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 6
+    targetAverageUtilization: 50
+    targetMemoryAverageUtilization: 80
+    behavior:
+      scaleDown:
+        stabilizationWindowSeconds: 300
+        policies:
+          - type: Pods
+            value: 1
+            periodSeconds: 60
+      scaleUp:
+        stabilizationWindowSeconds: 0
+        policies:
+          - type: Pods
+            value: 2
+            periodSeconds: 60
+
+gateway:
+  autoscaling:
+    enabled: true
+    minReplicas: 3
+    maxReplicas: 10
+    targetAverageUtilization: 50
+    targetMemoryAverageUtilization: 80
+    behavior:
+      scaleDown:
+        stabilizationWindowSeconds: 600   # gateway sees bursty traffic — hold off scaling down longer
+        policies:
+          - type: Pods
+            value: 1
+            periodSeconds: 60
+      scaleUp:
+        stabilizationWindowSeconds: 0
+        policies:
+          - type: Pods
+            value: 2
+            periodSeconds: 60
+```
+
+{% hint style="info" %}
+Scale-up is intentionally fast (`stabilizationWindowSeconds: 0`) and scale-down is intentionally slow — this asymmetry avoids dropping capacity too early during a temporary traffic dip.
 {% endhint %}
