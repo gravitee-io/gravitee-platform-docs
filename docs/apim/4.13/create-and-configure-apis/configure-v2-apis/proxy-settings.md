@@ -49,8 +49,8 @@ CORS is a mechanism that allows resources on a web page to be requested from ano
     <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger"><p>A value of * is not recommended for production environments. By allowing cross-origin requests, a server may inadvertently expose sensitive information to unauthorized parties. For example, if a server includes sensitive data in a response that is accessible via CORS, an attacker could use a malicious website to extract that data.</p></div>
 
 ```
-* **Access-Control-Allow-Methods:** Select the method(s) allowed when accessing the resource, which is used in response to a preflight request: `GET`, `DELETE`, `PATCH`, `POST`, `PUT`, `OPTIONS`, `TRACE`, and/or `HEAD`.
-* **Access-Control-Allow-Headers:** Select the HTTP header(s) that can be used when making the actual request, in response to a preflight request. Typically, your request header will include `Access-Control-Request-Headers`, which relies on the CORS configuration to allow its values.
+* **Access-Control-Allow-Methods:** Select the methods allowed when accessing the resource, which is used in response to a preflight request: `GET`, `DELETE`, `PATCH`, `POST`, `PUT`, `OPTIONS`, `TRACE`, and/or `HEAD`.
+* **Access-Control-Allow-Headers:** Select the HTTP headers that can be used when making the actual request, in response to a preflight request. Typically, your request header will include `Access-Control-Request-Headers`, which relies on the CORS configuration to allow its values.
 * **Access-Control-Allow-Credentials:** Toggle ON or OFF to indicate whether the response to the request can be exposed when the credentials flag is true.
 * **Max Age:** Specify how long (in seconds) the results of a preflight request can be cached. This is optional, and a value of `-1` indicates it is disabled.
 * **Access-Control-Expose-Headers:** Define a list of headers that browsers are allowed to access.
@@ -79,7 +79,7 @@ All requests rejected because of CORS issues will generate logs that you can vie
 
 ## Response templates
 
-Response templates are used to override the default values sent in response to consumer calls to an API. Response template overrides are triggered by error keys, which are specific to policies. Responses can be templatized if the errors raised during the request/response phase(s) are associated with overridable policy keys. Each response template defines the new values to be returned for one or more status codes when the template is triggered.
+Response templates are used to override the default values sent in response to consumer calls to an API. Response template overrides are triggered by error keys, which are specific to policies. Responses can be templatized if the errors raised during the request and response phases are associated with overridable policy keys. Each response template defines the new values to be returned for one or more status codes when the template is triggered.
 
 ### Default response payload
 
@@ -150,12 +150,15 @@ When you set a response template body, the Gateway evaluates it with the [Gravit
 
 The `#error` object exposes the following fields:
 
-| Field               | Description                                                                  |
-| ------------------- | ---------------------------------------------------------------------------- |
-| `#error.statusCode` | The HTTP status code set by the failing policy or component.                 |
-| `#error.key`        | The error key that triggered the template, for example `CALLOUT_HTTP_ERROR`. |
-| `#error.message`    | The error message produced by the failing policy or component.               |
-| `#error.parameters` | The same map as `#parameters`, exposed as a property of the error object.    |
+| Field               | Description                                                                                                                                                                                                                                                                                                       |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `#error.statusCode` | The HTTP status code set by the failing policy or component.                                                                                                                                                                                                                                                      |
+| `#error.key`        | The error key that triggered the template, for example `CALLOUT_HTTP_ERROR`.                                                                                                                                                                                                                                      |
+| `#error.message`    | The error message produced by the failing policy or component.                                                                                                                                                                                                                                                    |
+| `#error.cause`      | The failure detail that the Gateway records for the request. When the Gateway doesn't record a detail for the failure, `#error.cause` falls back to the value of `#error.message`. Available only when the API runs in [emulation mode](../gravitee-api-definitions/execution-engine.md#v2-gateway-api-emulation-mode). |
+| `#error.parameters` | The same map as `#parameters`, exposed as a property of the error object.                                                                                                                                                                                                                                         |
+
+For every type of error, `#error.cause` exposes the same failure detail that appears for the request in [execution transparency analytics](../../analyze-and-monitor-apis/execution-transparency-analytics.md). Some failures don't produce an error message, for example connection failures between the Gateway and the backend such as a TLS handshake error or a refused connection. For these failures, `#error.message` renders as an empty string, and `#error.cause` contains the failure detail. The `#error.cause` field is available from APIM 4.12.9, and only for v2 APIs that run in [emulation mode](../gravitee-api-definitions/execution-engine.md#v2-gateway-api-emulation-mode). For v2 APIs that run on the legacy execution engine, the `#error` object doesn't expose a `cause` field.
 
 Example response template body that returns the error key, status code, and message in a JSON envelope:
 
