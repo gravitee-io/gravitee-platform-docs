@@ -84,10 +84,3 @@ redirects:
   api-designer/overview/readme: gravitee-cloud/api-designer/guides/api-designer-workspace/README.md
   # deprecated telepresence page — send traffic home
   telepresence/canary-deployments: README.md
-  # blank Development Tools pages removed in PR #1996 (4.11-4.13)
-  apim/4.11/create-and-configure-apis/development-tools: https://documentation.gravitee.io/apim/create-and-configure-apis
-  apim/4.11/create-and-configure-apis/development-tools/enforcing-logging-rules-with-archunit-maven-plugin: https://documentation.gravitee.io/apim/create-and-configure-apis
-  apim/4.12/create-and-configure-apis/development-tools: https://documentation.gravitee.io/apim/create-and-configure-apis
-  apim/4.12/create-and-configure-apis/development-tools/enforcing-logging-rules-with-archunit-maven-plugin: https://documentation.gravitee.io/apim/create-and-configure-apis
-  apim/4.13/create-and-configure-apis/development-tools: https://documentation.gravitee.io/apim/create-and-configure-apis
-  apim/4.13/create-and-configure-apis/development-tools/enforcing-logging-rules-with-archunit-maven-plugin: https://documentation.gravitee.io/apim/create-and-configure-apis
