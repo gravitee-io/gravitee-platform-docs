@@ -7,3 +7,5 @@ SUMMARY.md
 .gitbook.yaml
 releases-and-changelog/release-notes/am-4.12.md
 releases-and-changelog/changelog/am-4.12.x.md
+# Selective scope consent and required scopes (AM 4.13.0 feature, AM-7022)
+guides/user-management/user-consent.md
