@@ -299,8 +299,6 @@
       * [XML Validation](create-and-configure-apis/apply-policies/policy-reference/xml-validation.md)
       * [XSLT](create-and-configure-apis/apply-policies/policy-reference/xslt.md)
       * [Webhook Signature Generator](create-and-configure-apis/apply-policies/policy-reference/webhook-signature-generator.md)
-  * [Development Tools](create-and-configure-apis/development-tools/README.md)
-    * [Enforcing logging rules with ArchUnit Maven plugin](create-and-configure-apis/development-tools/enforcing-logging-rules-with-archunit-maven-plugin.md)
 * [Secure & Expose APIs](secure-and-expose-apis/README.md)
   * [Plans](secure-and-expose-apis/plans/README.md)
     * [Conditional Updates for Plans](secure-and-expose-apis/plans/conditional-updates-for-plans.md)
