@@ -1176,3 +1176,5 @@ redirects:
  using-the-product/using-the-gravitee-api-management-components/general-configuration/shared-policy-groups/shared-policy-groups-overview: create-and-configure-apis/apply-policies/shared-policy-groups.md
  using-the-product/using-the-gravitee-api-management-components/general-configuration/shared-policy-groups/viewing-version-history-of-the-shared-policy-group: create-and-configure-apis/apply-policies/shared-policy-groups.md
  using-the-product/using-the-gravitee-api-management-components/general-configuration/tenants: configure-and-manage-the-platform/gravitee-gateway/tenants.md
+ create-and-configure-apis/development-tools: create-and-configure-apis/README.md
+ create-and-configure-apis/development-tools/enforcing-logging-rules-with-archunit-maven-plugin: create-and-configure-apis/README.md
