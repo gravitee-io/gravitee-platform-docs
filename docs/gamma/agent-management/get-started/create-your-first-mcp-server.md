@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Create your first MCP server
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 This quickstart walks you through creating an MCP Proxy in front of an upstream MCP server, so that every tool invocation passes through the AI Gateway with authentication, policy enforcement, and observability. You'll use the simplest configuration — Proxy mode with API key security — to get a governed MCP server running in under five minutes.
 
@@ -20,16 +19,16 @@ For a complete reference on all MCP Proxy options, including Studio mode, see [C
 ## Step 1: Open the MCP Proxy wizard
 
 1. From the Gamma console sidebar, select **Agent Management**.
-2. Navigate to **Build**.
-3. Select **Create MCP Proxy**.
+2. Under **Secure**, select **MCP Proxies**.
+3. Select **+ Create MCP proxy**.
 
 The console opens the MCP Proxy creation wizard. Select **Proxy mode**, enter a name like "My First MCP Server" and a context path, then select **Next**.
 
 ## Step 2: Configure security
 
-The next step defines how consumers authenticate when calling tools through this MCP Proxy.
+The next step defines how consumers authenticate when calling tools through this MCP Proxy. The wizard offers four authentication methods: **Gravitee as Authorization Server**, **External Authorization Server**, **API Key**, and **Passthrough**.
 
-For this quickstart, select **API Key**. API key security lets you track and control which consumers invoke tools through your MCP Proxy without setting up an external identity provider.
+For this quickstart, select **API Key** to get running quickly without configuring an identity provider. The console flags API Key as **Not recommended**, since API keys don't carry user identity and can't be scoped as granularly as OAuth — for production deployments, use **Gravitee as Authorization Server** instead.
 
 Select **Next** to proceed.
 
@@ -44,7 +43,7 @@ Select **Next** to proceed.
 
 ## Step 4: Review and create
 
-Review the MCP Proxy configuration and select **Create**.
+Review the MCP Proxy configuration, then select **Create & deploy** to create the proxy and make it immediately available on the gateway. Select **Create only** instead if you want to create the proxy without deploying it yet.
 
 The console creates the MCP Proxy and registers it in the AI Gateway. The MCP Proxy now sits in front of your upstream MCP server — every tool invocation flows through the AI Gateway, where authentication, policies, and observability are applied.
 
