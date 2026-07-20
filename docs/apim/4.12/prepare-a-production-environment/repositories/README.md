@@ -9,7 +9,7 @@ metaLinks:
 
 ## Overview
 
-Gravitee uses repositories to store different types of data. They are configured in `gravitee.yml` or the Gravitee Helm chart `values.yml`, where each repository can correspond to a particular scope. For example, configuration/management data can be stored in MongoDB, rate limiting data in Redis, and analytics data in ElasticSearch.
+Gravitee uses repositories to store different types of data. They are configured in `gravitee.yml` or the Gravitee Helm chart `values.yml`, where each repository can correspond to a particular scope. For example, configuration/management data can be stored in MongoDB, rate limiting data in Redis, and analytics data in Elasticsearch.
 
 ## Management Repository
 
@@ -204,10 +204,14 @@ ratelimit:
   type: mongodb
   mongodb:
     uri: mongodb://${ds.mongodb.host}/${ds.mongodb.dbname}
+    # With MongoDB authentication enabled:
+    # uri: mongodb://username:password@host:27017/gravitee?authSource=gravitee
     prefix: # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](README.md#use-a-custom-prefix).
+The `ratelimit` repository doesn't inherit the credentials of the `management` repository. If your MongoDB deployment requires authentication, include the credentials in the `ratelimit` section too. For the complete list of connection and authentication properties, see [mongodb.md](mongodb.md#rate-limit-repository-configuration).
+
+If you want to use a custom prefix, you need to follow the following [instructions](mongodb.md#use-a-custom-prefix).
 {% endtab %}
 
 {% tab title="JDBC" %}
@@ -223,7 +227,7 @@ ratelimit:
     prefix:   # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow these [instructions](README.md#use-a-custom-prefix-1).
+If you want to use a custom prefix, you need to follow these [instructions](jdbc.md#use-a-custom-prefix).
 {% endtab %}
 
 {% tab title="Redis Standalone" %}
