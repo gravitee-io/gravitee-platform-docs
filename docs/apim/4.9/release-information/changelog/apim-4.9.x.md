@@ -7,6 +7,50 @@ metaLinks:
 
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.29 - July 21, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* API list no longer shows when an API is out of sync [#11610](https://github.com/gravitee-io/issues/issues/11610)
+
+**Other**
+
+* Latency issue using redis rate-limit. [#11546](https://github.com/gravitee-io/issues/issues/11546)
+* \[gravitee-policy-aws-lambda] 3.4.0 Upgrade Causing Blocked Thread Warnings and Potential Gateway Performance Impact [#11552](https://github.com/gravitee-io/issues/issues/11552)
+* Overview dashboard does not respect role permissions [#11555](https://github.com/gravitee-io/issues/issues/11555)
+* Portal exposes other user's subscription details to users without applications [#11584](https://github.com/gravitee-io/issues/issues/11584)
+* Policy "Interrupt" in response flow [#11623](https://github.com/gravitee-io/issues/issues/11623)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Response templates: expose the analytics error detail via {#error.cause} [#11630](https://github.com/gravitee-io/issues/issues/11630)
+* v4 HTTP proxy: configurable connection pool wait-queue size (all versions) and max connection lifetime (4.12+) [#11641](https://github.com/gravitee-io/issues/issues/11641)
+
+**Management API**
+
+* v4 HTTP proxy: configurable connection pool wait-queue size (all versions) and max connection lifetime (4.12+) [#11641](https://github.com/gravitee-io/issues/issues/11641)
+
+**Console**
+
+* Increase broadcast message character limit [#11515](https://github.com/gravitee-io/issues/issues/11515)
+
+**Other**
+
+* UI Clutterness in Debug Feature  [#11645](https://github.com/gravitee-io/issues/issues/11645)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.9.28 - July 11, 2026
 <details>
 
