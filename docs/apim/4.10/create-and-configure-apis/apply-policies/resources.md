@@ -27,7 +27,7 @@ To create a resource:
 {% hint style="warning" %}
 **Disabling a resource has no effect on v2 APIs**
 
-On v2 APIs, the gateway ignores the `enabled` flag of a resource. When you deploy the API, the gateway still loads and starts a disabled resource, and policies that reference it keep using it. This behavior preserves backward compatibility for existing APIs, and it applies whether or not [emulation mode](../gravitee-api-definitions/execution-engine.md) is enabled. To stop using a resource, remove it and the policies that reference it from the API, then redeploy the API.
+On v2 APIs, the gateway ignores the `enabled` flag of a resource. When you deploy the API, the gateway still loads and starts a disabled resource, and policies that reference it keep using it. This behavior preserves backward compatibility for existing APIs, and it applies whether or not [emulation mode](../gravitee-api-definitions/execution-engine.md#v2-gateway-api-emulation-mode) is enabled. To stop using a resource, remove it and the policies that reference it from the API, then redeploy the API.
 
 On v4 APIs, the gateway doesn't load disabled resources.
 {% endhint %}
