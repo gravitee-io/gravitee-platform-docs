@@ -77,6 +77,7 @@
   * [Upgrade with RPM](upgrade-guides/upgrade-with-rpm.md)
   * [MongoDB Index Management](upgrade-guides/mongodb-index-management.md)
   * [APIM 4.9 Elasticsearch Index Template Changes](upgrade-guides/apim-4.9-elasticsearch-index-template-changes.md)
+  * [Migrate v1 APIs to v2](upgrade-guides/migrate-v1-apis-to-v2.md)
 * [How-To Guides](how-to-guides/README.md)
   * [Use Case Tutorials](how-to-guides/use-case-tutorials/README.md)
     * [Create & Publish Your First API](getting-started/create-and-publish-your-first-api/README.md)
