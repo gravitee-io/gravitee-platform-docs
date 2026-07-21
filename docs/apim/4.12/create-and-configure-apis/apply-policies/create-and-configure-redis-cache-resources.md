@@ -4,6 +4,14 @@
 
 Configure a Redis cache resource for use with Cache or Data Cache policies. Pool settings are sourced from `gravitee.yml` and apply gateway-wide to all resources sharing the same endpoint.
 
+{% hint style="warning" %}
+**Disabling a Redis cache resource has no effect on v2 APIs**
+
+On v2 APIs, setting a Redis cache resource's `enabled` flag to `false` doesn't stop the resource. When you deploy the API, the gateway still loads and starts the resource, and the Cache policy keeps serving cached responses from Redis. This behavior preserves backward compatibility for existing APIs, and it applies whether or not [emulation mode](../gravitee-api-definitions/execution-engine.md) is enabled. To stop caching, remove the resource and the policies that reference it from the API, then redeploy the API.
+
+On v4 APIs, the gateway doesn't load disabled resources.
+{% endhint %}
+
 ### Per-Resource Configuration
 
 Configure the following properties in the API definition or Management Console:
@@ -12,8 +20,8 @@ Configure the following properties in the API definition or Management Console:
 |:---------|:------------|:--------|
 | **Host** | Redis instance host (supports EL) | `localhost` |
 | **Port** | Redis instance port (supports EL) | `6379` |
-| **Username** | Username for Redis ACL authentication (supports EL and secrets) | — |
-| **Password** | Redis instance password (supports EL and secrets) | — |
+| **Username** | Username for Redis ACL authentication (supports EL and secrets) | - |
+| **Password** | Redis instance password (supports EL and secrets) | - |
 | **Use SSL** | Enable SSL connections to Redis | `true` |
 | **Timeout** | Command timeout in milliseconds | `2000` |
 | **Time To Live Seconds** | Default TTL for cached entries (0 = no expiration) | `0` |
@@ -28,7 +36,7 @@ The following properties are displayed when Sentinel mode is enabled:
 |:---------|:------------|:--------|
 | **Enabled** | Enable Sentinel mode | `true` |
 | **Master Id** | Sentinel master id (supports EL) | `sentinel-master` |
-| **Password** | Sentinel password (supports EL and secrets) | — |
+| **Password** | Sentinel password (supports EL and secrets) | - |
 | **Nodes** | Sentinel nodes (each with `host` and `port`, both support EL) | `[{host: "localhost", port: 26379}]` |
 
 ### Cluster Configuration
@@ -60,7 +68,7 @@ The following properties are displayed when **Use SSL** is enabled:
 * API definitions created before 4.12 with a nested `standalone` object are automatically migrated to flat `host`/`port` fields.
 
 * The legacy **Sentinel Mode** boolean (top-level) is honored regardless of JSON property order. Sentinel mode is detected when `sentinel.enabled=true` AND `sentinel.nodes` is non-empty, OR when the legacy **Sentinel Mode** (top-level) AND `sentinel.nodes` is non-empty.
-* The legacy **Max Total** pool setting and per-resource pool settings (**Max Pool Size**, **Max Pool Waiting**, **Pool Cleaner Interval**, **Pool Recycle Timeout**, **Max Waiting Handlers**, **Connect Timeout**) are silently ignored. Pool configuration is sourced from `gravitee.yml`.
+* The legacy **Max Total** pool setting and per-resource pool settings (**Max Pool Size**, **Max Pool Waiting**, **Pool Cleaner Interval**, **Pool Recycle Timeout**, **Max Waiting Handlers**, **Connect Timeout**) are ignored. Pool configuration is sourced from `gravitee.yml`.
 
 ### Credential Handling
 
