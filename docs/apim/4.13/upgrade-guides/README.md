@@ -12,6 +12,7 @@ Gravitee includes [Release Notes](../release-information/release-notes/README.md
 * **Upgrading APIM is deployment-specific:** The [4.0 breaking changes](../release-information/breaking-changes-and-deprecations.md#id-4.0-breaking-changes) must be noted and/or adopted for a successful upgrade.
 * **Ensure that you are aware of the breaking changes and deprecated functionality:** For more information about the breaking changes and deprecated functionality, see [Breaking Changes and Deprecations](../release-information/breaking-changes-and-deprecations.md).
 * **If your upgrade will skip versions:** Read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
+* **Migrate v1 APIs before you upgrade to 4.12.0 or later:** From version 4.12.0, APIM no longer supports v1 APIs, and the migration tooling isn't included. Migrate v1 APIs to at least a v2 definition while your installation runs version 4.11.x or earlier. For the migration steps, see [Support for v1 APIs](../release-information/support-for-v1-apis.md#migrate-v1-apis-to-v2).
 * **Upgrade your license file:** If you are an existing Gravitee Enterprise customer upgrading to 4.x, you must upgrade your Gravitee license file. Reach out to your Customer Success Manager or Support to receive a new 4.x license.
 * **Run scripts on the correct database:** `gravitee` is not always the default database. Run `show dbs` to return your database name.
 
