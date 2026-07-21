@@ -19,15 +19,16 @@ To complete this quickstart, you need the following:
 * Access to a running Gamma console instance.
 * An upstream MCP server accessible using HTTP, such as `https://mcp.example.com/mcp`.
 
+## Create your first MCP server
+
 To create your first MCP server, complete the following steps:
 
 1. [Open the MCP Proxy wizard](#open-the-mcp-proxy-wizard).
 2. [Configure security](#configure-security).
 3. [Connect to the upstream server](#connect-to-the-upstream-server).
 4. [Review and create](#review-and-create).
-5. [Verify tool invocations](#verify-tool-invocations).
 
-## Open the MCP Proxy wizard
+### Open the MCP Proxy wizard
 
 1. From the Gamma console sidebar, select **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**.
@@ -35,7 +36,7 @@ To create your first MCP server, complete the following steps:
 
 The console opens the MCP Proxy creation wizard. Select **Proxy mode**, enter a name like "My First MCP Server" and a context path, and then select **Next**.
 
-## Configure security
+### Configure security
 
 The next step defines how consumers authenticate when calling tools through this MCP Proxy. The wizard offers four authentication methods: **Gravitee as Authorization Server**, **External Authorization Server**, **API Key**, and **Passthrough**.
 
@@ -43,7 +44,7 @@ For this quickstart, select **API Key** to get running quickly without configuri
 
 Select **Next** to proceed.
 
-## Connect to the upstream server
+### Connect to the upstream server
 
 Provide the connection details for the upstream MCP server:
 
@@ -52,7 +53,7 @@ Provide the connection details for the upstream MCP server:
 
 Select **Next** to proceed.
 
-## Review and create
+### Review and create
 
 Review the MCP Proxy configuration, and then select **Create & deploy** to create the proxy and make it immediately available on the gateway. Select **Create only** instead if you want to create the proxy without deploying it yet.
 
