@@ -1,0 +1,14 @@
+---
+hidden: false
+noIndex: false
+---
+# Kubernetes
+
+## Deployment methods
+
+Install a fully self-hosted Gamma platform on a Kubernetes cluster with the Gravitee Helm chart. Choose the guide for your cluster.
+
+* [Vanilla Kubernetes](vanilla-kubernetes.md)
+* [AWS EKS](aws-eks.md)
+* [Azure AKS](azure-aks.md)
+* [OpenShift](openshift.md)
