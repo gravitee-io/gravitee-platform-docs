@@ -7,7 +7,7 @@ Configure a Redis cache resource for use with Cache or Data Cache policies. Pool
 {% hint style="warning" %}
 **Disabling a Redis cache resource has no effect on v2 APIs**
 
-On v2 APIs, setting a Redis cache resource's `enabled` flag to `false` doesn't stop the resource. When you deploy the API, the gateway still loads and starts the resource, and the Cache policy keeps serving cached responses from Redis. This behavior preserves backward compatibility for existing APIs, and it applies whether or not [emulation mode](../gravitee-api-definitions/execution-engine.md) is enabled. To stop caching, remove the resource and the policies that reference it from the API, then redeploy the API.
+On v2 APIs, setting a Redis cache resource's `enabled` flag to `false` doesn't stop the resource. When you deploy the API, the gateway still loads and starts the resource, and the Cache policy keeps serving cached responses from Redis. This behavior preserves backward compatibility for existing APIs, and it applies whether or not [emulation mode](../gravitee-api-definitions/execution-engine.md#v2-gateway-api-emulation-mode) is enabled. To stop caching, remove the resource and the policies that reference it from the API, then redeploy the API.
 
 On v4 APIs, the gateway doesn't load disabled resources.
 {% endhint %}
