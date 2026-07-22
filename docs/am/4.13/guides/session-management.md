@@ -8,7 +8,7 @@ metaLinks:
 
 ## Overview
 
-When a user is signing in, AM stores the fact that the user is authenticated for a certain period of time in what we call an **HTTP Session**.
+When a user is signing in, AM stores the fact that the user is authenticated for a certain period of time in an **HTTP Session**.
 
 This mechanism avoids the need for the user to re-authenticate every time they want to perform some actions. The same principle applies to your application or when you use an external identity provider such as Facebook, Twitter, etc.
 
@@ -30,7 +30,7 @@ The "remember me" feature implements the following:
 There are three-session layers you need to consider when you want to sign-out your users:
 
 1. **Application session**: This layer lies in your application after your users have been authenticated from AM. For traditional web applications, this session is stored via HTTP cookies (JSESSIONID, PHPSESSID, ASP.NET\_SessionId). For SPA applications this information can be stored in memory or via storage. It’s up to you to clean everything if you want to log out your users.
-2. **GraviteeAM session**: A session is created for every authenticated user and this information is inside an HTTP cookie. This cookie acts as Single Sign-on (SSO) cookie and lets you remember your users and automatically silently authenticate your users across applications.
+2. **GraviteeAM session**: A session is created for every authenticated user and this information is inside an HTTP cookie. This cookie acts as Single Sign-on (SSO) cookie and lets you remember your users and automatically authenticate your users across applications.
 
 {% hint style="info" %}
 To automatically authenticate your user across applications (SSO), your applications must share the same identity provider.
@@ -59,7 +59,7 @@ By default, access tokens and refresh tokens are not revoked. You can add the `i
 You can specify the `post_logout_redirect_uri=http://myApp/logoutCallback` or `target_url=http://myApp/logoutCallback` query parameter to redirect the user to your application after logout.
 
 {% hint style="info" %}
-You can define a signedlist of allowed URLs where the user will be redirected after being sign out. It prevents some vulnerabilities like being redirected to unsafe websites.
+You can define a list of allowed URLs where the user will be redirected after being signed out. It prevents some vulnerabilities like being redirected to unsafe websites.
 {% endhint %}
 
 ### Single logout
@@ -80,3 +80,5 @@ Currently, only the following identity providers are compatible with the Single 
 
 * Certified OpenID Connect provider
 * Azure AD
+
+Post-based OpenID Connect logout isn't supported in the Gravitee API Management (APIM) Console and Developer Portal. When a user signs out, APIM redirects the user's browser to the identity provider's logout URL: for a generic OpenID Connect identity provider, the URL configured in the **UserInfo Logout Endpoint** field of the identity provider settings, and for a Gravitee AM identity provider, the logout endpoint of the security domain. The APIM Console and Developer Portal don't send a POST request to the identity provider's logout endpoint. As a workaround, set the **UserInfo Logout Endpoint** field to a logout URL that the identity provider accepts through a browser redirect.
