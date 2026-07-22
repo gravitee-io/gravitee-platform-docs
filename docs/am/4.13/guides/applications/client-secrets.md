@@ -131,3 +131,9 @@ Gravitee AM provides support for monitoring client secret expiration through cus
 These notifications facilitate timely renewal of client secrets and reduce the risk of authentication failures due to expired credentials.
 
 For detailed instructions on configuring the notification mechanisms, refer to the [AM API configuration](../../getting-started/configuration/configure-am-api/README.md#configure-notifications-on-certificates-and-client-secret-expiry) section.
+
+## Limitations
+
+Client secrets don't support individual expiry dates. Expiration is controlled by a shared policy: a duration configured at the security domain level, or at the application level to override the domain policy. When a client secret is created or renewed, AM calculates its expiration date from the applicable policy duration. AM doesn't support a distinct expiry date for an individual client secret. The Management API request to create a client secret accepts only a secret name, and the request to renew a client secret accepts no parameters.
+
+As a workaround, to give the client secrets of an application a different lifetime than the domain default, configure an application-level expiration policy as described in [Configurable Client Secret Expiration](#configurable-client-secret-expiration). To end the validity of a specific client secret before its calculated expiration date, renew or delete that secret.
