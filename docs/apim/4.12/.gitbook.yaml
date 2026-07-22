@@ -635,12 +635,12 @@ redirects:
  overview/apim-architecture/production-deployments-and-capacity-planning: prepare-a-production-environment/production-best-practices/deployments.md
  overview/architecture: README.md
  overview/changelog: release-information/changelog/README.md
- overview/changelog/apim-4.2.x: release-information/changelog/apim-4.11.x.md
- overview/changelog/apim-4.3.x: release-information/changelog/apim-4.11.x.md
- overview/changelog/apim-4.4.x: release-information/changelog/apim-4.11.x.md
- overview/changelog/apim-4.5.x: release-information/changelog/apim-4.11.x.md
- overview/changelog/apim-4.6.x: release-information/changelog/apim-4.11.x.md
- overview/changelog/apim-4.7.x: release-information/changelog/apim-4.11.x.md
+ overview/changelog/apim-4.2.x: release-information/changelog/README.md
+ overview/changelog/apim-4.3.x: release-information/changelog/README.md
+ overview/changelog/apim-4.4.x: release-information/changelog/README.md
+ overview/changelog/apim-4.5.x: release-information/changelog/README.md
+ overview/changelog/apim-4.6.x: release-information/changelog/README.md
+ overview/changelog/apim-4.7.x: release-information/changelog/README.md
  overview/ee-vs-oss: introduction/enterprise-edition.md
  overview/enterprise-edition: introduction/enterprise-edition.md
  overview/execution-engine: create-and-configure-apis/gravitee-api-definitions/execution-engine.md
@@ -682,12 +682,12 @@ redirects:
  overview/readme/architecture: README.md
  overview/readme/overview: README.md
  overview/release-notes: release-information/release-notes/README.md
- overview/release-notes/apim-4.2: release-information/changelog/apim-4.11.x.md
- overview/release-notes/apim-4.3: release-information/changelog/apim-4.11.x.md
- overview/release-notes/apim-4.4: release-information/changelog/apim-4.11.x.md
- overview/release-notes/apim-4.5: release-information/changelog/apim-4.11.x.md
- overview/release-notes/apim-4.6: release-information/release-notes/apim-4.11.md
- overview/release-notes/apim-4.7: release-information/release-notes/apim-4.11.md
+ overview/release-notes/apim-4.2: release-information/release-notes/README.md
+ overview/release-notes/apim-4.3: release-information/release-notes/README.md
+ overview/release-notes/apim-4.4: release-information/release-notes/README.md
+ overview/release-notes/apim-4.5: release-information/release-notes/README.md
+ overview/release-notes/apim-4.6: release-information/release-notes/README.md
+ overview/release-notes/apim-4.7: release-information/release-notes/README.md
  overview/support: configure-and-manage-the-platform/manage-organizations-and-environments/support.md
  placeholder: README.md
  policies/custom-policies: create-and-configure-apis/apply-policies/policy-reference/README.md
@@ -778,21 +778,21 @@ redirects:
  reference/policy-reference/xml-to-json: create-and-configure-apis/apply-policies/policy-reference/xml-to-json.md
  reference/policy-reference/xml-validation: create-and-configure-apis/apply-policies/policy-reference/xml-validation.md
  reference/policy-reference/xslt: create-and-configure-apis/apply-policies/policy-reference/xslt.md
- release-information/changelog/apim-4.10.x: release-information/changelog/apim-4.11.x.md
- release-information/changelog/apim-4.7.x: release-information/changelog/apim-4.11.x.md
- release-information/changelog/apim-4.8.x: release-information/changelog/apim-4.11.x.md
- release-information/changelog/apim-4.9.x: release-information/changelog/apim-4.11.x.md
- release-information/release-notes/apim-4.10: release-information/release-notes/apim-4.11.md
- release-information/release-notes/apim-4.8: release-information/release-notes/apim-4.11.md
- release-information/release-notes/apim-4.9: release-information/release-notes/apim-4.11.md
+ release-information/changelog/apim-4.10.x: release-information/changelog/README.md
+ release-information/changelog/apim-4.7.x: release-information/changelog/README.md
+ release-information/changelog/apim-4.8.x: release-information/changelog/README.md
+ release-information/changelog/apim-4.9.x: release-information/changelog/README.md
+ release-information/release-notes/apim-4.10: release-information/release-notes/README.md
+ release-information/release-notes/apim-4.8: release-information/release-notes/README.md
+ release-information/release-notes/apim-4.9: release-information/release-notes/README.md
  releases-and-changelog/changelog: release-information/changelog/README.md
- releases-and-changelog/changelog/apim-4.0.x: release-information/changelog/apim-4.11.x.md
- releases-and-changelog/changelog/apim-4.1.x: release-information/changelog/apim-4.11.x.md
+ releases-and-changelog/changelog/apim-4.0.x: release-information/changelog/README.md
+ releases-and-changelog/changelog/apim-4.1.x: release-information/changelog/README.md
  releases-and-changelog/release-notes: release-information/release-notes/README.md
- releases-and-changelog/release-notes/apim-4.0: release-information/changelog/apim-4.11.x.md
- releases-and-changelog/release-notes/apim-4.1: release-information/changelog/apim-4.11.x.md
- releases-and-changelog/release-notes/apim-4.5: release-information/changelog/apim-4.11.x.md
- releases-and-changelog/release-notes/gravitee-4.x/apim-4.0: release-information/changelog/apim-4.11.x.md
+ releases-and-changelog/release-notes/apim-4.0: release-information/release-notes/README.md
+ releases-and-changelog/release-notes/apim-4.1: release-information/release-notes/README.md
+ releases-and-changelog/release-notes/apim-4.5: release-information/release-notes/README.md
+ releases-and-changelog/release-notes/gravitee-4.x/apim-4.0: release-information/release-notes/README.md
  using-the-product/administration: README.md
  using-the-product/administration/administering-organizations-and-environments: configure-and-manage-the-platform/manage-organizations-and-environments/README.md
  using-the-product/administration/authentication: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md
