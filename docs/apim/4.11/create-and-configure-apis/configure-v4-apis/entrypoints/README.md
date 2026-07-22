@@ -48,6 +48,20 @@ You have the option to:
 
 Redeploy the API for your changes to take effect.
 
+### MCP Tool Server
+
+You can also expose a v4 HTTP proxy API as a Model Context Protocol (MCP) Tool Server, so that AI agents call the API's operations as MCP tools. For a v4 proxy API that doesn't use a TCP listener, the Console shows an **MCP Entrypoint** tab alongside the **Entrypoints** tab.
+
+AI agents reach the MCP Tool Server on a path appended to the API's context path. Set that path in the **MCP Path** field. The default is `/mcp`.
+
+{% hint style="warning" %}
+**Enterprise only**
+
+MCP Tool Server is an [Enterprise Edition](../../../readme/enterprise-edition.md) capability.
+{% endhint %}
+
+For the full procedure, including how to generate tools from an OpenAPI specification, see [Convert REST APIs to an MCP Server](../../../ai-agent-management/convert-your-apis-to-mcp-servers.md).
+
 ## Message API entrypoints
 
 {% hint style="warning" %}
@@ -75,7 +89,7 @@ At the top right of the page, you can choose to enable or disable virtual hosts.
 
 <figure><img src="../../../.gitbook/assets/configure v4 message entrypoints.png" alt=""><figcaption><p>v4 message API entrypoint configuration</p></figcaption></figure>
 
-Entrypoint configuration depends on which entrypoint(s) your API utilizes. Click on the tiles below for the configuration details of each specific entrypoint.
+Entrypoint configuration depends on which entrypoints your API uses. Click on the tiles below for the configuration details of each specific entrypoint.
 
 <table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><a href="http-get.md">HTTP GET</a></td><td></td><td><a href="../../../../4.9/create-and-configure-apis/configure-v4-apis/entrypoints/broken-reference/">broken-reference</a></td></tr><tr><td></td><td><a href="http-post.md">HTTP POST</a></td><td></td><td><a href="../../../../4.9/create-and-configure-apis/configure-v4-apis/entrypoints/broken-reference/">broken-reference</a></td></tr><tr><td></td><td><a href="websocket.md">WebSocket</a></td><td></td><td><a href="../../../../4.9/create-and-configure-apis/configure-v4-apis/entrypoints/broken-reference/">broken-reference</a></td></tr><tr><td></td><td><a href="webhook.md">Webhook</a></td><td></td><td><a href="../../../../4.9/create-and-configure-apis/configure-v4-apis/entrypoints/broken-reference/">broken-reference</a></td></tr><tr><td></td><td><a href="server-sent-events.md">Server-sent Events</a></td><td></td><td><a href="../../../../4.9/create-and-configure-apis/configure-v4-apis/entrypoints/broken-reference/">broken-reference</a></td></tr></tbody></table>
 
