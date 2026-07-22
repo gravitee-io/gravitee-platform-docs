@@ -1,5 +1,18 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.22 - July 22, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Redis resources cannot be disabled [#11407](https://github.com/gravitee-io/issues/issues/11407)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.21 - July 21, 2026
 <details>
 
