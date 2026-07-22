@@ -1,4 +1,4 @@
-# Customize the Navigation
+# Manage Portal Navigation and APIs
 
 ## Overview
 
@@ -89,7 +89,7 @@ When you add a page that is not in a folder, the page appears as a root level me
 
     <figure><img src="../../../.gitbook/assets/1A5E08E1-648C-4437-81C6-F4C480F04193_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
-8.  In the **Publish page** pop-up window, click **Publish**.<br>
+8.  In the confirmation dialog, click **Publish**.<br>
 
     <figure><img src="../../../.gitbook/assets/C52E694A-6761-45A5-B46B-998AE39FF5E1_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 {% endtab %}
@@ -117,7 +117,7 @@ Folders group related pages together. A folder is a section on your New Develope
     *   Navigate to the folder in the navigation bar, click the **ellipses**, and then click **Publish**.<br>
 
         <figure><img src="../../../.gitbook/assets/FAD5D2FB-4EEE-49B7-8081-F790D1AE0EC4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-6.  In the **Publish folder**, pop-up box, click **Publish**.<br>
+6.  In the confirmation dialog, click **Publish**.<br>
 
     <figure><img src="../../../.gitbook/assets/0C92FAF4-F289-4D79-89D2-62448A9E8FE8_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -129,7 +129,7 @@ Unpublishing now works by cascade: all navigation items within a folder are unpu
 
 When you add a page to a folder, that page becomes a menu item within that section of the New Developer Portal.
 
-1. Navigate to the the folder in the **Navigation items** menu.
+1. Navigate to the folder in the **Navigation items** menu.
 2. Click **the ellipsis**.
 3.  Click **Add page**.<br>
 
@@ -161,7 +161,7 @@ When you add a link, the link appears as a root level menu item. When you publis
     *   Navigate to link in the navigation bar, click the **ellipses**, and then click **Publish**.<br>
 
         <figure><img src="../../../.gitbook/assets/D897DBD4-B160-4F29-ACD8-14E5D0959CF5_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-5.  In the **Publish link** pop-up menu, click **Publish**.<br>
+5.  In the confirmation dialog, click **Publish**.<br>
 
     <figure><img src="../../../.gitbook/assets/B33EB73A-836D-4E7F-A297-53C23A7AB324_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 {% endtab %}
@@ -175,7 +175,7 @@ Adding APIs to the documentation is **the only way** to make them visible in the
 Unlike in the Classic Portal, the property `published` of an API is not taken into account in the New Developer Portal.
 {% endhint %}
 
-API navigation items act similarly to folders meaning that they can contain other navigation items like Pages, Folders and Links.
+API navigation items act similarly to folders meaning that they can contain other navigation items like Pages, Folders, and Links.
 
 However, there are some limitations of APIs compared to folders:
 
@@ -184,9 +184,15 @@ However, there are some limitations of APIs compared to folders:
 
 **Add an API**
 
-1. Open the context menu of a folder in which you want to add your API by clicking the **ellipses**, and then click **Add API**.
-2. An **API selection dialog** opens up where you can select APIs to be added.
-3. (Optional) Turn on the **Authentication is required to view selected APIs** toggle. This ensures that the user has to sign in to the New Developer Portal to view the APIs.
+1.  Open the context menu of a folder in which you want to add your API by clicking the **ellipses**, and then click **Add API**.<br>
+
+    <!-- TODO: Screenshot of the folder context menu with the Add API option highlighted -->
+    <figure><img src="../../../.gitbook/assets/PLACEHOLDER-devportal-add-api-context-menu.png" alt=""><figcaption><p>Add API in the folder context menu</p></figcaption></figure>
+2.  In the **Add APIs** dialog, select the APIs that you want to add. To find an API by name, use the **Search** field.<br>
+
+    <!-- TODO: Screenshot of the Add APIs dialog with an API selected -->
+    <figure><img src="../../../.gitbook/assets/PLACEHOLDER-devportal-add-apis-dialog.png" alt=""><figcaption><p>Add APIs dialog</p></figcaption></figure>
+3. (Optional) Turn on the **Authentication is required to view selected APIs.** toggle. This ensures that the user has to sign in to the New Developer Portal to view the APIs.
 4. Click **Add**.
 5. Publish the API. To publish the API, complete either of the following steps:
 
@@ -195,13 +201,16 @@ However, there are some limitations of APIs compared to folders:
 * Click **Publish**.
 * Navigate to the folder in the navigation bar, click the **ellipses**, and then click **Publish**.
 
-6. In the **Publish API** pop-up box, click **Publish**.
+6.  In the confirmation dialog, click **Publish**. The dialog title shows the name of your API. For example, **Publish "Payments" API?**<br>
+
+    <!-- TODO: Screenshot of the publish confirmation dialog for an API -->
+    <figure><img src="../../../.gitbook/assets/PLACEHOLDER-devportal-publish-api-dialog.png" alt=""><figcaption><p>Publish confirmation dialog for an API</p></figcaption></figure>
 
 **Add a page to an API**
 
 When you add a page to an API, that page becomes a menu item within that API in the New Developer Portal.
 
-1. Navigate to the the folder in the **Navigation items** menu.
+1. Navigate to the folder in the **Navigation items** menu.
 2. Click **the ellipsis**.
 3. Click **Add page**.
 
@@ -209,7 +218,7 @@ When you add a page to an API, that page becomes a menu item within that API in 
 
 When you add a folder to an API, that folder becomes nested within that API in the New Developer Portal.
 
-1. Navigate to the the folder in the **Navigation items** menu.
+1. Navigate to the folder in the **Navigation items** menu.
 2. Click **the ellipsis**.
 3. Click **Add folder**.
 {% endtab %}
