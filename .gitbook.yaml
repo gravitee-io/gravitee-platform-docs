@@ -67,9 +67,9 @@ redirects:
   # legacy alert-engine/* URLs (older prefix, predates the "ae" rename) — mirrored 1:1 into apim/4.12/alert-engine like ae/* above (writer decision 2026-07-22); these URLs belong to a deleted section, so they only fire as GitBook Site redirects (UI) — mirror this block there
   alert-engine: apim/4.12/alert-engine/README.md
   alert-engine/overview/integrations: apim/4.12/alert-engine/overview/integrations.md
-  alert-engine/getting-started/install-and-upgrade-guides/install-via-kubernetes: apim/4.12/alert-engine/getting-started/install-and-upgrade-guides/README.md
-  alert-engine/getting-started/install-and-upgrade-guides/install-via-.zip-file: apim/4.12/alert-engine/getting-started/install-and-upgrade-guides/README.md
-  alert-engine/getting-started/install-and-upgrade-guides/install-via-docker: apim/4.12/alert-engine/getting-started/install-and-upgrade-guides/README.md
+  alert-engine/getting-started/install-and-upgrade-guides/install-via-kubernetes: apim/4.12/alert-engine/getting-started/install-and-upgrade-guides/install-via-kubernetes.md
+  alert-engine/getting-started/install-and-upgrade-guides/install-via-.zip-file: apim/4.12/alert-engine/getting-started/install-and-upgrade-guides/install-via-.zip-file.md
+  alert-engine/getting-started/install-and-upgrade-guides/install-via-docker: apim/4.12/alert-engine/getting-started/install-and-upgrade-guides/install-via-docker.md
   alert-engine/guides/integration-set-up/gravitee-api-management: apim/4.12/alert-engine/guides/integration-set-up/gravitee-api-management/README.md
   alert-engine/changelog/page-6: apim/4.12/alert-engine/releases-and-changelog/page-6.md
   # legacy apim/* URL structure (pre-reorg) — redirect into the current apim/4.12 structure (bump 4.12 at each version cutover)
