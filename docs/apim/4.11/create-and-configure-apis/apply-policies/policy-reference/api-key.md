@@ -38,7 +38,7 @@ When the API key is read from a header, which is the default, the Gateway resolv
 
 When the resolved header carries no key, the Gateway falls back to the `api-key` query parameter. Set the query parameter name for the whole Gateway with `policy.api-key.param`. A plan can't override the query parameter name.
 
-APIM 4.11.14 and later, and every 4.12 and later release, bundle version 6.x of the policy. From that version, the header name set on the plan always applies when it isn't empty, and the `enableCustomApiKeyHeader` option is deprecated. Earlier versions apply the header name set on the plan only when `enableCustomApiKeyHeader` is `true`, and that option defaults to `false`. Keep the option enabled for Gateways that still run version 5.x of the policy. For the upgrade impact, see [Breaking Changes and Deprecations](../../../release-information/breaking-changes-and-deprecations.md).
+APIM 4.11.14 and later, and every 4.12 and later release, bundle version 6.x of the policy. From that version, the header name set on the plan applies when it isn't empty, and the `enableCustomApiKeyHeader` option is deprecated. Earlier versions apply the header name set on the plan only when `enableCustomApiKeyHeader` is `true`, and that option defaults to `false`. Keep the option enabled for Gateways that still run version 5.x of the policy, and for V2 APIs that don't run on the emulation engine. For the upgrade impact, see [Breaking Changes and Deprecations](../../../release-information/breaking-changes-and-deprecations.md).
 
 ## Configuration
 
