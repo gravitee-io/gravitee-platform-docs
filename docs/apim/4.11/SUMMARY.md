@@ -311,7 +311,7 @@
     * [Enable the New Developer Portal](developer-portal/new-developer-portal/configure-the-new-portal.md)
     * [Layout and Theme](developer-portal/new-developer-portal/layout-and-theme.md)
     * [Customize the Homepage](developer-portal/new-developer-portal/customize-the-homepage.md)
-    * [Customize the Navigation](developer-portal/new-developer-portal/customize-the-navigation/README.md)
+    * [Manage Portal Navigation and APIs](developer-portal/new-developer-portal/customize-the-navigation/README.md)
       * [Structure the navigation with the Management API](developer-portal/new-developer-portal/customize-the-navigation/structure-the-navigation-with-the-management-api.md)
     * [Gravitee Markdown Components](developer-portal/new-developer-portal/gravitee-markdown-components.md)
     * [Application Logs](developer-portal/new-developer-portal/application-logs.md)
