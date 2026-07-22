@@ -34,11 +34,11 @@ Existing A2A proxy APIs continue to work but they are no longer supported.
 
 #### **New Developer Portal APIs and documentation pages must be republished**
 
-When you upgrade to APIM 4.11, any APIs and documentation pages previously published to the New Developer Portal are no longer published. After the upgrade, add and publish your APIs and documentation pages again through the **Navigation items** section of the New Developer Portal settings.
+When you upgrade to APIM 4.11, any APIs and documentation pages previously published to the New Developer Portal are no longer published. After the upgrade, add and publish your APIs and documentation pages again through the **Navigation items** section of the New Developer Portal settings. For more information, see [Manage Portal Navigation and APIs](../../developer-portal/new-developer-portal/customize-the-navigation/README.md).
 
 #### **New Developer Portal subscriptions require published API pages**
 
-After upgrading to APIM 4.11, an API accepts subscriptions through the New Developer Portal only after you publish the API's pages. To enable subscriptions to an API, publish the API's pages through the **Navigation items** section of the New Developer Portal settings.
+After upgrading to APIM 4.11, an API accepts subscriptions through the New Developer Portal only after you publish the API's pages. To enable subscriptions to an API, publish the API's pages through the **Navigation items** section of the New Developer Portal settings. For more information, see [Manage Portal Navigation and APIs](../../developer-portal/new-developer-portal/customize-the-navigation/README.md).
 
 ## New Features
 
@@ -110,9 +110,9 @@ After upgrading to APIM 4.11, an API accepts subscriptions through the New Devel
 
 * Bundle multiple V4 HTTP Proxy APIs into a single subscribable package with unified access control and API Product-level plans (API Key, JWT, or mTLS).
 * Manage subscriptions at the API Product level instead of individual APIs, enabling API Product managers to package and monetize APIs at scale.
-* APIs must have the `allowedInApiProducts` flag enabled to be included in API Products; APIs can belong to multiple API Products while maintaining their own direct subscription plans.
+* APIs must have the `allowedInApiProducts` flag enabled to be included in API Products. APIs can belong to multiple API Products while maintaining their own direct subscription plans.
 * Requires Enterprise Universe tier license and environment-level permissions for API Product management.
-* Plans and subscriptions now support a reference model with `referenceType` (API or API\_PRODUCT) and `referenceId` fields; the legacy `api` field is deprecated as of 4.11.0.
+* Plans and subscriptions now support a reference model with `referenceType` (API or API\_PRODUCT) and `referenceId` fields. The legacy `api` field is deprecated as of 4.11.0.
 
 #### **JMS Endpoint Connector for Message Broker Integration**
 
@@ -120,7 +120,7 @@ After upgrading to APIM 4.11, an API accepts subscriptions through the New Devel
 * Supports multiple connection factory configuration methods: direct broker URL, provider-specific properties (hostname/port/channel), or JNDI lookup with custom properties.
 * Configurable for producer mode (send messages with TEXT or BYTES format), consumer mode (receive messages with durable subscription support), or both capabilities simultaneously on the same endpoint.
 * Requires `event-native` license pack and JMS provider client library placed in `./plugins/jms/ext/` directory.
-* Topic consumers use shared or exclusive connections based on client ID and durability settings; queue consumers always use shared connections.
+* Topic consumers use shared or exclusive connections based on client ID and durability settings. Queue consumers always use shared connections.
 
 #### **Native IP filtering policy for Kafka APIs**
 
@@ -133,7 +133,7 @@ After upgrading to APIM 4.11, an API accepts subscriptions through the New Devel
 #### **Multi-Tenant Endpoint Support for Kafka APIs**
 
 * Enables a single Kafka API definition to route traffic to different backend clusters based on the gateway's configured tenant identifier, eliminating the need to duplicate API definitions across deployment zones.
-* Each endpoint in the first endpoint group can be tagged with one or more tenant identifiers; gateways automatically filter and activate only endpoints matching their configured tenant at startup and during hot-reload.
+* Each endpoint in the first endpoint group can be tagged with one or more tenant identifiers. Gateways automatically filter and activate only endpoints matching their configured tenant at startup and during hot-reload.
 * Endpoints with no tenant tags are treated as shared and always match any gateway, making them useful during gradual rollout or for legacy gateways without tenant configuration.
 * Configure the gateway tenant identifier using the `tenant` property in `gravitee.yml`, environment variable, or system property.
 * If all endpoints in the group are tenant-specific and none match the gateway's tenant, the gateway can't route to the API and connections fail. Include at least one shared (untagged) endpoint to ensure the API remains accessible.
@@ -141,17 +141,17 @@ After upgrading to APIM 4.11, an API accepts subscriptions through the New Devel
 #### **Multiple Endpoints for Native Kafka APIs**
 
 * Native Kafka APIs can now define multiple endpoints within an endpoint group, enabling pre-configured cluster alternatives for disaster recovery, migration, and regional routing scenarios.
-* The gateway routes new connections to the active endpoint based on tenant configuration or list order—publishers control which endpoint is active by reordering endpoints in the group.
-* Endpoint switching is manual and publisher-initiated; the gateway doesn't perform automatic failover or health checks, and Kafka clients must handle reconnection when endpoints change.
-* Tenant-aware routing is supported: if the gateway tenant matches an endpoint's tenant tag, that endpoint is selected; otherwise, the first endpoint in the group is used.
+* The gateway routes new connections to the active endpoint based on tenant configuration or list order. Publishers control which endpoint is active by reordering endpoints in the group.
+* Endpoint switching is manual and publisher-initiated. The gateway doesn't perform automatic failover or health checks, and Kafka clients must handle reconnection when endpoints change.
+* Tenant-aware routing is supported: if the gateway tenant matches an endpoint's tenant tag, that endpoint is selected. Otherwise, the first endpoint in the group is used.
 
 #### **mTLS Plan Support for Kafka Native APIs**
 
 * Kafka native APIs now support mTLS plans for client authentication using X.509 certificates, enabling accurate subscription resolution and metrics attribution.
 * The gateway extracts the client certificate from the TLS session, computes its MD5 hash, and uses it as a security token to look up the subscription and populate connection context with `planId`, `applicationId`, and `subscriptionId`.
-* Kafka native APIs enforce strict plan security mutual exclusion—you can't mix Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) in published state. Publishing a plan of one type automatically closes all published plans of conflicting types.
+* Kafka native APIs enforce strict plan security mutual exclusion: you can't mix Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) in published state. Publishing a plan of one type automatically closes all published plans of conflicting types.
 * Requires Gravitee APIM 4.11 or later, `gravitee-policy-mtls` version 2.0.0-alpha.2 or later, and gateway configuration with `kafka.ssl.clientAuth=required` and appropriate truststore/keystore settings.
-* Subscription certificates are loaded dynamically without requiring gateway restarts—when a subscription is created or updated with a new certificate, the gateway's trust store manager refreshes automatically.
+* Subscription certificates are loaded dynamically without requiring gateway restarts. When a subscription is created or updated with a new certificate, the gateway's trust store manager refreshes automatically.
 
 #### **Kafka Governance Rules Policies**
 
@@ -171,7 +171,7 @@ After upgrading to APIM 4.11, an API accepts subscriptions through the New Devel
 
 * Encrypts and decrypts Kafka message payloads at the gateway level using AES-GCM (128, 192, or 256-bit), ensuring data is protected while stored in Kafka topics without requiring changes to producer or consumer applications.
 * Supports three encryption modes: direct encryption with base64 output, direct encryption with JWE format, and DEK-based encryption that generates a unique data encryption key per message.
-* Processes entire message payloads or individual JSON fields identified by JSONPath expressions. Optional compression (GZIP, LZ4, BZIP2, Snappy) mitigates the storage overhead of encrypted data.
+* Processes entire message payloads or individual JSON fields identified by JSONPath expressions. Optional compression (Gzip, LZ4, BZIP2, Snappy) mitigates the storage overhead of encrypted data.
 * Keys are provisioned as base64-encoded values or stored in PKCS12 keystores, with support for Expression Language and the Gravitee secrets mechanism.
 
 #### **Groovy policy support for Native Kafka APIs**
@@ -195,7 +195,7 @@ After upgrading to APIM 4.11, an API accepts subscriptions through the New Devel
 * Subscription forms now support checkbox group fields that allow subscribers to select multiple options from a predefined or dynamically resolved list.
 * Options can be populated at runtime using Expression Language (EL) to reference API or environment metadata, with required fallback values for contexts where metadata is unavailable.
 * Checkbox groups enforce validation constraints including required selection (at least one option) and option list validation (all selected values must exist in allowed options).
-* Subscription forms support up to 25 fields total, with input fields limited to 256 characters and textarea fields limited to 1024 characters.
+* Subscription forms support up to 25 fields total, with input fields limited to 256 characters and text area fields limited to 1024 characters.
 * Form submissions are validated against all constraints before subscription creation, returning field-level error messages when validation fails.
 <!-- /PIPELINE:APIM-13343 -->
 
