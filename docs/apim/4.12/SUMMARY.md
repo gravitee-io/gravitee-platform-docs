@@ -343,7 +343,7 @@
     * [Enable the New Developer Portal](developer-portal/new-developer-portal/configure-the-new-portal.md)
     * [Layout and Theme](developer-portal/new-developer-portal/layout-and-theme.md)
     * [Customize the Homepage](developer-portal/new-developer-portal/customize-the-homepage.md)
-    * [Customize the Navigation](developer-portal/new-developer-portal/customize-the-navigation.md)
+    * [Manage Portal Navigation and APIs](developer-portal/new-developer-portal/customize-the-navigation.md)
       * [Structure the navigation with the Management API](developer-portal/new-developer-portal/customize-the-navigation/structure-the-navigation-with-the-management-api.md)
       * [Creating OpenAPI Documentation Pages](developer-portal/new-developer-portal/customize-the-navigation/creating-openapi-documentation-pages.md)
       * [Creating AsyncAPI Documentation Pages](developer-portal/new-developer-portal/customize-the-navigation/creating-asyncapi-documentation-pages.md)
