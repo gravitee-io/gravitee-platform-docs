@@ -1,5 +1,5 @@
 ---
-description: An overview about v2 and v4 api comparison.
+description: An overview about v2 and v4 API comparison.
 metaLinks:
   alternates:
     - v2-and-v4-api-comparison.md
@@ -36,7 +36,7 @@ GET /products/:productId/items/:itemId
 GET /products/:productId/items/details
 ```
 
-The fourth segment is a parameter (`:itemId`) in one path and a static literal (`details`) in the other, so the shapes differ.
+In one path, the fourth segment is a parameter, `:itemId`. In the other path, the fourth segment is a static literal, `details`. The shapes differ.
 
 ### **Not allowed**
 
@@ -58,10 +58,14 @@ Both paths share the same shape, with parameters in positions 2 and 4 and matchi
 
 #### **Cases that look ambiguous but aren't**
 
+The following cases look ambiguous but don't trigger a conflict:
+
 * **Different segment counts.** `/products/:productId/items/:itemId` and `/:productId` don't conflict because they have different numbers of segments.
 * **Static literal at the same position as a parameter.** `/products/:productId/items/:itemId` and `/products/:productId/items/static` don't conflict because position 4 is a parameter in one path and a static literal in the other.
 
 ## Support for functionalities
+
+The following table compares feature support across v2 proxy APIs, v4 proxy APIs, and v4 message APIs:
 
 | Functionality                                                     | Supported in v2 proxy APIs | Supported for v4 proxy APIs                              | Supported for v4 message APIs                            |
 | ----------------------------------------------------------------- | -------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
@@ -104,14 +108,14 @@ Both paths share the same shape, with parameters in positions 2 and 4 and matchi
 | Custom Dashboards                                                 | ✅                          | 🚫                                                       | 🚫                                                       |
 | Path Mappings                                                     | ✅                          | 🚫                                                       | 🚫                                                       |
 | Logs                                                              | ✅                          | ✅                                                        | ✅                                                        |
-| API Quality                                                       | ✅                          | ⚠️ Replaced by [API score](../../govern-apis/api-score/README.md) | ⚠️ Replaced by[ API score](../../govern-apis/api-score/README.md) |
+| API Quality                                                       | ✅                          | ⚠️ Replaced by [API score](../../govern-apis/api-score/README.md) | ⚠️ Replaced by [API score](../../govern-apis/api-score/README.md) |
 | API Review                                                        | ✅                          | ✅                                                        | ✅                                                        |
-| Export API as Gravitee def (+options)                             | ✅                          | ✅                                                        | ✅                                                        |
+| Export API as Gravitee def, with options                          | ✅                          | ✅                                                        | ✅                                                        |
 | Export API as GKO spec                                            | ✅                          | ✅                                                        | ✅                                                        |
-| Import API from Gravitee def (+options)                           | ✅                          | ✅                                                        | ✅                                                        |
+| Import API from Gravitee def, with options                        | ✅                          | ✅                                                        | ✅                                                        |
 | Import API from OAS                                               | ✅                          | ✅                                                        | NA                                                       |
-| Import API from OAS and automatically add policies for validation | ✅                          | ✅                                                        | <p>NA</p><p><br></p>                                     |
-| Import API from WSDL                                              | ✅                          | 🚫                                                       | NA                                                       |
+| Import API from OAS and automatically add policies for validation | ✅                          | ✅                                                        | NA                                                        |
+| Import API from WSDL                                              | ✅                          | ✅                                                        | NA                                                       |
 | Add docs page on import of API from OAS                           | ✅                          | ✅                                                        | NA                                                       |
 | APIs show in platform-level dashboards                            | ✅                          | ✅                                                        | ✅                                                        |
 | APIs show in platform-level analytics                             | ✅                          | ✅                                                        | ✅                                                        |
@@ -122,6 +126,8 @@ Both paths share the same shape, with parameters in positions 2 and 4 and matchi
 | API Score                                                         | ✅                          | ✅                                                        | ✅                                                        |
 
 ### Environment-level Analytics
+
+The following table compares environment-level analytics support across v2 proxy APIs, v4 proxy APIs, and v4 message APIs:
 
 | Functionality                               | v2 Proxy APIs | v4 Proxy APIs | v4 Message APIs |
 | ------------------------------------------- | ------------- | ------------- | --------------- |
@@ -143,6 +149,8 @@ Both paths share the same shape, with parameters in positions 2 and 4 and matchi
 
 ### **API-level Analytics**
 
+The following table compares API-level analytics support across v2 proxy APIs, v4 proxy APIs, and v4 message APIs:
+
 | Functionality                             | v2 Proxy APIs | v4 Proxy APIs | v4 Message APIs |
 | ----------------------------------------- | ------------- | ------------- | --------------- |
 | API-level request stats                   | ✅             | ✅             | ✅               |
@@ -157,6 +165,8 @@ Both paths share the same shape, with parameters in positions 2 and 4 and matchi
 | API-level hits by host                    | ✅             | ✅             | 🚫              |
 
 ### **Application-level Analytics**
+
+The following table compares application-level analytics support across v2 proxy APIs, v4 proxy APIs, and v4 message APIs:
 
 | Functionality             | v2 Proxy APIs | v4 Proxy APIs | v4 Message APIs |
 | ------------------------- | ------------- | ------------- | --------------- |
