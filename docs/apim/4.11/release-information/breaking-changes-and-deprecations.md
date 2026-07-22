@@ -15,6 +15,16 @@ Here are the breaking changes for versions 4.X of Gravitee and versions 3.X of G
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+#### 4.11.14
+
+**API Key policy: the header name set on a plan takes precedence over the Gateway setting**
+
+APIM 4.11.14 and later bundle version 6.0.0 or later of the API Key policy, which changes how the Gateway resolves the name of the header that carries the API key. The Gateway now applies the header name set on the plan whenever that value isn't empty, and it no longer checks the plan's `enableCustomApiKeyHeader` option. Previously, the Gateway applied the header name set on the plan only when `enableCustomApiKeyHeader` was `true`, and that option defaults to `false`, so the `policy.api-key.header` value from `gravitee.yml` applied in most deployments.
+
+When a plan stores a header name, that name now overrides `policy.api-key.header`, and requests that send the key on the Gateway-level header return `401 Unauthorized`. Before you upgrade, open each API Key plan and check the **API Key Header** field. Clear the field on plans that rely on the Gateway-level header, or set it to the same custom header name.
+
+APIM 4.12.0 and later bundle the same policy version. For the full resolution order, see [API Key](../create-and-configure-apis/apply-policies/policy-reference/api-key.md).
+
 #### 4.11.0
 
 **A2A Proxy APIs architecture**
