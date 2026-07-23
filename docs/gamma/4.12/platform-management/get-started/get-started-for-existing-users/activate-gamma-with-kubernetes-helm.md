@@ -8,7 +8,7 @@ noIndex: false
 Gravitee Gamma is Gravitee's next-generation unified control plane. It brings API Management, Event Management, Agent Management, Authorization Management, and Platform Management together in a single console, so you manage your APIs, Kafka streams, AI agents and MCP servers, and authorization policies from one place.
 
 {% hint style="warning" %}
-Gamma ships in 4.12 (`4.12.0`). Activating Gamma moves your deployment to that build. Use this for development and quick-start purposes only. For best practices for production environments, contact your Technical Account Manager.
+Gamma ships in 4.12. Activating Gamma moves your deployment to that build. Use this for development and quick-start purposes only. For best practices for production environments, contact your Technical Account Manager.
 {% endhint %}
 
 ## Overview
@@ -19,7 +19,7 @@ If you already run Gravitee API Management with the Helm chart, you turn Gamma o
 
 Add the following to your existing `values.yaml`, then run `helm upgrade`.
 
-1. Use the Gamma build. Set the image tags for `api`, `gateway`, `ui`, and `portal` to `4.12.0`.
+1. Use the Gamma build. Set the image tags for `api`, `gateway`, `ui`, and `portal` to `4.12`.
 2. Turn on Gamma:
 
    ```yaml
@@ -49,7 +49,7 @@ Add the following to your existing `values.yaml`, then run `helm upgrade`.
      enabled: true
      image:
        repository: graviteeio/gamma-ui
-       tag: 4.12.0
+       tag: "4.12"
      app:
        gammaBaseURL: "<your host>/gamma"
      env:

@@ -76,7 +76,7 @@ To run the Gateway, complete the following steps:
      -e gravitee_ratelimit_redis_ssl=false \
      -e gravitee_cloud_token=<cloud-token> \
      -e gravitee_license_key=<license-key> \
-     graviteeio/apim-gateway:4.12.0
+     graviteeio/apim-gateway:4.12
    ```
 
    * Replace `<redis-password>` with the password you set for Redis.
@@ -108,7 +108,7 @@ To confirm that your hybrid installation works, complete the following checks:
 
   ```sh
   CONTAINER ID   IMAGE                                   COMMAND                  STATUS         PORTS                      NAMES
-  50016b90785e   graviteeio/apim-gateway:4.12.0   "./bin/gravitee"    Up 2 minutes   0.0.0.0:8082->8082/tcp     gio-gamma-hybrid-gateway
+  50016b90785e   graviteeio/apim-gateway:4.12   "./bin/gravitee"    Up 2 minutes   0.0.0.0:8082->8082/tcp     gio-gamma-hybrid-gateway
   a8d3e6f1c2b4   redis:7.2-alpine                        "redis-server --requ..." Up 2 minutes   0.0.0.0:6379->6379/tcp     gio-gamma-hybrid-redis
   ```
 
