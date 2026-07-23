@@ -189,7 +189,7 @@ The Helm values deploy the Gateway only. They disable the control-plane componen
      image:
        # We recommend running the same Gateway version as your Gamma control plane, shown in Gravitee Cloud.
        repository: graviteeio/apim-gateway
-       tag: 4.12.0
+       tag: "4.12"
        pullPolicy: IfNotPresent
      autoscaling:
        enabled: false

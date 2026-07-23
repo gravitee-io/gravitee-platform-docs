@@ -47,7 +47,7 @@ To run the Gateway, complete the following steps:
 
    services:
      gio-gamma-hybrid-gateway:
-       image: graviteeio/apim-gateway:${GATEWAY_VERSION:-4.12.0}
+       image: graviteeio/apim-gateway:${GATEWAY_VERSION:-4.12}
        container_name: gio_gamma_hybrid_gateway
        hostname: gamma-gateway
        ports:
@@ -93,7 +93,7 @@ To run the Gateway, complete the following steps:
 
    ```bash
    # We recommend running the same Gateway version as your Gamma control plane, shown in Gravitee Cloud.
-   GATEWAY_VERSION=4.12.0
+   GATEWAY_VERSION=4.12
 
    # Use a Redis version that is supported by Gravitee.
    REDIS_VERSION=7.2-alpine
