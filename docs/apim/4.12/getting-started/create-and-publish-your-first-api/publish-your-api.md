@@ -19,6 +19,10 @@ This guide explains how to Publish your API.
 
 ## Publish your API
 
+{% hint style="info" %}
+This page applies to the Classic Portal. The New Developer Portal doesn't use the API's published state. To make an API visible in the New Developer Portal, add the API to the portal navigation and publish it there. For more information, see [Manage Portal Navigation and APIs](../../developer-portal/new-developer-portal/customize-the-navigation.md).
+{% endhint %}
+
 1.  From the dashboard, click **APIs**.
 
     <figure><img src="../../.gitbook/assets/A55EF9D7-6D61-4D8F-8BA1-F71122515FAA.jpeg" alt=""><figcaption></figcaption></figure>
@@ -39,7 +43,7 @@ Your API appears on the Developer Portal. To view your API in the Developer Port
 1.  In the console header navigation, click **Developer Portal**.
 
     <figure><img src="../../.gitbook/assets/6B137E7B-B69B-4EFA-9099-B5FA1496B0D7.jpeg" alt=""><figcaption></figcaption></figure>
-2.  In the Developer Portal, click **Explore APIS.**
+2.  In the Developer Portal, click **Explore APIs**.
 
     <figure><img src="../../.gitbook/assets/gs-first-api-publish-your-api-66.png" alt=""><figcaption></figcaption></figure>
 3.  In the **Catalog** page, click **All APIs.**

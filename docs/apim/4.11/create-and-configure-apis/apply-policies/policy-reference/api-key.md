@@ -19,9 +19,7 @@ This policy ensures that API keys are valid, have not been revoked or expired an
 This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 message APIs or v4 TCP proxy APIs.
 {% endhint %}
 
-{% tabs %}
-{% tab title="HTTP proxy API example" %}
-You can configure the policy in the APIM Gateway configuration file (`gravitee.yml`). You can customize the `X-Gravitee-Api-Key` header and `api-key` query parameter.
+Configure the default API key header and query parameter for the whole Gateway in the `gravitee.yml` configuration file:
 
 ```yaml
 policy:
@@ -29,8 +27,18 @@ policy:
     header: My-Custom-Api-Key
     param: custom-api-key
 ```
-{% endtab %}
-{% endtabs %}
+
+## API key header resolution
+
+When the API key is read from a header, which is the default, the Gateway resolves the header name in the following order:
+
+1. The `apiKeyHeader` value configured on the plan, when that value isn't empty.
+2. The `policy.api-key.header` value from `gravitee.yml`, when the plan doesn't set a header name.
+3. The default `X-Gravitee-Api-Key` header.
+
+When the resolved header carries no key, the Gateway falls back to the `api-key` query parameter. Set the query parameter name for the whole Gateway with `policy.api-key.param`. A plan can't override the query parameter name.
+
+APIM 4.11.14 and later, and every 4.12 and later release, bundle version 6.x of the policy. From that version, the header name set on the plan applies when it isn't empty, and the `enableCustomApiKeyHeader` option is deprecated. Earlier versions apply the header name set on the plan only when `enableCustomApiKeyHeader` is `true`, and that option defaults to `false`. Keep the option enabled for Gateways that still run version 5.x of the policy, and for V2 APIs that don't run on the emulation engine. For the upgrade impact, see [Breaking Changes and Deprecations](../../../release-information/breaking-changes-and-deprecations.md).
 
 ## Configuration
 
@@ -39,7 +47,8 @@ Sample policy configuration:
 {% code title="Sample Configuration" %}
 ```json
 "api-key": {
-  "propagateApiKey": false
+  "propagateApiKey": false,
+  "apiKeyHeader": "My-Custom-Api-Key"
 }
 ```
 {% endcode %}
@@ -54,13 +63,71 @@ The phases checked below are supported by the `api-key` policy:
 
 You can configure the `api-key` policy with the following options:
 
-<table><thead><tr><th width="191">Property</th><th width="100" data-type="checkbox">Required</th><th width="179">Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>propagateApiKey</td><td>false</td><td>Propagate API key to upstream API</td><td>boolean</td><td><em>false</em></td></tr></tbody></table>
+<table>
+    <thead>
+        <tr>
+            <th width="191">Property</th>
+            <th width="100" data-type="checkbox">Required</th>
+            <th width="179">Description</th>
+            <th>Type</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>propagateApiKey</td>
+            <td>false</td>
+            <td>Propagate API key to upstream API</td>
+            <td>boolean</td>
+            <td><em>false</em></td>
+        </tr>
+        <tr>
+            <td>apiKeyHeader</td>
+            <td>false</td>
+            <td>Name of the header that carries the API key. Takes precedence over the Gateway-level <code>policy.api-key.header</code> value</td>
+            <td>string</td>
+            <td><em>X-Gravitee-Api-Key</em></td>
+        </tr>
+        <tr>
+            <td>enableCustomApiKeyHeader</td>
+            <td>false</td>
+            <td>Deprecated. Applies the header name set on the plan when the Gateway runs version 5.x of the policy</td>
+            <td>boolean</td>
+            <td><em>false</em></td>
+        </tr>
+    </tbody>
+</table>
 
 ## Compatibility matrix
 
-The following is the compatibility matrix for APIM and the `assign-metrics` policy:
+The following table shows the compatibility between the `api-key` policy and APIM:
 
-<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>2.x</td><td>3.x</td></tr><tr><td>4.x</td><td>4.0+</td></tr></tbody></table>
+<table data-full-width="false">
+    <thead>
+        <tr>
+            <th>Plugin Version</th>
+            <th>Supported APIM versions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>2.x</td>
+            <td>3.x</td>
+        </tr>
+        <tr>
+            <td>4.x</td>
+            <td>4.0.x to 4.5.x</td>
+        </tr>
+        <tr>
+            <td>5.x</td>
+            <td>4.6.x to 4.10.x</td>
+        </tr>
+        <tr>
+            <td>6.x</td>
+            <td>4.11.x to latest</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Errors
 

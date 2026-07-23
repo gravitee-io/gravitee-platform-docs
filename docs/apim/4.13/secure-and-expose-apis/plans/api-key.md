@@ -155,6 +155,6 @@ When a request to an API with an API Key plan returns status `401`, work through
 
 * Verify that the subscription is active. A paused, closed, or expired subscription rejects the key even when the key itself looks valid.
 * Verify that the key is active. A revoked or expired key returns `401` until the application owner renews it.
-* Check where the plan expects the key. By default, the Gateway reads the key from the `X-Gravitee-Api-Key` header or the `api-key` query parameter. From APIM 4.10.0, a plan can define a custom API key header, and keys sent on the default header are rejected when the plan configures a custom one.
+* Check where the plan expects the key. By default, the Gateway reads the key from the `X-Gravitee-Api-Key` header or the `api-key` query parameter. From APIM 4.10.0, a plan can define a custom API key header, and keys sent on the default header are rejected when the plan configures a custom one. From APIM 4.11.14, the header name set on the plan also overrides the `policy.api-key.header` value from `gravitee.yml`. For the full resolution order, see [API Key](../../create-and-configure-apis/apply-policies/policy-reference/api-key.md).
 * Check the application's API key type. With a shared API key, renewing or revoking the key affects every subscription of the application at once, so a change made for one API also changes the key that all other subscribed APIs accept.
 * Generate a new key and test with it. If the new key works, the previous key was revoked, expired, or superseded by a renewal.

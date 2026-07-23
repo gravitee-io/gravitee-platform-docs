@@ -778,7 +778,7 @@ dockerize
 downscoping
 anonymization
 reauthentication
-unpublishing
+[Uu]npublishing
 multifactor
 strikethrough
 fullscreen
@@ -876,3 +876,4 @@ llmtest
 # GitBook page frontmatter key
 noIndex
 [Ww]alkthroughs?
+dashboarding
