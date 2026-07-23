@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Get started
-<-- to be published -->
 New to Event Stream Management in Gamma? Start here.
 
 * [**Event Stream Management overview**](event-stream-management-overview.md) — What Event Stream Management does and how it fits into the Gamma platform.
