@@ -527,6 +527,8 @@ Intune
 # Gamma Platform
 # ============================================
 Gamma
+# Docker image identifier (lowercase, case-sensitive), not the "Gamma" product name
+gamma-ui
 [Aa]gentic
 [Hh]yperscaler
 [Hh]yperscaler-[Ff]ederated
