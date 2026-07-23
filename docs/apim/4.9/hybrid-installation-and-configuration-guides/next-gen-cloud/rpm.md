@@ -45,7 +45,7 @@ Before you install a Hybrid Gateway, complete the following steps:
 
     sudo yum --quiet makecache --assumeyes --disablerepo='*' --enablerepo='graviteeio'
     ```
-2.  Install the Hybrid Gateway using the following command. This installs the Gateway at `/opt/graviteeio-apim-gateway`.
+2.  Install the Hybrid Gateway using the following command. This installs the Gateway at `/opt/graviteeio/apim/graviteeio-apim-gateway`.
 
     ```bash
     sudo yum install graviteeio-apim-gateway-4x -y
@@ -54,7 +54,7 @@ Before you install a Hybrid Gateway, complete the following steps:
    1.  To access your `gravitee.yml` file, use the following command:
 
        ```bash
-       sudo vi /opt/graviteeio-apim-gateway/config/gravitee.yml
+       sudo vi /opt/graviteeio/apim/graviteeio-apim-gateway/config/gravitee.yml
        ```
    2.  Use the following configuration in the Gateway section of `gravitee.yml`:
 
@@ -92,7 +92,7 @@ To verify that the installation was successful, complete the following steps:
 1.  Open the logs for the installation using the following command:
 
     ```bash
-    sudo tail -f /opt/graviteeio-apim-gateway/logs/gravitee.log
+    sudo tail -f /opt/graviteeio/apim/graviteeio-apim-gateway/logs/gravitee.log
     ```
 2. Navigate to the `/sync` and `/reports` endpoints. If these endpoints have synced successfully, your installation is correct.
 
