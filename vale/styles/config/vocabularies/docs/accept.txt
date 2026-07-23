@@ -11,7 +11,7 @@ Cockpit
 Blackbird
 DevPortal
 [Dd]ev
-GRAVITEEIO
+[Gg][Rr][Aa][Vv][Ii][Tt][Ee][Ee][Ii][Oo]
 mAPI
 Gravitee API Management
 Gravitee Access Management
