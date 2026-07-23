@@ -2,7 +2,6 @@
 hidden: false
 noIndex: false
 ---
-<-- to be published -->
 # Create your first Kafka service
 <!-- Source: gravitee-gamma-module-esm/src/main/ui/features/kafka-apis/components/create/CreateNativeApiWizard.tsx -->
 
