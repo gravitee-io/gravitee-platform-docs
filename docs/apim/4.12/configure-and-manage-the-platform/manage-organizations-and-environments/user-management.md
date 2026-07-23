@@ -25,7 +25,7 @@ Gravitee offers pre-built default roles, and also lets you create an unlimited n
 By default, only a System Admin (a role created by Gravitee) can create and edit roles, including custom roles.
 {% endhint %}
 
-The APIM Console lets you add and delete roles for the Organization, Environment, API, and Application scopes. You can also see which users have which role(s).
+The APIM Console lets you add and delete roles for the Organization, Environment, API, and Application scopes. You can also see which users have which roles.
 
 To set up roles, complete the following steps:
 
@@ -67,63 +67,129 @@ The "Writer" role now appears in the API scope section.
 
 ## Permissions
 
-Management API and component-level permissions available to a role differ by scope. The following tables list the permissions associated with each scope.
+Every permission grants some combination of four actions:
 
-{% tabs %}
-{% tab title="Organization" %}
-Organization-level permissions are listed in the following table.
+* **Create**: add new instances of the resource.
+* **Read**: view or list the resource.
+* **Update**: modify the resource.
+* **Delete**: remove the resource.
 
-<table><thead><tr><th width="220.31578947368422">Permission</th><th>Description</th></tr></thead><tbody><tr><td>ENTRYPOINT</td><td>Manages environment entrypoint configuration</td></tr><tr><td>ENVIRONMENT</td><td>Manages environments</td></tr><tr><td>ROLE</td><td>Manages roles</td></tr><tr><td>TAG</td><td>Manages sharding tags</td></tr><tr><td>TENANT</td><td>Manages tenants</td></tr><tr><td>USER</td><td>Manages users</td></tr></tbody></table>
-{% endtab %}
+Some permissions only use a subset of these actions. Where a permission is read-only, only the **Read** action has any effect.
 
-{% tab title="Environment" %}
-Environment-level permissions are listed in the following table.
+The available permissions differ by scope. The following sections list the permissions for each scope and describe the resource each one controls. The permission names match the identifiers shown in the Role editor in the APIM Console.
 
-<table><thead><tr><th width="324">Permission</th><th>Description</th></tr></thead><tbody><tr><td>ALERT</td><td>Manages environment alerting</td></tr><tr><td>API</td><td>Manages APIs in general. The <code>CREATE</code> action is used to establish if the user is allowed to create an API or not, and the <code>READ</code> permission is used to allow the user to request the policies and resources lists.</td></tr><tr><td>API_HEADERS</td><td>Manages environment API headers</td></tr><tr><td>APPLICATION</td><td>Manages applications in general. <code>CREATE</code> allows the user to create an application, <code>READ</code> allows the user to list applications.</td></tr><tr><td>AUDIT</td><td>Gets APIM audit. Only <code>READ</code> permission is used.</td></tr><tr><td>CATEGORY</td><td>Manages categories</td></tr><tr><td>CLIENT_REGISTRATION_PROVIDER</td><td>Manages environment client registration configuration</td></tr><tr><td>DASHBOARD</td><td>Manages environment dashboards</td></tr><tr><td>DICTIONARY</td><td>Manages environment dictionaries</td></tr><tr><td>DOCUMENTATION</td><td>Manages APIM Dev Portal documentation</td></tr><tr><td>GROUP</td><td>Manages user groups</td></tr><tr><td>IDENTITY_PROVIDER</td><td>Manages Identity Providers for authentication</td></tr><tr><td>INSTANCE</td><td>Access to API Gateway instance information. Only <code>READ</code> permission is used.</td></tr><tr><td>MESSAGE</td><td>Manages messaging</td></tr><tr><td>METADATA</td><td>Manages APIM metadata</td></tr><tr><td>NOTIFICATION</td><td>Manages global notifications</td></tr><tr><td>PLATFORM</td><td>Gets APIM monitoring metrics. Only <code>READ</code> permission is used.</td></tr><tr><td>QUALITY_RULE</td><td>Manages environment quality rules</td></tr><tr><td>SETTINGS</td><td>Manages environment settings</td></tr><tr><td>THEME</td><td>Manages APIM Portal themes</td></tr><tr><td>TOP_APIS</td><td>Manages top APIs</td></tr></tbody></table>
-{% endtab %}
+#### Organization permissions
 
-{% tab title="API" %}
-API-level permissions are listed in the following table.
+Organization-scoped permissions govern administration that spans every environment: users, roles, identity providers, and platform-level configuration.
 
-| Permission          | Description                                                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| ALERT               | Manages API alerting                                                                                                                        |
-| ANALYTICS           | Manages API analytics. Only the `READ` permission is used.                                                                                  |
-| AUDIT               | Manages API audits. Only the `READ` permission is used.                                                                                     |
-| DEFINITION          | Manages the API definition                                                                                                                  |
-| DISCOVERY           | Manages service discovery                                                                                                                   |
-| DOCUMENTATION       | Manages API documentation                                                                                                                   |
-| EVENT               | Manages API events. Only the `READ` permission is used.                                                                                     |
-| GATEWAY\_DEFINITION | A specific permission used to update the context-path (`UPDATE`) and to give access to sensitive data (`READ`) such as endpoints and paths. |
-| HEALTH              | Manages API health checks                                                                                                                   |
-| LOG                 | Manages API logs. Only the `READ` permission is used.                                                                                       |
-| MEMBER              | Manages API members                                                                                                                         |
-| METADATA            | Manages API metadata                                                                                                                        |
-| MESSAGE             | Manages messaging                                                                                                                           |
-| NOTIFICATION        | Manages API notifications                                                                                                                   |
-| PLAN                | Manages API plans                                                                                                                           |
-| QUALITY\_RULE       | Manages API quality rules                                                                                                                   |
-| RATING              | Manages API rating                                                                                                                          |
-| RATING\_ANSWERS     | Manages API rating answers                                                                                                                  |
-| RESPONSE\_TEMPLATES | Manages API response templates                                                                                                              |
-| REVIEWS             | Manages API reviews                                                                                                                         |
-| SUBSCRIPTION        | Manages API subscriptions                                                                                                                   |
-{% endtab %}
+| Permission | Description |
+| ---------- | ----------- |
+| `AUDIT` | The organization audit log, a read-only record of configuration changes across the organization. Only the **Read** action applies. |
+| `CUSTOM_USER_FIELDS` | Extra profile fields, beyond name and email, that you define and collect on user accounts. |
+| `ENTRYPOINT` | The base URLs the gateway listens on and the Developer Portal uses to build consumer addresses, managed at the organization level. |
+| `ENVIRONMENT` | The isolated deployment targets, for example dev, test, and prod, within the organization. Covers creating and managing environments. |
+| `IDENTITY_PROVIDER` | The external authentication sources, such as OIDC, SAML, LDAP, and social logins, used to sign users in. |
+| `IDENTITY_PROVIDER_ACTIVATION` | Controls which configured identity providers are offered on the login screen at the organization level. |
+| `INSTALLATION` | The APIM installation as a whole, including its link to Gravitee Cloud. |
+| `LICENSE_MANAGEMENT` | Viewing and updating the Enterprise Edition license. |
+| `NOTIFICATION_TEMPLATES` | The reusable email and message templates Gravitee sends for platform events such as registration and subscription approval. |
+| `POLICIES` | Organization-wide policy configuration and which policies are available. |
+| `ROLE` | Roles and their permission sets. Covers creating and editing roles, including custom roles. |
+| `SETTINGS` | The global console configuration values for the organization. |
+| `TAG` | Sharding tags, the labels that match APIs to gateway instances, managed at the organization level. |
+| `TENANT` | Tenants, the logical partitions used to route calls to tenant-specific backends. |
+| `USER` | User accounts. Covers viewing, creating, editing, and deleting users. |
+| `USER_TOKEN` | Personal Access Tokens that users generate to authenticate to the Management API in place of interactive login. |
 
-{% tab title="Application" %}
-Application-level permissions are listed in the following table.
+#### Environment permissions
 
-| Name         | Description                                                        |
-| ------------ | ------------------------------------------------------------------ |
-| ALERT        | Manages application alerting                                       |
-| ANALYTICS    | Manages application analytics. Only the `READ` permission is used. |
-| DEFINITION   | Manages the application definition                                 |
-| LOG          | Manages application logs. Only the `READ` permission is used.      |
-| MEMBER       | Manages application members                                        |
-| NOTIFICATION | Manages application notifications                                  |
-| SUBSCRIPTION | Manages application subscriptions                                  |
-{% endtab %}
-{% endtabs %}
+Environment-scoped permissions govern everything within a single environment: the APIs and applications it contains, plus environment-level configuration, analytics, and portal settings.
+
+| Permission | Description |
+| ---------- | ----------- |
+| `AGENT_IDENTITY` | The registered identity of an AI agent in Agent Management, which lets it act through the gateway. |
+| `AI_CATALOG` | The catalog of AI and LLM services exposed through Gravitee for consumers to discover and subscribe to. |
+| `ALERT` | Environment-level alerting rules that fire a notification when a condition is met. |
+| `AM_CONFIGURATION` | The configuration that links the environment to a Gravitee Access Management instance for authentication. |
+| `API` | APIs in general at the environment level. The **Create** action controls whether the user can create an API. The **Read** action allows the user to request the policy and resource lists. |
+| `API_HEADER` | The labeled metadata fields, for example Team or Version, shown on API cards and detail pages in the Developer Portal. |
+| `API_PRODUCT` | API Products, bundles of one or more APIs packaged and subscribed to as a single offering. |
+| `APPLICATION` | Applications in general at the environment level. The **Create** action allows creating an application. The **Read** action allows listing applications. |
+| `AUDIT` | The environment audit log, a read-only record of configuration changes in the environment. Only the **Read** action applies. |
+| `AUTHORIZATION` | The environment's authorization configuration. |
+| `AUTHZ_ENTITIES` | In fine-grained authorization, the entities and objects, such as users and resources, that the authorization model evaluates. |
+| `AUTHZ_PDP` | The Policy Decision Point that evaluates an authorization request and returns permit or deny. |
+| `AUTHZ_POLICIES` | The rules the Policy Decision Point evaluates to grant or deny access to a resource. |
+| `AUTHZ_SCHEMA` | The entity, attribute, and relationship model that authorization policies are written against. |
+| `CATEGORY` | Categories, the labels used to group related APIs so consumers can browse them by theme in the portal. |
+| `CLIENT_REGISTRATION_PROVIDER` | External OAuth and OIDC servers that Gravitee calls to automatically create client credentials through Dynamic Client Registration. |
+| `CLUSTER` | Clusters, defined groups of Kafka or gateway nodes managed as a single unit within the environment. |
+| `DASHBOARD` | Configurable arrangements of analytics widgets and charts over API traffic. |
+| `DICTIONARY` | Dictionaries, named sets of key-value properties that API definitions reference at runtime through Expression Language. |
+| `DOCUMENTATION` | The Developer Portal documentation content shown to consumers. |
+| `EDGE_CONFIGURATION` | Gateway edge-level runtime settings applied across the environment. |
+| `ENTRYPOINT` | The base URLs the gateway serves and the portal advertises, scoped to the environment. |
+| `GROUP` | User groups, named collections of users that jointly own APIs and applications. |
+| `IDENTITY_PROVIDER_ACTIVATION` | Controls which identity providers are enabled at the environment level. |
+| `INSTANCE` | API Gateway instance information. Only the **Read** action applies. |
+| `INTEGRATION` | Integrations for Federation, connections to external API providers such as AWS API Gateway, Solace, or Confluent whose APIs are ingested into Gravitee. |
+| `MESSAGE` | Broadcast announcements pushed to API consumers. |
+| `METADATA` | Custom key-value attributes attached at the environment level. |
+| `NOTIFICATION` | Environment-level notification configuration. |
+| `PLATFORM` | Aggregate monitoring metrics across the environment. Only the **Read** action applies. |
+| `PORTAL` | The Developer Portal configuration for discovering, subscribing to, and consuming APIs. |
+| `QUALITY_RULE` | Governance checks scored against APIs to enforce documentation and design standards. |
+| `SETTINGS` | The per-environment configuration values. |
+| `SHARED_POLICY_GROUP` | Reusable, centrally managed sequences of policies that multiple APIs include by reference. |
+| `TAG` | Sharding tags, scoped to the environment's tag set. |
+| `TENANT` | Tenants, scoped to the environment. |
+| `THEME` | The branding and appearance definition applied to the Developer Portal. |
+| `TOP_APIS` | The curated, ordered list of featured APIs highlighted on the portal home page. |
+
+#### API permissions
+
+API-scoped permissions are applied per API to the members of that API. They correspond to the tabs and actions available when editing a single API.
+
+| Permission | Description |
+| ---------- | ----------- |
+| `ALERT` | Alerting rules for this API that fire a notification when a condition is met. |
+| `ANALYTICS` | Traffic metrics collected for this API, such as request counts, response times, and status codes. Only the **Read** action applies. |
+| `AUDIT` | The API audit log, a record of configuration changes to this API. Only the **Read** action applies. |
+| `DEFINITION` | The API definition, the full specification of the API including its flows, policies, endpoints, and general settings. |
+| `DISCOVERY` | Service discovery, which resolves backend endpoint addresses from a registry instead of static configuration. |
+| `DOCUMENTATION` | The documentation pages attached to this API and shown on its portal page. |
+| `EVENT` | The API event history, such as deploy, start, and stop records. Only the **Read** action applies. |
+| `GATEWAY_DEFINITION` | The deployed, runtime view of the API. The **Update** action changes the context path. The **Read** action gives access to sensitive data such as endpoints and paths. |
+| `HEALTH` | Health checks, the periodic probes that verify backend availability, and their results. |
+| `LOG` | The recorded request and response logs for this API's traffic. Only the **Read** action applies. |
+| `MEMBER` | The API's members and their roles. |
+| `MESSAGE` | Announcements sent to this API's subscribers. |
+| `METADATA` | Custom key-value attributes attached to this API. |
+| `NATIVE_ANALYTICS` | Analytics for native Kafka APIs, the equivalent of `ANALYTICS` for native APIs. Only the **Read** action applies. |
+| `NATIVE_LOG` | Logs for native Kafka APIs, the equivalent of `LOG` for native APIs. Only the **Read** action applies. |
+| `NOTIFICATION` | Notification configuration for this API's events. |
+| `PLAN` | Plans, the offers consumers subscribe to, which set the security type and terms such as rate limits. |
+| `QUALITY_RULE` | The per-API evaluation of the environment's quality rules. |
+| `RATING` | Consumer ratings left on this API in the portal. |
+| `RATING_ANSWER` | The publisher's replies to consumer ratings. |
+| `RESPONSE_TEMPLATES` | Custom responses the gateway returns for defined failure conditions. |
+| `REVIEWS` | The review workflow that requires a publisher's API changes to be reviewed before they can be deployed. |
+| `SUBSCRIPTION` | Subscriptions, the approved links between consumer applications and this API's plans. Covers approving, rejecting, and managing subscriptions. |
+
+#### Application permissions
+
+Application-scoped permissions are applied per application to the members of that application. An application is a consumer identity that subscribes to APIs.
+
+| Permission | Description |
+| ---------- | ----------- |
+| `ALERT` | Alerting rules for this application's consumption metrics that fire a notification when a condition is met. |
+| `ANALYTICS` | Consumption metrics for this application's calls across the APIs it subscribes to. Only the **Read** action applies. |
+| `DEFINITION` | The application definition, its core record including name, type, and OAuth client or credential settings. |
+| `LOG` | The recorded requests and responses for this application's traffic. Only the **Read** action applies. |
+| `MEMBER` | The application's members and their roles. |
+| `METADATA` | Custom key-value attributes attached to this application. |
+| `NOTIFICATION` | Notification configuration for this application's events. |
+| `SUBSCRIPTION` | This application's subscriptions to API plans, including their subscription keys. |
 
 {% hint style="warning" %}
 Users with READ-only permissions can only view APIs through the Developer Portal, not in the APIM Console. To view the list of APIs in the Console, a user requires at least UPDATE or CREATE permissions.
@@ -131,10 +197,10 @@ Users with READ-only permissions can only view APIs through the Developer Portal
 
 ### Users and user groups
 
-In Gravitee, a user is a user profile interacting with the platform. User groups are groupings of users who share the same role(s) in the Environment, Organization, API, and/or Application scopes.
+In Gravitee, a user is a user profile interacting with the platform. User groups are groupings of users who share the same roles in the Environment, Organization, API, and/or Application scopes.
 
-{% tabs %}
-{% tab title="Create and manage users" %}
+#### Create and manage users
+
 **Create users**
 
 Users are created in one of two ways:
@@ -159,7 +225,7 @@ To pre-register a user:
     * Enter the user's info: **First Name**, **Last Name**, **Email**
     * Using the drop-down menu, select the **Identity Provider** name. See [IdP configuration](README.md#defining-organization-authentication-and-access-settings) for more details.
 
-    **Pre-register a service account:** Set up a user as a service account to enable someone from a Gravitee servicer (e.g., partner, consultant) to subscribe to Gravitee email notifications
+    **Pre-register a service account:** Set up a user as a service account to enable someone from a Gravitee servicer (for example, a partner or consultant) to subscribe to Gravitee email notifications
 
     <figure><img src="../../.gitbook/assets/create user_service account.png" alt=""><figcaption><p>Add a Service Account user type</p></figcaption></figure>
 
@@ -178,9 +244,9 @@ A user can only be deleted if they are not the Primary Owner of a Gravitee user 
 {% hint style="info" %}
 When a user is created in Gravitee, a default application is created for that user.
 {% endhint %}
-{% endtab %}
 
-{% tab title="Create and manage user groups" %}
+#### Create and manage user groups
+
 **Create user groups**
 
 To create a user group:
@@ -224,5 +290,3 @@ To manage a user group:
       * Reset the user group settings by selecting **RESET** under **Actions**
       * Update the user group to save new settings by selecting **UPDATE** under **Actions**
     * **Delete a user group:** Click the delete icon associated with the user group entry
-{% endtab %}
-{% endtabs %}
