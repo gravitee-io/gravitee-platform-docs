@@ -19,6 +19,11 @@ noIndex: false
 
  
 ## Gravitee API Management 4.12.10 - July 21, 2026
+
+{% hint style="warning" %}
+There is a known issue with API synchronizations in this version of APIM. Upgrade to version 4.12.11+.
+{% endhint %}
+
 <details>
 
 <summary>Bug Fixes</summary>
