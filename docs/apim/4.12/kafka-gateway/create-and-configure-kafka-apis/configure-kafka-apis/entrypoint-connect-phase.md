@@ -4,15 +4,14 @@
 
 The Entrypoint Connect phase runs as soon as a client opens a connection to the entrypoint, before authentication and before any message processing. Use it to apply connection-level controls, such as IP filtering, and to reject a connection before the client authenticates.
 
-The phase applies to native APIs, which includes Kafka APIs and agent-to-agent APIs.
+The phase applies to native Kafka APIs.
 
 ## Prerequisites
 
 Before you configure the Entrypoint Connect phase, check that the following components are installed:
 
 * Gravitee API Management 4.11.0 or later
-* Native Kafka reactor 6.0.0-alpha.1 or later, for Kafka APIs
-* Agent-to-agent connectors 2.0.0-alpha.1 or later, for agent-to-agent APIs
+* Native Kafka reactor 6.0.0 or later
 
 ## Phase execution order
 
@@ -39,10 +38,6 @@ A native flow defines the policies that run in each phase:
 {% hint style="info" %}
 The `connect` field was removed from the API definition. Use `entrypointConnect` instead.
 {% endhint %}
-
-## Context attribute propagation
-
-Attributes set during the Entrypoint Connect phase propagate to the connection context and stay available to every later phase. When the Entrypoint Connect policy chain completes, the Gateway copies the attributes back to the connection context, so that authentication and message-phase policies can read them.
 
 ## Add policies to the phase
 
