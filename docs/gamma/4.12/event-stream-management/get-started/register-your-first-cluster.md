@@ -2,7 +2,6 @@
 hidden: false
 noIndex: false
 ---
-<-- to be published -->
 # Register your first cluster
 <!-- Source: gravitee-gamma-module-esm/src/main/ui/features/clusters/components/create/CreateClusterWizard.tsx -->
 
