@@ -87,11 +87,11 @@ Organization-scoped permissions govern administration that spans every environme
 | `AUDIT` | Read | The organization audit log, a read-only record of configuration changes across the organization. |
 | `CUSTOM_USER_FIELDS` | Create, update, delete | Extra profile fields, beyond name and email, that you define and collect on user accounts. |
 | `ENTRYPOINT` | Create, read, update, delete | The base URLs the gateway listens on and the Developer Portal uses to build consumer addresses, managed at the organization level. |
-| `ENVIRONMENT` | - | The isolated deployment targets, for example dev, test, and prod, within the organization. |
+| `ENVIRONMENT` | Installation level | The isolated deployment targets, for example dev, test, and prod, within the organization. Environments are set up at the installation level, so this permission isn't enforced by the Management API. |
 | `IDENTITY_PROVIDER` | Create, read, update, delete | The external authentication sources, such as OIDC, SAML, LDAP, and social logins, used to sign users in. |
 | `IDENTITY_PROVIDER_ACTIVATION` | Create, read, update, delete | Controls which configured identity providers are offered on the login screen at the organization level. |
 | `INSTALLATION` | Read | The APIM installation as a whole, including its link to Gravitee Cloud. |
-| `LICENSE_MANAGEMENT` | - | Viewing and updating the Enterprise Edition license. |
+| `LICENSE_MANAGEMENT` | Installation level | Viewing and updating the Enterprise Edition license. The license is applied at the installation level, so this permission isn't enforced by the Management API. |
 | `NOTIFICATION_TEMPLATES` | Create, read, update | The reusable email and message templates Gravitee sends for platform events such as registration and subscription approval. |
 | `POLICIES` | Create, update, delete | Organization-wide policy configuration and which policies are available. |
 | `ROLE` | Create, read, update, delete | Roles and their permission sets. Covers creating and editing roles, including custom roles. |
@@ -127,9 +127,9 @@ Environment-scoped permissions govern everything within a single environment: th
 | `DASHBOARD` | Create, read, update, delete | Configurable arrangements of analytics widgets and charts over API traffic. |
 | `DICTIONARY` | Create, read, update, delete | Dictionaries, named sets of key-value properties that API definitions reference at runtime through Expression Language. |
 | `DOCUMENTATION` | Create, read, update, delete | The Developer Portal documentation content shown to consumers. |
-| `EDGE_CONFIGURATION` | - | Gateway edge-level runtime settings applied across the environment. |
+| `EDGE_CONFIGURATION` | Not enforced | Gateway edge-level runtime settings applied across the environment. This permission isn't currently enforced by a Management API endpoint. |
 | `ENTRYPOINT` | Create, read, update, delete | The base URLs the gateway serves and the portal advertises, scoped to the environment. |
-| `EXPLORER` | - | Access to the Kafka Explorer for browsing topics and messages in the environment. |
+| `EXPLORER` | Kafka gateway | Access to the Kafka Explorer for browsing topics and messages in the environment. Access is enforced by the Kafka gateway rather than the Management API. |
 | `GROUP` | Create, read, update, delete | User groups, named collections of users that jointly own APIs and applications. |
 | `IDENTITY_PROVIDER_ACTIVATION` | Create, read, update, delete | Controls which identity providers are enabled at the environment level. |
 | `INSTANCE` | Read | API Gateway instance information. |
@@ -172,7 +172,7 @@ API-scoped permissions are applied per API to the members of that API. They corr
 | `QUALITY_RULE` | Create, update | The per-API evaluation of the environment's quality rules. |
 | `RATING` | Create, read, update, delete | Consumer ratings left on this API in the portal. |
 | `RATING_ANSWER` | Create, read, delete | The publisher's replies to consumer ratings. |
-| `RESPONSE_TEMPLATES` | - | Custom responses the gateway returns for defined failure conditions. Managed through the API `DEFINITION` permission. |
+| `RESPONSE_TEMPLATES` | Via API `DEFINITION` | Custom responses the gateway returns for defined failure conditions. Response templates are part of the API definition, so the API `DEFINITION` permission governs them. |
 | `REVIEWS` | Update | The review workflow that requires a publisher's API changes to be reviewed before they can be deployed. |
 | `SUBSCRIPTION` | Create, read, update, delete | Subscriptions, the approved links between consumer applications and this API's plans. |
 
@@ -192,7 +192,7 @@ Application-scoped permissions are applied per application to the members of tha
 | `SUBSCRIPTION` | Create, read, update, delete | This application's subscriptions to API plans, including their subscription keys. |
 
 {% hint style="info" %}
-A hyphen (-) in the **Actions** column means the permission appears in the Role editor but isn't enforced by a Management API endpoint in the current release, so setting its actions has no effect on Management API access. `EXPLORER` covers the Kafka Explorer, whose access is enforced by the Kafka gateway.
+A few permissions are governed outside their own CRUD actions, as shown in the **Actions** column: they're controlled at the installation level, by another permission, or by the Kafka gateway.
 {% endhint %}
 
 {% hint style="warning" %}
