@@ -686,6 +686,7 @@ gzipped
 semver
 golang
 posix
+packagecloud
 htpasswd
 uncomment
 uncommenting

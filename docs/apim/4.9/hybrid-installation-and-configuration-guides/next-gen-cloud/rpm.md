@@ -95,3 +95,7 @@ To verify that the installation was successful, complete the following steps:
     sudo tail -f /opt/graviteeio-apim-gateway/logs/gravitee.log
     ```
 2. Navigate to the `/sync` and `/reports` endpoints. If these endpoints have synced successfully, your installation is correct.
+
+## Package location
+
+To find the package for your version, browse the full list of packages in the Gravitee repository on packagecloud at [https://packagecloud.io/graviteeio/rpms](https://packagecloud.io/graviteeio/rpms). Select the `graviteeio-apim-gateway-4x` package and the version you need.
