@@ -2,7 +2,6 @@
 hidden: false
 noIndex: false
 ---
-<-- to be published -->
 # Virtual Cluster runtime behavior
 <!-- GAP-STRUCTURAL: Missing procedural content source -->
 

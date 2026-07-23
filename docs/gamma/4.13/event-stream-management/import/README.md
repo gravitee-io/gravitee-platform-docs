@@ -2,7 +2,6 @@
 hidden: false
 noIndex: false
 ---
-<-- to be published -->
 # Import
 
 Register your existing Kafka infrastructure with Gamma so it can be governed, monitored, and composed into higher-level services.
