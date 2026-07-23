@@ -12,7 +12,7 @@ You run the standard APIM containers, turn on Gamma in both the Management API a
 
 Every component is published on `localhost` on its own port. On a single host, `localhost:8084`, `localhost:8086`, and `localhost:8083` are the **same site**, so the login session cookie is sent across ports and the consoles log in. For the detail, see [Why this works on one host](docker-cli.md#why-this-works-on-one-host).
 
-This guide uses the `4.12.0` images, which include the Agent Management module. For more information, see [Add your license key](docker-cli.md#enterprise-edition-only-add-your-license-key).
+This guide uses the `4.12` images, which include the Agent Management module. For more information, see [Add your license key](docker-cli.md#enterprise-edition-only-add-your-license-key).
 
 ## Prerequisites
 
@@ -104,7 +104,7 @@ On macOS, use `base64 -D` (capital `D`) if `base64 -d` returns an error.
       --env gravitee_http_cors_allow-credentials=true \
       --env gravitee_http_cookie_sameSite=Lax \
       --env gravitee_http_cookie_secure=false \
-      graviteeio/apim-management-api:4.12.0
+      graviteeio/apim-management-api:4.12
 
     docker network connect frontend gamma-management-api
     ```
@@ -118,7 +118,7 @@ On macOS, use `base64 -D` (capital `D`) if `base64 -d` returns an error.
       --env gravitee_management_mongodb_uri="mongodb://gamma-mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000" \
       --env gravitee_ratelimit_mongodb_uri="mongodb://gamma-mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000" \
       --env gravitee_reporters_elasticsearch_endpoints_0="http://gamma-elasticsearch:9200" \
-      graviteeio/apim-gateway:4.12.0
+      graviteeio/apim-gateway:4.12
 
     docker network connect frontend gamma-gateway
     ```
@@ -136,7 +136,7 @@ The Management API takes a few minutes to initialize. Confirm it's ready with `c
       --net frontend \
       --publish 8084:8080 \
       --env MGMT_API_URL="http://localhost:8083/management/organizations/DEFAULT/environments/DEFAULT/" \
-      graviteeio/apim-management-ui:4.12.0
+      graviteeio/apim-management-ui:4.12
     ```
 2.  Run the Developer Portal:
 
@@ -145,7 +145,7 @@ The Management API takes a few minutes to initialize. Confirm it's ready with `c
       --net frontend \
       --publish 8085:8080 \
       --env PORTAL_API_URL="http://localhost:8083/portal/environments/DEFAULT" \
-      graviteeio/apim-portal-ui:4.12.0
+      graviteeio/apim-portal-ui:4.12
     ```
 3.  Run the Gamma console:
 
@@ -157,7 +157,7 @@ The Management API takes a few minutes to initialize. Confirm it's ready with `c
       --env GAMMA_CONSOLE_BASE_HREF=/ \
       --env HTTP_PORT=8080 \
       --env SERVER_NAME=localhost \
-      graviteeio/gamma-ui:4.12.0
+      graviteeio/gamma-ui:4.12
     ```
 
 ## Access the consoles

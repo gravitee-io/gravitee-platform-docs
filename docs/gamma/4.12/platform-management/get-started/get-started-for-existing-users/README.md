@@ -6,7 +6,7 @@ noIndex: false
 
 Gravitee Gamma is Gravitee's next-generation unified control plane. It brings API Management, Event Management, Agent Management, Authorization Management, and Platform Management together in a single console, so you manage your APIs, Kafka streams, AI agents and MCP servers, and authorization policies from one place.
 
-If you already run Gravitee, you turn Gamma on rather than installing from scratch. Activating Gamma means moving to the Gamma build (the `4.12.0` images), enabling Gamma on the Management API, and adding the Gamma console. Choose the page for how you run Gravitee today.
+If you already run Gravitee, you turn Gamma on rather than installing from scratch. Activating Gamma means moving to the Gamma build (the `4.12` images), enabling Gamma on the Management API, and adding the Gamma console. Choose the page for how you run Gravitee today.
 
 ## Choose your path
 
