@@ -46,6 +46,8 @@ Before you install a Hybrid Gateway, complete the following steps:
     ```bash
     sudo yum install graviteeio-apim-gateway-4x -y
     ```
+
+    The `graviteeio-apim-gateway-4x` package installs the latest 4.x release. To install a specific version instead, append it: `sudo yum install graviteeio-apim-gateway-4x-<version> -y`. See the Package location section for the available versions.
 3. Configure the Gateway section of your `gravitee.yml` file:
    1.  To access your `gravitee.yml` file, use the following command:
 
