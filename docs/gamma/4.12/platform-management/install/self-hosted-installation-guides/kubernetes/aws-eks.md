@@ -13,7 +13,7 @@ This installation guide is for development and quick-start purposes only. Don't 
 
 This guide explains how to deploy a self-hosted Gravitee Gamma platform on Amazon Elastic Kubernetes Service (EKS) with Helm, fronted by a single AWS Application Load Balancer (ALB).
 
-You deploy the standard `graviteeio/apim` Helm chart, turn on Gamma with `gamma.enabled`, and add the Gamma console (`gammaUi`). This guide uses the `4.12.0` images, which include the Agent Management module.
+You deploy the standard `graviteeio/apim` Helm chart, turn on Gamma with `gamma.enabled`, and add the Gamma console (`gammaUi`). This guide uses the `4.12` images, which include the Agent Management module.
 
 Every component is served on **one hostname** through one ALB: the Gamma console at `/`, and the Management API at `/management`, `/portal`, and `/gamma`. Keeping everything on a single host makes the browser requests same-origin, so the login session cookie is sent and the consoles log in. The whole platform, including the ALB ingress, is defined in a single `values.yaml`.
 
@@ -291,7 +291,7 @@ The Gamma components run as `ClusterIP` services, and the single ALB ingress is 
      enabled: true
      image:
        repository: graviteeio/apim-management-api
-       tag: 4.12.0
+       tag: "4.12"
        pullPolicy: IfNotPresent
      env:
        - name: gravitee_installation_api_url
@@ -344,7 +344,7 @@ The Gamma components run as `ClusterIP` services, and the single ALB ingress is 
      enabled: true
      image:
        repository: graviteeio/apim-gateway
-       tag: 4.12.0
+       tag: "4.12"
        pullPolicy: IfNotPresent
      ingress:
        enabled: false
@@ -353,7 +353,7 @@ The Gamma components run as `ClusterIP` services, and the single ALB ingress is 
      enabled: true
      image:
        repository: graviteeio/apim-management-ui
-       tag: 4.12.0
+       tag: "4.12"
        pullPolicy: IfNotPresent
      ingress:
        enabled: false
@@ -363,7 +363,7 @@ The Gamma components run as `ClusterIP` services, and the single ALB ingress is 
      defaultPortal: "classic"
      image:
        repository: graviteeio/apim-portal-ui
-       tag: 4.12.0
+       tag: "4.12"
        pullPolicy: IfNotPresent
      env:
        - name: PORTAL_BASE_HREF
@@ -375,7 +375,7 @@ The Gamma components run as `ClusterIP` services, and the single ALB ingress is 
      enabled: true
      image:
        repository: graviteeio/gamma-ui
-       tag: 4.12.0
+       tag: "4.12"
        pullPolicy: IfNotPresent
      app:
        gammaBaseURL: "https://gamma.example.com/gamma"

@@ -16,7 +16,7 @@ If you're new to Gravitee and want to run Gamma, choose the path that fits how y
 
 ## Before you start
 
-Gamma ships in 4.12, so the self-hosted guides use the `4.12.0` images. Agent Management needs an enterprise license that includes the `agent-management` pack. The other modules work without a license. To get a license, contact your Technical Account Manager.
+Gamma ships in 4.12, so the self-hosted guides use the `4.12` images. Agent Management needs an enterprise license that includes the `agent-management` pack. The other modules work without a license. To get a license, contact your Technical Account Manager.
 
 ## Next steps
 
