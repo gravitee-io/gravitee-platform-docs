@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.10.x
 
+## Gravitee Access Management 4.10.18 - July 24, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Not closing webClient for OIDC idp [#11632](https://github.com/gravitee-io/issues/issues/11632)
+* SCIM user create returns 500 on concurrent duplicate username [#11664](https://github.com/gravitee-io/issues/issues/11664)
+
+
+
+
+
+**Other**
+
+* VHost domain case insensitive [#11389](https://github.com/gravitee-io/issues/issues/11389)
+* Cap the maxNumber of thread when Executors.newCachedThreadPool() is used [#11608](https://github.com/gravitee-io/issues/issues/11608)
+* character '&' break the URLParameterUtils [#11618](https://github.com/gravitee-io/issues/issues/11618)
+
+</details>
+
+
 ## Gravitee Access Management 4.10.17 - July 13, 2026
 
 <details>
