@@ -1,5 +1,7 @@
 ---
 description: An overview about TCP Proxy APIs.
+metaLinks:
+  canonical: https://documentation.gravitee.io/apim/govern-apis
 ---
 
 # TCP Proxy APIs
