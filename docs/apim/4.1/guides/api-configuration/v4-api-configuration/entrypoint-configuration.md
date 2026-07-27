@@ -17,7 +17,7 @@ After you've created your Gateway API and selected your entrypoint(s), you can c
 
 As of Gravitee 4.1, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/README.md)
+* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -195,7 +195,7 @@ When you are done configuring your entrypoints, make sure to select **Save chang
 
 To alter v4 Proxy API entrypoints, select your API, and then select **General** from the **Entrypoints** category in the left-hand nav.
 
-<figure><img src="../../../.gitbook/assets/virtual host_on (1) (1).png" alt=""><figcaption><p>v4 proxy API entrypoint configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/virtual host_on (1).png" alt=""><figcaption><p>v4 proxy API entrypoint configuration</p></figcaption></figure>
 
 From here, you can:
 
