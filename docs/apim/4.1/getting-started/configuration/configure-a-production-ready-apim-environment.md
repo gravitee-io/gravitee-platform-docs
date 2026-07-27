@@ -3,6 +3,9 @@ description: >-
   Configuration settings are critical to the security of your production
   environment. Gravitee's guide provides a high-level checklist when creating
   your APIM environment.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/prepare-a-production-environment/production-best-practices
 ---
 
 # Configure a Production-ready APIM Environment
@@ -16,7 +19,7 @@ This guide highlights the APIM settings that require special attention while you
 {% hint style="warning" %}
 **Configuring APIM**
 
-APIM includes many other configuration options and every environment is unique. However you configure new settings (via the `gravitee.yml` file, APIM Console, or environment and system variables) it is important to understand that one configuration type can override another. [Configure APIM Gateway](the-gravitee-api-gateway/README.md) gives a good overview of this topic.
+APIM includes many other configuration options and every environment is unique. However you configure new settings (via the `gravitee.yml` file, APIM Console, or environment and system variables) it is important to understand that one configuration type can override another. [Configure APIM Gateway](the-gravitee-api-gateway/) gives a good overview of this topic.
 {% endhint %}
 
 ## Security checklist
@@ -434,7 +437,7 @@ Perform the following steps in APIM Console to update the most common default se
     1. Select **Settings** in the inner sidebar.
     2. Update the **Company name.**
 
-    <figure><img src="../../.gitbook/assets/prod_def apim1.png" alt="How To Update Company Name Default Settings in Gravitee's Developer Portal"><figcaption><p>Portal settings</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/prod_def apim1.png" alt="How To Update Company Name Default Settings in Gravitee&#x27;s Developer Portal"><figcaption><p>Portal settings</p></figcaption></figure>
 4.  In the **Gateway** section:
 
     1. Select **API Logging**.
@@ -452,7 +455,7 @@ Perform the following steps in APIM Console to update the most common default se
       * Update the **Title** of APIM Console to make it more appropriate to your own environment.
       * Update the **Management URL** to your APIM Console URL.
 
-<div align="right" data-full-width="true"><figure><img src="../../.gitbook/assets/prod_def apim4.png" alt="Screenshot of Management URL in Gravitee's APIM Console URL" width="563"><figcaption><p>Organization settings</p></figcaption></figure></div>
+<div align="right" data-full-width="true"><figure><img src="../../.gitbook/assets/prod_def apim4.png" alt="Screenshot of Management URL in Gravitee&#x27;s APIM Console URL" width="563"><figcaption><p>Organization settings</p></figcaption></figure></div>
 
 #### Portal & Console default Nginx security config
 
