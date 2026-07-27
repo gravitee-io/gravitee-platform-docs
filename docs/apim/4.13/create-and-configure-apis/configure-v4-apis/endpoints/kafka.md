@@ -122,6 +122,18 @@ Each Kafka record consumed by the gateway carries metadata for the record key, t
 These metadata keys are populated by the connector on every consumed record and exposed to EL through `{#message.metadata}`. For **writable attributes** that the connector reads back to override its runtime behavior, for example, to override the producer topic per message, see [Dynamic configuration](kafka.md#user-content-dynamic-configuration). The Expression Language reference lists every Kafka writable attribute in the [Writable message attributes by endpoint type](../../../gravitee-expression-language.md#writable-message-attributes-by-endpoint-type) section.
 {% endhint %}
 
+### Tombstone records
+
+A tombstone is a Kafka record that has a key but no value. Compacted topics use tombstones to mark a key for deletion. See the [Kafka documentation](https://kafka.apache.org/documentation/#compaction) for how log compaction treats them.
+
+When the endpoint consumes a tombstone, it builds a message with no content and populates the `key`, `topic`, `partition`, and `offset` metadata exactly as it does for a record that carries a value.
+
+Because the message has no content, message-level policies that transform the payload have nothing to act on and leave the message unchanged. The [Avro to JSON](../../apply-policies/policy-reference/avro-to-json.md) policy behaves this way, so a tombstone reaches the consumer with an empty payload instead of a decoded one. Read the record key from `{#message.metadata['key']}` to identify which key the tombstone marks for deletion.
+
+{% hint style="warning" %}
+Before APIM 4.11.5 and 4.12.0, consuming a record with no value failed. To consume compacted topics that contain tombstones, upgrade to 4.11.5 or later on the 4.11 line, or to 4.12.0 or later.
+{% endhint %}
+
 ### Subscriber Data
 
 For each incoming request, the Kafka endpoint retrieves information from the request to create a dedicated consumer that will persist until the request terminates. The subscription relies on **ConsumerGroup**, **ClientId**, **Topic**, **AutoOffsetReset**, and **Offset selection**.
@@ -354,6 +366,22 @@ For the HTTP GET entrypoint, the offset can be provided using the `cursor` query
 ```bash
 curl https://${GATEWAY_HOST}:8082/messages/get?cursor=${LAST_ID}
 ```
+
+## Error reporting
+
+When the Gateway's Kafka client fails, the endpoint reports a fixed failure message and error template key instead of the message the Kafka client produced:
+
+| Error template key                       | Status | Failure message                | Reported when                                                                            |
+| ---------------------------------------- | ------ | ------------------------------ | ---------------------------------------------------------------------------------------- |
+| `FAILURE_ENDPOINT_CONNECTION_CLOSED`     | `500`  | Endpoint connection closed     | The connection between the Gateway and the cluster closed.                               |
+| `FAILURE_ENDPOINT_CONFIGURATION_INVALID` | `500`  | Endpoint configuration invalid | The endpoint configuration is rejected, including SASL and SSL authentication failures.  |
+| `RECORD_TOO_LARGE`                       | `400`  | Record too large               | A record exceeds the maximum request size accepted by the producer or the broker.        |
+| `FAILURE_TOPIC_NOT_FOUND`                | `404`  | Topics not found               | **Check Topic Existence** is enabled and a configured topic doesn't exist on the cluster. |
+| `FAILURE_ENDPOINT_UNKNOWN_ERROR`         | `500`  | Endpoint unknown error         | Any other failure, including broker-side errors that don't match a case above.            |
+
+The detail from the underlying Kafka client failure isn't part of these messages, so a broker-side error reaches the client as `Endpoint unknown error`. To surface the detail, add a [response template](../response-templates.md) that renders `{#error.cause}`. The `#error.cause` field is available from APIM 4.12.9.
+
+When the consumer uses a topic expression instead of a topic list, `FAILURE_TOPIC_NOT_FOUND` reports the message `No topic matches the pattern`.
 
 ## Technical Reference
 
