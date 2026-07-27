@@ -1,5 +1,8 @@
 ---
 description: Configuration guide for User and Management Configuration.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/secure-and-expose-apis/applications/user-and-group-access
 ---
 
 # User and Management Configuration
