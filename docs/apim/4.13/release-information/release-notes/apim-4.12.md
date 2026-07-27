@@ -1,5 +1,15 @@
 # APIM 4.12
 
+{% hint style="warning" %}
+**Important: Java Version Requirements**
+
+APIM 4.12 is not compatible with Java 25. If deploying with the RPM or ZIP distribution, ensure you use JRE 21.
+
+If AM and APIM are installed on the same host using RPM or ZIP packages, ensure APIM 4.12 runs on JRE 21 and AM runs on JRE 25. To do this, configure a dedicated `JAVA_HOME` for each Gateway and Management API instance.
+
+Docker deployments are unaffected, as official images come pre-configured with the correct Java version.
+{% endhint %}
+
 ## New Features
 
 #### **Hazelcast Rate Limit Repository**
