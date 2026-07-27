@@ -121,6 +121,12 @@ For `avro-to-json` conversion, the `nullFields` option controls how the policy r
 * `KEEP` (default): null-valued fields are emitted as `"field": null`.
 * `OMIT`: null-valued object fields are removed from the output. Null elements inside arrays are preserved.
 
+### Messages with no content
+
+When a message reaches the policy with no content, the policy has nothing to convert. It leaves the message unchanged and doesn't raise an error. This applies in both conversion directions.
+
+Kafka tombstone records arrive this way, because a tombstone is a record that has a key but no value. A tombstone therefore reaches the consumer with an empty payload instead of a converted one. For how the Kafka endpoint builds these messages, see [Tombstone records](../../configure-v4-apis/endpoints/kafka.md#tombstone-records).
+
 ## Errors <a href="#user-content-errors" id="user-content-errors"></a>
 
 | Phase | Code  | Error template key              | Description                                                                                                                                          |
