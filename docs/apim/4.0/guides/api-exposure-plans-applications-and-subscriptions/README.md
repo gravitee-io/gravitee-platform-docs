@@ -1,5 +1,8 @@
 ---
 description: Overview of core concepts around API exposure for both consumers and producers
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/how-to-guides/use-case-tutorials/create-applications-and-subscriptions-using-the-management-api#introduction
 ---
 
 # API Exposure: Plans, Applications, & Subscriptions
