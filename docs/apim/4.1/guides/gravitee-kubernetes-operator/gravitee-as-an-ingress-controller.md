@@ -1,5 +1,8 @@
 ---
 description: An overview about Gravitee as an Ingress Controller.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/gravitee-ingress-controller
 ---
 
 # Gravitee as an Ingress Controller
