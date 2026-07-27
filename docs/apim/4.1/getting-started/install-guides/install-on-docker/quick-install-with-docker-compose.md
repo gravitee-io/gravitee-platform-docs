@@ -1,5 +1,8 @@
 ---
 description: An overview about Quick Install with Docker Compose.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/self-hosted-installation-guides/docker/docker-compose
 ---
 
 # Quick Install with Docker Compose
@@ -57,5 +60,5 @@ APIM can take up to a minute to fully initialize with Docker. If you get an erro
 {% endhint %}
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide/README.md) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide/) for your next steps.
 {% endhint %}
