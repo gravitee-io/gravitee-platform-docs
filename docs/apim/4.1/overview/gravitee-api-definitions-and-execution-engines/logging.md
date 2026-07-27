@@ -1,5 +1,8 @@
 ---
 description: This page focuses on legacy logging issues and improvements
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/4.1/getting-started/configuration/the-gravitee-api-gateway/logging
 ---
 
 # Logging
