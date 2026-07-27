@@ -2,6 +2,9 @@
 description: >-
   This article discusses endpoint behavior and the processes for configuring and
   managing v4 API endpoints
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/how-to-guides/use-case-tutorials/connect-to-an-endpoint-using-sse
 ---
 
 # Endpoint Configuration
