@@ -10,7 +10,7 @@ Welcome to the Gravitee API Management (APIM) Quickstart Guide! This guide uses 
 
 These guides will switch between explaining APIM concepts and directing you to complete actions inside of your APIM instance. To make sure you don't miss any steps, all required actions are listed with an in-product image and instructions that follow the format below:
 
-> * [x] Select **UI element**&#x20;
+> * [x] Select **UI element**
 > * [x] Enter your name under **UI element**
 
 ## Prerequisites
@@ -20,7 +20,7 @@ Before getting started, you'll need:
 1. Basic familiarity with web APIs and/or message brokers
 2. Gravitee APIM 4.0 or later up and running
 
-To manage your own installations, check out our [APIM install guides](../install-and-upgrade-guides/README.md) for install options to run APIM locally or in your own cloud infrastructure. If you don't have a strong preference, [Quick Install with Docker Compose](../install-and-upgrade-guides/install-on-docker/quick-install-with-docker-compose.md) is the fastest self-managed installation for most users.
+To manage your own installations, check out our [APIM install guides](../install-and-upgrade-guides/) for install options to run APIM locally or in your own cloud infrastructure. If you don't have a strong preference, [Quick Install with Docker Compose](../install-and-upgrade-guides/install-on-docker/quick-install-with-docker-compose.md) is the fastest self-managed installation for most users.
 
 {% hint style="warning" %}
 An enterprise license is required for all message broker functionality.
@@ -48,4 +48,4 @@ For a new installation, the default login is `admin` for both **Username** and *
 With access to the APIM Console, you'll be ready to dive straight into the Quickstart Guide. You should complete the 101 guides in order, as they build upon each other.
 {% endhint %}
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Gateway APIs 101</td><td></td><td><a href="broken-reference">Broken link</a></td><td><a href="../../.gitbook/assets/quickstart guide_101.png">quickstart guide_101.png</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Gateway APIs 101</td><td></td><td><a href="https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.0/getting-started/quickstart-guide/broken-reference/README.md">https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.0/getting-started/quickstart-guide/broken-reference/README.md</a></td><td><a href="../../.gitbook/assets/quickstart guide_101.png">quickstart guide_101.png</a></td></tr></tbody></table>

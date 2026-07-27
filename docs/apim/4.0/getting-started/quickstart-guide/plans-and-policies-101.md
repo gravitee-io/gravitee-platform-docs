@@ -89,7 +89,7 @@ The flow with the resource filtering policy does not apply to the JWT plan and A
 
 ## Add a policy
 
-Let's work through how to add a simple policy to modify the behavior of the Gateway API we created in the [first part of the Quickstart Guide](README.md).
+Let's work through how to add a simple policy to modify the behavior of the Gateway API we created in the [first part of the Quickstart Guide](./).
 
 ### Access API
 
@@ -215,7 +215,7 @@ From here, we can manage all the plans and subscriptions for this API. Currently
 
 This plan is currently in the published state. Plans can be in one of four states: staging, published, deprecated, or closed.
 
-<figure><img src="../../.gitbook/assets/getting-started-quickstart-guide-plans-a-0.png" alt=""><figcaption><p>Four stages of a plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plans_four stages.png" alt=""><figcaption><p>Four stages of a plan</p></figcaption></figure>
 
 <details>
 
@@ -296,4 +296,4 @@ You should now be starting to grasp the power, versatility, and scope of the Gra
 
 For the final part of the Quickstart Guide, we will be diving into the Developer Portal to show how API publishers can expose and catalog their APIs, and how API consumers can create applications and subscribe to APIs in a catalog.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Developer Portal 101</td><td></td><td><a href="broken-reference/">broken-reference</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Developer Portal 101</td><td></td><td><a href="https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.0/getting-started/quickstart-guide/broken-reference/README.md">https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.0/getting-started/quickstart-guide/broken-reference/README.md</a></td></tr></tbody></table>
