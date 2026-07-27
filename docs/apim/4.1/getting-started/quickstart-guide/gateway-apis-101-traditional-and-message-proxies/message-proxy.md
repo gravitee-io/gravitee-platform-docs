@@ -1,5 +1,7 @@
 ---
 description: Use Gravitee to proxy your message and event brokers
+metaLinks:
+  canonical: https://documentation.gravitee.io/apim/getting-started
 ---
 
 # Message Proxy
