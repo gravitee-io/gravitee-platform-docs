@@ -1,5 +1,8 @@
 ---
 description: An overview about Gravitee API Definitions and Execution Engines.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/create-and-configure-apis/gravitee-api-definitions/execution-engine
 ---
 
 # Gravitee API Definitions and Execution Engines
