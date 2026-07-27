@@ -1,5 +1,8 @@
 ---
 description: This article walks through how to configure v4 API entrypoints
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/create-and-configure-apis/configure-v4-apis/entrypoints
 ---
 
 # Entrypoint Configuration
