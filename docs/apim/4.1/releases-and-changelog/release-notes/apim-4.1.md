@@ -34,7 +34,7 @@ Endpoints and endpoint groups that have already been configured can be modified 
 
 The configuration of an endpoint during the creation workflow determines the endpoint group’s default configuration. The endpoint then inherits this configuration from the group by default. Unless inheritance is disabled, changes to the endpoint group configuration will proliferate to all endpoints in the group.
 
-<figure><img src="../../.gitbook/assets/default endpoint group (1) (1).png" alt=""><figcaption><p>Default endpoint group</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/default endpoint group (1).png" alt=""><figcaption><p>Default endpoint group</p></figcaption></figure>
 
 By default, an endpoint added to an endpoint group will inherit the group's configuration. This allows an API publisher to quickly add new endpoints with the same settings and behavior as other endpoints in the group. Changes can be made to the new endpoint's configuration if inheritance is disabled, and will persist if inheritance remains disabled.
 
@@ -54,7 +54,7 @@ You can manage user and group access to individual APIs via the Management Conso
 
 ## Importing and duplicating v4 APIs
 
-You can now create a v4 API by uploading a JSON file containing an existing Gravitee v4 API definition. For the details of this feature, refer to the [documentation](../../guides/create-apis/import-apis/README.md).
+You can now create a v4 API by uploading a JSON file containing an existing Gravitee v4 API definition. For the details of this feature, refer to the [documentation](../../guides/create-apis/import-apis/).
 
 A v4 API can now also be duplicated. Refer to [this page](../../guides/api-configuration/v4-api-configuration/api-general-settings.md) for more details.
 

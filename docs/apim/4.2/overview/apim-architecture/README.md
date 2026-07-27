@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction
 
-Gravitee offers three different API Management architecture schemes: [self-hosted](README.md#self-hosted-architecture), [hybrid](README.md#hybrid-architecture), and [Gravitee-managed](README.md#gravitee-managed-architecture).
+Gravitee offers three different API Management architecture schemes: [self-hosted](./#self-hosted-architecture), [hybrid](./#hybrid-architecture), and [Gravitee-managed](./#gravitee-managed-architecture).
 
 Each architecture relies on a specific set of Gravitee components. Some components are common to all architectures while others are architecture-specific. The following table compares the component types and management of self-hosted and hybrid architectures.
 
@@ -28,11 +28,11 @@ The following diagrams illustrate the component management, design, and virtual 
 
 ### Self-hosted component management <a href="#components" id="components"></a>
 
-![](../../.gitbook/assets/file.excalidraw%20(7)%20(1).svg)
+![](<../../.gitbook/assets/file.excalidraw (7) (1).svg>)
 
 ### Self-hosted architecture diagram <a href="#architecture-diagram" id="architecture-diagram"></a>
 
-![Self-hosted architecture](../../.gitbook/assets/file.excalidraw%20(6)%20(1).svg)
+![Self-hosted architecture](<../../.gitbook/assets/file.excalidraw (6) (1).svg>)
 
 ### Self-hosted VM installation: LAN + DMZ deployment <a href="#install-on-vms-lan-dmz-deployment" id="install-on-vms-lan-dmz-deployment"></a>
 
@@ -50,11 +50,11 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid architecture diagram <a href="#architecture-diagram" id="architecture-diagram"></a>
 
-![](../../.gitbook/assets/file.excalidraw%20(4)%20(1).svg)
+![](<../../.gitbook/assets/file.excalidraw (4).svg>)
 
 ### Self-hosted-to-SaaS connections <a href="#self-hosted-to-saas-connections" id="self-hosted-to-saas-connections"></a>
 
-![Hybrid: SaaS to self-hosted connections](../../.gitbook/assets/file.excalidraw%20(15).svg)
+![Hybrid: SaaS to self-hosted connections](<../../.gitbook/assets/file.excalidraw (15).svg>)
 
 ## Gravitee-managed architecture
 

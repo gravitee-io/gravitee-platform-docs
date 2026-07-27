@@ -2,6 +2,9 @@
 description: >-
   This article discusses endpoint behavior and the processes for configuring and
   managing v4 API endpoints
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/how-to-guides/use-case-tutorials/connect-to-an-endpoint-using-sse
 ---
 
 # Endpoint Configuration
@@ -17,7 +20,7 @@ In Gravitee, Gateway endpoints define the protocol and configuration settings by
 
 As of Gravitee 4.1, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/README.md)
+* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -269,4 +272,4 @@ If `Inherit configuration from the endpoint group` remains OFF, the updated valu
 * If the configuration of an endpoint group is updated, all the endpoints with `Inherit configuration from the endpoint group` enabled will be similarly updated and remain static.
 * By default, the API will use the first endpoint group listed. This is indicated by the **Default** badge next to the group name. You can click the up/down arrow keys to reorder the endpoint groups and assign a different default:
 
-<figure><img src="../../../.gitbook/assets/default endpoint group (1) (1).png" alt=""><figcaption><p>Default endpoint group</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/default endpoint group (1).png" alt=""><figcaption><p>Default endpoint group</p></figcaption></figure>

@@ -2,6 +2,9 @@
 description: >-
   This section focuses on configuring load-balancing, failover, and health
   checks as Gravitee backend services.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/create-and-configure-apis/configure-v2-apis/load-balancing-failover-and-health-checks
 ---
 
 # Load-Balancing, Failover, and Health Checks
