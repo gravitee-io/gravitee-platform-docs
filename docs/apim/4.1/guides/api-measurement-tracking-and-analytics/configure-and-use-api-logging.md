@@ -1,5 +1,8 @@
 ---
 description: Learn how to configure and use API logging.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/analyze-and-monitor-apis/logging/configure-api-level-logs
 ---
 
 # Configure and Use API Logging
