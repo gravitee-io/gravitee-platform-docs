@@ -3,6 +3,9 @@ description: >-
   This article focuses on how to configure SSO and authentication methods for
   accessing the Gravitee platform using Gravitee Access Management, Google,
   Github, Azure AD, and Keycloak
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/gravitee-access-management
 ---
 
 # Configure Authentication
@@ -616,12 +619,12 @@ security:
 
 Once you're done creating your Keycloak client, you can configure your settings in Gravitee. You can do this either via the Gravitee APIM UI or the `gravitee.yaml` file. Either way, the configuration is stored in the database. This means that APIM starts using your new configuration as soon as you select **Save** (if configuring in APIM Console) or restart the APIM API (if configuring in the configuration file). Please see the tabs below to see how to configure Keycloak authentication via the APIM UI and the `gravitee.yaml` file.
 
-{% tabs %}
-{% tab title="gravitee.yaml" %}
-To configure Keycloak as an OpenID Connect authentication provider using the `gravitee.yaml` configuration file, you'll need to update to the file with your Keycloak client information as shown below:
+\{% tabs %\} \{% tab title="gravitee.yaml" %\} To configure Keycloak as an OpenID Connect authentication provider using the `gravitee.yaml` configuration file, you'll need to update to the file with your Keycloak client information as shown below:
 
-{% code overflow="wrap" lineNumbers="true" %}
+\{% code overflow="wrap" lineNumbers="true" %\}
+
 ```
+
 security:
   providers:
     - type: oidc
@@ -657,10 +660,7 @@ security:
             - "ENVIRONMENT:DEFAULT:API_CONSUMER"          #applied to the DEFAULT environment
             - "ENVIRONMENT:<ENVIRONMENT_ID>:API_CONSUMER" #applied to environment whose id is <ENVIRONMENT_ID>
 ```
-{% endcode %}
-{% endtab %}
 
-{% tab title="APIM UI" %}
 To configure OpenID Connect authentication using the APIM UI, follow these steps:
 
 1. Log-in to the Gravitee APIM UI, and select **Organization** from the left-hand nav.
@@ -693,8 +693,6 @@ To configure OpenID Connect authentication using the APIM UI, follow these steps
      * Picture (optional)
 
 When you are done, select **Create.** Then, go back to the IdP page, and toggle **Activate Identity Provider** ON for your new IdP.
-{% endtab %}
-{% endtabs %}
 
 #### Test your Keycloak authentication
 
