@@ -5,7 +5,7 @@ description: Manage and expose your backend resources with Gravitee
 # Gateway APIs 101 - Traditional & Message Proxies
 
 {% hint style="warning" %}
-Before beginning this guide, you should already have the Gravitee API Management Console up and running. [Start here](README.md) if you need help!
+Before beginning this guide, you should already have the Gravitee API Management Console up and running. [Start here](./) if you need help!
 {% endhint %}
 
 ## Overview
@@ -80,7 +80,7 @@ API details is the first step of the API creation wizard. Provide a name, versio
 
 ### Proxy selection: Choose your path
 
-This step is where you decide between the [traditional proxy and message proxy](README.md#traditional-and-message-proxies):
+This step is where you decide between the [traditional proxy and message proxy](./#traditional-and-message-proxies):
 
 * **Traditional proxy:** Select **Proxy Upstream Protocol** to configure the Gateway API to proxy backend API servers
 * **Message proxy**: Select **Introspect Messages From Event-Driven Backend** to configure the Gateway API to proxy event/message brokers
@@ -97,4 +97,4 @@ In the Console UI, choose which type of proxy you'd like to create based on the 
 
 Based on your selection in the Console, continue with the applicable guide:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><p><strong>Traditional Proxy (Proxy Upstream Protocol)</strong></p><p>Gateway APIs 101 | Proxy backend API servers</p></td><td><a href="broken-reference/">broken-reference</a></td></tr><tr><td><p><strong>Message Proxy (Introspect Messages From Event-Driven Backend)</strong></p><p>Gateway APIs 101 | Proxy event/message brokers</p></td><td><a href="broken-reference/">broken-reference</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><p><strong>Traditional Proxy (Proxy Upstream Protocol)</strong></p><p>Gateway APIs 101 | Proxy backend API servers</p></td><td><a href="https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.0/getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/broken-reference/README.md">https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.0/getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/broken-reference/README.md</a></td></tr><tr><td><p><strong>Message Proxy (Introspect Messages From Event-Driven Backend)</strong></p><p>Gateway APIs 101 | Proxy event/message brokers</p></td><td><a href="https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.0/getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/broken-reference/README.md">https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.0/getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/broken-reference/README.md</a></td></tr></tbody></table>
