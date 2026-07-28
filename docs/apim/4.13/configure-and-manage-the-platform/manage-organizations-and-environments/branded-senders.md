@@ -4,15 +4,15 @@ description: Configure branded sender rules so that notification emails use a di
 
 # Branded Senders
 
+## Overview
+
 Branded sender rules can be configured at two scopes: **Organization** and **Environment**. Environment-level rules override the Organization rules when present. If no Environment-level override is saved, the Environment inherits from the Organization or system configuration.
 
 The `brandedSendersInherited` flag in the Environment settings response is `true` when no Environment-level override exists and no valid system-configured value is in effect. At Organization scope, this flag is always `false`.
 
 If you save an empty list, `[]`, at the Environment scope, the result is an **explicit empty override** that doesn't fall back to the Organization value. To remove the override entirely and restore inheritance, use the **Reset to Org settings** action.
 
----
-
-## Domain Match Rules and Message Dispatch
+### Domain Match Rules and Message Dispatch
 
 When an email notification is dispatched, the backend extracts the domain from each recipient address. The domain is the part after `@`, and it's compared case-insensitively. The backend matches this domain against the `domains` list of each branded sender rule in list order, and the **first matching rule wins**.
 
@@ -25,9 +25,7 @@ The following recipients and scenarios fall outside branded dispatch:
 - If the caller supplies an explicit `From` on the notification, branded sender logic is skipped entirely, and a single unbranded message is sent.
 - Copies produced by `copyToSender` always use the default identity, `EMAIL_FROM` and `EMAIL_SUBJECT`, regardless of the recipient's domain.
 
----
-
-## Branded Sender Rule Structure
+### Branded Sender Rule Structure
 
 Each rule contains the following three fields:
 
@@ -38,8 +36,6 @@ Each rule contains the following three fields:
 | **`subject`** | Subject line prefix template. | Optional. Maximum 255 characters. `%s` or `%1$s` is replaced with the email's subject at send time. Stray `%` characters, `%n`, and width specifiers are treated as literal text. Falls back to the default `EMAIL_SUBJECT` if blank. |
 
 If the same domain appears in multiple rules, the first rule in the list wins. The APIM Console rejects cross-rule duplicate domains at the form level.
-
----
 
 ## Prerequisites
 
@@ -52,7 +48,6 @@ Before branded sender rules can be configured or saved, all the following condit
 - If `email.branded_senders` is set to a valid value in `gravitee.yml` or by an environment variable, the field is **locked read-only** in the APIM Console and you can't modify it.
 - If the system value is invalid or oversized, it's logged and ignored. The field remains editable, and no error is surfaced in the APIM Console.
 
----
 
 ## Create Branded Sender Rules at Environment Scope
 
