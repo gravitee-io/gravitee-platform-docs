@@ -98,13 +98,32 @@ Here are two key endpoints that your Gateway interacts with:
 * **`/sync` Endpoint**: The Data Plane fetches the latest API definitions, policies, and configurations from your Cloud Control Plane.
 * **`/reports` Endpoint**: The Data Plane sends analytics and request logs to the Cloud Control Plane for storage in a dedicated index for your account.
 
-### Stop sending analytics to the Cloud Control Plane
+### Cloud Token
+
+To connect to the Cloud Gate, your Gateway uses a Cloud Token, which is a signed JSON Web Token (JWT) that contains attributes (claims) related to your Cloud Account. This token provides the necessary authentication and authorization for your Gateway to connect to the Cloud Control Plane.
+
+The Cloud Token contains the following information:
+
+* The Cloud Account ID
+* Control Plane Region information
+* ID of analytics index
+* A signature to verify authenticity
+
+The Cloud Token is used to establish a secure and authenticated connection with the appropriate Cloud Gate endpoint.
+
+### Connection flow
+
+1. **Generate a Cloud Token.** Before connecting your Gateway, obtain a Cloud Token from your Cloud Control Plane.
+2. **Copy your Cloud license.** To start up and read your APIs, mount your license on the Gateway.
+3. **Start up the Gateway.** When the Gateway starts, it reads the Cloud Token, and then connects to the targeted Cloud Gate. You can now deploy APIs to the Gateway.
+
+## Stop sending analytics to the Cloud Control Plane
 
 Some organizations keep API traffic data inside their own infrastructure and don't want analytics or request logs leaving it. You can turn off the Cloud reporter so that the Gateway stops using the `/reports` endpoint, while the `/sync` endpoint keeps delivering API definitions, policies, and configuration from the Control Plane.
 
 The setting is `reporters.reportercloud.enabled`. Apply it in the way that matches your deployment.
 
-#### gravitee.yml
+### gravitee.yml
 
 ```yaml
 reporters:
@@ -112,7 +131,7 @@ reporters:
     enabled: false
 ```
 
-#### Kubernetes
+### Kubernetes
 
 Set the reporter under `gateway.reporters` in your Helm values. The chart writes any reporter you declare there into the Gateway's `gravitee.yml`:
 
@@ -132,7 +151,7 @@ gateway:
       value: "false"
 ```
 
-#### Docker
+### Docker
 
 Pass the environment variable alongside your Cloud Token and license key:
 
@@ -157,22 +176,3 @@ To keep analytics while sending them somewhere you control, configure another re
 {% endhint %}
 
 Setting `cloud.enabled` to `false` is a different action. That severs the whole Cloud Gate connection, so the Gateway stops receiving configuration as well. See [configure Cloud Gateway client](../proxy-configuration/configure-cloud-gateway-client.md).
-
-### Cloud Token
-
-To connect to the Cloud Gate, your Gateway uses a Cloud Token, which is a signed JSON Web Token (JWT) that contains attributes (claims) related to your Cloud Account. This token provides the necessary authentication and authorization for your Gateway to connect to the Cloud Control Plane.
-
-The Cloud Token contains the following information:
-
-* The Cloud Account ID
-* Control Plane Region information
-* ID of analytics index
-* A signature to verify authenticity
-
-The Cloud Token is used to establish a secure and authenticated connection with the appropriate Cloud Gate endpoint.
-
-### Connection flow
-
-1. **Generate a Cloud Token.** Before connecting your Gateway, obtain a Cloud Token from your Cloud Control Plane.
-2. **Copy your Cloud license.** To start up and read your APIs, mount your license on the Gateway.
-3. **Start up the Gateway.** When the Gateway starts, it reads the Cloud Token, and then connects to the targeted Cloud Gate. You can now deploy APIs to the Gateway.
