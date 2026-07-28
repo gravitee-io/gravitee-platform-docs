@@ -3,7 +3,6 @@ hidden: false
 noIndex: false
 ---
 # Virtual Cluster runtime behavior
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 This page describes what happens when a Virtual Cluster is active on the Event Gateway — how it handles client requests, routes them across backends, and presents a unified view to clients.
 

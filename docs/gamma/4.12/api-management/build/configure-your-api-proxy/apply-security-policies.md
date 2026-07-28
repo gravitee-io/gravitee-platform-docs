@@ -18,7 +18,6 @@ Each policy in the chain can inspect, transform, or reject the request or respon
 
 ## Authorization Management integration
 
-<!-- Source: apis.ts (apisServiceConfig), PolicyEditorSheet.tsx, ServicePolicyPage.tsx @ c07f5cdff9 -->
 
 In Gamma, API proxies can use **Authorization Management** for fine-grained, catalog-aware authorization that goes beyond plan-level authentication. The Policy Decision Point (PDP) runs directly inside the API Gateway with microsecond-scale latency and no network hop.
 

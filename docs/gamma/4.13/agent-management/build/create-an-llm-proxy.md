@@ -25,7 +25,6 @@ The LLM Proxy supports two modes for selecting upstream models:
 
 In **Inline mode**, you configure the provider and model directly in the wizard:
 
-<!-- Source: src/main/ui/app/features/secure/pages/llm-router-create/Step1Models.tsx -->
 | Field                     | Required | Description                                                                                                      |
 | ------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
 | **Provider**              | Yes      | The upstream model format (`OPEN_AI`, `GEMINI`, `ANTHROPIC`, or `BEDROCK`).                                      |
@@ -53,7 +52,6 @@ You can configure multiple models on a single LLM Proxy. See [Configure an LLM P
 
 ## Step 4: Select a consumer plan
 
-<!-- Source: src/main/ui/app/components/create-plan/types.ts -->
 Choose how consumers authenticate when sending prompts through this LLM Proxy. The LLM Proxy supports the standard Gravitee API plan types:
 
 | Plan type   | Description                                                                                       |

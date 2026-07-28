@@ -22,4 +22,3 @@ By evaluating authorization rules locally at the Gateway (the Policy Enforcement
 
 Gamma's AuthZEN PDP is fully multi-tenant. If you run multiple environments or tenants on the same Gateway, the PDP strongly isolates the policies and authorization data, ensuring that decisions are always scoped strictly to the calling tenant.
 
-<!-- Source: AimResourceIntegrationTest.java — gravitee-gamma-module-aim -->

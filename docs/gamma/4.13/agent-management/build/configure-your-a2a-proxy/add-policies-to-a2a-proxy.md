@@ -20,6 +20,5 @@ To attach policies to your A2A Proxy:
 7. Select the policy in the flow to configure its specific properties.
 8. Click **Save** to persist and apply your changes.
 
-<!-- Source: PolicyStudioPage.tsx @ 2a91746280 -->
 
 

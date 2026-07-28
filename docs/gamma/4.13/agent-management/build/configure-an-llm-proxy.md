@@ -10,7 +10,6 @@ After creating an LLM Proxy, configure guardrails, PII filtering, rate limiting,
 
 ## Guardrails, PII filtering, and Rate limiting
 
-<!-- Source: src/main/ui/app/features/secure/pages/llm-router-detail/llm-studio/LlmStudioPage.tsx -->
 Guardrails, PII filtering, and rate limiting are implemented using standard Gravitee policies. You configure them by attaching policies with the LLM Studio.
 
 The LLM Studio operates just like the API Management policy studio, supporting request/response phases. To attach these controls:
@@ -22,13 +21,11 @@ The LLM Studio operates just like the API Management policy studio, supporting r
 
 ## Structured output
 
-<!-- Source: src/main/ui/lib/api/llm-proxy.types.ts -->
 Structured output enforces response format constraints on model responses. You can enforce structured output natively by overriding model parameters.
 When configuring a model within the LLM Proxy, you can supply a `parametersOverride` JSON object that supports Expression Language. The connector automatically merges this JSON object into the request payload before it reaches the upstream provider, so you can transparently enforce formatting such as `{"response_format": { "type": "json_object" }}`.
 
 ## Security
 
-<!-- Source: src/main/ui/app/components/create-plan/types.ts -->
 Security plans control how consumers authenticate when sending prompts through the LLM Proxy. You can add, modify, or replace plans after creation.
 
 To manage security plans:
@@ -48,7 +45,6 @@ See [Secure your API proxy](../../api-management/build/secure-your-api-proxy.md)
 
 ## Cost visibility
 
-<!-- Source: src/main/ui/config/templates/llm.template.ts -->
 The LLM Proxy provides real-time per-token cost attribution by provider and model. Every request records the model used, the input and output tokens consumed, and the cost based on the model's configured rate.
 
 This data is visualized in the **LLM — Overview** dashboard, which tracks `LLM_PROMPT_TOKEN_TOTAL_COST` alongside metrics like Requests by Provider and Tokens by Model.
