@@ -83,10 +83,12 @@ AM remembers each approved scope until its **User consent** duration expires. A 
 6. Click the **Scopes** tab.
 7. Scroll to the **Consent** section and set the **Preselect consent for all scopes** toggle.
 
-    <!-- TODO: Screenshot of the Consent section with the Preselect consent for all scopes toggle -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-application-scopes-preselect-consent.png" alt=""><figcaption><p>Preselect consent for all scopes toggle</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/am-application-scopes-consent-settings.png" alt=""><figcaption><p>Preselect consent for all scopes toggle</p></figcaption></figure>
 
-8. Scroll to the **Scopes** section. Optional: click **ADD SCOPES** to add a scope to the table.
+8. Optional: to add a scope to the application, scroll to the **Scopes** section and click **ADD SCOPES**. In the **Add scope** dialog, select the scopes to add, then click **Add**.
+
+    <figure><img src="../../.gitbook/assets/am-application-add-scope-dialog.png" alt=""><figcaption><p>Add scope dialog</p></figcaption></figure>
+
 9. Select the **Required** checkbox for each scope the application depends on.
 
     <!-- TODO: Screenshot of the scopes table with the Required column -->
@@ -104,10 +106,6 @@ To verify scope consent is working as expected, follow these steps:
 
 1. Start an authorization request for your application that includes several scopes, with at least one scope marked as required.
 2. Log in as a test user. The consent page lists each requested scope with a checkbox, and the required scopes are checked, locked, and labeled **Required**.
-
-    <!-- TODO: Screenshot of the consent page showing required and optional scopes with checkboxes -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-consent-page-select-scopes.png" alt=""><figcaption><p>Consent page with selective scope consent</p></figcaption></figure>
-
 3. Check a subset of the optional scopes and click **Allow**.
 4. Inspect the token response. The `scope` value contains the scopes you checked and the required scopes, and none of the scopes you left unchecked.
 5. Start the same authorization request again. AM doesn't prompt again for the scopes that are already approved. Add `prompt=consent` to the request to present the full list again.
