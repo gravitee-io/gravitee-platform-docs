@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Create your LLM Proxy
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 
 This quickstart walks you through creating an LLM Proxy, connecting it to an upstream model provider, and sending a test prompt through the AI Gateway. You'll use the simplest configuration, a single model with API key authentication and a keyless consumer plan, to get a working LLM Proxy in under five minutes.

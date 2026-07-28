@@ -35,4 +35,3 @@ To review cataloged prompts:
 
 * **Compose into a Studio** — Include cataloged prompts in a Composite MCP Server. See [Create an MCP Studio](../build/create-an-mcp-studio.md).
 
-<!-- Source: gravitee-gamma-module-aim/src/main/ui/app/features/catalog/prompts/McpPromptsPage.tsx -->

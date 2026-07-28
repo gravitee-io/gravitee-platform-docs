@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Monitor API usage
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 The API usage dashboard provides real-time and historical metrics for your API proxies, including request volume, latency distribution, error rates, and consumer-level analytics.
 
 ## Dashboard overview

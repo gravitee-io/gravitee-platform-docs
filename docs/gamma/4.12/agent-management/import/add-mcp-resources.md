@@ -29,4 +29,3 @@ If you want to manually upload structured documentation, files, or reference mat
 
 * **Compose into a Studio** — Include cataloged resources as context in a Composite MCP Server. See [Create an MCP Studio](../build/create-an-mcp-studio.md).
 
-<!-- Source: gravitee-gamma-module-aim/src/main/ui/app/features/catalog/resources/McpResourcesPage.tsx -->
