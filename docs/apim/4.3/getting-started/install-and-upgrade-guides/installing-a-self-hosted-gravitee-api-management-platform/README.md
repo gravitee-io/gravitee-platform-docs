@@ -2,6 +2,8 @@
 description: >-
   Setup and installation guide for Installing a self-hosted Gravitee API
   Management platform.
+metaLinks:
+  canonical: https://documentation.gravitee.io/apim/self-hosted-installation-guides
 ---
 
 # Installing a self-hosted Gravitee API Management platform
