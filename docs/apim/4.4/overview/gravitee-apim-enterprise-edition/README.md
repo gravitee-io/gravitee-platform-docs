@@ -12,11 +12,11 @@ Gravitee offers open source and enterprise versions of its API Management (APIM)
 
 Refer to the sections below to learn about what's included in the Gravitee APIM Enterprise Edition:
 
-* [Enterprise features](README.md#enterprise-features)
-* [Enterprise plugins](README.md#enterprise-plugins)
-* [Advanced API monitoring](README.md#advanced-api-monitoring)
-* [Advanced environment management](README.md#advanced-environment-management)
-* [Hosting options](README.md#hosting-options)
+* [Enterprise features](./#enterprise-features)
+* [Enterprise plugins](./#enterprise-plugins)
+* [Advanced API monitoring](./#advanced-api-monitoring)
+* [Advanced environment management](./#advanced-environment-management)
+* [Hosting options](./#hosting-options)
 
 {% hint style="info" %}
 Gravitee's platform extends beyond API Management. For information on enterprise versions of other products, please refer to the [platform overview](https://documentation.gravitee.io/apim/readme/enterprise-edition).
@@ -28,17 +28,17 @@ Gravitee's platform extends beyond API Management. For information on enterprise
 The features below are included in the default enterprise APIM distribution.
 {% endhint %}
 
-<table><thead><tr><th width="214">Feature</th><th>Description</th></tr></thead><tbody><tr><td><a href="../../using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics/audit-trail.md"><strong>Audit Trail</strong></a></td><td>Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform</td></tr><tr><td><a href="broken-reference"><strong>Bridge Gateway</strong></a></td><td>Deploy a Bridge Gateway, which is a proxy for a repository, to avoid opening a connection between a database and something outside its network. The sync occurs over HTTP instead of the database protocol.</td></tr><tr><td><a href="../../using-the-product/administration/user-management-and-permissions.md#roles"><strong>Custom roles</strong></a></td><td>Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application level.</td></tr><tr><td><a href="../../using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/applications.md#dynamic-client-registration-provider"><strong>DCR</strong></a></td><td>The dynamic client registration (DCR) protocol allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint</td></tr><tr><td><a href="../../using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/v2-api-policy-studio.md#debug-mode"><strong>Debug mode</strong></a></td><td>Easily test and debug your policy execution and enforcement</td></tr><tr><td><strong>Enterprise OpenID Connect SSO</strong></td><td>Use OpenId Connect SSO with your API Management platform</td></tr><tr><td><a href="../../using-the-product/using-the-gravitee-api-management-components/general-configuration/sharding-tags.md"><strong>Sharding tags</strong></a></td><td>Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select a tag in the API's proxy settings to control where the API will be deployed.</td></tr></tbody></table>
+<table><thead><tr><th width="214">Feature</th><th>Description</th></tr></thead><tbody><tr><td><a href="../../using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics/audit-trail.md"><strong>Audit Trail</strong></a></td><td>Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform</td></tr><tr><td><a href="https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.4/overview/gravitee-apim-enterprise-edition/broken-reference/README.md"><strong>Bridge Gateway</strong></a></td><td>Deploy a Bridge Gateway, which is a proxy for a repository, to avoid opening a connection between a database and something outside its network. The sync occurs over HTTP instead of the database protocol.</td></tr><tr><td><a href="../../using-the-product/administration/user-management-and-permissions.md#roles"><strong>Custom roles</strong></a></td><td>Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application level.</td></tr><tr><td><a href="../../using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/applications.md#dynamic-client-registration-provider"><strong>DCR</strong></a></td><td>The dynamic client registration (DCR) protocol allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint</td></tr><tr><td><a href="../../using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/v2-api-policy-studio.md#debug-mode"><strong>Debug mode</strong></a></td><td>Easily test and debug your policy execution and enforcement</td></tr><tr><td><strong>Enterprise OpenID Connect SSO</strong></td><td>Use OpenId Connect SSO with your API Management platform</td></tr><tr><td><a href="../../using-the-product/using-the-gravitee-api-management-components/general-configuration/sharding-tags.md"><strong>Sharding tags</strong></a></td><td>Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select a tag in the API's proxy settings to control where the API will be deployed.</td></tr></tbody></table>
 
 ## Enterprise plugins
 
-The following packs consist of Gravitee Enterprise Edition plugins. These are not included in the default distribution and must be manually downloaded [here](https://download.gravitee.io/).&#x20;
+The following packs consist of Gravitee Enterprise Edition plugins. These are not included in the default distribution and must be manually downloaded [here](https://download.gravitee.io/).
 
-EE plugins are installed from their respective repositories in GitHub. Gravitee’s EE plugin repositories are private and their names are prefixed as:&#x20;
+EE plugins are installed from their respective repositories in GitHub. Gravitee’s EE plugin repositories are private and their names are prefixed as:
 
 `gravitee-io/gravitee-policy-<plugin-name>`
 
-For example, the Data Logging Masking policy repository is at `https://github.com/gravitee-io/gravitee-policy-data-logging-masking`.&#x20;
+For example, the Data Logging Masking policy repository is at `https://github.com/gravitee-io/gravitee-policy-data-logging-masking`.
 
 If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com). Information on plugin deployment can be found [here](../plugins-and-api-definitions-for-gravitee-api-management/plugins/deploying-plugins.md#deployment). Packs are described in more detail below.
 
@@ -62,10 +62,10 @@ The Enterprise Policy pack includes policies that are typically necessary for en
 The Event-native pack includes capabilities that enable Gravitee to expose, secure, and govern asynchronous APIs and event brokers:
 
 * [**v4 message API entrypoints**](../../using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#step-2-entrypoints)**:** Access the Gateway and/or consume various message-based backend resources via **HTTP GET**, **HTTP POST**, **Server-sent Events**, **Webhook**, and/or **WebSocket**
-* [**v4 message API endpoints**](../../using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#introspect-messages-from-event-driven-backend-endpoints)&#x20;
+* [**v4 message API endpoints**](../../using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#introspect-messages-from-event-driven-backend-endpoints)
   * Allow the Gateway to open up a persistent connection and/or call a backend:
     * **Kafka** broker via a Kafka client
-    * **MQTT** broker running on MQTT 5.x, via an MQTT client&#x20;
+    * **MQTT** broker running on MQTT 5.x, via an MQTT client
     * **RabbitMQ** broker running on AMQP 0-9-1
   * Allow the Gateway to expose **Solace** resources and event APIs via your Gravitee entrypoint(s)
 * **CloudEvents policy**: Transform ingoing and outgoing data using the CloudEvents spec.
@@ -82,7 +82,7 @@ The Event-native pack includes capabilities that enable Gravitee to expose, secu
 
 The Legacy Upgrade pack comprises the following plugins and capabilities to enable organizations to better migrate from and/or service legacy systems:
 
-* [**XSLT policy**](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ZOkrVhrgwaygGUoFNHRF/\~/changes/1120/reference/policy-reference/template-policy-rework-structure-35)**:** Apply an XSL transformation to an incoming XML request body, or to the response body if your backend is exposing XML content.
+* [**XSLT policy**](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ZOkrVhrgwaygGUoFNHRF/~/changes/1120/reference/policy-reference/template-policy-rework-structure-35)**:** Apply an XSL transformation to an incoming XML request body, or to the response body if your backend is exposing XML content.
 * [**WebService Security Authentication policy**](../../using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/ws-security-authentication.md)**:** Enables the client to send a SOAP envelope with WSS details, where the policy validates credentials (currently supports username and password).
 
 </details>
