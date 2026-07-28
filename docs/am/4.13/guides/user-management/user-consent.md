@@ -57,7 +57,7 @@ The toggle's starting value depends on how the application was created:
     </tbody>
 </table>
 
-Recommended: turn the toggle off for clients that request a large number of scopes, and leave it on for applications where approval of the full set is expected.
+Recommended: turn the toggle off for clients that request many scopes, and leave it on for applications where approval of the full set is expected.
 
 ### Required scopes
 
