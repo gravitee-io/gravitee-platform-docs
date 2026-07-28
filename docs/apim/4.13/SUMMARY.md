@@ -147,6 +147,7 @@
   * [Debug Logging](configure-and-manage-the-platform/debug-logging.md)
   * [Context-aware logging](configure-and-manage-the-platform/logging-infrastructure.md)
   * [Node logging configuration](configure-and-manage-the-platform/node-logging-configuration.md)
+  * [Branded Senders](configure-and-manage-the-platform/manage-organizations-and-environments/branded-senders.md)
 * [Create & Configure APIs](create-and-configure-apis/README.md)
   * [Gravitee API Definitions](create-and-configure-apis/gravitee-api-definitions/README.md)
     * [Entrypoint Connect phase overview](create-and-configure-apis/gravitee-api-definitions/native-api-phases.md)
