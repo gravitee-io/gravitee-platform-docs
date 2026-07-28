@@ -9,7 +9,6 @@ Modify an existing schema to add entity types, attributes, relationships, or act
 
 {% hint style="warning" %}
 This feature is under active development and may not be available in all environments at this time.
-<!-- GAP: Schema editing UI exists in SchemaPage.tsx (Edit button, Monaco editor, Save/Cancel, validation diagnostics), but the schema DSL syntax and advanced editing workflows need SME confirmation for documentation completeness. -->
 {% endhint %}
 
 ## Editing workflow

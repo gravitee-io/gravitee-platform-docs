@@ -16,8 +16,6 @@ To apply policies to a specific MCP method:
 3. In the sidebar, select **Policy Studio**.
 4. Create a new flow or select an existing one.
 5. In the flow configuration, define a selector for the target MCP method.
-<!-- GAP: 129 · Documentable · Document the exact UI fields or flow selectors used to target MCP methods (e.g., path operators, headers, or method types) in Policy Studio. Needs: Demo session, Source code -->
 6. Open the policy palette and drag your chosen policies onto the flow.
 7. Click **Save** to persist your changes.
 
-<!-- Source: PolicyStudioPage.tsx @ 2a91746280 -->

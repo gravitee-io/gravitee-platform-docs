@@ -4,9 +4,6 @@ noIndex: false
 ---
 
 # Monitor your MCP servers
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
-<!-- GAP: 73 · Investigable · No source material covers the MCP-specific observability UI. Needs: Demo session, Source code, Engineering input, UI verification -->
-<!-- GAP: 74 · Documentable · Document the MCP server metrics dashboard. Needs: Investigation -->
 
 Monitor tool invocation metrics, error rates, and latency for your MCP Proxies through the AI Gateway observability layer.
 

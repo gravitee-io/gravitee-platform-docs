@@ -15,13 +15,10 @@ The Access Management settings page allows you to connect the Gamma console to y
 
 1. From the Gamma console sidebar, select **Platform Management**, then navigate to **Access Management**.
 2. In the **Connection details** section, provide your AM instance credentials:
-   <!-- Source: AmConfigPanel.tsx L50-L60, gravitee-gamma-module-platform @ d1bb5f8af7 -->
    * **Base URL**: The base URL of your AM management API.
    * **Access Token**: An administrative access token.
 3. Select **Verify Connection** to authenticate with your AM instance.
-   <!-- Source: AmConfigPanel.tsx L80-L90, gravitee-gamma-module-platform @ d1bb5f8af7 -->
 4. Once verified, select your **Environment** from the dropdown list.
-   <!-- Source: AmConnectionServiceImpl.java, fc993610d0 — environment_id now persisted -->
 5. Select your **Domain** from the available domains in the chosen environment.
 6. Select **Save** to apply the configuration.
 

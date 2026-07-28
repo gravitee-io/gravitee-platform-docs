@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Register an MCP server
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 Registering an MCP server adds it to the Catalog as a first-class entity — along with its tools, resources, and prompts. Once registered, the server's capabilities become available for use in MCP Proxies, MCP Studios, and authorization policies.
 
