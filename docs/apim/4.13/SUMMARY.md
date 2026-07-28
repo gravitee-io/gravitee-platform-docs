@@ -471,6 +471,7 @@
     * [Override the model at runtime](ai-agent-management/llm-proxy/override-the-model-at-runtime.md)
     * [Consume your LLM proxy with the OpenAI Python SDK](ai-agent-management/llm-proxy/consume-your-llm-proxy-with-the-openai-python-sdk.md)
     * [Connect Claude Code through a Gravitee LLM Proxy](ai-agent-management/llm-proxy/connect-claude-code-through-gravitee-llm-proxy.md)
+    * [Consume your LLM proxy with LangChain](ai-agent-management/llm-proxy/consume-your-llm-proxy-with-langchain.md)
   * [Secure MCP Proxy with OAuth2](ai-agent-management/secure-mcp-proxy-with-oauth2.md)
   * [MCP Server Installation Widget for Portal Pages](mcp-server-installation-widget-for-portal-pages.md)
   * [AI Resources](ai-agent-management/AI-resources/README.md)
