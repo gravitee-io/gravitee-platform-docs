@@ -14,8 +14,8 @@ To apply policies to a specific tool invocation:
 1. In the Gamma console, navigate to **Agent Management**.
 2. Select your MCP proxy from the proxy list.
 3. In the sidebar, select **Policy Studio**.
-4. Create a new flow or select an existing one.
-5. In the flow configuration, define a selector for the target tool.
-6. Open the policy palette and drag your chosen policies onto the flow.
-7. Click **Save** to persist your changes.
+4. Under **MCP Method Flows**, select **Add MCP method flow**.
+5. Enter a **Flow name**, and then select the **`tools/call`** MCP method. To scope the flow to a single tool, add a **Condition** that matches the tool name, for example `{#context.attributes['mcp_tool_name'] == 'database_query'}`. Select **Create**.
+6. In the flow's **Request** or **Response** phase, select **Browse all**, or a category such as **+ Security**, to open the **Add Policy** catalog. Search for and select the policy you want to apply.
+7. Select **Save** to persist your changes.
 
