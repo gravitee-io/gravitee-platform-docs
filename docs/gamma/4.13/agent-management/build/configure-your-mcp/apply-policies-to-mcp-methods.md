@@ -1,23 +1,25 @@
 ---
+description: Target policies at specific MCP protocol methods by creating MCP method flows in Policy Studio.
 hidden: false
 noIndex: false
 ---
 
 # Apply policies to specific MCP methods
 
-When exposing an MCP Proxy, you can apply policies at different levels of granularity. By default, policies attached to the "Common flow" are executed on every interaction with the MCP server. However, you can also target specific MCP protocol methods (such as `resources/list`, `tools/call`, or `prompts/get`) using flow selectors.
+When exposing an MCP Proxy, you can apply policies at different levels of granularity. By default, policies attached to a **Common flow** are executed on every interaction with the MCP server, regardless of the method or tool. You can also target specific MCP protocol methods, such as `resources/list`, `tools/call`, or `prompts/get`, by creating an **MCP method flow**.
 
 ## Configure method-specific policies
 
-To apply policies to a specific MCP method:
+To apply policies to a specific MCP method, complete the following steps:
 
 1. In the Gamma console, navigate to **Agent Management**.
-2. Select your MCP proxy from the proxy list.
-3. In the sidebar, select **Policy Studio**.
-4. Create a new flow or select an existing one.
-5. In the flow configuration, define a selector for the target MCP method.
-<!-- GAP: 129 · Documentable · Document the exact UI fields or flow selectors used to target MCP methods (e.g., path operators, headers, or method types) in Policy Studio. Needs: Demo session, Source code -->
-6. Open the policy palette and drag your chosen policies onto the flow.
-7. Click **Save** to persist your changes.
-
-<!-- Source: PolicyStudioPage.tsx @ 2a91746280 -->
+2. In the **Secure** section, select **MCP Proxies**, and then select your MCP proxy from the list.
+3. In the proxy sidebar, under **Design**, select **Policy Studio**.
+4. Under **MCP method flows**, select **Add MCP method flow**.
+5. In the **Create a new MCP method flow** panel, complete the following fields:
+   - **Flow name.** Enter a name for the flow.
+   - **MCP methods.** Select one or more MCP methods to target, such as `tools/call`, `resources/list`, or `prompts/get`.
+   - **Condition.** Enter an optional Expression Language condition that must evaluate to true for the flow to run.
+6. Select **Create**.
+7. In the **Request phase** or **Response phase**, select **Browse all...** or a suggested category button to open the **Add Policy** catalog, choose a policy, and add it to the phase.
+8. Select **Save** to persist your changes.

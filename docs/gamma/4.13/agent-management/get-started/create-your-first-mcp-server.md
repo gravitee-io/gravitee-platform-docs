@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Create your first MCP server
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 This quickstart walks you through creating an MCP Proxy in front of an upstream MCP server, so that every tool invocation passes through the AI Gateway with authentication, policy enforcement, and observability. You'll use the simplest configuration — Proxy mode with API key security — to get a governed MCP server running in under five minutes.
 

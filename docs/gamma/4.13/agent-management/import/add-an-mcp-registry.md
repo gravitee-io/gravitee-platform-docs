@@ -4,9 +4,6 @@ noIndex: false
 ---
 
 # Add an MCP Registry
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
-<!-- GAP: 52 · Confirmable · Confirm the full list of supported registries in the June release. Needs: Engineering input -->
-<!-- GAP: 53 · Documentable · Document the exact UI steps for adding an MCP Registry. Needs: Demo session, Source code -->
 
 {% hint style="warning" %}
 **Coming soon.** Connecting to an external MCP registry and browsing or importing its servers is planned for a future release. To add an MCP server today, register it individually by URL. See [Register an MCP server](register-an-mcp-server.md).

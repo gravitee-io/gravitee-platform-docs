@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Authorization Management overview
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 Authorization Management provides fine-grained, catalog-aware access control across all Gamma traffic types — APIs, MCP servers, AI models, agents, events, and custom resources. Policies are written in GAPL (Gravitee Authorization Policy Language), a subset of the Cedar policy language, and enforced at the wire level by Gamma's gateways.
 
@@ -90,7 +89,6 @@ Each policy has a status:
 | **Disabled** | The policy was previously deployed but is now suspended without deletion.             |
 
 ## Integration with other product areas
-<!-- GAP: 126 · Narrowed · AGENT and EVENT policy types exist in entity-kind-registry.ts but have no dedicated ServicePageConfig files or policy management pages. DashboardPage.tsx confirms Agents and 'Users and groups' cards show 'Coming soon'. Needs: Engineering input -->
 
 Authorization Management is not isolated — it integrates with the API Gateway, AI Gateway, and Event Gateway as a shared enforcement layer:
 
