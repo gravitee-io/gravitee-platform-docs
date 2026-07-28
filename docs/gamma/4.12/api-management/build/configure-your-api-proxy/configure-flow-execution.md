@@ -16,12 +16,10 @@ Gamma supports two flow execution modes for API Proxies:
 * **Default (`DEFAULT`)**: The Gateway executes all flows that match the incoming request. This is useful when you want to apply multiple cross-cutting policies (like logging or header injection) that should trigger cumulatively on a request.
 * **Best match (`BEST_MATCH`)**: The Gateway evaluates all flows and executes only the *single* flow that is the closest match to the incoming request. This is useful when you have mutually exclusive behaviors defined on overlapping paths or conditions.
 
-<!-- Source: usePolicyStudioData.ts, types/policyStudio.ts @ 2a91746280 -->
 
 > [!NOTE]
 > V2 API definition proxies support the same flow execution semantics via their legacy `flowMode` configuration, which is fully compatible with the new Policy Studio interface.
 
-<!-- Source: v2FlowAdapter.ts @ 2a91746280 -->
 
 ## Configure flow execution
 
@@ -33,4 +31,3 @@ To change the flow execution mode for your API:
 4. Adjust the **Flow Execution** setting to either `DEFAULT` or `BEST_MATCH`.
 5. Click **Save** to persist your changes.
 
-<!-- Source: PolicyStudioPage.tsx, usePolicyStudioSave.ts @ 2a91746280 -->

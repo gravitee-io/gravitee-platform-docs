@@ -9,7 +9,6 @@ Understand how the console validates schema changes before saving and what error
 
 {% hint style="warning" %}
 This feature is under active development and may not be available in all environments at this time.
-<!-- GAP: Schema validation backend endpoint behavior and specific error codes need SME confirmation. Current documentation covers the client-side validation UX from SchemaPage.tsx and useSchemaValidation.ts. -->
 {% endhint %}
 
 ## Validation pipeline

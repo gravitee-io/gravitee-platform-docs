@@ -57,7 +57,6 @@ Select an application from the list to view its detail page, which includes:
 * **User Permissions** — Manage direct members, configure group access, and transfer application ownership.
 * **Notifications** — Configure email and webhook notifications for application events.
 * **Subscriptions** — Active subscriptions to API plans. View subscription status, manage API keys, and see subscription history.
-<!-- Source: ApplicationUserPermissionsPage.tsx L1-L100, ApplicationNotificationSettingsPage.tsx L1-L100, gravitee-gamma-module-platform @ d1bb5f8af7 -->
 
 ## Next steps
 

@@ -5,7 +5,6 @@ noIndex: false
 <--- to be published --->
 
 # Create a Kafka service with a registered cluster
-<!-- Source: gravitee-gamma-module-esm/src/main/ui/features/kafka-apis/components/create/CreateNativeApiWizard.tsx -->
 
 A Kafka Service is the client-facing endpoint managed by Gravitee. It is the Event Stream Management equivalent of an API proxy — the Kafka Service is the governance layer that enforces authentication, security plans, ACLs, and quotas before routing traffic to the backend infrastructure. 
 

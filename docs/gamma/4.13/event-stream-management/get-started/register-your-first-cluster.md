@@ -3,7 +3,6 @@ hidden: false
 noIndex: false
 ---
 # Register your first cluster
-<!-- Source: gravitee-gamma-module-esm/src/main/ui/features/clusters/components/create/CreateClusterWizard.tsx -->
 
 This quickstart walks you through registering your first Kafka cluster in the Gamma console and adding its first connection. Registering a cluster is the foundational first step — Kafka Services and Virtual Clusters are built on top of registered clusters.
 

@@ -194,8 +194,31 @@ Application-scoped permissions are applied per application to the members of tha
 A few permissions are governed outside their own CRUD actions, as shown in the **Actions** column: they're controlled at the installation level or by another permission.
 {% endhint %}
 
+### Read-only access and Console API visibility
+
+Environment-scoped Read permissions give a user the matching sections of the APIM Console. For example, `APPLICATION` with Read shows the Applications section, `AUDIT` with Read shows the Audit section, and `INSTANCE` with Read shows the Gateways section.
+
+The API list works differently. The Console lists only the APIs a user holds management rights on, so an API appears there only when the user's API-scoped role grants create, update, or delete on at least one API permission. Read on its own never reveals an API, however many API permissions the role grants it on. `RATING` and `RATING_ANSWER` are excluded from this check, so create, update, or delete on either of them doesn't reveal the API either.
+
+Users whose API-scoped role grants only Read still see those APIs in the Developer Portal.
+
+#### Grant Console API visibility without write access
+
+To let a user open an API in the Console without the ability to change anything, grant Delete on `REVIEWS` in an API-scoped role:
+
+1. Log in to your APIM Console.
+2. Select **Organization** from the left nav.
+3. Select **Roles** from the **User Management** section.
+4. Click **Add a role** for the **API** scope.
+5. Enter a name such as "Viewer" in the **Role name** field.
+6. Set Delete on the `REVIEWS` permission.
+7. Set Read on each API permission the user needs, such as `DEFINITION`, `PLAN`, `ANALYTICS`, and `LOG`.
+8. Click **Create**.
+
+`REVIEWS` counts toward the management check, so APIs assigned to this role appear in the Console list. No Management API endpoint enforces `REVIEWS` with Delete, so the role grants no write capability. The API review actions are enforced with Update, which this role doesn't grant.
+
 {% hint style="warning" %}
-Users with READ-only permissions can only view APIs through the Developer Portal, not in the APIM Console. To view the list of APIs in the Console, a user requires at least UPDATE or CREATE permissions.
+This pattern relies on Delete having no enforced behavior on `REVIEWS`. Re-test it after an upgrade before relying on it in production.
 {% endhint %}
 
 ### Users and user groups
