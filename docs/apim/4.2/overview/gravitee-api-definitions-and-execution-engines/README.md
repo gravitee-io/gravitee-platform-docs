@@ -1,5 +1,8 @@
 ---
 description: An overview about Gravitee API Definitions and Execution Engines.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/create-and-configure-apis/gravitee-api-definitions/execution-engine
 ---
 
 # Gravitee API Definitions and Execution Engines
@@ -22,14 +25,14 @@ This guide is a deep dive into the differences between the new reactive executio
 
 The following comparisons can be made between the reactive and legacy execution engines:
 
-* [Policy execution](README.md#policy-execution)
-* [Plan selection](README.md#plan-selection)
-* [Flow](README.md#flow)
-* [Logging](README.md#logging)
-* [Expression Language](README.md#expression-language)
-* [Bad requests](README.md#bad-requests)
-* [Origin validation](README.md#origin-validation)
-* [Timeout management](README.md#timeout-management)
+* [Policy execution](./#policy-execution)
+* [Plan selection](./#plan-selection)
+* [Flow](./#flow)
+* [Logging](./#logging)
+* [Expression Language](./#expression-language)
+* [Bad requests](./#bad-requests)
+* [Origin validation](./#origin-validation)
+* [Timeout management](./#timeout-management)
 
 ### Policy execution
 

@@ -1,5 +1,8 @@
 ---
 description: An overview about OpenAPI Spec.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis/import-apis
 ---
 
 # OpenAPI Spec
