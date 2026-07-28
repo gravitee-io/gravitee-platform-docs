@@ -27,15 +27,15 @@ Enabling these on the AM domain is an administrator task performed in Gravitee A
 
 ## Step 1: Connect to Access Management
 
-Open the **AM connection** panel for the Agent Management module and provide:
+This connection is configured in **Platform Management**. Open its **Access Management** settings and, in the **Gravitee Access Management connection** panel, provide:
 
-| Field                            | Description                                                               |
-| -------------------------------- | ------------------------------------------------------------------------- |
-| **Organization**                 | The APIM organization this connection belongs to. Defaults to `DEFAULT`.  |
-| **Base URL**                     | The AM management API base URL (for example, `http://localhost:8093`).    |
-| **Service-account access token** | The bearer token issued by AM for the service account. Encrypted at rest. |
+| Field                                   | Description                                                               |
+| --------------------------------------- | ------------------------------------------------------------------------- |
+| **Gravitee Access Management base URL** | The AM management API base URL (for example, `http://localhost:8093`).    |
+| **Access Management organization**      | The organization this connection belongs to. Defaults to `DEFAULT`.       |
+| **Service-account access token**        | The bearer token issued by AM for the service account. Encrypted at rest. |
 
-Select **Test connection**. A successful test verifies the credentials and persists the connection so the next steps can query AM. If the test fails, the status message shows the error returned by AM.
+Select **Verify & Load**. A successful check verifies the credentials and loads the environments and domains AM exposes, so you can choose a scope in the next step. If it fails, the status message shows the error returned by AM.
 
 ## Step 2: Select the scope
 
@@ -74,7 +74,7 @@ Select **Save** to store the connection and scope. The module is now ready to re
 
 ## Troubleshooting
 
-* **"Gravitee Access Management not configured" banner** — no connection has been saved yet, or AM is unreachable. The module returns `am_not_configured` when AM can't be reached. Save a working connection and retry.
+* **"Gravitee Access Management is not configured" banner** — no connection has been saved yet, or AM is unreachable. The module returns `am_not_configured` when AM can't be reached. Save a working connection and retry.
 * **AM upstream errors** — when AM returns a 4xx/5xx, the module surfaces the original status and message. Check that the service-account token is valid and has sufficient permissions.
 
 ## Next steps
