@@ -1,13 +1,5 @@
 # AM 4.13
 
-## Breaking Changes
-
-#### **Consent page property keys renamed**
-
-The default user consent page no longer uses the `oauth.consent.description`, `oauth.button.accept`, and `oauth.button.cancel` properties. It now uses `oauth.consent.description.before`, `oauth.consent.description.after`, `oauth.button.allow`, and `oauth.button.deny`.
-
-Action Required: If you translated the consent page for a custom language, add the same translations to the new properties. See the [language default properties reference](../../guides/branding/language-default-properties-reference.md) for the full list of consent page properties.
-
 ## New Features
 
 #### **Select scopes to consent**

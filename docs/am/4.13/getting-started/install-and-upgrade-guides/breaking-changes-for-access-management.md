@@ -14,16 +14,6 @@ metaLinks:
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
-### 4.13.0
-
-**Consent page property keys renamed**
-
-The default user consent page no longer uses the `oauth.consent.description`, `oauth.button.accept`, and `oauth.button.cancel` properties. It now uses `oauth.consent.description.before`, `oauth.consent.description.after`, `oauth.button.allow`, and `oauth.button.deny`.
-
-Action Required: If you translated the consent page for a custom language, add the same translations to the new properties before you upgrade AM. Translations left on the previous properties don't appear on the consent page. See the [language default properties reference](../../guides/branding/language-default-properties-reference.md) for the full list of consent page properties.
-
-Customized consent page templates aren't affected and keep working after the upgrade.
-
 ### 4.12.0
 
 **Java 25 runtime requirement**
