@@ -3,7 +3,6 @@ hidden: false
 noIndex: false
 ---
 # Activate Gamma with Kubernetes (Helm)
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 Gravitee Gamma is Gravitee's next-generation unified control plane. It brings API Management, Event Management, Agent Management, Authorization Management, and Platform Management together in a single console, so you manage your APIs, Kafka streams, AI agents and MCP servers, and authorization policies from one place.
 

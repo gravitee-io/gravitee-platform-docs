@@ -44,4 +44,3 @@ Once connected and imported, the models appear in the AI Models catalog and beco
 * **Add models manually** — For providers without an integration, register models individually. See [Add an AI model](add-an-ai-model.md).
 * **Import agents** — View and manage agents synced from connected integrations. See [Import an agent](import-an-agent.md).
 
-<!-- Source: gravitee-gamma-module-aim/src/main/ui/app/features/catalog/models/ImportModelsPage.tsx -->

@@ -43,4 +43,3 @@ For Remote fetch, you can configure the **Document type**:
 * **Add MCP resources** — Catalog server resources. See [Add MCP resources](add-mcp-resources.md).
 * **Compose into a Studio** — Include knowledge sources as context in a Composite MCP Server. See [Create an MCP Studio](../build/create-an-mcp-studio.md).
 
-<!-- Source: gravitee-gamma-module-aim/src/main/ui/app/features/catalog/knowledge/KnowledgeForm.tsx -->

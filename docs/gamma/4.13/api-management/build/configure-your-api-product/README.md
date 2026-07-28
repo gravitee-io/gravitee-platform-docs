@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Configure API products
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 After creating an API product, use the product detail page to attach APIs, create plans, manage consumers, and control team access.
 

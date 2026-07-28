@@ -4,8 +4,6 @@ noIndex: false
 ---
 
 # Agent Management overview
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
-<!-- GAP: 43 · Investigable · Add a platform architecture diagram showing the AI Gateway, Catalog, Agent Identity, and Edge Management components. Needs: Visual asset -->
 
 Agent Management (AM) is Gravitee's product line for governing AI agent traffic. It provides a unified control plane and runtime for every protocol in the agentic stack: LLM calls, MCP tool invocations, and agent-to-agent (A2A) delegations. It adds end-to-end observability, fine-grained authorization, and identity for every agent that touches your enterprise infrastructure.
 

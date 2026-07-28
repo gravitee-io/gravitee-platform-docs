@@ -49,4 +49,3 @@ Once an agent is registered in the Catalog, you can:
 * [Create an agent identity](../build/create-an-agent-identity.md) — Assign a verifiable identity to a registered agent.
 * [Expose your agent with the A2A Proxy](../build/expose-agent-with-a2a-proxy.md) — Make agent skills available across trust boundaries.
 
-<!-- Source: gravitee-gamma-module-aim/src/main/ui/app/features/catalog/agents/NewAgentPage.tsx -->

@@ -20,7 +20,6 @@ Policies operate on typed MCP objects — tool name, arguments, and resource URI
 
 ## Create a policy
 
-<!-- Source: mcp.ts (mcpServiceConfig), PolicyEditorSheet.tsx, PolicyStatementCard.tsx @ c07f5cdff9 -->
 
 MCP policies are managed through the **MCP Policies** page in Authorization Management. You can also access this page from within an MCP Proxy's detail view.
 
@@ -68,7 +67,6 @@ After creating a policy in Draft status:
 3. To suspend a deployed policy, select **Undeploy**. The gateway drops it within 30 seconds.
 
 ## SCIM integration for principals
-<!-- GAP: 30 · Confirmable · Document the SCIM connector setup flow for use with MCP Proxy policies. Demo 2 (00:35:57) and May 22 demo (00:06:13, Stuart Clark) confirm SCIM synchronization is functional. Needs: Demo session, Engineering input, UI verification -->
 
 You can sync users and groups from your enterprise identity provider into Authorization Management using SCIM (System for Cross-domain Identity Management) connectors. Synced users and groups become available as principals in your policies.
 

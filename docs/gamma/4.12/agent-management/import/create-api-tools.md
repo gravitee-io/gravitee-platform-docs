@@ -47,5 +47,3 @@ When you create an API Tool from an API proxy, the tool inherits:
 
 * **Compose into a Studio** — Include API Tools in a Composite MCP Server alongside MCP-native tools. See [Create an MCP Studio](../build/create-an-mcp-studio.md).
 
-<!-- Source: gravitee-gamma-module-aim/src/main/ui/app/features/catalog/tools/api-tools/Step1Sources.tsx -->
-<!-- Source: gravitee-gamma-module-aim/src/main/ui/app/features/catalog/tools/api-tools/Step2Capabilities.tsx -->

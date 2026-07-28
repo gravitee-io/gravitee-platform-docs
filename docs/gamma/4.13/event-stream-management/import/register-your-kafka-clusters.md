@@ -54,7 +54,6 @@ After registration, you can view and update cluster details from the Clusters pa
 Removing a cluster registration does not affect the cluster itself — it only removes Gamma's connection to it. Any Kafka Services or Virtual Clusters built on top of the cluster will lose their underlying connection.
 {% endhint %}
 
-<!-- Source: ClustersPage.tsx and CreateClusterWizard.tsx — gravitee-gamma-module-esm -->
 
 ## Next steps
 
