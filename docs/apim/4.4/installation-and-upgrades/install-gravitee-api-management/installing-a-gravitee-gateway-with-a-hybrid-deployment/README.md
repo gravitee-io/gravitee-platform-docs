@@ -1,5 +1,8 @@
 ---
 description: Tutorial on Installing a Gravitee Gateway with a Hybrid Deployment.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides
 ---
 
 # Installing a Gravitee Gateway with a Hybrid Deployment
