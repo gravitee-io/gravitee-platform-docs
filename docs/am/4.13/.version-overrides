@@ -14,3 +14,5 @@ releases-and-changelog/release-notes/am-4.13.md
 guides/user-management/user-consent.md
 guides/branding/README.md
 guides/branding/language-default-properties-reference.md
+.gitbook/assets/am-application-scopes-consent-settings.png
+.gitbook/assets/am-application-add-scope-dialog.png
