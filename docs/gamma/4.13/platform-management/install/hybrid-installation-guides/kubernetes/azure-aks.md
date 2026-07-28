@@ -3,7 +3,6 @@ hidden: false
 noIndex: false
 ---
 # Install a hybrid Gamma Gateway on Azure AKS
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 {% hint style="warning" %}
 This installation guide is for development and quick-start purposes only. Don't use it for production environments. For best practices for production environments, contact your Technical Account Manager.

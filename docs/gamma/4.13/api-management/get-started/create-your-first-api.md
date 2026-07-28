@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Create your first API
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 This quickstart walks you through creating an API proxy in the Gamma console, deploying it to the API Gateway, and verifying it with a test request. You'll use the simplest configuration — a keyless plan with a single upstream — to get a working proxy in under five minutes.
 

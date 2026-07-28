@@ -1,5 +1,8 @@
 ---
 description: An overview about Logging.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/analyze-and-monitor-apis/logging/configure-gateway-level-logs
 ---
 
 # Logging

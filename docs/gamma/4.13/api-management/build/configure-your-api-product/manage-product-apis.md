@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Manage product APIs
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 The **APIs** tab in the API Product detail page lets you attach and detach API proxies from the product. Consumers who subscribe to the product's plans gain access to all attached APIs.
 

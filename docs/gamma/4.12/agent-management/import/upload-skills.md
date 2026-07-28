@@ -38,4 +38,3 @@ The skill is extracted, analyzed, and added to the Catalog. It becomes available
 
 * **Compose into a Studio** — Include skills as resources in a Composite MCP Server. See [Create an MCP Studio](../build/create-an-mcp-studio.md).
 
-<!-- Source: gravitee-gamma-module-aim/src/main/ui/app/features/catalog/skills/UploadSkillPage.tsx -->

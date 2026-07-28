@@ -24,7 +24,7 @@ To configure runtime logging for your v4 Gateway APIs:
 2. Go to **Settings** in the left sidebar
 3. Click on **API logging** in the inner left sidebar
 
-<figure><img src="../../../.gitbook/assets/2023-06-28_10-39-47 (1) (1).gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/2023-06-28_10-39-47 (1).gif" alt=""><figcaption></figcaption></figure>
 
 You can choose to enable:
 

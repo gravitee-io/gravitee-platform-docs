@@ -18,7 +18,8 @@ When you open an A2A Proxy from the dashboard, you can configure it using the si
 * **General**: 
   * **Overview**: View proxy status and deployment history.
   * **General**: Manage the proxy's name, description, and status.
+  * **Endpoint**: Configure the target URL of the upstream agent.
   * **API Properties**: Manage dynamic properties that can be evaluated at runtime.
 * **Design**:
   * **Policy Studio**: Design your flows and apply policies to agent-to-agent communication.
-* **Observability**: Monitor the proxy with **Metrics**, **Logs**, and **Traces**.
+* **Observability**: Monitor the proxy with **Dashboard**, **Logs**, and **Tracing**.

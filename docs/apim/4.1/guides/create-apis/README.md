@@ -1,5 +1,7 @@
 ---
 description: This article covers critical Gravitee API creation concepts
+metaLinks:
+  canonical: https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis
 ---
 
 # Create APIs
@@ -17,8 +19,8 @@ We plan to focus our future efforts and innovation on the v4 API definition, as 
 
 Keep reading this article to learn more about these different concepts. If you want to see step-by-step API creation documentation, please skip ahead to:
 
-* [The API creation wizard documentation:](how-to/README.md) covers how to use the API creation wizard in the UI
-* [The Import APIs documentation](import-apis/README.md): covers how to import APIs in Gravitee
+* [The API creation wizard documentation:](how-to/) covers how to use the API creation wizard in the UI
+* [The Import APIs documentation](import-apis/): covers how to import APIs in Gravitee
 
 ## v4 API creation concepts
 
@@ -76,7 +78,7 @@ Gravitee's v4 API definition offers support for a variety of API styles, event b
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | REST API                                                   | <p>Gravitee can:</p><ul><li>Proxy and manage "pure" REST API use cases, where your backend API is a RESt API and the Gateway API you are using to expose that backend REST API is also a REST API</li><li>Expose Kafka, Confluent, Solace, and MQTT backend data sources as Gateway REST APIs. Please note that this specific support is currently limited to HTTP GET and HTTP POST commands.</li></ul>                       |
 | SOAP API                                                   | Gravitee can expose backend SOAP web services as Gateway REST APIs.                                                                                                                                                                                                                                                                                                                                                            |
-| WebSocket APIs                                             | <p>Gravitee can:</p><ul><li>Apply a simple HTTP proxy to "pure" WebSockets use cases, where the Gateway API is a Websocket API and the backend API is a Websocket API. The simple proxy only allows for transformation at the metadata level.</li></ul><ul><li>Expose Kafka, Confluent, Solace, and MQTT backend data sources as Gateway WebSocket APIs</li></ul>                                                              |
+| WebSocket APIs                                             | <p>Gravitee can:</p><ul><li>Apply a simple HTTP proxy to "pure" WebSockets use cases, where the Gateway API is a Websocket API and the backend API is a Websocket API. The simple proxy only allows for transformation at the metadata level.</li><li>Expose Kafka, Confluent, Solace, and MQTT backend data sources as Gateway WebSocket APIs</li></ul>                                                                       |
 | Webhooks                                                   | Gravitee can expose Kafka, Confluent, Solace, and MQTT backend data sources over a Webhooks callback URL. This allows your API consumers to subscribe to a Gateway Webhooks API and then retrieve events and messages from these various backend data sources in real-time via this Webhooks subscription.                                                                                                                     |
 | Server-sent events (SSE)                                   | Gravitee can expose Kafka, Confluent, Solace, and MQTT backend data sources over an SSE API. This allows your API consumers to subscribe to a Gateway SSE API and then retrieve events and messages from these various backend data sources in real-time via this SSE API.                                                                                                                                                     |
 | Kafka                                                      | <p>The Gravitee Gateway can establish a persistent connection with a backend Kafka topic as a data source. From here, the Gateway can be used to expose messages streamed from the Kafka topic to consumers via:</p><ul><li>REST API (limited to HTTP GET and HTTP POST commands for now)</li><li>WebSocket API</li><li>Webhooks</li><li>Sever-sent events API (SSE)</li></ul>                                                 |

@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # View API logs
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 API logs provide a detailed record of every request processed by the API Gateway for a specific API proxy. Gamma exposes native log viewing and a **Trace Explorer** under the Observability section, giving you full request traces and span data to help you debug and analyze your API traffic.
 
 ## Access logs and traces

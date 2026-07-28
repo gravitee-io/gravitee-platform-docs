@@ -1,5 +1,8 @@
 ---
 description: An overview about Internal API.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/configure-and-manage-the-platform/management-api/mapi-internal-api
 ---
 
 # Internal API

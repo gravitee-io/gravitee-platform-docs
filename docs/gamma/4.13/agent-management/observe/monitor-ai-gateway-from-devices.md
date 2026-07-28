@@ -4,8 +4,6 @@ noIndex: false
 ---
 
 # Monitor AI Gateway usage from employee systems
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
-<!-- GAP: 72 · Confirmable · Confirm the full set of metrics available and the time range/granularity options. Needs: Demo session, Engineering input -->
 
 The Edge Management dashboard provides centralized visibility into AI traffic originating from employee devices where the Edge Daemon is installed. This dashboard is the control plane complement to the Edge Daemon's local enforcement — it shows what's happening across your entire device fleet.
 

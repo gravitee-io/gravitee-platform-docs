@@ -4,8 +4,6 @@ noIndex: true
 ---
 
 # Expose an MCP Registry
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
-<!-- GAP: 75 · Documentable · Document the exact UI steps for exposing the Catalog as an MCP Registry. Needs: Demo session, Source code, UI verification -->
 
 {% hint style="warning" %}
 **Coming soon.** Exposing the Catalog as a discoverable MCP Registry (outbound federation) is part of the platform vision and is planned for a future release. This page describes the intended capability, not a shipped flow.

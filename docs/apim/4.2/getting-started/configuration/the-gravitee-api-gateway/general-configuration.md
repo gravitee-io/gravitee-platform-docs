@@ -2,13 +2,16 @@
 description: >-
   Configure the Gravitee APIM Gateway with environment variables, system
   properties, and the gravitee.yaml file
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/configure-and-manage-the-platform/gravitee-gateway/gateway-internal-api
 ---
 
 # General Configuration
 
 ## Introduction
 
-This guide will walk through how to configure your general Gravitee API Management (APIM) Gateway settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](../README.md#configuring-apim-components), you can override these settings by using system properties or environment variables
+This guide will walk through how to configure your general Gravitee API Management (APIM) Gateway settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](../#configuring-apim-components), you can override these settings by using system properties or environment variables
 
 ## The `gravitee.yaml` file
 
@@ -231,7 +234,7 @@ plugins:
   path: ${gravitee.home}/plugins
 ```
 
-Users can add plugins not included in APIM's default distribution to this directory. This includes different versions of Gravitee plugins or their own [custom plugins](../../../guides/developer-contributions/custom-plugins.md).&#x20;
+Users can add plugins not included in APIM's default distribution to this directory. This includes different versions of Gravitee plugins or their own [custom plugins](../../../guides/developer-contributions/custom-plugins.md).
 
 {% hint style="info" %}
 To understand how Gravitee handles duplicate plugins, see plugins [discovery and loading.](../../../overview/plugins.md#discovery-and-loading)
@@ -353,7 +356,7 @@ ratelimit:
     prefix: # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](../repositories/README.md#use-a-custom-prefix).
+If you want to use a custom prefix, you need to follow the following [instructions](../repositories/#use-a-custom-prefix).
 
 ### **Store counters in JDBC**
 
@@ -367,7 +370,7 @@ ratelimit:
     prefix:   # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](../repositories/README.md#use-a-custom-prefix-1).
+If you want to use a custom prefix, you need to follow the following [instructions](../repositories/#use-a-custom-prefix-1).
 
 ### Store counters in Redis Standalone
 

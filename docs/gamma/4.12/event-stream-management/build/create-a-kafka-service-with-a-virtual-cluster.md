@@ -5,7 +5,6 @@ noIndex: false
 <--- to be published --->
 
 # Create a Kafka service with a Virtual Cluster
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 A Kafka Service backed by a Virtual Cluster lets you govern access to a federated multi-cluster Kafka environment through a single endpoint. The Virtual Cluster fans out requests across its backend Registered Clusters, while the Kafka Service adds the governance layer — security plans, policies, and observability — on top of that unified endpoint.
 

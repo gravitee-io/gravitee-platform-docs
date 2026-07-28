@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Create an API proxy
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 An API proxy is the core artifact in API Management. It defines a context path or virtual host that consumers use to reach your API, forwards requests to an upstream backend, and applies security plans and policies at runtime through the API Gateway.
 
