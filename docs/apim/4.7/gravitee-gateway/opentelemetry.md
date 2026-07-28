@@ -1,5 +1,8 @@
 ---
 description: An overview about opentelemetry.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/analyze-and-monitor-apis/opentelemetry
 ---
 
 # OpenTelemetry
