@@ -102,13 +102,39 @@ Here are two key endpoints that your Gateway interacts with:
 
 Some organizations keep API traffic data inside their own infrastructure and don't want analytics or request logs leaving it. You can turn off the Cloud reporter so that the Gateway stops using the `/reports` endpoint, while the `/sync` endpoint keeps delivering API definitions, policies, and configuration from the Control Plane.
 
-Set the following environment variable on the Gateway:
+The setting is `reporters.reportercloud.enabled`. Apply it in the way that matches your deployment.
 
-```sh
-gravitee_reporters_reportercloud_enabled=false
+#### gravitee.yml
+
+```yaml
+reporters:
+  reportercloud:
+    enabled: false
 ```
 
-For a Docker Compose deployment, add it alongside your Cloud Token and license key:
+#### Kubernetes
+
+Set the reporter under `gateway.reporters` in your Helm values. The chart writes any reporter you declare there into the Gateway's `gravitee.yml`:
+
+```yaml
+gateway:
+  reporters:
+    reportercloud:
+      enabled: false
+```
+
+To pass it as an environment variable instead, add it to `gateway.env`:
+
+```yaml
+gateway:
+  env:
+    - name: gravitee_reporters_reportercloud_enabled
+      value: "false"
+```
+
+#### Docker
+
+Pass the environment variable alongside your Cloud Token and license key:
 
 ```yaml
 services:
