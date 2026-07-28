@@ -35,7 +35,7 @@ Open the **AM connection** panel for the Agent Management module and provide:
 | **Base URL**                     | The AM management API base URL (for example, `http://localhost:8093`).    |
 | **Service-account access token** | The bearer token issued by AM for the service account. Encrypted at rest. |
 
-Select **Test connection**. A successful test verifies the credentials and persists the connection so the next steps can query AM. If the test fails, the status message shows the error returned by AM.
+Select **Verify & Load**. A successful verification confirms the credentials and persists the connection so the next steps can query AM. If verification fails, the status message shows the error returned by AM.
 
 ## Step 2: Select the scope
 
