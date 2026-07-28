@@ -1,5 +1,7 @@
 ---
 description: Setup and installation guide for Installing Gravitee API Management.
+metaLinks:
+  canonical: https://documentation.gravitee.io/apim/getting-started
 ---
 
 # Installing Gravitee API Management
