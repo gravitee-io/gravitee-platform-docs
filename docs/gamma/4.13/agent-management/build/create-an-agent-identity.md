@@ -34,11 +34,12 @@ What each persona needs in the wizard:
 
 ## The registration wizard
 
-Registering an agent is a three-step wizard:
+Registering an agent is a four-step wizard:
 
 1. **Persona** — choose how the agent authenticates.
 2. **Basics** — name the agent and choose its client identifier.
 3. **Flow settings** — provide the OAuth inputs for the chosen persona.
+4. **Review** — confirm your settings and create the agent.
 
 To open it:
 
@@ -121,7 +122,7 @@ The **SPIFFE** option is only available for Autonomous agents and requires SPIFF
 
 ## Create the agent and save the client secret
 
-Select **Create agent**.
+On the **Review** step, check the persona, basics, and flow settings summary, and then select **Create agent**.
 
 For confidential clients, AM returns a **client secret**. The wizard shows a one-time panel with the agent's `client_id` and `client_secret`.
 
