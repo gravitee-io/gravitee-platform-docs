@@ -32,7 +32,7 @@ By default, alerts will show up in your **Dashboard** under the **Alerts** tab a
 
 <figure><img src="../../.gitbook/assets/Alert areas.gif" alt=""><figcaption><p>You can see alerts in the Alerts tab and the Alerts page.</p></figcaption></figure>
 
-In addition to viewing alerts in these locations, you can configure notifications that are attached to these alerts. This is done on the **Create a new alert** page under the **Notifications** tab. On this page, you can:
+You can also configure notifications that are attached to these alerts. This is done on the **Create a new alert** page under the **Notifications** tab. On this page, you can:
 
 * **Define a dampening rule:** Limit the number of notifications if the trigger is fired multiple times for the same condition
 * **Add a notification:** Add a notification type to your alerts to trigger notifications when alerts are processed. The available notification channels are email, Slack, system email, and Webhook.
@@ -52,8 +52,8 @@ For email notifications, you can define the following:
 * Recipients
 * The subject of the email
 * The email body content
-* Whether or not to enable TLS
-* Whether or not to enable SSL trust all
+* Whether to enable TLS
+* Whether to enable SSL trust all
 * SSL key store
 * SSL key store password
 
@@ -65,7 +65,7 @@ If you choose Slack as your notification channel, you can define the following:
 
 * The Slack channel where you want the alert sent
 * The Slack token of the app or the Slackbot
-* Whether or not to use the system proxy
+* Whether to use the system proxy
 * The content of the Slack message
 
 <figure><img src="../../.gitbook/assets/Slack notifications.png" alt=""><figcaption><p>Slack notifications for API alerting</p></figcaption></figure>
@@ -89,7 +89,7 @@ If you want to choose Webhook as your notification channel, you will need to def
 * **URL**: this defines the url to invoke the webhook
 * **Request headers**: add request headers
 * **Request body**: the content in the request body
-* Whether or not to use the **system proxy** to call the webhook
+* Whether to use the **system proxy** to call the webhook
 
 <figure><img src="../../.gitbook/assets/Webhook notifications.png" alt=""><figcaption><p>Webhook notifications</p></figcaption></figure>
 {% endtab %}
@@ -98,20 +98,20 @@ If you want to choose Webhook as your notification channel, you will need to def
 ## Scheduled alerts
 
 {% hint style="warning" %}
-In some cases, time window alert evaluation schedules might calculate differently than expected in Alert Engine versions before 3.0.0. If you are self-hosting Alert Engine and use time frame window alerts, upgrade to version 3.0.0 or later.
+Sometimes time window alert evaluation schedules might calculate differently than expected in Alert Engine versions before 3.0.0. If you are self-hosting Alert Engine and use time window alerts, upgrade to version 3.0.0 or later.
 {% endhint %}
 
-When a condition includes an aggregation or rate within a time frame window, the window is calculated from the last time the alert configuration was updated.
+When a condition includes an aggregation or rate within a time window, the window is calculated from the last time the alert configuration was updated.
 
 ### Updating a scheduled alert
 
-When you update an existing scheduled alert with a time frame window, the evaluation schedule restarts from the time of the update. Unless you update the configuration again, the schedule continues at regular intervals based off the new timestamp.
+When you update an existing scheduled alert with a time window, the evaluation schedule restarts from the time of the update. Unless you update the configuration again, the schedule continues at regular intervals based off the new timestamp.
 
 ```
 Last updated at [timestamp]
 ```
 
-Also, from 4.11, you receive a warning when you update an alert with a time frame window, which indicates that the update resets the evaluation schedule.
+Also, from 4.11, you receive a warning when you update an alert with a time window, which indicates that the update resets the evaluation schedule.
 
 <figure><img src="../../.gitbook/assets/update_alerts_screenshot.png" alt="Update scheduled alert confirmation dialog"><figcaption></figcaption></figure>
 
