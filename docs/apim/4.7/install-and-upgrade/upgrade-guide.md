@@ -1,5 +1,7 @@
 ---
 description: An overview about upgrade guide.
+metaLinks:
+  canonical: https://documentation.gravitee.io/apim/upgrade-guides
 ---
 
 # Upgrade Guide
@@ -41,7 +43,7 @@ http:
 ```
 {% endcode %}
 
- or using environment variables:
+or using environment variables:
 
 {% code overflow="wrap" %}
 ```bash
@@ -51,9 +53,10 @@ GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 
 ## **Monitoring APIM**
 
-* The name of the sync probe has been changed from `
+* The name of the sync probe has been changed from \`
 
-api-sync` to `sync-process` to make the completion of all sync processes explicit.
+api-sync`to`sync-process\` to make the completion of all sync processes explicit.
+
 * The content of the sync handler has changed slightly to align with new concepts:
   * `initialDone`: `true` if the first initial synchronization is done
   * `counter`: The number of iterations
@@ -171,7 +174,7 @@ installation:
 ### APIM 4.2+ and multiple Consoles/Portals in a connected Cloud
 
 {% hint style="warning" %}
-The user must edit the Management API's <code>gravitee.yaml</code>.
+The user must edit the Management API's `gravitee.yaml`.
 {% endhint %}
 
 If an APIM installation with multiple Consoles and/or Portals set up in a connected Cloud is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:
