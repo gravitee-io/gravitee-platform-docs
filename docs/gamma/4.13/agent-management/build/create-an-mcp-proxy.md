@@ -32,8 +32,8 @@ For Studio mode, see [Create an MCP Studio](create-an-mcp-studio.md).
 ## Step 1: Open the MCP Proxy wizard
 
 1. From the Gamma console sidebar, select **Agent Management**.
-2. Navigate to **Build**.
-3. Select **Create MCP Proxy**.
+2. In the **Secure** section, select **MCP Proxies**.
+3. Select **Create MCP proxy**.
 
 ## Step 2: Define your proxy
 
@@ -52,9 +52,9 @@ Choose how clients authenticate to the proxy entrypoint:
 | **API Key**                         | Use a shared key for server access when user-level identity is not available.                           |
 | **Passthrough**                     | Gravitee passes all requests through without enforcing any authentication.                              |
 
-## Step 4: Configure upstream authentication
+## Step 4: Connect to the upstream MCP server
 
-Configure how the proxy authenticates with the upstream MCP server:
+Enter the **Server URL** of the upstream MCP endpoint, and then configure how the Gateway authenticates to it at runtime:
 
 | Method                 | Description                                                                 |
 | ---------------------- | --------------------------------------------------------------------------- |
@@ -63,7 +63,7 @@ Configure how the proxy authenticates with the upstream MCP server:
 
 ## Step 5: Review and create
 
-Review the MCP Proxy configuration — including security and upstream authentication — then select **Create**.
+Review the MCP Proxy configuration — including security and upstream authentication — and then select **Create only** to register the proxy, or **Create & deploy** to register and deploy it in one step.
 
 The MCP Proxy is created and registered in the AI Gateway. Every tool invocation through this proxy is now subject to the configured authentication, policies, and observability.
 
