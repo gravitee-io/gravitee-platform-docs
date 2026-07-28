@@ -192,9 +192,9 @@ The requesting party needs to use the same identity provider as the provider to 
 
 #### **Get a Protection API Token (PAT)**
 
-The resource owner must acquire a PAT to register a resource and create authorization grant rules. To obtain the PAT the resource owner must log in to the application using any [OAuth 2.0 flow](oauth-2.0/README.md#flow).
+The resource owner must acquire a PAT to register a resource and create authorization grant rules. To obtain the PAT the resource owner must log in to the application using any [OAuth 2.0 flow](oauth-2.0/#flow).
 
-In this example, we are using the [Resource owner password flow](oauth-2.0/README.md#flow):
+In this example, we are using the [Resource owner password flow](oauth-2.0/#flow):
 
 {% code overflow="wrap" %}
 ```sh
@@ -335,7 +335,7 @@ https://am-gateway/{domain}/uma/protection/permission
 {% endcode %}
 
 {% hint style="info" %}
-The PAT Bearer Token which is used via the Authorization HTTP header must be obtained by the resource server via the [OAuth 2.0 client credentials flow](https://github.com/gravitee-io/gravitee-platform-docs/tree/main/docs/am/4.2/guides/auth-protocols/oauth-2.0).
+The PAT Bearer Token which is used via the Authorization HTTP header must be obtained by the resource server via the [OAuth 2.0 client credentials flow](../../../4.2/guides/auth-protocols/oauth-2.0).
 
 The `ticket` property in the response is the permission ticket, which will be used to obtain the Requesting Party Token.
 {% endhint %}
@@ -417,7 +417,7 @@ The RPT Bearer Token is used via the Authorization HTTP header.
 
 The Bank API must check the incoming token to determine the active state of the access token and decide whether to accept or deny the request.
 
-You can use the [Introspection endpoint](https://github.com/gravitee-io/gravitee-platform-docs/tree/main/docs/am/4.2/guides/auth-protocols/oauth-2.0) to inspect the properties of the RPT.
+You can use the [Introspection endpoint](../../../4.2/guides/auth-protocols/oauth-2.0) to inspect the properties of the RPT.
 
 ```sh
 POST https://am-gateway/{domain}/oauth/introspect HTTP/1.1
