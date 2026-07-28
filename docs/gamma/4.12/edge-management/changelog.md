@@ -10,13 +10,16 @@ This page lists Edge Management updates as they ship every two weeks. For the qu
 
 ***
 
-## July 22, 2026
+## 1.0.0 — June 26, 2026
 
 <details>
 
 <summary>Bug Fixes</summary>
 
-* Edge Daemon: fixed interception mode sending traffic to the wrong route for Node.js tools launched before `NODE_EXTRA_CA_CERTS` is set.
+* Guarded metric values against nulls to prevent reporter errors.
+* Set the remote and local address on reported metrics.
+* Edge now survives a reactor update through a dedicated acceptor that removes only its own registration.
+* Corrected the licensing feature name.
 
 </details>
 
@@ -24,17 +27,10 @@ This page lists Edge Management updates as they ship every two weeks. For the qu
 
 <summary>Improvements</summary>
 
-* Shadow AI detection: added a per-device allowlist for approved internal AI tools.
-
-</details>
-
-## July 8, 2026
-
-<details>
-
-<summary>Bug Fixes</summary>
-
-* MDM deployment via Kandji: fixed trust store setup failing without an error on macOS 15 devices.
+* Initial release of Edge Management: heartbeat, metrics, and shadow-AI reporting endpoints with v4-metrics reporting.
+* Serves deployed Edge API configuration from `GET /config`.
+* Added a provider field to metrics payloads and to route configuration.
+* Added an OS field to the heartbeat payload.
 
 </details>
 
