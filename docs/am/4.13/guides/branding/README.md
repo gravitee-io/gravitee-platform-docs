@@ -8,7 +8,7 @@ metaLinks:
 
 ## Overview
 
-Since the dawn of centralized IAM, modern apps have moved away from logins directly in the app, so it is critically important to offer a consistent user experience when redirecting users to the login scenarios in AM. Users should feel confindent and secure and an inconsistent or unclear user experience might affect your organization’s customer retention and reputation
+Since the dawn of centralized IAM, modern apps have moved away from logins directly in the app, so it is critically important to offer a consistent user experience when redirecting users to the login scenarios in AM. Users should feel confident and secure and an inconsistent or unclear user experience might affect your organization’s customer retention and reputation
 
 AM enables you to customize the look and feel of the end-user forms displayed in the various flows - such as login, password reset, and user registration. AM also allows you to customize the look and feel of emails that are sent out to end users, giving you full flexibility to apply the relevant graphical user experience.
 
@@ -67,7 +67,7 @@ Customising CSS is an option for more advanced users who want a more granular cu
 
 AM supports internationalization in multiple languages so that end users can benefit from a great user experience.
 
-The internationalization option is available under the domain **`Design → Texts`** section.
+The internationalization options are in the **Texts** section of the domain's **Design** settings.
 
 {% hint style="info" %}
 Under the hood all the templates uses Thymeleaf and Freemarker engines to support translation.
@@ -146,6 +146,46 @@ You can customize pages for an entire security domain or for an individual appli
 {% hint style="info" %}
 Each form requires a minimum configuration. You can retrieve contextual documentation on the HTML needed for each type of page by clicking the ![am info icon](../../.gitbook/assets/am-info-icon.png) information icon.
 {% endhint %}
+
+### Customize the user consent page
+
+From AM 4.13.0, the user consent page template controls which scopes the user grants. AM derives each scope's outcome from its own form field, so a customized consent template keeps working after an upgrade:
+
+* The form posts one field per presented scope, named `scope.<scope key>`, for example `scope.read:orders`. A value of `true`, or a value that starts with `approve`, grants the scope. Any other value, or a missing field, denies it.
+* The button that posts `user_oauth_approval=false` denies every presented scope.
+* A template that posts a fixed hidden `scope.<scope key>` input with the value `true` for every scope grants all presented scopes when the user approves. This is the consent behavior of AM versions earlier than 4.13.0.
+* For a scope marked as required on the application, pair the locked checkbox with a hidden input that posts `scope.<scope key>=true`. Browsers don't submit disabled form controls, and AM rejects a consent submission that doesn't grant a presented required scope.
+
+The consent template receives the following variables in addition to the objects described in [execution context](#execution-context):
+
+<table>
+    <thead>
+        <tr>
+            <th width="200">Variable</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>scopes</code></td>
+            <td>The scopes to present, with the required scopes first. Each scope exposes its <code>key</code>, <code>name</code>, and <code>description</code>.</td>
+        </tr>
+        <tr>
+            <td><code>requiredScopes</code></td>
+            <td>The presented scopes that are marked as required on the application.</td>
+        </tr>
+        <tr>
+            <td><code>optionalScopes</code></td>
+            <td>The presented scopes that aren't marked as required.</td>
+        </tr>
+        <tr>
+            <td><code>preselectAllScopes</code></td>
+            <td>Boolean that is <code>true</code> when the application preselects all scopes on the consent page. A template that doesn't use this variable doesn't reflect the application's <strong>Preselect consent for all scopes</strong> setting.</td>
+        </tr>
+    </tbody>
+</table>
+
+For the application settings that drive these variables, see [user consent](../user-management/user-consent.md).
 
 ### Execution context
 
