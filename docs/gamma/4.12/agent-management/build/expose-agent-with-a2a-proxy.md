@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Expose your agent with the A2A Proxy
-<!-- Source: CreateA2aProxyPage.tsx, FetchAgentCardUseCase.java -->
 
 The A2A (Agent-to-Agent) Proxy makes an agent's skills discoverable and callable by other agents — across trust boundaries, providers, and organizations. It implements the A2A protocol by serving a `/.well-known/agent.json` descriptor that advertises the agent's skills, and then governs every invocation through the AI Gateway.
 

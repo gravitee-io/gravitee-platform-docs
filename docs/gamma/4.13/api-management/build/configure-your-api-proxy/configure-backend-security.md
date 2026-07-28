@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Configure endpoints
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 Endpoints define where the API Gateway routes requests after authentication. Each endpoint group points to one or more backend services and controls how the Gateway connects to them — load balancing, timeouts, SSL/TLS, proxy settings, and custom headers.
 

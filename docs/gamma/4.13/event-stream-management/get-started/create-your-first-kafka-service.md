@@ -3,7 +3,6 @@ hidden: false
 noIndex: false
 ---
 # Create your first Kafka service
-<!-- Source: gravitee-gamma-module-esm/src/main/ui/features/kafka-apis/components/create/CreateNativeApiWizard.tsx -->
 
 This quickstart walks you through creating a governed Kafka Service in the Gamma console. You'll use the simplest configuration — a standalone endpoint with a keyless plan — to get a working Kafka Service in under five minutes.
 

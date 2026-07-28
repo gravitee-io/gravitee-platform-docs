@@ -9,7 +9,6 @@ After creating an MCP Studio, you can modify its tool composition and upstream a
 
 ## Select and alias tools
 
-<!-- Source: gravitee-gamma-module-aim/src/main/ui/app/features/secure/pages/mcp-studio-wizard/steps/ComposeStep.tsx @ 167439e1 -->
 When building an MCP Studio, you can select which tools from your registered MCP servers to include in the composition. 
 
 If multiple upstream servers provide tools with identical names, you must configure an **Alias** for the colliding tools to ensure they can be uniquely identified by the Agent Identity. The Studio interface automatically flags colliding tool IDs and prevents saving the composition until unique aliases are provided.
@@ -23,7 +22,6 @@ To edit your tool composition:
 
 ## Configure upstream authentication
 
-<!-- Source: gravitee-gamma-module-aim/src/main/ui/app/features/secure/pages/mcp-studio-wizard/steps/UpstreamAuthStep.tsx @ 167439e1 -->
 If the tools you selected originate from an MCP server that requires upstream authentication (such as an OAuth2 provider or API Key), you must configure the credentials before the Studio can be published.
 
 The Studio automatically detects which upstream servers require authentication based on the selected tools.

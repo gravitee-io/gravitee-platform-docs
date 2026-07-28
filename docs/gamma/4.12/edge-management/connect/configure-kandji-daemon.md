@@ -5,7 +5,6 @@ description: How to deploy the Edge Daemon to your macOS device fleet using Kand
 ---
 
 # Configure Kandji to deploy the Edge Daemon
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 Deploy the Edge Daemon to your device fleet using Kandji MDM. The Gamma console generates the download URL and the Kandji installation script for you, from the **Daemon Deployment** section of the Edge Management configuration page.
 
