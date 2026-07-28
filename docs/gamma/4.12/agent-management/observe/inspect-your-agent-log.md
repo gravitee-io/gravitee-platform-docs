@@ -4,9 +4,6 @@ noIndex: false
 ---
 
 # Inspect your agent log
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
-<!-- GAP: 70 · Documentable · Document the lineage view UI — how to navigate traces, expand spans, filter. Needs: Demo session -->
-<!-- GAP: 71 · Documentable · Document the search and filter capabilities in the agent log. Needs: UI verification -->
 
 The agent log provides a detailed trace of every agent invocation through the AI Gateway, using OpenTelemetry (OTel) spans. Each span captures the full context of a single operation — who made the call, what tool was invoked, what data was sent and received, how long it took, what policies were evaluated, and what it cost.
 

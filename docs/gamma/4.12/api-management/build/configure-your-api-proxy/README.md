@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Configure your API proxy
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 After creating and securing an API proxy, you can refine its behavior through additional configuration. This section covers endpoint configuration, consumer access management, and policy enforcement.
 

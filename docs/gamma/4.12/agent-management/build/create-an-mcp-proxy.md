@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Create an MCP proxy
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 An MCP Proxy sits in front of an upstream MCP server and applies governance — authentication, fine-grained authorization, observability, and rate limiting — to every tool invocation. The proxy speaks protocol-native MCP (JSON-RPC 2.0), operates on typed MCP objects (tool name, arguments, resource URI), and supports OAuth authorization discovery.
 

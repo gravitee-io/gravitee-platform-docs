@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Establish consumer access
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 Consumer access controls how external applications discover, subscribe to, and authenticate with your API. This page covers the application model, subscription workflows, and API key management in the Gamma console.
 

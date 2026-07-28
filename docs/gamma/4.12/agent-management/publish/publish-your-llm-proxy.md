@@ -15,13 +15,11 @@ Publishing an LLM Proxy makes it accessible to consumers through the AI Gateway.
 
 ## Publish the LLM Proxy
 
-<!-- Source: src/main/ui/app/features/secure/pages/llm-router-detail/LlmRouterDetailLayout.tsx -->
 1. Navigate to the LLM Proxy detail page.
 2. If the LLM Proxy was created without the **Deploy** option or if you have unpublished changes, a banner will appear at the top indicating that the proxy is **Out of Sync**.
 3. Select **Deploy** from the banner to push the configuration to the AI Gateway.
 4. Once deployed, the LLM Proxy is live at its configured context path.
 
-<!-- Source: src/main/ui/app/features/secure/pages/llm-router-create/Step1Models.tsx -->
 The Universal LLM Router exposes a single endpoint that simultaneously supports multiple formats (OpenAI API, Anthropic API, and Gemini API). You can send prompts using any of these native formats; the router will route across providers and convert the responses back to the format you requested.
 
 Consumers can now send prompts to paths such as:

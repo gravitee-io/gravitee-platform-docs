@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Configure your MCP proxy
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 After creating an MCP Proxy, configure how it handles upstream authentication. These settings control how the proxy authenticates with upstream MCP servers on behalf of your users and agents.
 

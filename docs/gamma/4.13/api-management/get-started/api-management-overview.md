@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # API Management overview
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 API Management is Gravitee's product line for governing REST, GraphQL, and gRPC traffic. Within Gamma, API Management provides a dedicated console for creating, securing, and monitoring API proxies — the core building block that mediates between consumers and backend services.
 

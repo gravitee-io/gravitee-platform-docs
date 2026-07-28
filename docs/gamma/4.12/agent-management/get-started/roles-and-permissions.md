@@ -9,7 +9,6 @@ Gravitee Agent Management uses a Role-Based Access Control (RBAC) system to gove
 
 ## Agent Management permissions
 
-<!-- Source: gravitee-gamma/gravitee-gamma-module-platform/src/main/ui/features/access-management/utils/amConfig.ts @ 6f18c36855 -->
 The following core permissions govern access to Agent Management capabilities within a given environment:
 
 | Permission | Description |

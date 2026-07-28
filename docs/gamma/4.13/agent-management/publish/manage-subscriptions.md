@@ -9,7 +9,6 @@ Consumers access your LLM Proxies and MCP Proxies by subscribing to the security
 
 ## Subscription lifecycle
 
-<!-- Source: gravitee-gamma-module-aim/src/test/java/com/graviteesource/gamma/module/aim/infra/service_provider/subscription/SubscriptionApimInMemory.java @ 9e2bb196 -->
 Subscriptions to Agent Management resources follow a strict approval lifecycle:
 
 1. **Pending**: When a consumer requests access to a plan that requires validation, the subscription is placed in a `PENDING` state.
