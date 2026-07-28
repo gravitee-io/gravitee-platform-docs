@@ -6,7 +6,7 @@ description: An overview about AI Agent Management.
 
 
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Set up an AI Agent (A2A) Proxy</td><td><a href="create-an-a2a-proxy.md">create-an-a2a-proxy.md</a></td></tr><tr><td>Discover and Catalog AI Agents (A2A)</td><td><a href="add-agents-to-your-agent-catalog.md">add-agents-to-your-agent-catalog.md</a></td></tr><tr><td>Convert REST APIs to an MCP Server</td><td><a href="convert-your-apis-to-mcp-servers.md">convert-your-apis-to-mcp-servers.md</a></td></tr><tr><td>LLM Proxy</td><td><a href="llm-proxy/">llm-proxy</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Set up an AI Agent (A2A) Proxy</td><td><a href="create-an-a2a-proxy.md">create-an-a2a-proxy.md</a></td></tr><tr><td>Discover and Catalog AI Agents (A2A)</td><td><a href="add-agents-to-your-agent-catalog.md">add-agents-to-your-agent-catalog.md</a></td></tr><tr><td>Screen A2A agent traffic with the Guard Rails policy</td><td><a href="screen-a2a-agent-traffic-with-the-guard-rails-policy.md">screen-a2a-agent-traffic-with-the-guard-rails-policy.md</a></td></tr><tr><td>Convert REST APIs to an MCP Server</td><td><a href="convert-your-apis-to-mcp-servers.md">convert-your-apis-to-mcp-servers.md</a></td></tr><tr><td>LLM Proxy</td><td><a href="llm-proxy/">llm-proxy</a></td></tr></tbody></table>
 
 ## Overview
 

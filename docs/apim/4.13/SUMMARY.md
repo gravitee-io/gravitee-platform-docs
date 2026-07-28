@@ -462,6 +462,7 @@
 * [AI Agent Management](ai-agent-management/README.md)
   * [Set Up an AI Agent (A2A) Proxy](ai-agent-management/create-an-a2a-proxy.md)
   * [Discover and Catalog AI Agents (A2A)](ai-agent-management/add-agents-to-your-agent-catalog.md)
+  * [Screen A2A agent traffic with the Guard Rails policy](ai-agent-management/screen-a2a-agent-traffic-with-the-guard-rails-policy.md)
   * [Convert REST APIs to an MCP Server](ai-agent-management/convert-your-apis-to-mcp-servers.md)
   * [LLM proxy](ai-agent-management/llm-proxy/README.md)
     * [Proxy your LLMs](ai-agent-management/llm-proxy/proxy-your-llms.md)
