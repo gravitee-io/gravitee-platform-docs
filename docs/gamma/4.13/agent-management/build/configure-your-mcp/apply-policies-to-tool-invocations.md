@@ -1,11 +1,12 @@
 ---
 hidden: false
 noIndex: false
+description: Apply policies to individual tool invocations in an MCP Proxy by creating an MCP method flow on tools/call with a condition that matches the tool name.
 ---
 
 # Apply policies to individual tool invocations
 
-In addition to targeting specific MCP methods, you can apply policies directly to individual tool invocations within an MCP Proxy. This enables fine-grained governance, such as applying rate limits or role-based access control to a specific, high-value tool (like `database_query` or `execute_script`) while leaving other tools unconstrained.
+In addition to targeting specific MCP methods, you can apply policies directly to individual tool invocations within an MCP Proxy. This enables fine-grained governance, such as applying rate limits or role-based access control to a specific, high-value tool—for example, `database_query` or `execute_script`—while leaving other tools unconstrained.
 
 ## Configure tool-specific policies
 
