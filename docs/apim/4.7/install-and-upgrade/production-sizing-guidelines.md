@@ -1,5 +1,8 @@
 ---
 description: An overview about production sizing guidelines.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/prepare-a-production-environment/gateway-resource-sizing-guidelines
 ---
 
 # Production Sizing Guidelines
