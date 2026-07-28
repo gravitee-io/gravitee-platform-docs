@@ -1,5 +1,7 @@
 ---
 description: This page describes the JWT authentication type
+metaLinks:
+  canonical: https://documentation.gravitee.io/apim/secure-and-expose-apis/plans/jwt
 ---
 
 # JWT
@@ -49,7 +51,6 @@ A JWT plan presents the following configuration options:
 
     <figure><img src="../../../.gitbook/assets/jwt selection rule.png" alt=""><figcaption></figcaption></figure>
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <p>Plan selection and evaluation of the selection rule use the EL syntax <code>#context.attributes['jwt'].claims['iss']</code> per the example above. However, when the policy is executed, the field is placed directly in the attributes map with the key. The correct EL syntax to access JWT fields changes to <code>#context.attributes['jwt.claims']['iss']</code>.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>Plan selection and evaluation of the selection rule use the EL syntax <code>#context.attributes['jwt'].claims['iss']</code> per the example above. However, when the policy is executed, the field is placed directly in the attributes map with the key. The correct EL syntax to access JWT fields changes to <code>#context.attributes['jwt.claims']['iss']</code>.</p></div>
+
 Once JWT configuration is complete and the plan is created and published, your API will be JWT-secured and subscribed consumers must call the API with an `Authorization: Bearer your-JWT` HTTP header.
