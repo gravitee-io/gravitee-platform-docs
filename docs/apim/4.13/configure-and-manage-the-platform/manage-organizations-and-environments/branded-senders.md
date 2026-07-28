@@ -6,113 +6,183 @@ description: Configure branded sender rules so that notification emails use a di
 
 ## Overview
 
-Branded sender rules can be configured at two scopes: **Organization** and **Environment**. Environment-level rules override the Organization rules when present. If no Environment-level override is saved, the Environment inherits from the Organization or system configuration.
+By default, every notification email that APIM sends uses a single sender address and subject prefix, taken from your SMTP configuration. Branded senders let you override that pair for specific recipient domains. The people who receive those notifications then see an address on your own domain instead of the platform default.
 
-The `brandedSendersInherited` flag in the Environment settings response is `true` when no Environment-level override exists and no valid system-configured value is in effect. At Organization scope, this flag is always `false`.
+For example, a rule that lists the domain `example.com` with the From address `noreply@example.com` means that a subscription approval sent to `alice@example.com` arrives from `noreply@example.com`, while the same notification sent to `bob@partner.org` still arrives from the default address.
 
-If you save an empty list, `[]`, at the Environment scope, the result is an **explicit empty override** that doesn't fall back to the Organization value. To remove the override entirely and restore inheritance, use the **Reset to Org settings** action.
+{% hint style="warning" %}
+Rules are matched on the **recipient's** email domain, not on the API, the application, or the publisher. A rule applies to everyone you send mail to at the listed domains, across every notification type.
+{% endhint %}
 
-### Domain Match Rules and Message Dispatch
+A rule changes only the sender address and the subject prefix. The body of each notification is unchanged, and is still customized through the Notification Templates page.
 
-When an email notification is dispatched, the backend extracts the domain from each recipient address. The domain is the part after `@`, and it's compared case-insensitively. The backend matches this domain against the `domains` list of each branded sender rule in list order, and the **first matching rule wins**.
-
-Recipients that share the same resolved `(From, Subject)` pair are grouped together, and one message is sent per group.
-
-The following recipients and scenarios fall outside branded dispatch:
-
-- A recipient string that contains more than one `@`, such as a comma-separated multi-address string, isn't matched. The default sender identity is used instead.
-- The `DEFAULT_MAIL_TO` sentinel address used for a publisher broadcast isn't itself matched. It's replaced with the default `EMAIL_FROM` address on the default identity message. The real recipients of a broadcast are in `bcc`, and they're branded like any other recipient.
-- If the caller supplies an explicit `From` on the notification, branded sender logic is skipped entirely, and a single unbranded message is sent.
-- Copies produced by `copyToSender` always use the default identity, `EMAIL_FROM` and `EMAIL_SUBJECT`, regardless of the recipient's domain.
-
-### Branded Sender Rule Structure
-
-Each rule contains the following three fields:
-
-| Field | Description | Constraints |
-|:------|:------------|:------------|
-| **`domains`** | List of recipient email domains. The match is case-insensitive on the part after `@`. | Required. At least one domain. Valid domain format. No duplicates across rules. |
-| **`from`** | Sender address for matching recipients. | Accepts a bare address such as `noreply@example.com`, or the display-name form `Example Team <noreply@example.com>`. Falls back to the default `EMAIL_FROM` if blank. |
-| **`subject`** | Subject line prefix template. | Optional. Maximum 255 characters. `%s` or `%1$s` is replaced with the email's subject at send time. Stray `%` characters, `%n`, and width specifiers are treated as literal text. Falls back to the default `EMAIL_SUBJECT` if blank. |
-
-If the same domain appears in multiple rules, the first rule in the list wins. The APIM Console rejects cross-rule duplicate domains at the form level.
+Branded senders can be configured at two scopes, **Organization** and **Environment**, and for self-hosted installations in `gravitee.yml`.
 
 ## Prerequisites
 
-Before branded sender rules can be configured or saved, all the following conditions must be met:
+- The SMTP email service must be **enabled** at the Organization or Environment level. Branded sender controls are disabled while email is off.
+- To save or reset branded senders at the **Environment** scope, you need the `ENVIRONMENT_SETTINGS` permission with `UPDATE` access.
+- To save branded senders at the **Organization** scope, you need the `ORGANIZATION_SETTINGS` permission with `UPDATE` access. Without it, the whole settings form is read-only.
 
-- The platform SMTP email service must be **enabled** at the Organization or Environment level.
-- To save or reset branded sender settings at the **Environment scope**, you need the `ENVIRONMENT_SETTINGS` permission with `UPDATE` access.
-- To save branded sender settings at the **Organization scope**, you need the `organization-settings-u` permission.
-- The aggregate serialized size of all branded sender configurations must not exceed **4,000 characters**. Configurations that exceed this limit can't be saved.
-- If `email.branded_senders` is set to a valid value in `gravitee.yml` or by an environment variable, the field is **locked read-only** in the APIM Console and you can't modify it.
-- If the system value is invalid or oversized, it's logged and ignored. The field remains editable, and no error is surfaced in the APIM Console.
+## Prepare Each Sending Domain
 
+A branded message claims to come from your domain while being sent by your SMTP relay. Two separate things have to be arranged before such a message reaches anyone: the relay has to accept it, and the receiving mail server has to trust it.
 
-## Create Branded Sender Rules at Environment Scope
+### Confirm That Your Relay Accepts the Branded Sender
 
-In the APIM Console, go to **Settings > Settings** and scroll to the **SMTP** card. The **Branded notification email** subsection follows the **Mail properties** subsection, and it displays the current list of rule configurations and controls for adding, editing, or removing rules.
+Many SMTP providers only accept a message whose sender address matches the account used to authenticate. A branded **From** on a different domain doesn't match, so those providers refuse it.
 
-### Add and Edit Rules
+They refuse it in one of two ways, and the difference matters:
 
-1. In the **Branded notification email** subsection, click **Add configuration** to add a new rule card.
+- **Rejected at submission.** APIM records the failure, and the SMTP error appears in the Management API log.
+- **Accepted and then discarded.** APIM records a successful send, no bounce is produced, and the message never arrives. Nothing in the log indicates a problem.
+
+{% hint style="warning" %}
+Because of the second case, a successful send isn't evidence that a branded rule works. Send a branded notification to yourself and confirm that it **arrives** before you apply a rule to real recipients.
+{% endhint %}
+
+If your relay restricts senders, ask your email provider what's needed to send as an additional domain. Providers usually require you to prove that you control the domain first.
+
+### Authorize the Relay in Your DNS
+
+Receiving mail servers check whether the sending relay is allowed to use your domain. Publish the following records for every domain you put in the **From** field:
+
+| Record | Purpose |
+|:-------|:--------|
+| **SPF** | Authorizes the relay to send mail for your domain. Add the relay to your existing SPF record rather than creating a second one, because a domain must publish only one SPF record. |
+| **DKIM** | Publishes the public key used to sign outbound mail, so receivers can verify the message wasn't altered and came from an authorized sender. |
+| **DMARC** | Tells receivers what to do when a message fails authentication, and where to send reports. Start with a monitoring policy such as `p=none` and review the reports before you tighten it. |
+
+The values to publish depend on which relay you send through, so get them from your email provider. Note that a message needs only one of SPF or DKIM to align with the **From** domain for DMARC to pass.
+
+{% hint style="danger" %}
+Without these records, branded notifications are likely to be marked as spam or rejected, especially by strict receivers and by any domain publishing a `p=reject` DMARC policy.
+{% endhint %}
+
+The APIM console doesn't verify that you own the domain in the **From** field, and it doesn't check your DNS records before sending. A rule that names a domain you don't control is saved and used, and its messages fail authentication at the receiver.
+
+## How Branded Senders Are Matched
+
+When a notification is sent, the APIM console takes the domain from each recipient address, which is the part after `@`, and compares it against the domains on each rule in order. The **first rule that matches wins**. The comparison ignores case, so `Example.com` and `example.com` are the same domain.
+
+Recipients that match no rule keep the default sender address and subject prefix. When one notification goes to recipients at several branded domains, each domain receives its own message, sent from its own address.
+
+## Branded Sender Rule Fields
+
+Each rule has three fields:
+
+| Field | Description | Constraints |
+|:------|:------------|:------------|
+| **Recipient domains** | The recipient email domains the rule applies to. | Required, at least one. Each entry must be a valid domain name, such as `example.com`. |
+| **From** | The sender address used for those recipients. | Required. Accepts a bare address such as `noreply@example.com`, or the display-name form `Example Team <noreply@example.com>`. |
+| **Subject prefix** | The subject prefix applied to those messages. | Optional, maximum 255 characters. Use `%s` where the notification's own subject should appear. If you leave this blank, the default subject prefix is used. |
+
+A domain can appear in only one rule. The APIM Console rejects duplicates across rules when you save the form.
+
+## Configure Branded Senders in the APIM Console
+
+Go to **Settings > Settings**, scroll to the **SMTP** card, and find the **Branded notification email** subsection, which follows the **Mail properties** subsection. It also shows a read-only **Default notification email** preview, listing the **Default From** and **Default subject prefix** that apply to any recipient no rule matches.
+
+1. Click **Add configuration** to add a rule.
 
     {% hint style="info" %}
-    The **Add configuration** button is disabled when email is disabled, when the field is system-configured and read-only, or when you lack the `environment-settings-u` permission.
+    **Add configuration** is disabled when email is disabled, when the value is set in `gravitee.yml` and therefore read-only, or when you lack the `ENVIRONMENT_SETTINGS` permission with `UPDATE` access.
     {% endhint %}
 
-2. In the **Recipient domains** tag input field, enter one or more values. The placeholder text is `example.com, eu.example.com`. The domain match is case-insensitive on the part after `@`, and at least one domain is required.
+2. In the **Recipient domains** field, enter one or more domains. The placeholder text is `example.com, eu.example.com`.
 
-3. In the **From** field, enter a sender address. The placeholder text is `noreply@example.com`. The field accepts a bare address or the display-name form `Name <address>`, and it's required.
+3. In the **From** field, enter the sender address to use for those domains. The placeholder text is `noreply@example.com`.
 
-4. In the **Subject prefix** field, optionally enter a value. The placeholder text is `[Example] %s`. Use `%s` or `%1$s` as a placeholder for the email's subject, up to a maximum of 255 characters.
+4. In the **Subject prefix** field, optionally enter a prefix such as `[Example] %s`.
 
-5. To remove a rule, click the **Delete** trash icon on the rule card.
+5. To remove a rule, click the **Delete** trash icon on its card.
 
-6. Repeat these steps for additional rule cards as needed. Rules are matched in list order, and the **first matching domain wins**.
+6. Repeat for any further rules. Rules are matched in order, so put your most specific rules first.
 
-7. Save the form to persist the Environment-level rules.
+7. Save the form.
 
-When the Environment inherits from the Organization, each rule card displays an **Inherited from Org** badge.
+### Inheritance Between Scopes
 
----
+An Environment inherits the Organization's rules until you save rules of your own at the Environment scope. While it's inheriting, each rule card shows an **Inherited from Org** badge, and **Reset to Org settings** is unavailable because there's nothing to reset. The badge disappears as soon as you edit a card, before you save.
 
-## Reset Environment Rules to Organization Settings
+Saving an **empty** list at the Environment scope isn't the same as inheriting. It stores an explicit "no branded senders" override, and the Organization rules no longer apply. To restore inheritance, use **Reset to Org settings**.
 
-The **Reset to Org settings** button is available at Environment scope when all the following conditions are true:
+If `email.branded_senders` is set in `gravitee.yml` or by an environment variable, that value takes precedence over both scopes. The Environment doesn't inherit from the Organization, and the field is read-only in both.
 
-- An Environment-level override exists, so `brandedSendersInherited` is `false`.
+## Reset Environment Rules to the Organization Settings
+
+**Reset to Org settings** is available at the Environment scope when all the following are true:
+
+- An Environment-level override exists.
 - Email is enabled.
-- The field isn't system-configured and read-only.
-- You have the `environment-settings-u` permission.
+- The value isn't set in `gravitee.yml`.
+- You have the `ENVIRONMENT_SETTINGS` permission with `UPDATE` access.
 
-When you click **Reset to Org settings**, the Environment-level override is removed entirely, and the Environment inherits branded sender rules from the Organization or system configuration. This differs from saving an empty list, which stores an explicit empty Environment override and doesn't fall back to the Organization value.
+Clicking it removes the Environment override, so the Environment inherits from the Organization again. If you have unsaved changes on the page, the APIM Console asks you to confirm before discarding them.
 
-### Confirmation Dialog for Unsaved Changes
+## Manage Branded Senders at the Organization Scope
 
-If there are unsaved changes on the page when you click **Reset to Org settings**, a confirmation dialog appears before the reset proceeds. The dialog contains the following text:
+The same **Branded notification email** subsection is available in the **SMTP** section of **Organization > Settings**. It behaves as it does at the Environment scope, with these differences:
 
-| Element | Text |
-|:--------|:-----|
-| Dialog title | `Reset branded senders` |
-| Dialog content | `You have unsaved changes on this page that will be discarded. Do you want to reset the branded senders to the organization configuration?` |
-| Confirm button | `Reset` |
+- There's no **Reset to Org settings** button, because the Organization is the top scope.
+- The control is disabled when email is disabled, or when `email.branded_senders` is set in `gravitee.yml`.
+- The entire settings form is disabled when you lack the `ORGANIZATION_SETTINGS` permission with `UPDATE` access.
 
-### Feedback
+## Configure Branded Senders for a Self-Hosted Installation
 
-The following messages report the outcome of the reset:
+Branded senders can be set outside the APIM Console, alongside the rest of your [SMTP configuration](smtp-configuration.md). A value set this way applies to every Organization and Environment on the installation and makes the APIM Console field read-only.
 
-| Outcome | Message |
-|:--------|:--------|
-| Success | `Branded senders reset to the organization configuration.` |
-| Error | Server error message, or `An error occurred while resetting the branded senders.` |
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+Add a `branded_senders:` list to the `email:` section of the Management API `gravitee.yml` file:
 
----
+```yaml
+email:
+  host: smtp.my.domain
+  port: 465
+  from: noreply@my.domain
+  subject: "[Gravitee.io] %s"
+  branded_senders:
+    - domains:
+        - example.com
+        - eu.example.com
+      from: noreply@example.com
+      subject: "[Example] %s"
+    - domains:
+        - partner.example.org
+      from: Partner Team <partners@example.org>
+      subject: "[Partner] %s"
+```
+{% endtab %}
 
-## Manage Branded Sender Rules at Organization Scope
+{% tab title=".env" %}
+A list can't be expressed as a single environment variable, so supply the value as a JSON array instead:
 
-The same **Branded notification email** subsection is available in the **SMTP** section of **Organization > Settings** in the APIM Console. Behavior at this scope differs from the Environment scope in the following ways:
+```bash
+gravitee_email_branded_senders=[{"domains":["example.com","eu.example.com"],"from":"noreply@example.com","subject":"[Example] %s"}]
+```
+{% endtab %}
 
-- The **Reset to Org settings** button is **not present** at this scope.
-- The branded senders control is **disabled** when email is disabled, or when `email.branded_senders` is system-configured and read-only.
-- The entire form, including branded senders, is **disabled** when you lack the `organization-settings-u` permission.
+{% tab title="Helm values.yaml" %}
+Add `branded_senders` to the top-level `smtp:` section of your `values.yaml`. The APIM Helm chart renders the `smtp:` values into the Management API `gravitee.yml` `email:` block at install time:
+
+```yaml
+smtp:
+  enabled: true
+  host: smtp.my.domain
+  port: 465
+  from: noreply@my.domain
+  subject: "[Gravitee.io] %s"
+  branded_senders:
+    - domains:
+        - example.com
+        - eu.example.com
+      from: noreply@example.com
+      subject: "[Example] %s"
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+If the value is invalid, APIM writes the problem to the Management API log and ignores it. The APIM Console field stays editable and shows no error, so check that log if a self-hosted configuration doesn't take effect.
+{% endhint %}
