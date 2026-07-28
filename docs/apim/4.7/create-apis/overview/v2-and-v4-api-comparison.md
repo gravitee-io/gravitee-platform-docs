@@ -97,4 +97,4 @@ GET /products/:productId/items/:id
 
 ## Policy support
 
-v2 APIs and v4 APIs support subsets of Gravitee policies. Supported policies are applied to one or more phases of the API transaction. For more information, see [broken-reference](broken-reference/ "mention").
+v2 APIs and v4 APIs support subsets of Gravitee policies. Supported policies are applied to one or more phases of the API transaction. For more information, see [https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.7/create-apis/overview/broken-reference/README.md](https://github.com/gravitee-io/gravitee-platform-docs/blob/main/docs/apim/4.7/create-apis/overview/broken-reference/README.md "mention").
