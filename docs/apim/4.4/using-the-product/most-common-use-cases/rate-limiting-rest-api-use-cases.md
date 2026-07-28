@@ -69,33 +69,33 @@ Add differentiated Quota policies to each plan per the instructions below.
 1. Select the **+** icon next to the API Key (SILVER) plan
 2. Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-2-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-2.png" alt=""><figcaption></figcaption></figure>
 
 3. Click **Create**
 4. Select the **+** icon within the request phase section. This lets us use the Quota policy to limit the number of requests Silver Tier members can make to the API per month\_.\_
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-3-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-3.png" alt=""><figcaption></figcaption></figure>
 
 5. Use the search bar or scroll to navigate to the **Quota** policy, then click **Select**.
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-4-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-4.png" alt=""><figcaption></figcaption></figure>
 
 6. Toggle **Add response headers** ON and click **Save**.
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-5-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-5.png" alt=""><figcaption></figcaption></figure>
 
 7. Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 100 requests per 1 month
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-6-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-6.png" alt=""><figcaption></figcaption></figure>
 
 8. Click **Add policy**
 9. On the **Policies** page, click **Save**
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-7-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-7.png" alt=""><figcaption></figcaption></figure>
 
 10. Click **Deploy API** to redeploy the API and have the changes take effect
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-8-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-8.png" alt=""><figcaption></figcaption></figure>
 
 **Gold Tier plan**
 
@@ -114,7 +114,7 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
 1. Select the **+** icon next to **Common flows**
 2. Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-9-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-9.png" alt=""><figcaption></figcaption></figure>
 
 3. Click **Create**
 4. Select the **+** icon within the request phase section. This lets us use the Rate Limit policy to limit the number of requests any API consumer can make to the API within a short period of time.
