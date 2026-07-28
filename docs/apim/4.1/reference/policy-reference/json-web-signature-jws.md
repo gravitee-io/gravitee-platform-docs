@@ -1,5 +1,8 @@
 ---
 description: This page provides the technical details of the JSON Web Signature policy
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/create-and-configure-apis/apply-policies/policy-reference
 ---
 
 # JSON Web Signature (JWS)

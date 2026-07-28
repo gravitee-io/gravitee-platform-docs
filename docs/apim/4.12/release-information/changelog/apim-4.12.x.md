@@ -5,6 +5,108 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.12 - July 28, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* User details - Groups roles name are truncated [#11545](https://github.com/gravitee-io/issues/issues/11545)
+* Observability Requests widget is permanently filtered only to proxy APIs [#11636](https://github.com/gravitee-io/issues/issues/11636)
+
+**Portal**
+
+* Portal analytics/logs date filter unusable when browser language is not English [#11626](https://github.com/gravitee-io/issues/issues/11626)
+
+**Other**
+
+* Retry policy on legacy engine always throws error [#11671](https://github.com/gravitee-io/issues/issues/11671)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* Trim leading and trailing whitespace from the client_id field in the UI [#11655](https://github.com/gravitee-io/issues/issues/11655)
+
+**Portal**
+
+* Trim leading and trailing whitespace from the client_id field in the UI [#11655](https://github.com/gravitee-io/issues/issues/11655)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.12.11 - July 22, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Redis resources cannot be disabled [#11407](https://github.com/gravitee-io/issues/issues/11407)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.12.10 - July 21, 2026
+
+{% hint style="warning" %}
+There is a known issue with API synchronizations in this version of APIM. Upgrade to version 4.12.11+.
+{% endhint %}
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* \[API Product] HTTP 500 on batch update when API search returns duplicate IDs — Collectors.toMap without merge function [#11648](https://github.com/gravitee-io/issues/issues/11648)
+
+**Other**
+
+* Latency issue using redis rate-limit. [#11546](https://github.com/gravitee-io/issues/issues/11546)
+* \[gravitee-policy-aws-lambda] 3.4.0 Upgrade Causing Blocked Thread Warnings and Potential Gateway Performance Impact [#11552](https://github.com/gravitee-io/issues/issues/11552)
+* Overview dashboard does not respect role permissions [#11555](https://github.com/gravitee-io/issues/issues/11555)
+* services.metrics.domains config silently ignored due to singular/plural key mismatch in VertxFactory [#11566](https://github.com/gravitee-io/issues/issues/11566)
+* Unrecognized character escape ''' (code 39) when logging Webhook API [#11581](https://github.com/gravitee-io/issues/issues/11581)
+* Portal exposes other user's subscription details to users without applications [#11584](https://github.com/gravitee-io/issues/issues/11584)
+* Regression: V4 endpoint colon-in-relative-path returns 503 on 4.12.x (APIM-14220 not forward-ported) [#11620](https://github.com/gravitee-io/issues/issues/11620)
+* Policy "Interrupt" in response flow [#11623](https://github.com/gravitee-io/issues/issues/11623)
+* GW simple perf improvement [#11635](https://github.com/gravitee-io/issues/issues/11635)
+* Documentation - Swagger viewing issue  [#11638](https://github.com/gravitee-io/issues/issues/11638)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* v4 HTTP proxy: configurable connection pool wait-queue size (all versions) and max connection lifetime (4.12+) [#11641](https://github.com/gravitee-io/issues/issues/11641)
+
+**Management API**
+
+* v4 HTTP proxy: configurable connection pool wait-queue size (all versions) and max connection lifetime (4.12+) [#11641](https://github.com/gravitee-io/issues/issues/11641)
+
+**Console**
+
+* Increase broadcast message character limit [#11515](https://github.com/gravitee-io/issues/issues/11515)
+
+**Other**
+
+* UI Clutterness in Debug Feature  [#11645](https://github.com/gravitee-io/issues/issues/11645)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.9 - July 16, 2026
 <details>
 

@@ -72,7 +72,7 @@ Mediate, expose, and secure asynchronous event streams by connecting to advanced
 | Entrypoint | [WebSocket](../../4.9/create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md)                  | Send and retrieve streamed events and messages in real time using the WebSocket protocol.                          |
 | Endpoint   | [Azure Service Bus](../create-and-configure-apis/configure-v4-apis/endpoints/azure-service-bus.md)           | Publish and subscribe to events in Azure Service Bus via HTTP and WebSocket mediation.                             |
 | Endpoint   | [Kafka](../create-and-configure-apis/configure-v4-apis/endpoints/kafka.md)                                   | Publish and subscribe to Kafka events using HTTP and WebSocket mediation.                                          |
-| Endpoint   | [MQTT5](../create-and-configure-apis/configure-v4-apis/endpoints/mqtt5.md)                                   | Publish and subscribe to messages on an MQTT 5.x broker (e.g., HiveMQ, Mosquitto).                                 |
+| Endpoint   | [MQTT5](../create-and-configure-apis/configure-v4-apis/endpoints/mqtt5.md)                                   | Publish and subscribe to messages on an MQTT 5.x broker (for example, HiveMQ and Mosquitto).                                 |
 | Endpoint   | [RabbitMQ](../create-and-configure-apis/configure-v4-apis/endpoints/rabbitmq.md)                             | Communicate seamlessly with a RabbitMQ resource using the AMQP 0-9-1 protocol.                                     |
 | Endpoint   | [Solace](../create-and-configure-apis/configure-v4-apis/endpoints/solace.md)                                 | Publish and subscribe to messages on a Solace broker using the SMF protocol.                                       |
 | Endpoint   | [JMS](../create-and-configure-apis/configure-v4-apis/endpoints/jms.md)                                       | Publish and subscribe to JMS messages from compliant brokers such as ActiveMQ, IBM MQ, and Solace.                 |
@@ -87,10 +87,11 @@ Govern and manage the communication protocols required for building and securing
 | Reactor    | A2A Proxy      | Dedicated V4 API type that enables agent-to-agent communication through the Gravitee API Management platform.      |
 | Entrypoint | Agent to Agent | Support Google's Agent-to-Agent (A2A) protocol using SSE, HTTP GET, or HTTP POST methods for client consumption.   |
 | Endpoint   | Agent to Agent | Support Google's Agent-to-Agent (A2A) protocol using SSE, HTTP GET, or HTTP POST methods for backend connectivity. |
+| Entrypoint | MCP Tool Server | Expose a v4 HTTP proxy API as a Model Context Protocol (MCP) Tool Server so that AI agents can call its operations as tools. |
 
 ## Alert Engine
 
-Configure and manage proactive alerts across your entire API Management platform. Alert Engine is an enterprise **Plugin Pack** that allows you to monitor API traffic, health checks, and platform events, automatically triggering notifications to your preferred channels (e.g., Email, Slack, Webhooks) whenever specific conditions, anomalies, or thresholds are met.
+Configure and manage proactive alerts across your entire API Management platform. Alert Engine is an enterprise **Plugin Pack** that allows you to monitor API traffic, health checks, and platform events, automatically triggering notifications to your preferred channels (for example, Email, Slack, and Webhooks) whenever specific conditions, anomalies, or thresholds are met.
 
 ## Hosting Options
 

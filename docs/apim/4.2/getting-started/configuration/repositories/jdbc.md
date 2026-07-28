@@ -1,5 +1,8 @@
 ---
 description: This article explains how to configure a JDBC repository
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/prepare-a-production-environment/repositories/jdbc
 ---
 
 # JDBC

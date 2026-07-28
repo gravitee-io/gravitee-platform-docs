@@ -7,3 +7,12 @@ SUMMARY.md
 .gitbook.yaml
 releases-and-changelog/release-notes/am-4.12.md
 releases-and-changelog/changelog/am-4.12.x.md
+getting-started/configuration/configure-repositories.md
+# AM 4.13 release notes page (first created in this version)
+releases-and-changelog/release-notes/am-4.13.md
+# Select scopes to consent (AM 4.13.0 feature, AM-7022)
+guides/user-management/user-consent.md
+guides/branding/README.md
+guides/branding/language-default-properties-reference.md
+.gitbook/assets/am-application-scopes-consent-settings.png
+.gitbook/assets/am-application-add-scope-dialog.png

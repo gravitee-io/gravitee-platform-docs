@@ -208,7 +208,7 @@ Follow the steps below to configure a fetcher to import multiple files:
 
 1.  From the **Documentation** page, select **Import multiple files**
 
-    <figure><img src="../../../.gitbook/assets/Screenshot 2023-06-07 at 4.04.23 PM.png" alt=""><figcaption><p>Import multiple documentation files</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/documentation_import multiple files.png" alt=""><figcaption><p>Import multiple documentation files</p></figcaption></figure>
 2.  To publish the pages on import, select **Publish all imported pages**
 
     <figure><img src="../../../.gitbook/assets/import-multiple-files.png" alt=""><figcaption><p>Option to publish all imported files</p></figcaption></figure>
@@ -271,7 +271,7 @@ You can add translations for your pages via the **Translations** tab:
 From the **Access Control** tab:
 
 * You can mark a page as **Private** if you want to deny access to anonymous users.
-* If a page is **Private**, you can configure access lists to either require or exclude certain [roles and groups](../../administration/README.md) by toggling the **Excluded** option.
+* If a page is **Private**, you can configure access lists to either require or exclude certain [roles and groups](../../administration/) by toggling the **Excluded** option.
 
 <figure><img src="../../../.gitbook/assets/graviteeio-page-documentation-access-control.png" alt=""><figcaption><p>Documentation access control</p></figcaption></figure>
 {% endtab %}

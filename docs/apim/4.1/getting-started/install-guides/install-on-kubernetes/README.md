@@ -1,5 +1,7 @@
 ---
 description: An overview of Helm Charts and Kubernetes operators
+metaLinks:
+  canonical: https://documentation.gravitee.io/apim/getting-started
 ---
 
 # Install on Kubernetes
@@ -12,11 +14,11 @@ This guide assumes familiarity with Kubernetes and its terms.
 
 Installing Gravitee API Management (APIM) and the Gravitee Kubernetes Operator (GKO) on a Kubernetes cluster is made easy with the help of our Helm chart. Helm is a package manager for Kubernetes that simplifies the deployment and management of applications on Kubernetes clusters. Helm packages are called charts, which are collections of YAML templates that describe the different Kubernetes resources needed to run an application (e.g., deployments, services, ConfigMaps, etc).
 
-If you used Helm to install APIM on Kubernetes, you can continue to use it to manage the APIM installation. Helm allows you to install, upgrade, rollback, and delete applications with just a few commands.&#x20;
+If you used Helm to install APIM on Kubernetes, you can continue to use it to manage the APIM installation. Helm allows you to install, upgrade, rollback, and delete applications with just a few commands.
 
 Additionally, complex services and applications, like an API management platform, benefit from the advanced automation and management capabilities of a Kubernetes operator. A Kubernetes operator is a [pattern](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) for building custom [controllers](https://kubernetes.io/docs/concepts/architecture/controller/) that can manage custom resources. Operators are designed to perform actions based on a low-level understanding of the applications they manage.
 
-The GKO can also be installed with Helm and allows you to manage your APIs in a fully declarative fashion.&#x20;
+The GKO can also be installed with Helm and allows you to manage your APIs in a fully declarative fashion.
 
 ## Install
 

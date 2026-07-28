@@ -24,7 +24,7 @@ The [Kafka governance rules policies](../../../create-and-configure-apis/apply-p
 The request and response of a Kafka API transaction are broken up into the following phases:
 
 * **Connect:** Policies are executed after plan selection and authentication on the Gateway, but before the client connects to the upstream broker.
-* **Interact:** Policies with a global scope (e.g., topic mapping) are executed on all interactions between the client and the Gateway.
+* **Interact:** Policies with a global scope, for example topic mapping, are executed on all interactions between the client and the Gateway.
 * **Publish:** Specific policies acting at the message level are applied to each produced record.
 * **Subscribe:** Specific policies acting at the message level are applied to each fetched record.
 
@@ -33,6 +33,12 @@ Which Kafka policies can be applied to each phase is summarized below:
 <table><thead><tr><th>Policy</th><th data-type="checkbox">Connect</th><th data-type="checkbox">Interact</th><th data-type="checkbox">Publish</th><th data-type="checkbox">Subscribe</th></tr></thead><tbody><tr><td>Kafka ACL</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Alter Topic Rules</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Create Topic Rules</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Fetch Rules</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Message Filtering</td><td>false</td><td>false</td><td>false</td><td>true</td></tr><tr><td>Kafka Offloading</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Kafka Produce Rules</td><td>false</td><td>false</td><td>true</td><td>false</td></tr><tr><td>Kafka Quota</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Kafka Topic Mapping</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Transform Key</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Native IP Filtering</td><td>true</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
 
 Kafka policies can be applied to these phases in policy chains of arbitrary length.
+
+## Policy failures
+
+A policy that interrupts a Kafka API transaction returns a Kafka protocol error code to the client. The Kafka protocol carries that error code alone and has no field for the error key or message the policy sets, so the client receives the code without the detail behind it. A processing error that no policy handles returns `UNKNOWN_SERVER_ERROR`.
+
+Read the Gateway log to identify which policy interrupted the transaction and why.
 
 ## Gravitee Policy Studio
 

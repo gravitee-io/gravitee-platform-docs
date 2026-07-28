@@ -95,10 +95,11 @@ The following table shows the compatibility matrix for APIM and the `json-valida
 
 | Phase              | Code                          | Error key                   | Description                                       |
 | ------------------ | ----------------------------- | --------------------------- | ------------------------------------------------- |
-| REQUEST            | `400 - BAD REQUEST`           | OAS\_VALIDATION\_ERROR\_KEY | Request does not match the OpenAPI Specification  |
-| RESPONSE           | `500 - INTERNAL SERVER ERROR` | NO\_OAS\_RESOURCE\_KEY      | No resource configured                            |
-| REQUEST / RESPONSE | `500 - INTERNAL SERVER ERROR` | NO\_OAS\_PROVIDED\_KEY      | No OpenAPI Specification provided                 |
-| RESPONSE           | `500 - INTERNAL SERVER ERROR` | OAS\_VALIDATION\_ERROR\_KEY | Response does not match the OpenAPI Specification |
+| REQUEST            | `400 - BAD REQUEST`           | OAS\_VALIDATION\_ERROR      | Request does not match the OpenAPI Specification  |
+| REQUEST / RESPONSE | `500 - INTERNAL SERVER ERROR` | NO\_OAS\_RESOURCE           | No resource configured                            |
+| REQUEST / RESPONSE | `500 - INTERNAL SERVER ERROR` | NO\_OAS\_PROVIDED           | No OpenAPI Specification provided                 |
+| RESPONSE           | `500 - INTERNAL SERVER ERROR` | OAS\_VALIDATION\_ERROR      | Response does not match the OpenAPI Specification |
+| REQUEST / RESPONSE | `500 - INTERNAL SERVER ERROR` | UNABLE\_TO\_LOAD\_OAS\_KEY  | The OpenAPI Specification could not be loaded or is unsupported |
 
 ## Changelogs
 

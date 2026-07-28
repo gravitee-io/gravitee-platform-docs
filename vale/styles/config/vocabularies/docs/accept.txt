@@ -11,7 +11,7 @@ Cockpit
 Blackbird
 DevPortal
 [Dd]ev
-GRAVITEEIO
+[Gg][Rr][Aa][Vv][Ii][Tt][Ee][Ee][Ii][Oo]
 mAPI
 Gravitee API Management
 Gravitee Access Management
@@ -527,6 +527,8 @@ Intune
 # Gamma Platform
 # ============================================
 Gamma
+# Docker image identifier (lowercase, case-sensitive), not the "Gamma" product name
+gamma-ui
 [Aa]gentic
 [Hh]yperscaler
 [Hh]yperscaler-[Ff]ederated
@@ -686,6 +688,7 @@ gzipped
 semver
 golang
 posix
+packagecloud
 htpasswd
 uncomment
 uncommenting
@@ -778,7 +781,7 @@ dockerize
 downscoping
 anonymization
 reauthentication
-unpublishing
+[Uu]npublishing
 multifactor
 strikethrough
 fullscreen
@@ -876,3 +879,4 @@ llmtest
 # GitBook page frontmatter key
 noIndex
 [Ww]alkthroughs?
+dashboarding
