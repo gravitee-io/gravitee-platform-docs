@@ -219,13 +219,26 @@ metaLinks:
 
 ## OAuth 2.0 consent
 
-| Property Name             | Default Value                                                                               |
-| ------------------------- | ------------------------------------------------------------------------------------------- |
-| oauth.consent.title       | Permissions requested                                                                       |
-| oauth.consent.description | would like to                                                                               |
-| oauth.disclaimer          | will be able to use your data in accordance to their terms of service and privacy policies. |
-| oauth.button.accept       | Accept                                                                                      |
-| oauth.button.cancel       | Cancel                                                                                      |
+| Property Name                              | Default Value                                                                               |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| oauth.consent.title                        | Permissions requested                                                                       |
+| oauth.consent.description.before           | Application "                                                                               |
+| oauth.consent.description.after            | " requests access to your account                                                           |
+| oauth.consent.instructions                 | Select the permissions you want to grant:                                                   |
+| oauth.consent.scope.required\_label        | Required                                                                                    |
+| oauth.consent.scope.required\_table\_header | {0} required permissions (always included)                                                  |
+| oauth.consent.scope.select\_all            | Select all                                                                                  |
+| oauth.consent.scope.clear\_all             | Clear all                                                                                   |
+| oauth.consent.scope.selected\_count        | {0} of {1} selected                                                                         |
+| oauth.consent.scope.search\_placeholder    | Search permissions...                                                                       |
+| oauth.consent.scope.filter\_all            | All                                                                                         |
+| oauth.consent.scope.filter\_selected       | Selected                                                                                    |
+| oauth.consent.scope.filter\_unselected     | Unselected                                                                                  |
+| oauth.disclaimer                           | will be able to use your data in accordance to their terms of service and privacy policies. |
+| oauth.button.allow                         | Allow                                                                                       |
+| oauth.button.deny                          | Deny                                                                                        |
+
+From AM 4.13.0, the default consent page no longer uses `oauth.consent.description`, `oauth.button.accept`, or `oauth.button.cancel`. If you translated those properties, add the same translations to `oauth.consent.description.before`, `oauth.consent.description.after`, `oauth.button.allow`, and `oauth.button.deny`.
 
 ## Identifier first login
 

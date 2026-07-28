@@ -4,6 +4,7 @@ metaLinks:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/user-consent
 ---
+
 # User Consent
 
 ## User consent
@@ -16,137 +17,110 @@ If you want users to acknowledge and accept that they are giving an app access t
 You can change the look and feel of the user consent form. See [custom pages](../branding/README.md#custom-pages) for more information.
 {% endhint %}
 
-## Selective Scope Consent and Required Scopes
+## Select scopes to consent
 
-Gravitee Access Management 4.13.0 introduces two complementary capabilities for the OAuth2 user consent page: **opt-in scope selection mode**, where users must explicitly check the scopes they want to grant rather than having all scopes pre-selected, and **required scopes**, which are scopes that must be consented to for an authorization request to succeed. Together, these features give API platform administrators finer control over how end-users grant application permissions during OAuth2 authorization flows.
+From AM 4.13.0, the consent page presents each scope of the authorization request with its own checkbox. Users adjust the selection to the scopes they agree to grant, then click **Allow**. Clicking **Deny** rejects the whole authorization request.
 
-### Key Concepts
+AM continues the flow with the approved scopes only. The authorization response and the issued tokens carry the approved scopes, and the stored consent records the other presented scopes as denied.
 
-#### Opt-In Scope Selection Mode
+Two application settings control what the consent page does: the **Preselect consent for all scopes** toggle and the per-scope **Required** checkbox.
 
-By default, newly created applications use opt-in scope selection (`optInScopeSelection = true`), meaning all requested scope checkboxes start **unchecked** on the consent page and users must actively select the permissions they wish to grant. Existing applications default to the legacy behavior (`optInScopeSelection = false`), where all scopes are pre-checked and users can deselect them. Administrators who want existing applications to use opt-in mode must explicitly enable it via the Management Console or Management API.
+### Preselect consent for all scopes
 
-The server-side context variable `preselectAllScopes` controls pre-selection behavior on the consent page. Custom consent page templates that do not use this variable will not reflect the opt-in or pre-checked setting.
+This toggle sets the initial state of the checkboxes on the consent page:
 
-#### Required Scopes
+* Toggle on: every presented scope starts checked, and users clear the scopes they don't want to grant. This matches the consent behavior of AM versions earlier than 4.13.0.
+* Toggle off: no scope starts checked, and users check each scope they agree to grant.
 
-A required scope is a per-scope, per-application flag (`requiredScope = true`) on an application's scope settings. On the consent page, required scopes are rendered as:
+The toggle's starting value depends on how the application was created:
 
-- **Checked and disabled** — users cannot deselect them.
-- **Displayed first**, above optional scopes.
-- **Labeled with a Required chip.**
+<table>
+    <thead>
+        <tr>
+            <th width="300">Application</th>
+            <th>Preselect consent for all scopes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Existed before the upgrade to 4.13.0</td>
+            <td>On, so the consent page behaves as it did before the upgrade</td>
+        </tr>
+        <tr>
+            <td>Created in AM Console or through the AM Management API</td>
+            <td>Off</td>
+        </tr>
+        <tr>
+            <td>Registered through Dynamic Client Registration</td>
+            <td>On</td>
+        </tr>
+    </tbody>
+</table>
 
-The following enforcement rules apply:
+Recommended: turn the toggle off for clients that request a large number of scopes, and leave it on for applications where approval of the full set is expected.
 
-- If the user approves the consent form but a required scope is missing or not approved in the submitted form, the authorization server responds with an OAuth2 `access_denied` error and does not persist any consent.
-- Outright denial (`user_oauth_approval=false`) bypasses required-scope enforcement; all scopes are recorded as denied.
-- A scope flagged as required is only enforced when it is also included in the current authorization request's scope set. If not requested, it is ignored.
+### Required scopes
 
-#### Selective Consent and Scope Narrowing
+Mark a scope as **Required** when the application depends on it to function. AM presents a required scope first, labels it **Required**, and locks its checkbox, so users grant it whenever they allow the request. Clicking **Deny** still rejects the whole request, including the required scopes.
 
-When a user selects a subset of the presented scopes and approves, the authorization request's scope set is narrowed to only those scopes the user approved.
-
-- Previously approved scopes from prior sessions are not re-presented or overwritten.
-- When `prompt=consent` is present in the authorization request, all requested scopes are re-presented to the user regardless of prior approvals.
-- Scopes submitted via the consent form that were not part of the original authorization request are ignored and not recorded.
-
-#### Redesigned Consent Page UI
-
-The OAuth2 user consent page has been redesigned from a static read-only display to an interactive table with checkboxes.
-
-| Change | Previous | New |
-|---|---|---|
-| Primary action button | **Accept** | **Allow** |
-| Secondary action button | **Cancel** | **Deny** |
-| Scope display | Static, read-only | Interactive checkbox table |
-| Page description | — | `Application "<app name>" requests access to your account` |
-
-The **Allow** button is disabled when no scope checkboxes are selected.
+Marking a scope as required only affects authorization requests that ask for it. AM doesn't add required scopes to a request that omits them.
 
 {% hint style="warning" %}
-**Migration note:** Custom consent templates or test automation that reference the old button labels (`Accept`, `Cancel`) must be updated to use the new labels. Applications using custom consent page templates must also be updated to use the `preselectAllScopes` context variable and reference the new `oauth.button.allow` and `oauth.button.deny` i18n keys.
+AM validates the submitted consent against the authorization request. Scopes that weren't part of the request are ignored, and a submission that doesn't grant a presented required scope is rejected with an `access_denied` error.
 {% endhint %}
 
-### Prerequisites
+### Consent reuse
 
-- Gravitee Access Management **4.13.0** or later.
-- Newly created applications automatically receive `optInScopeSelection = true`. Existing applications retain `optInScopeSelection = false` (pre-checked behavior) until explicitly updated by an administrator.
+AM remembers each approved scope until its **User consent** duration expires. A later authorization request presents only the requested scopes that aren't approved yet, and leaves the existing approvals untouched. To present the full list of requested scopes again, add `prompt=consent` to the authorization request.
 
-### Configure Consent Mode for an Application
+## Configure scope consent for an application
 
-Navigate to the application's **Scopes** tab in the Management Console, then scroll to the **Consent** section.
+1. Log in to AM Console.
+2. Click **Applications**.
+3. Select your application.
+4. Click **Settings**.
+5. Click **OAuth 2.0 / OIDC**.
+6. Click the **Scopes** tab.
+7. Scroll to the **Consent** section and set the **Preselect consent for all scopes** toggle.
 
-1. Locate the **Preselect Consent for All Scopes** toggle.
-2. Enable the toggle to pre-check all requested scopes on the consent page. Users can still change individual selections before approving.
-3. Disable the toggle to use opt-in mode, where all scope checkboxes start unchecked.
+    <!-- TODO: Screenshot of the Consent section with the Preselect consent for all scopes toggle -->
+    <figure><img src="../../.gitbook/assets/PLACEHOLDER-application-scopes-preselect-consent.png" alt=""><figcaption><p>Preselect consent for all scopes toggle</p></figcaption></figure>
+
+8. Scroll to the **Scopes** section. Optional: click **ADD SCOPES** to add a scope to the table.
+9. Select the **Required** checkbox for each scope the application depends on.
+
+    <!-- TODO: Screenshot of the scopes table with the Required column -->
+    <figure><img src="../../.gitbook/assets/PLACEHOLDER-application-scopes-required-column.png" alt=""><figcaption><p>Required column in the scopes table</p></figcaption></figure>
+
+10. Click **SAVE**.
 
 {% hint style="info" %}
-This toggle is the inverse of `optInScopeSelection`. Toggle **ON** sets `optInScopeSelection = false` (pre-check all). Toggle **OFF** sets `optInScopeSelection = true` (opt-in mode).
+Both settings are also available through the [AM Management API](../../reference/am-api-reference.md) application operations: `optInScopeSelection` on the application's OAuth settings, and `requiredScope` on each entry of the `scopeSettings` list.
 {% endhint %}
 
-| Field | Description | Default (New Applications) | Default (Existing Applications) |
-|---|---|---|---|
-| **Preselect Consent for All Scopes** | When enabled, all requested scopes are pre-checked on the consent page. | Off (opt-in mode) | On (pre-checked) |
+## Verification
 
-### Mark a Scope as Required
+To verify scope consent is working as expected, follow these steps:
 
-In the application's **Scopes** tab, the scopes table includes a **Required** column.
+1. Start an authorization request for your application that includes several scopes, with at least one scope marked as required.
+2. Log in as a test user. The consent page lists each requested scope with a checkbox, and the required scopes are checked, locked, and labeled **Required**.
 
-1. Locate the scope to mark as required in the scopes table.
-2. Check the **Required** checkbox for that scope to prevent users from deselecting it on the consent page.
+    <!-- TODO: Screenshot of the consent page showing required and optional scopes with checkboxes -->
+    <figure><img src="../../.gitbook/assets/PLACEHOLDER-consent-page-select-scopes.png" alt=""><figcaption><p>Consent page with selective scope consent</p></figcaption></figure>
 
-| Column | Description |
-|---|---|
-| **Required** | When checked, the scope is shown as locked on the consent page. Users cannot deselect it and must consent to it for the authorization request to succeed. |
-
-**Scopes tab sidebar help text:**
-
-| Option | Description |
-|---|---|
-| **Default** | Added to the authorization request automatically when the client starts an authorization flow without requesting any specific scopes. |
-| **Required** | Mandatory scopes that users cannot deselect on the consent screen when requested. Must be consented to for the authorization request to be allowed. |
-| **User Consent** | How long the user's approval of a scope is remembered before consent is requested again. |
-
-### Consent Page Toolbar Controls and Scope Display Rules
-
-The redesigned consent page includes contextual toolbar controls that appear based on the number of requested scopes.
-
-| Control | Shown When | Description |
-|---|---|---|
-| **Select all** / **Clear all** | More than 1 scope | Selects or clears all optional scope checkboxes. Does not affect required (disabled) scopes. |
-| Selection count (`{0} of {1} selected`) | More than 1 scope | Displays how many scopes are currently selected. |
-| Search input (`Search permissions...`) | More than 10 scopes | Filters the scope list by text. |
-| Filter tabs: **All** / **Selected** / **Unselected** | More than 10 scopes | Filters scope display by selection state. |
-
-**Required scope sectioning:**
-
-- When there is at least one required scope **and** the total number of requested scopes exceeds 10, required scopes are displayed in a separate collapsible section labeled `{0} required permissions (always included)`.
-- For 10 or fewer total scopes, required scopes appear inline in the main table with the **Required** chip, without a separate collapsible section.
-
-### Management API Schema Properties
-
-#### `ApplicationOAuthSettings`
-
-| Property | Type | Description |
-|---|---|---|
-| `optInScopeSelection` | `boolean` | When `true`, scope checkboxes start unchecked on the consent page (opt-in mode). When `false`, all scopes are pre-checked. Patchable via `PatchApplicationOAuthSettings`. |
-
-#### `ApplicationScopeSettings`
-
-| Property | Type | Description |
-|---|---|---|
-| `scope` | `string` | The scope identifier. |
-| `defaultScope` | `boolean` | Whether this scope is added automatically when no specific scopes are requested. |
-| `requiredScope` | `boolean` | When `true`, the scope cannot be deselected on the consent page and must be approved for the authorization request to succeed. Default: `false`. |
-| `scopeApproval` | `integer` | Duration in seconds that the user's approval is remembered before consent is re-requested. |
+3. Check a subset of the optional scopes and click **Allow**.
+4. Inspect the token response. The `scope` value contains the scopes you checked and the required scopes, and none of the scopes you left unchecked.
+5. Start the same authorization request again. AM doesn't prompt again for the scopes that are already approved. Add `prompt=consent` to the request to present the full list again.
 
 ## Revoke user consent
 
 You can view a list of applications for which each user has provided consent. To revoke access to an application:
 
 1. Log in to AM Console.
-2. Click **Settings > Users**.
-3. Select the user and in the **Authorized Apps** tab, revoke the application.
+2. Open **Settings**.
+3. Click **Users**.
+4. Select the user.
+5. Click the **Authorized Apps** tab and revoke the application.
 
 <figure><img src="../../.gitbook/assets/guide-user-management-user-consent-150.png" alt=""><figcaption></figcaption></figure>
 
