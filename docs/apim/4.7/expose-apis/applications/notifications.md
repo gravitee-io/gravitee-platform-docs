@@ -1,5 +1,8 @@
 ---
 description: Tutorial on notifications.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/configure-and-manage-the-platform/gravitee-gateway/notifications
 ---
 
 # Notifications
