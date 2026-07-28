@@ -16,17 +16,17 @@ The MCP Proxy currently supports injecting static credentials into the request h
 
 ## Configure Upstream Authentication
 
-1. Navigate to your MCP Proxy in the Gravitee console.
-2. Open the **Upstream Authentication** section for the server.
-3. Select an authentication method:
-   * **Static credential**: Inject a static credential into a request header on every call.
-   * **No upstream auth**: Call the upstream without injecting credentials (passthrough).
-4. If you chose **Static credential**, select the **Credential type**:
-   * **API key**: Enter the Header name (e.g., `x-api-key`) and the API key value.
-   * **Bearer token**: Enter the token value (injected as `Authorization: Bearer <token>`).
-   * **Basic auth**: Enter the Username and Password (injected as `Authorization: Basic <base64>`).
-   * **Custom secret**: Enter a Custom Header name and the secret value.
-5. Save your configuration.
+1. In the Gravitee console, navigate to **MCP Proxies** and open your MCP Proxy.
+2. In the left menu under **General**, select **Endpoint**. This page contains the **Upstream authentication** section.
+3. Select one of the following authentication methods:
+   * **Static credential**. Inject a static credential into a request header on every call.
+   * **No upstream auth**. Call the upstream without injecting credentials.
+4. If you chose **Static credential**, open the **Credential type** list and select one of the following:
+   * **API key**. Select an **Injection location** of **Authorization header**, **x-api-key header**, or **Custom header**. If you select **Custom header**, enter the **Header name**. Enter the key in the **Credential** field.
+   * **Bearer token**. Enter the token in the **Credential** field. The Gateway injects it as `Authorization: Bearer <token>`.
+   * **Basic auth**. Enter the **Username** and **Password / token**. The Gateway injects them as `Authorization: Basic <base64>`.
+   * **Custom secret**. Select an **Injection location** of **Authorization header**, **x-api-key header**, or **Custom header**. If you select **Custom header**, enter the **Header name**. Enter the secret in the **Credential** field.
+5. Click **Save changes**.
 
 ## Next steps
 
