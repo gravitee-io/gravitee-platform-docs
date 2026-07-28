@@ -2,7 +2,8 @@
 description: This page provides the technical details of the Assign Attributes policy
 hidden: true
 metaLinks:
-  canonical: https://documentation.gravitee.io/apim/policies/assign-attributes
+  canonical: >-
+    https://documentation.gravitee.io/apim/create-and-configure-apis/apply-policies/policy-reference/assign-attributes
 ---
 
 # Assign Attributes
