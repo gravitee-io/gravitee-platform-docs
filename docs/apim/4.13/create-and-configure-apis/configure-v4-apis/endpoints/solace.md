@@ -32,21 +32,53 @@ You can tell the Gravitee Gateway's Solace client to act as a producer, a consum
 
 You will define more Gravitee Gateway-specific security settings later on, but this is where you define your Solace-specific authentication flow.
 
-1. Enter the username and password used for authentication.
+1. Choose the **Authentication type**: **Basic** or **Client certificate**.
+
+{% tabs %}
+{% tab title="Basic" %}
+Enter the username and password used for authentication.
+{% endtab %}
+
+{% tab title="Client certificate" %}
+The Gateway authenticates to the broker with mTLS, presenting a client certificate instead of a password. This requires:
+
+* An endpoint **URL** that begins with `tcps://`. A `tcp://` URL is rejected when the API connects.
+* A **key store** holding the client certificate and its private key, configured in the trust store and key store step below.
+
+The **username** is optional. Leave it empty to let the broker derive the client identity from the certificate, which is the usual setup. Only set it if your broker's message VPN is configured with `allow-api-provided-username`.
+{% endtab %}
+{% endtabs %}
+
 2. Choose whether to ignore SSL expiration.
-3. Choose between **None**, **JKS with location**, and **PKCS12 with location**.
+3. Configure the **trust store**, used to validate the broker's certificate. Choose between **None**, **JKS with location**, and **PKCS12 with location**.
 
 {% tabs %}
 {% tab title="None" %}
-No further security configuration is necessary.
+No further trust store configuration is necessary. The JVM's default trust store is used.
 {% endtab %}
 
 {% tab title="JKS with location" %}
-Enter the truststore file's location and SSL password.
+Enter the trust store file's location and SSL password.
 {% endtab %}
 
 {% tab title="PKCS12 with location" %}
-Enter the truststore file's location and SSL password.
+Enter the trust store file's location and SSL password.
+{% endtab %}
+{% endtabs %}
+
+4. If you chose **Client certificate** authentication, configure the **key store** holding the certificate the Gateway presents to the broker. Choose between **None**, **JKS with location**, and **PKCS12 with location**.
+
+{% tabs %}
+{% tab title="None" %}
+No client certificate is presented. This is not a valid combination with **Client certificate** authentication, and the API fails to connect.
+{% endtab %}
+
+{% tab title="JKS with location" %}
+Enter the key store file's location and password. Optionally set a key password, if the private key is protected by a different password than the key store, and an alias, if the key store holds more than one entry.
+{% endtab %}
+
+{% tab title="PKCS12 with location" %}
+Enter the key store file's location and password. Optionally set a key password, if the private key is protected by a different password than the key store, and an alias, if the key store holds more than one entry.
 {% endtab %}
 {% endtabs %}
 
@@ -155,7 +187,15 @@ Security options are available under `security` attribute.
 {% tab title="Authentication" %}
 Available under `security.auth`:
 
-<table><thead><tr><th width="132">Attributes</th><th width="98">Default</th><th width="123">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>username</td><td>N/A</td><td>No</td><td>The username to use for the authentication</td></tr><tr><td>password</td><td>N/A</td><td>No</td><td>The password to use for the authentication</td></tr></tbody></table>
+<table><thead><tr><th width="132">Attributes</th><th width="98">Default</th><th width="123">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>type</td><td>BASIC</td><td>No</td><td><code>BASIC</code> or <code>CLIENT_CERTIFICATE</code>. <code>CLIENT_CERTIFICATE</code> enables mTLS and requires a <code>tcps://</code> URL and a key store.</td></tr><tr><td>username</td><td>N/A</td><td>No</td><td>The username to use for the authentication. Mandatory with <code>BASIC</code>. Optional with <code>CLIENT_CERTIFICATE</code>, where it is only honored if the broker's message VPN allows an api-provided username; otherwise the broker derives the identity from the certificate.</td></tr><tr><td>password</td><td>N/A</td><td>No</td><td>The password to use for the authentication. Only used with <code>BASIC</code>.</td></tr></tbody></table>
+{% endtab %}
+
+{% tab title="SSL" %}
+Available under `security.ssl`:
+
+<table><thead><tr><th width="152">Attributes</th><th width="98">Default</th><th width="123">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>ignoreExpiration</td><td>false</td><td>No</td><td>Ignore the broker certificate's expiration</td></tr><tr><td>trustStore.type</td><td>JKS</td><td>No</td><td><code>NONE</code>, <code>JKS</code> or <code>PKCS12</code></td></tr><tr><td>trustStore.location</td><td>N/A</td><td>No</td><td>Path to the trust store used to validate the broker's certificate</td></tr><tr><td>trustStore.password</td><td>N/A</td><td>No</td><td>Password of the trust store</td></tr><tr><td>keyStore.type</td><td>JKS</td><td>No</td><td><code>NONE</code>, <code>JKS</code> or <code>PKCS12</code>. Only used with <code>CLIENT_CERTIFICATE</code> authentication.</td></tr><tr><td>keyStore.location</td><td>N/A</td><td>No</td><td>Path to the key store holding the client certificate presented to the broker</td></tr><tr><td>keyStore.password</td><td>N/A</td><td>No</td><td>Password of the key store</td></tr><tr><td>keyStore.keyPassword</td><td>N/A</td><td>No</td><td>Password of the private key, if it differs from the key store password</td></tr><tr><td>keyStore.alias</td><td>N/A</td><td>No</td><td>Alias of the private key entry to use, if the key store holds more than one</td></tr></tbody></table>
+
+All location and password attributes support Expression Language and [secret references](../../../prepare-a-production-environment/sensitive-data-management/).
 {% endtab %}
 
 {% tab title="Consumer" %}
@@ -194,6 +234,46 @@ The example below shows a full Solace endpoint configuration:
             "auth": {
                 "username": "user",
                 "password": "password"
+            }
+        }
+    }
+}
+```
+
+### mTLS example
+
+To authenticate the Gateway to the broker with a client certificate, set `auth.type` to `CLIENT_CERTIFICATE`, use a `tcps://` URL and configure `ssl.keyStore`:
+
+```json
+{
+    "name": "default",
+    "type": "solace",
+    "weight": 1,
+    "inheritConfiguration": false,
+    "configuration": {
+        "url": "tcps://localhost:55443",
+        "vpnName": "default"
+    },
+    "sharedConfigurationOverride": {
+        "producer" : {
+            "enabled": true,
+            "topics": ["topic/publish"]
+        },
+        "security" : {
+            "auth": {
+                "type": "CLIENT_CERTIFICATE"
+            },
+            "ssl": {
+                "trustStore": {
+                    "type": "PKCS12",
+                    "location": "/opt/certs/ca-truststore.p12",
+                    "password": "{#secrets.get('/solace/truststore-password')}"
+                },
+                "keyStore": {
+                    "type": "PKCS12",
+                    "location": "/opt/certs/client-keystore.p12",
+                    "password": "{#secrets.get('/solace/keystore-password')}"
+                }
             }
         }
     }
