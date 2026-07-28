@@ -1,5 +1,8 @@
 ---
 description: An overview about roles and groups mapping.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/roles-and-groups-mapping
 ---
 
 # Roles and Groups Mapping
