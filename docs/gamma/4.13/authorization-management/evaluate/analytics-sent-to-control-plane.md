@@ -9,7 +9,6 @@ Understand the observability data that PDP gateways send back to the Gravitee co
 
 {% hint style="warning" %}
 This feature is under active development and may not be available in all environments at this time.
-<!-- GAP: Analytics reporting from PDP gateways to the control plane is referenced in the QuickStart page KPI tiles and the DashboardPage infrastructure, but the specific metrics payload, collection interval, and dashboard visualizations need engineering confirmation. -->
 {% endhint %}
 
 ## Overview

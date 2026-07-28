@@ -56,4 +56,3 @@ After creation, you are navigated to the Virtual Cluster's overview page, where 
 
 * **Add a Kafka Service** — Apply security plans and policies on top of the Virtual Cluster. See [Establish a Virtual Cluster](../build/establish-a-virtual-cluster.md).
 
-<!-- Source: CreateVirtualClusterPage.tsx — gravitee-gamma-module-esm -->
