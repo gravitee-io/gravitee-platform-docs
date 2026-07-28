@@ -9,7 +9,7 @@ Fine-grained authorization policies control which consumers can invoke which too
 
 ## How policies work on MCP Proxies
 
-The MCP Proxy integrates with Authorization Management's policy engine, which uses the Cedar policy language. When a consumer invokes a tool:
+The MCP Proxy integrates with Authorization Management's policy engine, which uses GAPL (the Gravitee Authorization Policy Language). When a consumer invokes a tool:
 
 1. The AI Gateway extracts the consumer's identity from the request
 2. The policy engine evaluates all applicable policies against the tool invocation
@@ -64,7 +64,7 @@ MCP policies are managed through the **MCP Policies** page in Authorization Mana
 After creating a policy in Draft status:
 
 1. Open the policy from the MCP Policies list.
-2. Select **Deploy to PDP** to activate it. The AI Gateway syncs the new policy within 30 seconds — no restart required.
+2. Select **Deploy to PDP Runtime** to activate it. The AI Gateway syncs the new policy within 30 seconds — no restart required.
 3. To suspend a deployed policy, select **Undeploy**. The gateway drops it within 30 seconds.
 
 ## SCIM integration for principals
