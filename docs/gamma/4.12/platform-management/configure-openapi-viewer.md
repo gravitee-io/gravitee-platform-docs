@@ -29,4 +29,3 @@ To configure the default OpenAPI viewer for your environment:
 
 The selected viewer will automatically be used to render all OpenAPI documentation pages in both the console and the Developer Portal.
 
-<!-- Source: OpenapiViewerPage.tsx — gravitee-gamma-module-aim -->

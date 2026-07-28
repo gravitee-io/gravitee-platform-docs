@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Create API Products
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 API Products let you bundle multiple API proxies into a single consumer-facing product. Instead of subscribing to individual APIs, consumers subscribe to an API Product plan and gain access to all APIs in the product.
 

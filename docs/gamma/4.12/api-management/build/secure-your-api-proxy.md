@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Secure your API proxy
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 After creating an API proxy, attach one or more security plans to control how consumers authenticate. Plans define the authentication mechanism the API Gateway enforces at runtime — every incoming request is evaluated against the active plans before it reaches your backend.
 

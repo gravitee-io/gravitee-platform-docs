@@ -4,7 +4,6 @@ noIndex: false
 ---
 
 # Create an MCP Studio
-<!-- GAP-STRUCTURAL: Missing procedural content source -->
 
 MCP Studio is a **mode** of the MCP Proxy — not a separate product. It's the authoring environment where you compose tools, resources, prompts, and skills from multiple sources into a **Composite MCP Server**: a new, governed MCP server that didn't exist as a single unit upstream.
 

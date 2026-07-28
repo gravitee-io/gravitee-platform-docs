@@ -51,5 +51,3 @@ You can adjust the display name and description of an imported model:
 
 * **Create an LLM Proxy**: Route traffic to cataloged models. See [Create an LLM Proxy](../build/create-an-llm-proxy.md).
 
-<!-- Source: gravitee-gamma-module-aim/src/main/ui/app/features/catalog/models/ModelForm.tsx -->
-<!-- Source: gravitee-gamma-module-aim/src/main/ui/app/features/catalog/models/ImportModelsPage.tsx -->
