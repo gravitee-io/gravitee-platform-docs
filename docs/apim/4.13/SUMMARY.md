@@ -139,6 +139,7 @@
     * [APIM Console](configure-and-manage-the-platform/manage-organizations-and-environments/apim-console.md)
     * [Developer Portal](configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md)
     * [SMTP Configuration](configure-and-manage-the-platform/manage-organizations-and-environments/smtp-configuration.md)
+    * [Branded Senders](configure-and-manage-the-platform/manage-organizations-and-environments/branded-senders.md)
     * [CORS Configuration](configure-and-manage-the-platform/manage-organizations-and-environments/cors-configuration.md)
     * [Configuring Portal and Console deployments](configure-and-manage-the-platform/manage-organizations-and-environments/configuring-portal-and-console-deployments.md)
     * [Support](configure-and-manage-the-platform/manage-organizations-and-environments/support.md)
