@@ -1,5 +1,8 @@
 ---
 description: An overview about Gravitee Expression Language.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/4.2/guides/gravitee-expression-language
 ---
 
 # Gravitee Expression Language
