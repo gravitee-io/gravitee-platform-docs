@@ -2,6 +2,9 @@
 description: >-
   An overview about Configuring authentication with Custom OAuth2/OpenID
   Authorization Server.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/openid-connect
 ---
 
 # Configuring authentication with Custom OAuth2/OpenID Authorization Server

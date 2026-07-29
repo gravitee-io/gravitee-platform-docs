@@ -1,5 +1,7 @@
 ---
 description: This page describes the API Key authentication type
+metaLinks:
+  canonical: https://documentation.gravitee.io/apim/secure-and-expose-apis/plans/api-key
 ---
 
 # API Key

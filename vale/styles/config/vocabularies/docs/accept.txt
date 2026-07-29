@@ -880,3 +880,13 @@ llmtest
 noIndex
 [Ww]alkthroughs?
 dashboarding
+
+# ============================================
+# Microsoft.Vocab advisory terms (2026-07-28)
+# ============================================
+# Microsoft.Vocab is a suggestion-level "verify your use of X with the A-Z
+# word list" advisory, not a correctness check. These are ordinary words the
+# Gravitee docs rely on constantly, so the advisory is noise on every PR that
+# touches them. "above" alone appears in 72 files in APIM 4.13.
+[Aa]lerts?
+[Aa]bove

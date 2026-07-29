@@ -1,5 +1,41 @@
 # APIM 4.10.x
  
+## Gravitee API Management 4.10.26 - July 28, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* User details - Groups roles name are truncated [#11545](https://github.com/gravitee-io/issues/issues/11545)
+* API Key plan with empty custom API key header does not keep the empty value after editing the plan [#11603](https://github.com/gravitee-io/issues/issues/11603)
+
+**Portal**
+
+* Portal analytics/logs date filter unusable when browser language is not English [#11626](https://github.com/gravitee-io/issues/issues/11626)
+
+**Other**
+
+* Redis resources cannot be disabled [#11407](https://github.com/gravitee-io/issues/issues/11407)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* Trim leading and trailing whitespace from the client_id field in the UI [#11655](https://github.com/gravitee-io/issues/issues/11655)
+
+**Portal**
+
+* Trim leading and trailing whitespace from the client_id field in the UI [#11655](https://github.com/gravitee-io/issues/issues/11655)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.10.25 - July 21, 2026
 <details>
 

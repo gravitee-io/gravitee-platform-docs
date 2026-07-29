@@ -1,5 +1,8 @@
 ---
 description: An overview about Configuring authentication with authentication providers.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers
 ---
 
 # Configuring authentication with authentication providers
