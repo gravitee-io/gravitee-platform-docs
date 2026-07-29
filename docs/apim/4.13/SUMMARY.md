@@ -558,6 +558,7 @@
 * [Expose APIM as an MCP Server](expose-apim-as-an-mcp-server.md)
 * [Release Information](release-information/README.md)
   * [Release Notes](release-information/release-notes/README.md)
+    * [APIM 4.13](release-information/release-notes/apim-4.13.md)
     * [APIM 4.12](release-information/release-notes/apim-4.12.md)
     * [APIM 4.11](https://documentation.gravitee.io/apim/4.11/release-information/release-notes/apim-4.11)
     * [APIM 4.10](https://documentation.gravitee.io/apim/4.10/release-information/release-notes/apim-4.10)
