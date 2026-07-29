@@ -1,6 +1,9 @@
 ---
 description: An overview about ---.
 hidden: true
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/create-and-configure-apis/apply-policies/policy-reference/transform-headers
 ---
 
 # Transform Headers

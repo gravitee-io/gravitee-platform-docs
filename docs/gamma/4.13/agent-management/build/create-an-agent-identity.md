@@ -1,30 +1,31 @@
 ---
 hidden: false
 noIndex: false
+description: Register an agent as an OAuth client in Gravitee Access Management through the Agent Management registration wizard.
 ---
 
 # Create an agent identity
 
 
-An agent identity is an OAuth client, registered in Gravitee Access Management (AM) through the Agent Management module, that gives an agent a verifiable identity. Once an agent has an identity, the AI Gateway and your authorization policies can authenticate who (or what) is making a request, attribute usage to it, and trace its actions in audit logs.
+An agent identity is an OAuth client, registered in Gravitee Access Management (AM) through the Agent Management module, that gives an agent a verifiable identity. Once an agent has an identity, the AI Gateway and your authorization policies can authenticate who or what is making a request. They can attribute usage to it and trace its actions in audit logs.
 
 You register an agent through a short wizard. The wizard creates the underlying OAuth client in AM and returns its credentials.
 
 {% hint style="info" %}
-The Agent Management module must be connected to an AM instance before you can register agents, and the options available in the wizard (such as CIMD and SPIFFE) depend on what is enabled on the AM domain. See [Configure your Access Management instance](configure-your-access-management-instance.md).
+The Agent Management module must be connected to an AM instance before you can register agents. The options available in the wizard, such as CIMD and SPIFFE, depend on what is enabled on the AM domain. See [Configure your Access Management instance](configure-your-access-management-instance.md).
 {% endhint %}
 
 ## Agent personas
 
-Every agent is registered as one of three personas. The persona determines the underlying OAuth client type and the grant flows the agent is allowed to use. **The persona is immutable after creation** — you can't change it later.
+Every agent is registered as one of three personas. The persona determines the underlying OAuth client type and the grant flows the agent is allowed to use. **The persona is immutable after creation**—you can't change it later. The following table describes each persona:
 
 | Persona              | OAuth client                                                        | Use it for                                                  |
 | -------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------- |
-| **User-embedded**    | Native, public client — PKCE enforced, no client secret             | An agent that runs on the user's device.                    |
+| **User-embedded**    | Native, public client—PKCE enforced, no client secret             | An agent that runs on the user's device.                    |
 | **Hosted delegated** | Web, confidential client                                            | An agent that runs on your server, acting per user session. |
-| **Autonomous**       | Service client — `client_credentials` or token exchange, no browser | An unattended service worker with no interactive user.      |
+| **Autonomous**       | Service client—`client_credentials` or token exchange, no browser | An unattended service worker with no interactive user.      |
 
-What each persona needs in the wizard:
+The following table lists what each persona needs in the wizard:
 
 | Persona              | Redirect URIs | Identity provider | Credentials                       |
 | -------------------- | ------------- | ----------------- | --------------------------------- |
@@ -34,11 +35,12 @@ What each persona needs in the wizard:
 
 ## The registration wizard
 
-Registering an agent is a three-step wizard:
+The wizard has the following four steps:
 
-1. **Persona** — choose how the agent authenticates.
-2. **Basics** — name the agent and choose its client identifier.
-3. **Flow settings** — provide the OAuth inputs for the chosen persona.
+1. **Persona**—choose how the agent authenticates.
+2. **Basics**—name the agent and choose its client identifier.
+3. **Flow settings**—provide the OAuth inputs for the chosen persona.
+4. **Review**—confirm your settings and create the agent.
 
 To open it:
 
@@ -48,11 +50,11 @@ To open it:
 
 ## Step 1: Pick a persona
 
-Select the persona card that matches how the agent runs — **User-embedded**, **Hosted delegated**, or **Autonomous** (see [Agent personas](#agent-personas)). Select **Next**.
+Select the persona card that matches how the agent runs—**User-embedded**, **Hosted delegated**, or **Autonomous**. For more information, see [Agent personas](#agent-personas). Select **Next**.
 
 ## Step 2: Basics
 
-Enter a **Name** (shown in the catalog and in audit events) and an optional **Description**.
+Enter a **Name**, shown in the catalog and in audit events, and an optional **Description**.
 
 Then choose the agent's **Client identifier**:
 
@@ -64,14 +66,14 @@ Leave the field blank to let AM generate a client ID, or enter your own. A custo
 {% endtab %}
 
 {% tab title="CIMD" %}
-The agent is identified by a **Client ID Metadata Document (CIMD)** — a metadata document published at an HTTPS URL that AM uses as the agent's `client_id` ([RFC 9728](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-client-id-metadata-document)).
+The agent is identified by a **Client ID Metadata Document (CIMD)**—a metadata document published at an HTTPS URL that AM uses as the agent's `client_id`, as defined in [RFC 9728](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-client-id-metadata-document).
 
-Enter the metadata document URL (for example, `https://client.example.com/.well-known/oauth-client`) and select **Validate**. AM fetches the document, validates it, and displays a **parsed metadata** preview. When the document includes them, AM auto-populates the agent's name, redirect URIs, `token_endpoint_auth_method`, and `jwks_uri` from the metadata.
+Enter the metadata document URL, for example `https://client.example.com/.well-known/oauth-client`, and select **Validate**. AM fetches the document, validates it, and displays a **parsed metadata** preview. When the document includes them, AM autopopulates the agent's name, redirect URIs, `token_endpoint_auth_method`, and `jwks_uri` from the metadata.
 
-If validation fails — for example, the document is missing `redirect_uris` — the error is shown inline, no preview appears, and you can't continue until it's fixed. Editing the URL after a successful validation clears the preview, so re-validate.
+If validation fails—for example, the document is missing `redirect_uris`—the error is shown inline, no preview appears, and you can't continue until it's fixed. If you edit the URL after a successful validation, the preview clears, so revalidate it.
 
 {% hint style="info" %}
-The **CIMD** option is only selectable when CIMD is enabled on the AM domain. If it's greyed out, enable CIMD in AM first — see [Configure your Access Management instance](configure-your-access-management-instance.md).
+The **CIMD** option is only selectable when CIMD is enabled on the AM domain. If it's grayed out, enable CIMD in AM first—see [Configure your Access Management instance](configure-your-access-management-instance.md).
 {% endhint %}
 {% endtab %}
 {% endtabs %}
@@ -84,49 +86,49 @@ This step changes based on the persona you chose.
 
 ### User-embedded and Hosted delegated
 
-These personas act on behalf of a user, so they need a redirect target and an identity provider:
+These personas act on behalf of a user, so they need a redirect target and an identity provider. Provide the following:
 
-* **Redirect URIs** — one per line, or whitespace-separated. (Hidden when you used CIMD, since the redirect URIs come from the metadata document.)
-* **Identity provider** — the AM identity provider that users authenticate against. The list is populated from the identity providers configured on the AM domain. If there's exactly one, it's selected automatically.
+* **Redirect URIs**. Enter one per line, or whitespace-separated. These are hidden when you use CIMD, because the redirect URIs come from the metadata document.
+* **Identity provider**. Select the AM identity provider that users authenticate against. The list is populated from the identity providers configured on the AM domain. If there's exactly one, it's selected automatically.
 
 {% hint style="info" %}
 If no identity providers are listed, create one on the AM domain first.
 {% endhint %}
 
-For **Hosted delegated** you can also toggle **Enable JWKS** to switch client authentication to `private_key_jwt`. Provide a **jwks\_uri** (where AM fetches the public JWKS document) and/or paste an inline **jwks** JSON object. If you leave this disabled, the client will authenticate using a generated client secret.
+For **Hosted delegated**, you can also toggle **Enable JWKS** to switch client authentication to `private_key_jwt`. Provide a **jwks\_uri**, where AM fetches the public JWKS document, and/or paste an inline **jwks** JSON object. If you leave this disabled, the client authenticates using a generated client secret.
 
 ### Autonomous
 
-Autonomous agents have no browser and no interactive user, so instead of redirect URIs and an IdP you choose how the agent authenticates. **JWKS and SPIFFE are mutually exclusive.**
+Autonomous agents have no browser and no interactive user. Instead of redirect URIs and an identity provider, you choose how the agent authenticates. **JWKS and SPIFFE are mutually exclusive.**
 
 {% tabs %}
 {% tab title="JWKS" %}
-Authenticate with `private_key_jwt`. Provide at least one of:
+Authenticate with `private_key_jwt`. Provide at least one of the following:
 
-* **jwks\_uri** — a URL where AM fetches the agent's public JWKS document.
-* **jwks** — an inline JWKS JSON object (an object with a non-empty `keys` array). Use this when the agent can't publish a `jwks_uri`.
+* **jwks\_uri**. AM fetches the agent's public JWKS document from this URL.
+* **jwks**. This is an inline JWKS JSON object, an object with a non-empty `keys` array. Use this when the agent can't publish a `jwks_uri`.
 {% endtab %}
 
 {% tab title="SPIFFE" %}
 Authenticate with a SPIFFE JWT-SVID instead of a client secret.
 
-* **Trust domain** — select a registered trust domain from the dropdown list. If you need a new one, select **Register new** and provide the trust-domain name (as it appears in SPIFFE IDs) and a **bundle endpoint URL** (or JWKS URL) that AM polls for the trust bundle used to verify JWT-SVIDs.
-* **SPIFFE ID** — enter the subject identifier. It must start with `spiffe://<trust-domain>/` (for example, `spiffe://example.org/workload/my-agent`). Depending on the match mode configured in AM, the ID is validated using an exact match or a prefix match.
+* **Trust domain**. Select a registered trust domain from the dropdown list. If you need a new one, select **Register new** and provide the trust-domain name, as it appears in SPIFFE IDs, and a **bundle endpoint URL** or JWKS URL. AM polls this endpoint for the trust bundle used to verify JWT-SVIDs.
+* **SPIFFE ID**. Enter the subject identifier. It must start with `spiffe://<trust-domain>/`, for example `spiffe://example.org/workload/my-agent`. Depending on the match mode configured in AM, the ID is validated using an exact match or a prefix match.
 
 {% hint style="info" %}
-The **SPIFFE** option is only available for Autonomous agents and requires SPIFFE to be enabled on the AM domain — see [Configure your Access Management instance](configure-your-access-management-instance.md).
+The **SPIFFE** option is only available for Autonomous agents and requires SPIFFE to be enabled on the AM domain—see [Configure your Access Management instance](configure-your-access-management-instance.md).
 {% endhint %}
 {% endtab %}
 {% endtabs %}
 
 ## Create the agent and save the client secret
 
-Select **Create agent**.
+On the **Review** step, check the persona, basics, and flow settings summary, and then select **Create agent**.
 
 For confidential clients, AM returns a **client secret**. The wizard shows a one-time panel with the agent's `client_id` and `client_secret`.
 
 {% hint style="warning" %}
-AM only returns the client secret once. Copy it and store it somewhere safe before you leave the page — it can't be retrieved later.
+AM only returns the client secret once. Copy it and store it somewhere safe before you leave the page—it can't be retrieved later.
 {% endhint %}
 
 Select **Continue to agent** to open the agent's detail page.
@@ -135,5 +137,5 @@ Agents registered with CIMD don't have a client secret to reveal, so the wizard 
 
 ## Next steps
 
-* [Expose your agent with the A2A Proxy](expose-agent-with-a2a-proxy.md) — Make the agent's skills discoverable across trust boundaries.
-* [Add policies to your MCP server](configure-your-mcp/add-policies-to-mcp-server.md) — Write authorization policies that reference this agent as a principal.
+* [Expose your agent with the A2A Proxy](expose-agent-with-a2a-proxy.md). Make the agent's skills discoverable across trust boundaries.
+* [Add policies to your MCP server](configure-your-mcp/add-policies-to-mcp-server.md). Write authorization policies that reference this agent as a principal.
