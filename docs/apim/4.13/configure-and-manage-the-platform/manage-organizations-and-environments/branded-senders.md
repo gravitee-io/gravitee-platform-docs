@@ -21,6 +21,7 @@ Branded senders can be configured at two scopes, **Organization** and **Environm
 ## Prerequisites
 
 - The SMTP email service must be **enabled** at the Organization or Environment level. Branded sender controls are disabled while email is off.
+- Configure the default sender address and subject prefix, `email.from` and `email.subject`, in your SMTP configuration. They're used for every recipient no rule matches.
 - To save or reset branded senders at the **Environment** scope, you need the `ENVIRONMENT_SETTINGS` permission with `UPDATE` access.
 - To save branded senders at the **Organization** scope, you need the `ORGANIZATION_SETTINGS` permission with `UPDATE` access. Without it, the whole settings form is read-only.
 
@@ -79,6 +80,10 @@ Each rule has three fields:
 
 A domain can appear in only one rule. The APIM Console rejects duplicates across rules when you save the form.
 
+In the **Subject prefix**, both `%s` and the positional form `%1$s` are replaced with the notification's own subject. A prefix that contains no placeholder is accepted and used as you typed it.
+
+Domains are validated as dot-separated host names, and punycode internationalized domains such as `xn--p1ai` are accepted. When you save, domains are trimmed and lower-cased, the **From** address is trimmed, and the **Subject prefix** is stored exactly as you typed it. For example, `Example.COM` is saved as `example.com`.
+
 ## Configure Branded Senders in the APIM Console
 
 Go to **Settings > Settings**, scroll to the **SMTP** card, and find the **Branded notification email** subsection, which follows the **Mail properties** subsection. It also shows a read-only **Default notification email** preview, listing the **Default From** and **Default subject prefix** that apply to any recipient no rule matches.
@@ -118,7 +123,7 @@ If `email.branded_senders` is set in `gravitee.yml` or by an environment variabl
 - The value isn't set in `gravitee.yml`.
 - You have the `ENVIRONMENT_SETTINGS` permission with `UPDATE` access.
 
-Clicking it removes the Environment override, so the Environment inherits from the Organization again. If you have unsaved changes on the page, the APIM Console asks you to confirm before discarding them.
+Clicking it removes the Environment override, so the Environment inherits from the Organization again. If you have unsaved changes on the page, the APIM Console asks you to confirm before discarding them. Confirm the **Reset branded senders** dialog by clicking **Reset**, which discards those changes. With no unsaved changes, the reset runs immediately, and the settings reload with the inherited values.
 
 ## Manage Branded Senders at the Organization Scope
 
@@ -153,6 +158,8 @@ email:
       from: Partner Team <partners@example.org>
       subject: "[Partner] %s"
 ```
+
+If a rule applies to a single domain, you can give `domains` as a scalar, such as `domains: example.com`.
 {% endtab %}
 
 {% tab title=".env" %}
