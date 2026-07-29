@@ -1,12 +1,15 @@
 ---
 description: An overview about endpoints.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/4.11/create-and-configure-apis/configure-v4-apis/endpoints
 ---
 
 # Endpoints
 
 ## Overview
 
-You can choose to configure either [v4 proxy API endpoints](README.md#proxy-api-endpoints) or [v4 message API endpoints](README.md#message-api-endpoints).
+You can choose to configure either [v4 proxy API endpoints](./#proxy-api-endpoints) or [v4 message API endpoints](./#message-api-endpoints).
 
 ## Proxy API endpoints
 

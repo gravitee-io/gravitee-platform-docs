@@ -2,6 +2,8 @@
 description: >-
   This article covers how to install and configure APIM with Gravitee's official
   Helm chart
+metaLinks:
+  canonical: https://documentation.gravitee.io/apim/getting-started/vanilla-kubernetes
 ---
 
 # APIM Helm Install and Configuration
@@ -41,31 +43,20 @@ The following command line tools must be installed:
     ```
 2.  Install the chart from the Helm repo specifying the desired release, e.g., `graviteeio-apim4x` in the example below. The chart can be installed into either the default namespace or a dedicated namespace.
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
-      <p><strong>Dedicated namespace</strong></p>
-      <p>To prevent potential issues, it is best practice to create a separate namespace for your installation and avoid using the default Kubernetes namespace. This is not mandatory, but the installation command below follows this recommendation.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p><strong>Dedicated namespace</strong></p><p>To prevent potential issues, it is best practice to create a separate namespace for your installation and avoid using the default Kubernetes namespace. This is not mandatory, but the installation command below follows this recommendation.</p></div>
 
     *   **Dedicated namespace:** To install the Helm Chart using a dedicated namespace (e.g., `gravitee-apim`), run the following command:
 
-        {% code overflow="wrap" %}
-        ```sh
-        helm install graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim
-        ```
-        {% endcode %}
+        <pre class="language-sh" data-overflow="wrap"><code class="lang-sh">helm install graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim
+        </code></pre>
     *   **Default namespace:** To install the Helm Chart using the default namespace (not recommended), run the following command:
 
         ```sh
         helm install graviteeio-apim4x graviteeio/apim
         ```
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <p><strong>Installation tips</strong></p>
-      <p>Specify each parameter using <code>helm install</code> and the <code>--set key=value[,key=value]</code>.</p>
-      <p>Alternatively, provide a YAML file that specifies the values for the parameters when installing the chart. For example:</p>
-      <pre><code class="language-sh">helm install my-release -f values.yaml gravitee</code></pre>
-      <p>By default, APIM uses the values in the <code>values.yml</code> config file during installation. These can be modified via the parameters in the <a href="apim-helm-install-and-configuration.md">configuration</a> tables.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Installation tips</strong></p><p>Specify each parameter using <code>helm install</code> and the <code>--set key=value[,key=value]</code>.</p><p>Alternatively, provide a YAML file that specifies the values for the parameters when installing the chart. For example:</p><pre class="language-sh"><code class="lang-sh">helm install my-release -f values.yaml gravitee
+    </code></pre><p>By default, APIM uses the values in the <code>values.yml</code> config file during installation. These can be modified via the parameters in the <a href="apim-helm-install-and-configuration.md">configuration</a> tables.</p></div>
 3.  (Optional) Alternatively, you can package this chart directory into a chart archive:
 
     ```sh
@@ -93,9 +84,7 @@ Application settings must be defined as follows:
 
 *   Secret settings: `secrets://kubernetes/mysecret:key?namespace=ns`, with the kube plugin enabled via `secrets.kubernetes.enabled=true`
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
-      <p>The above syntax applies to Gravitee versions 4.2 and later</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The above syntax applies to Gravitee versions 4.2 and later</p></div>
 * ConfigMap settings: `kubernetes://<namespace>/configmaps/<my-configmap-name>/<my-configmap-key>`
 
 For example, the MongoDB URI initialized from the `mongo` Secret deployed in the `default` namespace is defined as:

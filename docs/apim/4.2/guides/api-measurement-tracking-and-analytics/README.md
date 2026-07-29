@@ -3,6 +3,9 @@ description: >-
   Gravitee offers several ways to measure, track and analyze APIs, in addition
   to capturing logs so that you can easily stay on top of your APIs and retain
   visibility into performance and consumption.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/analyze-and-monitor-apis/dashboards/v2-api-analytics-dashboards
 ---
 
 # API Measurement, Tracking, and Analytics
@@ -25,7 +28,7 @@ The Gravitee "Dashboard" is an area in the UI where you'll be able to create cus
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="bTYh1yLqcbJU6xaGZQZm" url="https://app.arcade.software/share/bTYh1yLqcbJU6xaGZQZm" %}
+{% @arcade/embed url="https://app.arcade.software/share/bTYh1yLqcbJU6xaGZQZm" flowId="bTYh1yLqcbJU6xaGZQZm" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -44,7 +47,7 @@ While there is less "measurement" here, the APIs menu is crucial for being able 
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="6XNg5xzEOEkNwJRZ6Ogm" url="https://app.arcade.software/share/6XNg5xzEOEkNwJRZ6Ogm" %}
+{% @arcade/embed url="https://app.arcade.software/share/6XNg5xzEOEkNwJRZ6Ogm" flowId="6XNg5xzEOEkNwJRZ6Ogm" %}
 {% endtab %}
 
 {% tab title="Second Tab" %}
@@ -66,7 +69,7 @@ The **Applications** page is where you can keep track of and view various inform
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="WvD0RpAfXJIdCJQBSSOz" url="https://app.arcade.software/share/WvD0RpAfXJIdCJQBSSOz" %}
+{% @arcade/embed url="https://app.arcade.software/share/WvD0RpAfXJIdCJQBSSOz" flowId="WvD0RpAfXJIdCJQBSSOz" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -87,7 +90,7 @@ The **Applications** page is comprised of the following resources for active and
 
 As of Gravitee 4.0, the Audit Trail is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../overview/gravitee-apim-enterprise-edition/README.md)
+* [Refer to the EE vs OSS documentation](../../overview/gravitee-apim-enterprise-edition/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -98,7 +101,7 @@ For example, you can use it in conjunction with the analytics feature to identif
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="8cTbVX8QGEQ3XsLURvW0" url="https://app.arcade.software/share/8cTbVX8QGEQ3XsLURvW0" %}
+{% @arcade/embed url="https://app.arcade.software/share/8cTbVX8QGEQ3XsLURvW0" flowId="8cTbVX8QGEQ3XsLURvW0" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -126,7 +129,7 @@ The Gravitee **API Quality** feature enables you to create and automatically ass
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="crEmd5VTMLuJSdb8c9aM" url="https://app.arcade.software/share/crEmd5VTMLuJSdb8c9aM" %}
+{% @arcade/embed url="https://app.arcade.software/share/crEmd5VTMLuJSdb8c9aM" flowId="crEmd5VTMLuJSdb8c9aM" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
