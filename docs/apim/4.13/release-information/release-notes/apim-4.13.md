@@ -28,6 +28,7 @@ documentation.gravitee.io links for other versions.
 ## Highlights
 
 * Branded senders apply a different **From** address and subject prefix to notification emails for each recipient domain, configurable per Organization and Environment.
+* The new `#xmlEscape` Expression Language function escapes a value for XML output, so you can safely insert request data such as headers into an XML document.
 
 ## New Features
 
@@ -39,3 +40,10 @@ documentation.gravitee.io links for other versions.
 * In the APIM Console, configure rules under the **Branded notification email** subsection of the **SMTP** card, at both the Organization and Environment scope. An Environment inherits the Organization's rules until it saves its own, and **Reset to Org settings** restores inheritance. Branded senders require the SMTP email service to be enabled, plus `ORGANIZATION_SETTINGS[UPDATE]` or `ENVIRONMENT_SETTINGS[UPDATE]` permission for the corresponding scope.
 * For a self-hosted installation, set `email.branded_senders` in the Management API `gravitee.yml`, as a JSON array in an environment variable, or under the Helm chart's `smtp:` section. A value set this way applies to every Organization and Environment. It also makes the APIM Console field read-only.
 * APIM doesn't verify domain ownership and doesn't check DNS before sending. Publish SPF, DKIM, and DMARC records authorizing your relay for every domain you use in a **From** address. Confirm that your SMTP relay accepts a sender address outside its authenticated domain. Some relays accept such a message and then discard it, which APIM records as a successful send.
+
+#### **XML Escape Function for Expression Language**
+
+* `#xmlEscape` converts `<`, `>`, `&`, and `"` to `&lt;`, `&gt;`, `&amp;`, and `&quot;`, which prevents a value taken from the current API transaction from breaking the XML document you insert it into.
+* Call the function from any field that supports Expression Language, for example `{#xmlEscape(#request.headers['X-Custom'])}`.
+* The function accepts exactly one argument, and collections and arrays are joined into a single space-separated string before escaping, so you can pass a multi-valued header or query parameter directly.
+* To escape a value for both a JSON and an XML context, nest `#xmlEscape` with the existing `#jsonEscape` function, for example `{#jsonEscape(#xmlEscape(#request.content))}`, where the order of nesting determines the result.
