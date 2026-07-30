@@ -96,15 +96,13 @@ EL provides a variety of built-in functions to manipulate and transform data in 
 * String functions: `length()`, `substring()`, `replace()`
 * `#jsonPath`: Evaluates a JSONPath expression on a specified object. This function delegates to the Jayway JSONPath library. The best way to learn JSONPath syntax is by using the online evaluator.
 * `#xpath`: Evaluates an `xpath` on a provided object. For more information regarding XML and XPath, see XML Support - Dealing with XML Payloads in the SpEL documentation.
-* `#jsonEscape`: Escapes a value so it can be safely inserted into a JSON document or JSON string literal, for example `{#jsonEscape(#request.headers['X-Custom'])}`. Available from Gravitee 4.4.0 onward.
-* `#xmlEscape`: Escapes a value for XML output, converting `<`, `>`, `&`, and `"` to `&lt;`, `&gt;`, `&amp;`, and `&quot;`, for example `{#xmlEscape(#request.headers['X-Custom'])}`.
+* `#jsonEscape`: Escapes a value so it can be safely inserted into a JSON document or JSON string literal, for example `{#jsonEscape(#request.headers['X-Custom'])}`.
+* `#xmlEscape`: Escapes a value for XML output, converting `<`, `>`, `&`, `"`, and `'` to `&lt;`, `&gt;`, `&amp;`, `&quot;`, and `&apos;`, for example `{#xmlEscape(#request.headers['X-Custom'])}`.
 
 {% hint style="info" %}
 **Using the escape functions**
 
 Both escape functions accept exactly one argument. Collections and arrays are joined into a single space-separated string before escaping, so you can pass a multi-valued header or query parameter directly.
-
-To escape a value for both a JSON and an XML context, nest the two functions, for example `{#jsonEscape(#xmlEscape(#request.content))}`. The order of nesting determines the result.
 {% endhint %}
 
 **`jsonPath` example**
