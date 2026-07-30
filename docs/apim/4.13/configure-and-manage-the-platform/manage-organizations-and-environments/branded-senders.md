@@ -19,7 +19,7 @@ A rule changes only the sender address and the subject prefix. The body of each 
 Branded senders can be configured at two scopes, **Organization** and **Environment**, and for self-hosted installations in `gravitee.yml`.
 
 {% hint style="info" %}
-On Gravitee-hosted installations, a sending domain is verified **on demand**: it is configured manually for your account rather than self-service. To have a domain verified, [contact Gravitee](/gravitee-cloud/community-and-support/enterprise-support). You're given DNS records to publish, and branded senders works for that domain once verification completes.
+On Gravitee-hosted installations, a sending domain is verified **on demand**: it is configured manually for your account rather than self-service. To have a domain verified, [contact Gravitee](/gravitee-cloud/community-and-support/enterprise-support). You are provided with the DNS records to publish, and then branded senders works for that domain once verification completes.
 {% endhint %}
 
 ## Prerequisites
