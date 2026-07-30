@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.34 - May 25, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* WebAuthn no longer fails when a certificate configured in the security domain's WebAuthn settings can't be loaded. The gateway skips the certificate and logs a warning.
+
+</details>
+
+
 ## Gravitee Access Management 4.6.33 - March 23, 2026
 
 <details>
@@ -39,7 +58,7 @@ description: >-
 
 **Other**
 
-* Add gravitee.yml placeholders and helm chart mappings for legacy purge settings [#11090](https://github.com/gravitee-io/issues/issues/11090)
+* Add gravitee.yml placeholders and Helm chart mappings for legacy purge settings [#11090](https://github.com/gravitee-io/issues/issues/11090)
 
 </details>
 
@@ -78,7 +97,7 @@ description: >-
 
 **Other**
 
-* AuthenticationFlow: missing transactionId [#11033](https://github.com/gravitee-io/issues/issues/11033)
+* AuthenticationFlow: missing `transactionId` [#11033](https://github.com/gravitee-io/issues/issues/11033)
 * Unable to add multiple virtual hosts in Gravitee AM [#11048](https://github.com/gravitee-io/issues/issues/11048)
 
 </details>
@@ -98,7 +117,7 @@ description: >-
 
 **Other**
 
-* Apply jemalloc to dockerfile for Gateway/MAPI (4.7+) [#10991](https://github.com/gravitee-io/issues/issues/10991)
+* Apply jemalloc to Dockerfile for Gateway/mAPI (4.7+) [#10991](https://github.com/gravitee-io/issues/issues/10991)
 * Introduce setting to avoid fallback on HMAC [#11018](https://github.com/gravitee-io/issues/issues/11018)
 * Enhance logging in gateway consent failure handler [#11025](https://github.com/gravitee-io/issues/issues/11025)
 * MFA challenge is always presented when session is expired and Remember Me cookie bypasses login [#11029](https://github.com/gravitee-io/issues/issues/11029)
@@ -201,7 +220,7 @@ description: >-
 
 **Other**
 
-* Make datasource configurable using helm values [#10884](https://github.com/gravitee-io/issues/issues/10884)
+* Make datasource configurable using Helm values [#10884](https://github.com/gravitee-io/issues/issues/10884)
 
 </details>
 
@@ -217,16 +236,16 @@ description: >-
 
 **Management API**
 
-* Sanitize the redirect\_uri to avoid empty segment when cockpit try to connect on the console [#10805](https://github.com/gravitee-io/issues/issues/10805)
+* Sanitize the redirect\_uri to avoid empty segment when Cockpit try to connect on the console [#10805](https://github.com/gravitee-io/issues/issues/10805)
 
 **Other**
 
 * Introduce common connection pool for MongoIDP [#10719](https://github.com/gravitee-io/issues/issues/10719)
-* AWS HSM Certificate Plugin logs remain at DEBUG level despite global INFO configuration, and Helm chart indentation/mapping issue for extraLoggers. [#10824](https://github.com/gravitee-io/issues/issues/10824)
-* Limit the batchSize on Mongo Reporter request [#10846](https://github.com/gravitee-io/issues/issues/10846)
-* Add helm.sh/chart to pod template annotations [#10849](https://github.com/gravitee-io/issues/issues/10849)
+* AWS HSM Certificate Plugin logs remain at DEBUG level despite global INFO configuration, and Helm chart indentation/mapping issue for `extraLoggers`. [#10824](https://github.com/gravitee-io/issues/issues/10824)
+* Limit the `batchSize` on Mongo Reporter request [#10846](https://github.com/gravitee-io/issues/issues/10846)
+* Add `helm.sh/chart` to pod template annotations [#10849](https://github.com/gravitee-io/issues/issues/10849)
 * User registration completion UI widget is broken [#10865](https://github.com/gravitee-io/issues/issues/10865)
-* Conversion session.timeout for helm value incorrect [#10867](https://github.com/gravitee-io/issues/issues/10867)
+* Conversion `session.timeout` for Helm value incorrect [#10867](https://github.com/gravitee-io/issues/issues/10867)
 * Improve logging in EnrichAuthFlowPolicy [#10875](https://github.com/gravitee-io/issues/issues/10875)
 
 </details>
@@ -253,7 +272,7 @@ description: >-
 **Other**
 
 * IDP Domain whitelist [#10790](https://github.com/gravitee-io/issues/issues/10790)
-* When a kafka reporter is inherited from the organization, each domain has it own producer [#10576](https://github.com/gravitee-io/issues/issues/10576)
+* When a Kafka reporter is inherited from the organization, each domain has it own producer [#10576](https://github.com/gravitee-io/issues/issues/10576)
 * Reduce the number of threads with MongoDB Backend [#10713](https://github.com/gravitee-io/issues/issues/10713)
 * Deleting Organization User Fails on SQL Server Due to Invalid DELETE Syntax [#10838](https://github.com/gravitee-io/issues/issues/10838)
 * Incorrect audit log file formatting [#10757](https://github.com/gravitee-io/issues/issues/10757)
@@ -298,7 +317,7 @@ description: >-
 **Other**
 
 * Can't request on values containing + char using filters for searching users [#10495](https://github.com/gravitee-io/issues/issues/10495)
-* Missing MAPI audits in Global kafka reporter [#10609](https://github.com/gravitee-io/issues/issues/10609)
+* Missing mAPI audits in Global Kafka reporter [#10609](https://github.com/gravitee-io/issues/issues/10609)
 * Group search base in LDAP Provider in UI does not reflect backend value [#10668](https://github.com/gravitee-io/issues/issues/10668)
 * LDAP connection leak [#10736](https://github.com/gravitee-io/issues/issues/10736)
 
@@ -351,7 +370,7 @@ description: >-
 {% hint style="info" %}
 If the page templates have been customized, it is necessary to include the JavaScript scripts related to this new plugin. For login, reset\_password, registration and registration\_confirmation, please add:
 
-```
+```html
 <script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:src="@{assets/js/device-type-v1.js}"></script>
 <script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:attr="nonce=${script_inline_nonce}">
     const deviceId = "[[${cookieDeviceIdentifier}]]" ;
@@ -365,7 +384,7 @@ If the page templates have been customized, it is necessary to include the JavaS
 
 For webauthn\_login, please add :
 
-```
+```html
 <script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:src="@{../assets/js/device-type-v1.js}"></script>
 <script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:attr="nonce=${script_inline_nonce}">
     const deviceId = "[[${cookieDeviceIdentifier}]]" ;
@@ -404,7 +423,7 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 
 **Other**
 
-* \[FC] update the sandbox urls [#10636](https://github.com/gravitee-io/issues/issues/10636)
+* \[FC] update the sandbox URLs [#10636](https://github.com/gravitee-io/issues/issues/10636)
 
 </details>
 
@@ -421,7 +440,7 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 
 **Management API**
 
-* Users cannot view the accessPoint field in the domain audit logs if they do not have a domain role permission [#10602](https://github.com/gravitee-io/issues/issues/10602)
+* Users cannot view the `accessPoint` field in the domain audit logs if they do not have a domain role permission [#10602](https://github.com/gravitee-io/issues/issues/10602)
 
 **Console**
 
@@ -445,8 +464,8 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 
 **Other**
 
-* OpenAPI spec for listDomains is not correct [#10591](https://github.com/gravitee-io/issues/issues/10591)
-* \[R2DBC] version 1.0.2 of SQLServer driver not working [#10565](https://github.com/gravitee-io/issues/issues/10565)
+* OpenAPI spec for `listDomains` is not correct [#10591](https://github.com/gravitee-io/issues/issues/10591)
+* \[R2DBC] version 1.0.2 of SQL Server driver not working [#10565](https://github.com/gravitee-io/issues/issues/10565)
 
 </details>
 
@@ -477,11 +496,11 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 **Management API**
 
 * Users and Groups metadata not displayed for /members endpoint [#10515](https://github.com/gravitee-io/issues/issues/10515)
-* Email notification fails when user doesn't have firstName [#10536](https://github.com/gravitee-io/issues/issues/10536)
+* Email notification fails when user doesn't have `firstName` [#10536](https://github.com/gravitee-io/issues/issues/10536)
 
 **Other**
 
-* Reporter Upgrader is using a syntax not supported by DocumentDB [#10528](https://github.com/gravitee-io/issues/issues/10528)
+* Reporter upgrader is using a syntax not supported by DocumentDB [#10528](https://github.com/gravitee-io/issues/issues/10528)
 
 </details>
 
@@ -540,8 +559,8 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 
 * Problem with API management console application creation/update and DCR [#10232](https://github.com/gravitee-io/issues/issues/10232)
 * Login button remains disabled when using a password manager [#10411](https://github.com/gravitee-io/issues/issues/10411)
-* Setting max consecutive letters to 0 in password policies using mapi displays unnecessary password requirement [#10416](https://github.com/gravitee-io/issues/issues/10416)
-* Unable to use id\_token when configuring Azure though OpenId form [#10453](https://github.com/gravitee-io/issues/issues/10453)
+* Setting max consecutive letters to 0 in password policies using mAPI displays unnecessary password requirement [#10416](https://github.com/gravitee-io/issues/issues/10416)
+* Unable to use id\_token when configuring Azure though OpenID form [#10453](https://github.com/gravitee-io/issues/issues/10453)
 * Using of Redis on Production and Crash situation [#10454](https://github.com/gravitee-io/issues/issues/10454)
 * Error handling error=session\_expired in Login Form [#10460](https://github.com/gravitee-io/issues/issues/10460)
 * EL for language entries not resolving correctly [#10465](https://github.com/gravitee-io/issues/issues/10465)
@@ -549,14 +568,14 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 
 **Management API**
 
-* Prevent Ogranization IDP selection to send null [#10444](https://github.com/gravitee-io/issues/issues/10444)
+* Prevent Organization IDP selection to send null [#10444](https://github.com/gravitee-io/issues/issues/10444)
 * Fix audit log on user login failed [#10463](https://github.com/gravitee-io/issues/issues/10463)
 
 **Other**
 
 * Unable to save Group Mapper for Social IDP at organization level in AM UI [#10403](https://github.com/gravitee-io/issues/issues/10403)
-* Error in /ciba/authenticate/callback [#10412](https://github.com/gravitee-io/issues/issues/10412)
-* MinLength value can be greater than maxLength value in a password policy when using the mapi [#10417](https://github.com/gravitee-io/issues/issues/10417)
+* Error in `/ciba/authenticate/callback` [#10412](https://github.com/gravitee-io/issues/issues/10412)
+* MinLength value can be greater than `maxLength` value in a password policy when using the mAPI [#10417](https://github.com/gravitee-io/issues/issues/10417)
 * \[AM]\[4.5.11] Error when character "ë" in a token [#10418](https://github.com/gravitee-io/issues/issues/10418)
 * Can't update SAML SP certificate in UI application SAML tab [#10442](https://github.com/gravitee-io/issues/issues/10442)
 * Group Mapper not apply with JDBC [#10445](https://github.com/gravitee-io/issues/issues/10445)
@@ -623,7 +642,7 @@ This version contains a regression introduced by [#10344](https://github.com/gra
 </details>
 
 {% hint style="info" %}
-When managing deployments using Helm, please note that the default startup, liveness, and readiness probes now use the httpGet method by default to request the internal API on the `/_node/health` endpoint. As a result, the internal API listens on `0.0.0.0` to allow the kubelet to check the component's status. If you don't provide custom probe definitions and have explicitly defined either the `api.http.services.core.http.host` or the `gateway.http.services.core.http.host`, ensure the value is set to `0.0.0.0`; otherwise, the probes will fail.
+When managing deployments using Helm, the default startup, liveness, and readiness probes now use the `httpGet` method by default to request the internal API on the `/_node/health` endpoint. As a result, the internal API listens on `0.0.0.0` to allow the kubelet to check the component's status. If you don't provide custom probe definitions and have explicitly defined either the `api.http.services.core.http.host` or the `gateway.http.services.core.http.host`, ensure the value is set to `0.0.0.0`. Otherwise, the probes will fail.
 {% endhint %}
 
 ## AM 4.6.x
@@ -672,11 +691,11 @@ When managing deployments using Helm, please note that the default startup, live
 
 #### Twilio Resource
 
-The new version of the Twilio resource for SMS or Call factors allows you to specify the templateSid as configuration option.
+The new version of the Twilio resource for SMS or Call factors allows you to specify the `templateSid` as configuration option.
 
 #### LDAP Identity Provider
 
-The new version of the LDAP identity provider grant you access to the Operational Attributes linked to the user profile coming from the LDAP server. (**NOTE:** If this option is enable, Opertational Attributes will be accessible using the User Mapper.)
+The new version of the LDAP identity provider grant you access to the Operational Attributes linked to the user profile coming from the LDAP server. (**NOTE:** If this option is enable, Operational Attributes will be accessible using the User Mapper.)
 
 #### User Migration
 
@@ -684,7 +703,7 @@ For users migrations from an alternative OIDC provider to Access Management, you
 
 #### Audit Logs
 
-Additional audit logs have been added on SCIM endpoint to track failing user creations or updates due to an invalid password. In additiopn, a distinction is made between user login with password against using passwordless in a way that the dashboard now expose these information.
+Additional audit logs have been added on SCIM endpoint to track failing user creations or updates due to an invalid password. In addition, a distinction is made between user login with password against using passwordless in a way that the dashboard now expose these information.
 
 #### Bulk action for user provisioning
 
@@ -702,7 +721,7 @@ A key pair registered in AWS Cloud HSM can be used to sign an tokens generated b
 
 **SCIM pagination**
 
-In previous versions, the `startIndex` parameter used by SCIM paginiation was representing the page number. According to the [specification](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2) the `startIndex` represent `the index of the first search result desired by the search client` . In order to be align with the specification, the SCIM endpoints of AM Gateway are managing the startIndex as specified by the RFC.
+In previous versions, the `startIndex` parameter used by SCIM pagination was representing the page number. According to the [specification](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2) the `startIndex` represent `the index of the first search result desired by the search client` . In order to be align with the specification, the SCIM endpoints of AM Gateway are managing the `startIndex` as specified by the RFC.
 
 </details>
 
