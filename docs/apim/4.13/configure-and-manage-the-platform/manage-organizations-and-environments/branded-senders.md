@@ -25,6 +25,7 @@ On Gravitee-hosted installations, a sending domain is verified **on demand**: it
 ## Prerequisites
 
 - The SMTP email service must be **enabled** at the Organization or Environment level. Branded sender controls are disabled while email is off.
+- A default **From** address and **Subject prefix** must be configured, because they're used for every recipient that no rule matches.
 - To save or reset branded senders at the **Environment** scope, you need the `ENVIRONMENT_SETTINGS` permission with `UPDATE` access.
 - To save branded senders at the **Organization** scope, you need the `ORGANIZATION_SETTINGS` permission with `UPDATE` access. Without it, the whole settings form is read-only.
 
@@ -71,13 +72,15 @@ When a notification is sent, the APIM console takes the domain from each recipie
 
 Recipients that match no rule keep the default sender address and subject prefix. When one notification goes to recipients at several branded domains, each domain receives its own message, sent from its own address.
 
+If a **Reply-To** address is configured in your SMTP settings, it's applied to branded messages as well.
+
 ## Branded Sender Rule Fields
 
 Each rule has three fields:
 
 | Field | Description | Constraints |
 |:------|:------------|:------------|
-| **Recipient domains** | The recipient email domains the rule applies to. | Required, at least one. Each entry must be a valid domain name, such as `example.com`. |
+| **Recipient domains** | The recipient email domains the rule applies to. | Required, at least one. Each entry must be a valid domain name, such as `example.com`. Punycode domains, such as `xn--p1ai`, are accepted. |
 | **From** | The sender address used for those recipients. | Required. Accepts a bare address such as `noreply@example.com`, or the display-name form `Example Team <noreply@example.com>`. |
 | **Subject prefix** | The subject prefix applied to those messages. | Optional, maximum 255 characters. Use `%s` where the notification's own subject should appear. If you leave this blank, the default subject prefix is used. |
 
@@ -122,7 +125,7 @@ If `email.branded_senders` is set in `gravitee.yml` or by an environment variabl
 - The value isn't set in `gravitee.yml`.
 - You have the `ENVIRONMENT_SETTINGS` permission with `UPDATE` access.
 
-Clicking it removes the Environment override, so the Environment inherits from the Organization again. If you have unsaved changes on the page, the APIM Console asks you to confirm before discarding them.
+Clicking it removes the Environment override, so the Environment inherits from the Organization again. If you have unsaved changes on the page, the APIM Console asks you to confirm before discarding them. After a successful reset, the settings are reloaded and the **Inherited from Org** badge reappears.
 
 ## Manage Branded Senders at the Organization Scope
 
@@ -157,6 +160,8 @@ email:
       from: Partner Team <partners@example.org>
       subject: "[Partner] %s"
 ```
+
+A single domain can also be given as a scalar value, such as `domains: example.com`.
 {% endtab %}
 
 {% tab title=".env" %}
