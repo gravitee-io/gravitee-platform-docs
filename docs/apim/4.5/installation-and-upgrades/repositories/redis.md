@@ -1,8 +1,11 @@
 ---
 description: This article explains how to configure a Redis repository
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/prepare-a-production-environment/repositories/redis
 ---
 
-# Configuring Redis for Gravitee API Management
+# Configuring Redis for rate limiting
 
 ## Overview
 
@@ -112,5 +115,5 @@ ratelimit:
 ```
 
 {% hint style="info" %}
-If Redis Rate Limit repository is not accessible, the API call will fail. Do not forget to monitor your probe health-check to verify that Redis repository is healthy. See the [Internal API documentation](../../using-the-product/using-the-gravitee-api-management-components/general-configuration-1/README.md) for health endpoints.
+If Redis Rate Limit repository is not accessible, the API call will fail. Do not forget to monitor your probe health-check to verify that Redis repository is healthy. See the [Internal API documentation](../../using-the-product/using-the-gravitee-api-management-components/general-configuration-1/) for health endpoints.
 {% endhint %}

@@ -45,7 +45,7 @@ Your have prepared your installation for deployment.
 To deploy your Gravitee Gateway, choose from the following technology stacks and deployment methods.
 
 {% hint style="warning" %}
-Deployment methods that are not linked to documentation are still fully supported. For more information, contact us.
+Deployment methods that are not linked to documentation are still fully supported. For more information, contact Gravitee.
 {% endhint %}
 
 ### Docker
@@ -85,7 +85,7 @@ US Cloud Gate: `https://us.cloudgate.gravitee.io/`\
 EU Cloud Gate: `https://eu.cloudgate.gravitee.io/`
 {% endhint %}
 
-Analytics are reported to a dedicated Cloud account pipeline. Data is produced to a Kafka topic, ingested in Logstash, and then stored in a dedicated Elastisearch index that is consumed by your Cloud account's API Management Control Plane.
+Analytics are reported to a dedicated Cloud account pipeline. Data is produced to a Kafka topic, ingested in Logstash, and then stored in a dedicated Elasticsearch index that is consumed by your Cloud account's API Management Control Plane.
 
 All communication between the hybrid Gateway and the Cloud Gate endpoints uses TLS encryption.
 
@@ -116,3 +116,63 @@ The Cloud Token is used to establish a secure and authenticated connection with 
 1. **Generate a Cloud Token.** Before connecting your Gateway, obtain a Cloud Token from your Cloud Control Plane.
 2. **Copy your Cloud license.** To start up and read your APIs, mount your license on the Gateway.
 3. **Start up the Gateway.** When the Gateway starts, it reads the Cloud Token, and then connects to the targeted Cloud Gate. You can now deploy APIs to the Gateway.
+
+## Stop sending analytics to the Cloud Control Plane
+
+Some organizations keep API traffic data inside their own infrastructure and don't want analytics or request logs leaving it. You can turn off the Cloud reporter so that the Gateway stops using the `/reports` endpoint, while the `/sync` endpoint keeps delivering API definitions, policies, and configuration from the Control Plane.
+
+The setting is `reporters.reportercloud.enabled`. Apply it in the way that matches your deployment.
+
+### gravitee.yml
+
+```yaml
+reporters:
+  reportercloud:
+    enabled: false
+```
+
+### Kubernetes
+
+Set the reporter under `gateway.reporters` in your Helm values. The chart writes any reporter you declare there into the Gateway's `gravitee.yml`:
+
+```yaml
+gateway:
+  reporters:
+    reportercloud:
+      enabled: false
+```
+
+To pass it as an environment variable instead, add it to `gateway.env`:
+
+```yaml
+gateway:
+  env:
+    - name: gravitee_reporters_reportercloud_enabled
+      value: "false"
+```
+
+### Docker
+
+Pass the environment variable alongside your Cloud Token and license key:
+
+```yaml
+services:
+  gateway:
+    image: graviteeio/apim-gateway:latest
+    environment:
+      - gravitee_cloud_token=${CLOUD_TOKEN}
+      - gravitee_license_key=${LICENSE_KEY}
+      - gravitee_reporters_reportercloud_enabled=false
+```
+
+Once the Gateway restarts, requests it serves no longer appear in the analytics and runtime logs of your Cloud Control Plane. The Gateway stays connected to the Cloud Gate and continues to receive configuration.
+
+{% hint style="warning" %}
+Confirm this in a non-production environment before you roll it out. Verify both halves: that new traffic stops appearing in the Control Plane analytics, and that an API change made in the Control Plane still reaches the Gateway.
+{% endhint %}
+
+{% hint style="info" %}
+To keep analytics while sending them somewhere you control, configure another reporter instead of, or alongside, this setting. See [reporters](../../analyze-and-monitor-apis/reporters/README.md).
+{% endhint %}
+
+Setting `cloud.enabled` to `false` is a different action. That severs the whole Cloud Gate connection, so the Gateway stops receiving configuration as well. See [configure Cloud Gateway client](../proxy-configuration/configure-cloud-gateway-client.md).

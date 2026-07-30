@@ -1,5 +1,8 @@
 ---
 description: How to install Gravitee API Management on Kubernetes
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/self-hosted-installation-guides/kubernetes/vanilla-kubernetes
 ---
 
 # Kubernetes

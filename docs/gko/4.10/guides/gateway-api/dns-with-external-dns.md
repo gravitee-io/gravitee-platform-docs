@@ -1,3 +1,9 @@
+---
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/gateway-api/dns-with-external-dns
+---
+
 # Configure DNS with external-dns
 
 ## Overview
@@ -33,7 +39,6 @@ external-dns requires a cloud-based DNS provider. It doesn't function in local d
 Add the `external-dns.alpha.kubernetes.io/hostname` annotation to the `spec.kubernetes.service.annotations` field in your `GatewayClassParameters` resource. GKO copies all annotations defined here onto the deployed Gateway's Kubernetes Service.
 
 {% code lineNumbers="true" %}
-
 ```yaml
 apiVersion: gravitee.io/v1alpha1
 kind: GatewayClassParameters
@@ -52,7 +57,6 @@ spec:
           - name: gateway
             image: graviteeio/apim-gateway
 ```
-
 {% endcode %}
 
 Apply the GatewayClassParameters:
@@ -65,29 +69,29 @@ kubectl apply -f gateway-class-parameters.yaml
 
 The `spec.kubernetes.service` section of `GatewayClassParameters` supports the following fields:
 
-| Field | Description | Default |
-| --- | --- | --- |
-| `type` | Kubernetes Service type | `LoadBalancer` |
-| `externalTrafficPolicy` | External traffic routing policy (`Cluster` or `Local`) | `Cluster` |
-| `loadBalancerClass` | Load balancer implementation class | — |
-| `annotations` | Annotations propagated to the Service (for example, external-dns annotations) | — |
-| `labels` | Labels propagated to the Service | — |
+| Field                   | Description                                                                   | Default        |
+| ----------------------- | ----------------------------------------------------------------------------- | -------------- |
+| `type`                  | Kubernetes Service type                                                       | `LoadBalancer` |
+| `externalTrafficPolicy` | External traffic routing policy (`Cluster` or `Local`)                        | `Cluster`      |
+| `loadBalancerClass`     | Load balancer implementation class                                            | —              |
+| `annotations`           | Annotations propagated to the Service (for example, external-dns annotations) | —              |
+| `labels`                | Labels propagated to the Service                                              | —              |
 
 ### external-dns annotations
 
 The following external-dns annotations are commonly used on the Service:
 
-| Annotation | Description | Example |
-| --- | --- | --- |
+| Annotation                                  | Description                                                 | Example           |
+| ------------------------------------------- | ----------------------------------------------------------- | ----------------- |
 | `external-dns.alpha.kubernetes.io/hostname` | Comma-separated list of DNS hostnames to create records for | `api.example.dev` |
-| `external-dns.alpha.kubernetes.io/ttl` | TTL (in seconds) for the DNS record | `300` |
-| `external-dns.alpha.kubernetes.io/target` | Override the target IP or hostname for the DNS record | `10.0.0.1` |
+| `external-dns.alpha.kubernetes.io/ttl`      | TTL (in seconds) for the DNS record                         | `300`             |
+| `external-dns.alpha.kubernetes.io/target`   | Override the target IP or hostname for the DNS record       | `10.0.0.1`        |
 
 For a full list of supported annotations, see the [external-dns FAQ](https://kubernetes-sigs.github.io/external-dns/latest/faq/).
 
 ## Create the GatewayClass and Gateway
 
-1. Create the GatewayClass referencing the annotated GatewayClassParameters:
+1.  Create the GatewayClass referencing the annotated GatewayClassParameters:
 
     ```yaml
     apiVersion: gateway.networking.k8s.io/v1
@@ -102,8 +106,7 @@ For a full list of supported annotations, see the [external-dns FAQ](https://kub
         name: gravitee-gateway
         namespace: default
     ```
-
-2. Create the Gateway:
+2.  Create the Gateway:
 
     ```yaml
     apiVersion: gateway.networking.k8s.io/v1
@@ -117,8 +120,7 @@ For a full list of supported annotations, see the [external-dns FAQ](https://kub
           port: 80
           protocol: HTTP
     ```
-
-3. Apply both resources:
+3.  Apply both resources:
 
     ```sh
     kubectl apply -f gateway-class.yaml
@@ -131,7 +133,7 @@ When GKO reconciles the Gateway, it creates a `LoadBalancer` Service with the ex
 
 To verify external-dns annotation propagation is working as expected, follow these steps:
 
-1. Verify the Gateway is programmed:
+1.  Verify the Gateway is programmed:
 
     ```sh
     kubectl get gateway gravitee-gateway \
@@ -143,8 +145,7 @@ To verify external-dns annotation propagation is working as expected, follow the
     ```
     Programmed=True
     ```
-
-2. Verify the annotations are present on the deployed Service:
+2.  Verify the annotations are present on the deployed Service:
 
     ```sh
     kubectl get svc gravitee-gateway \
@@ -156,8 +157,7 @@ To verify external-dns annotation propagation is working as expected, follow the
     ```
     api.example.dev
     ```
-
-3. Verify the Service type is `LoadBalancer`:
+3.  Verify the Service type is `LoadBalancer`:
 
     ```sh
     kubectl get svc gravitee-gateway \
@@ -169,24 +169,21 @@ To verify external-dns annotation propagation is working as expected, follow the
     ```
     LoadBalancer
     ```
-
-4. Retrieve the Gateway's external address:
+4.  Retrieve the Gateway's external address:
 
     ```sh
     export GW_ADDR=$(kubectl get gateway gravitee-gateway \
       -o jsonpath='{.status.addresses[0].value}')
     echo "$GW_ADDR"
     ```
-
-5. If external-dns is running and configured with your DNS provider, verify the DNS record was created:
+5.  If external-dns is running and configured with your DNS provider, verify the DNS record was created:
 
     ```sh
     dig +short api.example.dev
     ```
 
     The output shows the load balancer IP that external-dns configured.
-
-6. Test connectivity through the DNS hostname:
+6.  Test connectivity through the DNS hostname:
 
     ```sh
     curl -i http://api.example.dev/bin/hostname
@@ -199,7 +196,6 @@ To verify external-dns annotation propagation is working as expected, follow the
 This example combines external-dns for DNS automation with cert-manager for TLS certificate provisioning to create a fully automated HTTPS Gateway.
 
 {% code lineNumbers="true" %}
-
 ```yaml
 apiVersion: gravitee.io/v1alpha1
 kind: GatewayClassParameters
@@ -253,7 +249,6 @@ spec:
             kind: Secret
             name: "gateway-tls"
 ```
-
 {% endcode %}
 
 When applied, the following occurs:
