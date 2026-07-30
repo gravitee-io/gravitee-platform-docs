@@ -18,6 +18,10 @@ A rule changes only the sender address and the subject prefix. The body of each 
 
 Branded senders can be configured at two scopes, **Organization** and **Environment**, and for self-hosted installations in `gravitee.yml`.
 
+{% hint style="info" %}
+On Gravitee-hosted installations, a sending domain is verified **on demand**: it is configured manually for your account rather than self-service. To have a domain verified, [contact Gravitee](/gravitee-cloud/community-and-support/enterprise-support). You are provided with the DNS records to publish, and then branded senders works for that domain once verification completes.
+{% endhint %}
+
 ## Prerequisites
 
 - The SMTP email service must be **enabled** at the Organization or Environment level. Branded sender controls are disabled while email is off.
@@ -41,7 +45,7 @@ They refuse it in one of two ways, and the difference matters:
 Because of the second case, a successful send isn't evidence that a branded rule works. Send a branded notification to yourself and confirm that it **arrives** before you apply a rule to real recipients.
 {% endhint %}
 
-If your relay restricts senders, ask your email provider what's needed to send as an additional domain. Providers usually require you to prove that you control the domain first.
+If your relay restricts senders, ask your email provider what's needed to send as an additional domain. Providers usually require you to prove that you control the domain first. On Gravitee-hosted installations, that's handled by [contacting Gravitee](/gravitee-cloud/community-and-support/enterprise-support), as described in the Overview.
 
 ### Authorize the Relay in Your DNS
 
