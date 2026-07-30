@@ -67,9 +67,9 @@ The APIM console doesn't verify that you own the domain in the **From** field, a
 
 ## How Branded Senders Are Matched
 
-When a notification is sent, the APIM console takes the domain from each recipient address, which is the part after `@`, and compares it against the domains on each rule in order. The **first rule that matches wins**. The comparison ignores case, so `Example.com` and `example.com` are the same domain.
+When a notification is sent, the APIM console takes the domain from each recipient address, which is the part after `@`, and compares it against the domains on each rule in order. The **first rule that matches wins**. The comparison ignores case, so `Example.com` and `example.com` are the same domain. When a recipient is given in the display-name form `Jane Developer <jane@example.com>`, the domain is taken from inside the angle brackets.
 
-Recipients that match no rule keep the default sender address and subject prefix. When one notification goes to recipients at several branded domains, each domain receives its own message, sent from its own address.
+Recipients that match no rule keep the default sender address and subject prefix. When one notification goes to recipients at several branded domains, each domain receives its own message, sent from its own address. A copy sent to the sender always uses the default sender address, never a branded one.
 
 ## Branded Sender Rule Fields
 
@@ -79,7 +79,7 @@ Each rule has three fields:
 |:------|:------------|:------------|
 | **Recipient domains** | The recipient email domains the rule applies to. | Required, at least one. Each entry must be a valid domain name, such as `example.com`. |
 | **From** | The sender address used for those recipients. | Required. Accepts a bare address such as `noreply@example.com`, or the display-name form `Example Team <noreply@example.com>`. |
-| **Subject prefix** | The subject prefix applied to those messages. | Optional, maximum 255 characters. Use `%s` where the notification's own subject should appear. If you leave this blank, the default subject prefix is used. |
+| **Subject prefix** | The subject prefix applied to those messages. | Optional, maximum 255 characters. Use `%s` where the notification's own subject should appear. A prefix with no `%s`, such as `[Example]`, is also accepted. If you leave this blank, the default subject prefix is used. |
 
 A domain can appear in only one rule. The APIM Console rejects duplicates across rules when you save the form.
 
@@ -107,7 +107,7 @@ Go to **Settings > Settings**, scroll to the **SMTP** card, and find the **Brand
 
 ### Inheritance Between Scopes
 
-An Environment inherits the Organization's rules until you save rules of your own at the Environment scope. While it's inheriting, each rule card shows an **Inherited from Org** badge, and **Reset to Org settings** is unavailable because there's nothing to reset. The badge disappears as soon as you edit a card, before you save.
+An Environment inherits the Organization's rules until you save rules of your own at the Environment scope. While it's inheriting, each rule card shows an **Inherited from Org** badge, and **Reset to Org settings** is unavailable because there's nothing to reset. The badge disappears as soon as you edit a card, before you save. No badge is shown when the inherited list is empty.
 
 Saving an **empty** list at the Environment scope isn't the same as inheriting. It stores an explicit "no branded senders" override, and the Organization rules no longer apply. To restore inheritance, use **Reset to Org settings**.
 
@@ -122,7 +122,7 @@ If `email.branded_senders` is set in `gravitee.yml` or by an environment variabl
 - The value isn't set in `gravitee.yml`.
 - You have the `ENVIRONMENT_SETTINGS` permission with `UPDATE` access.
 
-Clicking it removes the Environment override, so the Environment inherits from the Organization again. If you have unsaved changes on the page, the APIM Console asks you to confirm before discarding them.
+Clicking it removes the Environment override, so the Environment inherits from the Organization again. If you have unsaved changes on the page, the APIM Console asks you to confirm before discarding them. Click **Reset** in the confirmation dialog to continue, or cancel to keep your changes.
 
 ## Manage Branded Senders at the Organization Scope
 
@@ -186,6 +186,8 @@ smtp:
 ```
 {% endtab %}
 {% endtabs %}
+
+Both the YAML list form and the JSON string form are accepted and behave identically.
 
 {% hint style="info" %}
 If the value is invalid, APIM writes the problem to the Management API log and ignores it. The APIM Console field stays editable and shows no error, so check that log if a self-hosted configuration doesn't take effect.
