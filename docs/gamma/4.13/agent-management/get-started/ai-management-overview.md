@@ -25,7 +25,7 @@ The AI Gateway is the unified runtime that processes LLM, MCP, and A2A traffic. 
 
 | Proxy         | What it governs                                                         | Key capabilities                                                                                                                                                                                 |
 | ------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **LLM Proxy** | Traffic to LLM providers (Anthropic, OpenAI, Bedrock, Vertex AI, Azure) | Guardrails, PII filtering, token-based rate limiting, structured output |
+| **LLM Proxy** | Traffic to LLM providers (Anthropic, OpenAI, Bedrock, Gemini Enterprise Agent Platform (formerly Vertex AI), Azure) | Guardrails, PII filtering, token-based rate limiting, structured output |
 | **MCP Proxy** | Tool invocations on upstream MCP servers                                | Two modes: **Proxy mode** (transparent governance) and **Studio mode** (composition of Composite MCP Servers). Protocol-native JSON-RPC 2.0, OAuth authorization discovery, credential mediation |
 | **A2A Proxy** | Agent-to-agent delegations                                              | Skill discovery via `/.well-known/agent.json`, per-skill authorization, agent identity verification                                                                                              |
 
@@ -35,7 +35,7 @@ The Catalog is the authoritative registry of every asset an agent can use. Polic
 
 | Entity type     | Sources                                                                                                                                                   |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **AI Models**   | Synced from AWS Bedrock, Azure AI Foundry, Vertex AI, or registered manually                                                                              |
+| **AI Models**   | Synced from AWS Bedrock, Azure AI Foundry, Gemini Enterprise Agent Platform (formerly Vertex AI), or registered manually                                                                              |
 | **MCP Servers** | Gravitee MCP Server Registry, third-party registries (GitHub, Smithery), or manual. Type: **Native** (upstream) or **Composite** (authored in MCP Studio) |
 | **Tools**       | **MCP Tools** from connected MCP servers, **API Tools** from REST APIs in API Management, **Kafka API Tools** from Kafka APIs in Event Stream Management         |
 | **Prompts**     | Uploaded as reusable, parameterized templates with declared arguments                                                                                     |

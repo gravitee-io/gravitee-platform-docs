@@ -6,7 +6,7 @@ description: Create an LLM Proxy that routes traffic to upstream model providers
 
 # Create an LLM Proxy
 
-An LLM Proxy routes traffic to upstream model providers—OpenAI, Anthropic, Gemini, Bedrock, and Vertex AI—through the AI Gateway. It adds authentication, cost attribution, observability, guardrails, and fine-grained authorization to every model call.
+An LLM Proxy routes traffic to upstream model providers—OpenAI, Anthropic, Gemini, Bedrock, and Gemini Enterprise Agent Platform (formerly Vertex AI)—through the AI Gateway. It adds authentication, cost attribution, observability, guardrails, and fine-grained authorization to every model call.
 
 {% hint style="info" %}
 For a simplified quickstart, see [Create your LLM Proxy](../get-started/create-your-llm-proxy.md).

@@ -5,7 +5,7 @@ noIndex: false
 
 # Create an LLM Proxy
 
-An LLM Proxy routes traffic to upstream model providers (Anthropic, OpenAI, Bedrock, Vertex AI, Azure) through the AI Gateway, adding authentication, cost attribution, observability, guardrails, and fine-grained authorization to every model call.
+An LLM Proxy routes traffic to upstream model providers (Anthropic, OpenAI, Bedrock, Gemini Enterprise Agent Platform (formerly Vertex AI), Azure) through the AI Gateway, adding authentication, cost attribution, observability, guardrails, and fine-grained authorization to every model call.
 
 {% hint style="info" %}
 The Gamma console refers to the LLM Proxy creation flow as the **LLM Router wizard**. The Router is the routing configuration of your LLM Proxy. They are the same artifact. For a simplified quickstart, see [Create your LLM Proxy](../get-started/create-your-llm-proxy.md).
