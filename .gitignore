@@ -8,6 +8,10 @@
 node_modules/
 package-lock.json
 
+# Claude Code: .claude/skills/ is shared and tracked; everything else there is personal
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+
 # Python tooling
 __pycache__/
 *.py[cod]

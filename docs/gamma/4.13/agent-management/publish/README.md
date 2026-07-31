@@ -9,3 +9,5 @@ Make your AI Gateway artifacts discoverable and consumable by publishing them ou
 
 * [**Publish your LLM Proxy**](publish-your-llm-proxy.md) — Deploy and expose your LLM Proxy to consumers through the AI Gateway.
 * [**Expose an MCP Registry**](expose-an-mcp-registry.md) — Make the Gamma Catalog discoverable as an MCP Registry that other systems can consume from.
+* [**Manage subscriptions**](manage-subscriptions.md) — Accept, reject, and close consumer subscriptions to your LLM Proxies and MCP Proxies.
+* [**Consume your LLM Proxy with LangChain**](consume-your-llm-proxy-with-langchain.md) — Route a LangChain chain through your LLM Proxy so it never holds a provider credential.
