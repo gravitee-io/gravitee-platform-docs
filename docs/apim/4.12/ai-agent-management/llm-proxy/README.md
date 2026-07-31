@@ -522,7 +522,7 @@ Response from Gemini Enterprise Agent Platform:
 {
   "candidates": [
     {
-      "content": { "parts": [ { "text": "Hello from Vertex AI!" } ], "role": "model" },
+      "content": { "parts": [ { "text": "Hello from Gemini Enterprise Agent Platform!" } ], "role": "model" },
       "finishReason": "STOP"
     }
   ],
@@ -543,7 +543,7 @@ Response returned to the client (OpenAI format):
   "choices": [
     {
       "index": 0,
-      "message": { "role": "assistant", "content": "Hello from Vertex AI!" },
+      "message": { "role": "assistant", "content": "Hello from Gemini Enterprise Agent Platform!" },
       "finish_reason": "stop"
     }
   ],
@@ -581,7 +581,7 @@ Response from Gemini Enterprise Agent Platform:
   "id": "msg_vertex_test_01",
   "type": "message",
   "role": "assistant",
-  "content": [ { "type": "text", "text": "Hello from Claude on Vertex AI!" } ],
+  "content": [ { "type": "text", "text": "Hello from Claude on Gemini Enterprise Agent Platform!" } ],
   "model": "claude-sonnet-4-20250514",
   "stop_reason": "end_turn",
   "usage": { "input_tokens": 12, "output_tokens": 8 }
@@ -599,7 +599,7 @@ Response returned to the client (OpenAI format):
   "choices": [
     {
       "index": 0,
-      "message": { "role": "assistant", "content": "Hello from Claude on Vertex AI!" },
+      "message": { "role": "assistant", "content": "Hello from Claude on Gemini Enterprise Agent Platform!" },
       "finish_reason": "stop"
     }
   ],

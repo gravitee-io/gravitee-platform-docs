@@ -26,7 +26,7 @@
 #### Catalog
 
 * Authoritative registry of AI models, MCP servers, tools, prompts, agents, skills, and resources that policies are authored against.
-* Syncs AI models from AWS Bedrock, Azure AI Foundry, and Gemini Enterprise Agent Platform, or accepts manual registration.
+* Syncs AI models from AWS Bedrock, Azure AI Foundry, and Gemini Enterprise Agent Platform (formerly Vertex AI), or accepts manual registration.
 * Consumes from external MCP registries (GitHub, Smithery, and third-party) and operates as an MCP Registry itself, so other systems can discover and read from it.
 * REST, GraphQL, and gRPC APIs from API Management become **API Tools**, and Kafka topics from Event Stream Management become **Kafka API Tools**, making existing enterprise infrastructure agent-accessible without redevelopment.
 

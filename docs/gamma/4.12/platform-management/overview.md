@@ -119,7 +119,7 @@ Gamma supports the following protocols and standards:
 | Kafka (native)                                          | Full    | Through the Event Gateway (Kafka Services and Virtual Clusters)      |
 | MCP (JSON-RPC 2.0)                                      | Full    | Through the MCP Proxy in Proxy mode or Studio mode                   |
 | A2A                                                     | Full    | Through the A2A Proxy with `/.well-known/agent.json` skill discovery |
-| LLM APIs (OpenAI, Anthropic, Bedrock, Gemini Enterprise Agent Platform, Azure) | Full    | Through the LLM Proxy with provider-specific routing                 |
+| LLM APIs (OpenAI, Anthropic, Bedrock, Gemini Enterprise Agent Platform (formerly Vertex AI), Azure) | Full    | Through the LLM Proxy with provider-specific routing                 |
 
 ***
 

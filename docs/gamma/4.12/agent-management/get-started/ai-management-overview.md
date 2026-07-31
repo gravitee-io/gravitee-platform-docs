@@ -35,7 +35,7 @@ The Catalog is the authoritative registry of every asset an agent can use. Polic
 
 | Entity type     | Sources                                                                                                                                                   |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **AI Models**   | Synced from AWS Bedrock, Azure AI Foundry, Gemini Enterprise Agent Platform, or registered manually                                                                              |
+| **AI Models**   | Synced from AWS Bedrock, Azure AI Foundry, Gemini Enterprise Agent Platform (formerly Vertex AI), or registered manually                                                                              |
 | **MCP Servers** | Gravitee MCP Server Registry, third-party registries (GitHub, Smithery), or manual. Type: **Native** (upstream) or **Composite** (authored in MCP Studio) |
 | **Tools**       | **MCP Tools** from connected MCP servers, **API Tools** from REST APIs in API Management, **Kafka API Tools** from Kafka APIs in Event Stream Management         |
 | **Prompts**     | Uploaded as reusable, parameterized templates with declared arguments                                                                                     |
