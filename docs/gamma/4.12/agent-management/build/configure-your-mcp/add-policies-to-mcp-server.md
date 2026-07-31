@@ -34,7 +34,8 @@ MCP policies are managed through the **MCP Policies** page in Authorization Mana
 
    1. Each statement starts with an **effect** toggle—select **permit** or **forbid**.
    2. Pick **principals**—the users, groups, agents, or agent identities this policy applies to.
-   3. Pick **resources** from the MCP resource groups:
+   3. Pick **actions**—the actions defined on the **Actions** page in your environment.
+   4. Pick **resources** from the MCP resource groups:
 
       | Resource group | Entity type   | Description                         |
       | -------------- | ------------- | ----------------------------------- |
@@ -43,7 +44,7 @@ MCP policies are managed through the **MCP Policies** page in Authorization Mana
       | **Prompts**    | `MCPPrompt`   | A prompt template from the server   |
       | **Resources**  | `MCPResource` | A resource provided by the server   |
 
-   4. Optionally insert a **condition snippet**:
+   5. Optionally insert a **condition snippet**:
 
       | Condition              | GAPL snippet                                       |
       | ---------------------- | -------------------------------------------------- |
@@ -51,9 +52,7 @@ MCP policies are managed through the **MCP Policies** page in Authorization Mana
       | **Trusted device**     | `context.device.trusted == true`                   |
       | **Corporate IP range** | `context.source.ip.in_cidr("10.0.0.0/8")`          |
 
-   5. Add additional statements as needed. Drag to reorder.
-
-The visual editor writes the action clause for you from the resources you pick, so there's no action to choose. Selecting individual tools produces one statement per tool, each naming that tool. Selecting a whole server produces a single statement that covers every tool on it.
+   6. Add additional statements as needed. Drag to reorder.
 
 **Code editor**. Switch to the **Code** tab to write GAPL directly in a line-numbered editor.
 
