@@ -16,7 +16,9 @@ MCP policies target a specific MCP server and govern access to its surfaces. The
 | **MCP Server** | The server itself |
 | **Tools** | Individual tools exposed by the server |
 | **Prompts** | Prompt templates on the server |
-| **Resources** | Data resources exposed via MCP |
+| **Resources** | Data resources the server exposes through MCP |
+
+The resource clause is what scopes an MCP policy. The examples leave the action clause unconstrained, written as a bare `action`, so a statement matches whichever tool the resource clause names. The visual editor produces the same shape from the resources you pick.
 
 ## Example 1: Allow a group to invoke all tools on a server
 
@@ -26,7 +28,7 @@ MCP policies target a specific MCP server and govern access to its surfaces. The
 
 permit (
   principal in Group::"engineering",
-  action == Action::"invoke",
+  action,
   resource in MCPServer::"demo-hr-mcp"
 );
 ```
@@ -41,7 +43,7 @@ This policy permits any member of the `engineering` group to invoke any tool on 
 
 permit (
   principal == User::"alice",
-  action == Action::"invoke",
+  action,
   resource == MCPTool::"demo-hr-mcp.search"
 )
 when {
@@ -59,7 +61,7 @@ This policy permits Alice to invoke the `search` tool only during business hours
 
 forbid (
   principal == AgentIdentity::"research-bot",
-  action == Action::"invoke",
+  action,
   resource == MCPTool::"demo-hr-mcp.get-employee-ssn"
 );
 ```
@@ -74,7 +76,7 @@ This policy explicitly forbids the `research-bot` agent from invoking a tool tha
 
 permit (
   principal in Group::"admins",
-  action == Action::"invoke",
+  action,
   resource in MCPServer::"demo-hr-mcp"
 )
 when {
@@ -100,6 +102,6 @@ when {
 
 ## Next steps
 
-* [API policy examples](api-policy-examples.md) — API access control patterns
-* [AI policy example](ai-policy-example.md) — Token budget and cost policies
-* [Create, update, and delete policies](create-update-delete-policies.md) — Full editor reference
+* [API policy examples](api-policy-examples.md). API access control patterns.
+* [AI policy example](ai-policy-example.md). Token budget and cost policies.
+* [Create, update, and delete policies](create-update-delete-policies.md). Full editor reference.
