@@ -121,28 +121,21 @@ The Cloud Token is used to establish a secure and authenticated connection with 
 
 Some organizations keep API traffic data inside their own infrastructure and don't want analytics or request logs leaving it. You can turn off the Cloud reporter so that the Gateway stops using the `/reports` endpoint, while the `/sync` endpoint keeps delivering API definitions, policies, and configuration from the Control Plane.
 
-The setting is `reporters.reportercloud.enabled`. Apply it in the way that matches your deployment.
+To turn off the Cloud reporter, set the following environment variable on the Gateway:
 
-### gravitee.yml
-
-```yaml
-reporters:
-  reportercloud:
-    enabled: false
+```bash
+gravitee_reporters_reportercloud_enabled=false
 ```
+
+For a Linux or Windows installation, set the variable in the environment of the process that runs the Gateway.
+
+{% hint style="warning" %}
+Setting `reporters.reportercloud.enabled: false` in `gravitee.yml`, or under `gateway.reporters` in your Helm values, doesn't turn off the Cloud reporter. Set it as an environment variable, as shown in the following examples.
+{% endhint %}
 
 ### Kubernetes
 
-Set the reporter under `gateway.reporters` in your Helm values. The chart writes any reporter you declare there into the Gateway's `gravitee.yml`:
-
-```yaml
-gateway:
-  reporters:
-    reportercloud:
-      enabled: false
-```
-
-To pass it as an environment variable instead, add it to `gateway.env`:
+Add the environment variable to `gateway.env` in your Helm values:
 
 ```yaml
 gateway:
