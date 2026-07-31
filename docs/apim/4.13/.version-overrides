@@ -9,3 +9,6 @@ release-information/release-notes/apim-4.12.md
 release-information/changelog/apim-4.12.x.md
 terraform/changelog.md
 terraform/release-notes.md
+configure-and-manage-the-platform/manage-organizations-and-environments/branded-senders.md
+gravitee-expression-language.md
+release-information/release-notes/apim-4.13.md
