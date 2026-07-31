@@ -8,7 +8,7 @@ noIndex: false
 API Products let you bundle multiple API proxies into a single consumer-facing product. Instead of subscribing to individual APIs, consumers subscribe to an API Product plan and gain access to all APIs in the product.
 
 {% hint style="info" %}
-API Products are an enterprise feature. The **API Products** section only opens when your organization's license includes the `apim-api-products` feature. To create, update, or deploy a product, your license must be on the `universe` tier. See [Configure API products](configure-your-api-product/README.md#licensing).
+API Products are an enterprise feature. Your organization's license must include the `apim-api-products` feature to create, update, or deploy a product. See [Configure API products](configure-your-api-product/README.md#licensing).
 {% endhint %}
 
 ## When to use API Products
@@ -33,7 +33,7 @@ The following table compares an API proxy with an API Product:
 | **Plan conditions**    | Page of general conditions and excluded groups     | Not available                                                    |
 | **Flows and policies** | Defined on the API in the Policy Studio            | Not available at product level; define them on the bundled APIs  |
 | **Subscriptions**      | Consumers subscribe to the API directly            | Consumers subscribe to the product; access flows to bundled APIs |
-| **Licensing**          | Not gated by a license feature in the console      | Requires the `apim-api-products` feature and the `universe` tier |
+| **Licensing**          | Not gated by a license feature                     | Requires the `apim-api-products` license feature |
 
 ## View API Products
 

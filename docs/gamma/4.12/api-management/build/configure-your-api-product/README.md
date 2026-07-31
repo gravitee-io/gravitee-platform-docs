@@ -9,10 +9,7 @@ After you create an API product, use the product detail page to attach APIs, cre
 
 ## Licensing
 
-API Products are an enterprise feature, gated in the following two places:
-
-* **In the console.** The **API Products** section only opens when your organization's license includes the `apim-api-products` feature. Without it, selecting **API Products** shows an upgrade dialog instead of the product list.
-* **In the Management API.** You need an organization license on the `universe` tier to create, update, or deploy an API Product. On any other tier, the API rejects the request as a forbidden feature.
+API Products are an enterprise feature. Your organization's license must include the `apim-api-products` feature, which is available on the Galaxy tier and above, to create, update, or deploy an API Product. Without it, the Management API rejects the request as a forbidden feature.
 
 ## Configuration areas
 

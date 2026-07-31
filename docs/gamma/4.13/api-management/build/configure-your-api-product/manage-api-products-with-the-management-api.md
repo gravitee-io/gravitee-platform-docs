@@ -316,7 +316,7 @@ The check returns `200 OK` with an `ok` flag:
 }
 ```
 
-The check is a license check only—it does not inspect the product's APIs or plans, so a product with no APIs attached still verifies as deployable. When the organization's license lacks the required universe tier, `ok` is `false` and `reason` explains that API product deployment requires a universe license.
+The check is a license check only—it does not inspect the product's APIs or plans, so a product with no APIs attached still verifies as deployable. When the organization's license lacks the `apim-api-products` feature, `ok` is `false` and `reason` reads `API Product deployment requires the apim-api-products feature (Galaxy tier or above).`
 
 Trigger the deployment:
 
