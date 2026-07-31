@@ -223,6 +223,32 @@ The same key table is available from the application, under **Applications** in 
 
 When custom API key reuse is enabled for the environment, a key value that belongs to a revoked or expired key can be assigned to a new subscription instead of being rejected as a duplicate. This lets a consumer keep a key value it has already distributed when its subscription is replaced.
 
+#### Enable reuse
+
+Reuse depends on two environment settings. Both are disabled by default, so reuse does nothing until you turn them on:
+
+| Setting                                         | Purpose                                                                                                                       |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `plan.security.apikey.allowCustom.enabled`      | Permits a key value to be supplied at all. While this is disabled, any approval that carries a **Custom API key** is rejected. |
+| `plan.security.apikey.allowCustomReuse.enabled` | Permits an inactive key value to be reactivated rather than rejected as a duplicate.                                          |
+
+The Gamma 4.12 console does not expose either setting. Read and write them through the Management API at environment scope:
+
+```bash
+curl -s -u "admin:admin" \
+  "http://localhost:8083/management/organizations/DEFAULT/environments/DEFAULT/settings"
+```
+
+To change them, send the full settings object back to the same path with `POST`, setting `plan.security.customApiKey.enabled` and `plan.security.customApiKeyReuse.enabled` to `true`. The endpoint accepts `POST` rather than `PUT`.
+
+{% hint style="info" %}
+The stored parameter keys and the settings payload use different names for the same two flags. The parameters are `allowCustom` and `allowCustomReuse`. The matching payload fields are `customApiKey` and `customApiKeyReuse`.
+{% endhint %}
+
+The **Custom API key** field appears in the **Approve Subscription** dialog for every API Key plan, whether or not these settings are enabled. When they are disabled, the field accepts input and the approval then fails.
+
+#### Reuse eligibility
+
 | Key state | Can be reused |
 | --------- | ------------- |
 | Revoked   | Yes           |
