@@ -1,7 +1,7 @@
 ---
-hidden: false
-noIndex: false
-description: How to configure the Edge Management settings, proxy routes, and shadow AI monitoring in the Gamma console.
+description: >-
+  How to configure the Edge Management settings, proxy routes, and shadow AI
+  monitoring in the Gamma console.
 ---
 
 # Configure Edge Management
@@ -12,9 +12,10 @@ Edge Management is configured from a single **Configuration** page in the Gamma 
 
 The first time you open the page, there is no configuration. Configure the fields, and then save to create the configuration. When you save the configuration, the corresponding Edge API is published on the Gateway so the daemon's traffic can be captured.
 
-## Configure Edge Management 
+## Configure Edge Management
 
 To configure Edge Management, complete the following steps:
+
 * [Configure the Gateway](configure-edge-management.md#configure-the-gateway)
 * [Configure the Proxy](configure-edge-management.md#configure-the-proxy)
 * [Configure Shadow AI monitoring](configure-edge-management.md#configure-shadow-ai-monitoring)
@@ -24,16 +25,16 @@ To configure Edge Management, complete the following steps:
 
 Conection URLs are used by the Edge Daemon to reach the Gravitee Gateway and reactor. To configure the Edge Daemon for the Gateway, com
 
-<figure><img src="../../.gitbook/assets/edge-config-gateway.png" alt="Gateway section: Gateway URL and Reactor URL, locked after creation"><figcaption><p>The Gateway and Reactor URLs are locked once the configuration is created.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/edge-config-gateway (1).png" alt="Gateway section: Gateway URL and Reactor URL, locked after creation"><figcaption><p>The Gateway and Reactor URLs are locked once the configuration is created.</p></figcaption></figure>
 
 The following fields define the connection URLs the Edge Daemon uses to reach the Gravitee gateway and reactor:
 
-| Field           | Description                                                                                    |
-| --------------- | ---------------------------------------------------------------------------------------------- |
-| **Gateway URL** | Base URL of the AI Gateway the daemon routes proxied traffic to.                               |
-| **Reactor URL** | URL of the Edge Reactor that serves daemon configuration and collects heartbeats and metrics.      |
+| Field           | Description                                                                                   |
+| --------------- | --------------------------------------------------------------------------------------------- |
+| **Gateway URL** | Base URL of the AI Gateway the daemon routes proxied traffic to.                              |
+| **Reactor URL** | URL of the Edge Reactor that serves daemon configuration and collects heartbeats and metrics. |
 
-{% hint style="caution" %}
+{% hint style="info" %}
 The Gateway URL and Reactor URL are locked after you create the configuration is first created. They cannot be changed after you complete the configuration.
 {% endhint %}
 
@@ -41,7 +42,7 @@ The Gateway URL and Reactor URL are locked after you create the configuration is
 
 Configure how the daemon intercepts traffic and routes it to gateway APIs.
 
-<figure><img src="../../.gitbook/assets/edge-config-proxy.png" alt="Proxy section: DNS domains and routes mapping paths to gateway APIs"><figcaption><p>DNS domains to intercept, and routes mapping each path to a gateway API.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/edge-config-proxy (1).png" alt="Proxy section: DNS domains and routes mapping paths to gateway APIs"><figcaption><p>DNS domains to intercept, and routes mapping each path to a gateway API.</p></figcaption></figure>
 
 Configure the following settings:
 
@@ -53,10 +54,10 @@ Configure the following settings:
 
 A typical Claude Code setup uses the following two routes:
 
-| Path prefix     | API path                   | Provider    | Captured by     |
-| --------------- | -------------------------- | ----------- | --------------- |
-| `/v1/messages`  | `/interception/claude`     | `anthropic` | LLM Proxy API   |
-| `/`             | `/interception/passthrough`| `anthropic` | HTTP Proxy API  |
+| Path prefix    | API path                    | Provider    | Captured by    |
+| -------------- | --------------------------- | ----------- | -------------- |
+| `/v1/messages` | `/interception/claude`      | `anthropic` | LLM Proxy API  |
+| `/`            | `/interception/passthrough` | `anthropic` | HTTP Proxy API |
 
 LLM calls to `/v1/messages` are routed to the **LLM Proxy API**. All other traffic reaches the **HTTP Proxy API**.
 
@@ -64,7 +65,7 @@ LLM calls to `/v1/messages` are routed to the **LLM Proxy API**. All other traff
 
 Detect direct connections to AI providers that bypass the Gateway.
 
-<figure><img src="../../.gitbook/assets/edge-config-shadow-ai.png" alt="Shadow AI monitoring section: monitored domains and report interval"><figcaption><p>Monitored domains and report interval for shadow AI detection.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/edge-config-shadow-ai (1).png" alt="Shadow AI monitoring section: monitored domains and report interval"><figcaption><p>Monitored domains and report interval for shadow AI detection.</p></figcaption></figure>
 
 Configure the following settings:
 
@@ -74,10 +75,10 @@ Configure the following settings:
 ## Save the configuration
 
 * Select either of the following actions:
- * **Create connfiguration** to deploy your configuration. 
- * **Save changes** to save your configuration but not deploy it. 
+* **Create connfiguration** to deploy your configuration.
+* **Save changes** to save your configuration but not deploy it.
 
- When you deploy the fconfiguration, The DNS domains, routes, and shadow AI settings are pushed to daemons the next time they poll the Edge Reactor for configuration. The configuration applies without restarting the daemon.
+When you deploy the fconfiguration, The DNS domains, routes, and shadow AI settings are pushed to daemons the next time they poll the Edge Reactor for configuration. The configuration applies without restarting the daemon.
 
 ## Next steps
 

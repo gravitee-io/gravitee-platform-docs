@@ -1,8 +1,3 @@
----
-hidden: false
-noIndex: false
----
-
 # API Management overview
 
 API Management is Gravitee's product line for governing REST, GraphQL, and gRPC traffic. Within Gamma, API Management provides a dedicated console for creating, securing, and monitoring API proxies — the core building block that mediates between consumers and backend services.
@@ -21,7 +16,7 @@ Key capabilities include:
 
 ## How API Management fits into Gamma
 
-<figure><img src="../../.gitbook/assets/gamma-home.png" alt="Gamma platform home page showing the Get Started quick actions and five application modules"><figcaption><p>The Gamma platform home page. The Get Started section offers quick-action cards for common tasks. The Applications section provides access to the five modules: Agent Management, API Management, Platform Management, Authorization Management, and Event Stream Management.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-home (1).png" alt="Gamma platform home page showing the Get Started quick actions and five application modules"><figcaption><p>The Gamma platform home page. The Get Started section offers quick-action cards for common tasks. The Applications section provides access to the five modules: Agent Management, API Management, Platform Management, Authorization Management, and Event Stream Management.</p></figcaption></figure>
 
 Gamma unifies four product lines — API Management, Event Stream Management, Agent Management, and Authorization Management — under a shared platform. All four share:
 
