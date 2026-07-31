@@ -31,7 +31,7 @@ The first wizard step connects the LLM Proxy to an upstream model provider.
 
 | Field              | Value                                              | Notes                                                                                                |
 | ------------------ | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **Provider**       | Select your model provider (e.g., Anthropic)       | Required. The LLM Proxy supports Anthropic, OpenAI, Bedrock, Vertex AI, and Azure.                   |
+| **Provider**       | Select your model provider (e.g., Anthropic)       | Required. The LLM Proxy supports Anthropic, OpenAI, Bedrock, Vertex AI (Google Cloud's Gemini Enterprise Agent Platform), and Azure.                   |
 | **Model**          | Select the specific model (e.g., Claude Sonnet)    | Required. Available models depend on the selected provider.                                          |
 | **Authentication** | Choose **API Key** and enter your provider API key | Required. You can authenticate with an API key or bearer token. For this quickstart, use an API key. |
 
