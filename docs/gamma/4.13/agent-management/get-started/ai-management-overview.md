@@ -26,7 +26,7 @@ The AI Gateway is the unified runtime that processes LLM, MCP, and A2A traffic. 
 
 | Proxy         | What it governs                                                         | Key capabilities                                                                                                                                                                                 |
 | ------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **LLM Proxy** | Traffic to LLM providers (OpenAI, Anthropic, Gemini, Bedrock, Vertex AI, and OpenAI-compatible endpoints) | Guardrails, PII filtering, token-based rate limiting, structured output |
+| **LLM Proxy** | Traffic to LLM providers (OpenAI, Anthropic, Gemini, Bedrock, Vertex AI) | Guardrails, PII filtering, token-based rate limiting, structured output |
 | **MCP Proxy** | Tool invocations on upstream MCP servers                                | Two modes: **Proxy mode** (transparent governance) and **Studio mode** (composition of Composite MCP Servers). Protocol-native JSON-RPC 2.0, OAuth authorization discovery, credential mediation |
 | **A2A Proxy** | Agent-to-agent delegations                                              | Skill discovery via `/.well-known/agent-card.json`, per-skill authorization, agent identity verification                                                                                              |
 
