@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Start here to learn what API Management does in Gamma and to create your first API proxy.
 ---
 
 # Get started
