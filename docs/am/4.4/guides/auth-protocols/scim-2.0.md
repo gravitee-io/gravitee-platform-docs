@@ -1,5 +1,7 @@
 ---
 description: Overview of SCIM.
+metaLinks:
+  canonical: https://documentation.gravitee.io/am/guides/auth-protocols/scim-2.0
 ---
 
 # SCIM 2.0

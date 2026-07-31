@@ -1,5 +1,7 @@
 ---
 description: Tutorial on Installing Gravitee API Management with .ZIP.
+metaLinks:
+  canonical: https://documentation.gravitee.io/apim/self-hosted-installation-guides/.zip
 ---
 
 # Installing Gravitee API Management with .ZIP
@@ -35,9 +37,7 @@ Your environment must meet the requirements below before you install any of the 
 
     \{% endcode %\}
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <p>The archive includes the binaries for all APIM components. If you previously downloaded it to install another component, you do not need to download it again.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>The archive includes the binaries for all APIM components. If you previously downloaded it to install another component, you do not need to download it again.</p></div>
 
 ## Installations
 

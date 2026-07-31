@@ -1,8 +1,11 @@
 ---
 description: This article explains how to configure an Elasticsearch repository
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/prepare-a-production-environment/repositories/elasticsearch
 ---
 
-# Elasticsearch
+# Configuring Elasticsearch for Gravitee API Management
 
 ## Overview
 
@@ -17,7 +20,7 @@ Gravitee no longer supports the native ES client. Previous connectors provided b
 ## Supported databases
 
 | Database      | Version tested  |
-| ------------- |-----------------|
+| ------------- | --------------- |
 | ElasticSearch | 7.17.x / 8.16.x |
 | OpenSearch    | 1.x / 2.x       |
 

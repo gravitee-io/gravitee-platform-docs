@@ -1,5 +1,8 @@
 ---
 description: An overview about Configuring authentication with Azure AD / Entra ID.
+metaLinks:
+  canonical: >-
+    https://documentation.gravitee.io/apim/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id
 ---
 
 # Configuring authentication with Azure AD / Entra ID

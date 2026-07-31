@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.12.x
 
+## Gravitee Access Management 4.12.3 - July 30, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* User is not deleted after API deletion [#11676](https://github.com/gravitee-io/issues/issues/11676)
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.12.2 - July 24, 2026
 
 <details>

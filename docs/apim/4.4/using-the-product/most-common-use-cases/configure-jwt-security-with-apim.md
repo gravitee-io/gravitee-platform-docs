@@ -30,7 +30,7 @@ In the Console UI, select the Gateway API you want to secure with a JWT plan.
 
 Alternatively, if you haven’t created a Gateway API yet, you can learn [how to create a Gateway API here](https://documentation.gravitee.io/apim/v/4.3/guides/create-apis). For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-0.png" alt=""><figcaption></figcaption></figure>
 
 Save and deploy the API when you’re finished.
 

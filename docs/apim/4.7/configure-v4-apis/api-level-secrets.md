@@ -394,7 +394,7 @@ You can see here that the definition does not contain a clear text secret. This 
 
 Here is an example of referencing a secret during a SASL configuration:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-01-23 at 13.54.01 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-01-23 at 13.54.01.png" alt=""><figcaption></figcaption></figure>
 
 ### Hiding secret provider plugin
 

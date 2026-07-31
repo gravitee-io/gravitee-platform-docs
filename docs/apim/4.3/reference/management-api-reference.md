@@ -2,6 +2,8 @@
 description: >-
   The Management API empowers orgs to manage APIs effectively, automate
   processes, and enhance developer experiences
+metaLinks:
+  canonical: https://documentation.gravitee.io/apim/management-api-reference
 ---
 
 # Management API Reference
@@ -23,7 +25,7 @@ Before using the Gravitee API docs, we highly recommend reading the contextual i
 
 ## Management API Deep Dive
 
-The Management API consists of two main subcomponents, [**`Management`**](management-api-reference.md#management) and [**`Portal`**](management-api-reference.md#portal), which cater to distinct needs.&#x20;
+The Management API consists of two main subcomponents, [**`Management`**](management-api-reference.md#management) and [**`Portal`**](management-api-reference.md#portal), which cater to distinct needs.
 
 All Management API endpoints are accessible via the main Management API component, e.g., at `http://localhost:8083` in a local installation.
 
@@ -33,7 +35,7 @@ There are two versions of the `Management` subcomponent: V1 and V2.
 
 {% tabs %}
 {% tab title="V1" %}
-V1 is the initial version of the Management API, which covers all v2 APIs (including plans, policies, documentation, etc.) and all other resources available in the Console UI, e.g., applications, subscriptions, users, etc.&#x20;
+V1 is the initial version of the Management API, which covers all v2 APIs (including plans, policies, documentation, etc.) and all other resources available in the Console UI, e.g., applications, subscriptions, users, etc.
 
 The **V1 specification** (YAML OAS) is available at `/management/openapi.yaml` of the Management API component.
 {% endtab %}
@@ -52,6 +54,6 @@ The **V2 home page** is accessible at `/management/v2/` of the Management API co
 
 ### Portal
 
-The Portal API is used to power the [Developer Portal](../guides/developer-portal/README.md), and can be used as the backend API for a custom developer portal. Whether you’re building an external (potentially public-facing) portal or an internal developer hub, the Portal API empowers you to create a compelling and efficient platform.
+The Portal API is used to power the [Developer Portal](../guides/developer-portal/), and can be used as the backend API for a custom developer portal. Whether you’re building an external (potentially public-facing) portal or an internal developer hub, the Portal API empowers you to create a compelling and efficient platform.
 
 The **Portal API specification** (YAML OAS) can be found at `/portal/openapi` of the Management API component.
