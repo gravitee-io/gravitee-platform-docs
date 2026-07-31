@@ -146,6 +146,31 @@ When a plan uses manual validation, every subscription request lands in **Pendin
 4. Select **Approve**. The status changes to **Accepted**, the processed and starting timestamps are stamped, and for API Key plans the key is issued.
 5. To deny the request instead, select **Reject**, enter a **Reason**, and select **Reject**. The reason is mandatory—the confirmation button stays disabled until you enter one.
 
+### Be notified of subscription events
+
+The **Consumers** page does not announce a new request, so if you rely on manual validation, configure notifications to learn when one arrives. Notifications are configured per API proxy:
+
+1. Open the API proxy.
+2. In the API detail sidebar, under **General**, open **Notifications**.
+3. Add a notification, choose a channel, and then select the events to send.
+
+Three channels are available: **Console**, **Email**, and **Webhook**.
+
+The subscription events correspond to the statuses and actions described above:
+
+| Event                        | Corresponds to                                                       |
+| ---------------------------- | ---------------------------------------------------------------------- |
+| **New Subscription**         | A consumer requests a subscription. Enable this one for manual validation. |
+| **Subscription Accepted**    | The **Approve** action.                                              |
+| **Subscription Rejected**    | The **Reject** action.                                               |
+| **Subscription Paused**      | The **Pause** action.                                                |
+| **Subscription Resumed**     | The **Resume** action.                                               |
+| **Subscription Closed**      | The **Close subscription** action.                                   |
+| **Subscription Transferred** | The **Transfer** action.                                             |
+| **Subscription Failed**      | The consumer status changing to **Failure**.                         |
+
+Three further events cover API key changes: **API-Key Renewed**, **API-Key Revoked**, and **API-Key Expired**.
+
 ### Transfer a subscription to another plan
 
 A transfer moves an accepted subscription onto a different plan without closing it or re-issuing credentials. This is useful when a consumer moves from a trial tier to a paid tier that enforces different rate limits or quotas.
