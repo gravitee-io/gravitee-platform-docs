@@ -29,13 +29,13 @@ Policies are written in Gravitee Authorization Policy Language, a subset of the 
 ```
 permit (
   principal in Group::"engineering",
-  action == Action::"invoke",
+  action,
   resource in MCPServer::"github-mcp-server"
 );
 
 forbid (
   principal in Group::"engineering",
-  action == Action::"invoke",
+  action,
   resource == MCPTool::"github-mcp-server.create_or_update_file"
 );
 ```
