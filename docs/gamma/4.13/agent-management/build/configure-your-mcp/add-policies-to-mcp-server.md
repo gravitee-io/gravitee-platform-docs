@@ -35,7 +35,7 @@ MCP policies are managed through the **MCP Policies** page in Authorization Mana
 
    1. Each statement starts with an **effect** toggle—select **permit** or **forbid**.
    2. Pick **principals**—the users, groups, agents, or agent identities this policy applies to.
-   3. Pick **actions**—choose from `invoke`, `list`, or `read`.
+   3. Pick **actions**—the actions defined on the **Actions** page in your environment.
    4. Pick **resources** from the MCP resource groups:
 
       | Resource group | Entity type   | Description                         |
