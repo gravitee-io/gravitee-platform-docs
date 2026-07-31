@@ -209,6 +209,8 @@ client_secret
 kafka-acl\.md
 elasticsearch-reporter\.md
 expose-metrics-to-[Pp]rometheus\.md
+generate-jwt\.md
+jwt-validator\.md
 clientId
 clientName
 clientSecret

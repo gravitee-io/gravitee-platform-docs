@@ -15,6 +15,16 @@ Here are the breaking changes for versions 4.X of Gravitee and versions 3.X of G
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+#### 4.13.0
+
+**Generate JWT policy: `x5c` with the `INLINE` or `PEM` key resolver**
+
+From 4.13.0, the Generate JWT policy builds the `x5c` certificate chain for the `INLINE` and `PEM` key resolvers from the certificate blocks included in the key material. In earlier versions, the `x509CertificateChain` option had no effect with these key resolvers, and the policy signed the token without an `x5c` header.
+
+If the key material includes a certificate that matches the signing key, generated tokens now carry an `x5c` header. If it doesn't, the policy rejects every request with HTTP `500` and the message `Unable to generate JWT token`.
+
+To keep the previous behavior, set `x509CertificateChain` to `NONE`. To embed the chain, include the certificates of the signing key in the key material. The `JKS` and `PKCS12` key resolvers keep their existing behavior.
+
 #### 4.12.0
 
 **JSON Validation policy: response error keys corrected**

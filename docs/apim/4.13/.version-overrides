@@ -12,3 +12,5 @@ terraform/release-notes.md
 configure-and-manage-the-platform/manage-organizations-and-environments/branded-senders.md
 gravitee-expression-language.md
 release-information/release-notes/apim-4.13.md
+create-and-configure-apis/apply-policies/policy-reference/generate-jwt.md
+release-information/breaking-changes-and-deprecations.md
