@@ -29,6 +29,7 @@ documentation.gravitee.io links for other versions.
 
 * Branded senders apply a different **From** address and subject prefix to notification emails for each recipient domain, configurable per Organization and Environment.
 * The new `#jsonEscape` Expression Language function escapes a value so it can be safely inserted into a JSON document or JSON string literal, for example in a response template body.
+* The `generate-JWT` policy can now add the signing certificate's SHA-1 thumbprint and certificate chain as `x5t` and `x5c` headers, so backends that require certificate-bound tokens can validate the JWT.
 
 ## New Features
 
@@ -46,3 +47,13 @@ documentation.gravitee.io links for other versions.
 * `#jsonEscape` converts `"` and `\` to their escaped forms (`\"` and `\\`) and escapes control characters, which prevents a value taken from the current API transaction from breaking the JSON document you insert it into.
 * Call the function from any field that supports Expression Language, for example `{#jsonEscape(#error.message)}` in a response template body.
 * The function accepts exactly one argument, and collections and arrays are joined into a single space-separated string before escaping, so you can pass a multi-valued header or query parameter directly.
+
+## Improvements
+
+#### **Certificate Headers in the Generate JWT Policy**
+
+* Enable **Include x5t (SHA-1 certificate thumbprint)** with the `x509CertSha1Thumbprint` option to add the SHA-1 thumbprint of the signing certificate as an `x5t` header in the generated JWT.
+* Set the **Certificate chain** option `x509CertificateChain` to `X5C` to add the certificate chain as an `x5c` header, or leave it at `NONE` to omit the header.
+* Both options apply to RSA signatures only, they work with the PEM, inline, JKS, and PKCS12 key resolvers, and the configured key material must contain a certificate matching the signing key.
+* The policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 message APIs, but not to v4 TCP proxy APIs.
+* If an `x5c` or `x5t` header is requested and no signing certificate is available, the request fails during the `onRequest` phase with a `500` status code and the message `Unable to generate JWT token`.
