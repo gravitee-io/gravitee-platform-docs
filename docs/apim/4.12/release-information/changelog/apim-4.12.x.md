@@ -5,6 +5,27 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.13 - July 31, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* The GW should return 405 Method Not Allowed on SSE GET request [#11682](https://github.com/gravitee-io/issues/issues/11682)
+
+**Other**
+
+* Webhook OAuth2 "Client Secret (Basic)" auth incorrectly URL-encodes Client ID/Secret before Base64, breaking credentials containing special characters [#11570](https://github.com/gravitee-io/issues/issues/11570)
+* clearTextUpgrade Defaults to true with HTTP_1_1 on Newly Added Endpoints [#11598](https://github.com/gravitee-io/issues/issues/11598)
+* Console Audit screen returns HTTP 500 — missing AUTHORIZATION_POLICY/AUTHORIZATION_ENTITY in repository Audit.AuditProperties enum [#11650](https://github.com/gravitee-io/issues/issues/11650)
+* OAS Validation policy falsely rejects valid string parameters when schema uses top-level oneOf/anyOf without type (OAS 3.0 / Atlassian SRV path) [#11675](https://github.com/gravitee-io/issues/issues/11675)
+* Console: Dictionary property edit dialog enforces 160-character limit (create has no limit) [#11680](https://github.com/gravitee-io/issues/issues/11680)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.12 - July 28, 2026
 <details>
 
