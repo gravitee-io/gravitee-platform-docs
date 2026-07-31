@@ -5,7 +5,7 @@ noIndex: false
 
 # Manage API products with the Management API
 
-Everything you can do to an API product in the Gamma console is also available over the Management API. This page walks through the full lifecycle — check a name, create the product, attach APIs, add and publish plans, and deploy — using the v2 Management API.
+Everything you can do to an API product in the Gamma console is also available over the Management API. This page walks through the full lifecycle—check a name, create the product, attach APIs, add and publish plans, and deploy—using the v2 Management API.
 
 ## Before you begin
 
@@ -35,10 +35,10 @@ curl -s -u "$AUTH" -X POST "$MGMT/apis/_search?page=1&perPage=10" \
   -d '{"allowedInApiProducts": true}'
 ```
 
-The response is a standard paginated API list (`200 OK`) containing only eligible APIs. APIs of other types — for example MCP proxies and LLM proxies — have no `allowedInApiProducts` value at all and never appear in this result.
+The response is `200 OK` with a standard paginated API list containing only eligible APIs. APIs of other types—for example MCP proxies and LLM proxies—have no `allowedInApiProducts` value at all and never appear in this result.
 
 {% hint style="info" %}
-`POST /apis` ignores `allowedInApiProducts` in the creation payload: a newly created API comes back with `"allowedInApiProducts": false`. Set the flag afterwards by sending the full definition back with `PUT /apis/{apiId}` and `"allowedInApiProducts": true`.
+`POST /apis` ignores `allowedInApiProducts` in the creation payload: a newly created API comes back with `"allowedInApiProducts": false`. Set the flag afterward by sending the full definition back with `PUT /apis/{apiId}` and `"allowedInApiProducts": true`.
 {% endhint %}
 
 ## Check whether a product name is available
@@ -77,7 +77,7 @@ A name that is empty, or contains only whitespace, is rejected the same way:
 }
 ```
 
-Two details are worth knowing when you build the check into a workflow:
+When you build the check into a workflow, note the following two details:
 
 * The comparison is case-sensitive. If `Partner Platform` exists, `partner platform` still verifies as available.
 * Leading and trailing whitespace is trimmed before the comparison, so `"  Partner Platform  "` collides with the existing `Partner Platform`.
@@ -137,7 +137,7 @@ Every validation failure returns `400 Bad Request` with a message and, where rel
 
 There is no dedicated attach endpoint. The set of bundled APIs is the `apiIds` array on the product itself, so you attach and detach APIs by updating the product with `PUT /api-products/{apiProductId}`.
 
-Send the full list of API IDs you want the product to contain — the array is replaced, not merged:
+Send the full list of API IDs you want the product to contain—the array is replaced, not merged:
 
 ```bash
 curl -s -u "$AUTH" -X PUT "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc" \
@@ -152,7 +152,7 @@ curl -s -u "$AUTH" -X PUT "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666
 
 The call returns `200 OK` with the updated product, including the new `apiIds`. The same validation rules as creation apply: unknown or ineligible API IDs are rejected with `400 Bad Request`.
 
-The update is partial rather than a wholesale replacement — a field you omit keeps its current value. Omitting `apiIds` leaves the bundle untouched, and omitting `description` leaves the existing description in place. To detach every API from the product, send `"apiIds": []` explicitly.
+The update is partial rather than a wholesale replacement—a field you omit keeps its current value. If you omit `apiIds`, the bundle stays untouched, and if you omit `description`, the existing description stays in place. To detach every API from the product, send `"apiIds": []` explicitly.
 
 To read back what is currently bundled, use the product's APIs collection:
 
@@ -160,7 +160,7 @@ To read back what is currently bundled, use the product's APIs collection:
 curl -s -u "$AUTH" "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc/apis?page=1&perPage=10"
 ```
 
-The response is `200 OK` and paginated. Each entry in `data` is a full API object — the same shape returned by `GET /apis/{apiId}`, including `listeners`, `endpointGroups`, and `allowedInApiProducts` — alongside the usual pagination block:
+The response is `200 OK` and paginated. Each entry in `data` is a full API object—the same shape returned by `GET /apis/{apiId}`, including `listeners`, `endpointGroups`, and `allowedInApiProducts`—alongside the usual pagination block:
 
 ```json
 {
@@ -192,7 +192,7 @@ curl -s -u "$AUTH" -X POST "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b266
   }'
 ```
 
-A successful call returns `201 Created`. The new plan starts in `STAGING` — it exists but no one can subscribe to it yet:
+A successful call returns `201 Created`. The new plan starts in `STAGING`—it exists but no one can subscribe to it yet:
 
 ```json
 {
@@ -220,7 +220,7 @@ A successful call returns `201 Created`. The new plan starts in `STAGING` — it
 
 ### Plan security types
 
-Product plans use these security types:
+Product plans use the following security types:
 
 | Type | Notes |
 | ---- | ----- |
@@ -241,7 +241,7 @@ Keyless plans are rejected outright:
 ```
 
 {% hint style="warning" %}
-`KEY_LESS` is the only security type the Management API blocks. An `OAUTH2` product plan is accepted (`201 Created`) and can even be published, but OAuth2 is not one of the plan types the Gamma console offers for API products. Stay with `API_KEY`, `JWT`, or `MTLS`.
+`KEY_LESS` is the only security type the Management API blocks. An `OAUTH2` product plan is accepted with `201 Created` and can even be published. However, OAuth2 is not one of the plan types the Gamma console offers for API products. Use `API_KEY`, `JWT`, or `MTLS`.
 {% endhint %}
 
 ## Publish a plan
@@ -284,7 +284,7 @@ The call returns `200 OK` with the plan, its `status` now `PUBLISHED` and a `pub
 curl -s -u "$AUTH" "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc/plans"
 ```
 
-`GET /plans` returns `200 OK` and, by default, **only published plans**. To see plans in other states, pass `statuses` as a comma-separated list. Repeating the parameter (`?statuses=STAGING&statuses=PUBLISHED`) does not combine the values — only one of them takes effect:
+`GET /plans` returns `200 OK` and, by default, **only published plans**. To see plans in other states, pass `statuses` as a comma-separated list. If you repeat the parameter, as in `?statuses=STAGING&statuses=PUBLISHED`, the values are not combined—only one of them takes effect:
 
 ```bash
 curl -s -u "$AUTH" \
@@ -302,7 +302,7 @@ curl -s -u "$AUTH" \
 
 ## Deploy the product
 
-Deploying pushes the product and its published plans to the Gateway. Check first that the installation is allowed to deploy products:
+Deployment pushes the product and its published plans to the Gateway. Check first that the installation is allowed to deploy products:
 
 ```bash
 curl -s -u "$AUTH" "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc/deployments/_verify"
@@ -316,7 +316,7 @@ The check returns `200 OK` with an `ok` flag:
 }
 ```
 
-The check is a license check only — it does not inspect the product's APIs or plans, so a product with no APIs attached still verifies as deployable. When the organization's license lacks the required universe tier, `ok` is `false` and `reason` explains that API product deployment requires a universe license.
+The check is a license check only—it does not inspect the product's APIs or plans, so a product with no APIs attached still verifies as deployable. When the organization's license lacks the required universe tier, `ok` is `false` and `reason` explains that API product deployment requires a universe license.
 
 Trigger the deployment:
 
@@ -342,7 +342,7 @@ Deployment is asynchronous, so the call returns `202 Accepted` with the product 
 }
 ```
 
-Read the product back to confirm the outcome — `deploymentState` is `DEPLOYED` once the deployment has been applied:
+Read the product back to confirm the outcome—`deploymentState` is `DEPLOYED` once the deployment has been applied:
 
 ```bash
 curl -s -u "$AUTH" "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc"
@@ -368,7 +368,7 @@ curl -s -u "$AUTH" "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc"
 }
 ```
 
-Publishing another plan afterwards moves `deploymentState` to `NEED_REDEPLOY`. Post to `/deployments` again to bring the Gateway back in sync.
+If you publish another plan afterward, `deploymentState` moves to `NEED_REDEPLOY`. Post to `/deployments` again to bring the Gateway back in sync.
 
 ## Find and delete products
 
@@ -388,6 +388,6 @@ curl -s -u "$AUTH" -X DELETE "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2
 
 ## Next steps
 
-* [Manage product APIs](manage-product-apis.md) — Attach and detach APIs from the Gamma console.
-* [Configure API products](README.md) — Plans, consumers, and permissions for a product.
-* [Create API Products](../api-products.md) — How products differ from API proxies.
+* [Manage product APIs](manage-product-apis.md). Attach and detach APIs from the Gamma console.
+* [Configure API products](README.md). Plans, consumers, and permissions for a product.
+* [Create API Products](../api-products.md). How products differ from API proxies.
