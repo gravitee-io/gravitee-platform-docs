@@ -5,7 +5,7 @@ The Gravitee LLM Proxy accepts inbound requests in three client API formats: Ope
 This means you can point an OpenAI, Anthropic, or Gemini SDK at the same LLM Proxy and get responses in that same format, regardless of which backend provider the LLM Proxy is configured to call.
 
 {% hint style="info" %}
-This page covers the formats you can send requests **in**, on the client side. For how the LLM Proxy maps a request **out** to each backend provider (Gemini, Bedrock, OpenAI, Anthropic, and Vertex AI), see the provider details on the [LLM proxy](README.md) overview page.
+This page covers the formats you can send requests **in**, on the client side. For how the LLM Proxy maps a request **out** to each backend provider (Gemini, Bedrock, OpenAI, Anthropic, and Vertex AI), see the provider details on the [LLM proxy](README.md) overview page. The **Vertex AI** provider connects to Google Cloud's Gemini Enterprise Agent Platform (formerly Vertex AI).
 {% endhint %}
 
 The LLM Proxy validates every request body against a JSON schema for the matched format before it forwards or normalizes the request. An invalid or empty body returns a `400` response with an OpenAI-style error object. A supported path called with an unsupported HTTP method returns `405`.

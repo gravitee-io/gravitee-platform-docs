@@ -89,7 +89,7 @@ See [Event Stream Management overview](../event-stream-management/get-started/ev
 
 ### Agent Management & AI Governance
 
-Agent Management governs every protocol in the agentic stack. The **LLM Proxy** handles traffic to LLM providers (Anthropic, OpenAI, AWS Bedrock, Vertex AI, and Azure) with guardrails, PII filtering, and token-based rate limiting. The **MCP Proxy** governs tool invocations in two modes: Proxy mode for transparent governance of upstream MCP servers, and Studio mode for composing Composite MCP Servers. The **A2A Proxy** governs agent-to-agent delegations with skill discovery, per-skill authorization, and agent identity verification. Every interaction emits an OpenTelemetry span with agent identity, tool name, inputs, outputs, latency, policy decision, cost, and timestamp.
+Agent Management governs every protocol in the agentic stack. The **LLM Proxy** handles traffic to LLM providers (Anthropic, OpenAI, AWS Bedrock, Gemini Enterprise Agent Platform (formerly Vertex AI), and Azure) with guardrails, PII filtering, and token-based rate limiting. The **MCP Proxy** governs tool invocations in two modes: Proxy mode for transparent governance of upstream MCP servers, and Studio mode for composing Composite MCP Servers. The **A2A Proxy** governs agent-to-agent delegations with skill discovery, per-skill authorization, and agent identity verification. Every interaction emits an OpenTelemetry span with agent identity, tool name, inputs, outputs, latency, policy decision, cost, and timestamp.
 
 See [Agent Management overview](../agent-management/get-started/ai-management-overview.md).
 
@@ -119,7 +119,7 @@ Gamma supports the following protocols and standards:
 | Kafka (native)                                          | Full    | Through the Event Gateway (Kafka Services and Virtual Clusters)      |
 | MCP (JSON-RPC 2.0)                                      | Full    | Through the MCP Proxy in Proxy mode or Studio mode                   |
 | A2A                                                     | Full    | Through the A2A Proxy with `/.well-known/agent.json` skill discovery |
-| LLM APIs (OpenAI, Anthropic, Bedrock, Vertex AI, Azure) | Full    | Through the LLM Proxy with provider-specific routing                 |
+| LLM APIs (OpenAI, Anthropic, Bedrock, Gemini Enterprise Agent Platform, Azure) | Full    | Through the LLM Proxy with provider-specific routing                 |
 
 ***
 
