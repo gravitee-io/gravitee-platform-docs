@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Learn what Agent Management governs, the components it provides, and how it connects to the rest of the Gamma platform.
 ---
 
 # Agent Management overview
