@@ -28,17 +28,25 @@ Policies are written in Gravitee Authorization Policy Language, a subset of the 
 
 ```
 permit (
-  principal in Group::"engineering",
-  action == Action::"invoke",
-  resource in MCPServer::"github-mcp-server"
+  principal in Group::"<group-id>",
+  action,
+  resource
 );
 
 forbid (
-  principal in Group::"engineering",
-  action == Action::"invoke",
+  principal in Group::"<group-id>",
+  action,
   resource == MCPTool::"github-mcp-server.create_or_update_file"
 );
 ```
+
+Each entity reference in a policy is a unique identifier, not a display name:
+
+* **`principal`** takes the group's identifier, not the group's name.
+* **`resource`** takes the server-qualified tool identifier, in the form `MCPTool::"<server>.<tool>"`.
+* **`action`** takes the same server-qualified tool identifier that the gateway sends at runtime. Leave `action` unconstrained unless you intend to match one specific tool invocation.
+
+A clause that references a name where an identifier is expected doesn't match. Because an unmatched call is denied rather than permitted, the mistake surfaces as an unexplained denial.
 
 The following three properties of that evaluation matter when you design a policy set:
 
@@ -47,7 +55,7 @@ The following three properties of that evaluation matter when you design a polic
 * **The upstream server is never called on a denial.** The decision runs in the request phase, so a denied call returns before the gateway forwards anything upstream. A Composite MCP Server created through MCP Studio returns `403` on a denial.
 
 {% hint style="warning" %}
-Tool resource identifiers are qualified by their server, in the form `MCPTool::"<server>.<tool>"`. A policy that references the bare tool name doesn't match. Because an unmatched call is denied rather than permitted, the mistake appears as an unexpected denial rather than as an unexpected grant.
+Constrain a policy only on values the gateway actually sends. A clause that constrains `action` or `resource` to any other vocabulary matches nothing, and the call is then denied by default rather than reported as a malformed policy.
 {% endhint %}
 
 You can also enable decision logging on the server. Each evaluated call then records the subject, the action, the resource, the decision, and the policies that determined it. That gives you a per-caller record that a shared upstream credential can't produce.
@@ -63,7 +71,9 @@ The **Rate Limit** policy supports MCP proxies and returns `429` once a caller e
 
 The **Token Bucket Rate Limit** policy doesn't support MCP proxies.
 
-By default, the Rate Limit policy counts against the plan and subscription pair rather than the caller. To give each identity its own budget, set **Key** to an expression that resolves the caller's identity, and then enable **Use key only** so the policy ignores the plan and subscription. Without that, several identities on one subscription share a single allowance, and one runaway agent consumes everyone's headroom.
+By default, the Rate Limit policy counts against the plan and subscription pair rather than the caller. To give each identity its own budget, set **Key** to an expression that resolves the caller's identity. Each identity then gets its own allowance, so one runaway agent doesn't consume everyone else's headroom.
+
+**Use key only** additionally removes the plan and subscription from the counter, so a single identity draws on one allowance no matter which subscription the call arrives on. Leave it disabled to keep separate allowances per subscription.
 
 To apply a limit to one high-value tool instead of the whole server, scope the flow to that tool. See [Apply policies to individual tool invocations](apply-policies-to-tool-invocations.md).
 
