@@ -1,13 +1,8 @@
----
-hidden: false
-noIndex: false
----
 # Event Stream Management overview
 
 Event Stream Management is Gravitee's product line for governing Kafka clusters, event-driven data flows, and streaming infrastructure. Within Gamma, Event Stream Management provides a dedicated console for registering Kafka clusters, creating governed Kafka Services, and provisioning Virtual Clusters for multi-tenant isolation.
 
-<figure><img src="../../.gitbook/assets/gamma-esm-dashboard.png" alt="Event Stream Management dashboard showing Kafka Services, Virtual Clusters, and Clusters cards with counts and status breakdowns"><figcaption><p>The Event Stream Management dashboard. The three cards show Kafka Services (lifecycle management), Virtual Clusters (Kafka Mesh composition), and Clusters (multi-connection registrations).</p></figcaption></figure>
-
+<figure><img src="../../.gitbook/assets/gamma-esm-dashboard (1).png" alt="Event Stream Management dashboard showing Kafka Services, Virtual Clusters, and Clusters cards with counts and status breakdowns"><figcaption><p>The Event Stream Management dashboard. The three cards show Kafka Services (lifecycle management), Virtual Clusters (Kafka Mesh composition), and Clusters (multi-connection registrations).</p></figcaption></figure>
 
 ## What Event Stream Management does
 

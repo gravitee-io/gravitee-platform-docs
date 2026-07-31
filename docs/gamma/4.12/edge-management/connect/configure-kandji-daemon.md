@@ -1,6 +1,4 @@
 ---
-hidden: false
-noIndex: false
 description: How to deploy the Edge Daemon to your macOS device fleet using Kandji MDM.
 ---
 
@@ -26,27 +24,26 @@ Ensure the following are in place before continuing:
 
 To deploy the Edge Daemon using Kandji, complete the following steps:
 
-1. [Open the Daemon Deployment section](#open-the-daemon-deployment-section)
-2. [Select the architecture](#select-the-architecture)
-3. [Create the Kandji Custom App](#create-the-kandji-custom-app)
-4. [Verify deployment](#verify-deployment)
+1. [Open the Daemon Deployment section](configure-kandji-daemon.md#open-the-daemon-deployment-section)
+2. [Select the architecture](configure-kandji-daemon.md#select-the-architecture)
+3. [Create the Kandji Custom App](configure-kandji-daemon.md#create-the-kandji-custom-app)
+4. [Verify deployment](configure-kandji-daemon.md#verify-deployment)
 
 ## Open the Daemon Deployment section
 
 * In the Gamma console, open **Edge Management** , and then and go to the **Daemon Deployment** section of the configuration page.
 
-<figure><img src="../../.gitbook/assets/edge-deploy-kandji.png" alt="Daemon Deployment section: architecture selector, download URL, and generated Kandji script"><figcaption><p>The Daemon Deployment section generates the download URL and the Kandji postinstall script.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/edge-deploy-kandji (1).png" alt="Daemon Deployment section: architecture selector, download URL, and generated Kandji script"><figcaption><p>The Daemon Deployment section generates the download URL and the Kandji postinstall script.</p></figcaption></figure>
 
 ## Select the architecture
 
 * Choose one of the following architectures to match your devices:
-
 * **Apple Silicon (arm64)**
 * **Intel (amd64)**
 
 The console generates the matching **Download URL** for the daemon package. Here is an example:
 
-```text
+```
 https://download.gravitee.io/pre-releases/graviteeio-ai/gravitee-gamma-edge-daemon/gravitee-gamma-edge-daemon-0.1.2-darwin-arm64.zip
 ```
 
