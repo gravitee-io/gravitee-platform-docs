@@ -29,6 +29,13 @@ documentation.gravitee.io links for other versions.
 
 * Branded senders apply a different **From** address and subject prefix to notification emails for each recipient domain, configurable per Organization and Environment.
 * The new `#jsonEscape` Expression Language function escapes a value so it can be safely inserted into a JSON document or JSON string literal, for example in a response template body.
+* The Generate JWT policy adds optional `x5t` and `x5t#S256` certificate thumbprint headers to generated JWTs, for downstream systems that select the validation certificate by thumbprint.
+
+## Breaking Changes and deprecations
+
+#### **Generate JWT policy: Changes to `x5c` with the `INLINE` and `PEM` key resolvers**
+
+Starting with APIM 4.13.0, the Generate JWT policy resolves the `x5c` certificate chain from the certificates included in the key material when the key resolver is `INLINE` or `PEM`. Generated JWTs now carry an `x5c` header when a matching certificate is present, and the policy rejects requests with HTTP `500` when `x509CertificateChain` is set to `X5C` but no usable certificate is available. In earlier versions, this option had no effect with these key resolvers. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 ## New Features
 
@@ -46,3 +53,19 @@ documentation.gravitee.io links for other versions.
 * `#jsonEscape` converts `"` and `\` to their escaped forms (`\"` and `\\`) and escapes control characters, which prevents a value taken from the current API transaction from breaking the JSON document you insert it into.
 * Call the function from any field that supports Expression Language, for example `{#jsonEscape(#error.message)}` in a response template body.
 * The function accepts exactly one argument, and collections and arrays are joined into a single space-separated string before escaping, so you can pass a multi-valued header or query parameter directly.
+
+#### **X.509 certificate thumbprint headers in the Generate JWT policy**
+
+* The Generate JWT policy now injects the `x5t` (SHA-1) and `x5t#S256` (SHA-256) certificate thumbprint headers defined by RFC 7515 into the protected header of generated JWTs. Downstream systems use these thumbprints to identify the certificate to validate the token against.
+* Enable each header independently with the `x509CertSha1Thumbprint` and `x509CertSha256Thumbprint` options of the policy configuration. Both options default to off, so existing configurations are unchanged.
+* The thumbprints are computed from the DER-encoded signing certificate resolved by the configured key resolver (`INLINE`, `PEM`, `JKS`, or `PKCS12`). The options apply to RS256 signatures only, and the Console disables them when an HMAC signature is selected.
+* If a thumbprint option is enabled and no certificate matching the signing key is available, the policy rejects requests with HTTP `500` instead of issuing a token without the header.
+* For more information, see [Generate JWT](../../create-and-configure-apis/apply-policies/policy-reference/generate-jwt.md).
+
+## Improvements
+
+#### **Generate JWT policy: Support for `x5c` with the `INLINE` and `PEM` key resolvers**
+
+* The `x509CertificateChain` option now works with the `INLINE` and `PEM` key resolvers. The policy builds the `x5c` header from the certificates included in the key material, ordered from the signing certificate outward, and drops certificates that don't link into the chain.
+* The policy now parses key material that bundles certificates together with the private key.
+* This change affects existing `INLINE` and `PEM` configurations that already set `x509CertificateChain` to `X5C`. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
