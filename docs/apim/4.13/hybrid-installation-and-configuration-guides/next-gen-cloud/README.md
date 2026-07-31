@@ -130,7 +130,7 @@ gravitee_reporters_reportercloud_enabled=false
 For a Linux or Windows installation, set the variable in the environment of the process that runs the Gateway.
 
 {% hint style="warning" %}
-Setting `reporters.reportercloud.enabled: false` in `gravitee.yml`, or under `gateway.reporters` in your Helm values, doesn't turn off the Cloud reporter. Set it as an environment variable, as shown in the following examples.
+Setting `reporters.reportercloud.enabled: false` in `gravitee.yml`, or under `gateway.reporters` in your Helm values, doesn't turn off the Cloud reporter. Set the environment variable `gravitee_reporters_reportercloud_enabled=false` instead, as shown in the following examples.
 {% endhint %}
 
 ### Kubernetes
