@@ -66,6 +66,8 @@ Each policy contains one or more statements. Each statement is built from the fo
 | **Agents** | Chip picker of imported agent identities | `context.agent == AgentIdentity::"planner"` |
 | **Condition** | Condition block with snippet insertion | `when { context.time.hour >= 9 }` |
 
+The **Agents** picker does not add a clause of its own. It writes a `context.agent` expression into the **Condition** field and joins it to any text already there with `&&`, so the agent restriction and your own condition are emitted together in a single `when { }` block.
+
 #### Match modes
 
 Each clause supports the following two match modes:
@@ -82,13 +84,13 @@ For principal clauses, the default depends on the following entity types:
 
 #### Multiple entities in a clause
 
-In the **Visual** view, the **Principal** and **Resource** pickers each hold one entity, while the **Action** and **Agents** pickers accept several. When a clause holds multiple entities, GAPL joins them with `in [list]`:
+A GAPL principal or resource scope binds a single entity, so the **Principal** and **Resource** pickers each hold one entity and a new selection replaces the current one. The **Action** and **Agents** pickers accept several entities. When a clause holds multiple entities, GAPL joins them with `in [list]`:
 
 ```
 permit (
-  principal in [User::"alice", User::"bob"],
-  action == Action::"invoke",
-  resource in [MCPTool::"search", MCPTool::"create-issue"]
+  principal == User::"alice",
+  action in [Action::"invoke", Action::"read"],
+  resource == MCPTool::"search"
 );
 ```
 
@@ -153,12 +155,16 @@ A new policy starts with a single empty `permit` statement. The **Code** view re
 
 ```
 // Policy: <policy name>
+// Target: <target name>
+
 permit (
   principal,
   action,
   resource
 );
 ```
+
+The `// Target:` comment is only present for the categories that have a target, which are **MCPs**, **AI Models**, **APIs**, and **A2A Agents**. A custom policy has no target, so its template opens with the `// Policy:` comment alone.
 
 ## Permissions
 
