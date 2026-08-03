@@ -16,7 +16,7 @@ Authorization Management connects the following three things:
 2. **Principals.** The identities making requests, such as users, groups, service accounts, and agent identities. Principals can be synced from Gravitee Access Management (AM), imported from a file, or created locally. During an AM sync, progress is shown through live toast notifications, and the principal list updates dynamically without a page refresh.
 3. **Policies.** Rules that grant or deny access. Each policy declares an effect of either `permit` or `forbid`, plus a principal, an action, a resource, and optional conditions.
 
-When a request arrives at the API Gateway, AI Gateway, or Event Gateway, the Policy Decision Point (PDP) evaluates all applicable policies. The PDP returns a permit or deny decision at microsecond latency with no network hop.
+When a request arrives at the API Gateway or AI Gateway, the Policy Decision Point (PDP) evaluates all applicable policies. The PDP returns a permit or deny decision at microsecond latency with no network hop.
 
 ## Policy language: GAPL
 
@@ -117,7 +117,7 @@ Each policy has one of the following statuses:
 
 ## Integration with other product areas
 
-Authorization Management integrates with the API Gateway, AI Gateway, and Event Gateway as a shared enforcement layer across the following product areas:
+Authorization Management integrates with the API Gateway and AI Gateway as a shared enforcement layer across the following product areas:
 
 * **API Management.** API proxies reference Authorization Management policies for endpoint-level access control.
 * **Agent Management.** MCP Proxies and LLM Proxies enforce authorization policies at the tool and model level. Policy entities are populated from the Catalog.
