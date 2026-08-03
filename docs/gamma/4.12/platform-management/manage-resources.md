@@ -8,7 +8,7 @@ noIndex: true
 Resources are shared, reusable components that API proxies reference at runtime. Common examples include OAuth2 token validation endpoints, cache stores, and authentication providers.
 
 {% hint style="warning" %}
-The Resources tab is marked **Coming soon** in the current build. No resource management UI is available yet. This page documents the planned capability. Source: `ApiDetailSidebarNav.tsx:L79` — `comingSoon: true`.
+The Resources tab is marked **Coming soon** in the current build. No resource management UI is available yet. This page documents the planned capability.
 {% endhint %}
 
 ## Resource types
