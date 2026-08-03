@@ -146,6 +146,31 @@ When a plan uses manual validation, every subscription request lands in **Pendin
 4. Select **Approve**. The status changes to **Accepted**, the processed and starting timestamps are stamped, and for API Key plans the key is issued.
 5. To deny the request instead, select **Reject**, enter a **Reason**, and select **Reject**. The reason is mandatory—the confirmation button stays disabled until you enter one.
 
+### Be notified of subscription events
+
+The **Consumers** page does not announce a new request, so if you rely on manual validation, configure notifications to learn when one arrives. Notifications are configured per API proxy:
+
+1. Open the API proxy.
+2. In the API detail sidebar, under **General**, open **Notifications**.
+3. Add a notification, choose a channel, and then select the events to send.
+
+Three channels are available: **Console**, **Email**, and **Webhook**.
+
+The subscription events correspond to the statuses and actions described above:
+
+| Event                        | Corresponds to                                                       |
+| ---------------------------- | ---------------------------------------------------------------------- |
+| **New Subscription**         | A consumer requests a subscription. Enable this one for manual validation. |
+| **Subscription Accepted**    | The **Approve** action.                                              |
+| **Subscription Rejected**    | The **Reject** action.                                               |
+| **Subscription Paused**      | The **Pause** action.                                                |
+| **Subscription Resumed**     | The **Resume** action.                                               |
+| **Subscription Closed**      | The **Close subscription** action.                                   |
+| **Subscription Transferred** | The **Transfer** action.                                             |
+| **Subscription Failed**      | The consumer status changing to **Failure**.                         |
+
+Three further events cover API key changes: **API-Key Renewed**, **API-Key Revoked**, and **API-Key Expired**.
+
 ### Transfer a subscription to another plan
 
 A transfer moves an accepted subscription onto a different plan without closing it or re-issuing credentials. This is useful when a consumer moves from a trial tier to a paid tier that enforces different rate limits or quotas.
@@ -222,6 +247,71 @@ The same key table is available from the application, under **Applications** in 
 ### Reuse a custom API key
 
 When custom API key reuse is enabled for the environment, a key value that belongs to a revoked or expired key can be assigned to a new subscription instead of being rejected as a duplicate. This lets a consumer keep a key value it has already distributed when its subscription is replaced.
+
+#### Enable reuse
+
+Reuse depends on two environment settings. Both are disabled by default, so reuse does nothing until you turn them on:
+
+| Setting                                         | Purpose                                                                                                                       |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `plan.security.apikey.allowCustom.enabled`      | Permits a key value to be supplied at all. While this is disabled, any approval that carries a **Custom API key** is rejected. |
+| `plan.security.apikey.allowCustomReuse.enabled` | Permits an inactive key value to be reactivated rather than rejected as a duplicate.                                          |
+
+The Gamma 4.12 console does not expose either setting. Read and write them through the Management API at environment scope. The endpoint accepts `POST` rather than `PUT`.
+
+{% hint style="warning" %}
+`POST` replaces the entire settings object. Any setting missing from your request body is deleted from the environment and reverts to its built-in default, so posting only the two flags resets every other environment setting. Always start from the current settings, change only the two fields, and post the whole object back.
+{% endhint %}
+
+**1. Retrieve the current settings.** Save the response to a file rather than editing it by hand from the terminal:
+
+```bash
+curl -s -u "admin:admin" \
+  "http://localhost:8083/management/organizations/DEFAULT/environments/DEFAULT/settings" \
+  -o settings.json
+```
+
+**2. Change the two fields.** Both live under `plan.security`, each as an object with an `enabled` boolean:
+
+```json
+{
+  "plan": {
+    "security": {
+      "customApiKey": { "enabled": true },
+      "customApiKeyReuse": { "enabled": true }
+    }
+  }
+}
+```
+
+The block above is an excerpt. `settings.json` holds the full settings object—`plan.security` also carries the `keyless`, `apikey`, `sharedApiKey`, `oauth2`, `jwt`, and `mtls` entries, alongside many other top-level blocks. Keep all of them.
+
+Editing in place with `jq` avoids dropping anything:
+
+```bash
+jq '.plan.security.customApiKey.enabled = true |
+    .plan.security.customApiKeyReuse.enabled = true' \
+  settings.json > settings-updated.json
+```
+
+**3. Post the complete object back** to the same path:
+
+```bash
+curl -s -u "admin:admin" -X POST \
+  -H "Content-Type: application/json" \
+  --data @settings-updated.json \
+  "http://localhost:8083/management/organizations/DEFAULT/environments/DEFAULT/settings"
+```
+
+A successful call returns `200` with the saved settings. Re-run the `GET` to confirm both flags are `true`.
+
+{% hint style="info" %}
+The stored parameter keys and the settings payload use different names for the same two flags. The parameters are `allowCustom` and `allowCustomReuse`. The matching payload fields are `customApiKey` and `customApiKeyReuse`.
+{% endhint %}
+
+The **Custom API key** field appears in the **Approve Subscription** dialog for every API Key plan, whether or not these settings are enabled. When they are disabled, the field accepts input and the approval then fails.
+
+#### Reuse eligibility
 
 | Key state | Can be reused |
 | --------- | ------------- |
