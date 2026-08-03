@@ -24,7 +24,7 @@ A transparent intermediary in front of an existing upstream MCP server. Proxy mo
 {% endtab %}
 
 {% tab title="Studio mode" %}
-An authoring environment for Composite MCP Servers. In Studio mode, you compose tools, resources, prompts, and skills from multiple sources into a new MCP server that didn't exist as a single unit upstream.
+An authoring environment that assembles catalog tools into a unified MCP entrypoint. In Studio mode, you select tools from the catalog to expose through a new MCP server that didn't exist as a single unit upstream.
 
 For Studio mode, see [Create an MCP Studio](create-an-mcp-studio.md).
 {% endtab %}
@@ -43,8 +43,8 @@ To create an MCP proxy, complete the following steps:
 ### Open the MCP Proxy wizard
 
 1. From the Gamma console sidebar, select **Agent Management**.
-2. In the **Secure** section, select **MCP Proxies**.
-3. Select **Create MCP proxy**.
+2. Under **Secure**, select **MCP Proxies**.
+3. Select **+ Create MCP proxy**.
 
 ### Define your proxy
 
@@ -54,7 +54,7 @@ To create an MCP proxy, complete the following steps:
 
 ### Configure consumer security
 
-Choose how clients authenticate to the proxy entrypoint:
+Choose how clients authenticate to the proxy entrypoint. The wizard offers the following methods:
 
 | Security method                      | Description                                                                                                 |
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
@@ -65,29 +65,29 @@ Choose how clients authenticate to the proxy entrypoint:
 
 ### Connect to the upstream MCP server
 
-Enter the **Server URL** of the upstream MCP endpoint, and then configure how the Gateway authenticates to it at runtime:
+Enter the **Server URL** of the upstream MCP endpoint, and then choose how the Gateway authenticates to that server at runtime. The wizard offers the following methods:
 
 | Method                | Description                                                                                              |
 | --------------------- | -------------------------------------------------------------------------------------------------------- |
 | **Static credential** | Inject a static credential—API key, Bearer token, Basic auth, or Custom secret—into a request header on every call. |
-| **No upstream auth**  | Call the upstream without injecting credentials—passthrough.                                             |
+| **No upstream auth**  | Call the upstream without injecting credentials.                                                         |
 
 ### Review and create
 
-Review the MCP Proxy configuration, including security and upstream authentication. Then select **Create only** to register the proxy, or **Create & deploy** to register and deploy it in one step.
+Review the MCP Proxy configuration, including security and upstream authentication. Then select **Create only** to register the proxy without deploying it, or **Create & deploy** to register and deploy it in one step.
 
-The MCP Proxy is created and registered in the AI Gateway. Every tool invocation through this proxy is now subject to the configured authentication, policies, and observability.
+**Create only** leaves the proxy stopped and out of sync. Select **Deploy** on the proxy overview to push it to the AI Gateway. Once the proxy is deployed, every tool invocation through it is subject to the configured authentication, policies, and observability.
 
 ## After creation
 
 Once the MCP Proxy is created, you can do the following:
 
 * **Add authorization policies**. Control which consumers can invoke specific tools. See [Add policies to your MCP server](configure-your-mcp/add-policies-to-mcp-server.md).
-* **Configure mediation**. Configure token exchange and credential management for upstream OAuth. See [Configure your MCP proxy](configure-your-mcp/README.md).
-* **View in the Catalog**. The MCP Proxy appears in the API Management console alongside API proxies.
+* **Configure upstream authentication**. Manage the credentials the Gateway injects when it calls the upstream server. See [Configure your MCP proxy](configure-your-mcp/README.md).
+* **Backing API**. Gravitee backs each MCP Proxy with an API in API Management. Deleting the MCP Proxy also deletes that API.
 
 ## Next steps
 
-* [Configure your MCP proxy](configure-your-mcp/README.md). Configure mediation and advanced configuration.
+* [Configure your MCP proxy](configure-your-mcp/README.md). Configure upstream authentication and other advanced settings.
 * [Add policies to your MCP server](configure-your-mcp/add-policies-to-mcp-server.md). Apply fine-grained authorization.
 * [Create an MCP Studio](create-an-mcp-studio.md). Compose tools from this server with tools from other sources.

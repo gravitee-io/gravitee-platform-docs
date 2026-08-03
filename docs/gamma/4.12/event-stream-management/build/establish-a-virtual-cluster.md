@@ -2,7 +2,7 @@
 hidden: false
 noIndex: false
 ---
-<-- to be published-->
+
 # Establish a Virtual Cluster
 
 A Virtual Cluster federates multiple independent Kafka backends into a single unified endpoint. Instead of managing separate cluster connections for each team or workload, a Virtual Cluster lets clients connect to one endpoint and transparently interact with topics spread across multiple underlying Registered Clusters.
