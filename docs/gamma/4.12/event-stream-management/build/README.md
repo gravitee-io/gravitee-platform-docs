@@ -2,7 +2,7 @@
 hidden: false
 noIndex: false
 ---
-<--to be published -->
+
 # Build
 
 Create and configure governed Kafka services and virtual clusters on top of your registered Kafka infrastructure.

@@ -6,39 +6,43 @@ description: Configure guardrails, PII filtering, rate limiting, security plans,
 
 # Configure an LLM Proxy
 
-After creating an LLM Proxy, configure guardrails, PII filtering, rate limiting, security plans, and policies. This page covers all post-creation configuration options.
+After you create an LLM Proxy, configure guardrails, PII filtering, rate limiting, security plans, and policies. This page covers the post-creation configuration options.
 
 ## Guardrails, PII filtering, and rate limiting
 
 Guardrails, PII filtering, and rate limiting are implemented using standard Gravitee policies. You configure them by attaching policies with the LLM Studio.
 
-The LLM Studio operates like the API Management policy studio, supporting request/response phases. To attach these controls:
+The LLM Studio uses the same policy studio as API Management and supports the request and response phases. To attach these controls, complete the following steps:
 
-1. Navigate to your LLM Proxy detail page and open **LLM Studio**.
-2. Click **+** on the request or response flow, and then search for and select the desired policy, such as PII Filtering, Rate Limit, or AI – Prompt Guard Rails, to add it to the flow.
-3. Configure the policy properties.
-4. Save your flows to apply the changes.
+1. On the LLM Proxy detail page, under **Design**, open **LLM Studio**.
+2. Under **Common Flows**, select the flow you want to govern: **Prompt**, **Embeddings**, or **Models**.
+3. In the **Request Phase** or **Response Phase** section, click **Browse all...** to open the policy catalog. The **+ Security** and **+ Transformation** buttons open the same catalog filtered to that category.
+4. In the **Add Policy** panel, search for the policy you want, such as **PII Filtering**, **Rate Limit**, or **AI - Prompt Guard Rails**, and then click **Add to flow**.
+5. Configure the policy properties, and then click **Save**.
+6. When the "This deployable is out of sync" message appears, click **Deploy** to push the changes to the API Gateway.
 
 ## Structured output
 
 Structured output enforces response format constraints on model responses. You can enforce structured output natively by overriding model parameters.
-When configuring a model within the LLM Proxy, you can supply a `parametersOverride` JSON object that supports Expression Language. The connector automatically merges this JSON object into the request payload before it reaches the upstream provider, so you can transparently enforce formatting such as `{"response_format": { "type": "json_object" }}`.
+
+When you add a provider or a model to the LLM Proxy, you can supply a JSON object in the **Parameters override** field. This field supports Expression Language, and the evaluated result must be a JSON object. The connector merges the object into each request before it reaches the upstream provider, so you can transparently enforce formatting such as `{"response_format": { "type": "json_object" }}`. In the LLM Proxy definition, this field is `parametersOverride`.
 
 ## Security
 
-Security plans control how consumers authenticate when sending prompts through the LLM Proxy. You can add, modify, or replace plans after creation.
+Security plans control how consumers authenticate when they send prompts through the LLM Proxy. You can add plans after creation.
 
-To manage security plans:
+To add a security plan, complete the following steps:
 
-1. Navigate to the LLM Proxy detail page.
-2. Open the **Plans** section.
-3. Add a new plan or modify an existing one.
+1. On the LLM Proxy detail page, under **Consumer Access**, open **Plans**.
+2. Click **Add plan**.
+3. Complete the **General**, **Security**, **Configure**, and **Review** steps of the **Create Plan** wizard.
 
-The LLM Proxy supports the following comprehensive plan types, the same as those available for API proxies:
+The LLM Proxy supports the same comprehensive plan types as API proxies. The **Security** step presents the following plan types in this order:
+
 * **Keyless** (`KEY_LESS`)
 * **API Key** (`API_KEY`)
-* **OAuth2** (`OAUTH2`)
 * **JWT** (`JWT`)
+* **OAuth 2.0** (`OAUTH2`)
 * **mTLS** (`MTLS`)
 
 See [Secure your API proxy](../../api-management/build/secure-your-api-proxy.md) for detailed plan type descriptions.
@@ -47,7 +51,7 @@ See [Secure your API proxy](../../api-management/build/secure-your-api-proxy.md)
 
 The LLM Proxy provides real-time per-token cost attribution by provider and model. Every request records the model used, the input and output tokens consumed, and the cost based on the model's configured rate.
 
-This data is visualized in the **LLM — Overview** dashboard, which tracks `LLM_PROMPT_TOKEN_TOTAL_COST` alongside metrics like Requests by Provider and Tokens by Model.
+The **LLM — Overview** dashboard visualizes this data. It tracks `LLM_PROMPT_TOKEN_TOTAL_COST` alongside widgets such as **Requests by Provider** and **Tokens by Model**.
 
 ## Next steps
 

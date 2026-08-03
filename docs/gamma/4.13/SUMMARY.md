@@ -118,6 +118,7 @@
   * [Expose an MCP Registry](agent-management/publish/expose-an-mcp-registry.md)
   * [Manage subscriptions](agent-management/publish/manage-subscriptions.md)
   * [Consume your LLM Proxy with LangChain](agent-management/publish/consume-your-llm-proxy-with-langchain.md)
+  * [Connect Claude Code through an LLM Proxy](agent-management/publish/connect-claude-code-through-an-llm-proxy.md)
 * [Observe](agent-management/observe/README.md)
   * [Monitor your MCP servers](agent-management/observe/monitor-your-mcp-servers.md)
   * [Inspect your agent log](agent-management/observe/inspect-your-agent-log.md)
