@@ -1,11 +1,12 @@
 ---
 hidden: false
 noIndex: false
+description: Start here to learn what API Management does in Gamma and to create your first API proxy.
 ---
 
 # Get started
 
-New to API Management in Gamma? Start here.
+If you're new to API Management in Gamma, start with the following topics:
 
-* [**API Management overview**](api-management-overview.md) — What API Management does, how it fits into the Gamma platform, and the key concepts you need to know.
-* [**Create your first API**](create-your-first-api.md) — A five-minute quickstart that walks you through creating a keyless API proxy and testing it with curl.
+* [**API Management overview**](api-management-overview.md). This topic explains what API Management does, how it fits into the Gamma platform, and the key concepts you need to know.
+* [**Create your first API**](create-your-first-api.md). This five-minute quickstart walks you through creating a keyless API proxy and testing it with `curl`.
