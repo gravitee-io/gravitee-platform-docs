@@ -1,69 +1,60 @@
 ---
 hidden: false
 noIndex: false
+description: >-
+  Expose an upstream agent behind the AI Gateway with an Agent-to-Agent (A2A)
+  Proxy so that other agents can discover and call it.
 ---
 
 # Expose your agent with the A2A Proxy
 
-The A2A (Agent-to-Agent) Proxy makes an agent's skills discoverable and callable by other agents — across trust boundaries, providers, and organizations. It implements the A2A protocol by serving a `/.well-known/agent.json` descriptor that advertises the agent's skills, and then governs every invocation through the AI Gateway.
+The Agent-to-Agent (A2A) Proxy makes an upstream agent reachable by other agents across trust boundaries, providers, and organizations. It implements the A2A protocol by serving the agent's `/.well-known/agent-card.json` descriptor through the gateway. The AI Gateway then governs every invocation.
 
 ## What the A2A Proxy does
 
-When you expose an agent through the A2A Proxy:
+When you expose an agent through the A2A Proxy, the proxy provides the following:
 
-1. **Skill discovery** — The proxy serves `/.well-known/agent.json`, the A2A standard for advertising agent capabilities. Other agents or systems can discover what this agent can do by reading the descriptor.
-2. **Per-skill authorization** — The proxy publishes each discovered skill to Authorization Management as a cataloged entity. This means you can write fine-grained authorization policies at the skill level: _"Agent X can invoke the `analyze-contract` skill but not the `execute-payment` skill."_
-3. **Wire-level governance** — Every skill invocation passes through the AI Gateway with full observability, authentication, and policy enforcement — the same governance applied to MCP and LLM traffic.
-
-## How skill publishing works
-
-When an agent is exposed through the A2A Proxy:
-
-1. The proxy reads the agent's declared skills (from the Catalog or the agent's A2A descriptor)
-2. Each skill is published to Authorization Management as a cataloged entity with metadata (skill name, description, input/output schemas)
-3. Authorization policies can reference individual skills as resources
-4. When another agent invokes a skill, the AI Gateway evaluates the applicable policies before forwarding the invocation
-
-This is structurally different from tool-level authorization on MCP Proxies — skills represent higher-level capabilities that may span multiple tool invocations.
+* **Agent card discovery**. The proxy serves the upstream agent's `/.well-known/agent-card.json` descriptor, the A2A standard for advertising agent capabilities. It rewrites the agent's endpoint URL in the descriptor so that callers reach the agent through the gateway instead of directly. Other URLs in the card, such as `documentationUrl`, pass through unchanged. The gateway handles the legacy `/.well-known/agent.json` path and the extended agent card endpoint the same way.
+* **Client authentication**. The wizard secures the proxy with a default plan that uses either an API key or a client certificate. Every caller authenticates against a plan before the gateway forwards the request, so clients reach the agent through the gateway rather than calling it directly.
+* **Wire-level governance**. Every invocation passes through the AI Gateway with full observability and policy enforcement. This is the same governance applied to MCP and LLM traffic.
 
 ## Create an A2A Proxy
 
 1. From the Gamma console sidebar, select **Agent Management**.
-2. Navigate to **Build** and select **A2A Proxies**.
-3. Select **Create A2A proxy** to launch the wizard.
-4. **Step 1: Define**: Provide a name and optional description for your proxy.
-5. **Step 2: Connect**: Enter the target A2A endpoint URL. The gateway will resolve its configuration by fetching `/.well-known/agent-card.json`.
-6. **Step 3: Secure**: Attach security plans to control who can access the proxy.
-7. **Step 4: Review**: Confirm the settings and select **Create A2A proxy**.
+2. Under **Secure**, select **A2A Proxies**.
+3. To launch the wizard, select **Create A2A proxy**.
+4. **Step 1: Define**: Provide a name and the **Context path** where clients reach the proxy on the gateway. The wizard derives the context path from the name, so you can accept the suggested value or replace it. A description is optional.
+5. **Step 2: Secure**: Choose how clients authenticate to the gateway, either **API Key** or **mTLS**. A default plan is created and published with the proxy.
+6. **Step 3: Connect**: Enter the **Target URL** of the upstream agent, and then choose how the gateway authenticates to it at runtime. **Static credential** injects a credential into a request header on every call, and **No upstream auth** calls the upstream without credentials.
+7. **Step 4: Review**: Confirm the summary, and then select **Create A2A proxy**.
 
-The A2A Proxy is created and begins serving the `/.well-known/agent-card.json` descriptor. Other agents and systems can now discover and invoke this agent's skills through the AI Gateway.
+The A2A Proxy is created and starts running. Its **Overview** page shows the configured gateway URL and the upstream agent URL that the proxy forwards to.
+
+## Give a client access
+
+The proxy rejects unauthenticated requests, including requests for the agent card. To let a client call a proxy secured with an API key, complete the following steps:
+
+1. In the APIM console, create an application, or open an existing one.
+2. Subscribe the application to the proxy's default plan.
+3. Approve the subscription. The default plan uses manual validation, so subscriptions start as pending.
+4. Copy the API key from the subscription.
+
+Clients send the key in the `Authorization` header as `Bearer <api-key>`. The `X-Gravitee-Api-Key` header is not accepted.
+
+If you secured the proxy with mTLS instead, configure the trusted certificate authorities and the certificate validation rules in the gateway-level TLS settings.
 
 ## The `/.well-known/agent-card.json` descriptor
 
-The A2A Proxy generates and serves an agent card descriptor at:
+Clients fetch the agent card from the gateway at the following address:
 
 ```
 https://<your-gateway-host>/<context-path>/.well-known/agent-card.json
 ```
 
-This descriptor includes standard capabilities and inline skills. For example:
-
-```json
-{
-  "agentType": "AUTONOMOUS",
-  "capabilities": {
-    "mcp": true
-  },
-  "skills": [
-    {
-      "name": "analyze-contract",
-      "description": "Analyzes a PDF contract for compliance."
-    }
-  ]
-}
-```
+The proxy returns the upstream agent's own card with its advertised endpoint URL rewritten to the gateway address. A client that discovers the agent this way sends every subsequent request through the proxy. The contents of the descriptor, including its declared skills, come from the upstream agent.
 
 ## Next steps
 
-* [Create an agent identity](create-an-agent-identity.md) — An agent must have an identity before it can be exposed through the A2A Proxy.
-* [Add policies to your MCP server](configure-your-mcp/add-policies-to-mcp-server.md) — The policy model for skill-level authorization follows the same pattern as tool-level authorization.
+* **[Create an agent identity](create-an-agent-identity.md)**. Agent identities are managed under **Agent Identity**, in the **Catalog** section of Agent Management.
+* **[Add policies to your A2A Proxy](configure-your-a2a-proxy/add-policies-to-a2a-proxy.md)**. Use the Policy Studio to apply security, transformation, and traffic policies to agent traffic.
+* **[Author an authorization policy](../../authorization-management/configure/create-update-delete-policies.md)**. In Authorization Management, select **A2A Agents** to grant or restrict which principals can invoke an agent. Policies target an agent from the Catalog, so import the agent there first.
