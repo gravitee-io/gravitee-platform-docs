@@ -1,8 +1,8 @@
 ---
-description: An overview about expose metrics to prometheus.
+description: An overview about expose metrics to Prometheus.
 metaLinks:
   alternates:
-    - expose-metrics-to-prometheus.md
+  - expose-metrics-to-prometheus.md
 ---
 
 # Expose Metrics to Prometheus
@@ -29,8 +29,9 @@ To expose the metrics for your Kafka Gateway, complete the following steps:
 
 Prometheus support is activated and exposed using the internal API.
 
-* To enable Prometheus, add the following configuration to your `gravitee.yml` file:
+To enable Prometheus, add the following configuration to your `gravitee.yml` file:
 
+{% code title="gravitee.yml" %}
 ```yaml
 services:
   metrics:
@@ -38,6 +39,7 @@ services:
     prometheus:
       enabled: true
 ```
+{% endcode %}
 
 {% hint style="info" %}
 * By default, the internal component API is bound to `localhost`, so the internal API can only be invoked in `localhost`. To widely expose the API, set the `services.core.http.host` property to the correct network interface.
@@ -119,3 +121,35 @@ Here is a full list of metrics for your Kafka Gateway that are viewable with Pro
 | kafka\_downstream\_fetch\_topic\_record\_bytes    | Total bytes of fetched records the Gateway sends to clients           |
 | kafka\_upstream\_fetch\_topic\_records\_total     | Total number of fetched records the Gateway receives from brokers     |
 | kafka\_upstream\_fetch\_topic\_record\_bytes      | Total bytes of fetched records the Gateway receives from brokers      |
+| kafka\_upstream\_duration\_seconds                 | Time spent on the Gateway before the request is forwarded to the target cluster |
+| kafka\_endpoint\_duration\_seconds                 | Time spent on the endpoint Kafka cluster                              |
+| kafka\_downstream\_duration\_seconds               | Time spent on the Gateway before the response is forwarded to the client |
+
+### Duration metrics
+
+The `kafka_upstream_duration_seconds`, `kafka_endpoint_duration_seconds`, and `kafka_downstream_duration_seconds` metrics measure the latency of the Kafka protocol requests that the Gateway processes. Each duration metric publishes `0.5`, `0.95`, and `0.99` percentile series, and carries an `api_key` label that identifies the Kafka protocol request type, for example `PRODUCE` or `FETCH`. The `api_key` label refers to the Kafka protocol request type, not to a Gravitee API Key plan.
+
+Requests that the Gateway answers without forwarding them to the target cluster, for example requests that a policy rejects, aren't recorded in the duration metrics.
+
+### Add the principal name to duration metrics
+
+By default, duration metrics aren't labeled with the principal that sent the request. To label each duration metric with the name of the authenticated principal, set the `services.metrics.kafka.durations.principalName` property to `true` in your `gravitee.yml` file:
+
+{% code title="gravitee.yml" %}
+```yaml
+services:
+  metrics:
+    enabled: true
+    prometheus:
+      enabled: true
+    kafka:
+      durations:
+        principalName: true
+```
+{% endcode %}
+
+When this property is enabled, each duration metric carries a `principal_name` label. Kafka protocol requests that the Gateway processes before authentication completes, for example API version negotiation and SASL handshake requests, report the value `unknown`. Connections that authenticate anonymously, for example connections to a `PLAINTEXT` listener, report the value `ANONYMOUS`.
+
+{% hint style="warning" %}
+Each distinct principal adds a full set of duration time series, including the percentile series. On Gateways that serve many distinct principals, enabling this property increases the number of time series that the Gateway exposes.
+{% endhint %}
