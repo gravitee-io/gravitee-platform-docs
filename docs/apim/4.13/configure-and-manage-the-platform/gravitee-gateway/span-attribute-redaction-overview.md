@@ -55,3 +55,10 @@ To configure Span Attribute Redaction, complete the following steps:
 3. For global rules, ensure access to the `gravitee.yml` configuration file.
 
 <figure><img src="../../.gitbook/assets/apim-span-attribute-redaction-for-opentelemetry-tracing-step-01.png" alt="API deployment reporter settings showing OpenTelemetry enabled with verbose mode"><figcaption><p>API deployment reporter settings</p></figcaption></figure>
+
+## Configure redaction rules
+
+To configure redaction rules, see the following pages:
+
+* To configure global redaction rules in `gravitee.yml`, see [Configuring Global Redaction Rules](configuring-global-redaction-rules.md).
+* To configure API-specific redaction rules in the Management Console, see [Managing API-Specific Redaction Rules in the Console](../../analyze-and-monitor-apis/reporters/managing-api-specific-redaction-rules-in-the-console.md).
