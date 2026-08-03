@@ -57,16 +57,15 @@ Do not add `/v1` to the target URL. Claude Code calls `/v1/messages`, and then t
 
 Claude Code sends Anthropic model IDs without a provider prefix. The LLM Proxy must allow unprefixed model names.
 
-1. In the provider's model governance settings, navigate to **prefix policy**, and then set it to the following:
+1. In the provider's model governance settings, navigate to **Prefix needs**, and then set it to the following:
 
    ```text
    Models and aliases do not require a prefix
    ```
 
-2. If all Claude Code models' name is explicitly configured as an alias, enable **Only use alias**.
-3. Configure model access using one of the following options:
+2. Configure model access using one of the following options. The two options are mutually exclusive: the **Alias** variant accepts only registered models and can hide their real names, and the **Unregistered models** variant accepts any model matching a glob.
 
-   * **For broad access:** Use unregistered model globbing. Here is an example of unregistered model globbing:
+   * **For broad access:** Select the **Unregistered models** variant, and then set **Globbing to accept unregistered models**. Here is an example of unregistered model globbing:
 
      ```text
      claude-*
@@ -78,7 +77,7 @@ Claude Code sends Anthropic model IDs without a provider prefix. The LLM Proxy m
      *
      ```
 
-   * **Strict allowlist:** Add each model. Here is an example of adding each model:
+   * **Strict allowlist:** Select the **Alias** variant, and then add each model. Here is an example of adding each model:
 
      ```text
      claude-sonnet-4-6
@@ -86,7 +85,9 @@ Claude Code sends Anthropic model IDs without a provider prefix. The LLM Proxy m
      claude-haiku-4-5-20251001
      ```
 
-If the UI requires at least one model entry even when globbing is enabled, add a seed model such as `claude-sonnet-4-6`.
+A provider requires at least one model even when globbing is enabled. Add a seed model such as `claude-sonnet-4-6`.
+
+Do not enable **Only use alias**. Claude Code sends real Anthropic model IDs, and **Only use alias** hides them behind aliases, so every request would be rejected.
 
 ### Create a plan and subscription
 
@@ -193,8 +194,9 @@ The LLM Proxy did not resolve the requested model.
 
 Check that:
 
-* **Prefix Policy** is set to **Models and aliases do not require a prefix**.
+* **Prefix needs** is set to **Models and aliases do not require a prefix**.
 * The requested model is explicitly added, or unregistered model globbing matches it.
+* **Only use alias** is disabled.
 * The API was redeployed after changing model governance.
 * Claude Code is sending the expected model ID, for example `claude-sonnet-4-6`.
 
