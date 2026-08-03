@@ -92,7 +92,7 @@ export ANTHROPIC_BASE_URL=https://<your-gateway-host>/my-llm-proxy
 export OPENAI_BASE_URL=https://<your-gateway-host>/my-llm-proxy
 ```
 
-This is the recommended path for routing Claude Code, Cursor, and other development tools through governance.
+This is the recommended path for routing Claude Code, Cursor, and other development tools through governance. For a full Claude Code walkthrough that keeps the user's own Claude login, see [Connect Claude Code through an LLM Proxy](../publish/connect-claude-code-through-an-llm-proxy.md).
 
 ## Next steps
 

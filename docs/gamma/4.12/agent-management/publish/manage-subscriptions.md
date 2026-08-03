@@ -20,7 +20,7 @@ Subscriptions to Agent Management resources follow a strict approval lifecycle:
 
 To accept, reject, or close a subscription:
 1. Navigate to your LLM Proxy or MCP Proxy in the console.
-2. Select **Subscriptions** from the inner navigation menu.
+2. Select **Consumers** from the inner navigation menu.
 3. Locate the subscription in the list.
 4. Use the actions menu to **Accept**, **Reject**, or **Close** the subscription.
 
