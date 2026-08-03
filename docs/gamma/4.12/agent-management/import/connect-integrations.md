@@ -30,7 +30,7 @@ You connect an integration by importing models from it.
 
 1. From the Gamma console sidebar, select **Agent Management**.
 2. Navigate to the **Catalog** → **AI Models** list.
-3. Select **Add AI Model**.
+3. Select **Add provider**.
 4. **Choose source type**: Select the provider you want to integrate with (e.g., Azure AI Foundry or OpenAI).
 5. **Configure connection**: 
    - For **LLM Providers**, this typically uses the built-in integration template.
