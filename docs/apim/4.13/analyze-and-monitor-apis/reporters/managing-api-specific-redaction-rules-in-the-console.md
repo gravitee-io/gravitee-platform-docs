@@ -6,19 +6,21 @@ description: Manage API-specific span attribute redaction rules in the Managemen
 
 ## Create API-Specific Redaction Rules
 
-You configure API-specific redaction rules in the Management Console under **Reporter Settings**, **Proxy**, and then **Span Attribute Redaction**. This section is visible only when tracing is enabled and verbose mode is active. The system appends API-specific rules after global rules. They take precedence for matching attributes.
+You configure API-specific redaction rules in the Management Console, in the **Span Attribute Redaction** section of the API's **Reporter Settings** tab. This section is visible only when tracing is enabled and verbose mode is active. The system appends API-specific rules after global rules. When both match the same attribute, the global rule wins.
 
 <figure><img src="../../.gitbook/assets/apim-span-attribute-redaction-for-opentelemetry-tracing-step-02.png" alt="Span attribute redaction section with empty rules table and add rule button"><figcaption></figcaption></figure>
 
 To create API-specific redaction rules, complete the following steps:
-1. Navigate to **Reporter Settings**, **Proxy**, and then **Span Attribute Redaction**.
-2. Click **Add rule** to open the redaction rule dialog.
-3. Enter an **Attribute Name Pattern**. Here are some examples: `http.request.header.authorization`, `enduser.*`, and `regex:payment\.(card|token)`.
-4. Select a **Masking Type**. Select `FULL` to replace the entire value, or select `PARTIAL` to keep the prefix and suffix visible.
-5. (Optional) If you select FULL masking, enter **Replacement Text**. Leave this blank to use the default `[REDACTED]`.
-6. If you select PARTIAL masking, configure **Visible Prefix (chars)**, **Visible Suffix (chars)**, and **Mask Character**. The default mask character is a single `*`. A live preview displays the masking result.
-7. (Optional) Enter a **Value Filter**. This uses a Java regex for a partial match. The rule fires only when the attribute value matches this pattern.
-8. Click **Add** to save the rule.
+1. In the API's menu, click **Deployment**.
+2. Click the **Reporter Settings** tab.
+3. Scroll to the **Span Attribute Redaction** section.
+4. Click **Add rule** to open the redaction rule dialog.
+5. Enter an **Attribute Name Pattern**. Here are some examples: `http.request.header.authorization`, `enduser.*`, and `regex:payment\.(card|token)`.
+6. Select a **Masking Type**. Select `FULL` to replace the entire value, or select `PARTIAL` to keep the prefix and suffix visible.
+7. (Optional) If you select FULL masking, enter **Replacement Text**. Leave this blank to use the default `[REDACTED]`.
+8. If you select PARTIAL masking, configure **Visible Prefix (chars)**, **Visible Suffix (chars)**, and **Mask Character**. The default mask character is a single `*`. A live preview displays the masking result.
+9. (Optional) Enter a **Value Filter**. This uses a Java regex for a partial match. The rule fires only when the attribute value matches this pattern.
+10. Click **Add** to save the rule.
 
 The following table describes the fields for redaction rules:
 
@@ -38,7 +40,7 @@ The Management Console displays existing rules in a table with columns for rule 
 
 To manage redaction rules, complete the following steps:
 1. [Editing Rules](#editing-rules)
-2. [Deleting Rules](#deleting-rules)
+2. [Delete Rules](#delete-rules)
 
 ### Editing Rules
 
@@ -71,7 +73,3 @@ Review the following restrictions for redaction rules:
 * The system redacts resource attributes once at tracer creation time and reuses them for all spans. It does not re-evaluate them per span. Resource attributes include `service.instance.id`, `hostname`, and `ip`.
 * API-specific redaction rules are available only for v4 HTTP proxy APIs and v4 TCP proxy APIs.
 * Read-only mode triggers when the API definition context origin is `Kubernetes`. The Management Console hides the **Add rule** button and row action buttons.
-
-## Related Changes
-
-The Management Console UI adds a **Span Attribute Redaction** section under **Reporter Settings** and **Proxy**. This is visible only when tracing is enabled and verbose mode is active. The section displays a table of redaction rules with columns for rule index, attribute pattern, masking strategy, value filter, and edit and delete actions. A redaction rule dialog supports adding and editing rules with a live preview for partial masking. The Management API (mAPI) v2 schema includes new types to support API-level redaction configuration. These types include `TracingRedactionConfig`, `TracingRedactionRule`, and `TracingMaskingStrategy`. The `Tracing` model in the API definition includes an optional `redaction` field.
