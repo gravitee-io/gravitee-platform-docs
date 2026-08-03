@@ -3,7 +3,6 @@ description: Create a Kafka Service in Event Stream Management and bind it to a 
 hidden: false
 noIndex: false
 ---
-<--- to be published --->
 
 # Create a Kafka service with a registered cluster
 
