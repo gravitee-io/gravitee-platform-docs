@@ -121,7 +121,6 @@ Authorization Management integrates with the API Gateway, AI Gateway, and Event 
 
 * **API Management.** API proxies reference Authorization Management policies for endpoint-level access control.
 * **Agent Management.** MCP Proxies and LLM Proxies enforce authorization policies at the tool and model level. Policy entities are populated from the Catalog.
-* **Agent Management.** MCP Proxies and LLM Proxies enforce authorization policies at the tool and model level. Policy entities are populated from the Catalog.
 
 ## Next steps
 
