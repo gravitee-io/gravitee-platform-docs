@@ -156,7 +156,7 @@ The `x509CertificateChain` option never rejects the request. For the `INLINE` an
 
 When the signature is an HMAC algorithm, the three certificate options have no effect. The JWT is generated without certificate headers, no error is logged, and the Console disables the corresponding fields.
 
-The policy resolves the signing key and certificate on first use and keeps them for the lifetime of the gateway process. After you rotate the key material, for example by replacing a keystore file at the same path, restart the gateway to pick up the new certificate.
+The policy resolves the signing key and certificate on first use and keeps them for the lifetime of the gateway process. For the `PEM`, `JKS`, and `PKCS12` key resolvers, if you rotate the key material by replacing the file at the same path, restart the gateway to pick up the new certificate. For `INLINE`, updating the certificate in the policy configuration takes effect on the next deployment, without a gateway restart.
 
 The following example adds both thumbprint headers to JWTs signed with a PEM key file that includes the signing certificate:
 
