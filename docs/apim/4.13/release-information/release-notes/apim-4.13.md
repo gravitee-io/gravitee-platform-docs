@@ -31,12 +31,6 @@ documentation.gravitee.io links for other versions.
 * The new `#jsonEscape` Expression Language function escapes a value so it can be safely inserted into a JSON document or JSON string literal, for example in a response template body.
 * The Generate JWT policy adds optional `x5t` and `x5t#S256` certificate thumbprint headers to generated JWTs, for downstream systems that select the validation certificate by thumbprint.
 
-## Breaking Changes and deprecations
-
-#### **Generate JWT policy: Changes to `x5c` with the `INLINE` and `PEM` key resolvers**
-
-Starting with APIM 4.13.0, the Generate JWT policy resolves the `x5c` certificate chain from the certificates included in the key material when the key resolver is `INLINE` or `PEM`. Generated JWTs now carry an `x5c` header when a matching certificate is present, and the policy rejects requests with HTTP `500` when `x509CertificateChain` is set to `X5C` but no usable certificate is available. In earlier versions, this option had no effect with these key resolvers. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
-
 ## New Features
 
 #### **Branded Senders for Notification Emails**
@@ -68,4 +62,4 @@ Starting with APIM 4.13.0, the Generate JWT policy resolves the `x5c` certificat
 
 * The `x509CertificateChain` option now works with the `INLINE` and `PEM` key resolvers. The policy builds the `x5c` header from the certificates included in the key material, ordered from the signing certificate outward, and drops certificates that don't link into the chain.
 * The policy now parses key material that bundles certificates together with the private key.
-* This change affects existing `INLINE` and `PEM` configurations that already set `x509CertificateChain` to `X5C`. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+* For the `INLINE` and `PEM` key resolvers, if no certificate in the key material matches the signing key, the policy omits the `x5c` header and signs the token anyway, logging a warning when the key material is loaded.
