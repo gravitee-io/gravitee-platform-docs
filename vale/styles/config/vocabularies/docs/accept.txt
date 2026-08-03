@@ -208,6 +208,7 @@ client_id
 client_secret
 kafka-acl\.md
 elasticsearch-reporter\.md
+expose-metrics-to-prometheus\.md
 clientId
 clientName
 clientSecret
