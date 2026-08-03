@@ -1,4 +1,7 @@
 ---
+description: >-
+  View, create, and manage the consumer applications that subscribe to your API
+  plans from the Applications page in the Gamma console.
 hidden: false
 noIndex: false
 ---
@@ -9,56 +12,54 @@ Applications represent external consumers that call your APIs. The Applications 
 
 ## View applications
 
-From the Gamma console sidebar, select **Platform Management**, then navigate to **Applications**. The page header shows KPI tiles for **Active applications** and **Archived applications** counts.
+From the Gamma console sidebar, select **Platform Management**, and then navigate to **Applications**. The page header shows KPI tiles for the **Active applications** and **Archived applications** counts.
 
-The applications table displays:
+The applications table displays the following columns:
 
-* **Name** — Application name (sortable)
-* **Type** — Application type (Backend, Service, Web, etc.)
-* **Owner** — The user who created the application
-* **Actions** — Edit and management actions
+* **Name**. The application name. You can sort the table on this column.
+* **Type**. The application type, such as Backend, Service, or Web.
+* **Owner**. The user who created the application.
+* **Actions**. A row menu that contains the **View Details** and **Manage Subscriptions** actions.
 
-Use the search bar to filter applications by name. The **Active/Archived** dropdown filter toggles between active and archived application views. When viewing archived applications, you can restore them directly from the table using the restore action. The list supports pagination for large application sets.
+Use the search bar to filter applications by name. The **Active**/**Archived** dropdown filter toggles between the active and archived application views. The archived view lists each application with the date it was archived, and you can restore an application directly from its row. The **View** control chooses which columns the table displays, and the list supports pagination for large application sets.
 
 <figure><img src="https://3745118555-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fa6QVD3iIxTvnV5eQ8OH1%2Fuploads%2Fgit-blob-1763f30d911da54e240765f4394566d04264e60d%2Fgamma-platform-applications.png?alt=media" alt="Platform Applications page showing a searchable table of consumer applications with type and owner columns"><figcaption><p>The Applications page lists all consumer applications with their type (Backend, Service, Web) and owner. Use the search bar and Active/Archived filter to find specific applications.</p></figcaption></figure>
 
 ## Create an application
 
+To create an application, complete the following steps:
 
-1. Select **Register Application** from the applications list.
-2. Enter the application details:
+1. From the applications list, select **Register Application**.
+2. In the **General** section, enter the application details described in the following table:
 
-| Field           | Description                                                      | Required |
-| --------------- | ---------------------------------------------------------------- | -------- |
-| **Name**        | A human-readable name to identify the application.               | Yes      |
-| **Description** | Freeform text describing the application's purpose.              | Yes      |
-| **Domain**      | The domain associated with this application.                     | No       |
-| **Groups**      | Assign the application to one or more groups for access control. | No       |
+    | Field           | Description                                         | Required |
+    | --------------- | --------------------------------------------------- | -------- |
+    | **Name**        | A human-readable name to identify the application.  | Yes      |
+    | **Description** | Freeform text describing the application's purpose. | Yes      |
+    | **Domain**      | The domain associated with this application.        | No       |
 
-3. Select the application type:
+3. In the **Security** section, select the application type. **Simple** is a standalone client for which you manage your own client ID. Additional OAuth application types are available only when Dynamic Client Registration is enabled for the environment.
+4. Complete the remaining **Security** fields described in the following table:
 
-| Type                   | Description                                                             | Redirect URIs required |
-| ---------------------- | ----------------------------------------------------------------------- | ---------------------- |
-| **Simple**             | Basic application with an optional client ID. No OAuth grant types.     | No                     |
-| **SPA (Browser)**      | Single-page application. Default grant type: Authorization Code.        | Yes                    |
-| **Web**                | Server-side web application. Default grant type: Authorization Code.    | Yes                    |
-| **Native**             | Mobile or desktop application. Default grant type: Authorization Code.  | Yes                    |
-| **Backend-to-Backend** | Machine-to-machine application. Default grant type: Client Credentials. | No                     |
+    | Field                              | Description                                                                                                   | Required |
+    | ---------------------------------- | ------------------------------------------------------------------------------------------------------------- | -------- |
+    | **Type**                           | A freeform descriptor of the application, such as mobile or web.                                              | No       |
+    | **Client ID**                      | The client ID of the application. This field is required to subscribe to certain types of API plan, such as OAuth2 and JWT. | No       |
+    | **Client Certificate (PEM Only)**  | The PEM-encoded client certificate of the application. This field is required to subscribe to certain mTLS plans. | No       |
 
-4. For OAuth-enabled types (SPA, Web, Native, Backend-to-Backend), configure grant types and redirect URIs as required.
-5. For TLS-based authentication, upload a client certificate in the TLS settings section.
-6. Select **Create** to register the application.
+5. Select **Create Application**.
 
 ## Application details
 
-Select an application from the list to view its detail page, which includes:
+Select an application from the list to open its detail page, which contains the following sections:
 
-* **General** — Name, description, type, domain, group membership, client ID, certificates, and metadata. The metadata editor includes built-in safeguards to highlight and prevent saving duplicate custom keys.
-* **User Permissions** — Manage direct members, configure group access, and transfer application ownership.
-* **Notifications** — Configure email and webhook notifications for application events.
-* **Subscriptions** — Active subscriptions to API plans. View subscription status, manage API keys, and see subscription history.
+* **Overview**. A setup checklist for the application and a snapshot of its subscription counts.
+* **General**. The application name, description, domain, images, owner, creation date, type, API key mode, client ID, and mTLS client certificates. This section also holds the action that archives the application.
+* **User Permissions**. Manage direct members, configure group access, and transfer application ownership.
+* **Subscriptions**. The plans this application subscribes to. Create a subscription, filter by API and status, search by API key, and review each subscription's status and dates.
+* **Notification settings**. Configure the events that trigger a notifier for this application, using either the default email notifier or the default webhook notifier. This section also holds the custom metadata available in notification templates. The metadata editor rejects a duplicate key and reports that the metadata already exists.
 
 ## Next steps
 
-* [Manage resources](manage-resources.md) — Configure shared resources used across your APIs.
-* [Establish consumer access](../api-management/build/configure-your-api-proxy/establish-consumer-access.md) — Set up subscriptions between applications and API plans.
+* [Manage resources](manage-resources.md). Configure shared resources used across your APIs.
+* [Establish consumer access](../api-management/build/configure-your-api-proxy/establish-consumer-access.md). Configure subscriptions between applications and API plans.
