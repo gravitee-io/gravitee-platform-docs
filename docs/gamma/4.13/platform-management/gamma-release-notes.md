@@ -18,7 +18,7 @@
 #### AI Gateway
 
 * Provides a unified runtime for LLM, MCP, and A2A traffic. All three proxy types share a common authentication chain, policy chain, observability chain, and Authorization Management integration point.
-* **LLM Proxy**: Routes model traffic to Anthropic, OpenAI, Bedrock, Vertex AI, and Azure with guardrails, PII filtering, token-based rate limiting, and structured output enforcement.
+* **LLM Proxy**: Routes model traffic to Anthropic, OpenAI, Bedrock, Gemini Enterprise Agent Platform (formerly Vertex AI), and Azure with guardrails, PII filtering, token-based rate limiting, and structured output enforcement.
 * **MCP Proxy**: Governs tool invocations on upstream MCP servers (HubSpot, GitHub, Salesforce, Jira) with authentication, fine-grained policies, and protocol-native JSON-RPC 2.0. Supports both transparent proxy mode and Studio mode.
 * **MCP Studio**: Compose tools, resources, prompts, and skills from multiple sources into a Composite MCP Server without writing code.
 * **A2A Proxy**: Secures agent-to-agent delegations with skill discovery via `/.well-known/agent.json`, per-skill authorization, and agent identity verification across trust boundaries.
@@ -26,7 +26,7 @@
 #### Catalog
 
 * Authoritative registry of AI models, MCP servers, tools, prompts, agents, skills, and resources that policies are authored against.
-* Syncs AI models from AWS Bedrock, Azure AI Foundry, and Vertex AI, or accepts manual registration.
+* Syncs AI models from AWS Bedrock, Azure AI Foundry, and Gemini Enterprise Agent Platform (formerly Vertex AI), or accepts manual registration.
 * Consumes from external MCP registries (GitHub, Smithery, and third-party) and operates as an MCP Registry itself, so other systems can discover and read from it.
 * REST, GraphQL, and gRPC APIs from API Management become **API Tools**, and Kafka topics from Event Stream Management become **Kafka API Tools**, making existing enterprise infrastructure agent-accessible without redevelopment.
 
