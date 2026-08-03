@@ -12,7 +12,17 @@ An LLM Proxy routes traffic to upstream model providers—OpenAI, Anthropic, Gem
 For a simplified quickstart, see [Create your LLM Proxy](../get-started/create-your-llm-proxy.md).
 {% endhint %}
 
-## Step 1: Open the LLM Proxy wizard
+## Create the LLM Proxy
+
+To create an LLM Proxy, complete the following steps:
+
+1. [Open the LLM Proxy wizard](#open-the-llm-proxy-wizard)
+2. [Configure the models](#configure-the-models)
+3. [Set the context path](#set-the-context-path)
+4. [Select a consumer plan](#select-a-consumer-plan)
+5. [Review and create](#review-and-create)
+
+### Open the LLM Proxy wizard
 
 1. From the Gamma console sidebar, select **Agent Management**.
 2. Under **Secure**, select **LLM Proxies**.
@@ -20,7 +30,7 @@ For a simplified quickstart, see [Create your LLM Proxy](../get-started/create-y
 
 The console opens the **Create an LLM proxy** wizard, which has four steps: **Models**, **Entrypoint**, **Plans**, and **Review & create**.
 
-## Step 2: Configure the models
+### Configure the models
 
 On the **Models** step, first choose a proxy type. Select **Universal LLM Proxy** to aggregate models from multiple providers behind one endpoint that speaks the OpenAI, Anthropic, and Gemini APIs.
 
@@ -36,11 +46,10 @@ To add a provider inline, select **Add provider** and complete the following fie
 | **Authentication** | Yes      | How the LLM Proxy authenticates with the upstream provider, and the credentials it uses: **No authentication**, **API key** with a custom header, **Bearer token**, or **Service account**. |
 | **Model name**     | Yes      | The specific model to route traffic to. You can also add aliases and per-model pricing, that is, the input and output price per million tokens. |
 
-To import registered models instead, select **Add models from catalog**:
+To import registered models instead, select **Add models from catalog** and complete the following steps:
 
-1. Browse the registered providers and select one to view its available models.
-2. The provider name, target URL, and authentication type are pre-populated from the catalog entry.
-3. Enter the provider-specific credentials, for example, an API key. Credentials aren't stored in the catalog, so supply them for each LLM Proxy.
+1. Browse the registered providers and select one to view its available models. The provider name, target URL, and authentication type are pre-populated from the catalog entry.
+2. Enter the provider-specific credentials, for example, an API key. Credentials aren't stored in the catalog, so supply them for each LLM Proxy.
 
 In the **Details** section of the same step, give the proxy a **Proxy name**, and optionally a **Version number** and **Description**. The **Entity ID** is generated from the name.
 
@@ -52,7 +61,7 @@ Whether the **Target URL** includes the provider's version segment depends on th
 You can configure multiple providers and models on a single LLM Proxy. See [Configure an LLM Proxy](configure-an-llm-proxy.md) for post-creation configuration options.
 {% endhint %}
 
-## Step 3: Set the context path
+### Set the context path
 
 On the **Entrypoint** step, define the public path that consumers call:
 
@@ -62,7 +71,7 @@ On the **Entrypoint** step, define the public path that consumers call:
 
 You can also toggle **Track tokens during stream mode** and **Inject token usage headers** to control how token usage is reported.
 
-## Step 4: Select a consumer plan
+### Select a consumer plan
 
 On the **Plans** step, select **Add plan** to choose how consumers authenticate when sending prompts through this LLM Proxy. The LLM Proxy supports the standard Gravitee API plan types:
 
@@ -78,7 +87,7 @@ On the **Plans** step, select **Add plan** to choose how consumers authenticate 
 Keyless plans provide no consumer identification. You cannot track usage per consumer, enforce per-consumer rate limits, or attribute costs. Use keyless only for internal testing.
 {% endhint %}
 
-## Step 5: Review and create
+### Review and create
 
 Review the LLM Proxy configuration—provider, model, authentication, context path, and consumer plan—and then select **Create**.
 
