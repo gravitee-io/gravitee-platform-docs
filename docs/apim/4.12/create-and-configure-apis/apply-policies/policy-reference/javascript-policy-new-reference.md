@@ -7,7 +7,7 @@ The JavaScript Policy (New) executes custom JavaScript scripts during request or
 It replaces the legacy Nashorn-based `gravitee-policy-javascript` policy, which has been deprecated due to Nashorn's removal from recent JDKs. This is a new policy built from scratch — not a migration — and existing scripts may require adjustments.
 
 {% hint style="warning" %}
-This policy supports V4 APIs only (Proxy and Message). V2 APIs are not supported.
+This policy supports V4 APIs only (Proxy, Message, MCP Proxy, LLM Proxy, and A2A Proxy). V2 APIs are not supported.
 {% endhint %}
 
 ## JavaScript Engine
@@ -84,6 +84,14 @@ content[0].firstname = 'Modified ' + content[0].firstname;
 content[0].country = 'US';
 response.content(JSON.stringify(content));
 ```
+
+{% hint style="warning" %}
+Content transformation does not apply to `text/event-stream` responses. The gateway streams them straight through, so **Read content** and **Override content** have no effect and the script is not executed in the response body phase. Scripts that only read or set headers still run, as long as **Read content** is disabled.
+{% endhint %}
+
+{% hint style="info" %}
+On any other chunked response, enabling **Read content** makes the gateway buffer the whole body before running your script, so the response is no longer streamed to the client incrementally.
+{% endhint %}
 
 ### Context Attributes
 
@@ -307,6 +315,9 @@ Applicable to `request.headers()`, `response.headers()`, `response.trailers()`, 
 
 * `PROXY`
 * `MESSAGE`
+* `MCP PROXY`
+* `LLM PROXY`
+* `A2A PROXY`
 
 ### Supported Flow Phases
 
@@ -319,7 +330,8 @@ Applicable to `request.headers()`, `response.headers()`, `response.trailers()`, 
 
 | Plugin Version | APIM | Java Version |
 |:---------------|:-----|:-------------|
-| 1.0.0 and after | 4.10.x and after | 21 |
+| 1.1.0 and after | 4.11.x and after | 21, 25 |
+| 1.0.0 to 1.0.1 | 4.11.x to 4.12.x | 21 |
 
 ## Policy Configuration
 

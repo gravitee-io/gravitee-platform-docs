@@ -9,6 +9,12 @@ metaLinks:
 
 ## Overview
 
+{% hint style="warning" %}
+**Deprecated:** This policy is deprecated in favor of the [JavaScript Policy (New)](javascript-policy-new-reference.md) (`js`), which runs on GraalJS. Nashorn was removed from the JDK in version 15, so this policy relies on the standalone `nashorn-core` artifact and has to track language changes separately.
+
+No removal date is announced and existing APIs keep working. New APIs should use the `js` policy, which requires APIM 4.11 or later. The two policies do not share an engine and are not drop-in replacements, so scripts may need adjustments. See [Migrating from the Legacy JavaScript Policy](javascript-policy-new-reference.md#migrating-from-the-legacy-javascript-policy) for the differences.
+{% endhint %}
+
 You can use the [JavaScript](http://www.javascript.com/) policy to run JavaScript scripts at any stage of request processing through the gateway. Several variables are automatically bound to the JavaScript script. These let you read, and potentially modify, their values to define the behavior of the policy.
 
 This policy is applicable to the following API types:
