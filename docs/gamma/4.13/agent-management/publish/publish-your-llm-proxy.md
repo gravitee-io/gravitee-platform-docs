@@ -25,9 +25,23 @@ The Universal LLM Router exposes a single endpoint that simultaneously supports 
 Consumers can now send prompts to paths such as:
 
 ```
-https://<your-gateway-host><context-path>/v1/chat/completions
+https://<your-gateway-host><context-path>/chat/completions
 https://<your-gateway-host><context-path>/v1/messages
 ```
+
+{% hint style="warning" %}
+The OpenAI path has no `/v1` segment, but the Anthropic path does. The `/v1` in
+`https://api.openai.com/v1` belongs to the provider URL you configured on the proxy,
+not to the path your consumers call. A request to `<context-path>/v1/chat/completions`
+returns `404`.
+
+For an OpenAI SDK, this means `base_url` is the context path on its own, with no
+`/v1`, because the SDK appends `/chat/completions` itself.
+{% endhint %}
+
+To discover the exact model identifiers this proxy accepts, send a `GET` request to
+`<context-path>/models`. The response lists each model prefixed with the proxy name,
+for example `llm-my-router:gpt-4o-mini`.
 
 ## Consumer access
 

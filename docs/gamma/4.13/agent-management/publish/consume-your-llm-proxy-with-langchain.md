@@ -32,7 +32,7 @@ Before you begin, confirm that you have the following:
     from langchain_openai import ChatOpenAI
 
     llm = ChatOpenAI(
-        base_url="https://<GATEWAY_HOST>/<CONTEXT_PATH>/v1",
+        base_url="https://<GATEWAY_HOST>/<CONTEXT_PATH>",
         default_headers={"X-Gravitee-Api-Key": "YOUR_API_KEY_HERE"},
         model="YOUR_MODEL_ALIAS",
     )
@@ -54,12 +54,22 @@ Before you begin, confirm that you have the following:
     print(chain.invoke({"input": "Say OK"}))
     ```
 
-{% hint style="info" %}
-`ChatOpenAI` appends `/chat/completions` to `base_url`, so the example resolves to the `/v1/chat/completions` endpoint documented in [Publish your LLM Proxy](publish-your-llm-proxy.md). If your LLM Proxy is exposed without the `/v1` segment, remove it from `base_url`.
+{% hint style="warning" %}
+Do not add a `/v1` segment to `base_url`. `ChatOpenAI` appends `/chat/completions`
+itself, so the example above resolves to the `/chat/completions` endpoint documented
+in [Publish your LLM Proxy](publish-your-llm-proxy.md). Adding `/v1` produces
+`/v1/chat/completions`, which the AI Gateway returns `404` for.
+
+The `/v1` you may have seen belongs to the provider URL configured on the proxy, such
+as `https://api.openai.com/v1`, not to the path your consumers call.
 {% endhint %}
 
 {% hint style="info" %}
 The `model` value is an alias that the LLM Proxy resolves to a provider model. Aliases are configured per model when you add a provider to the proxy. For more information, see [Create an LLM Proxy](../build/create-an-llm-proxy.md).
+
+To list the identifiers a proxy accepts, send a `GET` request to
+`<CONTEXT_PATH>/models`. Unless the proxy is configured otherwise, the identifiers are
+prefixed with the proxy name, for example `llm-my-router:gpt-4o-mini`.
 {% endhint %}
 
 ## Verify the connection
