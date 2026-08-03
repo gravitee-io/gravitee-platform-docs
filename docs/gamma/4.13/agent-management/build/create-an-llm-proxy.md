@@ -6,7 +6,7 @@ description: Create an LLM Proxy that routes traffic to upstream model providers
 
 # Create an LLM Proxy
 
-An LLM Proxy routes traffic to upstream model providers—OpenAI, Anthropic, Gemini, Bedrock, and Vertex AI—through the AI Gateway. It adds authentication, cost attribution, observability, guardrails, and fine-grained authorization to every model call.
+An LLM Proxy routes traffic to upstream model providers—OpenAI, Anthropic, Gemini, Bedrock, and Gemini Enterprise Agent Platform (formerly Vertex AI)—through the AI Gateway. It adds authentication, cost attribution, observability, guardrails, and fine-grained authorization to every model call.
 
 {% hint style="info" %}
 For a simplified quickstart, see [Create your LLM Proxy](../get-started/create-your-llm-proxy.md).
@@ -43,6 +43,10 @@ To import registered models instead, select **Add models from catalog**:
 3. Enter the provider-specific credentials, for example, an API key. Credentials aren't stored in the catalog, so supply them for each LLM Proxy.
 
 In the **Details** section of the same step, give the proxy a **Proxy name**, and optionally a **Version number** and **Description**. The **Entity ID** is generated from the name.
+
+{% hint style="warning" %}
+Whether the **Target URL** includes the provider's version segment depends on the request format. The **OpenAI** and **Gemini** formats forward the incoming path unchanged, so the target must include it, for example `https://api.openai.com/v1`. The **Anthropic**, **Bedrock**, and **Vertex AI** formats rewrite the upstream path themselves, so the target must stop at the host, for example `https://api.anthropic.com`. Adding `/v1` to an Anthropic target produces `/v1/v1/messages` upstream and the request fails.
+{% endhint %}
 
 {% hint style="info" %}
 You can configure multiple providers and models on a single LLM Proxy. See [Configure an LLM Proxy](configure-an-llm-proxy.md) for post-creation configuration options.
@@ -89,7 +93,7 @@ export ANTHROPIC_BASE_URL=https://<your-gateway-host>/my-llm-proxy
 export OPENAI_BASE_URL=https://<your-gateway-host>/my-llm-proxy
 ```
 
-This is the recommended path for routing Claude Code, Cursor, and other development tools through governance.
+This is the recommended path for routing Claude Code, Cursor, and other development tools through governance. For a full Claude Code walkthrough that keeps the user's own Claude login, see [Connect Claude Code through an LLM Proxy](../publish/connect-claude-code-through-an-llm-proxy.md).
 
 ## Next steps
 
