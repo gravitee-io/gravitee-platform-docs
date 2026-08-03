@@ -29,7 +29,7 @@ The proxy automatically routes requests to the right provider and model, which d
 * **OpenAI** - Direct passthrough (full compatibility)
 * **OpenAI-compatible** - Providers following OpenAI API format
 * **Anthropic** - Anthropic Messages API (Claude models)
-* **Vertex AI** - Google Cloud Vertex AI (Gemini and Anthropic Claude models)
+* **Vertex AI** - Google Cloud's Gemini Enterprise Agent Platform, formerly Vertex AI (Gemini and Anthropic Claude models)
 
 ### Supported Endpoints
 
@@ -482,7 +482,7 @@ The `seed` parameter is dropped because Anthropic doesn't support it.
 
 #### Vertex AI
 
-Vertex AI is a composite provider. It routes each request to a Vertex AI publisher based on the `publisher` setting: `google` for Gemini models (the default) or `anthropic` for Claude models. Each publisher reuses the matching Gravitee mapper and adds Vertex AI path rewriting on top.
+Vertex AI is a composite provider for Google Cloud's Gemini Enterprise Agent Platform. It routes each request to a publisher based on the `publisher` setting: `google` for Gemini models (the default) or `anthropic` for Claude models. Each publisher reuses the matching Gravitee mapper and adds Gemini Enterprise Agent Platform path rewriting on top.
 
 {% tabs %}
 {% tab title="Configuration" %}
@@ -495,7 +495,7 @@ Vertex AI is a composite provider. It routes each request to a Vertex AI publish
 
 {% tab title="Publisher: google" %}
 * Reuses the Gemini transformation. See the Gemini provider details above for request format, streaming, token usage, and message handling.
-* Rewrites the request path to Vertex AI format. The Gemini path `/models/{model}:{action}` becomes `/v1/projects/{projectId}/locations/{location}/publishers/google/models/{model}:{action}`.
+* Rewrites the request path to Gemini Enterprise Agent Platform format. The Gemini path `/models/{model}:{action}` becomes `/v1/projects/{projectId}/locations/{location}/publishers/google/models/{model}:{action}`.
 * Preserves query strings such as `?alt=sse` through the rewrite.
 * Supports `/chat/completions`, `/responses`, and `/embeddings`.
 
@@ -515,13 +515,13 @@ Request from the client (OpenAI format):
 
 Gravitee forwards the request to `POST /v1/projects/{projectId}/locations/{location}/publishers/google/models/gemini-2.0-flash:generateContent`. The body uses the Gemini-native format shown in the Gemini example above.
 
-Response from Vertex AI:
+Response from Gemini Enterprise Agent Platform:
 
 ```json
 {
   "candidates": [
     {
-      "content": { "parts": [ { "text": "Hello from Vertex AI!" } ], "role": "model" },
+      "content": { "parts": [ { "text": "Hello from Gemini Enterprise Agent Platform!" } ], "role": "model" },
       "finishReason": "STOP"
     }
   ],
@@ -542,7 +542,7 @@ Response returned to the client (OpenAI format):
   "choices": [
     {
       "index": 0,
-      "message": { "role": "assistant", "content": "Hello from Vertex AI!" },
+      "message": { "role": "assistant", "content": "Hello from Gemini Enterprise Agent Platform!" },
       "finish_reason": "stop"
     }
   ],
@@ -554,8 +554,8 @@ Response returned to the client (OpenAI format):
 {% tab title="Publisher: anthropic" %}
 * Reuses the Anthropic transformation. See the Anthropic provider details above for request format, streaming, token usage, and message handling.
 * Rewrites the request path to `/v1/projects/{projectId}/locations/{location}/publishers/anthropic/models/{model}:rawPredict` for non-streaming requests, and `:streamRawPredict` for streaming requests. The action suffix comes from the `stream` field.
-* Adapts the request body for Vertex AI. Removes `model` and `stream` because both come from the path, removes `context_management` and `output_config`, and adds `anthropic_version: "vertex-2023-10-16"`.
-* Doesn't set the `anthropic-version` HTTP header. Vertex AI uses the body-level `anthropic_version` field instead.
+* Adapts the request body for Gemini Enterprise Agent Platform. Removes `model` and `stream` because both come from the path, removes `context_management` and `output_config`, and adds `anthropic_version: "vertex-2023-10-16"`.
+* Doesn't set the `anthropic-version` HTTP header. Gemini Enterprise Agent Platform uses the body-level `anthropic_version` field instead.
 * Supports `/chat/completions` and `/responses`. Embeddings aren't supported.
 
 **Example**
@@ -573,14 +573,14 @@ Request from the client (OpenAI format):
 
 Gravitee forwards the request to `POST /v1/projects/{projectId}/locations/{location}/publishers/anthropic/models/claude-sonnet-4-20250514:rawPredict`. The body uses the Anthropic Messages format shown in the Anthropic example above, with `model` and `stream` removed and `anthropic_version: "vertex-2023-10-16"` added.
 
-Response from Vertex AI:
+Response from Gemini Enterprise Agent Platform:
 
 ```json
 {
   "id": "msg_vertex_test_01",
   "type": "message",
   "role": "assistant",
-  "content": [ { "type": "text", "text": "Hello from Claude on Vertex AI!" } ],
+  "content": [ { "type": "text", "text": "Hello from Claude on Gemini Enterprise Agent Platform!" } ],
   "model": "claude-sonnet-4-20250514",
   "stop_reason": "end_turn",
   "usage": { "input_tokens": 12, "output_tokens": 8 }
@@ -598,7 +598,7 @@ Response returned to the client (OpenAI format):
   "choices": [
     {
       "index": 0,
-      "message": { "role": "assistant", "content": "Hello from Claude on Vertex AI!" },
+      "message": { "role": "assistant", "content": "Hello from Claude on Gemini Enterprise Agent Platform!" },
       "finish_reason": "stop"
     }
   ],
@@ -691,7 +691,7 @@ Warning generated if multiple content parts exist
 {% endtab %}
 
 {% tab title="Platform" %}
-* Supports only the `google` and `anthropic` publishers. Other Vertex AI publishers, for example Meta Llama or Mistral, aren't supported
+* Supports only the `google` and `anthropic` publishers. Other Gemini Enterprise Agent Platform publishers, for example Meta Llama or Mistral, aren't supported
 * The default region `global` doesn't apply to all models. Set `location` to a region where your model is available
 {% endtab %}
 {% endtabs %}
@@ -705,7 +705,7 @@ Warning generated if multiple content parts exist
 * Invalid dimension values for Bedrock embeddings
 * Unsupported encoding formats
 * Invalid endpoint paths or HTTP methods
-* GCP service account authentication failure on Vertex AI (`502 Bad Gateway`, `GCP_AUTHENTICATION_ERROR`)
+* GCP service account authentication failure on Gemini Enterprise Agent Platform (`502 Bad Gateway`, `GCP_AUTHENTICATION_ERROR`)
 
 **Silent Ignoring:**
 
