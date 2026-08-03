@@ -38,7 +38,7 @@ services:
 
 **Rule Evaluation Order:**
 
-Rules are evaluated in the order they appear in the configuration. The first matching rule wins — subsequent rules for the same attribute are ignored.
+Rules are evaluated in the order they appear in the configuration. The first matching rule wins. Subsequent rules for the same attribute are ignored.
 
 **Configuration Merge Behavior:**
 
@@ -47,45 +47,38 @@ When both global (YAML) and API-specific rules are defined:
 - API-specific rules are appended after global rules
 - The `defaultReplacement` from the global configuration is preserved unless the API configuration explicitly overrides it
 
-### Docker Compose Configuration
+### Docker
 
-Override global redaction settings using environment variables:
+You can't define redaction rules with environment variables. The Gateway reads them from the `gravitee.yml` file. For a Docker deployment, mount a `gravitee.yml` file that contains your redaction rules into the container:
 
 ```yaml
 services:
   gateway:
-    image: graviteeio/apim-gateway:4.12.0
-    environment:
-      gravitee_services_tracing_enabled: true
-      gravitee_services_tracing_type: opentelemetry
-      gravitee_services_tracing_otel_endpoint: http://otel-collector:4317
-      gravitee_services_tracing_otel_redaction_defaultReplacement: "[REDACTED]"
-      gravitee_services_tracing_otel_redaction_rules_0_attributeNamePattern: "http.request.header.authorization"
-      gravitee_services_tracing_otel_redaction_rules_0_maskingStrategy_type: "FULL"
+    image: graviteeio/apim-gateway:<version>
+    volumes:
+      - ./gravitee.yml:/opt/graviteeio-gateway/config/gravitee.yml
 ```
 
-### Helm Configuration
+### Helm
 
-Configure redaction rules in `values.yaml`:
+Configure the rules under `gateway.services.opentelemetry` in your Helm values. The chart writes this block into the Gateway's `gravitee.yml`:
 
 ```yaml
 gateway:
   services:
-    tracing:
+    opentelemetry:
       enabled: true
-      type: opentelemetry
-      otel:
+      exporter:
         endpoint: http://otel-collector:4317
-        redaction:
-          defaultReplacement: "[REDACTED]"
-          rules:
-            - attributeNamePattern: "http.request.header.authorization"
-              maskingStrategy:
-                type: FULL
-            - attributeNamePattern: "gravitee.consumer.**"
-              maskingStrategy:
-                type: PARTIAL
-                prefixLength: 2
-                suffixLength: 2
-                replacement: "*"
+      redactionDefaultReplacement: "[REDACTED]"
+      redactionRules:
+        - attributeNamePattern: "http.request.header.authorization"
+          maskingStrategy:
+            type: FULL
+        - attributeNamePattern: "http.request.header.x-api-key"
+          maskingStrategy:
+            type: PARTIAL
+            prefixLength: 2
+            suffixLength: 2
+            replacement: "*"
 ```
