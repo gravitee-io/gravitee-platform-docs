@@ -3,3 +3,19 @@ root: ./
 structure:
   readme: README.md
   summary: SUMMARY.md
+
+redirects:
+ agent-management/edge-daemon: edge-management/get-started/README.md
+ agent-management/edge-daemon/connect-claude-code-to-daemon: edge-management/connect/README.md
+ agent-management/import/create-event-tools: agent-management/import/README.md
+ authorization-management/build: authorization-management/get-started/README.md
+ authorization-management/build/create-authorization-policies: authorization-management/configure/create-update-delete-policies.md
+ event-management/build/create-a-kafka-service: event-stream-management/build/create-a-kafka-service-with-a-registered-cluster.md
+ event-management/explorer: event-stream-management/get-started/README.md
+ event-management/explorer/create-kafka-topics: event-stream-management/get-started/README.md
+ event-management/explorer/inspect-kafka-messages: event-stream-management/get-started/README.md
+ event-management/explorer/manage-connections: event-stream-management/get-started/README.md
+ event-management/get-started: event-stream-management/get-started/README.md
+ event-management/get-started/create-your-first-kafka-topic: event-stream-management/get-started/README.md
+ event-management/get-started/event-management-overview: event-stream-management/get-started/event-stream-management-overview.md
+ platform-management/manage-the-platform: platform-management/overview.md

@@ -6,7 +6,7 @@ noIndex: false
 
 # Authorization Management overview
 
-Authorization Management provides fine-grained, catalog-aware access control across all Gamma traffic types—APIs, MCP servers, AI models, agents, and custom resources. Policies are written in Gravitee Authorization Policy Language (GAPL), a subset of the Cedar policy language, and enforced at the wire level by Gamma's gateways.
+Authorization Management provides fine-grained, catalog-aware access control across all Gamma traffic types: APIs, MCP servers, AI models, agents, and custom resources. Policies are written in Gravitee Authorization Policy Language (GAPL), a subset of the Cedar policy language, and enforced at the wire level by Gamma's gateways.
 
 ## How it works
 
@@ -42,11 +42,11 @@ Authorization Management organizes policies into service-specific categories. Ea
 
 | Category              | What it governs                                                                                                                      | Entity types                               |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
-| **MCP Policies**      | Access to MCP servers, their tools, prompts, and resources.                                                                          | MCPServer, MCPTool, MCPPrompt, MCPResource |
-| **AI Model Policies** | Access to AI providers and specific models, with cost and token usage constraints.                                                   | LLMProvider, Model                         |
-| **API Policies**      | Access to API proxies, their endpoints, and data fields.                                                                             | API, Endpoint, DataField                   |
-| **A2A Policies**      | Which principals can invoke each A2A agent.                                                                                          | Agent                                      |
-| **Custom Policies**   | Policies for resources not routed as MCP, API, Agent, or AI Model—internal applications, data assets, and bespoke resources. | Custom (user-defined)                      |
+| **MCP Policies**      | Access to MCP servers, their tools, prompts, and resources.                                                                          | `MCPServer`, `MCPTool`, `MCPPrompt`, `MCPResource` |
+| **AI Model Policies** | Access to AI providers and specific models, with cost and token usage constraints.                                                   | `LLMProvider`, `Model`                         |
+| **API Policies**      | Access to API proxies, their endpoints, and data fields.                                                                             | `API`, `Endpoint`, `DataField`                   |
+| **A2A Policies**      | Which principals can invoke each A2A agent.                                                                                          | `Agent`                                      |
+| **Custom Policies**   | Policies for resources not routed as MCP, API, Agent, or AI Model: internal applications, data assets, and bespoke resources. | Custom (user-defined)                      |
 
 ## Condition snippets
 
@@ -124,4 +124,4 @@ Authorization Management integrates with the API Gateway and AI Gateway as a sha
 
 ## Next steps
 
-* [Create authorization policies](../build/create-authorization-policies.md). Learn how to create, edit, and deploy policies for each service category.
+* [Create, update, and delete policies](../configure/create-update-delete-policies.md). Learn how to create, edit, and deploy policies for each service category.
