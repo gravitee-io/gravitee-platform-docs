@@ -2,7 +2,6 @@
 hidden: false
 noIndex: false
 ---
-<--- to be published --->
 
 # Create a Kafka service with a Virtual Cluster
 
