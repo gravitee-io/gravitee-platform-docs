@@ -6,6 +6,10 @@
 # Space-level .gitbook.yaml redirects cannot serve these because the gravitee-gamma
 # section no longer exists after the cutover.
 # Tier 3 entries are planning candidates only and are not ready-to-apply rules.
+# Note (2026-08-04): once the six module spaces bind, each module's first page becomes its
+# space readme (see the module .gitbook.yaml files) and GitBook may serve it at the bare
+# section root instead of its current sub-path. Re-check the six landing rows during the
+# DOC-1832 sweep at cutover and retarget them to the bare section path if needed.
 
 meta:
   generated: "2026-08-04"
