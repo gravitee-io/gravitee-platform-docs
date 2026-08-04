@@ -98,7 +98,7 @@ The proxy automatically routes requests to the right provider and model, which d
 {% tab title="Streaming support" %}
 **Chat completions**
 
-* Full streaming support via Server-Sent Events (SSE)
+* Full streaming support using Server-Sent Events (SSE)
 * Each chunk contains incremental text deltas
 * Final chunk includes finish reason and token usage
 * Terminated with `[DONE]` marker
@@ -277,7 +277,7 @@ These constraints come from the underlying Bedrock embedding models.
 
 ```json
 {
-  "model": "Bedrock:anthropic.claude-3-sonnet-20240229-v1:0",
+  "model": "Bedrock:anthropic.claude-sonnet-5",
   "messages": [
     { "role": "system", "content": "You are a helpful assistant." },
     { "role": "user", "content": "Explain how the Bedrock API works." }
@@ -285,7 +285,7 @@ These constraints come from the underlying Bedrock embedding models.
 }
 ```
 
-**Request forwarded to Bedrock** (`POST /model/anthropic.claude-3-sonnet-20240229-v1:0/converse`)
+**Request forwarded to Bedrock** (`POST /model/anthropic.claude-sonnet-5/converse`)
 
 ```json
 {
@@ -320,7 +320,7 @@ The `id` is taken from the Bedrock `x-amzn-requestid` response header.
   "id": "5cfbb8ff-3977-4502-80f6-d4a2b29a376a",
   "object": "chat.completion",
   "created": 0,
-  "model": "anthropic.claude-3-sonnet-20240229-v1:0",
+  "model": "anthropic.claude-sonnet-5",
   "choices": [
     {
       "index": 0,
@@ -350,7 +350,7 @@ The `id` is taken from the Bedrock `x-amzn-requestid` response header.
 
 Bedrock requires specific model ID formats:
 
-* Example: `anthropic.claude-3-sonnet-20240229-v1:0`
+* Example: `anthropic.claude-sonnet-5`
 * Model availability varies by AWS region
 * Ensure correct model ID format for your region
 
@@ -370,7 +370,7 @@ Bedrock requires specific model ID formats:
 {% tab title="Streaming support" %}
 **Chat completions**
 
-* Streaming support via Server-Sent Events (SSE) when `stream` is `true`
+* Streaming support using Server-Sent Events (SSE) when `stream` is `true`
 * Each chunk contains incremental text deltas
 * Streaming tool calls are supported through `input_json_delta` events
 * Final chunk includes the finish reason and token usage
@@ -406,7 +406,7 @@ Embeddings aren't supported for Anthropic. The `/embeddings` endpoint returns a 
 
 ```json
 {
-  "model": "Anthropic:claude-3-5-sonnet-20240620",
+  "model": "Anthropic:claude-sonnet-5",
   "messages": [
     { "role": "system", "content": "You are a helpful assistant." },
     { "role": "user", "content": "Hello world" }
@@ -429,7 +429,7 @@ The `seed` parameter is dropped because Anthropic doesn't support it.
   "messages": [
     { "role": "user", "content": [ { "type": "text", "text": "Hello world" } ] }
   ],
-  "model": "claude-3-5-sonnet-20240620",
+  "model": "claude-sonnet-5",
   "max_tokens": 12,
   "temperature": 0.314159,
   "top_p": 0.271828,
@@ -445,7 +445,7 @@ The `seed` parameter is dropped because Anthropic doesn't support it.
   "type": "message",
   "role": "assistant",
   "content": [ { "type": "text", "text": "Hello! How can I help you today?" } ],
-  "model": "claude-3-5-sonnet-20240620",
+  "model": "claude-sonnet-5",
   "stop_reason": "end_turn",
   "usage": { "input_tokens": 12, "output_tokens": 10 }
 }
@@ -458,7 +458,7 @@ The `seed` parameter is dropped because Anthropic doesn't support it.
   "id": "msg_01XFDUDYJgAACzvnptvVoYEE",
   "object": "chat.completion",
   "created": 0,
-  "model": "claude-3-5-sonnet-20240620",
+  "model": "claude-sonnet-5",
   "choices": [
     {
       "index": 0,
@@ -495,7 +495,7 @@ Vertex AI is a composite provider for Google Cloud's Gemini Enterprise Agent Pla
 {% endtab %}
 
 {% tab title="Publisher: google" %}
-* Reuses the Gemini transformation. See the Gemini provider details above for request format, streaming, token usage, and message handling.
+* Reuses the Gemini transformation. See the Gemini provider details for request format, streaming, token usage, and message handling.
 * Rewrites the request path to Gemini Enterprise Agent Platform format. The Gemini path `/models/{model}:{action}` becomes `/v1/projects/{projectId}/locations/{location}/publishers/google/models/{model}:{action}`.
 * Preserves query strings such as `?alt=sse` through the rewrite.
 * Supports `/chat/completions`, `/responses`, and `/embeddings`.
@@ -514,7 +514,7 @@ Request from the client (OpenAI format):
 }
 ```
 
-Gravitee forwards the request to `POST /v1/projects/{projectId}/locations/{location}/publishers/google/models/gemini-2.0-flash:generateContent`. The body uses the Gemini-native format shown in the Gemini example above.
+Gravitee forwards the request to `POST /v1/projects/{projectId}/locations/{location}/publishers/google/models/gemini-2.0-flash:generateContent`. The body uses the Gemini-native format shown in the preceding Gemini example.
 
 Response from Gemini Enterprise Agent Platform:
 
@@ -553,7 +553,7 @@ Response returned to the client (OpenAI format):
 {% endtab %}
 
 {% tab title="Publisher: anthropic" %}
-* Reuses the Anthropic transformation. See the Anthropic provider details above for request format, streaming, token usage, and message handling.
+* Reuses the Anthropic transformation. See the Anthropic provider details for request format, streaming, token usage, and message handling.
 * Rewrites the request path to `/v1/projects/{projectId}/locations/{location}/publishers/anthropic/models/{model}:rawPredict` for non-streaming requests, and `:streamRawPredict` for streaming requests. The action suffix comes from the `stream` field.
 * Adapts the request body for Gemini Enterprise Agent Platform. Removes `model` and `stream` because both come from the path, removes `context_management` and `output_config`, and adds `anthropic_version: "vertex-2023-10-16"`.
 * Doesn't set the `anthropic-version` HTTP header. Gemini Enterprise Agent Platform uses the body-level `anthropic_version` field instead.
@@ -565,14 +565,14 @@ Request from the client (OpenAI format):
 
 ```json
 {
-  "model": "VertexAI:claude-sonnet-4-20250514",
+  "model": "VertexAI:claude-sonnet-5",
   "messages": [
     { "role": "user", "content": "Hello Claude" }
   ]
 }
 ```
 
-Gravitee forwards the request to `POST /v1/projects/{projectId}/locations/{location}/publishers/anthropic/models/claude-sonnet-4-20250514:rawPredict`. The body uses the Anthropic Messages format shown in the Anthropic example above, with `model` and `stream` removed and `anthropic_version: "vertex-2023-10-16"` added.
+Gravitee forwards the request to `POST /v1/projects/{projectId}/locations/{location}/publishers/anthropic/models/claude-sonnet-5:rawPredict`. The body uses the Anthropic Messages format shown in the preceding Anthropic example, with `model` and `stream` removed and `anthropic_version: "vertex-2023-10-16"` added.
 
 Response from Gemini Enterprise Agent Platform:
 
@@ -582,7 +582,7 @@ Response from Gemini Enterprise Agent Platform:
   "type": "message",
   "role": "assistant",
   "content": [ { "type": "text", "text": "Hello from Claude on Gemini Enterprise Agent Platform!" } ],
-  "model": "claude-sonnet-4-20250514",
+  "model": "claude-sonnet-5",
   "stop_reason": "end_turn",
   "usage": { "input_tokens": 12, "output_tokens": 8 }
 }
@@ -595,7 +595,7 @@ Response returned to the client (OpenAI format):
   "id": "msg_vertex_test_01",
   "object": "chat.completion",
   "created": 0,
-  "model": "claude-sonnet-4-20250514",
+  "model": "claude-sonnet-5",
   "choices": [
     {
       "index": 0,
@@ -711,7 +711,7 @@ Warning generated if multiple content parts exist
 
 **Silent Ignoring:**
 
-* Unsupported optional parameters (e.g., `frequency_penalty`, `user`)
+* Unsupported optional parameters, such as `frequency_penalty` and `user`
 * These parameters are not passed to the provider but don't cause errors
 
 #### Parameter Configuration
