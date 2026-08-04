@@ -19,6 +19,8 @@ jobs:
 
       - name: Build Slack payload
         id: payload
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
           CURRENT_SHA="${{ github.event.pull_request.merge_commit_sha }}"
           PREVIOUS_SHA=$(git rev-parse "$CURRENT_SHA^1")
@@ -37,7 +39,7 @@ jobs:
 
           jq -n \
             --rawfile files formatted_files.txt \
-            --arg pr_title "${{ github.event.pull_request.title }}" \
+            --arg pr_title "$PR_TITLE" \
             --arg pr_url "${{ github.event.pull_request.html_url }}" \
             --arg author "${{ github.actor }}" \
             --arg repo "${{ github.repository }}" \

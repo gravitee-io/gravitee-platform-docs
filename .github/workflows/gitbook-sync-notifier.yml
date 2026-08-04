@@ -29,8 +29,9 @@ jobs:
 
       - name: Check if this is a PR merge
         id: pr-check
+        env:
+          MESSAGE: ${{ github.event.head_commit.message }}
         run: |
-          MESSAGE="${{ github.event.head_commit.message }}"
           if [[ "$MESSAGE" =~ ^Merge\ pull\ request ]]; then
             echo "This is a PR merge. Skipping."
             echo "send=false" >> "$GITHUB_ENV"
@@ -42,6 +43,8 @@ jobs:
       - name: Build Slack payload
         if: env.send == 'true'
         id: payload
+        env:
+          MESSAGE: ${{ github.event.head_commit.message }}
         run: |
           CURRENT_SHA="${{ github.sha }}"
           PREVIOUS_SHA=$(git rev-parse "$CURRENT_SHA^1")
@@ -76,7 +79,7 @@ jobs:
             --arg branch "main" \
             --arg author "${{ github.actor }}" \
             --arg sha "$CURRENT_SHA" \
-            --arg message "${{ github.event.head_commit.message }}" \
+            --arg message "$MESSAGE" \
             --arg diff "$DIFF_URL" \
             '{
               text: ":book: GitBook Sync Detected!\n*Repository:* \($repo)\n*Branch:* \($branch)\n*Author:* \($author)\n*Commit:* https://github.com/\($repo)/commit/\($sha)\n*Message:* \($message)\n*Diff:* \($diff)\n*Changed files:*\n\($files)"
