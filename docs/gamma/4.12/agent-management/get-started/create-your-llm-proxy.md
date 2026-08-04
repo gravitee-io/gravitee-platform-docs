@@ -15,7 +15,7 @@ For a complete reference on all configuration options, see [Create an LLM Proxy]
 ## Prerequisites
 
 * Access to a running Gamma console instance
-* An API key for an upstream model provider (e.g., Anthropic, OpenAI, Google, AWS Bedrock)
+* An API key for an upstream model provider, such as Anthropic, OpenAI, Google, or AWS Bedrock
 
 ## Step 1: Open the LLM Proxy wizard
 
@@ -34,8 +34,8 @@ The **Models** step sets the proxy type, connects the LLM Proxy to an upstream m
 
 | Field              | Value                                              | Notes                                                                                                |
 | ------------------ | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **Provider**       | Select your model provider (e.g., Anthropic)       | Required. Route targets are **OpenAI**, **Anthropic**, **Google**, and **AWS Bedrock**.              |
-| **Model**          | Enter the model to route to (e.g., Claude Sonnet)  | Required. Available models depend on the selected provider.                                          |
+| **Provider**       | Select your model provider, such as Anthropic       | Required. Route targets are **OpenAI**, **Anthropic**, **Google**, and **AWS Bedrock**.              |
+| **Model**          | Enter the model to route to, such as Claude Sonnet  | Required. Available models depend on the selected provider.                                          |
 | **Authentication** | Choose **API Key** and enter your provider API key | Required. You can authenticate with an API key or bearer token. For this quickstart, use an API key. |
 
 3. Under **Details**, enter a **Proxy name**, such as `My First LLM Proxy`. The server generates the **Entity ID** from the name and checks that it is still free. **Version number** defaults to `1.0`.

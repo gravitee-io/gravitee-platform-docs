@@ -16,7 +16,7 @@ Publishing an LLM Proxy makes it accessible to consumers through the AI Gateway.
 ## Publish the LLM Proxy
 
 1. Navigate to the LLM Proxy detail page.
-2. If the LLM Proxy was created without the **Deploy** option or if you have unpublished changes, a banner will appear at the top indicating that the proxy is **Out of Sync**.
+2. If the LLM Proxy was created without the **Deploy** option, or if you have unpublished changes, a banner indicates that the proxy is **Out of Sync**.
 3. Select **Deploy** from the banner to push the configuration to the AI Gateway.
 4. Once deployed, the LLM Proxy is live at its configured context path.
 
