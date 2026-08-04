@@ -1,14 +1,14 @@
 # Accepted request formats
 
-The Gravitee LLM Proxy accepts inbound requests in three client API formats: OpenAI, Anthropic Messages, and Gemini `generateContent`. OpenAI is the LLM Proxy's internal format, so OpenAI requests pass through with minimal change. Anthropic and Gemini requests are normalized to OpenAI Chat Completions format before the policy chain and the backend provider mapping run, and the response is converted back to the format the client used.
+The Gravitee LLM Proxy accepts inbound requests in three client API formats: OpenAI, Anthropic Messages, and Gemini `generateContent`. OpenAI is the LLM Proxy's internal format, so OpenAI requests pass through with minimal change. Anthropic and Gemini requests are normalized to OpenAI Chat Completions format before the policy chain and the backend provider mapping run. The response is then converted back to the format the client used.
 
-This means you can point an OpenAI, Anthropic, or Gemini SDK at the same LLM Proxy and get responses in that same format, regardless of which backend provider the LLM Proxy is configured to call.
+This means you can point an OpenAI, Anthropic, or Gemini SDK at the same LLM Proxy and get responses in that same format. The backend provider the LLM Proxy calls doesn't change the format you receive.
 
 {% hint style="info" %}
 This page covers the formats you can send requests **in**, on the client side. For how the LLM Proxy maps a request **out** to each backend provider (Gemini, Bedrock, OpenAI, Anthropic, and Vertex AI), see the provider details on the [LLM proxy](README.md) overview page. The **Vertex AI** provider connects to Google Cloud's Gemini Enterprise Agent Platform (formerly Vertex AI).
 {% endhint %}
 
-The LLM Proxy validates every request body against a JSON schema for the matched format before it forwards or normalizes the request. An invalid or empty body returns a `400` response with an OpenAI-style error object. A supported path called with an unsupported HTTP method returns `405`.
+The LLM Proxy doesn't validate the request body. It matches the request to a client format, normalizes it if needed, and forwards it. Bodies that are empty, malformed, or missing fields are passed through to the provider, which returns its own error. A supported path called with an unsupported HTTP method returns `405`.
 
 ## Supported endpoints
 
@@ -25,13 +25,13 @@ The LLM Proxy matches an inbound request to a client format based on the request
 | Gemini generate content | `/v1beta/models/{model}:generateContent` | `POST` |
 | Gemini streaming generate content | `/v1beta/models/{model}:streamGenerateContent` | `POST` |
 
-A request that sets `Content-Encoding: zstd` is decompressed automatically before validation. This support exists for clients such as the Codex CLI. The LLM Proxy doesn't decompress other content encodings.
+A request that sets `Content-Encoding: zstd` is decompressed automatically before the body is read. This support exists for clients such as the Codex CLI. The LLM Proxy doesn't decompress other content encodings.
 
 ## OpenAI format
 
-OpenAI is the LLM Proxy's internal format, so OpenAI requests don't need normalization. The LLM Proxy validates the body against the OpenAI schema for the endpoint and forwards it, applying only the targeted changes described below.
+OpenAI is the LLM Proxy's internal format, so OpenAI requests don't need normalization. The LLM Proxy forwards the body, applying only the targeted changes described in the following sections.
 
-Each OpenAI endpoint validates the body against a fixed set of fields. `model` and `messages` are required for `/chat/completions`. `model` and `input` are required for `/responses` and `/embeddings`. These endpoints don't allow unknown top-level fields, so a request that includes a field outside the OpenAI specification returns a `400` response.
+Send the fields the provider expects: `model` and `messages` for `/chat/completions`, and `model` and `input` for `/responses` and `/embeddings`. The LLM Proxy doesn't reject unknown top-level fields, so a field outside the OpenAI specification is forwarded to the provider, which decides whether to accept it.
 
 ### Chat completions
 
@@ -65,7 +65,7 @@ If the backend returns a Chat Completions response (`"object": "chat.completion"
 
 ### Embeddings and models
 
-The `/embeddings` endpoint validates `model` and `input` and forwards the body unchanged. The `/models` endpoint is a `GET` request with no body, and the backend response is returned unchanged.
+The `/embeddings` endpoint forwards the body unchanged. The `/models` endpoint is a `GET` request with no body, and the backend response is returned unchanged.
 
 ## Anthropic Messages format
 

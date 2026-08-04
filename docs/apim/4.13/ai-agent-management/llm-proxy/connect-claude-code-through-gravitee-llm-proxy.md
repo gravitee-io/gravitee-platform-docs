@@ -80,12 +80,12 @@ Claude Code sends Anthropic model IDs without a provider prefix. The LLM Proxy m
    * **Strict allowlist:** Select the **Alias** variant, and then add each model. Here is an example of adding each model:
 
      ```text
-     claude-sonnet-4-6
-     claude-opus-4-8
-     claude-haiku-4-5-20251001
+     claude-opus-5
+     claude-sonnet-5
+     claude-haiku-4-5
      ```
 
-A provider requires at least one model even when globbing is enabled. Add a seed model such as `claude-sonnet-4-6`.
+A provider requires at least one model even when globbing is enabled. Add a seed model such as `claude-sonnet-5`.
 
 Do not enable **Only use alias**. Claude Code sends real Anthropic model IDs, and **Only use alias** hides them behind aliases, so every request would be rejected.
 
@@ -198,7 +198,7 @@ Check that:
 * The requested model is explicitly added, or unregistered model globbing matches it.
 * **Only use alias** is disabled.
 * The API was redeployed after changing model governance.
-* Claude Code is sending the expected model ID, for example `claude-sonnet-4-6`.
+* Claude Code is sending the expected model ID, for example `claude-sonnet-5`.
 
 ### Anthropic authentication errors
 
