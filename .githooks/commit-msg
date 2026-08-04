@@ -1,34 +1,94 @@
-#!/usr/bin/env bash
-# Blocks customer names, contact names, and PII in commit messages (critical rule 36).
-# Install: cp this to .git/hooks/commit-msg && chmod +x .git/hooks/commit-msg
-#   or repo-wide: git config core.hooksPath .githooks
-MSG_FILE="$1"
-# Strip comment lines and the diff GitHub appends on merge commits.
-BODY=$(grep -v '^#' "$MSG_FILE")
-fail=0
-report() { echo "BLOCKED (rule 36 - SOC 2/GDPR): $1" >&2; fail=1; }
+#!/usr/bin/env python3
+"""Block customer names, contact names, and PII in commit messages (critical rule 36).
 
-# Customer attributed by name
-echo "$BODY" | grep -qiE '\(\s*customer\s*:' \
-  && report 'a "(customer: ...)" attribution. Write "a customer" and cite the Jira/Zendesk ID.'
-# "Reported by <Proper Name>" - allows "a customer", "the writer", tools
-echo "$BODY" | grep -qE '\b([Rr]eported|[Rr]aised|[Ff]lagged|[Rr]equested|[Ee]scalated)\s+by\s+[A-Z][a-z]+' \
-  && ! echo "$BODY" | grep -qE '\b([Rr]eported|[Rr]aised|[Ff]lagged|[Rr]equested|[Ee]scalated)\s+by\s+(Vale|SEO|GitBook|CI)\b' \
-  && report 'a "Reported by <Name>" attribution. Write "Reported by a customer (TICKET-ID)".'
-# Org suffixes
-echo "$BODY" | grep -qE '\b[A-Z][A-Za-z&.-]{2,}( [A-Z][A-Za-z&.-]+)? (Inc\.?|Ltd\.?|LLC|GmbH|Corp\.?|Corporation|Bank|Labs|LAB|Technologies|Solutions|Holdings|Insurance|Telecom|PLC|AG|SAS)\b' \
-  && report 'what looks like a company name. Refer to "a customer".'
-# Emails that are not git trailers
-echo "$BODY" | grep -viE '^[[:space:]]*(Co-authored-by|Signed-off-by|Reported-by|Reviewed-by|Acked-by|Tested-by|Suggested-by|Cc):' \
-  | grep -qE '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}' \
-  && report 'an email address outside a git trailer.'
-# Internal tool consoles
-echo "$BODY" | grep -qiE 'zendesk\.com/agent|slack\.com/archives|slab\.com/posts' \
-  && report 'an internal Zendesk/Slack/Slab URL. Cite the ticket ID instead.'
+Install repo-wide:  git config core.hooksPath .githooks
 
-if [ "$fail" -ne 0 ]; then
-  echo "" >&2
-  echo "Commit message rejected. Fix it, or bypass with --no-verify only if you are certain." >&2
-  exit 1
-fi
-exit 0
+Written in Python rather than shell because grep dialects (GNU grep, BSD grep,
+ugrep) disagree on these patterns, and a security gate that silently stops
+matching is worse than no gate.
+"""
+import re
+import sys
+
+# Words that legitimately precede "ticket" / "request" / "feedback" in this repo.
+STOP = set("""
+pull merge http https api apis get post put delete patch head options client server user users token auth
+feature support change sync webhook proxy gateway network batch async sample example test first second third
+last next new old the this that each per one two any all no same single multiple initial original subsequent
+incoming outgoing inbound outbound valid invalid failed successful jira zendesk github gitlab doc docs review
+search fetch write read create update upgrade install deploy build release version error retry timeout rate
+limit bulk open closed draft linked related duplicate parent child sub main core edge cloud hybrid native
+kafka mcp llm ai oauth jwt saml oidc scim ldap customer backlog rest soap grpc graphql portal console
+use devex edge corner special typical common general specific known unknown business technical
+""".split())
+
+TRAILER = re.compile(
+    r'^\s*(Co-authored-by|Signed-off-by|Reported-by|Reviewed-by|Acked-by|Tested-by|Suggested-by|Cc):',
+    re.I)
+
+CHECKS = []
+
+
+def check(pattern, message, flags=0, filt=None):
+    CHECKS.append((re.compile(pattern, flags), message, filt))
+
+
+check(r'\(\s*customer\s*:', 'a "(customer: ...)" attribution', re.I)
+
+# Deliberately NOT re.I: with re.I, "[A-Z][a-z]+" also matches lowercase words,
+# so "flagged by the" would trip. The verb alternation covers both cases explicitly.
+check(r'\b(?:[Rr]eported|[Rr]aised|[Ff]lagged|[Rr]equested|[Ee]scalated)\s+by\s+([A-Z][a-z]+)',
+      'a "Reported by <Name>" attribution',
+      0, lambda m: m.group(1) not in {'Vale', 'SEO', 'GitBook', 'CI', 'The', 'A', 'Vale.'})
+
+check(r'\b[A-Z][A-Za-z&.\-]{2,}(?:\s+[A-Z][A-Za-z&.\-]+)?\s+'
+      r'(?:Inc\.?|Ltd\.?|LLC|GmbH|Corp\.?|Corporation|Bank|Labs|LAB|Technologies|'
+      r'Solutions|Holdings|Insurance|Telecom|PLC|AG|SAS)\b',
+      'what looks like a company name')
+
+# A bare org name next to ticket/request wording, e.g. "Acme ticket", "NFCU request".
+check(r'\b([A-Za-z][A-Za-z\-]{2,})\s+(?:ticket|request|feedback|escalation|case)\b',
+      'an organization name next to ticket/request wording',
+      re.I, lambda m: m.group(1).lower() not in STOP and m.group(1)[0].isupper())
+
+# "for Raiffeisen-Schweiz", "from Contoso-Group"
+check(r'\b(?:for|from)\s+([A-Z][A-Za-z]+(?:-[A-Z][A-Za-z]+)+)\b',
+      'a hyphenated proper name after "for"/"from"',
+      0, lambda m: not m.group(1).isupper())   # skip ticket prefixes like GKO-DOC
+
+check(r'zendesk\.com/agent|slack\.com/archives|slab\.com/posts',
+      'an internal Zendesk, Slack, or Slab URL', re.I)
+
+
+def main():
+    raw = open(sys.argv[1], encoding='utf-8', errors='replace').read()
+    body = "\n".join(l for l in raw.split("\n") if not l.startswith("#"))
+    # Email check ignores standard git trailers, which legitimately carry addresses.
+    no_trailers = "\n".join(l for l in body.split("\n") if not TRAILER.match(l))
+
+    hits = []
+    for pattern, message, filt in CHECKS:
+        for m in pattern.finditer(body):
+            if filt and not filt(m):
+                continue
+            hits.append((message, m.group(0).strip()))
+            break
+
+    m = re.search(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}', no_trailers)
+    if m:
+        hits.append(('an email address outside a git trailer', m.group(0)))
+
+    if not hits:
+        return 0
+
+    for message, found in hits:
+        sys.stderr.write(f'BLOCKED (rule 36 - SOC 2/GDPR): {message} -> "{found}"\n')
+    sys.stderr.write(
+        '\nCommit messages are public and permanent. Write "a customer" and cite the\n'
+        'Jira or Zendesk ticket ID instead. See .githooks/README.md.\n'
+        'Bypass with --no-verify only if you are certain this is a false positive.\n')
+    return 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -29,9 +29,15 @@ What it rejects, and what to write instead:
 | `Reported by Jane Doe (customer: Acme Corp).` | `Reported by a customer (DOC-1234).` |
 | `Requested by Jane Doe` | `Requested by a customer (DOC-1234).` |
 | `Acme Corp asked for this` | `A customer asked for this (DOC-1234).` |
+| `Portal settings (Acme ticket): ...` | `Portal settings (customer ticket): ...` |
+| `Supported versions (ACME request, TT-1 context)` | `Supported versions (customer request, TT-1 context)` |
+| `Proxy addition (super urgent for Acme-Group)` | `Proxy addition (urgent for a customer, DOC-1234)` |
 | `jane.doe@acme.com hit this bug` | `A customer hit this bug (DOC-1234).` |
 | `https://<org>.zendesk.com/agent/tickets/12345` | `Zendesk #12345` |
 | `https://<org>.slack.com/archives/C0.../p17...` | Describe the source, or cite the ticket. |
+
+The middle three matter most: a bare company name next to "ticket", "request", or
+"feedback" carries no marker word, so it's the form that slips through review.
 
 The ticket ID is the traceability link. Jira and Zendesk are where the customer
 association belongs, not the git history.
