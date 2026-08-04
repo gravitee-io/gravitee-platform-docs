@@ -6,9 +6,9 @@ description: Compare the text classification models available to the AI - Prompt
 
 # Select a text classification model
 
-The **AI Model Text Classification** resource provides pre-trained models that detect toxic content and prompt injection attempts in traffic passing through an LLM Proxy, MCP Proxy, or A2A Proxy. Eight models are available, spanning toxicity detection (binary and multi-label) and prompt injection detection, with support for up to 15 languages.
+The **AI Model Text Classification** resource provides pre-trained models that detect toxic content and prompt injection attempts in traffic passing through an LLM Proxy, MCP Proxy, or A2A Proxy. Eight models are available, covering binary toxicity detection, multi-label toxicity detection, and prompt injection detection, with support for up to 15 languages.
 
-You don't call this resource directly. The **AI - Prompt Guard Rails** policy consumes it: the policy's **Resource Name** field points at a configured AI Model Text Classification resource, and the model you select there decides two things the policy depends on—what the model can detect, and which labels are valid in the policy's **Content Checks** field.
+You don't call this resource directly. The **AI - Prompt Guard Rails** policy consumes it. The policy's **Resource Name** field points at a configured AI Model Text Classification resource. The model you select decides both what the policy can detect and which labels are valid in its **Content Checks** field.
 
 This page covers how to choose between the eight models. For the policy itself, see [Configure an LLM Proxy](configure-an-llm-proxy.md).
 
@@ -16,14 +16,16 @@ This page covers how to choose between the eight models. For the policy itself, 
 
 Toxicity detection models classify text as toxic or non-toxic, with optional fine-grained categorization. Binary models return a single `toxic` or `not-toxic` label. Multi-label models return scores across several toxicity categories, and one of them also scores demographic targets.
 
+The following table compares the two model types:
+
 | Model type  | Labels               | Languages | Use case                                                     |
 | ----------- | -------------------- | --------- | ------------------------------------------------------------ |
-| Binary      | 2 (toxic, not-toxic) | 15        | General-purpose filtering, multilingual support              |
-| Multi-label | 6–16                 | 1–7       | Fine-grained categorization, demographic targeting detection |
+| Binary      | 2, toxic and not-toxic | 15      | General-purpose filtering, multilingual support              |
+| Multi-label | 6 to 16              | 1 to 7    | Fine-grained categorization, demographic targeting detection |
 
 ### Language support and F1 scores
 
-The following scores are for the **optimized (quantized ONNX) builds**, which are the builds the gateway runs. They differ from the figures published on the upstream model cards for the original, unquantized models.
+The following scores are for the optimized, quantized ONNX builds, which are the builds the gateway runs. They differ from the figures published on the upstream model cards, which describe the original, unquantized models.
 
 | Language  | BERT Tiny | BERT Mini | BERT Small | DistilBERT |
 | --------- | --------- | --------- | ---------- | ---------- |
@@ -45,7 +47,7 @@ The following scores are for the **optimized (quantized ONNX) builds**, which ar
 
 ### Training data
 
-The four binary models—BERT Tiny, BERT Mini, BERT Small, and DistilBERT Multilingual—are trained on the `gravitee-io/textdetox-multilingual-toxicity-dataset`, with an 85/15 train/validation split per language.
+The four binary models, BERT Tiny, BERT Mini, BERT Small, and DistilBERT Multilingual, are trained on the `gravitee-io/textdetox-multilingual-toxicity-dataset`, with an 85/15 train and validation split per language.
 
 MiniLMv2 Toxic Jigsaw is trained on the Jigsaw Toxic Comment Classification Challenge dataset and knowledge-distilled from `unitary/toxic-bert`.
 
@@ -55,73 +57,81 @@ Detoxify ONNX is derived from `unitary/multilingual-toxic-xlm-roberta` through t
 
 Prompt injection detection models identify attempts to override or manipulate system instructions in a prompt. Both models return `BENIGN` for a safe prompt or `MALICIOUS` for an injection or jailbreak attempt. Both are Llama Prompt Guard 2 variants, support 8 languages, and use a 512-token context window.
 
+The following table compares the two prompt injection models:
+
 | Model                    | Parameters | Accuracy | Recommended |
 | ------------------------ | ---------- | -------- | ----------- |
 | Llama Prompt Guard 2 22M | 22M        | 0.9579   | Yes         |
 | Llama Prompt Guard 2 86M | 86M        | 0.8989   | No          |
 
 {% hint style="info" %}
-Both figures are for the optimized builds, which are the only builds Gravitee ships—each identifier resolves to a quantized ONNX artifact. The 22M variant is both more accurate and smaller in this form, so there's no case for choosing the 86M variant.
+Both figures are for the optimized builds, which are the only builds Gravitee ships. Each identifier resolves to a quantized ONNX artifact. In this form the 22M variant is both more accurate and smaller, so there's no case for choosing the 86M variant.
 {% endhint %}
 
 ## Available models
 
-The **Select model** field stores an identifier in the API definition and displays the HuggingFace repository it maps to.
+The **Select model** field stores an identifier in the API definition and displays the HuggingFace repository that identifier maps to.
 
-| Identifier                                                | Repository                                          | Parameters | Objective                 | Labels                      | Languages | Licence    |
-| --------------------------------------------------------- | --------------------------------------------------- | ---------- | ------------------------- | --------------------------- | --------- | ---------- |
-| `GRAVITEE_IO_BERT_TINY_TOXICITY`                          | `gravitee-io/bert-tiny-toxicity`                    | 4.39M      | Binary, multilingual      | `toxic` / `not-toxic`       | 15        | OpenRAIL++ |
-| `GRAVITEE_IO_BERT_MINI_TOXICITY`                          | `gravitee-io/bert-mini-toxicity`                    | 11.2M      | Binary, multilingual      | `toxic` / `not-toxic`       | 15        | OpenRAIL++ |
-| `GRAVITEE_IO_BERT_SMALL_TOXICITY`                         | `gravitee-io/bert-small-toxicity`                   | 28.8M      | Binary, multilingual      | `toxic` / `not-toxic`       | 15        | OpenRAIL++ |
-| `GRAVITEE_IO_DISTILBERT_MULTILINGUAL_TOXICITY_CLASSIFIER` | `gravitee-io/distilbert-multilingual-toxicity-classifier` | 100M | Binary, multilingual      | `toxic` / `not-toxic`       | 15        | OpenRAIL++ |
-| `GRAVITEE_DETOXIFY_ONNX_MODEL`                            | `gravitee-io/detoxify-onnx`                         | 300M       | Multi-label, multilingual | 16 (7 toxicity + 9 demographic) | 7     | Apache 2.0 |
-| `MINILMV2_TOXIC_JIGSAW_MODEL`                             | `minuva/MiniLMv2-toxic-jigsaw-onnx`                 | 23M        | Multi-label               | 6                           | English   | Apache 2.0 |
-| `GRAVITEE_LLAMA_PROMPT_GUARD_22M_MODEL`                   | `gravitee-io/Llama-Prompt-Guard-2-22M-onnx`         | 22M        | Prompt injection          | `BENIGN` / `MALICIOUS`      | 8         | Llama 4 Community License |
-| `GRAVITEE_LLAMA_PROMPT_GUARD_86M_MODEL`                   | `gravitee-io/Llama-Prompt-Guard-2-86M-onnx`         | 86M        | Prompt injection          | `BENIGN` / `MALICIOUS`      | 8         | Llama 4 Community License |
+The following table lists every available model:
 
-## Choosing a model
+| Identifier                                                | Repository                                                | Parameters | Objective                 | Labels                          | Languages | Licence                   |
+| --------------------------------------------------------- | --------------------------------------------------------- | ---------- | ------------------------- | ------------------------------- | --------- | ------------------------- |
+| `GRAVITEE_IO_BERT_TINY_TOXICITY`                          | `gravitee-io/bert-tiny-toxicity`                          | 4.39M      | Binary, multilingual      | `toxic` and `not-toxic`         | 15        | OpenRAIL++                |
+| `GRAVITEE_IO_BERT_MINI_TOXICITY`                          | `gravitee-io/bert-mini-toxicity`                          | 11.2M      | Binary, multilingual      | `toxic` and `not-toxic`         | 15        | OpenRAIL++                |
+| `GRAVITEE_IO_BERT_SMALL_TOXICITY`                         | `gravitee-io/bert-small-toxicity`                         | 28.8M      | Binary, multilingual      | `toxic` and `not-toxic`         | 15        | OpenRAIL++                |
+| `GRAVITEE_IO_DISTILBERT_MULTILINGUAL_TOXICITY_CLASSIFIER` | `gravitee-io/distilbert-multilingual-toxicity-classifier` | 100M       | Binary, multilingual      | `toxic` and `not-toxic`         | 15        | OpenRAIL++                |
+| `GRAVITEE_DETOXIFY_ONNX_MODEL`                            | `gravitee-io/detoxify-onnx`                               | 300M       | Multi-label, multilingual | 16, 7 toxicity and 9 demographic | 7        | Apache 2.0                |
+| `MINILMV2_TOXIC_JIGSAW_MODEL`                             | `minuva/MiniLMv2-toxic-jigsaw-onnx`                       | 23M        | Multi-label               | 6                               | English   | Apache 2.0                |
+| `GRAVITEE_LLAMA_PROMPT_GUARD_22M_MODEL`                   | `gravitee-io/Llama-Prompt-Guard-2-22M-onnx`               | 22M        | Prompt injection          | `BENIGN` and `MALICIOUS`        | 8         | Llama 4 Community License |
+| `GRAVITEE_LLAMA_PROMPT_GUARD_86M_MODEL`                   | `gravitee-io/Llama-Prompt-Guard-2-86M-onnx`               | 86M        | Prompt injection          | `BENIGN` and `MALICIOUS`        | 8         | Llama 4 Community License |
+
+## Choose a model
+
+The following table maps common use cases to a recommended model:
 
 | Use case                                  | Recommended model                                         | Rationale                                                                                    |
 | ----------------------------------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Multilingual toxicity (binary)            | `GRAVITEE_IO_DISTILBERT_MULTILINGUAL_TOXICITY_CLASSIFIER` | Best balance of accuracy (F1 0.62–0.96), 15 languages, moderate size (100M)                  |
-| Ultra-low resource toxicity               | `GRAVITEE_IO_BERT_TINY_TOXICITY`                          | Smallest (4.39M) and fastest, with acceptable accuracy on English, French, and German        |
-| Low-resource toxicity, better than Tiny   | `GRAVITEE_IO_BERT_MINI_TOXICITY`                          | 11.2M, improved accuracy over BERT Tiny on most languages with a still-modest footprint. Weakest on Hebrew (0.41) |
-| Mid-range toxicity below DistilBERT       | `GRAVITEE_IO_BERT_SMALL_TOXICITY`                         | 28.8M, the best average accuracy of the three lightweight BERT variants at roughly 29% of DistilBERT's size |
-| Multi-label toxicity (multilingual)       | `GRAVITEE_DETOXIFY_ONNX_MODEL`                            | 16 labels across 7 languages. Highest memory and latency of the eight                        |
-| Multi-label toxicity (English only)       | `MINILMV2_TOXIC_JIGSAW_MODEL`                             | 6 labels, low memory (23M), fast                                                             |
+| Multilingual toxicity, binary             | `GRAVITEE_IO_DISTILBERT_MULTILINGUAL_TOXICITY_CLASSIFIER` | Best balance of accuracy, with F1 scores from 0.62 to 0.96 across 15 languages at 100M        |
+| Ultra-low resource toxicity               | `GRAVITEE_IO_BERT_TINY_TOXICITY`                          | Smallest at 4.39M and fastest, with acceptable accuracy on English, French, and German        |
+| Low-resource toxicity, better than Tiny   | `GRAVITEE_IO_BERT_MINI_TOXICITY`                          | 11.2M, improved accuracy over BERT Tiny on most languages with a still-modest footprint. Weakest on Hebrew at 0.41 |
+| Mid-range toxicity, smaller than DistilBERT | `GRAVITEE_IO_BERT_SMALL_TOXICITY`                       | 28.8M, the best average accuracy of the three lightweight BERT variants at roughly 29% of DistilBERT's size |
+| Multi-label toxicity, multilingual        | `GRAVITEE_DETOXIFY_ONNX_MODEL`                            | 16 labels across 7 languages. Highest memory and latency of the eight                        |
+| Multi-label toxicity, English only        | `MINILMV2_TOXIC_JIGSAW_MODEL`                             | 6 labels, low memory at 23M, and fast                                                        |
 | Prompt injection detection                | `GRAVITEE_LLAMA_PROMPT_GUARD_22M_MODEL`                   | More accurate than the 86M variant in the builds Gravitee ships, and smaller                 |
 
 ## Labels differ by model
 
-The **Content Checks** field on the AI - Prompt Guard Rails policy takes a comma-separated list of model labels, and matches every label when left empty. **The valid labels are the ones your selected model emits**—they aren't shared across models, and a label that the running model doesn't emit silently never matches.
+The **Content Checks** field on the AI - Prompt Guard Rails policy takes a comma-separated list of model labels, and matches every label when left empty. The valid labels are the ones your selected model emits. They aren't shared across models, and a label that the running model doesn't emit silently never matches.
 
-The two multi-label models use different label sets:
+The following table shows the label sets for the two multi-label models:
 
-| Model            | Toxicity labels                                                                              | Demographic labels                                                                                              |
-| ---------------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Detoxify ONNX    | `toxicity`, `severe_toxicity`, `obscene`, `threat`, `insult`, `identity_attack`, `sexual_explicit` | `male`, `female`, `homosexual_gay_or_lesbian`, `christian`, `jewish`, `muslim`, `black`, `white`, `psychiatric_or_mental_illness` |
-| MiniLMv2 Toxic Jigsaw | `toxic`, `severe_toxic`, `obscene`, `threat`, `insult`, `identity_hate`                   | None                                                                                                                |
+| Model                 | Toxicity labels                                                                                   | Demographic labels                                                                                                              |
+| --------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Detoxify ONNX         | `toxicity`, `severe_toxicity`, `obscene`, `threat`, `insult`, `identity_attack`, `sexual_explicit` | `male`, `female`, `homosexual_gay_or_lesbian`, `christian`, `jewish`, `muslim`, `black`, `white`, `psychiatric_or_mental_illness` |
+| MiniLMv2 Toxic Jigsaw | `toxic`, `severe_toxic`, `obscene`, `threat`, `insult`, `identity_hate`                           | None                                                                                                                                 |
 
-Note `severe_toxicity` versus `severe_toxic`, and `identity_attack` versus `identity_hate`. Copying a Detoxify label into a Content Checks list while running MiniLMv2 produces a filter that never matches.
+Note the difference between `severe_toxicity` and `severe_toxic`, and between `identity_attack` and `identity_hate`. Copying a Detoxify label into a **Content Checks** list while running MiniLMv2 produces a filter that never matches.
 
-The binary models emit only `toxic` and `not-toxic`, and the prompt injection models only `BENIGN` and `MALICIOUS`.
+The binary models emit only `toxic` and `not-toxic`, and the prompt injection models emit only `BENIGN` and `MALICIOUS`.
 
 ## Resource requirements
 
-**Models aren't bundled with the plugin.** On first use, the resource downloads the selected model from HuggingFace into `$GRAVITEE_HOME/models`. The gateway process needs write access to that directory. The path is configurable with the `inference.path` property.
+**Models aren't bundled with the plugin.** On first use, the resource downloads the selected model from HuggingFace into `$GRAVITEE_HOME/models`. The gateway process needs write access to that directory. You can change the path with the `inference.path` property.
 
-**Memory scales with model size and with the number of proxies using the resource.** Size Java heap and any container memory limits accordingly, and note the spread here is large—Detoxify ONNX is roughly 68 times the size of BERT Tiny.
+**Memory scales with model size and with the number of proxies using the resource.** Size the Java heap and any container memory limits accordingly. The spread across these models is large, because Detoxify ONNX is roughly 68 times the size of BERT Tiny.
 
 **The first request after a gateway start is slower.** The ONNX runtime loads the model lazily, on the first request that needs it.
 
-**A model is loaded once and shared.** The gateway caches the loaded model against its configuration, not against the resource name, so several proxies selecting the same model share one loaded instance.
+**A model is loaded once and shared.** The gateway caches the loaded model against its configuration rather than the resource name. Several proxies that select the same model therefore share one loaded instance.
 
 ## Prerequisites
 
-* Gravitee Gamma with the **AI Model Text Classification** resource plugin deployed
-* Network access to the HuggingFace `gravitee-io` and `minuva` namespaces
-* Enough memory for the selected model, on every gateway that runs a proxy using it
+Selecting a model requires the following:
+
+* Gravitee Gamma with the **AI Model Text Classification** resource plugin deployed.
+* Network access to the HuggingFace `gravitee-io` and `minuva` namespaces.
+* Enough memory for the selected model, on every gateway that runs a proxy using it.
 
 {% hint style="info" %}
-The Llama Prompt Guard 2 models are pre-trained by Meta and converted to ONNX by Gravitee. The gateway downloads only the Gravitee-hosted conversions, so an air-gapped or allowlisted deployment doesn't need access to Meta's HuggingFace namespace. The models remain subject to the Llama 4 Community License.
+Meta pre-trains the Llama Prompt Guard 2 models, and Gravitee converts them to ONNX. The gateway downloads only the Gravitee-hosted conversions, so an air-gapped or allowlisted deployment doesn't need access to Meta's HuggingFace namespace. The models remain subject to the Llama 4 Community License.
 {% endhint %}
