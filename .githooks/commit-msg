@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Blocks customer names, contact names, and PII in commit messages (critical rule 36).
+# Install: cp this to .git/hooks/commit-msg && chmod +x .git/hooks/commit-msg
+#   or repo-wide: git config core.hooksPath .githooks
+MSG_FILE="$1"
+# Strip comment lines and the diff GitHub appends on merge commits.
+BODY=$(grep -v '^#' "$MSG_FILE")
+fail=0
+report() { echo "BLOCKED (rule 36 - SOC 2/GDPR): $1" >&2; fail=1; }
+
+# Customer attributed by name
+echo "$BODY" | grep -qiE '\(\s*customer\s*:' \
+  && report 'a "(customer: ...)" attribution. Write "a customer" and cite the Jira/Zendesk ID.'
+# "Reported by <Proper Name>" - allows "a customer", "the writer", tools
+echo "$BODY" | grep -qE '\b([Rr]eported|[Rr]aised|[Ff]lagged|[Rr]equested|[Ee]scalated)\s+by\s+[A-Z][a-z]+' \
+  && ! echo "$BODY" | grep -qE '\b([Rr]eported|[Rr]aised|[Ff]lagged|[Rr]equested|[Ee]scalated)\s+by\s+(Vale|SEO|GitBook|CI)\b' \
+  && report 'a "Reported by <Name>" attribution. Write "Reported by a customer (TICKET-ID)".'
+# Org suffixes
+echo "$BODY" | grep -qE '\b[A-Z][A-Za-z&.-]{2,}( [A-Z][A-Za-z&.-]+)? (Inc\.?|Ltd\.?|LLC|GmbH|Corp\.?|Corporation|Bank|Labs|LAB|Technologies|Solutions|Holdings|Insurance|Telecom|PLC|AG|SAS)\b' \
+  && report 'what looks like a company name. Refer to "a customer".'
+# Emails that are not git trailers
+echo "$BODY" | grep -viE '^[[:space:]]*(Co-authored-by|Signed-off-by|Reported-by|Reviewed-by|Acked-by|Tested-by|Suggested-by|Cc):' \
+  | grep -qE '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}' \
+  && report 'an email address outside a git trailer.'
+# Internal tool consoles
+echo "$BODY" | grep -qiE 'zendesk\.com/agent|slack\.com/archives|slab\.com/posts' \
+  && report 'an internal Zendesk/Slack/Slab URL. Cite the ticket ID instead.'
+
+if [ "$fail" -ne 0 ]; then
+  echo "" >&2
+  echo "Commit message rejected. Fix it, or bypass with --no-verify only if you are certain." >&2
+  exit 1
+fi
+exit 0
