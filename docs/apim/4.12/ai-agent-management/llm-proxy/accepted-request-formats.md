@@ -1,8 +1,8 @@
 # Accepted request formats
 
-The Gravitee LLM Proxy accepts inbound requests in three client API formats: OpenAI, Anthropic Messages, and Gemini `generateContent`. OpenAI is the LLM Proxy's internal format, so OpenAI requests pass through with minimal change. Anthropic and Gemini requests are normalized to OpenAI Chat Completions format before the policy chain and the backend provider mapping run, and the response is converted back to the format the client used.
+The Gravitee LLM Proxy accepts inbound requests in three client API formats: OpenAI, Anthropic Messages, and Gemini `generateContent`. OpenAI is the LLM Proxy's internal format, so OpenAI requests pass through with minimal change. Anthropic and Gemini requests are normalized to OpenAI Chat Completions format before the policy chain and the backend provider mapping run. The response is then converted back to the format the client used.
 
-This means you can point an OpenAI, Anthropic, or Gemini SDK at the same LLM Proxy and get responses in that same format, regardless of which backend provider the LLM Proxy is configured to call.
+This means you can point an OpenAI, Anthropic, or Gemini SDK at the same LLM Proxy and get responses in that same format. The backend provider the LLM Proxy calls doesn't change the format you receive.
 
 {% hint style="info" %}
 This page covers the formats you can send requests **in**, on the client side. For how the LLM Proxy maps a request **out** to each backend provider (Gemini, Bedrock, OpenAI, Anthropic, and Vertex AI), see the provider details on the [LLM proxy](README.md) overview page. The **Vertex AI** provider connects to Google Cloud's Gemini Enterprise Agent Platform (formerly Vertex AI).
@@ -29,7 +29,7 @@ A request that sets `Content-Encoding: zstd` is decompressed automatically befor
 
 ## OpenAI format
 
-OpenAI is the LLM Proxy's internal format, so OpenAI requests don't need normalization. The LLM Proxy forwards the body, applying only the targeted changes described below.
+OpenAI is the LLM Proxy's internal format, so OpenAI requests don't need normalization. The LLM Proxy forwards the body, applying only the targeted changes described in the following sections.
 
 Send the fields the provider expects: `model` and `messages` for `/chat/completions`, and `model` and `input` for `/responses` and `/embeddings`. The LLM Proxy doesn't reject unknown top-level fields, so a field outside the OpenAI specification is forwarded to the provider, which decides whether to accept it.
 
