@@ -1,0 +1,64 @@
+# Relative links that leave their module directory (become cross-space when the six spaces bind).
+# Scanned in docs/gamma/4.12 on 2026-08-04. Content is identical in 4.13.
+# Fix these (per module split decision) before binding the six spaces: cross-space relative
+# links publish as dead github.com blob URLs.
+
+platform-management/manage-applications.md: ../api-management/build/configure-your-api-proxy/establish-consumer-access.md
+platform-management/manage-resources.md: ../api-management/build/secure-your-api-proxy.md
+platform-management/overview.md: ../api-management/get-started/api-management-overview.md
+platform-management/overview.md: ../api-management/build/secure-your-api-proxy.md
+platform-management/overview.md: ../event-stream-management/get-started/event-stream-management-overview.md
+platform-management/overview.md: ../agent-management/get-started/ai-management-overview.md
+platform-management/overview.md: ../authorization-management/get-started/authorization-management-overview.md
+platform-management/overview.md: ../edge-management/get-started/edge-management-overview.md
+platform-management/overview.md: ../api-management/get-started/create-your-first-api.md
+platform-management/overview.md: ../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/overview.md: ../event-stream-management/get-started/create-your-first-kafka-service.md
+platform-management/overview.md: ../authorization-management/get-started/authorization-management-overview.md
+platform-management/overview.md: ../agent-management/get-started/ai-management-overview.md
+platform-management/overview.md: ../event-stream-management/get-started/event-stream-management-overview.md
+platform-management/install/self-hosted-installation-guides/docker/docker-cli.md: ../../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/install/self-hosted-installation-guides/docker/docker-compose.md: ../../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/install/self-hosted-installation-guides/kubernetes/aws-eks.md: ../../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/install/self-hosted-installation-guides/kubernetes/azure-aks.md: ../../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/install/self-hosted-installation-guides/kubernetes/openshift.md: ../../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/install/self-hosted-installation-guides/kubernetes/vanilla-kubernetes.md: ../../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/install/self-hosted-installation-guides/kubernetes/vanilla-kubernetes.md: ../../../../agent-management/build/configure-your-access-management-instance.md
+platform-management/install/hybrid-installation-guides/docker/docker-cli.md: ../../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/install/hybrid-installation-guides/docker/docker-cli.md: ../../../../api-management/get-started/create-your-first-api.md
+platform-management/install/hybrid-installation-guides/docker/docker-compose.md: ../../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/install/hybrid-installation-guides/docker/docker-compose.md: ../../../../api-management/get-started/create-your-first-api.md
+platform-management/install/hybrid-installation-guides/kubernetes/aws-eks.md: ../../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/install/hybrid-installation-guides/kubernetes/aws-eks.md: ../../../../api-management/get-started/create-your-first-api.md
+platform-management/install/hybrid-installation-guides/kubernetes/azure-aks.md: ../../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/install/hybrid-installation-guides/kubernetes/azure-aks.md: ../../../../api-management/get-started/create-your-first-api.md
+platform-management/install/hybrid-installation-guides/kubernetes/openshift.md: ../../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/install/hybrid-installation-guides/kubernetes/openshift.md: ../../../../api-management/get-started/create-your-first-api.md
+platform-management/install/hybrid-installation-guides/kubernetes/vanilla-kubernetes.md: ../../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/install/hybrid-installation-guides/kubernetes/vanilla-kubernetes.md: ../../../../api-management/get-started/create-your-first-api.md
+platform-management/get-started/get-started-for-existing-users/README.md: ../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/get-started/get-started-for-existing-users/activate-gamma-with-docker-compose.md: ../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/get-started/get-started-for-existing-users/activate-gamma-with-kubernetes-helm.md: ../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/get-started/get-started-for-new-users/README.md: ../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/get-started/get-started-for-new-users/fully-self-hosted-with-docker.md: ../../../agent-management/get-started/create-your-first-mcp-server.md
+platform-management/get-started/get-started-for-new-users/fully-self-hosted-with-vanilla-kubernetes.md: ../../../agent-management/get-started/create-your-first-mcp-server.md
+api-management/build/configure-your-api-proxy/apply-security-policies.md: ../../../authorization-management/configure/create-update-delete-policies.md
+api-management/build/configure-your-api-proxy/establish-consumer-access.md: ../../../platform-management/manage-applications.md
+api-management/get-started/api-management-overview.md: ../../agent-management/get-started/ai-management-overview.md
+api-management/get-started/api-management-overview.md: ../../event-stream-management/get-started/event-stream-management-overview.md
+api-management/get-started/create-your-first-api.md: ../../agent-management/import/create-api-tools.md
+event-stream-management/get-started/event-stream-management-overview.md: ../../api-management/build/create-an-api-proxy.md
+agent-management/observe/monitor-ai-gateway-from-devices.md: ../../edge-management/connect/configure-kandji-daemon.md
+agent-management/observe/monitor-ai-gateway-from-devices.md: ../../edge-management/connect/configure-kandji-daemon.md
+agent-management/observe/monitor-ai-gateway-from-devices.md: ../../edge-management/connect-claude-code-to-daemon.md
+agent-management/publish/connect-claude-code-through-an-llm-proxy.md: ../../platform-management/install/self-hosted-installation-guides/README.md
+agent-management/publish/connect-claude-code-through-an-llm-proxy.md: ../../platform-management/install/hybrid-installation-guides/README.md
+agent-management/publish/connect-claude-code-through-an-llm-proxy.md: ../../edge-management/connect-claude-code-to-daemon.md
+agent-management/publish/consume-your-llm-proxy-with-langchain.md: ../../platform-management/install/self-hosted-installation-guides/README.md
+agent-management/publish/consume-your-llm-proxy-with-langchain.md: ../../platform-management/install/hybrid-installation-guides/README.md
+agent-management/build/configure-an-llm-proxy.md: ../../api-management/build/secure-your-api-proxy.md
+agent-management/build/create-an-llm-proxy.md: ../../edge-management/connect-claude-code-to-daemon.md
+agent-management/build/expose-agent-with-a2a-proxy.md: ../../authorization-management/configure/create-update-delete-policies.md
+agent-management/import/create-api-tools.md: ../../api-management/build/create-an-api-proxy.md
+agent-management/get-started/create-your-llm-proxy.md: ../../edge-management/connect-claude-code-to-daemon.md
+edge-management/connect-claude-code-to-daemon.md: ../agent-management/observe/monitor-ai-gateway-from-devices.md
