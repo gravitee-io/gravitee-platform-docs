@@ -17,7 +17,7 @@ Another use case is defining routing similar to the following:
 * Requests from `http://gateway/apis/store/45/info` are redirected to `http://backend_store45/info`
 
 {% hint style="warning" %}
-This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 message APIs or v4 TCP proxy APIs
+This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 message APIs or v4 TCP proxy APIs.&#x20;
 {% endhint %}
 
 ## Examples
@@ -58,7 +58,7 @@ You can also select endpoints configured for your API by name using Gravitee Exp
 
 ### Routing using Entrypoint context-paths and flow conditions
 
-The `dynamic-routing` policy can be configured to work with the APIs' (multiple) &#x45;_&#x6E;trypoint context-paths_ as well. For example, if you have multiple entrypoint context-paths to your API (as shown below), you can route requests on these paths to different backend services.
+The `dynamic-routing` policy can be configured to work with the APIs' (multiple) &#x45;_&#x6E;trypoint context-paths_ as well. For example, if you have multiple entrypoint context paths to your API (as shown below), you can route requests to these paths to different backend services.
 
 <figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-239.png" alt=""><figcaption><p>An API configuration, showing multiple entrypoint context-paths</p></figcaption></figure>
 
