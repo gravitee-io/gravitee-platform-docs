@@ -31,3 +31,4 @@ The MCP Proxy currently supports injecting static credentials into the request h
 ## Next steps
 
 * [Add policies to your MCP server](add-policies-to-mcp-server.md). Apply fine-grained authorization at the tool level.
+* [Layered governance for MCP tools](govern-mcp-tool-access.md). Combine authorization, rate limits, and response redaction on one server.

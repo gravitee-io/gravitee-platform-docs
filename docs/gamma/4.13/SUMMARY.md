@@ -105,6 +105,7 @@
     * [Add policies to your MCP server](agent-management/build/configure-your-mcp/add-policies-to-mcp-server.md)
     * [Apply policies to specific MCP methods](agent-management/build/configure-your-mcp/apply-policies-to-mcp-methods.md)
     * [Apply policies to individual tool invocations](agent-management/build/configure-your-mcp/apply-policies-to-tool-invocations.md)
+    * [Layered governance for MCP tools](agent-management/build/configure-your-mcp/govern-mcp-tool-access.md)
   * [Create an MCP Studio](agent-management/build/create-an-mcp-studio.md)
     * [Edit tool composition](agent-management/build/edit-mcp-studio-composition.md)
   * [Create an LLM Proxy](agent-management/build/create-an-llm-proxy.md)
