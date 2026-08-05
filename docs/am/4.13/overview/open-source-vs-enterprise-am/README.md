@@ -85,7 +85,7 @@ The Authorization Engine pack enables authorization features for MCP Servers:
 
 AM reads your Enterprise entitlements from a license. Where that license comes from depends on how AM is deployed.
 
-### Self-hosted and hybrid deployments
+### Self-hosted deployments
 
 You install a license on each AM node, and each node applies the entitlements in that license. Connecting a self-hosted installation to Gravitee Cockpit for environment management doesn't change this. The installation stays a standalone one and keeps applying its own installed license.
 
