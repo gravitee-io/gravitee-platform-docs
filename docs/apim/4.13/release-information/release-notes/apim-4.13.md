@@ -60,7 +60,7 @@ documentation.gravitee.io links for other versions.
 
 #### **Datadog Reporter: Consumer and error tags on the request count metric**
 
-* `gravitee.apim.api_request_count` now carries `applicationid`, `applicationname`, and `errorkey` tags, so you can filter, group, and alert on failed requests by consumer and by error cause without pivoting to logs. These tags need Datadog Reporter 8.1.0 or later.
+* `gravitee.apim.api_request_count` now carries `applicationid`, `applicationname`, and `errorkey` tags, so you can filter, group, and alert on failed requests by consumer and by error cause without pivoting to logs. These tags need Datadog Reporter 8.1.1 or later.
 * An optional `message` tag carries the error message. It's off by default because each distinct message creates a separate metric series in Datadog. Enable it by setting `reporters.datadog.tags.includeErrorMessage` to `true`.
 * The Datadog Reporter adds these tags for v4 APIs only. For a v2 API, `api_request_count` keeps the node, API, and status tags.
 * `applicationname` needs APIM 4.13 or later. On an earlier APIM version the Datadog Reporter omits that tag, and the other tags are unaffected.
