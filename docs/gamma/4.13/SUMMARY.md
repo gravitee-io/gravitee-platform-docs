@@ -44,6 +44,7 @@
   * [Create your first API](api-management/get-started/create-your-first-api.md)
 * [Build](api-management/build/README.md)
   * [Create an API proxy](api-management/build/create-an-api-proxy.md)
+  * [Import an API proxy](api-management/build/import-an-api-proxy.md)
   * [Secure your API proxy](api-management/build/secure-your-api-proxy.md)
   * [Configure your API proxy](api-management/build/configure-your-api-proxy/README.md)
     * [Configure endpoints](api-management/build/configure-your-api-proxy/configure-backend-security.md)

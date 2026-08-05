@@ -10,7 +10,7 @@ noIndex: false
 
 An API proxy is the core artifact in API Management. It defines a context path or virtual host that consumers use to reach your API, forwards requests to an upstream backend, and applies security plans and policies at runtime through the API Gateway.
 
-This page covers the from-scratch and template-based wizard flows, and every option each one exposes.
+This page covers the from-scratch and template-based wizard flows, and every option each one exposes. To build the API proxy from an existing definition file instead, see [Import an API proxy](import-an-api-proxy.md).
 
 {% hint style="info" %}
 For a minimal quickstart, see [Create your first API](../get-started/create-your-first-api.md).
@@ -26,7 +26,7 @@ To open this page, go to **API Proxies** and click **Create New Proxy**. The Gam
 
 * **Start from scratch**. This path opens the full four-step wizard, with no preset plans.
 * **Quick-start templates**. This path opens a shorter wizard with security and plans preset from a template.
-* **Import API**. This path creates the API from a Gravitee definition, an OpenAPI specification, or a WSDL document.
+* **Import API**. This path creates the API from a Gravitee definition, an OpenAPI specification, or a WSDL document. See [Import an API proxy](import-an-api-proxy.md).
 
 The rest of this page covers the two wizard flows:
 

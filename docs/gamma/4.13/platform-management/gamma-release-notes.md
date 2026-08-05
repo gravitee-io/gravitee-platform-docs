@@ -1,5 +1,21 @@
 # Gamma Release Notes
 
+## 4.13 new features
+
+The 4.13 release adds the following capabilities.
+
+### API Management
+
+API Management gains a file-based path for building and updating API proxies.
+
+#### Import an API proxy
+
+* Create an API proxy from a Gravitee v4 API definition, an OpenAPI specification, or a WSDL document. The three formats are available from the **Import API** card on the **Create API Proxy** page.
+* Replace the configuration of an existing API proxy from the same three formats, using **Import** on the **General** page of the API proxy.
+* Supply each format as a local file or as a remote `http` or `https` URL that the Management API fetches server-side.
+* For OpenAPI and WSDL imports, choose whether to create a documentation page from the specification and whether to add an OpenAPI Specification Validation policy. WSDL imports also offer the REST to SOAP Transformer policy.
+* See [Import an API proxy](../api-management/build/import-an-api-proxy.md).
+
 ## Release Date: June 26, 2026
 
 ## Highlights
