@@ -17,7 +17,7 @@ Another use case is defining routing similar to the following:
 * Requests from `http://gateway/apis/store/45/info` are redirected to `http://backend_store45/info`
 
 {% hint style="warning" %}
-This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 message APIs or v4 TCP proxy APIs.
+This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 message APIs or v4 TCP proxy APIs
 {% endhint %}
 
 ## Examples
