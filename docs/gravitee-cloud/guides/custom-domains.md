@@ -122,10 +122,6 @@ To find the exact values for both records, complete the following steps:
 
 Create this record at your registrar with the values from the **Add the Wildcard CNAME Record** section of the card.
 
-### Add the ACME delegation CNAME record
-
-Create this record at your registrar with the values from the **Add the ACME Delegation CNAME Record** section of the card.
-
 ## Connect Kafka clients to a Kafka custom domain
 
 When you add a Kafka custom domain, Gravitee propagates it to the environment linked to the Gateway, and the Gateway starts accepting Kafka connections on it. The default Kafka domain keeps working alongside it. Kafka clients connect over TLS, so point them at the custom domain once its status is `verified`.
