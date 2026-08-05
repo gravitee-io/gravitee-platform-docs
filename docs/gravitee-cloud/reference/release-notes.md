@@ -6,6 +6,20 @@ description: Release notes for Gravitee Cloud.
 
 This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:
 
+## August 2026
+
+<details>
+
+<summary>5th August</summary>
+
+**Custom domains for native Kafka APIs**
+
+Gravitee Hosted Gateways now support Kafka custom domains. Add a Kafka custom domain to a Gateway to expose its native Kafka APIs on a host you own, instead of only the default Gravitee Kafka domain. Gravitee provisions the DNS entry, shows the two CNAME records to create at your registrar, and issues the wildcard TLS certificate through an ACME DNS-01 delegation.
+
+For more information about how to configure a Kafka custom domain, see [custom-domains.md](../guides/custom-domains.md "mention").
+
+</details>
+
 ## April 2026&#x20;
 
 <details>
@@ -84,7 +98,7 @@ In API Designer, V4 APIs are now the default API type when you create an API. Fo
 
 **Delete SaaS Gateways and environments**
 
-You can now delete SaaS Gateways and environments, including the default environments. For more information about deleting Gatways and environments, see [delete-a-gravitee-hosted-gateway.md](../guides/gravitee-hosted-gateways/delete-a-gravitee-hosted-gateway.md "mention").
+You can now delete SaaS Gateways and environments, including the default environments. For more information about deleting Gateways and environments, see [delete-a-gravitee-hosted-gateway.md](../guides/gravitee-hosted-gateways/delete-a-gravitee-hosted-gateway.md "mention").
 
 </details>
 
@@ -134,7 +148,7 @@ You can now deploy a SaaS Gateway in AWS. You can deploy a Gateway only in `us-e
 
 <summary>21st May</summary>
 
-**Retrieve user info from the token or userInfo endpoint**&#x20;
+**Retrieve user info from the token or `userInfo` endpoint**&#x20;
 
 You can now retrieve a user's profile information from either the token or the `userInfo` endpoint. For more information about retrieving a user's profile information, see [configure-sso.md](../guides/configure-sso.md "mention").
 
@@ -158,7 +172,7 @@ You can now request more environments in Gravitee Cloud to map out your specific
 
 You can now configure Custom Domains for Gravitee-hosted Gateways and the Developer Portal. This feature lets you personalize your infrastructure URLs with your own domain names to provide a consistent branded experience across your entire API ecosystem.
 
-To set up a Custom Domain, select the Gravitee-hosted Gateway you want to personalize from your Dashboard, and then enter your information in the Custom Domain section. You can easily reset your Custom Domain configuration if needed.
+To set up a Custom Domain, select the Gravitee-hosted Gateway you want to personalize from your Dashboard, and then enter your information in the Custom Domain section. You can reset your Custom Domain configuration if needed.
 
 For more information, see the [Custom Domains](../guides/custom-domains.md) documentation.
 
@@ -172,13 +186,13 @@ For more information, see the [Custom Domains](../guides/custom-domains.md) docu
 
 **Cloud Hosted Gateways**
 
-We’re thrilled to introduce **Cloud Hosted Gateways** for Gravitee Cloud API Management! With Cloud Hosted Gateways, Gravitee takes care of the setup and maintenance for your gateway environments, allowing you to focus on managing your APIs effortlessly.
+Gravitee Cloud API Management now offers **Cloud Hosted Gateways**. With Cloud Hosted Gateways, Gravitee takes care of the setup and maintenance for your gateway environments, allowing you to focus on managing your APIs effortlessly.
 
 **Key benefits include:**
 
 * **Automatic Configuration & Scaling**: Gravitee automatically configures and scales gateways in high availability setups, delivering the compute power and resources needed based on your subscription tier.
 * **Managed Upgrades**: Gravitee provides automatic patch upgrades, with self-serve feature upgrades available for enhanced control.
-* **Dedicated Environments**: Each Cloud hosted gateway is dedicated to an API Management environment of your choice (e.g., Production, Test, Development), ensuring isolation and security across environments.
+* **Dedicated Environments**: Each Cloud hosted gateway is dedicated to an API Management environment of your choice, for example Production, Test, or Development, ensuring isolation and security across environments.
 
 Deploying a Cloud Hosted Gateway takes just a few minutes. Simply navigate to your Gravitee Cloud Dashboard, select your environment to deploy Cloud hosted gateways for, and Gravitee will handle the rest!
 
