@@ -45,7 +45,7 @@ If you have not been granted access to private EE plugin repositories as part of
 
 ### Enterprise Identity Provider pack <a href="#enterprise-policy-pack" id="enterprise-policy-pack"></a>
 
-The Enterprise Identity Provider pack enables the use of different IdPs when setting up your Gravitee Access Management OAuth2 server:
+The Enterprise Identity Provider pack enables the use of different IDPs when setting up your Gravitee Access Management OAuth2 server:
 
 * CAS
 * Kerberos
@@ -80,6 +80,42 @@ The Authorization Engine pack enables authorization features for MCP Servers:
 
 * OpenFGA
 * AuthZen
+
+## How AM applies your license
+
+AM reads your Enterprise entitlements from a license. Where that license comes from depends on how AM is deployed.
+
+### Self-hosted deployments
+
+You install a license on each AM node, and each node applies the entitlements in that license. Connecting a self-hosted installation to Gravitee Cockpit for environment management doesn't change this. The installation stays a standalone one and keeps applying its own installed license.
+
+### Gravitee-managed deployments
+
+Gravitee assigns a license to your organization and keeps it in step with your subscription. AM stores that organization license and applies it across both the AM API and the AM Gateway. You don't install or upload this license yourself, and AM Console has no screen to edit it. Your subscription in Gravitee Cloud stays the source of truth.
+
+### What happens when a feature isn't included
+
+On a Gravitee-managed deployment, AM applies the organization license at three points.
+
+AM Console lists every plugin in the catalog. Selecting one your license doesn't include opens an upgrade dialog instead of saving the configuration.
+
+The AM API rejects a request that creates or updates a configuration for such a plugin with `403 Forbidden` and this message:
+
+```
+Plugin '<plugin-id>' requires the feature '<feature>' which is not included in your organization's license
+```
+
+AM doesn't restrict reading or deleting an existing configuration, so what you already configured stays visible and removable.
+
+At the AM Gateway, a security domain that references such a plugin still deploys. The Gateway skips the unlicensed plugin and keeps serving the rest of the domain's configuration. Plugins that don't require an Enterprise feature always load.
+
+### License expiry and downgrade
+
+An expired license leaves only the plugins that don't require an Enterprise feature enabled. An organization with no license assigned behaves the same way. A downgrade withdraws the features the new subscription drops and leaves the rest in place.
+
+Expiry doesn't interrupt a running Gateway. Security domains that are already deployed keep running with the plugins they loaded, and the new restriction takes effect the next time the domain is updated or the Gateway restarts.
+
+Every license change Gravitee applies to your organization is recorded in the organization audit log. See [Audit Trail](../../guides/audit-trail.md) for the event types and how to view the log.
 
 ## Advanced API monitoring <a href="#advanced-api-monitoring" id="advanced-api-monitoring"></a>
 
