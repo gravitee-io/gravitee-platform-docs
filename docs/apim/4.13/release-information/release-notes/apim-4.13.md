@@ -58,6 +58,14 @@ documentation.gravitee.io links for other versions.
 
 ## Improvements
 
+#### **Datadog Reporter: Consumer and error tags on the request count metric**
+
+* `gravitee.apim.api_request_count` now carries `applicationid`, `applicationname`, and `errorkey` tags, so you can filter, group, and alert on failed requests by consumer and by error cause without pivoting to logs. These tags need Datadog Reporter 8.1.0 or later.
+* An optional `message` tag carries the error message. It's off by default because each distinct message creates a separate metric series in Datadog. Enable it by setting `reporters.datadog.tags.includeErrorMessage` to `true`.
+* The Datadog Reporter adds these tags for v4 APIs only. For a v2 API, `api_request_count` keeps the node, API, and status tags.
+* `applicationname` needs APIM 4.13 or later. On an earlier APIM version the Datadog Reporter omits that tag, and the other tags are unaffected.
+* For more information, see [Datadog Reporter](../../analyze-and-monitor-apis/reporters/datadog-reporter.md#tags-on-the-request-count-metric).
+
 #### **Generate JWT policy: Support for `x5c` with the `INLINE` and `PEM` key resolvers**
 
 * The `x509CertificateChain` option now works with the `INLINE` and `PEM` key resolvers. The policy builds the `x5c` header from the certificates included in the key material, ordered from the signing certificate outward, and drops certificates that don't link into the chain.
