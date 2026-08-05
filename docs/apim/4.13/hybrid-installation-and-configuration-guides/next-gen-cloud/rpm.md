@@ -17,7 +17,7 @@ This installation guide is for only development and quick start purposes. Do not
 Before you install a Hybrid Gateway, complete the following steps:
 
 * Ensure that Java 21 is available in the `$PATH`.
-* Ensure that you have outbound internet access to Gravitee Cloud Gate (`eu.cloudgate.gravitee.io` or `us.cloudgate.gravitee.io`) over HTTPS (443).
+* Ensure that you have outbound internet access over HTTPS (443) to the Gravitee Cloud Gate for your Control Plane geography. For the list of Cloud Gate URLs, see [#architecture](./#architecture "mention").
 * Install Redis.
 * Complete the steps in [#prepare-your-installation](./#prepare-your-installation "mention").
 
