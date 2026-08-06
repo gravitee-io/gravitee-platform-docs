@@ -16,8 +16,6 @@ To open the page, follow these steps:
 2. Select your API proxy.
 3. Click **Broadcasts** in the API proxy sidebar.
 
-Sending a broadcast requires the `api-message-c` permission.
-
 <!-- TODO: Screenshot of the Compose broadcast form -->
 
 <figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-broadcasts-compose.png" alt=""><figcaption><p>The Compose broadcast form</p></figcaption></figure>

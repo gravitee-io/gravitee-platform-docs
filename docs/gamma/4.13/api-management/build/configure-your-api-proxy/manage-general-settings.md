@@ -53,14 +53,14 @@ The **Details** panel is read-only and lists **Owner**, **Created**, **Updated**
 
 ## Export, import, or duplicate the API
 
-An action strip under the identity fields carries the definition-level actions. Each button appears only when you hold the matching permission:
+An action strip under the identity fields carries the definition-level actions:
 
-| Button        | Permission         | Behavior                                                                                       |
-| ------------- | ------------------ | ---------------------------------------------------------------------------------------------- |
-| **Export**    | `api-definition-r` | Opens the **Export API** panel to download the API definition.                                 |
-| **Import**    | `api-definition-c` | Opens the **Import API Definition** panel to replace the configuration of this API proxy from a definition file. See [Import an API proxy](../import-an-api-proxy.md). |
-| **Duplicate** | `api-definition-c` | Opens the **Duplicate API** panel to create a copy of this API proxy.                          |
-| **Promote**   | `api-definition-u` | Not available in this release. The button is always disabled.                                  |
+| Button        | Behavior                                                                                       |
+| ------------- | ---------------------------------------------------------------------------------------------- |
+| **Export**    | Opens the **Export API** panel to download the API definition.                                 |
+| **Import**    | Opens the **Import API Definition** panel to replace the configuration of this API proxy from a definition file. See [Import an API proxy](../import-an-api-proxy.md). |
+| **Duplicate** | Opens the **Duplicate API** panel to create a copy of this API proxy.                          |
+| **Promote**   | Not available in this release. The button is always disabled.                                  |
 
 The **Import** and **Duplicate** buttons are disabled when the API proxy is managed by the Kubernetes operator.
 
@@ -71,11 +71,9 @@ The **API Events** card alters the runtime state of the API on the gateway:
 * **Stop API**. Shown while the API is started. The gateway stops accepting requests. Subscriptions are preserved.
 * **Start API**. Shown while the API is stopped. Starts the API and makes it available on all connected gateways.
 
-Starting or stopping the API requires the `api-definition-u` permission.
-
 ## Delete the API
 
-The **Delete this API** action in the **API Events** card permanently removes the API, all plans, subscriptions, and analytics data. It requires the `api-definition-d` permission.
+The **Delete this API** action in the **API Events** card permanently removes the API, all plans, subscriptions, and analytics data.
 
 The action is unavailable in the following two cases:
 

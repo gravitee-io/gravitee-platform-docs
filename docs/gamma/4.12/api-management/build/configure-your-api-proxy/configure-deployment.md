@@ -17,8 +17,6 @@ To open the page, follow these steps:
 3. Click **Deployment** in the API proxy sidebar.
 4. Click **Configuration**.
 
-Changing sharding tags requires the `api-definition-u` permission. Without it, the page shows **You do not have permission to change sharding tags for this API.**
-
 <!-- TODO: Screenshot of the Deployment Configuration page with sharding tags -->
 
 <figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-deployment-configuration.png" alt=""><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
