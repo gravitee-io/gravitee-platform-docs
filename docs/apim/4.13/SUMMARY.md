@@ -556,6 +556,7 @@
     * [Context-Aware Logging in Plugins](plugins/customization/context-aware-logging.md)
     * [Policies for the Entrypoint Connect phase](plugins/customization/entrypoint-connect-phase-policies.md)
     * [Enforce Logging Rules with ArchUnit Maven Plugin](plugins/customization/archunit-maven-plugin.md)
+    * [Implement a schema registry provider](plugins/customization/schema-registry-provider.md)
 * [Gravitee Expression Language](gravitee-expression-language.md)
 * [Management API Reference](management-api-reference.md)
 * [Expose APIM as an MCP Server](expose-apim-as-an-mcp-server.md)
