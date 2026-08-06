@@ -16,3 +16,6 @@ guides/branding/README.md
 guides/branding/language-default-properties-reference.md
 .gitbook/assets/am-application-scopes-consent-settings.png
 .gitbook/assets/am-application-add-scope-dialog.png
+# Organization license sync and enforcement (AM 4.13.0 feature, AM-7166)
+overview/open-source-vs-enterprise-am/README.md
+guides/audit-trail.md
