@@ -2,10 +2,10 @@
 description: An overview about debug logging.
 metaLinks:
   alternates:
-    - debug-logging.md
+  - debug-logging.md
 ---
 
-# Debug Logging
+# Debug logging
 
 ## Overview
 
@@ -15,7 +15,7 @@ Debug logging can reduce performance. To avoid issues with performance, enable d
 
 Gravitee supports standard Java logging for each Gravitee component and debug logging for specific Java classes. For example:
 
-```
+```text
 com.graviteesource.secretprovider.microsoft.keyvault.client.MicrosoftKeyVaultClientImpl
 ```
 
@@ -28,17 +28,17 @@ Component-based debug logging means that you enable debug logging for the follow
 
 Java-class debug logging means the individual Java classes and packages that are included in the Gravitee components. Here are some examples of Java classes:
 
-* io.gravitee
-* org.springframework
-* com.graviteesource.policy.kafka.acl.KafkaAclPolicy
-* com.graviteesource.secretprovider.microsoft.keyvault.client.MicrosoftKeyVaultClientImpl
+* `io.gravitee`
+* `org.springframework`
+* `com.graviteesource.policy.kafka.acl.KafkaAclPolicy`
+* `com.graviteesource.secretprovider.microsoft.keyvault.client.MicrosoftKeyVaultClientImpl`
 
 ## Enable component-based debug logging
 
 To enable debug logging for a specific Gravitee component, you can use the following example configurations as templates:
 
-{% tabs %}
-{% tab title="logback.xml" %}
+#### logback.xml
+
 * To enable debug logging for the Management API component, set `<logger name="io.gravitee" level="DEBUG" />` in your `/opt/graviteeio-management-api/config/logback.xml` file:
 
 {% code title="logback.xml" %}
@@ -86,9 +86,9 @@ To enable debug logging for a specific Gravitee component, you can use the follo
 {% endcode %}
 
 To enable debug logging for the Gateway component, you can apply the same edits to the `/opt/graviteeio-gateway/config/logback.xml` file.
-{% endtab %}
 
-{% tab title="Helm chart values.yml" %}
+#### Helm chart values.yml
+
 * To enable debug logging for the Management API, edit the following section of your [Gravitee Helm chart](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml) `values.yml` file:
 
 {% code title="values.yml" %}
@@ -120,8 +120,14 @@ api:
 {% endcode %}
 
 To enable debug logging for the Gateway component, you can apply the same edits to the `gateway:` section of the `values.yml` file.
-{% endtab %}
-{% endtabs %}
+
+{% hint style="info" %}
+In Kubernetes installations, `logging.debug: true` does more than change log levels. When it's set, the Helm chart generates a `logback.xml` file in the component's ConfigMap and mounts it into the container in place of the default `logback.xml` file that ships with the component. When `logging.debug` is `false`, which is the default, and `logback.override` isn't set, the chart doesn't mount a `logback.xml` file. The container then uses the default file, and the other `logging` values, such as `logging.stdout.json` and `logging.additionalLoggers`, have no effect.
+
+The generated `logback.xml` file sets the `io.gravitee` log level to the `logging.graviteeLevel` value, which defaults to `DEBUG`. To use the `logging` values without full debug output, set `logging.graviteeLevel` to `INFO` or `WARN`.
+
+The `logging` block is deprecated in the Helm chart. For the replacement `logback` and `node.logging` blocks, see [Node logging configuration](node-logging-configuration.md).
+{% endhint %}
 
 <details>
 
@@ -131,9 +137,6 @@ To enable debug logging for the Gateway component, you can apply the same edits 
 ...
 20:55:42,221 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [io.gravitee] to DEBUG
 ...
-20:55:42.587 [graviteeio-node] [] INFO  i.g.n.c.s.e.PropertiesConfiguration - Loading Gravitee configuration.
-20:55:42.591 [graviteeio-node] [] INFO  i.g.n.c.s.e.PropertiesConfiguration - 	Gravitee configuration loaded from /opt/graviteeio-management-api/config/gravitee.yml
-20:55:42.599 [graviteeio-node] [] INFO  i.g.n.c.s.e.PropertiesConfiguration - Loading Gravitee configuration. DONE
 20:55:42.602 [graviteeio-node] [] DEBUG i.g.c.util.RelaxedPropertySource - PropertySource [envVariables] does not contain 'plugins.path[0]', but found equivalent 'plugins_path_0'
 20:55:42.633 [graviteeio-node] [] DEBUG i.g.c.util.RelaxedPropertySource - PropertySource [envVariables] does not contain 'plugins.path[0]', but found equivalent 'plugins_path_0'
 20:55:42.648 [graviteeio-node] [] DEBUG i.g.n.a.r.PropertyResolverFactoriesLoader - Loading instances for type io.gravitee.node.api.resolver.PropertyResolver
@@ -147,8 +150,8 @@ To enable debug logging for the Gateway component, you can apply the same edits 
 
 To enable debug logging for only specific Java classes, you can use the following example configurations as templates.
 
-{% tabs %}
-{% tab title="logback.xml" %}
+#### logback.xml
+
 * To enable debug logging for only the `MicrosoftKeyVaultClientImpl` class of the Gravitee Gateway component, use the following snippet in your `/opt/graviteeio-gateway/config/logback.xml` file: `<logger name="com.graviteesource.secretprovider.microsoft.keyvault.client.MicrosoftKeyVaultClientImpl" level="DEBUG" />`
 
 {% code title="logback.xml" %}
@@ -197,16 +200,16 @@ To enable debug logging for only specific Java classes, you can use the followin
 {% endcode %}
 
 To also enable debug logging for this specific Java class in the Management API component, you can apply the same edits to the `/opt/graviteeio-management-api/config/logback.xml` file.
-{% endtab %}
 
-{% tab title="Helm chart values.yml" %}
+#### Helm chart values.yml
+
 * To enable debug logging for only the `MicrosoftKeyVaultClientImpl` class of the Gravitee Gateway component, use the following [Gravitee Helm chart](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml) `values.yml` snippet:
 
 {% code title="values.yml" %}
 ```yaml
 gateway:
   logging:
-    debug: false
+    debug: true
     graviteeLevel: WARN
     additionalLoggers:
       - name: com.graviteesource.secretprovider.microsoft.keyvault.client.MicrosoftKeyVaultClientImpl
@@ -225,9 +228,9 @@ gateway:
 ```
 {% endcode %}
 
+In Kubernetes installations, `logging.debug: true` is required. The Helm chart generates and mounts the `logback.xml` file that contains the additional loggers only when `logging.debug` is `true`. `logging.graviteeLevel: WARN` keeps the `io.gravitee` log level at `WARN` while the listed Java class logs at `DEBUG`.
+
 To also enable debug logging for this specific Java class of the Management API component, you can apply the same edits to the `api:` section of the `values.yml` file.
-{% endtab %}
-{% endtabs %}
 
 <details>
 

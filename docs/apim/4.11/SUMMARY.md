@@ -131,7 +131,7 @@
     * [CORS Configuration](configure-and-manage-the-platform/manage-organizations-and-environments/cors-configuration.md)
     * [Configuring Portal and Console deployments](configure-and-manage-the-platform/manage-organizations-and-environments/configuring-portal-and-console-deployments.md)
     * [Support](configure-and-manage-the-platform/manage-organizations-and-environments/support.md)
-  * [Debug Logging](configure-and-manage-the-platform/debug-logging.md)
+  * [Debug logging](configure-and-manage-the-platform/debug-logging.md)
   * [Context-aware logging](configure-and-manage-the-platform/logging-infrastructure.md)
   * [Node logging configuration](configure-and-manage-the-platform/node-logging-configuration.md)
 * [Create & Configure APIs](create-and-configure-apis/README.md)
