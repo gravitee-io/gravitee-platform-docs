@@ -112,6 +112,7 @@
   * [Configure an LLM Proxy](agent-management/build/configure-an-llm-proxy.md)
   * [LLM Proxy provider support](agent-management/build/llm-proxy-provider-support.md)
   * [Select a text classification model](agent-management/build/select-a-text-classification-model.md)
+  * [Accepted request formats](agent-management/build/accepted-request-formats.md)
   * [Create an agent identity](agent-management/build/create-an-agent-identity.md)
   * [Configure your Access Management instance](agent-management/build/configure-your-access-management-instance.md)
   * [Expose your agent with the A2A Proxy](agent-management/build/expose-agent-with-a2a-proxy.md)
