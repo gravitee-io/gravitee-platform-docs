@@ -8,7 +8,7 @@ noIndex: false
 
 # Manage general settings
 
-The **General** page groups the identity fields, images, metadata, definition actions, and lifecycle actions of an API proxy.
+The **General** page groups the identity fields, images, metadata, and lifecycle actions of an API proxy.
 
 To open the page, follow these steps:
 
@@ -50,19 +50,6 @@ Both accept PNG, JPG, and SVG files up to 500 KB.
 ## Review the API details
 
 The **Details** panel is read-only and lists **Owner**, **Created**, **Updated**, **Visibility**, **Lifecycle**, and **Status**.
-
-## Export, import, or duplicate the API
-
-An action strip under the identity fields carries the definition-level actions:
-
-| Button        | Behavior                                                                                       |
-| ------------- | ---------------------------------------------------------------------------------------------- |
-| **Export**    | Opens the **Export API** panel to download the API definition.                                 |
-| **Import**    | Opens the **Import API Definition** panel to replace the configuration of this API proxy from a definition file. See [Import an API proxy](../import-an-api-proxy.md). |
-| **Duplicate** | Opens the **Duplicate API** panel to create a copy of this API proxy.                          |
-| **Promote**   | Not available in this release. The button is always disabled.                                  |
-
-The **Import** and **Duplicate** buttons are disabled when the API proxy is managed by the Kubernetes operator.
 
 ## Start or stop the API
 
