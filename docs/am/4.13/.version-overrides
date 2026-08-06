@@ -19,3 +19,11 @@ guides/branding/language-default-properties-reference.md
 # Organization license sync and enforcement (AM 4.13.0 feature, AM-7166)
 overview/open-source-vs-enterprise-am/README.md
 guides/audit-trail.md
+# Federated CIBA and rich authorization requests (AM 4.13.0 feature, AM-7205)
+guides/auth-protocols/ciba.md
+.gitbook/assets/am-ciba-enable-ciba-toggle.png
+.gitbook/assets/am-ciba-settings-configuration.png
+.gitbook/assets/am-ciba-device-notifiers-tab.png
+.gitbook/assets/am-ciba-federation-notifier-cards.png
+.gitbook/assets/am-ciba-federation-notifier-selected.png
+.gitbook/assets/am-ciba-federation-notifier-configuration.png
