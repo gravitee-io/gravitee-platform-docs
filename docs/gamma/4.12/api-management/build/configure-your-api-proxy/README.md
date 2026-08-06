@@ -20,7 +20,7 @@ The sidebar header shows the API's picture, name, state badge (**Started**, **St
 
 ## Deploy your changes
 
-Saving a configuration change doesn't apply it to the gateway on its own. While changes are pending, users who hold the `api-definition-u` permission see a banner across the workspace that reads **This API has undeployed changes.** Click **Deploy API**, optionally enter a **Deployment label** of up to 32 characters in the **Deploy your API** dialog, and click **Deploy**. Each deployment appears on the [deployment history](review-deployment-history.md) page.
+Saving a configuration change doesn't apply it to the gateway on its own. While changes are pending, the **This API has undeployed changes.** banner appears across the workspace. Click **Deploy API**, optionally enter a **Deployment label** of up to 32 characters in the **Deploy your API** dialog, and click **Deploy**. Each deployment appears on the [deployment history](review-deployment-history.md) page.
 
 ## Sidebar reference
 

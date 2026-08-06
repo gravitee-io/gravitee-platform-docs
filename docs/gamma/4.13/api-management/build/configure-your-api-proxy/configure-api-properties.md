@@ -16,8 +16,6 @@ To open the page, follow these steps:
 2. Select your API proxy.
 3. Click **API Properties** in the API proxy sidebar.
 
-Adding, editing, importing, and managing properties requires the `api-definition-u` permission.
-
 <!-- TODO: Screenshot of the API Properties page with defined properties -->
 
 <figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-properties-page.png" alt=""><figcaption><p>The API Properties page</p></figcaption></figure>

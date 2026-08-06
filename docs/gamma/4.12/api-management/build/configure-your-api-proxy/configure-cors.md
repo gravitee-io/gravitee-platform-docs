@@ -16,7 +16,7 @@ To open the page, follow these steps:
 2. Select your API proxy.
 3. Click **CORS** in the API proxy sidebar.
 
-Editing the settings requires the `api-definition-u` permission. Changing any setting reveals the **Discard** and **Save changes** buttons.
+Changing any setting reveals the **Discard** and **Save changes** buttons.
 
 <!-- TODO: Screenshot of the CORS page -->
 

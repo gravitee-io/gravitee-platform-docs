@@ -16,7 +16,7 @@ To open the page, follow these steps:
 2. Select your API proxy.
 3. Click **Entrypoints** in the API proxy sidebar.
 
-Editing entrypoints requires both the `api-definition-u` and `api-gateway_definition-u` permissions. When the API proxy is managed by the Kubernetes operator, the page is read-only.
+When the API proxy is managed by the Kubernetes operator, the page is read-only.
 
 <!-- TODO: Screenshot of the Entrypoints page in context-path mode -->
 

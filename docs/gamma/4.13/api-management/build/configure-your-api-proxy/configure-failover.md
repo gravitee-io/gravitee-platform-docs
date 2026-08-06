@@ -17,7 +17,7 @@ To open the page, follow these steps:
 3. Click **Endpoints** in the API proxy sidebar.
 4. Click **Failover**.
 
-Editing the settings requires both the `api-definition-u` and `api-gateway_definition-u` permissions. When the API proxy is managed by the Kubernetes operator, the settings are read-only.
+When the API proxy is managed by the Kubernetes operator, the settings are read-only.
 
 <!-- TODO: Screenshot of the Failover page -->
 
