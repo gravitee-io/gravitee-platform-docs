@@ -14,15 +14,118 @@ Gravitee Cloud currently offers the following geography and provider support. If
 
 ### API Management Control Plane
 
-| Provider | Geography          | Region                   |
-| -------- | ------------------ | ------------------------ |
-| Azure    | US (United States) | Washington (westus2)     |
-| Azure    | EU (Europe)        | Netherlands (westeurope) |
-| Azure    | AU (Australia)     | Australia (australiaeast)|
+<table>
+    <thead>
+        <tr>
+            <th width="140">Provider</th>
+            <th width="280">Geography</th>
+            <th>Region</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Azure</td>
+            <td>US (United States)</td>
+            <td>Washington (<code>westus2</code>)</td>
+        </tr>
+        <tr>
+            <td>Azure</td>
+            <td>EU (Europe)</td>
+            <td>Netherlands (<code>westeurope</code>)</td>
+        </tr>
+        <tr>
+            <td>Azure</td>
+            <td>AU (Australia)</td>
+            <td>Australia (<code>australiaeast</code>)</td>
+        </tr>
+        <tr>
+            <td>Azure</td>
+            <td>CH (Switzerland)</td>
+            <td>Switzerland (<code>switzerlandnorth</code>)</td>
+        </tr>
+        <tr>
+            <td>Azure</td>
+            <td>UAE (United Arab Emirates)</td>
+            <td>United Arab Emirates (<code>uaenorth</code>)</td>
+        </tr>
+    </tbody>
+</table>
+
+Each Control Plane geography has its own Cloud Gate, which is the endpoint a hybrid Gateway connects to. For the Cloud Gate URLs, see [Next-Gen Cloud](https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#architecture).
 
 ### Gravitee hosted API Gateways
 
-<table><thead><tr><th width="249">Provider</th><th>Geography</th><th>Region</th></tr></thead><tbody><tr><td>Azure</td><td>US (United States)</td><td>Washington (westus2)</td></tr><tr><td>Azure</td><td>US (United States)</td><td>Virginia (eastus2)</td></tr><tr><td>Azure</td><td>EU (Europe)</td><td>Netherlands (westeurope)</td></tr><tr><td>AWS</td><td>US (United States)</td><td>N. Virginia (us-east-1)</td></tr><tr><td>AWS</td><td>APAC (Asia-Pacific)</td><td>Sydney (ap-southeast-2)</td></tr><tr><td>AWS</td><td>EU (Europe)</td><td>Dublin (eu-west-1)</td></tr><tr><td>GCP</td><td>US (United States)</td><td>Iowa (us-central1)</td></tr><tr><td>GCP</td><td>EU (Europe)</td><td>Frankfurt (europe-west3)</td></tr><tr><td>GCP</td><td>APAC (Asia-Pacific)</td><td>Singapore (asia-southeast1)</td></tr></tbody></table>
+<table>
+    <thead>
+        <tr>
+            <th width="140">Provider</th>
+            <th width="280">Geography</th>
+            <th>Region</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Azure</td>
+            <td>US (United States)</td>
+            <td>Washington (<code>westus2</code>)</td>
+        </tr>
+        <tr>
+            <td>Azure</td>
+            <td>US (United States)</td>
+            <td>Virginia (<code>eastus2</code>)</td>
+        </tr>
+        <tr>
+            <td>Azure</td>
+            <td>EU (Europe)</td>
+            <td>Netherlands (<code>westeurope</code>)</td>
+        </tr>
+        <tr>
+            <td>Azure</td>
+            <td>AU (Australia)</td>
+            <td>Australia (<code>australiaeast</code>)</td>
+        </tr>
+        <tr>
+            <td>Azure</td>
+            <td>CH (Switzerland)</td>
+            <td>Switzerland (<code>switzerlandnorth</code>)</td>
+        </tr>
+        <tr>
+            <td>Azure</td>
+            <td>UAE (United Arab Emirates)</td>
+            <td>United Arab Emirates (<code>uaenorth</code>)</td>
+        </tr>
+        <tr>
+            <td>AWS</td>
+            <td>US (United States)</td>
+            <td>N. Virginia (<code>us-east-1</code>)</td>
+        </tr>
+        <tr>
+            <td>AWS</td>
+            <td>APAC (Asia-Pacific)</td>
+            <td>Sydney (<code>ap-southeast-2</code>)</td>
+        </tr>
+        <tr>
+            <td>AWS</td>
+            <td>EU (Europe)</td>
+            <td>Dublin (<code>eu-west-1</code>)</td>
+        </tr>
+        <tr>
+            <td>GCP</td>
+            <td>US (United States)</td>
+            <td>Iowa (<code>us-central1</code>)</td>
+        </tr>
+        <tr>
+            <td>GCP</td>
+            <td>EU (Europe)</td>
+            <td>Frankfurt (<code>europe-west3</code>)</td>
+        </tr>
+        <tr>
+            <td>GCP</td>
+            <td>APAC (Asia-Pacific)</td>
+            <td>Singapore (<code>asia-southeast1</code>)</td>
+        </tr>
+    </tbody>
+</table>
 
 For more information about Azure regions, go to [Microsoft Datacenters](https://datacenters.microsoft.com/globe/explore/).
 

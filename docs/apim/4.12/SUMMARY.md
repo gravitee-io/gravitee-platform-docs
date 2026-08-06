@@ -129,6 +129,7 @@
     * [Authentication](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md)
       * [Gravitee Access Management](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/gravitee-access-management.md)
       * [Authentication Providers](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers.md)
+      * [Password Policy](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/password-policy.md)
       * [Social Providers](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/social-providers.md)
       * [OpenID Connect](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/openid-connect.md)
       * [Microsoft Entra ID](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id.md)
