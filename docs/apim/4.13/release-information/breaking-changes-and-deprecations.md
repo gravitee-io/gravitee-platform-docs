@@ -19,9 +19,9 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 **Management API v1 plan endpoints reject V4 and Federated APIs**
 
-From 4.13.0, the plan endpoints of the legacy Management API v1 (`/management/organizations/{orgId}/environments/{envId}/apis/{apiId}/plans`) reject V4 and Federated APIs. Every plan operation for one of these APIs returns HTTP `400`. The error message names the API's definition version, for example: `API definition version 4.0.0 is not supported by Management API v1. Use Management API v2 instead (/management/v2/environments/{envId}/apis/{apiId}/...).`
+From 4.13.0, the plan endpoints of the legacy Management API v1 (`/management/organizations/{orgId}/environments/{envId}/apis/{apiId}/plans`) reject V4, Federated, and Federated Agent APIs. Every plan operation for one of these APIs returns HTTP `400`. The error message names the API's definition version, for example: `API definition version 4.0.0 is not supported by Management API v1. Use Management API v2 instead (/management/v2/environments/{envId}/apis/{apiId}/...).`
 
-This applies to listing, reading, creating, updating, and deleting plans, and to closing, publishing, and deprecating a plan. Previously, these endpoints didn't check the API's definition version. Update any scripts or integrations that manage the plans of V4 or Federated APIs to use the Management API v2 plan endpoints (`/management/v2/environments/{envId}/apis/{apiId}/plans`).
+This applies to listing, reading, creating, updating, and deleting plans, and to closing, publishing, and deprecating a plan. Previously, these endpoints didn't check the API's definition version. Read operations for these APIs could fail with HTTP `500` or behave inconsistently, and write operations, for example creating or deleting a plan, could succeed. Update any scripts or integrations that manage the plans of these APIs to use the Management API v2 plan endpoints (`/management/v2/environments/{envId}/apis/{apiId}/plans`).
 
 #### 4.12.0
 
