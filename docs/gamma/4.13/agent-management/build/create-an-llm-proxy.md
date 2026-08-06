@@ -89,9 +89,12 @@ Keyless plans provide no consumer identification. You cannot track usage per con
 
 ### Review and create
 
-Review the LLM Proxy configuration—provider, model, authentication, context path, and consumer plan—and then select **Create**.
+Review the LLM Proxy configuration—provider, model, authentication, context path, and consumer plan—and then select one of the following:
 
-The console creates the LLM Proxy and deploys it to the AI Gateway. All consumer traffic to this context path now flows through the AI Gateway with the configured authentication and observability.
+* **Create only**. This creates the LLM Proxy without deploying it to the AI Gateway.
+* **Create & deploy**. This creates the LLM Proxy and deploys it to the AI Gateway.
+
+After you deploy the LLM Proxy, all consumer traffic to its context path flows through the AI Gateway with the configured authentication and observability.
 
 ## Zero-code integration
 
