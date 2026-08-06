@@ -235,6 +235,10 @@ Users are created in one of two ways:
 * [System Administrators](user-management.md#system-administrator-flow) can create users
 * Users can self-register via a registration form
 
+{% hint style="info" %}
+In both cases, the password the user chooses must satisfy APIM's [password policy](authentication/password-policy.md). Users authenticated by an external identity provider do not set a password in APIM, so the policy does not apply to them.
+{% endhint %}
+
 **System Administrator flow**
 
 To pre-register a user:

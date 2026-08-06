@@ -34,3 +34,4 @@ You can configure various user options:
 * `user.creation.token.expire-after`: `number` (default: `86400`): Number of seconds before the user registration token expires
 * `user.reference.secret`: `32 characters` (default: `s3cR3t4grAv1t33.1Ous3D4R3f3r3nc3`): Secret used to generate a unique anonymous reference to a user; **You must change this value**
 * `user.anonymize-on-delete:enabled`: `boolean` (default: `false`): If true, the user's first name, last name, and email are anonymized when a user is deleted
+* `user.password.policy.pattern`: `regular expression`: The complexity rules a password must satisfy. See [Password Policy](../manage-organizations-and-environments/authentication/password-policy.md) for the default pattern and the rules it enforces
