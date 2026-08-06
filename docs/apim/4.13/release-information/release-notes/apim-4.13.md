@@ -30,13 +30,13 @@ documentation.gravitee.io links for other versions.
 * Branded senders apply a different **From** address and subject prefix to notification emails for each recipient domain, configurable per Organization and Environment.
 * The new `#jsonEscape` Expression Language function escapes a value so it can be safely inserted into a JSON document or JSON string literal, for example in a response template body.
 * The Generate JWT policy adds optional `x5t` and `x5t#S256` certificate thumbprint headers to generated JWTs, for downstream systems that select the validation certificate by thumbprint.
-* The plan endpoints of the legacy Management API v1 now reject V4 and Federated APIs with HTTP `400` and an error message that points to the Management API v2 plan endpoints.
+* The plan endpoints of the legacy Management API v1 now reject V4, Federated, and Federated Agent APIs with an HTTP `400` error that points to Management API v2.
 
 ## Breaking Changes and deprecations
 
 #### **Management API v1 plan endpoints reject V4 and Federated APIs**
 
-The plan endpoints of the legacy Management API v1 no longer accept V4 and Federated APIs. Every plan operation for one of these APIs returns HTTP `400`. The error message names the API's definition version and points to the Management API v2 plan endpoints. Previously, these endpoints didn't check the API's definition version. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+The plan endpoints of the legacy Management API v1 no longer accept V4, Federated, and Federated Agent APIs. Every plan operation for one of these APIs returns HTTP `400`. The error message names the API's definition version and points to the Management API v2 plan endpoints. Previously, these endpoints didn't check the API's definition version. Read operations for these APIs could fail with HTTP `500` or behave inconsistently, and write operations, for example creating or deleting a plan, could succeed. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 ## New Features
 
