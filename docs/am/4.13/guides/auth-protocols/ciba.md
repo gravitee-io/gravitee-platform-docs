@@ -45,40 +45,9 @@ In order to provide a client configuration compatible with CIBA, the client has 
 
 For more information about the parameters related to CIBA, please see the [Registration and Discovery Metadata](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#registration) section of the specification.
 
-An example of payload for a client following CIBA.
-
-{% code overflow="wrap" %}
-```sh
-{
-        "redirect_uris": ["https://mybank.com/callback"],
-        "client_name": "client1",
-        "application_type" : "web",
-        "grant_types": [ "authorization_code","refresh_token"],
-        "response_types" : [
-                "code",
-                "code id_token token",
-                "code id_token",
-                "code token"
-        ],
-        "scope":"openid payments",
-        "jwks_uri": "https://mybank.com/.well-known/jwks_uri.json",
-        "default_acr_values" : ["urn:mace:incommon:iap:silver"],
-        "authorization_signed_response_alg" : "PS256",
-        "id_token_signed_response_alg" : "PS256",
-        "request_object_signing_alg" : "PS256",
-        "token_endpoint_auth_method" : "tls_client_auth",
-        "tls_client_auth_subject_dn": "C=FR, ST=France, L=Lille, O=mybank, OU=Client1, CN=mycompamybankgny.com, EMAILADDRESS=contact@mybank.com",
-        "tls_client_certificate_bound_access_tokens": true,
-        "backchannel_token_delivery_mode": "poll",
-        "backchannel_authentication_request_signing_alg": "PS256",
-        "backchannel_user_code_parameter": false
-      }'
-```
-{% endcode %}
-
 ## Hints
 
-The [authentication request](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request) exposes 3 parameters in order to identify the end user: `login_hint`, `login_hint_token` and `id_token_hint`. The `id_token_hint` is the standard ID Token JWT so the `sub` claim will be used to identify the end user. The `login_hint` is a simple string value, AM only considers this parameter as representing the **username** or the user **email address**. Finally, the `login_hint_token` is an unspecified JWT that contains information that aims to identify the end-user. In order to manage this parameter, AM accepts the following payload for this JWT where:
+The [authentication request](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request) exposes 3 parameters to identify the end user: `login_hint`, `login_hint_token` and `id_token_hint`. The `id_token_hint` is the standard ID Token JWT so the `sub` claim will be used to identify the end user. The `login_hint` is a simple string value, AM only considers this parameter as representing the **username** or the user **email address**. Finally, the `login_hint_token` is an unspecified JWT that contains information that aims to identify the end-user. To manage this parameter, AM accepts the following payload for this JWT where:
 
 * `format` specify the attribute used to identify the end-user (possible values are `username` and `email`)
 * According to the format the second entry will be either `username` or `email` with the associated value.
@@ -91,10 +60,6 @@ The [authentication request](https://openid.net/specs/openid-client-initiated-ba
   }
 }
 ```
-
-## Rich authorization requests
-
-AM accepts the [RFC 9396 Rich Authorization Requests](https://datatracker.ietf.org/doc/html/rfc9396) `authorization_details` parameter on the backchannel authentication endpoint when the device notifier selected for the security domain supports it. The [CIBA Federation](ciba.md#ciba-federation) plugin supports rich authorization requests. The External HTTP Service plugin doesn't declare support for them. When the selected notifier doesn't support rich authorization requests, or when no notifier is selected, AM ignores the `authorization_details` parameter.
 
 ## Authentication device plugins
 
