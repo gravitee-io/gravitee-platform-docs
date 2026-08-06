@@ -1,0 +1,9 @@
+root: ./
+
+structure:
+  readme: get-started/README.md
+  summary: SUMMARY.md
+
+redirects:
+  build: get-started/README.md
+  build/create-authorization-policies: configure/create-update-delete-policies.md
