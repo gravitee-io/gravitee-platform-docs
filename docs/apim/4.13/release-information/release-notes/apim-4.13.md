@@ -30,6 +30,7 @@ documentation.gravitee.io links for other versions.
 * Branded senders apply a different **From** address and subject prefix to notification emails for each recipient domain, configurable per Organization and Environment.
 * The new `#jsonEscape` Expression Language function escapes a value so it can be safely inserted into a JSON document or JSON string literal, for example in a response template body.
 * The Generate JWT policy adds optional `x5t` and `x5t#S256` certificate thumbprint headers to generated JWTs, for downstream systems that select the validation certificate by thumbprint.
+* The plans documentation now states that APIM doesn't support NTLM authentication and names the supported alternatives for securing client access and for authenticating the Gateway against a backend endpoint.
 
 ## New Features
 
@@ -71,3 +72,10 @@ documentation.gravitee.io links for other versions.
 * The `x509CertificateChain` option now works with the `INLINE` and `PEM` key resolvers. The policy builds the `x5c` header from the certificates included in the key material, ordered from the signing certificate outward, and drops certificates that don't link into the chain.
 * The policy now parses key material that bundles certificates together with the private key.
 * For the `INLINE` and `PEM` key resolvers, if no certificate in the key material matches the signing key, the policy omits the `x5c` header and signs the token anyway, logging a warning when the key material is loaded.
+
+#### **Documented NTLM Authentication Support for Plans**
+
+* The **Plans** overview now includes an NTLM authentication section confirming that APIM doesn't support NTLM: there's no NTLM plan security type for authenticating client applications, and no NTLM option for authenticating the Gateway against backend endpoints.
+* To secure client access to an API, use one of the supported plan security types: Keyless, API Key, JWT, OAuth2, or mTLS.
+* To authenticate the Gateway against a backend endpoint, configure a client certificate in the SSL options of the endpoint, or add an `Authorization` header with the Transform Headers policy.
+* For more information, see [Plans](../../secure-and-expose-apis/plans/) and [Transform Headers](../../create-and-configure-apis/apply-policies/policy-reference/transform-headers.md).
