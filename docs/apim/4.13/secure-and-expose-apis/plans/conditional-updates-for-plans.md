@@ -29,6 +29,8 @@ Optimistic concurrency control prevents lost updates when multiple clients modif
 * The `API_PLAN[UPDATE]` permission on the API (required for plan PATCH operations)
 * A plan with a non-null `updatedAt` timestamp (plans without this field will not return ETag or Last-Modified headers)
 
+Management API v1 plan read operations don't support V4 or Federated APIs and reject those requests with `400 Bad Request`. Use the Management API v2 plan endpoints instead. Plan reads for V1 and V2 APIs are unaffected.
+
 ## Managing Plan Updates
 
 ### Conditional Header Emission

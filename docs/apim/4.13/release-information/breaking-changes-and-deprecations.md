@@ -15,6 +15,14 @@ Here are the breaking changes for versions 4.X of Gravitee and versions 3.X of G
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+#### 4.13.0
+
+**Management API v1 plan read operations reject V4 and Federated APIs**
+
+From 4.13.0, the Management API v1 plan read operations don't support V4 or Federated APIs. A request for a plan that belongs to a V4 or Federated API now returns `400 Bad Request`. Plan reads for V1 and V2 APIs are unaffected.
+
+If you have clients or scripts that read plans of V4 or Federated APIs through the Management API v1, update them to call the Management API v2 plan endpoints at `/management/v2/environments/{envId}/apis/{apiId}/plans/{planId}` before you upgrade.
+
 #### 4.12.0
 
 **JSON Validation policy: response error keys corrected**
@@ -78,7 +86,6 @@ When you upgrade to APIM 4.11, any APIs and documentation pages that you publish
 **New Developer Portal subscriptions require published API pages**
 
 When you upgrade to APIM 4.11, an API accepts subscriptions through the New Developer Portal only after you publish the API's pages. To enable subscriptions to an API, publish the API's pages through the **Navigation items** section of the New Developer Portal settings.
-
 
 #### 4.10.0
 

@@ -30,6 +30,7 @@ documentation.gravitee.io links for other versions.
 * Branded senders apply a different **From** address and subject prefix to notification emails for each recipient domain, configurable per Organization and Environment.
 * The new `#jsonEscape` Expression Language function escapes a value so it can be safely inserted into a JSON document or JSON string literal, for example in a response template body.
 * The Generate JWT policy adds optional `x5t` and `x5t#S256` certificate thumbprint headers to generated JWTs, for downstream systems that select the validation certificate by thumbprint.
+* Management API v1 plan read operations now reject V4 and Federated APIs with `400 Bad Request`, directing those requests to the Management API v2 plan endpoints.
 
 ## New Features
 
@@ -71,3 +72,9 @@ documentation.gravitee.io links for other versions.
 * The `x509CertificateChain` option now works with the `INLINE` and `PEM` key resolvers. The policy builds the `x5c` header from the certificates included in the key material, ordered from the signing certificate outward, and drops certificates that don't link into the chain.
 * The policy now parses key material that bundles certificates together with the private key.
 * For the `INLINE` and `PEM` key resolvers, if no certificate in the key material matches the signing key, the policy omits the `x5c` header and signs the token anyway, logging a warning when the key material is loaded.
+
+#### **Management API v1 Plan Read Operations Restricted to V1 and V2 APIs**
+
+* Management API v1 plan read operations don't support V4 or Federated APIs and now return `400 Bad Request` for those requests instead of an incomplete plan representation.
+* Use the Management API v2 plan endpoints to read plans for V4 and Federated APIs.
+* Plan reads for V1 and V2 APIs are unaffected and continue to work through the Management API v1 endpoints.
