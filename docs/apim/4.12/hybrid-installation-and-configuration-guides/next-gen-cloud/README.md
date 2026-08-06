@@ -79,11 +79,41 @@ Cloud Gate authentication and authorization are secured using your Cloud Token (
 The Cloud Gate is deployed in each data center region of the Control Plane to ensure optimal connectivity and performance. Your hybrid Gateway uses the information contained in your Cloud Token to automatically calculate the region and corresponding Cloud Gate to which it should connect.
 
 {% hint style="info" %}
-Your Gateway needs to connect to the Cloud Gate in the region where your Control Plane is deployed. The traffic is routed over HTTPS/443 to the following Cloud Gate URLs:\
-\
-US Cloud Gate: `https://us.cloudgate.gravitee.io/`\
-EU Cloud Gate: `https://eu.cloudgate.gravitee.io/`
+Your Gateway needs to connect to the Cloud Gate in the region where your Control Plane is deployed. The traffic is routed over HTTPS/443.
 {% endhint %}
+
+The following table lists the Cloud Gate URL for each Control Plane geography:
+
+<table>
+    <thead>
+        <tr>
+            <th width="300">Control Plane geography</th>
+            <th>Cloud Gate URL</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Australia</td>
+            <td><code>https://au.cloudgate.gravitee.io/</code></td>
+        </tr>
+        <tr>
+            <td>Europe</td>
+            <td><code>https://eu.cloudgate.gravitee.io/</code></td>
+        </tr>
+        <tr>
+            <td>Switzerland</td>
+            <td><code>https://ch.cloudgate.gravitee.io/</code></td>
+        </tr>
+        <tr>
+            <td>United Arab Emirates</td>
+            <td><code>https://uae.cloudgate.gravitee.io/</code></td>
+        </tr>
+        <tr>
+            <td>United States</td>
+            <td><code>https://us.cloudgate.gravitee.io/</code></td>
+        </tr>
+    </tbody>
+</table>
 
 Analytics are reported to a dedicated Cloud account pipeline. Data is produced to a Kafka topic, ingested in Logstash, and then stored in a dedicated Elasticsearch index that is consumed by your Cloud account's API Management Control Plane.
 

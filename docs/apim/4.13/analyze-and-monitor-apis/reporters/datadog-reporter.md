@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for datadog reporter.
+description: Configuration guide for Datadog reporter.
 metaLinks:
   alternates:
     - datadog-reporter.md
@@ -69,6 +69,8 @@ reporters:
     #request: # (Following mapping section is also available for other types: node, health-check, log)
     #  exclude: # Can be a wildcard (ie '*') to exclude all fields (supports json path)
     #    - apiResponseTimeMs
+    #tags:
+    #  includeErrorMessage: false # Adds the error message as a tag on the request count metric
 ```
 {% endtab %}
 
@@ -82,6 +84,7 @@ gravitee_reporters_datadog_authentication_apiKey=YOUR_API_KEY
 # gravitee_reporters_datadog_authentication_appKey=YOUR_APP_KEY
 # gravitee_reporters_datadog_authentication_token=YOUR_TOKEN
 # gravitee_reporters_datadog_bulk_flush_interval=5
+# gravitee_reporters_datadog_tags_includeErrorMessage=false
 ```
 {% endtab %}
 
@@ -106,6 +109,8 @@ gateway:
       #     size: 20
       # customTags: >
       #   gateway: s1.company.com:9092
+      # tags:
+      #   includeErrorMessage: false
 ```
 {% endtab %}
 {% endtabs %}
@@ -120,6 +125,7 @@ You can obscure the value of this API key by using [configuration-level secrets]
 
 | Datadog Reporter Plugin version | Gravitee APIM version |
 | ------------------------------- | --------------------- |
+| 8.x                             | 4.12.x and later      |
 | 7.x                             | 4.10.x and later      |
 | 6.x                             | 4.9.x and later       |
 | 5.x                             | 4.8.x and later       |
@@ -154,7 +160,8 @@ The tags that Gravitee includes by default are shown in the table below. You can
 | nodehost       | Hostname of the Gateway                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `cb452984c8c5`                                                                               |
 | message        | A more detailed explanation of the error associated with the error key (if any)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `io.gravitee.policy.icapviruscan.icapexception:java.net.connectionexception:request_timeout` |
 | zone           | Text field set in `gravitee.yml` to indicate additional information about the Gateway instance the API is running on                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                              |
-| applicationid  | The application ID; for a keyless plan, this value is "1"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | `1`                                                                                          |
+| applicationid  | The application ID. For a keyless plan, this value is "1"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | `1`                                                                                          |
+| applicationname | Name of the application that made the request. Requires APIM 4.13 or later                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | `my-consumer-app`                                                                            |
 | api            | ID of the API                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `dd94dffe-1a78-4f80-94df-fe1a78bf8071`                                                       |
 | apiname        | Name of the API at the time of the request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `z-demo-dynamicrouting`                                                                      |
 | entrypointid   | ID of the entrypoint used in the API connection                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `http-proxy`                                                                                 |
@@ -170,12 +177,42 @@ The tags that Gravitee includes by default are shown in the table below. You can
 | requestid      | Unique identifier Universally Unique Identifier (UUID) identifying the request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `00014685-82af-4b15-8146-8582af9b15f4`                                                       |
 | securitytoken  | The security token, if any type of security was used when processing the request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                              |
 | status         | HTTP response status code integer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `200`                                                                                        |
-| subscriptionid | The subscription ID; for a keyless plan, this value will be the same as the value of the remote address field                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `192.168.65.1`                                                                               |
+| subscriptionid | The subscription ID. For a keyless plan, this value is the same as the value of the remote address field                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `192.168.65.1`                                                                               |
 | tenant         | ID of the tenant evaluated for the API (see [tenants](../../configure-and-manage-the-platform/gravitee-gateway/tenants.md))                                                                                                                                                                                                                                                                                                                                                                                                                                                |                                                                                              |
 | transactionid  | Used to track end-to-end transactions spanning across multiple HTTP requests. The Gateway configuration allows defining an expected correlation ID header passed by a client request. If this header is set, the content of this field will be set to the value of the header. If no correlation header has been passed, the content of this field will be the same as the content of the request ID. This value will be propagated to the upstream service using the correlation header defined in the configuration (the default header is `X-Gravitee-Transaction-Id`). | `00014685-82af-4b15-8146-8582af9b15f4`                                                       |
 | uri            | The URI used by the client to perform its request (this includes the context path of the request and query parameters)                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `/demo-dynamic-routing/`                                                                     |
 | user           | The authenticated user, if any type of security was used when processing the request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                              |
 | useragent      | The content of the `User-Agent` header, passed by the client when the incoming request was issued                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `postmanruntime/7.43.0`                                                                      |
+
+### Tags on the request count metric
+
+`gravitee.apim.api_request_count` carries a narrower tag set than the metrics above: the node tags, `api`, `apiname`, `status`, and any custom tags you configure.
+
+From Datadog Reporter 8.1.1, it also carries the consumer and error tags below, so you can filter, group, and alert on failed requests by consumer and by error cause without pivoting to logs.
+
+| Tag Name        | Purpose                                                                                  | Example value                          |
+| --------------- | ---------------------------------------------------------------------------------------- | -------------------------------------- |
+| applicationid   | ID of the application that made the request                                              | `dd94dffe-1a78-4f80-94df-fe1a78bf8071` |
+| applicationname | Name of the application that made the request                                            | `my-consumer-app`                      |
+| errorkey        | If the request failed with an error, this key identifies the error type                  | `gateway_policy_internal_error`        |
+| message         | A more detailed explanation of the error associated with the error key. Off by default   | `request_timeout`                      |
+
+The Datadog Reporter adds these tags for v4 APIs only. For a v2 API, `api_request_count` keeps the node, API, and status tags.
+
+`applicationname` needs APIM 4.13 or later. On an earlier APIM version the Datadog Reporter omits that tag, and the other tags are unaffected.
+
+When a tag's value isn't set, the Datadog Reporter drops the tag instead of sending it with a null value. A value that is an empty string is still sent.
+
+#### Enable the error message tag
+
+The `message` tag is disabled by default because error messages are high-cardinality: each distinct message creates a separate metric series in Datadog. Turn it on only when you need the error text in metrics.
+
+```yaml
+reporters:
+  datadog:
+    tags:
+      includeErrorMessage: true
+```
 
 ### LLM-Proxy and MCP-Proxy Tags
 
@@ -194,7 +231,7 @@ If there is no cost defined on the LLM-Proxy endpoint, then Gravitee won't calcu
 
 ## Custom tags
 
-You can add custom [tags](https://docs.datadoghq.com/getting_started/tagging/) to metrics sent to Datadog by adding the following section to the reporter configuration. Tags are a comma-separated list of strings; they can be in key-value format or just raw strings. No quotes are required.
+You can add custom [tags](https://docs.datadoghq.com/getting_started/tagging/) to metrics sent to Datadog by adding the following section to the reporter configuration. Tags are a comma-separated list of strings. They can be in key-value format or just raw strings. No quotes are required.
 
 ```yaml
 reporters:

@@ -89,7 +89,7 @@ The Gateway or Gateways appear in the **Gateways** section of the **Dashboard**.
 
 ## View the details of a Gateway
 
-*   To the view the details of a Gateway, click the Gateway name to see the Gateway details. 
+*   To the view the details of a Gateway, click the Gateway name to see the Gateway details.
 
     <figure><img src="../../.gitbook/assets/guide-gravitee-hosted-gateways-read-2.png" alt=""><figcaption></figcaption></figure>
 
@@ -109,6 +109,8 @@ To view the details of a Gateway:
 {% hint style="info" %}
 All existing Gateway domains remain fully functional to ensure continuity for current API consumers, custom domain configurations, and existing integrations.
 {% endhint %}
+
+When a Gateway has custom domains, the **HTTP Domain** and **Kafka Domain** sections list the custom domains for that protocol instead of the default one. For more information about adding a custom domain, see [custom-domains.md](../custom-domains.md "mention").
 
 ## Manage Sharding tags and Tenant tags&#x20;
 

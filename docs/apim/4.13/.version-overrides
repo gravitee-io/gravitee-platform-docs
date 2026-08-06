@@ -14,3 +14,5 @@ gravitee-expression-language.md
 release-information/release-notes/apim-4.13.md
 create-and-configure-apis/apply-policies/policy-reference/generate-jwt.md
 release-information/breaking-changes-and-deprecations.md
+# Datadog request count tags (APIM 4.13.0 feature, APIM-14012)
+analyze-and-monitor-apis/reporters/datadog-reporter.md
