@@ -92,13 +92,6 @@ The [authentication request](https://openid.net/specs/openid-client-initiated-ba
 
 AM accepts the [RFC 9396 Rich Authorization Requests](https://datatracker.ietf.org/doc/html/rfc9396) `authorization_details` parameter on the backchannel authentication endpoint when the device notifier selected for the security domain supports it. The [CIBA Federation](ciba.md#ciba-federation) plugin supports rich authorization requests. The External HTTP Service plugin doesn't declare support for them. When the selected notifier doesn't support rich authorization requests, or when no notifier is selected, AM ignores the `authorization_details` parameter.
 
-AM validates and processes the parameter as follows:
-
-* Each entry of the `authorization_details` array is a JSON object that carries a non-empty string `type` field. AM rejects a request that contains an entry without a valid `type`.
-* When the client sends a signed request object, AM reads `authorization_details` from the request object. Otherwise, AM reads the raw request parameter.
-* AM passes the authorization details to the device notifier. The CIBA Federation notifier relays them in the `authorization_details` parameter of the upstream backchannel authentication request.
-* After the user approves the request, the token response contains the approved details as a top-level `authorization_details` member, and the access token contains an `authorization_details` claim.
-
 ## Authentication device plugins
 
 The goal of CIBA is to avoid browser redirects in order to grab the user's authorization or identity. The common way to obtain this is to rely on the smartphone of the end user by sending a push notification on a mobile app.
@@ -220,21 +213,6 @@ The AM Gateway uses the device notifier selected in the CIBA settings of the sec
 1. Click the **Settings** tab.
 2. In the **Device Notifier** list, select your CIBA Federation notifier.
 3. Click **SAVE**.
-
-#### How federated CIBA works
-
-1. The client application sends a backchannel authentication request to `POST /{domain}/oidc/ciba/authenticate` with a hint that identifies the user on the upstream provider.
-2. AM resolves the hint:
-    * A `login_hint` or `login_hint_token` that matches exactly one user of the security domain attaches that user to the request, like in a non-federated flow.
-    * A `login_hint` or `login_hint_token` that matches no user of the security domain is accepted, and the user's identity is established when the upstream authentication completes.
-    * A `login_hint` that contains characters that can't be searched as a username or email address, for example a structured JSON hint, is accepted without a local lookup.
-    * A hint that matches more than one user of the security domain is rejected.
-    * An `id_token_hint` always resolves against the users of the security domain, and AM rejects the request when it doesn't match one.
-3. The notifier reads the upstream provider's endpoints from the identity provider's well-known endpoint, then sends a backchannel authentication request to the upstream provider with the hint, the identity provider's scopes, the `binding_message` when the request carries one, the `authorization_details` when the request carries them, and the **Resource audience** value as the `audience` parameter when it's configured.
-4. The notifier polls the upstream token endpoint with the `urn:openid:params:grant-type:ciba` grant type, at the interval returned by the upstream provider, until the authentication completes, fails, or times out.
-5. When the upstream provider issues its tokens, the notifier reports the approval to the CIBA callback endpoint together with the upstream ID token and access token. AM maps the ID token to a user through the identity provider, creates or updates that user in the security domain, records the completion as a login for that user, and marks the authentication request successful. The client application then obtains the AM tokens from `POST /{domain}/oauth/token` with the `urn:openid:params:grant-type:ciba` grant type.
-6. When the upstream provider denies the authentication or returns an error, the notifier reports the rejection, and the client application receives an `access_denied` error from the token endpoint.
-7. When the upstream authentication doesn't complete within **Max auth lifetime (s)**, the notifier stops waiting for it. The client application keeps receiving `authorization_pending` until the authentication request expires, then receives an `expired_token` error.
 
 Two conditions deny the transaction even when the upstream provider approved it:
 
