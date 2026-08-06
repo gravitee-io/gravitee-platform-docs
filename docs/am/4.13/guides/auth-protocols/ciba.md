@@ -114,11 +114,6 @@ This service must follow the requirements hereafter :
 
 The **CIBA Federation** plugin delegates the backchannel user authentication to an upstream OpenID Connect provider instead of notifying a device that AM manages. AM remains the CIBA OpenID Provider for the client application, and the user approves or denies the request through the notification channel of their existing provider. When the upstream provider reports the approval, AM establishes the user's identity from the upstream token response and creates or updates the user in the security domain. The user authenticates on the upstream provider only, and doesn't sign in to AM through a browser at any point.
 
-The plugin relies on two other resources of the security domain:
-
-* **An OpenID Connect identity provider** that points to the upstream provider. The notifier reuses the identity provider's client ID, client secret, scopes, well-known endpoint, and client authentication method for its calls to the upstream provider. AM rejects the backchannel authentication request when the configured identity provider isn't an OpenID Connect identity provider. The calls to the upstream provider authenticate with `client_secret_post` or `client_secret_basic`. The notifier doesn't support other client authentication methods for the upstream provider.
-* **A callback application** registered on the security domain. The notifier reports each authentication outcome to the CIBA callback endpoint of the security domain, and authenticates those calls with this application's client ID and client secret.
-
 #### Create a CIBA Federation notifier
 
 1. In AM Console, select your security domain.
