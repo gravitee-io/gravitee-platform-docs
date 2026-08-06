@@ -22,14 +22,6 @@ To open the page, follow these steps:
 
 The page shows the **Console notifiers**, **Email notifiers**, and **Webhook notifiers** counters, and a table with the **Name**, **Channel**, **Events**, and **Target** columns.
 
-The following permissions gate the actions on this page:
-
-| Action                | Permission           |
-| --------------------- | -------------------- |
-| Add a notification    | `api-notification-c` |
-| Edit a notification   | `api-notification-u` |
-| Delete a notification | `api-notification-d` |
-
 ## Add a notification
 
 To add an email or webhook notification, follow these steps:

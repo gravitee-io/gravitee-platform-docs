@@ -16,8 +16,6 @@ To open the page, follow these steps:
 2. Select your API proxy.
 3. Click **Resources** in the API proxy sidebar.
 
-Managing resources requires the `api-definition-u` permission.
-
 <!-- TODO: Screenshot of the Resources page with configured resources -->
 
 <figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-resources-page.png" alt=""><figcaption><p>The Resources page</p></figcaption></figure>
