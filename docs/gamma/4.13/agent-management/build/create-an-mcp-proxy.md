@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Create an MCP proxy in Gravitee to add governance to an upstream MCP server.
+description: Create an MCP Proxy that governs an upstream MCP server with authentication, authorization, and observability. Follow the steps in the wizard.
 ---
 
 # Create an MCP proxy
