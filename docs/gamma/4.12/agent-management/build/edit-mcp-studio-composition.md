@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Change which tools an MCP Studio exposes, alias colliding tool names, and set upstream credentials. Follow the steps to edit your composition.
 ---
 
 # Edit MCP Studio composition
