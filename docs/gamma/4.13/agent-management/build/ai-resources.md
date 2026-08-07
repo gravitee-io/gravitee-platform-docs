@@ -12,8 +12,6 @@ AI resources are the components that AI policies call at runtime. They supply th
 
 You don't invoke a resource directly. You configure it once, and a policy references it by name. Every policy that needs one exposes a **Resource Name** field listing the resources of the type it requires. A policy configured without its resource fails rather than passing traffic through unchecked.
 
-<!-- TODO: confirm the console steps for adding a resource to an LLM, MCP, or A2A Proxy against a 4.13 build before this page is published. -->
-
 ## Available resource types
 
 | Resource | Used by | Purpose |
