@@ -4,9 +4,9 @@ Configure MDC filtering, log patterns, and Logback overrides for the Gravitee Ga
 
 ## MDC filtering and formatting
 
-The `%mdcList` custom Logback converter formats selected MDC keys into log output. Configure which keys to include, how to format each entry, and how to separate entries.
+The `%mdcList` custom Logback converter formats the MDC keys listed in `node.logging.mdc.include` into log output. Configure which keys to include, how to format each entry, and how to separate entries.
 
-<table><thead><tr><th width="280">Property</th><th width="120">Type</th><th width="150">Default</th><th>Description</th></tr></thead><tbody><tr><td><code>node.logging.mdc.format</code></td><td>String</td><td><code>{key}: {value}</code></td><td>Template for formatting each MDC key-value pair</td></tr><tr><td><code>node.logging.mdc.separator</code></td><td>String</td><td><code>" "</code> (space)</td><td>Separator between formatted MDC entries</td></tr><tr><td><code>node.logging.mdc.nullValue</code></td><td>String</td><td><code>""</code> (empty)</td><td>Placeholder when an MDC value is null</td></tr><tr><td><code>node.logging.mdc.include</code></td><td>List&#x3C;String></td><td><code>[]</code> (empty — all keys included)</td><td>MDC keys to include in <code>%mdcList</code> output. When empty, all available MDC keys are included.</td></tr></tbody></table>
+<table><thead><tr><th width="280">Property</th><th width="120">Type</th><th width="150">Default</th><th>Description</th></tr></thead><tbody><tr><td><code>node.logging.mdc.format</code></td><td>String</td><td><code>{key}: {value}</code></td><td>Template for formatting each MDC key-value pair</td></tr><tr><td><code>node.logging.mdc.separator</code></td><td>String</td><td><code>" "</code> (space)</td><td>Separator between formatted MDC entries</td></tr><tr><td><code>node.logging.mdc.nullValue</code></td><td>String</td><td><code>""</code> (empty)</td><td>Placeholder when an MDC value is null</td></tr><tr><td><code>node.logging.mdc.include</code></td><td>List&#x3C;String></td><td><code>[]</code> (empty)</td><td>MDC keys to include in <code>%mdcList</code> output. When empty, <code>%mdcList</code> renders an empty string. Individual MDC values remain available with <code>%X{key}</code>.</td></tr></tbody></table>
 
 **Example Gateway `gravitee.yml`:**
 
@@ -50,7 +50,7 @@ node:
 When `overrideLogbackXml` is `true`, the runtime patterns replace those defined in `logback.xml` for the STDOUT and FILE appenders.
 
 {% hint style="warning" %}
-The `%mdcList` converter is registered programmatically at runtime, **after** Logback parses `logback.xml`. Don't use `<conversionRule>` in `logback.xml` to register it — the converter class isn't visible to Logback's classloader at parse time. Use the pattern override via `gravitee.yml` instead.
+The `%mdcList` converter is registered programmatically at runtime, **after** Logback parses `logback.xml`. Don't use `<conversionRule>` in `logback.xml` to register it: the converter class isn't visible to Logback's classloader at parse time. Use the pattern override via `gravitee.yml` instead.
 {% endhint %}
 
 {% hint style="info" %}
@@ -59,23 +59,23 @@ Because the pattern override is applied programmatically after startup, some ear
 
 ## Default logback.xml patterns
 
-The following are the default patterns in the shipped `logback.xml` files. These patterns don't include `%mdcList` — enable the pattern override to add MDC context.
+The following are the default patterns in the shipped `logback.xml` files. These patterns reference individual MDC keys with `%X{key}` and don't include `%mdcList`. To use `%mdcList` formatting, enable the pattern override.
 
 **Gateway:**
 
-```
-STDOUT: %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
-FILE:   %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+```text
+STDOUT: %d{HH:mm:ss.SSS} [%thread] [%X{api}] %-5level %logger{36} - %msg%n
+FILE:   %d{HH:mm:ss.SSS} [%thread] [%X{api}] %-5level %logger{36} - %msg%n
 ```
 
 **Management API:**
 
-```
-STDOUT: %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
-FILE:   %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+```text
+STDOUT: %d{HH:mm:ss.SSS} [%thread] [%X{orgId} %X{envId}] %-5level %logger{36} - %msg%n
+FILE:   %d{HH:mm:ss.SSS} [%thread] [%X{orgId} %X{envId}] %-5level %logger{36} - %msg%n%n
 ```
 
-To retain these patterns while adding MDC context, set the override pattern to include `%mdcList` at the desired position:
+To add `%mdcList` output to your log lines, set the override pattern to include it at the desired position:
 
 ```yaml
 node:
@@ -112,13 +112,15 @@ This approach works in `logback.xml` directly without requiring the pattern over
 
 ## Helm chart configuration
 
-For Kubernetes deployments using the Gravitee Helm chart, logging is configured through three independent blocks in `values.yaml`. The legacy `logging` block is deprecated in favor of the new `logback` and `node.logging` blocks.
+For Kubernetes deployments using the Gravitee Helm chart, logging is configured through three blocks in `values.yaml`. The legacy `logging` block is deprecated in favor of the new `logback` and `node.logging` blocks. To raise log levels for troubleshooting, see [Debug logging](debug-logging.md).
 
 <table><thead><tr><th width="180">Block</th><th>Purpose</th><th width="150">Status</th></tr></thead><tbody><tr><td><code>logging</code></td><td>Conditional logback.xml generation (debug, JSON, ECS, file)</td><td>Deprecated</td></tr><tr><td><code>logback</code></td><td>Full logback.xml override with user-provided content</td><td>New</td></tr><tr><td><code>node.logging</code></td><td>Application-level config in <code>gravitee.yml</code> (MDC formatting, runtime patterns)</td><td>New</td></tr></tbody></table>
 
 ### Legacy stdout encoders: JSON and ECS
 
 Within the deprecated `logging` block, the console appender encoder is selected by two flags, both `false` by default. They apply to both the Management API (`api.logging.stdout`) and the Gateway (`gateway.logging.stdout`).
+
+These flags only take effect when the chart generates the legacy `logback.xml` file, which requires `logging.debug: true` and `logback.override: false`. When both values are `false`, which is the default, the chart doesn't mount a `logback.xml` file into the container and both flags are ignored. The generated `logback.xml` file also sets the `io.gravitee` log level to the `logging.graviteeLevel` value, which defaults to `DEBUG`. To keep standard verbosity, set `logging.graviteeLevel` to `INFO`. For more information about `logging.debug`, see [Debug logging](debug-logging.md).
 
 <table><thead><tr><th width="220">Helm value</th><th width="146.984375">Default</th><th>Effect</th></tr></thead><tbody><tr><td><code>logging.stdout.json</code></td><td><code>false</code></td><td>Emits each log line as JSON.</td></tr><tr><td><code>logging.stdout.ecs</code></td><td><code>false</code></td><td>Emits each log line in Elastic Common Schema (ECS) format.</td></tr></tbody></table>
 
@@ -129,6 +131,8 @@ Within the deprecated `logging` block, the console appender encoder is selected 
 ```yaml
 gateway:
   logging:
+    debug: true
+    graviteeLevel: INFO
     stdout:
       json: false
       ecs: true
@@ -141,7 +145,7 @@ For the ECS field reference, see the [Elastic Common Schema documentation](https
 Set `logback.override: true` to inject a custom `logback.xml` directly, bypassing the legacy conditional template logic. Provide the full logback.xml content in `logback.content`.
 
 {% hint style="info" %}
-When both `logback.override` and `logging.debug` are `true`, the logback override takes precedence. When `logback.override` is `false` (the default), legacy behavior is unchanged — there's no breaking change.
+When both `logback.override` and `logging.debug` are `true`, the logback override takes precedence. When `logback.override` is `false` (the default), legacy behavior is unchanged, and there's no breaking change.
 {% endhint %}
 
 **Example Gateway `values.yaml`:**
