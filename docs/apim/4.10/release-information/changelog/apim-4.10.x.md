@@ -1,5 +1,36 @@
 # APIM 4.10.x
  
+## Gravitee API Management 4.10.27 - August 7, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* MAPI v1 ApiConverter Incorrectly Deserializes V4 API Definitions, Causing Repeated Errors in Management API Logs [#11586](https://github.com/gravitee-io/issues/issues/11586)
+
+**Console**
+
+* Unable to update membership groups across multiple environments after upgrade [#11656](https://github.com/gravitee-io/issues/issues/11656)
+
+**Portal**
+
+* Role permission are overlapping with environment [#11404](https://github.com/gravitee-io/issues/issues/11404)
+
+**Other**
+
+* Endpoint Health Check Dashboard raises an error in case of disabled ElasticSearch DB [#11530](https://github.com/gravitee-io/issues/issues/11530)
+* Webhook OAuth2 "Client Secret (Basic)" auth incorrectly URL-encodes Client ID/Secret before Base64, breaking credentials containing special characters [#11570](https://github.com/gravitee-io/issues/issues/11570)
+* clearTextUpgrade Defaults to true with HTTP_1_1 on Newly Added Endpoints [#11598](https://github.com/gravitee-io/issues/issues/11598)
+* PostgreSQL deadlock in JdbcCommandRepository.delete() during search indexer command cleanup [#11644](https://github.com/gravitee-io/issues/issues/11644)
+* Impossible to filter by deprecated plan into subscriptions list [#11663](https://github.com/gravitee-io/issues/issues/11663)
+* OAS Validation policy falsely rejects valid string parameters when schema uses top-level oneOf/anyOf without type (OAS 3.0 / Atlassian SRV path) [#11675](https://github.com/gravitee-io/issues/issues/11675)
+* Console: Dictionary property edit dialog enforces 160-character limit (create has no limit) [#11680](https://github.com/gravitee-io/issues/issues/11680)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.10.26 - July 28, 2026
 <details>
 
