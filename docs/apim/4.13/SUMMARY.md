@@ -146,7 +146,7 @@
     * [Support](configure-and-manage-the-platform/manage-organizations-and-environments/support.md)
     * [Reviewing API Product Memberships Across Users](configure-and-manage-the-platform/manage-organizations-and-environments/reviewing-api-product-memberships-across-users.md)
     * [Managing Organization Sharding Tags](configure-and-manage-the-platform/manage-organizations-and-environments/managing-organization-sharding-tags.md)
-  * [Debug Logging](configure-and-manage-the-platform/debug-logging.md)
+  * [Debug logging](configure-and-manage-the-platform/debug-logging.md)
   * [Context-aware logging](configure-and-manage-the-platform/logging-infrastructure.md)
   * [Node logging configuration](configure-and-manage-the-platform/node-logging-configuration.md)
 * [Create & Configure APIs](create-and-configure-apis/README.md)

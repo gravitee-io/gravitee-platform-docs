@@ -6,6 +6,32 @@ description: >-
 
 # AM 4.11.x
 
+## Gravitee Access Management 4.11.14 - August 6, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Convert trustedIssuer list as Map once the domain is Loaded to speedup the lookup [#11686](https://github.com/gravitee-io/issues/issues/11686)
+* Improve Login performance [#11687](https://github.com/gravitee-io/issues/issues/11687)
+
+**Management API**
+
+* Permission keys cache problem [#11700](https://github.com/gravitee-io/issues/issues/11700)
+
+**Console**
+
+* Default Scopes and Allowed Scopes are not consistently saved during OpenID Client Registration configuration [#11684](https://github.com/gravitee-io/issues/issues/11684)
+
+**Other**
+
+* MSSQL 4.11 TokenRevocation issue [#11694](https://github.com/gravitee-io/issues/issues/11694)
+
+</details>
+
+
 ## Gravitee Access Management 4.11.13 - July 30, 2026
 
 <details>
