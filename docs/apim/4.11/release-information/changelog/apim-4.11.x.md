@@ -1,5 +1,44 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.24 - August 7, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* The GW should return 405 Method Not Allowed on SSE GET request [#11682](https://github.com/gravitee-io/issues/issues/11682)
+
+**Management API**
+
+* MAPI v1 ApiConverter Incorrectly Deserializes V4 API Definitions, Causing Repeated Errors in Management API Logs [#11586](https://github.com/gravitee-io/issues/issues/11586)
+
+**Console**
+
+* Unable to update membership groups across multiple environments after upgrade [#11656](https://github.com/gravitee-io/issues/issues/11656)
+
+**Portal**
+
+* Role permission are overlapping with environment [#11404](https://github.com/gravitee-io/issues/issues/11404)
+
+**Other**
+
+* Endpoint Health Check Dashboard raises an error in case of disabled ElasticSearch DB [#11530](https://github.com/gravitee-io/issues/issues/11530)
+* Webhook OAuth2 "Client Secret (Basic)" auth incorrectly URL-encodes Client ID/Secret before Base64, breaking credentials containing special characters [#11570](https://github.com/gravitee-io/issues/issues/11570)
+* API promotion fails with DuplicateKeyException on apim_promotions [#11591](https://github.com/gravitee-io/issues/issues/11591)
+* clearTextUpgrade Defaults to true with HTTP_1_1 on Newly Added Endpoints [#11598](https://github.com/gravitee-io/issues/issues/11598)
+* api-key 6.0: null securityDefinition ignores global custom header; multi API-Key plans return misleading 401 [#11619](https://github.com/gravitee-io/issues/issues/11619)
+* PostgreSQL deadlock in JdbcCommandRepository.delete() during search indexer command cleanup [#11644](https://github.com/gravitee-io/issues/issues/11644)
+* ApiEndpointWeightUpgrader fails to deserialize V4 Native APIs (InvalidTypeIdException: type id 'native') [#11662](https://github.com/gravitee-io/issues/issues/11662)
+* Impossible to filter by deprecated plan into subscriptions list [#11663](https://github.com/gravitee-io/issues/issues/11663)
+* RemoveDeletedGroupsFromApisUpgrader skipped because of incompatible database [#11668](https://github.com/gravitee-io/issues/issues/11668)
+* OAS Validation policy falsely rejects valid string parameters when schema uses top-level oneOf/anyOf without type (OAS 3.0 / Atlassian SRV path) [#11675](https://github.com/gravitee-io/issues/issues/11675)
+* Console: Dictionary property edit dialog enforces 160-character limit (create has no limit) [#11680](https://github.com/gravitee-io/issues/issues/11680)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.23 - July 28, 2026
 <details>
 
