@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Use the Policy Studio to add, configure, and manage policies on your A2A Proxy.
+description: Add policies to an A2A Proxy in Policy Studio to secure agent-to-agent traffic and control its behavior. Follow the steps to build and deploy a flow.
 ---
 
 # Add policies to your A2A Proxy
