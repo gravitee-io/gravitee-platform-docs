@@ -59,7 +59,7 @@ Consumers present a client TLS certificate during the TLS handshake. The Gateway
 
 ## Add a plan to an existing API proxy
 
-<figure><img src="https://3745118555-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fa6QVD3iIxTvnV5eQ8OH1%2Fuploads%2Fgit-blob-b86bcd2b3acadc6112d18f8ea50420e0d7e63a68%2Fgamma-api-plans.png?alt=media" alt="Plans management page with lifecycle cards"><figcaption><p>The Plans page shows plan lifecycle cards (Staging, Published, Deprecated, Closed) and a table listing each plan's name, security type, status, and validation mode.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-api-plans.png" alt="Plans management page with lifecycle cards"><figcaption><p>The Plans page shows plan lifecycle cards (Staging, Published, Deprecated, Closed) and a table listing each plan's name, security type, status, and validation mode.</p></figcaption></figure>
 
 Plans are managed from the **Consumer Access → Plans** tab in the API detail sidebar.
 
