@@ -111,6 +111,7 @@
   * [Configure an LLM Proxy](agent-management/build/configure-an-llm-proxy.md)
   * [LLM Proxy provider support](agent-management/build/llm-proxy-provider-support.md)
   * [Select a text classification model](agent-management/build/select-a-text-classification-model.md)
+  * [Add the Token Rate Limit policy](agent-management/build/add-the-token-rate-limit-policy.md)
   * [Configure text classification](agent-management/build/configure-text-classification.md)
   * [AI resources](agent-management/build/ai-resources.md)
   * [Create an agent identity](agent-management/build/create-an-agent-identity.md)
