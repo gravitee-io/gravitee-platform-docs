@@ -9,7 +9,7 @@ Endpoints define where the API Gateway routes requests after authentication. Eac
 
 ## Endpoint groups
 
-<figure><img src="https://3745118555-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fa6QVD3iIxTvnV5eQ8OH1%2Fuploads%2Fgit-blob-c059eac06e5cca2dd16cc5a371605edc292a7078%2Fgamma-api-endpoints.png?alt=media" alt="Endpoint groups configuration page"><figcaption><p>The Endpoints page shows all configured endpoint groups, their load-balancing type, and individual backend entries.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gamma-api-endpoints.png" alt="Endpoint groups configuration page"><figcaption><p>The Endpoints page shows all configured endpoint groups, their load-balancing type, and individual backend entries.</p></figcaption></figure>
 
 An endpoint group is a logical container for one or more backend endpoints that share common connection settings. Every API proxy has at least one default endpoint group created during the API creation wizard.
 
