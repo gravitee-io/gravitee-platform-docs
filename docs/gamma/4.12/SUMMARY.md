@@ -124,6 +124,7 @@
   * [Configure an LLM Proxy](agent-management/build/configure-an-llm-proxy.md)
   * [LLM Proxy provider support](agent-management/build/llm-proxy-provider-support.md)
   * [Select a text classification model](agent-management/build/select-a-text-classification-model.md)
+  * [Accepted request formats](agent-management/build/accepted-request-formats.md)
   * [Override the model at runtime](agent-management/build/override-the-model-at-runtime.md)
   * [Add the Token Rate Limit policy](agent-management/build/add-the-token-rate-limit-policy.md)
   * [Configure text classification](agent-management/build/configure-text-classification.md)
