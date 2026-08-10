@@ -5,6 +5,35 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.14 - August 7, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Unable to update membership groups across multiple environments after upgrade [#11656](https://github.com/gravitee-io/issues/issues/11656)
+* \[Gamma/AIM] LLM Proxy with provider OPEN_AI_COMPATIBLE shows no models — LlmRequestFormat enum is narrower than the llm-proxy connector's [#11677](https://github.com/gravitee-io/issues/issues/11677)
+
+**Portal**
+
+* Role permission are overlapping with environment [#11404](https://github.com/gravitee-io/issues/issues/11404)
+
+**Other**
+
+* Endpoint Health Check Dashboard raises an error in case of disabled ElasticSearch DB [#11530](https://github.com/gravitee-io/issues/issues/11530)
+* API promotion fails with DuplicateKeyException on apim_promotions [#11591](https://github.com/gravitee-io/issues/issues/11591)
+* PostgreSQL deadlock in JdbcCommandRepository.delete() during search indexer command cleanup [#11644](https://github.com/gravitee-io/issues/issues/11644)
+* ApiEndpointWeightUpgrader fails to deserialize V4 Native APIs (InvalidTypeIdException: type id 'native') [#11662](https://github.com/gravitee-io/issues/issues/11662)
+* Impossible to filter by deprecated plan into subscriptions list [#11663](https://github.com/gravitee-io/issues/issues/11663)
+* RemoveDeletedGroupsFromApisUpgrader skipped because of incompatible database [#11668](https://github.com/gravitee-io/issues/issues/11668)
+* Debug request fails without a Host header [#11670](https://github.com/gravitee-io/issues/issues/11670)
+* Overview Total Requests can be lower than the count for a single entrypoint [#11695](https://github.com/gravitee-io/issues/issues/11695)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.13 - July 31, 2026
 <details>
 

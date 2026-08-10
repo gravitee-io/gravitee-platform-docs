@@ -24,7 +24,7 @@ After creating and securing an API proxy, you can refine its behavior through ad
 
 ## API detail sidebar navigation
 
-<figure><img src="https://3745118555-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fa6QVD3iIxTvnV5eQ8OH1%2Fuploads%2Fgit-blob-b2a381ecbe2cdeba026688f3c0f0db0a5442c77d%2Fgamma-api-general.png?alt=media" alt="API proxy general settings showing the detail sidebar navigation"><figcaption><p>The API detail sidebar groups configuration into seven sections: General, Gateway, Design, Consumer Access, Security, Observability, and Operations.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gamma-api-general.png" alt="API proxy general settings showing the detail sidebar navigation"><figcaption><p>The API detail sidebar groups configuration into seven sections: General, Gateway, Design, Consumer Access, Security, Observability, and Operations.</p></figcaption></figure>
 
 The API detail page organizes configuration into groups in the sidebar:
 
