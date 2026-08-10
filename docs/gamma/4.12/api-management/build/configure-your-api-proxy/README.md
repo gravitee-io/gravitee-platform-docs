@@ -12,9 +12,7 @@ After creating and securing an API proxy, you refine its behavior from the API d
 1. Click **API Proxies** in the module sidebar.
 2. Select the API proxy you want to configure. The workspace opens on the **Overview** page.
 
-<!-- TODO: Screenshot of the API detail workspace with the sidebar visible -->
-
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-detail-sidebar.png" alt=""><figcaption><p>The API proxy sidebar</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gamma-api-general.png" alt="API proxy general settings showing the detail sidebar navigation"><figcaption><p>The API detail workspace</p></figcaption></figure>
 
 The sidebar header shows the API's picture, name, state badge (**Started**, **Stopped**, **Closed**, or **Out of sync**), type, and version.
 

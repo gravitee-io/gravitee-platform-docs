@@ -6,7 +6,7 @@ The 4.13 release adds the following capabilities.
 
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies.
+API Management gains a file-based path for building and updating API proxies and a redesigned out-of-sync banner in the API detail workspace.
 
 #### Import an API proxy
 
@@ -15,6 +15,13 @@ API Management gains a file-based path for building and updating API proxies.
 * Supply each format as a local file or as a remote `http` or `https` URL that the Management API fetches server-side.
 * For OpenAPI and WSDL imports, choose whether to create a documentation page from the specification and whether to add an OpenAPI Specification Validation policy. WSDL imports also offer the REST to SOAP Transformer policy.
 * See [Import an API proxy](../api-management/build/import-an-api-proxy.md).
+
+#### Out-of-sync banner in the API detail workspace
+
+* The **This API is out of sync** banner replaces the **This API has undeployed changes.** banner in the API detail workspace.
+* The new banner carries an explanation: **Your latest changes are not live yet. Deploy to push them to the gateway.**
+* The **Deploy API** button on the banner and the **Out of sync** state badge in the sidebar header are unchanged.
+* See [Configure your API proxy](../api-management/build/configure-your-api-proxy/README.md).
 
 ## Release Date: June 26, 2026
 
