@@ -16,3 +16,5 @@ create-and-configure-apis/apply-policies/policy-reference/generate-jwt.md
 release-information/breaking-changes-and-deprecations.md
 # Datadog request count tags (APIM 4.13.0 feature, APIM-14012)
 analyze-and-monitor-apis/reporters/datadog-reporter.md
+# Management API v1 plan endpoints reject V4, Federated, and Federated Agent APIs (APIM 4.13.0, APIM-14587)
+management-api-reference.md
