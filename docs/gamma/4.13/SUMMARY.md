@@ -148,6 +148,7 @@
   * [Monitor your MCP servers](agent-management/observe/monitor-your-mcp-servers.md)
   * [Inspect your agent log](agent-management/observe/inspect-your-agent-log.md)
   * [Monitor AI Gateway usage from employee systems](agent-management/observe/monitor-ai-gateway-from-devices.md)
+  * [Review audit logs](agent-management/observe/review-audit-logs.md)
 
 ## Authorization Management
 
