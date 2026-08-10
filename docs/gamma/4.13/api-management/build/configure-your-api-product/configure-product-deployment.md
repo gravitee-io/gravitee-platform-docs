@@ -15,7 +15,7 @@ Sharding tags are defined once at the organization level and then assigned to in
 If no tags are defined, the **Deployment** tab shows **No sharding tags configured** and explains that sharding tags are managed at the organization level under Gateway settings.
 
 {% hint style="info" %}
-The Gamma **Settings** page is a placeholder in this release and does not yet manage sharding tags. Organization-level tags must be created outside the Gamma API Management module.
+Create and manage organization-level sharding tags from the **Entrypoints & Sharding Tags** page in Platform Management. See [Manage entrypoints and sharding tags](../../../platform-management/manage-entrypoints-and-sharding-tags.md).
 {% endhint %}
 
 ## Open the Deployment tab
@@ -38,7 +38,7 @@ The **Sharding tags** card lists every organization-level tag as a selectable ca
 
 On success, the console confirms with a **Deployment configuration saved** notification. If the save is rejected, the console shows a **Failed to save changes.** notification and the selection is left as you set it.
 
-A product with no tags selected shows **—** in the **Sharding Tags** column of the API Products list.
+A product with no tags selected shows **&#x2014;** in the **Sharding Tags** column of the API Products list.
 
 {% hint style="info" %}
 A tag assigned in the console is only half of the configuration. Each target Gateway must also declare the corresponding tag in its own configuration before it loads the product.
@@ -62,7 +62,7 @@ The badge has the following meanings:
 | **Synced**      | The product definition matches what was last sent to the Gateway.  |
 | **Out of sync** | The product has been modified since the last deployment.           |
 
-When no state is available for the product, the **Gateway sync** row shows **—** and the sidebar header shows no badge at all.
+When no state is available for the product, the **Gateway sync** row shows **&#x2014;** and the sidebar header shows no badge at all.
 
 {% hint style="info" %}
 The API Product screens do not provide a deploy or redeploy action in this release. A product showing **Out of sync** cannot be redeployed from the product detail pages. Deployment is available through the Management API. See [Manage API products with the Management API](manage-api-products-with-the-management-api.md).
