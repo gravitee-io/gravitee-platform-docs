@@ -49,7 +49,7 @@ API Management gains a file-based path for building and updating API proxies.
 #### Agent Identity
 
 * Registers agents as OAuth clients in Gravitee Access Management so gateways and authorization policies can authenticate, attribute, and audit every agent.
-* Three personas: **User-embedded** (public PKCE client), **Hosted delegated** (confidential web client), and **Autonomous** (service client with `client_credentials` or token exchange).
+* Three personas: **Desktop Productivity Agent** (public PKCE client), **Hosted Agent** (confidential web client), and **Workload Agent** (service client with `client_credentials` or token exchange).
 * Supports CIMD (Client ID Metadata Documents) and SPIFFE as credential options within the registration wizard.
 
 #### Observability
