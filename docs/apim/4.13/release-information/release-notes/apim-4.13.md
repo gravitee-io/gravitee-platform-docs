@@ -34,7 +34,7 @@ documentation.gravitee.io links for other versions.
 
 ## Breaking Changes and deprecations
 
-#### **Management API v1 plan endpoints reject V4 and Federated APIs**
+#### **Management API v1 plan endpoints reject V4, Federated, and Federated Agent APIs**
 
 The plan endpoints of the legacy Management API v1 no longer accept V4, Federated, and Federated Agent APIs. Every plan operation for one of these APIs returns HTTP `400`. The error message names the API's definition version and points to the Management API v2 plan endpoints. Previously, these endpoints didn't check the API's definition version. Read operations for these APIs could fail with HTTP `500` or behave inconsistently, and write operations, for example creating or deleting a plan, could succeed. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
