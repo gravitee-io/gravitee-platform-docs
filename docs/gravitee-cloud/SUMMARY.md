@@ -14,6 +14,7 @@
 * [Hybrid Installation & Configuration](https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud)
 * [Deploy a Gravitee Hosted Gateway](guides/gravitee-hosted-gateways/README.md)
   * [Delete a Gravitee Hosted Gateway](guides/gravitee-hosted-gateways/delete-a-gravitee-hosted-gateway.md)
+* [Filter the Gateways list](guides/filter-the-gateways-list.md)
 * [Configure a Custom Domain for a Gateway](guides/custom-domains.md)
 * [Configure a Custom Domain for the Developer Portal](guides/portal-custom-domains.md)
 * [Configure Single Sign On](guides/configure-sso.md)
