@@ -36,7 +36,14 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds gateway routing configuration for the organization.
+Platform Management adds environment-scoped dictionaries as a reusable asset for API policies and gateway routing configuration for the organization.
+
+#### Manage dictionaries
+
+* Create, edit, search, and delete the dictionaries of the selected environment from the **Dictionaries** page. Dictionaries hold key-value properties that API policies reference at runtime.
+* Manual dictionaries hold properties that you maintain by hand and publish to the gateways with the **Deploy** action.
+* Dynamic dictionaries poll an HTTP provider at a configured interval, transform the response with a JOLT specification, and publish the refreshed properties automatically while started.
+* See [Manage dictionaries](manage-dictionaries.md).
 
 #### Manage entrypoints and sharding tags
 
