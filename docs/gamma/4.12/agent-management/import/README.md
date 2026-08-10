@@ -7,7 +7,7 @@ noIndex: false
 
 Populate the Catalog with the assets your agents need — models, MCP servers, tools, prompts, resources, skills, and agents. The Catalog is the authoritative registry of everything an agent can use, and fine-grained authorization policies are authored against cataloged entities. A rich Catalog enables precise governance.
 
-<figure><img src="https://3745118555-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fa6QVD3iIxTvnV5eQ8OH1%2Fuploads%2Fgit-blob-373a44719c46f317ac2b1e6ca9bb141e1585011d%2Fgamma-aim-dashboard.png?alt=media" alt="Agent Management Import catalog showing eight entity type cards"><figcaption><p>The Import section of the Agent Management dashboard. Each card links to a Catalog entity type. The full set of import operations — including integrations, API tools, and Event tools — is listed below.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-dashboard.png" alt="Agent Management Import catalog showing eight entity type cards"><figcaption><p>The Import section of the Agent Management dashboard. Each card links to a Catalog entity type. The full set of import operations — including integrations, API tools, and Event tools — is listed below.</p></figcaption></figure>
 
 * [**Connect integrations**](connect-integrations.md) — Link Gamma to upstream providers (Gemini Enterprise Agent Platform (formerly Vertex AI), Bedrock, Azure AI Foundry) to sync AI models and agents into the Catalog.
 * [**Add an AI model**](add-an-ai-model.md) — Register AI models from connected integrations or add them manually.
