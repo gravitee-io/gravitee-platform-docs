@@ -4,6 +4,17 @@
 
 The 4.13 release adds the following capabilities.
 
+### Agent Management
+
+Agent Management adds a configuration audit trail to each proxy detail view.
+
+#### Audit Logs for LLM, MCP, and A2A Proxies
+
+* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds an **Audit Logs** page under **Monitoring** that lists the audit events recorded for the proxy.
+* Each entry shows the date, the actor, the event type, and the target of the change. Entries that carry a JSON Patch open the exact change in a side panel.
+* Filter the trail by event type and date range, and page through entries 10, 25, 50, or 100 at a time.
+* See [Review audit logs](../agent-management/observe/review-audit-logs.md).
+
 ### API Management
 
 API Management gains a file-based path for building and updating API proxies and a redesigned out-of-sync banner in the API detail workspace.
