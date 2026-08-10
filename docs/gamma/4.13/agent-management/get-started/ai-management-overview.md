@@ -53,11 +53,11 @@ Agent Identity registers agents as OAuth clients in Gravitee Access Management s
 
 Every agent is registered as one of three **personas**, each determining the underlying OAuth client type:
 
-| Persona              | OAuth client                                            | Use it for                                                 |
-| -------------------- | ------------------------------------------------------- | ---------------------------------------------------------- |
-| **User-embedded**    | Native, public client (PKCE enforced)                   | An agent that runs on the user's device                    |
-| **Hosted delegated** | Web, confidential client                                | An agent that runs on your server, acting per user session |
-| **Autonomous**       | Service client (`client_credentials` or token exchange) | An unattended service worker with no interactive user      |
+| Persona                        | OAuth client                                            | Use it for                                                 |
+| ------------------------------ | ------------------------------------------------------- | ---------------------------------------------------------- |
+| **Desktop Productivity Agent** | Native, public client (PKCE enforced)                   | An agent that runs on the user's device                    |
+| **Hosted Agent**               | Web, confidential client                                | An agent that runs on your server, acting per user session |
+| **Workload Agent**             | Service client (`client_credentials` or token exchange) | An unattended service worker with no interactive user      |
 
 Identity standards such as **Client ID Metadata Documents (CIMD)** and **SPIFFE** are available as credential options within the registration wizard. They're orthogonal to the persona choice, not determined by it. See [Create an agent identity](../build/create-an-agent-identity.md) for the full wizard walkthrough.
 

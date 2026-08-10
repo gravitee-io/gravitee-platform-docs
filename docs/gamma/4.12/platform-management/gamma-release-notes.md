@@ -33,7 +33,7 @@
 #### Agent Identity
 
 * Registers agents as OAuth clients in Gravitee Access Management so gateways and authorization policies can authenticate, attribute, and audit every agent.
-* Three personas: **User-embedded** (public PKCE client), **Hosted delegated** (confidential web client), and **Autonomous** (service client with `client_credentials` or token exchange).
+* Three personas: **Desktop Productivity Agent** (public PKCE client), **Hosted Agent** (confidential web client), and **Workload Agent** (service client with `client_credentials` or token exchange).
 * Supports CIMD (Client ID Metadata Documents) and SPIFFE as credential options within the registration wizard.
 
 #### Observability
@@ -68,6 +68,12 @@
 
 * Monitor request volume, latency, error rates, and audit history for every deployed API via per-API dashboards and log search.
 * Endpoint health monitoring surfaces backend availability without leaving the console.
+
+#### API detail workspace
+
+* Manage every aspect of an API proxy after creation from a single workspace: general settings, properties, resources, notifications, CORS, entrypoints, endpoints, failover, health checks, logging and tracing, plans, consumers, broadcasts, user permissions, audit logs, and deployment.
+* Compare any two deployed versions of an API definition and roll back to an earlier one.
+* See [Configure your API proxy](../api-management/build/configure-your-api-proxy/README.md).
 
 ### Authorization Management
 
