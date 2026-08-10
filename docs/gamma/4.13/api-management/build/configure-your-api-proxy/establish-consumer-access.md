@@ -42,7 +42,7 @@ An **application** represents an external consumer—a frontend, a microservice,
 
 ## Subscriptions
 
-<figure><img src="https://3745118555-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fa6QVD3iIxTvnV5eQ8OH1%2Fuploads%2Fgit-blob-dfb28969984772b95c88f75e178ebbb4b486ccfd%2Fgamma-api-consumers.png?alt=media" alt="Consumers page showing subscriptions and API key management"><figcaption><p>The Consumers page lists all subscriptions for this API, with filters for status, plan, and API key. Each row shows the subscribing application, plan, security type, status, and creation date.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gamma-api-consumers.png" alt="Consumers page showing subscriptions and API key management"><figcaption><p>The Consumers page lists all subscriptions for this API, with filters for status, plan, and API key. Each row shows the subscribing application, plan, security type, status, and creation date.</p></figcaption></figure>
 
 A **subscription** binds an application to a specific **plan** on your API proxy or API product. When a consumer calls an API protected by an API Key, JWT, OAuth2, or mTLS plan, they must hold an active subscription before the Gateway accepts their credentials.
 

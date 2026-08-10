@@ -19,7 +19,7 @@ The connection targets a single AM domain. Anything not enabled makes the matchi
 | **Dynamic Client Registration (DCR)** | Lets the module register agents as OAuth clients at all. Required.                                                                                       |
 | **Client template application**       | A template application whose settings AM clones onto each registered client. Required for CIMD.                                                          |
 | **CIMD**                              | The CIMD client-identifier option in the agent wizard, so an agent can be identified by a metadata-document URL.                                         |
-| **SPIFFE**                            | The SPIFFE credential option for Autonomous agents, so an agent can authenticate with a JWT-SVID.                                                        |
+| **SPIFFE**                            | The SPIFFE credential option for Workload Agents, so an agent can authenticate with a JWT-SVID.                                                        |
 | **Service account + access token**    | An AM service account with rights to manage applications across the environments and domains you target. The module authenticates to AM with this token. |
 
 {% hint style="info" %}

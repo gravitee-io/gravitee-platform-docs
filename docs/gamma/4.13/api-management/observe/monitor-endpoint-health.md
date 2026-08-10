@@ -8,7 +8,7 @@ The Endpoint Health Check Dashboard provides real-time visibility into the avail
 
 ## Prerequisites
 
-* Your API must have endpoint health checks configured and enabled.
+* Health checks are configured and enabled on the API's endpoint groups or endpoints. See the health-check step in [Configure endpoints](../build/configure-your-api-proxy/configure-backend-security.md#step-3-health-check).
 
 ## View the health check dashboard
 
@@ -24,7 +24,7 @@ The dashboard displays several key metrics and visualizations:
 * **Availability by Field**: A table breaking down availability statistics by specific endpoint or group.
 * **Response Time Trend**: A chart displaying the historical trend of endpoint response times.
 
-Use the timeframe filter at the top of the dashboard to adjust the monitoring window (e.g., last hour, last 24 hours).
+Use the timeframe filter at the top of the dashboard to adjust the monitoring window (for example, last hour or last 24 hours).
 
 ## View failed health checks
 
