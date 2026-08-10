@@ -17,7 +17,7 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 #### 4.13.0
 
-**Management API v1 plan endpoints reject V4 and Federated APIs**
+**Management API v1 plan endpoints reject V4, Federated, and Federated Agent APIs**
 
 From 4.13.0, the plan endpoints of the legacy Management API v1 (`/management/organizations/{orgId}/environments/{envId}/apis/{apiId}/plans`) reject V4, Federated, and Federated Agent APIs. Every plan operation for one of these APIs returns HTTP `400`. The error message names the API's definition version, for example: `API definition version 4.0.0 is not supported by Management API v1. Use Management API v2 instead (/management/v2/environments/{envId}/apis/{apiId}/...).`
 
