@@ -69,7 +69,7 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * Version `1.1.0` of the schema registry provider contract (`io.gravitee.resource:gravitee-resource-schema-registry-provider-api`) adds a `SchemaType` value (`AVRO`, `JSON`, `PROTOBUF`, or `UNKNOWN`) and a `Schema.getType()` accessor, so a schema-aware plugin detects the payload format from the registry instead of guessing it.
 * `lookupUnderSubject(subject, schemaContent)` checks whether a schema definition is registered under a subject, independently of which version is `latest`. It returns the registered schema with its id, version, and type in one round-trip, or empty when the content isn't registered.
 * `getVersions(subject)` lists the version identifiers registered under a subject.
-* Every addition carries a default implementation (`UNKNOWN` type, empty results), so an existing provider compiled against contract version `1.0.x` compiles and runs unchanged, and a registry that doesn't support these lookups returns the defaults.
+* Every addition carries a default implementation (`UNKNOWN` type, empty results), so an existing provider compiled against contract version `1.0.1` compiles and runs unchanged, and a registry that doesn't support these lookups returns the defaults.
 * The Confluent Schema Registry resource implements the new surface from plugin version `5.1.0`, bundled with APIM 4.13. For more information, see [Implement a schema registry provider](../../plugins/customization/schema-registry-provider.md).
 
 ## Improvements

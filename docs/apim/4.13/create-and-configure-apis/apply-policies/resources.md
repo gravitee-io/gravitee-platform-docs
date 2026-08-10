@@ -177,7 +177,7 @@ The OAuth2 Generic Authorization Server resource introspects an access token gen
 
 #### Confluent Schema Registry
 
-The Confluent Schema Registry resource fetches serialization/deserialization data from a Confluent schema registry. From plugin version `5.1.0`, bundled with APIM 4.13, the resource also reports the serialization format of each schema (Avro, JSON, or Protobuf) and answers subject membership and version-list lookups for schema-aware plugins. For the underlying contract, see [Implement a schema registry provider](../../plugins/customization/schema-registry-provider.md).
+The Confluent Schema Registry resource fetches serialization/deserialization data from a Confluent schema registry. From plugin version `5.1.0`, bundled with APIM 4.13, the resource also reports the serialization format of each schema (Avro, JSON, or Protobuf), checks whether a schema is registered under a subject, and lists the schema versions that a subject holds. For the underlying contract, see [Implement a schema registry provider](../../plugins/customization/schema-registry-provider.md).
 
 {% hint style="warning" %}
 **Enterprise only**
