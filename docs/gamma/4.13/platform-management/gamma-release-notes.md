@@ -23,6 +23,17 @@ API Management gains a file-based path for building and updating API proxies and
 * The **Deploy API** button on the banner and the **Out of sync** state badge in the sidebar header are unchanged.
 * See [Configure your API proxy](../api-management/build/configure-your-api-proxy/README.md).
 
+### Event Stream Management
+
+Event Stream Management adds a duplication path for Kafka Services.
+
+#### Duplicate a Kafka service
+
+* Create a copy of an existing Kafka Service with **Duplicate** on the service's **General** page. The copy reuses the source service's listener and endpoint configuration.
+* Provide a name, a version, and a new listener host prefix for the copy. The host prefix is unique per environment, and the source service's prefix counts as already in use.
+* The new service is created in a stopped state and without plans, so you control when it starts accepting connections.
+* See [Duplicate a Kafka service](../event-stream-management/build/duplicate-a-kafka-service.md).
+
 ## Release Date: June 26, 2026
 
 ## Highlights

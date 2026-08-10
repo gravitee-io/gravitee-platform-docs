@@ -90,6 +90,7 @@
 * [Build](event-stream-management/build/README.md)
   * [Create a Kafka service with a registered cluster](event-stream-management/build/create-a-kafka-service-with-a-registered-cluster.md)
   * [Create a Kafka service with a Virtual Cluster](event-stream-management/build/create-a-kafka-service-with-a-virtual-cluster.md)
+  * [Duplicate a Kafka service](event-stream-management/build/duplicate-a-kafka-service.md)
   * [Establish a Virtual Cluster](event-stream-management/build/establish-a-virtual-cluster.md)
   * [Virtual Clusters overview](event-stream-management/build/kafka-virtual-clusters-overview.md)
   * [Virtual Cluster runtime behavior reference](event-stream-management/build/kafka-virtual-cluster-runtime-behavior-reference.md)
