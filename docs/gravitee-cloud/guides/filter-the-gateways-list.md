@@ -35,7 +35,7 @@ Each selected value appears as a chip above the list. A gateway stays in the lis
 The filter menus offer the following values:
 
 * The **Configuration**, **Provider**, **Region**, **Version**, and **Environment** menus list the values that are present in your Gateways list.
-* The **Status** menu lists **Connected**, **Not connected**, **Unknown (legacy token)**, and **Unknown (unavailable)**.
+* The **Status** menu lists the gateway connection statuses, for example, **Connected** and **Not connected**.
 * When at least one gateway has no value for a column, the menu for that column also lists **N/A**. Select **N/A** to show the gateways without a value for that column. For example, Hybrid gateways show **N/A** in the **Provider** and **Region** columns.
 
 Gravitee Cloud saves your filter selections in your browser. When you come back to the **Dashboard** or refresh the page, your selections stay applied.
