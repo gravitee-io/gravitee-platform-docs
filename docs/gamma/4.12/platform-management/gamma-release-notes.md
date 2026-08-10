@@ -69,6 +69,12 @@
 * Monitor request volume, latency, error rates, and audit history for every deployed API via per-API dashboards and log search.
 * Endpoint health monitoring surfaces backend availability without leaving the console.
 
+#### API detail workspace
+
+* Manage every aspect of an API proxy after creation from a single workspace: general settings, properties, resources, notifications, CORS, entrypoints, endpoints, failover, health checks, logging and tracing, plans, consumers, broadcasts, user permissions, audit logs, and deployment.
+* Compare any two deployed versions of an API definition and roll back to an earlier one.
+* See [Configure your API proxy](../api-management/build/configure-your-api-proxy/README.md).
+
 ### Authorization Management
 
 #### GAPL Policy Language

@@ -5,7 +5,7 @@ noIndex: false
 
 # Configure endpoints
 
-Endpoints define where the API Gateway routes requests after authentication. Each endpoint group points to one or more backend services and controls how the Gateway connects to them — load balancing, timeouts, SSL/TLS, proxy settings, and custom headers.
+Endpoints define where the API Gateway routes requests after authentication. Each endpoint group points to one or more backend services and controls how the Gateway connects to them: load balancing, timeouts, SSL/TLS, proxy settings, and custom headers.
 
 ## Endpoint groups
 
@@ -15,10 +15,12 @@ An endpoint group is a logical container for one or more backend endpoints that 
 
 ### Create an endpoint group
 
-1. Navigate to the API detail page for your API proxy.
-2. In the sidebar, open **Gateway → Endpoints → Endpoints**.
-3. Select **Create endpoint group**.
-4. Complete the two-step wizard:
+1. Click **API Proxies** in the module sidebar.
+2. Select your API proxy.
+3. Click **Endpoints** in the API proxy sidebar.
+4. Click **Endpoints** in the expanded menu.
+5. Click **Add endpoint group**.
+6. Complete the wizard. For HTTP proxy APIs, a **Health-check** step follows the **General** and **Configuration** steps, with the same fields as the [endpoint health-check step](#step-3-health-check).
 
 #### Step 1: General
 
@@ -34,7 +36,7 @@ An endpoint group is a logical container for one or more backend endpoints that 
 | **Round robin**          | Distributes requests evenly across endpoints in order.                |
 | **Random**               | Selects a random endpoint for each request.                           |
 | **Weighted round robin** | Distributes requests proportionally based on each endpoint's weight.  |
-| **Weighted random**      | Selects endpoints randomly, weighted by each endpoint's weight value. |
+| **Weighted random**      | Selects endpoints at random, weighted by each endpoint's weight value. |
 
 #### Step 2: Configuration
 
@@ -50,7 +52,7 @@ The configuration step provides shared settings that apply to all endpoints in t
 | **Keep-alive timeout**         | Time (ms) to keep a persistent connection alive.                               | 30000    |
 | **Max concurrent connections** | Maximum number of concurrent connections to the upstream service.              | 100      |
 | **Keep-alive**                 | Reuse TCP connections across multiple requests.                                | On       |
-| **Pipelining**                 | Send multiple requests over a single connection without waiting for responses. | Off      |
+| `Pipelining`                   | Send multiple requests over a single connection without waiting for responses. | Off      |
 | **Follow redirects**           | Automatically follow HTTP 3xx redirects from the upstream.                     | Off      |
 | **Use compression**            | Enable response compression from the gateway.                                  | On       |
 | **Propagate Accept-Encoding**  | Forward the client's `Accept-Encoding` header to the upstream.                 | Off      |
@@ -65,8 +67,8 @@ Configure an HTTP or SOCKS proxy between the Gateway and the upstream service.
 | -------------------- | ------------------------------------------- | ------- |
 | **Use system proxy** | Use the system-configured proxy settings.   | Off     |
 | **Proxy type**       | `HTTP` or `SOCKS`.                          | HTTP    |
-| **Host**             | Proxy hostname (e.g., `proxy.example.com`). | (empty) |
-| **Port**             | Proxy port (e.g., `3128`).                  | (empty) |
+| **Host**             | Proxy hostname (for example, `proxy.example.com`). | (empty) |
+| **Port**             | Proxy port (for example, `3128`).                  | (empty) |
 | **Username**         | Proxy authentication username (optional).   | (empty) |
 | **Password**         | Proxy authentication password (optional).   | (empty) |
 
@@ -99,7 +101,7 @@ Each endpoint within a group represents a single backend service URL. Endpoints 
 | Field          | Description                                                                                  | Default    |
 | -------------- | -------------------------------------------------------------------------------------------- | ---------- |
 | **Name**       | A unique name within the group. Must not contain colons.                                     | (required) |
-| **Target URL** | The upstream service URL (e.g., `https://backend.example.com`). Must not contain whitespace. | (required) |
+| **Target URL** | The upstream service URL (for example, `https://backend.example.com`). Must not contain whitespace. | (required) |
 | **Weight**     | Relative weight for weighted load balancers. Must be at least 1.                             | 1          |
 | **Tenants**    | Restrict this endpoint to requests from specific gateway tenants.                            | None       |
 
@@ -109,13 +111,25 @@ By default, endpoints inherit the group's shared configuration. Toggle **Inherit
 
 #### Step 3: Health-check
 
-{% hint style="info" %}
-Automated health-check configuration is coming soon. In a future release, the Gateway will be able to probe endpoints and automatically remove unhealthy backends from rotation.
-{% endhint %}
+The health-check service monitors the availability and health of your endpoints. The same step appears in the endpoint group wizard, and an individual endpoint either inherits the group configuration or overrides it.
+
+| Field                       | Description                                                                                                          |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **Inherit configuration**   | Inherit the health check service configuration from the endpoint group. Shown when the group carries its own health-check settings. |
+| **Enabled**                 | Turns the health-check service on. The service requires an API deployment, so deploy the API to start it.            |
+| Schedule                    | A cron expression that sets the probe frequency.                                                                      |
+| **Request**                 | The HTTP method, and the path or full URL of the probe. By default, the path is appended to the endpoint path.        |
+| **Override endpoint path**  | When enabled, the path above replaces the endpoint path instead of being appended.                                    |
+| **HTTP headers**            | Headers added to the health check request.                                                                            |
+| **Assertion**               | An Expression Language expression evaluated on the health check response, for example `{#response.status == 200}`. Required. |
+| **Success threshold**       | Consecutive successes before marking the endpoint available.                                                          |
+| **Failure threshold**       | Consecutive failures before marking the endpoint unavailable.                                                         |
+
+The results appear on the Health Check Dashboard. See [Monitor endpoint health](../../observe/monitor-endpoint-health.md).
 
 4. Select **Add endpoint** (or **Save endpoint** when editing) to save.
 
 ## Next steps
 
-* [Establish consumer access](establish-consumer-access.md) — Configure how consumers subscribe to and authenticate with your API.
-* [Apply security policies](apply-security-policies.md) — Add request/response policies on top of backend security.
+* [Establish consumer access](establish-consumer-access.md): Configure how consumers subscribe to and authenticate with your API.
+* [Apply security policies](apply-security-policies.md): Add request/response policies on top of backend security.
