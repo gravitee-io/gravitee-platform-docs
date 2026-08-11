@@ -1,5 +1,5 @@
 ---
-description: Explains what API Management does within Gamma, its key capabilities, and how it connects to the other Gamma product lines.
+description: API Management governs REST, GraphQL, gRPC, and WebSocket traffic through API proxies. Learn what it does and how it fits the Gamma platform.
 ---
 
 # API Management overview
@@ -20,7 +20,7 @@ API Management provides the following key capabilities:
 
 ## How API Management fits into Gamma
 
-<figure><img src="../../.gitbook/assets/gamma-home (1).png" alt="Gamma platform home page showing the Get Started quick actions and six application modules"><figcaption><p>The Gamma platform home page. The Get Started section offers quick-action cards for common tasks. The Applications section provides access to the six modules: Agent Management, API Management, Platform Management, Authorization Management, Event Stream Management, and Edge Management.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-home.png" alt="Gamma platform home page showing the Get Started quick actions and six application modules"><figcaption><p>The Gamma platform home page. The Get Started section offers quick-action cards for common tasks. The Applications section provides access to the six modules: Agent Management, API Management, Platform Management, Authorization Management, Event Stream Management, and Edge Management.</p></figcaption></figure>
 
 Gamma unifies four product lines under a shared platform: API Management, Event Stream Management, Agent Management, and Authorization Management. All four share the following foundations:
 

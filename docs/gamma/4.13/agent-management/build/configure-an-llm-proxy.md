@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Configure guardrails, PII filtering, rate limiting, security plans, structured output, and cost visibility for an LLM Proxy after creation.
+description: Configure guardrails, PII filtering, rate limiting, security plans, and structured output on an LLM Proxy. Follow the steps to add each policy.
 ---
 
 # Configure an LLM Proxy

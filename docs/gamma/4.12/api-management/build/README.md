@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Create and configure API proxies in Gamma with security plans, policies, and advanced runtime settings. Start with the build task you need.
 ---
 
 # Build

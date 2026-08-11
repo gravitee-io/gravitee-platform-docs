@@ -1,6 +1,7 @@
 ---
 hidden: true
 noIndex: true
+description: Exposing the Gamma Catalog as an MCP Registry that other systems can discover is planned for a future release. Learn what the capability will provide.
 ---
 
 # Expose an MCP Registry

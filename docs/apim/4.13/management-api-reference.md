@@ -16,6 +16,8 @@ The Gravitee Management API is the programmatic interface to the [Gravitee APIM]
 
 Gravitee V4 and Federated APIs are managed within the **v2** subcomponent of the management API. You can access the v2 subcomponent through the `/management/v2` subpath.
 
+From APIM 4.13.0, the plan endpoints of the **Management** component (`/management/organizations/{orgId}/environments/{envId}/apis/{apiId}/plans`) reject V4, Federated, and Federated Agent APIs. A plan request for one of these APIs returns HTTP `400`. The error message names the API's definition version and points to the Management API v2 plan endpoints under `/management/v2/environments/{envId}/apis/{apiId}/plans`. This applies to listing, reading, creating, updating, and deleting plans, and to closing, publishing, and deprecating a plan.
+
 ## Documentation
 
 To explore the API documentation, select any of the following endpoint categories to open an integrated API viewer and client. The viewer includes an option to download the API specification.

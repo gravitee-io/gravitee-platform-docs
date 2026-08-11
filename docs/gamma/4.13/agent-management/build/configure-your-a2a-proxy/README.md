@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Configure an A2A Proxy's behavior, security, and observability using the Policy Studio and the sidebar navigation in the Gamma console.
+description: Configure an A2A Proxy's behavior, security, and observability from the Gamma console. Follow the steps to apply policies in the Policy Studio.
 ---
 
 # Configure your A2A Proxy

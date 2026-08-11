@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Connect Gamma to an AI model provider or to Azure AI Foundry so their models import into the Catalog. Follow the steps to connect an integration.
 ---
 
 # Connect integrations
@@ -11,9 +12,9 @@ Integrations connect Gamma to upstream AI platforms so that their deployed model
 
 Gamma supports two categories of integrations for model discovery:
 
-**LLM Provider integrations** — Connect to an AI model provider using an API Key or Bearer Token to import their available models into the AI Models catalog. 
+**LLM Provider integrations**. Connect to an AI model provider using an API Key or Bearer Token to import their available models into the AI Models catalog. 
 
-**Azure AI Foundry** — Connect to Microsoft Azure to import deployed models from your Azure AI Foundry account.
+**Azure AI Foundry**. Connect to Microsoft Azure to import deployed models from your Azure AI Foundry account.
 
 | Integration                    | Category       | Connection Method                                                                           |
 | ------------------------------ | -------------- | ------------------------------------------------------------------------------------------- |
@@ -30,17 +31,17 @@ You connect an integration by importing models from it.
 
 1. From the Gamma console sidebar, select **Agent Management**.
 2. Navigate to the **Catalog** → **AI Models** list.
-3. Select **Add AI Model**.
-4. **Choose source type**: Select the provider you want to integrate with (e.g., Azure AI Foundry or OpenAI).
+3. Select **Add provider**.
+4. **Choose source type**: Select the provider you want to integrate with such as Azure AI Foundry or OpenAI.
 5. **Configure connection**: 
    - For **LLM Providers**, this typically uses the built-in integration template.
-   - For **Azure AI Foundry**, enter your Subscription ID, Resource Group, Account Name, and an Azure Bearer Token (which you can generate using the Azure CLI: `az account get-access-token --resource https://management.azure.com/ --query accessToken -o tsv`).
+   - For **Azure AI Foundry**, enter your Subscription ID, Resource Group, Account Name, and an Azure Bearer Token. To generate the token, run `az account get-access-token --resource https://management.azure.com/ --query accessToken -o tsv` using the Azure CLI.
 6. Complete the wizard to import models from the newly connected integration.
 
 Once connected and imported, the models appear in the AI Models catalog and become available for LLM Proxy routing.
 
 ## Next steps
 
-* **Add models manually** — For providers without an integration, register models individually. See [Add an AI model](add-an-ai-model.md).
-* **Import agents** — View and manage agents synced from connected integrations. See [Import an agent](import-an-agent.md).
+* **Add models manually**. For providers without an integration, register models individually. See [Add an AI model](add-an-ai-model.md).
+* **Import agents**. View and manage agents synced from connected integrations. See [Import an agent](import-an-agent.md).
 

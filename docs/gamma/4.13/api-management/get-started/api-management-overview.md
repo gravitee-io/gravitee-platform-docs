@@ -1,7 +1,7 @@
 ---
-description: Explains what API Management does within Gamma, its key capabilities, and how it connects to the other Gamma product lines.
 hidden: false
 noIndex: false
+description: API Management governs REST, GraphQL, gRPC, and WebSocket traffic through API proxies. Learn what it does and how it fits the Gamma platform.
 ---
 
 # API Management overview

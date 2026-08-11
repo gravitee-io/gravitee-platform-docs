@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Choose whether the API Gateway runs every matching policy flow or only the closest match. Follow the steps to set the flow execution mode.
 ---
 
 # Control how policy flows are matched to requests

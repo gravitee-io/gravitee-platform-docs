@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: API Products bundle multiple API proxies into one consumer-facing product with shared plans. Learn when to use them and how to create one.
 ---
 
 # Create API Products
@@ -37,7 +38,7 @@ The following table compares an API proxy with an API Product:
 
 ## View API Products
 
-<figure><img src="https://3745118555-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fa6QVD3iIxTvnV5eQ8OH1%2Fuploads%2Fgit-blob-c3528476320366df937e953cbca2227a042febb3%2Fgamma-api-products-list.png?alt=media" alt="API Products list in the Gamma APIM module"><figcaption><p>The API Products list shows all products with their bundled API count, version, sharding tags, and owner.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-api-products-list.png" alt="API Products list in the Gamma APIM module"><figcaption><p>The API Products list shows all products with their bundled API count, version, sharding tags, and owner.</p></figcaption></figure>
 
 1. From the Gamma console sidebar, select **API Management**.
 2. From the module navigation, select **API Products**.

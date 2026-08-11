@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Add a knowledge source so agents can read documentation and reference material as context. Follow the steps to add inline or remote documents.
 ---
 
 # Add a knowledge source

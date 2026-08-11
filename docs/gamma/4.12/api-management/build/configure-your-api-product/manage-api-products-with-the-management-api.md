@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Create an API product, attach APIs, add and publish plans, and deploy it over the v2 Management API. Follow the full lifecycle with request examples.
 ---
 
 # Manage API products with the Management API
@@ -87,7 +88,7 @@ To let an existing product keep its own name while you edit it, pass the product
 ```bash
 curl -s -u "$AUTH" -X POST "$MGMT/api-products/_verify" \
   -H 'Content-Type: application/json' \
-  -d '{"name": "Partner Platform", "apiProductId": "0bd5d044-885b-4666-95d0-44885b2666cc"}'
+  -d '{"name": "Partner Platform", "apiProductId": "00000000-0000-0000-0000-000000000000"}'
 ```
 
 ## Create an API product
@@ -108,7 +109,7 @@ A successful call returns `201 Created` and the new product:
 
 ```json
 {
-  "id" : "0bd5d044-885b-4666-95d0-44885b2666cc",
+  "id" : "00000000-0000-0000-0000-000000000000",
   "environmentId" : "DEFAULT",
   "name" : "Partner Platform",
   "description" : "APIs bundled for partner consumers.",
@@ -140,13 +141,13 @@ There is no dedicated attach endpoint. The set of bundled APIs is the `apiIds` a
 Send the full list of API IDs you want the product to contain—the array is replaced, not merged:
 
 ```bash
-curl -s -u "$AUTH" -X PUT "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc" \
+curl -s -u "$AUTH" -X PUT "$MGMT/api-products/00000000-0000-0000-0000-000000000000" \
   -H 'Content-Type: application/json' \
   -d '{
     "name": "Partner Platform",
     "version": "1.0.0",
     "description": "APIs bundled for partner consumers.",
-    "apiIds": ["337417f2-4a4f-40f7-b417-f24a4f10f7ed"]
+    "apiIds": ["11111111-1111-1111-1111-111111111111"]
   }'
 ```
 
@@ -157,7 +158,7 @@ The update is partial rather than a wholesale replacement—a field you omit kee
 To read back what is currently bundled, use the product's APIs collection:
 
 ```bash
-curl -s -u "$AUTH" "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc/apis?page=1&perPage=10"
+curl -s -u "$AUTH" "$MGMT/api-products/00000000-0000-0000-0000-000000000000/apis?page=1&perPage=10"
 ```
 
 The response is `200 OK` and paginated. Each entry in `data` is a full API object—the same shape returned by `GET /apis/{apiId}`, including `listeners`, `endpointGroups`, and `allowedInApiProducts`—alongside the usual pagination block:
@@ -179,7 +180,7 @@ The response is `200 OK` and paginated. Each entry in `data` is a full API objec
 Consumers subscribe to a product through its plans. Create one with `POST /api-products/{apiProductId}/plans`:
 
 ```bash
-curl -s -u "$AUTH" -X POST "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc/plans" \
+curl -s -u "$AUTH" -X POST "$MGMT/api-products/00000000-0000-0000-0000-000000000000/plans" \
   -H 'Content-Type: application/json' \
   -d '{
     "name": "Partner API Key",
@@ -196,7 +197,7 @@ A successful call returns `201 Created`. The new plan starts in `STAGING`—it e
 
 ```json
 {
-  "id" : "7eed1799-dbbb-4d0b-ad17-99dbbb1d0b0b",
+  "id" : "22222222-2222-2222-2222-222222222222",
   "name" : "Partner API Key",
   "description" : "API Key plan for partner consumers.",
   "security" : {
@@ -250,14 +251,14 @@ A plan only becomes subscribable once it is published:
 
 ```bash
 curl -s -u "$AUTH" -X POST \
-  "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc/plans/7eed1799-dbbb-4d0b-ad17-99dbbb1d0b0b/_publish"
+  "$MGMT/api-products/00000000-0000-0000-0000-000000000000/plans/22222222-2222-2222-2222-222222222222/_publish"
 ```
 
 The call returns `200 OK` with the plan, its `status` now `PUBLISHED` and a `publishedAt` timestamp added:
 
 ```json
 {
-  "id" : "7eed1799-dbbb-4d0b-ad17-99dbbb1d0b0b",
+  "id" : "22222222-2222-2222-2222-222222222222",
   "name" : "Partner API Key",
   "description" : "API Key plan for partner consumers.",
   "security" : {
@@ -281,14 +282,14 @@ The call returns `200 OK` with the plan, its `status` now `PUBLISHED` and a `pub
 ### List plans
 
 ```bash
-curl -s -u "$AUTH" "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc/plans"
+curl -s -u "$AUTH" "$MGMT/api-products/00000000-0000-0000-0000-000000000000/plans"
 ```
 
 `GET /plans` returns `200 OK` and, by default, **only published plans**. To see plans in other states, pass `statuses` as a comma-separated list. If you repeat the parameter, as in `?statuses=STAGING&statuses=PUBLISHED`, the values are not combined—only one of them takes effect:
 
 ```bash
 curl -s -u "$AUTH" \
-  "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc/plans?statuses=STAGING,PUBLISHED"
+  "$MGMT/api-products/00000000-0000-0000-0000-000000000000/plans?statuses=STAGING,PUBLISHED"
 ```
 
 ### Other plan transitions
@@ -305,7 +306,7 @@ curl -s -u "$AUTH" \
 Deployment pushes the product and its published plans to the Gateway. Check first that the installation is allowed to deploy products:
 
 ```bash
-curl -s -u "$AUTH" "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc/deployments/_verify"
+curl -s -u "$AUTH" "$MGMT/api-products/00000000-0000-0000-0000-000000000000/deployments/_verify"
 ```
 
 The check returns `200 OK` with an `ok` flag:
@@ -322,7 +323,7 @@ Trigger the deployment:
 
 ```bash
 curl -s -u "$AUTH" -X POST \
-  "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc/deployments" \
+  "$MGMT/api-products/00000000-0000-0000-0000-000000000000/deployments" \
   -H 'Content-Type: application/json' -d '{}'
 ```
 
@@ -330,12 +331,12 @@ Deployment is asynchronous, so the call returns `202 Accepted` with the product 
 
 ```json
 {
-  "id" : "0bd5d044-885b-4666-95d0-44885b2666cc",
+  "id" : "00000000-0000-0000-0000-000000000000",
   "environmentId" : "DEFAULT",
   "name" : "Partner Platform",
   "description" : "APIs bundled for partner consumers.",
   "version" : "1.0.0",
-  "apiIds" : [ "337417f2-4a4f-40f7-b417-f24a4f10f7ed" ],
+  "apiIds" : [ "11111111-1111-1111-1111-111111111111" ],
   "createdAt" : "2026-07-30T16:29:06.467Z",
   "updatedAt" : "2026-07-30T16:29:56.052Z",
   "disableMembershipNotifications" : false
@@ -345,21 +346,21 @@ Deployment is asynchronous, so the call returns `202 Accepted` with the product 
 Read the product back to confirm the outcome—`deploymentState` is `DEPLOYED` once the deployment has been applied:
 
 ```bash
-curl -s -u "$AUTH" "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc"
+curl -s -u "$AUTH" "$MGMT/api-products/00000000-0000-0000-0000-000000000000"
 ```
 
 ```json
 {
-  "id" : "0bd5d044-885b-4666-95d0-44885b2666cc",
+  "id" : "00000000-0000-0000-0000-000000000000",
   "environmentId" : "DEFAULT",
   "name" : "Partner Platform",
   "description" : "APIs bundled for partner consumers.",
   "version" : "1.0.0",
-  "apiIds" : [ "337417f2-4a4f-40f7-b417-f24a4f10f7ed" ],
+  "apiIds" : [ "11111111-1111-1111-1111-111111111111" ],
   "createdAt" : "2026-07-30T16:29:06.467Z",
   "updatedAt" : "2026-07-30T16:29:56.052Z",
   "primaryOwner" : {
-    "id" : "a2dbae73-8ec6-4fe9-9bae-738ec6ffe9c7",
+    "id" : "33333333-3333-3333-3333-333333333333",
     "displayName" : "admin",
     "type" : "USER"
   },
@@ -383,7 +384,7 @@ curl -s -u "$AUTH" -X POST "$MGMT/api-products/_search?page=1&perPage=5" \
 Delete a product with `DELETE /api-products/{apiProductId}`, which returns `204 No Content`:
 
 ```bash
-curl -s -u "$AUTH" -X DELETE "$MGMT/api-products/0bd5d044-885b-4666-95d0-44885b2666cc"
+curl -s -u "$AUTH" -X DELETE "$MGMT/api-products/00000000-0000-0000-0000-000000000000"
 ```
 
 ## Next steps

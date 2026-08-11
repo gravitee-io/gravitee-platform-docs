@@ -1,7 +1,7 @@
 ---
-description: Author fine-grained GAPL authorization policies in Authorization Management to control which consumers can invoke tools on your MCP Proxy.
 hidden: false
 noIndex: false
+description: Control which consumers can invoke which tools on an MCP Proxy with fine-grained authorization policies. Follow the steps to create and deploy one.
 ---
 
 # Add policies to your MCP server

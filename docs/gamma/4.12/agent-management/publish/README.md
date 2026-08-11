@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Make your AI Gateway artifacts discoverable and consumable outside the Gamma console. Start with publishing a proxy or managing its subscriptions.
 ---
 
 # Publish

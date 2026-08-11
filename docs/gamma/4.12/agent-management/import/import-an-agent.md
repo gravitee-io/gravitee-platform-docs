@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Register an external agent in the Catalog by importing its A2A Agent Card from an endpoint. Follow the steps to fetch the card and review the fields.
 ---
 
 # Register an agent
@@ -40,7 +41,7 @@ Each agent in the Catalog records:
 
 Once an agent is registered in the Catalog, you can:
 
-* **Assign an identity** — Register the agent as an OAuth client with a persona (User-embedded, Hosted delegated, or Autonomous) and optional CIMD or SPIFFE credentials. See [Create an agent identity](../build/create-an-agent-identity.md).
+* **Assign an identity** — Register the agent as an OAuth client with a persona (Desktop Productivity Agent, Hosted Agent, or Workload Agent) and optional CIMD or SPIFFE credentials. See [Create an agent identity](../build/create-an-agent-identity.md).
 * **Apply authorization policies** — Control which resources and tools this agent can access.
 * **Expose via the A2A Proxy** — Make this agent's skills discoverable and callable by other agents. See [Expose your agent with the A2A Proxy](../build/expose-agent-with-a2a-proxy.md).
 

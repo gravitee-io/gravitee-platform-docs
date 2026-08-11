@@ -1,7 +1,7 @@
 ---
-description: Configure how your MCP Proxy authenticates with upstream MCP servers using static credentials.
 hidden: false
 noIndex: false
+description: Configure upstream authentication on an MCP Proxy so the Gateway injects the credentials a third-party MCP server needs. Follow the steps to set it up.
 ---
 
 # Configure your MCP proxy
@@ -31,3 +31,4 @@ The MCP Proxy currently supports injecting static credentials into the request h
 ## Next steps
 
 * [Add policies to your MCP server](add-policies-to-mcp-server.md). Apply fine-grained authorization at the tool level.
+* [Layered governance for MCP tools](govern-mcp-tool-access.md). Combine authorization, rate limits, and response redaction on one server.

@@ -146,7 +146,7 @@ You can configure various user options:
 * `user.creation.token.expire-after`: Number of seconds before the user registration or reset password token expires. The default is `86400`(1 day). **Do** **not exceed 1 day** and use the reset password feature in case of expiration.
 * `user.reference.secret`: Secret used to generate a unique and anonymous user reference. The secret must be 32 characters long and **must be changed.**
 * `user.anonymize-on-delete:enabled`: When a user is deleted, their access is revoked. The user data remains in the database for audit purposes. Depending on your privacy policy, you should enable this feature to anonymize the user's first name, last name, and email when they are deleted.
-* `user.password.policy.pattern`: By default, Gravitee includes a strong password policy taken from OWASP recommendations. We highly recommend not decreasing the complexity of the password policy if you allow user registration.
+* `user.password.policy.pattern`: By default, Gravitee includes a strong password policy taken from OWASP recommendations. We highly recommend not decreasing the complexity of the password policy if you allow user registration. See [Password Policy](../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/password-policy.md) for the default rules and how to override them.
 
 {% hint style="info" %}
 You can find other information related to user management in the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/user-and-management-configuration).

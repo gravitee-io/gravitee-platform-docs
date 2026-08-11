@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Trace every agent invocation through the AI Gateway with spans that record identity, inputs, latency, and cost. Learn how to read the agent log.
 ---
 
 # Inspect your agent log

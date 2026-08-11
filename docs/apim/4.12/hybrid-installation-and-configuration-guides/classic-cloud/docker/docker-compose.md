@@ -138,6 +138,10 @@ The following sections of this article assume you are using the `docker-compose.
 
 ## **Gateway service configuration**
 
+{% hint style="warning" %}
+The default `graviteeio/apim-gateway` image is based on Alpine Linux, which does not support the ONNX Runtime. As a result, AI policies that depend on ONNX Runtime, such as **AI - Prompt Guard Rails**, do not work with the default image. To use these policies, use the Debian variant of the image instead. For example, `graviteeio/apim-gateway:4.12-debian`. The Debian variant is available for version 4.9 and later.
+{% endhint %}
+
 As shown in the [architecture diagram](docker-compose.md#architecture), the Gateway(s) connect to the Bridge Gateway to allow the decoupling of the API Gateway functionality from the underlying data storage layer. Instead of directly interacting with a repository, the Gateway uses the Bridge Gateway to route requests and data through to the control plane.
 
 First, you need to upload the `license.key` file sent by your Technical Account Manager, then refer to it in the `volumes` of the Gateway services section of your `docker-compose.yml`:
