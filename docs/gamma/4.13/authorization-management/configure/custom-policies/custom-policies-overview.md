@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Custom policies protect internal applications, data assets, and bespoke resources. Learn how they differ from service policies and when to use them.
 ---
 
 # Custom policies overview

@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Create a resource entity for the internal applications, data assets, and custom tools the AI Catalog does not hold. Follow the steps to add one.
 ---
 
 # Create a local resource

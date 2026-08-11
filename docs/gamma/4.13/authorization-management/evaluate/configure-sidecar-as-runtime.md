@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Deploy the Policy Decision Point as a sidecar beside your application for latency-sensitive or air-gapped environments. Follow the steps to deploy it.
 ---
 
 # Configure a sidecar as runtime

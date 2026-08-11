@@ -1,7 +1,7 @@
 ---
-description: Reference for the Authorization Management policy editor, covering how to create, update, deploy, and delete GAPL policies.
 hidden: false
 noIndex: false
+description: Reference for the Authorization Management policy editor, covering how to create, name, build, deploy, and delete a policy. Browse the full reference.
 ---
 
 # Create, update, and delete policies
