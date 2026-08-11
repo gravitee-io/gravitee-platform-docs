@@ -17,7 +17,7 @@ Create and configure the AI Gateway components that govern LLM, MCP, and A2A tra
   * [**Edit tool composition**](edit-mcp-studio-composition.md). Select and alias the tools exposed by your MCP Studio, and configure authentication to the upstream servers they come from.
 * [**Create an LLM Proxy**](create-an-llm-proxy.md). Configure an LLM Proxy to route model traffic through the AI Gateway with authentication, cost attribution, and observability.
 * [**Configure an LLM Proxy**](configure-an-llm-proxy.md). Configure guardrails, PII filtering, rate limiting, security plans, and policies.
-* [**Create an agent identity**](create-an-agent-identity.md). Register an agent as a User-embedded, Hosted delegated, or Autonomous OAuth client, identified by a client ID or a CIMD metadata document.
+* [**Create an agent identity**](create-an-agent-identity.md). Register an agent as an OAuth client with a Desktop Productivity Agent, Hosted Agent, or Workload Agent persona, identified by a client ID or a CIMD metadata document.
 * [**Configure your Access Management instance**](configure-your-access-management-instance.md). Connect the module to Gravitee Access Management, select an environment and domain, and check that the domain has the capabilities agent identities rely on.
 * [**Expose your agent with the A2A Proxy**](expose-agent-with-a2a-proxy.md). Make an agent's skills discoverable and callable across trust boundaries with per-skill authorization.
 * [**Configure your A2A Proxy**](configure-your-a2a-proxy/README.md). Manage security, access controls, and flows for your A2A Proxy using the Policy Studio.

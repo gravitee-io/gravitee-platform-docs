@@ -28,8 +28,16 @@ documentation.gravitee.io links for other versions.
 ## Highlights
 
 * Branded senders apply a different **From** address and subject prefix to notification emails for each recipient domain, configurable per Organization and Environment.
-* The new `#jsonEscape` Expression Language function escapes a value so it can be safely inserted into a JSON document or JSON string literal, for example in a response template body.
+* The new `#jsonEscape` Expression Language function escapes a value so it's safe to insert into a JSON document or JSON string literal, for example in a response template body.
 * The Generate JWT policy adds optional `x5t` and `x5t#S256` certificate thumbprint headers to generated JWTs, for downstream systems that select the validation certificate by thumbprint.
+* The schema registry provider contract now exposes the serialization format of each schema and answers subject membership and version-list lookups, and the bundled Confluent Schema Registry resource implements all three.
+* The plan endpoints of the legacy Management API v1 now reject V4, Federated, and Federated Agent APIs with an HTTP `400` error that points to Management API v2.
+
+## Breaking Changes and deprecations
+
+#### **Management API v1 plan endpoints reject V4, Federated, and Federated Agent APIs**
+
+The plan endpoints of the legacy Management API v1 no longer accept V4, Federated, and Federated Agent APIs. Every plan operation for one of these APIs returns HTTP `400`. The error message names the API's definition version and points to the Management API v2 plan endpoints. Previously, these endpoints didn't check the API's definition version. Read operations for these APIs could fail with HTTP `500` or behave inconsistently, and write operations, for example creating or deleting a plan, could succeed. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 ## New Features
 
@@ -55,6 +63,14 @@ documentation.gravitee.io links for other versions.
 * The thumbprints are computed from the DER-encoded signing certificate resolved by the configured key resolver (`INLINE`, `PEM`, `JKS`, or `PKCS12`). The options apply to RS256 signatures only, and the Console disables them when an HMAC signature is selected.
 * If a thumbprint option is enabled and no certificate matching the signing key is available, the policy rejects requests with HTTP `500` instead of issuing a token without the header.
 * For more information, see [Generate JWT](../../create-and-configure-apis/apply-policies/policy-reference/generate-jwt.md).
+
+#### **Schema types and subject membership in the schema registry provider contract**
+
+* Version `1.1.0` of the schema registry provider contract (`io.gravitee.resource:gravitee-resource-schema-registry-provider-api`) adds a `SchemaType` value (`AVRO`, `JSON`, `PROTOBUF`, or `UNKNOWN`) and a `Schema.getType()` accessor, so a schema-aware plugin detects the payload format from the registry instead of guessing it.
+* `lookupUnderSubject(subject, schemaContent)` checks whether a schema definition is registered under a subject, independently of which version is `latest`. It returns the registered schema with its id, version, and type in one round-trip, or empty when the content isn't registered.
+* `getVersions(subject)` lists the version identifiers registered under a subject.
+* Every addition carries a default implementation (`UNKNOWN` type, empty results), so an existing provider compiled against contract version `1.0.1` compiles and runs unchanged, and a registry that doesn't support these lookups returns the defaults.
+* The Confluent Schema Registry resource implements the new surface from plugin version `5.1.0`, bundled with APIM 4.13. For more information, see [Implement a schema registry provider](../../plugins/customization/schema-registry-provider.md).
 
 ## Improvements
 

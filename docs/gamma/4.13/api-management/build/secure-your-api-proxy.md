@@ -5,11 +5,11 @@ noIndex: false
 
 # Secure your API proxy
 
-After creating an API proxy, attach one or more security plans to control how consumers authenticate. Plans define the authentication mechanism the API Gateway enforces at runtime — every incoming request is evaluated against the active plans before it reaches your backend.
+After creating an API proxy, attach one or more security plans to control how consumers authenticate. Plans define the authentication mechanism the API Gateway enforces at runtime: every incoming request is evaluated against the active plans before it reaches your backend.
 
 ## Plan types
 
-The Gamma console supports five plan types. You can attach multiple plans to a single API proxy; the Gateway evaluates them in order and uses the first plan that matches the consumer's credentials.
+The Gamma console supports five plan types. Attach multiple plans to a single API proxy when needed. The Gateway evaluates them in order and uses the first plan that matches the consumer's credentials.
 
 ### Keyless
 
@@ -59,30 +59,31 @@ Consumers present a client TLS certificate during the TLS handshake. The Gateway
 
 ## Add a plan to an existing API proxy
 
-<figure><img src="https://3745118555-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fa6QVD3iIxTvnV5eQ8OH1%2Fuploads%2Fgit-blob-b86bcd2b3acadc6112d18f8ea50420e0d7e63a68%2Fgamma-api-plans.png?alt=media" alt="Plans management page with lifecycle cards"><figcaption><p>The Plans page shows plan lifecycle cards (Staging, Published, Deprecated, Closed) and a table listing each plan's name, security type, status, and validation mode.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-api-plans.png" alt="Plans management page with lifecycle cards"><figcaption><p>The Plans page shows plan lifecycle cards (Staging, Published, Deprecated, Closed) and a table listing each plan's name, security type, status, and validation mode.</p></figcaption></figure>
 
-Plans are managed from the **Consumer Access → Plans** tab in the API detail sidebar.
+Plans are managed from the **Plans** tab of the API proxy sidebar, in the **Consumer Access** group.
 
-1. Navigate to the API detail page for your API proxy.
-2. In the sidebar, open **Consumer Access → Plans**.
-3. Select **Create plan** and choose a plan type from the dropdown:
+1. Click **API Proxies** in the module sidebar.
+2. Select your API proxy.
+3. Click **Plans** in the API proxy sidebar.
+4. Click **Create plan** and choose a plan type from the dropdown:
 
 | Plan type   | Available for API proxies | Available for API products |
 | ----------- | :-----------------------: | :------------------------: |
 | **API Key** |             ✓             |              ✓             |
 | **JWT**     |             ✓             |              ✓             |
-| **OAuth2**  |             ✓             |              —             |
+| **OAuth2**  |             ✓             |              -             |
 | **mTLS**    |             ✓             |              ✓             |
-| **Keyless** |             ✓             |              —             |
+| **Keyless** |             ✓             |              -             |
 
-4. Complete the plan creation wizard. The wizard steps vary depending on the plan type and context:
+5. Complete the plan creation wizard. The wizard steps vary depending on the plan type and context:
 
-| Context                                   | Plan type   | Wizard steps                                  |
-| ----------------------------------------- | ----------- | --------------------------------------------- |
-| API proxy + API Key, JWT, OAuth2, or mTLS | non-Keyless | **General** → **Security** → **Restrictions** |
-| API proxy + Keyless                       | Keyless     | **General** → **Restrictions**                |
-| API product + API Key, JWT, or mTLS       | non-Keyless | **General** → **Security**                    |
-| API product + Keyless                     | Keyless     | **General** only                              |
+| Context                                   | Plan type   | Wizard steps                                    |
+| ----------------------------------------- | ----------- | ----------------------------------------------- |
+| API proxy + API Key, JWT, OAuth2, or mTLS | non-Keyless | **General**, **Security**, then **Restrictions** |
+| API proxy + Keyless                       | Keyless     | **General**, then **Restrictions**              |
+| API product + API Key, JWT, or mTLS       | non-Keyless | **General**, then **Security**                  |
+| API product + Keyless                     | Keyless     | **General** only                                |
 
 ### Step 1: General
 
@@ -159,12 +160,12 @@ Limit the number of HTTP requests an application can make per hour, day, week, o
 
 **Resource Filtering:**
 
-Restrict access to specific API paths using whitelist and/or blacklist rules. Each rule specifies a URL pattern and the HTTP methods it applies to. Supported HTTP methods: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `OPTIONS`, `HEAD`, `TRACE`, `CONNECT`.
+Restrict access to specific API paths using whitelist rules, blacklist rules, or both. Each rule specifies a URL pattern and the HTTP methods it applies to. Supported HTTP methods: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `OPTIONS`, `HEAD`, `TRACE`, `CONNECT`.
 
 When resource filtering is enabled, additional path normalization options appear:
 
-* **Normalize request path** — Normalize the incoming request path before matching rules.
-* **Decode encoded slash** — Decode `%2F` in the request path (only available when normalization is enabled).
+* **Normalize request path**: Normalize the incoming request path before matching rules.
+* **Decode encoded slash**: Decode `%2F` in the request path (only available when normalization is enabled).
 
 5. Select **Create plan** to save. The plan is created in **Staging** status.
 
@@ -181,13 +182,11 @@ Each plan moves through a defined lifecycle:
 
 ## Plan evaluation order
 
-When multiple plans are attached to an API proxy, the Gateway evaluates them in the order determined by the plan's `order` field. The first plan whose authentication mechanism matches the incoming request is used. If no plan matches, the request is rejected.
+When multiple plans are attached to an API proxy, the Gateway evaluates them in the order shown on the **Plans** page. The first plan whose authentication mechanism matches the incoming request is used. If no plan matches, the request is rejected.
 
-{% hint style="info" %}
-The Gamma console does not currently expose a plan reordering mechanism. Plan evaluation order is determined by the internal `order` field set at creation time.
-{% endhint %}
+To change the evaluation order, use the **Move up** and **Move down** arrows in the plans table. The first plan's **Move up** arrow and the last plan's **Move down** arrow are disabled.
 
 ## Next steps
 
-* [Establish consumer access](configure-your-api-proxy/establish-consumer-access.md) — Create applications, manage subscriptions, and issue API keys for your plans.
-* [Apply security policies](configure-your-api-proxy/apply-security-policies.md) — Add fine-grained authorization and request/response policies on top of your security plans.
+* [Establish consumer access](configure-your-api-proxy/establish-consumer-access.md): Create applications, manage subscriptions, and issue API keys for your plans.
+* [Apply security policies](configure-your-api-proxy/apply-security-policies.md): Add fine-grained authorization and request/response policies on top of your security plans.

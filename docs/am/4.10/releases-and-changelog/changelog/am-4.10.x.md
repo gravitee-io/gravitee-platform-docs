@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.10.x
 
+## Gravitee Access Management 4.10.20 - August 7, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* Permission keys cache problem [#11700](https://github.com/gravitee-io/issues/issues/11700)
+
+**Console**
+
+* Default Scopes and Allowed Scopes are not consistently saved during OpenID Client Registration configuration [#11684](https://github.com/gravitee-io/issues/issues/11684)
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.10.19 - July 30, 2026
 
 <details>

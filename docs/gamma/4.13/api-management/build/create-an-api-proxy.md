@@ -18,7 +18,7 @@ For a minimal quickstart, see [Create your first API](../get-started/create-your
 
 ## Creation modes
 
-<!-- TODO: one screenshot per task — see style-guide/05-formatting-and-document-structure/images-and-figures.md -->
+<!-- TODO: one screenshot per task, see style-guide/05-formatting-and-document-structure/images-and-figures.md -->
 
 <figure><img src="../../.gitbook/assets/gamma-wizard-start.png" alt="Create API Proxy page showing the Start from scratch, Quick-start templates, and Import API options"><figcaption><p>The <strong>Create API Proxy</strong> page offers three paths: <strong>Start from scratch</strong> for full control, <strong>Quick-start templates</strong> for common patterns, and <strong>Import API</strong> for an existing definition.</p></figcaption></figure>
 
@@ -30,8 +30,8 @@ To open this page, go to **API Proxies** and click **Create New Proxy**. The Gam
 
 The rest of this page covers the two wizard flows:
 
-{% tabs %}
-{% tab title="From scratch" %}
+#### From scratch
+
 A four-step wizard that guides you through every configuration option:
 
 1. **API Details**. This step collects the name, version, and description.
@@ -40,9 +40,9 @@ A four-step wizard that guides you through every configuration option:
 4. **Review & Deploy**. This step shows the summary and the deployment option.
 
 Use this mode when you need full control over every field, or when no template matches your use case.
-{% endtab %}
 
-{% tab title="From template" %}
+#### From template
+
 A two-step wizard that preconfigures security and upstream settings based on a common pattern:
 
 1. **Essentials**. This step combines identity, proxy configuration, and the plan name into one form.
@@ -51,12 +51,10 @@ A two-step wizard that preconfigures security and upstream settings based on a c
 Templates preconfigure the security plan type, plan names, and authentication settings. You can override any preconfigured value before deploying.
 
 Use this mode when your API matches a common pattern and you want to skip manual security configuration.
-{% endtab %}
-{% endtabs %}
 
 ## Step 1: API details (scratch mode)
 
-<figure><img src="https://3745118555-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fa6QVD3iIxTvnV5eQ8OH1%2Fuploads%2Fgit-blob-87cbe3e3e85275022206c4fbc7fca5f140379342%2Fgamma-wizard-step1.png?alt=media" alt="Wizard Step 1: API Details form"><figcaption><p>The API Details step collects the name, version, and optional description for your API proxy.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-wizard-step1.png" alt="Wizard Step 1: API Details form"><figcaption><p>The API Details step collects the name, version, and optional description for your API proxy.</p></figcaption></figure>
 
 The following table describes the fields on the **API Details** step:
 
@@ -85,7 +83,7 @@ The security plan type is fixed by the template. To change the plan type or its 
 
 ## Step 2: Configure the proxy (scratch mode)
 
-<figure><img src="https://3745118555-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fa6QVD3iIxTvnV5eQ8OH1%2Fuploads%2Fgit-blob-81712342c6b5848ce4f24b2ffdfbf54617892989%2Fgamma-wizard-step2.png?alt=media" alt="Wizard Step 2: Configure Proxy with context path and target URL"><figcaption><p>The Configure Proxy step defines the gateway path and upstream target URL.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-wizard-step2.png" alt="Wizard Step 2: Configure Proxy with context path and target URL"><figcaption><p>The Configure Proxy step defines the gateway path and upstream target URL.</p></figcaption></figure>
 
 ### Context path
 
@@ -123,12 +121,12 @@ The **Target URL** is the upstream backend that the API Gateway forwards request
 
 ## Step 3: Security plan (scratch mode)
 
-<figure><img src="https://3745118555-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fa6QVD3iIxTvnV5eQ8OH1%2Fuploads%2Fgit-blob-6eac6d02b66ab6c163eb7cafb2a20695fc4ebe7c%2Fgamma-wizard-step3.png?alt=media" alt="Wizard Step 3: Security plan selection"><figcaption><p>Choose a security plan type. Keyless (Open) is selected by default for open access.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-wizard-step3.png" alt="Wizard Step 3: Security plan selection"><figcaption><p>Choose a security plan type. Keyless (Open) is selected by default for open access.</p></figcaption></figure>
 
 A security plan defines how consumers authenticate when calling your API. The Gamma console supports five plan types:
 
-{% tabs %}
-{% tab title="Keyless (Open)" %}
+#### Keyless (Open)
+
 No authentication required. Any consumer can call the API without credentials. This is the default selection.
 
 **Configuration:** None. Select **Keyless (Open)** and proceed.
@@ -136,11 +134,11 @@ No authentication required. Any consumer can call the API without credentials. T
 **Use case:** Internal testing, health checks, public APIs with no consumer tracking.
 
 {% hint style="warning" %}
-Keyless plans provide no consumer identification. You cannot track usage per consumer, revoke access, or enforce per-consumer rate limits. Do not use a Keyless plan for production APIs exposed externally.
+Keyless plans provide no consumer identification. You can't track usage per consumer, revoke access, or enforce per-consumer rate limits. Don't use a Keyless plan for production APIs exposed externally.
 {% endhint %}
-{% endtab %}
 
-{% tab title="API Key" %}
+#### API Key
+
 Consumers authenticate by including an API key in the request header or query parameter.
 
 The following table describes the fields for an API Key plan:
@@ -150,9 +148,9 @@ The following table describes the fields for an API Key plan:
 | **API Key Plan Name**  | Yes      | The name consumers see when they subscribe to the plan.           |
 
 **Use case:** Consumer tracking, rate limiting per key, simple onboarding.
-{% endtab %}
 
-{% tab title="JWT" %}
+#### JWT
+
 Consumers authenticate by presenting a signed JSON Web Token.
 
 The following table describes the fields for a JWT plan:
@@ -165,9 +163,9 @@ The following table describes the fields for a JWT plan:
 | Resolver value     | Yes      | The value the resolver needs. The field label follows your resolver choice, so it reads **JWKS URL**, **Public key**, or **Resolver parameter**. This field supports Expression Language.       |
 
 **Use case:** Integration with external identity providers, fine-grained claims-based access control.
-{% endtab %}
 
-{% tab title="OAuth 2.0" %}
+#### OAuth 2.0
+
 Consumers authenticate by presenting an OAuth 2.0 access token.
 
 The following table describes the fields for an OAuth 2.0 plan:
@@ -179,9 +177,9 @@ The following table describes the fields for an OAuth 2.0 plan:
 | Provider settings      | Yes      | The connection details the selected provider requires, for example **Auth0 Domain** and **Audience**. An optional **User claim** field identifies the end user in analytics logs and defaults to `sub`. |
 
 **Use case:** Enterprise SSO, delegated authorization, integration with identity platforms.
-{% endtab %}
 
-{% tab title="mTLS" %}
+#### mTLS
+
 Consumers authenticate by presenting a client TLS certificate during the TLS handshake.
 
 The following table describes the fields for an mTLS plan:
@@ -191,16 +189,14 @@ The following table describes the fields for an mTLS plan:
 | **mTLS Plan Name**   | Yes      | The name consumers see when they subscribe to the plan.  |
 
 **Use case:** Machine-to-machine communication, zero-trust network environments, internal service mesh.
-{% endtab %}
-{% endtabs %}
 
 {% hint style="info" %}
-The wizard creates one plan. After creation, you can add more plans to the same API proxy from the **Plans** page in the **CONSUMER ACCESS** section, and use **Reorder** to set their order. The API Gateway evaluates plans in that order and uses the first plan that matches the consumer's credentials.
+The wizard creates one plan. After creation, add more plans to the same API proxy from the **Plans** page in the **Consumer Access** group, and set their order with the **Move up** and **Move down** arrows in the plans table. The API Gateway evaluates plans in that order and uses the first plan that matches the consumer's credentials.
 {% endhint %}
 
 ## Step 4: Review and deploy
 
-<figure><img src="https://3745118555-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fa6QVD3iIxTvnV5eQ8OH1%2Fuploads%2Fgit-blob-fb0c8b9151b434b859885eb06469349a7d0c2587%2Fgamma-wizard-step4.png?alt=media" alt="Wizard Step 4: Review and deploy summary"><figcaption><p>The Review &#x26; Deploy step shows the full configuration before creation. The <strong>Deploy and start API immediately</strong> toggle publishes the API as part of creation.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-wizard-step4.png" alt="Wizard Step 4: Review and deploy summary"><figcaption><p>The Review &#x26; Deploy step shows the full configuration before creation. The <strong>Deploy and start API immediately</strong> toggle publishes the API as part of creation.</p></figcaption></figure>
 
 The final step summarizes your API proxy configuration in the following three sections, each with its own **Edit** action:
 
@@ -220,7 +216,7 @@ Once your API proxy is created, the console opens the **Overview** page for that
 
 ### Overview page layout
 
-<figure><img src="https://3745118555-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fa6QVD3iIxTvnV5eQ8OH1%2Fuploads%2Fgit-blob-8cbb703ea089ea39a4ba2f088f0d3d6f0642798d%2Fgamma-api-overview.png?alt=media" alt="API proxy overview page with checklist and endpoint summary"><figcaption><p>The Overview page shows setup progress, gateway and upstream endpoints, and a traffic snapshot.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-api-overview.png" alt="API proxy overview page with checklist and endpoint summary"><figcaption><p>The Overview page shows setup progress, gateway and upstream endpoints, and a traffic snapshot.</p></figcaption></figure>
 
 The Overview page includes the following sections:
 
@@ -243,7 +239,7 @@ The following table describes the checklist items and where each one is configur
 | **Invite teammates and assign roles**                 | Collaborate on the API and control who can view, edit, deploy, or own the proxy.                            | The **User Permissions** page in the **SECURITY** section. Click **Manage Access**. |
 
 {% hint style="info" %}
-The checklist is optional tracking. Click **Collapse checklist** when you no longer need the guided list. Consumer access, which covers plans, applications, and subscriptions, is configured separately in the **CONSUMER ACCESS** section. See [Establish consumer access](configure-your-api-proxy/establish-consumer-access.md).
+The checklist is optional tracking. Click **Collapse checklist** when you no longer need the guided list. Consumer access, which covers plans, applications, and subscriptions, has its own **Consumer Access** group in the API proxy sidebar. See [Establish consumer access](configure-your-api-proxy/establish-consumer-access.md).
 {% endhint %}
 
 ### Related configuration

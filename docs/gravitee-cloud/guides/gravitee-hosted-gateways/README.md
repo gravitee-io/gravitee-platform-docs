@@ -87,6 +87,8 @@ The Gateway or Gateways appear in the **Gateways** section of the **Dashboard**.
 
 <figure><img src="../../.gitbook/assets/guide-gravitee-hosted-gateways-read-3.png" alt=""><figcaption></figcaption></figure>
 
+For more information about filtering the Gateways list, see [filter-the-gateways-list.md](../filter-the-gateways-list.md "mention").
+
 ## View the details of a Gateway
 
 *   To the view the details of a Gateway, click the Gateway name to see the Gateway details.

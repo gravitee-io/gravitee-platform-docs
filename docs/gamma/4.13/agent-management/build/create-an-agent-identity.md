@@ -19,19 +19,19 @@ The Agent Management module must be connected to an AM instance before you can r
 
 Every agent is registered as one of three personas. The persona determines the underlying OAuth client type and the grant flows the agent is allowed to use. **The persona is immutable after creation**—you can't change it later. The following table describes each persona:
 
-| Persona              | OAuth client                                                        | Use it for                                                  |
-| -------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------- |
-| **User-embedded**    | Native, public client—PKCE enforced, no client secret             | An agent that runs on the user's device.                    |
-| **Hosted delegated** | Web, confidential client                                            | An agent that runs on your server, acting per user session. |
-| **Autonomous**       | Service client—`client_credentials` or token exchange, no browser | An unattended service worker with no interactive user.      |
+| Persona                        | OAuth client                                                      | Use it for                                                  |
+| ------------------------------ | ----------------------------------------------------------------- | ----------------------------------------------------------- |
+| **Desktop Productivity Agent** | Native, public client—PKCE enforced, no client secret             | An agent that runs on the user's device.                    |
+| **Hosted Agent**               | Web, confidential client                                          | An agent that runs on your server, acting per user session. |
+| **Workload Agent**             | Service client—`client_credentials` or token exchange, no browser | An unattended service worker with no interactive user.      |
 
 The following table lists what each persona needs in the wizard:
 
-| Persona              | Redirect URIs | Identity provider | Credentials                       |
-| -------------------- | ------------- | ----------------- | --------------------------------- |
-| **User-embedded**    | Required      | Required          | — (public client)                 |
-| **Hosted delegated** | Required      | Required          | Optional JWKS (`private_key_jwt`) |
-| **Autonomous**       | —             | —                 | JWKS **or** SPIFFE (required)     |
+| Persona                        | Redirect URIs | Identity provider | Credentials                       |
+| ------------------------------ | ------------- | ----------------- | --------------------------------- |
+| **Desktop Productivity Agent** | Required      | Required          | — (public client)                 |
+| **Hosted Agent**               | Required      | Required          | Optional JWKS (`private_key_jwt`) |
+| **Workload Agent**             | —             | —                 | JWKS **or** SPIFFE (required)     |
 
 ## The registration wizard
 
@@ -50,7 +50,7 @@ To open it:
 
 ## Step 1: Pick a persona
 
-Select the persona card that matches how the agent runs—**User-embedded**, **Hosted delegated**, or **Autonomous**. For more information, see [Agent personas](#agent-personas). Select **Next**.
+Select the persona card that matches how the agent runs—**Desktop Productivity Agent**, **Hosted Agent**, or **Workload Agent**. For more information, see [Agent personas](#agent-personas). Select **Next**.
 
 ## Step 2: Basics
 
@@ -84,7 +84,7 @@ Select **Next**.
 
 This step changes based on the persona you chose.
 
-### User-embedded and Hosted delegated
+### Desktop Productivity Agent and Hosted Agent
 
 These personas act on behalf of a user, so they need a redirect target and an identity provider. Provide the following:
 
@@ -95,11 +95,11 @@ These personas act on behalf of a user, so they need a redirect target and an id
 If no identity providers are listed, create one on the AM domain first.
 {% endhint %}
 
-For **Hosted delegated**, you can also toggle **Enable JWKS** to switch client authentication to `private_key_jwt`. Provide a **jwks\_uri**, where AM fetches the public JWKS document, and/or paste an inline **jwks** JSON object. If you leave this disabled, the client authenticates using a generated client secret.
+For **Hosted Agent**, you can also toggle **Enable JWKS** to switch client authentication to `private_key_jwt`. Provide a **jwks\_uri**, where AM fetches the public JWKS document, and/or paste an inline **jwks** JSON object. If you leave this disabled, the client authenticates using a generated client secret.
 
-### Autonomous
+### Workload Agent
 
-Autonomous agents have no browser and no interactive user. Instead of redirect URIs and an identity provider, you choose how the agent authenticates. **JWKS and SPIFFE are mutually exclusive.**
+Workload Agents have no browser and no interactive user. Instead of redirect URIs and an identity provider, you choose how the agent authenticates. **JWKS and SPIFFE are mutually exclusive.**
 
 {% tabs %}
 {% tab title="JWKS" %}
@@ -116,7 +116,7 @@ Authenticate with a SPIFFE JWT-SVID instead of a client secret.
 * **SPIFFE ID**. Enter the subject identifier. It must start with `spiffe://<trust-domain>/`, for example `spiffe://example.org/workload/my-agent`. Depending on the match mode configured in AM, the ID is validated using an exact match or a prefix match.
 
 {% hint style="info" %}
-The **SPIFFE** option is only available for Autonomous agents and requires SPIFFE to be enabled on the AM domain—see [Configure your Access Management instance](configure-your-access-management-instance.md).
+The **SPIFFE** option is only available for Workload Agents and requires SPIFFE to be enabled on the AM domain—see [Configure your Access Management instance](configure-your-access-management-instance.md).
 {% endhint %}
 {% endtab %}
 {% endtabs %}

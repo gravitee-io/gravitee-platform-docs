@@ -6,7 +6,7 @@ The 4.13 release adds the following capabilities.
 
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies.
+API Management gains a file-based path for building and updating API proxies and a redesigned out-of-sync banner in the API detail workspace.
 
 #### Import an API proxy
 
@@ -15,6 +15,24 @@ API Management gains a file-based path for building and updating API proxies.
 * Supply each format as a local file or as a remote `http` or `https` URL that the Management API fetches server-side.
 * For OpenAPI and WSDL imports, choose whether to create a documentation page from the specification and whether to add an OpenAPI Specification Validation policy. WSDL imports also offer the REST to SOAP Transformer policy.
 * See [Import an API proxy](../api-management/build/import-an-api-proxy.md).
+
+#### Out-of-sync banner in the API detail workspace
+
+* The **This API is out of sync** banner replaces the **This API has undeployed changes.** banner in the API detail workspace.
+* The new banner carries an explanation: **Your latest changes are not live yet. Deploy to push them to the gateway.**
+* The **Deploy API** button on the banner and the **Out of sync** state badge in the sidebar header are unchanged.
+* See [Configure your API proxy](../api-management/build/configure-your-api-proxy/README.md).
+
+### Event Stream Management
+
+Event Stream Management adds a duplication path for Kafka Services.
+
+#### Duplicate a Kafka service
+
+* Create a copy of an existing Kafka Service with **Duplicate** on the service's **General** page. The copy reuses the source service's listener and endpoint configuration.
+* Provide a name, a version, and a new listener host prefix for the copy. The host prefix is unique per environment, and the source service's prefix counts as already in use.
+* The new service is created in a stopped state and without plans, so you control when it starts accepting connections.
+* See [Duplicate a Kafka service](../event-stream-management/build/duplicate-a-kafka-service.md).
 
 ## Release Date: June 26, 2026
 
@@ -49,7 +67,7 @@ API Management gains a file-based path for building and updating API proxies.
 #### Agent Identity
 
 * Registers agents as OAuth clients in Gravitee Access Management so gateways and authorization policies can authenticate, attribute, and audit every agent.
-* Three personas: **User-embedded** (public PKCE client), **Hosted delegated** (confidential web client), and **Autonomous** (service client with `client_credentials` or token exchange).
+* Three personas: **Desktop Productivity Agent** (public PKCE client), **Hosted Agent** (confidential web client), and **Workload Agent** (service client with `client_credentials` or token exchange).
 * Supports CIMD (Client ID Metadata Documents) and SPIFFE as credential options within the registration wizard.
 
 #### Observability
@@ -84,6 +102,12 @@ API Management gains a file-based path for building and updating API proxies.
 
 * Monitor request volume, latency, error rates, and audit history for every deployed API via per-API dashboards and log search.
 * Endpoint health monitoring surfaces backend availability without leaving the console.
+
+#### API detail workspace
+
+* Manage every aspect of an API proxy after creation from a single workspace: general settings, properties, resources, notifications, CORS, entrypoints, endpoints, failover, health checks, logging and tracing, plans, consumers, broadcasts, user permissions, audit logs, and deployment.
+* Compare any two deployed versions of an API definition and roll back to an earlier one.
+* See [Configure your API proxy](../api-management/build/configure-your-api-proxy/README.md).
 
 ### Authorization Management
 
