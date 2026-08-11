@@ -23,8 +23,7 @@ The page contains three sections:
 * **Sharding Tags**. The tags used to route APIs to specific gateway groups.
 * **Entrypoint Mappings**. The entrypoint displayed in the Developer Portal when an API has a given tag.
 
-<!-- TODO: Screenshot of the Entrypoints & Sharding Tags page showing the three sections -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-entrypoints-sharding-tags.png" alt=""><figcaption><p>The Entrypoints &#x26; Sharding Tags page with per-environment default values, the sharding tags list, and the entrypoint mappings list.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-entrypoints-sharding-tags.png" alt=""><figcaption><p>The Entrypoints &#x26; Sharding Tags page with per-environment default values, the sharding tags list, and the entrypoint mappings list.</p></figcaption></figure>
 
 ## Configure default entrypoint values
 
