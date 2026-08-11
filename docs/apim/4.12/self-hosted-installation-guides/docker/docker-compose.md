@@ -23,7 +23,7 @@ Before you install APIM, complete the following steps:
 * For Gravitee Enterprise Edition deployments, ensure that you have your license key. For more information about license keys, see Gravitee Platform [Pricing](https://www.gravitee.io/pricing).
 
 {% hint style="warning" %}
-The default `graviteeio/apim-gateway` image is based on Alpine Linux, which does not support the ONNX Runtime. As a result, AI policies that depend on ONNX Runtime, such as **AI - Prompt Guard Rails**, will not work with the default image. If you plan to use these policies, use the Debian variant of the image instead (e.g., `graviteeio/apim-gateway:4.12-debian`). The Debian variant is available for version 4.9 and later.
+The default `graviteeio/apim-gateway` image is based on Alpine Linux, which does not support the ONNX Runtime. As a result, AI policies that depend on ONNX Runtime, such as **AI - Prompt Guard Rails**, do not work with the default image. To use these policies, use the Debian variant of the image instead. For example, `graviteeio/apim-gateway:4.12-debian`. The Debian variant is available for version 4.9 and later.
 {% endhint %}
 
 ### Install Gravitee APIM <a href="#install-gravitee-apim" id="install-gravitee-apim"></a>
