@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Register your first Kafka cluster in the Gamma console and add its first connection. Follow the quickstart to create and deploy the cluster.
 ---
 # Register your first cluster
 
