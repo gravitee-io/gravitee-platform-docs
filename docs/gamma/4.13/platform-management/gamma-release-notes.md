@@ -34,6 +34,17 @@ Event Stream Management adds a duplication path for Kafka Services.
 * The new service is created in a stopped state and without plans, so you control when it starts accepting connections.
 * See [Duplicate a Kafka service](../event-stream-management/build/duplicate-a-kafka-service.md).
 
+### Platform Management
+
+Platform Management adds gateway routing configuration for the organization.
+
+#### Manage entrypoints and sharding tags
+
+* Configure sharding tags, entrypoint mappings, and each environment's default entrypoint values from the **Entrypoints & Sharding Tags** page.
+* Sharding tags route APIs to specific gateway groups. Create a tag with an immutable key, restrict it to selected groups, and add the key to the gateway's configuration file.
+* Entrypoint mappings define the entrypoint that the Developer Portal displays for APIs that carry a given tag, as an HTTP URL, a TCP port, or a Kafka bootstrap domain pattern, and apply to all environments or to a selection.
+* See [Manage entrypoints and sharding tags](manage-entrypoints-and-sharding-tags.md).
+
 ## Release Date: June 26, 2026
 
 ## Highlights
