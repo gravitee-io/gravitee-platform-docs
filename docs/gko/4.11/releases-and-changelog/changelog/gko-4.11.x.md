@@ -1,5 +1,8 @@
 # GKO 4.11.x
 
+4.11.22 was not created in Jira. Assuming no changelog should be generated.
+
+
 ## Gravitee Kubernetes Operator 4.11.19 - July 22, 2026
 
 There is nothing new in version 4.11.19.
