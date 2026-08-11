@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Track request volume, latency distribution, error rates, and top consumers for an API proxy. Follow the steps to open the observability dashboard.
 ---
 
 # Monitor API usage

@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Add members, attach groups, change roles, and transfer ownership of an API product. Follow the steps to manage access from the User Permissions tab.
 ---
 
 # Manage members and ownership

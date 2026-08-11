@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Assign sharding tags to an API Product so only the API Gateway instances that advertise a matching tag load it. Follow the steps on the Deployment tab.
 ---
 
 # Configure product deployment

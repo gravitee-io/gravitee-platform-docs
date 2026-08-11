@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Monitor, troubleshoot, and audit your API traffic with dashboards, usage metrics, health checks, and logs. Start with what you need to see.
 ---
 
 # Observe

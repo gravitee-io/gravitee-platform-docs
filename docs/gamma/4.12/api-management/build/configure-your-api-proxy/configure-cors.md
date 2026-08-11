@@ -1,9 +1,7 @@
 ---
-description: >-
-  Allow browsers on other origins to call your API by configuring
-  cross-origin resource sharing.
 hidden: false
 noIndex: false
+description: Let browsers on other origins call your API by enabling cross-origin resource sharing and setting the allowed origins. Follow the steps to configure it.
 ---
 
 # Configure CORS

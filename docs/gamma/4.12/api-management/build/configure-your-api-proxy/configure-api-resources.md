@@ -1,9 +1,7 @@
 ---
-description: >-
-  Create API-level resources, such as caches and OAuth providers, that policies
-  reference at runtime.
 hidden: false
 noIndex: false
+description: Create API-level resources such as caches and OAuth providers that this API's policies reference at runtime. Follow the steps to add and manage them.
 ---
 
 # Configure API resources

@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Attach and detach API proxies from an API Product so subscribers reach every API it bundles. Follow the steps to manage them on the APIs tab.
 ---
 
 # Manage product APIs

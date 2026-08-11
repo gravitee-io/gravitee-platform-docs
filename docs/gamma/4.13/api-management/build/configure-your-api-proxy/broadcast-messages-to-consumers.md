@@ -1,9 +1,7 @@
 ---
-description: >-
-  Send one-way announcements about changes or maintenance to the consumers of
-  an API proxy.
 hidden: false
 noIndex: false
+description: Send a one-way announcement to the consumers of an API proxy about a change, an update, or a maintenance window. Follow the steps to compose one.
 ---
 
 # Broadcast messages to consumers

@@ -1,8 +1,7 @@
 ---
-description: >-
-  Trace who changed what, and when, on an API proxy with its audit trail.
 hidden: false
 noIndex: false
+description: Trace who changed what, and when, on an API proxy with its audit trail. Follow the steps to read and filter the events on the Audit Logs page.
 ---
 
 # Review audit logs

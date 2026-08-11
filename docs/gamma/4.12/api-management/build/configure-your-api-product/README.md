@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Attach APIs, create plans, manage consumers and team access, and choose where an API Product deploys. Start with the area you need to configure.
 ---
 
 # Configure API products

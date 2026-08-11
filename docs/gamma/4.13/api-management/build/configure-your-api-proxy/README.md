@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Refine an API proxy from the detail workspace, which groups configuration into seven sidebar sections. Start with the setting you need to change.
 ---
 
 # Configure your API proxy

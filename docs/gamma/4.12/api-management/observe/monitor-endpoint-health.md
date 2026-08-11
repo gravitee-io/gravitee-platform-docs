@@ -1,5 +1,6 @@
 ---
 noIndex: false
+description: Track backend endpoint availability, response times, and failed health checks for an API. Follow the steps to open the Health Check Dashboard.
 ---
 
 # Monitor endpoint health
