@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Register a Gravitee Gateway as a Policy Decision Point so authorization decisions are evaluated at the wire level. Follow the steps to register one.
 ---
 
 # Configure the Gravitee Gateway as a runtime

@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: How the console validates a schema change before saving, and the errors to expect. Learn the validation pipeline and how to fix a failure.
 ---
 
 # Validate schema changes
