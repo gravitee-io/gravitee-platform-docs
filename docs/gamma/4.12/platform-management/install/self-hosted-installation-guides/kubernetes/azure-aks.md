@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Run the full Gamma stack on Azure AKS behind an NGINX ingress controller. Follow the steps to create the namespace and install every component.
 ---
 # Install Gamma on Azure AKS
 

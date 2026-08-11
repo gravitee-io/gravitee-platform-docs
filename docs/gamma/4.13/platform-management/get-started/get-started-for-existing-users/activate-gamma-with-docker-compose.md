@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Activate Gamma on an existing Docker Compose installation of Gravitee by moving to the Gamma build. Follow the steps to enable and verify it.
 ---
 # Activate Gamma with Docker Compose
 

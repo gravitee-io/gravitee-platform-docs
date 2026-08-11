@@ -1,6 +1,7 @@
 ---
 hidden: true
 noIndex: true
+description: Resources are shared components that API proxies reference at runtime, such as caches and OAuth2 providers. Learn what the planned capability covers.
 ---
 
 # Manage resources

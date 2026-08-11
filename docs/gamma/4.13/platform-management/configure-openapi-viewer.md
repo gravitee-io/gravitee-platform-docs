@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Choose which viewer the Gamma console and Developer Portal use to render OpenAPI specifications. Follow the steps to change the default viewer.
 ---
 
 # Configure OpenAPI viewer

@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Connect your edge environments and tools to the Gamma Edge Daemon, from the proxy APIs to fleet deployment. Start with the task you need.
 ---
 
 # Connect

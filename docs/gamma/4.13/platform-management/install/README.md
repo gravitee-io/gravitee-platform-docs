@@ -1,7 +1,7 @@
 ---
-description: Choose between a self-hosted and a hybrid Gamma installation.
 hidden: false
 noIndex: false
+description: Choose between a self-hosted Gamma installation, where you run everything, and a hybrid one, where Gravitee hosts the control plane. Pick your model.
 ---
 # Install
 
