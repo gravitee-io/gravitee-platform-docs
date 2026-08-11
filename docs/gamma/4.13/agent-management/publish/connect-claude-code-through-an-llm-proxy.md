@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Configure Claude Code to reach Anthropic through an LLM Proxy while preserving Claude Code's own OAuth login.
+description: Configure Claude Code to reach Anthropic through an LLM Proxy while users keep their own OAuth login. Follow the steps to set up the plan and headers.
 ---
 
 # Connect Claude Code through an LLM Proxy

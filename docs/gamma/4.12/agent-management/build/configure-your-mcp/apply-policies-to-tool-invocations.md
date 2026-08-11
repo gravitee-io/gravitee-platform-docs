@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Apply policies to a single high-value tool invocation on an MCP Proxy and leave other tools unconstrained. Follow the steps to target it in a flow.
 ---
 
 # Apply policies to individual tool invocations

@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Connect the Agent Management module to a Gravitee Access Management instance and select an AM domain so you can register agent identities.
+description: Connect the Agent Management module to a Gravitee Access Management instance and select a domain. Follow the steps to configure the connection.
 ---
 
 # Configure your Access Management instance

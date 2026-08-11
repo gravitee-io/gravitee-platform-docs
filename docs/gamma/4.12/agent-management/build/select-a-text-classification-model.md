@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Compare the text classification models available to the AI - Prompt Guard Rails policy, and choose one based on accuracy, language coverage, label granularity, and resource footprint.
+description: Compare the text classification models behind the AI - Prompt Guard Rails policy on accuracy, languages, and labels. Choose the one that fits your traffic.
 ---
 
 # Select a text classification model

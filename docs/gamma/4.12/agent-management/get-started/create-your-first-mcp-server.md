@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Create your first MCP Proxy in Gravitee Gamma using Proxy mode with API key security.
+description: Create your first MCP Proxy in front of an upstream MCP server, using Proxy mode with API key security. Follow the quickstart to get it running.
 ---
 
 # Create your first MCP server

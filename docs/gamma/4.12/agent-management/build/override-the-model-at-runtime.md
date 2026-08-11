@@ -1,9 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: >-
-  Route a request to a different model than the client asked for, by setting the
-  llmproxy.model.override context attribute on an LLM Proxy flow.
+description: Route a request to a different model than the client asked for by setting a context attribute on an LLM Proxy flow. Follow the steps to override it.
 ---
 
 # Override the model at runtime

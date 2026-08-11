@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Create and configure the AI Gateway components that govern LLM, MCP, and A2A traffic, along with agent identities. Start with the proxy you need.
 ---
 
 # Build

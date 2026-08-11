@@ -1,10 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: >-
-  The three client formats an LLM Proxy accepts — OpenAI, Anthropic Messages,
-  and Gemini generateContent — and how each one is normalized before the policy
-  chain runs.
+description: An LLM Proxy accepts requests in the OpenAI, Anthropic Messages, and Gemini generateContent formats. Find the endpoints and limits for each one.
 ---
 
 # Accepted request formats

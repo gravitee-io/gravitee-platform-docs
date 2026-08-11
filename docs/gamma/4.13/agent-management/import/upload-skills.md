@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Upload a skill package so agents can consume it as an MCP resource and you can govern it. Follow the steps to structure the zip file and add it.
 ---
 
 # Upload skills

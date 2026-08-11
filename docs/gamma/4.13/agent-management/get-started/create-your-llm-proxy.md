@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Create an LLM Proxy, connect it to a model provider, and send a test prompt through the AI Gateway. Follow the quickstart to get one running.
 ---
 
 # Create your LLM Proxy

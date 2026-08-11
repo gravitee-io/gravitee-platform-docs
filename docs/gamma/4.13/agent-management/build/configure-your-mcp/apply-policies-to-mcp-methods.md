@@ -1,7 +1,7 @@
 ---
-description: Target policies at specific MCP protocol methods by creating MCP method flows in Policy Studio.
 hidden: false
 noIndex: false
+description: Apply policies to specific MCP methods such as resources/list, tools/call, or prompts/get. Follow the steps to create an MCP method flow.
 ---
 
 # Apply policies to specific MCP methods

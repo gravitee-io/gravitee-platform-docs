@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Reference for which OpenAI features each LLM Proxy provider supports, how requests map to each provider's native API, and the limitations that apply.
+description: Which OpenAI features each LLM Proxy provider supports, how requests map to each native API, and the limits that apply. Browse the full reference.
 ---
 
 # LLM Proxy provider support

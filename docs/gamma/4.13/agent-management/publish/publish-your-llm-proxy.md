@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Publish an LLM Proxy so consumers can send prompts to its context path through the AI Gateway. Follow the steps to deploy it and check consumer access.
 ---
 
 # Publish your LLM Proxy

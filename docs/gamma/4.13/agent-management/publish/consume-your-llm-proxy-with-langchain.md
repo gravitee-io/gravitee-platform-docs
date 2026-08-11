@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Route a LangChain chain through a published LLM Proxy so the chain never holds a provider credential.
+description: Route a LangChain chain through an LLM Proxy so the chain never holds a provider credential. Follow the steps to point ChatOpenAI at your proxy.
 ---
 
 # Consume your LLM Proxy with LangChain

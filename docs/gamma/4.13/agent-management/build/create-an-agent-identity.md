@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Register an agent as an OAuth client in Gravitee Access Management through the Agent Management registration wizard.
+description: Register an agent as an OAuth client in Gravitee Access Management with a persona that fits how it runs. Follow the steps in the registration wizard.
 ---
 
 # Create an agent identity

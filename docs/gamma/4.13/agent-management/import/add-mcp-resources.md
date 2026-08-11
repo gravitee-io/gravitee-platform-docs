@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: MCP resources are read-only data items agents use as context, discovered from registered MCP servers. Review the resources cataloged for your servers.
 ---
 
 # Add MCP resources

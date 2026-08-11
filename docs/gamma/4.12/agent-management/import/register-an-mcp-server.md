@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Register an MCP server to add it to the Catalog with its tools, resources, and prompts. Follow the steps to verify the URL and import its capabilities.
 ---
 
 # Register an MCP server
