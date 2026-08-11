@@ -1,5 +1,12 @@
 # GKO 4.11.x
 
+## Gravitee Kubernetes Operator 4.11.23 - August 11, 2026
+
+There is nothing new in version 4.11.23.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
 4.11.22 was not created in Jira. Assuming no changelog should be generated.
 
 
