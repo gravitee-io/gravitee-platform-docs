@@ -1,7 +1,7 @@
 ---
-description: Create a copy of an existing Kafka Service with a new name, version, and listener host prefix.
 hidden: false
 noIndex: false
+description: Copy an existing Kafka Service with a new name, version, and listener host prefix instead of rebuilding it. Follow the steps to duplicate one.
 ---
 
 # Duplicate a Kafka service

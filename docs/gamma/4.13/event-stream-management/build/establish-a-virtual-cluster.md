@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Federate multiple Kafka backends into one endpoint by establishing a Virtual Cluster. Follow the steps to choose a topology and compose the backends.
 ---
 
 # Establish a Virtual Cluster

@@ -1,5 +1,5 @@
 ---
-description: Overview of Event Stream Management, the Gamma product line for governing Kafka clusters, event-driven data flows, and streaming infrastructure.
+description: Event Stream Management governs Kafka clusters, event-driven data flows, and streaming infrastructure. Learn what it does and how it fits Gamma.
 ---
 
 # Event Stream Management overview

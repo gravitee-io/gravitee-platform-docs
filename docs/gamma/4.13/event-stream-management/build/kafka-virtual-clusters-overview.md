@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: A Virtual Cluster presents several Kafka backends to clients as one endpoint. Learn the key concepts, Mesh mode, and the limitations that apply.
 ---
 # Virtual Clusters overview
 

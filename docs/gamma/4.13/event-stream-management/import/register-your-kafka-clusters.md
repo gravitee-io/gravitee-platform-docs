@@ -1,7 +1,7 @@
 ---
-description: How to register an existing Kafka cluster with Gamma so it can be deployed and used by Kafka Services and Virtual Clusters.
 hidden: false
 noIndex: false
+description: Register an existing Kafka cluster with Gamma so Kafka Services and Virtual Clusters can be built on it. Follow the steps to register and deploy one.
 ---
 
 # Register your Kafka clusters
