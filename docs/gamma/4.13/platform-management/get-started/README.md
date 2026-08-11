@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Choose between the new-user and existing-user paths for getting started with Gamma.
+description: Choose the Gamma getting-started path that fits you, whether you are new to Gravitee or activating Gamma on an existing installation. Start here.
 ---
 
 # Get started

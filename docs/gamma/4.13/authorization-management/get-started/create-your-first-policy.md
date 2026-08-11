@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Create and deploy your first authorization policy in the visual editor to get a permit rule enforced at runtime. Follow the steps to build one.
 ---
 
 # Create your first policy

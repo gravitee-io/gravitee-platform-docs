@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Gamma compiles deployed authorization policies into an AuthZEN representation the API Gateway evaluates locally. Learn how sync and isolation work.
 ---
 
 # AuthZEN PDP synchronization

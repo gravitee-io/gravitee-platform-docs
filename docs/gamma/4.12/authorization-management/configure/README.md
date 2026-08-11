@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Create, update, and delete authorization policies, write custom ones, and work from API and MCP examples. Start with the task you need.
 ---
 
 # Configure

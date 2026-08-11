@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Create an authorization policy for resources not routed through the MCP, API, Agent, AI Model, or Event categories. Follow the steps to build one.
 ---
 
 # Create a custom policy

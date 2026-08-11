@@ -1,9 +1,7 @@
 ---
-description: >-
-  View, create, and manage the consumer applications that subscribe to your API
-  plans from the Applications page in the Gamma console.
 hidden: false
 noIndex: false
+description: View, create, and manage the consumer applications that subscribe to your API plans. Follow the steps to work with them on the Applications page.
 ---
 
 # Manage applications

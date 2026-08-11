@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Modify an existing schema to add entity types, attributes, relationships, or actions. Follow the steps to edit, validate, and save your changes.
 ---
 
 # Edit your schema

@@ -1,3 +1,7 @@
+---
+description: Install a fully self-hosted Gamma platform on one host with the Docker CLI. Follow the steps to run the datastores, Gateway, and consoles.
+---
+
 # Docker CLI
 
 {% hint style="warning" %}
