@@ -9,14 +9,14 @@ metaLinks:
 
 ## Overview
 
-This page discusses the [configuration](jms.md#configuration) and [implementation](jms.md#implementation) of the **JMS** endpoint and includes a [reference](jms.md#reference) section.
+This page guides you through the [configuration](jms.md#configuration) and [implementation](jms.md#implementation) of the **JMS** endpoint and includes a [reference](jms.md#reference) section.
 
 ## Configuration
 
 The **JMS** endpoint allows the Gravitee Gateway to produce and consume messages from JMS-compliant message brokers using web-friendly protocols such as HTTP or WebSocket. The Gateway mediates the protocol between the client and the backend. It supports both queue (point-to-point) and topic (publish-subscribe) messaging patterns.
 
 {% hint style="warning" %}
-The JMS endpoint plugin doesn't bundle JMS provider client libraries. Place the required JMS provider library in `./plugins/ext/jms/` at runtime.
+The JMS endpoint plugin does not bundle JMS provider client libraries. Place the required JMS provider library in `./plugins/ext/jms/` at runtime.
 {% endhint %}
 
 ### 1. Initial settings
