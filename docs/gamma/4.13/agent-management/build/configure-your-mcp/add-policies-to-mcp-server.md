@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Control which consumers can invoke which tools on an MCP Proxy with GAPL authorization policies. Follow the steps to create and deploy a policy.
+description: Control which consumers can invoke which tools on an MCP Proxy with fine-grained authorization policies. Follow the steps to create and deploy one.
 ---
 
 # Add policies to your MCP server
