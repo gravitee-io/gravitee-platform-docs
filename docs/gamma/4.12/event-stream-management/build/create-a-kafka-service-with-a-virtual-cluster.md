@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Create a Kafka Service backed by a Virtual Cluster to govern a federated multi-cluster Kafka environment. Follow the steps to build it in the wizard.
 ---
 
 # Create a Kafka service with a Virtual Cluster

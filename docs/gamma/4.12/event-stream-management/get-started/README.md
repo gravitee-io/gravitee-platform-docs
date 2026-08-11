@@ -1,7 +1,7 @@
 ---
-description: Introductory pages for Event Stream Management in Gamma, covering the product overview and the quickstarts for clusters, Kafka services, and Virtual Clusters.
 hidden: false
 noIndex: false
+description: Event Stream Management in Gamma, from the product overview to the quickstarts for clusters, Kafka Services, and Virtual Clusters. Start where you need.
 ---
 
 # Get started
