@@ -1,10 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: >-
-  Configure the AI - Prompt Guard Rails policy against a text classification
-  model, set the sensitivity threshold, choose whether to block or log, and tune
-  the result.
+description: Configure the AI - Prompt Guard Rails policy settings, set the sensitivity threshold, and choose whether to block or log. Follow the steps to tune it.
 ---
 
 # Configure text classification

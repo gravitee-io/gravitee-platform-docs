@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Importing MCP servers in bulk from an external registry is planned for a future release. Register a server by URL to add one to the Catalog today.
 ---
 
 # Add an MCP Registry

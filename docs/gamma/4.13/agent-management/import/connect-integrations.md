@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Connect Gamma to an AI model provider or to Azure AI Foundry so their models import into the Catalog. Follow the steps to connect an integration.
 ---
 
 # Connect integrations

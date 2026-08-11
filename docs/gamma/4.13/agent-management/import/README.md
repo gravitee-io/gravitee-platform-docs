@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Populate the Agent Management Catalog with the models, MCP servers, tools, prompts, resources, and skills your agents use. Start with your source.
 ---
 
 # Import

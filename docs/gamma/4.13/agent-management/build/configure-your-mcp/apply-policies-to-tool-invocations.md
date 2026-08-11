@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Apply policies to individual tool invocations in an MCP Proxy by creating an MCP method flow on tools/call with a condition that matches the tool name.
+description: Apply policies to a single tool invocation on an MCP Proxy with a tools/call flow and a condition on the tool name. Follow the steps to create it.
 ---
 
 # Apply policies to individual tool invocations

@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Compose tools, resources, and prompts from multiple sources into a governed Composite MCP Server. Follow the steps to create one in MCP Studio.
 ---
 
 # Create an MCP Studio

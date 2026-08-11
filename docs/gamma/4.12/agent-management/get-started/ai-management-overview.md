@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Learn what Agent Management governs, the components it provides, and how it connects to the rest of the Gamma platform.
+description: Agent Management governs LLM, MCP, and agent-to-agent traffic from one control plane. Learn what it provides and how it fits the Gamma platform.
 ---
 
 # Agent Management overview

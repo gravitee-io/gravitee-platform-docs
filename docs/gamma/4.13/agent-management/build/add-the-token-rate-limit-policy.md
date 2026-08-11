@@ -1,9 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: >-
-  Limit how many LLM tokens a consumer may spend over a period of time, with the
-  Token Rate Limit policy on an LLM Proxy.
+description: Add the Token Rate Limit policy to an LLM Proxy to cap the tokens a consumer spends over a rolling period. Follow the steps to configure it.
 ---
 
 # Add the Token Rate Limit policy

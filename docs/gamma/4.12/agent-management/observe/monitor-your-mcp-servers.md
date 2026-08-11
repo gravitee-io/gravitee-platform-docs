@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Monitor tool invocations, error rates, and latency for your MCP Proxies through the AI Gateway. Follow the steps to view metrics in the console.
 ---
 
 # Monitor your MCP servers
