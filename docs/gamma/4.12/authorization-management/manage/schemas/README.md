@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: The schema declares the entity types, relationships, and actions your policies are written against. Start with how a schema is generated.
 ---
 
 # Manage schemas

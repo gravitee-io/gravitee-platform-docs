@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Create a keyless API proxy in the Gamma console, deploy it to the API Gateway, and verify it with a test request. Follow the quickstart to build one.
 ---
 
 # Create your first API

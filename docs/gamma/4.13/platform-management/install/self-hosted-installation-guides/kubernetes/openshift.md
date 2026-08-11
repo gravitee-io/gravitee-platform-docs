@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Install a fully self-hosted Gamma platform on OpenShift, with MongoDB and Elasticsearch. Follow the steps to deploy it with the Helm chart.
 ---
 # Install Gamma on OpenShift
 

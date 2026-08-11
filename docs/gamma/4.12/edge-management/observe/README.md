@@ -1,6 +1,7 @@
 ---
 hidden: true
 noIndex: true
+description: Monitor the traffic the Edge Daemon captures and proxies, from shadow AI usage to policy enforcement outcomes. Start with the view you need to see.
 ---
 
 # Observe

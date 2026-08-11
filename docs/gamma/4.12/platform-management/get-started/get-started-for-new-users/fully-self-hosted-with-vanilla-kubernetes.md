@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Run a full Gamma platform yourself on Kubernetes with the Gravitee Helm chart. Choose the guide for your cluster and the ingress it needs.
 ---
 # Fully self-hosted installation with Vanilla Kubernetes
 

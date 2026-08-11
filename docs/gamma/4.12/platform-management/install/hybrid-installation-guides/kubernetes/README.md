@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Deploy a hybrid Gamma Gateway with the Gravitee Helm chart on EKS, AKS, OpenShift, or vanilla Kubernetes. Choose the guide for your cluster.
 ---
 # Kubernetes
 

@@ -1,5 +1,5 @@
 ---
-description: How authorization, rate limits, and response redaction combine to govern what a caller can do through a Composite MCP Server.
+description: Authorization, rate limits, and response redaction govern what a caller can do through a Composite MCP Server. Learn how the three controls combine.
 ---
 
 # Layered governance for MCP tools

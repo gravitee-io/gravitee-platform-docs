@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Add an AI model to the Catalog so authorization policies, observability, and cost attribution can reference it. Follow the steps to import one.
 ---
 
 # Add an AI model

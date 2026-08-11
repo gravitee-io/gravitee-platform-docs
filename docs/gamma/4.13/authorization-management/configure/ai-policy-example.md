@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Control which teams reach which AI models with policy examples for token budgets, cost ceilings, and guardrails. Adapt an example to your own models.
 ---
 
 # AI policy example

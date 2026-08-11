@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Endpoint groups define where the API Gateway routes requests, with load balancing, timeouts, and TLS. Follow the steps to create a group and add endpoints.
 ---
 
 # Configure endpoints

@@ -1,9 +1,7 @@
 ---
-description: >-
-  Edit the name, version, metadata, and images of an API proxy, and control its
-  runtime state from the General page.
 hidden: false
 noIndex: false
+description: Edit the name, version, metadata, and images of an API proxy, and start, stop, or delete it. Follow the steps on the General page to update them.
 ---
 
 # Manage general settings

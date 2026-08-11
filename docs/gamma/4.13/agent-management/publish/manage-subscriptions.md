@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Accept, reject, and close consumer subscriptions to your LLM Proxies and MCP Proxies. Follow the steps to manage a request through its lifecycle.
 ---
 
 # Manage subscriptions

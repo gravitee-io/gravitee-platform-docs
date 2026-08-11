@@ -18,3 +18,7 @@ release-information/breaking-changes-and-deprecations.md
 analyze-and-monitor-apis/reporters/datadog-reporter.md
 # Management API v1 plan endpoints reject V4, Federated, and Federated Agent APIs (APIM 4.13.0, APIM-14587)
 management-api-reference.md
+# Schema registry provider contract 1.1.0 (APIM 4.13.0 feature, ESM-28)
+plugins/customization/schema-registry-provider.md
+# Confluent Schema Registry resource note (ESM-28) and emulation-mode copy edit
+create-and-configure-apis/apply-policies/resources.md

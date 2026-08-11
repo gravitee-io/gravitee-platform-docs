@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Create a local principal in Authorization Management so the policy engine has an identity to evaluate. Follow the steps to add your first one.
 ---
 
 # Create your first user

@@ -1,9 +1,7 @@
 ---
-description: >-
-  Choose which gateway instances load an API definition by assigning sharding
-  tags.
 hidden: false
 noIndex: false
+description: Choose which API Gateway instances load an API definition by assigning sharding tags. Follow the steps on the Deployment Configuration page.
 ---
 
 # Configure deployment

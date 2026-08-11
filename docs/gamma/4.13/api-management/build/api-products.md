@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: API Products bundle multiple API proxies into one consumer-facing product with shared plans. Learn when to use them and how to create one.
 ---
 
 # Create API Products

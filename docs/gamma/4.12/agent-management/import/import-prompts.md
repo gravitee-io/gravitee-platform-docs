@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Prompts are reusable, parameterized templates discovered from registered MCP servers and cataloged for governance. Review your imported prompts.
 ---
 
 # Import prompts

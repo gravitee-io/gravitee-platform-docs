@@ -1,9 +1,7 @@
 ---
-description: >-
-  Create an API proxy, or replace the configuration of an existing one, by
-  importing a Gravitee definition, an OpenAPI specification, or a WSDL document.
 hidden: false
 noIndex: false
+description: Create or replace an API proxy by importing a Gravitee definition, an OpenAPI specification, or a WSDL document. Follow the steps to import a file.
 ---
 
 # Import an API proxy

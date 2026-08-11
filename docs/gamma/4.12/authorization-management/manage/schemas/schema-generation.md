@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: The schema is the contract your policies are written against, declaring entity types, relationships, and actions. Learn how it is generated and read.
 ---
 
 # Schema generation

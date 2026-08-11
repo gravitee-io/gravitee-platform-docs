@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Activate Gamma on an existing Kubernetes deployment of Gravitee with the Helm chart. Follow the steps to move to the Gamma build and enable it.
 ---
 # Activate Gamma with Kubernetes (Helm)
 

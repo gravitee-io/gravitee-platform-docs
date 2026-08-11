@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Create an LLM Proxy that routes traffic to upstream model providers through the AI Gateway with authentication, observability, and consumer plans.
+description: Create an LLM Proxy that routes traffic to upstream model providers through the AI Gateway. Follow the steps in the wizard to configure and deploy it.
 ---
 
 # Create an LLM Proxy

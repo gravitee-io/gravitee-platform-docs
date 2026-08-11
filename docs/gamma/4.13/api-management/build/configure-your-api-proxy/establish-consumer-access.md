@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Applications, subscriptions, and API keys control how consumers discover and authenticate with your API. Learn how to review and approve a request.
 ---
 
 # Establish consumer access

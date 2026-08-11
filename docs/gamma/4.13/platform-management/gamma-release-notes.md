@@ -1,3 +1,7 @@
+---
+description: What the Gamma 4.13 release adds across API Management, Event Stream Management, and the other modules. Browse the new features and changes.
+---
+
 # Gamma Release Notes
 
 ## 4.13 new features
@@ -33,6 +37,28 @@ API Management gains a file-based path for building and updating API proxies and
 * The new banner carries an explanation: **Your latest changes are not live yet. Deploy to push them to the gateway.**
 * The **Deploy API** button on the banner and the **Out of sync** state badge in the sidebar header are unchanged.
 * See [Configure your API proxy](../api-management/build/configure-your-api-proxy/README.md).
+
+### Event Stream Management
+
+Event Stream Management adds a duplication path for Kafka Services.
+
+#### Duplicate a Kafka service
+
+* Create a copy of an existing Kafka Service with **Duplicate** on the service's **General** page. The copy reuses the source service's listener and endpoint configuration.
+* Provide a name, a version, and a new listener host prefix for the copy. The host prefix is unique per environment, and the source service's prefix counts as already in use.
+* The new service is created in a stopped state and without plans, so you control when it starts accepting connections.
+* See [Duplicate a Kafka service](../event-stream-management/build/duplicate-a-kafka-service.md).
+
+### Platform Management
+
+Platform Management adds gateway routing configuration for the organization.
+
+#### Manage entrypoints and sharding tags
+
+* Configure sharding tags, entrypoint mappings, and each environment's default entrypoint values from the **Entrypoints & Sharding Tags** page.
+* Sharding tags route APIs to specific gateway groups. Create a tag with an immutable key, restrict it to selected groups, and add the key to the gateway's configuration file.
+* Entrypoint mappings define the entrypoint that the Developer Portal displays for APIs that carry a given tag, as an HTTP URL, a TCP port, or a Kafka bootstrap domain pattern, and apply to all environments or to a selection.
+* See [Manage entrypoints and sharding tags](manage-entrypoints-and-sharding-tags.md).
 
 ## Release Date: June 26, 2026
 

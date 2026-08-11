@@ -1,9 +1,7 @@
 ---
-description: >-
-  Control which request and response data an API proxy reports for logs and
-  analytics, and turn on OpenTelemetry tracing.
 hidden: false
 noIndex: false
+description: Control which request and response data an API proxy reports to logs and analytics, and turn on OpenTelemetry tracing. Follow the steps to configure it.
 ---
 
 # Configure logging and tracing

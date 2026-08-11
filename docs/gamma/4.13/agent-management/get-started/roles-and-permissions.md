@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: The environment-scoped permissions that govern who can view, create, edit, and delete Agent Management resources. Find the permission you need.
 ---
 
 # Roles and permissions

@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Define the verbs your policies grant or forbid by creating an action entity that statements reference. Follow the steps on the Actions page.
 ---
 
 # Create an action

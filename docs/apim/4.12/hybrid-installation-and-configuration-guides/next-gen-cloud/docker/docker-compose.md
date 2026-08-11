@@ -30,6 +30,10 @@ Before you deploy the Data Plane with Docker Compose, complete the following ste
 * Obtain a Gravitee Cloud account. To register for a Gravitee Cloud account, go to [the Gravitee Cloud sign in page](http://cloud.gravitee.io/signup), and then click register.
 * [#prepare-your-installation](../#prepare-your-installation "mention") to obtain a Cloud Token and License Key.
 
+{% hint style="warning" %}
+The default `graviteeio/apim-gateway` image is based on Alpine Linux, which does not support the ONNX Runtime. As a result, AI policies that depend on ONNX Runtime, such as **AI - Prompt Guard Rails**, do not work with the default image. To use these policies, use the Debian variant of the image instead. For example, `graviteeio/apim-gateway:4.12-debian`. The Debian variant is available for version 4.9 and later.
+{% endhint %}
+
 ## Install Gravitee APIM
 
 This section explains how to run the Gravitee API Management Data Plane (Gateway and Redis) with Docker Compose.

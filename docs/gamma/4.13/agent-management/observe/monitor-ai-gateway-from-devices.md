@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: View per-device and per-team AI traffic, shadow AI detection, and system health in the Edge Management dashboard. Learn what each view shows you.
 ---
 
 # Monitor AI Gateway usage from employee systems

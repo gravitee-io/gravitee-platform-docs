@@ -35,6 +35,7 @@
 * [Configure Access Management](platform-management/configure-access-management.md)
 * [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
 * [Manage applications](platform-management/manage-applications.md)
+* [Manage entrypoints and sharding tags](platform-management/manage-entrypoints-and-sharding-tags.md)
 * [Manage resources](platform-management/manage-resources.md)
 
 ## API Management
@@ -90,6 +91,7 @@
 * [Build](event-stream-management/build/README.md)
   * [Create a Kafka service with a registered cluster](event-stream-management/build/create-a-kafka-service-with-a-registered-cluster.md)
   * [Create a Kafka service with a Virtual Cluster](event-stream-management/build/create-a-kafka-service-with-a-virtual-cluster.md)
+  * [Duplicate a Kafka service](event-stream-management/build/duplicate-a-kafka-service.md)
   * [Establish a Virtual Cluster](event-stream-management/build/establish-a-virtual-cluster.md)
   * [Virtual Clusters overview](event-stream-management/build/kafka-virtual-clusters-overview.md)
   * [Virtual Cluster runtime behavior reference](event-stream-management/build/kafka-virtual-cluster-runtime-behavior-reference.md)
@@ -125,6 +127,7 @@
   * [Configure an LLM Proxy](agent-management/build/configure-an-llm-proxy.md)
   * [LLM Proxy provider support](agent-management/build/llm-proxy-provider-support.md)
   * [Select a text classification model](agent-management/build/select-a-text-classification-model.md)
+  * [Accepted request formats](agent-management/build/accepted-request-formats.md)
   * [Override the model at runtime](agent-management/build/override-the-model-at-runtime.md)
   * [Add the Token Rate Limit policy](agent-management/build/add-the-token-rate-limit-policy.md)
   * [Configure text classification](agent-management/build/configure-text-classification.md)

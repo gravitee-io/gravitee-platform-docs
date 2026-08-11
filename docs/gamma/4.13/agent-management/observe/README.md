@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Monitor AI traffic across your MCP, LLM, and A2A proxies, and from employee devices through Edge Management. Start with the traffic you need to see.
 ---
 
 # Observe

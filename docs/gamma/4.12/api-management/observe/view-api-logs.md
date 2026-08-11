@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Inspect individual request logs and full request traces for an API proxy in the Trace Explorer. Follow the steps to open logs and traces.
 ---
 
 # View API logs

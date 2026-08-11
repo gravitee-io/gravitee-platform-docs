@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Define a hybrid Gamma Gateway in a compose file and an env file, then bring it up in one command. Follow the steps to write and run them.
 ---
 # Run a hybrid Gamma Gateway with Docker Compose
 

@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Introduces Agent Management in Gamma and links to the overview, the roles and permissions reference, and the MCP Proxy and LLM Proxy quickstarts.
+description: Agent Management in Gamma, from the overview and the roles reference to the MCP Proxy and LLM Proxy quickstarts. Start with the page that fits your task.
 ---
 
 # Get started

@@ -1,9 +1,7 @@
 ---
-description: >-
-  Add members, attach groups, change roles, and transfer primary ownership of
-  an API proxy.
 hidden: false
 noIndex: false
+description: Add direct members, attach groups, and transfer primary ownership of an API proxy. Follow the steps on the User Permissions page to manage access.
 ---
 
 # Manage user permissions

@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Attach custom metadata to a principal, such as department or device trust, so policies test more than identity. Follow the steps to add attributes.
 ---
 
 # Add attributes to principals

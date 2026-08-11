@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Run the policy engine on a Gravitee Gateway or a sidecar, and follow how policies sync and what analytics come back. Start with your runtime.
 ---
 
 # Evaluate

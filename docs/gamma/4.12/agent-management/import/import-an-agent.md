@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Register an external agent in the Catalog by importing its A2A Agent Card from an endpoint. Follow the steps to fetch the card and review the fields.
 ---
 
 # Register an agent

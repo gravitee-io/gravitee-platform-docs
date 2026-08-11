@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: How authorization policies travel from the control plane to your runtime gateways, and how long it takes. Learn to read and monitor sync status.
 ---
 
 # Policy syncs

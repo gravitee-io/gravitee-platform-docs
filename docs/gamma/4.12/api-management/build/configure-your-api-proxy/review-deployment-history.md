@@ -1,9 +1,7 @@
 ---
-description: >-
-  Compare deployed versions of an API definition and roll back to an earlier
-  one.
 hidden: false
 noIndex: false
+description: Compare two deployed versions of an API definition and roll back to an earlier one. Follow the steps to inspect the history and restore a version.
 ---
 
 # Review deployment history

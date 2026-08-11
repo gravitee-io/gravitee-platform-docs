@@ -1,7 +1,7 @@
 ---
-description: Reference for the LLM Proxy and HTTP proxy APIs in APIM that handle traffic intercepted by the Edge Daemon.
 hidden: false
 noIndex: false
+description: The LLM Proxy and HTTP proxy APIs that receive the traffic an Edge Daemon forwards, and the plan they must expose. Browse the full reference.
 ---
  
 # Proxy API reference

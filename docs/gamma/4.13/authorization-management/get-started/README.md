@@ -1,7 +1,7 @@
 ---
-description: Lists the Authorization Management get-started guides, covering the product overview, your first user, your first imported resource, and your first policy.
 hidden: false
 noIndex: false
+description: Authorization Management in Gamma, from the product overview to your first user, first imported resource, and first policy. Start with the overview.
 ---
 
 # Get started

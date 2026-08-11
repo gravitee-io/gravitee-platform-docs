@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Apply policies to specific MCP methods such as resources/list, tools/call, or prompts/get with a flow selector. Follow the steps in the Policy Studio.
 ---
 
 # Apply policies to specific MCP methods

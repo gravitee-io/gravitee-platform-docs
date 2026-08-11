@@ -1,9 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: >-
-  Expose an upstream agent behind the AI Gateway with an Agent-to-Agent (A2A)
-  Proxy so that other agents can discover and call it.
+description: Expose an upstream agent behind the AI Gateway with an A2A Proxy so other agents can discover and call it. Follow the steps to create the proxy.
 ---
 
 # Expose your agent with the A2A Proxy

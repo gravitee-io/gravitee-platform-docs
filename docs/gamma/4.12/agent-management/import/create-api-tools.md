@@ -1,7 +1,7 @@
 ---
-description: Expose REST APIs governed in API Management as agent-accessible API tools in the Agent Management Catalog.
 hidden: false
 noIndex: false
+description: Expose REST APIs governed in API Management as agent-accessible tools in the Catalog. Follow the steps to create an API tool from your endpoints.
 ---
 
 # Create API tools

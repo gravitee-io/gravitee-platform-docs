@@ -20,6 +20,20 @@ For more information about how to configure a Kafka custom domain, see [custom-d
 
 </details>
 
+## June 2026
+
+<details>
+
+<summary>15th June</summary>
+
+**Filters for the Gateways list**
+
+You can now filter the Gateways list on the Gravitee Cloud Dashboard by the Configuration, Provider, Region, Version, Environment, and Status columns. Select several values per column, and combine filters across columns. Your selections are saved in your browser and stay applied when you come back to the Dashboard.
+
+For more information about filtering the Gateways list, see [filter-the-gateways-list.md](../guides/filter-the-gateways-list.md "mention").
+
+</details>
+
 ## April 2026&#x20;
 
 <details>

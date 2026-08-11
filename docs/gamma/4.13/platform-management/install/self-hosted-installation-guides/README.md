@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: A self-hosted Gamma installation runs every component in your own infrastructure. Choose a Docker or Kubernetes deployment method to begin.
 ---
 # Self-hosted installation guides
 

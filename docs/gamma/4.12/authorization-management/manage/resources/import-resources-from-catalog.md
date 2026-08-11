@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Import resource entities from the AI Catalog into Authorization Management across all three categories. Follow the steps to browse and select them.
 ---
 
 # Import resources from the Catalog

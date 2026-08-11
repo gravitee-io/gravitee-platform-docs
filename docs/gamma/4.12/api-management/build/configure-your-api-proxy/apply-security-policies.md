@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Policies are rules the API Gateway evaluates on every request and response, on top of security plans. Learn how the policy chain runs and how to apply one.
 ---
 
 # Apply security policies

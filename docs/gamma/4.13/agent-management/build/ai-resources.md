@@ -1,9 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: >-
-  The AI resources that back the Guard Rails, PII Filtering, and Semantic
-  Caching policies, what each one is for, and how the AI Gateway loads them.
+description: AI resources supply the models and vector stores that Guard Rails, PII Filtering, and Semantic Caching policies call. Compare the resource types.
 ---
 
 # AI resources
