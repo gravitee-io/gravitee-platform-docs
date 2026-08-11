@@ -1,3 +1,7 @@
+---
+description: Install a fully self-hosted Gamma platform on one host with Docker Compose. Follow the steps to write the compose file and add a license key.
+---
+
 # Docker Compose
 
 {% hint style="warning" %}

@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Run a full Gamma platform yourself with Docker, bringing up the consoles, Gateway, and datastores on one host. Choose the Docker guide that fits.
 ---
 # Fully self-hosted installation with Docker
 

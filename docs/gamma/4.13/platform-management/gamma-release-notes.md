@@ -1,3 +1,7 @@
+---
+description: What the Gamma 4.13 release adds across API Management, Event Stream Management, and the other modules. Browse the new features and changes.
+---
+
 # Gamma Release Notes
 
 ## 4.13 new features

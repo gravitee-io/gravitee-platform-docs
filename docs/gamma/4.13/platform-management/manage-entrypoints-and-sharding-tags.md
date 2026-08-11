@@ -1,10 +1,7 @@
 ---
-description: >-
-  Configure sharding tags, entrypoint mappings, and each environment's default
-  entrypoint values from the Entrypoints & Sharding Tags page in the Gamma
-  console.
 hidden: false
 noIndex: false
+description: Sharding tags route APIs to particular API Gateway instances, and entrypoint mappings set what the Developer Portal shows. Follow the steps to manage both.
 ---
 
 # Manage entrypoints and sharding tags
