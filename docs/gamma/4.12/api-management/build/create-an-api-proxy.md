@@ -1,9 +1,7 @@
 ---
-description: >-
-  Create an API proxy in the Gamma console with the from-scratch wizard or a
-  quick-start template, then review the proxy Overview page.
 hidden: false
 noIndex: false
+description: Create an API proxy in the Gamma console with the from-scratch wizard or a quick-start template. Follow the steps through each wizard option.
 ---
 
 # Create an API proxy

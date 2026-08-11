@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: The Gamma homepage dashboard shows per-module metrics, quick actions, and guidance for empty states. Learn what each metric and quick action does.
 ---
 
 # Dashboard and metrics

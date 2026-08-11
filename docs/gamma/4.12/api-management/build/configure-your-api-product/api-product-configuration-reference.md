@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Every API product property, the flag that decides which APIs can be bundled, and the plan types a product supports. Browse the full reference.
 ---
 
 # API product configuration reference

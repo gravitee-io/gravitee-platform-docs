@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Attach a Keyless, API Key, JWT, OAuth2, or mTLS plan to control how consumers authenticate to an API proxy. Follow the steps to add one and deploy it.
 ---
 
 # Secure your API proxy

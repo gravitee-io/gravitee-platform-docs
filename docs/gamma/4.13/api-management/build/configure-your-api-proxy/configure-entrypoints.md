@@ -1,9 +1,7 @@
 ---
-description: >-
-  Change the context paths of an API proxy, or switch to virtual hosts, from
-  the Entrypoints page.
 hidden: false
 noIndex: false
+description: Change the context paths consumers use to reach an API proxy, or switch to virtual hosts. Follow the steps on the Entrypoints page to update them.
 ---
 
 # Configure entrypoints

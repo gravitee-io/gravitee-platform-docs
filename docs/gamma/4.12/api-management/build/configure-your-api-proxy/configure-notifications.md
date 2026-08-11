@@ -1,9 +1,7 @@
 ---
-description: >-
-  Send console, email, or webhook notifications when API events occur, such as
-  deployments or subscription changes.
 hidden: false
 noIndex: false
+description: Send console, email, or webhook alerts when API events occur, such as a deployment or a subscription change. Follow the steps to add a notification.
 ---
 
 # Configure notifications

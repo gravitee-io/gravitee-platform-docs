@@ -1,9 +1,7 @@
 ---
-description: >-
-  Turn on automatic retries with a circuit breaker so slow or failing backend
-  endpoints don't take your API down.
 hidden: false
 noIndex: false
+description: Turn on automatic retries with a circuit breaker so a slow or failing backend doesn't take your API down. Follow the steps to tune the thresholds.
 ---
 
 # Configure failover

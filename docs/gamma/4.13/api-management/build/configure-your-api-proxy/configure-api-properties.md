@@ -1,9 +1,7 @@
 ---
-description: >-
-  Define static or dynamic key/value properties that policies read at runtime,
-  and encrypt sensitive values.
 hidden: false
 noIndex: false
+description: Define static or dynamic key/value properties that policies read at runtime through the Expression Language. Follow the steps to add and encrypt them.
 ---
 
 # Configure API properties

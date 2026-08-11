@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: A shared policy group configures a set of policies once and reuses them across APIs and flows. Follow the steps to attach one in the Policy Studio.
 ---
 
 # Reuse policies with shared policy groups

@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Create an API product, attach APIs, add and publish plans, and deploy it over the v2 Management API. Follow the full lifecycle with request examples.
 ---
 
 # Manage API products with the Management API
