@@ -50,25 +50,32 @@ To connect the GitHub MCP server, complete the following steps:
 
 1. Log in to the Gamma console.
 2. From the sidebar, select **Agent Management**.
-3. Navigate to **Catalog**, and then select **MCP Servers**.
-4. Select **Add MCP server**.
-5. In the **Server URL** field, enter the GitHub MCP server endpoint:
+3. Under **Import**, select **MCP Servers**.
+4. Select **Add MCP server**. The wizard opens on the **Select server** step.
+5. In the **Endpoint URL** field, enter the GitHub MCP server endpoint:
 
    ```
    https://api.githubcopilot.com/mcp/
    ```
 
+   The **Transport** is fixed to **Streamable HTTP**.
+
+   ![The Select server step of the Add MCP server wizard, with GitHub's endpoint entered and Verify URL ready to run](<../../../.gitbook/assets/gamma-mcp-github-add-server.png>)
+
 6. Select **Verify URL**.
-7. Under the authentication method, select **Static credential**, set the credential type to **Bearer token**, and then enter the personal access token from the prerequisites. Discovery uses the token to read the server's capabilities and does not persist it.
-8. Select **Test connection**, and then select **Import MCP Server**.
+7. On the **Configure connection** step, select **Static credential**, set the credential type to **Bearer token**, and then enter the personal access token from the prerequisites. Discovery uses the token to read the server's capabilities and does not persist it.
+8. Select **Verify URL** again to re-run discovery, and then on the **Review entry** step select **Import MCP Server**.
 
 #### Verification
 
 To confirm that the GitHub MCP server is connected, complete the following steps:
 
-1. Navigate to **Catalog**, and then select **MCP Servers**.
-2. Confirm that the GitHub MCP server is listed with the type **Native** and the connection status **Connected**.
-3. Confirm that the tools listed match the tools in [GitHub's documentation](https://github.com/github/github-mcp-server), and that the tool count is greater than zero.
+1. Under **Import**, select **MCP Servers**.
+2. Confirm that `github-mcp-server` is listed, with the entity ID `mcp-server.github-mcp-server`, the transport `http`, and the endpoint you entered.
+3. Select the server to open its detail page, and then confirm the **Overview** card shows the protocol version, an **Auth type** of **Bearer token**, and a **Capabilities** row with a tool count. At the time of writing, GitHub's server discovers 44 tools.
+4. Confirm that the tools listed under **Tools** match the tools in [GitHub's documentation](https://github.com/github/github-mcp-server).
+
+   ![The github-mcp-server detail page showing 44 tools, 2 prompts, 4 resources, and an auth type of Bearer token](<../../../.gitbook/assets/gamma-mcp-github-server-detail.png>)
 
 {% hint style="info" %}
 GitHub's MCP server exposes a large tool surface, and the exact set depends on the token's scopes and the account's plan. Registering the server catalogs everything discovered. The next step narrows that surface to the tools your agents need.
@@ -82,16 +89,16 @@ The steps below build an engineering toolbelt from five GitHub tools: `list_issu
 
 To expose the GitHub tools as a Composite MCP Server, complete the following steps:
 
-1. From the sidebar, select **Agent Management**, and then navigate to **Build**.
-2. Select **Create MCP proxy**, and then select **Studio mode**.
+1. From the sidebar, select **Agent Management**, and then under **Secure** select **MCP Proxies**.
+2. Select **+ Create MCP proxy**, and then select **Studio mode**.
 3. In the **Define** step, enter a **Name**, for example `engineering-toolbelt`, and a **Context path**, for example `/engineering-toolbelt`.
 4. In the **Compose** step, select the GitHub MCP server from the palette, and then select the five tools listed above. Leave every other tool cleared.
 5. In the **Connect** step, select the GitHub MCP server, set the credential type to **Bearer token**, and then enter the personal access token. The Gateway injects it as an `Authorization` header on every upstream call, so the token is held once rather than distributed to each agent.
 6. In the **Review** step, confirm the composition, and then select **Create & deploy**.
 
-<!-- TODO: Screenshot of the Compose step, with the five selected GitHub tools and the rest of GitHub's tool surface visible but cleared -->
+After the server is deployed, the composition is visible under **Design** > **Tools**, grouped by upstream server. The `github-mcp-server` group shows its upstream auth type and the number of tools composed from it.
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-mcp-github-compose-tools.png" alt=""><figcaption><p>The Compose step. Only the selected tools reach the agent, whatever else the upstream server exposes.</p></figcaption></figure>
+![The Tools page of the Composite MCP Server, showing the five composed GitHub tools under the github-mcp-server group](<../../../.gitbook/assets/gamma-mcp-github-compose-tools.png>)
 
 #### Verification
 
@@ -107,8 +114,20 @@ To confirm that the GitHub tools are exposed, complete the following steps:
      -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
    ```
 
-2. Confirm that the response lists five tools and no others. An agent connected to this server sees only these five, whatever else GitHub exposes upstream.
-3. Note that `tools/list` returns each tool under its composed name, for example `list_issues`. Authorization policies reference the same tool under its server-qualified identifier, in the form `github-mcp-server.list_issues`.
+2. You receive a response like the following response, abbreviated to the tool names and descriptions:
+
+   ```json
+   {"jsonrpc":"2.0","id":1,"result":{"tools":[
+     {"name":"list_issues","description":"List issues in a GitHub repository. For pagination, use the 'endCursor' from the previous response's 'pageInfo' in the 'after' parameter."},
+     {"name":"get_file_contents","description":"Get the contents of a file or directory from a GitHub repository"},
+     {"name":"search_code","description":"Fast and precise code search across ALL GitHub repositories using GitHub's native search engine."},
+     {"name":"pull_request_read","description":"Get information on a specific pull request in GitHub repository."},
+     {"name":"create_or_update_file","description":"Create or update a single file in a GitHub repository."}
+   ]}}
+   ```
+
+3. Confirm that the response lists five tools and no others. An agent connected to this server sees only these five, whatever else GitHub exposes upstream.
+4. Note that `tools/list` returns each tool under its composed name, for example `list_issues`. Authorization policies reference the same tool under its server-qualified identifier, in the form `github-mcp-server.list_issues`.
 
 {% hint style="info" %}
 If you compose tools from more than one upstream server and two tool names collide, assign an alias in the **Compose** step. See [Edit MCP Studio composition](../edit-mcp-studio-composition.md "mention").
@@ -120,9 +139,12 @@ Authorization policies can only distinguish callers if the Gateway knows who eac
 
 To require authentication for the GitHub MCP server, complete the following steps:
 
-1. Open your Composite MCP Server, and then navigate to the **Secure** section.
-2. In the consumer security list, select **Gravitee as Authorization Server**. To use an external identity provider, select **External Authorization Server** instead.
-3. Save the configuration, and then deploy the server.
+1. In the **Secure** step of the creation wizard, select **Gravitee as Authorization Server**. To use an external identity provider, select **External Authorization Server** instead.
+2. On an existing server, open it, and then under **Consumer access** select **Plans**.
+3. Select **+ Create plan**, and then select **OAuth2**. The other options are **Keyless**, which enforces no authentication, and **API Key**.
+4. Configure and publish the plan, and then deploy the server.
+
+   ![The Plans page of the Composite MCP Server, showing one published plan with OAuth2 security](<../../../.gitbook/assets/gamma-mcp-github-plan-oauth2.png>)
 
 #### Verification
 
@@ -136,12 +158,22 @@ To confirm that authentication to the GitHub MCP server is enforced, complete th
      -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
    ```
 
-2. Confirm that the response is `401`.
+2. You receive a response like the following response:
+
+   ```
+   HTTP/1.1 401 Unauthorized
+   WWW-Authenticate: Bearer resource_metadata="https://<gateway-host>/.well-known/oauth-protected-resource/engineering-toolbelt" scope="openid profile email list_issues get_file_contents search_code pull_request_read create_or_update_file"
+
+   {"message":"Unauthorized","http_status_code":401}
+   ```
+
+   The `WWW-Authenticate` header points the caller at the server's protected-resource metadata, which is how an MCP client discovers where to get a token.
+
 3. Repeat the call with a valid access token.
-4. Confirm that the response lists the available tools.
+4. Confirm that the response is `200` and lists the available tools, as in the previous verification.
 
 {% hint style="warning" %}
-Do not select **API Key** or **Passthrough** on a server you intend to govern per caller. Neither resolves an identity, so every fine-grained authorization policy evaluates against the same subject.
+Do not select **Keyless** or **API Key** on a server you intend to govern per caller. Neither resolves a user identity, so every fine-grained authorization policy evaluates against the same subject.
 {% endhint %}
 
 ### Restrict GitHub tool access with fine-grained authorization
@@ -150,9 +182,12 @@ At this point every authenticated caller can invoke all five tools, including th
 
 To restrict which tools each caller can use, complete the following steps:
 
-1. Open your Composite MCP Server, navigate to the **Secure** section, and then enable **Fine-Grained Authorization**.
-2. From the sidebar, select **Authorization**, select **MCPs**, and then select **+ Create policy**.
-3. Enter a **Policy name**, and then switch to the **Code** tab.
+1. Open your Composite MCP Server. On the **Overview** page, turn on **Enable FGA**. A confirmation panel reports that the Authorization PEP has been added to the Policy Studio.
+
+   ![The Composite MCP Server Overview page with the Enable FGA toggle turned on](<../../../.gitbook/assets/gamma-mcp-github-enable-fga.png>)
+
+2. From the Gamma console, open **Authorization Management**, and then under **Policy Management** select **MCPs**.
+3. Select **+ Create policy**, enter a **Policy name**, and then switch to the **Code** tab.
 4. Enter the policy. The following statement grants an engineering group every tool on the server:
 
    ```
@@ -189,9 +224,9 @@ To restrict which tools each caller can use, complete the following steps:
 
 The Gateway picks up a deployed policy within 30 seconds, with no restart.
 
-<!-- TODO: Screenshot of the policy Code tab showing the forbid statement on create_or_update_file, with the policy status shown as Deployed -->
+Select an existing policy to review it. The **Visual** tab renders each statement as an effect, a principal, an action, and a resource, and resolves the group identifier to its display name. The **Code** tab shows the same statement as GAPL.
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-mcp-github-forbid-policy.png" alt=""><figcaption><p>The forbid statement that closes the one tool that writes to a repository</p></figcaption></figure>
+![The forbid statement on create_or_update_file in the visual policy editor, showing the Engineering principal, the GitHub tool resource, and a Deployed status](<../../../.gitbook/assets/gamma-mcp-github-forbid-policy.png>)
 
 {% hint style="info" %}
 A tool that no policy permits is denied. Nothing is allowed by omission, so the triage role above needs no forbid statement to be closed to the other three tools. A `forbid` statement always beats a `permit`, so a later broad grant cannot reopen `create_or_update_file`.
@@ -226,9 +261,11 @@ Authorization decides which tools a caller reaches, not how often it calls them 
 
 To apply policies to the GitHub MCP server, complete the following steps:
 
-1. Open your Composite MCP Server, and then in the sidebar select **Policy Studio**.
-2. Under **MCP Method Flows**, select **Add MCP method flow**, enter a **Flow name**, select the **`tools/call`** method, and then select **Create**.
-3. In the flow's **Request** phase, select **Browse all** to open the **Add Policy** catalog, and then select **Rate Limit**.
+1. Open your Composite MCP Server, and then under **Design** select **Policy Studio**.
+2. Under **MCP method flows**, add a flow, enter a **Flow name**, select the **`tools/call`** method, and then select **Create**. Enabling FGA creates this flow for you, with the Authorization PEP already in the request phase.
+
+   ![The Policy Studio tools/call flow, with the Gravitee Authorization PEP, Rate Limit, and PII Filtering policies in the request phase](<../../../.gitbook/assets/gamma-mcp-github-policy-studio.png>)
+3. In the flow's **Request phase**, select **+** to open the policy catalog, and then select **Rate Limit**.
 4. Configure the limit. Set a **Limit** and a **Period**, for example 10 requests per 60 seconds, and set **Key** to an expression that resolves the caller's identity, so that each identity draws on its own allowance rather than on a shared plan counter. See [Layered governance for MCP tools](govern-mcp-tool-access.md "mention").
 5. In the same phase, add the **PII Filtering** policy. Select the AI Model Token Classification resource from the prerequisites, and then select the categories to redact, for example person, email, phone, location, financial account, and government ID. Leave **Confidence Threshold** at its default of `0.5`.
 6. Select **Save**, and then deploy the server.
@@ -265,43 +302,44 @@ Comparing the last two rows is the point. The endpoint response is the raw upstr
 
 To observe GitHub MCP interactions, complete the following steps:
 
-1. Open your Composite MCP Server, and then in the sidebar select **Reporter Settings**.
-2. In the **Settings** card, enable analytics, and then enable both the **Entrypoint** and **Endpoint** logging modes so the inbound and outbound legs are both captured.
+1. Open your Composite MCP Server, and then under **Gateway** select **Reporter Settings**.
+2. In the **Settings** card, turn the reporter on, and then enable both **Entrypoint** (client to gateway) and **Endpoint** (gateway to upstream) under **Logging mode**, so the inbound and outbound legs are both captured.
 3. Enable both the **Request** and **Response** phases, and then enable the **Headers** and **Payload** content data so tool arguments and tool responses are recorded rather than only their metadata.
 4. In the **OpenTelemetry** card, enable **Trace enabled** to emit execution spans for each call. Enable **OTel Logs** to emit the request and response payloads as OpenTelemetry log records correlated to the active trace, which links logs to traces in Grafana and other OpenTelemetry-compatible backends. Enable **Verbose** only while debugging a specific call, because it adds headers, context attributes, and policy execution detail to every span.
-5. Under **Span Attribute Redaction**, add a rule for each attribute that carries a credential or a repository identifier you don't want exported.
+5. With **Trace enabled** and **Verbose** both on, a **Span Attribute Redaction** section appears. Add a rule for each attribute that carries a credential or a repository identifier you don't want exported.
 6. Select **Save changes**.
+
+   ![The Reporter Settings page with both logging modes, both phases, headers, and payload enabled, and the OpenTelemetry card below](<../../../.gitbook/assets/gamma-mcp-github-reporter-settings.png>)
 7. Navigate to the **Secure** section, confirm that decision logging is enabled on **Fine-Grained Authorization**, and then deploy the server. Each evaluated call then records the subject, the action, the resource, the decision, and the policies that determined it.
-
-<!-- TODO: Screenshot of the MCP proxy's Reporter Settings page, with both logging modes and both phases enabled -->
-
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-mcp-github-reporter-settings.png" alt=""><figcaption><p>Both logging modes enabled, so the inbound and the outbound legs of each tool call are captured</p></figcaption></figure>
 
 {% hint style="warning" %}
 Payload logging records the arguments an agent sends and the content a tool returns, which is the data you most want to review and also the data most likely to be sensitive. Enable it deliberately, pair it with span attribute redaction, and keep verbose tracing on only for as long as you are debugging. Detailed logging increases storage and affects Gateway performance.
 {% endhint %}
 
-To review the calls in the console, select **Agent Management**, navigate to **Observe**, and then open the agent log. Each OpenTelemetry span records the agent identity, the tool invoked, the inputs and outputs, the latency, and the policy decision. The lineage view traces a single agent request through every tool call it made. See [Inspect your agent log](../../observe/inspect-your-agent-log.md "mention").
+To review the calls, open your Composite MCP Server and under **Observability** select **Logs**. Each row records the timestamp, the MCP method, the status, the response time, and whether the endpoint was reached. Filter by **MCP methods** to isolate `tools/call`.
+
+![The runtime logs for the Composite MCP Server, showing a denied tools/call with no endpoint reached and a permitted tools/call with the endpoint reached](<../../../.gitbook/assets/gamma-mcp-github-runtime-logs.png>)
+
+For the OpenTelemetry span view, which records the agent identity, the inputs and outputs, and the lineage of a single agent request across every tool call it made, see [Inspect your agent log](../../observe/inspect-your-agent-log.md "mention").
 
 #### Verification
 
 To confirm that GitHub MCP interactions are recorded, complete the following steps:
 
 1. Call `get_file_contents` through the GitHub MCP server as a permitted caller, on a file that contains an email address.
-2. Open the log entry for that call, and then confirm that the entrypoint request records the caller's identity and that the endpoint request records the outbound call to `https://api.githubcopilot.com/mcp/`, carrying the tool name and its arguments.
-3. Compare the endpoint response with the entrypoint response, and then confirm that the email address is present in what GitHub returned and `[REDACTED]` in what the agent received.
+2. Open the log entry for that call. Under **Details** > **Request**, confirm that the **Consumer** column records the inbound call to your context path and that the **Gateway** column records the outbound call to `https://api.githubcopilot.com/mcp/`, with a body carrying the tool name and its arguments.
+
+   ![One log entry expanded, with the consumer leg on the left and the gateway leg to api.githubcopilot.com on the right, credentials blurred](<../../../.gitbook/assets/gamma-mcp-github-log-entry-legs.png>)
+
+3. Under **Details** > **Response**, compare the gateway response with the consumer response, and then confirm that the email address is present in what GitHub returned and `[REDACTED]` in what the agent received.
 4. Call `create_or_update_file` as a caller that the policy forbids.
-5. Confirm that the entry records the denial and has no endpoint leg at all. The absence of an outbound call is the evidence that GitHub was never reached.
+5. In the log list, confirm that the denied call is recorded with a `403` status and an empty **Endpoint reached** column, while the permitted call shows a check mark. An unreached endpoint is the evidence that GitHub was never called.
 
 {% hint style="info" %}
-A `tools/list` call is answered from the composition rather than forwarded upstream, so its entry also has no endpoint leg. An absent endpoint leg means the Gateway answered or denied the call itself.
+A `tools/list` or `initialize` call is answered from the composition rather than forwarded upstream, so those entries also show no endpoint reached. An unreached endpoint means the Gateway answered or denied the call itself.
 {% endhint %}
 
 A shared upstream token cannot produce any of this on GitHub's side, because GitHub attributes every call to the token's owner. The per-caller record exists only because the Gateway sits between the agent and the tool.
-
-<!-- TODO: Screenshot of a single log entry expanded to show the entrypoint and endpoint legs side by side, with the redacted span visible in the entrypoint response. Blur the token in the Authorization header. -->
-
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-mcp-github-log-entry-legs.png" alt=""><figcaption><p>One tool call, both legs. The endpoint response carries the raw payload from GitHub, and the entrypoint response carries what the agent received.</p></figcaption></figure>
 
 ## Verification
 
