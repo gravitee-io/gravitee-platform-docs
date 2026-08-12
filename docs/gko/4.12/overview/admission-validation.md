@@ -131,7 +131,7 @@ sequenceDiagram
     Note over API,GKO: outer budget, 10s
     API->>+GKO: POST /validate-gravitee-io-v1alpha1-apiv4definition with timeout=10s
 
-    Note over GKO,APIM: inner budget, 20s, it will never be reached
+    Note over GKO,APIM: inner budget, 20s, never reached
     GKO->>+APIM: PUT with dryRun=true
     Note right of APIM: APIM is slow to answer
 
@@ -187,24 +187,25 @@ Kubernetes refuses a webhook `timeoutSeconds` above 30. Past 25 seconds of HTTP 
 
 ### Tune and verify the budgets
 
-To give APIM more time on a high latency network, run the following command:
+1.  On a high latency network, give APIM more time with the following command:
 
-```sh
-helm upgrade --install gko graviteeio/gko \
-  -n gravitee --create-namespace \
-  --set manager.httpClient.timeoutSeconds=20
-```
+    ```sh
+    helm upgrade --install gko graviteeio/gko \
+      -n gravitee --create-namespace \
+      --set manager.httpClient.timeoutSeconds=20
+    ```
+2.  Confirm that the webhooks followed with the following command:
 
-To check that the webhooks followed, run the following command:
+    ```sh
+    kubectl get validatingwebhookconfiguration gko-validating-webhook-configurations \
+      -o jsonpath='{.webhooks[*].timeoutSeconds}'
+    ```
 
-```sh
-kubectl get validatingwebhookconfiguration gko-validating-webhook-configurations \
-  -o jsonpath='{.webhooks[*].timeoutSeconds}'
-```
+    The output reports the derived webhook timeout for every webhook in the configuration:
 
-```text
-25 25 25 25 25 25 25 25 25 25 25 25
-```
+    ```text
+    25 25 25 25 25 25 25 25 25 25 25 25
+    ```
 
 {% hint style="info" %}
 Only the dry run is bound to these budgets. A resource that carries no context reference is still admitted through the webhook, but validation stays local, so GKO makes no APIM call and the inner budget never opens.
