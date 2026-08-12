@@ -36,11 +36,11 @@ Until you complete the authorization phase, any consumer holding a valid token f
 To connect and secure the GitHub MCP server, complete the following steps:
 
 1. [Connect the GitHub MCP server](#connect-the-github-mcp-server)
-2. [Expose the MCP server](#expose-the-mcp-server)
-3. [Authenticate access to the MCP server](#authenticate-access-to-the-mcp-server)
-4. [Restrict tool access with fine-grained authorization](#restrict-tool-access-with-fine-grained-authorization)
-5. [Apply policies to the MCP server](#apply-policies-to-the-mcp-server)
-6. [Observe MCP interactions](#observe-mcp-interactions)
+2. [Expose the GitHub tools as a Composite MCP Server](#expose-the-github-tools-as-a-composite-mcp-server)
+3. [Authenticate access to the GitHub MCP server](#authenticate-access-to-the-github-mcp-server)
+4. [Restrict GitHub tool access with fine-grained authorization](#restrict-github-tool-access-with-fine-grained-authorization)
+5. [Apply policies to the GitHub MCP server](#apply-policies-to-the-github-mcp-server)
+6. [Observe GitHub MCP interactions](#observe-github-mcp-interactions)
 
 ### Connect the GitHub MCP server
 
@@ -64,7 +64,7 @@ To connect the GitHub MCP server, complete the following steps:
 
 #### Verification
 
-To confirm that the MCP server is connected, complete the following steps:
+To confirm that the GitHub MCP server is connected, complete the following steps:
 
 1. Navigate to **Catalog**, and then select **MCP Servers**.
 2. Confirm that the GitHub MCP server is listed with the type **Native** and the connection status **Connected**.
@@ -74,13 +74,13 @@ To confirm that the MCP server is connected, complete the following steps:
 GitHub's MCP server exposes a large tool surface, and the exact set depends on the token's scopes and the account's plan. Registering the server catalogs everything discovered. The next step narrows that surface to the tools your agents need.
 {% endhint %}
 
-### Expose the MCP server
+### Expose the GitHub tools as a Composite MCP Server
 
 Rather than proxying GitHub's whole tool surface, use MCP Studio to compose a Composite MCP Server that exposes only the tools a role needs. Curation is the control that precedes all the others, because a tool you never compose is a tool no policy has to defend against, and one an agent's model never sees in `tools/list`.
 
 The steps below build an engineering toolbelt from five GitHub tools: `list_issues`, `get_file_contents`, `search_code`, `pull_request_read`, and `create_or_update_file`.
 
-To expose the MCP server, complete the following steps:
+To expose the GitHub tools as a Composite MCP Server, complete the following steps:
 
 1. From the sidebar, select **Agent Management**, and then navigate to **Build**.
 2. Select **Create MCP proxy**, and then select **Studio mode**.
@@ -95,7 +95,7 @@ To expose the MCP server, complete the following steps:
 
 #### Verification
 
-To confirm that the MCP server is exposed, complete the following steps:
+To confirm that the GitHub tools are exposed, complete the following steps:
 
 1. Send a `tools/list` request to the Composite MCP Server's endpoint:
 
@@ -114,11 +114,11 @@ To confirm that the MCP server is exposed, complete the following steps:
 If you compose tools from more than one upstream server and two tool names collide, assign an alias in the **Compose** step. See [Edit MCP Studio composition](../edit-mcp-studio-composition.md "mention").
 {% endhint %}
 
-### Authenticate access to the MCP server
+### Authenticate access to the GitHub MCP server
 
 Authorization policies can only distinguish callers if the Gateway knows who each caller is. Authenticate the server against an authorization server rather than a shared key, so that each token resolves to a user or an agent identity.
 
-To require authentication for the MCP server, complete the following steps:
+To require authentication for the GitHub MCP server, complete the following steps:
 
 1. Open your Composite MCP Server, and then navigate to the **Secure** section.
 2. In the consumer security list, select **Gravitee as Authorization Server**. To use an external identity provider, select **External Authorization Server** instead.
@@ -126,9 +126,9 @@ To require authentication for the MCP server, complete the following steps:
 
 #### Verification
 
-To confirm that authentication is enforced, complete the following steps:
+To confirm that authentication to the GitHub MCP server is enforced, complete the following steps:
 
-1. Call the MCP server without a token:
+1. Call the GitHub MCP server without a token:
 
    ```sh
    curl -s -o /dev/null -w '%{http_code}\n' https://<gateway-host>/engineering-toolbelt \
@@ -144,7 +144,7 @@ To confirm that authentication is enforced, complete the following steps:
 Do not select **API Key** or **Passthrough** on a server you intend to govern per caller. Neither resolves an identity, so every fine-grained authorization policy evaluates against the same subject.
 {% endhint %}
 
-### Restrict tool access with fine-grained authorization
+### Restrict GitHub tool access with fine-grained authorization
 
 At this point every authenticated caller can invoke all five tools, including the one that commits code. Fine-grained authorization narrows that per identity. When it is enabled, the Gateway adds the GAPL Authorization PEP to the server's `tools/call` flow and asks the in-gateway Policy Decision Point for a decision before it forwards anything upstream.
 
@@ -201,7 +201,7 @@ Every entity reference is an identifier, not a display name. `principal` takes t
 
 #### Verification
 
-To confirm that tool access is restricted, complete the following steps:
+To confirm that GitHub tool access is restricted, complete the following steps:
 
 1. As a caller in the engineering group, call `list_issues`:
 
@@ -220,11 +220,11 @@ To confirm that tool access is restricted, complete the following steps:
 5. As a caller in the triage group, call `get_file_contents`.
 6. Confirm that the response is `403`, because no policy permits that tool for that group.
 
-### Apply policies to the MCP server
+### Apply policies to the GitHub MCP server
 
 Authorization decides which tools a caller reaches, not how often it calls them or what comes back. An agent that loops over search results can exhaust a shared GitHub rate limit while staying inside its permissions, and a permitted read of a file, an issue, or a pull request can return names and email addresses committed into the repository. Add a rate limit and a redaction policy on the `tools/call` flow to close both.
 
-To apply policies to the MCP server, complete the following steps:
+To apply policies to the GitHub MCP server, complete the following steps:
 
 1. Open your Composite MCP Server, and then in the sidebar select **Policy Studio**.
 2. Under **MCP Method Flows**, select **Add MCP method flow**, enter a **Flow name**, select the **`tools/call`** method, and then select **Create**.
@@ -243,14 +243,14 @@ PII Filtering fails the call rather than passing the payload through if no AI Mo
 
 #### Verification
 
-To confirm that the policies are applied, complete the following steps:
+To confirm that the policies are applied to the GitHub MCP server, complete the following steps:
 
 1. Call `search_code` eleven times within 60 seconds as the same caller.
 2. Confirm that the eleventh call returns `429`, and that a second caller's first call still succeeds.
 3. Call `get_file_contents` on a file that contains an email address or a personal name.
 4. Confirm that the response returns the file with each detected span replaced by `[REDACTED]`.
 
-### Observe MCP interactions
+### Observe GitHub MCP interactions
 
 A tool call through the Gateway has two legs. The **entrypoint** leg is the agent's call to the Composite MCP Server, and the **endpoint** leg is the Gateway's call to GitHub. Capturing both is what turns a tool call into an auditable event, because each leg answers a different question:
 
@@ -263,7 +263,7 @@ A tool call through the Gateway has two legs. The **entrypoint** leg is the agen
 
 Comparing the last two rows is the point. The endpoint response is the raw upstream payload, and the entrypoint response is the payload after PII Filtering, so the difference between them is exactly what the Gateway removed before the agent, and the model behind it, ever saw it.
 
-To observe MCP interactions, complete the following steps:
+To observe GitHub MCP interactions, complete the following steps:
 
 1. Open your Composite MCP Server, and then in the sidebar select **Reporter Settings**.
 2. In the **Settings** card, enable analytics, and then enable both the **Entrypoint** and **Endpoint** logging modes so the inbound and outbound legs are both captured.
@@ -285,9 +285,9 @@ To review the calls in the console, select **Agent Management**, navigate to **O
 
 #### Verification
 
-To confirm that interactions are recorded, complete the following steps:
+To confirm that GitHub MCP interactions are recorded, complete the following steps:
 
-1. Call `get_file_contents` through the MCP server as a permitted caller, on a file that contains an email address.
+1. Call `get_file_contents` through the GitHub MCP server as a permitted caller, on a file that contains an email address.
 2. Open the log entry for that call, and then confirm that the entrypoint request records the caller's identity and that the endpoint request records the outbound call to `https://api.githubcopilot.com/mcp/`, carrying the tool name and its arguments.
 3. Compare the endpoint response with the entrypoint response, and then confirm that the email address is present in what GitHub returned and `[REDACTED]` in what the agent received.
 4. Call `create_or_update_file` as a caller that the policy forbids.
@@ -317,9 +317,9 @@ To confirm that the GitHub MCP server is connected and secured, complete the fol
 
 Step 5 is the result worth keeping. The agent held a valid token, the upstream credential on the Gateway had write access, and the write still did not happen, because the identity making the call was not permitted to make it. That containment holds whether the agent was asked to write by its operator or by content it read, which matters when the content is an issue body or a pull request description that anyone can open.
 
-## Extend this setup
+## Extend your GitHub MCP setup
 
-Consider the following refinements once the flow above is working:
+Consider the following refinements once your governed GitHub MCP server is working:
 
 * **Reference the agent, not only the user.** Create an agent identity so policies can name the agent making the call as a principal, and grant an autonomous agent less than the person who runs it. See [Create an agent identity](../create-an-agent-identity.md "mention").
 * **Add conditions to write access.** Constrain `create_or_update_file` with a condition, for example a business-hours window or a corporate IP range, so an off-hours commit from an unexpected network is denied rather than reviewed after the fact.
