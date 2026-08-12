@@ -46,6 +46,10 @@ noIndex: false
 
 * Unable to update membership groups across multiple environments after upgrade [#11656](https://github.com/gravitee-io/issues/issues/11656)
 * \[Gamma/AIM] LLM Proxy with provider OPEN_AI_COMPATIBLE shows no models — LlmRequestFormat enum is narrower than the llm-proxy connector's [#11677](https://github.com/gravitee-io/issues/issues/11677)
+* No data on Observability dashboards for API_PUBLISHER [#11651](https://github.com/gravitee-io/issues/issues/11651)
+* Reporting is disabled banner is always present [#11658](https://github.com/gravitee-io/issues/issues/11658)
+* APIM 4.12.9 bundles pre-Vert.x-5 fetcher plugins (gitlab/github/bitbucket) → NoSuchMethodError on any fetcher-backed page write [#11667](https://github.com/gravitee-io/issues/issues/11667)
+
 
 **Portal**
 
