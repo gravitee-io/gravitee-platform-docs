@@ -35,6 +35,7 @@
 * [Configure Access Management](platform-management/configure-access-management.md)
 * [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
 * [Manage applications](platform-management/manage-applications.md)
+* [Manage dictionaries](platform-management/manage-dictionaries.md)
 * [Manage entrypoints and sharding tags](platform-management/manage-entrypoints-and-sharding-tags.md)
 * [Manage resources](platform-management/manage-resources.md)
 
@@ -147,6 +148,7 @@
   * [Monitor your MCP servers](agent-management/observe/monitor-your-mcp-servers.md)
   * [Inspect your agent log](agent-management/observe/inspect-your-agent-log.md)
   * [Monitor AI Gateway usage from employee systems](agent-management/observe/monitor-ai-gateway-from-devices.md)
+  * [Review audit logs](agent-management/observe/review-audit-logs.md)
 
 ## Authorization Management
 

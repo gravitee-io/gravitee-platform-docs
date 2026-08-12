@@ -8,6 +8,17 @@ description: What the Gamma 4.13 release adds across API Management, Event Strea
 
 The 4.13 release adds the following capabilities.
 
+### Agent Management
+
+Agent Management adds a configuration audit trail to each proxy detail view.
+
+#### Audit Logs for LLM, MCP, and A2A Proxies
+
+* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds an **Audit Logs** page under **Monitoring** that lists the audit events recorded for the proxy.
+* Each entry shows the date, the actor, the event type, and the target of the change. Entries that carry a JSON Patch open the exact change in a side panel.
+* Filter the trail by event type and date range, and page through entries 10, 25, 50, or 100 at a time.
+* See [Review audit logs](../agent-management/observe/review-audit-logs.md).
+
 ### API Management
 
 API Management gains a file-based path for building and updating API proxies and a redesigned out-of-sync banner in the API detail workspace.
@@ -40,7 +51,14 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds gateway routing configuration for the organization.
+Platform Management adds environment-scoped dictionaries as a reusable asset for API policies and gateway routing configuration for the organization.
+
+#### Manage dictionaries
+
+* Create, edit, search, and delete the dictionaries of the selected environment from the **Dictionaries** page. Dictionaries hold key-value properties that API policies reference at runtime.
+* Manual dictionaries hold properties that you maintain by hand and publish to the gateways with the **Deploy** action.
+* Dynamic dictionaries poll an HTTP provider at a configured interval, transform the response with a JOLT specification, and publish the refreshed properties automatically while started.
+* See [Manage dictionaries](manage-dictionaries.md).
 
 #### Manage entrypoints and sharding tags
 
