@@ -89,6 +89,10 @@ To expose the MCP server, complete the following steps:
 5. In the **Connect** step, select the GitHub MCP server, set the credential type to **Bearer token**, and then enter the personal access token. The Gateway injects it as an `Authorization` header on every upstream call, so the token is held once rather than distributed to each agent.
 6. In the **Review** step, confirm the composition, and then select **Create & deploy**.
 
+<!-- TODO: Screenshot of the Compose step, with the five selected GitHub tools and the rest of GitHub's tool surface visible but cleared -->
+
+<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-mcp-github-compose-tools.png" alt=""><figcaption><p>The Compose step. Only the selected tools reach the agent, whatever else the upstream server exposes.</p></figcaption></figure>
+
 #### Verification
 
 To confirm that the MCP server is exposed, complete the following steps:
@@ -185,6 +189,10 @@ To restrict which tools each caller can use, complete the following steps:
 
 The Gateway picks up a deployed policy within 30 seconds, with no restart.
 
+<!-- TODO: Screenshot of the policy Code tab showing the forbid statement on create_or_update_file, with the policy status shown as Deployed -->
+
+<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-mcp-github-forbid-policy.png" alt=""><figcaption><p>The forbid statement that closes the one tool that writes to a repository</p></figcaption></figure>
+
 {% hint style="info" %}
 A tool that no policy permits is denied. Nothing is allowed by omission, so the triage role above needs no forbid statement to be closed to the other three tools. A `forbid` statement always beats a `permit`, so a later broad grant cannot reopen `create_or_update_file`.
 
@@ -244,19 +252,56 @@ To confirm that the policies are applied, complete the following steps:
 
 ### Observe MCP interactions
 
+A tool call through the Gateway has two legs. The **entrypoint** leg is the agent's call to the Composite MCP Server, and the **endpoint** leg is the Gateway's call to GitHub. Capturing both is what turns a tool call into an auditable event, because each leg answers a different question:
+
+| Leg | What it records | What it answers |
+| --- | --- | --- |
+| Entrypoint request | The inbound call: headers, the caller's credential, the session, and the timestamp | Which identity called, and when |
+| Endpoint request | The outbound JSON-RPC call to `https://api.githubcopilot.com/mcp/`, including the tool name and its arguments | Which tool ran, against which repository, with which arguments |
+| Endpoint response | The payload GitHub returned | What the upstream actually sent back |
+| Entrypoint response | The payload the agent received | What reached the model after policies ran |
+
+Comparing the last two rows is the point. The endpoint response is the raw upstream payload, and the entrypoint response is the payload after PII Filtering, so the difference between them is exactly what the Gateway removed before the agent, and the model behind it, ever saw it.
+
 To observe MCP interactions, complete the following steps:
 
-1. Open your Composite MCP Server, navigate to the **Secure** section, and then confirm that decision logging is enabled on **Fine-Grained Authorization**. Each evaluated call then records the subject, the action, the resource, the decision, and the policies that determined it.
-2. From the sidebar, select **Agent Management**, and then navigate to **Observe**.
-3. Select **Inspect your agent log**, and then filter to your Composite MCP Server. See [Inspect your agent log](../../observe/inspect-your-agent-log.md "mention").
+1. Open the API that backs your Composite MCP Server in API Management, and then select **Reporter Settings**.
+2. In the **Settings** card, enable analytics, and then enable both the **Entrypoint** and **Endpoint** logging modes so the inbound and outbound legs are both captured.
+3. Enable both the **Request** and **Response** phases, and then enable the **Headers** and **Payload** content data so tool arguments and tool responses are recorded rather than only their metadata.
+4. In the **OpenTelemetry** card, enable **Trace enabled** to emit execution spans for each call. Enable **OTel Logs** to emit the request and response payloads as OpenTelemetry log records correlated to the active trace, which links logs to traces in Grafana and other OpenTelemetry-compatible backends. Enable **Verbose** only while debugging a specific call, because it adds headers, context attributes, and policy execution detail to every span.
+5. Under **Span Attribute Redaction**, add a rule for each attribute that carries a credential or a repository identifier you don't want exported, and then select **Save changes**.
+6. Open your Composite MCP Server, navigate to the **Secure** section, and then confirm that decision logging is enabled on **Fine-Grained Authorization**. Each evaluated call then records the subject, the action, the resource, the decision, and the policies that determined it.
+7. Deploy the change. For the full field reference, see [Configure logging and tracing](../../../api-management/build/configure-your-api-proxy/configure-logging-and-tracing.md "mention").
+
+<!-- TODO: Screenshot of the Reporter Settings page with both logging modes and both phases enabled on an MCP Proxy's backing API -->
+
+<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-mcp-github-reporter-settings.png" alt=""><figcaption><p>Both logging modes enabled, so the inbound and the outbound legs of each tool call are captured</p></figcaption></figure>
+
+{% hint style="warning" %}
+Payload logging records the arguments an agent sends and the content a tool returns, which is the data you most want to review and also the data most likely to be sensitive. Enable it deliberately, pair it with span attribute redaction, and keep verbose tracing on only for as long as you are debugging. Detailed logging increases storage and affects Gateway performance.
+{% endhint %}
+
+To review the calls in the console, select **Agent Management**, navigate to **Observe**, and then open the agent log. Each OpenTelemetry span records the agent identity, the tool invoked, the inputs and outputs, the latency, and the policy decision. The lineage view traces a single agent request through every tool call it made. See [Inspect your agent log](../../observe/inspect-your-agent-log.md "mention").
 
 #### Verification
 
 To confirm that interactions are recorded, complete the following steps:
 
-1. Call `list_issues` through the MCP server as a permitted caller.
-2. Open the agent log and select the entry for that call.
-3. Confirm that the call appears, showing the caller's identity, the tool invoked, the authorization decision, and the latency. A shared upstream token cannot produce this per-caller record on GitHub's side, because GitHub attributes every call to the token's owner.
+1. Call `get_file_contents` through the MCP server as a permitted caller, on a file that contains an email address.
+2. Open the log entry for that call, and then confirm that the entrypoint request records the caller's identity and that the endpoint request records the outbound call to `https://api.githubcopilot.com/mcp/`, carrying the tool name and its arguments.
+3. Compare the endpoint response with the entrypoint response, and then confirm that the email address is present in what GitHub returned and `[REDACTED]` in what the agent received.
+4. Call `create_or_update_file` as a caller that the policy forbids.
+5. Confirm that the entry records the denial and has no endpoint leg at all. The absence of an outbound call is the evidence that GitHub was never reached.
+
+{% hint style="info" %}
+A `tools/list` call is answered from the composition rather than forwarded upstream, so its entry also has no endpoint leg. An absent endpoint leg means the Gateway answered or denied the call itself.
+{% endhint %}
+
+A shared upstream token cannot produce any of this on GitHub's side, because GitHub attributes every call to the token's owner. The per-caller record exists only because the Gateway sits between the agent and the tool.
+
+<!-- TODO: Screenshot of a single log entry expanded to show the entrypoint and endpoint legs side by side, with the redacted span visible in the entrypoint response. Blur the token in the Authorization header. -->
+
+<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-mcp-github-log-entry-legs.png" alt=""><figcaption><p>One tool call, both legs. The endpoint response carries the raw payload from GitHub, and the entrypoint response carries what the agent received.</p></figcaption></figure>
 
 ## Verification
 
@@ -288,4 +333,6 @@ Consider the following refinements once the flow above is working:
 * [Layered governance for MCP tools](govern-mcp-tool-access.md "mention")
 * [Add policies to your MCP server](add-policies-to-mcp-server.md "mention")
 * [Apply policies to individual tool invocations](apply-policies-to-tool-invocations.md "mention")
+* [Configure logging and tracing](../../../api-management/build/configure-your-api-proxy/configure-logging-and-tracing.md "mention")
+* [Inspect your agent log](../../observe/inspect-your-agent-log.md "mention")
 * [Monitor your MCP servers](../../observe/monitor-your-mcp-servers.md "mention")
