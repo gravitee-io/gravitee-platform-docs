@@ -35,7 +35,6 @@
 * [Configure Access Management](platform-management/configure-access-management.md)
 * [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
 * [Manage applications](platform-management/manage-applications.md)
-* [Manage resources](platform-management/manage-resources.md)
 
 ## API Management
 
@@ -136,7 +135,6 @@
     * [Add policies to your A2A Proxy](agent-management/build/configure-your-a2a-proxy/add-policies-to-a2a-proxy.md)
 * [Publish](agent-management/publish/README.md)
   * [Publish your LLM Proxy](agent-management/publish/publish-your-llm-proxy.md)
-  * [Expose an MCP Registry](agent-management/publish/expose-an-mcp-registry.md)
   * [Manage subscriptions](agent-management/publish/manage-subscriptions.md)
   * [Consume your LLM Proxy with LangChain](agent-management/publish/consume-your-llm-proxy-with-langchain.md)
   * [Connect Claude Code through an LLM Proxy](agent-management/publish/connect-claude-code-through-an-llm-proxy.md)
@@ -178,7 +176,6 @@
   * [API policy examples](authorization-management/configure/api-policy-examples.md)
   * [MCP policy examples](authorization-management/configure/mcp-policy-examples.md)
   * [AI policy example](authorization-management/configure/ai-policy-example.md)
-  * [AuthZEN PDP synchronization](authorization-management/configure/authzen-pdp-synchronization.md)
 * [Evaluate](authorization-management/evaluate/README.md)
   * [Configure the Gravitee Gateway as a runtime](authorization-management/evaluate/configure-gravitee-gateway-as-runtime.md)
   * [Configure a sidecar as runtime](authorization-management/evaluate/configure-sidecar-as-runtime.md)
