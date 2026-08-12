@@ -7,3 +7,9 @@ SUMMARY.md
 .gitbook.yaml
 releases-and-changelog/release-notes/gko-4.12.md
 releases-and-changelog/changelog/gko-4.12.x.md
+releases-and-changelog/release-notes/gko-4.13.md
+guides/gateway-api/README.md
+guides/gateway-api/httproute.md
+guides/gateway-api/tls-with-cert-manager.md
+guides/gateway-api/backend-tls-policy.md
+getting-started/installation/install-with-helm.md

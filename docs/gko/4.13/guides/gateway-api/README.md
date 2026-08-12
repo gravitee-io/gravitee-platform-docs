@@ -6,7 +6,7 @@ The Gravitee Kubernetes Operator (GKO) implements the [Kubernetes Gateway API](h
 
 Unlike the Gravitee Ingress Controller, which creates v2 API definitions, the Gateway API controller creates **v4 API definitions**. This is the recommended approach for new Kubernetes-native deployments.
 
-GKO is recognized as a [partial conformance](https://gateway-api.sigs.k8s.io/implementations/) implementation of the Kubernetes Gateway API v1.4.1 standard channel. The implementation doesn't support matching rules across routes. This means you need to create one route per entry point you expose through `HTTPRoute` resources.
+GKO is recognized as a [partial conformance](https://gateway-api.sigs.k8s.io/implementations/) implementation of the Kubernetes Gateway API v1.6.1 standard channel. By default, each `HTTPRoute` is reconciled independently and matching rules don't span routes. To match across `HTTPRoute` resources that declare overlapping paths on the same Gateway, enable the `gatewayAPI.controller.matchAcrossRoutes` Helm option.
 
 ### Supported resources
 
@@ -18,6 +18,7 @@ The following table lists the Gateway API resources that GKO supports:
 | Gateway                | `gateway.networking.k8s.io` | v1          | Supported                              |
 | HTTPRoute              | `gateway.networking.k8s.io` | v1          | Supported (partial conformance)        |
 | ReferenceGrant         | `gateway.networking.k8s.io` | v1beta1     | Supported (cross-namespace references) |
+| BackendTLSPolicy       | `gateway.networking.k8s.io` | v1          | Supported                              |
 | GatewayClassParameters | `gravitee.io`               | v1alpha1    | Supported (Gravitee extension)         |
 | KafkaRoute             | `gravitee.io`               | v1alpha1    | Experimental                           |
 
@@ -121,6 +122,8 @@ spec:
 
 When GKO reconciles a Gateway resource, it deploys a Gravitee Gateway instance in the cluster with the specified listener configuration. The deployed Gateway runs in [db-less mode](../db-less-mode.md), syncing its configuration directly from the Kubernetes cluster without connecting to a management repository.
 
+To serve several domains on the same port with TLS, define one HTTPS listener per domain, each with its own hostname and certificate. For the configuration steps, see [Configure multi-domain TLS on a Gateway](multi-domain-tls.md).
+
 ### Minimal deployment example
 
 This example deploys a Gravitee Gateway with an `HTTPRoute` that routes traffic to a backend service:
@@ -193,6 +196,7 @@ spec:
 
 * [HTTPRoute](httproute.md): Configure path-based routing, header matching, traffic splitting, redirects, URL rewrites, and header modification.
 * [Configure TLS with cert-manager](tls-with-cert-manager.md): Configure TLS certificate provisioning for Gateway HTTPS listeners.
+* [Secure backend traffic with BackendTLSPolicy](backend-tls-policy.md): Configure TLS between the deployed Gateway and backend Services.
 * [Configure DNS with external-dns](dns-with-external-dns.md): Configure DNS record creation for Gateway Services.
 * [GatewayClassParameters](../../overview/custom-resource-definitions/gatewayclassparameters.md): Configure Gravitee-specific Gateway API settings including Kubernetes deployment options and autoscaling.
 * [KafkaRoute](../../overview/custom-resource-definitions/kafkaroute.md): (experimental) Route Kafka traffic through the Gateway (requires Enterprise license).

@@ -58,6 +58,7 @@
 * [Gateway API](guides/gateway-api/README.md)
   * [HTTPRoute](guides/gateway-api/httproute.md)
   * [Configure TLS with cert-manager](guides/gateway-api/tls-with-cert-manager.md)
+  * [Secure backend traffic with BackendTLSPolicy](guides/gateway-api/backend-tls-policy.md)
   * [Configure DNS with external-dns](guides/gateway-api/dns-with-external-dns.md)
 
 ## REFERENCE
@@ -67,6 +68,7 @@
 ## RELEASES & CHANGELOG
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
+  * [GKO 4.13](releases-and-changelog/release-notes/gko-4.13.md)
   * [GKO 4.12](releases-and-changelog/release-notes/gko-4.12.md)
   * [GKO 4.11](releases-and-changelog/release-notes/gko-4.11.md)
   * [GKO 4.10](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.10/releases-and-changelog/release-notes/gko-4.10)
