@@ -265,15 +265,15 @@ Comparing the last two rows is the point. The endpoint response is the raw upstr
 
 To observe MCP interactions, complete the following steps:
 
-1. Open the API that backs your Composite MCP Server in API Management, and then select **Reporter Settings**.
+1. Open your Composite MCP Server, and then in the sidebar select **Reporter Settings**.
 2. In the **Settings** card, enable analytics, and then enable both the **Entrypoint** and **Endpoint** logging modes so the inbound and outbound legs are both captured.
 3. Enable both the **Request** and **Response** phases, and then enable the **Headers** and **Payload** content data so tool arguments and tool responses are recorded rather than only their metadata.
 4. In the **OpenTelemetry** card, enable **Trace enabled** to emit execution spans for each call. Enable **OTel Logs** to emit the request and response payloads as OpenTelemetry log records correlated to the active trace, which links logs to traces in Grafana and other OpenTelemetry-compatible backends. Enable **Verbose** only while debugging a specific call, because it adds headers, context attributes, and policy execution detail to every span.
-5. Under **Span Attribute Redaction**, add a rule for each attribute that carries a credential or a repository identifier you don't want exported, and then select **Save changes**.
-6. Open your Composite MCP Server, navigate to the **Secure** section, and then confirm that decision logging is enabled on **Fine-Grained Authorization**. Each evaluated call then records the subject, the action, the resource, the decision, and the policies that determined it.
-7. Deploy the change. For the full field reference, see [Configure logging and tracing](../../../api-management/build/configure-your-api-proxy/configure-logging-and-tracing.md "mention").
+5. Under **Span Attribute Redaction**, add a rule for each attribute that carries a credential or a repository identifier you don't want exported.
+6. Select **Save changes**.
+7. Navigate to the **Secure** section, confirm that decision logging is enabled on **Fine-Grained Authorization**, and then deploy the server. Each evaluated call then records the subject, the action, the resource, the decision, and the policies that determined it.
 
-<!-- TODO: Screenshot of the Reporter Settings page with both logging modes and both phases enabled on an MCP Proxy's backing API -->
+<!-- TODO: Screenshot of the MCP proxy's Reporter Settings page, with both logging modes and both phases enabled -->
 
 <figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-mcp-github-reporter-settings.png" alt=""><figcaption><p>Both logging modes enabled, so the inbound and the outbound legs of each tool call are captured</p></figcaption></figure>
 
@@ -333,6 +333,5 @@ Consider the following refinements once the flow above is working:
 * [Layered governance for MCP tools](govern-mcp-tool-access.md "mention")
 * [Add policies to your MCP server](add-policies-to-mcp-server.md "mention")
 * [Apply policies to individual tool invocations](apply-policies-to-tool-invocations.md "mention")
-* [Configure logging and tracing](../../../api-management/build/configure-your-api-proxy/configure-logging-and-tracing.md "mention")
 * [Inspect your agent log](../../observe/inspect-your-agent-log.md "mention")
 * [Monitor your MCP servers](../../observe/monitor-your-mcp-servers.md "mention")
