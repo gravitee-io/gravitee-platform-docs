@@ -455,6 +455,7 @@ cert-manager
 controllerName
 parametersRef
 (?i)openssl
+s_client
 [Gg]ravitee\.io
 [Mm]inikube
 balancer's

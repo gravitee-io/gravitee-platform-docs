@@ -32,7 +32,7 @@ GKO now relies on Automation API. Helm Charts users need to configure ingress co
 You need to:
 
 * enable it
-* configure hosts & tls
+* configure `hosts` & `tls`
 {% endhint %}
 
 ### Automation API schema changes
@@ -56,15 +56,15 @@ From GKO 4.12.11, a `Gateway` resource that sets `spec.infrastructure.parameters
 
 #### Full support of webhook APIs
 
-&#x20;The `Subscription` CRD now accepts a `consumerConfiguration`  object, allowing to configure an entrypoint and webhook configuration ( `callbackUrl`, `auth`, `headers`, `ssl`...).
+&#x20;The `Subscription` CRD now accepts a `consumerConfiguration`  object, allowing to configure an entrypoint and webhook configuration ( `callbackUrl`, `auth`, `headers`, `ssl`, and more).
 
 #### **Dictionary Management**&#x20;
 
 * New Dictionary CRD allow to manage Dictionaries declaratively in association with the `ManagementContext` CRD
-* Supports both MANUAL dictionaries (static key-value pairs) and DYNAMIC dictionaries (auto-refreshing data from external HTTP endpoints with JOLT transformations).
+* Supports both MANUAL dictionaries (static key-value pairs) and DYNAMIC dictionaries (data refreshed automatically from external HTTP endpoints with JOLT transformations).
 * Dictionary deployment states control gateway availability: deployed MANUAL dictionaries expose data to policies, while started DYNAMIC dictionaries enable scheduled polling.
 *
-* Requires `ENVIRONMENT_DICTIONARY` permissions with `CREATE`, `UPDATE`, `DELETE`, and `READ` actions; dynamic dictionaries require a reachable HTTP endpoint and a valid JOLT specification.
+* Requires `ENVIRONMENT_DICTIONARY` permissions with `CREATE`, `UPDATE`, `DELETE`, and `READ` actions. Dynamic dictionaries require a reachable HTTP endpoint and a valid JOLT specification.
 
 #### Next-generation Developer Portal structure and Document Management
 
@@ -79,10 +79,11 @@ From GKO 4.12.11, a `Gateway` resource that sets `spec.infrastructure.parameters
 From GKO 4.12.11, the Gateway API controller builds against Kubernetes Gateway API v1.6.1 and installs the v1.6.1 standard channel CRDs. Releases up to 4.12.10 build against Gateway API v1.4.1. GKO passes every core and extended test in the `GATEWAY-HTTP` conformance profile. The [Gateway API implementations page](https://gateway-api.sigs.k8s.io/implementations/) lists GKO as a conformant implementation. The upgrade adds the following:
 
 * `HTTPRoute` resources support method matching, host rewrite through `URLRewrite`, backend request header modification on rules that declare a single `backendRef`, and backend Services that advertise `appProtocol: kubernetes.io/h2c`. For details, see [HTTPRoute](../../guides/gateway-api/httproute.md).
+* A `Gateway` resource accepts several HTTPS listeners on the same port, each with its own hostname and TLS certificate, and the deployed Gateway uses Server Name Indication (SNI) to present the certificate matching the requested domain. In releases up to 4.12.10, a port serves only the certificate of the first accepted listener on that port. For details, see [Configure multi-domain TLS on a Gateway](../../guides/gateway-api/multi-domain-tls.md).
 * The `spec.tls.frontend` field of a `Gateway` resource configures client certificate validation for HTTPS listeners, with a default configuration and per-port overrides. The CA bundle comes from a ConfigMap that contains a `ca.crt` key, and the deployed Gateway then requires client certificates on the configured port.
 * Labels and annotations set under `spec.infrastructure` of a `Gateway` resource propagate to the ServiceAccount, Deployment, pod template, and Service that GKO creates for the Gateway.
 * The `gatewayAPI.controller.matchAcrossRoutes` Helm option merges HTTPRoute resources with overlapping context paths on the same Gateway into a single API definition, so matching works across routes. The option is disabled by default. For details, see [Install with Helm](../../getting-started/installation/install-with-helm.md).
 
 ## Bug Fixes
 
-* Updating ApiV4Definition to change plan generalConditions to a new page HRID causes reconciliation failure (HTTP 500) [#11327](https://github.com/gravitee-io/issues/issues/11327)
+* Updating ApiV4Definition to change plan `generalConditions` to a new page HRID causes reconciliation failure (HTTP 500) [#11327](https://github.com/gravitee-io/issues/issues/11327)
