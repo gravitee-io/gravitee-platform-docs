@@ -28,7 +28,7 @@ The following diagram provides a visual breakdown of the resources the GKO might
 
 The GKO requires access to the following resources:
 
-1.  GKO Admission/Mutation Webhooks: The Operator creates the following two webhooks and requires GET/UPDATE access to them: gko-validating-webhook-configurations and gko-mutating-webhook-configurations.
+1.  GKO Admission/Mutation Webhooks: The Operator creates the following two webhooks and requires GET/UPDATE access to them: gko-validating-webhook-configurations and gko-mutating-webhook-configurations. For what these webhooks do, see [admission-validation.md](../../overview/admission-validation.md "mention").
 2.  All GKO CRDs: The GKO requires access to all its CRDs and their finalizers (e.g., APIDefinition, Application, and Subscription). The expected access level for the CRD resources is GET, UPDATE, LIST, and WATCH. For finalizers, UPDATE access is required. If you configure the GKO to automatically apply CRD updates during Helm upgrades, the GKO will also need GET, CREATE, and PATCH access to its CRDs at the cluster level.
 3.  ConfigMaps: Access to ConfigMaps may be required for two reasons:
     a. You are using GKO templating for dynamic configuration (for more information, see [templating.md](../../guides/templating.md "mention")).

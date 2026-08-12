@@ -5,6 +5,38 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.15 - August 12, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Native Kafka: dropping a record mid-fetch renumbers the offsets of the surviving records [#11714](https://github.com/gravitee-io/issues/issues/11714)
+
+**Management API**
+
+* MAPI v1 ApiConverter Incorrectly Deserializes V4 API Definitions, Causing Repeated Errors in Management API Logs [#11586](https://github.com/gravitee-io/issues/issues/11586)
+
+**Other**
+
+* API Key plan creation form pre-fills "API Key Header" with static "X-Gravitee-Api-Key" instead of the environment default [#11659](https://github.com/gravitee-io/issues/issues/11659)
+* Native Kafka API — a deprecated keyless plan doesn't prevent publishing a secure plan (and breaks the gateway) [#11683](https://github.com/gravitee-io/issues/issues/11683)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Report the full upstream response time, so gateway latency reflects only gateway time [#11719](https://github.com/gravitee-io/issues/issues/11719)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.14 - August 7, 2026
 <details>
 
@@ -14,6 +46,10 @@ noIndex: false
 
 * Unable to update membership groups across multiple environments after upgrade [#11656](https://github.com/gravitee-io/issues/issues/11656)
 * \[Gamma/AIM] LLM Proxy with provider OPEN_AI_COMPATIBLE shows no models — LlmRequestFormat enum is narrower than the llm-proxy connector's [#11677](https://github.com/gravitee-io/issues/issues/11677)
+* No data on Observability dashboards for API_PUBLISHER [#11651](https://github.com/gravitee-io/issues/issues/11651)
+* Reporting is disabled banner is always present [#11658](https://github.com/gravitee-io/issues/issues/11658)
+* APIM 4.12.9 bundles pre-Vert.x-5 fetcher plugins (gitlab/github/bitbucket) → NoSuchMethodError on any fetcher-backed page write [#11667](https://github.com/gravitee-io/issues/issues/11667)
+
 
 **Portal**
 
