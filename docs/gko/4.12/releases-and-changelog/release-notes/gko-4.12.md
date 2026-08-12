@@ -39,6 +39,12 @@ You need to:
 
 GKO 4.12 manages resources through the APIM Automation API. APIM 4.12.0 introduces breaking changes to the Automation API schemas, including restrictions on shared policy group API types and phases and the removal of the `hidden` metadata property. For details, see [Breaking changes and deprecations](https://documentation.gravitee.io/apim/4.12/release-information/breaking-changes-and-deprecations) in the APIM documentation.
 
+### Gateway infrastructure parameters are rejected
+
+{% hint style="warning" %}
+From GKO 4.12.11, a `Gateway` resource that sets `spec.infrastructure.parametersRef` is rejected: its `Accepted` condition is set to `False`, with a message reporting that the parameters reference isn't supported. Releases up to 4.12.10 ignore the field. Use the `GatewayClassParameters` resource to configure Gravitee-specific settings instead.
+{% endhint %}
+
 ## New Features
 
 #### **API key rotation for subscriptions**
@@ -67,6 +73,15 @@ GKO 4.12 manages resources through the APIM Automation API. APIM 4.12.0 introduc
   * `PortalListing`: control API placement and sequence within the navigation tree.
   * `Documentation`: represents a page, supports Gravitee Markdown, OpenAPI, and AsyncAPI formats and can be bound to either the portal or a specific API.&#x20;
 * API Definition (v4) now has a new property: `portalNavigation`. It gives an API publisher the opportunity to control the navigation structure of the docs pages for that API.
+
+#### Kubernetes Gateway API v1.6.1
+
+From GKO 4.12.11, the Gateway API controller builds against Kubernetes Gateway API v1.6.1 and installs the v1.6.1 standard channel CRDs. Releases up to 4.12.10 build against Gateway API v1.4.1. The upgrade adds the following:
+
+* `HTTPRoute` resources support method matching, host rewrite through `URLRewrite`, backend request header modification on rules that declare a single `backendRef`, and backend Services that advertise `appProtocol: kubernetes.io/h2c`. For details, see [HTTPRoute](../../guides/gateway-api/httproute.md).
+* The `spec.tls.frontend` field of a `Gateway` resource configures client certificate validation for HTTPS listeners, with a default configuration and per-port overrides. The CA bundle comes from a ConfigMap that contains a `ca.crt` key, and the deployed Gateway then requires client certificates on the configured port.
+* Labels and annotations set under `spec.infrastructure` of a `Gateway` resource propagate to the ServiceAccount, Deployment, pod template, and Service that GKO creates for the Gateway.
+* The `gatewayAPI.controller.matchAcrossRoutes` Helm option merges HTTPRoute resources with overlapping context paths on the same Gateway into a single API definition, so matching works across routes. The option is disabled by default. For details, see [Install with Helm](../../getting-started/installation/install-with-helm.md).
 
 ## Bug Fixes
 

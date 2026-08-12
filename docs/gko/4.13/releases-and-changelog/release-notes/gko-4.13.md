@@ -10,7 +10,7 @@ This page describes the new features and breaking changes introduced in GKO 4.13
 
 * The Kubernetes Gateway API implementation is upgraded to Gateway API v1.6.1.
 * A Gateway serves several domains on the same port, each with its own TLS certificate, using Server Name Indication (SNI).
-* The new `BackendTLSPolicy` resource secures traffic between the deployed Gateway and backend Services.
+* HTTPRoute resources support method matching, host rewrite, backend request header modification, and H2C backends.
 
 {% hint style="info" %}
 The Gateway API updates listed on this page are also available in GKO 4.12 starting with version 4.12.11.
@@ -36,9 +36,9 @@ GKO builds against Kubernetes Gateway API v1.6.1 and installs the v1.6.1 standar
 
 A Gateway accepts several HTTPS listeners on the same port, each with its own hostname and TLS certificate. The deployed Gateway presents the certificate matching the requested server name through SNI, and requests reach the listener with the most specific matching hostname. For details, see [Configure multi-domain TLS on a Gateway](../../guides/gateway-api/multi-domain-tls.md).
 
-#### BackendTLSPolicy
+#### HTTPRoute feature coverage
 
-The `BackendTLSPolicy` resource configures TLS between the deployed Gateway and backend Services: the Gateway calls the targeted Service over HTTPS, validates its certificate against a CA bundle provided in a ConfigMap, and presents an optional client certificate configured on the Gateway through `spec.tls.backend.clientCertificateRef`. For details, see [Secure backend traffic with BackendTLSPolicy](../../guides/gateway-api/backend-tls-policy.md).
+HTTPRoute resources support method matching, host rewrite through `URLRewrite`, backend request header modification on rules that declare a single `backendRef`, and backend Services that advertise `appProtocol: kubernetes.io/h2c`. For details, see [HTTPRoute](../../guides/gateway-api/httproute.md).
 
 #### Client certificate validation on HTTPS listeners
 

@@ -4,11 +4,15 @@
 
 The `HTTPRoute` resource defines rules for routing HTTP traffic from a Gateway listener to backend Kubernetes Services. GKO reconciles each HTTPRoute into a v4 API definition that the Gravitee Gateway uses to handle requests.
 
-GKO has partial conformance with the Kubernetes Gateway API v1.4.1 HTTPRoute specification. This page covers the supported features and provides configuration examples.
+GKO has partial conformance with the Kubernetes Gateway API v1.6.1 HTTPRoute specification. This page covers the supported features and provides configuration examples.
+
+{% hint style="info" %}
+In the 4.12 line, the feature coverage described on this page applies from GKO 4.12.11. Method matching, host rewrite, backend request header modification, and H2C backends aren't available in releases up to 4.12.10, which build against Gateway API v1.4.1.
+{% endhint %}
 
 ### Core features
 
-The following table shows GKO conformance with core HTTPRoute features from the Gateway API specification:
+The following table shows GKO support for core HTTPRoute features from the Gateway API specification:
 
 | Feature                                                 | Status        |
 | ------------------------------------------------------- | ------------- |
@@ -19,11 +23,11 @@ The following table shows GKO conformance with core HTTPRoute features from the 
 | Query parameter matching                                | Supported     |
 | Multiple backend references                             | Supported     |
 | Cross-namespace backend references (via ReferenceGrant) | Supported     |
-| Matching across routes                                  | Not supported |
+| Matching across routes                                  | Supported (requires the `gatewayAPI.controller.matchAcrossRoutes` Helm option) |
 
 ### Extended features
 
-The following table shows GKO conformance with extended HTTPRoute features:
+The following table shows GKO support for extended HTTPRoute features:
 
 | Feature                                                 | Status    |
 | ------------------------------------------------------- | --------- |
@@ -33,22 +37,22 @@ The following table shows GKO conformance with extended HTTPRoute features:
 | Scheme redirect                                         | Supported |
 | Response header modification (`set`, `add`, `remove`)   | Supported |
 | Custom gateway port (for example, 8080)                 | Supported |
+| Method matching                                         | Supported |
+| Host rewrite (`URLRewrite` with `hostname`)             | Supported |
+| H2C backend protocol (`appProtocol: kubernetes.io/h2c`) | Supported |
+| Backend request header modification                     | Supported (rules with a single `backendRef`) |
 
 ### Unsupported features
 
 The following extended features aren't supported in the current release:
 
-* Method matching
 * CORS
 * Request mirroring
 * Request timeout
 * Backend timeout
 * Backend TLS policy
 * WebSocket backend protocol
-* H2C backend protocol
-* Host rewrite
 * Destination port matching
-* Backend request header modification
 
 ### Path-based routing
 
@@ -327,7 +331,7 @@ The following table shows available fields for request redirect configuration:
 | `scheme`     | Target URL scheme (`http` or `https`)      | Original request scheme            |
 | `hostname`   | Target hostname                            | Original request host              |
 | `port`       | Target port                                | `80` for `http`, `443` for `https` |
-| `path.type`  | `ReplacePrefixMatch` or `ReplaceFullPath`  | —                                  |
+| `path.type`  | `ReplacePrefixMatch` or `ReplaceFullPath`  | -                                  |
 
 ### URL rewrite
 
@@ -358,12 +362,13 @@ URL rewrite supports the same path replacement types as request redirects (`Repl
 
 ## Limitations
 
-* **Matching across routes**: GKO doesn't support matching rules that span multiple `HTTPRoute` resources targeting the same Gateway listener. Each HTTPRoute is reconciled independently into its own v4 API definition. This means you need to create one route per entry point you expose.
+* **Matching across routes**: By default, GKO reconciles each HTTPRoute independently into its own v4 API definition, and matching rules don't span multiple `HTTPRoute` resources. To match across `HTTPRoute` resources that declare overlapping paths on the same Gateway, enable the `gatewayAPI.controller.matchAcrossRoutes` Helm option. When the option is enabled, GKO merges the overlapping routes into a single generated API, and the name of that API differs from the names used in the default mode.
 * **Backend types**: Only Kubernetes `Service` backends are supported. Resource backends aren't supported.
 
 ## What's next
 
 * [Kubernetes Gateway API overview](README.md): Set up GatewayClass, GatewayClassParameters, and Gateway resources.
+* [Configure multi-domain TLS on a Gateway](multi-domain-tls.md): Serve several domains on the same port, each with its own certificate.
 * [GatewayClassParameters](../../overview/custom-resource-definitions/gatewayclassparameters.md): Configure autoscaling, pod disruption budgets, and deployment strategies.
 * [KafkaRoute](../../overview/custom-resource-definitions/kafkaroute.md): Route Kafka traffic through the Gateway (experimental).
 * [Example manifests](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/examples/gateway-api): Complete YAML examples for all Gateway API resources in the GKO repository.
