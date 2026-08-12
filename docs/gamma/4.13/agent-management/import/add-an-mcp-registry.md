@@ -12,7 +12,7 @@ description: Importing MCP servers in bulk from an external registry is planned 
 
 An MCP Registry is an external catalog of MCP servers. Connecting a registry will let you browse and import MCP servers — along with their tools, resources, and prompts — directly into the Gamma Catalog.
 
-Gamma will work in both directions in the MCP ecosystem: consuming from external registries, and operating as an MCP Registry that other systems can discover and read from. For the publisher side, see [Expose an MCP Registry](../publish/expose-an-mcp-registry.md).
+Gamma will work in both directions in the MCP ecosystem: consuming from external registries, and operating as an MCP Registry that other systems can discover and read from.
 
 ## Supported registries (coming soon)
 
@@ -33,4 +33,3 @@ Today, add MCP servers **one at a time, by URL**. The guided setup discovers the
 ## Next steps
 
 * **Register an MCP server (available now)** — Add a server by URL, including upstream authentication. See [Register an MCP server](register-an-mcp-server.md).
-* **Expose your Catalog as a registry (coming soon)** — Publish your Catalog so other systems can discover and consume your MCP servers. See [Expose an MCP Registry](../publish/expose-an-mcp-registry.md).
