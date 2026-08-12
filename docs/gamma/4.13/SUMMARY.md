@@ -37,7 +37,6 @@
 * [Manage applications](platform-management/manage-applications.md)
 * [Manage dictionaries](platform-management/manage-dictionaries.md)
 * [Manage entrypoints and sharding tags](platform-management/manage-entrypoints-and-sharding-tags.md)
-* [Manage resources](platform-management/manage-resources.md)
 
 ## API Management
 
