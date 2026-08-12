@@ -59,7 +59,6 @@
 * [Gateway API](guides/gateway-api/README.md)
   * [HTTPRoute](guides/gateway-api/httproute.md)
   * [Configure TLS with cert-manager](guides/gateway-api/tls-with-cert-manager.md)
-  * [Secure backend traffic with BackendTLSPolicy](guides/gateway-api/backend-tls-policy.md)
   * [Configure DNS with external-dns](guides/gateway-api/dns-with-external-dns.md)
 
 ## REFERENCE

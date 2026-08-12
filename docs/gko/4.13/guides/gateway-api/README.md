@@ -18,7 +18,6 @@ The following table lists the Gateway API resources that GKO supports:
 | Gateway                | `gateway.networking.k8s.io` | v1          | Supported                              |
 | HTTPRoute              | `gateway.networking.k8s.io` | v1          | Supported (partial conformance)        |
 | ReferenceGrant         | `gateway.networking.k8s.io` | v1beta1     | Supported (cross-namespace references) |
-| BackendTLSPolicy       | `gateway.networking.k8s.io` | v1          | Supported                              |
 | GatewayClassParameters | `gravitee.io`               | v1alpha1    | Supported (Gravitee extension)         |
 | KafkaRoute             | `gravitee.io`               | v1alpha1    | Experimental                           |
 
@@ -196,7 +195,6 @@ spec:
 
 * [HTTPRoute](httproute.md): Configure path-based routing, header matching, traffic splitting, redirects, URL rewrites, and header modification.
 * [Configure TLS with cert-manager](tls-with-cert-manager.md): Configure TLS certificate provisioning for Gateway HTTPS listeners.
-* [Secure backend traffic with BackendTLSPolicy](backend-tls-policy.md): Configure TLS between the deployed Gateway and backend Services.
 * [Configure DNS with external-dns](dns-with-external-dns.md): Configure DNS record creation for Gateway Services.
 * [GatewayClassParameters](../../overview/custom-resource-definitions/gatewayclassparameters.md): Configure Gravitee-specific Gateway API settings including Kubernetes deployment options and autoscaling.
 * [KafkaRoute](../../overview/custom-resource-definitions/kafkaroute.md): (experimental) Route Kafka traffic through the Gateway (requires Enterprise license).

@@ -36,8 +36,7 @@ The following table shows GKO support for extended HTTPRoute features:
 | Method matching                                         | Supported |
 | Host rewrite (`URLRewrite` with `hostname`)             | Supported |
 | H2C backend protocol (`appProtocol: kubernetes.io/h2c`) | Supported |
-| Backend request header modification                     | Supported |
-| Backend TLS policy                                      | Supported |
+| Backend request header modification                     | Supported (rules with a single `backendRef`) |
 
 ### Unsupported features
 
@@ -47,6 +46,7 @@ The following extended features aren't supported in the current release:
 * Request mirroring
 * Request timeout
 * Backend timeout
+* Backend TLS policy
 * WebSocket backend protocol
 * Destination port matching
 
@@ -364,7 +364,6 @@ URL rewrite supports the same path replacement types as request redirects (`Repl
 ## What's next
 
 * [Kubernetes Gateway API overview](README.md): Set up GatewayClass, GatewayClassParameters, and Gateway resources.
-* [Secure backend traffic with BackendTLSPolicy](backend-tls-policy.md): Configure TLS between the deployed Gateway and backend Services.
 * [Configure multi-domain TLS on a Gateway](multi-domain-tls.md): Serve several domains on the same port, each with its own certificate.
 * [GatewayClassParameters](../../overview/custom-resource-definitions/gatewayclassparameters.md): Configure autoscaling, pod disruption budgets, and deployment strategies.
 * [KafkaRoute](../../overview/custom-resource-definitions/kafkaroute.md): Route Kafka traffic through the Gateway (experimental).

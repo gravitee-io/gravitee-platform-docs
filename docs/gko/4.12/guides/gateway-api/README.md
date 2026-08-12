@@ -6,7 +6,11 @@ The Gravitee Kubernetes Operator (GKO) implements the [Kubernetes Gateway API](h
 
 Unlike the Gravitee Ingress Controller, which creates v2 API definitions, the Gateway API controller creates **v4 API definitions**. This is the recommended approach for new Kubernetes-native deployments.
 
-GKO is recognized as a [partial conformance](https://gateway-api.sigs.k8s.io/implementations/) implementation of the Kubernetes Gateway API v1.4.1 standard channel. The implementation doesn't support matching rules across routes. This means you need to create one route per entry point you expose through `HTTPRoute` resources.
+GKO is recognized as a [partial conformance](https://gateway-api.sigs.k8s.io/implementations/) implementation of the Kubernetes Gateway API v1.6.1 standard channel. By default, each `HTTPRoute` is reconciled independently and matching rules don't span routes. To match across `HTTPRoute` resources that declare overlapping paths on the same Gateway, enable the `gatewayAPI.controller.matchAcrossRoutes` Helm option.
+
+{% hint style="info" %}
+In the 4.12 line, the Gateway API v1.6.1 implementation described on this page is available from GKO 4.12.11. Releases up to 4.12.10 build against Gateway API v1.4.1.
+{% endhint %}
 
 ### Supported resources
 
@@ -120,6 +124,8 @@ spec:
 {% endcode %}
 
 When GKO reconciles a Gateway resource, it deploys a Gravitee Gateway instance in the cluster with the specified listener configuration. The deployed Gateway runs in [db-less mode](../db-less-mode.md), syncing its configuration directly from the Kubernetes cluster without connecting to a management repository.
+
+From GKO 4.12.11, to serve several domains on the same port with TLS, define one HTTPS listener per domain, each with its own hostname and certificate. For the configuration steps, see [Configure multi-domain TLS on a Gateway](multi-domain-tls.md).
 
 ### Minimal deployment example
 
