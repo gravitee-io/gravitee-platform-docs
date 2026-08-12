@@ -88,6 +88,7 @@ Use these parameters to configure the deployment, and the ways in which the oper
 | `manager.resources.requests.cpu`            | The requested CPU for the GKO Manager container.                                                                 | `5m`                             |
 | `manager.resources.requests.memory`         | The requested memory for the GKO Manager container.                                                              | `64Mi`                           |
 | `manager.scope.cluster`                     | Use `false` to listen only in the release namespace.                                                             | `true`                           |
+| `manager.maxConcurrentReconciles`           | The maximum number of concurrent reconcile loops per controller. Higher values improve throughput at the cost of more API server load. | `4`                              |
 | `manager.metrics.enabled`                   | If true, a metrics server will be created so that metrics can be scraped using Prometheus.                       | `true`                           |
 | `manager.probe.port`                        | The port the readiness and liveness probes will listen to.                                                       | `8081`                           |
 | `manager.httpClient.insecureSkipCertVerify` | If true, the manager HTTP client will not verify the certificate used by the Management API.                     | `false`                          |
@@ -119,7 +120,27 @@ Use these parameters to configure the Gateway API controller. The Gateway API co
 
 The Gateway API controller requires cluster-scoped installation. When enabling the Gateway API controller, you must set `manager.scope.cluster=true` and cannot define specific namespaces. This is because the GatewayClass resource is cluster-scoped.
 
-<table><thead><tr><th width="237.80078125">Name</th><th width="287.828125">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>gatewayAPI.controller.enabled</code></td><td>Enables the Gateway API controller. Requires <code>manager.scope.cluster=true</code>.</td><td><code>false</code></td></tr></tbody></table>
+<table>
+    <thead>
+        <tr>
+            <th width="237.80078125">Name</th>
+            <th width="287.828125">Description</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>gatewayAPI.controller.enabled</code></td>
+            <td>Enables the Gateway API controller. Requires <code>manager.scope.cluster=true</code>.</td>
+            <td><code>false</code></td>
+        </tr>
+        <tr>
+            <td><code>gatewayAPI.controller.matchAcrossRoutes</code></td>
+            <td>If true, HTTPRoute resources with overlapping context paths on the same Gateway are merged into a single API definition, so matching works across routes. Merging changes the name of the generated API.</td>
+            <td><code>false</code></td>
+        </tr>
+    </tbody>
+</table>
 
 For example:
 

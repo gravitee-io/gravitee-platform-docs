@@ -18,7 +18,7 @@ The cert-manager integration follows this flow:
 6. cert-manager automatically renews the certificate before expiry.
 
 {% hint style="info" %}
-Each HTTPS listener supports exactly one `certificateRef`. Specifying multiple certificate references on a single listener isn't supported.
+Each HTTPS listener supports exactly one `certificateRef`. Specifying multiple certificate references on a single listener isn't supported. To serve several domains on the same port, define one HTTPS listener per domain, each with its own certificate. See [Configure multi-domain TLS on a Gateway](multi-domain-tls.md).
 {% endhint %}
 
 ## Prerequisites
@@ -490,6 +490,7 @@ This grants the Gateway in the `default` namespace permission to reference Secre
 ## Constraints
 
 * Each HTTPS listener accepts exactly **one** `certificateRef`. Specifying multiple references causes the listener to enter a `TooManyCertificateRefs` state.
+* Multiple HTTPS listeners on the same port are supported when each listener declares its own hostname and certificate. The deployed Gateway selects the certificate through Server Name Indication (SNI). See [Configure multi-domain TLS on a Gateway](multi-domain-tls.md).
 * The `certificateRef` kind is `Secret` and the group is `""` (Kubernetes core API group). Other kinds aren't supported.
 * The Secret contains PEM-encoded `tls.crt` and `tls.key` fields. Secrets with missing or malformed PEM data are rejected.
 * GKO watches for changes to referenced Secrets and automatically re-reconciles the Gateway when a certificate is renewed.
