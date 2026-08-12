@@ -6,7 +6,7 @@ The Gravitee Kubernetes Operator (GKO) implements the [Kubernetes Gateway API](h
 
 Unlike the Gravitee Ingress Controller, which creates v2 API definitions, the Gateway API controller creates **v4 API definitions**. This is the recommended approach for new Kubernetes-native deployments.
 
-GKO is recognized as a [partial conformance](https://gateway-api.sigs.k8s.io/implementations/) implementation of the Kubernetes Gateway API v1.6.1 standard channel. By default, each `HTTPRoute` is reconciled independently and matching rules don't span routes. To match across `HTTPRoute` resources that declare overlapping paths on the same Gateway, enable the `gatewayAPI.controller.matchAcrossRoutes` Helm option.
+GKO is recognized as a [conformant](https://gateway-api.sigs.k8s.io/implementations/) implementation of the Kubernetes Gateway API v1.6.1 standard channel, passing every core and extended test in the `GATEWAY-HTTP` conformance profile. By default, each `HTTPRoute` is reconciled independently and matching rules don't span routes. To match across `HTTPRoute` resources that declare overlapping paths on the same Gateway, and to reproduce the conformance run, enable the `gatewayAPI.controller.matchAcrossRoutes` Helm option.
 
 {% hint style="info" %}
 In the 4.12 line, the Gateway API v1.6.1 implementation described on this page is available from GKO 4.12.11. Releases up to 4.12.10 build against Gateway API v1.4.1.
@@ -20,7 +20,7 @@ The following table lists the Gateway API resources that GKO supports:
 | ---------------------- | --------------------------- | ----------- | -------------------------------------- |
 | GatewayClass           | `gateway.networking.k8s.io` | v1          | Supported                              |
 | Gateway                | `gateway.networking.k8s.io` | v1          | Supported                              |
-| HTTPRoute              | `gateway.networking.k8s.io` | v1          | Supported (partial conformance)        |
+| HTTPRoute              | `gateway.networking.k8s.io` | v1          | Supported                              |
 | ReferenceGrant         | `gateway.networking.k8s.io` | v1beta1     | Supported (cross-namespace references) |
 | GatewayClassParameters | `gravitee.io`               | v1alpha1    | Supported (Gravitee extension)         |
 | KafkaRoute             | `gravitee.io`               | v1alpha1    | Experimental                           |

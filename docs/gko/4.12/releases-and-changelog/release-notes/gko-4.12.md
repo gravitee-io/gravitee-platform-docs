@@ -76,7 +76,7 @@ From GKO 4.12.11, a `Gateway` resource that sets `spec.infrastructure.parameters
 
 #### Kubernetes Gateway API v1.6.1
 
-From GKO 4.12.11, the Gateway API controller builds against Kubernetes Gateway API v1.6.1 and installs the v1.6.1 standard channel CRDs. Releases up to 4.12.10 build against Gateway API v1.4.1. The upgrade adds the following:
+From GKO 4.12.11, the Gateway API controller builds against Kubernetes Gateway API v1.6.1 and installs the v1.6.1 standard channel CRDs. Releases up to 4.12.10 build against Gateway API v1.4.1. GKO passes every core and extended test in the `GATEWAY-HTTP` conformance profile. The [Gateway API implementations page](https://gateway-api.sigs.k8s.io/implementations/) lists GKO as a conformant implementation. The upgrade adds the following:
 
 * `HTTPRoute` resources support method matching, host rewrite through `URLRewrite`, backend request header modification on rules that declare a single `backendRef`, and backend Services that advertise `appProtocol: kubernetes.io/h2c`. For details, see [HTTPRoute](../../guides/gateway-api/httproute.md).
 * The `spec.tls.frontend` field of a `Gateway` resource configures client certificate validation for HTTPS listeners, with a default configuration and per-port overrides. The CA bundle comes from a ConfigMap that contains a `ca.crt` key, and the deployed Gateway then requires client certificates on the configured port.

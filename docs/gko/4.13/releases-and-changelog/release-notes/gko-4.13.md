@@ -8,7 +8,7 @@ This page describes the new features and breaking changes introduced in GKO 4.13
 
 ## Highlights
 
-* The Kubernetes Gateway API implementation is upgraded to Gateway API v1.6.1.
+* The Kubernetes Gateway API implementation is upgraded to Gateway API v1.6.1, and GKO is listed upstream as a conformant implementation.
 * A Gateway serves several domains on the same port, each with its own TLS certificate, using Server Name Indication (SNI).
 * HTTPRoute resources support method matching, host rewrite, backend request header modification, and H2C backends.
 
@@ -30,7 +30,7 @@ The following features extend the Kubernetes Gateway API support in GKO.
 
 #### Gateway API v1.6.1
 
-GKO builds against Kubernetes Gateway API v1.6.1 and installs the v1.6.1 standard channel CRDs. The conformance report for this release is published in the [GKO repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/test/conformance/kubernetes.io/gateway-api/report).
+GKO builds against Kubernetes Gateway API v1.6.1 and installs the v1.6.1 standard channel CRDs. It passes every core and extended test in the `GATEWAY-HTTP` conformance profile. The [Gateway API implementations page](https://gateway-api.sigs.k8s.io/implementations/) lists GKO as a conformant implementation. The conformance report for this release is published in the [GKO repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/test/conformance/kubernetes.io/gateway-api/report).
 
 #### Multi-domain TLS with SNI
 
