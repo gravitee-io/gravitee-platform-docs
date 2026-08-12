@@ -15,9 +15,7 @@ Each LLM Proxy, MCP Proxy, and A2A Proxy detail view includes an **Audit Logs** 
 3. Select the proxy you want to inspect.
 4. Under **Monitoring**, select **Audit Logs**.
 
-<!-- TODO: Screenshot of the Audit Logs page of an LLM Proxy with a populated table -->
-
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-audit-logs.png" alt=""><figcaption><p>The Audit Logs page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-audit-logs.png" alt=""><figcaption><p>The Audit Logs page</p></figcaption></figure>
 
 Until the first audit event is recorded for the proxy, the page shows an introduction to audit logs instead of the table.
 
@@ -37,6 +35,9 @@ The table shows 10 entries per page by default and supports page sizes of 25, 50
 ## Filter the trail
 
 1. To show a single event type, select it in the event type filter. The filter defaults to **All events**.
+
+    <figure><img src="../../.gitbook/assets/gamma-aim-audit-logs-event-filter.png" alt=""><figcaption><p>The event type filter</p></figcaption></figure>
+
 2. To bound the trail in time, select a start and end date in the **Date range** picker. The end date is inclusive.
 3. To clear the active filters, click **Reset**. The **Reset** button appears only while a filter is active.
 
