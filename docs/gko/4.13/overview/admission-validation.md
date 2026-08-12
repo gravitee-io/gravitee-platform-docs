@@ -1,7 +1,5 @@
 ---
-description: >-
-  How GKO validates custom resources before they are stored in your cluster,
-  including the dry-run call it makes to the APIM Automation API
+description: The Gravitee Kubernetes Operator admission webhook sends a dry-run call to the APIM Automation API before a custom resource is stored. See what it checks.
 ---
 
 # Admission validation
