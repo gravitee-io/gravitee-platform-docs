@@ -1,5 +1,27 @@
 # GKO 4.12.x
 
+## Gravitee Kubernetes Operator 4.12.15 - August 12, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **Others**
+
+  * GKO webhook timeout should follow the httpClient timeout [#11720](https://github.com/gravitee-io/issues/issues/11720)
+
+</details>
+
+
+<details>
+<summary>Improvements</summary>
+
+  **Others**
+
+  * GKO docs - document a webhook request roundtrip so that trouble shooting is easier [#11721](https://github.com/gravitee-io/issues/issues/11721)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.12.14 - August 11, 2026
 
 There is nothing new in version 4.12.14.
