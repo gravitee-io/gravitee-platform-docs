@@ -19,6 +19,8 @@ Each LLM Proxy, MCP Proxy, and A2A Proxy detail view includes an **Audit Logs** 
 
 Until the first audit event is recorded for the proxy, the page shows an introduction to audit logs instead of the table.
 
+You need the **API_AUDIT** permission with the **READ** access level on the proxy. Without it, the **Monitoring** group isn't shown, and opening the page directly displays `You don't have permission to view audit logs for this API.` If the trail can't be loaded, the page shows `Failed to load audit logs. Please try again.`
+
 ## Read the audit trail
 
 The table lists one row per audit event, with the following columns:
@@ -30,7 +32,7 @@ The table lists one row per audit event, with the following columns:
 | **Event**  | The event type identifier.                                                         |
 | **Target** | The properties of the object the event applied to, one `key: value` pair per line. |
 
-The table shows 10 entries per page by default and supports page sizes of 25, 50, and 100.
+The table shows 10 entries per page by default and supports page sizes of 25, 50, and 100. Changing the page size returns the table to the first page.
 
 ## Filter the trail
 
@@ -41,11 +43,11 @@ The table shows 10 entries per page by default and supports page sizes of 25, 50
 2. To bound the trail in time, select a start and end date in the **Date range** picker. The end date is inclusive.
 3. To clear the active filters, click **Reset**. The **Reset** button appears only while a filter is active.
 
-Changing a filter returns the table to the first page.
+Changing a filter returns the table to the first page. When no entries match the active filters, the table shows `No audit logs found`.
 
 ## View the change as a JSON Patch
 
-When an audit entry carries the JSON Patch of the change, a **View patch** button appears at the end of its row. Click it to open the **JSON Patch** panel, which shows the patch that the audited change applied.
+When an audit entry carries the JSON Patch of the change, a **View patch** button appears at the end of its row. Click it to open the **JSON Patch** panel, which shows the patch that the audited change applied. The panel also shows the event type, the date and time of the change, and the actor who made it.
 
 ## Verification
 
