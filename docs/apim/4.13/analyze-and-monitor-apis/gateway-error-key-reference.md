@@ -12,7 +12,7 @@ The Gateway records an error key on every request it fails. The key appears in t
 
 Two properties of these keys matter when you read them.
 
-**The status is a default.** A [response template](../create-and-configure-apis/configure-v4-apis/response-templates.md) configured for a key, or for its parent key, overrides it. A `502` below can reach the API consumer as a `500` when the API falls back to a `DEFAULT` template.
+**The status is a default.** A [response template](../create-and-configure-apis/configure-v4-apis/response-templates.md) configured for a key, or for its parent key, overrides it. A key listed here as a `502` can reach the API consumer as a `500` when the API falls back to a `DEFAULT` template.
 
 **Fine-grained keys carry a parent key.** When no response template targets the specific key, the Gateway falls back to the template configured for its parent. A fine-grained key without its own template still produces a sensible status.
 
@@ -20,17 +20,17 @@ Two properties of these keys matter when you read them.
 
 The Gateway raises these keys while it acts as an HTTP client towards the backend.
 
-<table><thead><tr><th width="80">Status</th><th width="330">Error key</th><th>What it means</th></tr></thead><tbody><tr><td>502</td><td><code>GATEWAY_CLIENT_CONNECTION_ERROR</code></td><td>Umbrella key. Any backend connection failure that matches no more specific case below.</td></tr><tr><td>502</td><td><code>GATEWAY_CLIENT_CONNECTION_REFUSED</code></td><td>The backend refused the TCP connection. Nothing listens on that port.</td></tr><tr><td>502</td><td><code>GATEWAY_CLIENT_DNS_RESOLUTION_ERROR</code></td><td>The backend hostname didn't resolve.</td></tr><tr><td>502</td><td><code>GATEWAY_CLIENT_UNREACHABLE</code></td><td>No network route to the backend host exists.</td></tr><tr><td>502</td><td><code>GATEWAY_CLIENT_TLS_HANDSHAKE_ERROR</code></td><td>The TLS handshake with the backend failed: certificate, protocol, or cipher mismatch.</td></tr><tr><td>502</td><td><code>GATEWAY_CLIENT_CONNECTION_RESET</code></td><td>The backend reset the connection with a TCP RST, or sent an HTTP/2 RST_STREAM.</td></tr><tr><td>502</td><td><code>GATEWAY_CLIENT_CONNECTION_CLOSED</code></td><td>The connection closed while a response was still expected. See the note below.</td></tr><tr><td><strong>503</strong></td><td><code>GATEWAY_CLIENT_CONNECTION_POOL_EXHAUSTED</code></td><td>The connection pool and its wait queue are both full. The Gateway sheds load on purpose, and the request never reached the backend. Retryable.</td></tr><tr><td>504</td><td><code>GATEWAY_CLIENT_CONNECT_TIMEOUT</code></td><td>No connection was obtained in time: pool saturation, slow DNS, or slow TCP connect. The request never reached the backend.</td></tr><tr><td>504</td><td><code>GATEWAY_CLIENT_READ_TIMEOUT</code></td><td>A connection was obtained and the request was sent, but the backend stayed silent for longer than <code>readTimeout</code>.</td></tr><tr><td>504</td><td><code>REQUEST_TIMEOUT</code></td><td>Umbrella key for the two timeouts above. Also the key of the Gateway-wide request timeout.</td></tr></tbody></table>
+<table><thead><tr><th width="80">Status</th><th width="330">Error key</th><th>What it means</th></tr></thead><tbody><tr><td>502</td><td><code>GATEWAY_CLIENT_CONNECTION_ERROR</code></td><td>Umbrella key. A backend connection failed for a reason that no more specific key covers.</td></tr><tr><td>502</td><td><code>GATEWAY_CLIENT_CONNECTION_REFUSED</code></td><td>The backend refused the TCP connection. Nothing listens on that port.</td></tr><tr><td>502</td><td><code>GATEWAY_CLIENT_DNS_RESOLUTION_ERROR</code></td><td>The backend hostname didn't resolve.</td></tr><tr><td>502</td><td><code>GATEWAY_CLIENT_UNREACHABLE</code></td><td>No network route to the backend host exists.</td></tr><tr><td>502</td><td><code>GATEWAY_CLIENT_TLS_HANDSHAKE_ERROR</code></td><td>The TLS handshake with the backend failed: certificate, protocol, or cipher mismatch.</td></tr><tr><td>502</td><td><code>GATEWAY_CLIENT_CONNECTION_RESET</code></td><td>The backend reset the connection with a TCP RST, or sent an HTTP/2 RST_STREAM.</td></tr><tr><td>502</td><td><code>GATEWAY_CLIENT_CONNECTION_CLOSED</code></td><td>The connection closed while a response was still expected. See the note that follows this table.</td></tr><tr><td>503</td><td><code>GATEWAY_CLIENT_CONNECTION_POOL_EXHAUSTED</code></td><td>The connection pool and its wait queue are both full, so the Gateway sheds the load deliberately. The request never reached the backend, and it can be retried.</td></tr><tr><td>504</td><td><code>GATEWAY_CLIENT_CONNECT_TIMEOUT</code></td><td>No connection was obtained in time: pool saturation, slow DNS, or slow TCP connect. The request never reached the backend.</td></tr><tr><td>504</td><td><code>GATEWAY_CLIENT_READ_TIMEOUT</code></td><td>A connection was obtained and the request was sent, but the backend stayed silent for longer than <code>readTimeout</code>.</td></tr><tr><td>504</td><td><code>REQUEST_TIMEOUT</code></td><td>Umbrella key for the two timeout keys. Also the key that the Gateway-wide request timeout produces.</td></tr></tbody></table>
 
 The two timeout keys carry `REQUEST_TIMEOUT` as their parent. Every other key in this table carries `GATEWAY_CLIENT_CONNECTION_ERROR`.
 
 {% hint style="warning" %}
-`GATEWAY_CLIENT_CONNECTION_POOL_EXHAUSTED` is the one key whose parent produces a different status. Without a template of its own, it falls back to `GATEWAY_CLIENT_CONNECTION_ERROR`, and reaches the consumer as a `502` rather than a `503`. Configure a template for this key when that distinction matters.
+`GATEWAY_CLIENT_CONNECTION_POOL_EXHAUSTED` is the one key whose status differs from its parent's: `503` against `502`. With no response template in play, it returns `503` as expected. But a template configured on `GATEWAY_CLIENT_CONNECTION_ERROR` — or a `DEFAULT` one — applies to it as well, and a template always dictates the status: pool exhaustion then reaches the consumer as `502`. Give this key a template of its own when the distinction matters.
 {% endhint %}
 
 ### On `GATEWAY_CLIENT_CONNECTION_CLOSED`
 
-This key is the one most often misread. It doesn't mean that the API consumer went away, and it doesn't mean that the Gateway timed out. It means the connection closed while the response was still incomplete in HTTP terms.
+This key is misread more often than any other. It doesn't mean that the API consumer went away, and it doesn't mean that the Gateway timed out. It means the connection closed while the response was still incomplete in HTTP terms.
 
 The common case on streaming APIs: the backend announces `Transfer-Encoding: chunked`, sends data, then closes without the terminating zero-length chunk. Any HTTP client sees the same thing. `curl` reports `transfer closed with outstanding read data remaining`.
 
@@ -54,7 +54,7 @@ The Gateway raises these keys when the **caller** goes away. It sets status `499
 
 The first three come from the HTTP layer of the Gateway, which classifies them from the underlying exception. The last two are a coarser fallback, used when nothing more precise was recorded.
 
-These keys never overlap with the backend keys above. An abort by the API consumer is always reported under a `CLIENT_ABORTED_` key, never as `GATEWAY_CLIENT_CONNECTION_CLOSED`.
+These keys never overlap with the backend connection keys. An abort by the API consumer is always reported under a `CLIENT_ABORTED_` key, never as `GATEWAY_CLIENT_CONNECTION_CLOSED`.
 
 ## Request handling and routing
 

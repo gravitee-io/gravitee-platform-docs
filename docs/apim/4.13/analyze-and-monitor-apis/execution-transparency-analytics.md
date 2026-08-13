@@ -285,6 +285,6 @@ The Gateway sets one of the following error keys when a request fails on a conne
 
 Keys that start with `GATEWAY_CLIENT_` indicate a backend-side fault. The fine-grained timeout keys carry `REQUEST_TIMEOUT` as a parent key, and the fine-grained connection keys carry `GATEWAY_CLIENT_CONNECTION_ERROR` as a parent key. Keys that start with `CLIENT_ABORTED_` indicate that the API consumer went away, and don't point to a backend problem.
 
-`GATEWAY_CLIENT_CONNECTION_POOL_EXHAUSTED` is the exception to that fallback. Its parent produces a `502`, so without a response template of its own it reaches the API consumer under the wrong status.
+`GATEWAY_CLIENT_CONNECTION_POOL_EXHAUSTED` is the exception to that fallback. Its status differs from its parent's, `503` against `502`, and a response template always dictates the status. A template configured on `GATEWAY_CLIENT_CONNECTION_ERROR`, or a `DEFAULT` one, therefore turns pool exhaustion into a `502`.
 
 For the keys the Gateway raises outside connectivity, such as routing, plan resolution, and request handling, see the [Gateway error key reference](gateway-error-key-reference.md).
