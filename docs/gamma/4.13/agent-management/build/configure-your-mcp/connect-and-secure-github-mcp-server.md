@@ -37,7 +37,7 @@ To connect and secure the GitHub MCP server, complete the following steps:
 
 1. [Connect the GitHub MCP server](#connect-the-github-mcp-server)
 2. [Expose the GitHub tools as a Composite MCP Server](#expose-the-github-tools-as-a-composite-mcp-server)
-3. [Authenticate access to the GitHub MCP server](#authenticate-access-to-the-github-mcp-server)
+3. [Authenticate access to your deployed GitHub MCP server](#authenticate-access-to-your-deployed-github-mcp-server)
 4. [Restrict GitHub tool access with fine-grained authorization](#restrict-github-tool-access-with-fine-grained-authorization)
 5. [Apply policies to the GitHub MCP server](#apply-policies-to-the-github-mcp-server)
 6. [Observe GitHub MCP interactions](#observe-github-mcp-interactions)
@@ -93,9 +93,9 @@ To expose the GitHub tools as a Composite MCP Server, complete the following ste
 2. Select **+ Create MCP proxy**, and then select **Studio mode**.
 3. In the **General information** section, enter a **Name**, for example `engineering-toolbelt`, and a **Context path**, for example `/engineering-toolbelt`.
 4. On the **Secure** page, select **Gravitee as Authorization Server**. To use an external identity provider, select **External Authorization Server** instead.
-4. In the **Compose** step, select the GitHub MCP server from the palette, and then select only the five tools at the start of this section. 
-5. In the **Connect** step, select the GitHub MCP server, set the credential type to **Bearer token**, and then enter the personal access token. The Gateway injects it as an `Authorization` header on every upstream call. The token is held once rather than distributed to each agent.
-6. In the **Review** step, confirm the composition, and then select **Create & deploy**.
+5. In the **Compose** step, select the GitHub MCP server from the palette, and then select only the five tools at the start of this section.
+6. In the **Connect** step, select the GitHub MCP server, set the credential type to **Bearer token**, and then enter the personal access token. The Gateway injects it as an `Authorization` header on every upstream call. The token is held once rather than distributed to each agent.
+7. In the **Review** step, confirm the composition, and then select **Create & deploy**.
 
 After you deploy the server, the composition is visible on the **Tools** page of the **Design** section, grouped by upstream server. The `github-mcp-server` group shows its upstream auth type and the number of tools composed from it.
 
@@ -162,7 +162,7 @@ To confirm that authentication to the GitHub MCP server is enforced, complete th
 1. Call the GitHub MCP server without a token:
 
    ```sh
-   curl -s -o /dev/null -w '%{http_code}\n' https://<gateway-host>/engineering-toolbelt \
+   curl -s -i https://<gateway-host>/engineering-toolbelt \
      -H 'Content-Type: application/json' \
      -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
    ```
