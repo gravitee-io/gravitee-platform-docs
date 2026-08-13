@@ -23,21 +23,7 @@ You configure every one of these settings in milliseconds, at both scopes.
 
 The following diagram places each timer on the life of a single request, using the default values. The request arrives at second 0, the connection is obtained at second 5, and the response completes at second 12.
 
-```mermaid
-gantt
-    title Timer windows over one request, with the default values
-    dateFormat HH:mm:ss
-    axisFormat %M:%S
-    section Gateway
-    http.requestTimeout 30s              :done, req, 00:00:00, 30s
-    section Connection
-    connectTimeout 5s                    :crit, conn, 00:00:00, 5s
-    idleTimeout 60s                      :active, idle, 00:00:05, 60s
-    keepAliveTimeout 30s, back in pool   :active, ka, 00:00:12, 30s
-    section Request in flight
-    readTimeout 10s, reset by data       :crit, read, 00:00:05, 10s
-    Response complete                    :milestone, resp, 00:00:12, 0s
-```
+<figure><img src="../.gitbook/assets/apim-timeout-timer-windows.svg" alt="Timer windows over one request, with the default values"><figcaption><p>Each timer over the life of one request, with the default values</p></figcaption></figure>
 
 Two properties of this layout carry the rules that follow. Only `readTimeout` and `idleTimeout` overlap while the request is in flight, so they're the only pair that competes. `keepAliveTimeout` starts when the connection returns to the pool, which is why it never interacts with `readTimeout`.
 
