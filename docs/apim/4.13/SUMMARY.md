@@ -539,6 +539,7 @@
     * [JDBC](prepare-a-production-environment/repositories/jdbc.md)
     * [Redis](prepare-a-production-environment/repositories/redis.md)
   * [Configure your HTTP Server](prepare-a-production-environment/configure-your-http-server.md)
+  * [Timeout Management](prepare-a-production-environment/timeout-management.md)
   * [Sensitive Data Management](prepare-a-production-environment/sensitive-data-management/README.md)
     * [Configure Secrets](prepare-a-production-environment/sensitive-data-management/configure-secrets/README.md)
       * [Quick Start](prepare-a-production-environment/sensitive-data-management/configure-secrets/quick-start.md)
