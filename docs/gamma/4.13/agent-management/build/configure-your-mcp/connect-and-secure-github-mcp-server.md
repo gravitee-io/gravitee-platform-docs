@@ -315,7 +315,7 @@ To observe GitHub MCP interactions, complete the following steps:
 6. Select **Save changes**.
 
    ![The Reporter Settings page with both logging modes, both phases, headers, and payload enabled, and the OpenTelemetry card below](<../../../.gitbook/assets/gamma-mcp-github-reporter-settings.png>)
-7. Navigate to the **Secure** section, confirm that decision logging is enabled on **Fine-Grained Authorization**, and then deploy the server. Each evaluated call then records the subject, the action, the resource, the decision, and the policies that determined it.
+7. Navigate to the **Design** section, select **Policy Studio**, open the `tools/call` flow, and then select **Gravitee Authorization PEP (GAPL)**. Confirm that **Log every decision (SLF4J)** is enabled, and then deploy the server. Each evaluated call then records the subject, the action, the resource, the decision, and the policies that determined it.
 
 {% hint style="warning" %}
 Payload logging records the arguments an agent sends and the content a tool returns, which is the data you most want to review and also the data most likely to be sensitive. Enable it deliberately, pair it with span attribute redaction, and keep verbose tracing on only for as long as you are debugging. Detailed logging increases storage and affects Gateway performance.
