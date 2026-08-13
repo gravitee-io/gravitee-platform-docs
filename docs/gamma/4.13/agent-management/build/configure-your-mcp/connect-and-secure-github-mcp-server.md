@@ -70,7 +70,7 @@ To connect the GitHub MCP server, complete the following steps:
 
 To confirm that the GitHub MCP server is connected, complete the following steps:
 
-1. Under **Import**, select **MCP Servers**.
+1. Navigate to the **Import** section, and then select **MCP Servers**.
 2. Confirm that `github-mcp-server` is listed, with the entity ID `mcp-server.github-mcp-server`, the transport `http`, and the endpoint you entered.
 3. Select the server to open its detail page, and then confirm the **Overview** card shows the protocol version, an **Auth type** of **Bearer token**, and a **Capabilities** row with a tool count.
 4. Confirm that the tools listed under **Tools** match the tools for GitHub's MCP server. For more information about GitHub's MCP server, go to [GitHub's documentation](https://github.com/github/github-mcp-server).
@@ -323,8 +323,6 @@ Payload logging records the arguments an agent sends and the content a tool retu
 
 To review the calls, open your Composite MCP Server and under **Observability** select **Logs**. Each row records the timestamp, the MCP method, the status, the response time, and whether the endpoint was reached. Filter by **MCP methods** to isolate `tools/call`.
 
-![The runtime logs for the Composite MCP Server, showing a denied tools/call with no endpoint reached and a permitted tools/call with the endpoint reached](<../../../.gitbook/assets/gamma-mcp-github-runtime-logs.png>)
-
 For the OpenTelemetry span view, which records the agent identity, the inputs and outputs, and the lineage of a single agent request across every tool call it made, see [Inspect your agent log](../../observe/inspect-your-agent-log.md "mention").
 
 #### Verification
@@ -333,8 +331,6 @@ To confirm that GitHub MCP interactions are recorded, complete the following ste
 
 1. Call `get_file_contents` through the GitHub MCP server as a permitted caller, on a file that contains an email address.
 2. Open the log entry for that call. Navigate to the **Request** page of the **Details** section, and then confirm that the **Consumer** column records the inbound call to your context path and that the **Gateway** column records the outbound call to `https://api.githubcopilot.com/mcp/`, with a body carrying the tool name and its arguments.
-
-   ![One log entry expanded, with the consumer leg on the left and the gateway leg to api.githubcopilot.com on the right, credentials blurred](<../../../.gitbook/assets/gamma-mcp-github-log-entry-legs.png>)
 
 3. On the **Response** page of the **Details** section, compare the Gateway response with the consumer response, and then confirm that the email address is present in what GitHub returned and `[REDACTED]` in what the agent received.
 4. Call `create_or_update_file` as a caller that the policy forbids.
