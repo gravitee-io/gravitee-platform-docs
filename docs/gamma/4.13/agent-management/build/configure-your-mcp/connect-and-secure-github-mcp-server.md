@@ -24,8 +24,8 @@ Before you begin, ensure you have met the following requirements:
 * Gravitee Gamma 4.12 or later, with Agent Management enabled.
 * Permission to register catalog entities, create and deploy an MCP Proxy, and author Authorization Management policies in the environment you are configuring.
 * A GitHub personal access token scoped to the tools you plan to expose. A fine-grained token scoped to the repositories the agents need is sufficient. On each repository, grant **Contents: read** for `get_file_contents`, **Issues: read** for `list_issues`, **Pull requests: read** for `pull_request_read`, and **Contents: read and write** for `create_or_update_file`. For more information about GitHub personal access tokens, go to [GitHub's documentation](https://docs.github.com/en/authentication/keeping-your-account-secure/managing-your-personal-access-tokens).
-* An identity provided that is configured in Gravitee and holds the groups that your authorization policies reference. For more information about configuring an identity provider, see [Configure your Access Management instance](../configure-your-access-management-instance.md "mention").
-* If you are adding PII redaction on your environment, an AI Model Token Classification resource. For more information about AI resources, see [AI resources](../ai-resources.md "mention") .
+* An identity provider that is configured in Gravitee and holds the groups that your authorization policies reference. For more information about configuring an identity provider, see [Configure your Access Management instance](../configure-your-access-management-instance.md "mention").
+* If you are adding PII redaction on your environment, an AI Model Token Classification resource. For more information about AI resources, see [AI resources](../ai-resources.md "mention").
 
 {% hint style="warning" %}
 Until you complete the authorization phase, any consumer holding a valid token for the server can invoke every tool you composed into it, including `create_or_update_file`, which commits to a repository. Complete the authorization and policy phases before you publish the server to consumers.
@@ -72,7 +72,7 @@ To confirm that the GitHub MCP server is connected, complete the following steps
 
 1. Under **Import**, select **MCP Servers**.
 2. Confirm that `github-mcp-server` is listed, with the entity ID `mcp-server.github-mcp-server`, the transport `http`, and the endpoint you entered.
-3. Select the server to open its detail page, and then confirm the **Overview** card shows the protocol version, an **Auth type** of **Bearer token**, and a **Capabilities** row with a tool count. 
+3. Select the server to open its detail page, and then confirm the **Overview** card shows the protocol version, an **Auth type** of **Bearer token**, and a **Capabilities** row with a tool count.
 4. Confirm that the tools listed under **Tools** match the tools for GitHub's MCP server. For more information about GitHub's MCP server, go to [GitHub's documentation](https://github.com/github/github-mcp-server).
 
    ![The github-mcp-server detail page showing 44 tools, 2 prompts, 4 resources, and an auth type of Bearer token](<../../../.gitbook/assets/gamma-mcp-github-server-detail.png>)
@@ -85,15 +85,15 @@ GitHub's MCP server exposes a large tool surface, and the exact set depends on t
 
 Rather than proxying GitHub's whole tool surface, use MCP Studio to compose a Composite MCP Server that exposes only the tools a role needs. Curation is the control that precedes all the others, because a tool you never compose is a tool no policy has to defend against, and one an agent's model never sees in `tools/list`.
 
-The following steps build an engineering toolbelt from the following five GitHub tools: `list_issues`, `get_file_contents`, `search_code`, `pull_request_read`, and `create_or_update_file`.
+The following steps build an engineering toolbelt from five GitHub tools: `list_issues`, `get_file_contents`, `search_code`, `pull_request_read`, and `create_or_update_file`.
 
 To expose the GitHub tools as a Composite MCP Server, complete the following steps:
 
-1. From the **Agent Management** menu, navigate to secure **Secure**, and then select **MCP Proxies**.
+1. From the **Agent Management** menu, navigate to **Secure**, and then select **MCP Proxies**.
 2. Select **+ Create MCP proxy**, and then select **Studio mode**.
 3. In the **General information** section, enter a **Name**, for example `engineering-toolbelt`, and a **Context path**, for example `/engineering-toolbelt`.
 4. On the **Secure** page, select **Gravitee as Authorization Server**. To use an external identity provider, select **External Authorization Server** instead.
-5. In the **Compose** step, select the GitHub MCP server from the palette, and then select only the five tools at the start of this section.
+5. In the **Compose** step, select the GitHub MCP server from the palette, and then select only the five tools listed at the start of this section.
 6. In the **Connect** step, select the GitHub MCP server, set the credential type to **Bearer token**, and then enter the personal access token. The Gateway injects it as an `Authorization` header on every upstream call. The token is held once rather than distributed to each agent.
 7. In the **Review** step, confirm the composition, and then select **Create & deploy**.
 
@@ -115,7 +115,7 @@ To confirm that the GitHub tools are exposed, complete the following steps:
      -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
    ```
 
-2. You receive a response like the following response, abbreviated to the tool names and descriptions:
+2. You receive a response like the following, abbreviated to the tool names and descriptions:
 
    ```json
    {"jsonrpc":"2.0","id":1,"result":{"tools":[
@@ -134,10 +134,10 @@ To confirm that the GitHub tools are exposed, complete the following steps:
 If you compose tools from more than one upstream server and two tool names collide, assign an alias in the **Compose** step. For more information about assigning an alias, see [Edit MCP Studio composition](../edit-mcp-studio-composition.md "mention").
 {% endhint %}
 
-### Authenticate access to your deployed GitHub MCP server 
+### Authenticate access to your deployed GitHub MCP server
 
 {% hint style="info" %}
-If you authenticated your GitHub MCP Server during the [Expose the GitHub tools as a Composite MCP Server](#expose-the-github-tools-as-a-composite-mcp-server) section, you can skip this section and go to [Restrict GitHub tool access with fine-grained authorization](#restrict-github-tool-access-with-fine-grained-authorization)
+If you authenticated your GitHub MCP Server during the [Expose the GitHub tools as a Composite MCP Server](#expose-the-github-tools-as-a-composite-mcp-server) section, you can skip this section and go to [Restrict GitHub tool access with fine-grained authorization](#restrict-github-tool-access-with-fine-grained-authorization).
 {% endhint %}
 
 Authorization policies can only distinguish callers if the Gateway knows who each caller is. Authenticate the server against an authorization server rather than a shared key, so that each token resolves to a user or an agent identity.
@@ -167,7 +167,7 @@ To confirm that authentication to the GitHub MCP server is enforced, complete th
      -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
    ```
 
-2. You receive a response like the following response:
+2. You receive a response like the following:
 
    ```
    HTTP/1.1 401 Unauthorized
@@ -191,7 +191,7 @@ To restrict which tools each caller can use, complete the following steps:
 
    ![The Composite MCP Server Overview page with the Enable FGA toggle turned on](<../../../.gitbook/assets/gamma-mcp-github-enable-fga.png>)
 
-2. From the product selector, open **Authorization Management**, navigate to the **Policy Management** ssection, and then select **MCPs**.
+2. From the product selector, open **Authorization Management**, navigate to the **Policy Management** section, and then select **MCPs**.
 3. Select **+ Create policy**, enter a **Policy name**, and then switch to the **Code** tab.
 4. Enter the policy. The following statement grants an engineering group every tool on the server:
 
@@ -204,7 +204,7 @@ To restrict which tools each caller can use, complete the following steps:
    ```
 
 5. Select **Create and Deploy policy**.
-6. Repeat steps 2 to  5 for each remaining statement. The following statement closes the one tool that writes, for the same group:
+6. Repeat steps 2 to 5 for each remaining statement. The following statement closes the one tool that writes, for the same group:
 
    ```
    forbid (
@@ -236,7 +236,7 @@ Select an existing policy to review it. The **Visual** tab renders each statemen
 {% hint style="info" %}
 A tool that no policy permits is denied. Nothing is allowed by omission, so the triage role above needs no forbid statement to be closed to the other three tools. A `forbid` statement always beats a `permit`, so a later broad grant cannot reopen `create_or_update_file`.
 
-Every entity reference is an identifier, not a display name. `principal` takes the group's identifier, and `resource` takes the server-qualified tool identifier. Leave `action` unconstrained unless you intend to match one specific tool invocation. A clause that references a name where an identifier is expected matches nothing, and the call is then denied by default rather than reported as a malformed policy. For more information about Layered governance for MCP tools, see [Govern MCP tool access](govern-mcp-tool-access.md "mention").
+Every entity reference is an identifier, not a display name. `principal` takes the group's identifier, and `resource` takes the server-qualified tool identifier. Leave `action` unconstrained unless you intend to match one specific tool invocation. A clause that references a name where an identifier is expected matches nothing, and the call is then denied by default rather than reported as a malformed policy. For more information about layered governance for MCP tools, see [Govern MCP tool access](govern-mcp-tool-access.md "mention").
 {% endhint %}
 
 #### Verification
@@ -271,7 +271,7 @@ To apply policies to the GitHub MCP server, complete the following steps:
 
    ![The Policy Studio tools/call flow, with the Gravitee Authorization PEP, Rate Limit, and PII Filtering policies in the request phase](<../../../.gitbook/assets/gamma-mcp-github-policy-studio.png>)
 3. In the flow's **Request phase**, select **+** to open the policy catalog, and then select **Rate Limit**.
-4. Configure the limit. Set a **Limit** and a **Period**, for example 10 requests per 60 seconds, and set **Key** to an expression that resolves the caller's identity. This enables each identity draws on its own allowance rather than on a shared plan counter. For more infotmation about layered governance for MCP tools, see, [Govern MCP tool access](govern-mcp-tool-access.md "mention").
+4. Configure the limit. Set a **Limit** and a **Period**, for example 10 requests per 60 seconds, and set **Key** to an expression that resolves the caller's identity. This ensures that each identity draws on its own allowance rather than on a shared plan counter. For more information about layered governance for MCP tools, see [Govern MCP tool access](govern-mcp-tool-access.md "mention").
 5. Add the **PII Filtering** policy. Select the AI Model Token Classification resource from the prerequisites, and then select the categories to redact, for example person, email, phone, location, financial account, and government ID. Leave **Confidence Threshold** at the default of `0.5`.
 6. Select **Save**, and then deploy the server.
 
@@ -336,7 +336,7 @@ To confirm that GitHub MCP interactions are recorded, complete the following ste
 
    ![One log entry expanded, with the consumer leg on the left and the gateway leg to api.githubcopilot.com on the right, credentials blurred](<../../../.gitbook/assets/gamma-mcp-github-log-entry-legs.png>)
 
-3. On the **Response** page of the  **Details** section, compare the Gateway response with the consumer response, and then confirm that the email address is present in what GitHub returned and `[REDACTED]` in what the agent received.
+3. On the **Response** page of the **Details** section, compare the Gateway response with the consumer response, and then confirm that the email address is present in what GitHub returned and `[REDACTED]` in what the agent received.
 4. Call `create_or_update_file` as a caller that the policy forbids.
 5. In the log list, confirm that the denied call is recorded with a `403` status and an empty **Endpoint reached** column, while the permitted call shows a check mark. An unreached endpoint is the evidence that GitHub was never called.
 
