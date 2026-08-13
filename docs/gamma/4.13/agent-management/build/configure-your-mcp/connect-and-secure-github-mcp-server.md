@@ -127,7 +127,7 @@ To confirm that the GitHub tools are exposed, complete the following steps:
    ]}}
    ```
 
-3. Confirm that the response lists only the five tools. The tools you did not compose are absent from this list rather than denied at call time, so they never reach the agent, and the model behind it never has them as options.
+3. Confirm that the response lists only the five tools. The tools you did not compose are absent from this list rather than denied at call time. They never reach the agent, and the model behind it never has them as options.
 4. Note that `tools/list` returns each tool under its composed name, for example `list_issues`. Authorization policies reference the same tool under its server-qualified identifier, in the form `github-mcp-server.list_issues`.
 
 {% hint style="info" %}
