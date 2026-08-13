@@ -22,3 +22,4 @@ management-api-reference.md
 plugins/customization/schema-registry-provider.md
 # Confluent Schema Registry resource note (ESM-28) and emulation-mode copy edit
 create-and-configure-apis/apply-policies/resources.md
+create-and-configure-apis/create-apis/import-and-update-v4-apis-from-openapi-and-gravitee-definitions.md

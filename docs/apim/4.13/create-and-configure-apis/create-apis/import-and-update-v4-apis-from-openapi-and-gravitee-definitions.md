@@ -25,7 +25,7 @@ The wizard interface supports the following three import formats:
 APIs can be imported from the following two sources:
 
 * **Local file**. This source uploads a definition file from your machine by using drag-and-drop or a file picker.
-* **Remote URL**. This source fetches the definition from an HTTP or HTTPS endpoint. You can optionally provide an Authorization header for authenticated sources. Remote sources require the target URL to allow CORS requests from the Management Console origin.
+* **Remote URL**. This source fetches the definition from an HTTP or HTTPS endpoint. Addresses that don't use HTTP or HTTPS are rejected with a validation message. You can optionally provide an Authorization header for authenticated sources. Remote sources require the target URL to allow CORS requests from the Management Console origin.
 
 ### Update Behavior
 
@@ -48,7 +48,7 @@ To update an existing v4 API, complete the following steps:
 2. In the **Update API** modal, select the API format. You can select **Gravitee v4 Definition** for a complete Gravitee export or **OpenAPI Specification** for an OpenAPI descriptor.
 
     <figure><img src="../../.gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-07.png" alt="Select API format"><figcaption></figcaption></figure>
-3. Choose the file source. You can select **Local file** to upload a `.json`, `.yml`, or `.yaml` file, or you can select **Remote URL** to fetch from an HTTP or HTTPS endpoint. You can optionally provide an Authorization header for the remote URL.
+3. Choose the file source. You can select **Local file** to upload a `.json`, `.yml`, or `.yaml` file, or you can select **Remote URL** to fetch from an HTTP or HTTPS endpoint. You can optionally provide an Authorization header for the remote URL. For the Gravitee v4 Definition format, the address field is labeled **Definition URL**. For the OpenAPI Specification format, it is labeled **Specification URL**.
 
     <figure><img src="../../.gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-04.png" alt="Update API dialog from Configuration page showing file source selection with drag and drop area for JSON files"><figcaption></figcaption></figure>
 
@@ -58,8 +58,10 @@ To update an existing v4 API, complete the following steps:
 
     <figure><img src="../../.gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-05.png" alt="Update API dialog showing local file option selected with kafka-1.json file uploaded"><figcaption></figcaption></figure>
 4. For OpenAPI imports, configure the following options:
-    * Enable **Create documentation page from spec** to generate a Documentation page from the imported specification.
-    * Enable **Add OpenAPI Specification Validation policy** to attach the OAS Validation policy to generated flows. This option is enabled by default if the policy is installed.
+    * Enable **Create documentation page from spec** to generate a Documentation page from the imported specification. The page is published automatically, and you can change its publication status later.
+    * Enable **Add OpenAPI Specification Validation policy** to attach the OAS Validation policy to generated flows. This option is enabled by default if the policy is installed. The policy is added with all of its options enabled, and you can change them later.
+
+    If the list of installed policies can't be retrieved, the options step reports that some options may be unavailable.
 5. Review the selected format, source, and options.
 
     <figure><img src="../../.gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-03.png" alt="Import API review screen showing configuration summary with Gravitee definition format and local file source"><figcaption></figcaption></figure>
@@ -114,4 +116,4 @@ The import and update feature has the following restrictions:
 
 ## Related Changes
 
-The **Import** button on the v4 API details page is now enabled, and it opens a new **Update API** modal that reuses the v4 import wizard stepper. For v2 APIs, the button continues to open the legacy import dialog. The wizard includes four steps. These steps are select API format, configure file source, options, and review and import. The options step is shown only for OpenAPI and WSDL formats. The file picker clears the selected file when the API format changes, but it preserves the file when you navigate back within the same format or toggle options. After a successful update, the API configuration reflects the imported definition. For OpenAPI imports with documentation enabled, a new page appears under Documentation and Pages. With OAS Validation enabled, the OpenAPI Specification Validation policy appears on generated flows in Policy Studio. The API Gateway sync indicator shows the API as out-of-sync until it is redeployed, and an audit log entry is recorded for the update action.
+The **Import** button on the v4 API details page is now enabled, and it opens a new **Update API** modal that reuses the v4 import wizard stepper. For v2 APIs, the button continues to open the legacy import dialog. The wizard includes four steps. These steps are select API format, configure file source, options, and review and import. The options step is shown only for OpenAPI and WSDL formats. The file picker clears the selected file when the API format changes, but it preserves the file when you navigate back within the same format or toggle options. Each time you open the modal, the format resets to **Gravitee v4 Definition**, the source resets to **Local file**, and the options reset to their defaults for the selected format. After a successful update, the API configuration reflects the imported definition. For OpenAPI imports with documentation enabled, a new page appears under Documentation and Pages. With OAS Validation enabled, the OpenAPI Specification Validation policy appears on generated flows in Policy Studio. The API Gateway sync indicator shows the API as out-of-sync until it is redeployed, and an audit log entry is recorded for the update action.

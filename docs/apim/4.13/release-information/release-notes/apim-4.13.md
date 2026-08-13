@@ -32,6 +32,7 @@ documentation.gravitee.io links for other versions.
 * The Generate JWT policy adds optional `x5t` and `x5t#S256` certificate thumbprint headers to generated JWTs, for downstream systems that select the validation certificate by thumbprint.
 * The schema registry provider contract now exposes the serialization format of each schema and answers subject membership and version-list lookups, and the bundled Confluent Schema Registry resource implements all three.
 * The plan endpoints of the legacy Management API v1 now reject V4, Federated, and Federated Agent APIs with an HTTP `400` error that points to Management API v2.
+* The v4 API import wizard can now fetch a Gravitee v4 Definition or OpenAPI Specification from a remote HTTP or HTTPS endpoint, and the **Import** button on a v4 API updates an existing API with the imported definition.
 
 ## Breaking Changes and deprecations
 
@@ -71,6 +72,14 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * `getVersions(subject)` lists the version identifiers registered under a subject.
 * Every addition carries a default implementation (`UNKNOWN` type, empty results), so an existing provider compiled against contract version `1.0.1` compiles and runs unchanged, and a registry that doesn't support these lookups returns the defaults.
 * The Confluent Schema Registry resource implements the new surface from plugin version `5.1.0`, bundled with APIM 4.13. For more information, see [Implement a schema registry provider](../../plugins/customization/schema-registry-provider.md).
+
+#### **Remote URL Import and Update for v4 APIs**
+
+* On the file source step, select **Local file** to upload a `.json`, `.yml`, or `.yaml` file, or select **Remote URL** to fetch the definition from an HTTP or HTTPS endpoint, with an optional Authorization header for authenticated sources.
+* The address field is labeled **Definition URL** for the Gravitee v4 Definition format and **Specification URL** for the OpenAPI Specification format.
+* For OpenAPI and WSDL formats, the options step lets you enable **Create documentation page from spec** to generate a published Documentation page, and **Add OpenAPI Specification Validation policy** to attach the OpenAPI Specification Validation policy with all of its options enabled to the generated flows, which is on by default when the policy is installed.
+* The **Import** button on the v4 API details page opens a new **Update API** modal that reuses the four-step v4 import wizard, and v2 APIs continue to open the legacy import dialog: after a successful update the API shows as out of sync until you redeploy it, and an audit log entry is recorded.
+* Addresses that don't use HTTP or HTTPS are rejected with a validation message, and a remote source requires the target URL to allow CORS requests from the Management Console origin.
 
 ## Improvements
 
