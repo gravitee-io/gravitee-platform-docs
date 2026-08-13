@@ -271,6 +271,7 @@ The Gateway sets one of the following error keys when a request fails on a conne
 | `REQUEST_TIMEOUT` | 504 | The Gateway-level `requestTimeout` elapsed before the response completed. |
 | `GATEWAY_CLIENT_CONNECT_TIMEOUT` | 504 | The connection to the backend didn't complete within the endpoint's connect timeout. |
 | `GATEWAY_CLIENT_READ_TIMEOUT` | 504 | The backend connection was established, but no response arrived within the endpoint's read timeout. |
+| `GATEWAY_CLIENT_CONNECTION_POOL_EXHAUSTED` | 503 | The connection pool and its wait queue are both full. The Gateway shed the load deliberately, and the request never reached the backend. |
 | `GATEWAY_CLIENT_CONNECTION_ERROR` | 502 | A backend connection failed for a reason not covered by a more specific key. |
 | `GATEWAY_CLIENT_CONNECTION_REFUSED` | 502 | The backend refused the connection. |
 | `GATEWAY_CLIENT_DNS_RESOLUTION_ERROR` | 502 | The backend hostname didn't resolve. |
@@ -283,3 +284,7 @@ The Gateway sets one of the following error keys when a request fails on a conne
 | `CLIENT_ABORTED_CHANNEL_CLOSED` | 499 | The API consumer closed the connection. |
 
 Keys that start with `GATEWAY_CLIENT_` indicate a backend-side fault. The fine-grained timeout keys carry `REQUEST_TIMEOUT` as a parent key, and the fine-grained connection keys carry `GATEWAY_CLIENT_CONNECTION_ERROR` as a parent key. Keys that start with `CLIENT_ABORTED_` indicate that the API consumer went away, and don't point to a backend problem.
+
+`GATEWAY_CLIENT_CONNECTION_POOL_EXHAUSTED` is the exception to that fallback. Its parent produces a `502`, so without a response template of its own it reaches the API consumer under the wrong status.
+
+For the keys the Gateway raises outside connectivity, such as routing, plan resolution, and request handling, see the [Gateway error key reference](gateway-error-key-reference.md).

@@ -432,6 +432,7 @@
     * [Configure Gateway for OpenTelemetry Logs](analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md)
     * [Enable and Use OpenTelemetry Logs for APIs](analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md)
   * [Execution Transparency Analytics](analyze-and-monitor-apis/execution-transparency-analytics.md)
+  * [Gateway Error Key Reference](analyze-and-monitor-apis/gateway-error-key-reference.md)
 * [Alert Engine](alert-engine/README.md)
   * [Architecture](alert-engine/overview/architecture.md)
   * [Integrations](alert-engine/overview/integrations.md)
