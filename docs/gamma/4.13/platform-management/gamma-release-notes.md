@@ -51,7 +51,7 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries as a reusable asset for API policies and gateway routing configuration for the organization.
+Platform Management adds environment-scoped dictionaries as a reusable asset for API policies, gateway routing configuration for the organization, and organization-wide user administration.
 
 #### Manage dictionaries
 
@@ -66,6 +66,14 @@ Platform Management adds environment-scoped dictionaries as a reusable asset for
 * Sharding tags route APIs to specific gateway groups. Create a tag with an immutable key, restrict it to selected groups, and add the key to the gateway's configuration file.
 * Entrypoint mappings define the entrypoint that the Developer Portal displays for APIs that carry a given tag, as an HTTP URL, a TCP port, or a Kafka bootstrap domain pattern, and apply to all environments or to a selection.
 * See [Manage entrypoints and sharding tags](manage-entrypoints-and-sharding-tags.md).
+
+#### Manage users
+
+* Add, review, and delete the users and service accounts of the organization from the **Users** page, and search the list by name, email, or ID.
+* Grant organization roles and per-environment roles from the user's detail page, and manage the group memberships that carry the user's API, API Product, application, and integration roles in each environment.
+* Accept or reject a pending registration, convert a user to a service account, and send an Active user a password reset email that opens the reset page of the Gamma console.
+* Generate and revoke personal access tokens for a user, and review the APIs, API Products, and applications the user is a member of.
+* See [Manage users](manage-users.md).
 
 ## Release Date: June 26, 2026
 

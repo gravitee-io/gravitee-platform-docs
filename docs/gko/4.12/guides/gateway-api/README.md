@@ -199,6 +199,7 @@ spec:
 
 * [HTTPRoute](httproute.md): Configure path-based routing, header matching, traffic splitting, redirects, URL rewrites, and header modification.
 * [Configure TLS with cert-manager](tls-with-cert-manager.md): Configure TLS certificate provisioning for Gateway HTTPS listeners.
+* [Configure multi-domain TLS on a Gateway](multi-domain-tls.md): Serve several domains from one Gateway, each with its own TLS certificate.
 * [Configure DNS with external-dns](dns-with-external-dns.md): Configure DNS record creation for Gateway Services.
 * [GatewayClassParameters](../../overview/custom-resource-definitions/gatewayclassparameters.md): Configure Gravitee-specific Gateway API settings including Kubernetes deployment options and autoscaling.
 * [KafkaRoute](../../overview/custom-resource-definitions/kafkaroute.md): (experimental) Route Kafka traffic through the Gateway (requires Enterprise license).
