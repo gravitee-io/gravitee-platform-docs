@@ -22,3 +22,6 @@ management-api-reference.md
 plugins/customization/schema-registry-provider.md
 # Confluent Schema Registry resource note (ESM-28) and emulation-mode copy edit
 create-and-configure-apis/apply-policies/resources.md
+# New Developer Portal categories (APIM 4.13.0 feature, PORTAL-8)
+developer-portal/new-developer-portal/manage-new-developer-portal-categories.md
+developer-portal/new-developer-portal/catalog.md
