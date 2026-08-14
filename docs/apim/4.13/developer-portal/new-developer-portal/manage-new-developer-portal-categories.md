@@ -24,14 +24,11 @@ For the consumer-facing filter these categories drive, see [catalog.md](catalog.
 ## Create a category
 
 1. Open **Portal Settings**.
-2.  Click **Catalog**.<br>
+2.  Click **Catalog**. The **Categories** list opens.<br>
 
-    <!-- TODO: Screenshot of the Catalog entry in the Portal Settings menu -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-portal-settings-catalog-menu.png" alt=""><figcaption><p>Catalog in the Portal Settings menu</p></figcaption></figure>
-3.  Click **Add Category**.<br>
-
-    <!-- TODO: Screenshot of the Categories list with the Add Category button -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-add-category-button.png" alt=""><figcaption><p>Add Category on the Categories list</p></figcaption></figure>
+    <!-- TODO: Screenshot of the Categories list, showing the Catalog menu entry and the Add Category button -->
+    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-catalog-categories-list.png" alt=""><figcaption><p>Categories list under Catalog</p></figcaption></figure>
+3. Click **Add Category**.
 4. In the **Title** field, type a title for the category. The title is required, and it can't match the title of a category that already exists in this environment. The check ignores case, so `Payments` doesn't pass when `payments` exists.
 5. Optional: In the **Description** field, type a description.
 6. Optional: Turn off the **Visible** toggle to keep the category out of the New Developer Portal. New categories are visible by default.
@@ -79,12 +76,15 @@ A hidden category doesn't appear in the New Developer Portal, so consumers can't
 
 1. Open **Portal Settings**.
 2. Click **Catalog**.
-3.  Click the **Hide Category** icon on the category row. A **Hidden** badge appears next to the category title.<br>
+3.  Click the **Hide Category** icon on the category row. A crossed-out eye badge appears next to the category title, labelled **Hidden** on hover.<br>
 
-    <!-- TODO: Screenshot of the Categories list showing a category with the Hidden badge -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-hidden-category-badge.png" alt=""><figcaption><p>Hidden badge on the Categories list</p></figcaption></figure>
+    <!-- TODO: Screenshot of the Categories list with the Hide Category action on a category row -->
+    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-category-hide.png" alt=""><figcaption><p>Hide Category on a category row</p></figcaption></figure>
 
 To make the category available again, click the **Show Category** icon on the category row.
+
+<!-- TODO: Screenshot of the Categories list with the Show Category action on a hidden category row -->
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-category-show.png" alt=""><figcaption><p>Show Category on a hidden category row</p></figcaption></figure>
 
 ## Delete a category
 
@@ -111,11 +111,8 @@ To verify categories are working as expected, follow these steps:
 
 1. Open **Portal Settings**.
 2. Click **Catalog**.
-3. Confirm the category appears in the list, without a **Hidden** badge.
+3. Confirm the category appears in the list, without the crossed-out eye badge.
 4. Click the **Edit** icon on the category row, and confirm the API appears in the **APIs** table.
 5. Open the New Developer Portal.
 6. Click **Catalog** in the portal navigation bar.
-7.  Open the **Category** dropdown in the catalog header, and then select the category. The catalog lists only the APIs assigned to that category.<br>
-
-    <!-- TODO: Screenshot of the New Developer Portal catalog filtered to a category -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-catalog-category-filter-applied.png" alt=""><figcaption><p>Catalog filtered to a category</p></figcaption></figure>
+7. Open the **Category** dropdown in the catalog header, and then select the category. The catalog lists only the APIs assigned to that category.
