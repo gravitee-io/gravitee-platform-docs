@@ -51,7 +51,7 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries as a reusable asset for API policies, gateway routing configuration for the organization, and organization-wide user administration.
+Platform Management adds environment-scoped dictionaries as a reusable asset for API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds a view of the gateway instances running behind an environment.
 
 #### Manage dictionaries
 
@@ -74,6 +74,13 @@ Platform Management adds environment-scoped dictionaries as a reusable asset for
 * Accept or reject a pending registration, convert a user to a service account, and send an Active user a password reset email that opens the reset page of the Gamma console.
 * Generate and revoke personal access tokens for a user, and review the APIs, API Products, and applications the user is a member of.
 * See [Manage users](manage-users.md).
+
+#### Monitor gateway instances
+
+* Review the gateway instances registered with the selected environment from the **Gateways** page, with each instance's version, status, last heartbeat, address, tenant, and sharding tags.
+* Open an instance to read what it reported about itself on the **Environment** tab: its information rows, the plugins it loaded, and its JVM system properties.
+* Follow the instance's live resource use on the **Monitoring** tab, which refreshes every 5 seconds and reports CPU, heap and memory pools, uptime, file descriptors, threads, and garbage collection.
+* See [Monitor gateway instances](monitor-gateway-instances.md).
 
 ## Release Date: June 26, 2026
 
