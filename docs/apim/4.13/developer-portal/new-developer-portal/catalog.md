@@ -4,15 +4,9 @@
 
 Catalog allows consumers to discover APIs published in the New Developer Portal.
 
-The catalog is part of the New Developer Portal itself, not the APIM Console. Consumers open it from the **Catalog** button in the portal navigation bar, which serves the `/catalog` path of your portal URL. On a mobile screen, **Catalog** sits in the panel that opens from the menu button.
+The catalog is part of the New Developer Portal itself, not the APIM Console. Consumers reach it from the **Catalog** button in the portal navigation bar, which serves the `/catalog` path of your portal URL. On a mobile screen, **Catalog** sits in the panel that opens from the menu button.
 
-To open the portal from the Console, complete the following steps:
-
-1. Open **Settings**.
-2. Under **Portal**, click **Settings**.
-3. Scroll to the **New Developer Portal** section.
-4. Click **Open Website**.
-5. Click **Catalog** in the portal navigation bar.
+To reach the catalog from the Console, click **Open Website**, and then click **Catalog**. For more information about that button, see [configure-the-new-portal.md](configure-the-new-portal.md "mention").
 
 ## Prerequisites
 
