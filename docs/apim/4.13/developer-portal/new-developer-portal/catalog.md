@@ -4,6 +4,16 @@
 
 Catalog allows consumers to discover APIs published in the New Developer Portal.
 
+The catalog is part of the New Developer Portal itself, not the APIM Console. Consumers open it from the **Catalog** button in the portal navigation bar, which serves the `/catalog` path of your portal URL. On a mobile screen, **Catalog** sits in the panel that opens from the menu button.
+
+To open the portal from the Console, complete the following steps:
+
+1. Open **Settings**.
+2. Under **Portal**, click **Settings**.
+3. Scroll to the **New Developer Portal** section.
+4. Click **Open Website**.
+5. Click **Catalog** in the portal navigation bar.
+
 ## Prerequisites
 
 * Enable the New Developer Portal. For more information about enabling the New Developer Portal, see [configure-the-new-portal.md](configure-the-new-portal.md "mention").
@@ -36,21 +46,14 @@ In list view, a **Category** column shows the categories each API belongs to. Th
 
 ## Filter the catalog by category
 
-The **Category** dropdown at the top of the catalog filters the catalog to a single category. It reads `Category: All` until you pick one, and it lists only the categories an administrator made visible. For more information about creating categories and assigning APIs to them, see [manage-new-developer-portal-categories.md](manage-new-developer-portal-categories.md "mention").
+The catalog header carries a **Category** dropdown, alongside the card and list view toggle and the search bar. It filters the catalog to a single category, it reads `Category: All` until a consumer picks one, and it lists only the categories an administrator made visible. Opening the dropdown reveals a search field for narrowing a long category list, and a **Clear Selection** button that returns the consumer to the full catalog.
 
-1.  Click the **Category** dropdown.<br>
+<!-- TODO: Screenshot of the catalog header with the Category dropdown open -->
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-catalog-category-dropdown.png" alt=""><figcaption><p>Category dropdown in the catalog header</p></figcaption></figure>
 
-    <!-- TODO: Screenshot of the catalog header with the Category dropdown closed -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-catalog-category-dropdown.png" alt=""><figcaption><p>Category dropdown on the catalog</p></figcaption></figure>
-2.  Optional: Type part of a category title in the search field to narrow the list.<br>
+Selecting a category narrows the catalog to the APIs assigned to it and clears the search bar. API Products are left out of the results while a category filter is applied.
 
-    <!-- TODO: Screenshot of the open Category dropdown with its search field and options -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-catalog-category-dropdown-open.png" alt=""><figcaption><p>Open Category dropdown</p></figcaption></figure>
-3. Select a category.
-
-The catalog then lists only the APIs assigned to that category. Selecting a category clears the search bar, and API Products are left out of the results while a category filter is applied.
-
-To return to the full catalog, open the dropdown and click **Clear Selection**.
+For more information about creating categories and assigning APIs to them, see [manage-new-developer-portal-categories.md](manage-new-developer-portal-categories.md "mention").
 
 ### Share a filtered catalog view
 

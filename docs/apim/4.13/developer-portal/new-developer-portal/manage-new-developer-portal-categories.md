@@ -113,8 +113,9 @@ To verify categories are working as expected, follow these steps:
 2. Click **Catalog**.
 3. Confirm the category appears in the list, without a **Hidden** badge.
 4. Click the **Edit** icon on the category row, and confirm the API appears in the **APIs** table.
-5. Open the New Developer Portal, and then click **Catalog**.
-6.  Open the **Category** dropdown, and then select the category. The catalog lists only the APIs assigned to that category.<br>
+5. Open the New Developer Portal.
+6. Click **Catalog** in the portal navigation bar.
+7.  Open the **Category** dropdown in the catalog header, and then select the category. The catalog lists only the APIs assigned to that category.<br>
 
     <!-- TODO: Screenshot of the New Developer Portal catalog filtered to a category -->
     <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-catalog-category-filter-applied.png" alt=""><figcaption><p>Catalog filtered to a category</p></figcaption></figure>
