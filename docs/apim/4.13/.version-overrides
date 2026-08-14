@@ -25,3 +25,9 @@ create-and-configure-apis/apply-policies/resources.md
 # New Developer Portal categories (APIM 4.13.0 feature, PORTAL-8)
 developer-portal/new-developer-portal/manage-new-developer-portal-categories.md
 developer-portal/new-developer-portal/catalog.md
+.gitbook/assets/devportal-catalog-categories-list.png
+.gitbook/assets/devportal-category-general-form.png
+.gitbook/assets/devportal-add-api-to-category-button.png
+.gitbook/assets/devportal-add-api-to-category-dialog.png
+.gitbook/assets/devportal-category-hide.png
+.gitbook/assets/devportal-category-show.png

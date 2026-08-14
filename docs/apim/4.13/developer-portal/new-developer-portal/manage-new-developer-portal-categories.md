@@ -26,16 +26,14 @@ For the consumer-facing filter these categories drive, see [catalog.md](catalog.
 1. Open **Portal Settings**.
 2.  Click **Catalog**. The **Categories** list opens.<br>
 
-    <!-- TODO: Screenshot of the Categories list, showing the Catalog menu entry and the Add Category button -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-catalog-categories-list.png" alt=""><figcaption><p>Categories list under Catalog</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-catalog-categories-list.png" alt=""><figcaption><p>Categories list under Catalog</p></figcaption></figure>
 3. Click **Add Category**.
 4. In the **Title** field, type a title for the category. The title is required, and it can't match the title of a category that already exists in this environment. The check ignores case, so `Payments` doesn't pass when `payments` exists.
 5. Optional: In the **Description** field, type a description.
 6. Optional: Turn off the **Visible** toggle to keep the category out of the New Developer Portal. New categories are visible by default.
 7.  Click **Create**.<br>
 
-    <!-- TODO: Screenshot of the category creation form with Title, Description, and Visible -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-category-general-form.png" alt=""><figcaption><p>Category details</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-category-general-form.png" alt=""><figcaption><p>Category details</p></figcaption></figure>
 
 The category opens for editing so you can add APIs to it.
 
@@ -48,12 +46,10 @@ Only published API navigation items appear in the picker. An API that isn't publ
 3. Click the **Edit** icon on the category row.
 4.  In the **APIs** section, click **Add API to Category**.<br>
 
-    <!-- TODO: Screenshot of the APIs section with the Add API to Category button -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-add-api-to-category-button.png" alt=""><figcaption><p>APIs section of a category</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-add-api-to-category-button.png" alt=""><figcaption><p>APIs section of a category</p></figcaption></figure>
 5.  In the **Add API to Category** dialog, type part of the API title in the `Search APIs...` field, and then select the API from the list.<br>
 
-    <!-- TODO: Screenshot of the Add API to Category dialog with an API selected -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-add-api-to-category-dialog.png" alt=""><figcaption><p>Add API to Category dialog</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-add-api-to-category-dialog.png" alt=""><figcaption><p>Add API to Category dialog</p></figcaption></figure>
 6. Click **Add**.
 
 The API appears in the **APIs** table with its name, version, and context path.
@@ -78,13 +74,11 @@ A hidden category doesn't appear in the New Developer Portal, so consumers can't
 2. Click **Catalog**.
 3.  Click the **Hide Category** icon on the category row. A crossed-out eye badge appears next to the category title, labelled **Hidden** on hover.<br>
 
-    <!-- TODO: Screenshot of the Categories list with the Hide Category action on a category row -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-category-hide.png" alt=""><figcaption><p>Hide Category on a category row</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-category-hide.png" alt=""><figcaption><p>Hide Category on a category row</p></figcaption></figure>
 
 To make the category available again, click the **Show Category** icon on the category row.
 
-<!-- TODO: Screenshot of the Categories list with the Show Category action on a hidden category row -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-category-show.png" alt=""><figcaption><p>Show Category on a hidden category row</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-category-show.png" alt=""><figcaption><p>Show Category on a hidden category row</p></figcaption></figure>
 
 ## Delete a category
 
