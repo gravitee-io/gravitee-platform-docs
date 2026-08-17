@@ -63,7 +63,7 @@ When it fires, the consumer receives a `504` with the error key `GATEWAY_CLIENT_
 
 `idleTimeout` is a **connection-level** timer. It closes the connection when no data is received or sent for the configured duration. It has no notion of a request in flight, so it applies whether the connection is idle in the pool or actively carrying a request.
 
-When it closes a connection that carries a request, the failure surfaces as a `502` with the error key `GATEWAY_CLIENT_CONNECTION_CLOSED`. A genuine backend disconnection produces the same key and the same message. See [Diagnose a timeout](timeout-management.md#diagnose-a-timeout).
+When it closes a connection that carries a request, the failure surfaces as a `502` with the error key `GATEWAY_CLIENT_CONNECTION_CLOSED` — or, when the response had already started, as `GATEWAY_CLIENT_STREAM_ENDED_EARLY` on the status already sent. A genuine backend disconnection produces the same keys. See [Diagnose a timeout](timeout-management.md#diagnose-a-timeout).
 
 {% hint style="warning" %}
 `idleTimeout` is configured in milliseconds but applied in whole seconds. The remainder is discarded: `12200` ms becomes 12 seconds. Any value below `1000` ms becomes `0`, which **disables the timeout** instead of tightening it.
@@ -89,7 +89,7 @@ Like `idleTimeout`, this value is applied in whole seconds.
 This is the one inequality that governs correctness. Both timers run during a request in flight, and the shorter one always wins.
 
 * When `readTimeout` is the shorter, an unresponsive backend produces a `504` with `GATEWAY_CLIENT_READ_TIMEOUT` and a message naming the timeout, the method, and the target.
-* When `idleTimeout` is the shorter, it closes the connection first. `readTimeout` can never fire, and the failure is reported as `502 GATEWAY_CLIENT_CONNECTION_CLOSED` — a backend disconnection that didn't happen.
+* When `idleTimeout` is the shorter, it closes the connection first. `readTimeout` can never fire, and the failure is reported as a connection closed by the backend — a disconnection that didn't happen.
 
 The default values satisfy this rule. Inverting them changes the diagnosis rather than the behavior. The request fails at the same point either way, but the reported cause then points at the backend.
 
@@ -238,14 +238,30 @@ For the complete list of connectivity error keys, see [Execution transparency an
 
 ### Distinguish a backend closure from an idle timeout
 
-`GATEWAY_CLIENT_CONNECTION_CLOSED` covers two situations that report identically — the same key, the same `Connection was closed` message, and the same `502`:
+A connection closed mid-exchange covers two situations that used to report identically:
 
 * The backend closed the connection while the response was incomplete.
 * The Gateway closed it on its own `idleTimeout`.
 
-The duration tells them apart. An `idleTimeout` produces the **same duration every time**, within a few milliseconds of the configured value. A genuine backend problem produces scattered durations. If your failures cluster tightly around your `idleTimeout`, and `readTimeout` is longer than it, the Gateway is the one closing the connection.
+{% hint style="success" %}
+**From 4.12.16, the Gateway tells you which one it was.** The error message states how long the backend had been silent before the connection closed and, when that silence matches the endpoint's `idleTimeout`, says that the Gateway is the likely closer — naming the configured values:
 
-Setting `readTimeout` below `idleTimeout` resolves the ambiguity: the same situation then surfaces as `GATEWAY_CLIENT_READ_TIMEOUT` with a `504` and a message naming the timeout, the method, and the target.
+```
+The backend ended the response body before it was complete (Connection was closed), after
+123062 ms, having received nothing from it for the last 122002 ms. This matches the endpoint
+idleTimeout (122000 ms, applied as 122000 ms), so the gateway itself likely closed this
+connection. Note that readTimeout (240000 ms) is not shorter than idleTimeout, so it can never
+fire: lowering readTimeout below idleTimeout would surface this as a read timeout instead.
+```
+
+The last two sentences only appear when the evidence supports them. On a genuine backend failure, the message stops after the durations and makes no claim about your configuration.
+{% endhint %}
+
+On earlier versions, the duration is the only clue. An `idleTimeout` produces the **same duration every time**, within a few milliseconds of the configured value. A genuine backend problem produces scattered durations. If your failures cluster tightly around your `idleTimeout`, and `readTimeout` is longer than it, the Gateway is the one closing the connection.
+
+Compare the **silence**, not the total duration of the exchange: `idleTimeout` restarts on every byte received, so a stream that ran for ten minutes before going quiet is still cut one `idleTimeout` after its last byte.
+
+Setting `readTimeout` below `idleTimeout` resolves the ambiguity whatever the version: the same situation then surfaces as `GATEWAY_CLIENT_READ_TIMEOUT` with a `504` and a message naming the timeout, the method, and the target.
 
 {% hint style="info" %}
 On connection failures, the `ExecutionFailure` carries a key and a cause, but no message. In a response template, use `{#error.cause}` rather than `{#error.message}`, which is empty for these errors.
