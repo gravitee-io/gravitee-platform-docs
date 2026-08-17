@@ -52,13 +52,15 @@ If you are moving an existing single-backend Kafka API to a Virtual Cluster, the
 
 ## Keeping your own broker numbering
 
-If the rewritten IDs do not fit a DNS convention you already run, the broker domain pattern can address the backend on its own label instead of folding it into the ID. Three placeholders are available in `kafka.routingHostMode.brokerDomainPattern`:
+If the rewritten IDs do not fit a DNS convention you already run, you can give Virtual Clusters their own broker hostname scheme with `virtualClusterBrokerDomainPattern`. It applies **only** to APIs backed by a Virtual Cluster, so the Kafka APIs already running on that Gateway keep their hostnames — and their DNS entries and certificate SANs — untouched.
 
-| Placeholder      | Value                                                             |
-| ---------------- | ----------------------------------------------------------------- |
-| `{brokerId}`     | the advertised ID — rewritten on a Virtual Cluster (the default)   |
-| `{realBrokerId}` | the ID as configured on the backend broker                        |
-| `{clusterIndex}` | the backend's zero-based position in the Virtual Cluster           |
+Three placeholders are available, in either pattern:
+
+| Placeholder      | Value                                                            |
+| ---------------- | ---------------------------------------------------------------- |
+| `{brokerId}`     | the advertised ID — rewritten on a Virtual Cluster (the default) |
+| `{realBrokerId}` | the ID as configured on the backend broker                       |
+| `{clusterIndex}` | the backend's zero-based position in the Virtual Cluster         |
 
 ```yaml
 kafka:
@@ -68,15 +70,27 @@ kafka:
   routingHostMode:
     defaultDomain: "mycompany.org"
 
-    # broker 3 of the second backend is advertised as broker3-c1-myapi.mycompany.org
-    brokerDomainPattern: "broker{realBrokerId}-c{clusterIndex}-{apiHost}.{defaultDomain}"
+    # Plain Kafka APIs: unchanged. broker 3 stays broker3-myapi.mycompany.org
+    brokerDomainPattern: "broker{brokerId}-{apiHost}.{defaultDomain}"
+
+    # Virtual Cluster APIs only: broker 3 of the second backend becomes
+    # broker3-c1-mymesh.mycompany.org
+    virtualClusterBrokerDomainPattern: "broker{realBrokerId}-c{clusterIndex}-{apiHost}.{defaultDomain}"
 ```
 
 Brokers then keep the numbers your operators know, and the backend gets its own label. The placeholders can appear in any order in the pattern.
 
-{% hint style="warning" %}
-`brokerDomainPattern` is a **Gateway-wide** setting: it applies to every Kafka API on that Gateway, whether or not it is backed by a Virtual Cluster. On a single-backend API, `{clusterIndex}` is always `0` and `{realBrokerId}` is the broker ID, so a split pattern stays correct there — but the DNS entries and certificate SANs of every API on the Gateway change together. Roll it out across the whole Gateway or not at all.
+`virtualClusterBrokerDomainPattern` is optional. Left unset, Virtual Clusters follow `brokerDomainPattern` like every other API, and their hostnames carry the rewritten IDs described above.
+
+{% hint style="info" %}
+A Virtual Cluster hostname **must** distinguish the backends, either through `{brokerId}` (which encodes the backend) or through `{clusterIndex}`. A pattern built only from `{realBrokerId}` would send broker 3 of the first backend and broker 3 of the second to the same hostname, and the Gateway could no longer tell them apart.
 {% endhint %}
+
+{% hint style="warning" %}
+Both settings are Gateway-wide, so `virtualClusterBrokerDomainPattern` applies to **every** Virtual Cluster API on that Gateway. Changing it after Virtual Clusters are in production moves their DNS entries and certificate SANs.
+{% endhint %}
+
+This override does not apply to Gateways using access points, where the broker domain comes from the access point rather than from configuration.
 
 ## Clients reaching an unadvertised broker hostname
 
