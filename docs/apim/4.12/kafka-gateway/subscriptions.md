@@ -60,7 +60,7 @@ To manage subscriptions in APIM Console:
 
 Subscriptions to API Key plans include additional security management settings:
 
-*   **Renew:** Generate a new API key or provide a custom API key. The existing API key will be automatically invalidated after two hours.
+*   **Renew:** Generate a new API key or provide a custom API key. The previous key stays valid for a two-hour grace period, measured from the moment the new key is created, so that consumers have time to switch over. It then expires automatically. The grace period is fixed and can't be configured.
 
     <figure><img src="../.gitbook/assets/subscription_api key renew.png" alt=""><figcaption><p>Renew an API key</p></figcaption></figure>
 *   **Revoke:** Immediately invalidate an existing API key. This option is reversible.
