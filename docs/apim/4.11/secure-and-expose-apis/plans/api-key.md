@@ -117,4 +117,4 @@ Calling a subscription-scoped operation on an application that uses the `SHARED`
 Invalid operation for API Key mode [SHARED] of application [<applicationId>]
 ```
 
-The rule applies in both directions: an application-scoped operation called against an `EXCLUSIVE` application returns the same error with `[EXCLUSIVE]`. It also covers every key operation, not just revocation. Renew, expire, and reactivate enforce the same restriction.
+The rule applies in both directions: an application-scoped operation called against an `EXCLUSIVE` application returns the same error with `[EXCLUSIVE]`. In the Management API, the restriction covers renew, expire, and reactivate as well as revocation.
