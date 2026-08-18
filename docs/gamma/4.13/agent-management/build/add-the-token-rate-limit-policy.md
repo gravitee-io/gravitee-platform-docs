@@ -23,8 +23,10 @@ Before you begin, confirm that you have the following:
 
 1. On the LLM Proxy detail page, under **Design**, open **LLM Studio**.
 2. Under **Common Flows**, select the flow you want to limit, usually **Prompt**.
-3. In the **Request Phase** section, click **Browse all...** to open the policy catalog.
-4. Search for **Token Rate Limit**, and then click **Add to flow**.
+3. In the **Request Phase** section, click the plus, and then click **Browse full catalog**.
+4.  In the **Add Policy** dialog, search for **Token Rate Limit**, select it, and then click **Add to flow**.
+
+    <figure><img src="../../.gitbook/assets/gamma-aim-token-rate-limit-add-to-flow.png" alt="The Token Rate Limit policy open in the Add Policy catalog, with the Add to flow button"><figcaption></figcaption></figure>
 5. Configure the policy using the settings in [Settings](#settings).
 6. Click **Save**.
 7. When the "This deployable is out of sync" message appears, click **Deploy** to push the change to the AI Gateway.
@@ -49,6 +51,8 @@ The **Apply rate-limiting** section sets the allowance, the window it runs over,
 | **Reservation amount (tokens)** | The number of tokens reserved per request, for example `4000`. Must be greater than `0` whenever a reservation strategy is set | - |
 | **Reservation ceiling (tokens)** | Bounds an adaptive reservation. `0` disables the ceiling | `0` |
 
+Each dropdown shows a descriptive label rather than the stored value. **Time unit** reads **Seconds** through **Days**. **Reset strategy** reads **Rolling window from first request** or **Calendar-aligned window**. **Reservation strategy** reads **No reservation**, **Reserve a fixed amount per request**, or **Reserve an amount learned from recent observed usage**.
+
 By default the allowance belongs to a plan and subscription pair, not to a caller. When several identities share one subscription, they share one budget, and the first one to spend it exhausts it for everyone. Set **Key** to an expression that resolves the caller's identity, and enable **Use key only**, to give each identity its own allowance.
 
 `CALENDAR` only aligns a window that matches a calendar period. Set **Time duration** and **Time unit** to exactly 1 hour, 1 day, 7 days, or 30 days. Any other period is rejected when the API is deployed, so use `ROLLING` instead.
@@ -63,11 +67,11 @@ When a response is served from cache the model is never called, so the request c
 
 **Strategy** decides how the counter is kept and what happens when the rate-limit store is unreachable:
 
-| Value | Behavior |
-| --- | --- |
-| `FALLBACK_PASS_THROUGH` | Counts exactly, so every request checks the counter before it proceeds. If the policy can't reach the rate-limit store, the request is allowed. The default, and the choice when availability matters more than the ceiling |
-| `BLOCK_ON_INTERNAL_ERROR` | Counts exactly. If the policy can't reach the rate-limit store, the request is rejected. Choose this when overspending is worse than downtime |
-| `ASYNC_MODE` | Counts approximately, buffering counts and flushing them in the background. The fastest option and the lightest on the store, but concurrent requests can pass the limit before the flush catches up |
+| Console label | Value | Behavior |
+| --- | --- | --- |
+| Count exactly - keep serving if the counter store is unreachable | `FALLBACK_PASS_THROUGH` | Every request checks the counter before it proceeds. If the policy can't reach the rate-limit store, the request is allowed. The default, and the choice when availability matters more than the ceiling |
+| Count exactly - reject requests if the counter store is unreachable | `BLOCK_ON_INTERNAL_ERROR` | Every request checks the counter before it proceeds. If the policy can't reach the rate-limit store, the request is rejected. Choose this when overspending is worse than downtime |
+| Count approximately - faster, but the limit can be overshot | `ASYNC_MODE` | Counts are buffered and flushed in the background. The fastest option and the lightest on the store, but concurrent requests can pass the limit before the flush catches up |
 
 With `BLOCK_ON_INTERNAL_ERROR`, the rejection reports `Token rate limit blocked the query due to internal error`. With `FALLBACK_PASS_THROUGH` and with `ASYNC_MODE`, the request is allowed. When **Add response headers** is enabled, `X-Token-Rate-Limit-Remaining` then reports the full allowance and `X-Token-Rate-Limit-Reset` reports `-1`. If no rate-limit configuration is installed, the request fails with `No rate-limit config has been installed.`
 

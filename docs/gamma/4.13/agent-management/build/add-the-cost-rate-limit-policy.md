@@ -26,9 +26,11 @@ Before you begin, confirm that you have the following:
 
 1. On the LLM Proxy detail page, under **Design**, open **LLM Studio**.
 2. Under **Common Flows**, select the flow you want to limit, usually **Prompt**.
-3. In the **Request Phase** section, click **Browse all...** to open the policy catalog.
-4. Search for **Cost Rate Limit**, and then click **Add to flow**.
-5. Configure the policy using the settings in [Settings](#settings).
+3. In the **Request Phase** section, click the plus, and then click **Browse full catalog**.
+4. In the **Add Policy** dialog, search for **Cost Rate Limit**, select it, and then click **Add to flow**.
+5.  Configure the policy using the settings in [Settings](#settings).
+
+    <figure><img src="../../.gitbook/assets/gamma-aim-cost-rate-limit-configuration.png" alt="The Cost Rate Limit configuration panel showing the Strategy dropdown set to count exactly"><figcaption></figcaption></figure>
 6. Click **Save**.
 7. When the "This deployable is out of sync" message appears, click **Deploy** to push the change to the AI Gateway.
 
@@ -52,6 +54,8 @@ The **Cost budget** section sets the amount, the window it runs over, and who it
 | **Reservation amount (dollars)** | The amount held per request while the model answers. Must be greater than `0` whenever a reservation strategy is set | - |
 | **Reservation ceiling (dollars)** | The largest amount `ADAPTIVE` may hold. Leave it empty for no ceiling | - |
 
+Each dropdown shows a descriptive label rather than the stored value. **Time unit** reads **Minutes**, **Hours**, or **Days**. **Reset strategy** reads **Rolling window from first request** or **Calendar-aligned window**. **Reservation strategy** reads **No reservation**, **Reserve a fixed amount per request**, or **Reserve an amount learned from recent observed usage**.
+
 A budget of `0` with no dynamic budget is rejected when the API is deployed, so set one or the other.
 
 By default the budget belongs to a plan and subscription pair, not to a caller. When several identities share one subscription, they share one budget, and the first one to spend it exhausts it for everyone. Set **Key** to an expression that resolves the caller's identity, and enable **Use key only**, to give each identity its own budget.
@@ -74,7 +78,7 @@ When a response is served from a semantic cache the model is never called, so no
 
 | Setting | Description | Default |
 | --- | --- | --- |
-| **Missing price policy** | `FAIL_OPEN` records nothing and releases any reservation. `FAIL_CLOSED` charges the fallback cost | `FAIL_OPEN` |
+| **Missing price policy** | **Warn, and charge nothing** records nothing and releases any reservation, the `FAIL_OPEN` value. **Warn, and charge the fallback cost** charges the amount configured, the `FAIL_CLOSED` value | `FAIL_OPEN` |
 | **Fallback cost when price is unknown (dollars)** | The amount charged per request under `FAIL_CLOSED`. Enter `0.05` for five cents | - |
 
 Under `FAIL_CLOSED`, set a fallback cost unless a reservation strategy is configured. Without either, `FAIL_CLOSED` charges nothing and behaves like `FAIL_OPEN`.
@@ -85,11 +89,11 @@ A model priced at `0` is free, is billed as `0`, and never reaches this setting.
 
 **Strategy** decides how the counter is kept and what happens when the rate-limit store is unreachable:
 
-| Value | Behavior |
-| --- | --- |
-| `FALLBACK_PASS_THROUGH` | Counts exactly, so every request checks the counter before it proceeds. If the policy can't reach the rate-limit store, the request is allowed. The default, and the choice when availability matters more than the ceiling |
-| `BLOCK_ON_INTERNAL_ERROR` | Counts exactly. If the policy can't reach the rate-limit store, the request is rejected. Choose this when overspending is worse than downtime |
-| `ASYNC_MODE` | Counts approximately, buffering counts and flushing them in the background. The fastest option and the lightest on the store, but concurrent requests can pass the budget before the flush catches up |
+| Console label | Value | Behavior |
+| --- | --- | --- |
+| Count exactly - keep serving if the counter store is unreachable | `FALLBACK_PASS_THROUGH` | Every request checks the counter before it proceeds. If the policy can't reach the rate-limit store, the request is allowed. The default, and the choice when availability matters more than the ceiling |
+| Count exactly - reject requests if the counter store is unreachable | `BLOCK_ON_INTERNAL_ERROR` | Every request checks the counter before it proceeds. If the policy can't reach the rate-limit store, the request is rejected. Choose this when overspending is worse than downtime |
+| Count approximately - faster, but the limit can be overshot | `ASYNC_MODE` | Counts are buffered and flushed in the background. The fastest option and the lightest on the store, but concurrent requests can pass the budget before the flush catches up |
 
 Because a money budget is the kind of ceiling you don't want overshot, `FALLBACK_PASS_THROUGH` is the default rather than `ASYNC_MODE`.
 
