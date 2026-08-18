@@ -39,8 +39,19 @@ Before you begin, confirm that you have the following:
 | **Time unit** | `SECONDS` or `MINUTES` | `SECONDS` |
 | **Key** | Identifies the consumer the limit applies to. Supports Expression Language. Leave it empty to count against the plan and subscription pair | Empty |
 | **Use key only** | Counts against the key alone, ignoring the subscription and plan | `false` |
+| **Reset strategy** | `ROLLING` starts the window at the first request. `CALENDAR` aligns the boundary to the calendar hour, day, week, or month | `ROLLING` |
+| **Timezone** | The IANA identifier used for calendar-aligned boundaries, such as `UTC` or `Europe/Paris` | `UTC` |
+| **Reservation strategy** | `NONE`, `FIXED`, or `ADAPTIVE`. Decides whether the budget is checked against an estimate before the model is called | `NONE` |
+| **Reservation amount (tokens)** | The number of tokens reserved per request, for example `4000` | `0` |
+| **Reservation ceiling (tokens)** | Bounds an adaptive reservation. `0` disables the ceiling | `0` |
 
 By default the allowance belongs to a plan and subscription pair, not to a caller. When several identities share one subscription, they share one budget, and the first one to spend it exhausts it for everyone. Set **Key** to an expression that resolves the caller's identity, and enable **Use key only**, to give each identity its own allowance.
+
+For longer windows, **Time unit** also accepts `HOURS` and `DAYS`.
+
+With no reservation, the policy checks the limit against tokens already recorded, and the real usage of a request is only known after its response has been delivered. One large prompt can therefore overshoot the budget, and concurrent calls can overshoot it together. Set **Reservation strategy** to `FIXED` to reserve **Reservation amount** tokens before the model is called, or to `ADAPTIVE` to start from that amount and learn from what the same consumer actually spends, up to **Reservation ceiling**. Either way the reservation is reconciled against real usage once the response completes, and it's refunded before the rejection when the budget overflows. A reservation never exceeds the resolved limit, and a request that never reports usage, such as a client disconnect, is still charged. Enabling a reservation also makes the counter strict, even under `ASYNC_MODE`.
+
+When a response is served from cache the model is never called, so the request counts as zero and any reservation is released. When token usage isn't available, the request is allowed and the budget isn't incremented.
 
 ### Strategy
 
@@ -51,6 +62,8 @@ By default the allowance belongs to a plan and subscription pair, not to a calle
 | `ASYNC_MODE` | The counter is updated asynchronously. The fastest option, and the default. Under bursts, a consumer can slightly overshoot the limit before the counter catches up |
 | `BLOCK_ON_INTERNAL_ERROR` | If the policy can't reach the rate-limit store, the request is rejected. Choose this when overspending is worse than downtime |
 | `FALLBACK_PASS_THROUGH` | If the policy can't reach the rate-limit store, the request is allowed. Choose this when availability matters more than the ceiling |
+
+With `BLOCK_ON_INTERNAL_ERROR`, the rejection reports `Token rate limit blocked the query due to internal error`. With `FALLBACK_PASS_THROUGH` and with `ASYNC_MODE`, the request is allowed and the response headers report a counter of `0` and a reset of `-1`. If no rate-limit configuration is installed, the request fails with `No rate-limit config has been installed.`
 
 ### Response headers
 
