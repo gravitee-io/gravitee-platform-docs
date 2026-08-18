@@ -82,6 +82,27 @@ There are two ways of setting labels on a request:
 
     If a `Mapping` and the defaults both give label groups for the same domain, the default labels are prepended to each label group from the `Mapping`. If the `Mapping` does not give any labels for that domain, the global labels are placed into a new label group named "default" for that domain.
 
+    As of Ambassador Edge Stack 3.14.1, `default_labels` also accepts a list of named label groups per domain, in addition to the single `defaults` group shown above:
+
+    ```yaml
+    ---
+    apiVersion: getambassador.io/v3alpha1
+    kind: Module
+    metadata:
+      name: ambassador
+    spec:
+      config:
+        default_labels:
+          "domain1":
+          - "group_a":
+            - "my_label_specifier_a"
+            - "my_label_specifier_b"
+          - "group_b":
+            - "my_label_specifier_c"
+    ```
+
+    In the list form, each named group becomes its own independent label group on every request, so a single domain can contribute several sets of default labels, and a `RateLimit` pattern matching any one of the groups can enforce its limit on its own. The list form behaves differently from the single `defaults` group when a `Mapping` also sets labels for the same domain: instead of being prepended to each of the `Mapping`'s label groups, each default group is added alongside them as a separate label group, and the `Mapping`'s own labels are left unchanged. As with `Mapping` labels, the group names are only meaningful to humans reading the YAML and are ignored by Ambassador Edge Stack. Malformed label groups are reported as configuration errors rather than being silently ignored.
+
 Each label group is a list of labels; each label is a key/value pair. Since the label group is a list rather than a map:
 
 * it is possible to have multiple labels with the same key, and
