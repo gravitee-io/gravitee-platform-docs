@@ -185,6 +185,12 @@ Routing host mode for api my-api: bootstrap 'api1.mycompany.com', brokers 'broke
 `domains` replaces `defaultDomain`, which is deprecated. `defaultDomain` still works for a single domain, but it is **ignored as soon as `domains` is set**, and the Gateway logs a warning saying so. Configure one or the other, never both.
 {% endhint %}
 
+{% hint style="warning" %}
+The `{domain}` placeholder, the two `bootstrap '…', brokers '…'` log lines above, the warning about `defaultDomain` being ignored, and the collapse warning below all require **4.12.14 or later** (Kafka reactor 7.0.2).
+
+On 4.12.0 to 4.12.13, `domains` itself works exactly as described, but write the patterns with `{defaultDomain}` instead — it is substituted with the domain being evaluated in the same way — and verify the resulting hostnames yourself, since no warning is raised.
+{% endhint %}
+
 #### Use `{domain}` in custom patterns
 
 `bootstrapDomainPattern` and `brokerDomainPattern` are evaluated **once per configured domain**. The `{domain}` placeholder stands for the domain being evaluated, so a custom pattern keeps working across all of them:
