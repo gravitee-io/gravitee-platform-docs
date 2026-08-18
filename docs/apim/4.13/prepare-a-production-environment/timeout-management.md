@@ -10,14 +10,14 @@ description: >-
 
 Timeouts apply at two independent scopes, and both run at the same time on every request:
 
-* **Gateway scope.** `http.requestTimeout` bounds the whole request, from the moment the Gateway receives it to the moment the response completes. It applies to every API deployed on that Gateway.
+* **Gateway scope.** `http.requestTimeout` bounds the processing of the request, from the moment the Gateway receives it until the response is handed over. It applies to every API deployed on that Gateway. It does **not** bound the transfer of the response body — see below.
 * **Endpoint scope.** The HTTP client of each endpoint or endpoint group carries its own timeouts towards the backend: `connectTimeout`, `readTimeout`, `idleTimeout`, and `keepAliveTimeout`.
 
 The two scopes don't override each other. Whichever expires first interrupts the request. An endpoint `readTimeout` longer than `http.requestTimeout` never takes effect, and the reverse is also true.
 
 Timeouts can't be configured per plan. To apply different timeout behavior to different consumers, expose the backend through separate APIs with different endpoint configurations.
 
-<table><thead><tr><th width="190">Setting</th><th width="120">Scope</th><th width="110">Default (ms)</th><th>What it bounds</th></tr></thead><tbody><tr><td><code>http.requestTimeout</code></td><td>Gateway</td><td>30000</td><td>The complete request, until the response ends.</td></tr><tr><td><code>http.requestTimeoutGraceDelay</code></td><td>Gateway</td><td>30</td><td>The minimum execution window granted to the response phase.</td></tr><tr><td><code>connectTimeout</code></td><td>Endpoint</td><td>5000</td><td>Establishing the TCP connection to the backend.</td></tr><tr><td><code>readTimeout</code></td><td>Endpoint</td><td>10000</td><td>Inactivity during a request, and connection acquisition from the pool.</td></tr><tr><td><code>idleTimeout</code></td><td>Endpoint</td><td>60000</td><td>Inactivity on the connection itself, whether or not a request is in flight.</td></tr><tr><td><code>keepAliveTimeout</code></td><td>Endpoint</td><td>30000</td><td>How long an unused connection stays in the pool. HTTP/1.x only.</td></tr></tbody></table>
+<table><thead><tr><th width="190">Setting</th><th width="120">Scope</th><th width="110">Default (ms)</th><th>What it bounds</th></tr></thead><tbody><tr><td><code>http.requestTimeout</code></td><td>Gateway</td><td>30000</td><td>The processing of the request, up to the response. Not the transfer of the body.</td></tr><tr><td><code>http.requestTimeoutGraceDelay</code></td><td>Gateway</td><td>30</td><td>The minimum execution window granted to the response phase.</td></tr><tr><td><code>connectTimeout</code></td><td>Endpoint</td><td>5000</td><td>Establishing the TCP connection to the backend.</td></tr><tr><td><code>readTimeout</code></td><td>Endpoint</td><td>10000</td><td>Waiting for the backend response, and connection acquisition from the pool. Disarmed once the response headers arrive.</td></tr><tr><td><code>idleTimeout</code></td><td>Endpoint</td><td>60000</td><td>Inactivity on the connection itself, whether or not a request is in flight.</td></tr><tr><td><code>keepAliveTimeout</code></td><td>Endpoint</td><td>30000</td><td>How long an unused connection stays in the pool. HTTP/1.x only.</td></tr></tbody></table>
 
 You configure every one of these settings in milliseconds, at both scopes.
 
@@ -53,7 +53,9 @@ For the configuration syntax, see [Configure your HTTP server](configure-your-ht
 
 ### Read timeout
 
-`readTimeout` is an **inactivity timer**, not a total budget for the request. It expires only when the backend sends nothing for the configured duration. Every chunk received resets it, so a response that keeps producing data isn't interrupted, however long it runs.
+`readTimeout` bounds the wait for the backend **response**, not the whole request and not the transfer of the body. It expires when the backend has sent nothing for the configured duration, and it is **disarmed as soon as the response headers arrive**.
+
+Past that point the response is governed by `idleTimeout` alone, which is reset by each chunk. This is why a streaming API is bounded by `idleTimeout` and not by `readTimeout`, however short the latter is.
 
 The same value also governs the acquisition of a connection from the pool, as described above.
 
@@ -86,7 +88,7 @@ Like `idleTimeout`, this value is applied in whole seconds.
 
 ### Keep `readTimeout` shorter than `idleTimeout`
 
-This is the one inequality that governs correctness. Both timers run during a request in flight, and the shorter one always wins.
+This is the one inequality that governs correctness. Both timers run while the Gateway waits for the response, and the shorter one wins. Past the response headers only `idleTimeout` remains, so it also has to suit your streaming APIs on its own.
 
 * When `readTimeout` is the shorter, an unresponsive backend produces a `504` with `GATEWAY_CLIENT_READ_TIMEOUT` and a message naming the timeout, the method, and the target.
 * When `idleTimeout` is the shorter, it closes the connection first. `readTimeout` can never fire, and the failure is reported as a connection closed by the backend — a disconnection that didn't happen.
@@ -109,11 +111,11 @@ Because `readTimeout` measures inactivity, it doesn't need to accommodate the to
 
 The timer that actually governs a request depends on the protocol, and on whether the exchange is a single request-response or a long-lived stream.
 
-<table><thead><tr><th width="170">Protocol</th><th width="185">Governing timer</th><th>Notes</th></tr></thead><tbody><tr><td>HTTP/1.1</td><td><code>readTimeout</code></td><td>Reset by each chunk received. <code>idleTimeout</code> acts as the outer bound on the connection.</td></tr><tr><td>HTTP/2</td><td><code>readTimeout</code> per stream</td><td><code>idleTimeout</code> applies to the shared connection. <code>keepAliveTimeout</code> doesn't apply.</td></tr><tr><td>SSE and chunked streaming</td><td><code>readTimeout</code></td><td>Reset by each event or chunk. The heartbeat interval must stay below it.</td></tr><tr><td>WebSocket</td><td><code>idleTimeout</code></td><td><code>readTimeout</code> covers the handshake only. Reset by any traffic in either direction.</td></tr><tr><td>gRPC</td><td><code>readTimeout</code></td><td>Runs over HTTP/2. A timeout reaches the client as <code>UNAVAILABLE</code>.</td></tr></tbody></table>
+<table><thead><tr><th width="170">Protocol</th><th width="185">Governing timer</th><th>Notes</th></tr></thead><tbody><tr><td>HTTP/1.1</td><td><code>readTimeout</code> until the response headers, then <code>idleTimeout</code></td><td><code>readTimeout</code> bounds the wait for the response. Once it arrives, <code>idleTimeout</code> governs, reset by each chunk.</td></tr><tr><td>HTTP/2</td><td><code>readTimeout</code> per stream, until its response headers</td><td><code>idleTimeout</code> applies to the shared connection. <code>keepAliveTimeout</code> doesn't apply.</td></tr><tr><td>SSE and chunked streaming</td><td><code>idleTimeout</code></td><td>The stream starts with the response headers, which disarm <code>readTimeout</code>. The heartbeat interval must stay below <code>idleTimeout</code>.</td></tr><tr><td>WebSocket</td><td><code>idleTimeout</code></td><td><code>readTimeout</code> covers the handshake only. Reset by any traffic in either direction.</td></tr><tr><td>gRPC</td><td><code>readTimeout</code></td><td>Runs over HTTP/2. A timeout reaches the client as <code>UNAVAILABLE</code>.</td></tr></tbody></table>
 
 ### HTTP/1.1
 
-One connection carries one request at a time. `readTimeout` bounds inactivity within the request, and `idleTimeout` bounds the connection itself. Once the response ends and the connection returns to the pool, `keepAliveTimeout` governs how long it's retained.
+One connection carries one request at a time. `readTimeout` bounds the wait for the backend response and is disarmed once its headers arrive; `idleTimeout` bounds the connection itself, before and after that point. Once the response ends and the connection returns to the pool, `keepAliveTimeout` governs how long it's retained.
 
 ### HTTP/2
 
