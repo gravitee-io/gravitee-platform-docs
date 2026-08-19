@@ -30,12 +30,12 @@ The two timeout keys carry `REQUEST_TIMEOUT` as their parent. Every other key in
 
 ### On `GATEWAY_CLIENT_CONNECTION_CLOSED` and `GATEWAY_CLIENT_STREAM_ENDED_EARLY`
 
-These keys are misread more often than any other. Neither means that the API consumer went away, and neither means that the Gateway timed out. Both mean the connection closed while the response was still incomplete in HTTP terms.
+These keys are misread more often than any other key. Neither means that the API consumer went away, and neither means that the Gateway timed out. Both mean the connection closed while the response was still incomplete in HTTP terms.
 
-What separates them is **how far the response had got**:
+The following two keys differ in **how far the response had progressed**:
 
-* `GATEWAY_CLIENT_STREAM_ENDED_EARLY` — the status and the headers had already been sent. The API consumer received a valid response, only with a truncated body. The request did not fail, so the status stays as it was and no response template applies.
-* `GATEWAY_CLIENT_CONNECTION_CLOSED` — nothing had reached the API consumer yet, so the Gateway answers `502`.
+* `GATEWAY_CLIENT_STREAM_ENDED_EARLY`. The status and the headers had already been sent. The API consumer received a valid response, only with a truncated body. The request didn't fail, so the status stays as it was and no response template applies.
+* `GATEWAY_CLIENT_CONNECTION_CLOSED`. Nothing had reached the API consumer yet, so the Gateway answers `502`.
 
 The common case on streaming APIs is the first: the backend announces `Transfer-Encoding: chunked`, sends data, then closes without the terminating zero-length chunk. Any HTTP client sees the same thing. `curl` reports `transfer closed with outstanding read data remaining`.
 
@@ -50,9 +50,9 @@ A backend that closes *cleanly*, on a response with no announced length, produce
 
 Both keys are also what you get when the Gateway closes the connection itself, on the endpoint's own `idleTimeout`.
 
-From 4.12.16 the error message tells you: it states how long the backend had been silent, and, when that silence matches the configured `idleTimeout`, that the Gateway is the likely closer, naming the values involved.
+From 4.12.16, the error message states how long the backend had been silent. When that silence matches the configured `idleTimeout`, the message also says that the Gateway is the likely closer, and names the values involved.
 
-On earlier versions the duration is the only clue. An `idleTimeout` produces the same duration every time, within a few milliseconds of the configured value. A genuine backend problem produces scattered durations. Note that the silence, not the total duration of the exchange, is what to compare: `idleTimeout` restarts on every byte received.
+On earlier versions, the duration is the only clue. An `idleTimeout` produces the same duration every time, within a few milliseconds of the configured value. A genuine backend problem produces scattered durations. Compare the silence, not the total duration of the exchange: `idleTimeout` restarts on every byte received.
 
 For the configuration that causes this, see [Timeout management](../prepare-a-production-environment/timeout-management.md#distinguish-a-backend-closure-from-an-idle-timeout).
 {% endhint %}
@@ -73,17 +73,17 @@ These keys never overlap with the backend connection keys. An abort by the API c
 
 ### On `GATEWAY_UNEXPECTED_ERROR`
 
-The Gateway answers a bare `500` when an error reaches the end of its processing chain without having been turned into a proper failure — no response template applies on that path, so the body is empty.
+The Gateway answers a bare `500` when an error reaches the end of its processing chain without having been turned into a proper failure. No response template applies on that path, so the body is empty.
 
-Two things make this outcome easy to misread, and both are addressed from 4.12.16:
+The following two things make this outcome easy to misread, and both are addressed from 4.12.16:
 
 * **The status you see is not always the one the failure called for.** The `500` overwrites whatever status the request had reached. A request can therefore be reported as a `500` while carrying an error key that belongs to another status, such as a `GATEWAY_CLIENT_` key normally answered with a `502`. The Gateway log now states the status it replaced.
-* **The request used to carry no key at all**, which reads as a success in any dashboard that counts failures by key. It now carries `GATEWAY_UNEXPECTED_ERROR`, with the cause in the message.
+* **The request used to carry no key at all.** A missing key reads as a success in any dashboard that counts failures by key. It now carries `GATEWAY_UNEXPECTED_ERROR`, with the cause in the message.
 
-When an error key had already been attributed to the request, that key is kept — it names what actually went wrong — and the unexpected failure is recorded alongside it as a **warning**, carrying the exception. Warnings appear in the Issues panel of the request details in the Console.
+When an error key had already been attributed to the request, that key is kept. It names what actually went wrong. The unexpected failure is recorded alongside it as a **warning**, carrying the exception. Warnings appear in the Issues panel of the request details in the Console.
 
 {% hint style="info" %}
-The Gateway log line for this path is `Unexpected error while handling request`. From 4.12.16 it carries the request and transaction ids, the status being replaced, the error already attributed, the endpoint, the elapsed time, and the cause — enough to conclude without correlating anything.
+The Gateway log line for this path is `Unexpected error while handling request`. From 4.12.16, it carries the request and transaction IDs, the status being replaced, the error already attributed, the endpoint, the elapsed time, and the cause. That is enough to conclude without correlating anything.
 {% endhint %}
 
 ## Responses with no error key
