@@ -133,6 +133,7 @@
   * [Accepted request formats](agent-management/build/accepted-request-formats.md)
   * [Override the model at runtime](agent-management/build/override-the-model-at-runtime.md)
   * [Add the Token Rate Limit policy](agent-management/build/add-the-token-rate-limit-policy.md)
+  * [Add the Cost Rate Limit policy](agent-management/build/add-the-cost-rate-limit-policy.md)
   * [Configure text classification](agent-management/build/configure-text-classification.md)
   * [AI resources](agent-management/build/ai-resources.md)
   * [Create an agent identity](agent-management/build/create-an-agent-identity.md)
