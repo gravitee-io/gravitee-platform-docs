@@ -1,3 +1,9 @@
+---
+description: >-
+  The New Developer Portal catalog lists published APIs for consumers to search,
+  browse in card or list view, and filter by category. See how it works.
+---
+
 # Catalog
 
 ## Overview
@@ -6,7 +12,7 @@ Catalog allows consumers to discover APIs published in the New Developer Portal.
 
 The catalog is part of the New Developer Portal itself, not the APIM Console. Consumers reach it from the **Catalog** button in the portal navigation bar, which serves the `/catalog` path of your portal URL. On a mobile screen, **Catalog** sits in the panel that opens from the menu button.
 
-To reach the catalog from the Console, click **Open Website**, and then click **Catalog**. For more information about that button, see [configure-the-new-portal.md](configure-the-new-portal.md "mention").
+To reach the catalog from the APIM Console, click **Open Website**, and then click **Catalog**. For more information about that button, see [configure-the-new-portal.md](configure-the-new-portal.md "mention").
 
 ## Prerequisites
 
@@ -40,15 +46,14 @@ In list view, a **Category** column shows the categories each API belongs to. Th
 
 ## Filter the catalog by category
 
-The catalog header carries a **Category** dropdown, alongside the card and list view toggle and the search bar. It filters the catalog to a single category, it reads `Category: All` until a consumer picks one, and it lists only the categories an administrator made visible. Opening the dropdown reveals a search field for narrowing a long category list, and a **Clear Selection** button that returns the consumer to the full catalog.
+The catalog header carries a **Category** dropdown, alongside the card and list view toggle and the search bar. It filters the catalog to a single category, and it lists only the categories you made visible. Until a consumer picks a category, the dropdown reads `Category: All`. The open dropdown also carries a search field for narrowing a long category list, and a **Clear Selection** button that returns the consumer to the full catalog.
 
-<!-- TODO: Screenshot of the catalog header with the Category dropdown open -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-catalog-category-dropdown.png" alt=""><figcaption><p>Category dropdown in the catalog header</p></figcaption></figure>
+<!-- TODO: add a screenshot of the catalog header with the Category dropdown open, captioned "Category dropdown in the catalog header". The figure is omitted rather than pointed at a missing asset, which would publish as a broken image. -->
 
-Selecting a category narrows the catalog to the APIs assigned to it and clears the search bar. API Products are left out of the results while a category filter is applied.
+When a consumer selects a category, the catalog narrows to the APIs assigned to it and the search bar clears. API Products are excluded from the results while a category filter is applied.
 
 For more information about creating categories and assigning APIs to them, see [manage-new-developer-portal-categories.md](manage-new-developer-portal-categories.md "mention").
 
 ### Share a filtered catalog view
 
-The selected category is carried in the `category` query parameter of the catalog URL, so copying the address bar shares or bookmarks that exact view. Opening a link whose `category` value doesn't match a visible category shows the catalog error state instead of results.
+The selected category is carried in the `category` query parameter of the catalog URL, so a consumer shares or bookmarks that exact view by copying the address. A link whose `category` value doesn't match a visible category shows the catalog error state instead of results.
