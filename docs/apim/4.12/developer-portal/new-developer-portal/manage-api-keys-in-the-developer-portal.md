@@ -72,6 +72,8 @@ When all keys are inactive, the "Calling the API" section is hidden.
 
 Revocation is blocked if the key is already inactive, if another revocation request is in flight, or if the user lacks update permissions.
 
+Revocation also fails when the application uses the `SHARED` API key mode, because this endpoint is subscription-scoped. Revoke a shared key from the application instead. For details, see [Modifying shared API keys](../../secure-and-expose-apis/plans/api-key.md#modifying-shared-api-keys).
+
 ### Renewing an API Key
 
 1. Click the **Renew** button below the API keys table on the subscription details page.
@@ -88,7 +90,7 @@ Renewal is blocked if another renewal request is in flight or if the user lacks 
 
 | Action | Description |
 |:-------|:------------|
-| **Renew API Key** | Generates a new API key and adds it to the subscription; the previous key remains active until revoked or expired |
+| **Renew API Key** | Generates a new API key and adds it to the subscription. The previous key stays valid for two hours after the new key is created, then expires automatically. |
 
 ### API Access Display
 

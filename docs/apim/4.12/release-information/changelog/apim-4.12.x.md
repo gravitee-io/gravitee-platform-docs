@@ -5,6 +5,50 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.16 - August 18, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* \[V3 engine] X-Gravitee-Transaction-Id and X-Gravitee-Request-Id not set on gateway error responses (auth/IP-filter/quota) [#11657](https://github.com/gravitee-io/issues/issues/11657)
+
+**Console**
+
+* Console UI: Clicking any "Template to include" always opens the same template when multiple exist [#11711](https://github.com/gravitee-io/issues/issues/11711)
+
+**Other**
+
+* Terraform Drift [#11470](https://github.com/gravitee-io/issues/issues/11470)
+* Domain pattern properties are not available in case of multiple domains used [#11660](https://github.com/gravitee-io/issues/issues/11660)
+* Multiple applications can be created with the same client id [#11692](https://github.com/gravitee-io/issues/issues/11692)
+* Nil pointer panic in subscription webhook when Application/API has no context defined [#11722](https://github.com/gravitee-io/issues/issues/11722)
+* JMS endpoint: consumer never recovers after a broker connection loss, and IBM MQ auto-reconnect cannot be enabled as a workaround [#11731](https://github.com/gravitee-io/issues/issues/11731)
+* Gateway leaks one Vert.x NetClient per health check execution since 4.12
+* Registration email sent before approval, allowing pending users to set a password and then fail login
+* API Score Evaluate fails when many custom rulesets are configured (works if rules are merged into fewer files)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* leave XSLT parameters unbound when their expression resolves to no value [#11738](https://github.com/gravitee-io/issues/issues/11738)
+
+**Other**
+
+* \[APIM] Creating a service account without `lastname` via mAPI fails        with 500 instead of 400 [#11685](https://github.com/gravitee-io/issues/issues/11685)
+* Report the full upstream response time, so gateway latency reflects only gateway time [#11719](https://github.com/gravitee-io/issues/issues/11719)
+* Report a streaming response cut short under its own error key, with a message that names the timeout responsible [#11735](https://github.com/gravitee-io/issues/issues/11735)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.15 - August 12, 2026
 <details>
 
