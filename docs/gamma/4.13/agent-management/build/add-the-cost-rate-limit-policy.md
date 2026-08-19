@@ -42,8 +42,7 @@ The **Cost budget** section sets the amount, the window it runs over, and who it
 
 | Setting | Description | Default |
 | --- | --- | --- |
-| **Max budget (dollars)** | The amount allowed per period, in dollars. Enter `5` for five dollars and `0.05` for five cents. Leave it at `0` to use the dynamic budget instead | - |
-| **Max budget (dynamic, dollars)** | An Expression Language expression that resolves to the budget, in dollars. Used only when the static budget is `0` | - |
+| **Max budget (dollars)** | The amount allowed per period, in dollars. Enter `5` for five dollars and `0.05` for five cents | - |
 | **Time duration** | How long before the budget resets | `1` |
 | **Time unit** | `MINUTES`, `HOURS`, or `DAYS` | `DAYS` |
 | **Key** | Identifies the consumer the budget applies to. Supports Expression Language. Leave it empty to count against the plan and subscription pair | Empty |
@@ -52,23 +51,23 @@ The **Cost budget** section sets the amount, the window it runs over, and who it
 | **Timezone** | The IANA identifier used for calendar-aligned boundaries, such as `UTC` or `Europe/Paris` | `UTC` |
 | **Reservation strategy** | `NONE`, `FIXED`, or `ADAPTIVE`. Decides whether the budget is checked against an estimate before the model is called | `NONE` |
 | **Reservation amount (dollars)** | The amount held per request while the model answers. Must be greater than `0` whenever a reservation strategy is set | - |
-| **Reservation ceiling (dollars)** | The largest amount `ADAPTIVE` may hold. Leave it empty for no ceiling | - |
+| **Reservation ceiling (dollars)** | The largest amount `ADAPTIVE` may hold. Must not be lower than **Reservation amount**. Leave it empty for no ceiling | - |
 
 Each dropdown shows a descriptive label rather than the stored value. **Time unit** reads **Minutes**, **Hours**, or **Days**. **Reset strategy** reads **Rolling window from first request** or **Calendar-aligned window**. **Reservation strategy** reads **No reservation**, **Reserve a fixed amount per request**, or **Reserve an amount learned from recent observed usage**.
 
-A budget of `0` with no dynamic budget is rejected when the API is deployed, so set one or the other.
+A budget of `0` is rejected when the API is deployed, so set an amount greater than `0`.
 
 By default the budget belongs to a plan and subscription pair, not to a caller. When several identities share one subscription, they share one budget, and the first one to spend it exhausts it for everyone. Set **Key** to an expression that resolves the caller's identity, and enable **Use key only**, to give each identity its own budget.
 
-`CALENDAR` only aligns a window that matches a calendar period. Set **Time duration** and **Time unit** to exactly 1 hour, 1 day, 7 days, or 30 days. Any other period is rejected when the API is deployed, so use `ROLLING` instead.
+`CALENDAR` only aligns a window whose total length is a calendar period: an hour, a day, 7 days, or 30 days. The check is on the length of the window rather than on the unit you express it in, so `60` **Minutes** is accepted as an hour, and `24` **Hours** as a day. Any other length is rejected when the API is deployed, so use `ROLLING` instead.
 
 ### Reservations
 
 With no reservation, the policy checks the budget against spend already recorded. The real cost of a request is only known after its response has been delivered. One expensive call can therefore overshoot the budget, and concurrent calls can overshoot it together.
 
-Two **Reservation strategy** values hold budget up front. `FIXED` holds **Reservation amount** before the model is called. `ADAPTIVE` starts from that amount and learns from what the same consumer actually spends, up to **Reservation ceiling**. Either way the reservation is reconciled against the real cost once the response completes, and it's refunded before the rejection when the budget overflows. Estimation accuracy affects only how tightly the budget is held, never the recorded spend, because reconciliation applies the exact difference.
+Two **Reservation strategy** values hold budget up front. `FIXED` holds **Reservation amount** before the model is called. `ADAPTIVE` starts from that amount and learns from what the same consumer actually spends, up to **Reservation ceiling**. Either way the reservation is reconciled against the real cost once the response completes, and it's refunded before the rejection when the budget overflows. When the cost is known, estimation accuracy affects only how tightly the budget is held, never the recorded spend, because reconciliation applies the exact difference. When the cost is unknown, the reservation can set the recorded spend. For more information, see [Missing price policy](#missing-price-policy).
 
-A reservation never exceeds the resolved budget. Enabling a reservation also makes the counter strict, even under `ASYNC_MODE`. Adaptive estimates are held per gateway node and are lost on restart, so keep **Reservation amount** meaningful on its own.
+A reservation never exceeds the resolved budget. Enabling a reservation also makes the counter strict, even under `ASYNC_MODE`. Adaptive estimates are held per gateway node and are lost on restart. Each node tracks at most 10,000 consumers, and past that it drops an entry it already holds. The dropped consumer reserves the plain **Reservation amount** until the node observes it again. Keep **Reservation amount** meaningful on its own.
 
 When a response is served from a semantic cache the model is never called, so no cost is recorded and any reservation is released.
 
@@ -81,7 +80,7 @@ When a response is served from a semantic cache the model is never called, so no
 | **Missing price policy** | **Warn, and charge nothing** records nothing and releases any reservation, the `FAIL_OPEN` value. **Warn, and charge the fallback cost** charges the amount configured, the `FAIL_CLOSED` value | `FAIL_OPEN` |
 | **Fallback cost when price is unknown (dollars)** | The amount charged per request under `FAIL_CLOSED`. Enter `0.05` for five cents | - |
 
-Under `FAIL_CLOSED`, set a fallback cost unless a reservation strategy is configured. Without either, `FAIL_CLOSED` charges nothing and behaves like `FAIL_OPEN`.
+Under `FAIL_CLOSED`, the charge is the larger of the fallback cost and any amount reserved for the request. Set a fallback cost unless a reservation strategy is configured. Without either, `FAIL_CLOSED` charges nothing and behaves like `FAIL_OPEN`.
 
 A model priced at `0` is free, is billed as `0`, and never reaches this setting.
 
@@ -101,7 +100,13 @@ With `BLOCK_ON_INTERNAL_ERROR`, the rejection reports `Cost rate limit blocked t
 
 ### Response headers
 
-Enable **Add response headers** to return the consumer's budget on every response:
+**Add response headers** returns the consumer's budget on every response:
+
+| Setting | Description | Default |
+| --- | --- | --- |
+| **Add response headers** | Adds the budget headers below to every response | `false` |
+
+The headers are:
 
 | Header | Content |
 | --- | --- |

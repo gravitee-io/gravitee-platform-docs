@@ -49,17 +49,17 @@ The **Apply rate-limiting** section sets the allowance, the window it runs over,
 | **Timezone** | The IANA identifier used for calendar-aligned boundaries, such as `UTC` or `Europe/Paris` | `UTC` |
 | **Reservation strategy** | `NONE`, `FIXED`, or `ADAPTIVE`. Decides whether the budget is checked against an estimate before the model is called | `NONE` |
 | **Reservation amount (tokens)** | The number of tokens reserved per request, for example `4000`. Must be greater than `0` whenever a reservation strategy is set | - |
-| **Reservation ceiling (tokens)** | Bounds an adaptive reservation. `0` disables the ceiling | `0` |
+| **Reservation ceiling (tokens)** | Bounds an adaptive reservation. Must not be lower than **Reservation amount**. `0` disables the ceiling | `0` |
 
 Each dropdown shows a descriptive label rather than the stored value. **Time unit** reads **Seconds** through **Days**. **Reset strategy** reads **Rolling window from first request** or **Calendar-aligned window**. **Reservation strategy** reads **No reservation**, **Reserve a fixed amount per request**, or **Reserve an amount learned from recent observed usage**.
 
 By default the allowance belongs to a plan and subscription pair, not to a caller. When several identities share one subscription, they share one budget, and the first one to spend it exhausts it for everyone. Set **Key** to an expression that resolves the caller's identity, and enable **Use key only**, to give each identity its own allowance.
 
-`CALENDAR` only aligns a window that matches a calendar period. Set **Time duration** and **Time unit** to exactly 1 hour, 1 day, 7 days, or 30 days. Any other period is rejected when the API is deployed, so use `ROLLING` instead.
+`CALENDAR` only aligns a window whose total length is a calendar period: an hour, a day, 7 days, or 30 days. The check is on the length of the window rather than on the unit you express it in, so `60` **Minutes** is accepted as an hour, and `24` **Hours** as a day. Any other length is rejected when the API is deployed, so use `ROLLING` instead.
 
 With no reservation, the policy checks the limit against tokens already recorded. The real usage of a request is only known after its response has been delivered. One large prompt can therefore overshoot the budget, and concurrent calls can overshoot it together.
 
-Two **Reservation strategy** values hold tokens up front. `FIXED` reserves **Reservation amount** tokens before the model is called. `ADAPTIVE` starts from that amount and learns from what the same consumer actually spends, up to **Reservation ceiling**. Either way the reservation is reconciled against real usage once the response completes, and it's refunded before the rejection when the budget overflows. A reservation never exceeds the resolved limit. Enabling a reservation also makes the counter strict, even under `ASYNC_MODE`.
+Two **Reservation strategy** values hold tokens up front. `FIXED` reserves **Reservation amount** tokens before the model is called. `ADAPTIVE` starts from that amount and learns from what the same consumer actually spends, up to **Reservation ceiling**. Either way the reservation is reconciled against real usage once the response completes, and it's refunded before the rejection when the budget overflows. A reservation never exceeds the resolved limit. Enabling a reservation also makes the counter strict, even under `ASYNC_MODE`. Adaptive estimates are held per gateway node and are lost on restart. Each node tracks at most 10,000 consumers, and past that it drops an entry it already holds. The dropped consumer reserves the plain **Reservation amount** until the node observes it again.
 
 When a response is served from cache the model is never called, so the request counts as zero and any reservation is released. When token usage isn't available, the request is allowed, the budget isn't incremented, and any reservation is released.
 
@@ -77,7 +77,13 @@ With `BLOCK_ON_INTERNAL_ERROR`, the rejection reports `Token rate limit blocked 
 
 ### Response headers
 
-Enable **Add response headers** to return the consumer's budget on every response:
+**Add response headers** returns the consumer's allowance on every response:
+
+| Setting | Description | Default |
+| --- | --- | --- |
+| **Add response headers** | Adds the allowance headers below to every response | `false` |
+
+The headers are:
 
 | Header | Content |
 | --- | --- |
