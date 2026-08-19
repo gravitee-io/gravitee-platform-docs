@@ -101,3 +101,20 @@ A shared API key may be used to call APIs that are owned by other API publishers
     <figure><img src="../../.gitbook/assets/shared-api-key-4.png" alt=""><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
 
     <figure><img src="../../.gitbook/assets/shared-api-key-4-portal.png" alt=""><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>
+
+**Manage shared API keys through the API**
+
+The API enforces the same separation. Each API key operation exists in a subscription-scoped and an application-scoped form, and the application's API key mode determines which one applies:
+
+| API key mode | Operations to use |
+|:-------------|:------------------|
+| `EXCLUSIVE` | Subscription-scoped, such as `POST /subscriptions/{subscriptionId}/keys/{apiKey}/_revoke` in the Portal API |
+| `SHARED` | Application-scoped, such as `POST /applications/{applicationId}/keys/{apiKey}/_revoke` in the Portal API, or `DELETE /management/organizations/{orgId}/environments/{envId}/applications/{applicationId}/apikeys/{apiKeyId}` in the Management API |
+
+Calling a subscription-scoped operation on an application that uses the `SHARED` mode fails with an HTTP `400` error:
+
+```
+Invalid operation for API Key mode [SHARED] of application [<applicationId>]
+```
+
+The rule applies in both directions: an application-scoped operation called against an `EXCLUSIVE` application returns the same error with `[EXCLUSIVE]`. In the Management API, the restriction covers renew, expire, and reactivate as well as revocation.
