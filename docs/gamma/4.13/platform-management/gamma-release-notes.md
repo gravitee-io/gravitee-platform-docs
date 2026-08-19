@@ -79,7 +79,7 @@ Platform Management adds environment-scoped dictionaries as a reusable asset for
 
 * Review the gateway instances registered with the selected environment from the **Gateways** page, with each instance's version, status, last heartbeat, address, tenant, and sharding tags.
 * Open an instance to read what it reported about itself on the **Environment** tab: its information rows, the plugins it loaded, and its JVM system properties.
-* Follow the instance's live resource use on the **Monitoring** tab, which refreshes every 5 seconds and reports CPU, heap and memory pools, uptime, file descriptors, threads, and garbage collection.
+* Follow the instance's live resource use on the **Monitoring** tab, which refreshes every 5 seconds and reports CPU, heap, memory pools, uptime, file descriptors, threads, and garbage collection.
 * See [Monitor gateway instances](monitor-gateway-instances.md).
 
 ## Release Date: June 26, 2026

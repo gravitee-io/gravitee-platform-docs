@@ -8,11 +8,11 @@ description: The Gateways page lists the gateway instances registered with the s
 
 A gateway instance is a running gateway process that reports itself to the platform with a periodic heartbeat. The Gateways page in the Gamma console lists the instances registered with the selected environment. Each instance opens a detail view that carries its configuration, its loaded plugins, and its live health metrics.
 
-The page is read-only, and reports what each instance tells the platform about itself. Use it to confirm that the gateways behind an environment are up, and to check which version and sharding tags they run. It also follows CPU, heap, and thread activity while you troubleshoot.
+The page is read-only and reports what each instance tells the platform about itself. Use it to confirm that the gateways behind an environment are up and to check which version and sharding tags they run. It also follows CPU, heap, and thread activity while you troubleshoot.
 
 ## Open Gateways
 
-From the Gamma console sidebar, select **Platform Management**. Open the **Environment** section, and then navigate to **Gateways**.
+From the Gamma console sidebar, select **Platform Management**, open the **Environment** section, and then navigate to **Gateways**.
 
 The instances table displays the following columns:
 
@@ -45,13 +45,13 @@ An instance that has never sent a heartbeat is also reported as Unknown.
 
 Unknown is the state to investigate. The instance last reported that it started, and the platform hasn't heard from it in more than five minutes. A gateway that shuts down through its normal stop sequence reports Stopped instead, so Unknown points at an instance that stopped reporting without shutting down cleanly.
 
-An instance that stays Unknown eventually drops out of the list. The Management API keeps an Unknown instance visible for as long as `gateway.unknown-expire-after` allows, which is `604800` seconds, or seven days, unless you set it in the Management API `gravitee.yml`.
+An instance that stays Unknown eventually drops out of the list. The Management API keeps an Unknown instance visible for as long as `gateway.unknown-expire-after` allows. That setting defaults to `604800` seconds, or seven days, and you change it in the Management API `gravitee.yml`.
 
 ## View instance details
 
 To open an instance, select its name in the **Name** column. The header carries the instance's hostname, its status badge, its address and version, and its sharding tags, or **No tag configured** when it declares none. Select **Back to Gateways** to return to the list.
 
-The detail view has an **Environment** tab and a **Monitoring** tab. The Environment tab holds three sections, described in the following subsections. Each section has its own search field, paginates 10 rows at a time by default, and offers 25, 50, and 100.
+The detail view has an **Environment** tab and a **Monitoring** tab. The **Environment** tab holds three sections, described in the following subsections. Each section has its own search field, paginates 10 rows at a time by default, and offers 25, 50, and 100.
 
 <figure><img src="../.gitbook/assets/gamma-platform-gateway-instance-environment.png" alt=""><figcaption><p>The Environment tab of a gateway instance, with the Information and Plugins sections.</p></figcaption></figure>
 
@@ -73,7 +73,7 @@ An instance that reports no plugins shows **No plugin**.
 
 ### System properties
 
-The **System properties** section lists the JVM system properties of the instance as **Name** and **Value** pairs. Before it sends them, the gateway strips every property whose name starts with `gravitee` in any capitalization, so Gravitee's own properties don't appear here.
+The **System properties** section lists the JVM system properties of the instance as **Name** and **Value** pairs. Before it sends them, the gateway strips every property whose name starts with `gravitee` in any capitalization, so Gravitee's own properties don't appear in the section.
 
 An instance that reports no system properties shows **No property**.
 
@@ -81,11 +81,11 @@ An instance that reports no system properties shows **No property**.
 
 The **Monitoring** tab reports the instance's live resource use. It refreshes every 5 seconds while the instance is Started.
 
-<figure><img src="../.gitbook/assets/gamma-platform-gateway-instance-monitoring.png" alt=""><figcaption><p>The Monitoring tab of a running instance, with the four headline cards above the JVM section.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-gateway-instance-monitoring.png" alt=""><figcaption><p>The Monitoring tab of a running instance, with the four headline cards preceding the JVM section.</p></figcaption></figure>
 
 ### Headline indicators
 
-Four cards sit at the top of the tab:
+The tab opens with the following four cards:
 
 * **CPU**. A gauge of the gateway process's CPU use, as a percentage.
 * **Heap**. A gauge of the JVM heap in use, as a percentage. The **JVM** section reports the same figure as **Percent of heap used**.
@@ -100,7 +100,7 @@ Three cards follow, one for each memory pool: young, survivor, and old. Each car
 
 ### CPU, process, thread, and garbage collector
 
-Four more cards close the tab:
+The following four cards close the tab:
 
 * **CPU**. **Percent of use** for the host, and the host's **Load average** readings.
 * **Process**. **Open file descriptors** and **Max file descriptors**. Compare the two to catch an instance approaching its limit.
@@ -111,17 +111,17 @@ Four more cards close the tab:
 
 The Gateways page reports only what the gateways send and what the platform stores. An empty section usually points at configuration rather than at a failing instance.
 
-The instances table and the Environment tab are built from the heartbeat each gateway sends. The Monitoring tab is different: it reads metrics that the gateway samples on its own schedule and the platform stores. The following settings change what the page shows:
+The instances table and the **Environment** tab are built from the heartbeat each gateway sends. The **Monitoring** tab is different: it reads metrics that the gateway samples on its own schedule and the platform stores. The following settings change what the page shows:
 
 | Setting                                     | Where it's set          | Default        | Effect on the page                                                                              |
 | ------------------------------------------- | ----------------------- | -------------- | ------------------------------------------------------------------------------------------------- |
 | `services.heartbeat.enabled`                | Gateway `gravitee.yml`  | `true`         | An instance that doesn't send heartbeats never appears in the list.                              |
 | `services.heartbeat.delay` and `.unit`      | Gateway `gravitee.yml`  | 5000 ms        | How often **Last Heartbeat** advances.                                                            |
 | `services.heartbeat.storeSystemProperties`  | Gateway `gravitee.yml`  | `true`         | When `false`, the **System properties** section is empty and the **OS** column shows **&#x2014;**. |
-| `services.monitoring.delay` and `.unit`     | Gateway `gravitee.yml`  | 5000 ms        | How often the metrics behind the Monitoring tab are sampled.                                      |
-| `repositories.analytics.type`               | Management API `gravitee.yml` | `elasticsearch` | When `none`, the Monitoring tab has no metrics to read.                                     |
+| `services.monitoring.delay` and `.unit`     | Gateway `gravitee.yml`  | 5000 ms        | How often the metrics behind the **Monitoring** tab are sampled.                                  |
+| `repositories.analytics.type`               | Management API `gravitee.yml` | `elasticsearch` | When `none`, the **Monitoring** tab has no metrics to read.                                 |
 
-The Monitoring tab reports the following when it has nothing to display:
+The **Monitoring** tab reports the following when it has nothing to display:
 
 * **There is no data for stopped gateway instance**. The instance isn't Started, so the tab doesn't request metrics. This message also appears for an instance in the Unknown state.
 * **There is no monitoring data for this gateway instance yet**. The instance is Started, but the analytics store holds no metrics for it.
