@@ -1,5 +1,8 @@
 ---
-description: Release notes for Gravitee API Management 4.13.
+description: >-
+  Release notes for Gravitee API Management 4.13, covering new features,
+  improvements, breaking changes, and deprecations. Browse the full list of
+  changes.
 ---
 
 # APIM 4.13
@@ -32,6 +35,7 @@ documentation.gravitee.io links for other versions.
 * The Generate JWT policy adds optional `x5t` and `x5t#S256` certificate thumbprint headers to generated JWTs, for downstream systems that select the validation certificate by thumbprint.
 * The schema registry provider contract now exposes the serialization format of each schema and answers subject membership and version-list lookups, and the bundled Confluent Schema Registry resource implements all three.
 * The plan endpoints of the legacy Management API v1 now reject V4, Federated, and Federated Agent APIs with an HTTP `400` error that points to Management API v2.
+* The New Developer Portal catalog gains categories, so you group APIs in the APIM Console and consumers filter the catalog to one category and share that view by URL.
 
 ## Breaking Changes and deprecations
 
@@ -63,6 +67,16 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * The thumbprints are computed from the DER-encoded signing certificate resolved by the configured key resolver (`INLINE`, `PEM`, `JKS`, or `PKCS12`). The options apply to RS256 signatures only, and the Console disables them when an HMAC signature is selected.
 * If a thumbprint option is enabled and no certificate matching the signing key is available, the policy rejects requests with HTTP `500` instead of issuing a token without the header.
 * For more information, see [Generate JWT](../../create-and-configure-apis/apply-policies/policy-reference/generate-jwt.md).
+
+#### **Categories in the New Developer Portal catalog**
+
+* Group the APIs of your New Developer Portal catalog into categories, and let consumers filter the catalog to one category at a time. An API belongs to as many categories as you assign it to.
+* Create and manage categories in the APIM Console, under **Catalog** in the Portal Settings menu. A category carries a title, an optional description, and a **Visible** toggle that decides whether consumers see it. Titles are unique per environment, compared without case, and each environment keeps its own set of categories.
+* Assign APIs to a category from the same screen, with **Add API to Category**. Only APIs published in the portal navigation are offered, so an API that consumers can't reach in the portal can't be added to a category.
+* In the portal, the catalog header carries a **Category** dropdown that filters to a single visible category, and list view gains a **Category** column. The selection travels in the catalog URL's `category` query parameter, so consumers share or bookmark a filtered view by its address. API Products are excluded while a category filter is applied.
+* On the first Management API startup after the upgrade, Gravitee copies the existing Classic Developer Portal categories and their API assignments into New Developer Portal categories, once per environment. The two sets are independent from then on.
+* These categories are stored and managed apart from the categories under **Categories** in the environment **Settings**, so a change on one screen doesn't affect the other.
+* For more information, see [Manage New Developer Portal categories](../../developer-portal/new-developer-portal/manage-new-developer-portal-categories.md).
 
 #### **Schema types and subject membership in the schema registry provider contract**
 
