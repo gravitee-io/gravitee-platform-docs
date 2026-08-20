@@ -1,11 +1,11 @@
 extends: existence
 message: "Don't use ordinal numbers for dates."
-link: https://docs.microsoft.com/en-us/style-guide/numbers#numbers-in-dates
+link: https://learn.microsoft.com/en-us/style-guide/numbers#numbers-in-dates
 level: error
 nonword: true
 ignorecase: true
 raw:
-  - \b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)|May|Jun(?:e)|Jul(?:y)|Aug(?:ust)|Sep(?:tember)?|Oct(?:ober)|Nov(?:ember)?|Dec(?:ember)?)\b\s*
+  - \b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\b\s*
 tokens:
   - first
   - second

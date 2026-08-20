@@ -14,7 +14,7 @@ description: Connect Atlassian's MCP server to Gravitee, curate the tools it exp
   * [How Gravitee governs MCP servers](govern-mcp-tool-access.md "mention")
   * [Building the agent that calls these tools](../create-an-agent-identity.md "mention")
 
-Atlassian's MCP server authenticates with an API token, and that token carries every permission its owner holds. An agent handed the token can read any issue the token can read and edit any issue it can edit, and Atlassian records the activity as the token's owner rather than as the agent or the person who prompted it. Jira sharpens this, because issue descriptions and comments on a service desk project are text that people outside your organization can write, so an agent reading them is reading instructions from strangers. Gravitee closes that gap without changing the upstream server: the token is held once on the Gateway, the tool surface is curated before any policy is written, and each call is authorized, limited, redacted, and logged under the caller's identity.
+Atlassian's MCP server authenticates with an API token, and that token carries every permission its owner holds. An agent handed the token can read any issue the token can read and edit any issue it can edit, and Atlassian records the activity as the token's owner rather than as the agent or the person who prompted it. Jira sharpens this, because issue descriptions and comments on a service desk project are text that people outside your organization can write, so an agent reading them is reading instructions from strangers. Gravitee closes that exposure without changing the upstream server: the token is held once on the Gateway, the tool surface is curated before any policy is written, and each call is authorized, limited, redacted, and logged under the caller's identity.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Before you begin, ensure you have met the following requirements:
 * If you are adding PII redaction on your environment, an AI Model Token Classification resource. For more information about AI resources, see [AI resources](../ai-resources.md "mention").
 
 {% hint style="warning" %}
-Agent Management and Authorization Management are licensed separately. Without the `agent-management` and `authorization-management` packs the module renders as a locked upgrade prompt rather than an error, which reads as though the feature is missing from your version. Contact your Gravitee account manager if either is unavailable.
+Agent Management and Authorization Management are licensed as separate packs. Without the `agent-management` and `authorization-management` packs the module renders as a locked upgrade prompt rather than an error, which reads as though the feature is missing from your version. Contact your Gravitee account manager if either is unavailable.
 
 Until you complete the authorization phase, any consumer holding a valid token for the server can invoke every tool you composed into it, including `transitionJiraIssue`, which moves an issue between statuses. Complete the authorization and policy phases before you publish the server to consumers.
 {% endhint %}
@@ -45,7 +45,7 @@ To connect and secure the Atlassian MCP server, complete the following steps:
 
 ### Connect the Atlassian MCP server
 
-Registering the server adds it to the Catalog with its tools, which is what makes those tools selectable in MCP Studio and referenceable in authorization policies.
+Registering the server adds it to the Catalog with its tools, which is what makes those tools selectable in MCP Studio and available to authorization policies.
 
 To connect the Atlassian MCP server, complete the following steps:
 
@@ -70,7 +70,7 @@ To connect the Atlassian MCP server, complete the following steps:
 {% hint style="warning" %}
 Atlassian publishes several MCP endpoints, and they do not expose the same tools. The endpoint above exposes the Jira and Confluence set this guide composes. Others expose only a small Teamwork Graph set, so a reader following Atlassian's getting-started page can authenticate successfully, see a server reporting healthy, and find none of the tools used here. The `/v1/sse` endpoint is retired.
 
-This endpoint is Atlassian's early-access MCP v2 and is explicitly subject to change, so treat what discovery returns as authoritative rather than assuming this list is current.
+This endpoint is Atlassian's early access MCP v2 and is explicitly subject to change, so treat what discovery returns as authoritative rather than assuming this list is current.
 {% endhint %}
 
 {% hint style="info" %}
@@ -96,13 +96,13 @@ Authorization policies reference tools by the server's slug, `atlassian-mcp-serv
 
 Rather than proxying Atlassian's whole tool surface, use MCP Studio to compose a Composite MCP Server that exposes only the tools a role needs. Curation is the control that precedes all the others, because a tool you never compose is a tool no policy has to defend against, and one an agent's model never sees in `tools/list`.
 
-The following steps build a delivery triage toolbelt from five Atlassian tools: `searchJiraIssuesUsingJql`, `getJiraIssue`, `searchConfluence`, `getConfluenceContent`, and `transitionJiraIssue`.
+The following steps build a delivery triage toolset from five Atlassian tools: `searchJiraIssuesUsingJql`, `getJiraIssue`, `searchConfluence`, `getConfluenceContent`, and `transitionJiraIssue`.
 
 To expose the Atlassian tools as a Composite MCP Server, complete the following steps:
 
 1. From the **Agent Management** menu, navigate to **Secure**, and then select **MCP Proxies**.
 2. Select **+ Create MCP proxy**, and then select **Studio mode**.
-3. In the **General information** section, enter a **Name**, for example `atlassian-triage-toolbelt`, and a **Context path**, for example `/atlassian-triage-toolbelt`.
+3. In the **General information** section, enter a **Name**, for example `atlassian-triage-toolset`, and a **Context path**, for example `/atlassian-triage-toolset`.
 4. On the **Secure** page, select **Gravitee as Authorization Server**. To use an external identity provider, select **External Authorization Server** instead.
 
 {% hint style="warning" %}
@@ -115,7 +115,7 @@ Fine-grained authorization requires OAuth2 with Gravitee as the authorization se
    ![The Compose step with the five Atlassian tools selected](<../../../.gitbook/assets/gamma-mcp-atlassian-compose-tools.png>)
 
 {% hint style="warning" %}
-Leave `execute` and `discover` out of the composition. `execute` is a generic dispatcher that runs any operation `discover` can find, so composing it re-exposes the tools you deliberately left out. Compose named tools only.
+Leave `execute` and `discover` out of the composition. `execute` is a dispatcher that runs any operation `discover` can find, so composing it re-exposes the tools you chose to leave out. Compose named tools only.
 {% endhint %}
 
 {% hint style="info" %}
@@ -129,7 +129,7 @@ To confirm that the Atlassian tools are exposed, complete the following steps:
 1. Send a `tools/list` request to the Composite MCP Server's endpoint:
 
    ```sh
-   curl -s https://<gateway-host>/atlassian-triage-toolbelt \
+   curl -s https://<gateway-host>/atlassian-triage-toolset \
      -H 'Content-Type: application/json' \
      -H 'Accept: application/json, text/event-stream' \
      -H "Authorization: Bearer $TOKEN" \
@@ -165,7 +165,7 @@ To confirm that authentication to the Atlassian MCP server is enforced, complete
 1. Call the Atlassian MCP server without a token:
 
    ```sh
-   curl -s -i https://<gateway-host>/atlassian-triage-toolbelt \
+   curl -s -i https://<gateway-host>/atlassian-triage-toolset \
      -H 'Content-Type: application/json' \
      -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
    ```
@@ -174,7 +174,7 @@ To confirm that authentication to the Atlassian MCP server is enforced, complete
 
    ```
    HTTP/1.1 401 Unauthorized
-   WWW-Authenticate: Bearer resource_metadata="https://<gateway-host>/.well-known/oauth-protected-resource/atlassian-triage-toolbelt" scope="openid profile email offline_access searchJiraIssuesUsingJql getJiraIssue transitionJiraIssue searchConfluence getConfluenceContent"
+   WWW-Authenticate: Bearer resource_metadata="https://<gateway-host>/.well-known/oauth-protected-resource/atlassian-triage-toolset" scope="openid profile email offline_access searchJiraIssuesUsingJql getJiraIssue transitionJiraIssue searchConfluence getConfluenceContent"
 
    {"message":"Unauthorized","http_status_code":401}
    ```
@@ -247,7 +247,7 @@ To confirm that Atlassian tool access is restricted, complete the following step
 1. As a caller in the delivery group, call `getJiraIssue`:
 
    ```sh
-   curl -s https://<gateway-host>/atlassian-triage-toolbelt \
+   curl -s https://<gateway-host>/atlassian-triage-toolset \
      -H 'Content-Type: application/json' \
      -H 'Accept: application/json, text/event-stream' \
      -H "Authorization: Bearer $DELIVERY_TOKEN" \

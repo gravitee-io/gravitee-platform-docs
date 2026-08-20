@@ -8,7 +8,7 @@ description: Connect Stripe's MCP server to Gravitee, withhold the tool that per
 ## Overview
 
 * **Outcome.** Stripe's MCP server is reachable through Gravitee as a curated Composite MCP Server. The tool that performs every write in the Stripe API is never exposed, refunds are permitted for one role and denied for another, call volume is capped per caller, and customer data is redacted on the way back.
-* **Use this when.** You want an agent to look up customers, charges, and invoices through Gravitee rather than connecting to Stripe's MCP server directly, and you need the ability to move money governed separately from the ability to read.
+* **Use this when.** You want an agent to look up customers, charges, and invoices through Gravitee rather than connecting to Stripe's MCP server directly, and you need the ability to move money governed apart from the ability to read.
 * **Not covered here.**
   * [What the Stripe MCP server does and which tools it exposes](https://docs.stripe.com/mcp)
   * [How Gravitee governs MCP servers](govern-mcp-tool-access.md "mention")
@@ -22,12 +22,12 @@ Before you begin, ensure you have met the following requirements:
 
 * Gravitee Gamma 4.12 or later, with Agent Management enabled.
 * Permission to register catalog entities, create and deploy an MCP Proxy, and author Authorization Management policies in the environment you are configuring.
-* A Stripe account with MCP access enabled, and a restricted API key scoped to the resources the agent needs. Stripe manages MCP access separately for sandbox and live mode, so enabling it in one and testing against the other produces a confusing failure. For more information about the Stripe MCP server and its API keys, go to [Stripe's documentation](https://docs.stripe.com/mcp).
+* A Stripe account with MCP access enabled, and a restricted API key scoped to the resources the agent needs. Stripe manages MCP access for sandbox and live mode independently, so enabling it in one and testing against the other produces a confusing failure. For more information about the Stripe MCP server and its API keys, go to [Stripe's documentation](https://docs.stripe.com/mcp).
 * An identity provider that is configured in Gravitee and holds the groups that your authorization policies reference. For more information about configuring an identity provider, see [Configure your Access Management instance](../configure-your-access-management-instance.md "mention").
 * If you are adding PII redaction on your environment, an AI Model Token Classification resource. For more information about AI resources, see [AI resources](../ai-resources.md "mention").
 
 {% hint style="warning" %}
-Agent Management and Authorization Management are licensed separately. Without the `agent-management` and `authorization-management` packs the module renders as a locked upgrade prompt rather than an error, which reads as though the feature is missing from your version. Contact your Gravitee account manager if either is unavailable.
+Agent Management and Authorization Management are licensed as separate packs. Without the `agent-management` and `authorization-management` packs the module renders as a locked upgrade prompt rather than an error, which reads as though the feature is missing from your version. Contact your Gravitee account manager if either is unavailable.
 
 Until you complete the authorization phase, any consumer holding a valid token for the server can invoke every tool you composed into it, including `create_refund`, which returns money to a customer. Complete the authorization and policy phases before you publish the server to consumers.
 {% endhint %}
@@ -45,7 +45,7 @@ To connect and secure the Stripe MCP server, complete the following steps:
 
 ### Connect the Stripe MCP server
 
-Registering the server adds it to the Catalog with its tools, which is what makes those tools selectable in MCP Studio and referenceable in authorization policies.
+Registering the server adds it to the Catalog with its tools, which is what makes those tools selectable in MCP Studio and available to authorization policies.
 
 To connect the Stripe MCP server, complete the following steps:
 
@@ -88,13 +88,13 @@ Authorization policies reference tools by the server's slug, `stripe-mcp`, and n
 
 Rather than proxying Stripe's whole tool surface, use MCP Studio to compose a Composite MCP Server that exposes only the tools a role needs. Curation is the control that precedes all the others, because a tool you never compose is a tool no policy has to defend against, and one an agent's model never sees in `tools/list`.
 
-The following steps build a finance support toolbelt from four Stripe tools: `stripe_api_read`, `get_stripe_account_info`, `search_stripe_documentation`, and `create_refund`.
+The following steps build a finance support toolset from four Stripe tools: `stripe_api_read`, `get_stripe_account_info`, `search_stripe_documentation`, and `create_refund`.
 
 To expose the Stripe tools as a Composite MCP Server, complete the following steps:
 
 1. From the **Agent Management** menu, navigate to **Secure**, and then select **MCP Proxies**.
 2. Select **+ Create MCP proxy**, and then select **Studio mode**.
-3. In the **General information** section, enter a **Name**, for example `finance-support-toolbelt`, and a **Context path**, for example `/finance-support-toolbelt`.
+3. In the **General information** section, enter a **Name**, for example `finance-support-toolset`, and a **Context path**, for example `/finance-support-toolset`.
 4. On the **Secure** page, select **Gravitee as Authorization Server**. To use an external identity provider, select **External Authorization Server** instead.
 
 {% hint style="warning" %}
@@ -104,13 +104,13 @@ Fine-grained authorization requires OAuth2 with Gravitee as the authorization se
 6. In the **Connect** step, select the Stripe MCP server, set the credential type to **Bearer token**, and then enter the restricted API key. The Gateway injects it as an `Authorization` header on every upstream call. The key is held once rather than distributed to each agent.
 7. In the **Review** step, confirm the composition, and then select **Create & deploy**.
 
-   ![The Compose step with the four Stripe tools selected and stripe_api_write left unticked](<../../../.gitbook/assets/gamma-mcp-stripe-compose-tools.png>)
+   ![The Compose step with the four Stripe tools selected and the general write tool left out](<../../../.gitbook/assets/gamma-mcp-stripe-compose-tools.png>)
 
 Two choices in that list carry the argument of this guide.
 
 `stripe_api_write` is left out entirely, so the tool that performs every write in the Stripe API never appears in `tools/list` and the model behind the agent never learns that it exists. Curation removes what nobody should reach.
 
-`create_refund` is deliberately included, so that it can be denied per caller in a later section. Authorization then decides who reaches what curation left in place.
+`create_refund` is included so it can be denied per caller in a later section. Authorization then decides who reaches what curation left in place.
 
 {% hint style="info" %}
 The credential on the Catalog entry authenticates discovery, and the credential on the Composite MCP Server authenticates traffic at runtime. Keep both current when you rotate the key. Update the Catalog entry, and update the Composite MCP Server on the **Tools** page of the **Design** section by selecting **Edit tools** and replacing the credential on the **Connect** step. Updating one alone produces an upstream failure that looks identical to an authorization failure.
@@ -123,7 +123,7 @@ To confirm that the Stripe tools are exposed, complete the following steps:
 1. Send a `tools/list` request to the Composite MCP Server's endpoint:
 
    ```sh
-   curl -s https://<gateway-host>/finance-support-toolbelt \
+   curl -s https://<gateway-host>/finance-support-toolset \
      -H 'Content-Type: application/json' \
      -H 'Accept: application/json, text/event-stream' \
      -H "Authorization: Bearer $TOKEN" \
@@ -159,7 +159,7 @@ To confirm that authentication to the Stripe MCP server is enforced, complete th
 1. Call the Stripe MCP server without a token:
 
    ```sh
-   curl -s -i https://<gateway-host>/finance-support-toolbelt \
+   curl -s -i https://<gateway-host>/finance-support-toolset \
      -H 'Content-Type: application/json' \
      -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
    ```
@@ -168,7 +168,7 @@ To confirm that authentication to the Stripe MCP server is enforced, complete th
 
    ```
    HTTP/1.1 401 Unauthorized
-   WWW-Authenticate: Bearer resource_metadata="https://<gateway-host>/.well-known/oauth-protected-resource/finance-support-toolbelt" scope="openid profile email offline_access stripe_api_read get_stripe_account_info search_stripe_documentation create_refund"
+   WWW-Authenticate: Bearer resource_metadata="https://<gateway-host>/.well-known/oauth-protected-resource/finance-support-toolset" scope="openid profile email offline_access stripe_api_read get_stripe_account_info search_stripe_documentation create_refund"
 
    {"message":"Unauthorized","http_status_code":401}
    ```
@@ -247,7 +247,7 @@ To confirm that Stripe tool access is restricted, complete the following steps:
 3. As a caller in the approver group, call `create_refund` with a payment intent that does not exist:
 
    ```sh
-   curl -s https://<gateway-host>/finance-support-toolbelt \
+   curl -s https://<gateway-host>/finance-support-toolset \
      -H 'Content-Type: application/json' \
      -H 'Accept: application/json, text/event-stream' \
      -H "Authorization: Bearer $APPROVER_TOKEN" \
@@ -335,7 +335,7 @@ To observe Stripe MCP interactions, complete the following steps:
 {% hint style="warning" %}
 Stripe's MCP server returns JSON, and on that path response policies run before either leg is recorded, so both logged legs show the same redacted payload and you cannot prove redaction by comparing them. Confirm redaction by reading the record directly from the upstream with its own credential and comparing that against a read through the Composite MCP Server.
 
-Where an upstream server streams its responses instead, the endpoint leg records the payload as it was received, before response policies ran, so redaction does not keep personal data out of the log store. Treat payload logging as a separate decision from redaction wherever the payload is sensitive.
+Where an upstream server streams its responses instead, the endpoint leg records the payload as it was received, before response policies ran, so redaction does not keep personal data out of the log store. Treat payload logging as its own decision, not a consequence of redaction wherever the payload is sensitive.
 {% endhint %}
 
 To review the calls, open your Composite MCP Server and under **Observability** select **Logs**. Each row records the timestamp, the MCP method, the status, the response time, and whether the endpoint was reached. Filter by **MCP methods** to isolate `tools/call`.

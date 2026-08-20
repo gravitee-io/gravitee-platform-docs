@@ -1,9 +1,10 @@
 extends: existence
 message: "Don't spell out the number in '%s'."
-link: https://docs.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/units-of-measure-terms
+link: https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/units-of-measure-terms
 level: error
+ignorecase: true
 raw:
-  - '[a-zA-Z]+\s'
+  - '\b(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million|billion)\s'
 tokens:
   - '(?:centi|milli)?meters'
   - '(?:kilo)?grams'

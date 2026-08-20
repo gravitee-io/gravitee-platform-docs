@@ -1,5 +1,6 @@
 extends: substitution
 message: "Consider using '%s' instead of '%s'."
+link: https://learn.microsoft.com/en-us/style-guide/bias-free-communication
 ignorecase: true
 level: error
 action:
@@ -10,6 +11,7 @@ swap:
   air(?:m[ae]n|wom[ae]n): pilot(s)
   anchor(?:m[ae]n|wom[ae]n): anchor(s)
   authoress: author
+  chair(?:m[ae]n|wom[ae]n): chair
   camera(?:m[ae]n|wom[ae]n): camera operator(s)
   door(?:m[ae]|wom[ae]n): concierge(s)
   draft(?:m[ae]n|wom[ae]n): drafter(s)
@@ -22,9 +24,10 @@ swap:
   mail(?:m[ae]n|wom[ae]n): mail carriers
   man and wife: husband and wife
   man enough: strong enough
-  mankind: human kind
+  mankind: humankind
   manmade: manufactured
-  manpower: personnel
+  manpower: workforce
+  mans: operates
   middle(?:m[ae]n|wom[ae]n): intermediary
   news(?:m[ae]n|wom[ae]n): journalist(s)
   ombuds(?:man|woman): ombuds
