@@ -108,7 +108,15 @@ Client connected on a broker host carrying id 0, which this virtual cluster neve
 can re-target itself; check the broker DNS records point at the ids the mesh advertises.
 ```
 
-Treat that warning as a DNS mismatch to fix rather than a supported mode: the extra round trip is paid on every connection.
+If your broker pattern spells the backend out with `{clusterIndex}`, the hostname names a backend rather than an advertised ID, and the warning reports that instead:
+
+```
+Client connected on a broker host naming backend 3, which this virtual cluster does not have
+(it federates 2 backends, numbered 0..1). Serving the connection as bootstrap so the client
+can re-target itself; check the broker DNS records match the backends the mesh federates.
+```
+
+Treat either warning as a DNS mismatch to fix rather than a supported mode: the extra round trip is paid on every connection.
 
 ## Backend broker ID limit
 
@@ -120,5 +128,6 @@ Every backend broker ID must be **below 10000**, otherwise it collides with the 
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bootstrap and topic listing work, but producing and consuming time out | The DNS entries for the advertised IDs do not exist. Clients resolve the bootstrap fine, then fail on the per-broker hostnames returned in metadata.                                |
 | `Client connected on a broker host carrying id N` warnings in the logs | Clients are still using the broker DNS entries of a single-backend deployment.                                                                                                     |
+| `Client connected on a broker host naming backend N` warnings in the logs | With a `{clusterIndex}` pattern, DNS entries exist for more backends than the Virtual Cluster federates — left over from a backend that was removed, most often.                |
 | Connections fail only for one backend's brokers                        | That backend's block of entries is missing. Check the position of the backend in the Virtual Cluster configuration, since the block follows the listed order.                       |
 | TLS handshake failures on reconnect                                    | The per-broker hostnames are missing from the SAN of the Gateway certificate. See [Configure the Kafka Client & Gateway](configure-the-kafka-client-and-gateway.md).                |
