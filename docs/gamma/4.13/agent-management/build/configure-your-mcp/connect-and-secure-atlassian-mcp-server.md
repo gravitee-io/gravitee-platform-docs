@@ -197,11 +197,11 @@ To restrict which tools each caller can use, complete the following steps:
 1. Open your Composite MCP Server. On the **Overview** page, turn on **Enable FGA**. A confirmation panel reports that the Authorization PEP has been added to the Policy Studio.
 2. From the product selector, open **Authorization Management**, navigate to the **Policy Management** section, and then select **MCPs**.
 3. Select **+ Create policy**, enter a **Policy name**, and then switch to the **Code** tab.
-4. Enter the policy. The following statement grants a delivery group the four read tools:
+4. Enter the policy. The following statement grants one delivery caller the four read tools:
 
    ```
    permit (
-     principal in Group::"<delivery-group-id>",
+     principal == User::"<delivery-caller-id>",
      action,
      resource
    ) when {
@@ -214,17 +214,23 @@ To restrict which tools each caller can use, complete the following steps:
 
 5. Select **Create and Deploy policy**.
 6. Before you create the forbid statement, transition one issue directly against Atlassian with the upstream credential, to establish that the token can write. The later denial is then demonstrably the Gateway's rather than the upstream's.
-7. Repeat steps 2 to 5 for the remaining statement. The following statement closes the one tool that writes, for the same group:
+7. Repeat steps 2 to 5 for the remaining statement. The following statement closes the one tool that writes, for the same caller:
 
    ```
    forbid (
-     principal in Group::"<delivery-group-id>",
+     principal == User::"<delivery-caller-id>",
      action,
      resource == MCPTool::"atlassian-mcp-server.transitionjiraissue"
    );
    ```
 
 The Gateway picks up a deployed policy without a restart, typically within a minute.
+
+{% hint style="info" %}
+These statements name a single caller. Enabling fine-grained authorization sets the Authorization PEP's subject type to `User`, so the Policy Decision Point receives the caller as `User::"<id>"`. Take the identifier from the decision log, which records `subject=User::"..."` for every call it evaluates.
+
+To write `principal in Group::"..."` instead, the Policy Decision Point has to know the group memberships. Sync your identity provider's groups into Authorization Management as entities and set the subject type to match. A group statement evaluated against an empty entity store matches nothing, which denies a `permit` and silently disables a `forbid`.
+{% endhint %}
 
 ![The deployed authorization policies listed in Authorization Management](<../../../.gitbook/assets/gamma-mcp-authorization-policies.png>)
 
@@ -286,7 +292,7 @@ To apply policies to the Atlassian MCP server, complete the following steps:
    * Set **Key** to `{#context.attributes['user']}` so that each identity draws on its own allowance rather than on a shared plan counter.
    * Enable **Add response headers** so that responses carry `X-Rate-Limit-Limit`, `X-Rate-Limit-Remaining`, and `X-Rate-Limit-Reset`.
    * Set **Error strategy** to block on internal error where the limit is a control rather than a courtesy.
-5. Add the **PII Filtering** policy. Select the AI Model Token Classification resource from the prerequisites, and then select the categories to redact, for example person, email, phone, location, financial account, and government ID. Leave **Confidence Threshold** at the default of `0.5`.
+5. Add the **PII Filtering** policy to the same request phase. In **AI Resource**, select the AI Model Token Classification resource from the prerequisites. In **PII Categories**, select the categories to redact, for example person, email, phone, location, financial account, and government ID. Leave **Confidence Threshold** at the default of `0.5`. The policy runs in the request phase and still filters the response payload, which is what redacts the tool result on the way back.
 6. Select **Save**, and then deploy the server.
 
 {% hint style="info" %}

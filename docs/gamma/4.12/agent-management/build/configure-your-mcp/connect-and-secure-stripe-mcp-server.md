@@ -189,11 +189,11 @@ To restrict which tools each caller can use, complete the following steps:
 1. Open your Composite MCP Server. On the **Overview** page, turn on **Enable FGA**. A confirmation panel reports that the Authorization PEP has been added to the Policy Studio.
 2. From the product selector, open **Authorization Management**, navigate to the **Policy Management** section, and then select **MCPs**.
 3. Select **+ Create policy**, enter a **Policy name**, and then switch to the **Code** tab.
-4. Enter the policy. The following statement grants a support group the three read tools:
+4. Enter the policy. The following statement grants one support caller the three read tools:
 
    ```
    permit (
-     principal in Group::"<support-group-id>",
+     principal == User::"<support-caller-id>",
      action,
      resource
    ) when {
@@ -204,27 +204,33 @@ To restrict which tools each caller can use, complete the following steps:
    ```
 
 5. Select **Create and Deploy policy**.
-6. Repeat steps 2 to 5 for each remaining statement. The following statement closes refunds for the support group:
+6. Repeat steps 2 to 5 for each remaining statement. The following statement closes refunds for that support caller:
 
    ```
    forbid (
-     principal in Group::"<support-group-id>",
+     principal == User::"<support-caller-id>",
      action,
      resource == MCPTool::"stripe-mcp.create_refund"
    );
    ```
 
-   The following statement permits refunds for an approver group only:
+   The following statement permits refunds for an approver caller only:
 
    ```
    permit (
-     principal in Group::"<approver-group-id>",
+     principal == User::"<approver-caller-id>",
      action,
      resource == MCPTool::"stripe-mcp.create_refund"
    );
    ```
 
 The Gateway picks up a deployed policy without a restart, typically within a minute.
+
+{% hint style="info" %}
+These statements name a single caller. Enabling fine-grained authorization sets the Authorization PEP's subject type to `User`, so the Policy Decision Point receives the caller as `User::"<id>"`. Take the identifier from the decision log, which records `subject=User::"..."` for every call it evaluates.
+
+To write `principal in Group::"..."` instead, the Policy Decision Point has to know the group memberships. Sync your identity provider's groups into Authorization Management as entities and set the subject type to match. A group statement evaluated against an empty entity store matches nothing, which denies a `permit` and silently disables a `forbid`.
+{% endhint %}
 
 ![The deployed authorization policies listed in Authorization Management](<../../../.gitbook/assets/gamma-mcp-authorization-policies.png>)
 
@@ -283,7 +289,7 @@ To apply policies to the Stripe MCP server, complete the following steps:
    * Set **Key** to `{#context.attributes['user']}` so that each identity draws on its own allowance rather than on a shared plan counter.
    * Enable **Add response headers** so that responses carry `X-Rate-Limit-Limit`, `X-Rate-Limit-Remaining`, and `X-Rate-Limit-Reset`.
    * Set **Error strategy** to block on internal error where the limit is a control rather than a courtesy.
-5. Add the **PII Filtering** policy. Select the AI Model Token Classification resource from the prerequisites, and then select the categories to redact, for example person, email, phone, location, financial account, and government ID. Leave **Confidence Threshold** at the default of `0.5`.
+5. Add the **PII Filtering** policy to the same request phase. In **AI Resource**, select the AI Model Token Classification resource from the prerequisites. In **PII Categories**, select the categories to redact, for example person, email, phone, location, financial account, and government ID. Leave **Confidence Threshold** at the default of `0.5`. The policy runs in the request phase and still filters the response payload, which is what redacts the tool result on the way back.
 6. Select **Save**, and then deploy the server. Saving alone does not update the Gateway. Until you deploy, the console reports that the deployable is out of sync.
 
 {% hint style="info" %}
