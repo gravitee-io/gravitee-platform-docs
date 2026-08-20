@@ -16,6 +16,8 @@ To open the page, follow these steps:
 
 Changing any setting reveals the **Discard** and **Save changes** buttons.
 
+After you save, a confirmation notification appears and both buttons disappear until you edit the form again.
+
 <!-- TODO: Screenshot of the Reporter Settings page -->
 
 <figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-reporter-settings.png" alt=""><figcaption><p>The Reporter Settings page</p></figcaption></figure>
@@ -54,6 +56,8 @@ The **OpenTelemetry** card configures distributed tracing and OpenTelemetry log 
 With **Trace enabled** and **Verbose** both on, the **Span Attribute Redaction** section masks sensitive attribute values before spans are exported. Without rules, span attributes are exported as-is.
 
 Each rule carries an **Attribute Name Pattern**, a **Masking Type**, and type-specific fields such as **Replacement Text**, **Prefix chars**, **Suffix chars**, and **Mask char**. A rule can also match on the attribute value with a partial-match regular expression.
+
+Click **Save changes** to persist the rule list.
 
 ## Verification
 
