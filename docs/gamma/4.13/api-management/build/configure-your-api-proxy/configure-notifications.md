@@ -20,6 +20,14 @@ To open the page, follow these steps:
 
 The page shows the **Console notifiers**, **Email notifiers**, and **Webhook notifiers** counters, and a table with the **Name**, **Channel**, **Events**, and **Target** columns.
 
+The **Console notifiers** counter shows `1` when the console notification has at least one event subscribed, and `0` when it has none. The **Email notifiers** and **Webhook notifiers** counters show how many notifications of each channel are configured.
+
+The table is grouped under the **Configured notifications** card. The **Events** column shows `None` when no event is subscribed, or a count such as `1 event`. The **Target** column shows the email address or the webhook URL, the group scope for the console notification, or a dash when none is set. When the API has no notifications, the table shows `No notifications are configured.`
+
+If you haven't yet created an email or webhook notification, a **Why configure notifications?** card is displayed above the table. It explains that you can be alerted on deployments, subscription requests, or policy errors without polling the dashboard, route alerts to the console, email, or webhooks, and filter by event type to reduce alert fatigue.
+
+To create, edit, or delete notifications, you need the `API_NOTIFICATION_CREATE`, `API_NOTIFICATION_UPDATE`, or `API_NOTIFICATION_DELETE` permission. If you hold none of these permissions, the **Add notification** button and the per-row **Actions** menu aren't shown.
+
 ## Add a notification
 
 To add an email or webhook notification, follow these steps:
@@ -48,6 +56,8 @@ To verify a notification is working as expected, follow these steps:
 1. Add a notification for an event you control, for example an API deployment event.
 2. Trigger the event by deploying the API.
 3. The notification arrives on the configured channel.
+
+You can also return to the **Notifications** page and confirm that the new notification appears in the **Configured notifications** table with the matching channel, and that the **Email notifiers** or **Webhook notifiers** counter has increased.
 
 <!-- TODO: Screenshot of a received notification for a triggered API event -->
 
