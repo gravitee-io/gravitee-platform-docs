@@ -61,9 +61,9 @@ To connect the Stripe MCP server, complete the following steps:
 
    The **Transport** is fixed to **Streamable HTTP**.
 
-6. Select **Verify URL**.
-7. On the **Configure connection** step, select **Static credential**, set the credential type to **Bearer token**, and then enter the restricted API key. Discovery uses the key to read the server's capabilities. It is stored on the Catalog entry and is not used for runtime traffic, which authenticates with the credential you set on the Composite MCP Server.
-8. Select **Verify URL** again to re-run discovery, and then on the **Review entry** step select **Import MCP Server**.
+6. Select **Test connection**.
+7. On the **Configure connection** step, select **Static credentials**, set the credential type to **Bearer token**, and then enter the restricted API key. Discovery uses the key to read the server's capabilities. It is stored on the Catalog entry and is not used for runtime traffic. Runtime traffic authenticates with the credential you set on the Composite MCP Server.
+8. Select **Test connection** again to re-run discovery, and then on the **Review entry** step select **Save catalog entry**.
 
 {% hint style="info" %}
 Grant the restricted key write access only where the agent must genuinely write. Stripe's finest permission grouping combines charges and refunds, so a key able to refund is also able to write charges. That is the limitation this guide works around rather than one it removes.
@@ -88,13 +88,13 @@ Authorization policies reference tools by the server's slug, `stripe-mcp`, and n
 
 Rather than proxying Stripe's whole tool surface, use MCP Studio to compose a Composite MCP Server that exposes only the tools a role needs. Curation is the control that precedes all the others, because a tool you never compose is a tool no policy has to defend against, and one an agent's model never sees in `tools/list`.
 
-The following steps build a finance support toolset from four Stripe tools: `stripe_api_read`, `get_stripe_account_info`, `search_stripe_documentation`, and `create_refund`.
+The following steps build a finance support toolbelt from four Stripe tools: `stripe_api_read`, `get_stripe_account_info`, `search_stripe_documentation`, and `create_refund`.
 
 To expose the Stripe tools as a Composite MCP Server, complete the following steps:
 
 1. From the **Agent Management** menu, navigate to **Secure**, and then select **MCP Proxies**.
 2. Select **+ Create MCP proxy**, and then select **Studio mode**.
-3. In the **General information** section, enter a **Name**, for example `finance-support-toolset`, and a **Context path**, for example `/finance-support-toolset`.
+3. In the **General information** section, enter a **Name**, for example `finance-support-toolbelt`, and a **Context path**, for example `/finance-support-toolbelt`.
 4. On the **Secure** page, select **Gravitee as Authorization Server**. To use an external identity provider, select **External Authorization Server** instead.
 
 {% hint style="warning" %}
@@ -104,7 +104,7 @@ Fine-grained authorization requires OAuth2 with Gravitee as the authorization se
 6. In the **Connect** step, select the Stripe MCP server, set the credential type to **Bearer token**, and then enter the restricted API key. The Gateway injects it as an `Authorization` header on every upstream call. The key is held once rather than distributed to each agent.
 7. In the **Review** step, confirm the composition, and then select **Create & deploy**.
 
-   ![The Compose step with the four Stripe tools selected and the general write tool left out](<../../../.gitbook/assets/gamma-mcp-stripe-compose-tools.png>)
+   ![The Compose step showing all 9 discovered Stripe tools with 4 selected and stripe_api_write left unselected](<../../../.gitbook/assets/gamma-mcp-stripe-compose-tools.png>)
 
 Two choices in that list carry the argument of this guide.
 
@@ -123,7 +123,7 @@ To confirm that the Stripe tools are exposed, complete the following steps:
 1. Send a `tools/list` request to the Composite MCP Server's endpoint:
 
    ```sh
-   curl -s https://<gateway-host>/finance-support-toolset \
+   curl -s https://<gateway-host>/finance-support-toolbelt \
      -H 'Content-Type: application/json' \
      -H 'Accept: application/json, text/event-stream' \
      -H "Authorization: Bearer $TOKEN" \
@@ -159,7 +159,7 @@ To confirm that authentication to the Stripe MCP server is enforced, complete th
 1. Call the Stripe MCP server without a token:
 
    ```sh
-   curl -s -i https://<gateway-host>/finance-support-toolset \
+   curl -s -i https://<gateway-host>/finance-support-toolbelt \
      -H 'Content-Type: application/json' \
      -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
    ```
@@ -168,7 +168,7 @@ To confirm that authentication to the Stripe MCP server is enforced, complete th
 
    ```
    HTTP/1.1 401 Unauthorized
-   WWW-Authenticate: Bearer resource_metadata="https://<gateway-host>/.well-known/oauth-protected-resource/finance-support-toolset" scope="openid profile email offline_access stripe_api_read get_stripe_account_info search_stripe_documentation create_refund"
+   WWW-Authenticate: Bearer resource_metadata="https://<gateway-host>/.well-known/oauth-protected-resource/finance-support-toolbelt" scope="openid profile email offline_access stripe_api_read get_stripe_account_info search_stripe_documentation create_refund"
 
    {"message":"Unauthorized","http_status_code":401}
    ```
@@ -224,7 +224,7 @@ To restrict which tools each caller can use, complete the following steps:
    );
    ```
 
-The Gateway picks up a deployed policy within 30 seconds, with no restart.
+The Gateway picks up a deployed policy without a restart, typically within a minute.
 
 ![The deployed authorization policies listed in Authorization Management](<../../../.gitbook/assets/gamma-mcp-authorization-policies.png>)
 
@@ -247,7 +247,7 @@ To confirm that Stripe tool access is restricted, complete the following steps:
 3. As a caller in the approver group, call `create_refund` with a payment intent that does not exist:
 
    ```sh
-   curl -s https://<gateway-host>/finance-support-toolset \
+   curl -s https://<gateway-host>/finance-support-toolbelt \
      -H 'Content-Type: application/json' \
      -H 'Accept: application/json, text/event-stream' \
      -H "Authorization: Bearer $APPROVER_TOKEN" \
@@ -267,19 +267,24 @@ Stripe's write tools accept an optional `human_confirmation` argument that asks 
 
 ### Apply policies to the Stripe MCP server
 
-Authorization decides which tools a caller reaches, not how often it calls them or what comes back. An agent looping over reads can exhaust a shared Stripe allowance while staying inside its permissions, and a permitted read returns customer names, email addresses, and phone numbers by construction.
+Authorization decides which tools a caller reaches, not how often it calls them or what comes back. An agent looping over reads can exhaust a shared Stripe allowance while staying inside its permissions, and a permitted read returns customer names, email addresses, and phone numbers by construction. Add a rate limit and a redaction policy on the `tools/call` flow to close both.
 
 To apply policies to the Stripe MCP server, complete the following steps:
 
 1. Open your Composite MCP Server, navigate to the **Design** section, and then select **Policy Studio**.
-2. Navigate to the **MCP method flows** section, add a flow, enter a **Flow name**, select the **`tools/call`** method, and then select **Create**. Enabling FGA creates this flow for you, with the Authorization PEP already in the request phase.
+2. Navigate to the **MCP method flows** section, add a flow, enter a **Flow name**, select the **`tools/call`** method, and then select **Create**. If you enabled FGA, this flow already exists, with the Authorization PEP already in the request phase.
 
    ![The Policy Studio tools/call flow with the Authorization PEP, Rate Limit, and PII Filtering policies](<../../../.gitbook/assets/gamma-mcp-stripe-policy-studio.png>)
 
 3. In the flow's **Request phase**, select **+** to open the policy catalog, and then select **Rate Limit**.
-4. Configure the limit. Set a **Limit** and a **Period**, for example 5 requests per 60 seconds, and set **Key** to `{#context.attributes['user']}` so that each identity draws on its own allowance rather than on a shared plan counter. Enable **Add headers** so that responses carry `X-Rate-Limit-Limit`, `X-Rate-Limit-Remaining`, and `X-Rate-Limit-Reset`, and set **Error strategy** to block on internal error where the limit is a control rather than a courtesy.
+4. Configure the limit:
+   * Set **Max requests (static)** to the number of calls allowed, for example `5`.
+   * Set **Static time duration** and **Static time unit** to the window, for example `60` and `SECONDS`. The window is two fields rather than one.
+   * Set **Key** to `{#context.attributes['user']}` so that each identity draws on its own allowance rather than on a shared plan counter.
+   * Enable **Add response headers** so that responses carry `X-Rate-Limit-Limit`, `X-Rate-Limit-Remaining`, and `X-Rate-Limit-Reset`.
+   * Set **Error strategy** to block on internal error where the limit is a control rather than a courtesy.
 5. Add the **PII Filtering** policy. Select the AI Model Token Classification resource from the prerequisites, and then select the categories to redact, for example person, email, phone, location, financial account, and government ID. Leave **Confidence Threshold** at the default of `0.5`.
-6. Select **Save**, and then deploy the server.
+6. Select **Save**, and then deploy the server. Saving alone does not update the Gateway. Until you deploy, the console reports that the deployable is out of sync.
 
 {% hint style="info" %}
 To limit one tool rather than the whole server, add a **Condition** to the flow that matches the tool name, for example `{#context.attributes['mcp_tool_name'] == 'stripe_api_read'}`. Scoping a tight limit to the tool an iterating agent calls most caps it without constraining the rest. For more information, see [Apply policies to tool invocations](apply-policies-to-tool-invocations.md "mention").
@@ -335,7 +340,7 @@ To observe Stripe MCP interactions, complete the following steps:
 {% hint style="warning" %}
 Stripe's MCP server returns JSON, and on that path response policies run before either leg is recorded, so both logged legs show the same redacted payload and you cannot prove redaction by comparing them. Confirm redaction by reading the record directly from the upstream with its own credential and comparing that against a read through the Composite MCP Server.
 
-Where an upstream server streams its responses instead, the endpoint leg records the payload as it was received, before response policies ran, so redaction does not keep personal data out of the log store. Treat payload logging as its own decision, not a consequence of redaction wherever the payload is sensitive.
+A streaming upstream records the endpoint leg differently. The Atlassian MCP server, measured on the same build and the same reporter settings, logged the endpoint leg before response policies ran, so the personal data reached the log store in clear even though the agent received `[REDACTED]`. Two upstreams are not a rule, so confirm which way yours behaves with one permitted call, and treat payload logging as its own decision rather than as a consequence of redaction wherever the payload is sensitive.
 {% endhint %}
 
 To review the calls, open your Composite MCP Server and under **Observability** select **Logs**. Each row records the timestamp, the MCP method, the status, the response time, and whether the endpoint was reached. Filter by **MCP methods** to isolate `tools/call`.

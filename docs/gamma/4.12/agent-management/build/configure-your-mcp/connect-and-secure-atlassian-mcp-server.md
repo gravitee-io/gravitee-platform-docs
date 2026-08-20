@@ -63,9 +63,9 @@ To connect the Atlassian MCP server, complete the following steps:
 
    ![The Select server step of the Add MCP server wizard, with Atlassian's endpoint entered](<../../../.gitbook/assets/gamma-mcp-atlassian-add-server.png>)
 
-6. Select **Verify URL**.
-7. On the **Configure connection** step, select **Static credential**, set the credential type to **Basic auth**, enter the email address that owns the token as the username, and then enter the API token as the password. Discovery uses the credential to read the server's capabilities. It is stored on the Catalog entry and is not used for runtime traffic, which authenticates with the credential you set on the Composite MCP Server.
-8. Select **Verify URL** again to re-run discovery, and then on the **Review entry** step select **Import MCP Server**.
+6. Select **Test connection**.
+7. On the **Configure connection** step, select **Static credentials**, set the credential type to **Basic auth**, enter the email address that owns the token as the username, and then enter the API token as the password. Discovery uses the credential to read the server's capabilities. It is stored on the Catalog entry and is not used for runtime traffic. Runtime traffic authenticates with the credential you set on the Composite MCP Server.
+8. Select **Test connection** again to re-run discovery, and then on the **Review entry** step select **Save catalog entry**.
 
 {% hint style="warning" %}
 Atlassian publishes several MCP endpoints, and they do not expose the same tools. The endpoint above exposes the Jira and Confluence set this guide composes. Others expose only a small Teamwork Graph set, so a reader following Atlassian's getting-started page can authenticate successfully, see a server reporting healthy, and find none of the tools used here. The `/v1/sse` endpoint is retired.
@@ -96,13 +96,13 @@ Authorization policies reference tools by the server's slug, `atlassian-mcp-serv
 
 Rather than proxying Atlassian's whole tool surface, use MCP Studio to compose a Composite MCP Server that exposes only the tools a role needs. Curation is the control that precedes all the others, because a tool you never compose is a tool no policy has to defend against, and one an agent's model never sees in `tools/list`.
 
-The following steps build a delivery triage toolset from five Atlassian tools: `searchJiraIssuesUsingJql`, `getJiraIssue`, `searchConfluence`, `getConfluenceContent`, and `transitionJiraIssue`.
+The following steps build a delivery triage toolbelt from five Atlassian tools: `searchJiraIssuesUsingJql`, `getJiraIssue`, `searchConfluence`, `getConfluenceContent`, and `transitionJiraIssue`.
 
 To expose the Atlassian tools as a Composite MCP Server, complete the following steps:
 
 1. From the **Agent Management** menu, navigate to **Secure**, and then select **MCP Proxies**.
 2. Select **+ Create MCP proxy**, and then select **Studio mode**.
-3. In the **General information** section, enter a **Name**, for example `atlassian-triage-toolset`, and a **Context path**, for example `/atlassian-triage-toolset`.
+3. In the **General information** section, enter a **Name**, for example `atlassian-triage-toolbelt`, and a **Context path**, for example `/atlassian-triage-toolbelt`.
 4. On the **Secure** page, select **Gravitee as Authorization Server**. To use an external identity provider, select **External Authorization Server** instead.
 
 {% hint style="warning" %}
@@ -112,7 +112,7 @@ Fine-grained authorization requires OAuth2 with Gravitee as the authorization se
 6. In the **Connect** step, select the Atlassian MCP server, set the credential type to **Basic auth**, and then enter the email address and API token. The Gateway injects the pair as an `Authorization` header on every upstream call. The token is held once rather than distributed to each agent.
 7. In the **Review** step, confirm the composition, and then select **Create & deploy**.
 
-   ![The Compose step with the five Atlassian tools selected](<../../../.gitbook/assets/gamma-mcp-atlassian-compose-tools.png>)
+   ![The Compose step showing all 17 discovered Atlassian tools with the 5 composed ones selected](<../../../.gitbook/assets/gamma-mcp-atlassian-compose-tools.png>)
 
 {% hint style="warning" %}
 Leave `execute` and `discover` out of the composition. `execute` is a dispatcher that runs any operation `discover` can find, so composing it re-exposes the tools you chose to leave out. Compose named tools only.
@@ -129,7 +129,7 @@ To confirm that the Atlassian tools are exposed, complete the following steps:
 1. Send a `tools/list` request to the Composite MCP Server's endpoint:
 
    ```sh
-   curl -s https://<gateway-host>/atlassian-triage-toolset \
+   curl -s https://<gateway-host>/atlassian-triage-toolbelt \
      -H 'Content-Type: application/json' \
      -H 'Accept: application/json, text/event-stream' \
      -H "Authorization: Bearer $TOKEN" \
@@ -165,7 +165,7 @@ To confirm that authentication to the Atlassian MCP server is enforced, complete
 1. Call the Atlassian MCP server without a token:
 
    ```sh
-   curl -s -i https://<gateway-host>/atlassian-triage-toolset \
+   curl -s -i https://<gateway-host>/atlassian-triage-toolbelt \
      -H 'Content-Type: application/json' \
      -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
    ```
@@ -174,16 +174,16 @@ To confirm that authentication to the Atlassian MCP server is enforced, complete
 
    ```
    HTTP/1.1 401 Unauthorized
-   WWW-Authenticate: Bearer resource_metadata="https://<gateway-host>/.well-known/oauth-protected-resource/atlassian-triage-toolset" scope="openid profile email offline_access searchJiraIssuesUsingJql getJiraIssue transitionJiraIssue searchConfluence getConfluenceContent"
+   WWW-Authenticate: Bearer resource_metadata="https://<gateway-host>/.well-known/oauth-protected-resource/atlassian-triage-toolbelt" scope="openid profile email offline_access searchJiraIssuesUsingJql getJiraIssue transitionJiraIssue searchConfluence getConfluenceContent"
 
    {"message":"Unauthorized","http_status_code":401}
    ```
 
 3. Repeat the call with a valid access token.
-4. Confirm that the response is `200` and lists the available tools.
+4. Confirm that the response is `200` and lists the five composed tools.
 
 {% hint style="info" %}
-The plan's required scopes are written from the composition when the server is created, and they stay as set. Update them on the plan whenever you add or remove a tool, otherwise a client is asked to request a scope it cannot use.
+The plan's required scopes are derived from the composition. Re-check them on the plan whenever you add or remove a tool, so that a client is not asked to request a scope it cannot use.
 
 The scopes carry each tool's own casing, and the authorization policies in the next section use the lowercased form. These are two different layers, and the difference is expected.
 {% endhint %}
@@ -224,7 +224,7 @@ To restrict which tools each caller can use, complete the following steps:
    );
    ```
 
-The Gateway picks up a deployed policy within 30 seconds, with no restart.
+The Gateway picks up a deployed policy without a restart, typically within a minute.
 
 ![The deployed authorization policies listed in Authorization Management](<../../../.gitbook/assets/gamma-mcp-authorization-policies.png>)
 
@@ -247,7 +247,7 @@ To confirm that Atlassian tool access is restricted, complete the following step
 1. As a caller in the delivery group, call `getJiraIssue`:
 
    ```sh
-   curl -s https://<gateway-host>/atlassian-triage-toolset \
+   curl -s https://<gateway-host>/atlassian-triage-toolbelt \
      -H 'Content-Type: application/json' \
      -H 'Accept: application/json, text/event-stream' \
      -H "Authorization: Bearer $DELIVERY_TOKEN" \
@@ -260,11 +260,11 @@ To confirm that Atlassian tool access is restricted, complete the following step
 4. Confirm that the response is `403`, and that the issue has not moved. The decision runs in the request phase, so the Gateway denies the call before it reaches Atlassian.
 
 {% hint style="warning" %}
-Jira tools require a `cloudId` argument. Omitting it returns a connection-settings error that reads like a permissions failure and is not. Retrieve the value with `getAccessibleAtlassianResources`, noting that this tool sits in a different scope family from the Jira tools, so the token that calls your Jira tools may not be able to list your resources.
+Jira tools require a `cloudId` argument. Omitting it returns a connection-settings error that reads like a permissions failure and is not. Retrieve the value with `getAccessibleAtlassianResources`. That tool may sit in a different scope family from the Jira tools, in which case the token that calls your Jira tools cannot list your resources. Confirm which token can retrieve the `cloudId` before you rely on it.
 
 `searchJiraIssuesUsingJql` rejects unbounded queries, so any JQL you test with needs a real restriction in it.
 
-If a permitted call returns `403` from Atlassian rather than from the Gateway, add a **Transform Headers** policy to the `tools/call` request phase that sets an identifying `User-Agent`. Atlassian's edge rejects some default agents, and the resulting `403` is indistinguishable from an authorization failure at the client.
+If a permitted call returns `403` from Atlassian rather than from the Gateway, for example `error 1010 browser_signature_banned`, add a **Transform Headers** policy to the `tools/call` request phase that sets an identifying `User-Agent`. Atlassian's edge rejects some default agents, and the resulting `403` is indistinguishable from an authorization failure at the client.
 {% endhint %}
 
 {% hint style="info" %}
@@ -273,14 +273,19 @@ Read the tool result as well as the HTTP status. A call that reaches Atlassian a
 
 ### Apply policies to the Atlassian MCP server
 
-Authorization decides which tools a caller reaches, not how often it calls them or what comes back. An agent iterating over JQL results can exhaust a shared Atlassian allowance while staying inside its permissions, and a permitted read of an issue returns reporter names and any contact details pasted into a description.
+Authorization decides which tools a caller reaches, not how often it calls them or what comes back. An agent iterating over JQL results can exhaust a shared Atlassian allowance while staying inside its permissions, and a permitted read of an issue returns reporter names and any contact details pasted into a description. Add a rate limit and a redaction policy on the `tools/call` flow to close both.
 
 To apply policies to the Atlassian MCP server, complete the following steps:
 
 1. Open your Composite MCP Server, navigate to the **Design** section, and then select **Policy Studio**.
-2. Navigate to the **MCP method flows** section, add a flow, enter a **Flow name**, select the **`tools/call`** method, and then select **Create**. Enabling FGA creates this flow for you, with the Authorization PEP already in the request phase.
+2. Navigate to the **MCP method flows** section, add a flow, enter a **Flow name**, select the **`tools/call`** method, and then select **Create**. If you enabled FGA, this flow already exists, with the Authorization PEP already in the request phase.
 3. In the flow's **Request phase**, select **+** to open the policy catalog, and then select **Rate Limit**.
-4. Configure the limit. Set a **Limit** and a **Period**, for example 5 requests per 60 seconds, and set **Key** to `{#context.attributes['user']}` so that each identity draws on its own allowance rather than on a shared plan counter. Enable **Add headers** so that responses carry `X-Rate-Limit-Limit`, `X-Rate-Limit-Remaining`, and `X-Rate-Limit-Reset`, and set **Error strategy** to block on internal error where the limit is a control rather than a courtesy.
+4. Configure the limit:
+   * Set **Max requests (static)** to the number of calls allowed, for example `5`.
+   * Set **Static time duration** and **Static time unit** to the window, for example `60` and `SECONDS`. The window is two fields rather than one.
+   * Set **Key** to `{#context.attributes['user']}` so that each identity draws on its own allowance rather than on a shared plan counter.
+   * Enable **Add response headers** so that responses carry `X-Rate-Limit-Limit`, `X-Rate-Limit-Remaining`, and `X-Rate-Limit-Reset`.
+   * Set **Error strategy** to block on internal error where the limit is a control rather than a courtesy.
 5. Add the **PII Filtering** policy. Select the AI Model Token Classification resource from the prerequisites, and then select the categories to redact, for example person, email, phone, location, financial account, and government ID. Leave **Confidence Threshold** at the default of `0.5`.
 6. Select **Save**, and then deploy the server.
 
@@ -336,7 +341,7 @@ To observe Atlassian MCP interactions, complete the following steps:
 7. Navigate to the **Design** section, select **Policy Studio**, open the `tools/call` flow, and then select **Gravitee Authorization PEP (GAPL)**. Confirm that **Log every decision (SLF4J)** is enabled, and then deploy the server. Each evaluated call then writes a line to the Gateway's log output recording the subject, the action, the resource, the decision, and the matched policy. A denial carrying the reason `No applicable policy` means that nothing matched at all, which is default deny rather than your forbid statement.
 
 {% hint style="warning" %}
-Atlassian's MCP server streams its responses, so the endpoint leg records the payload as it was received, before response policies ran. Redacting a response therefore does not keep personal data out of your log store. Restrict payload logging, or restrict access to the log store, wherever the payload is sensitive.
+Atlassian's MCP server streams its responses, and on this build the endpoint leg recorded the payload before response policies ran. A permitted `getJiraIssue` logged 520 bytes on the endpoint leg carrying the reporter's email address in clear, against 496 bytes on the entrypoint leg carrying `[REDACTED]`. Redacting a response therefore does not keep personal data out of your log store. Restrict payload logging, or restrict access to the log store, wherever the payload is sensitive.
 
 Payload logging records the arguments an agent sends and the content a tool returns, which is the data you most want to review and also the data most likely to be sensitive. Enable it deliberately, pair it with span attribute redaction, and keep verbose tracing on only for as long as you are debugging.
 {% endhint %}
@@ -351,7 +356,7 @@ To confirm that Atlassian MCP interactions are recorded, complete the following 
 
 1. Call `getJiraIssue` as a permitted caller, on an issue whose description contains an email address.
 2. Open the log entry for that call. Navigate to the **Request** page of the **Details** section, and then confirm that the **Consumer** column records the inbound call to your context path and that the **Gateway** column records the outbound call to Atlassian, with a body carrying the tool name and its arguments.
-3. On the **Response** page of the **Details** section, confirm that the endpoint response leg carries the email address in clear and that the entrypoint response leg carries `[REDACTED]`, which is the streaming behaviour described above.
+3. On the **Response** page of the **Details** section, confirm that the endpoint response leg carries the email address in clear and that the entrypoint response leg carries `[REDACTED]`. That difference is the streaming behaviour described above. A server that returns a single JSON body records both legs after redaction instead, so treat the comparison as a property of this upstream rather than as a general check.
 4. Call `transitionJiraIssue` as a caller that the policy forbids.
 5. In the log list, confirm that the denied call is recorded with a `403` status and an empty **Endpoint reached** column, while the permitted call shows a check mark. An unreached endpoint is the evidence that Atlassian was never called.
 6. Confirm that the decision log records the subject, the resource, and a `FORBID` decision naming the policy that denied it.
