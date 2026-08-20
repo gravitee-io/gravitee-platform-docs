@@ -26,7 +26,7 @@ Enabling detailed logging increases storage and can affect gateway performance. 
 
 ## Configure the reporter
 
-The **Settings** card adjusts reporter behavior for this API proxy. The switch at the top of the card enables analytics. While it's off, every other setting on the card is disabled.
+The **Settings** card adjusts reporter behavior for this API proxy. The switch at the top of the card enables analytics. While it's off, every other setting on the card is disabled. Turning off analytics also disables tracing when you save.
 
 The card groups the logging settings as follows:
 
@@ -48,6 +48,8 @@ The **OpenTelemetry** card configures distributed tracing and OpenTelemetry log 
 * **Trace enabled**. Enable OpenTelemetry tracing for this API. Captures execution spans and conditions.
 * **Verbose**. Adds detailed span events with headers, context attributes, and policy execution details. Requires **Trace enabled**. Enable only for deep debugging, because it increases trace size significantly, and disable it after debugging is complete.
 * **OTel Logs**. Emit request and response payloads as OpenTelemetry log records correlated to the active trace, which enables log-to-trace linking in Grafana and other OpenTelemetry-compatible backends. Requires **Trace enabled**.
+
+Turning off **Trace enabled** also disables **Verbose**.
 
 ### Redact span attributes
 
