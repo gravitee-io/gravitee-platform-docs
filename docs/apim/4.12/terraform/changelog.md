@@ -8,6 +8,15 @@ metaLinks:
 
 # Changelogs
 <!--INSERT_BELOW-->
+## v1.0.1
+
+### Other
+* a6b6e110fdffff088e84bbe008ac64252af990b8 docs: document commitlint rules in AGENTS.md
+* d07e03a221210c33664e3c3295902300b30eacea docs: refresh CLAUDE.md architecture and CI matrix details
+* 5de846a5b9deb721ceeab83d7ac484a8bc7ec395 test: add test for groovy policy idempotency
+
+
+
 ## v1.0.0
 
 ### Features
