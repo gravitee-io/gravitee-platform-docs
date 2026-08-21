@@ -118,6 +118,8 @@
     * [Apply policies to individual tool invocations](agent-management/build/configure-your-mcp/apply-policies-to-tool-invocations.md)
     * [Layered governance for MCP tools](agent-management/build/configure-your-mcp/govern-mcp-tool-access.md)
     * [Connect and secure the GitHub MCP server](agent-management/build/configure-your-mcp/connect-and-secure-github-mcp-server.md)
+    * [Connect and secure the Atlassian MCP server](agent-management/build/configure-your-mcp/connect-and-secure-atlassian-mcp-server.md)
+    * [Connect and secure the Stripe MCP server](agent-management/build/configure-your-mcp/connect-and-secure-stripe-mcp-server.md)
   * [Create an MCP Studio](agent-management/build/create-an-mcp-studio.md)
     * [Edit tool composition](agent-management/build/edit-mcp-studio-composition.md)
   * [Create an LLM Proxy](agent-management/build/create-an-llm-proxy.md)
