@@ -15,7 +15,7 @@ To open the page, follow these steps:
 3. Click **Deployment** in the A2A Proxy sidebar.
 4. Click **History**.
 
-<!-- TODO: Screenshot of the Deployment History table -->
+<figure><img src="../../../.gitbook/assets/gamma-aim-a2a-proxy-deployment-history.png" alt="The Deployment History page for an A2A Proxy, listing three deployments with their version, date, user, and label, and the live badge on the newest"><figcaption><p>The Deployment History page</p></figcaption></figure>
 
 The table lists each deployment's **Version**, **Date**, **User**, and **Label** columns. The most recent deployment carries the **live** badge. The label is the optional deployment label entered when the A2A Proxy is deployed. Before the first deployment, the page reads **No deployments yet**.
 

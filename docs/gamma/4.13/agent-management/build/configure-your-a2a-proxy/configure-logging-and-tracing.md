@@ -18,7 +18,7 @@ When you change any setting, the **Discard** and **Save changes** buttons appear
 
 After you save, a confirmation notification appears and both buttons disappear until you edit the form again.
 
-<!-- TODO: Screenshot of the Reporter Settings page -->
+<figure><img src="../../../.gitbook/assets/gamma-aim-a2a-proxy-reporter-settings.png" alt="The Reporter Settings page for an A2A Proxy, showing the Settings card with the analytics switch on and the logging mode and logging phase groups"><figcaption><p>The Reporter Settings page</p></figcaption></figure>
 
 {% hint style="warning" %}
 Detailed logging increases storage and can affect gateway performance. Use payload logging and verbose tracing only when needed.

@@ -15,7 +15,7 @@ To open the page, follow these steps:
 3. Click **Deployment** in the MCP proxy sidebar.
 4. Click **Configuration**.
 
-<!-- TODO: Screenshot of the Deployment Configuration page with sharding tags -->
+<figure><img src="../../../.gitbook/assets/gamma-aim-mcp-proxy-deployment-configuration.png" alt="The Deployment Configuration page for an MCP proxy, with one sharding tag selected as a chip in the tag field and the Discard and Save changes buttons showing"><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
 
 To edit this page, you need the `API_DEFINITION` permission with Update access. Without it, the tag picker is disabled and the page reads **You do not have permission to change sharding tags for this API.**
 

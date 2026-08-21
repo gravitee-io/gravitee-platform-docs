@@ -15,9 +15,7 @@ To open the page, follow these steps:
 3. Click **Deployment** in the API proxy sidebar.
 4. Click **Configuration**.
 
-<!-- TODO: Screenshot of the Deployment Configuration page with sharding tags -->
-
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-deployment-configuration.png" alt=""><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gamma-api-deployment-configuration.png" alt="The Deployment Configuration page for an API proxy, listing three organization sharding tags as cards with a checkbox, a name, and a description"><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
 
 To edit this page, you need the `API_DEFINITION` permission with Update access. Without it, the tag checkboxes are disabled and the page reads **You do not have permission to change sharding tags for this API.**
 
@@ -46,6 +44,4 @@ To verify the deployment configuration is working as expected, follow these step
 2. Deploy the API.
 3. Send a request through a gateway instance advertising the tag. The request is served. Gateway instances without a matching tag don't load the API definition.
 
-<!-- TODO: Screenshot of the saved sharding tag selection -->
-
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-deployment-tags-saved.png" alt=""><figcaption><p>A saved sharding tag selection</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gamma-api-deployment-tags-saved.png" alt="The Deployment Configuration page after saving, with one sharding tag checked and the API marked Out of sync above an undeployed changes banner"><figcaption><p>A saved sharding tag selection</p></figcaption></figure>

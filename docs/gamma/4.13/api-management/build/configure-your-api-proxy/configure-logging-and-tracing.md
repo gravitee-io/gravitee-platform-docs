@@ -18,9 +18,7 @@ When you change any setting, the **Discard** and **Save changes** buttons appear
 
 After you save, a confirmation notification appears and both buttons disappear until you edit the form again.
 
-<!-- TODO: Screenshot of the Reporter Settings page -->
-
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-reporter-settings.png" alt=""><figcaption><p>The Reporter Settings page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gamma-api-reporter-settings.png" alt="The Reporter Settings page for an API proxy, showing the Settings card with the analytics switch on and the logging mode and logging phase groups"><figcaption><p>The Reporter Settings page</p></figcaption></figure>
 
 {% hint style="warning" %}
 Detailed logging increases storage and can affect gateway performance. Use payload logging and verbose tracing only when needed.
@@ -67,6 +65,4 @@ To verify the reporter settings are working as expected, follow these steps:
 2. Deploy the API and send a request to it.
 3. Open the API logs. The request appears with the captured data. See [View API logs](../../observe/view-api-logs.md).
 
-<!-- TODO: Screenshot of a logged request produced by the reporter settings -->
-
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-reporter-logged-request.png" alt=""><figcaption><p>A logged request</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gamma-api-reporter-logged-request.png" alt="The Logs page listing four captured requests, each with its timestamp, method, status, API, URI, and response time"><figcaption><p>A logged request</p></figcaption></figure>
