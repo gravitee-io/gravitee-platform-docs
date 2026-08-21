@@ -1,5 +1,52 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.25 - August 21, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* \[V3 engine] X-Gravitee-Transaction-Id and X-Gravitee-Request-Id not set on gateway error responses (auth/IP-filter/quota) [#11657](https://github.com/gravitee-io/issues/issues/11657)
+* Native Kafka: dropping a record mid-fetch renumbers the offsets of the surviving records [#11714](https://github.com/gravitee-io/issues/issues/11714)
+
+**Console**
+
+* analytics/facets APPLICATION COUNT sum ≠ analytics/measures COUNT (stable on closed months) [#11693](https://github.com/gravitee-io/issues/issues/11693)
+* Console UI: Clicking any "Template to include" always opens the same template when multiple exist [#11711](https://github.com/gravitee-io/issues/issues/11711)
+
+**Other**
+
+* Terraform Drift [#11470](https://github.com/gravitee-io/issues/issues/11470)
+* GET /applications endpoint slow after upgrade to 4.11.x [#11516](https://github.com/gravitee-io/issues/issues/11516)
+* High cardinality of APM data due to transaction.name including concrete path values and query params [#11673](https://github.com/gravitee-io/issues/issues/11673)
+* Two dictionaries can share one runtime slot; removing either breaks the other until restart [#11674](https://github.com/gravitee-io/issues/issues/11674)
+* Multiple applications can be created with the same client id [#11692](https://github.com/gravitee-io/issues/issues/11692)
+* kafka-acl 3.0.2 causes gateway OOM: ACL matching structure rebuilt per Kafka connection instead of shared [#11706](https://github.com/gravitee-io/issues/issues/11706)
+* Nil pointer panic in subscription webhook when Application/API has no context defined [#11722](https://github.com/gravitee-io/issues/issues/11722)
+* Metadata block export after v4 migration [#11726](https://github.com/gravitee-io/issues/issues/11726)
+* JMS endpoint: consumer never recovers after a broker connection loss, and IBM MQ auto-reconnect cannot be enabled as a workaround [#11731](https://github.com/gravitee-io/issues/issues/11731)
+* Registration email sent before approval, allowing pending users to set a password and then fail login
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* leave XSLT parameters unbound when their expression resolves to no value [#11738](https://github.com/gravitee-io/issues/issues/11738)
+* API Runtime Logs: default Period to Last 5 Minutes instead of None [#11739](https://github.com/gravitee-io/issues/issues/11739)
+
+**Other**
+
+* \[APIM] Creating a service account without `lastname` via mAPI fails        with 500 instead of 400 [#11685](https://github.com/gravitee-io/issues/issues/11685)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.24 - August 7, 2026
 <details>
 
