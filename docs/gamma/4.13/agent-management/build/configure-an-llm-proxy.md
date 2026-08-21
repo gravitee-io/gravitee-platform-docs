@@ -56,5 +56,8 @@ The **LLM — Overview** dashboard visualizes this data. It tracks `LLM_PROMPT_T
 ## Next steps
 
 * [Create an LLM Proxy](create-an-llm-proxy.md). Create a new LLM Proxy if you haven't already.
+* [Configure LLM Proxy deployment](configure-llm-proxy-deployment.md). Choose which gateway instances load the LLM Proxy.
+* [Configure LLM Proxy logging and tracing](configure-llm-proxy-logging-and-tracing.md). Control the reported request and response data, and enable OpenTelemetry tracing.
+* [Review LLM Proxy deployment history](review-llm-proxy-deployment-history.md). Compare deployed versions and roll back to an earlier one.
 * [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md). Make the LLM Proxy discoverable.
 * [Monitor AI Gateway usage from employee systems](../observe/monitor-ai-gateway-from-devices.md). View AI traffic from employee devices.

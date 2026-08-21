@@ -14,7 +14,7 @@ To open the page, follow these steps:
 2. Select your API proxy.
 3. Click **Reporter Settings** in the API proxy sidebar.
 
-Changing any setting reveals the **Discard** and **Save changes** buttons.
+When you change any setting, the **Discard** and **Save changes** buttons appear.
 
 After you save, a confirmation notification appears and both buttons disappear until you edit the form again.
 
@@ -23,12 +23,12 @@ After you save, a confirmation notification appears and both buttons disappear u
 <figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-reporter-settings.png" alt=""><figcaption><p>The Reporter Settings page</p></figcaption></figure>
 
 {% hint style="warning" %}
-Enabling detailed logging increases storage and can affect gateway performance. Use payload logging and verbose tracing only when needed.
+Detailed logging increases storage and can affect gateway performance. Use payload logging and verbose tracing only when needed.
 {% endhint %}
 
 ## Configure the reporter
 
-The **Settings** card adjusts reporter behavior for this API proxy. The switch at the top of the card enables analytics. While it's off, every other setting on the card is disabled.
+The **Settings** card adjusts reporter behavior for this API proxy. The card's own switch enables analytics. While it's off, every other setting on the card is disabled.
 
 The card groups the logging settings as follows:
 
@@ -45,7 +45,7 @@ For example, the condition `{#request.headers['Content-Type'][0] == 'application
 
 ## Configure OpenTelemetry tracing
 
-The **OpenTelemetry** card configures distributed tracing and OpenTelemetry log correlation:
+The **OpenTelemetry** card configures distributed tracing and OpenTelemetry log correlation with the following settings:
 
 * **Trace enabled**. Enable OpenTelemetry tracing for this API. Captures execution spans and conditions.
 * **Verbose**. Adds detailed span events with headers, context attributes, and policy execution details. Requires **Trace enabled**. Enable only for deep debugging, because it increases trace size significantly, and disable it after debugging is complete.

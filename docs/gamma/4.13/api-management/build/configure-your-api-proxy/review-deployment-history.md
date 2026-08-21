@@ -21,7 +21,7 @@ To open the page, follow these steps:
 
 The table lists each deployment's **Version**, **Date**, **User**, and **Label** columns. The most recent deployment carries the **live** badge. The label is the optional deployment label entered in the **Deploy your API** dialog. Before the first deployment, the page reads **No deployments yet**.
 
-A missing version number or label appears as a dash. Optional: set the page size to 10, 25, 50, or 100 rows. Changing the page size returns you to the first page. If the history can't be loaded, the page reads **Failed to load deployment history. Please try again.**
+A missing version number or label appears as a dash. Optional: set the page size to 10, 25, 50, or 100 rows. Changing the page size returns you to the first page.
 
 ## Inspect a single version
 
@@ -31,26 +31,26 @@ To view the definition a deployment shipped, click **View definition** in the ro
 
 Select the checkboxes of two versions. The toolbar tracks the selection, and once two versions are selected the diff view opens.
 
-Only two versions can be selected at a time. The remaining checkboxes are disabled until you clear one, and you can click **Clear** to reset the selection.
+Only two versions can be selected at a time. With one version selected, the toolbar offers **Clear** to reset the selection. Closing the diff view also clears it.
 
-The **Comparing** dialog shows the differences between the two definitions, with **Side-by-side** and **Line-by-line** view modes. When the definitions are identical, the dialog reads **No differences found between these two versions.**
+The **Comparing** dialog shows the differences between the two definitions, with **Side-by-side** and **Line-by-line** view modes. When the definitions are identical, the dialog reads **No differences found between these two versions.** In that case, it shows neither the view modes nor the rollback control.
 
 In side-by-side view, the **Before** and **After** panes show each version's number, date, initiator, and deployment label.
 
 ## Roll back to an earlier version
 
-The rollback controls appear only for users with the **API_DEFINITION** permission at **Update** access.
+To roll back, you need the `API_DEFINITION` permission with Update access. The controls are shown to everyone who can open the page, but the request is rejected without that permission.
 
 To roll back, follow these steps:
 
 1. Compare the live version with the target version, for example with **Compare with live**.
 2. In the diff dialog, click the **Rollback** button, which names the target version.
-3. Confirm in the rollback dialog.
+3. In the confirmation dialog, click **Confirm rollback**, or **Cancel** to abandon the rollback.
 
-You can also start a rollback from the **View definition** dialog. In the confirmation dialog, click **Confirm rollback** to proceed, or click **Cancel** to abandon the rollback. If the rollback is rejected, the page shows a persistent **Rollback failed:** card with the reason.
+You can also start a rollback from the **View definition** dialog, where the rollback button runs immediately, without a confirmation step. If the rollback is rejected, the page shows a card with the reason, which stays until you start another rollback.
 
 {% hint style="warning" %}
-The rollback restores the API to the selected version and redeploys it to the gateway. The action can't be undone.
+The rollback restores the API definition to the selected version, and can't be undone. It doesn't redeploy the API. The gateway keeps serving the live version, and the API is marked **Out of sync** until you deploy it again.
 {% endhint %}
 
 ## Verification

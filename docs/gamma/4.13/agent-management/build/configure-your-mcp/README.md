@@ -32,3 +32,6 @@ The MCP Proxy currently supports injecting static credentials into the request h
 
 * [Add policies to your MCP server](add-policies-to-mcp-server.md). Apply fine-grained authorization at the tool level.
 * [Layered governance for MCP tools](govern-mcp-tool-access.md). Combine authorization, rate limits, and response redaction on one server.
+* [Configure deployment](configure-deployment.md). Choose which gateway instances load the MCP proxy.
+* [Configure logging and tracing](configure-logging-and-tracing.md). Control the reported request and response data, and enable OpenTelemetry tracing.
+* [Review deployment history](review-deployment-history.md). Compare deployed versions and roll back to an earlier one.

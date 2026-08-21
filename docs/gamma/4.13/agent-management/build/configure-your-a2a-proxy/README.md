@@ -11,6 +11,9 @@ After creating an Agent-to-Agent (A2A) Proxy, you can configure its behavior, ma
 The Gamma console provides a visual builder to apply policies and manage flows on your A2A Proxy.
 
 * **[Add policies to your A2A Proxy](add-policies-to-a2a-proxy.md)**. Learn how to use the Policy Studio to attach security, transformation, and logic policies to your A2A communications.
+* **[Configure deployment](configure-deployment.md)**. Choose which gateway instances load the A2A Proxy.
+* **[Configure logging and tracing](configure-logging-and-tracing.md)**. Control the reported request and response data, and enable OpenTelemetry tracing.
+* **[Review deployment history](review-deployment-history.md)**. Compare deployed versions and roll back to an earlier one.
 
 ## A2A Proxy navigation
 
