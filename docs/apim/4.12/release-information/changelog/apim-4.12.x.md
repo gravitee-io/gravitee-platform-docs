@@ -5,6 +5,37 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.17 - August 21, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* analytics/facets APPLICATION COUNT sum ≠ analytics/measures COUNT (stable on closed months) [#11693](https://github.com/gravitee-io/issues/issues/11693)
+
+**Other**
+
+* High cardinality of APM data due to transaction.name including concrete path values and query params [#11673](https://github.com/gravitee-io/issues/issues/11673)
+* Two dictionaries can share one runtime slot; removing either breaks the other until restart [#11674](https://github.com/gravitee-io/issues/issues/11674)
+* Metadata block export after v4 migration [#11726](https://github.com/gravitee-io/issues/issues/11726)
+* Rate Limit and Quota policies can be saved without a limit, causing every request to fail with a 500 [#11727](https://github.com/gravitee-io/issues/issues/11727)
+* Issue | Error parsing request header [#11730](https://github.com/gravitee-io/issues/issues/11730)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* API Runtime Logs: default Period to Last 5 Minutes instead of None [#11739](https://github.com/gravitee-io/issues/issues/11739)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.16 - August 18, 2026
 <details>
 
