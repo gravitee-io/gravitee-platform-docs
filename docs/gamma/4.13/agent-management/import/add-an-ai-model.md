@@ -48,7 +48,13 @@ You can adjust the display name and description of an imported model:
    _Note: The Provider, Query name, Family, Context window, Capabilities, and Pricing are derived from the model source and cannot be changed._
 4. Select **Save**.
 
+You can also record a price you negotiated with the provider, which replaces the suggested price wherever the price is shown and wherever cost is computed. In the model edit form, enter the negotiated rate in the **Input price ({currency} per 1M tokens)** field, enter the negotiated rate in the **Output price ({currency} per 1M tokens)** field, then select **Save changes**. `{currency}` is the currency of the suggested price and defaults to `USD` when the provider doesn't suggest one. Set both prices, or clear both, and enter a price of `0` or more. Entering `0` in both fields is valid, because a free model is still a priced model.
+
+To go back to the price suggested by the provider, clear both price fields and select **Save changes**.
+
+A model with a negotiated price shows a `Custom` badge next to its price, together with the suggested rate and the date and author of the last change. The negotiated price appears in the **Price / 1M** column of the AI Models list, on the model detail page, and on the models page of an LLM Proxy, and it's used for cost estimates in the AI workspace detail view. Refreshing the catalog updates the provider-derived fields and keeps your display name, description, and negotiated price.
+
 ## Next steps
 
 * **Create an LLM Proxy**: Route traffic to cataloged models. See [Create an LLM Proxy](../build/create-an-llm-proxy.md).
-
+* **Republish an LLM Proxy**: Republish any LLM Proxy that consumes a repriced model so cost tracking picks up the negotiated rate.
