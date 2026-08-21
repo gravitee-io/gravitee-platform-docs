@@ -10,10 +10,12 @@ The **Deployment History** page lists all deployments of this LLM Proxy, newest 
 
 To open the page, follow these steps:
 
-1. Click **LLM Proxies** in the module sidebar.
-2. Select your LLM Proxy.
-3. Under **Operations**, click **Deployment**.
-4. Click **History**.
+1.  Click **LLM Proxies** in the module sidebar.
+2.  Select your LLM Proxy.
+3.  Under **Operations**, click **Deployment**.
+4.  Click **History**.
+
+    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-deployment-history.png" alt="The Deployment History page for LLM Proxy, listing deployments with Version, Date, User and Label columns and a live badge on the newest version"><figcaption><p>The Deployment History page</p></figcaption></figure>
 
 The table lists each deployment's **Version**, **Date**, **User**, and **Label** columns. The most recent deployment carries the **live** badge. The label is the optional deployment label entered when the LLM Proxy was deployed. Before the first deployment, the page reads **No deployments yet**, with the description **Deployment records will appear here after the first publish.**
 
@@ -40,7 +42,7 @@ The diff dialog shows the differences between the two definitions, with **Side-b
 To roll back, follow these steps:
 
 1. Open the target version, either by selecting two versions to open the diff view or by clicking **View definition** on a single version.
-2. Click **Rollback**, which names the target version.
+2.  Click **Rollback**, which names the target version.
 3. Confirm in the rollback dialog, which names the target version.
 
 The rollback restores the LLM Proxy's API definition and its plans to the selected version.
@@ -59,4 +61,4 @@ To verify the deployment history is working as expected, follow these steps:
 
 1. Deploy the LLM Proxy twice with different configurations, and give each deployment a label.
 2. Open the **Deployment History** page. Both deployments appear with their labels, and the newest one carries the **live** badge.
-3. Select both versions. The diff view shows the configuration change.
+3.  Select both versions. The diff view shows the configuration change.
