@@ -39,6 +39,7 @@
 * [Manage entrypoints and sharding tags](platform-management/manage-entrypoints-and-sharding-tags.md)
 * [Manage users](platform-management/manage-users.md)
 * [Monitor gateway instances](platform-management/monitor-gateway-instances.md)
+* [Review organization and environment audit logs](platform-management/review-audit-logs.md)
 
 ## API Management
 
