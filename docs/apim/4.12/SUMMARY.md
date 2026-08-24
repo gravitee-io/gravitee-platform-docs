@@ -41,6 +41,7 @@
     * [Generate a New Cloud Token](hybrid-installation-and-configuration-guides/next-gen-cloud/generate-a-new-cloud-token.md)
     * [Delete a Hybrid Gateway](hybrid-installation-and-configuration-guides/next-gen-cloud/delete-a-hybrid-gateway.md)
     * [Link to a Hybrid Gateway](hybrid-installation-and-configuration-guides/next-gen-cloud/link-to-a-hybrid-gateway.md)
+    * [Add Next-Gen Cloud IP ranges to your firewall rules](hybrid-installation-and-configuration-guides/next-gen-cloud/next-gen-cloud-ip-ranges.md)
   * [Classic Cloud](hybrid-installation-and-configuration-guides/classic-cloud/README.md)
     * [Docker](hybrid-installation-and-configuration-guides/classic-cloud/docker/README.md)
       * [Docker Compose](hybrid-installation-and-configuration-guides/classic-cloud/docker/docker-compose.md)
