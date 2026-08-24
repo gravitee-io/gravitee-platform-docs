@@ -50,73 +50,13 @@ A wildcard DNS entry and a wildcard certificate covering `*.mycompany.org` cover
 
 If you are moving an existing single-backend Kafka API to a Virtual Cluster, the broker entries you already have (`broker-0-…` through `broker-74-…`) no longer match anything the Virtual Cluster advertises. You must **add** the rewritten ones.
 
-## Keeping your own broker numbering
-
-{% hint style="warning" %}
-`virtualClusterBrokerDomainPattern` and the `{realBrokerId}` and `{clusterIndex}` placeholders require **4.12.18 or later** (Kafka reactor 7.1.0).
-
-Everything above applies to every 4.12 release: broker IDs have been rewritten since 4.12.0 (Kafka reactor 7.0.0). On earlier 4.12 patches, Virtual Clusters follow `brokerDomainPattern` and the advertised IDs are the only ones you can build a hostname from.
-{% endhint %}
-
-If the rewritten IDs do not fit a DNS convention you already run, you can give Virtual Clusters their own broker hostname scheme with `virtualClusterBrokerDomainPattern`. It applies **only** to APIs backed by a Virtual Cluster, so the Kafka APIs already running on that Gateway keep their hostnames — and their DNS entries and certificate SANs — untouched.
-
-Three placeholders are available, in either pattern:
-
-| Placeholder      | Value                                                            |
-| ---------------- | ---------------------------------------------------------------- |
-| `{brokerId}`     | the advertised ID — rewritten on a Virtual Cluster (the default) |
-| `{realBrokerId}` | the ID as configured on the backend broker                       |
-| `{clusterIndex}` | the backend's zero-based position in the Virtual Cluster         |
-
-```yaml
-kafka:
-  enabled: true
-
-  routingMode: host
-  routingHostMode:
-    defaultDomain: "mycompany.org"
-
-    # Plain Kafka APIs: unchanged. broker 3 stays broker3-myapi.mycompany.org
-    brokerDomainPattern: "broker{brokerId}-{apiHost}.{defaultDomain}"
-
-    # Virtual Cluster APIs only: broker 3 of the second backend becomes
-    # broker3-c1-mymesh.mycompany.org
-    virtualClusterBrokerDomainPattern: "broker{realBrokerId}-c{clusterIndex}-{apiHost}.{defaultDomain}"
-```
-
-Brokers then keep the numbers your operators know, and the backend gets its own label. The placeholders can appear in any order in the pattern.
-
-`virtualClusterBrokerDomainPattern` is optional. Left unset, Virtual Clusters follow `brokerDomainPattern` like every other API, and their hostnames carry the rewritten IDs described above.
-
-{% hint style="info" %}
-A Virtual Cluster hostname **must** distinguish the backends, either through `{brokerId}` (which encodes the backend) or through `{clusterIndex}`. A pattern built only from `{realBrokerId}` would send broker 3 of the first backend and broker 3 of the second to the same hostname, and the Gateway could no longer tell them apart.
-{% endhint %}
-
-{% hint style="warning" %}
-Both settings are Gateway-wide, so `virtualClusterBrokerDomainPattern` applies to **every** Virtual Cluster API on that Gateway. Changing it after Virtual Clusters are in production moves their DNS entries and certificate SANs.
-{% endhint %}
-
-This override does not apply to Gateways using access points, where the broker domain comes from the access point rather than from configuration.
-
 ## Clients reaching an unadvertised broker hostname
 
-A client connecting on a broker hostname whose ID falls outside every advertised block — an entry left over from a single-backend deployment, most often — is served as a bootstrap connection: it receives the merged metadata and re-targets itself at the correct broker. The Gateway logs a warning naming the ID it received and the range it advertises:
+A client connecting on a broker hostname whose ID falls outside every advertised block — an entry left over from a single-backend deployment, most often — cannot be placed on any backend. The connection is closed without a response, and the client waits out its own timeout rather than failing fast.
 
-```
-Client connected on a broker host carrying id 0, which this virtual cluster never advertised
-(it advertises 10000..29999 across 2 backends). Serving the connection as bootstrap so the client
-can re-target itself; check the broker DNS records point at the ids the mesh advertises.
-```
+This is the usual shape of "bootstrap works, producing does not": producing is the first operation that needs a per-broker connection, so a stale set of broker entries surfaces there and nowhere earlier.
 
-If your broker pattern spells the backend out with `{clusterIndex}`, the hostname names a backend rather than an advertised ID, and the warning reports that instead:
-
-```
-Client connected on a broker host naming backend 3, which this virtual cluster does not have
-(it federates 2 backends, numbered 0..1). Serving the connection as bootstrap so the client
-can re-target itself; check the broker DNS records match the backends the mesh federates.
-```
-
-Treat either warning as a DNS mismatch to fix rather than a supported mode: the extra round trip is paid on every connection.
+Fix the DNS entries rather than the clients: they must carry the rewritten IDs the Virtual Cluster advertises, as described above.
 
 ## Backend broker ID limit
 
@@ -126,8 +66,6 @@ Every backend broker ID must be **below 10000**, otherwise it collides with the 
 
 | Symptom                                                                | Likely cause                                                                                                                                                                       |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Bootstrap and topic listing work, but producing and consuming time out | The DNS entries for the advertised IDs do not exist. Clients resolve the bootstrap fine, then fail on the per-broker hostnames returned in metadata.                                |
-| `Client connected on a broker host carrying id N` warnings in the logs | Clients are still using the broker DNS entries of a single-backend deployment.                                                                                                     |
-| `Client connected on a broker host naming backend N` warnings in the logs | With a `{clusterIndex}` pattern, DNS entries exist for more backends than the Virtual Cluster federates — left over from a backend that was removed, most often.                |
+| Bootstrap and topic listing work, but producing and consuming time out | The DNS entries for the advertised IDs do not exist, or still carry the numbering of a single-backend deployment. Clients resolve the bootstrap fine, then fail on the per-broker hostnames returned in metadata. |
 | Connections fail only for one backend's brokers                        | That backend's block of entries is missing. Check the position of the backend in the Virtual Cluster configuration, since the block follows the listed order.                       |
 | TLS handshake failures on reconnect                                    | The per-broker hostnames are missing from the SAN of the Gateway certificate. See [Configure the Kafka Client & Gateway](configure-the-kafka-client-and-gateway.md).                |
