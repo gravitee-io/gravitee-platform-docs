@@ -81,4 +81,4 @@ Deleting a PDP gateway removes the engine from the specified gateway. Policies a
 
 * [Configure a sidecar as runtime](configure-sidecar-as-runtime.md) — Non-gateway deployment pattern
 * [Policy syncs](policy-syncs.md) — How policies reach the gateway
-* [AuthZEN PDP synchronization](../authz-gateway-sync.md) — Sync protocol details
+* [Authorization policy synchronization](../authz-gateway-sync.md) — Sync protocol details
