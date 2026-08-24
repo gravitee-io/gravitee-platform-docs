@@ -62,6 +62,8 @@ You can filter the logs by the following criteria:
 * **Payload content:** Text contained in the payload.
 * **API Product:** One or more API Products.
 
+<figure><img src="../../.gitbook/assets/environment-logs-filter-list.png" alt="Add a filter dialog with the Filter by list open, showing available filters and the API types each applies to"><figcaption><p>Available filters in the Add a filter dialog</p></figcaption></figure>
+
 <figure><img src="../../.gitbook/assets/environment-logs-tenant-filter.png" alt="Add a filter dialog with Tenant selected as the filter and a tenant value chosen"><figcaption><p>Adding a Tenant filter to the environment logs</p></figcaption></figure>
 
 You can combine multiple filters to refine the results. Applied filters appear in the **Filters** bar.
