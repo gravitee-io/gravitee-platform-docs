@@ -17,6 +17,14 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 #### 4.13.0
 
+**The Gateway resolves the request path before it routes**
+
+From 4.13.0, the `http.pathHandling` Gateway setting defaults to `NORMALIZE`. In 4.12 and earlier the default was `RAW`. A deployment that upgrades without changing its configuration resolves request paths before it resolves the listener context path, and therefore before it enforces any plan.
+
+A request carrying dot segments is now routed on the resolved path, so it can reach a different API than it did before, and it's enforced by that API's plan. `/alpha/api/../../beta/api/echo` is read as a call to `beta` and answers `401` without a credential, where it previously matched `alpha` and reached beta's backend unauthenticated. Percent-encoded unreserved characters are also decoded, so `%41` reaches the backend as `A`, duplicate slashes are merged, and a malformed percent sequence is answered with `400`. Encoded slashes are never decoded.
+
+Set `http.pathHandling: RAW` to restore the previous behavior, which also restores a known authorization bypass. Set `http.pathHandling: REJECT` to close the exposure without changing any routing decision: a non-canonical path is answered with `400` and nothing is rewritten. For the upgrade checklist and the limits of each mode, see [Request Path Handling](../configure-and-manage-the-platform/gravitee-gateway/request-path-handling.md).
+
 **Management API v1 plan endpoints reject V4, Federated, and Federated Agent APIs**
 
 From 4.13.0, the plan endpoints of the legacy Management API v1 (`/management/organizations/{orgId}/environments/{envId}/apis/{apiId}/plans`) reject V4, Federated, and Federated Agent APIs. Every plan operation for one of these APIs returns HTTP `400`. The error message names the API's definition version, for example: `API definition version 4.0.0 is not supported by Management API v1. Use Management API v2 instead (/management/v2/environments/{envId}/apis/{apiId}/...).`

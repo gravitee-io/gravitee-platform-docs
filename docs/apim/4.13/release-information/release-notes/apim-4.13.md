@@ -30,6 +30,7 @@ documentation.gravitee.io links for other versions.
 
 ## Highlights
 
+* The Gateway resolves the request path before it routes: `http.pathHandling` now defaults to `NORMALIZE`, so a request carrying dot segments reaches the API its resolved path designates, and is enforced by that API's plan.
 * Branded senders apply a different **From** address and subject prefix to notification emails for each recipient domain, configurable per Organization and Environment.
 * The new `#jsonEscape` Expression Language function escapes a value so it's safe to insert into a JSON document or JSON string literal, for example in a response template body.
 * The Generate JWT policy adds optional `x5t` and `x5t#S256` certificate thumbprint headers to generated JWTs, for downstream systems that select the validation certificate by thumbprint.
@@ -38,6 +39,10 @@ documentation.gravitee.io links for other versions.
 * The New Developer Portal catalog gains categories, so you group APIs in the APIM Console and consumers filter the catalog to one category and share that view by URL.
 
 ## Breaking Changes and deprecations
+
+#### **The Gateway resolves the request path before it routes**
+
+The `http.pathHandling` Gateway setting now defaults to `NORMALIZE`. In 4.12 and earlier the default was `RAW`. A deployment that upgrades without changing its configuration resolves request paths before it resolves the listener context path, and therefore before it enforces any plan. A request carrying dot segments is routed on the resolved path, so it can reach a different API than it did before. Percent-encoded unreserved characters are decoded, duplicate slashes are merged, and a malformed percent sequence is answered with `400`. Encoded slashes are never decoded. Set `http.pathHandling: RAW` to restore the previous behavior, which also restores a known authorization bypass, or `http.pathHandling: REJECT` to close the exposure without changing any routing decision. For the upgrade checklist and the limits of each mode, see [Request Path Handling](../../configure-and-manage-the-platform/gravitee-gateway/request-path-handling.md). For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 #### **Management API v1 plan endpoints reject V4, Federated, and Federated Agent APIs**
 

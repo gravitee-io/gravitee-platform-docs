@@ -40,3 +40,5 @@ analyze-and-monitor-apis/logging/configure-environment-level-logs.md
 # kafka_active_connections gauge (APIM 4.13.0 feature, ESM-72) — the metric ships in the 7.1.x
 # native Kafka reactor; 4.12 pins 7.0.8, which does not carry it, so the section must not sync back
 analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md
+# http.pathHandling defaults to NORMALIZE from 4.13.0 (APIM-14917); 4.11/4.12 keep RAW
+configure-and-manage-the-platform/gravitee-gateway/request-path-handling.md

@@ -101,6 +101,8 @@ In single-server mode the Helm chart fixes `host` to `0.0.0.0` and doesn't expos
 {% endtab %}
 {% endtabs %}
 
+The `http` block also carries `pathHandling`, which decides how the Gateway treats the request path before it resolves the listener context path, and therefore before it enforces any plan. For the available modes and the default on this version, see [Request Path Handling](../configure-and-manage-the-platform/gravitee-gateway/request-path-handling.md).
+
 ## Request timeout behavior
 
 The `requestTimeout` setting caps the total time the Gateway spends processing a request, including the time the backend takes to respond and the time response policies take to execute. The value is in milliseconds. When the setting is absent, the Gateway applies a default of `30000` ms and logs a warning at startup. A value of `0` or less disables the timeout.
