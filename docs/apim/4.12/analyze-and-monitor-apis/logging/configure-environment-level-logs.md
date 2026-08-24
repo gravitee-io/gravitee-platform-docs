@@ -35,48 +35,38 @@ The logs table displays a paginated list of log entries across all v4 proxy APIs
 
 <figure><img src="../../.gitbook/assets/apim-product-analytics-logs-filtered.png" alt="Environment logs table filtered by API Product showing product name beneath the API name in each row"><figcaption><p>Environment logs filtered by API Product</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/environment-_logs_nav.png" alt="Logs screen showing the logs highlighted in the navigation menu"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/environment-logs-overview.png" alt="Environment Logs screen showing log entries, the Timeframe selector, and the Filters bar"><figcaption></figcaption></figure>
 
 ## Filter your logs
 
-The **Logs** provide filters that refine the list of log entries. The quick filters filter information based on the following information:
+The **Logs** screen provides a **Timeframe** selector and a **Filters** bar that refine the list of log entries. Select a time range in the **Timeframe** dropdown menu to display only the logs from that window.
 
-* **Period:** Select a predefined time range to display only logs from that window.
-* **API:** Search for and select one or more APIs to display only their logs.
-* **Application:** Search for one or more applications, and then select one or more applications to display only their logs.
+To filter the list, click **+ Add filter**. In the **Add a filter** dialog, select a filter in the **Filter by** field and an operator in the **Choose operator** field. Set the value in the **Filter value** field, and then click **Apply**.
 
-The **More** button opens a panel with additional filtering options, which are organized into the following sections:
+You can filter the logs by the following criteria:
 
-**Date**
+* **API:** One or more APIs.
+* **Application:** One or more applications.
+* **Plan:** One or more plans.
+* **Tenant:** One or more of the [tenants](../../configure-and-manage-the-platform/gravitee-gateway/tenants.md) that your Gateways are configured with. The results include only the log entries recorded with a matching tenant. Available from APIM 4.12.15.
+* **HTTP Method:** One or more HTTP methods.
+* **Status Code Group:** One or more response status code groups.
+* **Status Code:** The response status code.
+* **HTTP Path:** The request path.
+* **Gateway Response Time:** The Gateway response time.
+* **API Type:** One or more API types.
+* **MCP Method:** One or more MCP methods.
+* **Error Key:** One or more error keys.
+* **Request ID:** One or more request IDs.
+* **Transaction ID:** One or more transaction IDs.
+* **Payload content:** Text contained in the payload.
+* **API Product:** One or more API Products.
 
-* **From:** Set the start of a custom date and time range.
-* **To:** Set the end of a custom date and time range. The "To" value must be after the "From" value.
+<figure><img src="../../.gitbook/assets/environment-logs-tenant-filter.png" alt="Add a filter dialog with Tenant selected as the filter and a tenant value chosen"><figcaption><p>Adding a Tenant filter to the environment logs</p></figcaption></figure>
 
-**Response**
+You can combine multiple filters to refine the results. Applied filters appear in the **Filters** bar.
 
-* **Status:** Enter one or more HTTP response status codes (for example, 200, 404, 500) to filter by.
-
-**Request**
-
-* **Entrypoints:** Filter by the entrypoint type used to interact with the API (for example, HTTP Proxy, HTTP GET, SSE, WebSocket).
-* **HTTP Methods:** Filter by the HTTP method used in the request (for example, GET, POST, PUT, DELETE).
-* **Plan:** Filter by a specific plan. This option is only available when exactly one API is selected in the quick filters above.
-
-**Additional filters**
-
-* **Transaction ID:** Filter by a transaction ID (UUID format) to find all requests associated with a specific transaction.
-* **Request ID:** Filter by a specific request ID (UUID format) to locate an individual request.
-* **URI:** Filter by request path. For example, `/api/v1/users`.
-* **Response time (ms):** Filter for requests with a response time greater than or equal to the specified value, in milliseconds.
-* **Error Types:** Filter by specific error types. The available options are dynamically populated based on errors observed within the selected date range.
-* **API Product:** Filter by one or more API Products. API Product associations are tracked only for v4 request/response APIs — v2 and streaming (message) APIs are not included.
-* **Tenant:** Filter by one or more [tenants](../../configure-and-manage-the-platform/gravitee-gateway/tenants.md). The results include only the log entries recorded with a matching tenant. Available from APIM 4.12.15. <!-- TODO: verify label in Console UI -->
-
-<figure><img src="../../.gitbook/assets/apim-product-analytics-filter-dialog.png" alt="Add a filter dialog with API Product selected as the filter type showing available product values"><figcaption><p>Adding an API Product filter to environment logs</p></figcaption></figure>
-
-You can combine multiple filters to refine the results. Applied filters appear after the filter bar. Use the **Reset filters** button to clear all active filters.
-
-<figure><img src="../../.gitbook/assets/environment_logs_filters.png" alt="Logs screen showing the logs highlighted in the navigation menu"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/environment-logs-tenant-applied.png" alt="Logs list filtered by tenant, with the Tenant condition shown in the Filters bar"><figcaption><p>Environment logs filtered by tenant</p></figcaption></figure>
 
 ## View the details of your logs
 
