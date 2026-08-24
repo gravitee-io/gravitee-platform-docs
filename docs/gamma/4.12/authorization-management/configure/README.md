@@ -11,3 +11,4 @@ description: Create, update, and delete authorization policies, write custom one
 * [API policy examples](api-policy-examples.md)
 * [MCP policy examples](mcp-policy-examples.md)
 * [AI policy example](ai-policy-example.md)
+* [Authorization policy synchronization](../authz-gateway-sync.md)
