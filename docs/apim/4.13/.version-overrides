@@ -31,3 +31,5 @@ developer-portal/new-developer-portal/catalog.md
 .gitbook/assets/devportal-add-api-to-category-dialog.png
 .gitbook/assets/devportal-category-hide.png
 .gitbook/assets/devportal-category-show.png
+# Tenant filter on environment-level Logs — 4.12 page carries a 4.12.15 availability note the 4.13 page must not inherit (OBS-37)
+analyze-and-monitor-apis/logging/configure-environment-level-logs.md
