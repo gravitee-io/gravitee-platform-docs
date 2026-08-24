@@ -26,6 +26,8 @@ To review changes across the whole organization, complete the following steps:
 
 The page subtitle reads "Search configuration changes across the organization."
 
+<figure><img src="../.gitbook/assets/gamma-platform-audit-organization.png" alt=""><figcaption><p>The Audit page of the <strong>Organization</strong> section. The <strong>Reference</strong> column is obscured in this example.</p></figcaption></figure>
+
 To review changes in a single environment, complete the following steps:
 
 1. From the Gamma console sidebar, select **Platform Management**.
@@ -34,9 +36,7 @@ To review changes in a single environment, complete the following steps:
 
 The page subtitle reads "Search configuration changes for this environment."
 
-<!-- TODO: Screenshot of the Organization Audit page with the filter toolbar and the results table -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-audit-organization.png" alt=""><figcaption><p>The Audit page of the Organization section, with the filter toolbar above the results table.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-audit-environment.png" alt=""><figcaption><p>The Audit page of the <strong>Environment</strong> section. The <strong>Reference</strong> column is obscured in this example.</p></figcaption></figure>
 
 Each page has its own access control, so a role that reaches one doesn't necessarily reach the other.
 
@@ -79,6 +79,8 @@ The toolbar above the table narrows the trail. Every filter change returns the t
 
 To filter by event type, select an entry in the event type filter. It defaults to **All events** and lists every audit event type the platform defines, sorted by name, rather than only the types already recorded.
 
+<figure><img src="../.gitbook/assets/gamma-platform-audit-event-type-filter.png" alt=""><figcaption><p>The event type filter, which lists every audit event type the platform defines, sorted by name.</p></figcaption></figure>
+
 To filter by the kind of object that changed, select an entry in the type filter. It defaults to **All types**. The Organization page offers `ORGANIZATION`, `ENVIRONMENT`, `APPLICATION`, and `API`. The Environment page offers `APPLICATION` and `API` only.
 
 Selecting a type other than `ORGANIZATION` reveals a second filter that narrows the results to one object:
@@ -89,9 +91,9 @@ Selecting a type other than `ORGANIZATION` reveals a second filter that narrows 
 
 On the Organization page, the application and API pickers cover every environment, and each entry is labeled with its environment name followed by the object name. Changing the type clears whichever object you had picked.
 
-<!-- TODO: Screenshot of the filter toolbar with the type filter open -->
+<figure><img src="../.gitbook/assets/gamma-platform-audit-type-filter-organization.png" alt=""><figcaption><p>The type filter on the Organization page, which offers <code>ORGANIZATION</code>, <code>ENVIRONMENT</code>, <code>APPLICATION</code>, and <code>API</code>.</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-audit-filters.png" alt=""><figcaption><p>The filter toolbar, with the type filter open.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-audit-type-filter-environment.png" alt=""><figcaption><p>The type filter on the Environment page, which offers <code>APPLICATION</code> and <code>API</code> only.</p></figcaption></figure>
 
 To bound the trail in time, use either of the following controls:
 
@@ -106,16 +108,18 @@ To clear the active filters, select **Reset**. The button appears only while a f
 
 Selecting the **Date** or **User** cell of a row, or its **View patch** button, opens the **Audit event** panel for that event.
 
-The panel repeats the event's **User**, **Type**, **Reference**, **Event**, and **Target**, and adds a **JSON Patch** section when the event carries a patch. The patch is the difference between the object before and after the change, so it names each field that changed and the value it took.
+The panel repeats the event's **User**, **Type**, **Reference**, **Event**, and **Target**, and adds a **JSON Patch** section when the event carries a patch. The patch is the difference between the object before and after the change, so it names each field that changed.
+
+<figure><img src="../.gitbook/assets/gamma-platform-audit-event-panel.png" alt=""><figcaption><p>The <strong>Audit event</strong> panel, which repeats the event's <strong>User</strong>, <strong>Type</strong>, <strong>Reference</strong>, <strong>Event</strong>, and <strong>Target</strong>.</p></figcaption></figure>
 
 Two details of the patch are worth knowing:
 
 * The `createdAt` and `updatedAt` fields of the object are excluded, because they change on every write and say nothing about what the user changed.
 * Values that the platform treats as sensitive are replaced with `*****`.
 
-<!-- TODO: Screenshot of the Audit event panel showing the JSON Patch section -->
+<figure><img src="../.gitbook/assets/gamma-platform-audit-event-panel-patch-add.png" alt=""><figcaption><p>An event that activated an identity provider. Each entry in the <strong>JSON Patch</strong> names a field the change added, with the value it took.</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-audit-event-panel.png" alt=""><figcaption><p>The Audit event panel, with the JSON Patch of the change.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-audit-event-panel-patch-remove.png" alt=""><figcaption><p>The matching deactivation event, whose <strong>JSON Patch</strong> names the fields the change removed.</p></figcaption></figure>
 
 ## Export the audit trail
 
