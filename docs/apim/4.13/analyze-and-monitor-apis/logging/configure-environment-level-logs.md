@@ -49,16 +49,16 @@ You can filter the logs by the following criteria:
 * **Application:** One or more applications.
 * **Plan:** One or more plans.
 * **Tenant:** One or more of the [tenants](../../configure-and-manage-the-platform/gravitee-gateway/tenants.md) that your Gateways are configured with. The results include only the log entries recorded with a matching tenant.
-* **HTTP Method:** One or more HTTP methods.
-* **Status Code Group:** One or more response status code groups.
-* **Status Code:** The response status code.
-* **HTTP Path:** The request path.
-* **Gateway Response Time:** The Gateway response time.
+* **HTTP Method:** One or more HTTP methods, for example GET or POST.
+* **Status Code Group:** One or more response status code groups, for example `2XX` or `4XX`.
+* **Status Code:** The response status code, for example 404.
+* **HTTP Path:** The request path, for example `/api/v1/users`.
+* **Gateway Response Time:** The Gateway response time, in milliseconds.
 * **API Type:** One or more API types.
 * **MCP Method:** One or more MCP methods.
-* **Error Key:** One or more error keys.
-* **Request ID:** One or more request IDs.
-* **Transaction ID:** One or more transaction IDs.
+* **Error Key:** One or more error keys. The available values are populated from the errors observed in the selected timeframe.
+* **Request ID:** One or more request IDs, to locate an individual request.
+* **Transaction ID:** One or more transaction IDs, to find all the log entries of the same transaction.
 * **Payload content:** Text contained in the payload.
 * **API Product:** One or more API Products.
 
