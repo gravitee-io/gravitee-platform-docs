@@ -508,6 +508,7 @@
       * [Documentation](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/documentation.md)
       * [Deployment](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/deployment.md)
   * [Create and Configure Kafka Clusters](kafka-gateway/create-and-configure-kafka-clusters.md)
+  * [Virtual Cluster Broker Addressing](kafka-gateway/virtual-cluster-broker-addressing.md)
   * [Configure and Deploy Kafka Console](kafka-gateway/configure-and-deploy-kafka-console.md)
   * [Plans](kafka-gateway/plans.md)
   * [Applications](kafka-gateway/applications.md)
