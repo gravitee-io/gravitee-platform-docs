@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds a configuration audit trail to each proxy detail view.
+Agent Management adds a configuration audit trail to each proxy detail view, and lets you record the price you negotiated with a provider on a cataloged AI model.
 
 #### Audit Logs for LLM, MCP, and A2A Proxies
 
@@ -18,6 +18,14 @@ Agent Management adds a configuration audit trail to each proxy detail view.
 * Each entry shows the date, the actor, the event type, and the target of the change. Entries that carry a JSON Patch open the exact change in a side panel.
 * Filter the trail by event type and date range, and page through entries 10, 25, 50, or 100 at a time.
 * See [Review audit logs](../agent-management/observe/review-audit-logs.md).
+
+#### Negotiated pricing for AI models
+
+* Record the price you negotiated with the provider on a cataloged model, in the **Input price ({currency} per 1M tokens)** and **Output price ({currency} per 1M tokens)** fields of the model edit form. The negotiated price replaces the suggested price wherever the price is shown and wherever cost is computed.
+* Set both prices, or clear both, and enter a price of `0` or more. Entering `0` in both fields is valid, because a free model is still a priced model. `{currency}` is the currency of the suggested price and defaults to `USD` when the provider doesn't suggest one.
+* A model with a negotiated price shows a `Custom` badge next to its price, together with the suggested rate and the date and author of the last change. The negotiated price appears in the **Price / 1M** column of the AI Models list, on the model detail page, and on the models page of an LLM Proxy, and it feeds the cost estimates in the AI workspace detail view.
+* Refreshing the catalog updates the provider-derived fields and keeps your negotiated price. Republish any LLM Proxy that consumes a repriced model so cost tracking picks up the negotiated rate.
+* See [Add an AI model](../agent-management/import/add-an-ai-model.md).
 
 ### API Management
 
