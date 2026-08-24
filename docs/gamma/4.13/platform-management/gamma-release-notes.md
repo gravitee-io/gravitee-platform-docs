@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds a configuration audit trail to each proxy detail view.
+Agent Management adds a configuration audit trail and event notifications to each proxy detail view.
 
 #### Audit Logs for LLM, MCP, and A2A Proxies
 
@@ -18,6 +18,14 @@ Agent Management adds a configuration audit trail to each proxy detail view.
 * Each entry shows the date, the actor, the event type, and the target of the change. Entries that carry a JSON Patch open the exact change in a side panel.
 * Filter the trail by event type and date range, and page through entries 10, 25, 50, or 100 at a time.
 * See [Review audit logs](../agent-management/observe/review-audit-logs.md).
+
+#### Notifications for LLM, MCP, and A2A Proxies
+
+* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Notifications** page that pairs a notifier with the set of API events that trigger it. The table lists each notification's **Name**, **Notifier**, **Subscribed events**, and **Groups**.
+* Every proxy starts with a **Portal notification**. Add further notifications on any notifier configured for your organization, such as **Default Email Notifier** or a webhook notifier, and address them to an email list or a webhook URL. Target fields support Expression Language, and webhook notifications can route through the gateway's system proxy.
+* Subscribe each notification to the API events that matter, grouped by category such as **API KEY** and **SUBSCRIPTION**, and optionally scope it to selected groups. Leaving groups empty applies the notification to all groups.
+* Creating, editing, and deleting notifications is gated by the `api-notification-c`, `api-notification-u`, and `api-notification-d` permissions. The **Portal notification** can be edited but not deleted, and the channel of an existing notification can't be changed.
+* See [Configure LLM Proxy notifications](../agent-management/build/configure-llm-proxy-notifications.md), [Configure MCP Proxy notifications](../agent-management/build/configure-mcp-proxy-notifications.md), and [Configure A2A Proxy notifications](../agent-management/build/configure-a2a-proxy-notifications.md).
 
 ### API Management
 
