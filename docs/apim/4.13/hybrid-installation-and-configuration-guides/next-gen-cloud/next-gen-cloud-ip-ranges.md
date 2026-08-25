@@ -6,7 +6,9 @@ description: Add the new Next-Gen Cloud IP ranges to your firewall rules before 
 
 ## Overview
 
-Gravitee is migrating Next-Gen Cloud hosted environments to a new platform. This migration changes the public IP addresses on which your environment receives incoming traffic.
+Gravitee is moving Next-Gen Cloud hosted environments behind Cloudflare to strengthen security and protect public access to Gravitee services.
+
+After the change, client traffic to your Gravitee environment will reach Cloudflare first, which securely proxies requests to Gravitee. As a result, the public IP addresses resolved and contacted by your client applications may change
 
 If your organization restricts network traffic with firewall rules, add the following IP ranges to your firewall rules before Gravitee migrates your environment, and keep them in place after the migration. If your firewall rules don't allow the new IP ranges, this might block access to gravitee endpoints from your side.
 
