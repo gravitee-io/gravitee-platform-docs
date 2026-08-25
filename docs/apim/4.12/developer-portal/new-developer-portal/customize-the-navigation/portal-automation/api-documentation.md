@@ -82,6 +82,32 @@ spec:
 * An API referenced by active documentation pages cannot be deleted until those pages are removed.
 {% endhint %}
 
+### Using the Terraform provider
+
+1. Define an `apim_documentation_api` resource with the parent API's HRID.
+2. Specify the page's HRID, display name, type, content, location, and optional order.
+3. Run `terraform apply`.
+
+**Example `apim_documentation_api` resource:**
+
+```hcl
+resource "apim_documentation_api" "api-overview" {
+  api_hrid = "pets-api"
+  hrid     = "api-overview"
+  name     = "API Overview"
+  type     = "GRAVITEE_MARKDOWN"
+  location = "/docs"
+  order    = 1
+  content  = <<-EOT
+  # Pets API
+
+  This API manages pet records.
+  EOT
+}
+```
+
+The `type` attribute accepts `GRAVITEE_MARKDOWN`, `OPENAPI`, or `ASYNCAPI`.
+
 ## Configure the API internal documentation tree
 
 Each API declares its own internal documentation folder hierarchy using the `portalNavigation` field, which uses the same navigation path structure as the portal's top-level navigation. The `portalNavigation` field is portal-only metadata and is not propagated to the gateway definition.
@@ -133,5 +159,30 @@ spec:
     - path: /examples
 ```
 {% endcode %}
+
+### Using the Terraform provider
+
+Add the `portal_navigation` attribute to the `apim_apiv4` resource:
+
+```hcl
+resource "apim_apiv4" "pets-api" {
+  hrid = "pets-api"
+  name = "Pets API"
+  # ... rest of the API definition
+  portal_navigation = [
+    {
+      path         = "/docs"
+      display_name = "Documentation"
+      order        = 1
+    },
+    {
+      path = "/docs/guides"
+    },
+    {
+      path = "/examples"
+    }
+  ]
+}
+```
 
 When the API is published through a portal listing, the internal folder tree is materialized under each published API entry, and API-scoped documentation pages are placed relative to this tree. When a documentation page references a location that does not exist yet in the API's internal tree, the page is created as an orphan and reconnects when the folder is added.
