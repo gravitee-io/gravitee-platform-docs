@@ -15,7 +15,7 @@ An origin is a scheme, a domain, and a port together, so `https://apps.example.c
 The values on this page are stored at organization scope and take effect without restarting the Management API.
 
 {% hint style="info" %}
-This page covers the Management API only. CORS for the Developer Portal API is configured at environment scope, and CORS for an API you publish is configured on that API.
+This page covers the Management API only. The Developer Portal API has its own CORS settings, held at environment scope rather than here.
 {% endhint %}
 
 ## Open the CORS page

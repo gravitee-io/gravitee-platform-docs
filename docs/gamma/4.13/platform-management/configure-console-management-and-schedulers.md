@@ -53,7 +53,7 @@ The following table maps each field on this page to the configuration setting th
 
 ## Configure the management settings
 
-The **Management** card carries two text fields and up to three toggles. The toggles that are on by default stay on until you change them.
+The **Management** card carries two text fields and up to three toggles.
 
 ### Title
 
@@ -91,7 +91,7 @@ When it's off, the new account is created Pending and the person receives no ema
 
 The **Schedulers** card sets how often the console asks the Management API for new items, in seconds. Both fields default to `10`.
 
-A shorter interval surfaces new items faster and puts more requests on the Management API. Raise both values on a large installation where console polling is a measurable share of Management API traffic.
+A shorter interval surfaces new items faster, at the cost of more requests to the Management API.
 
 ### Tasks (in seconds)
 
