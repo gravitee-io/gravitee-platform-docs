@@ -143,6 +143,7 @@
   * [Connect Claude Code through an LLM Proxy](agent-management/publish/connect-claude-code-through-an-llm-proxy.md)
 * [Observe](agent-management/observe/README.md)
   * [Monitor your MCP servers](agent-management/observe/monitor-your-mcp-servers.md)
+  * [Monitor your LLM proxy](agent-management/observe/monitor-your-llm-proxy.md)
   * [Inspect your agent log](agent-management/observe/inspect-your-agent-log.md)
   * [Monitor AI Gateway usage from employee systems](agent-management/observe/monitor-ai-gateway-from-devices.md)
 
