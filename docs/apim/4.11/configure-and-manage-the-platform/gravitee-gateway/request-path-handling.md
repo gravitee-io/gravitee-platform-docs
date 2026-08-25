@@ -134,6 +134,7 @@ Both active modes assume a receiver that decodes percent sequences once ([RFC 39
 | Overlong UTF-8 | `%c0%ae` |
 | Null byte | `%00` |
 | Backslash treated as a separator | `..\..` |
+| Segment parameters on an ordinary segment | `/admin;x/secret` |
 
 `REJECT` refuses paths that aren't canonical. It isn't traversal hardening for an arbitrary receiver. An operator who reads `REJECT` and understands "protected against path traversal" is mistaken, and it's the most expensive misunderstanding to leave in place, because it's the one that stops a platform from hardening the components that do decode these forms.
 
@@ -152,6 +153,18 @@ Only a segment that's entirely dots before the `;` counts as a dot segment. An o
 
 {% hint style="warning" %}
 This is the one point where `REJECT` refuses more than RFC 3986 alone would imply. A deployment switching to `REJECT` can see `400`s on paths of this shape.
+{% endhint %}
+
+### Why ordinary segments are left alone, and what it costs you
+
+Matrix parameters and `;jsessionid` are legitimate, and clients send them. Refusing them under `REJECT` would turn away well-formed traffic, and stripping them under `NORMALIZE` would forward a path the client never sent — toward a receiver that keeps them, that means serving a different resource, not a stricter one. A dot segment carrying parameters has neither problem, because nobody sends `..;jsessionid=1` on purpose. That asymmetry is deliberate.
+
+The cost lands on allow and deny rules:
+
+{% hint style="danger" %}
+`/a/admin;x/secret` is canonical for the Gateway and forwarded byte for byte, while a Servlet container strips the `;x` and serves `/a/admin/secret`. A policy matching on `/admin/**` sees one path and the backend another.
+
+Turning on `REJECT` or `NORMALIZE` does **not** protect a path-based allow or deny rule against this spelling. If you rely on such a rule, match the parameterized form too, or enforce the restriction somewhere that sees the resolved path.
 {% endhint %}
 
 ## Report rejected requests
