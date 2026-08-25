@@ -2,7 +2,7 @@
 description: Manage the entrypoints that define the base URLs of the AM Gateway, and learn how Gravitee-managed deployments assign one to each environment.
 ---
 
-# Configure entrypoints
+# Entrypoints
 
 An entrypoint defines a base URL that the AM Gateway is reached on. AM builds user-facing URLs from entrypoints, such as the **Domain entrypoint url** that AM Console shows for a security domain and the links in the emails that AM sends.
 
@@ -50,12 +50,3 @@ On a Gravitee-managed deployment, the entrypoint of the domain's environment dri
 * WebAuthn ceremonies verify against the origin of the entrypoint that matches the request. A relying party ID set explicitly in the security domain's WebAuthn settings is preserved.
 
 On a self-hosted installation, AM builds these URLs from the `gateway.url` of the security domain's data plane, or from the Management API's global `gateway.url`. See [Configure Multiple Data Planes](../getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md).
-
-## Verification
-
-To verify an entrypoint is configured as expected on a self-hosted installation, follow these steps:
-
-1. Add an entrypoint. The list shows it with its **Name** and **Endpoint**.
-2. Delete the entrypoint, and then confirm in the **Delete Entrypoint** dialog. The list no longer shows it.
-
-<figure><img src="../.gitbook/assets/am-organization-entrypoints-created.png" alt=""><figcaption><p>The created entrypoint</p></figcaption></figure>
