@@ -34,12 +34,12 @@
       * [OpenShift](platform-management/install/hybrid-installation-guides/kubernetes/openshift.md)
 * [Configure Access Management](platform-management/configure-access-management.md)
 * [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
+* [Configure Security Plan Types](platform-management/configure-security-plan-types.md)
 * [Manage applications](platform-management/manage-applications.md)
 * [Manage dictionaries](platform-management/manage-dictionaries.md)
 * [Manage entrypoints and sharding tags](platform-management/manage-entrypoints-and-sharding-tags.md)
 * [Manage users](platform-management/manage-users.md)
 * [Monitor gateway instances](platform-management/monitor-gateway-instances.md)
-  * [Configure Security Plan Types](platform-management/configure-security-plan-types.md)
 
 ## API Management
 
