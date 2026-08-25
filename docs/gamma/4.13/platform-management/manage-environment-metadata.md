@@ -19,7 +19,7 @@ The Metadata page in the Gamma console lets you view, add, edit, and delete the 
 
 ## View environment metadata
 
-From the Gamma console sidebar, select **Platform Management**, open the **Environment** section, and then navigate to **Metadata**.
+From the Gamma console sidebar, select **Platform Management**, and open the **Environment** section. Under **APIs & Assets**, select **Metadata**.
 
 The metadata table displays the following columns:
 
@@ -46,13 +46,13 @@ To add an entry, complete the following steps:
 
     | Field      | Description                                                                                                    | Required |
     | ---------- | -------------------------------------------------------------------------------------------------------------- | -------- |
-    | **Name**   | The entry's name. Gravitee generates the key from it, so a name that produces a key an entry in the environment already uses is rejected. | Yes      |
-    | **Format** | **String**, **Numeric**, **Boolean**, **Date**, **Mail**, or **URL**. **String** is preselected, and the format is fixed after creation. | Yes      |
+    | **Name**   | The entry's name. Gravitee generates the entry's key from it.                                                  | Yes      |
+    | **Format** | **String**, **Numeric**, **Boolean**, **Date**, **Mail**, or **URL**. **String** is preselected. After the entry is created, the console shows **Format** as read-only. | Yes      |
     | **Value**  | The value APIs inherit. The field matches the format you selected, and changing the format resets it.           | Yes      |
 
 3. Select **Add**.
 
-**Add** stays disabled until the name and the value are filled in and the value matches the selected format.
+**Add** stays disabled until the name and the value are filled in and the value matches the selected format. The console doesn't flag a name that's already in use before you select **Add**. When the name generates a key that another entry in the environment already uses, the entry isn't created. The console then reads **An error occurred while trying to create metadata**, followed by the name.
 
 The following table describes what each format accepts:
 
@@ -63,7 +63,9 @@ The following table describes what each format accepts:
 | **Boolean** | `true` or `false`, selected from a dropdown. Selecting the format sets the value to `false`.                                |
 | **Date**    | A date, entered in a date field. The platform stores the date part alone, in `yyyy-MM-dd` form, and rejects a date that doesn't exist. |
 | **Mail**    | An email address. The console reads **Invalid email** under the field while the value isn't one.                            |
-| **URL**     | A URL. Enter it in full, including `http://` or `https://`. The console reads **Invalid URL** under the field while the value isn't one. |
+| **URL**     | A URL, entered in full, including `http://` or `https://`. The console reads **Invalid URL** under the field while the value isn't URL-shaped. |
+
+The **Invalid URL** message covers a value that isn't URL-shaped. A value that omits the scheme, such as `example.com`, clears that check and leaves **Add** enabled, and the browser blocks the submission instead. Gravitee rejects a URL value that has no scheme as well, so enter the URL in full.
 
 An empty **Value** field shows no format error, and **Add** stays disabled until you fill it in.
 
