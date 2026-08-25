@@ -1,60 +1,64 @@
 ---
 hidden: false
 noIndex: false
-description: Compare two deployed versions of an LLM Proxy definition and roll back to an earlier one. Follow the steps to inspect the history and restore a version.
+description: Review every deployment of an LLM Proxy, inspect or compare versions, and roll back to an earlier API definition.
 ---
 
 # Review LLM Proxy deployment history
 
-The **Deployment History** page lists all deployments of this LLM Proxy, newest first. Select two versions to diff them, or use the actions menu to inspect a single version.
+The **Deployment History** page lists all deployments of this LLM Proxy, newest first. You can inspect a single version, compare two versions, and roll back to an earlier one.
 
 To open the page, follow these steps:
 
-1. Click **LLM Proxies** in the module sidebar.
-2. Select your LLM Proxy.
-3. Click **Deployment** in the LLM Proxy sidebar.
-4. Click **History**.
+1.  Click **LLM Proxies** in the module sidebar.
+2.  Select your LLM Proxy.
+3.  Under **Operations**, click **Deployment**.
+4.  Click **History**.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-llm-proxy-deployment-history.png" alt="The Deployment History page for an LLM Proxy, listing five deployments with their version, date, user, and label, and the live badge on the newest"><figcaption><p>The Deployment History page</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-deployment-history.png" alt="The Deployment History page for LLM Proxy, listing deployments with Version, Date, User and Label columns and a live badge on the newest version"><figcaption><p>The Deployment History page</p></figcaption></figure>
 
-The table lists each deployment's **Version**, **Date**, **User**, and **Label** columns. The most recent deployment carries the **live** badge. The label is the optional deployment label entered when the LLM Proxy is deployed. Before the first deployment, the page reads **No deployments yet**.
+The table lists each deployment's **Version**, **Date**, **User**, and **Label** columns. The most recent deployment carries the **live** badge. The label is the optional deployment label entered when the LLM Proxy was deployed. Before the first deployment, the page reads **No deployments yet**, with the description **Deployment records will appear here after the first publish.**
 
-A missing version number or label appears as a dash. Optional: set the page size to 10, 25, 50, or 100 rows. Changing the page size returns you to the first page. When the history can't be loaded, the page shows a **Failed to load deployment history. Please try again.** card.
+If the history can't be loaded, the page reads **Failed to load deployment history. Please try again.**
+
+Use **Items per page** to show 10, 25, 50, or 100 entries per page. Changing the page size returns you to page 1.
 
 ## Inspect a single version
 
-To view the definition a deployment shipped, click **View definition** in the row's actions. For any version other than the live one, the actions menu also offers **Compare with live**.
+To view the API definition a deployment shipped, click **View definition** in the row's actions. The live version exposes **View definition** directly. Every other row offers it in the actions menu.
 
 ## Compare two versions
 
-Select the checkboxes of two versions. The toolbar tracks the selection, and once two versions are selected the diff view opens.
+Select the checkboxes of two versions. The toolbar tracks the selection, and once two versions are selected, the diff view opens.
 
-Only two versions can be selected at a time. With one version selected, the toolbar offers **Clear** to reset the selection. Closing the diff view also clears it.
+Until you make a selection, the toolbar reads **Select two rows to compare versions.** After one selection it reads **1 version selected — select one more to compare.**, and after two, **2 versions selected — diff view is open below.** Once two are selected, the remaining checkboxes are disabled. To reset the selection, click **Clear** in the toolbar.
 
-The **Comparing** dialog shows the differences between the two definitions, with **Side-by-side** and **Line-by-line** view modes. When the definitions are identical, the dialog reads **No differences found between these two versions.** In that case, it shows neither the view modes nor the rollback control.
+To compare an earlier version against the live one in a single step, click **Compare with live** in that row's actions menu.
 
-In side-by-side view, the **Before** and **After** panes show each version's number, date, initiator, and deployment label.
+The diff dialog shows the differences between the two definitions, with **Side-by-side** and **Line-by-line** view modes. The panes are labeled **Before** and **After**, and **Before** holds the first of the two versions you selected.
 
 ## Roll back to an earlier version
 
-The rollback controls appear only for users with the `API_DEFINITION` permission at Update access.
-
 To roll back, follow these steps:
 
-1. Compare the live version with the target version, for example with **Compare with live**.
-2. In the diff dialog, click the **Rollback** button, which names the target version.
-3. In the confirmation dialog, click **Confirm rollback**, or **Cancel** to abandon the rollback.
+1. Open the target version, either by selecting two versions to open the diff view or by clicking **View definition** on a single version.
+2.  Click **Rollback**, which names the target version.
+3. Confirm in the rollback dialog, which names the target version.
 
-You can also start a rollback from the **View definition** dialog, which routes through the same confirmation dialog. When the rollback is rejected, the page shows a **Rollback failed:** card with the reason.
+The rollback restores the LLM Proxy's API definition and its plans to the selected version.
 
 {% hint style="warning" %}
-The rollback restores the API definition to the selected version, and can't be undone. It doesn't redeploy the LLM Proxy. The gateway keeps serving the live version, and the proxy is marked out of sync until you deploy it again.
+The rollback doesn't deploy the LLM Proxy. The restored definition is saved, and the LLM Proxy is left with undeployed changes until you deploy it. The confirmation dialog describes the action as redeploying to the gateway, but no deployment takes place. The action can't be undone.
 {% endhint %}
+
+If the rollback fails, a card stays on screen reading **Rollback failed**, followed by the reason.
+
+The rollback controls are hidden unless you have the **API_DEFINITION** permission with the **UPDATE** access level.
 
 ## Verification
 
 To verify the deployment history is working as expected, follow these steps:
 
-1. Deploy the LLM Proxy twice with different configurations, and label each deployment.
+1. Deploy the LLM Proxy twice with different configurations, and give each deployment a label.
 2. Open the **Deployment History** page. Both deployments appear with their labels, and the newest one carries the **live** badge.
-3. Select both versions. The diff view shows the configuration change.
+3.  Select both versions. The diff view shows the configuration change.

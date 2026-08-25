@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Choose which API Gateway instances load an LLM Proxy by assigning sharding tags. Follow the steps on the Deployment Configuration page.
+description: Choose which gateway instances load an LLM Proxy by assigning sharding tags. Follow the steps on the Deployment Configuration page.
 ---
 
 # Configure LLM Proxy deployment
@@ -10,36 +10,35 @@ The **Deployment Configuration** page controls where this LLM Proxy is deployed 
 
 To open the page, follow these steps:
 
-1. Click **LLM Proxies** in the module sidebar.
-2. Select your LLM Proxy.
-3. Click **Deployment** in the LLM Proxy sidebar.
-4. Click **Configuration**.
+1.  Click **LLM Proxies** in the module sidebar.
+2.  Select your LLM Proxy.
+3.  Under **Operations**, click **Deployment**.
+4.  Click **Configuration**.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-llm-proxy-deployment-configuration.png" alt="The Deployment Configuration page for an LLM Proxy, with one sharding tag selected as a chip in the tag field and the Discard and Save changes buttons showing"><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
-
-To edit this page, you need the `API_DEFINITION` permission with Update access. Without it, the tag picker is disabled and the page reads **You do not have permission to change sharding tags for this API.**
+    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-deployment-configuration.png" alt="The Deployment Configuration page for LLM Proxy, showing the Sharding tags card with one tag selected as a chip and the tag list open"><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
 
 ## Assign sharding tags
 
-The **Sharding tags** section lists the tags defined for your organization. To assign them, follow these steps:
+The **Sharding tags** card lists the tags defined for your organization. To assign them, follow these steps:
 
-1. Click the tag field, and then select a tag from the list. Gateways advertise matching tags, and only those instances load this API definition.
-2. Repeat for each tag you want to assign.
-3. Click **Save changes**, or **Discard** to revert.
+1. Open the tag list and select a tag. Each row shows the tag name and, when the tag has one, its description.
+2. Repeat for each tag you want to assign. Every selected tag appears as a chip beneath the list.
+3. Optional: to unassign a tag, click the remove control on its chip.
+4.  Click **Save changes**, or **Discard** to revert.
 
-Each selected tag appears as a chip. To remove one before you save, click **Remove {tag name}** on its chip. To filter the list, type in the tag field. When nothing matches, the list reads **No matching tags**. **Save changes** and **Discard** appear only once the selection differs from the saved one.
+The **Discard** and **Save changes** buttons appear only once your selection differs from the saved value. A successful save confirms with **Deployment configuration saved**.
 
-Tags assigned to the proxy but no longer defined for the organization still appear as a chip, and they're kept when you save.
+When your organization has no tags, the card reads **No sharding tags configured**. Sharding tags are managed at the organization level, on the **Entrypoints & Sharding Tags** page in Platform Management.
 
-When no tags exist, the page reads **No sharding tags configured**. Sharding tags are managed at the organization level under the Gateway settings.
+An assigned tag that no longer appears in the organization list is still shown as a chip, labeled with its tag key, and it's preserved when you save.
 
-When the tags can't be loaded, the page reads **Failed to load sharding tags. Please try again.**
+If the tags can't be loaded, the card reads **Failed to load sharding tags. Please try again.**
+
+To change sharding tags, you need the **API_DEFINITION** permission with the **UPDATE** access level. Without it, the tag list is disabled, the chips lose their remove control, and the card reads **You do not have permission to change sharding tags for this API.**
 
 {% hint style="info" %}
-When the LLM Proxy is managed by the Kubernetes operator, the page shows **This API is managed by the Kubernetes operator. Sharding tags can only be changed from its source definition.**
+When the LLM Proxy is managed by the Gravitee Kubernetes Operator (GKO), the card shows **This API is managed by the Kubernetes operator. Sharding tags can only be changed from its source definition.**
 {% endhint %}
-
-Saving the selection marks the LLM Proxy out of sync. Deploy it to push the change to the gateway.
 
 ## Verification
 
