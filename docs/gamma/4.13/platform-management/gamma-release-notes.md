@@ -87,7 +87,7 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope.
 
 #### Manage dictionaries
 
@@ -109,6 +109,13 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Give each entry a name, a format of String, Numeric, Boolean, Date, Mail, or URL, and a value. Gravitee generates the entry's key from the name and validates the value against the format.
 * Rename an entry or change its value without changing its key, so the APIs and Developer Portal pages that reference the key keep working.
 * See [Manage environment metadata](manage-environment-metadata.md).
+
+#### Manage tenants
+
+* Create, edit, search, and delete the tenants of the organization from the **Tenants** page. A tenant pairs a gateway with the API endpoints that gateway loads, so one API can serve several regions without a second copy of it.
+* Give each tenant a name and an immutable key. The console generates the key from the name, accepts lowercase letters, digits, and hyphens, and rejects a key another tenant already uses.
+* Add the key to a gateway's `gravitee.yml` file and to the **Tenants** field of an API's endpoints. A gateway loads an endpoint when the endpoint has no tenant or lists the gateway's own tenant.
+* See [Manage tenants](manage-tenants.md).
 
 #### Manage users
 
