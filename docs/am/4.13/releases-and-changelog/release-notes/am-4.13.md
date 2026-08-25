@@ -20,3 +20,10 @@
 * A new **Preselect consent for all scopes** application setting controls whether the checkboxes start checked. Applications that existed before the upgrade keep the previous all-checked behavior, and applications created in AM Console or through the AM Management API start with the setting off.
 * Scopes can be marked as **Required** on the application's scopes list. AM presents a required scope first, labels it **Required**, and locks its checkbox, so users grant it whenever they allow the request.
 * Customized consent page templates keep working after the upgrade. See [user consent](../../guides/user-management/user-consent.md) for the application settings, and [branding](../../guides/branding/README.md#customize-the-user-consent-page) for the template contract.
+
+#### **Environment-scoped entrypoints on Gravitee-managed deployments**
+
+* On a Gravitee-managed deployment, AM stores each environment's gateway access points from Gravitee Cloud as entrypoints of that environment, and the entrypoints list in AM Console shows the environment each entrypoint belongs to. Adding, editing, and deleting entrypoints in AM Console is disabled, because Gravitee Cloud is the source of truth, and switching a security domain between the context-path and virtual hosts modes is unavailable.
+* AM builds user-facing URLs from the environment's entrypoint: the **Domain entrypoint url** AM Console shows for a security domain, and the links in the emails sent by the Management API and by the Gateway. A custom domain attached to the environment is preferred over its default Gravitee Cloud URL, and a request that arrived on the host of one of the environment's entrypoints keeps that host in the URLs AM builds from it.
+* WebAuthn ceremonies verify against the origin of the environment entrypoint that matches the request, and a relying party ID set explicitly in a security domain's WebAuthn settings is preserved.
+* Self-hosted installations keep local entrypoint management, and keep building URLs from the data plane's `gateway.url` or the Management API's global `gateway.url`. See [Configure entrypoints](../../guides/configure-entrypoints.md).
