@@ -22,6 +22,7 @@ When you open an A2A Proxy from the dashboard, you can configure it using the fo
   * **General**. Manage the proxy's name, description, and status.
   * **Endpoint**. Configure the target URL of the upstream agent.
   * **API Properties**. Manage dynamic properties that can be evaluated at runtime.
+  * **Resources**. Manage the resources that the proxy's policies reference at runtime. See [Configure resources for your proxies](../configure-resources-for-your-proxies.md).
 * **Design**:
   * **Policy Studio**. Design your flows and apply policies to agent-to-agent communication.
 * **Observability**. Monitor the proxy with **Dashboard**, **Logs**, and **Tracing**.
