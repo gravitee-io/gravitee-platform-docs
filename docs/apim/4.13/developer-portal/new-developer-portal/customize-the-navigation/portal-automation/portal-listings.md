@@ -77,6 +77,37 @@ spec:
 - The GKO admission webhook blocks deletion of portals or APIs that are referenced by active listings.
 {% endhint %}
 
+### Using the Terraform provider
+
+1. Define an `apim_portal_listing` resource with the parent portal's HRID.
+2. List the APIs to publish, each with the API's HRID, a location path, and an optional order.
+3. Run `terraform apply`.
+
+**Example `apim_portal_listing` resource:**
+
+```hcl
+resource "apim_portal_listing" "alpha-apis" {
+  portal_hrid = "default-portal"
+  hrid        = "alpha-apis"
+  apis = [
+    {
+      api_hrid = "pets-api"
+      location = "/projects/alpha"
+      order    = 1
+    },
+    {
+      api_hrid = "orders-api"
+      location = "/projects/alpha"
+      order    = 2
+    }
+  ]
+}
+```
+
+{% hint style="warning" %}
+**Constraint:** The `portal_hrid` attribute is immutable after creation. Changing it on an existing listing returns a plan error instead of moving the listing to a different portal.
+{% endhint %}
+
 ### Automation API vs GKO validation differences
 
 The Automation API and GKO CRDs validate references differently:
@@ -85,3 +116,5 @@ The Automation API and GKO CRDs validate references differently:
 - **GKO admission webhooks:** All referenced APIs must resolve to existing `ApiV4Definition` resources in the cluster and must share the portal's management context. The webhook rejects listings that reference APIs that cannot be found.
 
 This difference means the Automation API supports order-independent applies across multiple resources, while GKO requires APIs and portals to exist before a listing references them.
+
+The Terraform provider calls the Automation API, so the Automation API validation behavior applies to Terraform-managed listings.
