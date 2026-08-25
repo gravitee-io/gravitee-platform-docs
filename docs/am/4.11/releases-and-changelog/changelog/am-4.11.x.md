@@ -6,6 +6,29 @@ description: >-
 
 # AM 4.11.x
 
+## Gravitee Access Management 4.11.15 - August 25, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Create setting to disable the reporter indexes management [#11712](https://github.com/gravitee-io/issues/issues/11712)
+* DefaultReporterUpgrader [#11716](https://github.com/gravitee-io/issues/issues/11716)
+* Access and refresh token batch store [#11728](https://github.com/gravitee-io/issues/issues/11728)
+* ClaimRequest mapping issue [#11736](https://github.com/gravitee-io/issues/issues/11736)
+* msg() expressions not resolved in "From name" of the MFA Challenge email template [#11756](https://github.com/gravitee-io/issues/issues/11756)
+
+</details>
+
+
 ## Gravitee Access Management 4.11.14 - August 6, 2026
 
 <details>

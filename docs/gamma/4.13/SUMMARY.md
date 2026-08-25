@@ -145,6 +145,7 @@
   * [Add the Cost Rate Limit policy](agent-management/build/add-the-cost-rate-limit-policy.md)
   * [Configure text classification](agent-management/build/configure-text-classification.md)
   * [AI resources](agent-management/build/ai-resources.md)
+  * [Configure resources for your proxies](agent-management/build/configure-resources-for-your-proxies.md)
   * [Create an agent identity](agent-management/build/create-an-agent-identity.md)
   * [Configure your Access Management instance](agent-management/build/configure-your-access-management-instance.md)
   * [Expose your agent with the A2A Proxy](agent-management/build/expose-agent-with-a2a-proxy.md)

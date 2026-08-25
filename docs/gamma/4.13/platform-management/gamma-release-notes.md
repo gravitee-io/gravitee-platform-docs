@@ -10,8 +10,14 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds a configuration audit trail and event notifications to each proxy detail view.
-Agent Management adds a configuration audit trail to each proxy detail view, brings deployment configuration and deployment history to LLM, MCP, and A2A Proxies, and lets you record the price you negotiated with a provider on a cataloged AI model.
+Agent Management adds a configuration audit trail, event notifications, and API resource configuration to each proxy detail view. It also brings deployment configuration and deployment history to LLM, MCP, and A2A Proxies, and lets you record the price you negotiated with a provider on a cataloged AI model.
+
+#### API Resources for LLM, MCP, and A2A Proxies
+
+* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Resources** page that manages the resources the proxy's policies reference by name at runtime, such as caches, OAuth providers, and guardrail detectors.
+* Add a resource by selecting one of the resource plugins installed on your platform and completing its schema-generated configuration form. Edit, enable or disable, remove, and search existing resources from the same page.
+* A resource change applies to the gateway when you deploy the proxy from the out-of-sync banner.
+* See [Configure resources for your proxies](../agent-management/build/configure-resources-for-your-proxies.md).
 
 #### Audit Logs for LLM, MCP, and A2A Proxies
 
