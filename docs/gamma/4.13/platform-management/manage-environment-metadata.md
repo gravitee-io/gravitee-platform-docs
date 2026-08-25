@@ -25,7 +25,7 @@ The metadata table displays the following columns:
 
 * **Key**. The entry's generated identifier.
 * **Name**. The entry's name.
-* **Format**. A badge that reads String, Numeric, Boolean, Date, Mail, or URL.
+* **Format**. The entry's format: String, Numeric, Boolean, Date, Mail, or URL.
 * **Value**. The value, or **&#x2014;** when the entry has no value.
 * **Actions**. A row menu that holds the **Edit** and **Delete** actions. The column appears only when you can edit or delete entries, and the menu lists only the actions you can run.
 
@@ -35,9 +35,7 @@ When the environment has no entries, the table reads **No global metadata define
 
 A new environment starts with one entry: name `email-support`, format Mail, and value `support@change.me`.
 
-<!-- TODO: Screenshot of the Metadata page listing the entries of an environment -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-metadata-list.png" alt=""><figcaption><p>The Metadata page lists the key-value entries that APIs in the selected environment inherit.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-metadata-list.png" alt=""><figcaption><p>The Metadata page lists the key-value entries that APIs in the selected environment inherit.</p></figcaption></figure>
 
 ## Add a metadata entry
 
