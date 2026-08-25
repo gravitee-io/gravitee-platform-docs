@@ -27,3 +27,5 @@ guides/auth-protocols/ciba.md
 .gitbook/assets/am-ciba-federation-notifier-cards.png
 .gitbook/assets/am-ciba-federation-notifier-selected.png
 .gitbook/assets/am-ciba-federation-notifier-configuration.png
+# Environment-scoped entrypoints (AM 4.13.0 feature, AM-7165)
+guides/configure-entrypoints.md
