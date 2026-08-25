@@ -21,6 +21,12 @@ The LLM Studio uses the same policy studio as API Management and supports the re
 5. Configure the policy properties, and then click **Save**.
 6. When the "This deployable is out of sync" message appears, click **Deploy** to push the changes to the API Gateway.
 
+## Resources
+
+Policies that depend on shared infrastructure reference a resource configured on the proxy. The **AI - Prompt Guard Rails** policy references an **AI Model Text Classification** resource, and the **PII Filtering** policy references an **AI Model Token Classification** resource.
+
+To manage the resources of the LLM Proxy, under **Design**, select **Resources**. For the steps to add, edit, or remove a resource, see [Configure resources for your proxies](configure-resources-for-your-proxies.md), and for the resource types themselves, see [AI resources](ai-resources.md).
+
 ## Structured output
 
 Structured output enforces response format constraints on model responses. You can enforce structured output natively by overriding model parameters.
