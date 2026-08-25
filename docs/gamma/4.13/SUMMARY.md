@@ -154,6 +154,7 @@
   * [Configure A2A Proxy notifications](agent-management/build/configure-a2a-proxy-notifications.md)
   * [Configure A2A Proxy deployment](agent-management/build/configure-a2a-proxy-deployment.md)
   * [Review A2A Proxy deployment history](agent-management/build/review-a2a-proxy-deployment-history.md)
+  * [Configure logging and tracing for your proxies](agent-management/build/configure-logging-and-tracing-for-your-proxies.md)
 * [Publish](agent-management/publish/README.md)
   * [Publish your LLM Proxy](agent-management/publish/publish-your-llm-proxy.md)
   * [Manage subscriptions](agent-management/publish/manage-subscriptions.md)

@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds a configuration audit trail, event notifications, and API resource configuration to each proxy detail view. It also brings deployment configuration and deployment history to LLM, MCP, and A2A Proxies, and lets you record the price you negotiated with a provider on a cataloged AI model.
+Agent Management adds a configuration audit trail, event notifications, API resource configuration, and logging and tracing configuration to each proxy detail view. It also brings deployment configuration and deployment history to LLM, MCP, and A2A Proxies, and lets you record the price you negotiated with a provider on a cataloged AI model.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -54,6 +54,14 @@ Agent Management adds a configuration audit trail, event notifications, and API 
 * A model with a negotiated price shows a `Custom` badge next to its price, together with the suggested rate and the date and author of the last change. The negotiated price appears in the **Price / 1M** column of the AI Models list, on the model detail page, and on the models page of an LLM Proxy, and it feeds the cost estimates in the AI workspace detail view.
 * Refreshing the catalog updates the provider-derived fields and keeps your negotiated price. Republish any LLM Proxy that consumes a repriced model so cost tracking picks up the negotiated rate.
 * See [Add an AI model](../agent-management/import/add-an-ai-model.md).
+
+#### Reporter Settings for LLM, MCP, and A2A Proxies
+
+* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Reporter Settings** page that controls how request and response data is reported for logs and analytics pipelines.
+* Enable analytics for the proxy, then choose the logging mode (**Entrypoint**, **Endpoint**), the phases (**Request**, **Response**), the content (**Headers**, **Payload**), and an optional Expression Language filter for the request phase.
+* Turn on OpenTelemetry tracing, add verbose span events, emit request and response payloads as OTel log records correlated to the active trace, and mask sensitive span attribute values with per-proxy redaction rules.
+* Reporter changes apply to the gateway when you deploy the proxy from the out-of-sync banner. The page is also available in Gamma from 4.12.12.
+* See [Configure logging and tracing for your proxies](../agent-management/build/configure-logging-and-tracing-for-your-proxies.md).
 
 ### API Management
 
