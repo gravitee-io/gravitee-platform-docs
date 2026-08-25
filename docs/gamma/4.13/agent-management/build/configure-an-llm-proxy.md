@@ -21,6 +21,12 @@ The LLM Studio uses the same policy studio as API Management and supports the re
 5. Configure the policy properties, and then click **Save**.
 6. When the "This deployable is out of sync" message appears, click **Deploy** to push the changes to the API Gateway.
 
+## Resources
+
+Policies that depend on shared infrastructure reference a resource configured on the proxy. The **AI - Prompt Guard Rails** policy references an **AI Model Text Classification** resource, and the **PII Filtering** policy references an **AI Model Token Classification** resource.
+
+To manage the resources of the LLM Proxy, under **Design**, select **Resources**. For the steps to add, edit, or remove a resource, see [Configure resources for your proxies](configure-resources-for-your-proxies.md), and for the resource types themselves, see [AI resources](ai-resources.md).
+
 ## Structured output
 
 Structured output enforces response format constraints on model responses. You can enforce structured output natively by overriding model parameters.
@@ -56,5 +62,6 @@ The **LLM — Overview** dashboard visualizes this data. It tracks `LLM_PROMPT_T
 ## Next steps
 
 * [Create an LLM Proxy](create-an-llm-proxy.md). Create a new LLM Proxy if you haven't already.
+* [Configure LLM Proxy logging and tracing](configure-llm-proxy-logging-and-tracing.md). Control the reported request and response data, and enable OpenTelemetry tracing.
 * [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md). Make the LLM Proxy discoverable.
 * [Monitor AI Gateway usage from employee systems](../observe/monitor-ai-gateway-from-devices.md). View AI traffic from employee devices.

@@ -39,6 +39,7 @@
 * [Manage entrypoints and sharding tags](platform-management/manage-entrypoints-and-sharding-tags.md)
 * [Manage users](platform-management/manage-users.md)
 * [Monitor gateway instances](platform-management/monitor-gateway-instances.md)
+* [Review organization and environment audit logs](platform-management/review-audit-logs.md)
 
 ## API Management
 
@@ -124,6 +125,7 @@
     * [Apply policies to individual tool invocations](agent-management/build/configure-your-mcp/apply-policies-to-tool-invocations.md)
     * [Layered governance for MCP tools](agent-management/build/configure-your-mcp/govern-mcp-tool-access.md)
     * [Connect and secure the GitHub MCP server](agent-management/build/configure-your-mcp/connect-and-secure-github-mcp-server.md)
+    * [Configure logging and tracing](agent-management/build/configure-your-mcp/configure-logging-and-tracing.md)
   * [Configure MCP Proxy deployment](agent-management/build/configure-mcp-proxy-deployment.md)
   * [Review MCP Proxy deployment history](agent-management/build/review-mcp-proxy-deployment-history.md)
     * [Connect and secure the Atlassian MCP server](agent-management/build/configure-your-mcp/connect-and-secure-atlassian-mcp-server.md)
@@ -135,6 +137,7 @@
   * [Configure an LLM Proxy](agent-management/build/configure-an-llm-proxy.md)
   * [Configure LLM Proxy notifications](agent-management/build/configure-llm-proxy-notifications.md)
   * [Configure LLM Proxy deployment](agent-management/build/configure-llm-proxy-deployment.md)
+  * [Configure LLM Proxy logging and tracing](agent-management/build/configure-llm-proxy-logging-and-tracing.md)
   * [Review LLM Proxy deployment history](agent-management/build/review-llm-proxy-deployment-history.md)
   * [LLM Proxy provider support](agent-management/build/llm-proxy-provider-support.md)
   * [Select a text classification model](agent-management/build/select-a-text-classification-model.md)
@@ -144,11 +147,13 @@
   * [Add the Cost Rate Limit policy](agent-management/build/add-the-cost-rate-limit-policy.md)
   * [Configure text classification](agent-management/build/configure-text-classification.md)
   * [AI resources](agent-management/build/ai-resources.md)
+  * [Configure resources for your proxies](agent-management/build/configure-resources-for-your-proxies.md)
   * [Create an agent identity](agent-management/build/create-an-agent-identity.md)
   * [Configure your Access Management instance](agent-management/build/configure-your-access-management-instance.md)
   * [Expose your agent with the A2A Proxy](agent-management/build/expose-agent-with-a2a-proxy.md)
   * [Configure your A2A Proxy](agent-management/build/configure-your-a2a-proxy/README.md)
     * [Add policies to your A2A Proxy](agent-management/build/configure-your-a2a-proxy/add-policies-to-a2a-proxy.md)
+    * [Configure logging and tracing](agent-management/build/configure-your-a2a-proxy/configure-logging-and-tracing.md)
   * [Configure A2A Proxy notifications](agent-management/build/configure-a2a-proxy-notifications.md)
   * [Configure A2A Proxy deployment](agent-management/build/configure-a2a-proxy-deployment.md)
   * [Review A2A Proxy deployment history](agent-management/build/review-a2a-proxy-deployment-history.md)
