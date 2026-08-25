@@ -30,8 +30,7 @@ To open it, complete the following steps:
 
 The page subtitle reads "Control which browser origins may call this organization's management API."
 
-<!-- TODO: Screenshot of the CORS page showing Allow-Origin, methods, headers, and Max age -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-cors.png" alt=""><figcaption><p>The CORS page of the <strong>Organization</strong> section</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-cors.png" alt=""><figcaption><p>The CORS page of the <strong>Organization</strong> section</p></figcaption></figure>
 
 Whether you can edit these fields depends on your access and on your installation's configuration file, in the same way as the other organization settings pages. See [Understand which fields you can edit](configure-console-management-and-schedulers.md#understand-which-fields-you-can-edit).
 

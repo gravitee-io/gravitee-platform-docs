@@ -27,8 +27,7 @@ To open it, complete the following steps:
 
 The page subtitle reads "Configure the mail server this organization uses for notifications, invitations, and other emails."
 
-<!-- TODO: Screenshot of the SMTP page with Enable Emailing on, showing the server fields and Mail Properties -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-smtp.png" alt=""><figcaption><p>The SMTP page of the <strong>Organization</strong> section</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-smtp.png" alt=""><figcaption><p>The SMTP page with emailing enabled, showing the mail server fields</p></figcaption></figure>
 
 Whether you can edit these fields depends on your access and on your installation's configuration file, in the same way as the other organization settings pages. See [Understand which fields you can edit](configure-console-management-and-schedulers.md#understand-which-fields-you-can-edit).
 
@@ -58,6 +57,10 @@ Unlike the other two organization settings pages, mail settings can also be stor
 3. The organization-level value, which is what this page writes.
 4. The built-in default.
 
+{% hint style="warning" %}
+The Management API distribution ships a `config/gravitee.yml` whose `email:` block already sets `email.enabled`, `email.host`, `email.subject`, `email.port`, and `email.from`. On a deployment that uses that file as it comes, those five fields arrive locked and **Enable Emailing** can't be turned on from the console at all. Comment the `email:` block out and restart the Management API to manage them here instead. The Helm chart renders the block only when you supply `smtp` values, so a chart install without them starts with the fields editable.
+{% endhint %}
+
 {% hint style="info" %}
 On a trial instance, the SMTP page shows "SMTP is not available on trial instances." instead of the form. The Management API leaves the mail settings out of its answer and ignores any mail settings sent back to it, so the page has nothing to edit.
 {% endhint %}
@@ -67,6 +70,8 @@ On a trial instance, the SMTP page shows "SMTP is not available on trial instanc
 **Enable Emailing** is the switch that decides whether Gravitee sends mail at all for this organization, and it's off on a new installation. While it's off, the server fields are hidden and no mail is sent, whatever else is stored.
 
 Turn it on to reveal the server fields described in the next section. Turning it off again hides them without clearing the stored values.
+
+The branded-sender sections stay on the page while emailing is off, but nothing in them can be changed. The **Add rule** button and the per-rule delete buttons are hidden, and the fields are inert.
 
 ## Point the organization at your mail server
 
@@ -112,7 +117,11 @@ By default every email leaves with the **From** address and **Subject** template
 
 The **Default notification email** section previews what's in force when no rule matches. **Default From** and **Default subject prefix** are read-only echoes of the **From** and **Subject** fields above, and change as you edit those.
 
-The **Branded notification email** section holds the rules. Click **Add rule** to add one, and use the delete button in the corner of a rule to remove it. Each rule takes three values:
+The **Branded notification email** section holds the rules. Click **Add rule** to add one, and use the delete button in the corner of a rule to remove it.
+
+<figure><img src="../.gitbook/assets/gamma-platform-smtp-branded-senders.png" alt=""><figcaption><p>The mail properties, the read-only default sender preview, and one branded notification email rule</p></figcaption></figure>
+
+Each rule takes three values:
 
 <table><thead><tr><th width="230">Field</th><th>Description</th></tr></thead><tbody>
 <tr><td><strong>Recipient domains</strong></td><td>The recipient domains this rule applies to. Required. Type a domain and press Enter or type a comma to add it. A domain is a dot-separated hostname ending in a top-level domain of two or more letters, or in an <code>xn--</code> internationalized one. An example is <code>partners.example.com</code>.</td></tr>

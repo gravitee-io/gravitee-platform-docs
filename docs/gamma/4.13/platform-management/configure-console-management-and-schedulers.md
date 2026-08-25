@@ -24,8 +24,7 @@ To open it, complete the following steps:
 
 The page subtitle reads "Name this organization console, decide who can register, and how often background tasks and notifications run."
 
-<!-- TODO: Screenshot of the Management & Schedulers page showing the Management and Schedulers cards -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-management-and-schedulers.png" alt=""><figcaption><p>The Management &#x26; Schedulers page of the <strong>Organization</strong> section</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-management-and-schedulers.png" alt=""><figcaption><p>The Management &#x26; Schedulers page of the <strong>Organization</strong> section</p></figcaption></figure>
 
 Every page in this group opens with a note that the configuration may be overridden by a local configuration file. The next section explains what that means for an individual field.
 
@@ -49,7 +48,7 @@ The following table maps each field on this page to the configuration setting th
 <tr><td><strong>Notifications (in seconds)</strong></td><td><code>console.scheduler.notifications</code></td></tr>
 </tbody></table>
 
-**Management URL** locks for a second reason as well. When the installation configuration sets a console URL for the organization, the page shows that URL and the field is read-only, whatever is stored for the organization.
+**Management URL** locks for a second reason as well. Gravitee resolves a console URL for the organization from your installation configuration, then compares it with the value stored for the organization. When the two differ, the page shows the resolved URL and the field is read-only. When the stored value already matches the resolved one, the field stays editable.
 
 ## Configure the management settings
 
