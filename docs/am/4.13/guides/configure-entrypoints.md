@@ -8,14 +8,12 @@ An entrypoint defines a base URL that the AM Gateway is reached on. AM builds us
 
 ## View the entrypoints of your organization
 
-1. In AM Console, click **Settings**.
-2. Under **Settings**, click **Entrypoints**.
+1. In AM Console, click **Organization**.
+2. Under **Gateway**, click **Entrypoints**.
 
 The table lists each entrypoint's **Name**, **Endpoint**, and **Environment**.
 
-<!-- TODO: Screenshot of the organization Entrypoints list -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-am-organization-entrypoints-list.png" alt=""><figcaption><p>The Entrypoints list</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/am-organization-entrypoints-list.png" alt=""><figcaption><p>The Entrypoints list</p></figcaption></figure>
 
 ## Manage entrypoints on a self-hosted installation
 
@@ -41,7 +39,7 @@ On a Gravitee-managed deployment, Gravitee Cloud manages the entrypoints, and ea
 * When a custom domain is attached to the environment, AM prefers the custom domain over the environment's default Gravitee Cloud URL when it builds URLs.
 * AM doesn't create the organization-level default entrypoint.
 
-On the **Entrypoints** page of a security domain, under **Gateway**, switching between the context-path and virtual hosts modes and editing virtual hosts are also unavailable on Gravitee-managed deployments.
+On the **Entrypoints** page of a security domain, under **Settings**, switching between the context-path and virtual hosts modes and editing virtual hosts are also unavailable on Gravitee-managed deployments.
 
 ## Where AM uses the environment entrypoint
 
@@ -60,6 +58,4 @@ To verify an entrypoint is configured as expected on a self-hosted installation,
 1. Add an entrypoint. The list shows it with its **Name** and **Endpoint**.
 2. Delete the entrypoint, and then confirm in the **Delete Entrypoint** dialog. The list no longer shows it.
 
-<!-- TODO: Screenshot of the Entrypoints list showing a created entrypoint -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-am-organization-entrypoints-created.png" alt=""><figcaption><p>The created entrypoint</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/am-organization-entrypoints-created.png" alt=""><figcaption><p>The created entrypoint</p></figcaption></figure>
