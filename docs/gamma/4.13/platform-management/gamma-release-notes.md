@@ -87,7 +87,7 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries as a reusable asset for API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope.
 
 #### Manage dictionaries
 
@@ -102,6 +102,13 @@ Platform Management adds environment-scoped dictionaries as a reusable asset for
 * Sharding tags route APIs to specific gateway groups. Create a tag with an immutable key, restrict it to selected groups, and add the key to the gateway's configuration file.
 * Entrypoint mappings define the entrypoint that the Developer Portal displays for APIs that carry a given tag, as an HTTP URL, a TCP port, or a Kafka bootstrap domain pattern, and apply to all environments or to a selection.
 * See [Manage entrypoints and sharding tags](manage-entrypoints-and-sharding-tags.md).
+
+#### Manage environment metadata
+
+* Add, edit, search, and delete the key-value metadata entries of the selected environment from the **Metadata** page. Every API in the environment inherits each entry as a default value.
+* Give each entry a name, a format of String, Numeric, Boolean, Date, Mail, or URL, and a value. Gravitee generates the entry's key from the name and validates the value against the format.
+* Rename an entry or change its value without changing its key, so the APIs and Developer Portal pages that reference the key keep working.
+* See [Manage environment metadata](manage-environment-metadata.md).
 
 #### Manage users
 
