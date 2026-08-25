@@ -16,9 +16,9 @@ To open the page, follow these steps:
 
 When you change any setting, the **Discard** and **Save changes** buttons appear.
 
-<!-- TODO: Screenshot of the Reporter Settings page -->
+After you save, a confirmation notification appears and both buttons disappear until you edit the form again.
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-reporter-settings.png" alt=""><figcaption><p>The Reporter Settings page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gamma-api-reporter-settings.png" alt="The Reporter Settings page for an API proxy, showing the Settings card with the analytics switch on and the logging mode and logging phase groups"><figcaption><p>The Reporter Settings page</p></figcaption></figure>
 
 {% hint style="warning" %}
 Detailed logging increases storage and can affect gateway performance. Use payload logging and verbose tracing only when needed.
@@ -57,6 +57,8 @@ With **Trace enabled** and **Verbose** both on, the **Span Attribute Redaction**
 
 Each rule carries an **Attribute Name Pattern**, a **Masking Type**, and type-specific fields such as **Replacement Text**, **Prefix chars**, **Suffix chars**, and **Mask char**. A rule can also match on the attribute value with a partial-match regular expression.
 
+Click **Save changes** to persist the rule list.
+
 ## Verification
 
 To verify the reporter settings are working as expected, follow these steps:
@@ -65,6 +67,4 @@ To verify the reporter settings are working as expected, follow these steps:
 2. Deploy the API and send a request to it.
 3. Open the API logs. The request appears with the captured data. See [View API logs](../../observe/view-api-logs.md).
 
-<!-- TODO: Screenshot of a logged request produced by the reporter settings -->
-
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-reporter-logged-request.png" alt=""><figcaption><p>A logged request</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gamma-api-reporter-logged-request.png" alt="The Logs page listing four captured requests, each with its timestamp, method, status, API, URI, and response time"><figcaption><p>A logged request</p></figcaption></figure>
