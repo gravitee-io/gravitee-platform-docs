@@ -12,7 +12,7 @@ Tenants belong to the organization, and the Tenants page in the Gamma console cr
 
 ## Open Tenants
 
-From the Gamma console sidebar, select **Platform Management**, open the **Organization** section, and then navigate to **Tenants**.
+From the Gamma console sidebar, select **Platform Management**, open the **Organization** section, and then navigate to **Tenants**. The section column collapses to icons by default, and hovering an icon shows its name.
 
 The tenants table displays the following columns:
 
@@ -24,9 +24,7 @@ Sort the list by any of the three columns. The search field filters the rows on 
 
 When the organization has no tenants yet, the table is replaced by a **Why create a tenant?** card that explains what a tenant does.
 
-<!-- TODO: Screenshot of the Tenants page listing several tenants, with the key, name, and description columns -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-tenants-list.png" alt=""><figcaption><p>The Tenants page lists the tenants defined for the organization.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-tenants-list.png" alt="The Tenants page listing five tenants with their key, name, and description, above the banner explaining that the key goes into the gateway configuration file"><figcaption><p>The Tenants page lists the tenants defined for the organization.</p></figcaption></figure>
 
 ## Create a tenant
 
@@ -45,9 +43,7 @@ To create a tenant, complete the following steps:
 
 Only the key is unique within the organization, so two tenants can carry the same name. A key that another tenant already uses is rejected in the form.
 
-<!-- TODO: Screenshot of the Create a tenant panel with the Name, Key, and Description fields filled in -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-tenants-create.png" alt=""><figcaption><p>The Create a tenant panel generates the key from the name.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-tenants-create.png" alt="The Create a tenant panel with the name filled in and the key generated from it, above the optional description field"><figcaption><p>The Create a tenant panel generates the key from the name.</p></figcaption></figure>
 
 ## Edit a tenant
 
