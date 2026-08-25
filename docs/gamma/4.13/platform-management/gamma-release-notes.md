@@ -59,8 +59,7 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope.
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It adds the organization-wide console settings too, covering console behavior, cross-origin access to the Management API, and outbound email.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It adds the organization-wide console settings too, covering console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
 
 #### Configure console management and schedulers
 
@@ -133,6 +132,15 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Open an event to read its **JSON Patch**, which names each field the change touched and excludes the object's own timestamps.
 * Export the filtered trail as CSV or JSON for a compliance archive, up to 10,000 events per export.
 * See [Review organization and environment audit logs](review-audit-logs.md).
+
+#### Save observability dashboards
+
+* Save a custom observability dashboard in its environment over the Gamma API, so it survives a restart and reaches everyone with read access to that environment's dashboards. Each dashboard carries its title, its filters, its time range, and its widgets.
+* Create, list, read, update, and delete dashboards under `/gamma/organizations/{orgId}/environments/{envId}/observability/dashboards`. The list endpoint returns the dashboards of the environment, oldest first, 20 per page by default and 100 at most.
+* Concurrent edits are caught with `ETag` and `If-Match`. A save based on a version someone else has already replaced is refused with `412 Precondition Failed` and returns the dashboard as it stands. Sending `If-Match: *` applies the write over whatever version is current.
+* Widgets are stored and returned exactly as sent, up to 50 per dashboard, and each one carries an `id` that's unique within the dashboard.
+* A dashboard saved in another environment is never returned. It resolves to `404 Not Found` rather than `403 Forbidden`.
+* See [Save observability dashboards with the Gamma API](save-observability-dashboards.md).
 
 ## Release Date: June 26, 2026
 
