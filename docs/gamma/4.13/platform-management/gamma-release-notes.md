@@ -10,7 +10,8 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds a configuration audit trail to each proxy detail view.
+Agent Management adds a configuration audit trail and event notifications to each proxy detail view.
+Agent Management adds a configuration audit trail to each proxy detail view, brings deployment configuration and deployment history to LLM, MCP, and A2A Proxies, and lets you record the price you negotiated with a provider on a cataloged AI model.
 
 #### Audit Logs for LLM, MCP, and A2A Proxies
 
@@ -18,6 +19,35 @@ Agent Management adds a configuration audit trail to each proxy detail view.
 * Each entry shows the date, the actor, the event type, and the target of the change. Entries that carry a JSON Patch open the exact change in a side panel.
 * Filter the trail by event type and date range, and page through entries 10, 25, 50, or 100 at a time.
 * See [Review audit logs](../agent-management/observe/review-audit-logs.md).
+
+#### Notifications for LLM, MCP, and A2A Proxies
+
+* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Notifications** page that pairs a notifier with the set of API events that trigger it. The table lists each notification's **Name**, **Notifier**, **Subscribed events**, and **Groups**.
+* Every proxy starts with a **Portal notification**. Add further notifications on any notifier configured for your organization, such as **Default Email Notifier** or a webhook notifier, and address them to an email list or a webhook URL. Target fields support Expression Language, and webhook notifications can route through the gateway's system proxy.
+* Subscribe each notification to the API events that matter, grouped by category such as **API KEY** and **SUBSCRIPTION**, and optionally scope it to selected groups. Leaving groups empty applies the notification to all groups.
+* Creating, editing, and deleting notifications is gated by the `api-notification-c`, `api-notification-u`, and `api-notification-d` permissions. The **Portal notification** can be edited but not deleted, and the channel of an existing notification can't be changed.
+* See [Configure LLM Proxy notifications](../agent-management/build/configure-llm-proxy-notifications.md), [Configure MCP Proxy notifications](../agent-management/build/configure-mcp-proxy-notifications.md), and [Configure A2A Proxy notifications](../agent-management/build/configure-a2a-proxy-notifications.md).
+#### Deployment configuration for LLM, MCP, and A2A Proxies
+
+* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Deployment** section under **Operations**, with a **Configuration** page that controls where the proxy is deployed on the gateway mesh.
+* Assign the sharding tags defined for your organization from the **Sharding tags** card. Only gateway instances advertising a matching tag load the proxy's API definition. Each selected tag appears as a chip, and an assigned tag that no longer exists at the organization level is preserved on save.
+* Changing tags requires the **API\_DEFINITION** permission with the **UPDATE** access level. Proxies managed by the Gravitee Kubernetes Operator (GKO) are read-only here, and their tags are changed from the source definition.
+* See [Configure LLM Proxy deployment](../agent-management/build/configure-llm-proxy-deployment.md), [Configure MCP Proxy deployment](../agent-management/build/configure-mcp-proxy-deployment.md), and [Configure A2A Proxy deployment](../agent-management/build/configure-a2a-proxy-deployment.md).
+
+#### Deployment history for LLM, MCP, and A2A Proxies
+
+* The **Deployment** section adds a **History** page that lists every deployment of the proxy, newest first, with the **Version**, **Date**, **User**, and **Label** of each and a **live** badge on the most recent. Page through entries 10, 25, 50, or 100 at a time.
+* Inspect the API definition a deployment shipped with **View definition**, or compare two versions in a **Side-by-side** or **Line-by-line** diff. **Compare with live** opens an earlier version against the live one in a single step.
+* Roll back to an earlier version from the diff view. The rollback restores the proxy's API definition and its plans, and leaves the proxy with undeployed changes until you deploy it. Rollback requires the **API\_DEFINITION** permission with the **UPDATE** access level.
+* See [Review LLM Proxy deployment history](../agent-management/build/review-llm-proxy-deployment-history.md), [Review MCP Proxy deployment history](../agent-management/build/review-mcp-proxy-deployment-history.md), and [Review A2A Proxy deployment history](../agent-management/build/review-a2a-proxy-deployment-history.md).
+
+#### Negotiated pricing for AI models
+
+* Record the price you negotiated with the provider on a cataloged model, in the **Input price ({currency} per 1M tokens)** and **Output price ({currency} per 1M tokens)** fields of the model edit form. The negotiated price replaces the suggested price wherever the price is shown and wherever cost is computed.
+* Set both prices, or clear both, and enter a price of `0` or more. Entering `0` in both fields is valid, because a free model is still a priced model. `{currency}` is the currency of the suggested price and defaults to `USD` when the provider doesn't suggest one.
+* A model with a negotiated price shows a `Custom` badge next to its price, together with the suggested rate and the date and author of the last change. The negotiated price appears in the **Price / 1M** column of the AI Models list, on the model detail page, and on the models page of an LLM Proxy, and it feeds the cost estimates in the AI workspace detail view.
+* Refreshing the catalog updates the provider-derived fields and keeps your negotiated price. Republish any LLM Proxy that consumes a repriced model so cost tracking picks up the negotiated rate.
+* See [Add an AI model](../agent-management/import/add-an-ai-model.md).
 
 ### API Management
 
@@ -51,7 +81,7 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries as a reusable asset for API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds a view of the gateway instances running behind an environment.
+Platform Management adds environment-scoped dictionaries as a reusable asset for API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope.
 
 #### Manage dictionaries
 
@@ -81,6 +111,14 @@ Platform Management adds environment-scoped dictionaries as a reusable asset for
 * Open an instance to read what it reported about itself on the **Environment** tab: its information rows, the plugins it loaded, and its JVM system properties.
 * Follow the instance's live resource use on the **Monitoring** tab, which refreshes every 5 seconds and reports CPU, heap, memory pools, uptime, file descriptors, threads, and garbage collection.
 * See [Monitor gateway instances](monitor-gateway-instances.md).
+
+#### Review organization and environment audit logs
+
+* Trace who changed what, and when, from two **Audit** pages: one in the **Organization** section covering the whole organization, and one in the **Environment** section covering the selected environment.
+* Narrow the trail by event type, by the kind of object that changed, by a single environment, application, or API, and by a relative or custom date range.
+* Open an event to read its **JSON Patch**, which names each field the change touched and excludes the object's own timestamps.
+* Export the filtered trail as CSV or JSON for a compliance archive, up to 10,000 events per export.
+* See [Review organization and environment audit logs](review-audit-logs.md).
 
 ## Release Date: June 26, 2026
 
