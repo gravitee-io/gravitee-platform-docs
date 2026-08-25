@@ -10,6 +10,8 @@ AI resources are the components that AI policies call at runtime. They supply th
 
 You don't invoke a resource directly. You configure it once, and a policy references it by name. Every policy that needs one exposes a **Resource Name** field listing the resources of the type it requires. A policy configured without its resource fails rather than passing traffic through unchecked.
 
+Create and manage the resources of a proxy from its **Resources** page. See [Configure resources for your proxies](configure-resources-for-your-proxies.md).
+
 ## Available resource types
 
 | Resource | Used by | Purpose |
@@ -164,6 +166,7 @@ The HTTP provider generates embeddings through a custom endpoint. It takes a sin
 
 ## Next steps
 
+* [Configure resources for your proxies](configure-resources-for-your-proxies.md). Add, edit, enable or disable, and remove the resources of an LLM, MCP, or A2A Proxy.
 * [Select a text classification model](select-a-text-classification-model.md). Compare the eight models by accuracy, language coverage, and footprint.
 * [Configure text classification](configure-text-classification.md). Set the sensitivity threshold and decide whether to block or log.
 * [Configure an LLM Proxy](configure-an-llm-proxy.md). Attach the policies that use these resources.
