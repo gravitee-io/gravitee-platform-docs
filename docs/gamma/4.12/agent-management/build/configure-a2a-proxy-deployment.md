@@ -24,7 +24,7 @@ The **Sharding tags** card lists the tags defined for your organization. To assi
 1. Open the tag list and select a tag. Each row shows the tag name and, when the tag has one, its description.
 2. Repeat for each tag you want to assign. Every selected tag appears as a chip beneath the list.
 3. Optional: to unassign a tag, click the remove control on its chip.
-4.  Click **Save changes**, or **Discard** to revert.
+4. Click **Save changes**, or **Discard** to revert.
 
 The **Discard** and **Save changes** buttons appear only once your selection differs from the saved value. A successful save confirms with **Deployment configuration saved**.
 

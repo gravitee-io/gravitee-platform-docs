@@ -42,14 +42,10 @@ The diff dialog shows the differences between the two definitions, with **Side-b
 To roll back, follow these steps:
 
 1. Open the target version, either by selecting two versions to open the diff view or by clicking **View definition** on a single version.
-2.  Click **Rollback**, which names the target version.
+2. Click **Rollback**.
 3. Confirm in the rollback dialog, which names the target version.
 
-The rollback restores the A2A Proxy's API definition and its plans to the selected version.
-
-{% hint style="warning" %}
-The rollback doesn't deploy the A2A Proxy. The restored definition is saved, and the A2A Proxy is left with undeployed changes until you deploy it. The confirmation dialog describes the action as redeploying to the gateway, but no deployment takes place. The action can't be undone.
-{% endhint %}
+The rollback restores the A2A Proxy's API definition to the selected version.
 
 If the rollback fails, a card stays on screen reading **Rollback failed**, followed by the reason.
 
@@ -61,4 +57,4 @@ To verify the deployment history is working as expected, follow these steps:
 
 1. Deploy the A2A Proxy twice with different configurations, and give each deployment a label.
 2. Open the **Deployment History** page. Both deployments appear with their labels, and the newest one carries the **live** badge.
-3.  Select both versions. The diff view shows the configuration change.
+3. Select both versions. The diff view shows the configuration change.
