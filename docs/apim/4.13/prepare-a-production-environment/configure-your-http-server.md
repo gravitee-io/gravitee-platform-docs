@@ -130,6 +130,20 @@ The status the API consumer receives indicates where a connection problem occurr
 
 Each status is accompanied by an error key in the Gateway logs and analytics. For the full list of connection-related error keys, see [Execution Transparency error keys](../analyze-and-monitor-apis/execution-transparency-analytics.md#connectivity-and-timeout-error-keys).
 
+## Idle timeout behavior
+
+The `idleTimeout` setting closes a client connection that has carried no traffic for the configured duration. Unlike every other timeout on this page, **the value is expressed in seconds**. The default of `0` disables it, so the Gateway never closes an idle client connection on its own.
+
+The timer covers the connection as a whole, including the period while a request is in flight and the Gateway is waiting for the backend to respond. No bytes travel on the client connection during that wait, so a request that takes longer than `idleTimeout` is closed while it's still progressing normally. The API consumer then receives no response at all: no status, no error key, and no response template runs. With `idleTimeout` set to `25` and a backend that answers in 30 seconds, the connection closes after 25 seconds and the consumer sees only a closed connection.
+
+Set `idleTimeout` above the longest wait an endpoint can impose, which is its `connectTimeout` plus its `readTimeout`. With the endpoint defaults of `5000` ms and `10000` ms, any value above `15` is clear of that ceiling.
+
+Setting it below the idle limit of whatever fronts the Gateway is worth considering. A load balancer that drops idle flows without notifying either side leaves the Gateway holding sockets for connections that no longer exist; closing them first keeps that decision with the Gateway.
+
+{% hint style="info" %}
+In single-server mode the Helm chart doesn't expose this field. Set it with the `gravitee_http_idleTimeout` environment variable, or switch to the `gateway.servers[]` array described in [Multi-server support](configure-your-http-server.md#multi-server-support).
+{% endhint %}
+
 ## Chunked transfer encoding behavior
 
 No Gateway, API, or policy configuration option forces or disables chunked transfer encoding. The Gateway determines the framing of proxied requests and responses automatically, based on the `Content-Length` and `Transfer-Encoding` headers of the message, and adjusts these headers where required to keep the framing valid.
