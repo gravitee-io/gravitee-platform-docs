@@ -35,6 +35,7 @@
 * [Configure Access Management](platform-management/configure-access-management.md)
 * [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
 * [Manage applications](platform-management/manage-applications.md)
+* [Manage dictionaries](platform-management/manage-dictionaries.md)
 
 ## API Management
 
