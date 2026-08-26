@@ -76,11 +76,13 @@ Before you upgrade to 4.13:
 * Look for callers that send dot segments on purpose. Under the previous default they were routed on the path as received. Search your access logs, or the Gateway's `uri` field, for `../`, `%2e%2e`, and `..;`.
 * Check any backend or policy that matches on a percent-encoded unreserved character, such as `%41` or `%7E`. It now receives the decoded form.
 * Check any route that relies on a duplicate slash, such as `/a//b`. It's now routed and forwarded as `/a/b`.
-* Check any caller that sends a malformed percent sequence, such as `/a%zz`. It now receives a `400`.
+* Check any caller that sends a malformed percent sequence, such as `/a%zz`. It now receives a `400` from the Gateway, where the outcome previously depended on the rest of the chain.
 * Expect reported paths to change. `pathInfo` becomes the resolved path, so dashboards built on it shift. `uri` still reports the path as received.
 * Decide what to do about the shapes this setting doesn't cover, listed under [What the modes don't cover](request-path-handling.md#what-the-modes-dont-cover). `NORMALIZE` isn't traversal hardening for an arbitrary receiver.
 
 ## Overview
+
+`http.pathHandling` is available starting with Gravitee APIM 4.13.0. On the maintenance branches it's available starting with 4.11.26 and 4.12.18, where the default stays `RAW`.
 
 The `http.pathHandling` setting decides how the Gateway treats the request path before it resolves the listener context path, and therefore before it enforces any plan.
 
@@ -161,7 +163,7 @@ Because `pathInfo` feeds analytics and path mappings, reported paths become the 
 
 `REJECT` answers `400` to any request whose path isn't already in its normalized form, and rewrites nothing. A path that's already canonical is routed exactly as it is under `RAW`, so no routing decision and no upstream request line changes.
 
-The response body is `The request path is not in its normalized form.`, sent as `text/plain`. Override both with `http.errors[400].message` and `http.errors[400].contentType`. A gRPC caller also receives `grpc-status: 3` (`INVALID_ARGUMENT`) and `grpc-message`, because a gRPC client reads the outcome from the trailers rather than from the HTTP status code.
+The response body is `The request path is not in its normalized form.`, sent as `text/plain`. Override both with `http.errors[400].message` and `http.errors[400].contentType`. When the request's `Content-Type` is `application/grpc`, the Gateway also sets `grpc-status: 3` (`INVALID_ARGUMENT`) and `grpc-message` on the response, so the refusal carries a gRPC reason and not only an HTTP status.
 
 `REJECT` refuses on exactly the conditions that `NORMALIZE` would act on: a path that's empty or doesn't start with `/`, two consecutive separators, a segment that is `.` or `..`, a percent sequence that decodes to an unreserved character, and a percent sequence that's truncated or not hexadecimal.
 
@@ -309,7 +311,9 @@ Two details silently invalidate this test.
 The flow selector must be `START_WITH` on `/`, not `EQUALS`. Every path under test carries extra segments, so an `EQUALS` selector matches none of them, the policy never runs, and the request is proxied to the endpoint instead.
 {% endhint %}
 
-A malformed percent sequence, such as `/proxyv4/a%+41b`, answers `400` in all three modes, including `RAW`. Under `RAW` that `400` comes from the HTTP layer refusing a malformed request line before the Gateway sees it, not from this setting. The `Rejecting request` log line above is what distinguishes the two.
+A malformed percent sequence, such as `/proxyv4/a%zz`, is answered with `400` under `REJECT` and `NORMALIZE`, because it has no normalized form.
+
+Under `RAW` this setting does nothing to it: the Gateway neither refuses nor rewrites the path. What the caller receives then depends on the rest of the chain, the HTTP server layer that parses the request line or the backend that finally reads the path, and it can differ between versions. A `400` observed under `RAW` isn't this setting at work, and the `Rejecting request` log line above is what tells a Gateway rejection from any other.
 
 ### In the Debug console
 
