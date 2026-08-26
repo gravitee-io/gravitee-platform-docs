@@ -9,6 +9,10 @@ description: >-
 
 ## Overview
 
+`http.pathHandling` is available starting with Gravitee APIM 4.11.26 and 4.12.18. On an earlier patch the Gateway has no such setting, and the behavior described under `RAW` below is the only one available.
+
+Upgrading to one of those patches doesn't change any behavior on its own. The default stays `RAW`, so the Gateway keeps routing on the path as received until you set `REJECT` or `NORMALIZE` explicitly.
+
 The Gateway resolves the listener context path against the request path exactly as it arrived, enforces the plan of the API that matched, then forwards that path upstream without resolving it. A receiver that conforms to [RFC 3986 §5.2.4](https://www.rfc-editor.org/rfc/rfc3986#section-5.2.4) resolves the dot segments itself, and serves a different resource than the one the Gateway authorized.
 
 Take two APIs published on the same Gateway: `alpha` on `/alpha/api/` with no plan, and `beta` on `/beta/api/` behind an API key plan.
@@ -100,7 +104,7 @@ Because `pathInfo` feeds analytics and path mappings, reported paths become the 
 
 `REJECT` answers `400` to any request whose path isn't already in its normalized form, and rewrites nothing. A path that's already canonical is routed exactly as it is under `RAW`, so no routing decision and no upstream request line changes.
 
-The response body is `The request path is not in its normalized form.`, sent as `text/plain`. Override both with `http.errors[400].message` and `http.errors[400].contentType`. A gRPC caller also receives `grpc-status: 3` (`INVALID_ARGUMENT`) and `grpc-message`, because a gRPC client reads the outcome from the trailers rather than from the HTTP status code.
+The response body is `The request path is not in its normalized form.`, sent as `text/plain`. Override both with `http.errors[400].message` and `http.errors[400].contentType`. When the request's `Content-Type` is `application/grpc`, the Gateway also sets `grpc-status: 3` (`INVALID_ARGUMENT`) and `grpc-message` on the response, so the refusal carries a gRPC reason and not only an HTTP status.
 
 `REJECT` refuses on exactly the conditions that `NORMALIZE` would act on: a path that's empty or doesn't start with `/`, two consecutive separators, a segment that is `.` or `..`, a percent sequence that decodes to an unreserved character, and a percent sequence that's truncated or not hexadecimal.
 
@@ -248,7 +252,9 @@ Two details silently invalidate this test.
 The flow selector must be `START_WITH` on `/`, not `EQUALS`. Every path under test carries extra segments, so an `EQUALS` selector matches none of them, the policy never runs, and the request is proxied to the endpoint instead.
 {% endhint %}
 
-A malformed percent sequence, such as `/proxyv4/a%+41b`, answers `400` in all three modes, including `RAW`. Under `RAW` that `400` comes from the HTTP layer refusing a malformed request line before the Gateway sees it, not from this setting. The `Rejecting request` log line above is what distinguishes the two.
+A malformed percent sequence, such as `/proxyv4/a%zz`, is answered with `400` under `REJECT` and `NORMALIZE`, because it has no normalized form.
+
+Under `RAW` this setting does nothing to it: the Gateway neither refuses nor rewrites the path. What the caller receives then depends on the rest of the chain, the HTTP server layer that parses the request line or the backend that finally reads the path, and it can differ between versions. A `400` observed under `RAW` isn't this setting at work, and the `Rejecting request` log line above is what tells a Gateway rejection from any other.
 
 ### In the Debug console
 
