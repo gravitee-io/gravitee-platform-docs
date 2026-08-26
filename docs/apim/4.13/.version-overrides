@@ -42,3 +42,9 @@ analyze-and-monitor-apis/logging/configure-environment-level-logs.md
 analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md
 # http.pathHandling defaults to NORMALIZE from 4.13.0 (APIM-14917); 4.11/4.12 keep RAW
 configure-and-manage-the-platform/gravitee-gateway/request-path-handling.md
+configure-and-manage-the-platform/gravitee-gateway/request-path-handling/README.md
+configure-and-manage-the-platform/gravitee-gateway/request-path-handling/upgrade-to-the-4-13-default.md
+configure-and-manage-the-platform/gravitee-gateway/request-path-handling/configure-path-handling.md
+configure-and-manage-the-platform/gravitee-gateway/request-path-handling/verify-path-handling.md
+configure-and-manage-the-platform/gravitee-gateway/request-path-handling/path-handling-reference.md
+configure-and-manage-the-platform/gravitee-gateway/request-path-handling/path-handling-limits.md
