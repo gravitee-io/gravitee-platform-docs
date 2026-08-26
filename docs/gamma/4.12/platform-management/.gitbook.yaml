@@ -1,8 +1,0 @@
-root: ./
-
-structure:
-  readme: overview.md
-  summary: SUMMARY.md
-
-redirects:
-  manage-the-platform: overview.md
