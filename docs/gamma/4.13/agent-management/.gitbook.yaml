@@ -1,8 +1,0 @@
-root: ./
-
-structure:
-  readme: get-started/README.md
-  summary: SUMMARY.md
-
-redirects:
-  import/create-event-tools: import/README.md
