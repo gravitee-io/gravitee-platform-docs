@@ -23,7 +23,7 @@ From 4.13.0, the `http.pathHandling` Gateway setting defaults to `NORMALIZE`. In
 
 A request carrying dot segments is now routed on the resolved path, so it can reach a different API than it did before, and it's enforced by that API's plan. `/alpha/api/../../beta/api/echo` is read as a call to `beta` and answers `401` without a credential, where it previously matched `alpha` and reached beta's backend unauthenticated. Percent-encoded unreserved characters are also decoded, so `%41` reaches the backend as `A`, duplicate slashes are merged, and a malformed percent sequence is answered with `400`. Encoded slashes are never decoded.
 
-Set `http.pathHandling: RAW` to restore the previous behavior, which also restores a known authorization bypass. Set `http.pathHandling: REJECT` to close the exposure without changing any routing decision: a non-canonical path is answered with `400` and nothing is rewritten. For the upgrade checklist and the limits of each mode, see [Request Path Handling](../configure-and-manage-the-platform/gravitee-gateway/request-path-handling.md).
+Set `http.pathHandling: RAW` to restore the previous behavior, which also restores a known authorization bypass. Set `http.pathHandling: REJECT` to close the exposure without changing any routing decision: a non-canonical path is answered with `400` and nothing is rewritten. For the upgrade checklist and the limits of each mode, see [Request Path Handling](../configure-and-manage-the-platform/gravitee-gateway/request-path-handling/README.md).
 
 **Management API v1 plan endpoints reject V4, Federated, and Federated Agent APIs**
 

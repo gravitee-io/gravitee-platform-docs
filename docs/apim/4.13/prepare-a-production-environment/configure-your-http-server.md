@@ -101,7 +101,7 @@ In single-server mode the Helm chart fixes `host` to `0.0.0.0` and doesn't expos
 {% endtab %}
 {% endtabs %}
 
-The `http` block also carries `pathHandling`, which decides how the Gateway treats the request path before it resolves the listener context path, and therefore before it enforces any plan. For the available modes and the default on this version, see [Request Path Handling](../configure-and-manage-the-platform/gravitee-gateway/request-path-handling.md).
+The `http` block also carries `pathHandling`, which decides how the Gateway treats the request path before it resolves the listener context path, and therefore before it enforces any plan. For the available modes and the default on this version, see [Request Path Handling](../configure-and-manage-the-platform/gravitee-gateway/request-path-handling/README.md).
 
 ## Request timeout behavior
 
