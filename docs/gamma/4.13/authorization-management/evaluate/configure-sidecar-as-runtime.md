@@ -82,4 +82,4 @@ Point your application's authorization checks to the sidecar's local endpoint (t
 ## Next steps
 
 * [Policy syncs](policy-syncs.md) — How the sidecar receives policy updates
-* [AuthZEN PDP synchronization](../authz-gateway-sync.md) — Sync protocol details
+* [Authorization policy synchronization](../authz-gateway-sync.md) — Sync protocol details

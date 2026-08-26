@@ -35,6 +35,7 @@
 * [Configure Access Management](platform-management/configure-access-management.md)
 * [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
 * [Manage applications](platform-management/manage-applications.md)
+* [Manage dictionaries](platform-management/manage-dictionaries.md)
 
 ## API Management
 
@@ -179,6 +180,7 @@
   * [API policy examples](authorization-management/configure/api-policy-examples.md)
   * [MCP policy examples](authorization-management/configure/mcp-policy-examples.md)
   * [AI policy example](authorization-management/configure/ai-policy-example.md)
+  * [Authorization policy synchronization](authorization-management/authz-gateway-sync.md)
 * [Evaluate](authorization-management/evaluate/README.md)
   * [Configure the Gravitee Gateway as a runtime](authorization-management/evaluate/configure-gravitee-gateway-as-runtime.md)
   * [Configure a sidecar as runtime](authorization-management/evaluate/configure-sidecar-as-runtime.md)

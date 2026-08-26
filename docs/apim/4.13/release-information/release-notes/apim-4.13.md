@@ -86,6 +86,13 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * Every addition carries a default implementation (`UNKNOWN` type, empty results), so an existing provider compiled against contract version `1.0.1` compiles and runs unchanged, and a registry that doesn't support these lookups returns the defaults.
 * The Confluent Schema Registry resource implements the new surface from plugin version `5.1.0`, bundled with APIM 4.13. For more information, see [Implement a schema registry provider](../../plugins/customization/schema-registry-provider.md).
 
+#### **Kafka Gateway: broker addressing for Virtual Clusters**
+
+* A Virtual Cluster rewrites broker IDs so they stay unique across its backends, which means the hostnames clients resolve are not the ones a single-backend deployment used. `gateway.kafka.routingHostMode.virtualClusterBrokerDomainPattern` sets the broker domain pattern for Kafka APIs backed by a Virtual Cluster only, so adopting one no longer moves the DNS records and certificate SANs of every other Kafka API on the same Gateway. It is optional: left unset, Virtual Clusters keep following `brokerDomainPattern`, and both defaults are unchanged.
+* Two placeholders come with it, usable in either pattern: `{realBrokerId}`, the broker ID as configured on the backend, and `{clusterIndex}`, the backend's zero-based position in the Virtual Cluster. Together they let a hostname keep your own broker numbering instead of the rewritten IDs. A Virtual Cluster pattern must still tell the backends apart — through `{brokerId}`, which encodes the backend, or through `{clusterIndex}` alongside `{realBrokerId}` — and the Gateway now refuses to deploy a pattern that cannot, rather than routing to the wrong backend silently.
+* A client connecting on a broker hostname the Virtual Cluster never advertised — a DNS record left over from a single-backend deployment, most often — is now served as a bootstrap connection, so it receives the merged metadata and re-targets itself at the correct broker. Previously the connection was closed without a response and the client waited out its own timeout, which typically surfaced as producing failing while bootstrap and topic listing worked. The Gateway logs a warning naming what it could not place, so the stale DNS record stays visible rather than being papered over.
+* For more information, see [Virtual Cluster Broker Addressing](../../kafka-gateway/virtual-cluster-broker-addressing.md).
+
 ## Improvements
 
 #### **Datadog Reporter: Consumer and error tags on the request count metric**
