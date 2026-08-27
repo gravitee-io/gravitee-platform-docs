@@ -48,3 +48,6 @@ configure-and-manage-the-platform/gravitee-gateway/request-path-handling/configu
 configure-and-manage-the-platform/gravitee-gateway/request-path-handling/verify-path-handling.md
 configure-and-manage-the-platform/gravitee-gateway/request-path-handling/path-handling-reference.md
 configure-and-manage-the-platform/gravitee-gateway/request-path-handling/path-handling-limits.md
+# Cross-reference to Request Path Handling differs: 4.12 links the flat page,
+# 4.13 links the folder README (APIM-14917)
+prepare-a-production-environment/configure-your-http-server.md
