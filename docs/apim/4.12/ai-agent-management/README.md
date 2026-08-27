@@ -2,7 +2,7 @@
 description: An overview about AI Agent Management.
 metaLinks:
   canonical: >-
-    https://documentation.gravitee.io/gravitee-gamma/agent-management/get-started/ai-management-overview
+    https://documentation.gravitee.io/gravitee-gamma/agent-management/overview
 ---
 
 # AI Agent Management
