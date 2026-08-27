@@ -44,4 +44,6 @@ With a layer 4 load balancer there is no such hop. Nothing between the client an
 
 * [Upgrade to the 4.13 Path Handling Default](upgrade-to-the-4-13-default.md). Understand what the new default changes for an existing deployment, and work through the upgrade checklist.
 * [Configure Request Path Handling](configure-path-handling.md). Set the mode in `gravitee.yaml`, the `.env` file, or Helm values.
+* [Verify Path Handling on a Running Gateway](verify-path-handling.md). Confirm from the startup log which mode the Gateway actually came up in, and observe the `path`, `pathInfo`, and `uri` values it holds for a request that carries dot segments.
+* [Request Path Handling Reference](path-handling-reference.md). Read exactly what `NORMALIZE` resolves, decodes, and merges, and the conditions `REJECT` answers `400` on.
 * [What Path Handling does not support](path-handling-limits.md). No mode resolves or refuses an encoded separator, a double encoding, or an overlong UTF-8 sequence, and `NORMALIZE` does not protect a path-based allow or deny rule against a segment carrying parameters.
