@@ -36,6 +36,7 @@
 * [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
 * [Manage applications](platform-management/manage-applications.md)
 * [Manage dictionaries](platform-management/manage-dictionaries.md)
+* [Manage environment metadata](platform-management/manage-environment-metadata.md)
 
 ## API Management
 
