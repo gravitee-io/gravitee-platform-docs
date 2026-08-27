@@ -19,7 +19,7 @@ The Metadata page in the Gamma console lets you view, add, edit, and delete the 
 
 ## View environment metadata
 
-From the Gamma console sidebar, select **Platform Management**, and open the **Environment** section. Under **APIs & Assets**, select **Metadata**.
+From the Gamma console sidebar, select **Platform Management**. Under **APIs & Assets**, select **Metadata**.
 
 The metadata table displays the following columns:
 
