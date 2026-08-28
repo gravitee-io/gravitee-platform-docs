@@ -12,7 +12,7 @@ Tenants belong to the organization, and the Tenants page in the Gamma console cr
 
 ## Open Tenants
 
-From the Gamma console sidebar, select **Platform Management**, open the **Organization** section, and then navigate to **Tenants**. The section column collapses to icons by default, and hovering an icon shows its name.
+From the Gamma console sidebar, select **Platform Management**, and open the **Organization** section. Under **Assets**, select **Tenants**. The section column collapses to icons by default, and hovering an icon shows its name.
 
 The tenants table displays the following columns:
 
