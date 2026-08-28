@@ -14,13 +14,13 @@ These settings are stored at organization scope, so they apply to every environm
 
 ## Open the Management & Schedulers page
 
-The page sits in the **Organization** section, which is where the settings that apply across environments live.
+The page sits in the **System & Security** group of the **Organization** section, which is where the settings that apply across environments live.
 
 To open it, complete the following steps:
 
 1. From the Gamma console sidebar, select **Platform Management**.
 2. Open the **Organization** section.
-3. Navigate to **Management & Schedulers**.
+3. Under **System & Security**, select **Management & Schedulers**.
 
 The page subtitle reads "Name this organization console, decide who can register, and how often background tasks and notifications run."
 

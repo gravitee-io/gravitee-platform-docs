@@ -17,13 +17,13 @@ The values on this page are stored at organization scope and take effect without
 
 ## Open the SMTP page
 
-The page sits in the **Organization** section, alongside the other settings that apply across environments.
+The page sits in the **System & Security** group of the **Organization** section, alongside the other settings that apply across environments.
 
 To open it, complete the following steps:
 
 1. From the Gamma console sidebar, select **Platform Management**.
 2. Open the **Organization** section.
-3. Navigate to **SMTP**.
+3. Under **System & Security**, select **SMTP**.
 
 The page subtitle reads "Configure the mail server this organization uses for notifications, invitations, and other emails."
 
@@ -58,7 +58,7 @@ Unlike the other two organization settings pages, mail settings can also be stor
 4. The built-in default.
 
 {% hint style="warning" %}
-The Management API distribution ships a `config/gravitee.yml` whose `email:` block already sets `email.enabled`, `email.host`, `email.subject`, `email.port`, and `email.from`. On a deployment that uses that file as it comes, those five fields arrive locked and **Enable Emailing** can't be turned on from the console at all. Comment the `email:` block out and restart the Management API to manage them here instead. The Helm chart renders the block only when you supply `smtp` values, so a chart install without them starts with the fields editable.
+The Management API distribution ships a `config/gravitee.yml` whose `email:` block already sets `email.enabled`, `email.host`, `email.subject`, `email.port`, and `email.from`. On a deployment that uses that file as it comes, those five fields arrive locked and **Enable Emailing** can't be turned on from the console at all. Comment the `email:` block out and restart the Management API to manage them here instead. The Helm chart always renders an `email:` block on a default install, because `smtp.enabled` is `true` in the chart values, so **Enable Emailing** arrives locked on. The other SMTP fields stay editable until you also set them under `smtp`. To manage **Enable Emailing** from this page, set `smtp` to null, or otherwise omit it, so the block isn't rendered, then restart the Management API.
 {% endhint %}
 
 {% hint style="info" %}

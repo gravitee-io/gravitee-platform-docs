@@ -20,13 +20,13 @@ This page covers the Management API only. The Developer Portal API has its own C
 
 ## Open the CORS page
 
-The page sits in the **Organization** section, alongside the other settings that apply across environments.
+The page sits in the **System & Security** group of the **Organization** section, alongside the other settings that apply across environments.
 
 To open it, complete the following steps:
 
 1. From the Gamma console sidebar, select **Platform Management**.
 2. Open the **Organization** section.
-3. Navigate to **CORS**.
+3. Under **System & Security**, select **CORS**.
 
 The page subtitle reads "Control which browser origins may call this organization's management API."
 
