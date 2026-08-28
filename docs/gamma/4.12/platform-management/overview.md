@@ -94,7 +94,7 @@ See [Event Stream Management overview](../event-stream-management/get-started/ev
 
 Agent Management governs every protocol in the agentic stack. The **LLM Proxy** handles traffic to LLM providers with guardrails, PII filtering, and token-based rate limiting. Supported providers are OpenAI, Gemini, Anthropic, Bedrock, and Vertex AI. The **MCP Proxy** governs tool invocations in two modes: Proxy mode for transparent governance of upstream MCP servers, and Studio mode for composing catalog assets into an MCP Studio. The **A2A Proxy** governs agent-to-agent delegations with skill discovery, per-skill authorization, and agent identity verification. Every interaction emits an OpenTelemetry span with agent identity, tool name, inputs, outputs, latency, policy decision, cost, and timestamp.
 
-See [Agent Management overview](../agent-management/get-started/ai-management-overview.md).
+See [Agent Management overview](../agent-management/overview/README.md).
 
 ### Authorization Management
 
@@ -138,5 +138,5 @@ If you're new to Gravitee Gamma, complete the following steps:
 If you're evaluating Gravitee Gamma for your organization, consult the following resources:
 
 * [**Authorization Management overview**](../authorization-management/get-started/authorization-management-overview.md). Understand GAPL policies and how the shared policy engine governs all traffic types.
-* [**Agent Management overview**](../agent-management/get-started/ai-management-overview.md). Understand how the AI Gateway, Catalog, and Agent Identity work together to govern AI agent traffic.
+* [**Agent Management overview**](../agent-management/overview/README.md). Understand how the AI Gateway, Catalog, and Agent Identity work together to govern AI agent traffic.
 * [**Event Stream Management overview**](../event-stream-management/get-started/event-stream-management-overview.md). Understand how Kafka infrastructure is governed and exposed to agents through the Catalog.
