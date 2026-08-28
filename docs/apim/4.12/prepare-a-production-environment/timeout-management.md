@@ -17,9 +17,9 @@ The two scopes don't override each other. Whichever expires first interrupts the
 
 Timeouts can't be configured per plan. To apply different timeout behavior to different consumers, expose the backend through separate APIs with different endpoint configurations.
 
-<table><thead><tr><th width="190">Setting</th><th width="120">Scope</th><th width="110">Default (ms)</th><th>What it bounds</th></tr></thead><tbody><tr><td><code>http.requestTimeout</code></td><td>Gateway</td><td>30000</td><td>The processing of the request, up to the response. Not the transfer of the body.</td></tr><tr><td><code>http.requestTimeoutGraceDelay</code></td><td>Gateway</td><td>30</td><td>The minimum execution window granted to the response phase.</td></tr><tr><td><code>connectTimeout</code></td><td>Endpoint</td><td>5000</td><td>Establishing the TCP connection to the backend.</td></tr><tr><td><code>readTimeout</code></td><td>Endpoint</td><td>10000</td><td>Waiting for the backend response, and connection acquisition from the pool. Disarmed once the response headers arrive.</td></tr><tr><td><code>idleTimeout</code></td><td>Endpoint</td><td>60000</td><td>Inactivity on the connection itself, whether or not a request is in flight.</td></tr><tr><td><code>keepAliveTimeout</code></td><td>Endpoint</td><td>30000</td><td>How long an unused connection stays in the pool. HTTP/1.x only.</td></tr></tbody></table>
+<table><thead><tr><th width="190">Setting</th><th width="120">Scope</th><th width="110">Default</th><th>What it bounds</th></tr></thead><tbody><tr><td><code>http.requestTimeout</code></td><td>Gateway</td><td>30000 ms</td><td>The processing of the request, up to the response. Not the transfer of the body.</td></tr><tr><td><code>http.requestTimeoutGraceDelay</code></td><td>Gateway</td><td>30 ms</td><td>The minimum execution window granted to the response phase.</td></tr><tr><td><code>http.idleTimeout</code></td><td>Gateway</td><td>0 s (disabled)</td><td>Inactivity on the inbound client connection, including while a request is in flight. Expressed in <strong>seconds</strong>.</td></tr><tr><td><code>connectTimeout</code></td><td>Endpoint</td><td>5000 ms</td><td>Establishing the TCP connection to the backend.</td></tr><tr><td><code>readTimeout</code></td><td>Endpoint</td><td>10000 ms</td><td>Waiting for the backend response, and connection acquisition from the pool. Disarmed once the response headers arrive.</td></tr><tr><td><code>idleTimeout</code></td><td>Endpoint</td><td>60000 ms</td><td>Inactivity on the connection itself, whether or not a request is in flight.</td></tr><tr><td><code>keepAliveTimeout</code></td><td>Endpoint</td><td>30000 ms</td><td>How long an unused connection stays in the pool. HTTP/1.x only.</td></tr></tbody></table>
 
-You configure every one of these settings in milliseconds, at both scopes.
+You configure these settings in milliseconds at both scopes, with the exception of `http.idleTimeout`, which is expressed in seconds.
 
 The following diagram places each timer on the life of a single request, using the default values. The request arrives at second 0, the connection is obtained at second 5, and the response completes at second 12.
 
@@ -98,6 +98,12 @@ The default values satisfy this rule. Inverting them changes the diagnosis rathe
 ### Keep `http.requestTimeout` above `readTimeout`
 
 The endpoint timeout produces the more precise diagnosis, so let it fire first. Set `http.requestTimeout` above `readTimeout` and below whatever the API consumers themselves tolerate.
+
+### Keep `http.idleTimeout` clear of the endpoint timeouts
+
+`http.idleTimeout` governs the connection between the API consumer and the Gateway, and it's expressed in **seconds** rather than milliseconds. Its timer keeps running while the Gateway waits for the backend, because no bytes travel on the consumer connection during that wait. A request slower than `http.idleTimeout` is therefore closed while it's still progressing, and the API consumer receives no response at all: no status, no error key, and no response template.
+
+Set it above the longest wait an endpoint can impose, which is `connectTimeout` plus `readTimeout`, or leave the default of `0` to disable it. See [Idle timeout behavior](configure-your-http-server.md#idle-timeout-behavior).
 
 ### Size `readTimeout` from the backend, not from the stream
 
