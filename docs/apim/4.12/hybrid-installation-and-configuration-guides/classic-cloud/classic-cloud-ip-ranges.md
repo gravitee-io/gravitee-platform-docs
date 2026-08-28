@@ -10,6 +10,12 @@ Gravitee is migrating Classic Cloud hosted environments to a new platform. This 
 
 If your organization restricts network traffic with firewall rules, add the following IP ranges to your firewall rules before Gravitee migrates your environment, and keep them in place after the migration. If your firewall rules don't allow the new IP ranges, traffic to and from your environment's endpoints is blocked after the migration.
 
+{% hint style="warning" %}
+**Add the new ranges alongside your existing rules. Do not replace your current entries.**
+
+Keep the IP addresses that your firewall rules already allow for your Gravitee environment. Both your current addresses and the new ranges are needed until your environment has migrated. After Gravitee confirms that your migration is complete, you can remove the entries you no longer need.
+{% endhint %}
+
 {% hint style="info" %}
 Gravitee contacts hosted customers before their environments are migrated.
 {% endhint %}
@@ -43,6 +49,8 @@ Your environment receives incoming traffic on the following IP ranges. If your n
 2c0f:f248::/32
 ```
 
+These are Cloudflare's published IP ranges. Cloudflare maintains the authoritative list at [cloudflare.com/ips](https://www.cloudflare.com/ips/). If you generate your firewall rules automatically, source the ranges from there so that you pick up any future changes to the list.
+
 ## Outgoing IP ranges
 
 Traffic that leaves your environment, for example calls from your Gateways to your backend services, originates from the following IP ranges. Allow these ranges as sources in the firewall rules that protect your backend services.
@@ -51,3 +59,22 @@ Traffic that leaves your environment, for example calls from your Gateways to yo
 48.222.129.24/29
 2603:1020:203:2d::8/125
 ```
+
+## Ports
+
+Allow the following ports alongside the IP ranges above.
+
+| Traffic | Protocol and port |
+| ------- | ----------------- |
+| Client applications to your Gravitee environment endpoints | TCP 443 (HTTPS) |
+| Self-hosted hybrid Gateway to Gravitee | TCP 443 (HTTPS), outbound |
+
+{% hint style="info" %}
+If you use the Kafka Gateway, its endpoint is not covered by the incoming IP ranges above and uses a different port. Contact Gravitee for the address and port that apply to your environment.
+{% endhint %}
+
+## Hybrid Gateway connectivity
+
+If you run self-hosted hybrid Gateways, they connect outbound to the Bridge over HTTPS on port 443.
+
+Your Gateway always initiates this connection. Gravitee does not open connections into your network, so you do not need to open any inbound ports for your hybrid Gateway.

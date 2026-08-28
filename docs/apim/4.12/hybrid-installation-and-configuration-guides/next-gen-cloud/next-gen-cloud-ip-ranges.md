@@ -8,9 +8,15 @@ description: Add the new Next-Gen Cloud IP ranges to your firewall rules before 
 
 Gravitee is moving Next-Gen Cloud hosted environments behind Cloudflare to strengthen security and protect public access to Gravitee services.
 
-After the change, client traffic to your Gravitee environment will reach Cloudflare first, which securely proxies requests to Gravitee. As a result, the public IP addresses resolved and contacted by your client applications may change
+After the change, client traffic to your Gravitee environment will reach Cloudflare first, which securely proxies requests to Gravitee. As a result, the public IP addresses resolved and contacted by your client applications may change.
 
-If your organization restricts network traffic with firewall rules, add the following IP ranges to your firewall rules before Gravitee migrates your environment, and keep them in place after the migration. If your firewall rules don't allow the new IP ranges, this might block access to gravitee endpoints from your side.
+If your organization restricts network traffic with firewall rules, add the following IP ranges to your firewall rules before Gravitee migrates your environment, and keep them in place after the migration. If your firewall rules don't allow the new IP ranges, this might block access to Gravitee endpoints from your side.
+
+{% hint style="warning" %}
+**Add the new ranges alongside your existing rules. Do not replace your current entries.**
+
+Keep the IP addresses that your firewall rules already allow for your Gravitee environment. Both your current addresses and the new ranges are needed until your environment has migrated. After Gravitee confirms that your migration is complete, you can remove the entries you no longer need.
+{% endhint %}
 
 {% hint style="info" %}
 Gravitee contacts hosted customers before their environments are migrated.
@@ -44,3 +50,24 @@ Your environment receives incoming traffic on the following IP ranges. If your n
 2a06:98c0::/29
 2c0f:f248::/32
 ```
+
+These are Cloudflare's published IP ranges. Cloudflare maintains the authoritative list at [cloudflare.com/ips](https://www.cloudflare.com/ips/). If you generate your firewall rules automatically, source the ranges from there so that you pick up any future changes to the list.
+
+## Ports
+
+Allow the following ports alongside the IP ranges above.
+
+| Traffic | Protocol and port |
+| ------- | ----------------- |
+| Client applications to your Gravitee environment endpoints | TCP 443 (HTTPS) |
+| Self-hosted hybrid Gateway to Gravitee | TCP 443 (HTTPS), outbound |
+
+{% hint style="info" %}
+If you use the Kafka Gateway, its endpoint is not covered by the incoming IP ranges above and uses a different port. Contact Gravitee for the address and port that apply to your environment.
+{% endhint %}
+
+## Hybrid Gateway connectivity
+
+If you run self-hosted hybrid Gateways, they connect outbound to the Cloud Gate for your Control Plane region over HTTPS on port 443. For the Cloud Gate URL for each region, see the Next-Gen Cloud hybrid installation guide.
+
+Your Gateway always initiates this connection. Gravitee does not open connections into your network, so you do not need to open any inbound ports for your hybrid Gateway.
