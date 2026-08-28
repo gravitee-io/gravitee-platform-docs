@@ -59,7 +59,28 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It adds the organization-wide console settings too, covering console behavior, cross-origin access to the Management API, and outbound email.
+
+#### Configure console management and schedulers
+
+* Name the APIM Console, set the URL Gravitee puts in the links it emails, and control support and self-registration from the **Management & Schedulers** page of the **Organization** section.
+* Set how often the console polls for tasks and for notifications, in seconds.
+* A setting supplied by the Management API configuration file is shown as read-only, with a tooltip naming the system as its source.
+* See [Configure console management and schedulers](configure-console-management-and-schedulers.md).
+
+#### Configure CORS for the Management API
+
+* Set the origins, methods, allowed headers, exposed headers, and preflight cache duration for cross-origin calls to the organization's Management API from the **CORS** page.
+* An origin is entered as a literal value or as a regular expression, and adding `*` asks for confirmation before it removes every cross-origin restriction.
+* The console addresses resolved for the organization stay allowed on top of the list, so tightening the origins doesn't lock you out of the consoles.
+* See [Configure CORS for the Management API](configure-console-cors.md).
+
+#### Configure the SMTP mail server
+
+* Point the organization at its mail server from the **SMTP** page, with the host, port, credentials, protocol, sender address, and subject template.
+* Set the authentication, `STARTTLS`, and certificate-trust properties of the connection.
+* Add branded sender rules that replace the sender address and subject template for the recipients at a given domain.
+* See [Configure the SMTP mail server](configure-smtp.md).
 
 #### Manage dictionaries
 
