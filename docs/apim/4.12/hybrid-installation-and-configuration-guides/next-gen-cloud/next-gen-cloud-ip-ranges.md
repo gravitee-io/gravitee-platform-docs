@@ -53,6 +53,10 @@ Your environment receives incoming traffic on the following IP ranges. If your n
 
 The preceding IP ranges are published by Cloudflare. Cloudflare maintains the authoritative list at [cloudflare.com/ips](https://www.cloudflare.com/ips/). If you generate your firewall rules automatically, source the ranges from that list so that you capture any future changes.
 
+## Outgoing IP ranges
+
+Outgoing traffic from your environment isn't affected by this change. The IP addresses that your Gateways call your backend services from remain the same, so you don't need to change the firewall rules that protect your backend services.
+
 ## Ports
 
 The following table lists the ports to allow alongside the preceding IP ranges:
