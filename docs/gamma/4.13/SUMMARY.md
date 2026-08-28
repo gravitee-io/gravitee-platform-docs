@@ -107,7 +107,7 @@
   * [Agent Management overview](agent-management/get-started/ai-management-overview.md)
   * [Roles and permissions](agent-management/get-started/roles-and-permissions.md)
   * [Create your first MCP server](agent-management/get-started/create-your-first-mcp-server.md)
-  * [Create your LLM Proxy](agent-management/get-started/create-your-llm-proxy.md)
+  * [Create your first LLM Proxy](agent-management/get-started/create-your-llm-proxy.md)
 * [Import](agent-management/import/README.md)
   * [Connect integrations](agent-management/import/connect-integrations.md)
   * [Add an AI model](agent-management/import/add-an-ai-model.md)

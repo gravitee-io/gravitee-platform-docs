@@ -102,7 +102,7 @@
 * [Get started](agent-management/get-started/README.md)
   * [Roles and permissions](agent-management/get-started/roles-and-permissions.md)
   * [Create your first MCP server](agent-management/get-started/create-your-first-mcp-server.md)
-  * [Create your LLM Proxy](agent-management/get-started/create-your-llm-proxy.md)
+  * [Create your first LLM Proxy](agent-management/get-started/create-your-llm-proxy.md)
   * [Configure your Access Management instance](agent-management/build/configure-your-access-management-instance.md)
 * [Import](agent-management/import/README.md)
   * [Integrations](agent-management/import/integrations/README.md)
