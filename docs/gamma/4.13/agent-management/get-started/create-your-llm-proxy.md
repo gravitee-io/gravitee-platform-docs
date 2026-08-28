@@ -4,7 +4,7 @@ noIndex: false
 description: Create an LLM Proxy, connect it to a model provider, and send a test prompt through the AI Gateway. Follow the quickstart to get one running.
 ---
 
-# Create your LLM Proxy
+# Create your first LLM Proxy
 
 
 This quickstart walks you through creating an LLM Proxy, connecting it to an upstream model provider, and sending a test prompt through the AI Gateway. You'll use the simplest configuration, a single model with API key authentication and a keyless consumer plan, to get a working LLM Proxy in under five minutes.
@@ -100,5 +100,5 @@ To list the model identifiers your proxy accepts, send a `GET` request to `<cont
 
 * **Add more models**: Configure additional providers. See [Configure an LLM Proxy](../build/configure-an-llm-proxy.md).
 * **Secure with an API key plan**: Replace the keyless plan with an API key to track usage and enforce rate limits.
-* **Route Claude Code through the proxy**: Set `ANTHROPIC_BASE_URL` to point at your LLM Proxy for zero-code integration. See [Connect Claude Code to the Edge Daemon](../../edge-management/connect-claude-code-to-daemon.md).
+* **Route Claude Code through the proxy**: Set `ANTHROPIC_BASE_URL` to point at your LLM Proxy for zero-code integration. See [Connect Claude Code through an LLM Proxy](../publish/connect-claude-code-through-an-llm-proxy.md).
 * **Publish**: Make the LLM Proxy discoverable. See [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md).

@@ -90,4 +90,4 @@ You need one place to define policy, one place to see the trace, and one place t
 ## Next steps
 
 * [Create your first MCP server](../get-started/create-your-first-mcp-server.md). Configure an MCP proxy in front of an upstream MCP server, and then verify tool invocations.
-* [Create your LLM Proxy](../get-started/create-your-llm-proxy.md). Configure an LLM Proxy, connect it to an upstream model provider, and then send a test prompt.
+* [Create your first LLM Proxy](../get-started/create-your-llm-proxy.md). Configure an LLM Proxy, connect it to an upstream model provider, and then send a test prompt.
