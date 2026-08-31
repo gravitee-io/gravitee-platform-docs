@@ -25,7 +25,7 @@ The LLM Proxy provider must be configured with **No authentication**. Do not con
 
 ## Prerequisites
 
-* Access to the Gamma console. For more information, see [AI management overview](../get-started/ai-management-overview.md).
+* Access to the Gamma console. For more information, see [AI management overview](../overview/README.md).
 * A deployed AI Gateway. For more information, see [Self-hosted installation guides](../../platform-management/install/self-hosted-installation-guides/README.md) and [Hybrid installation guides](../../platform-management/install/hybrid-installation-guides/README.md).
 * A Claude Code user who can authenticate with `/login`.
 * Permission to create a plan and a subscription on the LLM Proxy. For more information, see [Manage subscriptions](manage-subscriptions.md).

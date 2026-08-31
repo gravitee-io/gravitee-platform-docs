@@ -28,7 +28,7 @@ Gamma unifies four product lines under a shared platform: API Management, Event 
 2. **A common authorization engine** that defines fine-grained policies against those cataloged assets
 3. **Common enforcement points** that evaluate the same policies at the wire level: the AI Gateway, API Gateway, and Event Gateway
 
-API Management contributes REST, GraphQL, gRPC, and WebSocket APIs to the Catalog. Those APIs can be exposed as **API Tools** in [Agent Management](../../agent-management/get-started/ai-management-overview.md), which makes ten years of accumulated enterprise API catalogs accessible to AI agents without redevelopment. Similarly, Kafka APIs governed through [Event Stream Management](../../event-stream-management/get-started/event-stream-management-overview.md) can be exposed as Kafka API Tools, which bridges event streams to the AI agent layer through the same Catalog.
+API Management contributes REST, GraphQL, gRPC, and WebSocket APIs to the Catalog. Those APIs can be exposed as **API Tools** in [Agent Management](../../agent-management/overview/README.md), which makes ten years of accumulated enterprise API catalogs accessible to AI agents without redevelopment. Similarly, Kafka APIs governed through [Event Stream Management](../../event-stream-management/get-started/event-stream-management-overview.md) can be exposed as Kafka API Tools, which bridges event streams to the AI agent layer through the same Catalog.
 
 ## Next steps
 

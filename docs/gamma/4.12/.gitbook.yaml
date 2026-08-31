@@ -5,9 +5,50 @@ structure:
   summary: SUMMARY.md
 
 redirects:
+ agent-management/build/accepted-request-formats: agent-management/build/accepted-request-formats.md
+ agent-management/build/add-the-token-rate-limit-policy: agent-management/build/add-the-token-rate-limit-policy.md
+ agent-management/build/ai-resources: agent-management/build/ai-resources.md
+ agent-management/build/configure-a2a-proxy-deployment: agent-management/build/configure-a2a-proxy-deployment.md
+ agent-management/build/configure-a2a-proxy-notifications: agent-management/build/configure-a2a-proxy-notifications.md
+ agent-management/build/configure-an-llm-proxy: agent-management/build/configure-an-llm-proxy.md
+ agent-management/build/configure-text-classification: agent-management/build/configure-text-classification.md
+ agent-management/build/configure-your-a2a-proxy: agent-management/build/configure-your-a2a-proxy/README.md
+ agent-management/build/configure-your-a2a-proxy/add-policies-to-a2a-proxy: agent-management/build/configure-your-a2a-proxy/add-policies-to-a2a-proxy.md
+ agent-management/build/configure-your-a2a-proxy/configure-logging-and-tracing: agent-management/build/configure-your-a2a-proxy/configure-logging-and-tracing.md
+ agent-management/build/configure-your-access-management-instance: agent-management/build/configure-your-access-management-instance.md
+ agent-management/build/configure-your-mcp: agent-management/build/configure-your-mcp/README.md
+ agent-management/build/configure-your-mcp/add-policies-to-mcp-server: agent-management/build/configure-your-mcp/add-policies-to-mcp-server.md
+ agent-management/build/configure-your-mcp/apply-policies-to-mcp-methods: agent-management/build/configure-your-mcp/apply-policies-to-mcp-methods.md
+ agent-management/build/configure-your-mcp/apply-policies-to-tool-invocations: agent-management/build/configure-your-mcp/apply-policies-to-tool-invocations.md
+ agent-management/build/configure-your-mcp/connect-and-secure-atlassian-mcp-server: agent-management/build/configure-your-mcp/connect-and-secure-atlassian-mcp-server.md
+ agent-management/build/configure-your-mcp/connect-and-secure-github-mcp-server: agent-management/build/configure-your-mcp/connect-and-secure-github-mcp-server.md
+ agent-management/build/configure-your-mcp/connect-and-secure-stripe-mcp-server: agent-management/build/configure-your-mcp/connect-and-secure-stripe-mcp-server.md
+ agent-management/build/configure-your-mcp/govern-mcp-tool-access: agent-management/build/configure-your-mcp/govern-mcp-tool-access.md
+ agent-management/build/create-an-agent-identity: agent-management/build/create-an-agent-identity.md
+ agent-management/build/create-an-llm-proxy: agent-management/build/create-an-llm-proxy.md
+ agent-management/build/create-an-mcp-proxy: agent-management/build/create-an-mcp-proxy.md
+ agent-management/build/create-an-mcp-studio: agent-management/build/create-an-mcp-studio.md
+ agent-management/build/create-an-mcp-studio/edit-mcp-studio-composition: agent-management/build/edit-mcp-studio-composition.md
+ agent-management/build/expose-agent-with-a2a-proxy: agent-management/build/expose-agent-with-a2a-proxy.md
+ agent-management/build/llm-proxy-provider-support: agent-management/build/llm-proxy-provider-support.md
+ agent-management/build/override-the-model-at-runtime: agent-management/build/override-the-model-at-runtime.md
+ agent-management/build/review-a2a-proxy-deployment-history: agent-management/build/review-a2a-proxy-deployment-history.md
+ agent-management/build/select-a-text-classification-model: agent-management/build/select-a-text-classification-model.md
  agent-management/edge-daemon: edge-management/get-started/README.md
  agent-management/edge-daemon/connect-claude-code-to-daemon: edge-management/connect/README.md
+ agent-management/get-started/ai-management-overview: agent-management/overview/README.md
+ agent-management/import/connect-integrations: agent-management/import/connect-integrations.md
  agent-management/import/create-event-tools: agent-management/import/README.md
+ agent-management/import/import-an-agent: agent-management/import/import-an-agent.md
+ agent-management/observe/inspect-your-agent-log: agent-management/observe/inspect-your-agent-log.md
+ agent-management/observe/monitor-ai-gateway-from-devices: agent-management/observe/monitor-ai-gateway-from-devices.md
+ agent-management/observe/monitor-your-llm-proxy: agent-management/observe/monitor-your-llm-proxy.md
+ agent-management/observe/monitor-your-mcp-servers: agent-management/observe/monitor-your-mcp-servers.md
+ agent-management/publish: agent-management/build/llm-proxies/consumer-access/README.md
+ agent-management/publish/connect-claude-code-through-an-llm-proxy: agent-management/publish/connect-claude-code-through-an-llm-proxy.md
+ agent-management/publish/consume-your-llm-proxy-with-langchain: agent-management/publish/consume-your-llm-proxy-with-langchain.md
+ agent-management/publish/manage-subscriptions: agent-management/publish/manage-subscriptions.md
+ agent-management/publish/publish-your-llm-proxy: agent-management/publish/publish-your-llm-proxy.md
  authorization-management/build: authorization-management/get-started/README.md
  authorization-management/build/create-authorization-policies: authorization-management/configure/create-update-delete-policies.md
  event-management/build/create-a-kafka-service: event-stream-management/build/create-a-kafka-service-with-a-registered-cluster.md
