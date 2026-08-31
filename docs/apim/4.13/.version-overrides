@@ -37,3 +37,6 @@ analyze-and-monitor-apis/logging/configure-environment-level-logs.md
 .gitbook/assets/environment-logs-tenant-filter.png
 .gitbook/assets/environment-logs-tenant-applied.png
 .gitbook/assets/environment-logs-filter-list.png
+# kafka_active_connections gauge (APIM 4.13.0 feature, ESM-72) — the metric ships in the 7.1.x
+# native Kafka reactor; 4.12 pins 7.0.8, which does not carry it, so the section must not sync back
+analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md
