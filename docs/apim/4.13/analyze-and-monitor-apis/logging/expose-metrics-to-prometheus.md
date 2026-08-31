@@ -84,6 +84,88 @@ services:
         version: 3.10
 ```
 
+## Kafka active connections
+
+`kafka_active_connections` is a gauge reporting how many downstream connections are active per client identity: plan, application, the Kafka `client.id`, and the client library name and version the client advertises at the handshake ([KIP-511](https://cwiki.apache.org/confluence/display/KAFKA/KIP-511%3A+Collect+and+Expose+Client%27s+Name+and+Version+in+the+Brokers)).
+
+It restores the per-client view that is otherwise lost once traffic reaches the broker aggregated behind a single upstream service account. Where the connection analytics answer *what happened*, this answers *what is connected right now*.
+
+The metric is **opt-in** and requires the metrics service to be enabled.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+{% code title="gravitee.yml" %}
+```yaml
+services:
+  metrics:
+    enabled: true
+    prometheus:
+      enabled: true
+    kafka:
+      activeConnections:
+        enabled: true             # defaults to false
+        maxClientIdCardinality: 10000
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_services_metrics_enabled=true
+gravitee_services_metrics_prometheus_enabled=true
+gravitee_services_metrics_kafka_activeConnections_enabled=true
+gravitee_services_metrics_kafka_activeConnections_maxClientIdCardinality=10000
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  services:
+    metrics:
+      enabled: true
+      prometheus:
+        enabled: true
+      kafka:
+        activeConnections:
+          enabled: true
+          maxClientIdCardinality: 10000
+```
+{% endtab %}
+{% endtabs %}
+
+A scrape then returns one series per client identity:
+
+```
+kafka_active_connections{application="gio-apim-gateway",organization_id="DEFAULT",environment_id="DEFAULT",api_id="orders-stream",plan_id="p1",application_id="a1",client_id="orders-consumer-1",client_software_name="librdkafka",client_software_version="2.6.1"} 42
+```
+
+`application` is the Gravitee component reporting the metric, as on every other Gateway metric. The subscribing application is `application_id`.
+
+A client that does not advertise its library — KafkaJS, or any client on an `ApiVersions` request older than v3 — is reported as `client_software_name="unknown"`, and likewise for the version. That is a value, not an absence: those connections are counted like any other.
+
+### Cardinality
+
+A series is **removed from the registry when its last connection closes**. The number of live series therefore follows how many connections are open at once, not how many client ids have ever been seen — which is what makes `client_id` usable as a label at all, since it is free-form text the client chooses and often carries a pod name or a UUID. A client that reconnects under a new id leaves nothing behind.
+
+`maxClientIdCardinality` (default `10000`) caps how many distinct `client.id` values are labelled at the same time, per API. Beyond it, further client ids are reported as `client_id="other"`. The connection is still counted, so the gauge keeps summing to the true number of active connections and only loses granularity. Slots are released as connections close, so a Gateway returns to full granularity on its own — the cap is a backstop, not a budget that runs out.
+
+The cap applies to `client_id` alone. `client_software_name` and `client_software_version` are bounded in charset and length but not in how many distinct values they may take: they come off the same unauthenticated handshake frame, so a client that puts a build hash or an instance id in its version string produces one series per value, with no bucket to collapse onto. Removal on last close still keeps the total proportional to the connections open at once rather than to every value ever seen.
+
+A `client.id` longer than 256 characters is cut to 256, the last three being `...`. That keeps it correlatable with the client's own configuration and distinguishable from `client_id="other"`, which means the cap was reached instead.
+
+{% hint style="info" %}
+The resulting ceiling is `maxClientIdCardinality + 1`, multiplied by the plan, application and client library combinations an API sees.
+{% endhint %}
+
+### Virtual clusters
+
+{% hint style="warning" %}
+On a virtual-cluster topology the bootstrap connection is not counted: the Gateway serves it from the endpoint itself and never reaches the point where a connection is reported. Every client keeps one open for its whole life, so the gauge undercounts by one per client there.
+
+The connection analytics documents have the same blind spot, so the two agree with each other — but neither reports the true total on those topologies.
+{% endhint %}
+
 ## Prometheus configuration
 
 The following example requests Prometheus to scrape the formatted metrics available in the Gateway internal API:
