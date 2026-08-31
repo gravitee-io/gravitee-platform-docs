@@ -1,5 +1,27 @@
 # APIM 4.10.x
  
+## Gravitee API Management 4.10.29 - August 31, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Organization-level Identity Provider (IdP) "Disable" toggle only hides UI element, remains active in backend [#11717](https://github.com/gravitee-io/issues/issues/11717)
+
+**Other**
+
+* Kafka Gateway - ACL & Topic mapping causing TOPIC_AUTHORIZATION_FAILED [#11177](https://github.com/gravitee-io/issues/issues/11177)
+* Promotion on v4: Response template Status code set to 0 [#11605](https://github.com/gravitee-io/issues/issues/11605)
+* ClearTextUpgrade still defaults to true on new HTTP/1.1 endpoints [#11741](https://github.com/gravitee-io/issues/issues/11741)
+* Webhook entrypoint: OAuth2 token request is sent using the absolute-form request line, and is rejected by intermediate proxies [#11745](https://github.com/gravitee-io/issues/issues/11745)
+* Portal Next — login page not centered in Firefox [#11748](https://github.com/gravitee-io/issues/issues/11748)
+* Time-series analytics return buckets outside the requested window, shifting every point by one interval
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.10.28 - August 21, 2026
 <details>
 
