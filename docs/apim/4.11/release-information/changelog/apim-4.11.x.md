@@ -1,5 +1,35 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.26 - August 31, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Intermittent 502 / GATEWAY_CLIENT_CONNECTION_ERROR on keep-alive reuse when upstream closes connection (no silent retry) [#11702](https://github.com/gravitee-io/issues/issues/11702)
+
+**Console**
+
+* Organization-level Identity Provider (IdP) "Disable" toggle only hides UI element, remains active in backend [#11717](https://github.com/gravitee-io/issues/issues/11717)
+
+**Portal**
+
+* Developer Portal — "Featured banner" not displaying on 4.12.1 (worked on 4.9.2) [#11751](https://github.com/gravitee-io/issues/issues/11751)
+
+**Other**
+
+* Promotion on v4: Response template Status code set to 0 [#11605](https://github.com/gravitee-io/issues/issues/11605)
+* JMS endpoint: JNDI initial context factory resolved via TCCL, ignoring plugins/ext/jms libraries [#11701](https://github.com/gravitee-io/issues/issues/11701)
+* ClearTextUpgrade still defaults to true on new HTTP/1.1 endpoints [#11741](https://github.com/gravitee-io/issues/issues/11741)
+* Webhook entrypoint: OAuth2 token request is sent using the absolute-form request line, and is rejected by intermediate proxies [#11745](https://github.com/gravitee-io/issues/issues/11745)
+* Portal Next — login page not centered in Firefox [#11748](https://github.com/gravitee-io/issues/issues/11748)
+* Time-series analytics return buckets outside the requested window, shifting every point by one interval
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.25 - August 21, 2026
 <details>
 
