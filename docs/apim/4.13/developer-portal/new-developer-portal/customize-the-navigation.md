@@ -83,14 +83,14 @@ When you add a page that is not in a folder, the page appears as a root level me
     <figure><img src="../../.gitbook/assets/FB8F0725-08EB-4B68-B365-122337D12C4F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2. In the **Add page** pop-up screen, select a content source. **Fill in content** opens the editor, **Import from file** uploads a local file, and **Link to external source** fetches the content from a repository or URL. For the import and external source options, see [import-content-from-external-sources.md](customize-the-navigation/import-content-from-external-sources.md "mention").
 3. Click **Continue**.
-4. Type a title for your page.
-5.  Select one of 3 types of pages: Markdown, OpenAPI, or AsyncAPI.<br>
+4.  Select one of 3 types of pages: Markdown, OpenAPI, or AsyncAPI.<br>
 
     <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--251.png" alt=""><figcaption><p>Add page pop-up with Markdown selected</p></figcaption></figure>
 
     <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--252.png" alt=""><figcaption><p>Add page pop-up with OpenAPI selected</p></figcaption></figure>
 
     For OpenAPI pages, you can configure Swagger UI or Redoc viewers. For more information, see [Creating OpenAPI Documentation Pages](customize-the-navigation/creating-openapi-documentation-pages.md). For AsyncAPI pages, see [Creating AsyncAPI Documentation Pages](customize-the-navigation/creating-asyncapi-documentation-pages.md).
+5. Type a title for your page.
 6. (Optional) Turn on the **Authentication is required to view this page.** toggle. This toggle ensures that the user must be signed in to the New Developer Portal to see the page.
 7. Click **Add**.
 8. Customize your page. The page contains default content that you can use to customize your new page with unique content. For more information about customizing your page with Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention").

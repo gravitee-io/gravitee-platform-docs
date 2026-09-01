@@ -144,7 +144,7 @@ The repository import creates a folder that mirrors a documentation tree from a 
 
     <figure><img src="../../../.gitbook/assets/devportal-import-repository-dialog.png" alt="Import documentation from a repository dialog with a folder title, the source type list, and the GitHub fetcher configuration form"><figcaption><p>Import documentation from a repository</p></figcaption></figure>
 3. In the **Source type** drop-down menu, select a fetcher. The list offers only the fetchers that list repository directories. Of the fetchers bundled with APIM, these are the GitHub and GitLab fetchers.
-4. Fill in the configuration form of the fetcher. Point the file path at the directory to import, for example `/` for the repository root. A configuration without a directory path lists no files, and the import fails.
+4. Fill in the configuration form of the fetcher. Point the file path at the directory to import, for example `/` for the repository root. Leaving the file path empty imports the repository root, the same as `/`.
 5. Optional: Turn on the **Auto-fetch** toggle, and then set the **Update frequency** cron expression. Auto-fetch re-runs the import on that schedule.
 6. Click **Import**. The result message reports how many pages were imported and which ones failed.
 
