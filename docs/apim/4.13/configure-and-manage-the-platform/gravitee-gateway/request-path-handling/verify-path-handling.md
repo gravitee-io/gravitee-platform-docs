@@ -8,7 +8,7 @@ description: >-
 
 ## Overview
 
-An unrecognized `http.pathHandling` value does not stop the Gateway. It falls back to `RAW`, which means the configured mode and the active mode can differ without anything failing.
+An unrecognized `http.pathHandling` value does not stop the Gateway. It falls back to `NORMALIZE`, which means the configured mode and the active mode can differ without anything failing.
 
 This page shows how to confirm from the startup log which mode a Gateway actually came up in, what each mode logs at runtime, and how to observe the `path`, `pathInfo`, and `uri` values it holds for a request that carries dot segments.
 
@@ -20,7 +20,7 @@ At startup the Gateway logs the mode actually in force, in every mode including 
 Request path handling is set to NORMALIZE: dot segments are resolved before the listener is resolved
 ```
 
-An unrecognized value does not stop the Gateway. It logs a `WARN` naming the accepted values, falls back to `RAW`, and the startup line then reports `RAW`. That line is what confirms, positively, the mode the Gateway actually came up in, which matters on 4.13 because a mistyped value silently drops the deployment back to the pre-4.13 behavior.
+An unrecognized value does not stop the Gateway. It logs a `WARN` naming the accepted values, falls back to `NORMALIZE`, and the startup line then reports `NORMALIZE`. The fallback is deliberate: a typo in a configuration file must not be a way to reopen the bypass. On 4.11 and 4.12 the same typo falls back to `RAW`, which is the default there. That line is what confirms, positively, the mode the Gateway actually came up in.
 
 Under `NORMALIZE`, the Gateway logs at `DEBUG` every time a path actually changed, carrying both forms:
 
