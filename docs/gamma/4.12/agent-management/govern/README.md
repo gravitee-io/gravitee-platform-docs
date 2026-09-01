@@ -1,0 +1,11 @@
+---
+hidden: false
+noIndex: false
+description: Score every agent in your estate against built-in compliance frameworks, and remediate the controls that fail.
+---
+
+# Govern
+
+Score every agent in your estate against built-in compliance frameworks, and turn a failing score into actions you can apply.
+
+* [**Score agent compliance with the EU AI Act framework**](score-agent-compliance-with-the-eu-ai-act.md): activate the built-in framework, read the score it computes for every agent, and remediate the controls that fail.
