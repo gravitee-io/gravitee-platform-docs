@@ -91,4 +91,4 @@ Before you upgrade to 4.13:
 ## Next steps
 
 * [Configure Request Path Handling](configure-path-handling.md). Set the mode explicitly, and enable reporting for the requests `REJECT` refuses.
-* [Verify Path Handling on a Running Gateway](verify-path-handling.md). Confirm from the startup log which mode the Gateway actually came up in, because a mistyped value falls back to `RAW`.
+* [Verify Path Handling on a Running Gateway](verify-path-handling.md). Confirm from the startup log which mode the Gateway actually came up in, because a mistyped value falls back to `NORMALIZE` rather than to the mode you configured.

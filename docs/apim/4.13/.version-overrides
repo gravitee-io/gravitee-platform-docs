@@ -31,15 +31,6 @@ developer-portal/new-developer-portal/catalog.md
 .gitbook/assets/devportal-add-api-to-category-dialog.png
 .gitbook/assets/devportal-category-hide.png
 .gitbook/assets/devportal-category-show.png
-# Tenant filter on environment-level Logs — 4.12 page carries a 4.12.15 availability note the 4.13 page must not inherit (OBS-37)
-analyze-and-monitor-apis/logging/configure-environment-level-logs.md
-.gitbook/assets/environment-logs-overview.png
-.gitbook/assets/environment-logs-tenant-filter.png
-.gitbook/assets/environment-logs-tenant-applied.png
-.gitbook/assets/environment-logs-filter-list.png
-# kafka_active_connections gauge (APIM 4.13.0 feature, ESM-72) — the metric ships in the 7.1.x
-# native Kafka reactor; 4.12 pins 7.0.8, which does not carry it, so the section must not sync back
-analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md
 # http.pathHandling defaults to NORMALIZE from 4.13.0 (APIM-14917); 4.11/4.12 keep RAW
 configure-and-manage-the-platform/gravitee-gateway/request-path-handling.md
 configure-and-manage-the-platform/gravitee-gateway/request-path-handling/README.md
@@ -51,3 +42,12 @@ configure-and-manage-the-platform/gravitee-gateway/request-path-handling/path-ha
 # Cross-reference to Request Path Handling differs: 4.12 links the flat page,
 # 4.13 links the folder README (APIM-14917)
 prepare-a-production-environment/configure-your-http-server.md
+# Tenant filter on environment-level Logs — 4.12 page carries a 4.12.15 availability note the 4.13 page must not inherit (OBS-37)
+analyze-and-monitor-apis/logging/configure-environment-level-logs.md
+.gitbook/assets/environment-logs-overview.png
+.gitbook/assets/environment-logs-tenant-filter.png
+.gitbook/assets/environment-logs-tenant-applied.png
+.gitbook/assets/environment-logs-filter-list.png
+# kafka_active_connections gauge (APIM 4.13.0 feature, ESM-72) — the metric ships in the 7.1.x
+# native Kafka reactor; 4.12 pins 7.0.8, which does not carry it, so the section must not sync back
+analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md
