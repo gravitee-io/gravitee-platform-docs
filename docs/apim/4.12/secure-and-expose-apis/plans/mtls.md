@@ -61,6 +61,12 @@ gateway:
 ```
 {% endcode %}
 
+{% hint style="warning" %}
+Don't set `ssl.sendClientCertificateAuthorities` to `true` on a listener that serves mTLS plans. Application certificates are self-signed leaves, so they are never issued by an authority of the configured truststore. A non-empty list of acceptable certificate authorities is a constraint, not a hint: clients whose issuer is absent from it withhold their certificate entirely, and every mTLS subscription on that listener stops working. See [Control which certificate authorities the Gateway advertises.](../../prepare-a-production-environment/configure-your-http-server.md#control-which-certificate-authorities-the-gateway-advertises)
+
+Starting with APIM 4.12.19, the Gateway sends an empty list by default, and never advertises the certificates it loads from subscriptions.
+{% endhint %}
+
 To reject clients whose certificates have been revoked, enable CRL checking on the Gateway. CRL evaluation runs during the TLS handshake, before plan selection, so revoked certificates never reach mTLS plan matching. See [Reject revoked client certificates with a CRL.](../../prepare-a-production-environment/configure-your-http-server.md#reject-revoked-client-certificates-with-a-crl)
 
 ## Creating an mTLS plan
