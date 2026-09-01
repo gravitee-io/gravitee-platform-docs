@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds a configuration audit trail, event notifications, and API resource configuration to each proxy detail view. It also brings deployment configuration and deployment history to LLM, MCP, and A2A Proxies, and lets you record the price you negotiated with a provider on a cataloged AI model.
+Agent Management adds API resource configuration to each proxy detail view, and lets you record the price you negotiated with a provider on a cataloged AI model.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -18,34 +18,6 @@ Agent Management adds a configuration audit trail, event notifications, and API 
 * Add a resource by selecting one of the resource plugins installed on your platform and completing its schema-generated configuration form. Edit, enable or disable, remove, and search existing resources from the same page.
 * A resource change applies to the gateway when you deploy the proxy from the out-of-sync banner.
 * See [Configure resources for your proxies](../agent-management/build/configure-resources-for-your-proxies.md).
-
-#### Audit Logs for LLM, MCP, and A2A Proxies
-
-* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds an **Audit Logs** page under **Monitoring** that lists the audit events recorded for the proxy.
-* Each entry shows the date, the actor, the event type, and the target of the change. Entries that carry a JSON Patch open the exact change in a side panel.
-* Filter the trail by event type and date range, and page through entries 10, 25, 50, or 100 at a time.
-* See [Review audit logs](../agent-management/observe/review-audit-logs.md).
-
-#### Notifications for LLM, MCP, and A2A Proxies
-
-* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Notifications** page that pairs a notifier with the set of API events that trigger it. The table lists each notification's **Name**, **Notifier**, **Subscribed events**, and **Groups**.
-* Every proxy starts with a **Portal notification**. Add further notifications on any notifier configured for your organization, such as **Default Email Notifier** or a webhook notifier, and address them to an email list or a webhook URL. Target fields support Expression Language, and webhook notifications can route through the gateway's system proxy.
-* Subscribe each notification to the API events that matter, grouped by category such as **API KEY** and **SUBSCRIPTION**, and optionally scope it to selected groups. Leaving groups empty applies the notification to all groups.
-* Creating, editing, and deleting notifications is gated by the `api-notification-c`, `api-notification-u`, and `api-notification-d` permissions. The **Portal notification** can be edited but not deleted, and the channel of an existing notification can't be changed.
-* See [Configure LLM Proxy notifications](../agent-management/build/configure-llm-proxy-notifications.md), [Configure MCP Proxy notifications](../agent-management/build/configure-mcp-proxy-notifications.md), and [Configure A2A Proxy notifications](../agent-management/build/configure-a2a-proxy-notifications.md).
-#### Deployment configuration for LLM, MCP, and A2A Proxies
-
-* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Deployment** section under **Operations**, with a **Configuration** page that controls where the proxy is deployed on the gateway mesh.
-* Assign the sharding tags defined for your organization from the **Sharding tags** card. Only gateway instances advertising a matching tag load the proxy's API definition. Each selected tag appears as a chip, and an assigned tag that no longer exists at the organization level is preserved on save.
-* Changing tags requires the **API\_DEFINITION** permission with the **UPDATE** access level. Proxies managed by the Gravitee Kubernetes Operator (GKO) are read-only here, and their tags are changed from the source definition.
-* See [Configure LLM Proxy deployment](../agent-management/build/configure-llm-proxy-deployment.md), [Configure MCP Proxy deployment](../agent-management/build/configure-mcp-proxy-deployment.md), and [Configure A2A Proxy deployment](../agent-management/build/configure-a2a-proxy-deployment.md).
-
-#### Deployment history for LLM, MCP, and A2A Proxies
-
-* The **Deployment** section adds a **History** page that lists every deployment of the proxy, newest first, with the **Version**, **Date**, **User**, and **Label** of each and a **live** badge on the most recent. Page through entries 10, 25, 50, or 100 at a time.
-* Inspect the API definition a deployment shipped with **View definition**, or compare two versions in a **Side-by-side** or **Line-by-line** diff. **Compare with live** opens an earlier version against the live one in a single step.
-* Roll back to an earlier version from the diff view. The rollback restores the proxy's API definition and its plans, and leaves the proxy with undeployed changes until you deploy it. Rollback requires the **API\_DEFINITION** permission with the **UPDATE** access level.
-* See [Review LLM Proxy deployment history](../agent-management/build/review-llm-proxy-deployment-history.md), [Review MCP Proxy deployment history](../agent-management/build/review-mcp-proxy-deployment-history.md), and [Review A2A Proxy deployment history](../agent-management/build/review-a2a-proxy-deployment-history.md).
 
 #### Negotiated pricing for AI models
 
@@ -87,7 +59,29 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries as a reusable asset for API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It adds the organization-wide console settings too, covering console behavior, cross-origin access to the Management API, and outbound email.
+
+#### Configure console management and schedulers
+
+* Name the APIM Console, set the URL Gravitee puts in the links it emails, and control support and self-registration from the **Management & Schedulers** page of the **Organization** section.
+* Set how often the console polls for tasks and for notifications, in seconds.
+* A setting supplied by the Management API configuration file is shown as read-only, with a tooltip naming the system as its source.
+* See [Configure console management and schedulers](configure-console-management-and-schedulers.md).
+
+#### Configure CORS for the Management API
+
+* Set the origins, methods, allowed headers, exposed headers, and preflight cache duration for cross-origin calls to the organization's Management API from the **CORS** page.
+* An origin is entered as a literal value or as a regular expression, and adding `*` asks for confirmation before it removes every cross-origin restriction.
+* The console addresses resolved for the organization stay allowed on top of the list, so tightening the origins doesn't lock you out of the consoles.
+* See [Configure CORS for the Management API](configure-console-cors.md).
+
+#### Configure the SMTP mail server
+
+* Point the organization at its mail server from the **SMTP** page, with the host, port, credentials, protocol, sender address, and subject template.
+* Set the authentication, `STARTTLS`, and certificate-trust properties of the connection.
+* Add branded sender rules that replace the sender address and subject template for the recipients at a given domain.
+* See [Configure the SMTP mail server](configure-smtp.md).
 
 #### Manage dictionaries
 
@@ -102,6 +96,20 @@ Platform Management adds environment-scoped dictionaries as a reusable asset for
 * Sharding tags route APIs to specific gateway groups. Create a tag with an immutable key, restrict it to selected groups, and add the key to the gateway's configuration file.
 * Entrypoint mappings define the entrypoint that the Developer Portal displays for APIs that carry a given tag, as an HTTP URL, a TCP port, or a Kafka bootstrap domain pattern, and apply to all environments or to a selection.
 * See [Manage entrypoints and sharding tags](manage-entrypoints-and-sharding-tags.md).
+
+#### Manage environment metadata
+
+* Add, edit, search, and delete the key-value metadata entries of the selected environment from the **Metadata** page. Every API in the environment inherits each entry as a default value.
+* Give each entry a name, a format of String, Numeric, Boolean, Date, Mail, or URL, and a value. Gravitee generates the entry's key from the name and validates the value against the format.
+* Rename an entry or change its value without changing its key, so the APIs and Developer Portal pages that reference the key keep working.
+* See [Manage environment metadata](manage-environment-metadata.md).
+
+#### Manage tenants
+
+* Create, edit, search, and delete the tenants of the organization from the **Tenants** page. A tenant pairs a gateway with the API endpoints that gateway loads, so one API can serve several regions without a second copy of it.
+* Give each tenant a name and an immutable key. The console generates the key from the name, accepts lowercase letters, digits, and hyphens, and rejects a key another tenant already uses.
+* Add the key to a gateway's `gravitee.yml` file and to the **Tenants** field of an API's endpoints. A gateway loads an endpoint when the endpoint has no tenant or lists the gateway's own tenant.
+* See [Manage tenants](manage-tenants.md).
 
 #### Manage users
 

@@ -17,9 +17,9 @@ The two scopes don't override each other. Whichever expires first interrupts the
 
 Timeouts can't be configured per plan. To apply different timeout behavior to different consumers, expose the backend through separate APIs with different endpoint configurations.
 
-<table><thead><tr><th width="190">Setting</th><th width="120">Scope</th><th width="110">Default (ms)</th><th>What it bounds</th></tr></thead><tbody><tr><td><code>http.requestTimeout</code></td><td>Gateway</td><td>30000</td><td>The processing of the request, up to the response. Not the transfer of the body.</td></tr><tr><td><code>http.requestTimeoutGraceDelay</code></td><td>Gateway</td><td>30</td><td>The minimum execution window granted to the response phase.</td></tr><tr><td><code>connectTimeout</code></td><td>Endpoint</td><td>5000</td><td>Establishing the TCP connection to the backend.</td></tr><tr><td><code>readTimeout</code></td><td>Endpoint</td><td>10000</td><td>Waiting for the backend response, and connection acquisition from the pool. Disarmed once the response headers arrive.</td></tr><tr><td><code>idleTimeout</code></td><td>Endpoint</td><td>60000</td><td>Inactivity on the connection itself, whether or not a request is in flight.</td></tr><tr><td><code>keepAliveTimeout</code></td><td>Endpoint</td><td>30000</td><td>How long an unused connection stays in the pool. HTTP/1.x only.</td></tr></tbody></table>
+<table><thead><tr><th width="190">Setting</th><th width="120">Scope</th><th width="110">Default</th><th>What it bounds</th></tr></thead><tbody><tr><td><code>http.requestTimeout</code></td><td>Gateway</td><td>30000 ms</td><td>The processing of the request, up to the response. Not the transfer of the body.</td></tr><tr><td><code>http.requestTimeoutGraceDelay</code></td><td>Gateway</td><td>30 ms</td><td>The minimum execution window granted to the response phase.</td></tr><tr><td><code>http.idleTimeout</code></td><td>Gateway</td><td>0 s (disabled)</td><td>Inactivity on the inbound client connection, including while a request is in flight. Expressed in <strong>seconds</strong>.</td></tr><tr><td><code>connectTimeout</code></td><td>Endpoint</td><td>5000 ms</td><td>Establishing the TCP connection to the backend.</td></tr><tr><td><code>readTimeout</code></td><td>Endpoint</td><td>10000 ms</td><td>Waiting for the backend response, and connection acquisition from the pool. Disarmed once the response headers arrive.</td></tr><tr><td><code>idleTimeout</code></td><td>Endpoint</td><td>60000 ms</td><td>Inactivity on the connection itself, whether or not a request is in flight.</td></tr><tr><td><code>keepAliveTimeout</code></td><td>Endpoint</td><td>30000 ms</td><td>How long an unused connection stays in the pool. HTTP/1.x only.</td></tr></tbody></table>
 
-You configure every one of these settings in milliseconds, at both scopes.
+You configure these settings in milliseconds at both scopes, with the exception of `http.idleTimeout`, which is expressed in seconds.
 
 The following diagram places each timer on the life of a single request, using the default values. The request arrives at second 0, the connection is obtained at second 5, and the response completes at second 12.
 
@@ -80,9 +80,29 @@ Two properties are worth knowing:
 * It applies to **HTTP/1.x only**. HTTP/2 connections are governed by `idleTimeout` alone.
 * When the backend returns a `Keep-Alive: timeout=N` header, the Gateway adopts that value for the connection, replacing the configured one. Backends that advertise their keep-alive timeout therefore align the Gateway automatically.
 
-Backends that close idle connections without advertising the header are the case to configure for. Set `keepAliveTimeout` below the backend's own keep-alive window, so that the pool retires connections before the backend drops them. A connection retired by the backend while the Gateway still considers it usable produces a `GATEWAY_CLIENT_CONNECTION_CLOSED` on the next request that borrows it.
+Backends that close idle connections without advertising the header are the case to configure for. Set `keepAliveTimeout` below the backend's own keep-alive window, so that the pool retires connections before the backend drops them.
+
+The next request to borrow a connection the backend has already retired is now retried transparently, when it qualifies — see [Retry on a closed or reset connection](timeout-management.md#retry-on-a-closed-or-reset-connection). Tuning `keepAliveTimeout` is still worth doing: it avoids the wasted round trip the retry costs, and it remains the only protection for a `POST`, a `PATCH`, or any request sent with a body. It's no longer the only thing standing between this race and a client-visible `502`.
 
 Like `idleTimeout`, this value is applied in whole seconds.
+
+### Retry on a closed or reset connection
+
+**Available from 4.12.18.** A pooled connection can be closed or reset by the backend, or by an intermediary such as a load balancer, in the gap between the Gateway taking it from the pool and writing the next request to it — a race no timeout configuration eliminates, since a connection is only discovered to be dead by writing to it. The retry isn't restricted to that race: any connection closed or reset before the response headers arrive triggers it, on a connection just opened as much as on a reused one, and even when the backend had already received the request. That's why it's limited to requests that are safe to send twice.
+
+The Gateway retries such a request once, on a fresh connection, when all of the following hold:
+
+* The Gateway hadn't yet written a body to the backend for this request. The test is the presence of a `Content-Length` or a `Transfer-Encoding` header, so a `GET` that carries `Content-Length: 0` is excluded even though it has no body.
+* The request method is idempotent: `GET`, `HEAD`, `OPTIONS`, `TRACE`, `PUT`, or `DELETE`.
+* The API consumer reached the Gateway over HTTP/1.1. An HTTP/2 request signals its body with data frames rather than with a header, so the Gateway treats every HTTP/2 request as carrying a body — a `GET` included — and never retries it. The version that decides is the one the consumer used, not the one configured on the endpoint.
+
+A request that fails any of these conditions — a `POST`, a `PATCH`, or any request sent with a body — isn't retried. Whether the request was ineligible for the retry or the retried attempt failed the same way, the failure is reported as `GATEWAY_CLIENT_CONNECTION_CLOSED` or `GATEWAY_CLIENT_CONNECTION_RESET`. See [Backend connection failures](../analyze-and-monitor-apis/gateway-error-key-reference.md#backend-connection-failures).
+
+The retry lives in the HTTP proxy endpoint of a v4 API. Three paths never retry, whatever the request looks like: an API with a v2 definition, which reaches its backend through a different connector; a gRPC endpoint, which always negotiates HTTP/2; and a WebSocket endpoint.
+
+The retry uses a fresh connection and therefore a fresh `readTimeout` window, so the worst case at the endpoint becomes **2 × `readTimeout`**. See [Keep http.requestTimeout above twice readTimeout](timeout-management.md#keep-httprequesttimeout-above-twice-readtimeout).
+
+The retry is logged at `WARN`, naming the endpoint, so it stays observable even when it succeeds and the client never sees a failure.
 
 ## Configuration rules
 
@@ -95,9 +115,19 @@ This is the one inequality that governs correctness. Both timers run while the G
 
 The default values satisfy this rule. Inverting them changes the diagnosis rather than the behavior. The request fails at the same point either way, but the reported cause then points at the backend.
 
-### Keep `http.requestTimeout` above `readTimeout`
+{% hint style="warning" %}
+For a body-less idempotent request, [the retry on a closed or reset connection](timeout-management.md#retry-on-a-closed-or-reset-connection) can't tell this self-inflicted closure apart from a genuine one by the backend — it only recognizes the Gateway's own explicit cancellations, such as a client abort, not a connection its own `idleTimeout` closed. The retried connection is governed by the same misconfiguration and closes the same way, so the closure is retried once: the caller waits roughly twice as long before the failure surfaces, and depending on `http.requestTimeout`, it can shift from a `502` (`GATEWAY_CLIENT_CONNECTION_CLOSED`) to a `504` (`REQUEST_TIMEOUT`).
+{% endhint %}
 
-The endpoint timeout produces the more precise diagnosis, so let it fire first. Set `http.requestTimeout` above `readTimeout` and below whatever the API consumers themselves tolerate.
+### Keep `http.requestTimeout` above twice `readTimeout`
+
+The endpoint timeout produces the more precise diagnosis, so let it fire first. A request eligible for [the retry on a closed or reset connection](timeout-management.md#retry-on-a-closed-or-reset-connection) can consume a fresh `readTimeout` window twice, so `http.requestTimeout` has to clear **2 × `readTimeout`** for a retried request to reach that second window — below that margin it fails as `REQUEST_TIMEOUT` instead. That second window is only consumed when the connection breaks late, once the Gateway has already waited on the backend; the pool reuse race breaks it on the write. Weigh the margin against the fact that `http.requestTimeout` is Gateway-wide, while `readTimeout` is per endpoint: raising it relaxes the backstop of every API on that Gateway. And keep it below whatever the API consumers themselves tolerate.
+
+### Keep `http.idleTimeout` clear of the endpoint timeouts
+
+`http.idleTimeout` governs the connection between the API consumer and the Gateway, and it's expressed in **seconds** rather than milliseconds. Its timer keeps running while the Gateway waits for the backend, because no bytes travel on the consumer connection during that wait. A request slower than `http.idleTimeout` is therefore closed while it's still progressing, and the API consumer receives no response at all: no status, no error key, and no response template.
+
+Set it above the longest wait an endpoint can impose, which is `connectTimeout` plus `readTimeout`, or leave the default of `0` to disable it. See [Idle timeout behavior](configure-your-http-server.md#idle-timeout-behavior).
 
 ### Size `readTimeout` from the backend, not from the stream
 
@@ -189,13 +219,13 @@ gRPC runs over HTTP/2, which the Gateway selects for these endpoints regardless 
 
 ## Start from the defaults
 
-The default values already satisfy the rules above. `readTimeout` at `10000` ms sits well below `idleTimeout` at `60000` ms, and the Gateway `requestTimeout` of `30000` ms sits above `readTimeout`. A backend that answers within ten seconds needs no timeout configuration at all.
+The default values already satisfy the rules above. `readTimeout` at `10000` ms sits well below `idleTimeout` at `60000` ms, and the Gateway `requestTimeout` of `30000` ms sits above **2 × `readTimeout`** (`20000` ms). A backend that answers within ten seconds needs no timeout configuration at all.
 
 Change them when the backend is slower than the default `readTimeout`, in this order:
 
 1. Raise `readTimeout` to the p99 response time of the backend, plus margin.
 2. Raise `idleTimeout` if the new `readTimeout` comes close to it. Keep a clear gap between the two.
-3. Raise `http.requestTimeout` above the new `readTimeout`. The default of `30000` ms no longer clears a `readTimeout` set to `30000` ms.
+3. Raise `http.requestTimeout` above **2 ×** the new `readTimeout`. The default of `30000` ms no longer clears a `readTimeout` set to `15000` ms or higher.
 
 The following example configures an endpoint whose backend answers in about 25 seconds at the p99.
 
@@ -221,14 +251,14 @@ The following example configures an endpoint whose backend answers in about 25 s
 {% code title="gravitee.yml" %}
 ```yaml
 http:
-  requestTimeout: 60000
+  requestTimeout: 70000
   requestTimeoutGraceDelay: 30
 ```
 {% endcode %}
 
 `keepAliveTimeout` keeps its default here. It governs connections that sit unused in the pool, so a slow backend gives no reason to change it. Adjust it against the keep-alive window of the backend, as described in [Keep-alive timeout](timeout-management.md#keep-alive-timeout).
 
-The ordering carries the behavior, not the values. `readTimeout` stays the shortest, so it governs and produces the precise diagnosis. `idleTimeout` stays a safety net rather than the effective limit. `requestTimeout` stays above `readTimeout`, so the endpoint timeout fires first.
+The ordering carries the behavior, not the values. `readTimeout` stays the shortest, so it governs and produces the precise diagnosis. `idleTimeout` stays a safety net rather than the effective limit. `requestTimeout` stays above **2 ×** `readTimeout` (`70000` ms above `60000` ms here), giving a retried attempt room to complete before the Gateway budget expires.
 
 ## Diagnose a timeout
 
