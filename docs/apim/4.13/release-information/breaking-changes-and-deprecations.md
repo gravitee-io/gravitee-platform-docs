@@ -25,6 +25,26 @@ A request carrying dot segments is now routed on the resolved path, so it can re
 
 Set `http.pathHandling: RAW` to restore the previous behavior, which also restores a known authorization bypass. Set `http.pathHandling: REJECT` to close the exposure without changing any routing decision: a non-canonical path is answered with `400` and nothing is rewritten. For the upgrade checklist and the limits of each mode, see [Request Path Handling](../configure-and-manage-the-platform/gravitee-gateway/request-path-handling/README.md).
 
+**The Gateway no longer advertises its truststore during the TLS handshake**
+
+From 4.13.0, the Gateway sends an empty list of acceptable certificate authorities in the TLS `CertificateRequest` it issues when `ssl.clientAuth` is `request` or `required`. Previously, it sent every certificate in its truststore.
+
+This closes an information disclosure. With an mTLS plan, the Gateway loads each subscribed application's client certificate into an in-memory truststore. Those certificates are end-entity leaves, not certificate authorities, and the Gateway advertised them to every client of the listener, including callers of the listener's other APIs who present no certificate at all. Anyone opening a TLS connection could read the distinguished names of the client identities the Gateway accepts.
+
+Client certificate validation is unchanged. The full truststore still validates incoming certificates, so mTLS plan matching and subscription behavior are unaffected. An empty list means "no constraint", so clients continue to present their certificate.
+
+The change affects only clients that relied on the advertised list to choose which certificate to present. A client holding several client certificates, typically a Java client with more than one key entry in its keystore, may now present the wrong one and be rejected. If that applies to you, set `ssl.sendClientCertificateAuthorities` to `true` on the affected listener to send the configured truststore again:
+
+```yaml
+http:
+  ssl:
+    sendClientCertificateAuthorities: true
+```
+
+Don't enable it on a listener that serves mTLS plans. A non-empty list is a constraint, not a hint: a client whose certificate issuer is absent from it withholds its certificate entirely. Subscription certificates are self-signed leaves that are never issued by an authority of the configured truststore, so enabling this cuts off every mTLS subscription on that listener. Certificates registered by subscriptions are never advertised, whatever the setting.
+
+For the full option reference, see [Control which certificate authorities the Gateway advertises](../prepare-a-production-environment/configure-your-http-server.md#control-which-certificate-authorities-the-gateway-advertises).
+
 **Management API v1 plan endpoints reject V4, Federated, and Federated Agent APIs**
 
 From 4.13.0, the plan endpoints of the legacy Management API v1 (`/management/organizations/{orgId}/environments/{envId}/apis/{apiId}/plans`) reject V4, Federated, and Federated Agent APIs. Every plan operation for one of these APIs returns HTTP `400`. The error message names the API's definition version, for example: `API definition version 4.0.0 is not supported by Management API v1. Use Management API v2 instead (/management/v2/environments/{envId}/apis/{apiId}/...).`
