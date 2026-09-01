@@ -34,16 +34,10 @@ To override the model at runtime, add the Assign attributes policy to the reques
 5.  In the **Request phase** section, click the **+** icon.<br>
 
     <figure><img src="../../.gitbook/assets/88D4D2EF-A79A-43E6-A61D-90DB74F78C7F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-6.  In the **Policies for Request phase** pop-up window, navigate to **Assign attributes**, and then click **Select**.<br>
-
-    <!-- TODO: Screenshot of the Assign attributes policy selected in the Policies for Request phase pop-up window -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-llm-proxy-assign-attributes-select.png" alt=""><figcaption></figcaption></figure>
+6. In the **Policies for Request phase** pop-up window, navigate to **Assign attributes**, and then click **Select**.<br>
 7. In the **Assign context attributes** section, add an attribute, and then complete the following sub-steps:
    1. In the **Name** field, type `llmproxy.model.override`.
-   2.  In the **Value** field, type the name of the model to use, or an Expression Language expression that resolves to it. For example, `{#request.headers['x-target-model']}`.<br>
-
-       <!-- TODO: Screenshot of the Assign attributes policy configured with the llmproxy.model.override attribute -->
-       <figure><img src="../../.gitbook/assets/PLACEHOLDER-llm-proxy-model-override-config.png" alt=""><figcaption></figcaption></figure>
+   2. In the **Value** field, type the name of the model to use, or an Expression Language expression that resolves to it. For example, `{#request.headers['x-target-model']}`.<br>
 8. Click **Add policy**.
 9. Click **Save**.
 10. In the **This API is out of sync.** pop-up window, click **Deploy API**.<br>
@@ -59,7 +53,7 @@ For more information about the policy, see [assign-attributes.md](../../create-a
 
 To verify that the LLM Proxy overrides the model, follow these steps:
 
-1. Call your LLM proxy using the following command:
+1.  Call your LLM proxy using the following command:
 
     ```bash
     curl -X POST \

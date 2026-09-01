@@ -81,3 +81,29 @@ spec:
 * Documentation cannot be reassigned from a portal to an API, or from an API to a portal, after creation.
 * The GKO admission webhook validates the documentation before apply.
 {% endhint %}
+
+### Using the Terraform provider
+
+1. Define an `apim_documentation_portal` resource with the parent portal's HRID.
+2. Specify the page's HRID, display name, type, content, location, and optional order.
+3. Run `terraform apply`.
+
+**Example `apim_documentation_portal` resource:**
+
+```hcl
+resource "apim_documentation_portal" "getting-started" {
+  portal_hrid = "default-portal"
+  hrid        = "getting-started"
+  name        = "Getting Started"
+  type        = "GRAVITEE_MARKDOWN"
+  location    = "/projects/alpha"
+  order       = 1
+  content     = <<-EOT
+  # Getting Started
+
+  Welcome to the developer portal.
+  EOT
+}
+```
+
+The `type` attribute accepts `GRAVITEE_MARKDOWN`, `OPENAPI`, or `ASYNCAPI`.

@@ -6,7 +6,7 @@ description: Configuration guide for terraform.
 
 Terraform lets you use configuration files to build and manage your infrastructure. Starting with Gravitee 4.8, local installations of Gravitee support Terraform for an Infrastructure as Code (IaC) approach to API management. This enables users to automate and version control Gravitee APIs.
 
-You can use Terraform to interface with Gravitee much like the Gravitee Kubernetes Operator (GKO), where the CI/CD logic that calls the Gravitee Management API (mAPI) and ensures that your API was created properly is generated automatically. This is especially useful if you want to update a large number of APIs, or if you need to ensure that APIs across multiple environments are identical.
+You can use Terraform to interface with Gravitee much like the Gravitee Kubernetes Operator (GKO). The CI/CD logic that calls the Gravitee Management API (mAPI) and verifies that your API was created is generated automatically. This is especially useful if you want to update many APIs, or if you need to ensure that APIs across multiple environments are identical.
 
 The Gravitee Terraform Provider is an open source plugin that is publicly available for download from the Terraform Registry. You can use the provider to create and configure Gravitee components, which Terraform refers to as resources. Examples of Terraform resources in Gravitee are v4 APIs, Shared Policy Groups, Applications, and Subscriptions.
 
@@ -28,11 +28,12 @@ Terraform relies on Automation API. On premise Helm Charts users need to configu
 You need to:
 
 * enable it
-* configure hosts & tls
+* configure `hosts` & `tls`
 {% endhint %}
 
 | Provider version | APIM version                                                                 | Terraform/OpenTofu qualified versions | Support     |
 | ---------------- | ---------------------------------------------------------------------------- | ------------------------------------- | ----------- |
+| 1.1.x            | <p>4.13.x / 4.12.x<br><sub><em>(4.11.x and below without the portal resources)</em></sub></p> | 1.9+ latest / latest                  | Gravitee    |
 | 1.0.x            | <p>4.12.x<br><sub><em>(4.11.x and below without new features)</em></sub></p> | 1.9+ latest / latest                  | Gravitee    |
 | 0.5.x            | <p>4.11.x<br><sub><em>(4.10.x / 4.9.x without new features)</em></sub></p>   | 1.9 + latest / latest                 | Best effort |
 | 0.4.x            | 4.10.x / 4.9.x                                                               | 1.10 to latest / latest               | Best effort |

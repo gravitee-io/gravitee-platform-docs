@@ -1,5 +1,8 @@
 ---
 description: An overview about RPM.
+metaLinks:
+  alternates:
+    - rpm.md
 ---
 
 # RPM

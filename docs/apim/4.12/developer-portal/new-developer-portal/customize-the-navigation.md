@@ -2,7 +2,6 @@
 
 ## Overview
 
-
 In the New Developer Portal, you can customize the navigation of your Developer Portal by using the **Navigation items** section of the New Developer Portal settings.
 
 You can create the following elements for your navigation:
@@ -14,15 +13,15 @@ You can create the following elements for your navigation:
 
 When you add a new page, you can choose **Gravitee Markdown**, **OpenAPI**, or **AsyncAPI** as the page type. Gravitee Markdown is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention"). For OpenAPI pages, see [creating-openapi-documentation-pages.md](customize-the-navigation/creating-openapi-documentation-pages.md). For AsyncAPI pages, see [creating-asyncapi-documentation-pages.md](customize-the-navigation/creating-asyncapi-documentation-pages.md).
 
-For CI/CD-driven declarative management of portal navigation, API listings, and documentation using the Automation API or GKO CRDs, see [Portal automation](customize-the-navigation/portal-automation/README.md).
+For CI/CD-driven declarative management of portal navigation, API listings, and documentation using the Automation API or GKO CRDs, see [Portal automation](customize-the-navigation/portal-automation/).
 
 ### Supported documentation page types
 
-| Page type | What it contains | How it is edited in the Console | How it appears in the portal |
-|:----------|:-----------------|:--------------------------------|:-----------------------------|
-| Gravitee Markdown | Markdown content | Markdown editor | Rendered markdown |
-| OpenAPI | OpenAPI specification | Split editor with live preview | Swagger UI or Redoc (configurable) |
-| AsyncAPI | AsyncAPI specification | Split YAML editor with live preview | Interactive AsyncAPI documentation viewer |
+| Page type         | What it contains       | How it is edited in the Console     | How it appears in the portal              |
+| ----------------- | ---------------------- | ----------------------------------- | ----------------------------------------- |
+| Gravitee Markdown | Markdown content       | Markdown editor                     | Rendered markdown                         |
+| OpenAPI           | OpenAPI specification  | Split editor with live preview      | Swagger UI or Redoc (configurable)        |
+| AsyncAPI          | AsyncAPI specification | Split YAML editor with live preview | Interactive AsyncAPI documentation viewer |
 
 ### Default navigation items
 
@@ -100,6 +99,7 @@ When you add a page that is not in a folder, the page appears as a root level me
 *   Navigate to the page in the navigation bar, click the **ellipses** (<i class="fa-ellipsis-vertical">:ellipsis-vertical:</i>), and then click **Publish**.<br>
 
     <figure><img src="../../.gitbook/assets/1A5E08E1-648C-4437-81C6-F4C480F04193_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+
 8.  In the confirmation dialog, click **Publish**.<br>
 
     <figure><img src="../../.gitbook/assets/C52E694A-6761-45A5-B46B-998AE39FF5E1_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -195,14 +195,8 @@ However, there are some limitations of APIs compared to folders:
 
 **Add an API**
 
-1.  Open the context menu of a folder in which you want to add your API by clicking the **ellipses**, and then click **Add API**.<br>
-
-    <!-- TODO: Screenshot of the folder context menu with the Add API option highlighted -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-add-api-context-menu.png" alt=""><figcaption><p>Add API in the folder context menu</p></figcaption></figure>
-2.  In the **Add APIs** dialog, select the APIs that you want to add. To find an API by name, use the **Search** field.<br>
-
-    <!-- TODO: Screenshot of the Add APIs dialog with an API selected -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-add-apis-dialog.png" alt=""><figcaption><p>Add APIs dialog</p></figcaption></figure>
+1. Open the context menu of a folder in which you want to add your API by clicking the **ellipses**, and then click **Add API**.<br>
+2. In the **Add APIs** dialog, select the APIs that you want to add. To find an API by name, use the **Search** field.<br>
 3. (Optional) Turn on the **Authentication is required to view selected APIs.** toggle. This ensures that the user has to sign in to the New Developer Portal to view the APIs.
 4. Click **Add**.
 5. Publish the API. To publish the API, complete either of the following steps:
@@ -212,10 +206,7 @@ However, there are some limitations of APIs compared to folders:
 * Click **Publish**.
 * Navigate to the folder in the navigation bar, click the **ellipses**, and then click **Publish**.
 
-6.  In the confirmation dialog, click **Publish**. The dialog title shows the name of your API. For example, **Publish "Payments" API?**<br>
-
-    <!-- TODO: Screenshot of the publish confirmation dialog for an API -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-publish-api-dialog.png" alt=""><figcaption><p>Publish confirmation dialog for an API</p></figcaption></figure>
+6. In the confirmation dialog, click **Publish**. The dialog title shows the name of your API. For example, **Publish "Payments" API?**<br>
 
 **Default Overview page**
 
