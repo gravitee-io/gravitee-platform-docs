@@ -51,3 +51,9 @@ analyze-and-monitor-apis/logging/configure-environment-level-logs.md
 # kafka_active_connections gauge (APIM 4.13.0 feature, ESM-72) — the metric ships in the 7.1.x
 # native Kafka reactor; 4.12 pins 7.0.8, which does not carry it, so the section must not sync back
 analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md
+# Gateway stops advertising its truststore as the TLS acceptable certificate authorities,
+# and the new ssl.sendClientCertificateAuthorities opt-in (APIM 4.13.0, APIM-14863).
+# 4.12 runs gravitee-node 9.7.0, where the option does not exist and the old behaviour stands,
+# so this content must not be written back to 4.12 nor re-synced from it.
+prepare-a-production-environment/configure-your-http-server.md
+secure-and-expose-apis/plans/mtls.md
