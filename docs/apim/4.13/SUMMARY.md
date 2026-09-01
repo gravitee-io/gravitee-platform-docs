@@ -356,6 +356,7 @@
       * [Structure the navigation with the Management API](developer-portal/new-developer-portal/customize-the-navigation/structure-the-navigation-with-the-management-api.md)
       * [Creating OpenAPI Documentation Pages](developer-portal/new-developer-portal/customize-the-navigation/creating-openapi-documentation-pages.md)
       * [Creating AsyncAPI Documentation Pages](developer-portal/new-developer-portal/customize-the-navigation/creating-asyncapi-documentation-pages.md)
+      * [Import content from external sources](developer-portal/new-developer-portal/customize-the-navigation/import-content-from-external-sources.md)
       * [Portal automation](developer-portal/new-developer-portal/customize-the-navigation/portal-automation/README.md)
         * [Portal listings](developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-listings.md)
         * [Portal documentation](developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-documentation.md)

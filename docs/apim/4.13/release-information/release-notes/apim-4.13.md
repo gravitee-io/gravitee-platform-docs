@@ -37,6 +37,7 @@ documentation.gravitee.io links for other versions.
 * The schema registry provider contract now exposes the serialization format of each schema and answers subject membership and version-list lookups, and the bundled Confluent Schema Registry resource implements all three.
 * The plan endpoints of the legacy Management API v1 now reject V4, Federated, and Federated Agent APIs with an HTTP `400` error that points to Management API v2.
 * The New Developer Portal catalog gains categories, so you group APIs in the APIM Console and consumers filter the catalog to one category and share that view by URL.
+* New Developer Portal navigation pages fetch their content from external sources such as GitHub, GitLab, or an HTTP URL, on demand or on an auto-fetch schedule, and a repository import mirrors a whole documentation tree into a read-only folder.
 
 ## Breaking Changes and deprecations
 
@@ -97,6 +98,16 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * Two placeholders come with it, usable in either pattern: `{realBrokerId}`, the broker ID as configured on the backend, and `{clusterIndex}`, the backend's zero-based position in the Virtual Cluster. Together they let a hostname keep your own broker numbering instead of the rewritten IDs. A Virtual Cluster pattern must still tell the backends apart — through `{brokerId}`, which encodes the backend, or through `{clusterIndex}` alongside `{realBrokerId}` — and the Gateway now refuses to deploy a pattern that cannot, rather than routing to the wrong backend silently.
 * A client connecting on a broker hostname the Virtual Cluster never advertised — a DNS record left over from a single-backend deployment, most often — is now served as a bootstrap connection, so it receives the merged metadata and re-targets itself at the correct broker. Previously the connection was closed without a response and the client waited out its own timeout, which typically surfaced as producing failing while bootstrap and topic listing worked. The Gateway logs a warning naming what it could not place, so the stale DNS record stays visible rather than being papered over.
 * For more information, see [Virtual Cluster Broker Addressing](../../kafka-gateway/virtual-cluster-broker-addressing.md).
+
+#### **External sources for New Developer Portal pages**
+
+* Link a New Developer Portal navigation page to an external source, so its content is fetched from that source instead of being written in the editor. The source types are the fetcher plugins deployed with the Management API, and APIM bundles the GitHub, GitLab, Git, Bitbucket, and HTTP fetchers. A sourced page is read-only in the Console, and removing its source makes the content editable again.
+* Re-fetch content on demand with the **Fetch now** button on a sourced page, or with **Fetch All** on a folder or API to fetch every sourced page below it. A page that fails to fetch doesn't block the others, and it records its error on the page.
+* Enable auto-fetch on a source with its own cron expression to re-fetch the content on a schedule. A dedicated Management API job paces all schedules, configured with `services.portal_navigation_auto_fetch.enabled` and `services.portal_navigation_auto_fetch.cron` in `gravitee.yml`, with a default pace of every 5 minutes. It's a different job from the `services.auto_fetch` job that serves Classic Developer Portal and API documentation pages, and each job has its own flag and cron expression.
+* Import a whole documentation tree from a remote repository with the **Import** button of the **Navigation items** screen. The import creates an unpublished folder whose subtree mirrors the repository and stays read-only, follows a `.gravitee.json` descriptor when the repository carries one, and re-running the fetch on the folder synchronizes it, including removing pages deleted remotely once a run completes without failures. The import requires a fetcher that lists repository directories, which the bundled GitHub and GitLab fetchers do.
+* Import the content of a single page from a local `.md`, `.yaml`, `.yml`, or `.json` file of up to 10 MB, when creating the page or with the **Import file** button on an existing page. This is a one-time import with no link to a source.
+* The fetch and import operations are exposed by Management API v2 as `POST /portal-navigation-items/{navId}/_fetch` and `POST /portal-navigation-items/_import`, and both require the `ENVIRONMENT_DOCUMENTATION[UPDATE]` permission.
+* For more information, see [Import content from external sources](../../developer-portal/new-developer-portal/customize-the-navigation/import-content-from-external-sources.md).
 
 ## Improvements
 

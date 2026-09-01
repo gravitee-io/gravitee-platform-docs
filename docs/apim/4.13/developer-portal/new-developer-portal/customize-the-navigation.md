@@ -59,6 +59,8 @@ With the New Developer Portal, you can customize your navigation in the followin
 * [Add a link](customize-the-navigation.md#links)
 * [Add an API](customize-the-navigation.md#api)
 
+You also link pages to external sources, import a documentation tree from a remote repository with the **Import** button, and import page content from a local file. For more information, see [import-content-from-external-sources.md](customize-the-navigation/import-content-from-external-sources.md "mention").
+
 1.  From the **Dashboard**, click **Settings**.<br>
 
     <figure><img src="../../.gitbook/assets/EB3744C8-A282-4EC2-9DB6-218361CB3FA7_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -70,8 +72,8 @@ With the New Developer Portal, you can customize your navigation in the followin
     <figure><img src="../../.gitbook/assets/7C64309D-426F-4F5D-B48D-2224931FC9F3_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
 4. Customize your navigation using the following components:
 
-{% tabs %}
-{% tab title="Pages" %}
+#### Pages
+
 When you add a page that is not in a folder, the page appears as a root level menu item. When you publish the page, the page appears in the top navigation bar of your New Developer Portal.
 
 **Add a page**
@@ -79,18 +81,20 @@ When you add a page that is not in a folder, the page appears as a root level me
 1.  Click **Add**, and then click **Add Page**.<br>
 
     <figure><img src="../../.gitbook/assets/FB8F0725-08EB-4B68-B365-122337D12C4F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-2. In the **Add page** pop-up screen, type a title for your page.
-3.  The pop-up screen allows you to select one of 3 types of pages: Gravitee Markdown, OpenAPI specification, or AsyncAPI.<br>
+2. In the **Add page** pop-up screen, select a content source. **Fill in content** opens the editor, **Import from file** uploads a local file, and **Link to external source** fetches the content from a repository or URL. For the import and external source options, see [import-content-from-external-sources.md](customize-the-navigation/import-content-from-external-sources.md "mention").
+3. Click **Continue**.
+4. Type a title for your page.
+5.  Select one of 3 types of pages: Markdown, OpenAPI, or AsyncAPI.<br>
 
     <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--251.png" alt=""><figcaption><p>Add page pop-up with Markdown selected</p></figcaption></figure>
 
     <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--252.png" alt=""><figcaption><p>Add page pop-up with OpenAPI selected</p></figcaption></figure>
 
     For OpenAPI pages, you can configure Swagger UI or Redoc viewers. For more information, see [Creating OpenAPI Documentation Pages](customize-the-navigation/creating-openapi-documentation-pages.md). For AsyncAPI pages, see [Creating AsyncAPI Documentation Pages](customize-the-navigation/creating-asyncapi-documentation-pages.md).
-4. (Optional) Turn on the **Authentication is required to view this page.** toggle. This toggle ensures that the user must be signed in to the New Developer Portal to see the page.
-5. Click **Add**.
-6. Customize your page. The page contains default content that you can use to customize your new page with unique content. For more information about customizing your page with Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention").
-7. Publish the page by completing either of the following steps:
+6. (Optional) Turn on the **Authentication is required to view this page.** toggle. This toggle ensures that the user must be signed in to the New Developer Portal to see the page.
+7. Click **Add**.
+8. Customize your page. The page contains default content that you can use to customize your new page with unique content. For more information about customizing your page with Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention").
+9. Publish the page by completing either of the following steps:
 
 ⚠️ A page can only be published if all of its ancestor folders are published or if it's a top level page.
 
@@ -100,12 +104,12 @@ When you add a page that is not in a folder, the page appears as a root level me
 *   Navigate to the page in the navigation bar, click the **ellipses** (<i class="fa-ellipsis-vertical">:ellipsis-vertical:</i>), and then click **Publish**.<br>
 
     <figure><img src="../../.gitbook/assets/1A5E08E1-648C-4437-81C6-F4C480F04193_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-8.  In the confirmation dialog, click **Publish**.<br>
+10.  In the confirmation dialog, click **Publish**.<br>
 
     <figure><img src="../../.gitbook/assets/C52E694A-6761-45A5-B46B-998AE39FF5E1_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-{% endtab %}
 
-{% tab title="Folders" %}
+#### Folders
+
 Folders group related pages together. A folder is a section on your New Developer Portal. When you add pages to your folder, they appear in the menu for that section instead of the top navigation.
 
 **Add a folder**
@@ -145,9 +149,9 @@ When you add a page to a folder, that page becomes a menu item within that secti
 3.  Click **Add page**.<br>
 
     <figure><img src="../../.gitbook/assets/E4576EEE-A99A-40AF-A637-9AC6F6C44D4A.jpeg" alt=""><figcaption></figcaption></figure>
-{% endtab %}
 
-{% tab title="Links" %}
+#### Links
+
 When you add a link, the link appears as a root level menu item. When you publish the link, the page appears in the top navigation bar of your New Developer Portal.
 
 **Add a link**
@@ -175,9 +179,9 @@ When you add a link, the link appears as a root level menu item. When you publis
 5.  In the confirmation dialog, click **Publish**.<br>
 
     <figure><img src="../../.gitbook/assets/B33EB73A-836D-4E7F-A297-53C23A7AB324_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-{% endtab %}
 
-{% tab title="API" %}
+#### API
+
 API navigation items represent actual APIs that exist in the platform.
 
 {% hint style="info" %}
@@ -243,13 +247,11 @@ When you add a folder to an API, that folder becomes nested within that API in t
 1. Navigate to the folder in the **Navigation items** menu.
 2. Click **the ellipsis**.
 3. Click **Add folder**.
-{% endtab %}
-{% endtabs %}
 
 ## Verification
 
 The content appears on the New Developer Portal. To view the content, complete the following step:
 
-Click **Open website**.
+Click **Open Website**.
 
 The new root-level items appear in the navigation bar.

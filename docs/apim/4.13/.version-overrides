@@ -58,3 +58,13 @@ analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md
 # no ssl block before 4.13. Syncing this content down from 4.12 would overwrite both.
 prepare-a-production-environment/configure-your-http-server.md
 secure-and-expose-apis/plans/mtls.md
+# External sources for New Developer Portal pages (APIM 4.13.0 feature, PORTAL-3)
+developer-portal/new-developer-portal/customize-the-navigation/import-content-from-external-sources.md
+developer-portal/new-developer-portal/customize-the-navigation.md
+.gitbook/assets/devportal-add-page-content-source-cards.png
+.gitbook/assets/devportal-external-source-editor.png
+.gitbook/assets/devportal-sourced-page-banner.png
+.gitbook/assets/devportal-fetch-all-menu.png
+.gitbook/assets/devportal-import-repository-dialog.png
+.gitbook/assets/devportal-import-from-file.png
+.gitbook/assets/devportal-sourced-page-in-portal.png
