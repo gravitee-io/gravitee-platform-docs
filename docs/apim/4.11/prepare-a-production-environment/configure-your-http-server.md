@@ -353,6 +353,11 @@ The following fields configure HTTPS on the Gateway HTTP server. Set them under 
             <td><code>none</code></td>
         </tr>
         <tr>
+            <td><code>http.ssl.sendClientCertificateAuthorities</code></td>
+            <td>When <code>true</code>, the Gateway sends the configured truststore as the list of acceptable certificate authorities in the TLS <code>CertificateRequest</code>. Certificates registered at runtime by mTLS plan subscriptions are never sent. See <a href="configure-your-http-server.md#control-which-certificate-authorities-the-gateway-advertises">Control which certificate authorities the Gateway advertises</a>.</td>
+            <td><code>false</code></td>
+        </tr>
+        <tr>
             <td><code>http.ssl.clientAuthHeader.name</code></td>
             <td>Header name to extract the client certificate from. Use this when NGINX or another load balancer terminates TLS in front of the Gateway.</td>
             <td>-</td>
@@ -554,6 +559,85 @@ Available modes for `clientAuth`:
 * `required`: Client authentication is required (replacement of the `true` value)
 
 
+
+## Control which certificate authorities the Gateway advertises
+
+When `clientAuth` is `request` or `required`, the Gateway asks the client for a certificate with a TLS `CertificateRequest`. That message carries a list of acceptable certificate authorities, which a client can use to decide which of its certificates to present.
+
+Starting with Gravitee APIM 4.11.27, the Gateway sends an **empty** list. Earlier versions sent every certificate in the truststore, which disclosed the accepted client identities to every client of the listener, including callers that present no certificate at all. This matters most with [mTLS plans](../secure-and-expose-apis/plans/mtls.md), where the truststore holds each subscribed application's client certificate.
+
+An empty list means "no constraint": clients continue to present their certificate, and validation is unchanged. Enable the option only if your clients rely on the advertised list to pick a certificate.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  ssl:
+    clientAuth: required
+    sendClientCertificateAuthorities: true
+    truststore:
+      path: /path/to/truststore.jks
+      password: adminadmin
+```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_ssl_clientAuth=required
+gravitee_http_ssl_sendClientCertificateAuthorities=true
+gravitee_http_ssl_truststore_path=/path/to/truststore.jks
+gravitee_http_ssl_truststore_password=adminadmin
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  ssl:
+    enabled: true
+    clientAuth: required
+    sendClientCertificateAuthorities: true
+    truststore:
+      type: jks
+      path: /path/to/truststore.jks
+      password: adminadmin
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="warning" %}
+Don't enable this on a listener that serves mTLS plans. A non-empty list is a constraint, not a hint: a client whose certificate issuer is absent from the list withholds its certificate entirely. Subscription certificates are self-signed leaves that are never issued by an authority of the configured truststore, so enabling this cuts off every mTLS subscription on that listener.
+{% endhint %}
+
+### Advertised authorities behavior
+
+* **Unset or `false`**: the Gateway sends an empty list. Clients aren't told which authorities are accepted, and every client certificate is still validated against the full truststore.
+* **`true`**: the Gateway sends the certificates of the **configured** truststore only, the one declared under `ssl.truststore`.
+* **Runtime certificates are never sent**: client certificates registered at runtime, such as those loaded from mTLS plan subscriptions, stay out of the advertised list whatever the setting. They remain fully trusted for validation.
+* **Reloads follow the truststore**: when the configured truststore is reloaded, the advertised list is rebuilt from its new contents.
+* **Requires a client certificate request**: the list is only ever sent when `clientAuth` is `request` or `required`. With `none`, the Gateway sends no `CertificateRequest` at all.
+
+### Apply advertised authorities to other Gateway servers
+
+The `ssl.sendClientCertificateAuthorities` field is available under every server prefix. Set it on the top-level TCP server, on the Kafka Gateway server, and on each entry of the `servers[]` array by adding it under the corresponding prefix.
+
+{% code title="gravitee.yaml" %}
+```yaml
+tcp:
+  ssl:
+    sendClientCertificateAuthorities: true
+
+kafka:
+  ssl:
+    sendClientCertificateAuthorities: true
+
+servers:
+  - id: "http_secured"
+    type: http
+    ssl:
+      sendClientCertificateAuthorities: true
+```
+{% endcode %}
 
 ## Reject revoked client certificates with a CRL
 
