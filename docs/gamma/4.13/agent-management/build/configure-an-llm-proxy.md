@@ -53,6 +53,10 @@ The LLM Proxy supports the same comprehensive plan types as API proxies. The **S
 
 See [Secure your API proxy](../../api-management/build/secure-your-api-proxy.md) for detailed plan type descriptions.
 
+## Broadcasts
+
+To send a one-way announcement to the consumers of the LLM Proxy, under **Consumer Access**, open **Broadcasts**. For the steps to compose and send one, see [Broadcast messages to LLM Proxy consumers](broadcast-messages-to-llm-proxy-consumers.md).
+
 ## Cost visibility
 
 The LLM Proxy provides real-time per-token cost attribution by provider and model. Every request records the model used, the input and output tokens consumed, and the cost based on the model's configured rate.

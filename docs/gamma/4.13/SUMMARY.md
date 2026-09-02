@@ -143,6 +143,7 @@
   * [Create an LLM Proxy](agent-management/build/create-an-llm-proxy.md)
   * [Configure an LLM Proxy](agent-management/build/configure-an-llm-proxy.md)
   * [Configure LLM Proxy notifications](agent-management/build/configure-llm-proxy-notifications.md)
+  * [Broadcast messages to LLM Proxy consumers](agent-management/build/broadcast-messages-to-llm-proxy-consumers.md)
   * [Configure LLM Proxy deployment](agent-management/build/configure-llm-proxy-deployment.md)
   * [Configure LLM Proxy logging and tracing](agent-management/build/configure-llm-proxy-logging-and-tracing.md)
   * [Review LLM Proxy deployment history](agent-management/build/review-llm-proxy-deployment-history.md)

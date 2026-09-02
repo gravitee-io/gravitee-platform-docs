@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration to each proxy detail view, and lets you record the price you negotiated with a provider on a cataloged AI model.
+Agent Management adds API resource configuration to each proxy detail view and consumer broadcasts to the LLM Proxy detail view. It also lets you record the price you negotiated with a provider on a cataloged AI model.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -26,6 +26,13 @@ Agent Management adds API resource configuration to each proxy detail view, and 
 * A model with a negotiated price shows a `Custom` badge next to its price, together with the suggested rate and the date and author of the last change. The negotiated price appears in the **Price / 1M** column of the AI Models list, on the model detail page, and on the models page of an LLM Proxy, and it feeds the cost estimates in the AI workspace detail view.
 * Refreshing the catalog updates the provider-derived fields and keeps your negotiated price. Republish any LLM Proxy that consumes a repriced model so cost tracking picks up the negotiated rate.
 * See [Add an AI model](../agent-management/import/add-an-ai-model.md).
+
+#### Broadcasts for LLM Proxies
+
+* The LLM Proxy detail view adds a **Broadcasts** page under **Consumer Access** that sends a one-way announcement to the consumers of the proxy, for example a deprecation or a maintenance window.
+* Choose the **Portal Notifications**, **Email**, or **POST HTTP Message** channel. For the first two, select the recipients and enter a title. The recipients are **API subscribers** or the members holding an application role on the applications subscribed to the proxy. Enter a message of up to 4,000 characters.
+* **Send** stays disabled until the form is valid. After the send, the page confirms that the broadcast was sent and, when it reached at least one recipient, how many.
+* See [Broadcast messages to LLM Proxy consumers](../agent-management/build/broadcast-messages-to-llm-proxy-consumers.md).
 
 ### API Management
 
