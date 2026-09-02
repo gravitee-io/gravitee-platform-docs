@@ -15,9 +15,7 @@ Each LLM Proxy, MCP Proxy, and A2A Proxy detail view includes a **Broadcasts** p
 3. Select the proxy whose consumers you want to reach.
 4. Under **Consumer Access**, select **Broadcasts**.
 
-<!-- TODO: Screenshot of the Broadcasts page before a broadcast is composed -->
-
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-broadcasts.png" alt=""><figcaption><p>The Broadcasts page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-broadcasts.png" alt=""><figcaption><p>The Broadcasts page</p></figcaption></figure>
 
 Until you compose a broadcast, the page shows an introduction to broadcasts instead of the form.
 
@@ -36,9 +34,7 @@ To send a broadcast, follow these steps:
 5. Enter the **Message**, up to 4,000 characters. A counter under the field shows the remaining characters.
 6. Click **Send**. The button stays disabled until the form is valid.
 
-<!-- TODO: Screenshot of the Compose broadcast form with the Portal Notifications channel selected -->
-
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-broadcast-compose.png" alt=""><figcaption><p>The Compose broadcast form</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-broadcast-compose.png" alt=""><figcaption><p>The Compose broadcast form</p></figcaption></figure>
 
 Switching the channel clears the fields that belong to the previous channel, so a title entered for a portal notification doesn't travel with an HTTP broadcast.
 
