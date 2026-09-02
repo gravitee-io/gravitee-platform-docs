@@ -54,9 +54,7 @@ To create a plan, follow these steps:
 3. In the **Configure** step, complete the settings of the security type, and then click **Next**. A **Keyless** plan has no **Configure** step.
 4. In the **Review** step, check the plan settings, and then click **Create plan**.
 
-The plan is created in staging and appears in the table. If the plan can't be created, the page shows **Failed to create plan** with the reason, and keeps what you entered.
-
-An A2A plan holds a name and a security configuration. Plans created on the **Plans** page use manual validation, so a subscription request waits for your approval.
+The plan is created in staging and appears in the table. Plans created on the **Plans** page use manual validation, so a subscription request waits for your approval.
 
 ### Configure an API Key plan
 
@@ -84,13 +82,13 @@ An OAuth2 plan validates tokens with an OAuth2 resource declared on the proxy. D
 
 To configure an OAuth2 plan, follow these steps:
 
-1. In **OAuth2 resource**, enter the name of a resource declared on the proxy, or select one of the names listed under **Declared on this proxy**. The list holds every enabled resource of the proxy, whatever its type. The field also accepts an Expression Language expression, which is resolved on each request.
+1. In **OAuth2 resource**, enter the name of a resource declared on the proxy, or select one of the names listed under **Declared on this proxy**. The list includes every enabled resource of the proxy, so select one that is an OAuth2 resource. The field also accepts an Expression Language expression, which is resolved on each request.
 2. Optional: turn on **Extract payload** to forward the token payload to the upstream agent.
 3. Optional: turn on **Check required scopes**, and then add at least one scope under **Required scopes**. Press Enter or a comma to add a scope.
 
 When the proxy declares no resource, the step shows **This proxy declares no resources**, with a **Manage resources** link to the **Resources** page. Creating the plan is refused until you declare a resource or enter an expression.
 
-The plan is refused at creation when the resource name matches no enabled resource of the proxy. The message lists the declared resources. The same check runs again when you publish the plan, so a resource that was removed or disabled after the plan was created blocks the publication. An expression is never checked against the declared resources.
+The name must match a resource that is declared and enabled on the proxy, both when you create the plan and when you publish it. If the resource is removed or disabled in between, publishing is refused until you restore it. An expression is resolved at request time instead, so a mistake in one surfaces only when a request reaches the gateway.
 
 ### Configure an mTLS plan
 
