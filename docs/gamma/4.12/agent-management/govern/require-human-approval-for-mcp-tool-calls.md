@@ -14,7 +14,7 @@ When a rule fires, the Gateway holds the tool call open while a human decides. M
 
 ## Create an approval rule
 
-An approval rule carries a name, an optional description, and the conditions under which it triggers. A rule applies to the tool you declare it against, can be enabled and disabled, and can carry its own expiry date after which it stops participating in evaluation.
+An approval rule carries a name, an optional description, and the conditions under which it triggers. A rule declares which tool calls it applies to, can be enabled and disabled, and can carry its own expiry date after which it stops participating in evaluation.
 
 <!-- TODO: verify label in Console UI — rule creation surface and field labels are ahead of the build -->
 
