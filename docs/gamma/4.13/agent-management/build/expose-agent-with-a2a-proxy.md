@@ -25,7 +25,7 @@ When you expose an agent through the A2A Proxy, the proxy provides the following
 5. **Step 2: Secure**: Choose how clients authenticate to the gateway: **Keyless**, **API Key**, **JWT**, **OAuth 2.0**, or **mTLS**. The settings of the selected type appear under the picker. A default plan of that type is created and published with the proxy.
    * **API Key**. Choose how consumers send the key: **Authorization: Bearer**, **Custom header**, or **Query parameter**.
    * **JWT**. Select the **Signature algorithm** and the **Public key resolver**, and then enter the **JWKS URL** or the **Public key (PEM)**.
-   * **OAuth 2.0**. Select the **Provider**, **Generic OAuth2** or **Auth0**, and enter a **Name** for the OAuth2 resource. For **Generic OAuth2**, enter the **Issuer URL**, the **Introspection endpoint**, the **Client ID**, and the **Client secret**, and optionally the **User info endpoint**. For **Auth0**, enter the **Tenant domain** and the **API audience**. The wizard declares the provider as a resource on the proxy under that name, and the default plan references it. To use Gravitee Access Management instead, declare the resource on the **Resources** page after creating the proxy, and then add an OAuth2 plan from the **Plans** page.
+   * **OAuth 2.0**. Select the **Provider**, **Generic OAuth2** or **Auth0**, and enter a **Name** for the OAuth2 resource. For **Generic OAuth2**, enter the **Issuer URL**, the **Introspection endpoint**, the **Client ID**, and the **Client secret**, and optionally the **User info endpoint**. Give the **Issuer URL** as a full URL including the scheme, for example `https://auth.example.com`, and give the two endpoints as paths under it, for example `/oauth2/introspect`. The gateway calls both endpoints on the authorization server, so an endpoint on another host, or outside the path of the issuer, is refused. For **Auth0**, enter the **Tenant domain** and the **API audience**. The wizard declares the provider as a resource on the proxy under that name, and the default plan references it. To use Gravitee Access Management instead, declare the resource on the **Resources** page after creating the proxy, and then add an OAuth2 plan from the **Plans** page.
    * **mTLS**. Clients present an X.509 certificate during the TLS handshake. Configure the trusted certificate authorities and the certificate validation rules in the gateway-level TLS settings.
    * **Keyless**. Any client that can reach the context path can call the upstream agent. Choose it only when access is controlled at the network level.
 
@@ -45,6 +45,8 @@ With any plan other than Keyless, a client calls the proxy through a subscriptio
 4. For an API Key plan, copy the key from the **API Keys** card of the subscription. The key is generated when the subscription is approved.
 
 Clients send the key the way the plan expects, for example `Authorization: Bearer <api-key>` for the **Authorization: Bearer** mode. For a JWT or OAuth 2.0 plan, the application needs a client ID before it can subscribe. For the full subscription lifecycle, see [Manage subscriptions](../publish/manage-subscriptions.md).
+
+The gateway accepts the new subscription within a few seconds of the approval. If the first calls are rejected, wait a moment and try again.
 
 If you secured the proxy with mTLS, configure the trusted certificate authorities and the certificate validation rules in the gateway-level TLS settings.
 
