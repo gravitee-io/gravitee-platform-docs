@@ -27,6 +27,10 @@ Policies that depend on shared infrastructure reference a resource configured on
 
 To manage the resources of the LLM Proxy, under **Design**, select **Resources**. For the steps to add, edit, or remove a resource, see [Configure resources for your proxies](configure-resources-for-your-proxies.md), and for the resource types themselves, see [AI resources](ai-resources.md).
 
+## Properties
+
+Policies read the key/value properties of the LLM Proxy at runtime through the Expression Language, with the syntax `{#api.properties['key']}`. To manage them, under **General**, select **API Properties**. For the steps to add, import, or sync properties from an HTTP endpoint, see [Configure properties for your proxies](configure-properties-for-your-proxies.md).
+
 ## Structured output
 
 Structured output enforces response format constraints on model responses. You can enforce structured output natively by overriding model parameters.
