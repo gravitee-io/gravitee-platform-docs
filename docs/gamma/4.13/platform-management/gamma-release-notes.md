@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration to each proxy detail view, and lets you record the price you negotiated with a provider on a cataloged AI model.
+Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view. It also lets you record a negotiated price on a cataloged AI model.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -18,6 +18,20 @@ Agent Management adds API resource configuration to each proxy detail view, and 
 * Add a resource by selecting one of the resource plugins installed on your platform and completing its schema-generated configuration form. Edit, enable or disable, remove, and search existing resources from the same page.
 * A resource change applies to the gateway when you deploy the proxy from the out-of-sync banner.
 * See [Configure resources for your proxies](../agent-management/build/configure-resources-for-your-proxies.md).
+
+#### Broadcasts for LLM, MCP, and A2A Proxies
+
+* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Broadcasts** page under **Consumer Access** that sends a one-way announcement to the consumers of the proxy.
+* Choose the **Portal Notifications**, **Email**, or **POST HTTP Message** channel. For the first two, select the recipients, either **API subscribers** or the members holding an application role on the subscribed applications, and enter a title. Enter a message of up to 4,000 characters, with a counter that shows the remaining characters.
+* **Send** stays disabled until the form is valid. After the send, the page confirms the broadcast was sent and, when at least one recipient was reached, how many.
+* See [Broadcast messages to proxy consumers](../agent-management/build/broadcast-messages-to-proxy-consumers.md).
+
+#### Import and dynamic properties for LLM, MCP, and A2A Proxies
+
+* The **Import** button on the **API Properties** page of each LLM Proxy, MCP Proxy, and A2A Proxy is now active. Paste one `KEY=value` pair per line to add new properties and replace the values of existing unencrypted properties. An existing encrypted property is skipped, and the panel lists it before you import.
+* The **Manage dynamically** button is now active and opens the **Dynamic properties** page. Enable the sync, set a 6-field cron schedule with a minimum interval of 60 seconds, configure the HTTP request and a JOLT transformation, and tune the HTTP client, proxy, and SSL / TLS settings. The Management API polls the endpoint on the schedule and writes the result to the proxy as dynamic properties.
+* A sync that changes the property list deploys the proxy automatically when the proxy was in sync. Adding, editing, deleting, or importing a property still requires a deployment from the out-of-sync banner.
+* See [Configure properties for your proxies](../agent-management/build/configure-properties-for-your-proxies.md).
 
 #### Negotiated pricing for AI models
 
@@ -29,7 +43,7 @@ Agent Management adds API resource configuration to each proxy detail view, and 
 
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies and a redesigned out-of-sync banner in the API detail workspace.
+API Management gains a file-based path for building and updating API proxies and a redesigned out-of-sync banner in the API detail workspace. Its Policy Studio controls are also clearer.
 
 #### Import an API proxy
 
@@ -45,6 +59,14 @@ API Management gains a file-based path for building and updating API proxies and
 * The new banner carries an explanation: **Your latest changes are not live yet. Deploy to push them to the gateway.**
 * The **Deploy API** button on the banner and the **Out of sync** state badge in the sidebar header are unchanged.
 * See [Configure your API proxy](../api-management/build/configure-your-api-proxy/README.md).
+
+#### Clearer controls in the Policy Studio
+
+* The connector blocks at the ends of a phase, such as **Client** and **Backend**, are drawn as labels instead of filled blocks. Controls now read as controls, and decoration reads as decoration.
+* An empty phase offers one **Add policy** control that opens the same searchable policy list as the plus button on a populated phase. The category buttons and the **Browse all** link of the empty phase are gone.
+* In the **Add Policy** catalog, pointing to a row reveals an **Add** button that adds the policy directly, and the catalog header shows the phase you're adding to.
+* The **Add plan flow**, **Add common flow**, and **Add MCP method flow** controls in the flows sidebar and on the empty Policy Studio screen share one link treatment.
+* The changes apply to the Policy Studio of API Management and Agent Management, and to the platform policies of Platform Management.
 
 ### Event Stream Management
 
