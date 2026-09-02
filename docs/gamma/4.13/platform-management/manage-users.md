@@ -201,3 +201,4 @@ To verify that user management is working as expected, follow these steps:
 ## Next steps
 
 * [Manage applications](manage-applications.md). Manage the consumer applications that subscribe to your API plans.
+* [Manage groups](manage-groups.md). Create the groups of an environment, set the default roles their members hold, and manage members and invitations from the group side.
