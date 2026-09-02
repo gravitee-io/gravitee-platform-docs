@@ -16,8 +16,8 @@ The LLM Studio uses the same policy studio as API Management and supports the re
 
 1. On the LLM Proxy detail page, under **Design**, open **LLM Studio**.
 2. Under **Common Flows**, select the flow you want to govern: **Prompt**, **Embeddings**, or **Models**.
-3. In the **Request Phase** or **Response Phase** section, click **Browse all...** to open the policy catalog. The **+ Security** and **+ Transformation** buttons open the same catalog filtered to that category.
-4. In the **Add Policy** panel, search for the policy you want, such as **PII Filtering**, **Rate Limit**, or **AI - Prompt Guard Rails**, and then click **Add to flow**.
+3. In the **Request Phase** or **Response Phase** section, click **Add policy**. When the phase already holds a policy, click the plus button at the end of the phase instead.
+4. In the list that opens, search for the policy you want, such as **PII Filtering**, **Rate Limit**, or **AI - Prompt Guard Rails**, and then select it. The policy is added to the phase. To read the documentation of a policy before you add it, click **Browse full catalog**, select the policy in the **Add Policy** catalog, and then click **Add to flow**.
 5. Configure the policy properties, and then click **Save**.
 6. When the "This deployable is out of sync" message appears, click **Deploy** to push the changes to the API Gateway.
 
