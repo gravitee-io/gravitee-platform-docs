@@ -36,7 +36,7 @@ Agent Management adds API resource configuration and consumer broadcasts to each
 
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies and a redesigned out-of-sync banner in the API detail workspace.
+API Management gains a file-based path for building and updating API proxies and a redesigned out-of-sync banner in the API detail workspace. Its Policy Studio controls are also clearer.
 
 #### Import an API proxy
 
@@ -52,6 +52,14 @@ API Management gains a file-based path for building and updating API proxies and
 * The new banner carries an explanation: **Your latest changes are not live yet. Deploy to push them to the gateway.**
 * The **Deploy API** button on the banner and the **Out of sync** state badge in the sidebar header are unchanged.
 * See [Configure your API proxy](../api-management/build/configure-your-api-proxy/README.md).
+
+#### Clearer controls in the Policy Studio
+
+* The connector blocks at the ends of a phase, such as **Client** and **Backend**, are drawn as labels instead of filled blocks. Controls now read as controls, and decoration reads as decoration.
+* An empty phase offers one **Add policy** control that opens the same searchable policy list as the plus button on a populated phase. The category buttons and the **Browse all** link of the empty phase are gone.
+* In the **Add Policy** catalog, pointing to a row reveals an **Add** button that adds the policy directly, and the catalog header shows the phase you're adding to.
+* The **Add plan flow**, **Add common flow**, and **Add MCP method flow** controls in the flows sidebar and on the empty Policy Studio screen share one link treatment.
+* The changes apply to the Policy Studio of API Management and Agent Management, and to the platform policies of Platform Management.
 
 ### Event Stream Management
 

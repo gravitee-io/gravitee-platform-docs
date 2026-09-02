@@ -27,8 +27,8 @@ Before you begin, confirm that you have the following:
 
 1. On the LLM Proxy detail page, under **Design**, open **LLM Studio**.
 2. Under **Common Flows**, select the flow the override applies to, usually **Prompt**.
-3. In the **Request Phase** section, click **Browse all...** to open the policy catalog.
-4. Search for **Assign attributes**, and then click **Add to flow**.
+3. In the **Request Phase** section, click **Add policy**. When the phase already holds a policy, click the plus button at the end of the phase instead.
+4. Search for **Assign attributes**, and then select it. The policy is added to the phase.
 5. In the **Assign context attributes** section, add an attribute:
    1. In the **Name** field, enter `llmproxy.model.override`.
    2. In the **Value** field, enter the name of the model to use, or an Expression Language expression that resolves to it.
