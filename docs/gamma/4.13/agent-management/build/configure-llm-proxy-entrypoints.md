@@ -8,6 +8,13 @@ description: Change the context paths consumers use to reach an LLM Proxy, switc
 
 The **Entrypoints** page configures how consumers reach an LLM Proxy through the AI Gateway. The proxy listens either on one or more context paths under the shared gateway host, or on virtual hosts, where each row binds a host to a path. The same page edits the options of the LLM Proxy entrypoint plugin, such as token tracking, which you first set in the creation wizard.
 
+## Prerequisites
+
+Before you begin, confirm that you have the following:
+
+* An LLM Proxy. For more information, see [Create an LLM Proxy](create-an-llm-proxy.md).
+* Permission to update the API definition of the proxy. The page is read-only without it: the fields, the switches, and the save bar stay disabled.
+
 To open the page, follow these steps:
 
 1. From the Gamma console sidebar, select **Agent Management**.
