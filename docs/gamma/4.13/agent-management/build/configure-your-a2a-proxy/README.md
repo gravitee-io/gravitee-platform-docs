@@ -25,4 +25,6 @@ When you open an A2A Proxy from the dashboard, you can configure it using the fo
   * **Resources**. Manage the resources that the proxy's policies reference at runtime. See [Configure resources for your proxies](../configure-resources-for-your-proxies.md).
 * **Design**:
   * **Policy Studio**. Design your flows and apply policies to agent-to-agent communication.
+* **Consumer Access**:
+  * **Broadcasts**. Send a one-way announcement to the consumers of the proxy. See [Broadcast messages to proxy consumers](../broadcast-messages-to-proxy-consumers.md).
 * **Observability**. Monitor the proxy with **Dashboard**, **Logs**, and **Tracing**.

@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration to each proxy detail view, and lets you record the price you negotiated with a provider on a cataloged AI model.
+Agent Management adds API resource configuration and consumer broadcasts to each proxy detail view, and lets you record the price you negotiated with a provider on a cataloged AI model.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -18,6 +18,13 @@ Agent Management adds API resource configuration to each proxy detail view, and 
 * Add a resource by selecting one of the resource plugins installed on your platform and completing its schema-generated configuration form. Edit, enable or disable, remove, and search existing resources from the same page.
 * A resource change applies to the gateway when you deploy the proxy from the out-of-sync banner.
 * See [Configure resources for your proxies](../agent-management/build/configure-resources-for-your-proxies.md).
+
+#### Broadcasts for LLM, MCP, and A2A Proxies
+
+* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Broadcasts** page under **Consumer Access** that sends a one-way announcement to the consumers of the proxy.
+* Choose the **Portal Notifications**, **Email**, or **POST HTTP Message** channel. For the first two, select the recipients, either **API subscribers** or the members holding an application role on the subscribed applications, and enter a title. Enter a message of up to 4,000 characters, with a counter that shows the remaining characters.
+* **Send** stays disabled until the form is valid. After the send, the page confirms the broadcast was sent and, when at least one recipient was reached, how many.
+* See [Broadcast messages to proxy consumers](../agent-management/build/broadcast-messages-to-proxy-consumers.md).
 
 #### Negotiated pricing for AI models
 
