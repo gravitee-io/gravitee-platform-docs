@@ -37,7 +37,7 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 
 * The A2A Proxy detail view adds a **Consumer Access** group with a **Plans** page and a **Consumers** page.
 * The **Plans** page lists the plans of the proxy by status, **Staging**, **Published**, **Deprecated**, or **Closed**, and creates plans of the five security types: **Keyless**, **API Key**, **JWT**, **OAuth2**, and **mTLS**. Publish a staging plan to open it to subscriptions, and close a plan to terminate its subscriptions.
-* An OAuth2 plan names a resource declared on the proxy. A resource name is checked when the plan is created and again when it's published, so a plan that names a missing resource can't go live. An Expression Language value isn't checked.
+* An OAuth2 plan names a resource declared on the proxy. The name must match a declared, enabled resource when the plan is created and when it's published, so a plan that names a missing resource can't go live. An Expression Language value is resolved at request time instead.
 * The **Consumers** page lists the subscriptions of the proxy, creates a subscription for an application, and approves, rejects, or closes each one. The subscription page shows the credentials of the consumer and manages the API keys of an API Key subscription.
 * The A2A Proxy wizard offers the five security types for the default plan. For OAuth 2.0, it collects the identity provider details and declares the provider as a resource on the proxy.
 * See [Manage A2A Proxy plans](../agent-management/build/configure-your-a2a-proxy/manage-a2a-proxy-plans.md) and [Manage subscriptions](../agent-management/publish/manage-subscriptions.md).
