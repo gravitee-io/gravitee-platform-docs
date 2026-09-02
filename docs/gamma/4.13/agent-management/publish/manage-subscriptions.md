@@ -25,7 +25,7 @@ If your role can't view subscriptions, the page shows **You don't have access to
 
 Three tiles show the **Total**, **Accepted**, and **Pending** counts. **Total** counts the pending, accepted, and paused subscriptions of the proxy. The counts don't change when you filter the list.
 
-Filter the list by **Status**, by **Plan**, or by **API Key**. **Reset** clears the filters. Without a status filter, the list shows the pending, accepted, and paused subscriptions. Rejected and closed subscriptions appear when you filter on their status.
+Filter the list by **Status**, by **Plan**, or by **API Key**. **Reset** clears the filters. The **Status** filter opens on **All statuses**, and with no status selected the list shows the pending, accepted, and paused subscriptions. Select **Rejected** or **Closed** to see those subscriptions.
 
 The table lists one row per subscription, with the following columns:
 
@@ -60,7 +60,7 @@ To subscribe an application on behalf of a consumer, follow these steps:
 3. In **Subscription Plan**, select a plan. The list offers the published plans of the proxy, except Keyless plans. When the proxy has no published plan other than Keyless plans, the list reads **No subscribable plans**, and the panel states that subscriptions aren't required.
 4. Check the **Subscription Summary**, and then click **Create subscription**.
 
-A subscription to a JWT or OAuth2 plan requires the application to have a client ID. Without one, the panel shows the error message, and the subscription isn't created.
+A subscription to a JWT or OAuth2 plan requires the application to have a client ID. Without one, the panel shows the error message, and the subscription isn't created. An application can hold one JWT or OAuth2 subscription per proxy, so subscribe a second application to add another. An application can also hold only one pending or accepted subscription to the same plan.
 
 ## Approve, reject, or close a subscription
 

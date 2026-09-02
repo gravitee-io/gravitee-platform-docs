@@ -17,7 +17,7 @@ The following core permissions govern access to Agent Management capabilities wi
 | **ENVIRONMENT_AM_CONFIGURATION** | Controls access to the Access Management integration settings. Users with this permission can configure the connection between the Agent Management module and Gravitee Access Management (AM) for features like Identity Provider synchronization. |
 | **ENVIRONMENT_AGENT_IDENTITY** | Controls the ability to define and manage Agent Identities. Users with this permission can create, update, or delete the identity profiles that determine how agents authenticate and authorize against MCP tools. |
 | **API_SUBSCRIPTION** | Controls the ability to view and manage the consumer subscriptions of LLM Proxies, MCP Proxies, and A2A Proxies: create, accept, reject, and close them, and manage their API keys. |
-| **API_PLAN** | Controls the ability to list, create, publish, and close the plans of an A2A Proxy. |
+| **API_PLAN** | Controls the ability to list, create, publish, and close the plans of LLM Proxies, MCP Proxies, and A2A Proxies. |
 | **ENVIRONMENT_API** | Controls the ability to create new APIs, including LLM Proxies, MCP Proxies, and A2A Proxies. |
 | **API_DEFINITION** | Controls the ability to update the configuration of existing proxies, including modifying the tool composition of an MCP Studio or overriding parameters. |
 

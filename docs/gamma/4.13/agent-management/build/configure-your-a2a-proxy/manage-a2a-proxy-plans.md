@@ -19,8 +19,6 @@ The A2A Proxy wizard creates and publishes a default plan when you create the pr
 
 <figure><img src="../../../.gitbook/assets/gamma-a2a-proxy-plans.png" alt="The Plans page of an A2A Proxy with the Staging, Published, Deprecated, and Closed status cards and the table of staging plans, with Plans selected under Consumer Access in the proxy sidebar"><figcaption><p>The Plans page</p></figcaption></figure>
 
-Until the proxy has a plan, the page shows a **No plans configured** card instead of the status cards and the table.
-
 ## Read the plan list
 
 Four cards, **Staging**, **Published**, **Deprecated**, and **Closed**, show how many plans are in each status. Select a card to list the plans in that status. The **Staging** card is selected when you open the page.
@@ -30,13 +28,13 @@ The table lists one row per plan, with the following columns:
 | Column       | Description                                                                                                                                  |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Name**     | The name of the plan, next to the icon of its security type.                                                                                 |
-| **Security** | The security type: **Keyless**, **API Key**, **JWT**, **OAuth2**, or **mTLS**. A plan whose security type isn't one of these shows **Unknown**. |
+| **Security** | The security type: **Keyless**, **API Key**, **JWT**, **OAuth2**, or **mTLS**. |
 | **Created**  | The creation date of the plan.                                                                                                               |
 | **Status**   | **Staging**, **Published**, **Deprecated**, or **Closed**.                                                                                   |
 
 Each row of a plan that isn't closed ends with an actions menu. The menu offers **Publish** for a staging plan, and **Close** for a staging, published, or deprecated plan. The table shows 10 plans per page by default.
 
-Plans created outside Gamma, for example in the API Management console, are listed too when they use one of the five security types. Push plans aren't listed.
+Plans created outside Gamma, for example in the API Management console, are listed too when they use one of the five security types. Plans that use any other security type, and push plans, aren't listed.
 
 ## Plan lifecycle
 
@@ -128,6 +126,8 @@ To verify a plan is available to consumers, follow these steps:
 1. Create a plan of any type except Keyless, publish it, and then deploy the proxy.
 2. Under **Consumer Access**, select **Consumers**, and then click **Create subscription**.
 3. Open the **Subscription Plan** list. The plan is listed. For the steps to complete the subscription, see [Manage subscriptions](../../publish/manage-subscriptions.md).
+
+The gateway applies a deployment within a few seconds. If a call still uses the previous plans right after you deploy, wait a moment and try again.
 
 ## Next steps
 
