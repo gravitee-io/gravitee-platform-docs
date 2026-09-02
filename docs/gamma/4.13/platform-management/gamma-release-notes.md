@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The LLM Proxy detail view gains an Entrypoints page and a regrouped navigation. Agent Management also shows the owner and sharding tags of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model.
+Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The LLM Proxy detail view gains an Entrypoints page and a regrouped navigation. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -55,6 +55,12 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 * The **LLM Proxies** list adds an **Owner** column, showing the primary owner of each proxy, and a **Sharding Tags** column, showing the first tag alphabetically with a **more** badge that lists the remaining tags on hover.
 * Sort the list by either column from its header. Proxies without a value in the sorted column are listed after the others.
 * See [Browse the LLM Proxies list](../agent-management/build/browse-the-llm-proxies-list.md).
+
+#### Pictures in the LLM Proxies list
+
+* Each row of the **LLM Proxies** list now starts with the proxy's picture. A proxy without a picture shows a generated pattern based on its name.
+* Add, change, or remove the picture under **API Picture** on the proxy's **Configuration** page. The image must be a GIF, JPEG, BMP, PNG, or TIFF file of at most 500 KB.
+* See [Browse the LLM Proxies list](../agent-management/build/browse-the-llm-proxies-list.md) and [Configure an LLM Proxy](../agent-management/build/configure-an-llm-proxy.md#picture).
 
 #### Negotiated pricing for AI models
 
