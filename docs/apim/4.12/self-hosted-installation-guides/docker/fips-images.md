@@ -58,9 +58,12 @@ accepts do not all load:
 | `pem` | **Works.** The recommended format. |
 | `pkcs12` | Loads in memory, but writing a keystore fails: the PKCS12 key derivation function (`PBEWithHmacSHA256AndAES_256`) has no provider once `SunJCE` is gone. |
 | `jks` | Loads, but relies on SUN's SHA-1 based password encryption, which is not FIPS-approved — using it defeats the purpose of running the FIPS image. |
+| `bcfks` | **Works from APIM 4.12.19.** The BouncyCastle FIPS keystore, designed for approved-only mode: unlike PKCS12 it can also be written, so it is the option to reach for when you need a single password-protected container rather than separate certificate and key files. |
 | `self-signed` | Not recommended: generating the certificate exercises the same non-approved paths. |
 
-In practice, **configure your keystores and truststores as `pem`**.
+In practice, **configure your keystores and truststores as `pem`**. It needs no password and
+no conversion tooling. On 4.12.19 and later, `bcfks` is the alternative when you would rather
+ship one container file; earlier 4.12 patches do not accept the type.
 
 The JVM-level trust store is a separate matter: `javax.net.ssl.trustStore` does not accept PEM,
 so the images set `-Djavax.net.ssl.trustStoreType=FIPS` to read the bundled `cacerts` in
