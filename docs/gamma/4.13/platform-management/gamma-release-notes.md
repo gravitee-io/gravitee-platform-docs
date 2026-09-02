@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration and consumer broadcasts to each proxy detail view, and lets you record the price you negotiated with a provider on a cataloged AI model.
+Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view. It also lets you record a negotiated price on a cataloged AI model.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -25,6 +25,13 @@ Agent Management adds API resource configuration and consumer broadcasts to each
 * Choose the **Portal Notifications**, **Email**, or **POST HTTP Message** channel. For the first two, select the recipients, either **API subscribers** or the members holding an application role on the subscribed applications, and enter a title. Enter a message of up to 4,000 characters, with a counter that shows the remaining characters.
 * **Send** stays disabled until the form is valid. After the send, the page confirms the broadcast was sent and, when at least one recipient was reached, how many.
 * See [Broadcast messages to proxy consumers](../agent-management/build/broadcast-messages-to-proxy-consumers.md).
+
+#### Import and dynamic properties for LLM, MCP, and A2A Proxies
+
+* The **Import** button on the **API Properties** page of each LLM Proxy, MCP Proxy, and A2A Proxy is now active. Paste one `KEY=value` pair per line to add new properties and replace the values of existing unencrypted properties. An existing encrypted property is skipped, and the panel lists it before you import.
+* The **Manage dynamically** button is now active and opens the **Dynamic properties** page. Enable the sync, set a 6-field cron schedule with a minimum interval of 60 seconds, configure the HTTP request and a JOLT transformation, and tune the HTTP client, proxy, and SSL / TLS settings. The Management API polls the endpoint on the schedule and writes the result to the proxy as dynamic properties.
+* A sync that changes the property list deploys the proxy automatically when the proxy was in sync. Adding, editing, deleting, or importing a property still requires a deployment from the out-of-sync banner.
+* See [Configure properties for your proxies](../agent-management/build/configure-properties-for-your-proxies.md).
 
 #### Negotiated pricing for AI models
 
