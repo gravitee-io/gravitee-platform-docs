@@ -12,6 +12,13 @@ metaLinks:
 * [docker-compose.md](docker-compose.md "mention")
 * [docker-cli.md](docker-cli.md "mention")
 
+## Image variants
+
+Each component also ships a FIPS variant, for deployments that must run FIPS 140-3 validated
+cryptography. It constrains which keystore formats load, so read the page before switching to it.
+
+* [fips-images.md](fips-images.md "mention")
+
 ## Architecture of Gravitee API Management with Docker
 
 The following diagram shows the architecture that is common to each Docker installation method:
