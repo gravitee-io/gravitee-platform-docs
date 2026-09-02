@@ -41,7 +41,7 @@ Switching the channel clears the fields that belong to the previous channel, so 
 After the send, the page shows **Broadcast sent** and offers **Compose another broadcast**. When at least one recipient was reached, the confirmation reports how many. The count depends on the channel:
 
 * For **Portal Notifications**, the count is the number of users matched by the selected recipients.
-* For **Email**, the count is the number of matched users that have an email address. Users without one are skipped.
+* For **Email**, the count is the number of distinct email addresses reached. Users without one are skipped.
 * For **POST HTTP Message**, the count is always 1, because the message is posted to a single URL.
 
 If the send fails, the form shows the error above the **Cancel** and **Send** buttons and keeps what you entered.
