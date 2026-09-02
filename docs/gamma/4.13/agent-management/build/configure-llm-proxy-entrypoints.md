@@ -17,9 +17,7 @@ To open the page, follow these steps:
 
 The page reads the listener of the deployed API definition, so a context path added outside Gamma appears here as well. When the deployed listener can't be read, the page shows the alert **Showing the last configuration Gamma stored** above the last configuration Gamma saved. Editing stays disabled until the listener can be read again.
 
-<!-- TODO: Screenshot of the Entrypoints page of an LLM Proxy in context-path mode, showing the Entrypoint context paths card, the Entrypoint options card, and the Exposed entrypoints card -->
-
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-llm-proxy-entrypoints.png" alt=""><figcaption><p>The Entrypoints page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-llm-proxy-entrypoints.png" alt="The Entrypoints page of an LLM Proxy in context-path mode, with two context paths, the Enable virtual hosts switch, and the Entrypoint options card rendered from the plugin schema"><figcaption><p>The Entrypoints page</p></figcaption></figure>
 
 ## Manage context paths
 
@@ -95,9 +93,7 @@ To verify a new context path, follow these steps:
 2. Click **Deploy** in the **This API is out of sync** banner, and then click **Deploy** in the **Deploy your API** dialog.
 3. Send a prompt to the URL shown in the **Exposed entrypoints** card, as described in [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md). The gateway routes the request to the proxy.
 
-<!-- TODO: Screenshot of the Exposed entrypoints card with a resolved gateway URL and its copy button -->
-
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-llm-proxy-entrypoints-exposed.png" alt=""><figcaption><p>The Exposed entrypoints card</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-llm-proxy-entrypoints-exposed.png" alt="The Exposed entrypoints card listing one gateway URL per context path, each with a copy button"><figcaption><p>The Exposed entrypoints card</p></figcaption></figure>
 
 ## Next steps
 
