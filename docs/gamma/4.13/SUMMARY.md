@@ -141,6 +141,7 @@
   * [Create an MCP Studio](agent-management/build/create-an-mcp-studio.md)
     * [Edit tool composition](agent-management/build/edit-mcp-studio-composition.md)
   * [Create an LLM Proxy](agent-management/build/create-an-llm-proxy.md)
+  * [Browse the LLM Proxies list](agent-management/build/browse-the-llm-proxies-list.md)
   * [Configure an LLM Proxy](agent-management/build/configure-an-llm-proxy.md)
   * [Configure LLM Proxy entrypoints](agent-management/build/configure-llm-proxy-entrypoints.md)
   * [Configure LLM Proxy notifications](agent-management/build/configure-llm-proxy-notifications.md)
