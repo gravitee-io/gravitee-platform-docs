@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view. It also lets you record a negotiated price on a cataloged AI model.
+Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. It also lets you record a negotiated price on a cataloged AI model.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -32,6 +32,15 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 * The **Manage dynamically** button is now active and opens the **Dynamic properties** page. Enable the sync, set a 6-field cron schedule with a minimum interval of 60 seconds, configure the HTTP request and a JOLT transformation, and tune the HTTP client, proxy, and SSL / TLS settings. The Management API polls the endpoint on the schedule and writes the result to the proxy as dynamic properties.
 * A sync that changes the property list deploys the proxy automatically when the proxy was in sync. Adding, editing, deleting, or importing a property still requires a deployment from the out-of-sync banner.
 * See [Configure properties for your proxies](../agent-management/build/configure-properties-for-your-proxies.md).
+
+#### Plans and subscriptions for A2A Proxies
+
+* The A2A Proxy detail view adds a **Consumer Access** group with a **Plans** page and a **Consumers** page.
+* The **Plans** page lists the plans of the proxy by status, **Staging**, **Published**, **Deprecated**, or **Closed**, and creates plans of the five security types: **Keyless**, **API Key**, **JWT**, **OAuth2**, and **mTLS**. Publish a staging plan to open it to subscriptions, and close a plan to terminate its subscriptions.
+* An OAuth2 plan names a resource declared on the proxy. A resource name is checked when the plan is created and again when it's published, so a plan that names a missing resource can't go live. An Expression Language value isn't checked.
+* The **Consumers** page lists the subscriptions of the proxy, creates a subscription for an application, and approves, rejects, or closes each one. The subscription page shows the credentials of the consumer and manages the API keys of an API Key subscription.
+* The A2A Proxy wizard offers the five security types for the default plan. For OAuth 2.0, it collects the identity provider details and declares the provider as a resource on the proxy.
+* See [Manage A2A Proxy plans](../agent-management/build/configure-your-a2a-proxy/manage-a2a-proxy-plans.md) and [Manage subscriptions](../agent-management/publish/manage-subscriptions.md).
 
 #### Negotiated pricing for AI models
 
