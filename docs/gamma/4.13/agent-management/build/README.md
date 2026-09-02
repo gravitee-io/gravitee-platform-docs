@@ -22,3 +22,4 @@ Create and configure the AI Gateway components that govern LLM, MCP, and A2A tra
 * [**Expose your agent with the A2A Proxy**](expose-agent-with-a2a-proxy.md). Make an agent's skills discoverable and callable across trust boundaries with per-skill authorization.
 * [**Configure your A2A Proxy**](configure-your-a2a-proxy/README.md). Manage security, access controls, and flows for your A2A Proxy using the Policy Studio.
   * [**Add policies to your A2A Proxy**](configure-your-a2a-proxy/add-policies-to-a2a-proxy.md). Attach security, transformation, and logic policies to agent-to-agent communications.
+  * [**Manage A2A Proxy plans**](configure-your-a2a-proxy/manage-a2a-proxy-plans.md). Create, publish, and close the plans that control how consumers authenticate to the proxy.

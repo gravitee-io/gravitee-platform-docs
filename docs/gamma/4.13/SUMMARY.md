@@ -162,6 +162,7 @@
   * [Expose your agent with the A2A Proxy](agent-management/build/expose-agent-with-a2a-proxy.md)
   * [Configure your A2A Proxy](agent-management/build/configure-your-a2a-proxy/README.md)
     * [Add policies to your A2A Proxy](agent-management/build/configure-your-a2a-proxy/add-policies-to-a2a-proxy.md)
+    * [Manage A2A Proxy plans](agent-management/build/configure-your-a2a-proxy/manage-a2a-proxy-plans.md)
     * [Configure logging and tracing](agent-management/build/configure-your-a2a-proxy/configure-logging-and-tracing.md)
   * [Configure A2A Proxy notifications](agent-management/build/configure-a2a-proxy-notifications.md)
   * [Configure A2A Proxy deployment](agent-management/build/configure-a2a-proxy-deployment.md)
