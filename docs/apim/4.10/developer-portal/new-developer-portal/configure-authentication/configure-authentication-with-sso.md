@@ -24,7 +24,9 @@ To configure authentication with SSO, complete the following steps:
 
 ### Activate an identity provider in your configuration file
 
-You can activate identity providers for specific environments so that they are available in your New Developer Portal. Follow the steps relevant to your installation method:
+You can activate identity providers for a specific environment so that they are available in your New Developer Portal. This is the environment activation. The provider must also have **Allow portal authentication to use this identity provider** on. Providers declared in `gravitee.yml` have that flag forced on at every Management API restart. A value of `"<ORGANIZATION_ID>"` with no environment activates Console login only and does not show the provider on the Portal. See [How identity providers are scoped](../../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md#how-identity-providers-are-scoped).
+
+Follow the steps relevant to your installation method:
 
 {% tabs %}
 {% tab title="Docker" %}
@@ -40,6 +42,7 @@ security:
 
 * Replace `<ORGANIZATION_ID>` with the id for your organization. The default value is `DEFAULT`.
 * Replace `<ENVIRONMENT_ID>` with the id for your environment. The default value is `DEFAULT`.
+* To activate the same provider for the Console as well, add a second list entry: `- "<ORGANIZATION_ID>"`.
 
 2. (Optional) Set SSO only log in. To set SSO log in only, navigate to the navigate to the `portal` section, and then add the following configuration:
 
@@ -71,6 +74,7 @@ security:
 
 * Replace `<ORGANIZATION_ID>` with the id for your organization. The default value is `DEFAULT`.
 * Replace `<ENVIRONMENT_ID>` with the id for your environment. The default value is `DEFAULT`.
+* To activate the same provider for the Console as well, add a second list entry: `- "<ORGANIZATION_ID>"`.
 
 2. (Optional) Set SSO only log in. To set SSO log in only, navigate to the `api` section, and then add the following configuration:
 
@@ -95,6 +99,8 @@ helm upgrade gravitee-apim gravitee/apim \
 {% endtabs %}
 
 ### Activate an identity provider in the APIM Console
+
+The provider must already exist under **Organization → Authentication**, with **Allow portal authentication…** on. Organization **Activated** controls the Console only; the steps below control the Portal.
 
 1.  From the **Dashboard**, click **Settings**.<br>
 

@@ -57,7 +57,7 @@ You can now add a new Identity Provider to Gravitee APIM.
 6. In the **General** section, add the following information:
    1. In the **Name** field, type the name of your Identity Provider.
    2. (Optional) Type a description for your Identity Provider.
-   3. Enable the **Allow portal authentication to use this identity provider** option.
+   3. Leave **Allow portal authentication to use this identity provider** **off** unless this provider should also appear on the Developer Portal. This flag does not control the Console login page. See [How identity providers are scoped](README.md#how-identity-providers-are-scoped).
    4. Enable the **A public email is required to be able to authenticate** option.
 7.  In the **Group and role mappings** sub-section, select the **Computed during each user authentication** option.
 
@@ -89,9 +89,10 @@ You can now add a new Identity Provider to Gravitee APIM.
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>If you specify an invalid value, such as a claim that does not exist in the supplied token, Microsoft ID fails and does not provide you with any error message.</p></div>
 6. Click on **Create.**
+7. Return to **Organization → Authentication** and set **Status** to **Activated**. That organization activation is what puts Microsoft ID on the Console login page.
 
 {% hint style="success" %}
-The Identity Provider setup is now complete. You can follow the remaining steps to test authentication.
+The Identity Provider setup is now complete. You can follow the remaining steps to test Console authentication. To also show this provider on the Developer Portal, turn **Allow portal authentication…** on and activate it under **Settings → Authentication**.
 {% endhint %}
 
 ### Test your Identity Provider

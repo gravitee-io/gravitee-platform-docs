@@ -43,7 +43,12 @@ Once you're done creating your GitHub OAuth application, you can configure your 
 {% hint style="warning" %}
 **Values can be overwritten**
 
-If you configure the provider in the configuration file and then change the values in APIM Console, all changes are overwritten by the values in the configuration file next time you restart APIM API.
+If you declare the provider under `security.providers` in `gravitee.yml` (or the Helm / environment-variable equivalent), every Management API restart rewrites the database row: configuration, mappings, and **`enabled` (forced `true`)**. It also deletes every organization and environment activation and recreates only the targets listed in `activations`.
+
+* `"<ORGANIZATION_ID>"` — Console only.
+* `"<ORGANIZATION_ID>:<ENVIRONMENT_ID>"` — that environment’s Portal.
+
+In-Console edits to a YAML-declared provider do not survive a restart. See [Providers declared in gravitee.yml](README.md#providers-declared-in-graviteeyml).
 {% endhint %}
 
 {% tabs %}
@@ -72,7 +77,7 @@ To configure GitHub authentication using the APIM UI, follow these steps:
    * Define **General** settings
      * Name
      * Description
-     * Whether or not to allow portal authentication to use this provider
+     * **Allow portal authentication to use this identity provider** — optional. Leave **off** for Console-only SSO. This flag does not control the Console login page. See [How identity providers are scoped](README.md#how-identity-providers-are-scoped).
      * Whether or not to require a public email for authentication
      * Define Group and role mappings: this defines the level to which Platform administrators cam still override mappings. You have two options:
        * Computed only during first user authentication
@@ -81,7 +86,7 @@ To configure GitHub authentication using the APIM UI, follow these steps:
        * Client Id
        * Client Secret
 
-When you are done, select **Create.** Then, go back to the IdP page, and toggle **Activate Identity Provider** ON for your new IdP.
+When you are done, select **Create.** Then, go back to the identity provider list and set **Status** to **Activated**. That organization activation is what puts the provider on the Console login page. To also show it on the Developer Portal, turn **Allow portal authentication…** on and activate the provider under **Settings → Authentication** for that environment.
 {% endtab %}
 {% endtabs %}
 
@@ -119,7 +124,12 @@ Once you're done creating your Google OAuth client, you can configure your setti
 {% hint style="warning" %}
 **Values can be overwritten**
 
-If you configure the provider in the configuration file and then change the values in APIM Console, all changes are overwritten by the values in the configuration file next time you restart APIM API.
+If you declare the provider under `security.providers` in `gravitee.yml` (or the Helm / environment-variable equivalent), every Management API restart rewrites the database row: configuration, mappings, and **`enabled` (forced `true`)**. It also deletes every organization and environment activation and recreates only the targets listed in `activations`.
+
+* `"<ORGANIZATION_ID>"` — Console only.
+* `"<ORGANIZATION_ID>:<ENVIRONMENT_ID>"` — that environment’s Portal.
+
+In-Console edits to a YAML-declared provider do not survive a restart. See [Providers declared in gravitee.yml](README.md#providers-declared-in-graviteeyml).
 {% endhint %}
 
 {% tabs %}
@@ -148,7 +158,7 @@ To configure Google authentication using the APIM UI, follow these steps:
    * Define **General** settings
      * Name
      * Description
-     * Whether or not to allow portal authentication to use this provider
+     * **Allow portal authentication to use this identity provider** — optional. Leave **off** for Console-only SSO. This flag does not control the Console login page. See [How identity providers are scoped](README.md#how-identity-providers-are-scoped).
      * Whether or not to require a public email for authentication
      * Define Group and role mappings: this defines the level to which Platform administrators cam still override mappings. You have two options:
        * Computed only during first user authentication
@@ -157,7 +167,7 @@ To configure Google authentication using the APIM UI, follow these steps:
        * Client Id
        * Client Secret
 
-When you are done, select **Create.** Then, go back to the IdP page, and toggle **Activate Identity Provider** ON for your new IdP.
+When you are done, select **Create.** Then, go back to the identity provider list and set **Status** to **Activated**. That organization activation is what puts the provider on the Console login page. To also show it on the Developer Portal, turn **Allow portal authentication…** on and activate the provider under **Settings → Authentication** for that environment.
 {% endtab %}
 {% endtabs %}
 
