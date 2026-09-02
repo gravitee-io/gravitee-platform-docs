@@ -15,8 +15,7 @@ Consumers access your LLM Proxies, MCP Proxies, and A2A Proxies by subscribing t
 3. Select the proxy.
 4. Under **Consumer Access**, select **Consumers**.
 
-<!-- TODO: Screenshot of the Consumers page of an A2A Proxy, with the summary tiles, the filters, and the subscription table -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-consumers.png" alt=""><figcaption><p>The Consumers page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-consumers.png" alt="The Consumers page of an A2A Proxy with the Total, Accepted, and Pending tiles, the Status, Plan, and API Key filters, and the subscription table listing an accepted and a pending subscription"><figcaption><p>The Consumers page</p></figcaption></figure>
 
 Until the proxy has a subscription, the page shows an introduction to consumers instead of the table.
 
@@ -76,8 +75,7 @@ A message confirms the result, for example **Subscription approved**.
 
 Approving from the console doesn't ask for a start or end date. To bound an accepted subscription in time, click **Change end date**, and then select the date and time.
 
-<!-- TODO: Screenshot of a subscription page, with the Approve and Reject buttons, the Subscription details card, and the Credentials card -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-subscription-detail.png" alt=""><figcaption><p>A pending subscription</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-subscription-detail.png" alt="A pending subscription page with the Approve, Reject, and Close subscription buttons and the Subscription details card"><figcaption><p>A pending subscription</p></figcaption></figure>
 
 ## Review a subscription
 
