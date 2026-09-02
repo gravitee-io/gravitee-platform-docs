@@ -45,6 +45,20 @@ To manage the resources of the LLM Proxy, under **Design**, select **Resources**
 
 Policies read the key/value properties of the LLM Proxy at runtime through the Expression Language, with the syntax `{#api.properties['key']}`. To manage them, under **General**, select **API Properties**. For the steps to add, import, or sync properties from an HTTP endpoint, see [Configure properties for your proxies](configure-properties-for-your-proxies.md).
 
+## Picture
+
+The picture identifies the LLM Proxy at the start of its row in the **LLM Proxies** list. Until you add one, the list and the **Configuration** page show a generated pattern based on the proxy's name.
+
+To add or change the picture, complete the following steps:
+
+1. On the LLM Proxy detail page, under **General**, select **Configuration**.
+2. Under **API Picture**, click the picture, and then select an image file. You can also drag an image file onto the picture.
+3. Click **Save changes**.
+
+The image must be a GIF, JPEG, BMP, PNG, or TIFF file of at most 500 KB. A larger file is refused. A file in another format is refused when you save.
+
+To remove the picture, click the cross at the top right of the picture, and then click **Save changes**.
+
 ## Entrypoints
 
 The **Entrypoints** page changes the context paths consumers call, switches the proxy to virtual hosts, and edits the options of the LLM Proxy entrypoint plugin after creation. To open it, under **Design**, select **Entrypoints**. For the steps, see [Configure LLM Proxy entrypoints](configure-llm-proxy-entrypoints.md).
