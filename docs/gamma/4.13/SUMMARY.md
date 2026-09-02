@@ -33,6 +33,7 @@
       * [Azure AKS](platform-management/install/hybrid-installation-guides/kubernetes/azure-aks.md)
       * [OpenShift](platform-management/install/hybrid-installation-guides/kubernetes/openshift.md)
 * [Configure Access Management](platform-management/configure-access-management.md)
+* [Configure console authentication](platform-management/configure-console-authentication.md)
 * [Configure console management and schedulers](platform-management/configure-console-management-and-schedulers.md)
 * [Configure CORS for the Management API](platform-management/configure-console-cors.md)
 * [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
