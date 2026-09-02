@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. It also lets you record a negotiated price on a cataloged AI model.
+Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The LLM Proxy detail view gains an Entrypoints page and a regrouped navigation. Agent Management also lets you record a negotiated price on a cataloged AI model.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -41,6 +41,14 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 * The **Consumers** page lists the subscriptions of the proxy, creates a subscription for an application, and approves, rejects, or closes each one. The subscription page shows the credentials of the consumer and manages the API keys of an API Key subscription.
 * The A2A Proxy wizard offers the five security types for the default plan. For OAuth 2.0, it collects the identity provider details and declares the provider as a resource on the proxy.
 * See [Manage A2A Proxy plans](../agent-management/build/configure-your-a2a-proxy/manage-a2a-proxy-plans.md) and [Manage subscriptions](../agent-management/publish/manage-subscriptions.md).
+
+#### Entrypoint configuration and navigation for LLM Proxies
+
+* Each LLM Proxy detail view adds an **Entrypoints** page under **Design**. Add or remove context paths, switch the proxy to virtual hosts, and edit the options of the LLM Proxy entrypoint plugin after creation. The **Exposed entrypoints** card previews the gateway URLs, and a save applies to the gateway when you deploy the proxy from the out-of-sync banner.
+* The options card renders the plugin's own configuration schema, so an option added by a later plugin version appears without a console update. The **Entrypoint** step of the creation wizard renders the same schema.
+* The **Overview** page shows a **Connection** card with the gateway URLs of the proxy, in place of the **Consumer URL** row.
+* The detail navigation is regrouped. **Models**, **Entrypoints**, **Endpoints**, **Policy Studio**, and **Resources** sit under **Design**, **Reporter Settings** and **Notifications** sit under **Monitoring**, **Security** follows **General**, and the **General** page is renamed **Configuration**. **LLM Studio** is renamed **Policy Studio**, and a link to the former page redirects to it.
+* See [Configure LLM Proxy entrypoints](../agent-management/build/configure-llm-proxy-entrypoints.md).
 
 #### Negotiated pricing for AI models
 

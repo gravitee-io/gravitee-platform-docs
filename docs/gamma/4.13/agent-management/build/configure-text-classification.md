@@ -10,7 +10,7 @@ The **AI - Prompt Guard Rails** policy screens prompts with a text classificatio
 
 ## Policy settings
 
-The policy is attached in the LLM Studio, on the request phase. See [Configure an LLM Proxy](configure-an-llm-proxy.md) for the steps to add a policy to a flow.
+The policy is attached in the Policy Studio, on the request phase. See [Configure an LLM Proxy](configure-an-llm-proxy.md) for the steps to add a policy to a flow.
 
 | Setting | Description | Default |
 | --- | --- | --- |
