@@ -156,6 +156,7 @@
   * [AI resources](agent-management/build/ai-resources.md)
   * [Configure resources for your proxies](agent-management/build/configure-resources-for-your-proxies.md)
   * [Broadcast messages to proxy consumers](agent-management/build/broadcast-messages-to-proxy-consumers.md)
+  * [Configure properties for your proxies](agent-management/build/configure-properties-for-your-proxies.md)
   * [Create an agent identity](agent-management/build/create-an-agent-identity.md)
   * [Configure your Access Management instance](agent-management/build/configure-your-access-management-instance.md)
   * [Expose your agent with the A2A Proxy](agent-management/build/expose-agent-with-a2a-proxy.md)
