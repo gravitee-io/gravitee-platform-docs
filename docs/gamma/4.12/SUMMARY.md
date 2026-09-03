@@ -162,6 +162,7 @@
         * [Review A2A Proxy deployment history](agent-management/build/review-a2a-proxy-deployment-history.md)
     * [Publish your agent to the Developer Portal](agent-management/publish/publish-your-agent-to-the-developer-portal.md)
   * [Manage subscriptions](agent-management/publish/manage-subscriptions.md)
+  * [Publish a proxy to the Developer Portal](agent-management/publish/publish-a-proxy-to-the-developer-portal.md)
   * [Stop and restart proxy traffic](agent-management/build/stop-and-restart-proxy-traffic.md)
 * [Observe](agent-management/observe/README.md)
   * [Monitor proxy activity on the Overview page](agent-management/observe/monitor-proxy-activity.md)
