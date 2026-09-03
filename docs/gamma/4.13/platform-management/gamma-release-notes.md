@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view. It also lets you record a negotiated price on a cataloged AI model.
+Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The LLM Proxy detail view gains an Entrypoints page and a regrouped navigation. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -32,6 +32,35 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 * The **Manage dynamically** button is now active and opens the **Dynamic properties** page. Enable the sync, set a 6-field cron schedule with a minimum interval of 60 seconds, configure the HTTP request and a JOLT transformation, and tune the HTTP client, proxy, and SSL / TLS settings. The Management API polls the endpoint on the schedule and writes the result to the proxy as dynamic properties.
 * A sync that changes the property list deploys the proxy automatically when the proxy was in sync. Adding, editing, deleting, or importing a property still requires a deployment from the out-of-sync banner.
 * See [Configure properties for your proxies](../agent-management/build/configure-properties-for-your-proxies.md).
+
+#### Plans and subscriptions for A2A Proxies
+
+* The A2A Proxy detail view adds a **Consumer Access** group with a **Plans** page and a **Consumers** page.
+* The **Plans** page lists the plans of the proxy by status, **Staging**, **Published**, **Deprecated**, or **Closed**, and creates plans of the five security types: **Keyless**, **API Key**, **JWT**, **OAuth2**, and **mTLS**. Publish a staging plan to open it to subscriptions, and close a plan to terminate its subscriptions.
+* An OAuth2 plan names a resource declared on the proxy. The name must match a declared, enabled resource when the plan is created and when it's published, so a plan that names a missing resource can't go live. An Expression Language value is resolved at request time instead.
+* The **Consumers** page lists the subscriptions of the proxy, creates a subscription for an application, and approves, rejects, or closes each one. The subscription page shows the credentials of the consumer and manages the API keys of an API Key subscription.
+* The A2A Proxy wizard offers the five security types for the default plan. For OAuth 2.0, it collects the identity provider details and declares the provider as a resource on the proxy.
+* See [Manage A2A Proxy plans](../agent-management/build/configure-your-a2a-proxy/manage-a2a-proxy-plans.md) and [Manage subscriptions](../agent-management/publish/manage-subscriptions.md).
+
+#### Entrypoint configuration and navigation for LLM Proxies
+
+* Each LLM Proxy detail view adds an **Entrypoints** page under **Design**. Add or remove context paths, switch the proxy to virtual hosts, and edit the options of the LLM Proxy entrypoint plugin after creation. The **Exposed entrypoints** card previews the gateway URLs, and a save applies to the gateway when you deploy the proxy from the out-of-sync banner.
+* The options card renders the plugin's own configuration schema, so an option added by a later plugin version appears without a console update. The **Entrypoint** step of the creation wizard renders the same schema.
+* The **Overview** page shows a **Connection** card with the gateway URLs of the proxy, in place of the **Consumer URL** row.
+* The detail navigation is regrouped. **Models**, **Entrypoints**, **Endpoints**, **Policy Studio**, and **Resources** sit under **Design**, **Reporter Settings** and **Notifications** sit under **Monitoring**, **Security** follows **General**, and the **General** page is renamed **Configuration**. **LLM Studio** is renamed **Policy Studio**, and a link to the former page redirects to it.
+* See [Configure LLM Proxy entrypoints](../agent-management/build/configure-llm-proxy-entrypoints.md).
+
+#### Owner and sharding tags in the LLM Proxies list
+
+* The **LLM Proxies** list adds an **Owner** column, showing the primary owner of each proxy, and a **Sharding Tags** column, showing the first tag alphabetically with a **more** badge that lists the remaining tags on hover.
+* Sort the list by either column from its header. Proxies without a value in the sorted column are listed after the others.
+* See [Browse the LLM Proxies list](../agent-management/build/browse-the-llm-proxies-list.md).
+
+#### Pictures in the LLM Proxies list
+
+* Each row of the **LLM Proxies** list now starts with the proxy's picture. A proxy without a picture shows a generated pattern based on its name.
+* Add, change, or remove the picture under **API Picture** on the proxy's **Configuration** page. The image must be a GIF, JPEG, BMP, PNG, or TIFF file of at most 500 KB.
+* See [Browse the LLM Proxies list](../agent-management/build/browse-the-llm-proxies-list.md) and [Configure an LLM Proxy](../agent-management/build/configure-an-llm-proxy.md#picture).
 
 #### Negotiated pricing for AI models
 
@@ -81,7 +110,15 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It adds the organization-wide console settings too, covering console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
+
+#### Configure console authentication
+
+* Decide whether the Gamma console sign-in page shows the local username and password form, from the **Authentication** page of the **Organization** section. The form can't be hidden until at least one identity provider is activated.
+* Add Gravitee Access Management, OpenID Connect, Google, and GitHub identity providers, edit them, and delete them. A new provider is activated for the console as soon as it's created. OpenID Connect requires an enterprise license.
+* Activate or deactivate each provider for the console from its row. An activated provider whose portal setting is on appears on the sign-in page as a **Sign in with** button.
+* Map groups, organization roles, and environment roles to users from conditions on their profile, access token, or ID token, computed at first sign-in or at every sign-in.
+* See [Configure console authentication](configure-console-authentication.md).
 
 #### Configure console management and schedulers
 
@@ -124,6 +161,13 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Give each entry a name, a format of String, Numeric, Boolean, Date, Mail, or URL, and a value. Gravitee generates the entry's key from the name and validates the value against the format.
 * Rename an entry or change its value without changing its key, so the APIs and Developer Portal pages that reference the key keep working.
 * See [Manage environment metadata](manage-environment-metadata.md).
+
+#### Manage groups
+
+* Create, edit, search, and delete the groups of the selected environment from the **Groups** page of the **Team** section, and set the default API, API Product, and application roles their members hold, with a lock on each that keeps a group administrator from changing it.
+* Add members from a user search or invite them by email, review the pending invitations, and pick a successor when a primary owner changes role or leaves the group.
+* Attach a group to every existing API, API Product, or application of the environment in one action, or have the new ones join it automatically.
+* See [Manage groups](manage-groups.md).
 
 #### Manage tenants
 

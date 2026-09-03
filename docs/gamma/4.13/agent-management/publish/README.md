@@ -8,6 +8,6 @@ description: Make your AI Gateway artifacts discoverable and consumable outside 
 
 Make your AI Gateway artifacts discoverable and consumable by publishing them outside of the Gamma console.
 
-* [**Publish your LLM Proxy**](publish-your-llm-proxy.md) — Deploy and expose your LLM Proxy to consumers through the AI Gateway.
-* [**Manage subscriptions**](manage-subscriptions.md) — Accept, reject, and close consumer subscriptions to your LLM Proxies and MCP Proxies.
-* [**Consume your LLM Proxy with LangChain**](consume-your-llm-proxy-with-langchain.md) — Route a LangChain chain through your LLM Proxy so it never holds a provider credential.
+* [**Publish your LLM Proxy**](publish-your-llm-proxy.md). Deploy and expose your LLM Proxy to consumers through the AI Gateway.
+* [**Manage subscriptions**](manage-subscriptions.md). Create, approve, reject, and close consumer subscriptions to your LLM Proxies, MCP Proxies, and A2A Proxies.
+* [**Consume your LLM Proxy with LangChain**](consume-your-llm-proxy-with-langchain.md). Route a LangChain chain through your LLM Proxy so it never holds a provider credential.

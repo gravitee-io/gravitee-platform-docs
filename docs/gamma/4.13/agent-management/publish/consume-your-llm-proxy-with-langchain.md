@@ -81,5 +81,5 @@ prefixed with the proxy name, for example `llm-my-router:gpt-4o-mini`.
 
 After your chain reaches the LLM Proxy, govern and observe the traffic:
 
-* [Configure an LLM Proxy](../build/configure-an-llm-proxy.md). Attach guardrails, PII filtering, and rate limiting policies in the LLM Studio, and review per-token cost attribution.
+* [Configure an LLM Proxy](../build/configure-an-llm-proxy.md). Attach guardrails, PII filtering, and rate limiting policies in the Policy Studio, and review per-token cost attribution.
 * [Inspect your agent log](../observe/inspect-your-agent-log.md). Trace the chain's calls through the AI Gateway.
