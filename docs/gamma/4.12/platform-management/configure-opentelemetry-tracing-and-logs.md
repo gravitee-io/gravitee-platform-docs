@@ -34,7 +34,7 @@ Set the following on the Gateway.
     <tbody>
         <tr>
             <td><code>services.opentelemetry.enabled</code></td>
-            <td>Turns on OpenTelemetry on the Gateway. Nothing is exported while this is <code>false</code>.</td>
+            <td>Turns on OpenTelemetry on the Gateway. While this is <code>false</code>, neither spans nor log records are exported, whatever else is set.</td>
             <td><code>false</code></td>
         </tr>
         <tr>
@@ -54,7 +54,7 @@ Set the following on the Gateway.
         </tr>
         <tr>
             <td><code>reporters.otel.enabled</code></td>
-            <td>Emits captured request and response payloads as OpenTelemetry log records.</td>
+            <td>Emits captured request and response payloads as OpenTelemetry log records. Takes effect only when <code>services.opentelemetry.enabled</code> is <code>true</code>.</td>
             <td><code>false</code></td>
         </tr>
     </tbody>
@@ -157,6 +157,8 @@ management_api:
     - gravitee_repositories_otellogs_elasticsearch_index=logs-gamma.otel-local
 ```
 
+That example uses fixed index names, which suits a single-tenant installation. Use the placeholder form when the Collector writes a separate data stream per organization or environment.
+
 For the Helm chart, add them to your `values.yaml`:
 
 ```yaml
@@ -189,6 +191,7 @@ For Docker Compose, add the Collector as another service and mount its configura
 
 ```yaml
 otel-collector:
+  # The image, the command, and the config path all depend on the Collector distribution you choose.
   image: <your-collector-image>
   command: ['--config=/etc/otelcol/config.yaml']
   volumes:
