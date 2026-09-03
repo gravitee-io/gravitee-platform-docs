@@ -110,7 +110,7 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
 
 #### Configure console authentication
 
@@ -168,6 +168,15 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Add members from a user search or invite them by email, review the pending invitations, and pick a successor when a primary owner changes role or leaves the group.
 * Attach a group to every existing API, API Product, or application of the environment in one action, or have the new ones join it automatically.
 * See [Manage groups](manage-groups.md).
+
+#### Manage shared policy groups
+
+* Create, edit, search, and delete the shared policy groups of the selected environment from the **Shared Policy Groups** page. A shared policy group bundles policy steps once for reuse across API flows, and is fixed to one API type and one flow phase at creation.
+* Build the bundle in the group's own Policy Studio. Add steps from a catalog filtered to the group's API type and phase, configure each step against the policy's own schema, then reorder, duplicate, disable, or remove them.
+* Deploy the saved steps to the gateways of the environment. Each deployment raises the version by one and records an entry in the group's version history, and a group changed after deployment shows as **Pending** until you deploy again.
+* Review any recorded version as JSON or as a read-only canvas, compare two versions, compare one against the changes you haven't deployed yet, and restore a version onto the group.
+* A shared policy group created through the Kubernetes Operator is read-only in the console, with its version history still available.
+* See [Manage shared policy groups](manage-shared-policy-groups.md).
 
 #### Manage tenants
 
