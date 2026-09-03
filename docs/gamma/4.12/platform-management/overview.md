@@ -92,7 +92,7 @@ See [Event Stream Management overview](../event-stream-management/get-started/ev
 
 ### Agent Management & AI Governance
 
-Agent Management governs every protocol in the agentic stack. The **LLM Proxy** handles traffic to LLM providers with guardrails, PII filtering, and token-based rate limiting. Supported providers are OpenAI, Gemini, Anthropic, Bedrock, and Vertex AI. The **MCP Proxy** governs tool invocations in two modes: Proxy mode for transparent governance of upstream MCP servers, and Studio mode for composing catalog assets into an MCP Studio. The **A2A Proxy** governs agent-to-agent delegations with skill discovery, per-skill authorization, and agent identity verification. Every interaction emits an OpenTelemetry span with agent identity, tool name, inputs, outputs, latency, policy decision, cost, and timestamp.
+Agent Management governs every protocol in the agentic stack. The **LLM Proxy** handles traffic to LLM providers with guardrails, PII filtering, and token-based rate limiting. Supported providers are OpenAI, Gemini, Anthropic, Bedrock, and Vertex AI. The **MCP Proxy** governs tool invocations in two modes: Proxy mode for transparent governance of upstream MCP servers, and Studio mode for composing catalog assets into an MCP Studio. The **A2A Proxy** governs agent-to-agent delegations with skill discovery, per-skill authorization, and agent identity verification. Every interaction emits an OpenTelemetry span with agent identity, tool name, inputs, outputs, latency, policy decision, and timestamp. Token cost is recorded for LLM traffic.
 
 See [Agent Management overview](../agent-management/overview/README.md).
 

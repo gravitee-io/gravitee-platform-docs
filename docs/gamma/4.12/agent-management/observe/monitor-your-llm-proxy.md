@@ -12,7 +12,7 @@ Use this dashboard to answer questions such as: which model is burning the budge
 
 ## What the gateway records
 
-Each metered request writes a set of additional metrics onto the request record. The dashboard, the log viewer, and the token and cost rate limit policies all read from the following set:
+Each metered request writes a set of additional metrics onto the request record. The dashboard and the log viewer read from the following set:
 
 | Metric                            | Type    | Published when                                                     | Value                                                                                                          |
 | --------------------------------- | ------- | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
