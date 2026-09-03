@@ -172,6 +172,7 @@
   * [Require human approval for MCP tool calls](agent-management/govern/require-human-approval-for-mcp-tool-calls.md)
 * [Cost and value](agent-management/cost-and-value/README.md)
   * [Define rates with the price book](agent-management/cost-and-value/define-rates-with-the-price-book.md)
+  * [Attribute business value to agent runs](agent-management/cost-and-value/attribute-business-value-to-agent-runs.md)
 
 ## Authorization Management
 
