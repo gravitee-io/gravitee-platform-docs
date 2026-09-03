@@ -24,28 +24,13 @@ Each OTel span in the agent log records:
 
 ## The lineage view
 
-The lineage view provides a navigable trace of an agent's complete execution — from the initial user request through every tool invocation, model call, and sub-agent delegation.
-
-A typical trace might show:
-
-```
-User request
-  └── A2A Proxy → Agent (Customer Success bot)
-        ├── LLM Proxy → Claude Sonnet (reasoning step)
-        ├── MCP Proxy → HubSpot (lookup_contact)
-        ├── MCP Proxy → Jira (create_ticket)
-        └── LLM Proxy → Claude Sonnet (summarize result)
-```
-
-Each node in the lineage is a clickable span that expands to show the full detail (identity, inputs, outputs, latency, policy decision, cost).
-
-## Search and filter
+The Trace Explorer opens each trace recorded for a proxy as a span timeline or as a lineage graph of its spans. See [Trace an agent request and view its lineage](trace-an-agent-request.md).
 
 ## Access the agent log
 
 1. From the Gamma console sidebar, select **Agent Management**.
-2. Navigate to **Observe** → **Agent Log**.
-3. Select a trace to view the lineage.
+2. In the **Observability** section of the sidebar, select **Logs**.
+3. Select an entry to open its detail.
 
 ## Next steps
 
