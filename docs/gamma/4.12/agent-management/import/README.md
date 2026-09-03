@@ -20,3 +20,4 @@ Populate the Catalog with the assets your agents need — models, MCP servers, t
 * [**Add a knowledge source**](add-knowledge-source.md) — Add external knowledge (documentation, knowledge bases) to the Catalog for agent consumption.
 * [**Upload skills**](upload-skills.md) — Catalog skill folders that agents can consume as MCP resources.
 * [**Import an agent from an integration**](import-an-agent.md) — Import A2A agents and hyperscaler-federated agents from connected integrations.
+* [**Re-sync catalog assets**](re-sync-catalog-assets.md). Refresh imported AI models and MCP servers against the source they came from, and read what changed.
