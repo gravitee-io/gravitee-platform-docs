@@ -5,6 +5,20 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.14.2 (September 2, 2026) <a href="#id-3.14.2" id="id-3.14.2"></a>
+
+#### Fixed connection reuse for the External Filter with `protocol: http`
+
+Previously, the External Filter opened a new connection to the authorization service on every authorization call, paying a full TCP handshake, and a TLS handshake for HTTPS backends, per request. Under load this surfaced as an intermittent, small percentage of requests failing with `500` errors (`deadline_exceed: filter processing timed out`) instead of honoring the configured `statusOnError`. HTTP clients are now cached per authorization-service URL and rebuilt when the TLS configuration changes, and successful authorization responses are drained so connections are returned to the keep-alive pool and reused.
+
+#### Fixed request processing stalls when Redis hangs
+
+Previously, the internal usage counter's periodic sync to Redis held a lock across the network call. If Redis accepted connections but stopped responding, the sync blocked on that lock while the request hot path waited to acquire it, stalling request processing until the Redis call timed out. The counter is now copied and reset before the network call so the request path is never blocked on Redis. Each sync is bounded by a timeout so it cannot overrun into the next sync cycle, and counts from failed syncs are retained and delivered once Redis recovers, preserving usage-reporting accuracy across an outage.
+
+#### Fixed diagd memory leak on the incremental reconfigure path
+
+Previously, when incremental reconfiguration was enabled with `AMBASSADOR_FAST_RECONFIGURE=true`, each Mapping-only reconfigure retained the entire previous internal configuration graph in memory, causing unbounded `diagd` memory growth proportional to the number of reconfigures. Cached configuration objects now correctly release references to prior reconfigures, and diagnostics back-references no longer pin stale configuration graphs, so memory usage stays flat across sustained reconfigure activity.
+
 ### Version 3.14.1 (August 12, 2026) <a href="#id-3.14.1" id="id-3.14.1"></a>
 
 #### Upgrade to Envoy 1.37.5
