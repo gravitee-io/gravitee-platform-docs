@@ -6,6 +6,15 @@ noIndex: false
 # APIM 4.12.x
  
 ## Gravitee API Management 4.12.18 - August 31, 2026
+
+{% hint style="warning" %}
+There is a known issue with Console login in this version of APIM. The fix for [#11717](https://github.com/gravitee-io/issues/issues/11717) introduces a breaking change: the **Allow portal authentication to use this identity provider** toggle now also applies to Console login. An identity provider with that toggle turned off isn't listed on the Console login page, even when it's activated for the organization. Console login with that identity provider is rejected. If the **Show login form on management console** toggle is also turned off, the Console login page offers no way to log in.
+
+As a workaround, open the identity provider from the organization's **Authentication** page and turn **Allow portal authentication to use this identity provider** back on. If the identity provider is also activated for an environment, it becomes available for Developer Portal login in that environment again.
+
+The fix will be available in version 4.12.19, which scopes the toggle back to Developer Portal login only. To turn an identity provider off for the Console, deactivate it from the organization's **Authentication** page.
+{% endhint %}
+
 <details>
 
 <summary>Bug Fixes</summary>
