@@ -13,7 +13,7 @@ To open the page, follow these steps:
 1. From the Gamma console sidebar, select **Agent Management**.
 2.  Under **Secure**, select **LLM Proxies**.
 
-    <figure><img src="../../.gitbook/assets/gamma-llm-proxies-list-owner-sharding-tags.png" alt="The LLM Proxies list with the Owner and Sharding Tags columns, one proxy showing its first tag and a 2 more badge"><figcaption><p>The LLM Proxies list</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-llm-proxies-list-owner-sharding-tags.png" alt="The LLM Proxies list, each row starting with a generated picture, with the Owner and Sharding Tags columns and one proxy showing its first tag and a 2 more badge"><figcaption><p>The LLM Proxies list</p></figcaption></figure>
 
 ## Columns
 
@@ -21,6 +21,7 @@ The list shows one row per LLM Proxy, with the following columns:
 
 | Column            | Description                                                                                                                                                                                                                                                       |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Picture**       | The picture of the proxy, at the start of the row. This column has no visible header. The list shows the picture uploaded under **API Picture** on the proxy's **Configuration** page. When the proxy has no picture, the list shows a generated pattern based on the proxy's name instead.                                                    |
 | **Name**          | The name of the proxy. Select it to open the proxy's overview.                                                                                                                                                                                                    |
 | **Context path**  | The context path that the proxy is exposed on.                                                                                                                                                                                                                    |
 | **Type**          | The proxy type.                                                                                                                                                                                                                                                   |
@@ -32,7 +33,7 @@ The list shows one row per LLM Proxy, with the following columns:
 | **Status**        | **Running**, **Stopped**, or **Degraded**.                                                                                                                                                                                                                        |
 | **LLM cost (24h)**| The cost of the model calls that went through the proxy over the last 24 hours.                                                                                                                                                                                   |
 
-To assign sharding tags to a proxy, see [Configure LLM Proxy deployment](configure-llm-proxy-deployment.md).
+To assign sharding tags to a proxy, see [Configure LLM Proxy deployment](configure-llm-proxy-deployment.md). To add a picture to a proxy, see [Configure an LLM Proxy](configure-an-llm-proxy.md#picture).
 
 ## Sort the list
 
@@ -56,7 +57,7 @@ The status filter and the search text are part of the page URL too, as the `stat
 
 ## Show or hide columns
 
-To choose the visible columns, select **View** above the table, and then select or clear a column under **Toggle columns**.
+To choose the visible columns, select **View** above the table, and then select or clear a column under **Toggle columns**. The picture column is always shown and isn't listed there.
 
 ## Change the page size
 
