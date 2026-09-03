@@ -350,7 +350,7 @@ auto-validation
 [Tt]imelines?
 [Tt]ooltips?
 [Tt]ruststore
-[Uu]ndeploy(ed)?
+[Uu]ndeploy(s|ed|ing|ment)?
 [Uu]npublish
 [Uu]sername
 [Vv]alidator
