@@ -38,6 +38,7 @@
 * [Configure CORS for the Management API](platform-management/configure-console-cors.md)
 * [Configure environment alerts](platform-management/configure-environment-alerts.md)
 * [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
+* [Configure OpenTelemetry tracing and logs](platform-management/configure-opentelemetry-tracing-and-logs.md)
 * [Configure Security Plan Types](platform-management/configure-security-plan-types.md)
 * [Configure the SMTP mail server](platform-management/configure-smtp.md)
 * [Manage applications](platform-management/manage-applications.md)
