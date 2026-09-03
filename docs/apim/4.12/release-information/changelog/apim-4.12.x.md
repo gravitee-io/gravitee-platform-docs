@@ -27,7 +27,7 @@ There is a known issue with Console login in this version of APIM. The fix for [
 
 **Console**
 
-* Organization-level Identity Provider (IdP) "Disable" toggle only hides UI element, remains active in backend [#11717](https://github.com/gravitee-io/issues/issues/11717). This fix changes Console login behavior. See the [warning above](#gravitee-api-management-4.12.18-august-31-2026) before you upgrade.
+* Organization-level Identity Provider (IdP) "Disable" toggle only hides UI element, remains active in backend [#11717](https://github.com/gravitee-io/issues/issues/11717). This fix changes Console login behavior. See the [warning above](#gravitee-api-management-4.12.18-august-31-2026).
 
 **Portal**
 
