@@ -27,8 +27,7 @@ Sort the list by the **Name**, **API Type**, **Phase**, **Last updated**, or **L
 
 When the environment has no groups yet, the table is replaced by a **No Shared Policy Groups** card that explains what a group does. When a search returns nothing, the table shows **No Shared Policy Group matches your search** and a **Clear search** button.
 
-<!-- TODO: Screenshot of the Shared Policy Groups list page -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-shared-policy-groups-list.png" alt=""><figcaption><p>The Shared Policy Groups page lists the groups defined for the selected environment.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-shared-policy-groups-list.png" alt="The Shared Policy Groups page listing six groups with their status, API type, phase, last updated, and last deployed columns, above the search field and the Add Shared Policy Group button"><figcaption><p>The Shared Policy Groups page lists the groups defined for the selected environment.</p></figcaption></figure>
 
 ## Create a shared policy group
 
@@ -51,8 +50,7 @@ To create a shared policy group, complete the following steps:
 
 A new group is created **Undeployed** at version 0, and the console opens its Policy Studio so you can add the policy steps.
 
-<!-- TODO: Screenshot of the Add Shared Policy Group panel -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-shared-policy-groups-create.png" alt=""><figcaption><p>The Add Shared Policy Group panel collects the metadata, the API type, and the phase.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-shared-policy-groups-create.png" alt="The Add Shared Policy Group panel with the name and description filled in, above the prerequisite message field and the Scope section offering the Proxy and Message API types and the Request and Response phases"><figcaption><p>The Add Shared Policy Group panel collects the metadata, the API type, and the phase.</p></figcaption></figure>
 
 ## Add policies to a shared policy group
 
@@ -74,8 +72,7 @@ Work on an existing step from the canvas:
 
 Select **Save policies** to persist the steps. The button stays disabled until you make a change. It also stays disabled while any step's configuration is incomplete. The tooltip then reads `Fix the highlighted policy step(s) before saving.` Saving a group that's already **Deployed** moves it to **Pending**, because the gateways still run the version you deployed last. Saving a group that's **Undeployed** leaves it **Undeployed**.
 
-<!-- TODO: Screenshot of the shared policy group Policy Studio canvas with steps -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-shared-policy-groups-studio.png" alt=""><figcaption><p>The Policy Studio of a shared policy group holds the steps of its phase, in order.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-shared-policy-groups-studio.png" alt="The Policy Studio of a shared policy group, with the Pending status badge in the header, the Save policies and Deploy buttons on the toolbar, and four policy steps laid out in order across the request canvas"><figcaption><p>The Policy Studio of a shared policy group holds the steps of its phase, in order.</p></figcaption></figure>
 
 ## Deploy and undeploy a shared policy group
 
@@ -93,8 +90,7 @@ Each deployment moves the group to **Deployed**, raises its version by one, and 
 
 Undeploy a group with **Undeploy** in the same actions menus, which moves it to **Undeployed** and adds another history entry. The entry is hidden when the group is already **Undeployed**.
 
-<!-- TODO: Screenshot of the Save policies and Deploy toolbar with a Pending badge -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-shared-policy-groups-deploy.png" alt=""><figcaption><p>The toolbar saves the steps and deploys the group, and the header badge tracks its status.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-shared-policy-groups-deploy.png" alt="The actions menu of a Pending shared policy group, open on the detail header and offering Edit, Deploy, Undeploy, Version History, and Delete"><figcaption><p>A Pending group offers both <strong>Deploy</strong> and <strong>Undeploy</strong> in its actions menu.</p></figcaption></figure>
 
 ## Review and restore versions
 
@@ -115,8 +111,7 @@ To restore a version, complete the following steps:
 
 Restoring writes the version's name, description, prerequisite message, and steps back onto the group, and returns you to the Policy Studio. It doesn't deploy: the console confirms with `Version has been restored. Review changes and click ‘Deploy’ to finalize the restoration.`, and the gateways keep running the last deployed version until you deploy again.
 
-<!-- TODO: Screenshot of the version history table with two rows selected -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-shared-policy-groups-history.png" alt=""><figcaption><p>The version history lists one entry per deployment, and compares or restores any of them.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-shared-policy-groups-history.png" alt="The version history of a shared policy group listing three deployed versions, with versions 3 and 1 selected and the toolbar button offering to compare version 3 with 1"><figcaption><p>The version history lists one entry per deployment, and compares or restores any of them.</p></figcaption></figure>
 
 ## Edit a shared policy group
 
