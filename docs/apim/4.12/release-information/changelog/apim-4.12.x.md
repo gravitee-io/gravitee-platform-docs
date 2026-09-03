@@ -10,9 +10,11 @@ noIndex: false
 {% hint style="warning" %}
 There is a known issue with Console login in this version of APIM. The fix for [#11717](https://github.com/gravitee-io/issues/issues/11717) introduces a breaking change: the **Allow portal authentication to use this identity provider** toggle now also applies to Console login. An identity provider with that toggle turned off isn't listed on the Console login page, even when it's activated for the organization. Console login with that identity provider is rejected. If the **Show login form on management console** toggle is also turned off, the Console login page offers no way to log in.
 
-As a workaround, open the identity provider from the organization's **Authentication** page and turn **Allow portal authentication to use this identity provider** back on. If the identity provider is also activated for an environment, it becomes available for Developer Portal login in that environment again.
+**Workaround if you can still open the Console:** open the organization's **Authentication** page, click the identity provider, and turn on **Allow portal authentication to use this identity provider**. If the identity provider is also activated for an environment, it appears on that environment's Developer Portal login page until you turn the toggle off again after upgrading.
 
-The fix will be available in version 4.12.19, which scopes the toggle back to Developer Portal login only. To turn an identity provider off for the Console, deactivate it from the organization's **Authentication** page.
+**Workaround if you can't open the Console:** sign in through Gravitee Cloud if your installation is connected to it. Otherwise, sign in with a local administrator account if the Console login form is shown. Then apply the workaround above. If neither is available, set `enabled` to `true` on that identity provider in the database, then sign in.
+
+**Fix:** available in version 4.12.19, which scopes the toggle back to Developer Portal login. After you upgrade, turn **Allow portal authentication to use this identity provider** off again for Console-only SSO. To turn an identity provider off for the Console, deactivate it on the organization's **Authentication** list. Don't use the portal toggle for that.
 {% endhint %}
 
 <details>
