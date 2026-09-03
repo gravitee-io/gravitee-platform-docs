@@ -6,7 +6,7 @@ description: Refresh imported AI models and MCP servers against the source they 
 
 # Re-sync catalog assets
 
-A catalog asset is a copy of what its source offered at the moment you imported it. Providers add models, change context windows, adjust prices, and drop models entirely, and an MCP server changes the tools it exposes. Re-syncing refreshes the copy and reports what changed.
+A catalog asset is a copy of what its source offered at the moment you imported it. Providers add models, change context windows, adjust prices, and drop models entirely, and an MCP server changes the tools it exposes. Re-syncing refreshes the copy.
 
 The two asset types re-sync differently, and they differ in what happens to an entry the source no longer offers. Read the section for the asset you're re-syncing.
 
@@ -60,6 +60,35 @@ Each outcome is reported separately, so one re-sync can raise several messages a
 A model the registry has dropped is reported as a warning rather than removed, so the record of what you imported survives the provider retiring it.
 
 If the registry itself can't be fetched, the re-sync fails with **Failed to re-sync models** and changes nothing. An unreachable or empty registry never empties the catalog.
+
+### Re-sync automatically
+
+Models are also re-synced without anyone clicking the button, so a catalog can move on its own.
+
+Every node boot re-syncs the imported provider models of every environment. This is on by default:
+
+```yaml
+modules:
+  aim:
+    catalog:
+      auto-resync:
+        enabled: true
+```
+
+Set `enabled` to `false` to turn the boot sweep off. On a cluster, only the primary node runs it. The sweep is skipped when the configured remote registry was unreachable at boot, so a registry outage can't overwrite your imported models with older bundled data.
+
+A periodic re-sync is available as well. It re-fetches the registry on a fixed delay and re-syncs when the registry changed:
+
+```yaml
+modules:
+  aim:
+    catalog:
+      auto-resync:
+        delay: 60
+        unit: MINUTES
+```
+
+`delay` has no default, which leaves the periodic re-sync off. Set it to a positive number of `unit` to turn it on. `unit` defaults to `MINUTES`. The periodic re-sync also needs the remote registry configured, and it stays off while `delay` is absent, blank, zero, negative, or not a number.
 
 ## Re-sync an MCP server
 
