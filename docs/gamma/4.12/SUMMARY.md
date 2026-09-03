@@ -116,6 +116,7 @@
   * [Create API tools](agent-management/import/create-api-tools.md)
   * [Add a knowledge source](agent-management/import/add-knowledge-source.md)
   * [Upload skills](agent-management/import/upload-skills.md)
+  * [Re-sync catalog assets](agent-management/import/re-sync-catalog-assets.md)
   * [Create an agent identity](agent-management/build/create-an-agent-identity.md)
 * [Secure](agent-management/build/README.md)
   * [MCP Proxies](agent-management/build/mcp-proxies/README.md)
