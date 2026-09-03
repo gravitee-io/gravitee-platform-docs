@@ -25,7 +25,7 @@ Before you begin, confirm that you have the following:
 
 ## Set the override attribute
 
-1. On the LLM Proxy detail page, under **Design**, open **LLM Studio**.
+1. On the LLM Proxy detail page, under **Design**, open **Policy Studio**.
 2. Under **Common Flows**, select the flow the override applies to, usually **Prompt**.
 3. In the **Request Phase** section, click **Add policy**. When the phase already holds a policy, click the plus button at the end of the phase instead.
 4. Search for **Assign attributes**, and then select it. The policy is added to the phase.

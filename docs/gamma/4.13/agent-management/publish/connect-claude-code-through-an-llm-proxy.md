@@ -261,6 +261,6 @@ Propagate to upstream: disabled
 
 ## Next steps
 
-* [Configure an LLM Proxy](../build/configure-an-llm-proxy.md). Attach guardrails, PII filtering, and rate limiting policies in the LLM Studio, and review per-token cost attribution.
+* [Configure an LLM Proxy](../build/configure-an-llm-proxy.md). Attach guardrails, PII filtering, and rate limiting policies in the Policy Studio, and review per-token cost attribution.
 * [Consume your LLM Proxy with LangChain](consume-your-llm-proxy-with-langchain.md). Route an application through the same proxy.
 * [Connect Claude Code to the Edge Daemon](../../edge-management/connect-claude-code-to-daemon.md). Route employee device traffic through a local daemon before it reaches the AI Gateway.
