@@ -158,6 +158,7 @@
       * [Operations](agent-management/build/a2a-proxies/operations/README.md)
         * [Configure A2A Proxy deployment](agent-management/build/configure-a2a-proxy-deployment.md)
         * [Review A2A Proxy deployment history](agent-management/build/review-a2a-proxy-deployment-history.md)
+    * [Publish your agent to the Developer Portal](agent-management/publish/publish-your-agent-to-the-developer-portal.md)
   * [Manage subscriptions](agent-management/publish/manage-subscriptions.md)
 * [Observe](agent-management/observe/README.md)
   * [Dashboards](agent-management/observe/dashboards/README.md)
