@@ -59,11 +59,14 @@ Each agent's catalog entry also carries its own compliance view. It drills down 
 
 Activation is scoped to the environment. Once the framework is active, every agent in the environment is scored against it, and deactivating it stops the scoring without deleting any agent metadata.
 
-<!-- TODO: verify label in Console UI — activation steps below are drafted ahead of the build and must be re-verified against the shipped UI -->
+<!-- TODO: verify label in Console UI — the steps and figure below were verified on 2026-09-03 against the Agent Management module's compliance console change (AIAM-489), which hasn't merged yet. Re-verify when it ships. -->
 
-1. Open the compliance dashboard.
-2. Find the **EU AI Act** framework card.
-3. Toggle the framework on.
+1. From the Gamma console sidebar, select **Agent Management**.
+2. In the **Govern** section of the sidebar, select **Compliance**.
+3. On the **EU AI Act** card, turn on the switch. Its label changes from **Inactive** to **Active**, and the **Compliance threshold** field appears.
+4. Optional: to change the threshold, enter a whole number from 1 to 100 in **Compliance threshold**, and then click **Save**. The field starts at the framework's recommended value of 100 percent.
+
+<figure><img src="../../.gitbook/assets/gamma-aim-compliance-eu-ai-act-active.png" alt="The Compliance page in the Gamma console with the EU AI Act framework card switched to Active and its Compliance threshold field showing 100 percent"><figcaption><p>The Compliance page lists the built-in frameworks. The EU AI Act framework is active for this environment, with its compliance threshold set to 100 percent.</p></figcaption></figure>
 
 ## Remediate a failing control
 
