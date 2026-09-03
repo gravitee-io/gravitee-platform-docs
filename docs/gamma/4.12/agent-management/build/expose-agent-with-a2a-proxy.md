@@ -56,3 +56,4 @@ The proxy returns the upstream agent's own card with its advertised endpoint URL
 * **[Create an agent identity](create-an-agent-identity.md)**. Agent identities are managed under **Agent Identity**, in the **Catalog** section of Agent Management.
 * **[Add policies to your A2A Proxy](configure-your-a2a-proxy/add-policies-to-a2a-proxy.md)**. Use the Policy Studio to apply security, transformation, and traffic policies to agent traffic.
 * **[Author an authorization policy](../../authorization-management/configure/create-update-delete-policies.md)**. In Authorization Management, select **A2A Agents** to grant or restrict which principals can invoke an agent. Policies target an agent from the Catalog, so import the agent there first.
+* **[Publish your agent to the Developer Portal](../publish/publish-your-agent-to-the-developer-portal.md)**. List the agent in the Developer Portal catalog so consumers can find it and subscribe.
