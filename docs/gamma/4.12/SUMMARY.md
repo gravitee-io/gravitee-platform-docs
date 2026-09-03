@@ -161,6 +161,7 @@
         * [Review A2A Proxy deployment history](agent-management/build/review-a2a-proxy-deployment-history.md)
     * [Publish your agent to the Developer Portal](agent-management/publish/publish-your-agent-to-the-developer-portal.md)
   * [Manage subscriptions](agent-management/publish/manage-subscriptions.md)
+  * [Stop and restart proxy traffic](agent-management/build/stop-and-restart-proxy-traffic.md)
 * [Observe](agent-management/observe/README.md)
   * [Dashboards](agent-management/observe/dashboards/README.md)
     * [Monitor your LLM proxy](agent-management/observe/monitor-your-llm-proxy.md)

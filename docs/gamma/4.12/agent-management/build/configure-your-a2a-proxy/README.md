@@ -19,7 +19,7 @@ When you open an A2A Proxy from the dashboard, you can configure it using the si
 
 * **General**:
   * **Overview**: View proxy status and deployment history.
-  * **General**: Manage the proxy's name, description, and status.
+  * **General**: Manage the proxy's name, description, and status. See [Stop and restart proxy traffic](../stop-and-restart-proxy-traffic.md).
   * **Endpoint**: Configure the target URL of the upstream agent.
   * **API Properties**: Manage dynamic properties that can be evaluated at runtime.
   * **Notifications**: Choose which API events send notifications, and where they are delivered. See [Configure A2A Proxy notifications](../configure-a2a-proxy-notifications.md).
