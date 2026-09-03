@@ -160,6 +160,7 @@
         * [Review A2A Proxy deployment history](agent-management/build/review-a2a-proxy-deployment-history.md)
   * [Manage subscriptions](agent-management/publish/manage-subscriptions.md)
 * [Observe](agent-management/observe/README.md)
+  * [Monitor proxy activity on the Overview page](agent-management/observe/monitor-proxy-activity.md)
   * [Dashboards](agent-management/observe/dashboards/README.md)
     * [Monitor your LLM proxy](agent-management/observe/monitor-your-llm-proxy.md)
     * [Monitor your MCP servers](agent-management/observe/monitor-your-mcp-servers.md)
