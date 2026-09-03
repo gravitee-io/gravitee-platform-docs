@@ -110,7 +110,15 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It adds the organization-wide console settings too, covering console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
+
+#### Configure console authentication
+
+* Decide whether the Gamma console sign-in page shows the local username and password form, from the **Authentication** page of the **Organization** section. The form can't be hidden until at least one identity provider is activated.
+* Add Gravitee Access Management, OpenID Connect, Google, and GitHub identity providers, edit them, and delete them. A new provider is activated for the console as soon as it's created. OpenID Connect requires an enterprise license.
+* Activate or deactivate each provider for the console from its row. An activated provider whose portal setting is on appears on the sign-in page as a **Sign in with** button.
+* Map groups, organization roles, and environment roles to users from conditions on their profile, access token, or ID token, computed at first sign-in or at every sign-in.
+* See [Configure console authentication](configure-console-authentication.md).
 
 #### Configure console management and schedulers
 
@@ -153,6 +161,13 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Give each entry a name, a format of String, Numeric, Boolean, Date, Mail, or URL, and a value. Gravitee generates the entry's key from the name and validates the value against the format.
 * Rename an entry or change its value without changing its key, so the APIs and Developer Portal pages that reference the key keep working.
 * See [Manage environment metadata](manage-environment-metadata.md).
+
+#### Manage groups
+
+* Create, edit, search, and delete the groups of the selected environment from the **Groups** page of the **Team** section, and set the default API, API Product, and application roles their members hold, with a lock on each that keeps a group administrator from changing it.
+* Add members from a user search or invite them by email, review the pending invitations, and pick a successor when a primary owner changes role or leaves the group.
+* Attach a group to every existing API, API Product, or application of the environment in one action, or have the new ones join it automatically.
+* See [Manage groups](manage-groups.md).
 
 #### Manage tenants
 
