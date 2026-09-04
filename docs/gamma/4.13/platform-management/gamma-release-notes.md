@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The LLM Proxy detail view gains an Entrypoints page and a regrouped navigation. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model.
+Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page and a regrouped navigation. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -41,6 +41,12 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 * The **Consumers** page lists the subscriptions of the proxy, creates a subscription for an application, and approves, rejects, or closes each one. The subscription page shows the credentials of the consumer and manages the API keys of an API Key subscription.
 * The A2A Proxy wizard offers the five security types for the default plan. For OAuth 2.0, it collects the identity provider details and declares the provider as a resource on the proxy.
 * See [Manage A2A Proxy plans](../agent-management/build/configure-your-a2a-proxy/manage-a2a-proxy-plans.md) and [Manage subscriptions](../agent-management/publish/manage-subscriptions.md).
+
+#### Subscription export for LLM, MCP, and A2A Proxies
+
+* The **Consumers** page of each LLM Proxy, MCP Proxy, and A2A Proxy adds an **Export CSV** button that downloads the subscriptions matching the current **Status**, **Plan**, and **API Key** filters as a CSV file. The file is the same export the APIM Console produces for the subscriptions of an API.
+* The export holds every matching subscription, not only the current page of the table. Each row carries the plan, the application, the creation, processing, start, and end dates, and the status of the subscription.
+* See [Manage subscriptions](../agent-management/publish/manage-subscriptions.md).
 
 #### Entrypoint configuration and navigation for LLM Proxies
 
