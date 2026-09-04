@@ -157,6 +157,8 @@
   * [LLM Proxies](agent-management/build/llm-proxies/README.md)
     * [Browse the LLM Proxies list](agent-management/build/browse-the-llm-proxies-list.md)
     * [Create an LLM Proxy](agent-management/build/create-an-llm-proxy.md)
+    * [Export and import an LLM Proxy](agent-management/build/export-and-import-an-llm-proxy.md)
+    * [Duplicate an LLM Proxy](agent-management/build/duplicate-an-llm-proxy.md)
     * [Configure an LLM Proxy](agent-management/build/configure-an-llm-proxy.md)
       * [General](agent-management/build/llm-proxies/general/README.md)
         * [Configure LLM Proxy CORS](agent-management/build/configure-llm-proxy-cors.md)
