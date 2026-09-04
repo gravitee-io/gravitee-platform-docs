@@ -110,7 +110,7 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
 
 #### Configure console authentication
 
@@ -133,6 +133,14 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * An origin is entered as a literal value or as a regular expression, and adding `*` asks for confirmation before it removes every cross-origin restriction.
 * The console addresses resolved for the organization stay allowed on top of the list, so tightening the origins doesn't lock you out of the consoles.
 * See [Configure CORS for the Management API](configure-console-cors.md).
+
+#### Configure environment alerts
+
+* Create, edit, enable, and delete the alerts of the selected environment from the **Alerts** page of the **Environment** section. Ten rules cover node lifecycle, node metrics, node health, request metrics, missing requests, and endpoint health-check changes, each with a severity, a condition, filters, and optional notification timeframes.
+* Send each alert by email, Slack, system email, or webhook, and limit repeated notifications with a dampening mode.
+* Follow the alert events of the environment on the **Activity** tab, which counts them by severity over a quick time range and links to the history of each alert.
+* The page requires an enterprise license that includes the Alert Engine feature.
+* See [Configure environment alerts](configure-environment-alerts.md).
 
 #### Configure the SMTP mail server
 
