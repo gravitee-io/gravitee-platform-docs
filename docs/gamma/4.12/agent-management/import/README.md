@@ -6,17 +6,17 @@ description: Populate the Agent Management Catalog with the models, MCP servers,
 
 # Import
 
-Populate the Catalog with the assets your agents need — models, MCP servers, tools, prompts, resources, skills, and agents. The Catalog is the authoritative registry of everything an agent can use, and fine-grained authorization policies are authored against cataloged entities. A rich Catalog enables precise governance.
+Populate the Catalog with the assets your agents need: models, MCP servers, tools, prompts, resources, skills, and agents. The Catalog is the authoritative registry of everything an agent can use, and fine-grained authorization policies are authored against cataloged entities. A rich Catalog enables precise governance.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-dashboard.png" alt="Agent Management Import catalog showing eight entity type cards"><figcaption><p>The Import section of the Agent Management dashboard. Each card links to a Catalog entity type. The full set of import operations — including integrations, API tools, and Event tools — is listed below.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-dashboard.png" alt="Agent Management Import catalog showing eight entity type cards"><figcaption><p>The Import section of the Agent Management dashboard. Each card links to a Catalog entity type. The full set of import operations is listed below.</p></figcaption></figure>
 
-* [**Connect integrations**](connect-integrations.md) — Link Gamma to upstream providers (Gemini Enterprise Agent Platform (formerly Vertex AI), Bedrock, Azure AI Foundry) to sync AI models and agents into the Catalog.
-* [**Add an AI model**](add-an-ai-model.md) — Register AI models from connected integrations or add them manually.
-* [**Add an MCP Registry**](add-an-mcp-registry.md) _(coming soon)_ — Connecting to external MCP registries (GitHub, Smithery) to import servers in bulk is planned for a future release.
-* [**Register an MCP server**](register-an-mcp-server.md) — Add an MCP server through a guided setup or a direct URL, including upstream authentication configuration.
-* [**Import prompts**](import-prompts.md) — Upload reusable, parameterized prompt templates to the Catalog.
-* [**Add MCP resources**](add-mcp-resources.md) — Catalog server resources from connected MCP servers and repository resources from Git.
-* [**Create API tools**](create-api-tools.md) — Expose REST APIs from API Management as agent-accessible tools in the Catalog.
-* [**Add a knowledge source**](add-knowledge-source.md) — Add external knowledge (documentation, knowledge bases) to the Catalog for agent consumption.
-* [**Upload skills**](upload-skills.md) — Catalog skill folders that agents can consume as MCP resources.
-* [**Import an agent from an integration**](import-an-agent.md) — Import A2A agents and hyperscaler-federated agents from connected integrations.
+* [**Connect integrations**](connect-integrations.md). Connect Gamma to a model provider or to Azure AI Foundry so their models import into the Catalog.
+* [**Add an AI model**](add-an-ai-model.md). Import models from a connected integration, and see the metadata each model records.
+* [**Add an MCP Registry**](add-an-mcp-registry.md) _(coming soon)_. Connecting to external MCP registries (GitHub, Smithery) to import servers in bulk is planned for a future release.
+* [**Register an MCP server**](register-an-mcp-server.md). Add an MCP server through a guided setup or a direct URL, including upstream authentication configuration.
+* [**Import prompts**](import-prompts.md). Upload reusable, parameterized prompt templates to the Catalog.
+* [**Add MCP resources**](add-mcp-resources.md). Catalog server resources from connected MCP servers and repository resources from Git.
+* [**Create API tools**](create-api-tools.md). Expose REST APIs from API Management as agent-accessible tools in the Catalog.
+* [**Add a knowledge source**](add-knowledge-source.md). Add external knowledge (documentation, knowledge bases) to the Catalog for agent consumption.
+* [**Upload skills**](upload-skills.md). Catalog skill folders that agents can consume as MCP resources.
+* [**Register an agent**](import-an-agent.md). Add an external agent to the Catalog from the A2A agent card it publishes.

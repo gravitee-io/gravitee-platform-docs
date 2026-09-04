@@ -1,54 +1,58 @@
 ---
 hidden: false
 noIndex: false
-description: Add an AI model to the Catalog so authorization policies, observability, and cost attribution can reference it. Follow the steps to import one.
+description: Add an AI model to the Catalog so an LLM Proxy can route to it. Follow the steps to import models from a provider and edit their details.
 ---
 
 # Add an AI model
 
-AI models are Catalog entities that represent LLMs from any provider. Cataloging a model gives it an identity that authorization policies, observability, and cost attribution can reference. You can add models by configuring a provider connection and selecting which models to activate.
+AI models are Catalog entities that represent the models an LLM Proxy can route to. Cataloging a model records the metadata a proxy needs to reach it, in one entry that every proxy in the environment can reuse. You add models by connecting a provider and selecting which of its models to activate.
 
 ## AI model catalog fields
 
 Each AI model in the Catalog records the following metadata:
 
-| Field                  | Description                                                                   |
-| ---------------------- | ----------------------------------------------------------------------------- |
-| **Provider**           | The upstream provider (derived from the model source).                        |
-| **Query name**         | The technical identifier sent to the provider during invocation.              |
-| **Display name**       | The human-readable name for this model (e.g., `Claude 3 Opus`).               |
-| **Description**        | What this model is best used for.                                             |
-| **Family**             | The model family.                                                             |
-| **Context window**     | The maximum token context length supported by this model.                     |
-| **Capabilities**       | Supported interaction types (e.g., `chat`, `embeddings`).                     |
-| **Pricing**            | Input and output cost per 1M tokens, used for cost attribution.               |
+| Field              | Description                                                                                     |
+| ------------------ | ----------------------------------------------------------------------------------------------- |
+| **Provider**       | The upstream provider, derived from the connection the model was imported from.                 |
+| **Query name**     | The technical identifier a proxy sends upstream when it calls this model.                       |
+| **Display name**   | The name shown for this model across the console.                                                |
+| **Description**    | What this model is best used for.                                                                |
+| **Family**         | The model family, for example, `gpt` or `claude-sonnet`.                                          |
+| **Context window** | The maximum token context this model supports.                                                   |
+| **Capabilities**   | What the model can handle, for example, `text`, `vision`, `reasoning`, or `function-calling`.     |
+| **Pricing**        | Input and output cost per 1M tokens, as the source records them.                                 |
 
 ## Import models
 
-To add new AI models to your catalog, connect a provider and import them:
+Models reach the Catalog through the same flow that connects a provider.
 
 1. From the Gamma console sidebar, select **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **AI Models**.
-3. Select **Add AI Model**.
-4. **Choose source type**: Select an LLM provider or Azure AI Foundry to import deployed models.
-5. **Configure connection**: Enter the required credentials (e.g., Azure Subscription ID, Resource Group, Account Name, and Bearer Token).
-6. **Select models**: Select which available models from the provider to activate in the catalog.
-7. **Review**: Confirm the inventory result (available models vs. active models) and the detected capabilities.
-8. Select **Import**.
+3. Click **Add provider**.
+4. On the **Choose source type** step, select a model provider or **Azure AI Foundry**.
+5. Click **Next**. Selecting **Azure AI Foundry** adds a **Configure connection** step, where you enter the Azure subscription ID, resource group, account name, and bearer token before continuing.
+6. On the **Select models** step, select the models to activate in the catalog.
+7. Click **Next**.
+8. On the **Review** step, confirm the connection and the inventory result, which reports the number of available models, the number that become active in AI Models, and the capabilities the selection covers.
+9. Click **Import**. The button carries the number of models you selected.
 
-The selected models appear in the Catalog and become available for use in LLM Proxy configurations.
+The selected models appear in the Catalog and become available to LLM Proxy configurations. Models you already imported from that connection are skipped rather than duplicated.
+
+For the full connection details of each source type, see [Connect integrations](connect-integrations.md).
 
 ## Edit model details
 
-You can adjust the display name and description of an imported model:
+You can change the display name and the description of a model in the Catalog. The rest of a model's metadata comes from the source it was imported from and is read-only.
 
 1. In the **Catalog** section of the sidebar, select **AI Models**.
 2. Select the model.
-3. Update the **Display name** and **Description**.
-   _Note: The Provider, Query name, Family, Context window, Capabilities, and Pricing are derived from the model source and cannot be changed._
-4. Select **Save**.
+3. Click **Edit**.
+4. Update the **Display name** and the **Description**.
+5. Click **Save changes**.
+
+Both edits survive a re-sync. Re-syncing a model provider refreshes only the fields that provider owns, so a display name and description you set aren't overwritten. See [Connect integrations](connect-integrations.md).
 
 ## Next steps
 
-* **Create an LLM Proxy**: Route traffic to cataloged models. See [Create an LLM Proxy](../build/create-an-llm-proxy.md).
-
+* **Create an LLM Proxy.** Route traffic to cataloged models. See [Create an LLM Proxy](../build/create-an-llm-proxy.md).
