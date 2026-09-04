@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Create, approve, reject, and close the subscriptions that give consumers access to your LLM, MCP, and A2A Proxies. Follow the steps to manage a subscription through its lifecycle.
+description: Create, approve, reject, close, and export the subscriptions that give consumers access to your LLM, MCP, and A2A Proxies. Follow the steps to manage a subscription through its lifecycle.
 ---
 
 # Manage subscriptions
@@ -37,7 +37,22 @@ The table lists one row per subscription, with the following columns:
 | **Status**      | **Pending**, **Accepted**, **Paused**, **Rejected**, or **Closed**. |
 | **Created**     | The creation date of the subscription.                               |
 
-**Export CSV** downloads the filtered list as a CSV file.
+## Export the subscription list
+
+**Export CSV** downloads the subscriptions that match the current filters as a CSV file. The file holds every matching subscription, not only the rows on the current page of the table, and the button reads **Exporting…** while the file is prepared.
+
+<figure><img src="../../.gitbook/assets/gamma-aim-consumers-export-csv.png" alt="The Consumers page of an LLM Proxy with the Status filter set to Accepted, the table listing the one accepted subscription, and the Export CSV button next to Create subscription"><figcaption><p>Exporting the filtered subscription list</p></figcaption></figure>
+
+To export the list, follow these steps:
+
+1. Filter the list by **Status**, by **Plan**, or by **API Key** to narrow the export. With no status selected, the export holds the pending, accepted, and paused subscriptions.
+2. Click **Export CSV**.
+
+The browser downloads the file as `subscriptions-agent-runtime.csv` for an A2A Proxy, `subscriptions-MCP-proxy.csv` for an MCP Proxy, or `subscriptions-proxy.csv` for an LLM Proxy.
+
+The file is the same export the APIM Console produces for the subscriptions of an API. Values are separated by semicolons. After a header row, each row holds the plan name, the application name, the creation, processing, start, and end dates, and the status of the subscription. Dates use the `yyyy-MM-dd'T'HH:mm:ss.SSSZ` pattern, for example `2026-09-04T22:57:15.513+0000`, and a date the subscription doesn't have yet is left empty. The status is written as its uppercase value, for example `ACCEPTED`.
+
+The button is shown when the list has at least one subscription. It isn't shown on the introduction the page displays before the first subscription, or when no subscription matches the filters. If the export fails, the console shows **Failed to export consumers** with the reason.
 
 ## Subscription lifecycle
 
