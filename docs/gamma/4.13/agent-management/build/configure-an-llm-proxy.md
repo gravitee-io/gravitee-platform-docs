@@ -66,6 +66,9 @@ The **Entrypoints** page changes the context paths consumers call, switches the 
 ## CORS
 
 The **CORS** page lets browser-based clients on other origins call the LLM Proxy. Enable CORS, then set the allowed origins, methods, and request headers, the exposed response headers, credentials, the preflight cache duration, and whether policies run on preflight requests. To open it, under **General**, select **CORS**. For the steps, see [Configure LLM Proxy CORS](configure-llm-proxy-cors.md).
+## Failover
+
+The **Failover** page retries a call on another provider of the proxy when one is slow or failing. It also opens a circuit on a provider that keeps failing, so that provider is left aside for a while. To open it, under **Design**, click **Endpoints**, and then click **Failover**. For the steps, see [Configure LLM Proxy failover](configure-llm-proxy-failover.md).
 
 ## Export, import, and duplicate
 

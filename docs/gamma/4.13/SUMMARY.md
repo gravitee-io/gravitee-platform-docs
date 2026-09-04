@@ -166,6 +166,7 @@
         * [Configure LLM Proxy notifications](agent-management/build/configure-llm-proxy-notifications.md)
       * [Design](agent-management/build/llm-proxies/design/README.md)
         * [Configure LLM Proxy entrypoints](agent-management/build/configure-llm-proxy-entrypoints.md)
+        * [Configure LLM Proxy failover](agent-management/build/configure-llm-proxy-failover.md)
         * [Add the Token Rate Limit policy](agent-management/build/add-the-token-rate-limit-policy.md)
         * [Add the Cost Rate Limit policy](agent-management/build/add-the-cost-rate-limit-policy.md)
         * [Select a text classification model](agent-management/build/select-a-text-classification-model.md)
