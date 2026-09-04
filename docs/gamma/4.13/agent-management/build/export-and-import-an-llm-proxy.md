@@ -20,7 +20,7 @@ The **Export** action downloads the LLM Proxy definition. To export a proxy, com
 4. Under **General**, select **Configuration**.
 5. Select **Export**.
 
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-llm-proxy-export-sheet.png" alt=""><figcaption><p>The Export LLM proxy panel with the Gravitee API definition format selected</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-export-sheet.png" alt=""><figcaption><p>The Export LLM proxy panel with the Gravitee API definition format selected</p></figcaption></figure>
 
 6. In the **Export LLM proxy** panel, select the format:
 
@@ -52,14 +52,14 @@ The create flow offers an import route beside the wizard. To create a proxy from
 3. Select **Create LLM proxy**.
 4. On the **Create an LLM proxy** page, select **Import**.
 
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-llm-proxy-create-landing.png" alt=""><figcaption><p>The Create an LLM proxy page with the Create from scratch and Import cards</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-create-landing.png" alt=""><figcaption><p>The Create an LLM proxy page with the Create from scratch and Import cards</p></figcaption></figure>
 
 5. Select the **Gravitee definition** card. This is the only format the LLM Proxy accepts.
 6. Under **Configure file source**, select **Local file** or **Remote URL**:
    * For **Local file**, drop a file on the upload area or select it to browse. The picker accepts `.json` files.
    * For **Remote URL**, enter the **Definition URL** of the file, for example `https://example.com/api-definition.json`. The address must be an `http` or `https` URL.
 
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-llm-proxy-import-create.png" alt=""><figcaption><p>The Import Gravitee definition page with the Local file and Remote URL source cards</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-import-create.png" alt=""><figcaption><p>The Import Gravitee definition page with the Local file and Remote URL source cards</p></figcaption></figure>
 
 7. Select **Create LLM proxy**.
 
@@ -86,6 +86,8 @@ The import validates the file before it writes anything, and reports what's wron
 | A classic file's definition carries no LLM Proxy endpoint                        | The import is refused as carrying no providers.                                                       |
 | A Gamma file's addition is malformed, or declares no providers                   | The import is refused as not a valid export.                                                          |
 | The file carries no plans                                                        | The create is refused, and the message tells you to re-export with the plans or update an existing proxy instead. |
+| The file's proxy name generates an **Entity ID** that this environment already holds | The create is refused, and the message names the Entity ID. The name in the file, not the file's own recorded Entity ID, decides the value. |
+| The file's context path is already in use in this environment                    | The create is refused, and the message names the path.                                                 |
 | A catalog reference names a source that this environment's catalog doesn't hold  | The import is refused, and the message names the source it looked for.                                 |
 | A catalog reference matches more than one source in this environment             | The import is refused as ambiguous, and the message gives the number of matches.                       |
 | A catalog reference names a model that this environment's catalog doesn't hold   | The import is refused, and the message names the model it looked for.                                  |
@@ -104,7 +106,7 @@ The **Import** action on the **Configuration** page replaces an existing proxy's
 2. Under **General**, select **Configuration**.
 3. Select **Import**.
 
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-llm-proxy-import-update.png" alt=""><figcaption><p>The Import LLM proxy definition panel with the Local file source selected</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-import-update.png" alt=""><figcaption><p>The Import LLM proxy definition panel with the Local file source selected</p></figcaption></figure>
 
 4. Under **Configure file source**, select **Local file** or **Remote URL**, and provide the file or the **Definition URL**.
 5. Select **Import**.
@@ -147,11 +149,13 @@ An address the platform refuses, or one that can't be read, is reported as a fet
 To verify that a proxy survives the round trip, follow these steps:
 
 1. Export the proxy with every **Include additional data** checkbox selected.
-2. Create a second proxy by importing the downloaded file, and give the copy its own context path from the copy's **Entrypoints** page.
-3. Under **Design**, select **Models** on both proxies, and compare the providers and models. The copy carries the same set.
-4. Deploy the copy from the out-of-sync banner, and send it a prompt as described in [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md). The gateway routes the request.
+2. Change the proxy name and the context path in the downloaded file. A create by import is refused when the name generates an **Entity ID** that the environment already holds, and refused when the context path is already in use. An import into a different environment needs neither change.
+3. Create a second proxy by importing the edited file.
+4. Under **Design**, select **Models** on both proxies, and compare the providers and models. The copy carries the same set.
 
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-llm-proxy-imported-models.png" alt=""><figcaption><p>The Models page of the imported proxy, showing the providers the file carried</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-imported-models.png" alt=""><figcaption><p>The Models page of the imported proxy, showing the providers the file carried</p></figcaption></figure>
+
+5. Deploy the copy from the out-of-sync banner, and send it a prompt as described in [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md). The gateway routes the request.
 
 ## Next steps
 

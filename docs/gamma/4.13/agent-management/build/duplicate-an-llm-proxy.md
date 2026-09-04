@@ -20,7 +20,7 @@ To duplicate an LLM Proxy, complete the following steps:
 4. Under **General**, select **Configuration**.
 5. Select **Duplicate**.
 
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-llm-proxy-duplicate-sheet.png" alt=""><figcaption><p>The Duplicate LLM proxy panel with the Context path and Version fields and the include checkboxes</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-duplicate-sheet.png" alt=""><figcaption><p>The Duplicate LLM proxy panel with the Context path and Version fields and the include checkboxes</p></figcaption></figure>
 
 6. In the **Duplicate LLM proxy** panel, complete the following fields:
 
@@ -59,7 +59,7 @@ To verify the copy, follow these steps:
 3. Under **Consumer Access**, select **Plans**. The plans are present when you left the **Plans** checkbox selected, and absent when you cleared it.
 4. Deploy the copy from the out-of-sync banner, and send it a prompt on its own context path as described in [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md). The gateway routes the request.
 
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-llm-proxy-duplicate-result.png" alt=""><figcaption><p>The Configuration page of the duplicated LLM Proxy</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-duplicate-result.png" alt=""><figcaption><p>The Configuration page of the duplicated LLM Proxy</p></figcaption></figure>
 
 ## Next steps
 
