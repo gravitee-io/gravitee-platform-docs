@@ -6,7 +6,7 @@ description: Create an LLM Proxy that routes traffic to upstream model providers
 
 # Create an LLM Proxy
 
-An LLM Proxy routes traffic to upstream model providers—OpenAI, Anthropic, Gemini, Bedrock, and Gemini Enterprise Agent Platform (formerly Vertex AI)—through the AI Gateway. It adds authentication, cost attribution, observability, guardrails, and fine-grained authorization to every model call.
+An LLM Proxy routes traffic through the AI Gateway to upstream model providers: OpenAI, Anthropic, Gemini, Bedrock, and Gemini Enterprise Agent Platform (formerly Vertex AI). It adds authentication, cost attribution, observability, guardrails, and fine-grained authorization to every model call.
 
 {% hint style="info" %}
 For a simplified quickstart, see [Create your first LLM Proxy](../get-started/create-your-llm-proxy.md).
@@ -27,8 +27,13 @@ To create an LLM Proxy, complete the following steps:
 1. From the Gamma console sidebar, select **Agent Management**.
 2. Under **Secure**, select **LLM Proxies**.
 3. Select **Create LLM proxy**.
+4. Select **Create from scratch**.
 
-The console opens the **Create an LLM proxy** wizard, which has four steps: **Models**, **Entrypoint**, **Plans**, and **Review & create**.
+The console opens the wizard, which has four steps: **Models**, **Entrypoint**, **Plans**, and **Review & create**.
+
+{% hint style="info" %}
+The same page offers **Import**, which builds the LLM Proxy from an existing Gravitee definition rather than from the wizard. See [Export and import an LLM Proxy](export-and-import-an-llm-proxy.md).
+{% endhint %}
 
 ### Configure the models
 
@@ -91,7 +96,7 @@ Keyless plans provide no consumer identification. You cannot track usage per con
 
 ### Review and create
 
-Review the LLM Proxy configuration—provider, model, authentication, context path, each entrypoint option, and consumer plan—and then select one of the following:
+Review the LLM Proxy configuration: the provider, model, authentication, context path, each entrypoint option, and the consumer plan. Then select one of the following:
 
 * **Create only**. This creates the LLM Proxy without deploying it to the AI Gateway.
 * **Create & deploy**. This creates the LLM Proxy and deploys it to the AI Gateway.

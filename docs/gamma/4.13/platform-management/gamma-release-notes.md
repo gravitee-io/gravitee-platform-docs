@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The LLM Proxy detail view gains an Entrypoints page and a regrouped navigation. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model.
+Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The LLM Proxy detail view gains an Entrypoints page and a regrouped navigation. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list. It lets you record a negotiated price on a cataloged AI model, and adds export, import, and duplicate to LLM Proxies.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -69,6 +69,16 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 * A model with a negotiated price shows a `Custom` badge next to its price, together with the suggested rate and the date and author of the last change. The negotiated price appears in the **Price / 1M** column of the AI Models list, on the model detail page, and on the models page of an LLM Proxy, and it feeds the cost estimates in the AI workspace detail view.
 * Refreshing the catalog updates the provider-derived fields and keeps your negotiated price. Republish any LLM Proxy that consumes a repriced model so cost tracking picks up the negotiated rate.
 * See [Add an AI model](../agent-management/import/add-an-ai-model.md).
+
+#### Export, import, and duplicate for LLM Proxies
+
+* The **Configuration** page of each LLM Proxy adds three actions. **Export** downloads the proxy as a Gravitee API definition or a Kubernetes CRD, and links to the Terraform tutorial. **Import** replaces the proxy from a Gravitee definition. **Duplicate** copies the proxy under a new context path and version.
+* The **Create LLM proxy** button now opens a page offering **Create from scratch**, which opens the existing wizard, and **Import**, which builds the proxy from a Gravitee definition. Both import routes accept a local file or a remote URL, and only the Gravitee definition format.
+* An exported file is a standard Gravitee export, so the classic console reads it. It adds a record of each provider in the shape you configured it, so a proxy exported from one environment keeps its inline providers and re-links its catalog providers to the catalog of the environment you import into. A file exported by the classic console is accepted too, with every provider rebuilt as an inline one.
+* An export with the **Plans** checkbox cleared can update an existing proxy but can't create one, because a create by import publishes the plans the file carries.
+* An update by import keeps the target proxy's identity and its plans, and replaces its name, version, description, entrypoint configuration, and providers. It doesn't deploy, so the proxy is left out of sync until you deploy it.
+* The remote URL is fetched by the Management API under the same `imports.whitelist` and `imports.allow-from-private` settings as the classic import-from-URL endpoints.
+* See [Export and import an LLM Proxy](../agent-management/build/export-and-import-an-llm-proxy.md) and [Duplicate an LLM Proxy](../agent-management/build/duplicate-an-llm-proxy.md).
 
 ### API Management
 
