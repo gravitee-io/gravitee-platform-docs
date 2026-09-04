@@ -63,7 +63,7 @@ The create flow offers an import route beside the wizard. To create a proxy from
 
 7. Select **Create LLM proxy**.
 
-The console creates the proxy and opens its detail page. As with a proxy created from the wizard, the new proxy isn't deployed. Deploy it from the out-of-sync banner when you're ready to serve traffic.
+The console creates the proxy and opens its detail page. The import runs the same write path as the wizard's **Create only**, so the new proxy isn't deployed. Deploy it from the out-of-sync banner when you're ready to serve traffic.
 
 ### File shapes the import accepts
 
@@ -118,6 +118,8 @@ The console confirms the import. The proxy keeps its identity, so its links, its
 | The providers and their models, replaced as a set | |
 
 An update by import accepts the same file shapes as a create, and refuses the same ones, with two differences. It accepts a file exported without its plans, because it never writes plans. And it refuses a file that describes a different kind of API than the target, because a proxy can't change type through an import.
+
+The context path comes from the file, like the rest of the entrypoint configuration. Re-importing one proxy's export onto a different proxy is refused while the source still holds that path. Change the path in the file, or free it on the source, before you import.
 
 The update doesn't deploy. The proxy is left out of sync, exactly as a provider change leaves it, and you deploy it from the out-of-sync banner.
 
