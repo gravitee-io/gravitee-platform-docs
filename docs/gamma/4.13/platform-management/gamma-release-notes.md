@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The LLM Proxy detail view gains an Entrypoints page and a regrouped navigation. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model.
+Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The LLM Proxy detail view gains an Entrypoints page, a CORS page, and a regrouped navigation. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -49,6 +49,13 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 * The **Overview** page shows a **Connection** card with the gateway URLs of the proxy, in place of the **Consumer URL** row.
 * The detail navigation is regrouped. **Models**, **Entrypoints**, **Endpoints**, **Policy Studio**, and **Resources** sit under **Design**, **Reporter Settings** and **Notifications** sit under **Monitoring**, **Security** follows **General**, and the **General** page is renamed **Configuration**. **LLM Studio** is renamed **Policy Studio**, and a link to the former page redirects to it.
 * See [Configure LLM Proxy entrypoints](../agent-management/build/configure-llm-proxy-entrypoints.md).
+
+#### CORS for LLM Proxies
+
+* Each LLM Proxy detail view adds a **CORS** page under **General** that configures cross-origin access for browser-based clients: the allowed origins, methods, and request headers, the exposed response headers, credentials, the preflight cache duration, and whether policies run on preflight requests.
+* CORS stays off until you enable it, so an existing LLM Proxy keeps its behavior after an upgrade. When CORS is enabled, the gateway adds the `Access-Control-*` headers to the responses of the proxy, answers preflight requests itself, and refuses a preflight request from an origin, with a method, or with a header that isn't allowed.
+* A save applies to the gateway when you deploy the proxy from the out-of-sync banner.
+* See [Configure LLM Proxy CORS](../agent-management/build/configure-llm-proxy-cors.md).
 
 #### Owner and sharding tags in the LLM Proxies list
 
