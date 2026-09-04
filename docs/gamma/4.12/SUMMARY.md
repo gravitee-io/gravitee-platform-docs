@@ -148,6 +148,7 @@
     * [Override the model at runtime](agent-management/build/override-the-model-at-runtime.md)
   * [A2A Proxies](agent-management/build/a2a-proxies/README.md)
     * [Expose your agent with the A2A Proxy](agent-management/build/expose-agent-with-a2a-proxy.md)
+    * [Let consumers subscribe to your agent](agent-management/publish/let-consumers-subscribe-to-your-agent.md)
     * [Configure your A2A Proxy](agent-management/build/configure-your-a2a-proxy/README.md)
       * [General](agent-management/build/a2a-proxies/general/README.md)
         * [Configure A2A Proxy notifications](agent-management/build/configure-a2a-proxy-notifications.md)
