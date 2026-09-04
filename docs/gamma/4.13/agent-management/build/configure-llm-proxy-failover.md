@@ -27,9 +27,7 @@ To open the page, follow these steps:
 
 A proxy that never configured failover opens with failover off and the values the gateway applies by default, rather than an empty form.
 
-<!-- TODO: Screenshot of the Failover page of an LLM Proxy -->
-
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-llm-proxy-failover.png" alt=""><figcaption><p>The Failover page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-llm-proxy-failover.png" alt="The Failover page of an LLM Proxy with failover turned off, the Enable failover, Retries, and Circuit breaker cards, and Failover selected under Endpoints in the proxy sidebar"><figcaption><p>The Failover page</p></figcaption></figure>
 
 ## Roll over across providers with a shared alias
 
@@ -56,6 +54,8 @@ The **Retries** card controls how a single call is retried before it gives up.
 | **Always move to the next endpoint** | Off     | Pin each retry to a different endpoint. Without it the retry is free to land on the one that just failed, so a request doesn't actually roll over. |
 
 While failover is on and **Always move to the next endpoint** is off, the page shows the **Retries may land on the endpoint that just failed** alert.
+
+<figure><img src="../../.gitbook/assets/gamma-aim-llm-proxy-failover-enabled.png" alt="The Failover page with failover enabled, the alert warning that retries may land on the endpoint that just failed, and the enabled Max retries, Slow call duration, and Always move to the next endpoint settings"><figcaption><p>Failover enabled, with retries not yet pinned to another endpoint</p></figcaption></figure>
 
 With **Always move to the next endpoint** on, each retry moves to the next endpoint in the order the providers are declared on the proxy. The rotation cycles back to the first endpoint after the last, and it needs more than one endpoint. The load balancer still picks the endpoint of the first attempt. When every attempt fails, the gateway answers `502`.
 
@@ -98,6 +98,6 @@ To verify failover is working as expected, follow these steps:
 4. Send a request for the shared alias. The response comes back from the next provider in the rotation.
 5. Keep the provider failing for more calls than the **Max failures** value. The circuit opens on it, and it's left aside for the **Open state duration (ms)** value before it's tried again.
 
-<!-- TODO: Screenshot of a response served by the next provider after a rollover -->
+With tracing enabled for the proxy, the **Tracing** page under **Observability** shows the request as one trace. In it, the attempt on the first provider fails, and the next provider serves the call. To enable tracing, see [Configure LLM Proxy logging and tracing](configure-llm-proxy-logging-and-tracing.md).
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-llm-proxy-failover-rollover.png" alt=""><figcaption><p>A request served after a rollover</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-llm-proxy-failover-rollover.png" alt="The Tracing page of an LLM Proxy with the trace of a request open, showing under failover-invoker a failed attempt in red followed by a second attempt that succeeded"><figcaption><p>The trace of a request served after a rollover</p></figcaption></figure>
