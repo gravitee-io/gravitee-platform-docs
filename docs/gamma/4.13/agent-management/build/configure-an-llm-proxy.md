@@ -63,6 +63,10 @@ To remove the picture, click the cross at the top right of the picture, and then
 
 The **Entrypoints** page changes the context paths consumers call, switches the proxy to virtual hosts, and edits the options of the LLM Proxy entrypoint plugin after creation. To open it, under **Design**, select **Entrypoints**. For the steps, see [Configure LLM Proxy entrypoints](configure-llm-proxy-entrypoints.md).
 
+## Failover
+
+The **Failover** page retries a call on another provider of the proxy when one is slow or failing. It also opens a circuit on a provider that keeps failing, so that provider is left aside for a while. To open it, under **Design**, click **Endpoints**, and then click **Failover**. For the steps, see [Configure LLM Proxy failover](configure-llm-proxy-failover.md).
+
 ## Structured output
 
 Structured output enforces response format constraints on model responses. You can enforce structured output natively by overriding model parameters.
