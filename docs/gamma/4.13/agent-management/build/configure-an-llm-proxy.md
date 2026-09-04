@@ -63,6 +63,16 @@ To remove the picture, click the cross at the top right of the picture, and then
 
 The **Entrypoints** page changes the context paths consumers call, switches the proxy to virtual hosts, and edits the options of the LLM Proxy entrypoint plugin after creation. To open it, under **Design**, select **Entrypoints**. For the steps, see [Configure LLM Proxy entrypoints](configure-llm-proxy-entrypoints.md).
 
+## Export, import, and duplicate
+
+The **Configuration** page carries three actions that work on the proxy as a whole:
+
+* **Export** downloads the proxy as a Gravitee API definition, a Kubernetes CRD, or a link to the Terraform tutorial.
+* **Import** replaces this proxy's configuration from a Gravitee definition, from a file or a remote URL. The proxy keeps its plans and its identity.
+* **Duplicate** creates a copy of the proxy under a new context path and version.
+
+For the steps, see [Export and import an LLM Proxy](export-and-import-an-llm-proxy.md) and [Duplicate an LLM Proxy](duplicate-an-llm-proxy.md).
+
 ## Structured output
 
 Structured output enforces response format constraints on model responses. You can enforce structured output natively by overriding model parameters.
