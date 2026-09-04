@@ -146,6 +146,7 @@
   * [Browse the LLM Proxies list](agent-management/build/browse-the-llm-proxies-list.md)
   * [Configure an LLM Proxy](agent-management/build/configure-an-llm-proxy.md)
   * [Configure LLM Proxy entrypoints](agent-management/build/configure-llm-proxy-entrypoints.md)
+  * [Configure LLM Proxy CORS](agent-management/build/configure-llm-proxy-cors.md)
   * [Configure LLM Proxy notifications](agent-management/build/configure-llm-proxy-notifications.md)
   * [Configure LLM Proxy deployment](agent-management/build/configure-llm-proxy-deployment.md)
   * [Configure LLM Proxy logging and tracing](agent-management/build/configure-llm-proxy-logging-and-tracing.md)

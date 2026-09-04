@@ -1,5 +1,5 @@
 ---
-description: An overview about cors.
+description: An overview about CORS.
 metaLinks:
   alternates:
     - cors.md
@@ -19,6 +19,10 @@ CORS is a mechanism that allows resources on a web page to be requested from ano
 WebSocket entrypoints do not support CORS. CORS will not be applied if an API does not contain at least one of the following entrypoints: HTTP GET, HTTP POST, HTTP Proxy, or SSE.
 {% endhint %}
 
+{% hint style="info" %}
+From APIM 4.12.18, the LLM Proxy entrypoint supports CORS too. For an LLM Proxy API, the **Entrypoints** menu opens the **Entrypoints** and **CORS** tabs, and the CORS settings are the same as for the other API types.
+{% endhint %}
+
 ## Configuration
 
 To configure CORS for an API, follow the steps below.
@@ -30,7 +34,7 @@ To configure CORS for an API, follow the steps below.
 
     <figure><img src="../../.gitbook/assets/CORS_edit API.png" alt=""><figcaption></figcaption></figure>
 5. Select **Entrypoints** from the inner left nav
-6.  Select the **Cors** tab
+6.  Select the **CORS** tab
 
     <figure><img src="../../.gitbook/assets/CORS_tab.png" alt=""><figcaption></figcaption></figure>
 7.  Set the following parameters:

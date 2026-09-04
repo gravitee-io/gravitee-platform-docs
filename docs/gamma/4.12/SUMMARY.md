@@ -135,6 +135,7 @@
   * [LLM Proxies](agent-management/build/llm-proxies/README.md)
     * [Create an LLM Proxy](agent-management/build/create-an-llm-proxy.md)
     * [Configure an LLM Proxy](agent-management/build/configure-an-llm-proxy.md)
+      * [Configure LLM Proxy CORS](agent-management/build/configure-llm-proxy-cors.md)
       * [Design](agent-management/build/llm-proxies/design/README.md)
         * [Add the Token Rate Limit policy](agent-management/build/add-the-token-rate-limit-policy.md)
         * [Select a text classification model](agent-management/build/select-a-text-classification-model.md)
