@@ -63,6 +63,10 @@ To remove the picture, click the cross at the top right of the picture, and then
 
 The **Entrypoints** page changes the context paths consumers call, switches the proxy to virtual hosts, and edits the options of the LLM Proxy entrypoint plugin after creation. To open it, under **Design**, select **Entrypoints**. For the steps, see [Configure LLM Proxy entrypoints](configure-llm-proxy-entrypoints.md).
 
+## CORS
+
+The **CORS** page lets browser-based clients on other origins call the LLM Proxy. Enable CORS, then set the allowed origins, methods, and request headers, the exposed response headers, credentials, the preflight cache duration, and whether policies run on preflight requests. To open it, under **General**, select **CORS**. For the steps, see [Configure LLM Proxy CORS](configure-llm-proxy-cors.md).
+
 ## Structured output
 
 Structured output enforces response format constraints on model responses. You can enforce structured output natively by overriding model parameters.
@@ -103,6 +107,7 @@ The **LLM — Overview** dashboard visualizes this data. It tracks `LLM_PROMPT_T
 
 * [Create an LLM Proxy](create-an-llm-proxy.md). Create a new LLM Proxy if you haven't already.
 * [Configure LLM Proxy entrypoints](configure-llm-proxy-entrypoints.md). Add context paths, switch to virtual hosts, or edit the entrypoint options.
+* [Configure LLM Proxy CORS](configure-llm-proxy-cors.md). Let browser-based clients on other origins call the proxy.
 * [Configure LLM Proxy logging and tracing](configure-llm-proxy-logging-and-tracing.md). Control the reported request and response data, and enable OpenTelemetry tracing.
 * [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md). Make the LLM Proxy discoverable.
 * [Monitor AI Gateway usage from employee systems](../observe/monitor-ai-gateway-from-devices.md). View AI traffic from employee devices.
