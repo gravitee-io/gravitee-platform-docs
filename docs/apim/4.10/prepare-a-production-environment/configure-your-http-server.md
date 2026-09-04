@@ -123,6 +123,47 @@ You can now consume your API with both HTTP/1 and HTTP/2 protocols:
 curl -k -v --http2 https://localhost:8082/my_api
 ```
 
+### **Tune HTTP/2 flow-control windows**
+
+An HTTP/2 flow-control window bounds how many bytes a client may send before waiting for the Gateway to acknowledge them, so upload throughput is capped by `window size / round-trip time`. The 65535 bytes protocol default therefore throttles large request bodies as soon as there is real network latency, while HTTP/1.1 is unaffected. Raise both windows to lift that ceiling.
+
+{% hint style="warning" %}
+Set both, or neither. Raising `streamWindowSize` alone has no observable effect: the initial settings the Gateway sends apply to streams only, never to the connection, so the connection window stays at 65535 bytes and remains the bottleneck for the whole connection. Keep `connectionWindowSize` greater than or equal to `streamWindowSize`.
+{% endhint %}
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  alpn: true
+  http2:
+    connectionWindowSize: 20971520
+    streamWindowSize: 20971520
+```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_http2_connectionWindowSize=20971520
+gravitee_http_http2_streamWindowSize=20971520
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  http:
+    http2:
+      connectionWindowSize: 20971520
+      streamWindowSize: 20971520
+```
+{% endtab %}
+{% endtabs %}
+
+Size these against the number of concurrent connections you expect, not against a single upload: the Gateway accepts up to `connectionWindowSize` bytes in flight per connection and `streamWindowSize` bytes per concurrent request, with no upper bound enforced.
+
+Both options default to `-1`, which keeps the 65535 bytes protocol default, so leaving them unset changes nothing.
+
 ## **Enable WebSocket support**
 
 To enable WebSocket support, update the `gravitee.yaml` file:
