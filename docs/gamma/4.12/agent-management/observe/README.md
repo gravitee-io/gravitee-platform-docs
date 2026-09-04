@@ -12,3 +12,4 @@ Monitor AI traffic across all three proxy types — MCP, LLM, and A2A — and fr
 * [**Monitor your LLM proxy**](monitor-your-llm-proxy.md) — Read token usage, cost, model and provider mix, and error rates for LLM Proxies on the LLM Overview dashboard.
 * [**Inspect your agent log**](inspect-your-agent-log.md) — Trace agent invocations through the AI Gateway using OpenTelemetry spans and the lineage view.
 * [**Monitor AI Gateway usage from employee systems**](monitor-ai-gateway-from-devices.md) — View per-device and per-team AI traffic, shadow AI detection, and system health from the Edge Management dashboard.
+* [**Performance targets**](performance-targets.md): declare the metrics and thresholds a proxy or an agent is evaluated against, and read the outcome each evaluation records.

@@ -166,6 +166,7 @@
     * [Monitor AI Gateway usage from employee systems](agent-management/observe/monitor-ai-gateway-from-devices.md)
   * [Logs](agent-management/observe/logs/README.md)
     * [Inspect your agent log](agent-management/observe/inspect-your-agent-log.md)
+  * [Performance targets](agent-management/observe/performance-targets.md)
 
 ## Authorization Management
 
