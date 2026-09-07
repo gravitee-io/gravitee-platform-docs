@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Price the resources agents consume, and turn agent runs into cost records you can explain, attribute, and act on.
 ---
 
