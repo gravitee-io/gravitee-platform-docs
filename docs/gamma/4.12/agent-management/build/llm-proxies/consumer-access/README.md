@@ -9,4 +9,4 @@ description: Publish an LLM Proxy and manage the subscriptions that grant consum
 Open an LLM Proxy to the consumers you choose, then manage their subscription requests through the lifecycle.
 
 * [**Publish your LLM Proxy**](../../../publish/publish-your-llm-proxy.md): Publish an LLM Proxy so consumers can send prompts to its context path through the AI Gateway.
-* [**Manage subscriptions**](../../../publish/manage-subscriptions.md): Accept, reject, and close consumer subscriptions to your LLM Proxies and MCP Proxies.
+* [**Manage subscriptions**](../../../publish/manage-subscriptions.md): Subscribe an application to a plan, approve the request, and find the credential the AI Gateway checks.

@@ -20,7 +20,7 @@ Each OTel span in the agent log records:
 | **Outputs**         | The response returned by the tool or model.                                        |
 | **Latency**         | End-to-end duration of the invocation.                                             |
 | **Policy decision** | Whether the invocation was permitted or denied, and which policies were evaluated. |
-| **Cost**            | Token cost (for LLM traffic) or invocation cost based on configured rates.         |
+| **Cost**            | Token cost. Recorded for LLM traffic only.                                         |
 
 ## The lineage view
 
