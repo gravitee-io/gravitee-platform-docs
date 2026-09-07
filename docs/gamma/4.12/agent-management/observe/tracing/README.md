@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Open the traces recorded for a proxy in the Trace Explorer and read each one as a span timeline or a lineage graph. Follow the guide to trace a request.
 ---
 
