@@ -18,7 +18,7 @@ Cost attributes live on the catalog items that incur them.
 
 <table><thead><tr><th width="220">Catalog item</th><th>Cost attributes</th></tr></thead><tbody><tr><td>Model</td><td>An input price and an output price per million tokens, with the currency and the date the prices apply from.</td></tr><tr><td>MCP tool</td><td>A reference cost, shown as <strong>Reference cost</strong> on the tool's detail page.</td></tr></tbody></table>
 
-An LLM Proxy carries the prices of the models it exposes in its definition, and lists them as **Input price /M tokens** and **Output price /M tokens** on its models page.
+An LLM Proxy carries the prices of the models it exposes in its definition. Its models page lists them as **Input price /M tokens** and **Output price /M tokens**.
 
 ## Metered at the AI Gateway
 
