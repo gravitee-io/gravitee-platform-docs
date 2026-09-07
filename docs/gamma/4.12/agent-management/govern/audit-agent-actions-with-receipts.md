@@ -1,4 +1,6 @@
 ---
+hidden: true
+noIndex: true
 description: >-
   Read one receipt per consequential agent action, carrying the decision chain
   that authorized it, the result it produced, and what it cost.
