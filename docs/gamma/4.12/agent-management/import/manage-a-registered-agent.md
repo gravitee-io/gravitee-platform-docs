@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Open a registered agent's page in the Catalog, read what its agent card declared, edit its name and description, remove it, and find where its gateway controls live.
 ---
 
