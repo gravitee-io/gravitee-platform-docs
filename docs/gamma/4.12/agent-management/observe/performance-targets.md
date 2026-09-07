@@ -31,15 +31,15 @@ Every target names the traffic it judges, the period and sampling floor it judge
         </tr>
         <tr>
             <td>Window</td>
-            <td>The rolling period each evaluation measures.</td>
+            <td>The rolling period each evaluation measures. A target that doesn't set one measures the last 15 minutes (900 seconds).</td>
         </tr>
         <tr>
             <td>Evaluation interval</td>
-            <td>How often the target is evaluated. The window is at least as long as the interval.</td>
+            <td>How often the target is evaluated. The window is at least as long as the interval. A target that doesn't set one is evaluated every 5 minutes (300 seconds).</td>
         </tr>
         <tr>
             <td>Minimum sample size</td>
-            <td>The number of samples a rule needs inside the window before its result counts. A rule with fewer samples than this floor returns no verdict rather than a pass.</td>
+            <td>The number of samples a rule needs inside the window before its result counts. A rule with fewer samples than this floor returns no verdict rather than a pass. A target that doesn't set one needs 20 samples.</td>
         </tr>
         <tr>
             <td>Rules</td>
@@ -47,6 +47,12 @@ Every target names the traffic it judges, the period and sampling floor it judge
         </tr>
     </tbody>
 </table>
+
+### When a target is evaluated
+
+The platform evaluates each target once per evaluation interval, and each evaluation measures the window that ends at that moment. A target can also be evaluated on demand. The on-demand evaluation is refused while the target's last evaluation is less than 30 seconds old, whichever path produced it. The refusal states how many seconds to wait.
+
+An idle target is evaluated less often. Once a target has gone three consecutive evaluations without a verdict, its interval doubles, and it doubles again at each further evaluation without a verdict, up to once an hour. The first evaluation that returns a verdict brings the target back to its declared interval.
 
 ## How a rule is built
 
@@ -100,9 +106,11 @@ A filter cuts the measure down to part of the traffic before the comparison runs
 
 All four of these filters accept the `EQ` and `IN` operators.
 
+The minimum sample size applies to the traffic a rule's filters select, not to the whole subject. A rule filtered down to one tool has no verdict until that tool alone reaches the floor inside the window.
+
 ## Target outcomes
 
-Every rule produces its own outcome, and the target's status is the worst status among its rules.
+Every rule produces its own outcome, and the target's status follows from them in a fixed order. Any rule that missed makes the target `BREACH`. Otherwise, any rule without a verdict makes the target `NOT_EVALUABLE`. The target is `PASS` only when every rule passed, so a target with one idle rule and three passing rules reports no verdict.
 
 <table>
     <thead>
@@ -135,7 +143,7 @@ The third outcome is what keeps a target honest about an idle subject. A rule wi
 
 ## What an evaluation records
 
-An evaluation is stored per window, and it keeps enough of the rule alongside the number to stay readable on its own.
+An evaluation is stored per window, and it keeps enough of the rule alongside the number to stay readable on its own. The platform keeps the last 288 evaluations of each target, which is 24 hours of history at the default 5-minute interval. The most recent evaluation is the one the target's current status reflects.
 
 <table>
     <thead>
@@ -205,6 +213,12 @@ These metrics are declared for all three agent proxy types:
             <td><code>NUMBER</code></td>
         </tr>
         <tr>
+            <td><code>HTTP_REQUESTS_PER_SECOND</code></td>
+            <td>Requests per Second</td>
+            <td><code>RATE</code></td>
+            <td><code>PER_SECOND</code></td>
+        </tr>
+        <tr>
             <td><code>HTTP_ERRORS</code></td>
             <td>HTTP Errors</td>
             <td><code>COUNT</code></td>
@@ -213,6 +227,12 @@ These metrics are declared for all three agent proxy types:
         <tr>
             <td><code>HTTP_ERROR_RATE</code></td>
             <td>Error Rate</td>
+            <td><code>PERCENTAGE</code></td>
+            <td><code>PERCENT</code></td>
+        </tr>
+        <tr>
+            <td><code>HTTP_SERVER_ERROR_RATE</code></td>
+            <td>Server Error Rate</td>
             <td><code>PERCENTAGE</code></td>
             <td><code>PERCENT</code></td>
         </tr>
@@ -248,6 +268,10 @@ These metrics are declared for all three agent proxy types:
         </tr>
     </tbody>
 </table>
+
+`HTTP_ERROR_RATE` is the share of responses with a 4xx or 5xx status, over every response that carries a status. `HTTP_SERVER_ERROR_RATE` counts only 5xx responses over the same base. It's the measure of availability as usually meant. `HTTP_REQUESTS_PER_SECOND` divides the request count by the window length. A throughput threshold therefore means the same thing whatever window the target declares.
+
+`HTTP_ERRORS` carries no status condition of its own. Without a filter, its `COUNT` equals `HTTP_REQUESTS` `COUNT` for the same window, so a plain threshold on it breaches on any traffic. To count errors with it, add an `HTTP_STATUS_CODE_GROUP` filter, for example `EQ` `5XX`. For an error threshold that needs no filter, use `HTTP_ERROR_RATE` or `HTTP_SERVER_ERROR_RATE`.
 
 ### Available on LLM Proxies only
 
@@ -306,7 +330,7 @@ For what the gateway records behind the token and cost metrics, and how cost is 
 
 ## What a target rejects
 
-A target is checked against the analytics definition and against the APIs of its subject, both when it's created and when it's changed. A rule that no telemetry answers is refused rather than left to evaluate to nothing.
+A target is checked against the analytics definition and against the APIs of its subject, both when it's created and when it's changed. A rule whose metric, measure, or filter isn't declared for the subject's API types is refused rather than stored.
 
 <table>
     <thead>
@@ -333,8 +357,8 @@ A target is checked against the analytics definition and against the APIs of its
             <td>A target carries at least one rule.</td>
         </tr>
         <tr>
-            <td>A subject naming an API from another environment</td>
-            <td>A target evaluates only APIs of its own environment.</td>
+            <td>A subject naming an API that doesn't exist in the environment</td>
+            <td>The subject lists APIs of the target's own environment.</td>
         </tr>
         <tr>
             <td>A subject naming an API that isn't a v4 API</td>
@@ -391,9 +415,9 @@ A target is checked against the analytics definition and against the APIs of its
 
 Two limits shape what a target is able to say.
 
-MCP and A2A traffic is measured at the HTTP level. The analytics definition declares no MCP-specific or A2A-specific metric, so targets on those proxy types are built from request volume, error counts, error rate, latency, and payload size. Protocol-level signals such as JSON-RPC errors returned inside a successful HTTP response, or A2A task states, aren't part of the metric vocabulary, so no threshold reads them.
+MCP and A2A traffic is measured at the HTTP level. The analytics definition declares no MCP-specific or A2A-specific metric. Targets on those proxy types are built from request volume and rate, error counts and rates, latency, and payload size. Protocol-level signals such as JSON-RPC errors returned inside a successful HTTP response, or A2A task states, aren't part of the metric vocabulary, so no threshold reads them.
 
-Deleting an API removes it from the subject of every target that named it. The target itself stays, including when the deletion leaves it with no APIs.
+Deleting an API removes it from the subject of every target that named it. The target itself stays, including when the deletion leaves it with no APIs. A target left with no APIs is evaluated without a verdict and with an empty list of covered APIs, and it stays listed until someone updates or deletes it.
 
 ## What's next
 
