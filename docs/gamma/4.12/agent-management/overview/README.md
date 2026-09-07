@@ -67,7 +67,7 @@ Edge Management provides visibility and control over AI traffic on employee devi
 
 ### Observability
 
-End-to-end observability across every hop: agent to tool, agent to LLM, and agent to agent. Every interaction emits an OpenTelemetry span with agent identity, tool name, inputs, outputs, latency, policy decision, cost, and timestamp. The lineage view stitches spans into a navigable trace of the full request graph.
+End-to-end observability across every hop: agent to tool, agent to LLM, and agent to agent. Every interaction emits an OpenTelemetry span with agent identity, tool name, inputs, outputs, latency, policy decision, cost, and timestamp. The Trace Explorer opens each trace as a span timeline or as a lineage graph of the spans a proxy recorded.
 
 ## How Agent Management connects to the platform
 
