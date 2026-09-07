@@ -1,4 +1,6 @@
 ---
+hidden: true
+noIndex: true
 description: >-
   Bind a Guardian Agent into the MCP proxy policy chain so every intended agent
   action is judged in context and receives a bounded verdict before it executes.
