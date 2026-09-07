@@ -1,4 +1,6 @@
 ---
+hidden: true
+noIndex: true
 description: >-
   Declare approval rules against the MCP tools in your catalog so that
   sensitive tool calls wait for a human decision before they execute.
