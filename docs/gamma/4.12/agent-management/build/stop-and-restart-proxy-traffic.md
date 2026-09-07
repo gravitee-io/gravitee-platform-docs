@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Cut off traffic to an LLM Proxy, MCP Proxy, or A2A Proxy at the gateway, and restore it later. Follow the steps to stop and restart a proxy from its Settings page.
 ---
 
