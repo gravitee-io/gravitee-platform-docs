@@ -7,6 +7,24 @@ metaLinks:
 
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.34 - September 7, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Read-only APIM roles cannot view organization policies without write access [#11743](https://github.com/gravitee-io/issues/issues/11743)
+* Use X-Forwarded-For header option is not displayed in the policy configuration form [#11763](https://github.com/gravitee-io/issues/issues/11763)
+* OAS Validation policy rejects large JSON specifications because it parses them as YAML [#11772](https://github.com/gravitee-io/issues/issues/11772)
+* Organization users search with q= is still not stable across Management API instances [#11778](https://github.com/gravitee-io/issues/issues/11778)
+* Console SSO breaks on upgrade: org IdP enabled=false now blocks organization login, with no migration and a portal-only UI label [#11779](https://github.com/gravitee-io/issues/issues/11779)
+* Kafka consumer is not released when a WebSocket client disconnects [#11814](https://github.com/gravitee-io/issues/issues/11814)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.9.33 - August 31, 2026
 <details>
 
