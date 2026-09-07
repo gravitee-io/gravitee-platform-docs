@@ -6,7 +6,7 @@ description: Monitor AI traffic across your MCP, LLM, and A2A proxies, and from 
 
 # Observe
 
-Monitor AI traffic across all three proxy types — MCP, LLM, and A2A — and from employee devices through Edge Management.
+Monitor AI traffic across the MCP, LLM, and A2A proxy types, and from employee devices through Edge Management.
 
 * [**Monitor proxy activity on the Overview page**](monitor-proxy-activity.md). Read the rolling 24-hour snapshot on the Overview page of a single LLM Proxy or MCP Proxy.
 * [**Monitor your MCP servers**](monitor-your-mcp-servers.md): view tool invocation metrics, error rates, and latency for MCP Proxies.
