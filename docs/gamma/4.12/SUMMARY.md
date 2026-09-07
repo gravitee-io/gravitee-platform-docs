@@ -158,6 +158,7 @@
       * [Operations](agent-management/build/a2a-proxies/operations/README.md)
         * [Configure A2A Proxy deployment](agent-management/build/configure-a2a-proxy-deployment.md)
         * [Review A2A Proxy deployment history](agent-management/build/review-a2a-proxy-deployment-history.md)
+    * [Publish your agent to the Developer Portal](agent-management/publish/publish-your-agent-to-the-developer-portal.md)
   * [Manage subscriptions](agent-management/publish/manage-subscriptions.md)
   * [Stop and restart proxy traffic](agent-management/build/stop-and-restart-proxy-traffic.md)
 * [Observe](agent-management/observe/README.md)
@@ -167,6 +168,13 @@
     * [Monitor AI Gateway usage from employee systems](agent-management/observe/monitor-ai-gateway-from-devices.md)
   * [Logs](agent-management/observe/logs/README.md)
     * [Inspect your agent log](agent-management/observe/inspect-your-agent-log.md)
+* [Govern](agent-management/govern/README.md)
+  * [Score agent compliance with the EU AI Act framework](agent-management/govern/score-agent-compliance-with-the-eu-ai-act.md)
+  * [Guard agent actions with Guardian Agents](agent-management/govern/guard-agent-actions-with-guardian-agents.md)
+  * [Require human approval for MCP tool calls](agent-management/govern/require-human-approval-for-mcp-tool-calls.md)
+  * [Audit agent actions with receipts](agent-management/govern/audit-agent-actions-with-receipts.md)
+* [Cost and value](agent-management/cost-and-value/README.md)
+  * [Define rates with the price book](agent-management/cost-and-value/define-rates-with-the-price-book.md)
 
 ## Authorization Management
 
