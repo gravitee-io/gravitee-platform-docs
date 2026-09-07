@@ -55,13 +55,13 @@ A receipt records the outcome. It doesn't interpret it.
 
 ### The cost
 
-The cost records what the action consumed, priced from the rates held in the price book.
+The cost records what the action consumed, priced from the cost attributes on the catalog items it used.
 
 * Model tokens.
 * Tool calls.
 * Human approval time.
 
-The cost sits on the same record as the decision chain and the result. A cost figure is therefore bound to the authority the action ran under and to what it produced. For how these rates are set, see [Define rates with the price book](../cost-and-value/define-rates-with-the-price-book.md).
+The cost sits on the same record as the decision chain and the result. A cost figure is therefore bound to the authority the action ran under and to what it produced. For where those cost attributes live, see [Agent FinOps](../cost-and-value/agent-finops.md).
 
 ### The correlation ID
 
