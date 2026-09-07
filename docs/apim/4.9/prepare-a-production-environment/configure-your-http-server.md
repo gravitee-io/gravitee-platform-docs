@@ -163,7 +163,19 @@ gravitee_http_http2_streamWindowSize=20971520
 ```
 {% endtab %}
 
-{% tab title="Helm values.yaml" %}
+{% tab title="Helm values.yml" %}
+```yaml
+gateway:
+  servers:
+    - type: http
+      port: 8082
+      http2:
+        connectionWindowSize: 20971520
+        streamWindowSize: 20971520
+```
+
+Without `gateway.servers`, the chart renders a single HTTP server from `gateway.http` instead:
+
 ```yaml
 gateway:
   http:

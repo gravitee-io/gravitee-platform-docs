@@ -529,6 +529,18 @@ gateway:
       connectionWindowSize: 20971520
       streamWindowSize: 20971520
 ```
+
+With `gateway.servers`, the chart renders the HTTP server options from that list and ignores the rest of `gateway.http`, so the windows have to be set on each server that needs them:
+
+```yaml
+gateway:
+  servers:
+    - type: http
+      port: 8082
+      http2:
+        connectionWindowSize: 20971520
+        streamWindowSize: 20971520
+```
 {% endtab %}
 {% endtabs %}
 
