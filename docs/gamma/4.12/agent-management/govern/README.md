@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Score every agent in your estate against built-in compliance frameworks, and remediate the controls that fail.
 ---
 

@@ -1,4 +1,6 @@
 ---
+hidden: true
+noIndex: true
 description: >-
   Activate the built-in EU AI Act compliance framework, read the compliance
   score it computes for every agent, and remediate the controls that fail.
