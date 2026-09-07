@@ -79,7 +79,7 @@ To add an identity provider, select **+ Add an identity provider.** From here, y
 * Define **General** settings
   * Name
   * Description
-  * Whether or not to allow portal authentication to use this provider
+  * **Allow portal authentication to use this identity provider**. Optional, and off by default in the Console-only setup. This setting doesn't control the Console login page. See [How identity providers are scoped](README.md#how-identity-providers-are-scoped).
   * Whether or not to require a public email for authentication
   * Define Group and role mappings: this defines the level to which Platform administrators cam still override mappings. You have two options:
     * Computed only during first user authentication
@@ -98,7 +98,7 @@ To add an identity provider, select **+ Add an identity provider.** From here, y
   * Email
   * Picture
 
-When you are done, select **Create.** Then, go back to the IdP page, and toggle **Activate Identity Provider** ON for your new IdP.
+When you are done, select **Create.** Then go back to the identity provider list and click the activation toggle on the provider's row, so the **Status** column reads **Activated**. That organization activation is what puts the provider on the Console login page. To show it on the Developer Portal as well, turn **Allow portal authentication to use this identity provider** on, then activate the provider on the **Authentication** page of that environment's settings.
 {% endtab %}
 {% endtabs %}
 
