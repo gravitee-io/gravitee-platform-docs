@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: List an agent that an A2A Proxy exposes in the Developer Portal catalog so consumers can browse it by category, search for it, and subscribe. Follow the steps to add and publish it.
 ---
 
