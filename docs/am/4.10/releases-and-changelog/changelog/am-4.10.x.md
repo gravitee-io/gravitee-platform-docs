@@ -6,6 +6,29 @@ description: >-
 
 # AM 4.10.x
 
+## Gravitee Access Management 4.10.22 - September 3, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Cookie tracker debbuger [#11773](https://github.com/gravitee-io/issues/issues/11773)
+* An application with no token endpoint authentication method set is refused when it authenticates with a client assertion [#11782](https://github.com/gravitee-io/issues/issues/11782)
+* TOTP enrollment – user redirected to OTP page after incomplete enrollment [#11787](https://github.com/gravitee-io/issues/issues/11787)
+
+**Management API**
+
+* Console login page returns 500 when an organization social identity provider cannot build a sign-in URL [#11771](https://github.com/gravitee-io/issues/issues/11771)
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.10.21 - August 25, 2026
 
 <details>
