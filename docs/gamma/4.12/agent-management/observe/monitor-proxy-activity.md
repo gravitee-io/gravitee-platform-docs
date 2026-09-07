@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Read the rolling 24-hour activity snapshot on the Overview page of an LLM Proxy or MCP Proxy. Learn what each stat card and chart reports.
 ---
 
