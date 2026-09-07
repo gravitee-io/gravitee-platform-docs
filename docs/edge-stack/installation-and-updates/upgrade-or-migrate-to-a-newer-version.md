@@ -27,22 +27,22 @@ See the instructions on updating Emissary-ingress.
 
 | If you're running.                    | You can upgrade to           |
 | ------------------------------------- | ---------------------------- |
-| Ambassador Edge Stack 3.11.X          | Ambassador Edge Stack 3.12.8 |
-| Ambassador Edge Stack 2.5.1           | Ambassador Edge Stack 3.12.8 |
+| Ambassador Edge Stack 3.11.X          | Ambassador Edge Stack 3.14.2 |
+| Ambassador Edge Stack 2.5.1           | Ambassador Edge Stack 3.14.2 |
 | Ambassador Edge Stack 2.4.X           | Ambassador Edge Stack 2.5.1  |
 | Ambassador Edge Stack 2.0.X           | Ambassador Edge Stack 2.5.1  |
 | Ambassador Edge Stack 1.14.4          | Ambassador Edge Stack 2.5.1  |
 | Ambassador Edge Stack prior to 1.14.4 | Ambassador Edge Stack 1.14.4 |
-| Emissary-ingress 3.9.1                | Ambassador Edge Stack 3.12.6 |
+| Emissary-ingress 3.9.1                | Ambassador Edge Stack 3.14.2 |
 
 ### If you installed Ambassador Edge Stack manually by applying YAML
 
 | If you're running.                    | You can upgrade to           |
 | ------------------------------------- | ---------------------------- |
-| Ambassador Edge Stack 3.11.X          | Ambassador Edge Stack 3.12.8 |
-| Ambassador Edge Stack 2.5.1           | Ambassador Edge Stack 3.12.8 |
+| Ambassador Edge Stack 3.11.X          | Ambassador Edge Stack 3.14.2 |
+| Ambassador Edge Stack 2.5.1           | Ambassador Edge Stack 3.14.2 |
 | Ambassador Edge Stack 2.4.X           | Ambassador Edge Stack 2.5.1  |
 | Ambassador Edge Stack 2.0.X           | Ambassador Edge Stack 2.5.1  |
 | Ambassador Edge Stack 1.14.4          | Ambassador Edge Stack 2.5.1  |
 | Ambassador Edge Stack prior to 1.14.4 | Ambassador Edge Stack 1.14.4 |
-| Emissary-ingress 3.9.1                | Ambassador Edge Stack 3.12.6 |
+| Emissary-ingress 3.9.1                | Ambassador Edge Stack 3.14.2 |

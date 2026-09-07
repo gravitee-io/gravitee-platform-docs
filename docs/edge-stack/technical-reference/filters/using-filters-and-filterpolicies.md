@@ -89,10 +89,10 @@ spec:
 
 The JWT and OAuth2 filters speak to other services over HTTP or HTTPS. If those services are configured to speak HTTPS using a self-signed certificate, attempting to talk to them will result in an error mentioning `ERR x509: certificate signed by unknown authority`. You can fix this by installing that self-signed certificate into the AES container by copying the certificate to `/usr/local/share/ca-certificates/` and then running `update-ca-certificates`. Note that the `aes` image sets `USER 1000` but `update-ca-certificates` needs to be run as root.
 
-The following Dockerfile will accomplish this procedure for you. When deploying Edge Stack, refer to that custom Docker image rather than to `docker.io/datawire/aes:3.12.6`
+The following Dockerfile will accomplish this procedure for you. When deploying Edge Stack, refer to that custom Docker image rather than to `docker.io/datawire/aes:3.14.2`
 
 ```dockerfile
-FROM docker.io/datawire/aes:3.12.6
+FROM docker.io/datawire/aes:3.14.2
 USER root
 COPY ./my-certificate.pem /usr/local/share/ca-certificates/my-certificate.crt
 RUN update-ca-certificates
