@@ -18,7 +18,7 @@ The price book prices the whole run. Rates are defined once, against the catalog
 
 The price book is a first-class entity. Rates are defined, stored, and edited in one place, and they cover the three priced event sources of a run.
 
-<table><thead><tr><th width="220">Rate</th><th>What it prices</th></tr></thead><tbody><tr><td>Model token rates</td><td>LLM usage, with input, output, cache, and reasoning tokens priced separately per model.</td></tr><tr><td>Per-tool-call rates</td><td>Each call to an MCP tool in the catalog.</td></tr><tr><td>Per-approval rates</td><td>Each human approval decision, so human time enters the cost model as a priced resource.</td></tr></tbody></table>
+<table><thead><tr><th width="220">Rate</th><th>What it prices</th></tr></thead><tbody><tr><td>Model token rates</td><td>LLM usage, with input, output, and reasoning tokens priced separately per model.</td></tr><tr><td>Per-tool-call rates</td><td>Each call to an MCP tool in the catalog.</td></tr><tr><td>Per-approval rates</td><td>Each human approval decision, so human time enters the cost model as a priced resource.</td></tr></tbody></table>
 
 The catalog already carries per-model input and output token prices ingested with the model definition. The price book builds on that by making rates editable and by extending pricing beyond model tokens.
 
