@@ -1,4 +1,6 @@
 ---
+hidden: true
+noIndex: true
 description: >-
   Define rates against the catalog entities that incur them, so every agent run
   carries a cost record you can explain and reproduce.
