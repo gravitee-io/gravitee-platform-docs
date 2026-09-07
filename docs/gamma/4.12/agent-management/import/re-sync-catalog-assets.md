@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Refresh imported AI models and MCP servers against the source they came from, and read what changed. Follow the steps to re-sync a catalog asset.
 ---
 
