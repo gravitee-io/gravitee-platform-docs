@@ -1,4 +1,6 @@
 ---
+hidden: true
+noIndex: true
 description: >-
   Declare the business value an MCP tool delivers, classify how each agent run
   ended, and read the value delivered against the cost incurred per agent and per tool.
