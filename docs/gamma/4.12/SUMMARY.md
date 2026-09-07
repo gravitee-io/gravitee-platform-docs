@@ -171,6 +171,7 @@
     * [Monitor AI Gateway usage from employee systems](agent-management/observe/monitor-ai-gateway-from-devices.md)
   * [Logs](agent-management/observe/logs/README.md)
     * [Inspect your agent log](agent-management/observe/inspect-your-agent-log.md)
+  * [Performance targets](agent-management/observe/performance-targets.md)
 * [Govern](agent-management/govern/README.md)
   * [Score agent compliance with the EU AI Act framework](agent-management/govern/score-agent-compliance-with-the-eu-ai-act.md)
   * [Guard agent actions with Guardian Agents](agent-management/govern/guard-agent-actions-with-guardian-agents.md)
