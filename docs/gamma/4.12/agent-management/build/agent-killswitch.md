@@ -4,7 +4,7 @@ noIndex: true
 description: Cut off traffic to an LLM Proxy, MCP Proxy, or A2A Proxy at the gateway, and restore it later. Follow the steps to stop and restart a proxy from its Settings page.
 ---
 
-# Stop and restart proxy traffic
+# Agent kill switch
 
 Stopping a proxy cuts off the traffic it carries. The gateway stops accepting requests for that proxy, and the subscriptions consumers already hold are preserved, so a stop is reversible.
 

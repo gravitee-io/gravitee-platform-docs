@@ -51,6 +51,7 @@ redirects:
  agent-management/publish/publish-your-llm-proxy: agent-management/publish/publish-your-llm-proxy.md
  agent-management/cost-and-value/define-rates-with-the-price-book: agent-management/cost-and-value/agent-finops.md
  agent-management/govern/audit-agent-actions-with-receipts: agent-management/govern/agent-activity-logs.md
+ agent-management/build/stop-and-restart-proxy-traffic: agent-management/build/agent-killswitch.md
  authorization-management/build: authorization-management/get-started/README.md
  authorization-management/build/create-authorization-policies: authorization-management/configure/create-update-delete-policies.md
  event-management/build/create-a-kafka-service: event-stream-management/build/create-a-kafka-service-with-a-registered-cluster.md
