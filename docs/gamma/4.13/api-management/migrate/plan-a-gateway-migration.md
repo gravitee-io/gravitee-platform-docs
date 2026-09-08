@@ -6,24 +6,22 @@ description: Plan a gateway migration to Gravitee API Management from Kong, Apig
 
 # Plan a gateway migration
 
-A migration from a legacy gateway to Gravitee is a conversion, not a copy. Each source gateway expresses authentication, rate limiting, and transformation in its own constructs, and only some of those have a faithful Gravitee equivalent. This article explains the method Gravitee uses to make that conversion auditable, and the failure modes it is built to catch.
-
-To perform a migration, see [Migrate an API estate to Gravitee](migrate-an-api-estate-to-gravitee.md).
+A migration from a legacy gateway to Gravitee is a conversion. Each source gateway expresses authentication, rate limiting, and transformation in its own constructs, and only some of those constructs have a Gravitee equivalent. This article explains the method Gravitee uses to make that conversion auditable, and the failure modes that it is built to catch.
 
 ## Overview
 
-The migration is driven by the `gravitee-migration` agent skill, a set of Markdown instructions that an AI coding agent loads into context. One file holds the source-agnostic method. Each source gateway has its own reference file holding that gateway's construct vocabulary. There is nothing to install and nothing to deploy.
+The `gravitee-migration` agent skill drives the migration. It is a set of Markdown instructions that an AI coding agent loads into context. One file holds the source-agnostic method. Each source gateway has its own reference file holding that gateway's construct vocabulary. You do not install or deploy anything.
 
-The following division of labor matters more than the tooling:
+The following division of labor is more important than the tooling:
 
-* **The agent generates and validates.** It reads the source export, applies a mapping, emits API definitions, and checks every expression it produced.
+* **The agent generates and validates.** It reads the source export, applies a mapping, emits API definitions, and checks every expression that it produced.
 * **You decide.** You pick the API the mapping is derived from, you confirm that its behavior is correct, and you own the pass criteria for the final reconciliation.
 
 The agent never establishes on its own that a migration is correct. It establishes that the estate matches a mapping you approved.
 
 ## How to obtain the skill
 
-The skill is not published to a package registry, and there is nothing to download from the Management Console. Request it from your Gravitee account team.
+You must request the `gravitee-migration` agent skill from your Gravitee account team. The skill is not published to a package registry, and there is nothing to download from the Management Console.
 
 The decisions the method depends on are the ones you own: which API the mapping is derived from, and what counts as a pass at reconciliation.
 
@@ -35,9 +33,9 @@ Once you have the files, point your AI coding agent at the directory that holds 
 
 Rather than converting an estate against a mapping table written in advance, the method derives the table from a worked example.
 
-You migrate one representative API by hand and put it in front of the team that owns it. They confirm the behavior, not the configuration. That produces a matched pair: the source export, and a Gravitee API you have agreed is correct. The construct-to-Policy mapping that pair demonstrates becomes the migration context for everything that follows.
+You migrate one representative API manually and put it in front of the team that owns it. They confirm the behavior, not the configuration. That produces a matched pair: the source export, and a Gravitee API you have agreed is correct. The construct-to-Policy mapping that pair demonstrates becomes the migration context.
 
-The mapping is therefore proven against real traffic before it is applied at scale, and every generated API traces back to a decision a named person made.
+The mapping is proven against real traffic before it is applied at scale, and every generated API traces back to a decision a named person made.
 
 ### Every source gateway has an invisible layer
 
@@ -52,7 +50,7 @@ If you migrate only what the API export contains, the result is an estate that l
 
 For where it lives on each gateway, see [Where the invisible layer lives](source-gateway-reference.md#where-the-invisible-layer-lives).
 
-### Failures are silent by default
+### By default, failures are silent
 
 The method insists on validation and reconciliation because the characteristic migration defect raises no error anywhere. The following failures are all silent:
 
@@ -70,7 +68,7 @@ The asymmetry is what makes this worth stating. An API that has become **stricte
 
 Reconciliation results are reported as four figures rather than a percentage: probes, matched, accepted divergences, and real divergences. An accepted divergence is one you expect and do not treat as a defect, such as a timestamp or a request ID.
 
-## Why some constructs have no conversion
+## Constructs that have no conversion
 
 A small number of constructs are refused by name rather than converted. The principle is that a plausible conversion is worse than no conversion, because it produces a migration that imports, deploys, reports success, and does the wrong thing.
 

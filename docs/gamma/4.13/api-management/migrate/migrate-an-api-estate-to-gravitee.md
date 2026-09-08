@@ -20,7 +20,7 @@ Before you begin, ensure you have met the following requirements:
 * A Gravitee environment you can create APIs in, and a Management API token for it.
 * Read access to the source gateway's management or admin API.
 * An upstream that both gateways can proxy, for the reconciliation run.
-* Custom API keys enabled at the environment level, if you intend to reuse consumer credentials.
+* If you intend to reuse consumer credentials, custom API keys enabled at the environment level.
 * Agreement from your security reviewer on where the agent runs and what it retains.
 
 ## Migrate the estate
@@ -154,7 +154,7 @@ An expression that may reference an absent value needs a fallback. The following
 ```
 
 {% hint style="danger" %}
-None of these failures raise an error. An expression that resolves to nothing evaluates to null, the policy does nothing, and the API returns 200. See [Failures are silent by default](plan-a-gateway-migration.md#failures-are-silent-by-default).
+None of these failures raise an error. An expression that resolves to nothing evaluates to null, the policy does nothing, and the API returns 200. See [By default, failures are silent](plan-a-gateway-migration.md#by-default-failures-are-silent).
 {% endhint %}
 
 #### Verification

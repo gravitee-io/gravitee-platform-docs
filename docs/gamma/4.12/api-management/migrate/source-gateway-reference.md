@@ -43,7 +43,7 @@ The following table contrasts the Expression Language forms Gravitee accepts wit
 
 The following rules apply to every generated expression:
 
-* Guard anything that may be absent, and terminate every expression in a non-null fallback.
+* Guard anything that might be absent, and terminate every expression in a non-null fallback.
 * `#request.content` is populated only for content-aware policies. A policy that has not declared it reads null.
 * Source-gateway condition syntax left in a Gravitee condition does not error. It resolves to nothing, and the API stops rejecting what it used to reject.
 * Gravitee does not compile-check Groovy at import or at deploy. A script that does not parse imports, deploys, shows as started, and returns the same bare 500 as one that threw.
@@ -101,7 +101,7 @@ Kong is currently the only source carrying both. The following table lists the e
 | MuleSoft Anypoint | Live organization | Converted, imported, started. Transformations diffed against MuleSoft's own engine. No traffic diff. |
 | Layer 7 and CA API Gateway | Gravitee side only | All fourteen target policies confirmed present on a licensed 4.12 install. `xslt` requires the Enterprise Edition. The source image does not start without a license, so the source half is unverified. |
 
-For the constructs that are refused rather than converted, see [Why some constructs have no conversion](plan-a-gateway-migration.md#why-some-constructs-have-no-conversion).
+For the constructs that are refused rather than converted, see [Constructs that have no conversion](plan-a-gateway-migration.md#constructs-that-have-no-conversion).
 
 ## Next steps
 
