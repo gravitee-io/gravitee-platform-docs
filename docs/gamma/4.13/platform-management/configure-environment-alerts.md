@@ -18,11 +18,13 @@ Saving an alert fails with **Failed to save alert.** when alerting is disabled f
 
 ## Open the Alerts page
 
+The page sits in the **System & Security** group of the **Environment** section.
+
 To open the page, complete the following steps:
 
 1. From the Gamma console sidebar, select **Platform Management**.
 2. Open the **Environment** section.
-3. Navigate to **Alerts**.
+3. Under **System & Security**, select **Alerts**.
 
 The page opens on the **My alerts** tab, which lists the alerts of the selected environment. The **Activity** tab sums up the alert events of the environment, as described in [Track alert activity](#track-alert-activity).
 
@@ -37,15 +39,15 @@ The table lists one row per alert, sorted by name, with the following columns:
 | Column                     | Description                                                                                                                                                   |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Name**                   | The name of the alert. A template alert is prefixed with **\[Template]**.                                                                                     |
-| **Last 5m / 1h / 1d / 1M** | How many times the alert fired in the last 5 minutes, the last hour, the last day, and the last 30 days. Hover over the counts to read them in full.          |
 | **Rule**                   | The rule the alert evaluates.                                                                                                                                 |
+| **Last 5m / 1h / 1d / 1M** | How many times the alert fired in the last 5 minutes, the last hour, the last day, and the last month. Hover over the counts to see each period spelled out.  |
 | **Last alert**             | When the alert last fired, or **&#x2014;** when it never fired.                                                                                               |
 | **Last message**           | The message of the last alert event, or **&#x2014;** when the alert never fired.                                                                              |
 | **Severity**               | **Info**, **Warning**, or **Critical**.                                                                                                                       |
 | **Enabled**                | A switch that enables or disables the alert in place.                                                                                                         |
 | **Actions**                | A menu with **Edit** and **Delete alert**. The column appears when your role can update or delete alerts.                                                     |
 
-Turning the **Enabled** switch on or off saves the alert at once, and a message confirms `Alert "<name>" enabled.` or `Alert "<name>" disabled.` A template alert can't be enabled, edited, or deleted from the list.
+Turning the **Enabled** switch on or off saves the alert at once. A message confirms `Alert "<name>" enabled.` or `Alert "<name>" disabled.` A template alert can't be opened, enabled, edited, or deleted after it's created. Its **Enabled** switch is disabled, and its row has no actions menu.
 
 **Add alert** appears when your role can create alerts.
 
@@ -133,7 +135,7 @@ Without a timeframe, the **Timeframes** card reads **No timeframe defined, it wi
 
 ### Define an alert template
 
-For the **API METRICS** and **HEALTH-CHECK** rules, the **Template** card offers **Define as template**. Decide at creation: the choice can't be changed afterward. A template isn't evaluated itself. It's saved disabled and appears in the list with the **\[Template]** prefix, where it can't be enabled, edited, or deleted. Select **Automatically create this alert for every new API** to have a copy of the template created, and enabled, on each API created in the environment.
+For the **API METRICS** and **HEALTH-CHECK** rules, the **Template** card offers **Define as template**. Decide at creation: the choice can't be changed afterward. A template isn't evaluated itself. It's saved disabled and appears in the list with the **\[Template]** prefix. After it's created, a template can't be opened, enabled, edited, or deleted. Select **Automatically create this alert for every new API** to have a copy of the template created, and enabled, on each API created in the environment.
 
 ### Configure dampening and notifications
 
