@@ -70,3 +70,14 @@ developer-portal/new-developer-portal/customize-the-navigation.md
 .gitbook/assets/devportal-sourced-page-in-portal.png
 # FIPS images page differs from 4.12: JDK 25 keystore behavior and the upgrade warning (ESM-109)
 self-hosted-installation-guides/docker/fips-images.md
+# Identity provider claims in DCR requests + client authentication method (APIM 4.13.0 feature, APIM-13949)
+configure-and-manage-the-platform/manage-organizations-and-environments/inject-identity-provider-claims-into-dcr-requests.md
+configure-and-manage-the-platform/manage-organizations-and-environments/applications.md
+configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md
+configure-and-manage-the-platform/manage-organizations-and-environments/authentication/openid-connect.md
+configure-and-manage-the-platform/manage-organizations-and-environments/authentication/gravitee-access-management.md
+configure-and-manage-the-platform/manage-organizations-and-environments/authentication/social-providers.md
+configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id.md
+.gitbook/assets/apim-idp-persisted-claims.png
+.gitbook/assets/apim-dcr-provider-claim-mappings.png
+.gitbook/assets/apim-idp-client-authentication-method.png

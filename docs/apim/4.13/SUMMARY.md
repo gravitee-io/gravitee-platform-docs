@@ -145,6 +145,7 @@
     * [User Management](configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md)
     * [Create a service account](configure-and-manage-the-platform/manage-organizations-and-environments/create-a-service-account.md)
     * [Applications](configure-and-manage-the-platform/manage-organizations-and-environments/applications.md)
+    * [Inject identity provider claims into DCR requests](configure-and-manage-the-platform/manage-organizations-and-environments/inject-identity-provider-claims-into-dcr-requests.md)
     * [APIM Console](configure-and-manage-the-platform/manage-organizations-and-environments/apim-console.md)
     * [Developer Portal](configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md)
     * [SMTP Configuration](configure-and-manage-the-platform/manage-organizations-and-environments/smtp-configuration.md)

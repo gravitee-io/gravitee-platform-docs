@@ -154,6 +154,7 @@ At the bottom of the **Client Registration** page, click **+ Add a provider** an
   * Provide the **HTTP Method**
   * Provide the **Endpoint**. This field supports Gravitee Expression Language, e.g.,\
     `https://<your-am-gateway-domain>/<your-security-domain>/oidc/register/{#client_id}/renew_secret`
+* **Claim Mappings** (optional): Map the claims that APIM stores from the user's identity provider to fields of the registration request, so that the provider receives tenant or user context. See [Inject identity provider claims into DCR requests](inject-identity-provider-claims-into-dcr-requests.md).
 
 <details>
 

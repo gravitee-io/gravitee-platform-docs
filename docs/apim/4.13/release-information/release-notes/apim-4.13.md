@@ -38,6 +38,7 @@ documentation.gravitee.io links for other versions.
 * The plan endpoints of the legacy Management API v1 now reject V4, Federated, and Federated Agent APIs with an HTTP `400` error that points to Management API v2.
 * The New Developer Portal catalog gains categories, so you group APIs in the APIM Console and consumers filter the catalog to one category and share that view by URL.
 * New Developer Portal navigation pages fetch their content from external sources such as GitHub, GitLab, or an HTTP URL, on demand or on an auto-fetch schedule, and a repository import mirrors a whole documentation tree into a read-only folder.
+* Identity provider claims travel into dynamic client registration requests: list the claims to persist on the identity provider, map them to registration request fields on the client registration provider, and the registration provider receives tenant or user context for each application it registers.
 
 ## Breaking Changes and deprecations
 
@@ -109,6 +110,15 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * The fetch and import operations are exposed by Management API v2 as `POST /portal-navigation-items/{navId}/_fetch` and `POST /portal-navigation-items/_import`, and both require the `ENVIRONMENT_DOCUMENTATION[UPDATE]` permission.
 * For more information, see [Import content from external sources](../../developer-portal/new-developer-portal/customize-the-navigation/import-content-from-external-sources.md).
 
+#### **Identity provider claims in dynamic client registration requests**
+
+* Propagate tenant or user context from an identity provider to a client registration provider. At each login through a Gravitee AM, OpenID Connect, Google, or GitHub identity provider, APIM stores the claims listed in the provider's new **Persisted Claims** section on the user, reading each claim from the ID token first, then the access token, then the user info response.
+* Map the stored claims to fields of the registration request in the new **Claim Mappings** section of the client registration provider. When a user creates an application that registers through the provider, APIM writes each mapped claim into the request body at the mapped field, creating nested objects for dot-separated paths such as `metadata.organization`. A claim the user doesn't carry is skipped. On an application update, the claims of the application's primary owner are sent.
+* Only extension fields can be targeted. A mapping that targets a standard registration field, `client_name` or `redirect_uris` for example, is rejected with HTTP `400`.
+* Each login replaces the stored claims. Removing a claim from the list, or emptying it, removes the corresponding stored values at the user's next login. The stored claims aren't exposed by the Management API or the Portal API.
+* Both settings are also available through the Management API, as the `persistedClaimsWhitelist` array of the identity provider and the `claim_mappings` object of the client registration provider. An update that omits the field keeps the stored value.
+* For more information, see [Inject identity provider claims into DCR requests](../../configure-and-manage-the-platform/manage-organizations-and-environments/inject-identity-provider-claims-into-dcr-requests.md).
+
 ## Improvements
 
 #### **Datadog Reporter: Consumer and error tags on the request count metric**
@@ -124,3 +134,11 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * The `x509CertificateChain` option now works with the `INLINE` and `PEM` key resolvers. The policy builds the `x5c` header from the certificates included in the key material, ordered from the signing certificate outward, and drops certificates that don't link into the chain.
 * The policy now parses key material that bundles certificates together with the private key.
 * For the `INLINE` and `PEM` key resolvers, if no certificate in the key material matches the signing key, the policy omits the `x5c` header and signs the token anyway, logging a warning when the key material is loaded.
+
+#### **Client authentication method for OpenID Connect and Gravitee AM identity providers**
+
+* The new **Client Authentication Method** setting of an OpenID Connect or Gravitee AM identity provider decides how APIM sends its client ID and client secret to the provider's token endpoint during a login and to its token introspection endpoint during a token exchange: in an `Authorization: Basic` header (`client_secret_basic`) or in the request body (`client_secret_post`). Previously, the token endpoint always received them in the request body and the introspection endpoint always received them in a Basic header, with no way to align the two calls.
+* **Provider default**, the value of every existing provider, keeps the previous behavior of each call.
+* When the provider rejects the credentials, the login or the token exchange now answers HTTP `401` with a JSON body that carries the provider's error code and, for `invalid_client`, a hint naming the setting. Previously, the login answered an empty HTTP `401`, and a failed introspection relayed the provider's status without explanation.
+* Through the Management API, the setting is the `tokenEndpointAuthMethod` key of the provider's `configuration` object. It can't be declared under `security.providers` in `gravitee.yml`.
+* For more information, see [Choose how APIM authenticates to the identity provider](../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md#choose-how-apim-authenticates-to-the-identity-provider).
