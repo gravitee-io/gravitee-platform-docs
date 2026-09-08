@@ -1,5 +1,17 @@
 # GKO 4.11.x
 
+## Gravitee Kubernetes Operator 4.11.26 - September 2, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * The GKO admission webhook for ApiV4Definition does not check that an endpoint set to inherit configuration [#11747](https://github.com/gravitee-io/issues/issues/11747)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.11.25 - August 12, 2026
     
 <details>

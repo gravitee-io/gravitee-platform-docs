@@ -1,5 +1,18 @@
 # GKO 4.12.x
 
+## Gravitee Kubernetes Operator 4.12.18 - September 2, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * GKO Enquiry related to Dotted metadata.name on a Subscription reconciles on GKO 4.11.19 but fails on 4.12.10. from akhil.kumar@graviteesource.com [#11769](https://github.com/gravitee-io/issues/issues/11769)
+  * The GKO admission webhook for ApiV4Definition does not check that an endpoint set to inherit configuration [#11747](https://github.com/gravitee-io/issues/issues/11747)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.12.17 - August 24, 2026
 
 There is nothing new in version 4.12.17.

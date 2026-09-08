@@ -5,7 +5,66 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.19 - September 7, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* LLM proxy: alias consistency validation makes shared aliases impossible to introduce on an existing endpoint group [#11762](https://github.com/gravitee-io/issues/issues/11762)
+
+**Console**
+
+* LLM proxy: alias consistency validation makes shared aliases impossible to introduce on an existing endpoint group [#11762](https://github.com/gravitee-io/issues/issues/11762)
+
+**Other**
+
+* Promoting APIs that exist in the target env causes subscription errors [#11398](https://github.com/gravitee-io/issues/issues/11398)
+* Observability and Analytics sidebar navigation in console are broken [#11652](https://github.com/gravitee-io/issues/issues/11652)
+* Dynamic routing intermittently builds the upstream path from the previous dynamic-routing policy's capture group [#11653](https://github.com/gravitee-io/issues/issues/11653)
+* Groovy policy Internal Server Error [#11666](https://github.com/gravitee-io/issues/issues/11666)
+* Read-only APIM roles cannot view organization policies without write access [#11743](https://github.com/gravitee-io/issues/issues/11743)
+* Webhook / PUSH plan subscription fails during creation from Developer Portal [#11760](https://github.com/gravitee-io/issues/issues/11760)
+* Use X-Forwarded-For header option is not displayed in the policy configuration form [#11763](https://github.com/gravitee-io/issues/issues/11763)
+* OAS Validation policy rejects large JSON specifications because it parses them as YAML [#11772](https://github.com/gravitee-io/issues/issues/11772)
+* Endpoint Group information not visibile [#11776](https://github.com/gravitee-io/issues/issues/11776)
+* Organization users search with q= is still not stable across Management API instances [#11778](https://github.com/gravitee-io/issues/issues/11778)
+* Console SSO breaks on upgrade: org IdP enabled=false now blocks organization login, with no migration and a portal-only UI label [#11779](https://github.com/gravitee-io/issues/issues/11779)
+* API promotion workflow not working anymore [#11783](https://github.com/gravitee-io/issues/issues/11783)
+* Kafka consumer is not released when a WebSocket client disconnects [#11814](https://github.com/gravitee-io/issues/issues/11814)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* Webhook Logs: default none filter leads to unbounded search [#11746](https://github.com/gravitee-io/issues/issues/11746)
+
+**Other**
+
+* Kafka Gateway: allow a dedicated broker domain pattern for APIs backed by a Virtual Cluster [#11737](https://github.com/gravitee-io/issues/issues/11737)
+* FreeMarker error logged on OpenAPI documentation pages containing ${...} in their content [#11744](https://github.com/gravitee-io/issues/issues/11744)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.18 - August 31, 2026
+
+{% hint style="warning" %}
+There is a known issue with Console login in this version of APIM. The fix for [#11717](https://github.com/gravitee-io/issues/issues/11717) introduces a breaking change: the **Allow portal authentication to use this identity provider** toggle now also applies to Console login. An identity provider with that toggle turned off isn't listed on the Console login page, even when it's activated for the organization. Console login with that identity provider is rejected. If the **Show login form on management console** toggle is also turned off, the Console login page offers no way to log in.
+
+**Workaround if you can still open the Console:** open the organization's **Authentication** page, click the identity provider, and turn on **Allow portal authentication to use this identity provider**. If the identity provider is also activated for an environment, it appears on that environment's Developer Portal login page until you turn the toggle off again after upgrading.
+
+**Workaround if you can't open the Console:** sign in through Gravitee Cloud if your installation is connected to it. Otherwise, sign in with a local administrator account if the Console login form is shown. Then apply the workaround above. If neither is available, set `enabled` to `true` on that identity provider in the database, then sign in.
+
+**Fix:** available in version 4.12.19, which scopes the toggle back to Developer Portal login. After you upgrade, turn **Allow portal authentication to use this identity provider** off again for Console-only SSO. To turn an identity provider off for the Console, deactivate it on the organization's **Authentication** list. Don't use the portal toggle for that.
+{% endhint %}
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -16,7 +75,7 @@ noIndex: false
 
 **Console**
 
-* Organization-level Identity Provider (IdP) "Disable" toggle only hides UI element, remains active in backend [#11717](https://github.com/gravitee-io/issues/issues/11717)
+* Organization-level Identity Provider (IdP) "Disable" toggle only hides UI element, remains active in backend [#11717](https://github.com/gravitee-io/issues/issues/11717). This fix changes Console login behavior. See the [warning above](#gravitee-api-management-4.12.18-august-31-2026).
 
 **Portal**
 

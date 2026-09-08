@@ -51,6 +51,8 @@ The **Entrypoint** step defines how consumers reach the LLM Proxy.
 | ---------------- | -------------------- | --------------------------------------------------------------------------------------------- |
 | **Context path** | `/my-llm-proxy`      | Required. The path segment appended to the AI Gateway URL that consumers use to send prompts. |
 
+The step also lists the options of the LLM Proxy entrypoint plugin. Keep their defaults for this quickstart.
+
 Select **Next** to proceed.
 
 ## Step 4: Select a consumer plan

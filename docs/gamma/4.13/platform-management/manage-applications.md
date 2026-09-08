@@ -36,8 +36,9 @@ To create an application, complete the following steps:
     | **Description** | Freeform text describing the application's purpose. | Yes      |
     | **Domain**      | The domain associated with this application.        | No       |
 
-3. In the **Security** section, select the application type. **Simple** is a standalone client for which you manage your own client ID. Additional OAuth application types are available only when Dynamic Client Registration is enabled for the environment.
-4. Complete the remaining **Security** fields described in the following table:
+3. Optional: under **Groups**, select the groups to attach to the application. The field appears when the environment has groups, and it's required when the organization requires a group on every application. See [Manage groups](manage-groups.md).
+4. In the **Security** section, select the application type. **Simple** is a standalone client for which you manage your own client ID. Additional OAuth application types are available only when Dynamic Client Registration is enabled for the environment.
+5. Complete the remaining **Security** fields described in the following table:
 
     | Field                              | Description                                                                                                   | Required |
     | ---------------------------------- | ------------------------------------------------------------------------------------------------------------- | -------- |
@@ -45,7 +46,7 @@ To create an application, complete the following steps:
     | **Client ID**                      | The client ID of the application. This field is required to subscribe to certain types of API plan, such as OAuth2 and JWT. | No       |
     | **Client Certificate (PEM Only)**  | The PEM-encoded client certificate of the application. This field is required to subscribe to certain mTLS plans. | No       |
 
-5. Select **Create Application**.
+6. Select **Create Application**.
 
 ## Application details
 

@@ -9,6 +9,8 @@ description: Publish an LLM Proxy so consumers can send prompts to its context p
 
 Publishing an LLM Proxy makes it accessible to consumers through the AI Gateway. Once published, consumers can send prompts to the proxy's context path and the AI Gateway routes them to the configured upstream model providers with full governance.
 
+Making the proxy discoverable in the Developer Portal is a separate step. See [Publish a proxy to the Developer Portal](publish-a-proxy-to-the-developer-portal.md).
+
 ## Prerequisites
 
 * An LLM Proxy created and configured (see [Create an LLM Proxy](../build/create-an-llm-proxy.md))
@@ -21,7 +23,7 @@ Publishing an LLM Proxy makes it accessible to consumers through the AI Gateway.
 3. Select **Deploy** from the banner to push the configuration to the AI Gateway.
 4. Once deployed, the LLM Proxy is live at its configured context path.
 
-The Universal LLM Router exposes a single endpoint that simultaneously supports multiple formats (OpenAI API, Anthropic API, and Gemini API). You can send prompts using any of these native formats; the router will route across providers and convert the responses back to the format you requested.
+The Universal LLM Router exposes a single endpoint that simultaneously supports multiple formats (OpenAI API, Anthropic API, and Gemini API). You can send prompts using any of these native formats. The router routes across providers and converts the responses back to the format you requested.
 
 Consumers can now send prompts to paths such as:
 

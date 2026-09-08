@@ -43,7 +43,7 @@ For example, if you want to modify or add additional selectors then you can modi
 # additional config removed for brevity
 containers:
   - name: emissary-apiext
-    image: docker.io/datawire/aes:3.10.1
+    image: docker.io/datawire/aes:3.14.2
     imagePullPolicy: IfNotPresent
     command: [ "apiext", "emissary-apiext" ]
     args: ["--crd-label-selector", "app.kubernetes.io/part-of=ext-gateway,app=gateway"]
@@ -59,7 +59,7 @@ Removing the label selector will cause APIExt Server to watch and cache all CRD'
 # additional config removed for brevity
 containers:
   - name: emissary-apiext
-    image: docker.io/datawire/aes:3.10.1
+    image: docker.io/datawire/aes:3.14.2
     imagePullPolicy: IfNotPresent
     command: [ "apiext", "emissary-apiext" ]
     args: []
@@ -90,7 +90,7 @@ spec:
       serviceAccountName: emissary-apiext
       containers:
         - name: emissary-apiext
-          image: docker.io/datawire/aes:3.10.1
+          image: docker.io/datawire/aes:3.14.2
           command: [ "apiext", "emissary-apiext" ]
           env:
             - name: DISABLE_CRD_MANAGEMENT
@@ -211,7 +211,7 @@ spec:
       serviceAccountName: emissary-apiext
       containers:
         - name: emissary-apiext
-          image: docker.io/datawire/aes:3.13.2
+          image: docker.io/datawire/aes:3.14.2
           command: [ "apiext", "emissary-apiext" ]
           env:
             - name: AMBASSADOR_VALIDATION_WEBHOOK_ENABLED

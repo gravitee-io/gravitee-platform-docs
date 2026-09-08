@@ -28,6 +28,8 @@ The **Sharding tags** card lists the tags defined for your organization. To assi
 
 The **Discard** and **Save changes** buttons appear only once your selection differs from the saved value. A successful save confirms with **Deployment configuration saved**.
 
+The assigned tags appear in the **Sharding Tags** column of the **LLM Proxies** list. For more information, see [Browse the LLM Proxies list](browse-the-llm-proxies-list.md).
+
 When your organization has no tags, the card reads **No sharding tags configured**. Sharding tags are managed at the organization level, on the **Entrypoints & Sharding Tags** page in Platform Management.
 
 An assigned tag that no longer appears in the organization list is still shown as a chip, labeled with its tag key, and it's preserved when you save.

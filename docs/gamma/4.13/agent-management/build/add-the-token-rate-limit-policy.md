@@ -21,9 +21,9 @@ Before you begin, confirm that you have the following:
 
 ## Add the policy
 
-1. On the LLM Proxy detail page, under **Design**, open **LLM Studio**.
+1. On the LLM Proxy detail page, under **Design**, open **Policy Studio**.
 2. Under **Common Flows**, select the flow you want to limit, usually **Prompt**.
-3. In the **Request Phase** section, click the plus, and then click **Browse full catalog**.
+3. In the **Request Phase** section, click **Add policy**, and then click **Browse full catalog**. When the phase already holds a policy, click the plus button at the end of the phase instead of **Add policy**.
 4.  In the **Add Policy** dialog, search for **Token Rate Limit**, select it, and then click **Add to flow**.
 
     <figure><img src="../../.gitbook/assets/gamma-aim-token-rate-limit-add-to-flow.png" alt="The Token Rate Limit policy open in the Add Policy catalog, with the Add to flow button"><figcaption></figcaption></figure>

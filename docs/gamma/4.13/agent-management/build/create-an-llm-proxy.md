@@ -18,7 +18,7 @@ To create an LLM Proxy, complete the following steps:
 
 1. [Open the LLM Proxy wizard](#open-the-llm-proxy-wizard)
 2. [Configure the models](#configure-the-models)
-3. [Set the context path](#set-the-context-path)
+3. [Set the context path and entrypoint options](#set-the-context-path-and-entrypoint-options)
 4. [Select a consumer plan](#select-a-consumer-plan)
 5. [Review and create](#review-and-create)
 
@@ -61,15 +61,17 @@ Whether the **Target URL** includes the provider's version segment depends on th
 You can configure multiple providers and models on a single LLM Proxy. See [Configure an LLM Proxy](configure-an-llm-proxy.md) for post-creation configuration options.
 {% endhint %}
 
-### Set the context path
+### Set the context path and entrypoint options
 
-On the **Entrypoint** step, define the public path that consumers call:
+On the **Entrypoint** step, define the public path that consumers call, and set the options of the LLM Proxy entrypoint plugin:
 
 | Field            | Required | Description                                                                                                 |
 | ---------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| **Context path** | Yes      | The path prefix appended to the AI Gateway URL that consumers use to send prompts, for example, `/my-llm-proxy`. |
+| **Context path** | Yes      | The path prefix appended to the AI Gateway URL, which is shown before the field, for example, `/my-llm-proxy`. The path starts with `/`, is longer than three characters, and uses only letters, digits, and the `/`, `.`, `-`, and `_` characters. The wizard also checks that no other API uses the path. |
 
-You can also toggle **Track tokens during stream mode** and **Inject token usage headers** to control how token usage is reported.
+Below the field, the step lists the options the LLM Proxy entrypoint plugin declares. The list is rendered from the plugin's own schema, so an option added by a later plugin version appears here without a console update. The wizard turns **Track tokens during stream mode** and **Inject token usage headers** on by default. With the plugin bundled in Gamma 4.13, the step also lists four content options. They are **Images sent by the client**, **Audio sent by the client**, **Video sent by the client**, and **Files sent by the client**, each set to `STRIP` by default. For the meaning of each option, and to change them after creation, see [Configure LLM Proxy entrypoints](configure-llm-proxy-entrypoints.md).
+
+If the console can't load the plugin schema, the step shows only the two token switches.
 
 ### Select a consumer plan
 
@@ -89,7 +91,7 @@ Keyless plans provide no consumer identification. You cannot track usage per con
 
 ### Review and create
 
-Review the LLM Proxy configuration—provider, model, authentication, context path, and consumer plan—and then select one of the following:
+Review the LLM Proxy configuration—provider, model, authentication, context path, each entrypoint option, and consumer plan—and then select one of the following:
 
 * **Create only**. This creates the LLM Proxy without deploying it to the AI Gateway.
 * **Create & deploy**. This creates the LLM Proxy and deploys it to the AI Gateway.
@@ -110,5 +112,6 @@ This is the recommended path for routing Claude Code, Cursor, and other developm
 ## Next steps
 
 * **Configure your LLM Proxy**. Add guardrails, security plans, and policies. See [Configure an LLM Proxy](configure-an-llm-proxy.md).
+* **Change the entrypoints**. Add context paths, switch to virtual hosts, or edit the entrypoint options after creation. See [Configure LLM Proxy entrypoints](configure-llm-proxy-entrypoints.md).
 * **Publish**. Make the LLM Proxy discoverable. See [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md).
 * **Route through Edge Daemon**. For employee device traffic, route through Edge Management. See [Connect Claude Code to the Edge Daemon](../../edge-management/connect-claude-code-to-daemon.md).
