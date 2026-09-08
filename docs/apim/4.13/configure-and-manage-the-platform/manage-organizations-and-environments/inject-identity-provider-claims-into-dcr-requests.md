@@ -18,7 +18,7 @@ For example, an identity provider issues an `org_id` claim with the value `org-4
 {% hint style="warning" %}
 Every claim you list is stored on the user record, so treat the stored values as personal data and list only the claims you need.
 
-Stored claims are removed at the user's next login, and no APIM operation reads or deletes them in the meantime. A user who never logs in again keeps whatever was captured, so removing a claim from the list isn't enough on its own to guarantee that the value is gone.
+A claim you take off the list is cleared from the user record at that user's next login, and no APIM operation reads or deletes stored claims in the meantime. A user who never logs in again keeps whatever was captured, so taking a claim off the list isn't enough on its own to guarantee that the value is gone.
 {% endhint %}
 
 {% hint style="info" %}
@@ -95,7 +95,7 @@ To choose which stored claims APIM injects, and into which fields, complete the 
 
 6. Click **Save**.
 
-Every mapping needs both a claim name and a registration request field, and each claim name can appear only once. The table flags both of those as you type. It doesn't flag the field you target, so check [Which fields you can target](#which-fields-you-can-target) first: a mapping that names a standard registration field fails when you save.
+Every mapping needs both a claim name and a registration request field, and each claim name can appear only once. The Console flags a mapping that breaks either rule. It doesn't check the field you target, so read [Which fields you can target](#which-fields-you-can-target) first: a mapping that names a standard registration field fails when you save.
 
 Saving the mappings is recorded in the environment audit log.
 
