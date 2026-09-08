@@ -1,10 +1,10 @@
 ---
 hidden: false
 noIndex: false
-description: Migrate an API estate from Kong, Apigee, MuleSoft, or Azure to Gravitee API Management. Learn how the method works and what it refuses to convert.
+description: Plan a gateway migration to Gravitee API Management from Kong, Apigee, MuleSoft, or Azure. Learn how the method works and what it refuses to convert.
 ---
 
-# Migrate from another gateway
+# Plan a gateway migration
 
 A migration from a legacy gateway to Gravitee is a conversion, not a copy. Each source gateway expresses authentication, rate limiting, and transformation in its own constructs, and only some of those have a faithful Gravitee equivalent. This article explains the method Gravitee uses to make that conversion auditable, and the failure modes it is built to catch.
 
@@ -20,6 +20,14 @@ The following division of labor matters more than the tooling:
 * **You decide.** You pick the API the mapping is derived from, you confirm that its behavior is correct, and you own the pass criteria for the final reconciliation.
 
 The agent never establishes on its own that a migration is correct. It establishes that the estate matches a mapping you approved.
+
+## How to obtain the skill
+
+The skill is not published to a package registry, and there is nothing to download from the Management Console. Request it from your Gravitee account team.
+
+The decisions the method depends on are the ones you own: which API the mapping is derived from, and what counts as a pass at reconciliation.
+
+Once you have the files, point your AI coding agent at the directory that holds them.
 
 ## How it works
 
@@ -42,7 +50,7 @@ No API-by-API export is a complete statement of an estate's behavior. The follow
 
 If you migrate only what the API export contains, the result is an estate that looks complete and enforces less than the original. The invisible layer has to be exported alongside the API definitions. It is then migrated as its own flow, rather than folded as a copy into every API.
 
-For where it lives on each gateway, see the [source gateway reference](source-gateway-reference.md).
+For where it lives on each gateway, see [Where the invisible layer lives](source-gateway-reference.md#where-the-invisible-layer-lives).
 
 ### Failures are silent by default
 
@@ -84,6 +92,8 @@ Every mapping in a per-source reference carries one of the following evidence ma
 * **Unverified.** The mapping is well-founded, but the tested estate contained no example of it, so it was never exercised.
 
 An unverified mapping is a starting point for a scoping conversation, not a measured fact. When a customer asks whether a construct converts, say which of the two you are quoting.
+
+For what has been exercised against each source gateway, see [Evidence and coverage](source-gateway-reference.md#evidence-and-coverage).
 
 ## Scoping a MuleSoft migration
 

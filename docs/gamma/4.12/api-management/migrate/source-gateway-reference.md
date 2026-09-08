@@ -6,7 +6,7 @@ description: Source gateway migration reference for Gravitee API Management, cov
 
 # Source gateway reference
 
-This page is the lookup reference for a gateway migration. For the method, see [Migrate an API estate to Gravitee](migrate-an-api-estate-to-gravitee.md). For why the method is shaped the way it is, see [Migrate from another gateway](migrate-from-another-gateway.md).
+This page is the lookup reference for a gateway migration. For the method, see [Migrate an API estate to Gravitee](migrate-an-api-estate-to-gravitee.md). For why the method is shaped the way it is, see [Plan a gateway migration](plan-a-gateway-migration.md).
 
 {% hint style="info" %}
 The mappings and coverage on this page were verified against API Management 4.12.x.
@@ -21,11 +21,13 @@ Much of the configuration surface is on the v1 path even where APIs and plans ar
 | List and create APIs, plans, subscriptions | v2 |
 | Deploy an API | v2 |
 | Shared policy groups | v2 |
-| Dictionaries | v1 |
+| Dictionaries | v1, under `/configuration/dictionaries` |
 | Installed policy list | v1 |
 | Resources | v1 |
 
 There is no environment `variables` collection. Environment-scoped values are dictionaries, and per-consumer values are subscription metadata.
+
+The API key header defaults to `X-Gravitee-Api-Key`. Change it for the environment with the `portal.apikeyHeader` setting, or add a `transform-headers` step to the API.
 
 ## Expression Language syntax
 
@@ -99,9 +101,9 @@ Kong is currently the only source carrying both. The following table lists the e
 | MuleSoft Anypoint | Live organization | Converted, imported, started. Transformations diffed against MuleSoft's own engine. No traffic diff. |
 | Layer 7 and CA API Gateway | Gravitee side only | All fourteen target policies confirmed present on a licensed 4.12 install. `xslt` requires the Enterprise Edition. The source image does not start without a license, so the source half is unverified. |
 
-For the constructs that are refused rather than converted, see [Why some constructs have no conversion](migrate-from-another-gateway.md#why-some-constructs-have-no-conversion).
+For the constructs that are refused rather than converted, see [Why some constructs have no conversion](plan-a-gateway-migration.md#why-some-constructs-have-no-conversion).
 
 ## Next steps
 
 * [Migrate an API estate to Gravitee](migrate-an-api-estate-to-gravitee.md "mention")
-* [Migrate from another gateway](migrate-from-another-gateway.md "mention")
+* [Plan a gateway migration](plan-a-gateway-migration.md "mention")

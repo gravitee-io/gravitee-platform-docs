@@ -10,12 +10,13 @@ description: Migrate an API estate from a legacy gateway to Gravitee API Managem
 
 * **Outcome.** Every API from a source gateway runs in Gravitee API Management, with its consumers subscribed and its behavior reconciled against the original gateway.
 * **Use this when.** You are moving an estate off Kong, Apigee, MuleSoft Anypoint, Azure API Management, AWS API Gateway, WSO2, IBM API Connect, Layer 7, LiteLLM, or OpenRouter.
-* **Not covered here.** Why the method works and what it refuses to convert, in [Migrate from another gateway](migrate-from-another-gateway.md). Per-gateway paths, syntax, and coverage, in the [source gateway reference](source-gateway-reference.md). DNS and hostname changes, which are planned outside this guide.
+* **Not covered here.** Why the method works and what it refuses to convert, in [Plan a gateway migration](plan-a-gateway-migration.md). Per-gateway paths, syntax, and coverage, in the [source gateway reference](source-gateway-reference.md). DNS and hostname changes, which are planned outside this guide.
 
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
 
+* The `gravitee-migration` skill files for your source gateway, obtained from your Gravitee account team. See [How to obtain the skill](plan-a-gateway-migration.md#how-to-obtain-the-skill).
 * A Gravitee environment you can create APIs in, and a Management API token for it.
 * Read access to the source gateway's management or admin API.
 * An upstream that both gateways can proxy, for the reconciliation run.
@@ -41,6 +42,27 @@ To establish what generated APIs must reference rather than duplicate, complete 
 1. List the existing APIs, dictionaries, shared policy groups, resources, and plans in the target environment.
 2. Retrieve the installed policy list. Treat it as the allowed vocabulary for generation.
 3. Record the result. Every name a generated API refers to is resolved against this inventory.
+
+Retrieve the policy list with the Management API, and keep the response alongside the mapping:
+
+```bash
+curl -u <user>:<password> \
+  "<management-api>/management/organizations/DEFAULT/environments/DEFAULT/policies"
+```
+
+Each entry carries the `id` a generated API must reference:
+
+```json
+{
+  "id": "api-key",
+  "name": "API Key",
+  "version": "4.0.1",
+  "category": "security",
+  "deployed": true
+}
+```
+
+The size of this list depends on the install and its license, so confirm it against your own target rather than assuming a count.
 
 {% hint style="warning" %}
 A policy that is not installed fails at deploy time with an error that reads like a definition error. `basic-authentication` is not present on a stock install, and `javascript` is not a Gravitee policy at all.
@@ -121,8 +143,18 @@ To confirm the generated controls run, complete the following steps:
 5. Confirm that `#request.content` is referenced only by content-aware policies. A policy that has not declared it reads null.
 6. Parse-check every Groovy script before import. Gravitee does not compile-check Groovy at import or at deploy.
 
+An expression that may reference an absent value needs a fallback. The following example contrasts the two forms:
+
+```text
+# Unguarded. Evaluates to null when the header is absent, and the policy does nothing.
+{#request.headers['X-Tenant'][0]}
+
+# Guarded. Terminates in a non-null fallback.
+{#request.headers['X-Tenant'] == null ? 'unknown' : #request.headers['X-Tenant'][0]}
+```
+
 {% hint style="danger" %}
-None of these failures raise an error. An expression that resolves to nothing evaluates to null, the policy does nothing, and the API returns 200. See [Failures are silent by default](migrate-from-another-gateway.md#failures-are-silent-by-default).
+None of these failures raise an error. An expression that resolves to nothing evaluates to null, the policy does nothing, and the API returns 200. See [Failures are silent by default](plan-a-gateway-migration.md#failures-are-silent-by-default).
 {% endhint %}
 
 #### Verification
@@ -141,7 +173,7 @@ To move consumers without reissuing their credentials, complete the following st
 3. Create one subscription per source application.
 4. Where the source gateway exports usable credentials, pass the application's real key as the API key. Read credentials from the single-application endpoint rather than the collection endpoint. For which gateways export credentials, see the [source gateway reference](source-gateway-reference.md#credential-export).
 5. Match the API key header. Set `portal.apikeyHeader` for the environment, or add a `transform-headers` step.
-6. Wait for the subscription to sync before you test it. The API Gateway answers 401 until it does, typically for about fifteen seconds.
+6. Wait for the subscription to reach the gateway before you test it. The API Gateway answers 401 until its next sync, which runs every 5000 ms by default. Retry rather than treating the 401 as a defect.
 
 {% hint style="info" %}
 Under external client management, where an organization issues credentials through an outside identity provider, the secret is held by that provider rather than by the gateway. Confirm which model the customer uses before you promise that credentials carry across.
@@ -166,6 +198,15 @@ To establish that behavior matches, complete the following steps:
 5. Classify each divergence as accepted or real. An accepted divergence is one you expect and do not treat as a defect, such as a timestamp or a request ID.
 6. Report the run as four figures: probes, matched, accepted divergences, and real divergences.
 
+Report the run in the following form, so that two runs can be compared:
+
+```text
+probes                  15
+matched                 15
+accepted divergences     0
+real divergences         0
+```
+
 #### Verification
 
 To confirm the reconciliation is sound, complete the following steps:
@@ -184,6 +225,6 @@ To confirm that the migration as a whole succeeded, complete the following steps
 
 ## Next steps
 
-* [Migrate from another gateway](migrate-from-another-gateway.md "mention")
+* [Plan a gateway migration](plan-a-gateway-migration.md "mention")
 * [Source gateway reference](source-gateway-reference.md "mention")
 * [Secure your API proxy](../build/secure-your-api-proxy.md "mention")
