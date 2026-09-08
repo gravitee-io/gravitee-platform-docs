@@ -146,3 +146,7 @@ We can ignore the **Subscription** page and just click **Next** again. Finally, 
 Well done! If you return to AM and select **Applications** in the sidebar, you should see the brand new application you just created in the Developer Portal:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.20.02 AM.png" alt=""><figcaption></figcaption></figure>
+
+## Next steps
+
+Registration requests can also carry context from the user's identity provider, so that the registration provider knows which tenant or organization the new client belongs to. For more information, see [Inject identity provider claims into DCR requests](../../configure-and-manage-the-platform/manage-organizations-and-environments/inject-identity-provider-claims-into-dcr-requests.md).

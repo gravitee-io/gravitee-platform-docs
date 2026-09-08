@@ -124,7 +124,7 @@ For an OpenID Connect or Gravitee AM identity provider, the **Client Authenticat
 
 Select the method that the provider expects. When the provider rejects the credentials, the login or the token exchange fails with HTTP `401` and a JSON body whose `error` field carries the provider's own error code. When that code is `invalid_client`, the body also carries a `hint` that names this setting. When the provider's response carries no error code, `error` is `identity_provider_unavailable` if the provider answered with a server error, and `identity_provider_error` otherwise.
 
-Through the Management API, the setting is the `tokenEndpointAuthMethod` key of the provider's `configuration` object, with the value `client_secret_basic` or `client_secret_post`. Matching ignores case. A value that APIM doesn't recognize is ignored: the provider keeps the provider default, and the Management API logs a warning that names the provider and the accepted values. The key can't be declared under `security.providers` in `gravitee.yml`, and the startup rewrite of a provider declared there resets the method to the provider default.
+Through the Management API, the setting is the `tokenEndpointAuthMethod` key of the provider's `configuration` object, with the value `client_secret_basic` or `client_secret_post`. Matching ignores case, and a value that APIM doesn't recognize falls back to the provider default rather than failing the login. You can't declare the key under `security.providers` in `gravitee.yml`, and a provider declared there returns to the provider default when the Management API restarts.
 
 Provider-specific setup, including the password policy applied to locally managed accounts:
 
