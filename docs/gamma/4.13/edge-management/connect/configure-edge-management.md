@@ -12,6 +12,8 @@ Edge Management is configured from a single **Configuration** page in the Gamma 
 
 The first time you open the page, there is no configuration. Configure the fields, and then save to create the configuration. When you save the configuration, the corresponding Edge API is published on the Gateway so the daemon's traffic can be captured.
 
+To manage the configuration, you need the **Edge Manager** environment role, which grants `EDGE_CONFIGURATION` with the `CREATE`, `READ`, `UPDATE`, and `DELETE` access levels. The role also grants `ENVIRONMENT_API` with the `CREATE` and `READ` access levels, so an Edge manager can create the default gateway API that backs an unmapped interception route.
+
 ## Configure Edge Management
 
 To configure Edge Management, complete the following steps:
@@ -60,6 +62,35 @@ A typical Claude Code setup uses the following two routes:
 | `/`            | `/interception/passthrough` | `anthropic` | HTTP Proxy API |
 
 LLM calls to `/v1/messages` are routed to the **LLM Proxy API**. All other traffic reaches the **HTTP Proxy API**.
+
+You can also group interception rules per application. Each app declares the backend domains it talks to, the request paths it intercepts, the gateway API path that matched traffic is forwarded to, and the vendor and usage-decoder format used for token accounting. This app-centric structure replaces the flat DNS domains and routes lists, which remain supported for backward compatibility.
+
+Configure the following settings for each app:
+
+* **Name.** A human-readable application identifier. For example, `Claude Code` or `Cursor`. Apps with a missing or blank name are dropped from the configuration served to the Edge Daemon.
+* **Domains.** The vendor backend hostnames the app talks to. For example, `api.anthropic.com`. These hostnames are intercepted for the app.
+* **Routes.** One mapping per intercepted request path. Set **Path** to the incoming request path, and set **API Path** to the gateway path that matched traffic is forwarded to. Both values are required.
+* **Format.** The usage-decoder format used to parse token usage from the response. For example, `anthropic-messages` or `openai-chat`.
+* **Vendor.** The vendor label reported upstream for accounting and attribution.
+
+**Format** and **Vendor** are independent of each other, and each is omitted from the served configuration when it isn't set. App routes don't carry a provider, because vendor attribution is declared once per app through **Format** and **Vendor**.
+
+**Path** accepts the following three forms:
+
+| Form           | Example         | Behavior                                                            |
+| -------------- | --------------- | ------------------------------------------------------------------- |
+| Bare path      | `/v1/messages`  | Exact match on the path only. Query parameters are excluded.        |
+| `*`-suffixed   | `/v1/messages*` | Prefix match on the substring before the `*`.                       |
+| Catch-all      | `*` or `/*`     | Sends all of the app's traffic to its API path.                     |
+
+Traffic that matches no route isn't intercepted. It's forwarded to its original backend, so an app intercepts only what it explicitly declares.
+
+The flat DNS domains and routes lists are deprecated, but they're still accepted, so you can migrate incrementally. A configuration that contains both shapes retains both. To migrate, complete the following steps:
+
+1. Move each hostname from the DNS domains list into the **Domains** list of the app that owns it.
+2. Move each top-level route into the **Routes** list of the owning app, using **Path** for the value previously set as the path prefix.
+3. Replace the per-route provider value with the app-level **Vendor** field, and set **Format** for the app.
+4. Remove the emptied DNS domains and routes lists.
 
 ### Configure Shadow AI monitoring
 
