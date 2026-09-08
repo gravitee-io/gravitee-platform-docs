@@ -24,8 +24,7 @@ The page is listed only for a role that reads the organization's policies. If yo
 
 A banner at the top of the page states the scope of what you're editing. It reads: "Platform flows run on the request and response phases of every API in this organization, before and after each API's own flows. Native Kafka APIs have no such phases and are left untouched."
 
-<!-- TODO: Screenshot of the organization's Policy Studio, showing the scope banner, the Platform flows sidebar with two flows, and the Request Phase and Response Phase canvas -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-policy-studio.png" alt=""><figcaption><p>The Policy Studio of the <strong>Organization</strong> section, with the platform flows in the sidebar and the two phases on the canvas</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-policy-studio.png" alt="The Policy Studio of the Organization section, with the scope banner at the top, the Platform flows sidebar listing two flows, the selected flow's tag badge, and its Request Phase and Response Phase steps on the canvas"><figcaption><p>The Policy Studio of the <strong>Organization</strong> section, with the platform flows in the sidebar and the two phases on the canvas</p></figcaption></figure>
 
 ## Understand where platform flows run
 
@@ -37,24 +36,25 @@ A flow with no sharding tags is loaded by every gateway of the organization. Whe
 
 ## Read the studio
 
-The sidebar lists the platform flows under **Platform flows**, in the order the gateway runs them. Each row shows the following details:
+The sidebar lists the platform flows under **Platform flows**, in the order the gateway runs them. The help icon next to the header explains what platform flows do, and the **+** button next to it adds a flow. Each row shows the following details:
 
 * The flow's path, with `/**` appended when the operator is **Starts With**.
 * Badges for its HTTP methods, or an `ALL` badge.
 * A `Conditioned` badge when the flow carries a condition.
 * A tag badge with the number of sharding tags when the flow is restricted to some gateways. Hover over the badge to read the tag names.
+* The number of policy steps in the flow.
 
 The `Search flows...` field filters the list on the flow name, the path, and the methods.
 
 Selecting a flow opens it on the canvas. The **Request Phase** runs from the client to the gateway, and the **Response Phase** runs from the gateway back to the client. The bar above the canvas names the selected flow, lists its tags, and holds the **Save** button.
 
-When the organization has no platform flow yet, the studio opens on an explanatory screen with an **Add platform flow** link.
+When the organization has no platform flow yet, the studio opens on an explanatory screen with an **Add platform flow** link. The sidebar shows the same link under the **Platform flows** header.
 
 ## Create a platform flow
 
 To create a platform flow, complete the following steps:
 
-1. Select **Add platform flow** in the sidebar, or on the explanatory screen when the organization has no flow yet.
+1. Select the **+** button next to the **Platform flows** header. When the organization has no flow yet, select **Add platform flow** instead, in the sidebar or on the explanatory screen.
 2. In the **Create a new platform flow** panel, enter the flow details described in the following table:
 
     | Field | Description |
