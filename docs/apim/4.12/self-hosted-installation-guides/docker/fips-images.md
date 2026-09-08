@@ -43,7 +43,7 @@ The tag is the ordinary version tag with the `-chainguard-fips` suffix. It is av
 | Developer Portal | `graviteeio.azurecr.io/apim-portal-ui:<version>-chainguard-fips` |
 | Gamma Console | `graviteeio.azurecr.io/gamma-ui:<version>-chainguard-fips` |
 
-Contact Gravitee support if you need access to the registry.
+**Contact Gravitee support if you need access to the registry.**
 
 The three UI images are built on a FIPS-validated nginx base rather than a JVM one. They serve static content over plain HTTP, with TLS terminated upstream, so the keystore constraints below concern the Gateway and the Management API only.
 
