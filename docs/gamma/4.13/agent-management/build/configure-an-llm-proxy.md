@@ -22,6 +22,28 @@ The LLM Proxy detail view groups its pages as follows.
 
 The page formerly named **LLM Studio** is now **Policy Studio**. A link to the former page redirects to it.
 
+## Models
+
+The **Models** page lists the providers of the LLM Proxy with their models, and changes them after creation. To open it, under **Design**, select **Models**.
+
+Each provider is a collapsible card. Its header shows the provider name, the provider format, the number of models, and **From catalog** when the provider comes from the catalog. Expanded, an inline provider lists its models with their **Query name**, **Aliases**, and **Pricing**, and a catalog provider also shows the **Model** and **Slug** of each one. When the provider hides real model names, the query name is dimmed, because consumers reach the model only through its aliases.
+
+To change the providers, complete the following steps:
+
+1. Select **Add provider** to add an inline provider, or **Add models from catalog** to pick registered models. The cards are the ones of the creation wizard. See [Configure the models](create-an-llm-proxy.md#configure-the-models).
+2. To change a provider, select its edit icon. An inline provider opens in place with its stored values, credentials included, and each valid change is applied to the page as you make it. Select **Done** to close the card, or **Cancel** to restore the values it opened with. A catalog provider opens with its credentials, model governance, and per-model settings, and **Done** applies them.
+3. To remove a provider, select its delete icon.
+4. Click **Save changes**, or **Discard** to drop every pending change.
+
+While a card is open for editing, the other providers can't be edited or removed. The save bar appears as soon as the page differs from what's saved. **Save changes** stays disabled while the open card holds an invalid value, or while no provider is left, and the bar then reads **Finish editing the provider before saving.** or **At least one provider is required.** A save that fails shows **Failed to save providers** with the reason.
+
+Saving replaces the providers of the proxy without deploying them. The **This API is out of sync** banner appears at the top of the detail view. Click **Deploy**, optionally enter a label in the **Deploy your API** dialog, and click **Deploy** to push the change to the gateway.
+
+When the aliases declared by two providers differ, the page shows **Model aliases differ across providers** with the aliases of each provider. An alias routes, and fails over, only across the providers that declare it, so align the aliases for cross-provider failover. The warning doesn't block saving.
+
+<!-- TODO: Screenshot of the Models page of an LLM Proxy with one inline provider expanded and the save bar visible after an edit -->
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-llm-proxy-models-page.png" alt=""><figcaption><p>The Models page of an LLM Proxy</p></figcaption></figure>
+
 ## Guardrails, PII filtering, and rate limiting
 
 Guardrails, PII filtering, and rate limiting are implemented using standard Gravitee policies. You configure them by attaching policies with the Policy Studio.
@@ -84,7 +106,7 @@ For the steps, see [Export and import an LLM Proxy](export-and-import-an-llm-pro
 
 Structured output enforces response format constraints on model responses. You can enforce structured output natively by overriding model parameters.
 
-When you add a provider or a model to the LLM Proxy, you can supply a JSON object in the **Parameters override** field. This field supports Expression Language, and the evaluated result must be a JSON object. The connector merges the object into each request before it reaches the upstream provider, so you can transparently enforce formatting such as `{"response_format": { "type": "json_object" }}`. In the LLM Proxy definition, this field is `parametersOverride`.
+When you add a provider or a model to the LLM Proxy, you can supply a JSON object in the **Parameters Override (JSON)** field of the model. This field supports Expression Language, and the evaluated result must be a JSON object. The connector merges the object into each request before it reaches the upstream provider, so you can transparently enforce formatting such as `{"response_format": { "type": "json_object" }}`. In the LLM Proxy definition, this field is `parametersOverride`.
 
 ## Security
 
@@ -118,7 +140,7 @@ The **LLM — Overview** dashboard visualizes this data. It tracks `LLM_PROMPT_T
 
 ## Next steps
 
-* [Create an LLM Proxy](create-an-llm-proxy.md). Create a new LLM Proxy if you haven't already.
+* [Create an LLM Proxy](create-an-llm-proxy.md). Create a new LLM Proxy if you haven't already, and read the fields of the provider card.
 * [Configure LLM Proxy entrypoints](configure-llm-proxy-entrypoints.md). Add context paths, switch to virtual hosts, or edit the entrypoint options.
 * [Configure LLM Proxy CORS](configure-llm-proxy-cors.md). Let browser-based clients on other origins call the proxy.
 * [Configure LLM Proxy logging and tracing](configure-llm-proxy-logging-and-tracing.md). Control the reported request and response data, and enable OpenTelemetry tracing.
