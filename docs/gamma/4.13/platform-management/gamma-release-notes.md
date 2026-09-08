@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, and a regrouped navigation. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, lets you record a negotiated price on a cataloged AI model, and adds export, import, and duplicate to LLM Proxies.
+Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, and a regrouped navigation. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies gain export, import, and duplicate actions.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
