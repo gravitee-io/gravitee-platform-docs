@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, and a regrouped navigation. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies gain export, import, and duplicate actions.
+Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies gain export, import, and duplicate actions.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -55,6 +55,13 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 * The **Overview** page shows a **Connection** card with the gateway URLs of the proxy, in place of the **Consumer URL** row.
 * The detail navigation is regrouped. **Models**, **Entrypoints**, **Endpoints**, **Policy Studio**, and **Resources** sit under **Design**, **Reporter Settings** and **Notifications** sit under **Monitoring**, **Security** follows **General**, and the **General** page is renamed **Configuration**. **LLM Studio** is renamed **Policy Studio**, and a link to the former page redirects to it.
 * See [Configure LLM Proxy entrypoints](../agent-management/build/configure-llm-proxy-entrypoints.md).
+
+#### Provider forms and the Models page for LLM Proxies
+
+* The inline provider card of the creation wizard renders the configuration schema of the LLM Proxy endpoint plugin, with the labels, help text, and validation rules the plugin ships. A field that a later plugin version adds appears without a console update, and the **Provider** list offers **OpenAI compatible**.
+* A provider added from the catalog is configured through the same form: its **Credentials**, its model governance, and the **Aliases of this model** and **Parameters Override (JSON)** of each picked model.
+* The **Models** page of the LLM Proxy detail view, under **Design**, edits the providers after creation. Add an inline or catalog provider, edit a provider in place, remove one, and save every change at once. Saving leaves the proxy out of sync until you deploy it.
+* See [Create an LLM Proxy](../agent-management/build/create-an-llm-proxy.md) and [Configure an LLM Proxy](../agent-management/build/configure-an-llm-proxy.md#models).
 
 #### CORS for LLM Proxies
 
