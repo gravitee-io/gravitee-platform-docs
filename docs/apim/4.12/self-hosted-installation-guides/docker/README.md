@@ -14,8 +14,7 @@ metaLinks:
 
 ## Image variants
 
-Each component also ships a FIPS variant, for deployments that must run FIPS 140-3 validated
-cryptography. It constrains which keystore formats load, so read the page before switching to it.
+Each component also ships a FIPS variant, for deployments that require FIPS 140-3 validated cryptography. It constrains which keystore formats load, so read the page before switching to it.
 
 * [fips-images.md](fips-images.md "mention")
 
