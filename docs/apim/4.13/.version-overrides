@@ -81,3 +81,4 @@ configure-and-manage-the-platform/manage-organizations-and-environments/authenti
 .gitbook/assets/apim-idp-persisted-claims.png
 .gitbook/assets/apim-dcr-provider-claim-mappings.png
 .gitbook/assets/apim-idp-client-authentication-method.png
+how-to-guides/use-case-tutorials/configure-dcr.md

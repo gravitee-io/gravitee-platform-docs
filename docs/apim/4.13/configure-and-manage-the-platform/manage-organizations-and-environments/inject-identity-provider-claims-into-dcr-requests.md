@@ -16,7 +16,9 @@ The feature has two halves, configured on two different screens:
 For example, an identity provider issues an `org_id` claim with the value `org-42`. You list `org_id` on the identity provider and map it to `metadata.organization` on the client registration provider. When a user who carries that claim creates an application, the registration request contains `"metadata": {"organization": "org-42"}` alongside the standard registration fields, and the registration provider associates the new client with that organization.
 
 {% hint style="warning" %}
-Every claim you list is stored on the user record. Treat the stored values as personal data, and list only the claims you need.
+Every claim you list is stored on the user record, so treat the stored values as personal data and list only the claims you need.
+
+Stored claims are removed at the user's next login, and no APIM operation reads or deletes them in the meantime. A user who never logs in again keeps whatever was captured, so removing a claim from the list isn't enough on its own to guarantee that the value is gone.
 {% endhint %}
 
 {% hint style="info" %}
@@ -45,7 +47,9 @@ To choose the claims that APIM stores on each user at login, complete the follow
 
 6. Click **Save**.
 
-The **Persisted Claims** section is available for every identity provider type.
+The **Persisted Claims** section is available on all four provider types you can create in the Console: Gravitee AM, OpenID Connect, Google, and GitHub.
+
+Saving the list is recorded in the organization audit log.
 
 ### How APIM captures claims
 
@@ -57,11 +61,11 @@ APIM applies the claims list at each login through the provider, whether the use
 * Claim names are matched literally. A namespaced name that contains dots, such as `https://example.com/org_id`, is looked up as a single key, not as a path.
 * Each login replaces the stored claims with the values from that login. Removing a claim from the list drops its stored value at the user's next login, and emptying the list removes all of the user's stored claims at their next login.
 
-The stored claims are used only for injection into registration requests. They don't appear in the user profile responses of the Management API or the Portal API, and no Management API or Portal API operation reads or deletes them. A user who doesn't log in again keeps the previously stored claims. The claims list itself isn't part of the identity provider details that the APIM Console and Developer Portal login pages retrieve.
+Stored claims are used only for injection into registration requests. They don't appear in user profile responses.
 
 ### Claims list for a provider declared in gravitee.yml
 
-A provider declared under `security.providers` in `gravitee.yml` takes its configuration from that file at every Management API startup, and the file has no key for the claims list. Set the list in the APIM Console or through the Management API. The startup rewrite of a declared provider keeps the list you saved.
+`gravitee.yml` has no key for the claims list, so set it in the APIM Console or through the Management API. A provider declared under `security.providers` keeps the list you saved across restarts.
 
 ### Set the claims list through the Management API
 
@@ -74,7 +78,7 @@ The identity provider resources of the Management API carry the list in the `per
 ```
 
 * An update that omits `persistedClaimsWhitelist` keeps the stored list. Send an empty array to clear it.
-* A blank claim name is rejected with HTTP `400` and the message `Persisted claims whitelist must not contain empty claim names`.
+* A blank claim name is rejected with HTTP `400`.
 * The same array is accepted by `POST /management/organizations/{orgId}/configuration/identities` when you create a provider, and returned when you read one.
 
 ## Map claims to registration request fields
@@ -91,15 +95,17 @@ To choose which stored claims APIM injects, and into which fields, complete the 
 
 6. Click **Save**.
 
-The APIM Console rejects the form when a row is missing either value, with the message **Every mapping needs both a claim name and a registration request field**, and when two rows share a claim name, with the message **Claim names must be unique**.
+Every mapping needs both a claim name and a registration request field, and each claim name can appear only once. The table flags both of those as you type. It doesn't flag the field you target, so check [Which fields you can target](#which-fields-you-can-target) first: a mapping that names a standard registration field fails when you save.
+
+Saving the mappings is recorded in the environment audit log.
 
 ### Which fields you can target
 
 Write the target as a field name, or as a dot-separated path for a nested field:
 
-* Each segment before the last one names an object. APIM creates the object when the request doesn't already carry an object at that segment, so `metadata.organization` produces `"metadata": {"organization": "<claim value>"}`.
-* Only extension fields are accepted. When the first segment of the path is a standard registration field, the mapping is rejected when you save, with HTTP `400` and the message `Invalid claim mapping: DCR field path '<field>' targets a standard registration field; only extension fields are injectable`. This keeps a value that the identity provider controls from overriding the settings that APIM sends for the application.
-* An empty target is rejected with HTTP `400` and the message `Invalid claim mapping: DCR field path must not be empty (claim '<claim name>')`.
+* The intermediate objects of a nested path are created for you: `metadata.organization` produces `"metadata": {"organization": "<claim value>"}`.
+* Only extension fields are accepted. A path whose first segment is a standard registration field is rejected with HTTP `400`. This keeps a value that the identity provider controls from overriding the settings APIM sends for the application.
+* An empty target is rejected with HTTP `400`.
 
 <details>
 
@@ -143,7 +149,17 @@ To verify that identity provider claims reach the registration provider, follow 
 2. Create an application of a type other than **Simple**, so that it registers through the client registration provider.
 3. On the registration provider, open the client that was registered for the application. The mapped fields carry the values of the user's claims.
 
-Optional: set the Management API log level to `DEBUG`. APIM then logs `Injected IdP claim into DCR field [<field>]` for each field it injects when it sends a registration request.
+Optional: set the Management API log level to `DEBUG`. APIM then logs each field it injects as it sends a registration request.
+
+## Troubleshooting
+
+| Symptom | Cause and fix |
+| --- | --- |
+| The registration request carries none of the mapped claims. | The user hasn't logged in since you saved the claims list, so nothing is stored on them yet. Log out and back in through the identity provider. |
+| One mapped claim is missing, the others arrive. | The claim name doesn't match what the provider issues, or the provider didn't issue the claim for that user. Claim names are matched exactly, including any namespace prefix. |
+| Saving the mappings fails with HTTP `400`. | The target field is empty, or it's a standard registration field. See [Which fields you can target](#which-fields-you-can-target). |
+| An existing application's client has no claims on the registration provider. | Mappings apply to registration requests sent after you save them. Update the application to send it again. |
+| An updated application sends no claims, though creating one does. | An update sends the claims of the application's primary owner. An application owned by a group has no primary owner user, so it sends none. |
 
 ## Next steps
 
