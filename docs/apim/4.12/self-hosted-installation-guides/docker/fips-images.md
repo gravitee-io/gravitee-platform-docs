@@ -6,7 +6,7 @@ description: >-
 
 # FIPS images
 
-Alongside the ordinary images, APIM publishes a FIPS variant of each backend and frontend component, built on a FIPS-validated base image. They exist for deployments that require FIPS 140-3 validated cryptography end to end.
+Each APIM backend and frontend component has a FIPS image variant next to its ordinary image. The FIPS images are built on a FIPS-validated base image. They're intended for deployments that require FIPS 140-3 validated cryptography end to end.
 
 They aren't a drop-in swap. The JVM inside them accepts a narrower set of algorithms and keystore formats than the ordinary images, so a configuration that works elsewhere doesn't always load. This page describes what changes.
 
