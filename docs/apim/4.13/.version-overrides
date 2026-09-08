@@ -68,3 +68,5 @@ developer-portal/new-developer-portal/customize-the-navigation.md
 .gitbook/assets/devportal-import-repository-dialog.png
 .gitbook/assets/devportal-import-from-file.png
 .gitbook/assets/devportal-sourced-page-in-portal.png
+# FIPS images page differs from 4.12: JDK 25 keystore behavior and the upgrade warning (ESM-109)
+self-hosted-installation-guides/docker/fips-images.md
