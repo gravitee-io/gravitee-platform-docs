@@ -38,6 +38,7 @@ documentation.gravitee.io links for other versions.
 * The plan endpoints of the legacy Management API v1 now reject V4, Federated, and Federated Agent APIs with an HTTP `400` error that points to Management API v2.
 * The New Developer Portal catalog gains categories, so you group APIs in the APIM Console and consumers filter the catalog to one category and share that view by URL.
 * New Developer Portal navigation pages fetch their content from external sources such as GitHub, GitLab, or an HTTP URL, on demand or on an auto-fetch schedule, and a repository import mirrors a whole documentation tree into a read-only folder.
+* The Bitbucket, GitHub, GitLab, and HTTP fetchers used by New Developer Portal pages take an `httpClientTimeout` value so a stalled fetch fails instead of hanging, and the recorded error names the URL and the status the server returned.
 
 ## Breaking Changes and deprecations
 
@@ -124,3 +125,9 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * The `x509CertificateChain` option now works with the `INLINE` and `PEM` key resolvers. The policy builds the `x5c` header from the certificates included in the key material, ordered from the signing certificate outward, and drops certificates that don't link into the chain.
 * The policy now parses key material that bundles certificates together with the private key.
 * For the `INLINE` and `PEM` key resolvers, if no certificate in the key material matches the signing key, the policy omits the `x5c` header and signs the token anyway, logging a warning when the key material is loaded.
+
+#### **Fetch Timeouts and Clearer Fetch Errors for New Developer Portal Sources**
+
+* The Bitbucket, GitHub, GitLab, and HTTP fetchers include an `httpClientTimeout` field, in milliseconds, which bounds how long a fetch waits on an unresponsive repository or URL.
+* The value is applied as both the connection timeout and the idle timeout, so a stalled connection fails rather than hanging.
+* When a fetch fails, the recorded error names the URL that couldn't be fetched and, when the server responded, the status code and message it returned, so you can tell a wrong URL from a rejected request without leaving the page.

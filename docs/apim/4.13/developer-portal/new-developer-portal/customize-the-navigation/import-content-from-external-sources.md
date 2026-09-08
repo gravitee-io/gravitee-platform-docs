@@ -33,6 +33,8 @@ Complete the following steps before you link portal content to external sources:
 
 You link a page to a source when you create the page, or later by editing it. In both cases, the source configuration is the same.
 
+The Bitbucket, GitHub, GitLab, and HTTP fetchers include an `httpClientTimeout` field, in milliseconds. This value is applied as both the connection timeout and the idle timeout, so a stalled connection fails instead of hanging.
+
 ### Link a new page to an external source
 
 1. Click **Add**, and then click **Add Page**.
@@ -93,6 +95,8 @@ A manual fetch re-reads the source and updates the content immediately. Trigger 
     <figure><img src="../../../.gitbook/assets/devportal-fetch-all-menu.png" alt="Context menu of a folder in the Navigation items tree with the Fetch All entry"><figcaption><p>Fetch All in the context menu</p></figcaption></figure>
 
 A page that fails to fetch doesn't block the others. The result message reports how many pages were fetched and which ones failed, and each failing page records its error in its own **Last fetch failed** banner.
+
+When the fetcher reaches a repository or an HTTP URL, the recorded error names the URL that couldn't be fetched and, when the server responded, the status code and message it returned.
 
 ## Keep content in sync with auto-fetch
 
@@ -210,6 +214,5 @@ To verify that your external source works as expected, follow these steps:
 3. Publish the page, and then click **Open Website**.
 
 The fetched content appears on the page in the New Developer Portal.
-
 
 <figure><img src="../../../.gitbook/assets/devportal-sourced-page-in-portal.png" alt="The New Developer Portal rendering the page content fetched from the external source"><figcaption><p>Fetched content in the New Developer Portal</p></figcaption></figure>
