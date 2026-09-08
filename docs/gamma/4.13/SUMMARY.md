@@ -36,10 +36,12 @@
 * [Configure console authentication](platform-management/configure-console-authentication.md)
 * [Configure console management and schedulers](platform-management/configure-console-management-and-schedulers.md)
 * [Configure CORS for the Management API](platform-management/configure-console-cors.md)
+* [Configure environment notifications](platform-management/configure-environment-notifications.md)
 * [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
 * [Configure OpenTelemetry tracing and logs](platform-management/configure-opentelemetry-tracing-and-logs.md)
 * [Configure Security Plan Types](platform-management/configure-security-plan-types.md)
 * [Configure the SMTP mail server](platform-management/configure-smtp.md)
+* [Customize notification templates](platform-management/customize-notification-templates.md)
 * [Manage applications](platform-management/manage-applications.md)
 * [Manage dictionaries](platform-management/manage-dictionaries.md)
 * [Manage entrypoints and sharding tags](platform-management/manage-entrypoints-and-sharding-tags.md)
@@ -52,7 +54,6 @@
 * [Monitor gateway instances](platform-management/monitor-gateway-instances.md)
 * [Review organization and environment audit logs](platform-management/review-audit-logs.md)
 * [Save observability dashboards with the Gamma API](platform-management/save-observability-dashboards.md)
-  * [Environment notifications overview](platform-management/manage-notifications.md)
 
 ## API Management
 
