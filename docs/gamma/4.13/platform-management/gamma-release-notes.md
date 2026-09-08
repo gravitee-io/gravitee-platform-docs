@@ -149,7 +149,7 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. Platform flows apply policies on request and response phases to every API in the organization. Native Kafka APIs don't have those phases, and TCP proxy APIs don't run policy flows, so both are left untouched. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. Platform flows apply policies on request and response phases to every API in the organization. Native Kafka APIs don't have those phases, and TCP proxy APIs don't run policy flows, so both are left untouched. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment now decides who hears about its user, support, federation, and group events, and the organization can reword every email and portal notification it sends. Custom observability dashboards gain server-side storage.
 
 #### Configure console authentication
 
@@ -181,12 +181,26 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * The page requires an enterprise license that includes the Alert Engine feature.
 * See [Configure environment alerts](configure-environment-alerts.md).
 
+#### Configure environment notifications
+
+* Subscribe to the user, support, federation, and group events of the selected environment from the **Notifications** page of the **Environment** section: in the console for yourself, and by email or webhook for your team.
+* An email notification sends each event to a list of addresses separated by spaces, commas, or semicolons. A webhook notification sends it as an HTTP POST request to a URL, through the system proxy of the Management API when you turn that on.
+* Change the events and the target of a notification after creating it, and delete the email and webhook notifications you no longer need.
+* See [Configure environment notifications](configure-environment-notifications.md).
+
 #### Configure the SMTP mail server
 
 * Point the organization at its mail server from the **SMTP** page, with the host, port, credentials, protocol, sender address, and subject template.
 * Set the authentication, `STARTTLS`, and certificate-trust properties of the connection.
 * Add branded sender rules that replace the sender address and subject template for the recipients at a given domain.
 * See [Configure the SMTP mail server](configure-smtp.md).
+
+#### Customize notification templates
+
+* Reword the email and portal notifications the organization sends from the **Templates** page of the **Organization** section, where they're grouped by category and a **Custom** badge marks each overridden template.
+* Turn on **Override default template** on a channel card, edit the title and the FreeMarker content, and save. Turn the override off to send the built-in default again without losing your wording.
+* Fragments that other templates include, such as `header.html`, are overridden the same way.
+* See [Customize notification templates](customize-notification-templates.md).
 
 #### Manage dictionaries
 
