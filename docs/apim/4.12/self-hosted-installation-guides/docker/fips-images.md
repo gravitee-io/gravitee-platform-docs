@@ -11,7 +11,7 @@ Alongside the ordinary images, APIM publishes a FIPS variant of each backend and
 They are not a drop-in swap: the JVM inside them accepts a narrower set of algorithms and keystore formats than the ordinary images, so a configuration that works elsewhere may not load. This page describes what changes.
 
 {% hint style="info" %}
-These images are not public. They are published to the private Gravitee registry only, so you need credentials before any command on this page will work — contact Gravitee support to have access granted for your organisation.
+These images are not public. They are published to the private Gravitee registry only, so you need credentials before any command on this page will work — contact [Gravitee support](https://www.gravitee.io/contact-us) to have access granted for your organisation.
 {% endhint %}
 
 ## What is different inside
