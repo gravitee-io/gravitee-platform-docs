@@ -149,7 +149,7 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 
 #### Configure environment alerts
 
-* Create, edit, enable, and delete the alerts of the selected environment from the **Alerts** page of the **Environment** section. Ten rules cover node lifecycle, node metrics, node health, request metrics, missing requests, and endpoint health-check changes, each with a severity, a condition, filters, and optional notification timeframes.
+* Create, edit, enable, and delete the alerts of the selected environment from the **Alerts** page under **System & Security** in the **Environment** section. Ten rules cover node lifecycle, node metrics, node health, request metrics, missing requests, and endpoint health-check changes, each with a severity, a condition, filters, and optional notification timeframes.
 * Send each alert by email, Slack, system email, or webhook, and limit repeated notifications with a dampening mode.
 * Follow the alert events of the environment on the **Activity** tab, which counts them by severity over a quick time range and links to the history of each alert.
 * The page requires an enterprise license that includes the Alert Engine feature.
