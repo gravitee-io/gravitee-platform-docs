@@ -52,6 +52,7 @@
 * [Monitor gateway instances](platform-management/monitor-gateway-instances.md)
 * [Review organization and environment audit logs](platform-management/review-audit-logs.md)
 * [Save observability dashboards with the Gamma API](platform-management/save-observability-dashboards.md)
+  * [Environment notifications overview](platform-management/manage-notifications.md)
 
 ## API Management
 
