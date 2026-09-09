@@ -1,5 +1,41 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.27 - September 7, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Promoting APIs that exist in the target env causes subscription errors [#11398](https://github.com/gravitee-io/issues/issues/11398)
+* Observability and Analytics sidebar navigation in console are broken [#11652](https://github.com/gravitee-io/issues/issues/11652)
+* Dynamic routing intermittently builds the upstream path from the previous dynamic-routing policy's capture group [#11653](https://github.com/gravitee-io/issues/issues/11653)
+* Read-only APIM roles cannot view organization policies without write access [#11743](https://github.com/gravitee-io/issues/issues/11743)
+* Use X-Forwarded-For header option is not displayed in the policy configuration form [#11763](https://github.com/gravitee-io/issues/issues/11763)
+* OAS Validation policy rejects large JSON specifications because it parses them as YAML [#11772](https://github.com/gravitee-io/issues/issues/11772)
+* Organization users search with q= is still not stable across Management API instances [#11778](https://github.com/gravitee-io/issues/issues/11778)
+* Console SSO breaks on upgrade: org IdP enabled=false now blocks organization login, with no migration and a portal-only UI label [#11779](https://github.com/gravitee-io/issues/issues/11779)
+* API promotion workflow not working anymore [#11783](https://github.com/gravitee-io/issues/issues/11783)
+* Kafka consumer is not released when a WebSocket client disconnects [#11814](https://github.com/gravitee-io/issues/issues/11814)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* Webhook Logs: default none filter leads to unbounded search [#11746](https://github.com/gravitee-io/issues/issues/11746)
+
+**Other**
+
+* FreeMarker error logged on OpenAPI documentation pages containing ${...} in their content [#11744](https://github.com/gravitee-io/issues/issues/11744)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.26 - August 31, 2026
 <details>
 

@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The LLM Proxy detail view gains an Entrypoints page and a regrouped navigation. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model.
+Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, and a regrouped navigation. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -42,6 +42,12 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 * The A2A Proxy wizard offers the five security types for the default plan. For OAuth 2.0, it collects the identity provider details and declares the provider as a resource on the proxy.
 * See [Manage A2A Proxy plans](../agent-management/build/configure-your-a2a-proxy/manage-a2a-proxy-plans.md) and [Manage subscriptions](../agent-management/publish/manage-subscriptions.md).
 
+#### Subscription export for LLM, MCP, and A2A Proxies
+
+* The **Consumers** page of each LLM Proxy, MCP Proxy, and A2A Proxy adds an **Export CSV** button that downloads the subscriptions matching the current **Status**, **Plan**, and **API Key** filters as a CSV file. The file is the same export the APIM Console produces for the subscriptions of an API.
+* The export holds every matching subscription, not only the current page of the table. Each row carries the plan, the application, the creation, processing, start, and end dates, and the status of the subscription.
+* See [Manage subscriptions](../agent-management/publish/manage-subscriptions.md).
+
 #### Entrypoint configuration and navigation for LLM Proxies
 
 * Each LLM Proxy detail view adds an **Entrypoints** page under **Design**. Add or remove context paths, switch the proxy to virtual hosts, and edit the options of the LLM Proxy entrypoint plugin after creation. The **Exposed entrypoints** card previews the gateway URLs, and a save applies to the gateway when you deploy the proxy from the out-of-sync banner.
@@ -49,6 +55,13 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 * The **Overview** page shows a **Connection** card with the gateway URLs of the proxy, in place of the **Consumer URL** row.
 * The detail navigation is regrouped. **Models**, **Entrypoints**, **Endpoints**, **Policy Studio**, and **Resources** sit under **Design**, **Reporter Settings** and **Notifications** sit under **Monitoring**, **Security** follows **General**, and the **General** page is renamed **Configuration**. **LLM Studio** is renamed **Policy Studio**, and a link to the former page redirects to it.
 * See [Configure LLM Proxy entrypoints](../agent-management/build/configure-llm-proxy-entrypoints.md).
+
+#### CORS for LLM Proxies
+
+* Each LLM Proxy detail view adds a **CORS** page under **General** that configures cross-origin access for browser-based clients: the allowed origins, methods, and request headers, the exposed response headers, credentials, the preflight cache duration, and whether policies run on preflight requests.
+* CORS stays off until you enable it, so an existing LLM Proxy keeps its behavior after an upgrade. When CORS is enabled, the gateway adds the `Access-Control-*` headers to the responses of the proxy, answers preflight requests itself, and refuses a preflight request from an origin, with a method, or with a header that isn't allowed.
+* A save applies to the gateway when you deploy the proxy from the out-of-sync banner.
+* See [Configure LLM Proxy CORS](../agent-management/build/configure-llm-proxy-cors.md).
 
 #### Owner and sharding tags in the LLM Proxies list
 
@@ -110,7 +123,7 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
 
 #### Configure console authentication
 
@@ -168,6 +181,15 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Add members from a user search or invite them by email, review the pending invitations, and pick a successor when a primary owner changes role or leaves the group.
 * Attach a group to every existing API, API Product, or application of the environment in one action, or have the new ones join it automatically.
 * See [Manage groups](manage-groups.md).
+
+#### Manage shared policy groups
+
+* Create, edit, search, and delete the shared policy groups of the selected environment from the **Shared Policy Groups** page. A shared policy group bundles policy steps once for reuse across API flows, and is fixed to one API type and one flow phase at creation.
+* Build the bundle in the group's own Policy Studio. Add steps from a catalog filtered to the group's API type and phase, configure each step against the policy's own schema, then reorder, duplicate, disable, or remove them.
+* Deploy the saved steps to the gateways of the environment. Each deployment raises the version by one and records an entry in the group's version history, and a group changed after deployment shows as **Pending** until you deploy again.
+* Review any recorded version as JSON or as a read-only canvas, compare two versions, compare one against the changes you haven't deployed yet, and restore a version onto the group.
+* A shared policy group created through the Kubernetes Operator is read-only in the console, with its version history still available.
+* See [Manage shared policy groups](manage-shared-policy-groups.md).
 
 #### Manage tenants
 

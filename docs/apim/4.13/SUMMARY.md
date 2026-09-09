@@ -60,6 +60,7 @@
     * [Docker Compose](self-hosted-installation-guides/docker/docker-compose.md)
     * [Docker CLI](self-hosted-installation-guides/docker/docker-cli.md)
     * [Customize your Installation](self-hosted-installation-guides/docker/customize-your-installation.md)
+    * [FIPS images](self-hosted-installation-guides/docker/fips-images.md)
   * [Kubernetes](self-hosted-installation-guides/kubernetes/README.md)
     * [Vanilla Kubernetes](self-hosted-installation-guides/kubernetes/vanilla-kubernetes/README.md)
       * [Deploy APIM with Kubernetes Manifest](self-hosted-installation-guides/kubernetes/vanilla-kubernetes/deploy-apim-with-kubernetes-manifest.md)

@@ -47,6 +47,10 @@ The LLM Proxy supports the same comprehensive plan types as API proxies. The **S
 
 See [Secure your API proxy](../../api-management/build/secure-your-api-proxy.md) for detailed plan type descriptions.
 
+## CORS
+
+From Gamma 4.12.18, the **CORS** page lets browser-based clients on other origins call the LLM Proxy. Enable CORS, then set the allowed origins, methods, and request headers, the exposed response headers, credentials, the preflight cache duration, and whether policies run on preflight requests. To open it, under **General**, select **CORS**. For the steps, see [Configure LLM Proxy CORS](configure-llm-proxy-cors.md).
+
 ## Cost visibility
 
 The LLM Proxy provides real-time per-token cost attribution by provider and model. Every request records the model used, the input and output tokens consumed, and the cost based on the model's configured rate.
