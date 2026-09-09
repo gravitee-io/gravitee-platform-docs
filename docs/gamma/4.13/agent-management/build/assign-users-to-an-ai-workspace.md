@@ -33,8 +33,7 @@ To add users to an AI Workspace, complete the following steps:
 7. Select one or more users from the results.
 8. In the **Budget** field, select the budget the members are metered against.
 
-    <!-- TODO: Screenshot of the Add users panel with a user selected and a budget chosen -->
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-ai-workspace-add-users.png" alt=""><figcaption><p>The Add users panel</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-add-users.png" alt="The Add users panel with a user search returning the synthetic Docbot users, the two existing members marked Already a member, and the Budget selector below"><figcaption><p>The Add users panel</p></figcaption></figure>
 
 9. Select **Add user**. With several users selected, the button reads **Add** followed by the number of users.
 
@@ -93,8 +92,7 @@ The **Users** list holds one row per member, with the following columns:
     </tbody>
 </table>
 
-<!-- TODO: Screenshot of the Users list with two members, their masked keys, budgets, and usage -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-ai-workspace-users-list.png" alt=""><figcaption><p>The Users list of a workspace</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-users-list.png" alt="The Users list with two members, each showing a masked API key, the model count and budget selector, the budget amount and period, thirty-day usage, and an active status"><figcaption><p>The Users list of a workspace</p></figcaption></figure>
 
 ## Give a member their API key
 
@@ -105,6 +103,8 @@ Only a usable key is returned. A key that's been revoked, paused, or has expired
 ## Change a member's budget
 
 Select a different budget in the member's **Access** cell, then confirm the change. The member's subscription moves to the new budget, and the ceiling of the new budget applies from then on.
+
+<figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-member-budget.png" alt="The budget selector open on a member row of the Users list, offering the Default and Standard budgets"><figcaption><p>The budget selector on a member row</p></figcaption></figure>
 
 Changing a member's budget doesn't reset what they've already spent in the current period, because the spend counter follows the member's application rather than the budget. See [Manage AI workspace budgets](manage-ai-workspace-budgets.md).
 
@@ -123,6 +123,3 @@ To verify a member has working access, follow these steps:
 5. On the **Overview** page, copy the entrypoint URL from the **Connection** card.
 6. Call the `/models` path of that URL with the member's key, and confirm the models of the workspace are listed.
 7. Return to the **Users** list, and confirm the member's **Usage (30d)** cell counts the request.
-
-    <!-- TODO: Screenshot of a member row with a revealed API key and non-zero usage -->
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-ai-workspace-member-usage.png" alt=""><figcaption><p>A member row with usage recorded</p></figcaption></figure>

@@ -23,4 +23,4 @@ The **Overview** page of a workspace carries a checklist that follows the order 
 2. **Create a budget.** Budgets define the spend ceiling and the rate limits members are metered against. Every workspace already has one budget named `Default`, created with the workspace.
 3. **Add a user.** Members get their own API key and are metered against the budget you assign them.
 
-The same page shows a **Workspace snapshot** with the member, budget, and asset counts. A **Details** card carries the version, owner, context path, creation date, and last update, and a **Connection** card carries the entrypoint URL.
+The same page shows a **Workspace snapshot** with the member, budget, and asset counts, and a **Details** card carrying the version, owner, context path, creation date, and last update. Once the workspace has a gateway path, a **Connection** card carries the entrypoint URL to give members.
