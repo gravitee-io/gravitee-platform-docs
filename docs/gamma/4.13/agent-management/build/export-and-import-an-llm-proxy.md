@@ -6,7 +6,7 @@ description: Export an LLM Proxy as a Gravitee definition, and import one from a
 
 # Export and import an LLM Proxy
 
-<!-- TODO: add an Overview — see style-guide/06-document-types-and-templates/templates/how-to-guide-README.md -->
+## Overview
 
 An LLM Proxy exports as a Gravitee API definition, and a Gravitee API definition creates or updates an LLM Proxy. Together the two directions move a proxy between environments, keep a definition under version control, and rebuild a proxy without retyping its configuration.
 
