@@ -7,6 +7,82 @@ metaLinks:
 
 # Release notes
 
+## 1.1.0
+
+**Terraform Registry:** [gravitee-io/apim](https://registry.terraform.io/providers/gravitee-io/apim/1.1.0)
+
+Version **1.1.0** adds Next-Gen Developer Portal support to the Gravitee APIM Terraform provider. Portals, portal listings, documentation pages, and API navigation trees are now managed as Terraform resources, matching the `Portal`, `PortalListing`, and `Documentation` custom resources of the Gravitee Kubernetes Operator (GKO).
+
+### Highlights
+
+- **Four new managed resources** for the Next-Gen Developer Portal: `apim_portal`, `apim_portal_listing`, `apim_documentation_portal`, and `apim_documentation_api`. Each resource has a matching data source.
+- **New `portal_navigation` attribute** on `apim_apiv4` (resource and data source) declares the API's internal documentation navigation tree.
+- **The portal resources require APIM 4.12 or later.** The Automation API on APIM 4.11 and below doesn't expose the portal endpoints.
+- **Bug fix:** empty `response_templates` header maps on `apim_apiv4` no longer cause perpetual plan diffs.
+
+### New resources
+
+| Resource | Description | Reference (Terraform Registry) |
+| --- | --- | --- |
+| `apim_portal` | A Next-Gen Developer Portal instance with its top-level navigation hierarchy | [apim_portal](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/portal) |
+| `apim_portal_listing` | Publishes APIs to locations in a portal's navigation | [apim_portal_listing](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/portal_listing) |
+| `apim_documentation_portal` | A portal-scoped documentation page | [apim_documentation_portal](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/documentation_portal) |
+| `apim_documentation_api` | An API-scoped documentation page | [apim_documentation_api](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/documentation_api) |
+
+The documentation `type` attribute accepts `GRAVITEE_MARKDOWN`, `OPENAPI`, or `ASYNCAPI`.
+
+Navigation entries on `apim_portal` accept a `path` and an optional `display_name`, and the order of entries in the list is preserved. The `order` attribute exists only on the `portal_navigation` entries of `apim_apiv4`.
+
+Guides: [Next-gen Portal](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/guides/docgen_portal-next-gen) · [API Portal Navigation](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/guides/docgen_v4api-portal-navigation)
+
+Repository mirrors: `examples/use-cases/portal-next-gen/`, `examples/use-cases/v4api-portal-navigation/`.
+
+### New and changed fields (by resource)
+
+#### `apim_apiv4` / `apim_apiv4` (data source)
+
+| Attribute path | Type | Notes |
+| --- | --- | --- |
+| `portal_navigation` | list(object) | The API's internal documentation navigation tree for the Next-Gen Developer Portal |
+| `portal_navigation.path` | string | Slash-separated path, required per entry |
+| `portal_navigation.display_name` | string | Optional label for the path node |
+| `portal_navigation.order` | number | Optional display order relative to siblings at the same level |
+
+### Upgrade
+
+```hcl
+terraform {
+  required_providers {
+    apim = {
+      source  = "gravitee-io/apim"
+      version = "~> 1.1.0"
+    }
+  }
+}
+```
+
+Then run:
+
+```bash
+terraform init -upgrade
+terraform plan
+```
+
+### Compatibility
+
+| Provider version | APIM version | Capability |
+| --- | --- | --- |
+| **1.1.x** | **4.13.x / 4.12.x** | **Full**: all provider attributes, including the portal resources, are supported against the Automation API |
+| **1.1.x** | 4.9.x – 4.11.x | **Compatible**: existing configurations continue to work. The Automation API doesn't expose the portal endpoints on these versions |
+
+### Breaking changes
+
+Version 1.1.0 is additive. No resource schema attributes are removed or renamed.
+
+### Known limitations
+
+* APIM supports one Next-Gen Developer Portal per environment. Create one `apim_portal` resource per environment.
+
 ## 1.0.0
 
 **Terraform Registry:** [gravitee-io/apim](https://registry.terraform.io/providers/gravitee-io/apim/1.0.0)
@@ -38,7 +114,7 @@ Repository mirrors: `examples/use-cases/group-developers/`, `examples/use-cases/
 
 ### New and changed fields (by resource)
 
-Fields below are **new or changed since provider 0.5.x** (last widely used preview line). They are **additive** for Terraform state (no resource `schema_version` upgrade). Minimum APIM versions are indicative—validate against your Automation API deployment.
+Fields below are **new or changed since provider 0.5.x** (last widely used preview line). They are **additive** for Terraform state (no resource `schema_version` upgrade). Minimum APIM versions are indicative: validate against your Automation API deployment.
 
 #### `apim_apiv4` / `apim_apiv4` (data source)
 
@@ -60,7 +136,7 @@ Fields below are **new or changed since provider 0.5.x** (last widely used previ
 
 **Removed (see migration):** `metadata.hidden`
 
-**Unchanged (large nested areas):** `endpoint_groups`, `flows`, `listeners` (except `kafka.port`), `plans` (except Kafka broker fields), `pages`, `properties`, `members`, `services`, etc.—no other schema path removals since 0.5.x.
+**Unchanged (large nested areas):** `endpoint_groups`, `flows`, `listeners` (except `kafka.port`), `plans` (except Kafka broker fields), `pages`, `properties`, `members`, `services`, and others: no other schema path removals since 0.5.x.
 
 Resource reference: [apim_apiv4](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/apiv4)
 
@@ -68,7 +144,7 @@ Resource reference: [apim_apiv4](https://registry.terraform.io/providers/gravite
 
 | Attribute path | Change | Notes |
 | --- | --- | --- |
-| _(no new paths)_ | — | |
+| _(no new paths)_ | - | |
 | `metadata.hidden` | **Removed** | See migration |
 | `settings.tls.client_certificate` | **Deprecated** (unchanged since 0.5.x) | Migrate to `client_certificates` |
 
@@ -111,7 +187,7 @@ Resource reference: [apim_subscription](https://registry.terraform.io/providers/
 | `hrid`, `name`, `notify_members` | string / bool | |
 | `members` | list | |
 | `members.source`, `members.source_id` | string | IdP / memory source |
-| `members.roles` | map(string) | Scope → role |
+| `members.roles` | map(string) | Scope to role |
 | `environment_id`, `organization_id`, `id` | string | `id` computed |
 
 #### `apim_dictionary` _(new)_
@@ -154,20 +230,20 @@ Wording follows the style of the platform [support model](https://documentation.
 
 | Provider version | APIM version | Capability | Terraform / OpenTofu |
 | --- | --- | --- | --- |
-| **1.0.x** | **4.12.x** | **Full** — all provider attributes supported against Automation API | **1.9+** / latest OpenTofu ([registry](https://registry.terraform.io/providers/gravitee-io/apim/latest)) |
-| **1.0.x** | **4.9.x – 4.11.x** | **Compatible** — existing configurations continue to work; **new 1.0 attributes are not managed** (see [New fields](#new-and-changed-fields-by-resource)) | **1.9+** / latest OpenTofu |
-| **0.5.x** | 4.11.x (and 4.10.x / 4.9.x without newest API features) | **Best effort only** — no standard maintenance commitment | 1.9+ / latest |
+| **1.0.x** | **4.12.x** | **Full**: all provider attributes supported against Automation API | **1.9+** / latest OpenTofu ([registry](https://registry.terraform.io/providers/gravitee-io/apim/latest)) |
+| **1.0.x** | **4.9.x – 4.11.x** | **Compatible**: existing configurations continue to work. **New 1.0 attributes are not managed** (see [New fields](#new-and-changed-fields-by-resource)) | **1.9+** / latest OpenTofu |
+| **0.5.x** | 4.11.x (and 4.10.x / 4.9.x without newest API features) | **Best effort only**: no standard maintenance commitment | 1.9+ / latest |
 | **0.4.x** | 4.10.x / 4.9.x | **Best effort only** | 1.10+ / latest |
-| **0.3.x and below** | 4.8.x – 4.10.x | **Little to no support** — upgrade strongly recommended | Not part of standard tests |
+| **0.3.x and below** | 4.8.x – 4.10.x | **Little to no support**: upgrade strongly recommended | Not part of standard tests |
 
 #### Support policy
 
 | Provider line | Support level |
 | --- | --- |
-| **1.0.x** | **Standard maintenance** — bug fixes, security patches, and compatibility updates aligned with supported APIM minors. |
-| **0.5.x**, **0.4.x** | **Best effort only** — no guarantee of fixes; use only while blocked on migration to **1.0.x**. |
+| **1.0.x** | **Standard maintenance**: bug fixes, security patches, and compatibility updates aligned with supported APIM minors. |
+| **0.5.x**, **0.4.x** | **Best effort only**: no guarantee of fixes. Use only while blocked on migration to **1.0.x**. |
 
-> **Note:** Until the [Terraform documentation page](README.md) is updated for GA, the preview disclaimer (“tech preview”, “fixes mainly on latest”) applies to **0.x** lines only; **1.0.x** is the supported GA line.
+> **Note:** Until the [Terraform documentation page](README.md) is updated for GA, the preview disclaimer (“tech preview”, “fixes mainly on latest”) applies to **0.x** lines only. **1.0.x** is the supported GA line.
 
 
 ### Breaking changes & migration
@@ -182,7 +258,7 @@ Terraform **resource schema version remains 0**. There is **no automatic state u
 ^[a-zA-Z0-9][a-zA-Z0-9_-]+[a-zA-Z0-9]$
 ```
 
-Previously (0.5.x), values could **end with `-` or `_`** (e.g. `my-api-`, `api_v2_`).
+Previously (0.5.x), values could **end with `-` or `_`** (for example `my-api-`, `api_v2_`).
 
 **What users see** (example):
 
@@ -205,7 +281,7 @@ Attribute hrid value must be valid according to the regex pattern:
 2. Rename to a suffix that ends with a letter or digit (`my-api-v1`, `api_v2`).
 3. Because `hrid` uses **replace-on-change**, expect **destroy + create** for that Gravitee object unless you use a careful import/rename runbook.
 
-**Newly allowed:** HRIDs may **start with a digit** (e.g. `2api`) where the old rule required a leading letter.
+**Newly allowed:** HRIDs may **start with a digit** (for example `2api`) where the old rule required a leading letter.
 
 #### 2. `metadata.hidden` removed
 
@@ -214,16 +290,16 @@ Attribute hrid value must be valid according to the regex pattern:
 **What users see:**
 
 - **Usually no Terraform error** if `hidden` remains inside a `metadata { ... }` block. Terraform drops unknown nested object keys before the provider runs ([Terraform type-system behavior](https://github.com/hashicorp/terraform/issues/33570)).
-- **Silent behavior change:** `hidden = true` no longer affects the Management API; metadata may appear visible in Console when users expected otherwise.
+- **Silent behavior change:** `hidden = true` no longer affects the Management API. Metadata may appear visible in Console when users expected otherwise.
 
 **Migration:**
 
 - Remove all `hidden = ...` lines from `metadata` blocks (recommended for clarity).
-- Update modules and export pipelines; remove from examples such as:
+- Update modules and export pipelines, and remove from examples such as:
 
   ```hcl
   metadata {
-    hidden = false   # remove — ignored on 1.0.0
+    hidden = false   # remove: ignored on 1.0.0
     name   = "email-support"
     # ...
   }
@@ -233,7 +309,7 @@ Attribute hrid value must be valid according to the regex pattern:
 
 | Attribute | Resource | Action |
 | --- | --- | --- |
-| `settings.tls.client_certificate` | `apim_application` | Plan shows **deprecation** warning; migrate to `settings.tls.client_certificates` |
+| `settings.tls.client_certificate` | `apim_application` | Plan shows **deprecation** warning. Migrate to `settings.tls.client_certificates` |
 
 #### 4. Recommended migration checklist
 
@@ -244,7 +320,7 @@ Attribute hrid value must be valid according to the regex pattern:
 | 3 | Fix HRIDs that fail the new regex (see above). |
 | 4 | Remove `metadata.hidden` from all modules. |
 | 5 | Replace deprecated `client_certificate` where used. |
-| 6 | Run `terraform plan` in non-production; resolve validation errors before apply. |
+| 6 | Run `terraform plan` in non-production. Resolve validation errors before apply. |
 | 7 | Optionally adopt new resources/fields ([guides](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/guides)). |
 
 **Not required for 1.0.0:** `terraform state rm`, state surgery, or `schema_version` migration (unchanged).

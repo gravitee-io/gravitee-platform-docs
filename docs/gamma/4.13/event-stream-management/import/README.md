@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Register your existing Kafka infrastructure with Gamma so it can be governed, monitored, and composed into services. Start by registering a cluster.
 ---
 # Import
 

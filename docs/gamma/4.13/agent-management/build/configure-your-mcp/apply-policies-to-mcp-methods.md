@@ -21,5 +21,5 @@ To apply policies to a specific MCP method, complete the following steps:
     - **MCP methods.** Select one or more MCP methods to target, such as `tools/call`, `resources/list`, or `prompts/get`.
     - **Condition.** Enter an optional Expression Language condition that must evaluate to true for the flow to run.
 6. Select **Create**.
-7. In the **Request phase** or **Response phase**, select **Browse all...** or a suggested category button to open the **Add Policy** catalog. Choose a policy, and then add it to the phase.
+7. In the **Request Phase** or **Response Phase** section, click **Add policy**, and then select a policy from the list to add it to the phase. To open the full **Add Policy** catalog instead, click **Browse full catalog**.
 8. Select **Save** to persist your changes.

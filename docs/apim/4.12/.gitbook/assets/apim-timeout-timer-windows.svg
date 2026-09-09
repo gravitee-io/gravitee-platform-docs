@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 252" width="760" height="252" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" role="img">
+<title>Timer windows over one request, with the default values</title>
+<rect width="760" height="252" fill="#ffffff"/>
+<text x="380.0" y="22" text-anchor="middle" font-size="13" font-weight="600" fill="#1b1f24">Timer windows over one request, with the default values</text>
+<rect x="0" y="52" width="760" height="32" fill="#f7f8fa"/>
+<text x="112" y="72.0" text-anchor="end" font-size="11" fill="#656d76">Gateway</text>
+<text x="112" y="132.0" text-anchor="end" font-size="11" fill="#656d76">Connection</text>
+<rect x="0" y="172" width="760" height="40" fill="#f7f8fa"/>
+<text x="112" y="196.0" text-anchor="end" font-size="11" fill="#656d76">Request in flight</text>
+<line x1="124.0" y1="52" x2="124.0" y2="212" stroke="#d8dbdf" stroke-width="1"/>
+<line x1="220.6" y1="52" x2="220.6" y2="212" stroke="#d8dbdf" stroke-width="1"/>
+<line x1="317.3" y1="52" x2="317.3" y2="212" stroke="#d8dbdf" stroke-width="1"/>
+<line x1="413.9" y1="52" x2="413.9" y2="212" stroke="#d8dbdf" stroke-width="1"/>
+<line x1="510.5" y1="52" x2="510.5" y2="212" stroke="#d8dbdf" stroke-width="1"/>
+<line x1="607.2" y1="52" x2="607.2" y2="212" stroke="#d8dbdf" stroke-width="1"/>
+<line x1="703.8" y1="52" x2="703.8" y2="212" stroke="#d8dbdf" stroke-width="1"/>
+<line x1="201.3" y1="46" x2="201.3" y2="212" stroke="#656d76" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="124.0" y="58" width="193.3" height="18" rx="3" fill="#b9bcc4"/>
+<text x="220.6" y="71" text-anchor="middle" font-size="11" fill="#1b1f24">http.requestTimeout 30s</text>
+<rect x="124.0" y="90" width="32.2" height="18" rx="3" fill="#dc4c4c"/>
+<text x="163.2" y="103" font-size="11" fill="#1b1f24" stroke="#ffffff" stroke-width="3" paint-order="stroke">connectTimeout 5s</text>
+<rect x="156.2" y="118" width="386.5" height="18" rx="3" fill="#6f97dd"/>
+<text x="349.5" y="131" text-anchor="middle" font-size="11" fill="#ffffff">idleTimeout 60s</text>
+<rect x="201.3" y="146" width="193.3" height="18" rx="3" fill="#a9c2ea"/>
+<text x="297.9" y="159" text-anchor="middle" font-size="11" fill="#1b1f24">keepAliveTimeout 30s</text>
+<rect x="156.2" y="180" width="64.4" height="18" rx="3" fill="#dc4c4c"/>
+<text x="227.6" y="193" font-size="11" fill="#1b1f24" stroke="#ffffff" stroke-width="3" paint-order="stroke">readTimeout 10s, reset by data</text>
+<text x="207.3" y="43" font-size="11" fill="#656d76">Response complete</text>
+<line x1="124" y1="222" x2="736" y2="222" stroke="#656d76" stroke-width="1"/>
+<line x1="124.0" y1="222" x2="124.0" y2="227" stroke="#656d76" stroke-width="1"/>
+<text x="124.0" y="240" text-anchor="middle" font-size="10" fill="#656d76">0s</text>
+<line x1="220.6" y1="222" x2="220.6" y2="227" stroke="#656d76" stroke-width="1"/>
+<text x="220.6" y="240" text-anchor="middle" font-size="10" fill="#656d76">15s</text>
+<line x1="317.3" y1="222" x2="317.3" y2="227" stroke="#656d76" stroke-width="1"/>
+<text x="317.3" y="240" text-anchor="middle" font-size="10" fill="#656d76">30s</text>
+<line x1="413.9" y1="222" x2="413.9" y2="227" stroke="#656d76" stroke-width="1"/>
+<text x="413.9" y="240" text-anchor="middle" font-size="10" fill="#656d76">45s</text>
+<line x1="510.5" y1="222" x2="510.5" y2="227" stroke="#656d76" stroke-width="1"/>
+<text x="510.5" y="240" text-anchor="middle" font-size="10" fill="#656d76">60s</text>
+<line x1="607.2" y1="222" x2="607.2" y2="227" stroke="#656d76" stroke-width="1"/>
+<text x="607.2" y="240" text-anchor="middle" font-size="10" fill="#656d76">75s</text>
+<line x1="703.8" y1="222" x2="703.8" y2="227" stroke="#656d76" stroke-width="1"/>
+<text x="703.8" y="240" text-anchor="middle" font-size="10" fill="#656d76">90s</text>
+</svg>

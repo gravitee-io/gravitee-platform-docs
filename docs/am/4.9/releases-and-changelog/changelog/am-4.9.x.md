@@ -6,6 +6,50 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.31 - September 3, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* An application with no token endpoint authentication method set is refused when it authenticates with a client assertion [#11782](https://github.com/gravitee-io/issues/issues/11782)
+* TOTP enrollment – user redirected to OTP page after incomplete enrollment [#11787](https://github.com/gravitee-io/issues/issues/11787)
+
+**Management API**
+
+* Console login page returns 500 when an organization social identity provider cannot build a sign-in URL [#11771](https://github.com/gravitee-io/issues/issues/11771)
+
+
+
+
+
+</details>
+
+
+## Gravitee Access Management 4.9.30 - August 25, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Create setting to disable the reporter indexes management [#11712](https://github.com/gravitee-io/issues/issues/11712)
+* DefaultReporterUpgrader [#11716](https://github.com/gravitee-io/issues/issues/11716)
+* ClaimRequest mapping issue [#11736](https://github.com/gravitee-io/issues/issues/11736)
+* msg() expressions not resolved in "From name" of the MFA Challenge email template [#11756](https://github.com/gravitee-io/issues/issues/11756)
+
+</details>
+
+
 ## Gravitee Access Management 4.9.29 - August 7, 2026
 
 <details>

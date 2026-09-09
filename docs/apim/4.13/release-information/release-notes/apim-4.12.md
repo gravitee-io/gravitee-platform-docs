@@ -240,6 +240,12 @@ Automation API is not enabled by default. On premise Helm Charts users must enab
 * Requires `plan.security.apikey.allowCustomReuse.enabled=true` in the environment configuration and must be used with custom API keys enabled, configured with `plan.security.apikey.allowCustom.enabled=true`.
 * Paused API keys cannot be reused because their subscriptions remain active; only inactive keys are eligible for reuse.
 
+#### **Tenant Filter for Environment Logs**
+
+* From APIM 4.12.15, the [environment-level Logs](../../analyze-and-monitor-apis/logging/configure-environment-level-logs.md) page includes a **Tenant** filter.
+* Select one or more tenants. The log search returns only the entries recorded with a matching tenant.
+* Combine the Tenant filter with the other log filters to scope an investigation to the tenants you operate.
+
 ## Improvements
 
 #### **Policy Description Tracing**

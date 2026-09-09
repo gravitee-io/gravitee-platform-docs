@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Create a governed Kafka Service in the Gamma console with a standalone endpoint and a keyless plan. Follow the quickstart to get one running.
 ---
 # Create your first Kafka service
 

@@ -13,6 +13,8 @@ The `ManagementContext` custom resource is used to provide Gravitee Kubernetes O
 * Push API definitions managed by GKO to be published on the Gravitee Developer Portal
 * Push Applications managed by GKO to APIM
 
+GKO also uses this connection to validate resources before they are stored in your cluster: when a resource references a management context, GKO issues a dry-run call to APIM as part of admission. See [admission-validation.md](../admission-validation.md "mention").
+
 You can have any number of `ManagementContext` resources, each pointing to different Gravitee API Management organizations and environments.
 
 Management contexts are referenced by name from `ApiV4Definitions`, `ApiDefinitions`, and `Applications`. This is how GKO knows with which APIM environment each of these resources should be synchronized.

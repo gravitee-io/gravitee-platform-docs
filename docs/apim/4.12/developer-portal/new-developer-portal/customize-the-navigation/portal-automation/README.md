@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Next-Gen Developer Portal supports CI/CD-driven setup of portal structure, published APIs, and documentation through the Automation API. You declare portal configuration, navigation hierarchies, API listings, and documentation pages declaratively with Gravitee Kubernetes Operator (GKO) custom resources and APIM reconciles the desired state into the live portal navigation tree.
+The Next-Gen Developer Portal supports CI/CD-driven setup of portal structure, published APIs, and documentation through the Automation API. You declare portal configuration, navigation hierarchies, API listings, and documentation pages declaratively with Gravitee Kubernetes Operator (GKO) custom resources or with Gravitee Terraform provider resources. APIM reconciles the desired state into the live portal navigation tree.
 
 The Automation API supports Gravitee Markdown, OpenAPI, and AsyncAPI documentation types. External link navigation items remain a Console concern.
 
@@ -14,7 +14,7 @@ On premise Helm Charts users need to configure ingress configuration for `api.in
 You need to:
 
 * enable it
-* configure hosts & tls
+* configure `hosts` & `tls`
 {% endhint %}
 
 The Automation API is served at the `/automation` base path on your Management API host by default. All endpoints in this section use this base path.&#x20;
@@ -91,6 +91,7 @@ The `portalNavigation` field is portal-only metadata. It is not propagated to th
 * The `ENVIRONMENT_PORTAL` permission for portal, portal listing, and portal documentation operations
 * The `API_DOCUMENTATION` permission for API-scoped documentation operations
 * For Kubernetes deployments: Gravitee Kubernetes Operator installed
+* For Terraform deployments: the Gravitee Terraform provider, version 1.1.0 or later
 
 {% hint style="info" %}
 Resources can reference each other before all dependencies exist. Documentation pages and portal listings tolerate missing navigation paths, API HRIDs, and parent portals. Orphan entries reconnect when the referenced resource is created, so apply order does not matter.
@@ -188,6 +189,35 @@ spec:
 ```
 
 The GKO controller reconciles the desired state by calling the Automation API. Admission webhooks validate the resource before apply using the `dryRun` endpoint. The management context must resolve, and the navigation paths must pass validation: paths start with `/`, do not contain `//` or `..`, and do not end with `/` unless the path is root.
+
+### Using the Terraform provider
+
+1. Configure the Gravitee Terraform provider. For provider setup, see the [Quick Start Guide](../../../../terraform/quick-start-guide.md).
+2. Define an `apim_portal` resource with the HRID, display name, and navigation paths.
+3. Run `terraform apply`.
+
+**Example `apim_portal` resource:**
+
+```hcl
+resource "apim_portal" "default-portal" {
+  hrid = "default-portal"
+  name = "Default Portal"
+  navigation = [
+    {
+      path         = "/projects/alpha"
+      display_name = "Alpha"
+    },
+    {
+      path = "/projects/alpha/docs"
+    },
+    {
+      path = "/projects/beta"
+    }
+  ]
+}
+```
+
+The provider synchronizes the resource through the Automation API. Navigation entries accept a `path` and an optional `display_name`, and the order of entries in the list is preserved.
 
 ### Navigation path normalization
 

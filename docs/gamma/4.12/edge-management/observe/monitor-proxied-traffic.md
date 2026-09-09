@@ -1,6 +1,7 @@
 ---
 hidden: true
 noIndex: true
+description: Inspect traffic routed through the Edge Daemon, with request details, applied policies, and enforcement outcomes. Learn what the console shows.
 ---
 
 # Monitor your proxied traffic

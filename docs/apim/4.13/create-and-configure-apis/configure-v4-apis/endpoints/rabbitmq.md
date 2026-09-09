@@ -1,5 +1,5 @@
 ---
-description: An overview about rabbitmq.
+description: An overview about RabbitMQ.
 metaLinks:
   alternates:
     - rabbitmq.md
@@ -27,7 +27,11 @@ You can tell the Gravitee Gateway's RabbitMQ client to act as a producer, a cons
 
 * **Use Producer:** Tells the Gateway RabbitMQ client to be prepared to produce messages and send them to the RabbitMQ broker that you define as your endpoint
 * **Use Consumer:** Tells the Gateway RabbitMQ client to be prepared to consume messages from the RabbitMQ broker that you define as your endpoint
-* **Use Producer and Consumer:** Tells the Gateway RabbitMQ client to both **Use Producer** and **Use Consumer**
+* **Use Consumer and Producer:** Tells the Gateway RabbitMQ client to both **Use Producer** and **Use Consumer**
+
+{% hint style="info" %}
+When the Gateway acts as a producer, it publishes messages to the exchange and doesn't create or bind a queue. The Gateway creates a queue on RabbitMQ only when a client subscribes and the role is **Use Consumer** or **Use Consumer and Producer**. If the role is **Use Producer** only, no queue is created when a client subscribes. For the exchange and queue model, see [AMQP 0-9-1 concepts](https://www.rabbitmq.com/tutorials/amqp-concepts) in the RabbitMQ documentation.
+{% endhint %}
 
 ### 3. Initial security settings
 
@@ -57,9 +61,9 @@ You will define more Gravitee Gateway-specific security settings later on, but t
 
 ### 4. Role settings
 
-If you chose **Use Producer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway RabbitMQ client will rely on for producing messages to your backend RabbitMQ topic/broker.
+If you chose **Use Producer** or **Use Consumer and Producer**, you must define the settings that the Gravitee Gateway RabbitMQ client will rely on for producing messages to your backend RabbitMQ topic/broker.
 
-If you chose **Use Consumer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway RabbitMQ client will rely on for consuming messages from your backend RabbitMQ topic/broker.
+If you chose **Use Consumer** or **Use Consumer and Producer**, you must define the settings that the Gravitee Gateway RabbitMQ client will rely on for consuming messages from your backend RabbitMQ topic/broker.
 
 {% tabs %}
 {% tab title="Producer" %}

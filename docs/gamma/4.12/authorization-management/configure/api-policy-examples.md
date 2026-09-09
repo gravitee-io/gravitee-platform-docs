@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Govern API proxies, endpoints, and data fields with policy examples for scopes, rate limits, and tenant isolation. Adapt an example to your own APIs.
 ---
 
 # API policy examples

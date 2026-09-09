@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Establish parent-child hierarchies between resources so one policy covers a server and all of its tools. Follow the steps to set parents.
 ---
 
 # Build resource relationships

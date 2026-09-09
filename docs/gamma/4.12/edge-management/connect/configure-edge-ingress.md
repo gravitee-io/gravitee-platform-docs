@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Expose the Edge Reactor port on Kubernetes so Edge Daemons on employee devices reach the AI Gateway. Follow the steps to enable ingress in Helm.
 ---
 
 # Configure Edge Ingress

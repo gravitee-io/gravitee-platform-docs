@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Federate two Registered Clusters into a single unified endpoint with a Virtual Cluster. Follow the quickstart to compose and create one.
 ---
 # Create your first Virtual Cluster
 

@@ -169,6 +169,7 @@
   * [Policies](guides/flows/policies/README.md)
     * [Rate Limit Policy](guides/flows/policies/rate-limit-policy.md)
 * [Administration](guides/administration.md)
+* [Entrypoints](guides/entrypoints.md)
 * [Automation API](guides/automation-api.md)
 * [AM Expression Language](guides/am-expression-language.md)
 * [Developer Contributions](guides/developer-contributions.md)

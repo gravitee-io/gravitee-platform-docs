@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Link principals into parent-child hierarchies so that one policy can match every user in a group. Follow the steps to set and edit parents.
 ---
 
 # Build principal relationships

@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: A hybrid Gateway on one host talks to a Gravitee Cloud control plane. Compare the Docker Compose and Docker CLI methods and what each one runs.
 ---
 # Docker
 

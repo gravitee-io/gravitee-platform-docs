@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: How to configure the Edge Management settings, proxy routes, and shadow AI monitoring in the Gamma console.
+description: Set the Gateway URLs, proxy routes, and shadow AI monitoring for Edge Management in one place. Follow the steps to create and save a configuration.
 ---
 
 # Configure Edge Management

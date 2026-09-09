@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Already running Gravitee? Activate Gamma on your existing installation instead of installing from scratch. Choose the path for how you run it.
 ---
 # Get started for existing users
 

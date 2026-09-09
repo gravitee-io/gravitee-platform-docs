@@ -5,6 +5,218 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.19 - September 7, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* LLM proxy: alias consistency validation makes shared aliases impossible to introduce on an existing endpoint group [#11762](https://github.com/gravitee-io/issues/issues/11762)
+
+**Console**
+
+* LLM proxy: alias consistency validation makes shared aliases impossible to introduce on an existing endpoint group [#11762](https://github.com/gravitee-io/issues/issues/11762)
+
+**Other**
+
+* Promoting APIs that exist in the target env causes subscription errors [#11398](https://github.com/gravitee-io/issues/issues/11398)
+* Observability and Analytics sidebar navigation in console are broken [#11652](https://github.com/gravitee-io/issues/issues/11652)
+* Dynamic routing intermittently builds the upstream path from the previous dynamic-routing policy's capture group [#11653](https://github.com/gravitee-io/issues/issues/11653)
+* Groovy policy Internal Server Error [#11666](https://github.com/gravitee-io/issues/issues/11666)
+* Read-only APIM roles cannot view organization policies without write access [#11743](https://github.com/gravitee-io/issues/issues/11743)
+* Webhook / PUSH plan subscription fails during creation from Developer Portal [#11760](https://github.com/gravitee-io/issues/issues/11760)
+* Use X-Forwarded-For header option is not displayed in the policy configuration form [#11763](https://github.com/gravitee-io/issues/issues/11763)
+* OAS Validation policy rejects large JSON specifications because it parses them as YAML [#11772](https://github.com/gravitee-io/issues/issues/11772)
+* Endpoint Group information not visibile [#11776](https://github.com/gravitee-io/issues/issues/11776)
+* Organization users search with q= is still not stable across Management API instances [#11778](https://github.com/gravitee-io/issues/issues/11778)
+* Console SSO breaks on upgrade: org IdP enabled=false now blocks organization login, with no migration and a portal-only UI label [#11779](https://github.com/gravitee-io/issues/issues/11779)
+* API promotion workflow not working anymore [#11783](https://github.com/gravitee-io/issues/issues/11783)
+* Kafka consumer is not released when a WebSocket client disconnects [#11814](https://github.com/gravitee-io/issues/issues/11814)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* Webhook Logs: default none filter leads to unbounded search [#11746](https://github.com/gravitee-io/issues/issues/11746)
+
+**Other**
+
+* Kafka Gateway: allow a dedicated broker domain pattern for APIs backed by a Virtual Cluster [#11737](https://github.com/gravitee-io/issues/issues/11737)
+* FreeMarker error logged on OpenAPI documentation pages containing ${...} in their content [#11744](https://github.com/gravitee-io/issues/issues/11744)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.12.18 - August 31, 2026
+
+{% hint style="warning" %}
+There is a known issue with Console login in this version of APIM. The fix for [#11717](https://github.com/gravitee-io/issues/issues/11717) introduces a breaking change: the **Allow portal authentication to use this identity provider** toggle now also applies to Console login. An identity provider with that toggle turned off isn't listed on the Console login page, even when it's activated for the organization. Console login with that identity provider is rejected. If the **Show login form on management console** toggle is also turned off, the Console login page offers no way to log in.
+
+**Workaround if you can still open the Console:** open the organization's **Authentication** page, click the identity provider, and turn on **Allow portal authentication to use this identity provider**. If the identity provider is also activated for an environment, it appears on that environment's Developer Portal login page until you turn the toggle off again after upgrading.
+
+**Workaround if you can't open the Console:** sign in through Gravitee Cloud if your installation is connected to it. Otherwise, sign in with a local administrator account if the Console login form is shown. Then apply the workaround above. If neither is available, set `enabled` to `true` on that identity provider in the database, then sign in.
+
+**Fix:** available in version 4.12.19, which scopes the toggle back to Developer Portal login. After you upgrade, turn **Allow portal authentication to use this identity provider** off again for Console-only SSO. To turn an identity provider off for the Console, deactivate it on the organization's **Authentication** list. Don't use the portal toggle for that.
+{% endhint %}
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Intermittent 502 / GATEWAY_CLIENT_CONNECTION_ERROR on keep-alive reuse when upstream closes connection (no silent retry) [#11702](https://github.com/gravitee-io/issues/issues/11702)
+
+**Console**
+
+* Organization-level Identity Provider (IdP) "Disable" toggle only hides UI element, remains active in backend [#11717](https://github.com/gravitee-io/issues/issues/11717). This fix changes Console login behavior. See the [warning above](#gravitee-api-management-4.12.18-august-31-2026).
+
+**Portal**
+
+* Developer Portal — "Featured banner" not displaying on 4.12.1 (worked on 4.9.2) [#11751](https://github.com/gravitee-io/issues/issues/11751)
+
+**Event Stream Management**
+
+* Kafka Gateway: DescribeCluster on a virtual cluster bootstrap connection never answers [#11758](https://github.com/gravitee-io/issues/issues/11758)
+* Kafka Gateway: virtual cluster controllerId has two sources that diverge after a controller change [#11759](https://github.com/gravitee-io/issues/issues/11759)
+
+**Other**
+
+* Promotion on v4: Response template Status code set to 0 [#11605](https://github.com/gravitee-io/issues/issues/11605)
+* JMS endpoint: JNDI initial context factory resolved via TCCL, ignoring plugins/ext/jms libraries [#11701](https://github.com/gravitee-io/issues/issues/11701)
+* ClearTextUpgrade still defaults to true on new HTTP/1.1 endpoints [#11741](https://github.com/gravitee-io/issues/issues/11741)
+* Webhook entrypoint: OAuth2 token request is sent using the absolute-form request line, and is rejected by intermediate proxies [#11745](https://github.com/gravitee-io/issues/issues/11745)
+* Portal Next — login page not centered in Firefox [#11748](https://github.com/gravitee-io/issues/issues/11748)
+* policy-circuit-breaker opens on a single call and ignores interrupted calls [#11767](https://github.com/gravitee-io/issues/issues/11767)
+* Time-series analytics return buckets outside the requested window, shifting every point by one interval
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Support CORS configuration on LLM Proxy [#11699](https://github.com/gravitee-io/issues/issues/11699)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.12.17 - August 21, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* analytics/facets APPLICATION COUNT sum ≠ analytics/measures COUNT (stable on closed months) [#11693](https://github.com/gravitee-io/issues/issues/11693)
+
+**Other**
+
+* High cardinality of APM data due to transaction.name including concrete path values and query params [#11673](https://github.com/gravitee-io/issues/issues/11673)
+* Two dictionaries can share one runtime slot; removing either breaks the other until restart [#11674](https://github.com/gravitee-io/issues/issues/11674)
+* Metadata block export after v4 migration [#11726](https://github.com/gravitee-io/issues/issues/11726)
+* Rate Limit and Quota policies can be saved without a limit, causing every request to fail with a 500 [#11727](https://github.com/gravitee-io/issues/issues/11727)
+* Issue | Error parsing request header [#11730](https://github.com/gravitee-io/issues/issues/11730)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* API Runtime Logs: default Period to Last 5 Minutes instead of None [#11739](https://github.com/gravitee-io/issues/issues/11739)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.12.16 - August 18, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* \[V3 engine] X-Gravitee-Transaction-Id and X-Gravitee-Request-Id not set on gateway error responses (auth/IP-filter/quota) [#11657](https://github.com/gravitee-io/issues/issues/11657)
+
+**Console**
+
+* Console UI: Clicking any "Template to include" always opens the same template when multiple exist [#11711](https://github.com/gravitee-io/issues/issues/11711)
+
+**Other**
+
+* Terraform Drift [#11470](https://github.com/gravitee-io/issues/issues/11470)
+* Domain pattern properties are not available in case of multiple domains used [#11660](https://github.com/gravitee-io/issues/issues/11660)
+* Multiple applications can be created with the same client id [#11692](https://github.com/gravitee-io/issues/issues/11692)
+* Nil pointer panic in subscription webhook when Application/API has no context defined [#11722](https://github.com/gravitee-io/issues/issues/11722)
+* JMS endpoint: consumer never recovers after a broker connection loss, and IBM MQ auto-reconnect cannot be enabled as a workaround [#11731](https://github.com/gravitee-io/issues/issues/11731)
+* Gateway leaks one Vert.x NetClient per health check execution since 4.12
+* Registration email sent before approval, allowing pending users to set a password and then fail login
+* API Score Evaluate fails when many custom rulesets are configured (works if rules are merged into fewer files)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* leave XSLT parameters unbound when their expression resolves to no value [#11738](https://github.com/gravitee-io/issues/issues/11738)
+
+**Other**
+
+* \[APIM] Creating a service account without `lastname` via mAPI fails        with 500 instead of 400 [#11685](https://github.com/gravitee-io/issues/issues/11685)
+* Report the full upstream response time, so gateway latency reflects only gateway time [#11719](https://github.com/gravitee-io/issues/issues/11719)
+* Report a streaming response cut short under its own error key, with a message that names the timeout responsible [#11735](https://github.com/gravitee-io/issues/issues/11735)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.12.15 - August 12, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Native Kafka: dropping a record mid-fetch renumbers the offsets of the surviving records [#11714](https://github.com/gravitee-io/issues/issues/11714)
+
+**Management API**
+
+* MAPI v1 ApiConverter Incorrectly Deserializes V4 API Definitions, Causing Repeated Errors in Management API Logs [#11586](https://github.com/gravitee-io/issues/issues/11586)
+
+**Other**
+
+* API Key plan creation form pre-fills "API Key Header" with static "X-Gravitee-Api-Key" instead of the environment default [#11659](https://github.com/gravitee-io/issues/issues/11659)
+* Native Kafka API — a deprecated keyless plan doesn't prevent publishing a secure plan (and breaks the gateway) [#11683](https://github.com/gravitee-io/issues/issues/11683)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Report the full upstream response time, so gateway latency reflects only gateway time [#11719](https://github.com/gravitee-io/issues/issues/11719)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.14 - August 7, 2026
 <details>
 
@@ -14,6 +226,10 @@ noIndex: false
 
 * Unable to update membership groups across multiple environments after upgrade [#11656](https://github.com/gravitee-io/issues/issues/11656)
 * \[Gamma/AIM] LLM Proxy with provider OPEN_AI_COMPATIBLE shows no models — LlmRequestFormat enum is narrower than the llm-proxy connector's [#11677](https://github.com/gravitee-io/issues/issues/11677)
+* No data on Observability dashboards for API_PUBLISHER [#11651](https://github.com/gravitee-io/issues/issues/11651)
+* Reporting is disabled banner is always present [#11658](https://github.com/gravitee-io/issues/issues/11658)
+* APIM 4.12.9 bundles pre-Vert.x-5 fetcher plugins (gitlab/github/bitbucket) → NoSuchMethodError on any fetcher-backed page write [#11667](https://github.com/gravitee-io/issues/issues/11667)
+
 
 **Portal**
 

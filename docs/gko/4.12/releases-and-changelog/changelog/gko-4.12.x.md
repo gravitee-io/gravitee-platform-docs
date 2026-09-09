@@ -1,5 +1,54 @@
 # GKO 4.12.x
 
+## Gravitee Kubernetes Operator 4.12.18 - September 2, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * GKO Enquiry related to Dotted metadata.name on a Subscription reconciles on GKO 4.11.19 but fails on 4.12.10. from akhil.kumar@graviteesource.com [#11769](https://github.com/gravitee-io/issues/issues/11769)
+  * The GKO admission webhook for ApiV4Definition does not check that an endpoint set to inherit configuration [#11747](https://github.com/gravitee-io/issues/issues/11747)
+
+</details>
+
+
+## Gravitee Kubernetes Operator 4.12.17 - August 24, 2026
+
+There is nothing new in version 4.12.17.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.12.16 - August 20, 2026
+
+There is nothing new in version 4.12.16.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.12.15 - August 12, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **Others**
+
+  * GKO webhook timeout should follow the httpClient timeout [#11720](https://github.com/gravitee-io/issues/issues/11720)
+
+</details>
+
+
+<details>
+<summary>Improvements</summary>
+
+  **Others**
+
+  * GKO docs - document a webhook request roundtrip so that trouble shooting is easier [#11721](https://github.com/gravitee-io/issues/issues/11721)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.12.14 - August 11, 2026
 
 There is nothing new in version 4.12.14.

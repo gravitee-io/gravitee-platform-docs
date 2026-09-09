@@ -1,9 +1,7 @@
 ---
-description: >-
-  View, create, and manage the consumer applications that subscribe to your API
-  plans from the Applications page in the Gamma console.
 hidden: false
 noIndex: false
+description: View, create, and manage the consumer applications that subscribe to your API plans. Follow the steps to work with them on the Applications page.
 ---
 
 # Manage applications
@@ -61,5 +59,4 @@ Select an application from the list to open its detail page, which contains the 
 
 ## Next steps
 
-* [Manage resources](manage-resources.md). Configure shared resources used across your APIs.
 * [Establish consumer access](../api-management/build/configure-your-api-proxy/establish-consumer-access.md). Configure subscriptions between applications and API plans.

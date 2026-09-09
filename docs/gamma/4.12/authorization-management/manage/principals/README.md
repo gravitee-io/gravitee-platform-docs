@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Sync principals from Access Management, create local ones, and give them attributes and relationships. Start with how your identities arrive.
 ---
 
 # Manage principals

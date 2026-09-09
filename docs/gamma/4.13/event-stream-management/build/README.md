@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Create and configure governed Kafka Services and Virtual Clusters on top of your registered Kafka infrastructure. Start with the service you need.
 ---
 
 # Build

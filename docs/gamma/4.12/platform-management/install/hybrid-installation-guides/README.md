@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: In a hybrid Gamma deployment, Gravitee hosts the control plane and you run the Gateway. Choose a Docker or Kubernetes deployment method.
 ---
 # Hybrid installation guides
 

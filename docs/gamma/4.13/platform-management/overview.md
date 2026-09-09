@@ -1,8 +1,5 @@
 ---
-description: >-
-  Gravitee Gamma unifies API Management, Event Stream Management, Agent
-  Management, and Authorization Management under a shared catalog, authorization
-  engine, and enforcement architecture.
+description: Gravitee Gamma governs, secures, and observes API, event stream, and AI agent traffic from one platform. Learn why it exists and how it works.
 ---
 
 # Overview

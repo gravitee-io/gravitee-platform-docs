@@ -119,7 +119,27 @@ Use these parameters to configure the Gateway API controller. The Gateway API co
 
 The Gateway API controller requires cluster-scoped installation. When enabling the Gateway API controller, you must set `manager.scope.cluster=true` and cannot define specific namespaces. This is because the GatewayClass resource is cluster-scoped.
 
-<table><thead><tr><th width="237.80078125">Name</th><th width="287.828125">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>gatewayAPI.controller.enabled</code></td><td>Enables the Gateway API controller. Requires <code>manager.scope.cluster=true</code>.</td><td><code>false</code></td></tr></tbody></table>
+<table>
+    <thead>
+        <tr>
+            <th width="237.80078125">Name</th>
+            <th width="287.828125">Description</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>gatewayAPI.controller.enabled</code></td>
+            <td>Enables the Gateway API controller. Requires <code>manager.scope.cluster=true</code>.</td>
+            <td><code>false</code></td>
+        </tr>
+        <tr>
+            <td><code>gatewayAPI.controller.matchAcrossRoutes</code></td>
+            <td>If true, HTTPRoute resources with overlapping context paths on the same Gateway are merged into a single API definition, so matching works across routes. Merging changes the name of the generated API. Available from GKO 4.12.11.</td>
+            <td><code>false</code></td>
+        </tr>
+    </tbody>
+</table>
 
 For example:
 

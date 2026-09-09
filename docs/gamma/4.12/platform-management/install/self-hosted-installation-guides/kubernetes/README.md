@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Run the full Gamma stack on Kubernetes with the Gravitee Helm chart, datastores included. Pick the guide that matches the cluster you operate.
 ---
 # Kubernetes
 

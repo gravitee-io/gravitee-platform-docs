@@ -15,7 +15,7 @@ The Gravitee APIM Enterprise Edition requires a [license](https://documentation.
 
 ## Global Enterprise Features
 
-These capabilities provide foundational security, observability, and administrative control across your entire Gravitee deployment, regardless of the specific APIs or events you manage.
+These enterprise-only capabilities provide foundational security, observability, and administrative control across your entire Gravitee deployment, regardless of the specific APIs or events you manage.
 
 | Category   | Feature                                                                                                                                      | Description                                                                                                                                                         |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ These capabilities provide foundational security, observability, and administrat
 | Core       | [Dynamic Client Registration (DCR)](../how-to-guides/use-case-tutorials/configure-dcr.md)                                                    | Allow OAuth client applications to register seamlessly with an OAuth server through the OpenID Connect (OIDC) endpoint.                                             |
 | Core       | [Enterprise OpenID Connect SSO](../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/openid-connect.md) | Centralize user authentication using OpenID Connect Single Sign-On across your API Management platform.                                                             |
 | Core       | [Sharding Tags](../configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md)                                                      | Control exactly where an API is deployed. Tag specific Gateways with keywords and select the corresponding tag in the API's proxy settings to route the deployment. |
-| Reporter   | [Cloud Reporter](../analyze-and-monitor-apis/reporters/README.md)                                                                                     | Expose a secure endpoint for analytics propagated from a Gravitee Gateway to Elastic storage.                                                                       |
+| Reporter   | [Cloud Reporter](../analyze-and-monitor-apis/reporters/)                                                                                     | Expose a secure endpoint for analytics propagated from a Gravitee Gateway to Elastic storage.                                                                       |
 | Reporter   | [Datadog Reporter](../../4.9/analyze-and-monitor-apis/reporters/datadog-reporter.md)                                                         | Send Gravitee API metrics directly to your Datadog instance for advanced dashboarding and observability.                                                            |
 | Reporter   | [TCP Reporter](../analyze-and-monitor-apis/reporters/tcp-reporter.md)                                                                        | Stream Gateway events and metrics to a dedicated TCP listening server for custom monitoring integrations.                                                           |
 | Repository | Bridge Gateway / HTTP Client                                                                                                                 | Deploy a repository proxy to synchronize data over HTTP, securing your database by avoiding direct external connections.                                            |
@@ -34,7 +34,7 @@ These capabilities provide foundational security, observability, and administrat
 
 ## API Management
 
-Secure, optimize, and manage enterprise REST API traffic using advanced policies and standard HTTP protocols.
+The following enterprise-only capabilities provide features to secure, optimize, and manage enterprise REST API traffic using advanced policies and standard HTTP protocols.
 
 | Category    | Feature                                                                                                      | Description                                                                                                                         |
 | ----------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -48,7 +48,7 @@ Secure, optimize, and manage enterprise REST API traffic using advanced policies
 
 ## Event Management
 
-Mediate, expose, and secure asynchronous event streams by connecting to advanced messaging brokers and exposing APIs via event-driven entrypoints.
+The following enterprise-only capabilities provide features to mediate, expose, and secure asynchronous event streams by connecting to advanced messaging brokers and exposing APIs via event-driven entrypoints.
 
 | Category   | Feature                                                                                                      | Description                                                                                                        |
 | ---------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
@@ -58,7 +58,7 @@ Mediate, expose, and secure asynchronous event streams by connecting to advanced
 | Entrypoint | [WebSocket](../../4.9/create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md)                  | Send and retrieve streamed events and messages in real time using the WebSocket protocol.                          |
 | Endpoint   | [Azure Service Bus](../create-and-configure-apis/configure-v4-apis/endpoints/azure-service-bus.md)           | Publish and subscribe to events in Azure Service Bus via HTTP and WebSocket mediation.                             |
 | Endpoint   | [Kafka](../create-and-configure-apis/configure-v4-apis/endpoints/kafka.md)                                   | Publish and subscribe to Kafka events using HTTP and WebSocket mediation.                                          |
-| Endpoint   | [MQTT5](../create-and-configure-apis/configure-v4-apis/endpoints/mqtt5.md)                                   | Publish and subscribe to messages on an MQTT 5.x broker (for example, HiveMQ and Mosquitto).                                 |
+| Endpoint   | [MQTT5](../create-and-configure-apis/configure-v4-apis/endpoints/mqtt5.md)                                   | Publish and subscribe to messages on an MQTT 5.x broker (for example, HiveMQ and Mosquitto).                       |
 | Endpoint   | [RabbitMQ](../create-and-configure-apis/configure-v4-apis/endpoints/rabbitmq.md)                             | Communicate seamlessly with a RabbitMQ resource using the AMQP 0-9-1 protocol.                                     |
 | Endpoint   | [Solace](../create-and-configure-apis/configure-v4-apis/endpoints/solace.md)                                 | Publish and subscribe to messages on a Solace broker using the SMF protocol.                                       |
 | Endpoint   | [JMS](../create-and-configure-apis/configure-v4-apis/endpoints/jms.md)                                       | Publish and subscribe to JMS messages from compliant brokers such as ActiveMQ, IBM MQ, and Solace.                 |
@@ -66,14 +66,15 @@ Mediate, expose, and secure asynchronous event streams by connecting to advanced
 
 ## AI Agent Management
 
-Govern and manage the communication protocols required for building and securing AI agents.
+The following enterprise-only capabilities provide features to govern and manage the communication protocols required for building and securing AI agents.
 
-| Category   | Feature        | Description                                                                                                        |
-| ---------- | -------------- | ------------------------------------------------------------------------------------------------------------------ |
-| Reactor    | A2A Proxy      | Dedicated V4 API type that enables agent-to-agent communication through the Gravitee API Management platform.      |
-| Entrypoint | Agent to Agent | Support Google's Agent-to-Agent (A2A) protocol using SSE, HTTP GET, or HTTP POST methods for client consumption.   |
-| Endpoint   | Agent to Agent | Support Google's Agent-to-Agent (A2A) protocol using SSE, HTTP GET, or HTTP POST methods for backend connectivity. |
-| Entrypoint | MCP Tool Server | Expose a v4 HTTP proxy API as a Model Context Protocol (MCP) Tool Server so that AI agents can call its operations as tools. |
+| Category            | Feature         | Description                                                                                                                                                                                                                                                 |
+| ------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Reactor             | A2A Proxy       | Dedicated V4 API type that enables agent-to-agent communication through the Gravitee API Management platform.                                                                                                                                               |
+| Entrypoint          | Agent to Agent  | Support Google's Agent-to-Agent (A2A) protocol using SSE, HTTP GET, or HTTP POST methods for client consumption.                                                                                                                                            |
+| Entrypoint/Endpoint | LLM Proxy       | Exposes a single OpenAI-compatible API to consumers while routing requests to any backend LLM provider, with centralized security, token rate limiting, cost controls, and observability built in.                                                          |
+| Entrypoint/Endpoint | MCP Proxy       | The Gravitee MCP Proxy is a protocol-native gateway that sits in front of upstream MCP servers, applying authentication, fine-grained authorization, rate limiting, and observability to every agent tool invocation without modifying the upstream server. |
+| Entrypoint          | MCP Tool Server | Expose a v4 HTTP proxy API as a Model Context Protocol (MCP) Tool Server so that AI agents can call its operations as tools.                                                                                                                                |
 
 ## Alert Engine
 
@@ -81,10 +82,10 @@ Configure and manage proactive alerts across your entire API Management platform
 
 ## Hosting Options
 
-Gravitee EE is an investment in deployment flexibility. Choose the deployment model that best aligns with your internal infrastructure, security, and operational constraints:
+Gravitee Enterprise Edition (EE) is an investment in deployment flexibility. Choose the deployment model that best aligns with your internal infrastructure, security, and operational constraints:
 
 | Category   | Feature                                                                                                                | Description                                                                                                                                                             |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Deployment | [SaaS deployments](https://app.gitbook.com/s/QiHAMRWybFsowkRWSjCc/getting-started/getting-started-with-gravitee-cloud) | Let Gravitee fully host, manage, scale, and maintain all APIM components within its own enterprise-grade cloud environment, minimizing your operational overhead.       |
-| Deployment | [Hybrid deployments](../hybrid-installation-and-configuration-guides/README.md)                                                 | Gravitee hosts and manages the Control Plane within its cloud environment, while you securely host and manage the Gateway (data plane) within your own private network. |
-| Deployment | [Fully self-hosted deployments](../self-hosted-installation-guides/README.md)                                                   | Install and host APIM within your own private cloud/environment.                                                                                                        |
+| Deployment | [Hybrid deployments](../hybrid-installation-and-configuration-guides/)                                                 | Gravitee hosts and manages the Control Plane within its cloud environment, while you securely host and manage the Gateway (data plane) within your own private network. |
+| Deployment | [Fully self-hosted deployments](../self-hosted-installation-guides/)                                                   | Install and host APIM within your own private cloud/environment.                                                                                                        |

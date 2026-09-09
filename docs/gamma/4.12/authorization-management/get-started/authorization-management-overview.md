@@ -1,7 +1,7 @@
 ---
-description: Learn how Authorization Management enforces fine-grained, catalog-aware access control across Gamma traffic using GAPL policies.
 hidden: false
 noIndex: false
+description: Authorization Management enforces fine-grained, catalog-aware access control across API, MCP, AI model, and agent traffic. Learn how the pieces connect.
 ---
 
 # Authorization Management overview

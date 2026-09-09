@@ -1,5 +1,7 @@
 ---
-description: Configure the Kafka endpoint connector for v4 Message APIs, including security, producer and consumer settings, and dynamic configuration.
+description: >-
+  Configure the Kafka endpoint connector for v4 Message APIs, including
+  security, producer and consumer settings, and dynamic configuration.
 metaLinks:
   alternates:
     - kafka.md
@@ -14,7 +16,7 @@ The Kafka endpoint **mediates the protocol** between the Kafka cluster and the c
 {% hint style="info" %}
 This page covers the **Kafka endpoint connector**, which mediates between HTTP-based entrypoints and a Kafka cluster (protocol mediation). The configuration options, record metadata, and attribute keys documented on this page apply to v4 Message APIs that attach this connector.
 
-To proxy a Kafka cluster using the native Kafka protocol (over TCP), use the [Gravitee Kafka Gateway](../../../kafka-gateway/README.md) instead. The attribute keys on this page have no effect on Kafka APIs built on the Kafka Gateway.
+To proxy a Kafka cluster using the native Kafka protocol (over TCP), use the [Gravitee Kafka Gateway](../../../kafka-gateway/) instead. The attribute keys on this page have no effect on Kafka APIs built on the Kafka Gateway.
 {% endhint %}
 
 This page discusses the [configuration](kafka.md#configuration) and [implementation](kafka.md#implementation) of the Kafka endpoint and includes a [reference](kafka.md#reference) section.
@@ -23,10 +25,10 @@ This page discusses the [configuration](kafka.md#configuration) and [implementat
 
 Native Kafka APIs support the following two routing strategies, controlled by the gateway configuration property `kafka.routingMode`:
 
-- **Host routing (SNI-based):** Uses a single bootstrap port for all APIs and routes traffic based on the hostname in the TLS handshake. This is the default mode when `kafka.routingMode` is unset or unrecognized.
-- **Port routing:** Assigns each plan a dedicated bootstrap port and broker port range, routing traffic based on the destination port. This mode allows multiple Kafka APIs to coexist on the same gateway instance without requiring distinct hostnames.
+* **Host routing (SNI-based):** Uses a single bootstrap port for all APIs and routes traffic based on the hostname in the TLS handshake. This is the default mode when `kafka.routingMode` is unset or unrecognized.
+* **Port routing:** Assigns each plan a dedicated bootstrap port and broker port range, routing traffic based on the destination port. This mode allows multiple Kafka APIs to coexist on the same gateway instance without requiring distinct hostnames.
 
-Port routing is designed for environments where SNI-based routing is impractical or unavailable. To enable port routing, set `kafka.routingMode=port` in the gateway configuration. For detailed configuration and usage instructions, refer to the [Kafka Gateway documentation](../../../kafka-gateway/README.md).
+Port routing is designed for environments where SNI-based routing is impractical or unavailable. To enable port routing, set `kafka.routingMode=port` in the gateway configuration. For detailed configuration and usage instructions, refer to the [Kafka Gateway documentation](../../../kafka-gateway/).
 
 ## Configuration
 
@@ -176,7 +178,9 @@ The only supported method for targeting a specific partition is to define a key 
 
 Repeated use of the same key on each message guarantees that messages are relegated to the same partition and order is maintained. Gravitee does not support overriding this mechanism to manually set the partition.
 
-To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` can be set on the message, in an [Assign Attributes](../../apply-policies/policy-reference/assign-attributes.md) policy in the Publish flow.
+To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` can be set on the message, in an [Assign Attributes](../../apply-policies/policy-reference/assign-attributes.md) policy in the Publish flow (see example in screenshot below).
+
+<figure><img src="../../../.gitbook/assets/kafka-recordkey-assign-attributes-example-screenshot.png" alt="" width="375"><figcaption><p>Example: Assign Attributes policy configured to extract the key from the <code>X-Kafka-Key</code> header and set the <code>gravitee.attribute.kafka.recordKey</code> value</p></figcaption></figure>
 
 A shared producer is created by the endpoint and reused for all requests with that same configuration. The producer configuration includes the **ClientId**, **Topic**, and **Partitioning**. The client ID is generated for the producer in the format `gio-apim-producer-<first part of uuid>`, for example, `gio-apim-producer-a0eebc99`
 
@@ -371,11 +375,11 @@ curl https://${GATEWAY_HOST}:8082/messages/get?cursor=${LAST_ID}
 
 When the Gateway's Kafka client fails, the endpoint reports a fixed failure message and error template key instead of the message the Kafka client produced:
 
-| Error template key                       | Status | Failure message                | Reported when                                                                            |
-| ---------------------------------------- | ------ | ------------------------------ | ---------------------------------------------------------------------------------------- |
-| `FAILURE_ENDPOINT_CONNECTION_CLOSED`     | `500`  | Endpoint connection closed     | The connection between the Gateway and the cluster closed.                               |
-| `FAILURE_ENDPOINT_CONFIGURATION_INVALID` | `500`  | Endpoint configuration invalid | The endpoint configuration is rejected, including SASL and SSL authentication failures.  |
-| `RECORD_TOO_LARGE`                       | `400`  | Record too large               | A record exceeds the maximum request size accepted by the producer or the broker.        |
+| Error template key                       | Status | Failure message                | Reported when                                                                             |
+| ---------------------------------------- | ------ | ------------------------------ | ----------------------------------------------------------------------------------------- |
+| `FAILURE_ENDPOINT_CONNECTION_CLOSED`     | `500`  | Endpoint connection closed     | The connection between the Gateway and the cluster closed.                                |
+| `FAILURE_ENDPOINT_CONFIGURATION_INVALID` | `500`  | Endpoint configuration invalid | The endpoint configuration is rejected, including SASL and SSL authentication failures.   |
+| `RECORD_TOO_LARGE`                       | `400`  | Record too large               | A record exceeds the maximum request size accepted by the producer or the broker.         |
 | `FAILURE_TOPIC_NOT_FOUND`                | `404`  | Topics not found               | **Check Topic Existence** is enabled and a configured topic doesn't exist on the cluster. |
 | `FAILURE_ENDPOINT_UNKNOWN_ERROR`         | `500`  | Endpoint unknown error         | Any other failure, including broker-side errors that don't match a case above.            |
 

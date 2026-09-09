@@ -8,6 +8,13 @@ metaLinks:
 
 # Changelogs
 <!--INSERT_BELOW-->
+## v1.0.1
+
+### Bug fixes
+
+* `apiv4` resource `response_templates.*.*.headers` set to `{}` causes perpetual plan drift [11703](https://github.com/gravitee-io/issues/issues/11703)
+* Groovy policy deprecated `request` field default value causes perpetual plan drift [11470](https://github.com/gravitee-io/issues/issues/11470)
+
 ## v1.0.0
 
 ### Features

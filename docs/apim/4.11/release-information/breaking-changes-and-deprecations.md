@@ -15,6 +15,28 @@ Here are the breaking changes for versions 4.X of Gravitee and versions 3.X of G
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+#### 4.11.27
+
+**The Gateway no longer advertises its truststore during the TLS handshake**
+
+From 4.11.27, the Gateway sends an empty list of acceptable certificate authorities in the TLS `CertificateRequest` it issues when `ssl.clientAuth` is `request` or `required`. Previously, it sent every certificate in its truststore.
+
+This closes an information disclosure. With an mTLS plan, the Gateway loads each subscribed application's client certificate into an in-memory truststore. Those certificates are end-entity leaves, not certificate authorities, and the Gateway advertised them to every client of the listener, including callers of the listener's other APIs who present no certificate at all. Anyone opening a TLS connection could read the distinguished names of the client identities the Gateway accepts.
+
+Client certificate validation is unchanged. The full truststore still validates incoming certificates, so mTLS plan matching and subscription behavior are unaffected. An empty list means "no constraint", so clients continue to present their certificate.
+
+The change affects only clients that relied on the advertised list to choose which certificate to present. A client holding several client certificates, typically a Java client with more than one key entry in its keystore, may now present the wrong one and be rejected. If that applies to you, set `ssl.sendClientCertificateAuthorities` to `true` on the affected listener to send the configured truststore again:
+
+```yaml
+http:
+  ssl:
+    sendClientCertificateAuthorities: true
+```
+
+Don't enable it on a listener that serves mTLS plans. A non-empty list is a constraint, not a hint: a client whose certificate issuer is absent from it withholds its certificate entirely. Subscription certificates are self-signed leaves that are never issued by an authority of the configured truststore, so enabling this cuts off every mTLS subscription on that listener. Certificates registered by subscriptions are never advertised, whatever the setting.
+
+For the full option reference, see [Control which certificate authorities the Gateway advertises](../prepare-a-production-environment/configure-your-http-server.md#control-which-certificate-authorities-the-gateway-advertises).
+
 #### 4.11.14
 
 **API Key policy: the header name set on a plan takes precedence over the Gateway setting**

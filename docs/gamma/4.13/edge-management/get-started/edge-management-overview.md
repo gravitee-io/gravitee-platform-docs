@@ -4,6 +4,7 @@ description: >-
   gateway-side endpoints it connects to.
 hidden: false
 noIndex: false
+description: The Edge Daemon observes AI traffic on employee devices, enforces local policy, and forwards it to the AI Gateway. Learn how it routes traffic.
 ---
 
 # Edge Daemon

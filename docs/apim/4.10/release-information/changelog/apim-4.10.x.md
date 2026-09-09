@@ -1,5 +1,103 @@
 # APIM 4.10.x
  
+## Gravitee API Management 4.10.30 - September 7, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Promoting APIs that exist in the target env causes subscription errors [#11398](https://github.com/gravitee-io/issues/issues/11398)
+* Dynamic routing intermittently builds the upstream path from the previous dynamic-routing policy's capture group [#11653](https://github.com/gravitee-io/issues/issues/11653)
+* Read-only APIM roles cannot view organization policies without write access [#11743](https://github.com/gravitee-io/issues/issues/11743)
+* Use X-Forwarded-For header option is not displayed in the policy configuration form [#11763](https://github.com/gravitee-io/issues/issues/11763)
+* OAS Validation policy rejects large JSON specifications because it parses them as YAML [#11772](https://github.com/gravitee-io/issues/issues/11772)
+* Organization users search with q= is still not stable across Management API instances [#11778](https://github.com/gravitee-io/issues/issues/11778)
+* Console SSO breaks on upgrade: org IdP enabled=false now blocks organization login, with no migration and a portal-only UI label [#11779](https://github.com/gravitee-io/issues/issues/11779)
+* API promotion workflow not working anymore [#11783](https://github.com/gravitee-io/issues/issues/11783)
+* Kafka consumer is not released when a WebSocket client disconnects [#11814](https://github.com/gravitee-io/issues/issues/11814)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* Webhook Logs: default none filter leads to unbounded search [#11746](https://github.com/gravitee-io/issues/issues/11746)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.10.29 - August 31, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Organization-level Identity Provider (IdP) "Disable" toggle only hides UI element, remains active in backend [#11717](https://github.com/gravitee-io/issues/issues/11717)
+
+**Other**
+
+* Kafka Gateway - ACL & Topic mapping causing TOPIC_AUTHORIZATION_FAILED [#11177](https://github.com/gravitee-io/issues/issues/11177)
+* Promotion on v4: Response template Status code set to 0 [#11605](https://github.com/gravitee-io/issues/issues/11605)
+* ClearTextUpgrade still defaults to true on new HTTP/1.1 endpoints [#11741](https://github.com/gravitee-io/issues/issues/11741)
+* Webhook entrypoint: OAuth2 token request is sent using the absolute-form request line, and is rejected by intermediate proxies [#11745](https://github.com/gravitee-io/issues/issues/11745)
+* Portal Next — login page not centered in Firefox [#11748](https://github.com/gravitee-io/issues/issues/11748)
+* Time-series analytics return buckets outside the requested window, shifting every point by one interval
+
+</details>
+
+
+ 
+## Gravitee API Management 4.10.28 - August 21, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* \[V3 engine] X-Gravitee-Transaction-Id and X-Gravitee-Request-Id not set on gateway error responses (auth/IP-filter/quota) [#11657](https://github.com/gravitee-io/issues/issues/11657)
+* Native Kafka: dropping a record mid-fetch renumbers the offsets of the surviving records [#11714](https://github.com/gravitee-io/issues/issues/11714)
+
+**Console**
+
+* analytics/facets APPLICATION COUNT sum ≠ analytics/measures COUNT (stable on closed months) [#11693](https://github.com/gravitee-io/issues/issues/11693)
+* Console UI: Clicking any "Template to include" always opens the same template when multiple exist [#11711](https://github.com/gravitee-io/issues/issues/11711)
+
+**Other**
+
+* Terraform Drift [#11470](https://github.com/gravitee-io/issues/issues/11470)
+* API promotion fails with DuplicateKeyException on apim_promotions [#11591](https://github.com/gravitee-io/issues/issues/11591)
+* High cardinality of APM data due to transaction.name including concrete path values and query params [#11673](https://github.com/gravitee-io/issues/issues/11673)
+* Two dictionaries can share one runtime slot; removing either breaks the other until restart [#11674](https://github.com/gravitee-io/issues/issues/11674)
+* Multiple applications can be created with the same client id [#11692](https://github.com/gravitee-io/issues/issues/11692)
+* kafka-acl 3.0.2 causes gateway OOM: ACL matching structure rebuilt per Kafka connection instead of shared [#11706](https://github.com/gravitee-io/issues/issues/11706)
+* Nil pointer panic in subscription webhook when Application/API has no context defined [#11722](https://github.com/gravitee-io/issues/issues/11722)
+* Metadata block export after v4 migration [#11726](https://github.com/gravitee-io/issues/issues/11726)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* leave XSLT parameters unbound when their expression resolves to no value [#11738](https://github.com/gravitee-io/issues/issues/11738)
+* API Runtime Logs: default Period to Last 5 Minutes instead of None [#11739](https://github.com/gravitee-io/issues/issues/11739)
+
+**Other**
+
+* \[APIM] Creating a service account without `lastname` via mAPI fails        with 500 instead of 400 [#11685](https://github.com/gravitee-io/issues/issues/11685)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.10.27 - August 7, 2026
 <details>
 

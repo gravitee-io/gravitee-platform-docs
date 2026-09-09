@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Govern MCP servers, tools, and prompts with policy examples for group access, time windows, and device trust. Adapt an example to your own servers.
 ---
 
 # MCP policy examples

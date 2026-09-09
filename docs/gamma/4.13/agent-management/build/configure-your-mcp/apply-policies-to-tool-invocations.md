@@ -17,6 +17,6 @@ To apply policies to a specific tool invocation:
 3. In the sidebar, select **Policy Studio**.
 4. Under **MCP Method Flows**, select **Add MCP method flow**.
 5. Enter a **Flow name**, and then select the **`tools/call`** MCP method. To scope the flow to a single tool, add a **Condition** that matches the tool name, for example `{#context.attributes['mcp_tool_name'] == 'database_query'}`. Select **Create**.
-6. In the flow's **Request** or **Response** phase, select **Browse all**, or a category such as **+ Security**, to open the **Add Policy** catalog. Search for and select the policy you want to apply.
+6. In the **Request Phase** or **Response Phase** section of the flow, click **Add policy**, and then search for and select the policy you want to apply. To open the full **Add Policy** catalog instead, click **Browse full catalog**, select the policy, and then click **Add to flow**.
 7. Select **Save** to persist your changes.
 

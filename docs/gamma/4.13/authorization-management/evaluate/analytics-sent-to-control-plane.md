@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: The observability data that Policy Decision Point gateways send back to the Gravitee control plane. Learn what is collected and where it appears.
 ---
 
 # Analytics sent to the control plane

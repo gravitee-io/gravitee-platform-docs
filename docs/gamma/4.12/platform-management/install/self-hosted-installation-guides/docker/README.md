@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Every Gamma component on one host, from MongoDB and Elasticsearch to the consoles. Compare the Docker Compose and Docker CLI methods before you start.
 ---
 # Docker
 

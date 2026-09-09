@@ -66,13 +66,17 @@ Under the **Shared API Keys** header, you can view the API keys that are shared 
 
 <figure><img src="../../.gitbook/assets/1 shared 1.png" alt=""><figcaption></figcaption></figure>
 
-Click the **x** icon to revoke an API key, or the **Renew** button to renew it.
+Click the **x** icon to revoke an API key, or the **Renew** button to renew it. Renewing a shared API key applies the same two-hour grace period described in [API Key plans](manage-subscriptions.md#api-key-plans), and affects every subscription of the application at once.
+
+{% hint style="info" %}
+Manage shared API keys from the application. The subscription-level **Renew**, **Revoke**, and **Expire** actions apply only to applications that use the `EXCLUSIVE` API key mode. For the equivalent API operations, see [Modifying shared API keys](../plans/api-key.md#modifying-shared-api-keys).
+{% endhint %}
 
 ## API Key plans
 
 Subscriptions to API Key plans include additional security management settings:
 
-*   **Renew:** Generate a new API key or provide a custom API key. The existing API key will be automatically invalidated after two hours.
+*   **Renew:** Generate a new API key or provide a custom API key. The previous key stays valid for a two-hour grace period, measured from the moment the new key is created, so that consumers have time to switch over. It then expires automatically. The grace period is fixed and can't be configured.
 
     <figure><img src="../../.gitbook/assets/subscription_api key renew.png" alt=""><figcaption><p>Renew an API key</p></figcaption></figure>
 *   **Revoke:** Immediately invalidate an existing API key. This option is reversible.

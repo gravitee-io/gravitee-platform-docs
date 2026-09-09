@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: How action Entity IDs are structured and how the policy engine resolves them against policy types and resource scopes. Browse the naming reference.
 ---
 
 # Action naming and scope

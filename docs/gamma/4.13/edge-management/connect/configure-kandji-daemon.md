@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: How to deploy the Edge Daemon to your macOS device fleet using Kandji MDM.
+description: Deploy the Edge Daemon across your macOS fleet with Kandji, using the script the console generates. Follow the steps to create the Custom App.
 ---
 
 # Configure Kandji to deploy the Edge Daemon

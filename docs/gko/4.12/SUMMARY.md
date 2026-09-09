@@ -21,6 +21,7 @@
   * [Portal](overview/custom-resource-definitions/portal.md)
   * [PortalListing](overview/custom-resource-definitions/portallisting.md)
   * [Documentation](overview/custom-resource-definitions/documentation.md)
+* [Admission validation](overview/admission-validation.md)
 * [Example Architecture](overview/example-architecture.md)
 * [Compatibility and Limitations](overview/compatibility-and-limitations.md)
 
@@ -58,6 +59,7 @@
 * [Gateway API](guides/gateway-api/README.md)
   * [HTTPRoute](guides/gateway-api/httproute.md)
   * [Configure TLS with cert-manager](guides/gateway-api/tls-with-cert-manager.md)
+  * [Configure multi-domain TLS on a Gateway](guides/gateway-api/multi-domain-tls.md)
   * [Configure DNS with external-dns](guides/gateway-api/dns-with-external-dns.md)
 
 ## REFERENCE

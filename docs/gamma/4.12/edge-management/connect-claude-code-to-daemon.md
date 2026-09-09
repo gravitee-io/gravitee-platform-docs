@@ -1,6 +1,7 @@
 ---
 hidden: true
 noIndex: true
+description: Route Claude Code traffic through the Edge Daemon for local policy enforcement and central observability. Follow the steps to set the variable.
 ---
 
 # Connect Claude Code to the Edge Daemon

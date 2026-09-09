@@ -1,3 +1,7 @@
+---
+description: Install a fully self-hosted Gamma platform on a vanilla Kubernetes cluster. Follow the steps to deploy every component with the Helm chart.
+---
+
 # Vanilla Kubernetes
 
 {% hint style="warning" %}

@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Start a hybrid Gamma Gateway container by container with the Docker CLI, creating the network and Redis first. Follow the steps to run it.
 ---
 # Run a hybrid Gamma Gateway with Docker CLI
 

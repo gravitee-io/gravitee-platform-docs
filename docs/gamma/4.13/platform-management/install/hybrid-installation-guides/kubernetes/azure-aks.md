@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Install a hybrid Gamma Gateway on Azure AKS behind an NGINX ingress controller. Follow the steps to create the namespace and deploy the chart.
 ---
 # Install a hybrid Gamma Gateway on Azure AKS
 

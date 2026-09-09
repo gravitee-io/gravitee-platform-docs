@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Import resources from the Catalog, create local ones, and give them attributes and relationships. Start with where your resources come from.
 ---
 
 # Manage resources

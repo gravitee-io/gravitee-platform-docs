@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: How authorization policies travel from the control plane to your runtime gateways, and how long it takes. Learn to read and monitor sync status.
 ---
 
 # Policy syncs
@@ -75,4 +76,4 @@ Each policy row shows the status badge (`Draft`, `Deployed`, or `Disabled`), ind
 ## Next steps
 
 * [Configure the Gravitee Gateway as a runtime](configure-gravitee-gateway-as-runtime.md) — Register PDP gateways
-* [AuthZEN PDP synchronization](../authz-gateway-sync.md) — Sync protocol reference
+* [Authorization policy synchronization](../authz-gateway-sync.md) — Sync protocol reference

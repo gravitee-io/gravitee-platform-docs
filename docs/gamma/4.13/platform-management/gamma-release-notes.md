@@ -1,12 +1,91 @@
+---
+description: What the Gamma 4.13 release adds across API Management, Event Stream Management, and the other modules. Browse the new features and changes.
+---
+
 # Gamma Release Notes
 
 ## 4.13 new features
 
 The 4.13 release adds the following capabilities.
 
+### Agent Management
+
+Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, and a regrouped navigation. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model.
+
+#### API Resources for LLM, MCP, and A2A Proxies
+
+* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Resources** page that manages the resources the proxy's policies reference by name at runtime, such as caches, OAuth providers, and guardrail detectors.
+* Add a resource by selecting one of the resource plugins installed on your platform and completing its schema-generated configuration form. Edit, enable or disable, remove, and search existing resources from the same page.
+* A resource change applies to the gateway when you deploy the proxy from the out-of-sync banner.
+* See [Configure resources for your proxies](../agent-management/build/configure-resources-for-your-proxies.md).
+
+#### Broadcasts for LLM, MCP, and A2A Proxies
+
+* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Broadcasts** page under **Consumer Access** that sends a one-way announcement to the consumers of the proxy.
+* Choose the **Portal Notifications**, **Email**, or **POST HTTP Message** channel. For the first two, select the recipients, either **API subscribers** or the members holding an application role on the subscribed applications, and enter a title. Enter a message of up to 4,000 characters, with a counter that shows the remaining characters.
+* **Send** stays disabled until the form is valid. After the send, the page confirms the broadcast was sent and, when at least one recipient was reached, how many.
+* See [Broadcast messages to proxy consumers](../agent-management/build/broadcast-messages-to-proxy-consumers.md).
+
+#### Import and dynamic properties for LLM, MCP, and A2A Proxies
+
+* The **Import** button on the **API Properties** page of each LLM Proxy, MCP Proxy, and A2A Proxy is now active. Paste one `KEY=value` pair per line to add new properties and replace the values of existing unencrypted properties. An existing encrypted property is skipped, and the panel lists it before you import.
+* The **Manage dynamically** button is now active and opens the **Dynamic properties** page. Enable the sync, set a 6-field cron schedule with a minimum interval of 60 seconds, configure the HTTP request and a JOLT transformation, and tune the HTTP client, proxy, and SSL / TLS settings. The Management API polls the endpoint on the schedule and writes the result to the proxy as dynamic properties.
+* A sync that changes the property list deploys the proxy automatically when the proxy was in sync. Adding, editing, deleting, or importing a property still requires a deployment from the out-of-sync banner.
+* See [Configure properties for your proxies](../agent-management/build/configure-properties-for-your-proxies.md).
+
+#### Plans and subscriptions for A2A Proxies
+
+* The A2A Proxy detail view adds a **Consumer Access** group with a **Plans** page and a **Consumers** page.
+* The **Plans** page lists the plans of the proxy by status, **Staging**, **Published**, **Deprecated**, or **Closed**, and creates plans of the five security types: **Keyless**, **API Key**, **JWT**, **OAuth2**, and **mTLS**. Publish a staging plan to open it to subscriptions, and close a plan to terminate its subscriptions.
+* An OAuth2 plan names a resource declared on the proxy. The name must match a declared, enabled resource when the plan is created and when it's published, so a plan that names a missing resource can't go live. An Expression Language value is resolved at request time instead.
+* The **Consumers** page lists the subscriptions of the proxy, creates a subscription for an application, and approves, rejects, or closes each one. The subscription page shows the credentials of the consumer and manages the API keys of an API Key subscription.
+* The A2A Proxy wizard offers the five security types for the default plan. For OAuth 2.0, it collects the identity provider details and declares the provider as a resource on the proxy.
+* See [Manage A2A Proxy plans](../agent-management/build/configure-your-a2a-proxy/manage-a2a-proxy-plans.md) and [Manage subscriptions](../agent-management/publish/manage-subscriptions.md).
+
+#### Subscription export for LLM, MCP, and A2A Proxies
+
+* The **Consumers** page of each LLM Proxy, MCP Proxy, and A2A Proxy adds an **Export CSV** button that downloads the subscriptions matching the current **Status**, **Plan**, and **API Key** filters as a CSV file. The file is the same export the APIM Console produces for the subscriptions of an API.
+* The export holds every matching subscription, not only the current page of the table. Each row carries the plan, the application, the creation, processing, start, and end dates, and the status of the subscription.
+* See [Manage subscriptions](../agent-management/publish/manage-subscriptions.md).
+
+#### Entrypoint configuration and navigation for LLM Proxies
+
+* Each LLM Proxy detail view adds an **Entrypoints** page under **Design**. Add or remove context paths, switch the proxy to virtual hosts, and edit the options of the LLM Proxy entrypoint plugin after creation. The **Exposed entrypoints** card previews the gateway URLs, and a save applies to the gateway when you deploy the proxy from the out-of-sync banner.
+* The options card renders the plugin's own configuration schema, so an option added by a later plugin version appears without a console update. The **Entrypoint** step of the creation wizard renders the same schema.
+* The **Overview** page shows a **Connection** card with the gateway URLs of the proxy, in place of the **Consumer URL** row.
+* The detail navigation is regrouped. **Models**, **Entrypoints**, **Endpoints**, **Policy Studio**, and **Resources** sit under **Design**, **Reporter Settings** and **Notifications** sit under **Monitoring**, **Security** follows **General**, and the **General** page is renamed **Configuration**. **LLM Studio** is renamed **Policy Studio**, and a link to the former page redirects to it.
+* See [Configure LLM Proxy entrypoints](../agent-management/build/configure-llm-proxy-entrypoints.md).
+
+#### CORS for LLM Proxies
+
+* Each LLM Proxy detail view adds a **CORS** page under **General** that configures cross-origin access for browser-based clients: the allowed origins, methods, and request headers, the exposed response headers, credentials, the preflight cache duration, and whether policies run on preflight requests.
+* CORS stays off until you enable it, so an existing LLM Proxy keeps its behavior after an upgrade. When CORS is enabled, the gateway adds the `Access-Control-*` headers to the responses of the proxy, answers preflight requests itself, and refuses a preflight request from an origin, with a method, or with a header that isn't allowed.
+* A save applies to the gateway when you deploy the proxy from the out-of-sync banner.
+* See [Configure LLM Proxy CORS](../agent-management/build/configure-llm-proxy-cors.md).
+
+#### Owner and sharding tags in the LLM Proxies list
+
+* The **LLM Proxies** list adds an **Owner** column, showing the primary owner of each proxy, and a **Sharding Tags** column, showing the first tag alphabetically with a **more** badge that lists the remaining tags on hover.
+* Sort the list by either column from its header. Proxies without a value in the sorted column are listed after the others.
+* See [Browse the LLM Proxies list](../agent-management/build/browse-the-llm-proxies-list.md).
+
+#### Pictures in the LLM Proxies list
+
+* Each row of the **LLM Proxies** list now starts with the proxy's picture. A proxy without a picture shows a generated pattern based on its name.
+* Add, change, or remove the picture under **API Picture** on the proxy's **Configuration** page. The image must be a GIF, JPEG, BMP, PNG, or TIFF file of at most 500 KB.
+* See [Browse the LLM Proxies list](../agent-management/build/browse-the-llm-proxies-list.md) and [Configure an LLM Proxy](../agent-management/build/configure-an-llm-proxy.md#picture).
+
+#### Negotiated pricing for AI models
+
+* Record the price you negotiated with the provider on a cataloged model, in the **Input price ({currency} per 1M tokens)** and **Output price ({currency} per 1M tokens)** fields of the model edit form. The negotiated price replaces the suggested price wherever the price is shown and wherever cost is computed.
+* Set both prices, or clear both, and enter a price of `0` or more. Entering `0` in both fields is valid, because a free model is still a priced model. `{currency}` is the currency of the suggested price and defaults to `USD` when the provider doesn't suggest one.
+* A model with a negotiated price shows a `Custom` badge next to its price, together with the suggested rate and the date and author of the last change. The negotiated price appears in the **Price / 1M** column of the AI Models list, on the model detail page, and on the models page of an LLM Proxy, and it feeds the cost estimates in the AI workspace detail view.
+* Refreshing the catalog updates the provider-derived fields and keeps your negotiated price. Republish any LLM Proxy that consumes a repriced model so cost tracking picks up the negotiated rate.
+* See [Add an AI model](../agent-management/import/add-an-ai-model.md).
+
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies and a redesigned out-of-sync banner in the API detail workspace.
+API Management gains a file-based path for building and updating API proxies and a redesigned out-of-sync banner in the API detail workspace. Its Policy Studio controls are also clearer.
 
 #### Import an API proxy
 
@@ -23,6 +102,14 @@ API Management gains a file-based path for building and updating API proxies and
 * The **Deploy API** button on the banner and the **Out of sync** state badge in the sidebar header are unchanged.
 * See [Configure your API proxy](../api-management/build/configure-your-api-proxy/README.md).
 
+#### Clearer controls in the Policy Studio
+
+* The connector blocks at the ends of a phase, such as **Client** and **Backend**, are drawn as labels instead of filled blocks. Controls now read as controls, and decoration reads as decoration.
+* An empty phase offers one **Add policy** control that opens the same searchable policy list as the plus button on a populated phase. The category buttons and the **Browse all** link of the empty phase are gone.
+* In the **Add Policy** catalog, pointing to a row reveals an **Add** button that adds the policy directly, and the catalog header shows the phase you're adding to.
+* The **Add plan flow**, **Add common flow**, and **Add MCP method flow** controls in the flows sidebar and on the empty Policy Studio screen share one link treatment.
+* The changes apply to the Policy Studio of API Management and Agent Management, and to the platform policies of Platform Management.
+
 ### Event Stream Management
 
 Event Stream Management adds a duplication path for Kafka Services.
@@ -33,6 +120,115 @@ Event Stream Management adds a duplication path for Kafka Services.
 * Provide a name, a version, and a new listener host prefix for the copy. The host prefix is unique per environment, and the source service's prefix counts as already in use.
 * The new service is created in a stopped state and without plans, so you control when it starts accepting connections.
 * See [Duplicate a Kafka service](../event-stream-management/build/duplicate-a-kafka-service.md).
+
+### Platform Management
+
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
+
+#### Configure console authentication
+
+* Decide whether the Gamma console sign-in page shows the local username and password form, from the **Authentication** page of the **Organization** section. The form can't be hidden until at least one identity provider is activated.
+* Add Gravitee Access Management, OpenID Connect, Google, and GitHub identity providers, edit them, and delete them. A new provider is activated for the console as soon as it's created. OpenID Connect requires an enterprise license.
+* Activate or deactivate each provider for the console from its row. An activated provider whose portal setting is on appears on the sign-in page as a **Sign in with** button.
+* Map groups, organization roles, and environment roles to users from conditions on their profile, access token, or ID token, computed at first sign-in or at every sign-in.
+* See [Configure console authentication](configure-console-authentication.md).
+
+#### Configure console management and schedulers
+
+* Name the APIM Console, set the URL Gravitee puts in the links it emails, and control support and self-registration from the **Management & Schedulers** page of the **Organization** section.
+* Set how often the console polls for tasks and for notifications, in seconds.
+* A setting supplied by the Management API configuration file is shown as read-only, with a tooltip naming the system as its source.
+* See [Configure console management and schedulers](configure-console-management-and-schedulers.md).
+
+#### Configure CORS for the Management API
+
+* Set the origins, methods, allowed headers, exposed headers, and preflight cache duration for cross-origin calls to the organization's Management API from the **CORS** page.
+* An origin is entered as a literal value or as a regular expression, and adding `*` asks for confirmation before it removes every cross-origin restriction.
+* The console addresses resolved for the organization stay allowed on top of the list, so tightening the origins doesn't lock you out of the consoles.
+* See [Configure CORS for the Management API](configure-console-cors.md).
+
+#### Configure the SMTP mail server
+
+* Point the organization at its mail server from the **SMTP** page, with the host, port, credentials, protocol, sender address, and subject template.
+* Set the authentication, `STARTTLS`, and certificate-trust properties of the connection.
+* Add branded sender rules that replace the sender address and subject template for the recipients at a given domain.
+* See [Configure the SMTP mail server](configure-smtp.md).
+
+#### Manage dictionaries
+
+* Create, edit, search, and delete the dictionaries of the selected environment from the **Dictionaries** page. Dictionaries hold key-value properties that API policies reference at runtime.
+* Manual dictionaries hold properties that you maintain by hand and publish to the gateways with the **Deploy** action.
+* Dynamic dictionaries poll an HTTP provider at a configured interval, transform the response with a JOLT specification, and publish the refreshed properties automatically while started.
+* See [Manage dictionaries](manage-dictionaries.md).
+
+#### Manage entrypoints and sharding tags
+
+* Configure sharding tags, entrypoint mappings, and each environment's default entrypoint values from the **Entrypoints & Sharding Tags** page.
+* Sharding tags route APIs to specific gateway groups. Create a tag with an immutable key, restrict it to selected groups, and add the key to the gateway's configuration file.
+* Entrypoint mappings define the entrypoint that the Developer Portal displays for APIs that carry a given tag, as an HTTP URL, a TCP port, or a Kafka bootstrap domain pattern, and apply to all environments or to a selection.
+* See [Manage entrypoints and sharding tags](manage-entrypoints-and-sharding-tags.md).
+
+#### Manage environment metadata
+
+* Add, edit, search, and delete the key-value metadata entries of the selected environment from the **Metadata** page. Every API in the environment inherits each entry as a default value.
+* Give each entry a name, a format of String, Numeric, Boolean, Date, Mail, or URL, and a value. Gravitee generates the entry's key from the name and validates the value against the format.
+* Rename an entry or change its value without changing its key, so the APIs and Developer Portal pages that reference the key keep working.
+* See [Manage environment metadata](manage-environment-metadata.md).
+
+#### Manage groups
+
+* Create, edit, search, and delete the groups of the selected environment from the **Groups** page of the **Team** section, and set the default API, API Product, and application roles their members hold, with a lock on each that keeps a group administrator from changing it.
+* Add members from a user search or invite them by email, review the pending invitations, and pick a successor when a primary owner changes role or leaves the group.
+* Attach a group to every existing API, API Product, or application of the environment in one action, or have the new ones join it automatically.
+* See [Manage groups](manage-groups.md).
+
+#### Manage shared policy groups
+
+* Create, edit, search, and delete the shared policy groups of the selected environment from the **Shared Policy Groups** page. A shared policy group bundles policy steps once for reuse across API flows, and is fixed to one API type and one flow phase at creation.
+* Build the bundle in the group's own Policy Studio. Add steps from a catalog filtered to the group's API type and phase, configure each step against the policy's own schema, then reorder, duplicate, disable, or remove them.
+* Deploy the saved steps to the gateways of the environment. Each deployment raises the version by one and records an entry in the group's version history, and a group changed after deployment shows as **Pending** until you deploy again.
+* Review any recorded version as JSON or as a read-only canvas, compare two versions, compare one against the changes you haven't deployed yet, and restore a version onto the group.
+* A shared policy group created through the Kubernetes Operator is read-only in the console, with its version history still available.
+* See [Manage shared policy groups](manage-shared-policy-groups.md).
+
+#### Manage tenants
+
+* Create, edit, search, and delete the tenants of the organization from the **Tenants** page. A tenant pairs a gateway with the API endpoints that gateway loads, so one API can serve several regions without a second copy of it.
+* Give each tenant a name and an immutable key. The console generates the key from the name, accepts lowercase letters, digits, and hyphens, and rejects a key another tenant already uses.
+* Add the key to a gateway's `gravitee.yml` file and to the **Tenants** field of an API's endpoints. A gateway loads an endpoint when the endpoint has no tenant or lists the gateway's own tenant.
+* See [Manage tenants](manage-tenants.md).
+
+#### Manage users
+
+* Add, review, and delete the users and service accounts of the organization from the **Users** page, and search the list by name, email, or ID.
+* Grant organization roles and per-environment roles from the user's detail page, and manage the group memberships that carry the user's API, API Product, application, and integration roles in each environment.
+* Accept or reject a pending registration, convert a user to a service account, and send an Active user a password reset email that opens the reset page of the Gamma console.
+* Generate and revoke personal access tokens for a user, and review the APIs, API Products, and applications the user is a member of.
+* See [Manage users](manage-users.md).
+
+#### Monitor gateway instances
+
+* Review the gateway instances registered with the selected environment from the **Gateways** page, with each instance's version, status, last heartbeat, address, tenant, and sharding tags.
+* Open an instance to read what it reported about itself on the **Environment** tab: its information rows, the plugins it loaded, and its JVM system properties.
+* Follow the instance's live resource use on the **Monitoring** tab, which refreshes every 5 seconds and reports CPU, heap, memory pools, uptime, file descriptors, threads, and garbage collection.
+* See [Monitor gateway instances](monitor-gateway-instances.md).
+
+#### Review organization and environment audit logs
+
+* Trace who changed what, and when, from two **Audit** pages: one in the **Organization** section covering the whole organization, and one in the **Environment** section covering the selected environment.
+* Narrow the trail by event type, by the kind of object that changed, by a single environment, application, or API, and by a relative or custom date range.
+* Open an event to read its **JSON Patch**, which names each field the change touched and excludes the object's own timestamps.
+* Export the filtered trail as CSV or JSON for a compliance archive, up to 10,000 events per export.
+* See [Review organization and environment audit logs](review-audit-logs.md).
+
+#### Save observability dashboards
+
+* Save a custom observability dashboard in its environment over the Gamma API, so it survives a restart and reaches everyone with read access to that environment's dashboards. Each dashboard carries its title, its filters, its time range, and its widgets.
+* Create, list, read, update, and delete dashboards under `/gamma/organizations/{orgId}/environments/{envId}/observability/dashboards`. The list endpoint returns the dashboards of the environment, oldest first, 20 per page by default and 100 at most.
+* Concurrent edits are caught with `ETag` and `If-Match`. A save based on a version someone else has already replaced is refused with `412 Precondition Failed` and returns the dashboard as it stands. Sending `If-Match: *` applies the write over whatever version is current.
+* Widgets are stored and returned exactly as sent, up to 50 per dashboard, and each one carries an `id` that's unique within the dashboard.
+* A dashboard saved in another environment is never returned. It resolves to `404 Not Found` rather than `403 Forbidden`.
+* See [Save observability dashboards with the Gamma API](save-observability-dashboards.md).
 
 ## Release Date: June 26, 2026
 

@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: What a deployed Virtual Cluster does on the Event Gateway, from lifecycle states to topic routing and consumer groups. Browse the full reference.
 ---
 # Virtual Cluster runtime behavior
 

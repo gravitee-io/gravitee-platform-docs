@@ -28,8 +28,16 @@ The Gravitee Terraform provider supports the following Gravitee resource types:
 * Shared Policy Group
 * Application
 * Subscription
+* Group
+* Dictionary
+* Next-Gen Developer Portal
+* Portal listing
+* Portal documentation page
+* API documentation page
 
 Terraform can create, update, or delete these resources as part of its workflow.
+
+For the Next-Gen Developer Portal resources, see [Portal automation](../developer-portal/new-developer-portal/customize-the-navigation/portal-automation/README.md).
 
 {% hint style="info" %}
 Guides and examples can be found in the [Gravitee "apim" Terraform Registry documentation](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs).
@@ -52,7 +60,7 @@ These are the changes for version 0.5.x
 
 ### Bugs
 
-* Subscription `plan_hrid` update is silently ignored by the API
+* Subscription `plan_hrid` update is ignored by the API without an error
 
 ### Notable changes
 
@@ -66,24 +74,24 @@ The following known limitations apply to the 0.5.x version of the Gravitee Terra
 * When you run `terraform plan` for APIs, several differences exist between state and remote. These do not impact runtime and will be fixed in upcoming patches.
   * State stores the dynamic properties service configuration as an encoded JSON string instead of plain JSON.
   * The encrypted properties payload is marked as changed because encrypted values replace unencrypted values.
-* APIKey subscriptions are not supported.
+* API Key subscriptions are not supported.
 
 
-### Automation API: missing properties (4.11, Terraform 0.5.x)
+### Automation API: Missing properties (4.11, Terraform 0.5.x)
 
 | Resource          | Section                   | Missing Property                   | Type                                  | Supported in Automation API                                           |
 |-------------------|---------------------------|------------------------------------|---------------------------------------|-----------------------------------------------------------------------|
 | apim_apiv4        |                           | `allowedInApiProducts`             | boolean                               | No                                                                    |
 | apim_apiv4        |                           | `allowMultiJwtOauth2Subscriptions` | boolean                               | No                                                                    |
-| apim_apiv4        | `plans`                   | `commentMessage`                   | string                                | Never will, Subscriptions are always auto-accepted                    |
-| apim_apiv4        | `plans`                   | `commentRequired`                  | boolean                               | Never will, Subscriptions are always auto-accepted                    |
+| apim_apiv4        | `plans`                   | `commentMessage`                   | string                                | Never will, Subscriptions are always accepted automatically                    |
+| apim_apiv4        | `plans`                   | `commentRequired`                  | boolean                               | Never will, Subscriptions are always accepted automatically                    |
 | apim_apiv4        | `plans`                   | `order`                            | integer                               | Never will, mapped to the list index, UI feature only                 |
 | apim_apiv4        | `listeners.kafka` (Kafka) | `port`                             | integer                               | No                                                                    |
 | apim_application  |                           | `apiKeyMode`                       | enum (SHARED, EXCLUSIVE, UNSPECIFIED) | Only EXCLUSIVE is supported, hence property is absent                 |
 | apim_application  |                           | `type`                             | string                                | No (simple applications)                                              |
 | apim_subscription | `apim_subscriptionSpec`   | `consumerConfiguration`            | object                                | 4.12                                                                  |
 | apim_subscription | `apim_subscriptionSpec`   | `apiKeyMode`                       | enum (SHARED, EXCLUSIVE, UNSPECIFIED) | Only EXCLUSIVE is supported, hence property is absent                 |
-| apim_subscription | `apim_subscriptionSpec`   | `startingAt`                       | date-time                             | Never, Subscriptions are always auto-accepted hence started immediately|
-| apim_subscription | `apim_subscriptionSpec`   | `generalConditionsAccepted`        | boolean                               | Never, Subscriptions are always auto-accepted                         |
-| apim_subscription | `apim_subscriptionSpec`   | `generalConditionsContentRevision` | object (PageRevisionId)               | Never, Subscriptions are always auto-accepted                         |
+| apim_subscription | `apim_subscriptionSpec`   | `startingAt`                       | date-time                             | Never, Subscriptions are always accepted automatically hence started immediately|
+| apim_subscription | `apim_subscriptionSpec`   | `generalConditionsAccepted`        | boolean                               | Never, Subscriptions are always accepted automatically                         |
+| apim_subscription | `apim_subscriptionSpec`   | `generalConditionsContentRevision` | object (PageRevisionId)               | Never, Subscriptions are always accepted automatically                         |
 

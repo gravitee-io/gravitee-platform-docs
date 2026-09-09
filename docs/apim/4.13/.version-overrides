@@ -22,3 +22,51 @@ management-api-reference.md
 plugins/customization/schema-registry-provider.md
 # Confluent Schema Registry resource note (ESM-28) and emulation-mode copy edit
 create-and-configure-apis/apply-policies/resources.md
+# New Developer Portal categories (APIM 4.13.0 feature, PORTAL-8)
+developer-portal/new-developer-portal/manage-new-developer-portal-categories.md
+developer-portal/new-developer-portal/catalog.md
+.gitbook/assets/devportal-catalog-categories-list.png
+.gitbook/assets/devportal-category-general-form.png
+.gitbook/assets/devportal-add-api-to-category-button.png
+.gitbook/assets/devportal-add-api-to-category-dialog.png
+.gitbook/assets/devportal-category-hide.png
+.gitbook/assets/devportal-category-show.png
+# http.pathHandling defaults to NORMALIZE from 4.13.0 (APIM-14917); 4.11/4.12 keep RAW
+configure-and-manage-the-platform/gravitee-gateway/request-path-handling.md
+configure-and-manage-the-platform/gravitee-gateway/request-path-handling/README.md
+configure-and-manage-the-platform/gravitee-gateway/request-path-handling/upgrade-to-the-4-13-default.md
+configure-and-manage-the-platform/gravitee-gateway/request-path-handling/configure-path-handling.md
+configure-and-manage-the-platform/gravitee-gateway/request-path-handling/verify-path-handling.md
+configure-and-manage-the-platform/gravitee-gateway/request-path-handling/path-handling-reference.md
+configure-and-manage-the-platform/gravitee-gateway/request-path-handling/path-handling-limits.md
+# Cross-reference to Request Path Handling differs: 4.12 links the flat page,
+# 4.13 links the folder README (APIM-14917)
+prepare-a-production-environment/configure-your-http-server.md
+# Tenant filter on environment-level Logs — 4.12 page carries a 4.12.15 availability note the 4.13 page must not inherit (OBS-37)
+analyze-and-monitor-apis/logging/configure-environment-level-logs.md
+.gitbook/assets/environment-logs-overview.png
+.gitbook/assets/environment-logs-tenant-filter.png
+.gitbook/assets/environment-logs-tenant-applied.png
+.gitbook/assets/environment-logs-filter-list.png
+# kafka_active_connections gauge (APIM 4.13.0 feature, ESM-72) — the metric ships in the 7.1.x
+# native Kafka reactor; 4.12 pins 7.0.8, which does not carry it, so the section must not sync back
+analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md
+# Gateway stops advertising its truststore as the TLS acceptable certificate authorities,
+# and the new ssl.sendClientCertificateAuthorities opt-in (APIM-14863).
+# The change is backported, so 4.12 documents it too — but each version names the release it
+# ships in (4.13.0 here, 4.12.19 there) and only 4.13 documents the Edge listener, which has
+# no ssl block before 4.13. Syncing this content down from 4.12 would overwrite both.
+prepare-a-production-environment/configure-your-http-server.md
+secure-and-expose-apis/plans/mtls.md
+# External sources for New Developer Portal pages (APIM 4.13.0 feature, PORTAL-3)
+developer-portal/new-developer-portal/customize-the-navigation/import-content-from-external-sources.md
+developer-portal/new-developer-portal/customize-the-navigation.md
+.gitbook/assets/devportal-add-page-content-source-cards.png
+.gitbook/assets/devportal-external-source-editor.png
+.gitbook/assets/devportal-sourced-page-banner.png
+.gitbook/assets/devportal-fetch-all-menu.png
+.gitbook/assets/devportal-import-repository-dialog.png
+.gitbook/assets/devportal-import-from-file.png
+.gitbook/assets/devportal-sourced-page-in-portal.png
+# FIPS images page differs from 4.12: JDK 25 keystore behavior and the upgrade warning (ESM-109)
+self-hosted-installation-guides/docker/fips-images.md

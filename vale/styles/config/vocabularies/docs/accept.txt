@@ -350,7 +350,7 @@ auto-validation
 [Tt]imelines?
 [Tt]ooltips?
 [Tt]ruststore
-[Uu]ndeploy(ed)?
+[Uu]ndeploy(s|ed|ing|ment)?
 [Uu]npublish
 [Uu]sername
 [Vv]alidator
@@ -455,6 +455,7 @@ cert-manager
 controllerName
 parametersRef
 (?i)openssl
+s_client
 [Gg]ravitee\.io
 [Mm]inikube
 balancer's
@@ -547,6 +548,7 @@ ESM
 # ============================================
 Anthropic
 OpenAI
+Groq
 Claude
 Sonnet
 ChatGPT
@@ -894,3 +896,5 @@ dashboarding
 # touches them. "above" alone appears in 72 files in APIM 4.13.
 [Aa]lerts?
 [Aa]bove
+Rovo
+Streamable

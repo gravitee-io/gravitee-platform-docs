@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Synchronize users and groups from Gravitee Access Management so policies can reference your identity directory. Follow the steps to run a sync.
 ---
 
 # Sync principals from Access Management

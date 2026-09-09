@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Attach custom metadata to a resource, such as sensitivity or ownership, so policy conditions can test it. Follow the steps to add attributes.
 ---
 
 # Add attributes to resources

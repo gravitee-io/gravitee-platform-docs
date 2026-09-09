@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Import a resource from the AI Catalog so every policy refers to one canonical Entity ID. Follow the quickstart to import your first item.
 ---
 
 # Import your first resource from the AI Catalog

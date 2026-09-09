@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: Create a principal directly in Authorization Management when the identity is not synced or imported. Follow the steps on the Entities page.
 ---
 
 # Create a local principal

@@ -5,6 +5,50 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.14.2 (September 2, 2026) <a href="#id-3.14.2" id="id-3.14.2"></a>
+
+#### Fixed connection reuse for the External Filter with `protocol: http`
+
+Previously, the External Filter opened a new connection to the authorization service on every authorization call, paying a full TCP handshake, and a TLS handshake for HTTPS backends, per request. Under load this surfaced as an intermittent, small percentage of requests failing with `500` errors (`deadline_exceed: filter processing timed out`) instead of honoring the configured `statusOnError`. HTTP clients are now cached per authorization-service URL and rebuilt when the TLS configuration changes, and successful authorization responses are drained so connections are returned to the keep-alive pool and reused.
+
+#### Fixed request processing stalls when Redis hangs
+
+Previously, the internal usage counter's periodic sync to Redis held a lock across the network call. If Redis accepted connections but stopped responding, the sync blocked on that lock while the request hot path waited to acquire it, stalling request processing until the Redis call timed out. The counter is now copied and reset before the network call so the request path is never blocked on Redis. Each sync is bounded by a timeout so it cannot overrun into the next sync cycle, and counts from failed syncs are retained and delivered once Redis recovers, preserving usage-reporting accuracy across an outage.
+
+#### Fixed diagd memory leak on the incremental reconfigure path
+
+Previously, when incremental reconfiguration was enabled with `AMBASSADOR_FAST_RECONFIGURE=true`, each Mapping-only reconfigure retained the entire previous internal configuration graph in memory, causing unbounded `diagd` memory growth proportional to the number of reconfigures. Cached configuration objects now correctly release references to prior reconfigures, and diagnostics back-references no longer pin stale configuration graphs, so memory usage stays flat across sustained reconfigure activity.
+
+### Version 3.14.1 (August 12, 2026) <a href="#id-3.14.1" id="id-3.14.1"></a>
+
+#### Upgrade to Envoy 1.37.5
+
+Ambassador Edge Stack is now built on Envoy v1.37.5, which includes security and stability fixes. This update resolves multiple CVEs including CVE-2026-47204, CVE-2026-47220, CVE-2026-47221, and CVE-2026-48706. For more information, see [Envoy Proxy 1.37.5 Release Notes](https://www.envoyproxy.io/docs/envoy/v1.37.5/version_history/version_history).
+
+#### Fixed intermittent authentication failures under concurrent load
+
+Previously, when an identity provider rotated its JWKS signing keys, concurrent requests carrying valid tokens signed by the new key could be rejected with `PERMISSION_DENIED` while the JWKS refresh was still in flight. Only the request that triggered the refresh succeeded; the rest were denied as though their tokens were invalid. Tokens signed by a newly rotated key are now retried for a short, bounded window while the refresh completes, and a still-incomplete refresh is reported as a retryable `503 Service Unavailable` rather than a terminal authentication denial. Requests with genuinely invalid tokens are unaffected and are still denied immediately.
+
+#### Fixed OAuth2 token caching for the Password and Client Credentials grants
+
+Previously, the Resource Owner Password Credentials (ROPC) and Client Credentials flows read cached sessions using a key that did not match the key used to write them, so every request missed the cache and re-fetched a token from the identity provider. Both flows now read and write the same cache key, so repeated requests reuse the cached token as intended. This significantly reduces token requests to the identity provider for workloads using these grants.
+
+#### Fixed Consul certificate rotation
+
+Previously, TLS certificates retrieved from Consul Connect were written into the Kubernetes secret double base64-encoded, and the secret was only ever created — never updated — so rotated certificates were not propagated. Certificate contents are now stored correctly, the secret is created as a proper `kubernetes.io/tls` secret, and it is upserted via Server-Side Apply so rotations take effect. The namespace for the secret now also falls back to the pod's own namespace when `_AMBASSADOR_TLS_SECRET_NAMESPACE` is not set.
+
+#### Fixed Dev Portal crash under concurrent load
+
+Previously, rendering Dev Portal content wrote debug artifacts back into a shared in-memory filesystem on every HTTP request. Concurrent requests could write to that filesystem simultaneously and terminate the `amb-sidecar` process with a `concurrent map writes` fatal error, restarting the pod. Content rendering no longer writes to the content filesystem, which also removes an unbounded growth in memory usage over time.
+
+#### Fixed ACME certificate management wedging on partial snapshots
+
+Previously, the ACME client could lose track of which `Host` and `Secret` changes it was waiting for when a configuration snapshot reflected only some of them. This is common when many `Host` resources share an ACME account or TLS `Secret`. When it occurred, automatic certificate issuance and renewal stopped until the pod was restarted. The ACME client now tracks each change as it is individually observed and only acts on a consistent view of the configuration. The ACME client's HTTP transport is also now isolated from the rest of Ambassador Edge Stack.
+
+#### Support for multiple default label groups
+
+The `default_labels` field on the `ambassador` `Module` now accepts a list of named label groups per domain, in addition to the existing single `defaults` group. Each group becomes its own Envoy rate limit descriptor, which allows a single domain to contribute several independent sets of default rate limit labels. The existing single-group format continues to work unchanged, and malformed label groups are now reported as configuration errors rather than being silently ignored.
+
 ### Version 3.14.0 (June 24, 2026) <a href="#id-3.14.0" id="id-3.14.0"></a>
 
 #### Upgrade to Envoy 1.37.4

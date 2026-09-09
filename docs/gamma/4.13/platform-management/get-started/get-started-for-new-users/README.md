@@ -1,6 +1,7 @@
 ---
 hidden: false
 noIndex: false
+description: New to Gravitee and want to run Gamma? Choose between Gravitee Next-Gen Cloud and installing it yourself. Compare the two paths and pick one.
 ---
 # Get started for new users
 

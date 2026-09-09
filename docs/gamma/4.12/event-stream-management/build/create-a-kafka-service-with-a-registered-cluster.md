@@ -1,5 +1,5 @@
 ---
-description: Create a Kafka Service in Event Stream Management and bind it to a connection on a registered Kafka cluster.
+description: Create a Kafka Service bound to a connection on a registered Kafka cluster, with security plans and policies. Follow the steps in the creation wizard.
 ---
 
 # Create a Kafka service with a registered cluster

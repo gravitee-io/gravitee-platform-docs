@@ -1,5 +1,53 @@
 # GKO 4.9.x
 
+## Gravitee Kubernetes Operator 4.9.33 - September 2, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * The GKO admission webhook for ApiV4Definition does not check that an endpoint set to inherit configuration [#11747](https://github.com/gravitee-io/issues/issues/11747)
+
+</details>
+
+
+## Gravitee Kubernetes Operator 4.9.32 - August 12, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **Others**
+
+  * GKO webhook timeout should follow the httpClient timeout [#11720](https://github.com/gravitee-io/issues/issues/11720)
+
+</details>
+
+
+<details>
+<summary>Improvements</summary>
+
+  **Others**
+
+  * GKO docs - document a webhook request roundtrip so that trouble shooting is easier [#11721](https://github.com/gravitee-io/issues/issues/11721)
+
+</details>
+
+
+## Gravitee Kubernetes Operator 4.9.31 - August 11, 2026
+
+There is nothing new in version 4.9.31.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.9.30 - August 11, 2026
+
+There is nothing new in version 4.9.30.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
 ## Gravitee Kubernetes Operator 4.9.29 - July 22, 2026
 
 There is nothing new in version 4.9.29.

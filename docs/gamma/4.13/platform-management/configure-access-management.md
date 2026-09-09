@@ -1,5 +1,6 @@
 ---
 noIndex: false
+description: Connect the Gamma console to a Gravitee Access Management instance so you can sync its domains. Follow the steps to configure the connection.
 ---
 
 # Configure Access Management
