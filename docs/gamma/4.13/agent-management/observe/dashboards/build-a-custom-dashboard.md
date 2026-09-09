@@ -24,9 +24,7 @@ The authoring actions (**New dashboard**, **Edit**, **Duplicate**, and **Delete*
 1. From the Gamma console sidebar, select **Agent Management**.
 2. In the **Observability** section of the sidebar, select **Dashboards**.
 
-<!-- TODO: Screenshot of the Dashboards list showing custom dashboards above the templates, the Custom and Template badges, and the New dashboard button -->
-
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-dashboards-list.png" alt=""><figcaption><p>The Dashboards list</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-dashboards-list.png" alt="The Dashboards list of the Agent Management Observability section, with the custom dashboard Docbot traffic watch carrying a Custom badge above the MCP, LLM, and A2A Overview templates carrying Template badges, and the New dashboard button in the top right"><figcaption><p>The Dashboards list</p></figcaption></figure>
 
 The list shows the dashboards your team saved first, then the templates. Each row carries:
 
@@ -62,9 +60,7 @@ Select **Add widget** to open the widget editor. On an empty dashboard, the **Cr
 
 The grid is 12 columns wide. Drag a widget to move it, and drag its resize handle to change its size. Widgets are pushed up to close the empty space a move leaves behind. The action controls in a widget header don't start a drag.
 
-<!-- TODO: Screenshot of the dashboard editor on the Builder tab, showing the grid with several widgets, the dashboard filters row, the time range control, and the Add widget button -->
-
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-dashboard-editor.png" alt=""><figcaption><p>The dashboard editor</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-dashboard-editor.png" alt="The dashboard editor on the Builder tab, showing the editable title and description, the Builder and JSON tabs with Cancel and a disabled Save, the Dashboard filters row with a locked API Type chip and a re-valuable API chip, the Add dashboard filter button, the Default marker beside the Last 24 hours time range, the Add widget button, and four widgets on the grid"><figcaption><p>The dashboard editor</p></figcaption></figure>
 
 Each widget carries two controls in its header:
 
@@ -77,9 +73,7 @@ Edit the dashboard title and description in place from the editor header. An emp
 
 The widget editor opens as a panel on the right, titled **New widget** or **Edit widget**. **Expand panel** widens it to the full window, and **Close** discards the working copy.
 
-<!-- TODO: Screenshot of the widget editor panel showing the Title and Description fields, the live preview, the Visualization picker, and the Data tab -->
-
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-widget-editor.png" alt=""><figcaption><p>The widget editor</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-widget-editor.png" alt="The widget editor panel open on the right, headed Edit widget, with the Title and Description fields, a live preview of the stacked timeseries, the Visualization picker showing the six types with Timeseries selected, the Data, Display, and Filters tabs, and Cancel and Save widget in the footer"><figcaption><p>The widget editor</p></figcaption></figure>
 
 The panel is ordered top to bottom:
 
@@ -110,7 +104,7 @@ The **Data** tab changes with the visualization type.
 
 | Type                                    | What you configure                                                                                                     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| **Timeseries**                          | A **Series** list, each series with **Metric**, **Measure**, **Group by**, **Style** (**Line**, **Area**, or **Bars**), **Stack**, and **Y axis**. **Add series** adds another. |
+| **Timeseries**                          | A **Series** list, each series with **Metric**, **Measure**, **Group by**, **Style** (**Line**, **Area**, or **Bars**), and **Stack**. **Add series** adds another, and a second series brings a **Y axis** column for dual-axis charts. |
 | **Bars**, **Doughnut**, and **Top list** | **Metric**, **Measure**, **Group by**, **Max buckets** (1 to 10), and **Keep** (**Highest** or **Lowest**). **Top list** adds **On hover**, **Break down by**, and **Colouring**. |
 | **Query value**                         | **Metric**, **Measure**, **Label**, **Show trend**, and **Show sparkline**.                                             |
 | **KPI row**                             | A **Metrics** list with one row per tile, each with **Metric**, **Measure**, **Label**, **Group**, and **Trend**.        |
@@ -207,9 +201,7 @@ When someone else saved the same dashboard between the moment you opened it and 
 
 If the dashboard was deleted while you had it open, the editor says so and offers **Save as a new dashboard**, which is the only resolution left.
 
-<!-- TODO: Screenshot of the conflict dialog showing the currently saved dashboard and the three resolutions -->
-
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-dashboard-conflict.png" alt=""><figcaption><p>A save refused because someone else saved first</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-dashboard-conflict.png" alt="The conflict dialog headed Someone else updated this dashboard while you were editing, showing the currently saved dashboard with its title and save time, and the three resolutions Overwrite their version, Take their version, and Save as a copy, with Keep editing below them"><figcaption><p>A save refused because someone else saved first</p></figcaption></figure>
 
 ## Delete a dashboard
 
