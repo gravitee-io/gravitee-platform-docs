@@ -3,8 +3,9 @@ hidden: false
 noIndex: false
 description: >-
   Build your own observability dashboard in Agent Management. Add and arrange
-  widgets, pin dashboard filters and a default time range, edit the definition
-  as JSON, and resolve a save that clashes with a concurrent edit.
+  widgets, and configure each one from its Data, Display, and Filters tabs. Add
+  dashboard filters and a default time range, edit the definition as JSON, and
+  resolve a save that clashes with a concurrent edit.
 ---
 
 # Build a custom dashboard
@@ -41,7 +42,7 @@ Create a dashboard from scratch, or duplicate an existing one.
 
 ### Start from an empty dashboard
 
-1. Select **New dashboard**.
+1. Click **New dashboard**.
 
 The editor opens on an empty draft titled `New dashboard` followed by the current date and time, with **Last 24 hours** as its time range and no widgets or filters. Nothing is stored until you select **Save**.
 
@@ -56,7 +57,7 @@ The same actions sit in the actions menu of an open dashboard.
 
 ## Add and arrange widgets
 
-Select **Add widget** to open the widget editor. On an empty dashboard, the **Create your first widget** placeholder does the same.
+Click **Add widget** to open the widget editor. On an empty dashboard, the **Create your first widget** placeholder does the same.
 
 The grid is 12 columns wide. Drag a widget to move it, and drag its resize handle to change its size. Widgets are pushed up to close the empty space a move leaves behind. The action controls in a widget header don't start a drag.
 
@@ -81,7 +82,7 @@ The panel is ordered top to bottom:
 2. A live preview that redraws shortly after each change.
 3. **Visualization**, then the **Data**, **Display**, and **Filters** tabs.
 
-Select **Add widget** to put a new widget on the grid, or **Save widget** to apply your changes to an existing one. **Cancel** drops the working copy.
+Click **Add widget** to put a new widget on the grid, or **Save widget** to apply your changes to an existing one. **Cancel** drops the working copy.
 
 ### Choose a visualization
 
@@ -98,7 +99,17 @@ Six visualization types are available:
 
 Switching type keeps the widget's identity, position, size, title, description, and filters, and carries the query across wherever the new type expresses it.
 
-### Select the data
+### Configure the Data, Display, and Filters tabs
+
+Below **Visualization**, three tabs hold the rest of the configuration.
+
+| Tab         | What it holds                                                                              | Shown for                                                        |
+| ----------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| **Data**    | The metric, measure, and grouping the widget queries.                                      | Every visualization type                                         |
+| **Display** | The options that change how the widget is drawn rather than what it queries.               | **Timeseries**, **Bars**, **Doughnut**, and **Top list**         |
+| **Filters** | Filters applied to this widget only. The tab label carries the number of filters in place. | Every visualization type                                         |
+
+#### Select the data on the Data tab
 
 The **Data** tab changes with the visualization type.
 
@@ -120,7 +131,7 @@ The **Data** tab changes with the visualization type.
 
 Selecting a metric or dimension that belongs to one API type adds an **API Type** filter for that type to the widget. The filter is an ordinary widget filter, visible on the **Filters** tab, so widen it there when you mean to.
 
-### Set display options
+#### Set display options on the Display tab
 
 The **Display** tab holds the options that change how the widget is drawn rather than what it queries. **Query value** and **KPI row** have no **Display** tab.
 
@@ -131,43 +142,144 @@ The **Display** tab holds the options that change how the widget is drawn rather
 | **Doughnut**      | **Centre** (**Empty**, **Total of the slices**, or **Custom value**), the **Centre value**, and its **Caption**. |
 | **Top list**      | **Representation** (**Ranked list** or **Stacked bar**), **Row order**, **Show rank**, **Show trend**, **Compact rows**, and **Collapse after**. |
 
-### Filter one widget
+#### Add widget filters on the Filters tab
 
-The **Filters** tab holds filters applied to that widget alone, on top of the dashboard filters. The tab label carries the number of filters in place.
+The **Filters** tab holds the **Widget filters**, applied only to this widget, on top of the dashboard filters.
 
-## Pin filters to the dashboard
+1. Click **Add filter**.
+2. Under **Filter by**, select the property.
+3. Under **Choose operator**, select the operator. The property's first operator is preselected.
+4. Under **Filter value**, pick one or more values, or type one.
+5. Click **Apply**.
 
-Dashboard filters are saved in the definition and applied to every widget. Add one from **Add dashboard filter** in the editor, then open its chip to set the operator and the value.
+The chip appears in the **Filters** row and the tab label shows the number of widget filters. A widget filter needs a value. Click a chip to change it, hover it and click the cross to remove it, or click the **Clear all filters** icon to remove them all. The properties, operators, and values are the ones described in [Choose the property, operator, and value](#choose-the-property-operator-and-value).
 
-Each chip carries an **Allow viewers to change value** checkbox that decides what a reader gets:
+## Add dashboard filters
 
-| Chip state                            | What a reader sees                                                                     |
-| ------------------------------------- | ---------------------------------------------------------------------------------------- |
-| Checkbox cleared, with a value        | A locked chip. The value is fixed and the chip can't be removed.                          |
-| Checkbox selected, with a value       | A chip the reader re-values. The field stays fixed, and a marker shows when the value differs from the one you saved. |
-| Empty value                           | A slot the reader fills, shown as `Any`. An empty filter is always re-valuable.           |
+Dashboard filters are saved in the definition and applied to every widget. The **Dashboard filters** row of the editor holds them, and the chips you arrange there are the chips every reader opens the dashboard with.
 
-The chips in the editor are the chips the reader gets, so what you arrange here is what the dashboard opens with.
+<!-- TODO: Screenshot of the Add dashboard filter form open in the editor, showing Filter by, Choose operator, Filter value, the Allow viewers to change value switch, and the Cancel and Apply buttons -->
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-dashboard-filter-form.png" alt=""><figcaption><p>The dashboard filter form</p></figcaption></figure>
+
+1. Click **Add dashboard filter**.
+2. Under **Filter by**, select the property.
+3. Under **Choose operator**, select the operator. The property's first operator is preselected.
+4. Under **Filter value**, pick one or more values, or leave the field empty to match any value.
+5. Set the **Allow viewers to change value** switch. It's on for a new filter.
+6. Click **Apply**.
+
+The switch and the value together decide what a reader gets. The hint under the switch tells you which case you're in.
+
+| Switch | Value | What the reader gets                                                                                                  |
+| ------ | ----- | --------------------------------------------------------------------------------------------------------------------- |
+| Off    | Set   | A locked chip. The value is fixed and the chip can't be removed.                                                       |
+| On     | Set   | A chip the reader re-values. The field stays fixed, and a marker shows when the value differs from the one you saved. |
+| On     | Empty | A slot the reader fills, shown as `Any`.                                                                               |
+| Off    | Empty | Nothing. A locked filter needs a value, so **Apply** stays unavailable until you pick one or turn the switch on.       |
+
+To change a dashboard filter, click its chip. The same form opens, with a **Remove** button. Hovering the chip also shows a cross that removes it. A dashboard holds one condition per property, so **Add dashboard filter** becomes unavailable once every property has a filter.
+
+### Choose the property, operator, and value
+
+**Filter by** lists the properties of the analytics data behind a **Search property** field, such as **API**, **Application**, **Plan**, **HTTP Method**, **Status Code Group**, **LLM Model**, and **MCP Tool**.
+
+The operators offered depend on the property. Most properties offer **=** and **In**. Numeric properties such as **Status Code** and **Latency** offer **=**, **≥**, and **≤**. Picking a second value turns **=** into **In**.
+
+The value field also depends on the property. A property with a fixed set of values, such as **HTTP Method**, lists them. A property whose values are looked up, such as **API**, suggests matches as you type. A numeric property takes a number.
 
 ## Set the default time range
 
-The time range control in the editor header drives the preview and every widget on the grid.
+The time range control in the editor header shows the current range, such as **Last 24 hours**, and drives the preview and every widget on the grid. A custom dashboard opens on its saved default range, so pick the range the dashboard should open with, then make it the default.
 
-1. Select the range you want.
-2. Select **Set as default**.
+<!-- TODO: Screenshot of the time range control open on the Relative tab in the editor header, with the Set as default button beside it and the Last, Current, and Previous preset groups -->
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-dashboard-time-range.png" alt=""><figcaption><p>The time range control</p></figcaption></figure>
 
-**Set as default** appears while the selected range differs from the saved default. Once they match, the header shows **Default** instead. A custom dashboard opens on its saved default range.
+1. Click the time range control.
+2. On the **Relative** tab, click a preset. The control closes with the preset applied.
+3. Click **Set as default**.
+4. Click **Save**.
+
+**Set as default** appears while the selected range differs from the saved default, and the header shows **Default** once they match. The default is part of the dashboard definition, so it's stored with the next save.
+
+| Group        | Presets                                                                                                                                             |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Last**     | **5 minutes**, **15 minutes**, **1 hour**, **6 hours**, **12 hours**, **24 hours**, **7 days**, **30 days**, **90 days**, **180 days**, **365 days** |
+| **Current**  | **Week**, **Month**, **Quarter**                                                                                                                    |
+| **Previous** | **Week**, **Month**, **Quarter**                                                                                                                    |
+
+A **Last** preset ends now. A **Current** preset runs from the start of the period to now, and a **Previous** preset covers the whole period before that. Weeks start on the first day of the week for your browser's language, or on Monday when the browser doesn't say.
+
+For a fixed window, click **Custom** instead of a preset:
+
+1. Select the start and end dates on the calendar.
+2. Set a time for each. They default to `00:00` and `23:59`.
+3. Click **Apply**. It stays unavailable until the start is before the end.
 
 The editor pauses live refresh while you compose, so the preview holds still.
 
 ## Edit the definition as JSON
 
-The **JSON** tab shows the dashboard definition as a document, for changes the visual builder doesn't reach and for moving widgets between dashboards.
+The **JSON** tab, beside **Builder** in the editor header, shows the dashboard definition as a document. Use it for changes the visual builder doesn't reach and for moving widgets between dashboards.
 
-The document carries the title, the description, the filters, the time range, and the widgets. The identifier and the creation and update dates aren't part of it, so editing here can't corrupt the dashboard's identity or its history.
+<!-- TODO: Screenshot of the JSON tab of the editor, showing the Copy JSON and Apply changes buttons above the document -->
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-dashboard-json.png" alt=""><figcaption><p>The JSON tab</p></figcaption></figure>
 
-* **Copy JSON** copies the document to the clipboard.
-* **Apply changes** applies it to the builder. It stays disabled while the document is invalid or unchanged.
+1. Click **JSON**.
+2. Edit the document.
+3. Click **Apply changes**. It stays unavailable while the document is invalid or unchanged.
+4. Click **Builder** to return to the grid, then click **Save**.
+
+**Copy JSON** copies the document to the clipboard. Switching back to **Builder** with changes you haven't applied applies them when the document is valid. When it isn't, the console keeps you on the **JSON** tab so nothing is lost.
+
+The document holds five keys. The identifier and the creation and update dates aren't part of it, so editing here can't corrupt the dashboard's identity or its history.
+
+| Key           | Holds                                                                                                                                                |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`       | The dashboard title. Required.                                                                                                                       |
+| `description` | The description. Present only when the dashboard has one.                                                                                            |
+| `filters`     | The dashboard filters, each with `field`, `operator`, and `value`, plus `editable` set to `true` for a filter the reader may re-value.               |
+| `timeRange`   | The default time range, either `{ "type": "relative", "period": "24h" }` or `{ "type": "absolute", "from": <ms>, "to": <ms> }` with timestamps in milliseconds. |
+| `widgets`     | One object per widget with `id`, `title`, `type`, `layout`, the fields of its query, and optional `filters`.                                        |
+
+`type` is one of `cartesian` (**Timeseries**), `bar` (**Bars**), `doughnut` (**Doughnut**), `breakdown` (**Top list**), `metric` (**Query value**), or `metric-group` (**KPI row**). `layout` places the widget on the 12-column grid with `x`, `y`, `cols`, and `rows`. `period` takes the code of a relative preset: `5m`, `15m`, `1h`, `6h`, `12h`, `24h`, `7d`, `30d`, `90d`, `180d`, `365d`, `currentWeek`, `currentMonth`, `currentQuarter`, `previousWeek`, `previousMonth`, or `previousQuarter`.
+
+The following document describes a dashboard with one re-valuable **API** filter and one **Timeseries** widget:
+
+```json
+{
+  "title": "LLM traffic watch",
+  "filters": [
+    {
+      "field": "API",
+      "operator": "in",
+      "value": [],
+      "editable": true
+    }
+  ],
+  "timeRange": {
+    "type": "relative",
+    "period": "24h"
+  },
+  "widgets": [
+    {
+      "id": "w-1a2b3c4d",
+      "title": "Requests over time",
+      "type": "cartesian",
+      "layout": { "x": 0, "y": 0, "cols": 6, "rows": 2 },
+      "series": [
+        {
+          "metric": "HTTP_REQUESTS",
+          "measure": "COUNT",
+          "representation": "line",
+          "unit": "req"
+        }
+      ]
+    }
+  ]
+}
+```
+
+To move a widget to another dashboard, click **Copy JSON** on the source, paste the widget object into the `widgets` array of the target, and remove its `id`. A widget without an identifier is given one, and two widgets sharing an identifier are rejected.
 
 Every problem found is listed at once under **Invalid dashboard document**, rather than one error at a time. The document is rejected when:
 
@@ -179,11 +291,9 @@ Every problem found is listed at once under **Invalid dashboard document**, rath
 * A widget's `x`, `y`, `cols`, and `rows` aren't whole numbers that fit the 12-column grid.
 * Two widgets share an identifier. A widget with no identifier is given one.
 
-Switching back to **Builder** with changes you haven't applied applies them when the document is valid. When it isn't, the console keeps you on the **JSON** tab so nothing is lost.
-
 ## Save the dashboard
 
-Select **Save**. On an existing dashboard, **Save** stays disabled until something changes. After the save, the editor closes and the dashboard opens.
+Click **Save**. On an existing dashboard, **Save** stays disabled until something changes. After the save, the editor closes and the dashboard opens.
 
 **Cancel**, the back arrow, and closing the browser tab all check for unsaved work first, and offer **Keep editing** or **Discard changes**. JSON text you haven't applied and an open widget panel count as unsaved work, not only edits already on the grid.
 
