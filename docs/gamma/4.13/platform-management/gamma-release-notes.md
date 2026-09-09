@@ -10,7 +10,19 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies gain export, import, and duplicate actions.
+Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. It also adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies gain export, import, and duplicate actions.
+
+#### AI Workspaces
+
+* The **Secure** group of the Agent Management sidebar adds an **AI Workspaces** section that gives a team governed access to a chosen set of AI models. Each workspace holds the models its members can call, the budgets they're metered against, and the members themselves.
+* Creating a workspace takes a name, a version, an optional description, and a default budget. The gateway path is derived from the name, and the name is refused when a workspace already uses it, when a proxy already uses the identifier derived from it, or when the derived path isn't available. Every workspace starts with one budget named `Default`.
+* Adding the first model from the AI model catalog provisions the Default LLM Proxy of the workspace, scoped to the selected models, and starts and deploys it. Adding more models updates and redeploys the same proxy. Removing the last model deletes the proxy.
+* A request naming a model the workspace doesn't hold is refused with `400` and the `model_not_found` code on the `/chat/completions`, `/responses`, `/embeddings`, and `/count_tokens` paths.
+* A budget caps the dollars each member assigned to it may spend per hour, day, week, or month, charged at each model's real per-request cost, and optionally caps the requests each member sends per second, minute, hour, or day. A member who exhausts the budget is refused with `429`. A model with no configured price consumes nothing from the budget. A workspace always keeps at least one budget.
+* Adding a user creates or reuses an application for them, subscribes it to the budget you pick, and issues an API key on that subscription. Each member's spend is counted against their own application, so members are metered independently and a re-added member returns to the same key and counter.
+* The **Users** page reveals and copies one member's key at a time, changes the budget a member is on, shows each member's access status and 30-day usage in tokens, requests, and cost, and revokes access by closing the subscription.
+* Budget changes are saved without deploying. Deploy the workspace from the out-of-sync banner to apply them.
+* See [AI Workspaces](../agent-management/build/ai-workspaces/README.md).
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
