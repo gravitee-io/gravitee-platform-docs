@@ -202,3 +202,4 @@ The cross-origin cookie problem that breaks Gamma login on separate hostnames do
 ## Next steps
 
 * Create your first MCP server. For more information, see [Create your first MCP server](../../../../agent-management/get-started/create-your-first-mcp-server.md).
+* Configure the OpenTelemetry pipeline that fills the Trace Explorer. For more information, see [Configure OpenTelemetry tracing and logs](../../../configure-opentelemetry-tracing-and-logs.md).

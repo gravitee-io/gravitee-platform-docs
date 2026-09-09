@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, and a regrouped navigation. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model.
+Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies gain export, import, and duplicate actions.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -56,12 +56,28 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 * The detail navigation is regrouped. **Models**, **Entrypoints**, **Endpoints**, **Policy Studio**, and **Resources** sit under **Design**, **Reporter Settings** and **Notifications** sit under **Monitoring**, **Security** follows **General**, and the **General** page is renamed **Configuration**. **LLM Studio** is renamed **Policy Studio**, and a link to the former page redirects to it.
 * See [Configure LLM Proxy entrypoints](../agent-management/build/configure-llm-proxy-entrypoints.md).
 
+#### Provider forms and the Models page for LLM Proxies
+
+* The inline provider card of the creation wizard renders the configuration schema of the LLM Proxy endpoint plugin, with the labels, help text, and validation rules the plugin ships. A field that a later plugin version adds appears without a console update, and the **Provider** list offers **OpenAI compatible**.
+* A provider added from the catalog is configured through the same form: its **Credentials**, its model governance, and the **Aliases of this model** and **Parameters Override (JSON)** of each picked model.
+* The **Models** page of the LLM Proxy detail view, under **Design**, edits the providers after creation. Add an inline or catalog provider, edit a provider in place, remove one, and save every change at once. Saving leaves the proxy out of sync until you deploy it.
+* See [Create an LLM Proxy](../agent-management/build/create-an-llm-proxy.md) and [Configure an LLM Proxy](../agent-management/build/configure-an-llm-proxy.md#models).
+
 #### CORS for LLM Proxies
 
 * Each LLM Proxy detail view adds a **CORS** page under **General** that configures cross-origin access for browser-based clients: the allowed origins, methods, and request headers, the exposed response headers, credentials, the preflight cache duration, and whether policies run on preflight requests.
 * CORS stays off until you enable it, so an existing LLM Proxy keeps its behavior after an upgrade. When CORS is enabled, the gateway adds the `Access-Control-*` headers to the responses of the proxy, answers preflight requests itself, and refuses a preflight request from an origin, with a method, or with a header that isn't allowed.
 * A save applies to the gateway when you deploy the proxy from the out-of-sync banner.
 * See [Configure LLM Proxy CORS](../agent-management/build/configure-llm-proxy-cors.md).
+
+#### Failover for LLM Proxies
+
+* The LLM Proxy detail view adds an **Endpoints** group under **Design**, with a **Failover** page. Every provider of the proxy is one endpoint, so failover retries a call on another provider when one is slow or failing.
+* Turn on **Enable failover**, then set **Max retries**, **Slow call duration (ms)**, and **Always move to the next endpoint** on the **Retries** card. **Always move to the next endpoint** is what pins each retry to a different provider, and the page warns while it's off.
+* The **Circuit breaker** card sets **Max failures**, **Open state duration (ms)**, and **Track per subscription**, so a provider that keeps failing is left aside instead of being tried again. The **Advanced** card takes an Expression Language **Failure condition** that decides what counts as a failure worth retrying.
+* A model alias shared by several providers is what lets a request roll over between them. When every attempt fails, the gateway answers `502`.
+* A save applies to the gateway when you deploy the proxy from the out-of-sync banner.
+* See [Configure LLM Proxy failover](../agent-management/build/configure-llm-proxy-failover.md).
 
 #### Owner and sharding tags in the LLM Proxies list
 
@@ -82,6 +98,16 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 * A model with a negotiated price shows a `Custom` badge next to its price, together with the suggested rate and the date and author of the last change. The negotiated price appears in the **Price / 1M** column of the AI Models list, on the model detail page, and on the models page of an LLM Proxy, and it feeds the cost estimates in the AI workspace detail view.
 * Refreshing the catalog updates the provider-derived fields and keeps your negotiated price. Republish any LLM Proxy that consumes a repriced model so cost tracking picks up the negotiated rate.
 * See [Add an AI model](../agent-management/import/add-an-ai-model.md).
+
+#### Export, import, and duplicate for LLM Proxies
+
+* The **Configuration** page of each LLM Proxy adds three actions. **Export** downloads the proxy as a Gravitee API definition or a Kubernetes CRD, and links to the Terraform tutorial. **Import** replaces the proxy from a Gravitee definition. **Duplicate** copies the proxy under a new context path and version.
+* The **Create LLM proxy** button now opens a page offering **Create from scratch** and **Import**. **Create from scratch** opens the existing wizard, and **Import** builds the proxy from a Gravitee definition. Both import routes accept a local file or a remote URL, and only the Gravitee definition format.
+* An exported file is a standard Gravitee export, so the APIM Console reads it. It adds a record of each provider in the shape you configured it. A proxy exported from one environment therefore keeps its inline providers, and re-links its catalog providers to the catalog of the environment you import into. A file exported by the APIM Console is accepted too, with every provider rebuilt as an inline one.
+* An export with the **Plans** checkbox cleared can update an existing proxy but can't create one, because a create by import publishes the plans the file carries.
+* An update by import keeps the target proxy's identity and its plans, and replaces its name, version, description, entrypoint configuration, and providers. It doesn't deploy, so the proxy is left out of sync until you deploy it.
+* The remote URL is fetched by the Management API under the same `imports.whitelist` and `imports.allow-from-private` settings as the classic import-from-URL endpoints.
+* See [Export and import an LLM Proxy](../agent-management/build/export-and-import-an-llm-proxy.md) and [Duplicate an LLM Proxy](../agent-management/build/duplicate-an-llm-proxy.md).
 
 ### API Management
 
@@ -123,7 +149,7 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
 
 #### Configure console authentication
 
@@ -146,6 +172,14 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * An origin is entered as a literal value or as a regular expression, and adding `*` asks for confirmation before it removes every cross-origin restriction.
 * The console addresses resolved for the organization stay allowed on top of the list, so tightening the origins doesn't lock you out of the consoles.
 * See [Configure CORS for the Management API](configure-console-cors.md).
+
+#### Configure environment alerts
+
+* Create, edit, enable, and delete the alerts of the selected environment from the **Alerts** page under **System & Security** in the **Environment** section. Ten rules cover node lifecycle, node metrics, node health, request metrics, missing requests, and endpoint health-check changes, each with a severity, a condition, filters, and optional notification timeframes.
+* Send each alert by email, Slack, system email, or webhook, and limit repeated notifications with a dampening mode.
+* Follow the alert events of the environment on the **Activity** tab, which counts them by severity over a quick time range and links to the history of each alert.
+* The page requires an enterprise license that includes the Alert Engine feature.
+* See [Configure environment alerts](configure-environment-alerts.md).
 
 #### Configure the SMTP mail server
 
