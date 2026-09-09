@@ -6,9 +6,17 @@ description: Copy an existing LLM Proxy with a new context path and version inst
 
 # Duplicate an LLM Proxy
 
-When you run several LLM Proxies over a consistent set of providers and policies, copying one is faster than repeating the wizard. The **Duplicate** action creates a new LLM Proxy from the source proxy's configuration. It asks you for the context path and version that the copy can't share with its source.
+## Overview
 
-Use **Duplicate** to copy a proxy inside one environment. To move a proxy to a different environment, export it and import the file there instead. See [Export and import an LLM Proxy](export-and-import-an-llm-proxy.md).
+When you run several LLM Proxies over a consistent set of providers and policies, it's faster to copy one than to repeat the wizard. The **Duplicate** action creates a new LLM Proxy from the source proxy's configuration. It asks you for the context path and version that the copy can't share with its source.
+
+Use **Duplicate** to copy a proxy inside one environment. To move a proxy to a different environment, export it and import the file there instead. For more information about exporting and importing an LLM Proxy, see [Export and import an LLM Proxy](export-and-import-an-llm-proxy.md).
+
+## Prerequisites
+
+Before you begin, confirm that you have the following:
+
+* An LLM Proxy. For more information, see [Create an LLM Proxy](create-an-llm-proxy.md).
 
 ## Duplicate the proxy
 
@@ -20,21 +28,21 @@ To duplicate an LLM Proxy, complete the following steps:
 4. Under **General**, select **Configuration**.
 5. Select **Duplicate**.
 
-    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-duplicate-sheet.png" alt=""><figcaption><p>The Duplicate LLM proxy panel with the Context path and Version fields and the include checkboxes</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-duplicate-sheet.png" alt="The Duplicate LLM proxy panel with the Context path and Version fields and the include checkboxes"><figcaption><p>The Duplicate LLM proxy panel with the Context path and Version fields and the include checkboxes</p></figcaption></figure>
 
 6. In the **Duplicate LLM proxy** panel, complete the following fields:
 
-| Field            | Required | Description                                                                                                                                                                                      |
-| ---------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Context path** | Yes      | The path prefix that consumers call on the copy. It starts with `/`, is longer than three characters, uses only letters, digits, and the `/`, `.`, `-`, and `_` characters, and holds no `//`. The source proxy's own path is shown as a hint. |
-| **Version**      | Yes      | The version of the copy, up to 32 characters. The source proxy's version is shown as a hint, and isn't used until you type a value.                                                                |
+    | Field            | Required | Description                                                                                                                                                                                      |
+    | ---------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | **Context path** | Yes      | The path prefix that consumers call on the copy. It starts with `/`, is longer than three characters, uses only letters, digits, and the `/`, `.`, `-`, and `_` characters, and holds no `//`. The source proxy's own path is shown as a hint. |
+    | **Version**      | Yes      | The version of the copy, up to 32 characters. The source proxy's version is shown as a hint, and isn't used until you type a value.                                                                |
 
 7. Under **Include additional data**, clear any of the **Groups**, **Members**, **Pages**, and **Plans** checkboxes you want to leave out of the copy. All four are selected by default.
 8. Select **Duplicate**.
 
 The console creates the copy and opens its **Configuration** page.
 
-The copy takes the source proxy's name. Give it a distinct name from its **Configuration** page when you want the two to be told apart in the **LLM Proxies** list.
+The copy takes the source proxy's name. Give it a distinct name from its **Configuration** page when you want to tell the two apart in the **LLM Proxies** list.
 
 ## Context path availability
 
@@ -47,19 +55,19 @@ The check runs again when you select **Duplicate**, so a path taken between your
 The copy is created but not deployed. Deploy it from the out-of-sync banner on the copy once its configuration is right. See [Configure LLM Proxy deployment](configure-llm-proxy-deployment.md).
 
 {% hint style="warning" %}
-Clearing the **Plans** checkbox leaves the copy with no plan, and a proxy with no plan can't be consumed. Add a plan to the copy before you deploy it. See [Create an LLM Proxy](create-an-llm-proxy.md) for the plan types.
+When you clear the **Plans** checkbox, the copy has no plan, and a proxy with no plan can't be consumed. Add a plan to the copy before you deploy it. See [Create an LLM Proxy](create-an-llm-proxy.md) for the plan types.
 {% endhint %}
 
 ## Verification
 
-To verify the copy, follow these steps:
+To verify the copy, complete the following steps:
 
 1. Under **Secure**, select **LLM Proxies**. The list holds a second proxy with the source proxy's name.
-2. Open the copy, and under **Design**, select **Models**. The providers and models match the source proxy.
+2. Open the copy, and then under **Design**, select **Models**. The providers and models match the source proxy.
 3. Under **Consumer Access**, select **Plans**. The plans are present when you left the **Plans** checkbox selected, and absent when you cleared it.
-4. Deploy the copy from the out-of-sync banner, and send it a prompt on its own context path as described in [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md). The gateway routes the request.
+4. Deploy the copy from the out-of-sync banner, and then send it a prompt on its own context path as described in [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md). The gateway routes the request.
 
-    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-duplicate-result.png" alt=""><figcaption><p>The Configuration page of the duplicated LLM Proxy</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-duplicate-result.png" alt="The Configuration page of the duplicated LLM Proxy"><figcaption><p>The Configuration page of the duplicated LLM Proxy</p></figcaption></figure>
 
 ## Next steps
 
