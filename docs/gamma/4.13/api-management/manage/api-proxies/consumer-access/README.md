@@ -1,3 +1,9 @@
+---
+hidden: false
+noIndex: false
+description: The Consumer Access section controls how consumers authenticate to an API proxy, subscribe to it, and hear from you. Learn what plans, subscriptions, and broadcasts do.
+---
+
 # Consumer access
 
 The **Consumer Access** section of an API proxy controls how consumers authenticate to it, subscribe to it, and hear from you about it.

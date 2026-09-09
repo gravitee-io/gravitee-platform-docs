@@ -247,4 +247,5 @@ After reviewing the Overview checklist, continue with the following pages:
 * [Configure backend security](configure-your-api-proxy/configure-backend-security.md). This page covers upstream TLS and backend credentials.
 * [Establish consumer access](configure-your-api-proxy/establish-consumer-access.md). This page covers plans, applications, and subscriptions.
 * [Apply security policies](configure-your-api-proxy/apply-security-policies.md). This page covers the Policy Studio and request/response policies.
-* [Observe](../observe/README.md). This page covers platform-wide logs and dashboards.
+* [Dashboard and metrics](../observe/api-dashboard.md). This page covers the homepage dashboard and per-module metrics.
+* [View API logs](../observe/view-api-logs.md). This page covers individual request logs.

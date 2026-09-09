@@ -32,3 +32,4 @@
 * [Configure OpenAPI viewer](configure-openapi-viewer.md)
 * [Manage applications](manage-applications.md)
 * [Manage dictionaries](manage-dictionaries.md)
+* [Manage environment metadata](manage-environment-metadata.md)

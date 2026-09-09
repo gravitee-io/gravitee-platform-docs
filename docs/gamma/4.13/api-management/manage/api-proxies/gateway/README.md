@@ -1,3 +1,9 @@
+---
+hidden: false
+noIndex: false
+description: The Gateway section of an API proxy covers how traffic reaches it and where it goes next. Learn what entrypoints, endpoints, failover, and logging each control.
+---
+
 # Gateway
 
 The **Gateway** section of an API proxy covers how traffic reaches the proxy, where the proxy sends it, and what the proxy reports about it.

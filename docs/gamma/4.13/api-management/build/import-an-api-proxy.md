@@ -165,5 +165,5 @@ To verify the import worked as expected, follow these steps:
 ## Next steps
 
 * [Secure your API proxy](secure-your-api-proxy.md). Attach a security plan to the imported API proxy.
-* [Configure your API proxy](configure-your-api-proxy/README.md). Review endpoints, consumer access, and policies.
+* [API proxies](../manage/api-proxies/README.md). Review endpoints, consumer access, and policies.
 * [Create an API proxy](create-an-api-proxy.md). Build an API proxy from scratch or from a template instead.

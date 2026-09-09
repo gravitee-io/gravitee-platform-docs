@@ -1,9 +1,8 @@
 # Table of contents
 
-## Get started
-
-* [API Management overview](get-started/api-management-overview.md)
-* [Create your first API](get-started/create-your-first-api.md)
+* [Get started](get-started/README.md)
+  * [API Management overview](get-started/api-management-overview.md)
+  * [Create your first API](get-started/create-your-first-api.md)
 
 ## Manage
 

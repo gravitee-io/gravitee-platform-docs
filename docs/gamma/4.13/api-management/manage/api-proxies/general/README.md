@@ -1,3 +1,9 @@
+---
+hidden: false
+noIndex: false
+description: The General section of an API proxy holds the settings that describe the proxy itself. Learn what identity, properties, resources, notifications, and CORS each control.
+---
+
 # General
 
 The **General** section of an API proxy holds the settings that describe the proxy itself rather than how it routes traffic.

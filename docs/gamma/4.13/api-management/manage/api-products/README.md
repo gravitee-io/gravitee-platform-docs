@@ -1,3 +1,9 @@
+---
+hidden: false
+noIndex: false
+description: An API Product bundles several API proxies into one consumer-facing offering with shared plans. Learn how to create one and where its settings live.
+---
+
 # API Products
 
 An API Product bundles several API proxies into one consumer-facing offering with shared plans. The **API Products** page in the API Management module is where you create and open one.

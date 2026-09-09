@@ -126,7 +126,7 @@ API Management gains a file-based path for building and updating API proxies and
 * The **This API is out of sync** banner replaces the **This API has undeployed changes.** banner in the API detail workspace.
 * The new banner carries an explanation: **Your latest changes are not live yet. Deploy to push them to the gateway.**
 * The **Deploy API** button on the banner and the **Out of sync** state badge in the sidebar header are unchanged.
-* See [Configure your API proxy](../api-management/build/configure-your-api-proxy/README.md).
+* See [API proxies](../api-management/manage/api-proxies/README.md).
 
 #### Clearer controls in the Policy Studio
 
@@ -337,7 +337,7 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 
 * Manage every aspect of an API proxy after creation from a single workspace: general settings, properties, resources, notifications, CORS, entrypoints, endpoints, failover, health checks, logging and tracing, plans, consumers, broadcasts, user permissions, audit logs, and deployment.
 * Compare any two deployed versions of an API definition and roll back to an earlier one.
-* See [Configure your API proxy](../api-management/build/configure-your-api-proxy/README.md).
+* See [API proxies](../api-management/manage/api-proxies/README.md).
 
 ### Authorization Management
 
