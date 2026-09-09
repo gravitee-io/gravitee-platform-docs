@@ -2,7 +2,7 @@
 description: Everything in the Gravitee Gamma 4.13 release, across Agent, API, Event Stream, and Platform Management. Browse the highlights.
 ---
 
-# Gamma Release Notes
+# Release Notes
 
 ## Release Date: TBD
 

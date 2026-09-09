@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Overview](overview.md)
-* [Gamma Release Notes](gamma-release-notes.md)
+* [Release Notes](gamma-release-notes.md)
 * [Get started](get-started/README.md)
   * [Get started for new users](get-started/get-started-for-new-users/README.md)
     * [Fully self-hosted installation with Vanilla Kubernetes](get-started/get-started-for-new-users/fully-self-hosted-with-vanilla-kubernetes.md)
