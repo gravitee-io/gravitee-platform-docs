@@ -23,17 +23,17 @@ To add models to an AI Workspace, complete the following steps:
 3. Select the workspace.
 4. Under **General**, select **Components**.
 
-    <!-- TODO: Screenshot of the Components page of a workspace with no models yet -->
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-ai-workspace-components-empty.png" alt=""><figcaption><p>The Components page before the first model is added</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-components-empty.png" alt="The Components page of a workspace with no models yet, showing the Models, LLM Proxies, MCP Proxies and Agents cards and the Add models from catalog button"><figcaption><p>The Components page before the first model is added</p></figcaption></figure>
 
 5. Select **Add models from catalog**.
-6. Browse the registered providers, select one, and select the models to add.
-7. Enter the provider credentials the picker asks for, then confirm.
+6. Select the models to add. Each row carries the model name, its provider, and the query name callers send. Search by any of the three to narrow the list.
 
-    <!-- TODO: Screenshot of the catalog model picker with models selected -->
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-ai-workspace-model-picker.png" alt=""><figcaption><p>The catalog model picker</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-model-picker.png" alt="The Add models from catalog panel listing the catalog models with their provider and query name, a search field, and the Add button"><figcaption><p>The catalog model picker</p></figcaption></figure>
 
-The **Components** page lists the models grouped by provider, and the **Models** card counts the models exposed to the workspace.
+7. Select **Add**.
+8. In the **Provider authentication** panel, enter the credentials for each provider whose models you picked, then submit.
+
+The **Components** page then lists the models grouped by provider, with a **Credentials configured** badge on each provider, and the **Models** card counts the models exposed to the workspace.
 
 ## Remove a model
 
@@ -70,5 +70,4 @@ To verify the models are available to the workspace, follow these steps:
 4. Call the `/models` path of the entrypoint URL with that key, and confirm the response lists the models you added.
 5. Call the `/chat/completions` path with a model the workspace doesn't hold, and confirm the gateway returns `400` with the `model_not_found` code.
 
-    <!-- TODO: Screenshot of the Components page listing the added models grouped by provider -->
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-ai-workspace-components-models.png" alt=""><figcaption><p>Models grouped by provider on the Components page</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-components-models.png" alt="The Components page of a workspace listing four models grouped under the OpenAI and Anthropic providers"><figcaption><p>Models grouped by provider on the Components page</p></figcaption></figure>

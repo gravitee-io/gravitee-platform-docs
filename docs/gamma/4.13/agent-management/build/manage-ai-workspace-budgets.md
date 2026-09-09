@@ -53,8 +53,7 @@ To create a budget, complete the following steps:
         </tbody>
     </table>
 
-    <!-- TODO: Screenshot of the Create budget panel with the cost budget, period, and request rate limit fields -->
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-ai-workspace-create-budget.png" alt=""><figcaption><p>The Create budget panel</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-create-budget.png" alt="The Create budget panel with the Name and Cost budget fields filled, the Budget period selector, and the Request rate limit switch turned off"><figcaption><p>The Create budget panel</p></figcaption></figure>
 
 7. Save the budget.
 
@@ -102,5 +101,4 @@ To verify a budget applies as expected, follow these steps:
 5. Call the workspace entrypoint with that member's API key, and confirm the response carries the `X-Cost-Rate-Limit-Remaining` header.
 6. Keep calling until the cost budget is exhausted, and confirm the gateway answers `429`.
 
-    <!-- TODO: Screenshot of the Budgets list with two budgets, one with a request rate limit and one without -->
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-ai-workspace-budgets-list.png" alt=""><figcaption><p>The Budgets list of a workspace</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-budgets-list.png" alt="The Budgets page listing the Default budget with no request rate and the Standard budget with a request rate of thirty per minute"><figcaption><p>The Budgets list of a workspace</p></figcaption></figure>

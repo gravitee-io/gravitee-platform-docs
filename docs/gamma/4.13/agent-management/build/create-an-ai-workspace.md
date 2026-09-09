@@ -18,8 +18,7 @@ To create an AI Workspace, complete the following steps:
 2. Under **Secure**, select **AI Workspaces**.
 3. Select **+ Create AI workspace**.
 
-    <!-- TODO: Screenshot of the AI Workspaces list with the Create AI workspace button -->
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-ai-workspaces-list.png" alt=""><figcaption><p>The AI Workspaces list</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspaces-list.png" alt="The AI Workspaces list with three workspaces, the Workspaces, Deployed and Owners cards, and the Create AI workspace button"><figcaption><p>The AI Workspaces list</p></figcaption></figure>
 
 4. In the **Details** section, complete the following fields:
 
@@ -79,8 +78,7 @@ To create an AI Workspace, complete the following steps:
         </tbody>
     </table>
 
-    <!-- TODO: Screenshot of the Create an AI workspace form with the Details and Default budget sections -->
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-create-ai-workspace-form.png" alt=""><figcaption><p>The AI Workspace creation form</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-aim-create-ai-workspace-form.png" alt="The Create an AI workspace form with the Details section filled in, the derived gateway path under the Name field, and the Default budget section showing the cost budget, budget period, and request rate limit"><figcaption><p>The AI Workspace creation form</p></figcaption></figure>
 
 6. Select **Create workspace**.
 
@@ -114,5 +112,4 @@ To verify the AI Workspace was created as expected, follow these steps:
 6. Under **Access**, select **Budgets**.
 7. Confirm the list holds one budget named `Default`, with the cost budget and period you entered.
 
-    <!-- TODO: Screenshot of the Budgets page showing the Default budget -->
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-ai-workspace-default-budget.png" alt=""><figcaption><p>The Default budget of a new workspace</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-default-budget.png" alt="The Budgets page of a new workspace listing the single budget named Default with its cost budget, period, and published status"><figcaption><p>The Default budget of a new workspace</p></figcaption></figure>
