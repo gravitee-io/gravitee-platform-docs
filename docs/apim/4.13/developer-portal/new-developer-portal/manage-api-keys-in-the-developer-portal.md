@@ -30,7 +30,7 @@ The "Calling the API" section—which displays the base URL and a cURL command e
 Before managing API keys, ensure the following conditions are met:
 
 * The subscription must be in the **Accepted** state.
-* You must hold **Subscription Update** (`U`) permission on either the API or the application.
+* You must hold **Subscription Update** (`U`) permission on either the API or the application. For an API Product subscription, the permission on the application is the one that counts.
 * The plan security type must be **API Key**.
 
 ## Creating API Keys
@@ -87,6 +87,8 @@ After confirmation, a new key is generated via `POST /subscriptions/{subscriptio
 <figure><img src="../../.gitbook/assets/api-keys-table-renewed.png" alt="API keys table showing two keys: one active key with green check-circle icon and key value a376e07b-1823-4406-810 created at Jun 12, 2026, 10:34:33 PM, and one inactive revoked key with red X-circle icon and key value 55729257-754c-4b4c-b29 with revocation timestamp Jun 12, 2026, 10:34:17 PM"><figcaption></figcaption></figure>
 
 Renewal is blocked if another renewal request is in flight or if the user lacks update permissions. The renewal operation uses server-side defaults and does not accept custom expiration parameters.
+
+For an API Product subscription, the **Renew API Key** button sits in the **API access** section of the subscription details page. It appears while the subscription is accepted, the plan is an API Key plan, and you hold **Subscription Update** (`U`) permission on the application. The same **Renew API Key?** dialog confirms the renewal, and the API keys table refreshes with the new key. The API keys table of an API Product subscription doesn't offer the **Revoke** action. For more information about API Product subscriptions, see [#api-product-subscription-details](manage-subscriptions.md#api-product-subscription-details "mention").
 
 | Action | Description |
 |:-------|:------------|

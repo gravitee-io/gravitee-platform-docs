@@ -1,14 +1,15 @@
 ---
 description: >-
-  Group the APIs in your New Developer Portal catalog into categories in the APIM
-  Console. Follow the steps to create one and assign APIs to it.
+  Group the APIs and API Products in your New Developer Portal catalog into
+  categories in the APIM Console. Create a category and assign APIs and API
+  Products to it.
 ---
 
 # Manage New Developer Portal categories
 
 ## Overview
 
-A category groups related APIs in the New Developer Portal catalog. You create categories in the APIM Console, assign published APIs to them, and consumers then filter the catalog to one category at a time. An API belongs to as many categories as you assign it to.
+A category groups related APIs and API Products in the New Developer Portal catalog. You create categories in the APIM Console, assign published APIs and API Products to them, and consumers then filter the catalog to one category at a time. An API or an API Product belongs to as many categories as you assign it to.
 
 Categories are scoped to an environment. Each environment has its own set of categories.
 
@@ -20,6 +21,7 @@ For the consumer-facing filter these categories drive, see [catalog.md](catalog.
 
 * Enable the New Developer Portal. For more information about enabling the New Developer Portal, see [configure-the-new-portal.md](configure-the-new-portal.md "mention").
 * Add the APIs you want to categorize to the portal navigation and publish them. For more information, see [#customizing-your-navigation](customize-the-navigation.md#customizing-your-navigation "mention").
+* Add the API Products you want to categorize to the portal navigation and publish them. For more information, see [#api-product](customize-the-navigation.md#api-product "mention").
 
 ## Create a category
 
@@ -67,6 +69,33 @@ The **APIs** table lists the APIs assigned to the category, including any that w
 
 When you remove an API from a category, the API stays published. It remains in the catalog and loses only that category assignment.
 
+## Add an API Product to a category
+
+Only API Products published in the portal navigation appear in the picker. An API Product that isn't published in the portal navigation can't be added to a category, and an API Product you already added to this category isn't offered again.
+
+1. Open **Portal Settings**.
+2. Click **Catalog**.
+3. Click the **Edit** icon on the category row.
+4.  In the **API Products** section, click **Add API Product to Category**.<br>
+
+    <figure><img src="../../.gitbook/assets/devportal-api-product-category-section.png" alt="API Products section of a category with no API Products assigned and the Add API Product to Category button"><figcaption><p>API Products section of a category</p></figcaption></figure>
+5.  In the **Add API Product to Category** dialog, type part of the API Product name in the `Search API Products...` field, and then select the API Product from the list. Each entry shows the name and the version of the API Product.<br>
+
+    <figure><img src="../../.gitbook/assets/devportal-add-api-product-to-category-dialog.png" alt="Add API Product to Category dialog with the Search API Products field open and one API Product with its version listed"><figcaption><p>Add API Product to Category dialog</p></figcaption></figure>
+6. Click **Add**.
+
+The API Product appears in the **API Products** table with its name and version.
+
+## Remove an API Product from a category
+
+1. Open **Portal Settings**.
+2. Click **Catalog**.
+3. Click the **Edit** icon on the category row.
+4. In the **API Products** table, click the **Remove API Product** icon on the API Product row.
+5. In the **Remove API Product** confirmation dialog, click **Remove**.
+
+When you remove an API Product from a category, the API Product stays published. It remains in the catalog and loses only that category assignment.
+
 ## Hide a category from consumers
 
 A hidden category doesn't appear in the New Developer Portal, so consumers can't filter on it. The APIs assigned to it stay in the catalog. A hidden category can be made visible again, and hiding it leaves every API assignment unchanged.
@@ -111,4 +140,4 @@ To verify that categories work as expected, complete the following steps:
 4. Click the **Edit** icon on the category row, and confirm the API appears in the **APIs** table.
 5. Open the New Developer Portal.
 6. Click **Catalog** in the portal navigation bar.
-7. Open the **Category** dropdown in the catalog header, and then select the category. The catalog lists only the APIs assigned to that category.
+7. Open the **Category** dropdown in the catalog header, and then select the category. The catalog lists only the APIs and API Products assigned to that category.
