@@ -17,7 +17,7 @@ The A2A Proxy wizard creates and publishes a default plan when you create the pr
 3. Select your A2A Proxy.
 4. Under **Consumer Access**, select **Plans**.
 
-<figure><img src="../../../.gitbook/assets/gamma-a2a-proxy-plans.png" alt="The Plans page of an A2A Proxy with the Staging, Published, Deprecated, and Closed status cards and the table of staging plans, with Plans selected under Consumer Access in the proxy sidebar"><figcaption><p>The Plans page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-a2a-proxy-plans.png" alt="The Plans page of an A2A Proxy with the Staging, Published, Deprecated, and Closed status cards and the table of staging plans, with Plans selected under Consumer Access in the proxy sidebar"><figcaption><p>The Plans page</p></figcaption></figure>
 
 ## Read the plan list
 
@@ -78,7 +78,7 @@ To configure a JWT plan, follow these steps:
 
 An OAuth2 plan validates tokens with an OAuth2 resource declared on the proxy. Declare the resource on the **Resources** page first. See [Configure resources for your proxies](../configure-resources-for-your-proxies.md).
 
-<figure><img src="../../../.gitbook/assets/gamma-a2a-proxy-create-plan-oauth2.png" alt="The Configure OAuth 2.0 step of the Create plan page, with the OAuth2 resource field filled from the declared resource selected under Declared on this proxy, and the Extract payload and Check required scopes switches"><figcaption><p>The OAuth 2.0 configuration step</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-a2a-proxy-create-plan-oauth2.png" alt="The Configure OAuth 2.0 step of the Create plan page, with the OAuth2 resource field filled from the declared resource selected under Declared on this proxy, and the Extract payload and Check required scopes switches"><figcaption><p>The OAuth 2.0 configuration step</p></figcaption></figure>
 
 To configure an OAuth2 plan, follow these steps:
 

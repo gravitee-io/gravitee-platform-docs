@@ -16,7 +16,7 @@ To open the page, follow these steps:
 
 <!-- TODO: Screenshot of the User Permissions page -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-user-permissions.png" alt=""><figcaption><p>The User Permissions page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-user-permissions.png" alt=""><figcaption><p>The User Permissions page</p></figcaption></figure>
 
 The **Notify members when they are added to the API** toggle at the top of the page controls membership notifications.
 
@@ -62,4 +62,4 @@ To verify the permissions are working as expected, follow these steps:
 
 <!-- TODO: Screenshot of the Direct Members table with the added member -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-user-permissions-member.png" alt=""><figcaption><p>The Direct Members table</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-user-permissions-member.png" alt=""><figcaption><p>The Direct Members table</p></figcaption></figure>

@@ -43,7 +43,7 @@ Re-sync refreshes the fields the registry owns: provider, family, context window
 
 <!-- TODO: Screenshot of the AI Models page showing the Re-sync from provider button -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-resync-models-button.png" alt=""><figcaption><p>The AI Models page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-resync-models-button.png" alt=""><figcaption><p>The AI Models page</p></figcaption></figure>
 
 ### Read the result
 
@@ -110,4 +110,4 @@ Re-sync fails and changes nothing in the following cases:
 
 <!-- TODO: Screenshot of the MCP Servers list with the actions menu open, showing the Re-sync action -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-resync-mcp-server.png" alt=""><figcaption><p>The Re-sync action on an MCP server</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-resync-mcp-server.png" alt=""><figcaption><p>The Re-sync action on an MCP server</p></figcaption></figure>

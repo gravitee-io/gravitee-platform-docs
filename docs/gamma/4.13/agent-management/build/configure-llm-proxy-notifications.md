@@ -14,7 +14,7 @@ To open the page, follow these steps:
 2. Select your LLM Proxy.
 3. Click **Notifications** in the LLM Proxy sidebar.
 
-<figure><img src="../../.gitbook/assets/gamma-llm-proxy-notifications.png" alt="The Notifications page for LLM Proxy, listing the Portal notification and an email notification with their Notifier, Subscribed events and Groups columns"><figcaption><p>The Notifications page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-llm-proxy-notifications.png" alt="The Notifications page for LLM Proxy, listing the Portal notification and an email notification with their Notifier, Subscribed events and Groups columns"><figcaption><p>The Notifications page</p></figcaption></figure>
 
 The table lists each notification's **Name**, **Notifier**, **Subscribed events**, and **Groups** columns. An **Actions** column is added when you can edit or delete a notification.
 

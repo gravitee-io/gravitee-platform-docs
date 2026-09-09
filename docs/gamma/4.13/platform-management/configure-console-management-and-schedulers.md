@@ -24,7 +24,7 @@ To open it, complete the following steps:
 
 The page subtitle reads "Name this organization console, decide who can register, and how often background tasks and notifications run."
 
-<figure><img src="../.gitbook/assets/gamma-platform-management-and-schedulers.png" alt=""><figcaption><p>The Management &#x26; Schedulers page of the <strong>Organization</strong> section</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-management-and-schedulers.png" alt=""><figcaption><p>The Management &#x26; Schedulers page of the <strong>Organization</strong> section</p></figcaption></figure>
 
 Every page in this group opens with a note that the configuration may be overridden by a local configuration file. The next section explains what that means for an individual field.
 
