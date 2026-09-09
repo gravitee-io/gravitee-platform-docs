@@ -3,6 +3,7 @@
 * [Get started](get-started/README.md)
   * [API Management overview](get-started/api-management-overview.md)
   * [Create your first API](get-started/create-your-first-api.md)
+  * [Installation guides](https://documentation.gravitee.io/platform-management/install)
 * [Build](build/README.md)
   * [Create an API proxy](build/create-an-api-proxy.md)
   * [Secure your API proxy](build/secure-your-api-proxy.md)

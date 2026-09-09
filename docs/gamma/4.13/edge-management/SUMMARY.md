@@ -2,6 +2,7 @@
 
 * [Get started](get-started/README.md)
   * [Edge Management overview](get-started/edge-management-overview.md)
+  * [Installation guides](https://documentation.gravitee.io/platform-management/install)
 * [Connect](connect/README.md)
   * [Set up Edge Management](connect/set-up-edge-management.md)
   * [Configure interception](connect/configure-edge-management.md)
