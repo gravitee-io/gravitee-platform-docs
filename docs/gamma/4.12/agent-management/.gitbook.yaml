@@ -3,3 +3,50 @@ root: ./
 structure:
   readme: get-started/README.md
   summary: SUMMARY.md
+
+redirects:
+ build/accepted-request-formats: build/accepted-request-formats.md
+ build/add-the-token-rate-limit-policy: build/add-the-token-rate-limit-policy.md
+ build/ai-resources: build/ai-resources.md
+ build/configure-a2a-proxy-deployment: build/configure-a2a-proxy-deployment.md
+ build/configure-a2a-proxy-notifications: build/configure-a2a-proxy-notifications.md
+ build/configure-an-llm-proxy: build/configure-an-llm-proxy.md
+ build/configure-text-classification: build/configure-text-classification.md
+ build/configure-your-a2a-proxy: build/configure-your-a2a-proxy/README.md
+ build/configure-your-a2a-proxy/add-policies-to-a2a-proxy: build/configure-your-a2a-proxy/add-policies-to-a2a-proxy.md
+ build/configure-your-a2a-proxy/configure-logging-and-tracing: build/configure-your-a2a-proxy/configure-logging-and-tracing.md
+ build/configure-your-access-management-instance: build/configure-your-access-management-instance.md
+ build/configure-your-mcp: build/configure-your-mcp/README.md
+ build/configure-your-mcp/add-policies-to-mcp-server: build/configure-your-mcp/add-policies-to-mcp-server.md
+ build/configure-your-mcp/apply-policies-to-mcp-methods: build/configure-your-mcp/apply-policies-to-mcp-methods.md
+ build/configure-your-mcp/apply-policies-to-tool-invocations: build/configure-your-mcp/apply-policies-to-tool-invocations.md
+ build/configure-your-mcp/connect-and-secure-atlassian-mcp-server: build/configure-your-mcp/connect-and-secure-atlassian-mcp-server.md
+ build/configure-your-mcp/connect-and-secure-github-mcp-server: build/configure-your-mcp/connect-and-secure-github-mcp-server.md
+ build/configure-your-mcp/connect-and-secure-stripe-mcp-server: build/configure-your-mcp/connect-and-secure-stripe-mcp-server.md
+ build/configure-your-mcp/govern-mcp-tool-access: build/configure-your-mcp/govern-mcp-tool-access.md
+ build/create-an-agent-identity: build/create-an-agent-identity.md
+ build/create-an-llm-proxy: build/create-an-llm-proxy.md
+ build/create-an-mcp-proxy: build/create-an-mcp-proxy.md
+ build/create-an-mcp-studio: build/create-an-mcp-studio.md
+ build/create-an-mcp-studio/edit-mcp-studio-composition: build/edit-mcp-studio-composition.md
+ build/expose-agent-with-a2a-proxy: build/expose-agent-with-a2a-proxy.md
+ build/llm-proxy-provider-support: build/llm-proxy-provider-support.md
+ build/override-the-model-at-runtime: build/override-the-model-at-runtime.md
+ build/review-a2a-proxy-deployment-history: build/review-a2a-proxy-deployment-history.md
+ build/select-a-text-classification-model: build/select-a-text-classification-model.md
+ build/stop-and-restart-proxy-traffic: build/agent-killswitch.md
+ cost-and-value/define-rates-with-the-price-book: cost-and-value/agent-finops.md
+ get-started/ai-management-overview: overview/README.md
+ govern/audit-agent-actions-with-receipts: govern/agent-activity-logs.md
+ import/connect-integrations: import/connect-integrations.md
+ import/create-event-tools: import/README.md
+ import/import-an-agent: import/import-an-agent.md
+ observe/inspect-your-agent-log: observe/inspect-your-agent-log.md
+ observe/monitor-ai-gateway-from-devices: observe/monitor-ai-gateway-from-devices.md
+ observe/monitor-your-llm-proxy: observe/monitor-your-llm-proxy.md
+ observe/monitor-your-mcp-servers: observe/monitor-your-mcp-servers.md
+ publish: build/llm-proxies/consumer-access/README.md
+ publish/connect-claude-code-through-an-llm-proxy: publish/connect-claude-code-through-an-llm-proxy.md
+ publish/consume-your-llm-proxy-with-langchain: publish/consume-your-llm-proxy-with-langchain.md
+ publish/manage-subscriptions: publish/manage-subscriptions.md
+ publish/publish-your-llm-proxy: publish/publish-your-llm-proxy.md
