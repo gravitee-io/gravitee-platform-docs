@@ -67,6 +67,23 @@ The **Entrypoints** page changes the context paths consumers call, switches the 
 
 The **CORS** page lets browser-based clients on other origins call the LLM Proxy. Enable CORS, then set the allowed origins, methods, and request headers, the exposed response headers, credentials, the preflight cache duration, and whether policies run on preflight requests. To open it, under **General**, select **CORS**. For the steps, see [Configure LLM Proxy CORS](configure-llm-proxy-cors.md).
 
+## Export, import, and duplicate
+
+<<<<<<< HEAD
+The **Configuration** page carries the following three actions that work on the proxy as a whole:
+
+* **Export** downloads the proxy as a Gravitee API definition, a Kubernetes CRD, or a link to the Terraform tutorial.
+* **Import** replaces this proxy's configuration from a Gravitee definition, supplied as a file or a remote URL. The proxy keeps its plans and its identity.
+=======
+The **Configuration** page carries three actions that work on the proxy as a whole:
+
+* **Export** downloads the proxy as a Gravitee API definition, a Kubernetes CRD, or a link to the Terraform tutorial.
+* **Import** replaces this proxy's configuration from a Gravitee definition, from a file or a remote URL. The proxy keeps its plans and its identity.
+>>>>>>> b0a5dc34e80a629e4c1f4570e9116e49045c1318
+* **Duplicate** creates a copy of the proxy under a new context path and version.
+
+For the steps, see [Export and import an LLM Proxy](export-and-import-an-llm-proxy.md) and [Duplicate an LLM Proxy](duplicate-an-llm-proxy.md).
+
 ## Structured output
 
 Structured output enforces response format constraints on model responses. You can enforce structured output natively by overriding model parameters.

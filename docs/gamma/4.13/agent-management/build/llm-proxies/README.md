@@ -10,6 +10,8 @@ An LLM Proxy routes traffic to upstream model providers through the AI Gateway. 
 
 * [**Browse the LLM Proxies list**](../browse-the-llm-proxies-list.md). Find an LLM Proxy by name, owner, sharding tags, or status, and choose the columns the list shows.
 * [**Create an LLM Proxy**](../create-an-llm-proxy.md). Create an LLM Proxy that routes traffic to upstream model providers through the AI Gateway.
+* [**Export and import an LLM Proxy**](../export-and-import-an-llm-proxy.md). Export an LLM Proxy as a Gravitee API definition, and create or update an LLM Proxy from a definition file or a remote URL.
+* [**Duplicate an LLM Proxy**](../duplicate-an-llm-proxy.md). Copy an LLM Proxy's configuration into a new LLM Proxy with its own context path and version.
 * [**Configure an LLM Proxy**](../configure-an-llm-proxy.md). Configure guardrails, PII filtering, rate limiting, security plans, and structured output.
 * [**Publish your LLM Proxy**](../../publish/publish-your-llm-proxy.md). Publish an LLM Proxy so consumers can send prompts to its context path through the AI Gateway.
 * [**Connect and consume third-party AI tools**](third-party-ai-tools/README.md). Route a third-party AI tool or framework through an LLM Proxy so it never holds a provider credential.
