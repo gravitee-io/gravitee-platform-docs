@@ -86,13 +86,8 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 #### Export, import, and duplicate for LLM Proxies
 
 * The **Configuration** page of each LLM Proxy adds three actions. **Export** downloads the proxy as a Gravitee API definition or a Kubernetes CRD, and links to the Terraform tutorial. **Import** replaces the proxy from a Gravitee definition. **Duplicate** copies the proxy under a new context path and version.
-<<<<<<< HEAD
 * The **Create LLM proxy** button now opens a page offering **Create from scratch** and **Import**. **Create from scratch** opens the existing wizard, and **Import** builds the proxy from a Gravitee definition. Both import routes accept a local file or a remote URL, and only the Gravitee definition format.
 * An exported file is a standard Gravitee export, so the APIM Console reads it. It adds a record of each provider in the shape you configured it. A proxy exported from one environment therefore keeps its inline providers, and re-links its catalog providers to the catalog of the environment you import into. A file exported by the APIM Console is accepted too, with every provider rebuilt as an inline one.
-=======
-* The **Create LLM proxy** button now opens a page offering **Create from scratch**, which opens the existing wizard, and **Import**, which builds the proxy from a Gravitee definition. Both import routes accept a local file or a remote URL, and only the Gravitee definition format.
-* An exported file is a standard Gravitee export, so the classic console reads it. It adds a record of each provider in the shape you configured it, so a proxy exported from one environment keeps its inline providers and re-links its catalog providers to the catalog of the environment you import into. A file exported by the classic console is accepted too, with every provider rebuilt as an inline one.
->>>>>>> b0a5dc34e80a629e4c1f4570e9116e49045c1318
 * An export with the **Plans** checkbox cleared can update an existing proxy but can't create one, because a create by import publishes the plans the file carries.
 * An update by import keeps the target proxy's identity and its plans, and replaces its name, version, description, entrypoint configuration, and providers. It doesn't deploy, so the proxy is left out of sync until you deploy it.
 * The remote URL is fetched by the Management API under the same `imports.whitelist` and `imports.allow-from-private` settings as the classic import-from-URL endpoints.
