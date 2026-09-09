@@ -1,7 +1,4 @@
 ---
-description: >-
-  Overview of the Gravitee Edge Daemon, its traffic routing modes, and the
-  gateway-side endpoints it connects to.
 hidden: false
 noIndex: false
 description: The Edge Daemon observes AI traffic on employee devices, enforces local policy, and forwards it to the AI Gateway. Learn how it routes traffic.
