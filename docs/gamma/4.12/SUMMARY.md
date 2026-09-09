@@ -5,7 +5,7 @@
 ## Platform Management
 
 * [Overview](platform-management/overview.md)
-* [Gamma Release Notes](platform-management/gamma-release-notes.md)
+* [Release Notes](platform-management/gamma-release-notes.md)
 * [Get started](platform-management/get-started/README.md)
   * [Get started for new users](platform-management/get-started/get-started-for-new-users/README.md)
     * [Fully self-hosted installation with Vanilla Kubernetes](platform-management/get-started/get-started-for-new-users/fully-self-hosted-with-vanilla-kubernetes.md)
