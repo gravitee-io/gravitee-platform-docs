@@ -74,3 +74,5 @@ Register URL is available through the `registration_endpoint` attribute, under t
 {% hint style="warning" %}
 Unlike PATCH, PUT requires you to provide all the client metadata. Omitted fields will be treated as null or empty values.
 {% endhint %}
+
+The registration request accepts the `dpop_bound_access_tokens` client metadata. Set it to `true` to require a DPoP proof on every token request from the client. See [Demonstrating Proof of Possession (DPoP)](oauth-2.0/demonstrating-proof-of-possession-dpop.md#require-dpop-for-an-application).

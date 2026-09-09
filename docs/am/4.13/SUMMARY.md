@@ -63,6 +63,7 @@
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
     * [Which Flow Should I Use?](guides/auth-protocols/oauth-2.0/which-flow-should-i-use.md)
     * [Proof Key for Code Exchange (PKCE)](guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce.md)
+    * [Demonstrating Proof of Possession (DPoP)](guides/auth-protocols/oauth-2.0/demonstrating-proof-of-possession-dpop.md)
     * [Best Practices](guides/auth-protocols/oauth-2.0/best-practices.md)
     * [Refresh Tokens](guides/auth-protocols/oauth-2.0/refresh-tokens.md)
     * [Extension Grants](guides/auth-protocols/oauth-2.0/extension-grants.md)

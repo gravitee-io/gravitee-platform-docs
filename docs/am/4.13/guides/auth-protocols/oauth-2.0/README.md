@@ -73,6 +73,7 @@ The authorization code is used by applications to obtain a temporary code after 
 * Authorization codes are single use.
 * For server-side web apps, such as native (mobile) and Javascript apps, you also use the [PKCE extension](https://tools.ietf.org/html/rfc7636) as part of your flow, which provides protection against other attacks where the authorization code may be intercepted.
 * Authorization code grant URL: `GET https://am-gateway/{domain}/oauth/authorize?response_type=code&client_id=web-app&redirect_uri=https://web-app/callback`
+* To bind the authorization code to the client's DPoP key, add the `dpop_jkt` parameter to the authorization request. See [Demonstrating Proof of Possession (DPoP)](demonstrating-proof-of-possession-dpop.md#bind-the-authorization-code-to-the-dpop-key).
 * For more information about this flow, see the [RFC](https://tools.ietf.org/html/rfc6749#section-1.3.1).
 
 ### Implicit
@@ -164,6 +165,10 @@ This endpoint supports [resource indicators](https://tools.ietf.org/html/rfc8707
 
 Token endpoint URL: `https://am-gateway/{domain}/oauth/token`
 
+{% hint style="info" %}
+When the request carries a `DPoP` header, this endpoint issues tokens bound to the client's key. See [Demonstrating Proof of Possession (DPoP)](demonstrating-proof-of-possession-dpop.md).
+{% endhint %}
+
 ### Introspection endpoint
 
 The [introspection endpoint](https://tools.ietf.org/html/rfc7662#section-2) takes a parameter representing an OAuth 2.0 token and returns a JSON \[RFC7159] document containing meta-information about the token, including whether it is currently active.
@@ -173,6 +178,8 @@ When a token has audience claims relating to an [MCP Server](../../mcp-servers/R
 {% endhint %}
 
 Introspection endpoint URL: `https://am-gateway/{domain}/oauth/introspect`
+
+For a [DPoP-bound](demonstrating-proof-of-possession-dpop.md#discovery-and-introspection) access token, the response includes the `cnf` claim with the `jkt` thumbprint of the key the token is bound to.
 
 ### Revocation endpoint
 
