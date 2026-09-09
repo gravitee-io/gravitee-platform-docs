@@ -10,7 +10,7 @@ description: >-
 
 Gamma stores custom observability dashboards in the environment they belong to. A saved dashboard carries its title, its filters, its time range, and its widgets. It stays available after a restart, from any machine, and to every user with read access to that environment's dashboards.
 
-Dashboards are created and maintained over the Gamma API. Each one lives in exactly one environment and is never returned to a request scoped to a different environment.
+Dashboards are created and maintained over the Gamma API, and from the **Dashboards** page of Agent Management. Each one lives in exactly one environment and is never returned to a request scoped to a different environment. To build one from the console instead, see [Build a custom dashboard](../agent-management/observe/dashboards/build-a-custom-dashboard.md).
 
 ## Before you begin
 

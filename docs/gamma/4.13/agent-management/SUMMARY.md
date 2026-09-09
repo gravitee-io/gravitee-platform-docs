@@ -95,6 +95,7 @@
     * [Monitor your LLM proxy](observe/monitor-your-llm-proxy.md)
     * [Monitor your MCP servers](observe/monitor-your-mcp-servers.md)
     * [Monitor AI Gateway usage from employee systems](observe/monitor-ai-gateway-from-devices.md)
+    * [Build a custom dashboard](observe/dashboards/build-a-custom-dashboard.md)
   * [Logs](observe/logs/README.md)
     * [Inspect your agent log](observe/inspect-your-agent-log.md)
   * [Review audit logs](observe/review-audit-logs.md)
