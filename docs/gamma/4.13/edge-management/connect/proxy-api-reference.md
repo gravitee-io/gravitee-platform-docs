@@ -64,7 +64,7 @@ Two of those settings are permissive by design, so that interception works the m
 * **The keyless plan.** The connection between the daemon and the gateway isn't authenticated, so a secured plan would reject the requests of the daemon. Expose these APIs on trusted networks only.
 * **Model governance.** The API accepts any model, because guessing a narrower list would break the agent on the next model it picks.
 
-The API is created stopped and undeployed, and the route reports **Will not intercept** until you start and deploy it from its own page. The description of the API states all of this on the API itself.
+The API is created stopped and undeployed, and the route reports **Will not intercept** until you start and deploy it from its own page. The description of the API states this on the API itself.
 
 ## Working with a target API
 

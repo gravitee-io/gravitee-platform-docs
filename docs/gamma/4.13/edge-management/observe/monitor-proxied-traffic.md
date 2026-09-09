@@ -12,7 +12,7 @@ The **Proxied Traffic** page shows the AI requests that were intercepted on a ma
 
 A request appears here when a device runs the Edge Daemon, the agent that made the request is configured as an intercepted agent, and the path of the request matched one of the routes of that agent.
 
-<figure><img src="../../.gitbook/assets/edge-analytics-proxied-traffic.png" alt="The Proxied Traffic page with the time range selector, the Total requests, Active devices, and Top provider cards, and the traffic table with token counts"><figcaption><p>The Proxied Traffic page.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-analytics-proxied-traffic.png" alt="The Proxied Traffic page with the time range selector, the Total requests, Active devices, and Top provider cards, and the traffic table with token counts"><figcaption><p>The Proxied Traffic page.</p></figcaption></figure>
 
 ## Read the page
 
