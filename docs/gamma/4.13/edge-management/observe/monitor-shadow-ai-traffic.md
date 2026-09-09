@@ -12,7 +12,7 @@ The **Detected Shadow AI** page lists the connections that your managed devices 
 
 Detections come from the domains listed under **Shadow AI** in the configuration. Each daemon watches for connections to those domains and reports what it sees at the interval you set. Detection is based on TCP connection monitoring. No traffic content is read. See [Choose the domains to watch for shadow AI](../connect/set-up-edge-management.md#choose-the-domains-to-watch-for-shadow-ai).
 
-<figure><img src="../../.gitbook/assets/edge-analytics-shadow-ai.png" alt="The Detected Shadow AI page with the time range selector, the Total detections, Affected devices, and Top provider cards, and the detections table"><figcaption><p>The Detected Shadow AI page.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-analytics-shadow-ai.png" alt="The Detected Shadow AI page with the time range selector, the Total detections, Affected devices, and Top provider cards, and the detections table"><figcaption><p>The Detected Shadow AI page.</p></figcaption></figure>
 
 ## Read the page
 

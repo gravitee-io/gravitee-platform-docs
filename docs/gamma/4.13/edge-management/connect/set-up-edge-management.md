@@ -10,7 +10,7 @@ description: Create the Edge Management configuration of an environment through 
 
 Edge Management is configured per environment, and the configuration is created once, through a guided setup. Until it exists, the module offers a single page, **Quick Start**, which explains what Edge Management does and opens the setup.
 
-<figure><img src="../../.gitbook/assets/edge-quick-start-welcome.png" alt="The Quick Start page of an environment with no Edge Management configuration, showing the Welcome to Edge Management heading, the traffic diagram, and the Set up Edge Management button"><figcaption><p>The Quick Start page of an environment that has no configuration yet.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-quick-start-welcome.png" alt="The Quick Start page of an environment with no Edge Management configuration, showing the Welcome to Edge Management heading, the traffic diagram, and the Set up Edge Management button"><figcaption><p>The Quick Start page of an environment that has no configuration yet.</p></figcaption></figure>
 
 The setup has four steps: **Gateway**, **Intercepted agents**, **Shadow AI**, and **Deploy**. Nothing is deployed until the last step, you can move back and forth with **Back** and **Next**, and leaving the page drops what you entered.
 
@@ -35,7 +35,7 @@ To set up Edge Management, complete the following steps:
 2. On the **Quick Start** page, click **Set up Edge Management**.
 3. Enter the two addresses that every Edge Daemon of the environment is installed with.
 
-<figure><img src="../../.gitbook/assets/edge-setup-gateway.png" alt="Step 1 of the guided setup, Gateway, with the Gateway URL and Reactor URL fields filled in"><figcaption><p>Step 1 of the guided setup.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-setup-gateway.png" alt="Step 1 of the guided setup, Gateway, with the Gateway URL and Reactor URL fields filled in"><figcaption><p>Step 1 of the guided setup.</p></figcaption></figure>
 
 The following table describes each field:
 
@@ -52,7 +52,7 @@ Both addresses are required, and both must start with `http://` or `https://`.
 
 Once the configuration exists, the **Gateway** page shows the two addresses and explains what each one does. It has no save action.
 
-<figure><img src="../../.gitbook/assets/edge-config-gateway.png" alt="The Gateway page showing the locked Gateway URL and Reactor URL of the environment and the explanation of why they can't change"><figcaption><p>The Gateway page of a configured environment.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-config-gateway.png" alt="The Gateway page showing the locked Gateway URL and Reactor URL of the environment and the explanation of why they can't change"><figcaption><p>The Gateway page of a configured environment.</p></figcaption></figure>
 
 4. Click **Next**.
 
@@ -60,7 +60,7 @@ Once the configuration exists, the **Gateway** page shows the two addresses and 
 
 An intercepted agent is an AI coding tool whose traffic the daemon captures: the domains it calls, the routes under those domains, and for each route the target API on the gateway that receives the traffic.
 
-<figure><img src="../../.gitbook/assets/edge-setup-wizard.png" alt="Step 2 of the guided setup, Intercepted agents, with the Claude Code, Codex, and Custom agent cards"><figcaption><p>Step 2 of the guided setup.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-setup-wizard.png" alt="Step 2 of the guided setup, Intercepted agents, with the Claude Code, Codex, and Custom agent cards"><figcaption><p>Step 2 of the guided setup.</p></figcaption></figure>
 
 1. Click **Set up** on the **Claude Code** card, or on the **Custom agent** card for any other tool. The **Codex** card is listed as coming soon and can't be configured.
 2. Map each route to its target API, or create the target API from the picker. Everything this form offers is described in [Configure interception](configure-edge-management.md), which is also where you come back to change it later.
@@ -73,7 +73,7 @@ You can leave this step empty and configure agents afterward from the **Intercep
 
 Shadow AI is traffic that reaches an AI provider directly, bypassing the gateway. Each daemon watches for connections to the domains you list here and reports what it sees.
 
-<figure><img src="../../.gitbook/assets/edge-setup-shadow-ai.png" alt="Step 3 of the guided setup, Shadow AI, with one monitored domain and the report interval"><figcaption><p>Step 3 of the guided setup.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-setup-shadow-ai.png" alt="Step 3 of the guided setup, Shadow AI, with one monitored domain and the report interval"><figcaption><p>Step 3 of the guided setup.</p></figcaption></figure>
 
 1. Enter a provider domain, for example `api.openai.com`, and click **Add**. Repeat for each domain to watch.
 2. Set the **Report interval (seconds)**. The default is 120 seconds and the minimum is 10 seconds.
@@ -96,14 +96,14 @@ Watching a domain for shadow AI and intercepting it are independent. Shadow AI d
 
 The last step lists what will be created.
 
-<figure><img src="../../.gitbook/assets/edge-setup-review.png" alt="Step 4 of the guided setup, Deploy, summarizing the gateway addresses, the intercepted agents, and the shadow AI domains before Create & Deploy"><figcaption><p>Step 4 of the guided setup.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-setup-review.png" alt="Step 4 of the guided setup, Deploy, summarizing the gateway addresses, the intercepted agents, and the shadow AI domains before Create & Deploy"><figcaption><p>Step 4 of the guided setup.</p></figcaption></figure>
 
 1. Check the gateway addresses, the intercepted agents, and the shadow AI domains.
 2. Click **Create & Deploy**. This publishes an Edge API for the environment, with a keyless plan, and deploys it to the gateway.
 
 If an agent's target API can't serve its route yet, a dialog names the agent, the route, and the reason before you commit. It's a warning, not a refusal: click **Create & Deploy anyway** to create the configuration and fix the API afterward, or **Back to configuration** to change the route first. See [Understand the route verdicts](configure-edge-management.md#understand-the-route-verdicts).
 
-<figure><img src="../../.gitbook/assets/edge-setup-deploy-warning.png" alt="The dialog shown before Create & Deploy when an agent's route will not intercept, naming the agent, the route, and the unmet requirement"><figcaption><p>The warning shown when a route's target API can't serve it yet.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-setup-deploy-warning.png" alt="The dialog shown before Create & Deploy when an agent's route will not intercept, naming the agent, the route, and the unmet requirement"><figcaption><p>The warning shown when a route's target API can't serve it yet.</p></figcaption></figure>
 
 {% hint style="warning" %}
 **A deployed configuration intercepts nothing until the devices run the daemon.** Creating the configuration publishes the Edge API on the gateway. It doesn't touch a single device. Installing the daemon is a separate procedure.

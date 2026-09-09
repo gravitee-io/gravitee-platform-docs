@@ -12,7 +12,7 @@ Interception is configured per intercepted agent, from the **Interception** page
 
 The **Interception** page saves its own part of the configuration. A change here never re-sends your shadow AI settings.
 
-<figure><img src="../../.gitbook/assets/edge-interception-agents.png" alt="The Interception page with the Claude Code, Codex, and Custom agent cards, and the Save & Deploy and Reset buttons"><figcaption><p>The Interception page with one configured agent.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-interception-agents.png" alt="The Interception page with the Claude Code, Codex, and Custom agent cards, and the Save & Deploy and Reset buttons"><figcaption><p>The Interception page with one configured agent.</p></figcaption></figure>
 
 To configure interception, complete the following steps:
 
@@ -36,7 +36,7 @@ The following agents are available:
 * **Custom agent** is for tools that have no preset, and for debugging. You enter a name, the domains to intercept, the decoder format, an optional vendor used as a reporting label, and every route yourself, with **Add route**.
 * **Codex** is listed as coming soon and can't be configured.
 
-<figure><img src="../../.gitbook/assets/edge-interception-agent-form.png" alt="The Claude Code agent form open on the Interception page, with the preset domains, format, and vendor, the route mapped to its target API with a Ready verdict, the expanded list of what the route needs, and the Everything else control"><figcaption><p>The Claude Code form, with its route mapped to a target API that passes every check.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-interception-agent-form.png" alt="The Claude Code agent form open on the Interception page, with the preset domains, format, and vendor, the route mapped to its target API with a Ready verdict, the expanded list of what the route needs, and the Everything else control"><figcaption><p>The Claude Code form, with its route mapped to a target API that passes every check.</p></figcaption></figure>
 
 ### Routes
 
@@ -67,7 +67,7 @@ The picker under **Gateway API** searches the APIs of the environment.
 1. Click the **Search a gateway API** field of the route and start typing the name of the API. The picker lists one entry per matching API, with the path it exposes. An API that exposes several paths shows how many, and picking it opens its paths as a second level.
 2. Select the API, or the path, that the route forwards to. The name of the API is shown in the field, and its path is shown as a link to the API.
 
-<figure><img src="../../.gitbook/assets/edge-api-picker.png" alt="The target API picker open on a route, listing the gateway APIs that match the search and ending with the Create the target API for this route action"><figcaption><p>The target API picker with the APIs that match the search.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-api-picker.png" alt="The target API picker open on a route, listing the gateway APIs that match the search and ending with the Create the target API for this route action"><figcaption><p>The target API picker with the APIs that match the search.</p></figcaption></figure>
 
 What is stored is the pairing. The path is what the daemon forwards to, and the API is remembered so that its name can be shown again. If the API is later deleted, the route shows the raw path with an **API not found** notice. If the API no longer serves that path, the route asks you to pick a path again.
 
@@ -81,11 +81,11 @@ The picker lists at most 20 APIs per search. When more APIs matched than the lis
 
 If no suitable API exists, click **Create the target API for this route** at the bottom of the picker. The dialog builds an API from the preset of the agent: its type, connectors, and upstream come from the preset, and only the **Name** and the **Context path** are yours to choose. The path is checked for availability as you type.
 
-<figure><img src="../../.gitbook/assets/edge-create-target-api.png" alt="The Create the target API dialog with the API name and context path prefilled from the Claude Code preset and the three notes about what is created"><figcaption><p>The dialog that creates the target API of a route.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-create-target-api.png" alt="The Create the target API dialog with the API name and context path prefilled from the Claude Code preset and the three notes about what is created"><figcaption><p>The dialog that creates the target API of a route.</p></figcaption></figure>
 
 Three things are decided the moment you click **Create API**:
 
-* **The API is created right away, on the server.** It exists whether or not you go on to save the configuration. Only the route mapping is part of the draft.
+* **The API is created right away, on the server.** It exists even if you don't go on to save the configuration. Only the route mapping is part of the draft.
 * **The API is created stopped and undeployed.** The gateway doesn't serve it until you start and deploy it from its own page, and until then the route reports as **Will not intercept**.
 * **The API is permissive by design.** It's created with a published keyless plan and accepts every model, so that interception works as soon as the API is deployed. Review both before you deploy it.
 
@@ -105,7 +105,7 @@ Each route of a preset is checked against what its target API is on the gateway,
 
 Unfold **What this route needs** to list the requirements and, for each unmet one, the reason. See [Target API reference](proxy-api-reference.md) for the requirements.
 
-<figure><img src="../../.gitbook/assets/edge-route-verdict.png" alt="A route mapped to a newly created target API, showing the Will not intercept verdict and the summary of what the route needs"><figcaption><p>A route mapped to a target API that hasn't been deployed yet.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-route-verdict.png" alt="A route mapped to a newly created target API, showing the Will not intercept verdict and the summary of what the route needs"><figcaption><p>A route mapped to a target API that hasn't been deployed yet.</p></figcaption></figure>
 
 {% hint style="info" %}
 **A verdict never blocks a save.** You can save and deploy a configuration whose routes won't intercept. A dialog names the agents concerned and the reason first, and **Save & Deploy anyway** lets you through. An unmet requirement is usually fixed on the page of the API itself.
@@ -124,7 +124,7 @@ To discard the unsaved changes and restore the last saved values, click **Reset*
 
 A configuration created before intercepted agents existed carries a flat list of DNS domains and routes. This model is deprecated. It's shown read-only under **Legacy interception**, the page no longer saves while it still has entries, and a banner at the top of the page explains the steps to follow.
 
-<figure><img src="../../.gitbook/assets/edge-interception-legacy.png" alt="The Interception page of a configuration that still holds legacy DNS domains and routes, with the banner explaining that the form no longer saves until the legacy block is cleared, and the Legacy interception block expanded"><figcaption><p>The Interception page of a configuration that still carries the legacy model.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-interception-legacy.png" alt="The Interception page of a configuration that still holds legacy DNS domains and routes, with the banner explaining that the form no longer saves until the legacy block is cleared, and the Legacy interception block expanded"><figcaption><p>The Interception page of a configuration that still carries the legacy model.</p></figcaption></figure>
 
 To migrate, complete the following steps:
 
@@ -135,7 +135,7 @@ To migrate, complete the following steps:
 
 Nothing changes until that last step, and **Reset** brings the legacy entries back as they were.
 
-<figure><img src="../../.gitbook/assets/edge-legacy-clear-dialog.png" alt="The Clear all legacy interception confirmation, with the warning that intercepted agents require Edge Daemon 2.0.0 or later"><figcaption><p>The confirmation shown before the legacy entries are cleared.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-legacy-clear-dialog.png" alt="The Clear all legacy interception confirmation, with the warning that intercepted agents require Edge Daemon 2.0.0 or later"><figcaption><p>The confirmation shown before the legacy entries are cleared.</p></figcaption></figure>
 
 {% hint style="warning" %}
 **Intercepted agents require Edge Daemon 2.0.0 or later.** Daemons below 2.0.0 read only the legacy DNS domains and routes, and ignore intercepted agents. On those devices, interception stops once the migrated configuration is deployed, with no error and no crash: the daemon intercepts nothing. Check the daemon versions of your fleet on the **Devices** page before you save. See [Monitor your devices](../observe/monitor-devices.md).
