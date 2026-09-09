@@ -51,7 +51,7 @@ To add a provider inline, select **Add provider**. On the **New provider** card,
 
 The card checks each field against the plugin schema as you type. **Add provider** at the bottom of the card stays disabled until the name and every field are valid. Select it to add the provider, or **Cancel** to drop the card. The added provider is listed with its models, and its bin icon removes it.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-llm-proxy-new-provider.png" alt="The New provider card of the Models step with the Provider name, Provider, Provider URL, Models, ModelGovernance, and Authentication fields filled for an Anthropic provider"><figcaption><p>The New provider card of the Models step</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-new-provider.png" alt="The New provider card of the Models step with the Provider name, Provider, Provider URL, Models, ModelGovernance, and Authentication fields filled for an Anthropic provider"><figcaption><p>The New provider card of the Models step</p></figcaption></figure>
 
 {% hint style="info" %}
 The console keeps the API key, bearer token, or service account key as you enter it. The value is shown again when you edit the provider on the **Models** page of the proxy. For the API key and the bearer token, enter a secret reference in the field instead to keep the secret out of the proxy configuration.

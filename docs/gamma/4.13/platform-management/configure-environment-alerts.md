@@ -28,7 +28,7 @@ To open the page, complete the following steps:
 
 The page opens on the **My alerts** tab, which lists the alerts of the selected environment. The **Activity** tab sums up the alert events of the environment, as described in [Track alert activity](#track-alert-activity).
 
-<figure><img src="../.gitbook/assets/gamma-platform-alerts-list.png" alt="The Alerts page of the Environment section with the My alerts tab listing three alerts, their rule, event counts, severity, and Enabled switch, and the Add alert button"><figcaption><p>The My alerts tab of the Alerts page.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-alerts-list.png" alt="The Alerts page of the Environment section with the My alerts tab listing three alerts, their rule, event counts, severity, and Enabled switch, and the Add alert button"><figcaption><p>The My alerts tab of the Alerts page.</p></figcaption></figure>
 
 Until the environment has an alert, the **My alerts** tab shows an introduction to alerts in place of the table. The introduction lists the rules available in the environment, the notification channels, and the capabilities of an alert.
 
@@ -66,7 +66,7 @@ To create an alert, complete the following steps:
 
 **Create** stays disabled until every required field is filled, and a message next to the buttons names what's missing for a notification. Once the alert is created, the page returns to the list and confirms `Alert "<name>" created.`
 
-<figure><img src="../.gitbook/assets/gamma-platform-alerts-create.png" alt="The Create new alert page on the Alerts tab with the General, Template, and Timeframes cards, the aggregation rule selected, and the Cancel and Create buttons"><figcaption><p>The Create new alert page with an aggregation rule selected.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-alerts-create.png" alt="The Create new alert page on the Alerts tab with the General, Template, and Timeframes cards, the aggregation rule selected, and the Cancel and Create buttons"><figcaption><p>The Create new alert page with an aggregation rule selected.</p></figcaption></figure>
 
 ### Rules
 
@@ -101,7 +101,7 @@ The **Condition** card follows the rule:
 
 The numeric operators are **less than**, **less than or equals to**, **greater than or equals to**, and **greater than**. The string operators are **equals to**, **not equals to**, **starts with**, **ends with**, **contains**, and **matches**. The aggregation functions are **count**, **average**, **min**, **max**, **50th percentile**, **90th percentile**, **95th percentile**, and **99th percentile**. The time units are **Seconds**, **Minutes**, and **Hours**. Thresholds, multipliers, and durations take values of 1 or more, and a high threshold must be greater than or equal to the low one.
 
-<figure><img src="../.gitbook/assets/gamma-platform-alerts-condition.png" alt="The Condition card of the Create new alert page for the aggregation rule, with the Calculate, If result is, For, and Aggregation fields, and the Filters card below it"><figcaption><p>The Condition card of an aggregation rule.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-alerts-condition.png" alt="The Condition card of the Create new alert page for the aggregation rule, with the Calculate, If result is, For, and Aggregation fields, and the Filters card below it"><figcaption><p>The Condition card of an aggregation rule.</p></figcaption></figure>
 
 For the aggregation rules, the rate rules, and the endpoint health-check rule, the card ends with an **Aggregation** section. **Set a projection** groups the results by a **Property**, and **Remove** clears the projection. The request rules offer **Status Code**, **Error Key**, **Tenant**, **API**, **Application**, and **Plan**, the node rules offer **Hostname** and **Type**, and the endpoint health-check rule offers **Endpoint name**.
 
@@ -163,7 +163,7 @@ The default is **N consecutive true evaluations** with one evaluation. The count
 
 Remove a notification with its X. **Create** or **Save** stays disabled until every notification has a channel and its required fields, and the message next to the buttons reads **Select a channel for each notification.** or **Fill in the required fields for each notification.**
 
-<figure><img src="../.gitbook/assets/gamma-platform-alerts-notifications.png" alt="The Notifications tab of the Update alert page with the Dampening card and a System email notification with its From, Recipients, Subject, and Body fields"><figcaption><p>The Notifications tab of an alert with a System email notification.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-alerts-notifications.png" alt="The Notifications tab of the Update alert page with the Dampening card and a System email notification with its From, Recipients, Subject, and Body fields"><figcaption><p>The Notifications tab of an alert with a System email notification.</p></figcaption></figure>
 
 ## Edit an alert
 
@@ -190,7 +190,7 @@ The **Activity** tab shows the **Alerts board**, which counts the alert events o
 
 Select the **Quick time range**: **Last minute**, **Last hour**, **Last day**, **Last week**, or **Last month**. The board opens on **Last minute**, and **Refresh** reloads it. Four cards show the **Total Alerts**, **Info**, **Warning**, and **Critical** counts of events in the range. Below the cards, a table lists each alert that fired in the range with its **Alert Name**, **Severity**, and **Total Alerts Triggered**. Its **View history** link opens the **History** tab of the alert. The alerts are sorted by severity, then by decreasing number of events. Without an event in the range, the board reads **No alert events**.
 
-<figure><img src="../.gitbook/assets/gamma-platform-alerts-activity.png" alt="The Alerts board on the Activity tab with the Quick time range selector, the Total Alerts, Info, Warning, and Critical cards, and the No alert events message"><figcaption><p>The Alerts board.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-alerts-activity.png" alt="The Alerts board on the Activity tab with the Quick time range selector, the Total Alerts, Info, Warning, and Critical cards, and the No alert events message"><figcaption><p>The Alerts board.</p></figcaption></figure>
 
 ## Review the history of an alert
 

@@ -28,7 +28,7 @@ The **Export** action downloads the LLM Proxy definition. To export a proxy, com
 4. Under **General**, select **Configuration**.
 5. Select **Export**.
 
-    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-export-sheet.png" alt="The Export LLM proxy panel with the Gravitee API definition format selected"><figcaption><p>The Export LLM proxy panel with the Gravitee API definition format selected</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-llm-proxy-export-sheet.png" alt="The Export LLM proxy panel with the Gravitee API definition format selected"><figcaption><p>The Export LLM proxy panel with the Gravitee API definition format selected</p></figcaption></figure>
 
 6. In the **Export LLM proxy** panel, select the format:
 
@@ -60,14 +60,14 @@ The create flow offers an import route beside the wizard. To create a proxy from
 3. Select **Create LLM proxy**.
 4. On the **Create an LLM proxy** page, select **Import**.
 
-    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-create-landing.png" alt="The Create an LLM proxy page with the Create from scratch and Import cards"><figcaption><p>The Create an LLM proxy page with the Create from scratch and Import cards</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-llm-proxy-create-landing.png" alt="The Create an LLM proxy page with the Create from scratch and Import cards"><figcaption><p>The Create an LLM proxy page with the Create from scratch and Import cards</p></figcaption></figure>
 
 5. Select the **Gravitee definition** card. This is the only format the LLM Proxy accepts.
 6. Under **Configure file source**, select **Local file** or **Remote URL**:
    * For **Local file**, drop a file on the upload area or select it to browse. The picker accepts `.json` files.
    * For **Remote URL**, enter the **Definition URL** of the file, for example `https://example.com/api-definition.json`. The address must be an `http` or `https` URL.
 
-    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-import-create.png" alt="The Import Gravitee definition page with the Local file and Remote URL source cards"><figcaption><p>The Import Gravitee definition page with the Local file and Remote URL source cards</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-llm-proxy-import-create.png" alt="The Import Gravitee definition page with the Local file and Remote URL source cards"><figcaption><p>The Import Gravitee definition page with the Local file and Remote URL source cards</p></figcaption></figure>
 
 7. Select **Create LLM proxy**.
 
@@ -114,7 +114,7 @@ The **Import** action on the **Configuration** page replaces an existing proxy's
 2. Under **General**, select **Configuration**.
 3. Select **Import**.
 
-    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-import-update.png" alt="The Import LLM proxy definition panel with the Local file source selected"><figcaption><p>The Import LLM proxy definition panel with the Local file source selected</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-llm-proxy-import-update.png" alt="The Import LLM proxy definition panel with the Local file source selected"><figcaption><p>The Import LLM proxy definition panel with the Local file source selected</p></figcaption></figure>
 
 4. Under **Configure file source**, select **Local file** or **Remote URL**, and provide the file or the **Definition URL**.
 5. Select **Import**.
@@ -161,7 +161,7 @@ To verify that a proxy survives the round trip, complete the following steps:
 3. Create a second proxy by importing the edited file.
 4. Under **Design**, select **Models** on both proxies, and then compare the providers and models. The copy carries the same set.
 
-    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-imported-models.png" alt="The Models page of the imported proxy, showing the providers the file carried"><figcaption><p>The Models page of the imported proxy, showing the providers the file carried</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-llm-proxy-imported-models.png" alt="The Models page of the imported proxy, showing the providers the file carried"><figcaption><p>The Models page of the imported proxy, showing the providers the file carried</p></figcaption></figure>
 
 5. Deploy the copy from the out-of-sync banner, and then send it a prompt as described in [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md). The gateway routes the request.
 
