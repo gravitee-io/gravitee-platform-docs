@@ -22,7 +22,7 @@ To open the page, follow these steps:
 3. Select your LLM Proxy.
 4. Under **General**, click **CORS**.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-llm-proxy-cors.png" alt="The CORS page of an LLM Proxy with the Enable CORS switch on, an allowed origin, and the allowed methods and headers"><figcaption><p>The CORS page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-cors.png" alt="The CORS page of an LLM Proxy with the Enable CORS switch on, an allowed origin, and the allowed methods and headers"><figcaption><p>The CORS page</p></figcaption></figure>
 
 ## Enable CORS
 
@@ -47,7 +47,7 @@ An origin is refused when you save if it's neither `*`, `null`, an origin of the
 Adding `*` as an allowed origin shows the **Allowing all origins** alert, because `*` exposes the proxy to any website. Make sure that authentication is enforced. While `*` is listed, the **Access-Control-Allow-Credentials** switch is disabled.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/gamma-aim-llm-proxy-cors-origins.png" alt="The Origins, methods and headers card with one allowed origin, three allowed methods, two allowed request headers, and two exposed response headers"><figcaption><p>The Origins, methods and headers card</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-cors-origins.png" alt="The Origins, methods and headers card with one allowed origin, three allowed methods, two allowed request headers, and two exposed response headers"><figcaption><p>The Origins, methods and headers card</p></figcaption></figure>
 
 ## Adjust the advanced settings
 
@@ -57,7 +57,7 @@ The **Advanced settings** card covers credentials, the preflight cache duration,
 * **Run policies on preflight**. By default, the gateway answers a preflight `OPTIONS` request as soon as the CORS checks pass, without running the flows of the proxy. Turn the switch on to run the policies of the flows on preflight requests too. The preflight request is still answered by the gateway and never reaches a model provider, and the security chain of the plans is skipped for preflight requests whether the switch is on or off.
 * **Max age (seconds)**. How long the browser may cache the preflight response. The default, `-1`, sends no `Access-Control-Max-Age` header. The field accepts values from `-1` to `2147483647`, and a value above `600` shows the **Long preflight cache** warning.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-llm-proxy-cors-advanced.png" alt="The Advanced settings card with the Access-Control-Allow-Credentials and Run policies on preflight switches and the Max age field"><figcaption><p>The Advanced settings card</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-cors-advanced.png" alt="The Advanced settings card with the Access-Control-Allow-Credentials and Run policies on preflight switches and the Max age field"><figcaption><p>The Advanced settings card</p></figcaption></figure>
 
 ## Save and deploy
 

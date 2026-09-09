@@ -18,7 +18,7 @@ For a minimal quickstart, see [Create your first API](../get-started/create-your
 
 <!-- TODO: one screenshot per task, see style-guide/05-formatting-and-document-structure/images-and-figures.md -->
 
-<figure><img src="../../.gitbook/assets/gamma-wizard-start.png" alt="Create API Proxy page showing the Start from scratch, Quick-start templates, and Import API options"><figcaption><p>The <strong>Create API Proxy</strong> page offers three paths: <strong>Start from scratch</strong> for full control, <strong>Quick-start templates</strong> for common patterns, and <strong>Import API</strong> for an existing definition.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-wizard-start.png" alt="Create API Proxy page showing the Start from scratch, Quick-start templates, and Import API options"><figcaption><p>The <strong>Create API Proxy</strong> page offers three paths: <strong>Start from scratch</strong> for full control, <strong>Quick-start templates</strong> for common patterns, and <strong>Import API</strong> for an existing definition.</p></figcaption></figure>
 
 To open this page, go to **API Proxies** and click **Create New Proxy**. The Gamma console offers the following three paths:
 
@@ -52,7 +52,7 @@ Use this mode when your API matches a common pattern and you want to skip manual
 
 ## Step 1: API details (scratch mode)
 
-<figure><img src="../../.gitbook/assets/gamma-wizard-step1.png" alt="Wizard Step 1: API Details form"><figcaption><p>The API Details step collects the name, version, and optional description for your API proxy.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-wizard-step1.png" alt="Wizard Step 1: API Details form"><figcaption><p>The API Details step collects the name, version, and optional description for your API proxy.</p></figcaption></figure>
 
 The following table describes the fields on the **API Details** step:
 
@@ -81,7 +81,7 @@ The security plan type is fixed by the template. To change the plan type or its 
 
 ## Step 2: Configure the proxy (scratch mode)
 
-<figure><img src="../../.gitbook/assets/gamma-wizard-step2.png" alt="Wizard Step 2: Configure Proxy with context path and target URL"><figcaption><p>The Configure Proxy step defines the gateway path and upstream target URL.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-wizard-step2.png" alt="Wizard Step 2: Configure Proxy with context path and target URL"><figcaption><p>The Configure Proxy step defines the gateway path and upstream target URL.</p></figcaption></figure>
 
 ### Context path
 
@@ -119,7 +119,7 @@ The **Target URL** is the upstream backend that the API Gateway forwards request
 
 ## Step 3: Security plan (scratch mode)
 
-<figure><img src="../../.gitbook/assets/gamma-wizard-step3.png" alt="Wizard Step 3: Security plan selection"><figcaption><p>Choose a security plan type. Keyless (Open) is selected by default for open access.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-wizard-step3.png" alt="Wizard Step 3: Security plan selection"><figcaption><p>Choose a security plan type. Keyless (Open) is selected by default for open access.</p></figcaption></figure>
 
 A security plan defines how consumers authenticate when calling your API. The Gamma console supports five plan types:
 
@@ -194,7 +194,7 @@ The wizard creates one plan. After creation, add more plans to the same API prox
 
 ## Step 4: Review and deploy
 
-<figure><img src="../../.gitbook/assets/gamma-wizard-step4.png" alt="Wizard Step 4: Review and deploy summary"><figcaption><p>The Review &#x26; Deploy step shows the full configuration before creation. The <strong>Deploy and start API immediately</strong> toggle publishes the API as part of creation.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-wizard-step4.png" alt="Wizard Step 4: Review and deploy summary"><figcaption><p>The Review &#x26; Deploy step shows the full configuration before creation. The <strong>Deploy and start API immediately</strong> toggle publishes the API as part of creation.</p></figcaption></figure>
 
 The final step summarizes your API proxy configuration in the following three sections, each with its own **Edit** action:
 
@@ -214,7 +214,7 @@ Once your API proxy is created, the console opens the **Overview** page for that
 
 ### Overview page layout
 
-<figure><img src="../../.gitbook/assets/gamma-api-overview.png" alt="API proxy overview page with checklist and endpoint summary"><figcaption><p>The Overview page shows setup progress, gateway and upstream endpoints, and a traffic snapshot.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-api-overview.png" alt="API proxy overview page with checklist and endpoint summary"><figcaption><p>The Overview page shows setup progress, gateway and upstream endpoints, and a traffic snapshot.</p></figcaption></figure>
 
 The Overview page includes the following sections:
 

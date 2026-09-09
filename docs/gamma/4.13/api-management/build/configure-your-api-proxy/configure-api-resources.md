@@ -16,7 +16,7 @@ To open the page, follow these steps:
 
 <!-- TODO: Screenshot of the Resources page with configured resources -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-resources-page.png" alt=""><figcaption><p>The Resources page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-resources-page.png" alt=""><figcaption><p>The Resources page</p></figcaption></figure>
 
 {% hint style="info" %}
 When the API proxy is managed by the Kubernetes operator, resources are read-only.
@@ -57,4 +57,4 @@ To verify a resource is working as expected, follow these steps:
 
 <!-- TODO: Screenshot of a policy referencing the resource by name -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-resources-policy-ref.png" alt=""><figcaption><p>A policy referencing an API resource</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-resources-policy-ref.png" alt=""><figcaption><p>A policy referencing an API resource</p></figcaption></figure>

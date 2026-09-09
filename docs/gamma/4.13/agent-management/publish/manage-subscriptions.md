@@ -15,7 +15,7 @@ Consumers access your LLM Proxies, MCP Proxies, and A2A Proxies by subscribing t
 3. Select the proxy.
 4. Under **Consumer Access**, select **Consumers**.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-consumers.png" alt="The Consumers page of an A2A Proxy with the Total, Accepted, and Pending tiles, the Status, Plan, and API Key filters, and the subscription table listing an accepted and a pending subscription"><figcaption><p>The Consumers page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-consumers.png" alt="The Consumers page of an A2A Proxy with the Total, Accepted, and Pending tiles, the Status, Plan, and API Key filters, and the subscription table listing an accepted and a pending subscription"><figcaption><p>The Consumers page</p></figcaption></figure>
 
 Until the proxy has a subscription, the page shows an introduction to consumers instead of the table.
 
@@ -41,7 +41,7 @@ The table lists one row per subscription, with the following columns:
 
 **Export CSV** downloads the subscriptions that match the current filters as a CSV file. The file holds every matching subscription, not only the rows on the current page of the table, and the button reads **Exporting…** while the file is prepared.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-consumers-export-csv.png" alt="The Consumers page of an LLM Proxy with the Status filter set to Accepted, the table listing the one accepted subscription, and the Export CSV button next to Create subscription"><figcaption><p>Exporting the filtered subscription list</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-consumers-export-csv.png" alt="The Consumers page of an LLM Proxy with the Status filter set to Accepted, the table listing the one accepted subscription, and the Export CSV button next to Create subscription"><figcaption><p>Exporting the filtered subscription list</p></figcaption></figure>
 
 To export the list, follow these steps:
 
@@ -90,7 +90,7 @@ A message confirms the result, for example **Subscription approved**.
 
 Approving from the console doesn't ask for a start or end date. To bound an accepted subscription in time, click **Change end date**, and then select the date and time.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-subscription-detail.png" alt="A pending subscription page with the Approve, Reject, and Close subscription buttons and the Subscription details card"><figcaption><p>A pending subscription</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-subscription-detail.png" alt="A pending subscription page with the Approve, Reject, and Close subscription buttons and the Subscription details card"><figcaption><p>A pending subscription</p></figcaption></figure>
 
 ## Review a subscription
 

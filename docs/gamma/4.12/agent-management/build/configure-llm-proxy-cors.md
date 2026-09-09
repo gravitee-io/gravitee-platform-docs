@@ -24,7 +24,7 @@ To open the page, follow these steps:
 
 <!-- TODO: Screenshot of the CORS page of an LLM Proxy on a Gamma 4.12.18 stack, with CORS enabled and one allowed origin -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-llm-proxy-cors-4-12.png" alt=""><figcaption><p>The CORS page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-llm-proxy-cors-4-12.png" alt=""><figcaption><p>The CORS page</p></figcaption></figure>
 
 ## Enable CORS
 

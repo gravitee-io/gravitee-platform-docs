@@ -26,7 +26,7 @@ A value tag attaches a declared business value to an MCP tool in the Catalog. Fo
 
 <!-- TODO: Screenshot of a value tag declared on an MCP tool -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-value-tag-mcp-tool.png" alt=""><figcaption><p>Value is declared on the tool that delivers it, by the owner who can answer for it.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-value-tag-mcp-tool.png" alt=""><figcaption><p>Value is declared on the tool that delivers it, by the owner who can answer for it.</p></figcaption></figure>
 
 ## Classify the outcome of a run
 
@@ -40,7 +40,7 @@ The cost-per-outcome figure divides the cost of all runs, failures included, by 
 
 <!-- TODO: Screenshot of the cost-per-outcome rollup -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-cost-per-outcome.png" alt=""><figcaption><p>Cost per successful outcome, with the cost of failure beside it.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-cost-per-outcome.png" alt=""><figcaption><p>Cost per successful outcome, with the cost of failure beside it.</p></figcaption></figure>
 
 ## Read the return on investment view
 
@@ -48,4 +48,4 @@ The return on investment view sets the value delivered against the cost incurred
 
 <!-- TODO: Screenshot of the return on investment view -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-return-on-investment-view.png" alt=""><figcaption><p>Value delivered against cost incurred, per agent and per tool.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-return-on-investment-view.png" alt=""><figcaption><p>Value delivered against cost incurred, per agent and per tool.</p></figcaption></figure>

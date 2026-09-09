@@ -19,7 +19,7 @@ For a complete reference on all creation options, see [Create an API proxy](../b
 
 ## Step 1: Open the API creation wizard
 
-<figure><img src="../../.gitbook/assets/gamma-apis-list.png" alt="API Proxies list in the Gamma APIM module"><figcaption><p>The API Proxies list. Select <strong>Create New Proxy</strong> (top-right) to open the creation wizard.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-apis-list.png" alt="API Proxies list in the Gamma APIM module"><figcaption><p>The API Proxies list. Select <strong>Create New Proxy</strong> (top-right) to open the creation wizard.</p></figcaption></figure>
 
 1. From the Gamma console sidebar, select **API Management**.
 2. Navigate to the **APIs** list.

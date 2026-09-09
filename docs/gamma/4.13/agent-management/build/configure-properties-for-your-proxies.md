@@ -16,7 +16,7 @@ You can add properties one at a time, import a list of them, or sync them from a
 2. Select the proxy you want to configure.
 3. Under **General**, select **API Properties**.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-api-properties-import.png" alt="The API Properties page of an A2A proxy with three properties listed and the Import properties panel open on the right"><figcaption><p>The API Properties page with the Import properties panel</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-api-properties-import.png" alt="The API Properties page of an A2A proxy with three properties listed and the Import properties panel open on the right"><figcaption><p>The API Properties page with the Import properties panel</p></figcaption></figure>
 
 Until the proxy has a property, the page shows a **Why define properties?** card instead of the table.
 
@@ -82,7 +82,7 @@ The page confirms with **Properties imported** and refreshes the list. **Cancel*
 
 The **Manage dynamically** button opens the **Dynamic properties** page. When the sync is enabled, the Management API calls the HTTP endpoint you configure on a cron schedule. It transforms the response into key/value pairs and writes them to the proxy as dynamic properties.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-dynamic-properties.png" alt="The Dynamic properties page of an A2A proxy with the sync enabled, the cron schedule and its summary, and the HTTP request settings"><figcaption><p>The Dynamic properties page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-dynamic-properties.png" alt="The Dynamic properties page of an A2A proxy with the sync enabled, the cron schedule and its summary, and the HTTP request settings"><figcaption><p>The Dynamic properties page</p></figcaption></figure>
 
 Saving the Dynamic properties page doesn't change the proxy definition, so it doesn't require a deployment. The schedule starts as soon as you save.
 
