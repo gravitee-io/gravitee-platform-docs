@@ -1,3 +1,9 @@
+---
+hidden: false
+noIndex: false
+description: The Policy Studio is where you build the policy flows the API Gateway runs on every request and response. Learn how flows are matched, reused, and secured.
+---
+
 # Policy Studio
 
 The **Policy Studio** is the Design section of an API proxy, where you build the policy flows the API Gateway runs on every request and response.

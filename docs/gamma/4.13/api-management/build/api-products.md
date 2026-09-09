@@ -9,7 +9,7 @@ description: API Products bundle multiple API proxies into one consumer-facing p
 API Products let you bundle multiple API proxies into a single consumer-facing product. Instead of subscribing to individual APIs, consumers subscribe to an API Product plan and gain access to all APIs in the product.
 
 {% hint style="info" %}
-API Products are an enterprise feature. Your organization's license must include the `apim-api-products` feature to create, update, or deploy a product. See [Configure API products](configure-your-api-product/README.md#licensing).
+API Products are an enterprise feature. Your organization's license must include the `apim-api-products` feature to create, update, or deploy a product.
 {% endhint %}
 
 ## When to use API Products
@@ -53,7 +53,7 @@ The API Products page displays a searchable, paginated list of all products. Use
 | **Sharding Tags** | The tags that decide which Gateways load the product, or `—`.      |
 | **Owner**         | The product's primary owner.                                       |
 
-A product's Gateway sync state is not a column on this list. It appears on the product detail page. See [Configure API products](configure-your-api-product/README.md#gateway-sync-state).
+A product's Gateway sync state is not a column on this list. It appears on the product detail page. See [Configure product deployment](configure-your-api-product/configure-product-deployment.md#deployment-state).
 
 ## Create an API Product
 
@@ -131,7 +131,7 @@ The product snapshot reports the following KPIs:
 
 ## Next steps
 
-* [Configure API products](configure-your-api-product/README.md). Review licensing, plan restrictions, and the product detail page.
+* [API Products](../manage/api-products/README.md). The product pages in one place.
 * [Manage product APIs](configure-your-api-product/manage-product-apis.md). Attach API proxies to your product.
 * [Secure your API proxy](secure-your-api-proxy.md). Understand plan types and the plan creation wizard.
 * [Establish consumer access](configure-your-api-proxy/establish-consumer-access.md). Create subscriptions and manage API keys.
