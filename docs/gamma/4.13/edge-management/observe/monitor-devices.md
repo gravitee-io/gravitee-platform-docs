@@ -12,7 +12,7 @@ The **Devices** page is the state of your fleet: which managed devices run an Ed
 
 This is the page to open before any change that depends on what the fleet runs, in particular before you migrate away from the legacy interception model.
 
-<figure><img src="../../.gitbook/assets/edge-analytics-devices.png" alt="The Devices page with the time range selector, the Total devices, Active agents, and Inactive agents cards, and the device table with daemon versions"><figcaption><p>The Devices page.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-analytics-devices.png" alt="The Devices page with the time range selector, the Total devices, Active agents, and Inactive agents cards, and the device table with daemon versions"><figcaption><p>The Devices page.</p></figcaption></figure>
 
 ## Read the page
 

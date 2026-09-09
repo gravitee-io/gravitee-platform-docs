@@ -49,7 +49,7 @@ Edge Management is a module of the Gamma console. Its pages are grouped by what 
 
 Until the environment has a configuration, the sidebar offers only **Quick Start**. See [Set up Edge Management](../connect/set-up-edge-management.md).
 
-<figure><img src="../../.gitbook/assets/edge-overview.png" alt="The Overview page of a configured environment, with the Edge API status, device, shadow AI, and proxied request counters, the Interception readiness card, and the recent activity cards"><figcaption><p>The Overview page of a configured environment.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-overview.png" alt="The Overview page of a configured environment, with the Edge API status, device, shadow AI, and proxied request counters, the Interception readiness card, and the recent activity cards"><figcaption><p>The Overview page of a configured environment.</p></figcaption></figure>
 
 ## Gateway-side requirements
 
