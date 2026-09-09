@@ -1,12 +1,13 @@
 ---
-hidden: true
-noIndex: true
-description: Monitor the traffic the Edge Daemon captures and proxies, from shadow AI usage to policy enforcement outcomes. Start with the view you need to see.
+hidden: false
+noIndex: false
+description: See what your managed devices do with AI, from the shadow AI they reach directly to the traffic the Edge Daemon intercepts and the devices that run it. Start with the view you need.
 ---
 
 # Observe
 
-Monitor traffic captured and proxied by the Edge Daemon from within the Gamma console.
+See what your managed devices do with AI, from within the Gamma console.
 
-* [**Monitor your shadow AI traffic**](monitor-shadow-ai-traffic.md) — View AI service requests occurring outside governed channels so you can assess risk and bring them under policy control.
-* [**Monitor your proxied traffic**](monitor-proxied-traffic.md) — Inspect all traffic routed through the Edge Daemon, including request details and policy enforcement outcomes.
+* [**Monitor detected shadow AI**](monitor-shadow-ai-traffic.md). The AI providers that your devices reached directly, without the gateway.
+* [**Monitor proxied traffic**](monitor-proxied-traffic.md). The AI traffic that the Edge Daemon intercepted and forwarded to the gateway.
+* [**Monitor your devices**](monitor-devices.md). Which devices run the Edge Daemon, which version, and whether they still report.
