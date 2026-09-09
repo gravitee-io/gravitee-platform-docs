@@ -30,6 +30,7 @@
       * [OpenShift](install/hybrid-installation-guides/kubernetes/openshift.md)
 * [Configure Access Management](configure-access-management.md)
 * [Configure OpenAPI viewer](configure-openapi-viewer.md)
+* [Configure OpenTelemetry tracing and logs](configure-opentelemetry-tracing-and-logs.md)
 * [Manage applications](manage-applications.md)
 * [Manage dictionaries](manage-dictionaries.md)
 * [Manage environment metadata](manage-environment-metadata.md)

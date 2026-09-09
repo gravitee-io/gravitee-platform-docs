@@ -210,7 +210,7 @@ To verify the pipeline is working as expected, follow these steps:
 
     <!-- TODO: Screenshot of the Gamma Trace Explorer listing a trace for a proxy after the pipeline is wired -->
 
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-trace-explorer-populated.png" alt=""><figcaption><p>The Trace Explorer listing a trace once the pipeline is wired</p></figcaption></figure>
+    <figure><img src=".gitbook/assets/PLACEHOLDER-gamma-trace-explorer-populated.png" alt=""><figcaption><p>The Trace Explorer listing a trace once the pipeline is wired</p></figcaption></figure>
 
 {% hint style="info" %}
 **The Trace Explorer is still empty**

@@ -33,6 +33,7 @@
 * [Configure console management and schedulers](configure-console-management-and-schedulers.md)
 * [Configure CORS for the Management API](configure-console-cors.md)
 * [Configure OpenAPI viewer](configure-openapi-viewer.md)
+* [Configure OpenTelemetry tracing and logs](configure-opentelemetry-tracing-and-logs.md)
 * [Configure Security Plan Types](configure-security-plan-types.md)
 * [Configure the SMTP mail server](configure-smtp.md)
 * [Manage applications](manage-applications.md)
