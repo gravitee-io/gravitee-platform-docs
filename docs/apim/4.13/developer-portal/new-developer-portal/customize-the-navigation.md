@@ -203,12 +203,10 @@ However, there are some limitations of APIs compared to folders:
 
 1.  Open the context menu of a folder in which you want to add your API by clicking the **ellipses**, and then click **Add API**.<br>
 
-    <!-- TODO: Screenshot of the folder context menu with the Add API option highlighted -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-add-api-context-menu.png" alt=""><figcaption><p>Add API in the folder context menu</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-add-api-context-menu.png" alt="Context menu of a folder in the Navigation items tree, with the Add API entry"><figcaption><p>Add API in the folder context menu</p></figcaption></figure>
 2.  In the **Add APIs** dialog, select the APIs that you want to add. To find an API by name, use the **Search** field.<br>
 
-    <!-- TODO: Screenshot of the Add APIs dialog with an API selected -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-add-apis-dialog.png" alt=""><figcaption><p>Add APIs dialog</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-add-apis-dialog.png" alt="Add APIs dialog listing the APIs with their path and labels, one API selected, above the Authentication toggle"><figcaption><p>Add APIs dialog</p></figcaption></figure>
 3. (Optional) Turn on the **Authentication is required to view selected APIs.** toggle. This ensures that the user has to sign in to the New Developer Portal to view the APIs.
 4. Click **Add**.
 5. Publish the API. To publish the API, complete either of the following steps:
@@ -220,8 +218,7 @@ However, there are some limitations of APIs compared to folders:
 
 6.  In the confirmation dialog, click **Publish**. The dialog title shows the name of your API. For example, **Publish "Payments" API?**<br>
 
-    <!-- TODO: Screenshot of the publish confirmation dialog for an API -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-publish-api-dialog.png" alt=""><figcaption><p>Publish confirmation dialog for an API</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-publish-api-dialog.png" alt="Publish confirmation dialog for an API navigation item, with the Also publish all nested documentation checkbox"><figcaption><p>Publish confirmation dialog for an API</p></figcaption></figure>
 
 **Default Overview page**
 
