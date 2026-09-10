@@ -19,3 +19,22 @@ redirects:
  event-management/get-started/create-your-first-kafka-topic: event-stream-management/get-started/README.md
  event-management/get-started/event-management-overview: event-stream-management/get-started/event-stream-management-overview.md
  platform-management/manage-the-platform: platform-management/overview.md
+ platform-management/configure-access-management: platform-management/configure-access-management.md
+ platform-management/configure-console-authentication: platform-management/configure-console-authentication.md
+ platform-management/configure-console-cors: platform-management/configure-console-cors.md
+ platform-management/configure-console-management-and-schedulers: platform-management/configure-console-management-and-schedulers.md
+ platform-management/configure-opentelemetry-tracing-and-logs: platform-management/configure-opentelemetry-tracing-and-logs.md
+ platform-management/configure-security-plan-types: platform-management/configure-security-plan-types.md
+ platform-management/configure-smtp: platform-management/configure-smtp.md
+ platform-management/manage-applications: platform-management/manage-applications.md
+ platform-management/manage-dictionaries: platform-management/manage-dictionaries.md
+ platform-management/manage-entrypoints-and-sharding-tags: platform-management/manage-entrypoints-and-sharding-tags.md
+ platform-management/manage-environment-metadata: platform-management/manage-environment-metadata.md
+ platform-management/manage-groups: platform-management/manage-groups.md
+ platform-management/manage-platform-policies: platform-management/manage-platform-policies.md
+ platform-management/manage-shared-policy-groups: platform-management/manage-shared-policy-groups.md
+ platform-management/manage-tenants: platform-management/manage-tenants.md
+ platform-management/manage-users: platform-management/manage-users.md
+ platform-management/monitor-gateway-instances: platform-management/monitor-gateway-instances.md
+ platform-management/review-audit-logs: platform-management/review-audit-logs.md
+ platform-management/save-observability-dashboards: platform-management/save-observability-dashboards.md

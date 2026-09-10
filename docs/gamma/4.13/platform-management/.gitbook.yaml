@@ -6,3 +6,22 @@ structure:
 
 redirects:
  manage-the-platform: overview.md
+ configure-access-management: configure-access-management.md
+ configure-console-authentication: configure-console-authentication.md
+ configure-console-cors: configure-console-cors.md
+ configure-console-management-and-schedulers: configure-console-management-and-schedulers.md
+ configure-opentelemetry-tracing-and-logs: configure-opentelemetry-tracing-and-logs.md
+ configure-security-plan-types: configure-security-plan-types.md
+ configure-smtp: configure-smtp.md
+ manage-applications: manage-applications.md
+ manage-dictionaries: manage-dictionaries.md
+ manage-entrypoints-and-sharding-tags: manage-entrypoints-and-sharding-tags.md
+ manage-environment-metadata: manage-environment-metadata.md
+ manage-groups: manage-groups.md
+ manage-platform-policies: manage-platform-policies.md
+ manage-shared-policy-groups: manage-shared-policy-groups.md
+ manage-tenants: manage-tenants.md
+ manage-users: manage-users.md
+ monitor-gateway-instances: monitor-gateway-instances.md
+ review-audit-logs: review-audit-logs.md
+ save-observability-dashboards: save-observability-dashboards.md
