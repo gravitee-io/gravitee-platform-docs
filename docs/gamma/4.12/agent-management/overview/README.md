@@ -20,7 +20,9 @@ Agent Management extends the gateway infrastructure that already governs API and
 
 ## Core components
 
-<figure><img src="../../.gitbook/assets/gamma-ai-gateway-reference-architecture.png" alt="AI Gateway reference architecture. Consumers and the Edge daemon send traffic to the AI Gateway, which runs the LLM Proxy, MCP Proxy, and A2A Proxy over a shared authentication chain, policy chain, observability chain, and Policy Decision Point. The control plane supplies the Management API, Catalog, and Authorization Management, Access Management issues tokens, the observability stack receives telemetry, and the proxies route to LLM providers, upstream MCP servers, and remote A2A agents."><figcaption><p>The AI Gateway reference architecture</p></figcaption></figure>
+The AI Gateway reference architecture
+
+<figure><img src="../../.gitbook/assets/gamma-ai-gateway-reference-architecture.png" alt="AI Gateway reference architecture. Consumers and the Edge daemon send traffic to the AI Gateway, which runs the LLM Proxy, MCP Proxy, and A2A Proxy over a shared authentication chain, policy chain, observability chain, and Policy Decision Point. The control plane supplies the Management API, Catalog, and Authorization Management, Access Management issues tokens, the observability stack receives telemetry, and the proxies route to LLM providers, upstream MCP servers, and remote A2A agents."><figcaption></figcaption></figure>
 
 ### AI Gateway
 
