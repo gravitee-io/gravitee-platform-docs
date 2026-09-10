@@ -1,12 +1,12 @@
 ---
 hidden: false
 noIndex: false
-description: Platform flows apply policies to the request and response phases of every API in the organization. Create, order, tag, and deploy them from the Gamma console.
+description: Platform flows apply policies to the request and response phases of an organization's APIs. Create, order, tag, and deploy them from the Gamma console.
 ---
 
 # Manage platform policies
 
-A platform flow is a policy flow that belongs to the organization rather than to a single API. The gateway runs the request policies of a platform flow before each API's own flows, and its response policies after them. One platform flow applies a cross-cutting policy, such as a rate limit or a header transformation, to every API in the organization at once. Restrict a flow to a group of gateways by giving it sharding tags.
+A platform flow is a policy flow that belongs to the organization rather than to a single API. The gateway runs the request policies of a platform flow before each API's own flows, and its response policies after them. One platform flow applies a cross-cutting policy, such as a rate limit or a header transformation, to the organization's APIs at once. Restrict a flow to a group of gateways by giving it sharding tags.
 
 Platform flows belong to the organization, and the Policy Studio of the **Organization** section in the Gamma console creates, edits, orders, and deletes them. Saving deploys the flows to the gateways of the organization. The APIM Console edits the same flows, so a flow saved in either console appears in both.
 
@@ -28,7 +28,7 @@ A banner at the top of the page states the scope of what you're editing. It read
 
 ## Understand where platform flows run
 
-Platform flows run on API proxies, on APIs with a v2 definition, and on the LLM, MCP, and A2A Proxies of Agent Management. They don't run on native Kafka APIs, which have no request and response phases.
+Platform flows run on API proxies, on APIs with a v2 definition, on v4 message APIs, and on the LLM, MCP, and A2A Proxies of Agent Management. They don't run on native Kafka APIs, which have no request and response phases, or on TCP proxy APIs, which carry no policy flows.
 
 For each request, the gateway runs the **Request Phase** policies of the matching platform flows before the API's security checks and flows. It runs their **Response Phase** policies after the API's flows, even when the API's own processing ended in an error or a timeout.
 
