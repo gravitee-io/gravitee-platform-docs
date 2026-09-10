@@ -21,7 +21,7 @@ Before you begin, ensure you have met the following requirements:
 * Read access to the source gateway's management or admin API.
 * An upstream that both gateways can proxy, for the reconciliation run.
 * If you intend to reuse consumer credentials, custom API keys enabled at the environment level.
-* Agreement from your security reviewer on where the agent runs and what it retains.
+* Agreement from your security reviewer on where the agent runs, what it retains, and which model endpoint it sends export content to.
 
 ## Migrate the estate
 

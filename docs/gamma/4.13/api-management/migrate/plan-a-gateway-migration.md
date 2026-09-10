@@ -109,9 +109,12 @@ Where transformations do have to move, a fixed corpus of 354 real DataWeave tran
 
 ## Data handling
 
-The agent reads your exported source configuration, and on some platforms that export contains consumer credentials.
+The agent reads your exported source configuration, and on some platforms that export contains consumer credentials. Where those files sit and what reaches a model are separate decisions, and both are yours:
 
-Where the agent runs, what it retains, and whether it uses a model endpoint inside your own network boundary are your decisions. The skills are Markdown, and the exports stay on infrastructure you control. Agree the arrangement with your security reviewer before you point the agent at a production estate.
+* **The files stay local.** The skills are Markdown, and the exports stay on infrastructure you control. Nothing is uploaded to Gravitee.
+* **The content is sent to a model.** The agent sends what it reads from the export to the model endpoint it is configured against. Where that endpoint is a hosted provider, the exported configuration reaches that provider, credentials included, under whatever terms you hold with them.
+
+Choose the endpoint before the first run: a model inside your own network boundary, or a provider your security reviewer has approved. Where neither applies, remove credential-bearing fields from the export before the agent reads it. Agree where the agent runs, what it retains, and which endpoint it sends export content to with your security reviewer before you point the agent at a production estate.
 
 ## Next steps
 
