@@ -35,7 +35,7 @@ To deploy the Edge Daemon using Kandji, complete the following steps:
 
 * In the Gamma console, open **Edge Management** , and then and go to the **Daemon Deployment** section of the configuration page.
 
-<figure><img src="../../.gitbook/assets/edge-deploy-kandji.png" alt="Daemon Deployment section: architecture selector, download URL, and generated Kandji script"><figcaption><p>The Daemon Deployment section generates the download URL and the Kandji postinstall script.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-deploy-kandji.png" alt="Daemon Deployment section: architecture selector, download URL, and generated Kandji script"><figcaption><p>The Daemon Deployment section generates the download URL and the Kandji postinstall script.</p></figcaption></figure>
 
 ## Select the architecture
 

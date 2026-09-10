@@ -2,7 +2,7 @@
 description: Everything in the first Gravitee Gamma release, across Agent, API, Authorization, Edge, and Event Stream Management. Browse the highlights.
 ---
 
-# Gamma Release Notes
+# Release Notes
 
 ## Release Date: June 26, 2026
 

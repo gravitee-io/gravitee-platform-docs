@@ -390,5 +390,5 @@ curl -s -u "$AUTH" -X DELETE "$MGMT/api-products/00000000-0000-0000-0000-0000000
 ## Next steps
 
 * [Manage product APIs](manage-product-apis.md). Attach and detach APIs from the Gamma console.
-* [Configure API products](README.md). Plans, consumers, and permissions for a product.
+* [API Products](../../manage/api-products/README.md). Plans, consumers, and permissions for a product.
 * [Create API Products](../api-products.md). How products differ from API proxies.

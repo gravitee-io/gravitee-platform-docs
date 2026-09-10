@@ -47,7 +47,7 @@ Where the new subscription lands depends on the plan:
 | Automatic | The subscription is accepted as soon as it's created, and an API Key plan issues its key in the same step. On an MCP Proxy plan, **Auto validate subscription** sets this. It's off by default, and it's forced on for a keyless plan. |
 
 <!-- TODO: Screenshot of the Consumers page on an LLM Proxy, showing the subscriptions table and the Create subscription button -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-412-aim-consumers.png" alt=""><figcaption><p>The Consumers page lists the applications subscribed to this proxy's plans.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-412-aim-consumers.png" alt=""><figcaption><p>The Consumers page lists the applications subscribed to this proxy's plans.</p></figcaption></figure>
 
 ## Approve or reject a request
 
@@ -82,7 +82,7 @@ For an API Key plan, the card also states where the AI Gateway reads the key, wh
 | **Query parameter** | The `api-key` query parameter. The AI Gateway reads the key from that parameter only. |
 
 <!-- TODO: Screenshot of a subscription detail page showing the Subscription details card and the Credentials card with an issued API key -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-412-aim-subscription-credentials.png" alt=""><figcaption><p>The Credentials card holds the key or client identity issued to the consumer.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-412-aim-subscription-credentials.png" alt=""><figcaption><p>The Credentials card holds the key or client identity issued to the consumer.</p></figcaption></figure>
 
 ## Close a subscription
 

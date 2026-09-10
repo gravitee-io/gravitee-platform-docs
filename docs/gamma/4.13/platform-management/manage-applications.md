@@ -21,7 +21,7 @@ The applications table displays the following columns:
 
 Use the search bar to filter applications by name. The **Active**/**Archived** dropdown filter toggles between the active and archived application views. The archived view lists each application with the date it was archived, and you can restore an application directly from its row. The **View** control chooses which columns the table displays, and the list supports pagination for large application sets.
 
-<figure><img src="../.gitbook/assets/gamma-platform-applications.png" alt="Platform Applications page showing a searchable table of consumer applications with type and owner columns"><figcaption><p>The Applications page lists all consumer applications with their type (Backend, Service, Web) and owner. Use the search bar and Active/Archived filter to find specific applications.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-applications.png" alt="Platform Applications page showing a searchable table of consumer applications with type and owner columns"><figcaption><p>The Applications page lists all consumer applications with their type (Backend, Service, Web) and owner. Use the search bar and Active/Archived filter to find specific applications.</p></figcaption></figure>
 
 ## Create an application
 
@@ -56,7 +56,7 @@ Select an application from the list to open its detail page, which contains the 
 * **General**. The application name, description, domain, images, owner, creation date, type, API key mode, client ID, and mTLS client certificates. This section also holds the action that archives the application.
 * **User Permissions**. Manage direct members, configure group access, and transfer application ownership.
 * **Subscriptions**. The plans this application subscribes to. Create a subscription, filter by API and status, search by API key, and review each subscription's status and dates.
-* **Notification settings**. Configure the events that trigger a notifier for this application, using either the default email notifier or the default webhook notifier. This section also holds the custom metadata available in notification templates. The metadata editor rejects a duplicate key and reports that the metadata already exists.
+* **Notifications**. Configure the events that trigger a notifier for this application, using either the default email notifier or the default webhook notifier. This section also holds the custom metadata available in notification templates. The metadata editor rejects a duplicate key and reports that the metadata already exists.
 
 ## Next steps
 

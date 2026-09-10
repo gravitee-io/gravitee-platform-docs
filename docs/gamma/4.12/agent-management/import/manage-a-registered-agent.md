@@ -21,7 +21,7 @@ Right after you click **Register agent** on the registration form, the console o
 The **Agents** list shows each agent's name and description, its **Entity ID**, its **Version**, and its **URL**. The actions menu at the end of each row offers **View details**, **Edit**, and **Remove**.
 
 <!-- TODO: Screenshot of a registered agent's page in the Catalog, showing the header, the Overview card, and the Details card -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-agent-detail.png" alt=""><figcaption><p>The page of a registered agent in the Catalog</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-agent-detail.png" alt=""><figcaption><p>The page of a registered agent in the Catalog</p></figcaption></figure>
 
 ## What the page shows
 
@@ -83,7 +83,7 @@ To verify the agent's record is working as expected, follow these steps:
 4. In the **Catalog** section of the sidebar, select **Agents**. The list shows the new description under the agent's name, and the **Entity ID** column is unchanged.
 
 <!-- TODO: Screenshot of the Agents list showing the updated description under the agent's name -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-agents-list-updated.png" alt=""><figcaption><p>The updated description in the Agents list</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-agents-list-updated.png" alt=""><figcaption><p>The updated description in the Agents list</p></figcaption></figure>
 
 ## Next steps
 

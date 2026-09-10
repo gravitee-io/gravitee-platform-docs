@@ -18,7 +18,7 @@ Changing any setting reveals the **Discard** and **Save changes** buttons.
 
 <!-- TODO: Screenshot of the Reporter Settings page -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-reporter-settings.png" alt=""><figcaption><p>The Reporter Settings page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-reporter-settings.png" alt=""><figcaption><p>The Reporter Settings page</p></figcaption></figure>
 
 {% hint style="warning" %}
 Enabling detailed logging increases storage and can affect gateway performance. Use payload logging and verbose tracing only when needed.
@@ -65,4 +65,4 @@ To verify the reporter settings are working as expected, follow these steps:
 
 <!-- TODO: Screenshot of a logged request produced by the reporter settings -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-reporter-logged-request.png" alt=""><figcaption><p>A logged request</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-reporter-logged-request.png" alt=""><figcaption><p>A logged request</p></figcaption></figure>
