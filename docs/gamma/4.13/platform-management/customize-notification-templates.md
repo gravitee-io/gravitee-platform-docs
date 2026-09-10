@@ -24,7 +24,7 @@ To open it, complete the following steps:
 
 The page subtitle opens with "The email and portal notifications this organization sends."
 
-<figure><img src="../.gitbook/assets/gamma-platform-templates-list.png" alt="The Templates page of the Organization section, with the FreeMarker note, the template and custom counters, the Collapse all button, and the API category expanded to list its templates"><figcaption><p>The Templates page of the <strong>Organization</strong> section, with the templates grouped by category</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-templates-list.png" alt="The Templates page of the Organization section, with the FreeMarker note, the template and custom counters, the Collapse all button, and the API category expanded to list its templates"><figcaption><p>The Templates page of the <strong>Organization</strong> section, with the templates grouped by category</p></figcaption></figure>
 
 The page groups the templates into the following categories, in this order:
 
@@ -53,7 +53,7 @@ To override a template, complete the following steps:
 3. Edit the title and the content. Both are required while the override is on.
 4. Select **Save changes**.
 
-<figure><img src="../.gitbook/assets/gamma-platform-template-detail.png" alt="The User Registered template page with its category and channel badges, the Email notification card overridden with a custom title above the content editor, and the Portal notification card left at its default"><figcaption><p>A template with its email wording overridden and its portal wording left at the default</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-template-detail.png" alt="The User Registered template page with its category and channel badges, the Email notification card overridden with a custom title above the content editor, and the Portal notification card left at its default"><figcaption><p>A template with its email wording overridden and its portal wording left at the default</p></figcaption></figure>
 
 The page confirms with the message "Template has been successfully saved!" From then on, the notification is sent with your wording, and the template carries a **Custom** badge on the list and on the card.
 

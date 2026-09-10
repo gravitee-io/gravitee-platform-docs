@@ -25,7 +25,7 @@ To open it, complete the following steps:
 
 The page subtitle reads "Configure how this environment notifies you and your team about events."
 
-<figure><img src="../.gitbook/assets/gamma-platform-notifications-list.png" alt="The Notifications page of the Environment section, with the Configured notifications card listing the Console Notification row and an email and a webhook notification, their Channel, Events, and Target columns, and the Add notification button"><figcaption><p>The Notifications page of the <strong>Environment</strong> section, with the console notification and two notifications that reach the team by email and by webhook</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-notifications-list.png" alt="The Notifications page of the Environment section, with the Configured notifications card listing the Console Notification row and an email and a webhook notification, their Channel, Events, and Target columns, and the Add notification button"><figcaption><p>The Notifications page of the <strong>Environment</strong> section, with the console notification and two notifications that reach the team by email and by webhook</p></figcaption></figure>
 
 The **Configured notifications** card lists one row per notification, with the following columns:
 
@@ -35,7 +35,7 @@ The **Configured notifications** card lists one row per notification, with the f
 * **Target**. The addresses an email notification sends to, or the URL a webhook notification posts to. The console notification shows a dash. A long value is cut off, and hovering it shows the whole value.
 * **Actions**. **Edit** and **Delete**, on the rows you're allowed to change. The column is absent when no row offers an action.
 
-Email and webhook notifications are listed only for users who can create, edit, or delete them. A user with read-only access to the page sees the console notification alone.
+Email and webhook notifications are listed only for users who can create, edit, or delete them. A user with read-only access to the page sees the console notification alone. That user can still change the events of their own **Console Notification** row, but can't add, edit, or delete an email or webhook notification.
 
 ## Choose the events you see in the console
 
@@ -64,19 +64,19 @@ Console notifications appear in the notification list of the APIM Console and in
 
 ## Add an email or webhook notification
 
-An email notification sends each selected event to a list of addresses. A webhook notification sends it as an HTTP POST request to a URL, with an `X-Gravitee-Event` header naming the event, an `X-Gravitee-Event-Scope` header set to `PORTAL`, and a JSON body that repeats both.
+An email notification sends each selected event to a list of addresses. A webhook notification sends it as an HTTP POST request to a URL. The request carries an `X-Gravitee-Event` header naming the event, an `X-Gravitee-Event-Scope` header set to `PORTAL`, and a JSON body with the same event and scope. When the event concerns an API, an application, an owner, a plan, a subscription, or an API Product, the body also includes that object with its identifier.
 
 To add one, complete the following steps:
 
 1. Select **Add notification**.
 2. In the **Add notification** panel, enter a **Name**.
 3. Under **Notifier**, select **Default Email Notifier** or **Default Webhook Notifier**.
-4. For an email notification, enter the recipients in **Email list**. Separate addresses with a space, a comma, or a semicolon. An entry that contains `$` is treated as a template expression and resolved against the event's data when the notification is sent.
+4. For an email notification, enter the recipients in **Email list**. Separate addresses with a space, a comma, or a semicolon. The field's hint reads `EL supported`: an entry written as a template expression is resolved against the event data when the notification is sent, and an entry that fails to resolve is skipped.
 5. For a webhook notification, enter the URL in **Webhook**. Turn on **Use system proxy** to send the request through the system proxy of the Management API.
 6. Under **Event subscribed**, select the events.
 7. Select **Add notification**.
 
-<figure><img src="../.gitbook/assets/gamma-platform-notifications-add.png" alt="The Add notification panel with a name filled in, Default Email Notifier selected, the Email list field, and the first Event subscribed checkboxes grouped under USER and SUPPORT"><figcaption><p>The Add notification panel, with the email notifier selected and the events grouped by category</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-notifications-add.png" alt="The Add notification panel with a name filled in, Default Email Notifier selected, the Email list field, and the first Event subscribed checkboxes grouped under USER and SUPPORT"><figcaption><p>The Add notification panel, with the email notifier selected and the events grouped by category</p></figcaption></figure>
 
 The **Add notification** button stays disabled until the name and the notifier are set. The recipients and the URL aren't checked, and an email notification saved without an address sends nothing.
 
