@@ -23,9 +23,11 @@ redirects:
  platform-management/configure-console-authentication: platform-management/configure-console-authentication.md
  platform-management/configure-console-cors: platform-management/configure-console-cors.md
  platform-management/configure-console-management-and-schedulers: platform-management/configure-console-management-and-schedulers.md
+ platform-management/configure-environment-notifications: platform-management/configure-environment-notifications.md
  platform-management/configure-opentelemetry-tracing-and-logs: platform-management/configure-opentelemetry-tracing-and-logs.md
  platform-management/configure-security-plan-types: platform-management/configure-security-plan-types.md
  platform-management/configure-smtp: platform-management/configure-smtp.md
+ platform-management/customize-notification-templates: platform-management/customize-notification-templates.md
  platform-management/manage-applications: platform-management/manage-applications.md
  platform-management/manage-dictionaries: platform-management/manage-dictionaries.md
  platform-management/manage-entrypoints-and-sharding-tags: platform-management/manage-entrypoints-and-sharding-tags.md

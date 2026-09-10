@@ -10,9 +10,11 @@ redirects:
  configure-console-authentication: configure-console-authentication.md
  configure-console-cors: configure-console-cors.md
  configure-console-management-and-schedulers: configure-console-management-and-schedulers.md
+ configure-environment-notifications: configure-environment-notifications.md
  configure-opentelemetry-tracing-and-logs: configure-opentelemetry-tracing-and-logs.md
  configure-security-plan-types: configure-security-plan-types.md
  configure-smtp: configure-smtp.md
+ customize-notification-templates: customize-notification-templates.md
  manage-applications: manage-applications.md
  manage-dictionaries: manage-dictionaries.md
  manage-entrypoints-and-sharding-tags: manage-entrypoints-and-sharding-tags.md
