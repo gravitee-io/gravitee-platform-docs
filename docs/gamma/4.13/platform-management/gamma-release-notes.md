@@ -149,7 +149,7 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. Platform flows apply policies on request and response phases to every API in the organization. Native Kafka APIs don't have those phases, and TCP proxy APIs don't run policy flows, so both are left untouched. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Custom observability dashboards gain server-side storage.
 
 #### Configure console authentication
 
@@ -215,6 +215,15 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Add members from a user search or invite them by email, review the pending invitations, and pick a successor when a primary owner changes role or leaves the group.
 * Attach a group to every existing API, API Product, or application of the environment in one action, or have the new ones join it automatically.
 * See [Manage groups](manage-groups.md).
+
+#### Manage platform policies
+
+* Create, edit, reorder, disable, and delete the platform flows of the organization from the **Policy Studio** page of the **Organization** section. A platform flow applies request and response policies to every API in the organization, before and after each API's own flows, and native Kafka APIs and TCP proxy APIs are left untouched.
+* Match a flow on a path and operator, on HTTP methods, and on an Expression Language condition, and restrict it to a group of gateways with sharding tags.
+* Set the flow execution mode to **Default**, which runs every matching flow, or **Best match**, which runs only the flow whose path is closest to the request.
+* Saving asks for confirmation, then deploys the flows to the gateways of the organization. The APIM Console edits the same flows.
+* A role that reads the organization's policies without updating them opens the studio read-only.
+* See [Manage platform policies](manage-platform-policies.md).
 
 #### Manage shared policy groups
 
