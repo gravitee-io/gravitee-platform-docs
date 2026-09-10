@@ -5,6 +5,7 @@
   * [Create your first user](get-started/create-your-first-user.md)
   * [Import your first resource from Agent catalog](get-started/import-your-first-resource-from-agent-catalog.md)
   * [Create your first policy](get-started/create-your-first-policy.md)
+  * [Installation guides](https://documentation.gravitee.io/platform-management/install)
 * [Manage](manage/README.md)
   * [Manage principals](manage/principals/README.md)
     * [Sync principals from Access Management](manage/principals/sync-principals-from-access-management.md)
