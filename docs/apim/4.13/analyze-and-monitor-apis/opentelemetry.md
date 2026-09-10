@@ -189,6 +189,12 @@ Connection-setup spans (`Kafka connection`, `Authentication`, `Broker connect`) 
 
     The trace for the Gateway appears in your OpenTelemetry collector.
 
+{% hint style="info" %}
+**No trace appears in your collector**
+
+Confirm the Gateway is exporting before you look further upstream. Adding a debug exporter to your collector's `traces` and `logs` pipelines prints the data it receives to the collector's own logs. That separates a Gateway that isn't exporting from a backend that isn't storing. For the syntax, see the [OpenTelemetry Collector documentation](https://opentelemetry.io/docs/collector/configuration/).
+{% endhint %}
+
 ## Enable OpenTelemetry for an API
 
 {% hint style="warning" %}

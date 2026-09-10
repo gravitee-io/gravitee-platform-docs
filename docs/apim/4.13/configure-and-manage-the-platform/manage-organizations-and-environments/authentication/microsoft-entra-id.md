@@ -102,11 +102,12 @@ You can now add a new Identity Provider to Gravitee APIM.
 4.  For the **Token Introspect Endpoint**, leave this field blank. Microsoft Entra ID doesn't provide an Introspective endpoint.
 
     <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The Portal API <code>tokenExchange</code> operation requires the identity provider to define a token introspection endpoint. Because this field is blank, token exchange isn't available with Microsoft Entra ID, and the operation returns HTTP <code>400</code> with the message "Token exchange is not supported for this identity provider".</p></div>
-5. In the **Authorization Endpoint** field, enter the following endpoint: [`https://login.microsoftonline.com/common/oauth2/authorize`](https://login.microsoftonline.com/common/oauth2/authorize).
-6. In the **UserInfo Endpoint** field, enter the following endpoint: [`https://login.microsoftonline.com/common/openid/userinfo`](https://login.microsoftonline.com/common/openid/userinfo).
-7. In the **UserInfo Logout Endpoint** field, enter the following endpoint: [`https://login.microsoftonline.com/common/oauth2/logout`](https://login.microsoftonline.com/common/oauth2/logout).
-8. In the **Scopes** field, add `openid`.
-9. In the **Authentication button color** field, specify your color preferences in the following form: `#RRGGBB`.
+5. Leave **Client Authentication Method** at **Provider default**, or select the method that your Entra ID application registration expects. See [Choose how APIM authenticates to the identity provider](README.md#choose-how-apim-authenticates-to-the-identity-provider).
+6. In the **Authorization Endpoint** field, enter the following endpoint: [`https://login.microsoftonline.com/common/oauth2/authorize`](https://login.microsoftonline.com/common/oauth2/authorize).
+7. In the **UserInfo Endpoint** field, enter the following endpoint: [`https://login.microsoftonline.com/common/openid/userinfo`](https://login.microsoftonline.com/common/openid/userinfo).
+8. In the **UserInfo Logout Endpoint** field, enter the following endpoint: [`https://login.microsoftonline.com/common/oauth2/logout`](https://login.microsoftonline.com/common/oauth2/logout).
+9. In the **Scopes** field, add `openid`.
+10. In the **Authentication button color** field, specify your color preferences in the following form: `#RRGGBB`.
 
 #### User profile mapping
 
@@ -117,8 +118,9 @@ You can now add a new Identity Provider to Gravitee APIM.
 5.  In the **Picture** field, enter `picture`. This may cause a warning in the logs because Microsoft ID does not provide this claim.
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>If you specify an invalid value, such as a claim that does not exist in the supplied token, Microsoft ID fails and does not provide you with any error message.</p></div>
-6. Click on **Create.**
-7. Return to the **Authentication** page of the organization settings and click the activation toggle on the provider's row, so the **Status** column reads **Activated**. That organization activation is what puts Microsoft ID on the Console login page.
+6. Optional: In the **Persisted Claims** section, list the claims to store on each user at login for injection into dynamic client registration requests. See [Inject identity provider claims into DCR requests](../inject-identity-provider-claims-into-dcr-requests.md).
+7. Click on **Create.**
+8. Return to the **Authentication** page of the organization settings and click the activation toggle on the provider's row, so the **Status** column reads **Activated**. That organization activation is what puts Microsoft ID on the Console login page.
 
 {% hint style="success" %}
 The Identity Provider setup is now complete. You can follow the remaining steps to test Console authentication. To show this provider on the Developer Portal as well, turn **Allow portal authentication to use this identity provider** on, then activate it on the **Authentication** page of that environment's settings.

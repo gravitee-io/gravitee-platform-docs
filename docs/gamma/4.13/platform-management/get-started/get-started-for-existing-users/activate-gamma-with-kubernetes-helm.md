@@ -84,3 +84,4 @@ For the complete `values.yaml`, the ingress and single-host layout, and the ente
 ## Next steps
 
 * Create your first MCP server. For more information, see [Create your first MCP server](../../../agent-management/get-started/create-your-first-mcp-server.md).
+* Configure the OpenTelemetry pipeline that fills the Trace Explorer. For more information, see [Configure OpenTelemetry tracing and logs](../../configure-opentelemetry-tracing-and-logs.md).

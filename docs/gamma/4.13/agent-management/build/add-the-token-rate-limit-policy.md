@@ -26,7 +26,7 @@ Before you begin, confirm that you have the following:
 3. In the **Request Phase** section, click **Add policy**, and then click **Browse full catalog**. When the phase already holds a policy, click the plus button at the end of the phase instead of **Add policy**.
 4.  In the **Add Policy** dialog, search for **Token Rate Limit**, select it, and then click **Add to flow**.
 
-    <figure><img src="../../.gitbook/assets/gamma-aim-token-rate-limit-add-to-flow.png" alt="The Token Rate Limit policy open in the Add Policy catalog, with the Add to flow button"><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-aim-token-rate-limit-add-to-flow.png" alt="The Token Rate Limit policy open in the Add Policy catalog, with the Add to flow button"><figcaption></figcaption></figure>
 5. Configure the policy using the settings in [Settings](#settings).
 6. Click **Save**.
 7. When the "This deployable is out of sync" message appears, click **Deploy** to push the change to the AI Gateway.

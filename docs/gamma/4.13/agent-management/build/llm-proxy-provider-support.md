@@ -15,14 +15,11 @@ This page is the reference for those differences. To create a proxy, see [Create
 The following providers are available when you add a provider to a proxy:
 
 * **OpenAI**. Direct passthrough, with full compatibility.
+* **OpenAI compatible**. Services that follow the OpenAI API format, handled like **OpenAI**.
 * **Anthropic**. The Anthropic Messages API, for Claude models.
 * **Gemini**. Google's Gemini API.
 * **Bedrock**. The AWS Bedrock Converse API.
 * **Vertex AI**. Google Cloud's Gemini Enterprise Agent Platform, for both Gemini and Anthropic Claude models.
-
-{% hint style="info" %}
-The connector also defines an **OpenAI compatible** provider for services that follow the OpenAI API format. It isn't selectable in the console yet.
-{% endhint %}
 
 ## Supported endpoints
 

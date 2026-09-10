@@ -14,7 +14,7 @@ To open the page, complete the following steps:
 2. Select your API proxy.
 3. Click **Notifications** in the API proxy sidebar.
 
-<figure><img src="../../../.gitbook/assets/gamma-api-notifications-page.png" alt="The Notifications page showing the Console, Email, and Webhook notifier counters and the Configured notifications table"><figcaption><p>The Notifications page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-api-notifications-page.png" alt="The Notifications page showing the Console, Email, and Webhook notifier counters and the Configured notifications table"><figcaption><p>The Notifications page</p></figcaption></figure>
 
 The page shows the **Console notifiers**, **Email notifiers**, and **Webhook notifiers** counters, and a table with the **Name**, **Channel**, **Events**, and **Target** columns. An **Actions** column is added when you can edit or delete a notification.
 
@@ -32,7 +32,7 @@ To add an email or webhook notification, complete the following steps:
 
 1. Click **Add notification**.
 
-    <figure><img src="../../../.gitbook/assets/gamma-api-notification-add-form.png" alt="The Add notification page with the Name field, the Channel list set to Default Email Notifier, the Email address(es) field, and the start of the Events checklist"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-api-notification-add-form.png" alt="The Add notification page with the Name field, the Channel list set to Default Email Notifier, the Email address(es) field, and the start of the Events checklist"><figcaption></figcaption></figure>
 
 2. Enter a **Name**.
 3. Select a **Channel**. The channel sets the target field: `Email address(es)` for the **Email** channel, or **Webhook URL** for the **Webhook** channel.
@@ -62,4 +62,4 @@ You can also return to the **Notifications** page. Confirm that the new notifica
 
 <!-- TODO: Screenshot of a received notification for a triggered API event -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-notification-received.png" alt=""><figcaption><p>A received notification</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-notification-received.png" alt=""><figcaption><p>A received notification</p></figcaption></figure>

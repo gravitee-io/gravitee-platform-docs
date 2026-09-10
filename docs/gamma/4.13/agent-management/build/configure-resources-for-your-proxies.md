@@ -17,7 +17,7 @@ For the AI resource types that the AI policies call, and how the AI Gateway load
 3. Select the proxy you want to configure.
 4. Under **Design** for an LLM Proxy, or under **General** for an MCP Proxy or an A2A Proxy, select **Resources**.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-proxy-resources.png" alt=""><figcaption><p>The Resources page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-proxy-resources.png" alt=""><figcaption><p>The Resources page</p></figcaption></figure>
 
 Until the proxy has a resource, the page shows a **No resources yet** card instead of the table.
 
@@ -82,7 +82,7 @@ To verify a resource is configured as expected, follow these steps:
 2. Click **Deploy** on the **This API is out of sync** banner, and then confirm.
 3. Return to the **Resources** page. The resource is listed with its **Status** set to **Enabled**, and the out-of-sync banner is gone.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-proxy-resources-verification.png" alt=""><figcaption><p>The deployed resource</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-proxy-resources-verification.png" alt=""><figcaption><p>The deployed resource</p></figcaption></figure>
 
 ## Next steps
 

@@ -47,7 +47,7 @@ A small set of pre-configured Guardian Agents ships with the platform, each solv
 
 <!-- TODO: Screenshot of binding a Guardian Agent to an MCP proxy -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-guardian-agent-binding.png" alt=""><figcaption><p>A Guardian Agent is bound to the MCP proxy and judges every tool call before it executes.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-guardian-agent-binding.png" alt=""><figcaption><p>A Guardian Agent is bound to the MCP proxy and judges every tool call before it executes.</p></figcaption></figure>
 
 ## Review Guardian decisions
 
@@ -55,4 +55,4 @@ Every Guardian decision is logged with the context that was available to the Gua
 
 <!-- TODO: Screenshot of the Guardian decision log with a DENY verdict expanded -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-guardian-decision-log.png" alt=""><figcaption><p>Each decision carries its verdict, the tool called, and the context the Guardian judged with.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-guardian-decision-log.png" alt=""><figcaption><p>Each decision carries its verdict, the tool called, and the context the Guardian judged with.</p></figcaption></figure>

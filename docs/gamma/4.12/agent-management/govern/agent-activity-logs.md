@@ -37,7 +37,7 @@ An entry has four parts: the decision chain, the result, the cost, and the corre
 
 <!-- TODO: Screenshot of a single activity log entry with its decision chain, result, and cost -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-activity-log-entry.png" alt=""><figcaption><p>One entry carries the decision chain, the result, and the cost for a single action.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-activity-log-entry.png" alt=""><figcaption><p>One entry carries the decision chain, the result, and the cost for a single action.</p></figcaption></figure>
 
 ### The decision chain
 
@@ -73,4 +73,4 @@ Activity log entries are retrievable by agent, by action, by decision, by approv
 
 <!-- TODO: Screenshot of the activity log filtered by agent and time window -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-activity-log-query.png" alt=""><figcaption><p>Entries are retrieved by agent, action, decision, approver, and time window.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-activity-log-query.png" alt=""><figcaption><p>Entries are retrieved by agent, action, decision, approver, and time window.</p></figcaption></figure>

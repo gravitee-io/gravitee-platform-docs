@@ -5,7 +5,7 @@
 ## Platform Management
 
 * [Overview](platform-management/overview.md)
-* [Gamma Release Notes](platform-management/gamma-release-notes.md)
+* [Release Notes](platform-management/gamma-release-notes.md)
 * [Get started](platform-management/get-started/README.md)
   * [Get started for new users](platform-management/get-started/get-started-for-new-users/README.md)
     * [Fully self-hosted installation with Vanilla Kubernetes](platform-management/get-started/get-started-for-new-users/fully-self-hosted-with-vanilla-kubernetes.md)
@@ -34,6 +34,7 @@
       * [OpenShift](platform-management/install/hybrid-installation-guides/kubernetes/openshift.md)
 * [Configure Access Management](platform-management/configure-access-management.md)
 * [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
+* [Configure OpenTelemetry tracing and logs](platform-management/configure-opentelemetry-tracing-and-logs.md)
 * [Manage applications](platform-management/manage-applications.md)
 * [Manage dictionaries](platform-management/manage-dictionaries.md)
 * [Manage environment metadata](platform-management/manage-environment-metadata.md)
@@ -137,6 +138,7 @@
   * [LLM Proxies](agent-management/build/llm-proxies/README.md)
     * [Create an LLM Proxy](agent-management/build/create-an-llm-proxy.md)
     * [Configure an LLM Proxy](agent-management/build/configure-an-llm-proxy.md)
+      * [Configure LLM Proxy CORS](agent-management/build/configure-llm-proxy-cors.md)
       * [Design](agent-management/build/llm-proxies/design/README.md)
         * [Add the Token Rate Limit policy](agent-management/build/add-the-token-rate-limit-policy.md)
         * [Select a text classification model](agent-management/build/select-a-text-classification-model.md)
