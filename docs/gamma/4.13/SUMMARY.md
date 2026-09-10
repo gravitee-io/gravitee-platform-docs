@@ -45,6 +45,7 @@
 * [Manage entrypoints and sharding tags](platform-management/manage-entrypoints-and-sharding-tags.md)
 * [Manage environment metadata](platform-management/manage-environment-metadata.md)
 * [Manage groups](platform-management/manage-groups.md)
+* [Manage platform policies](platform-management/manage-platform-policies.md)
 * [Manage shared policy groups](platform-management/manage-shared-policy-groups.md)
 * [Manage tenants](platform-management/manage-tenants.md)
 * [Manage users](platform-management/manage-users.md)
