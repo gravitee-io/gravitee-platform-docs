@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for configure your http server.
+description: Configure the HTTP server for the Gravitee API Gateway, from HTTPS keystores and HTTP/2 flow control to idle timeouts and CRL checks. Follow the steps.
 metaLinks:
   alternates:
     - configure-your-http-server.md
@@ -497,10 +497,10 @@ curl -k -v --http2 https://localhost:8082/my_api
 
 ### Tune HTTP/2 flow-control windows
 
-An HTTP/2 flow-control window bounds how many bytes a client may send before waiting for the Gateway to acknowledge them, so upload throughput is capped by `window size / round-trip time`. The 65535 bytes protocol default therefore throttles large request bodies as soon as there is real network latency, while HTTP/1.1 is unaffected. Raise both windows to lift that ceiling.
+An HTTP/2 flow-control window bounds how many bytes a client may send before waiting for the Gateway to acknowledge them. Upload throughput is capped by `window size / round-trip time`. The 65535-byte protocol default therefore throttles large request bodies as soon as there is real network latency, while HTTP/1.1 is unaffected. Raise both windows to lift that ceiling.
 
 {% hint style="warning" %}
-Set both, or neither. Raising `streamWindowSize` alone has no observable effect: the initial settings the Gateway sends apply to streams only, never to the connection, so the connection window stays at 65535 bytes and remains the bottleneck for the whole connection. Keep `connectionWindowSize` greater than or equal to `streamWindowSize`.
+Set both, or neither. If you raise `streamWindowSize` alone, it has no observable effect. The initial settings the Gateway sends apply to streams only, never to the connection. The connection window therefore stays at 65535 bytes and remains the bottleneck for the whole connection. Keep `connectionWindowSize` greater than or equal to `streamWindowSize`.
 {% endhint %}
 
 {% tabs %}
@@ -530,7 +530,7 @@ gateway:
       streamWindowSize: 20971520
 ```
 
-With `gateway.servers`, the chart renders the HTTP server options from that list and ignores the rest of `gateway.http`, so the windows have to be set on each server that needs them:
+With `gateway.servers`, the chart renders the HTTP server options from that list and ignores the rest of `gateway.http`. Set the windows on each server that needs them:
 
 ```yaml
 gateway:
@@ -544,9 +544,9 @@ gateway:
 {% endtab %}
 {% endtabs %}
 
-Size these against the number of concurrent connections you expect, not against a single upload: the Gateway accepts up to `connectionWindowSize` bytes in flight per connection and `streamWindowSize` bytes per concurrent request, with no upper bound enforced.
+Size both windows against the number of concurrent connections you expect, not against a single upload. The Gateway accepts up to `connectionWindowSize` bytes in flight per connection and `streamWindowSize` bytes per concurrent request, with no upper bound enforced.
 
-Both options default to `-1`, which keeps the 65535 bytes protocol default, so leaving them unset changes nothing.
+Both options default to `-1`, which keeps the 65535-byte protocol default. If you leave them unset, nothing changes.
 
 ## Enable WebSocket support
 
