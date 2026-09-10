@@ -158,8 +158,7 @@ The chip appears in the **Filters** row and the tab label shows the number of wi
 
 Dashboard filters are saved in the definition and applied to every widget. The **Dashboard filters** row of the editor holds them, and the chips you arrange there are the chips every reader opens the dashboard with.
 
-<!-- TODO: Screenshot of the Add dashboard filter form open in the editor, showing Filter by, Choose operator, Filter value, the Allow viewers to change value switch, and the Cancel and Apply buttons -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-dashboard-filter-form.png" alt=""><figcaption><p>The dashboard filter form</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-dashboard-filter-form.png" alt="The dashboard filter form open below the Add dashboard filter button, with the Filter by search field, the Choose operator select, the Filter value field with its Leave empty to match any value hint, the Allow viewers to change value switch turned on, and the Cancel and Apply buttons"><figcaption><p>The dashboard filter form</p></figcaption></figure>
 
 1. Click **Add dashboard filter**.
 2. Under **Filter by**, select the property.
@@ -191,8 +190,7 @@ The value field also depends on the property. A property with a fixed set of val
 
 The time range control in the editor header shows the current range, such as **Last 24 hours**, and drives the preview and every widget on the grid. A custom dashboard opens on its saved default range, so pick the range the dashboard should open with, then make it the default.
 
-<!-- TODO: Screenshot of the time range control open on the Relative tab in the editor header, with the Set as default button beside it and the Last, Current, and Previous preset groups -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-dashboard-time-range.png" alt=""><figcaption><p>The time range control</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-dashboard-time-range.png" alt="The time range control open on the Relative tab in the dashboard editor header, showing the Last presets from 5 minutes to 365 days with 7 days selected, the Current and Previous groups with Week, Month, and Quarter, and the Set as default button beside the control"><figcaption><p>The time range control</p></figcaption></figure>
 
 1. Click the time range control.
 2. On the **Relative** tab, click a preset. The control closes with the preset applied.
@@ -221,8 +219,7 @@ The editor pauses live refresh while you compose, so the preview holds still.
 
 The **JSON** tab, beside **Builder** in the editor header, shows the dashboard definition as a document. Use it for changes the visual builder doesn't reach and for moving widgets between dashboards.
 
-<!-- TODO: Screenshot of the JSON tab of the editor, showing the Copy JSON and Apply changes buttons above the document -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-dashboard-json.png" alt=""><figcaption><p>The JSON tab</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-dashboard-json.png" alt="The JSON tab of the dashboard editor, with the Builder and JSON tabs in the header, the Copy JSON and disabled Apply changes buttons, and the dashboard document showing its title, filters, timeRange, and widgets keys"><figcaption><p>The JSON tab</p></figcaption></figure>
 
 1. Click **JSON**.
 2. Edit the document.
