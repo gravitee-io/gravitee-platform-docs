@@ -26,32 +26,6 @@ Gamma unifies four product lines under a shared platform: API Management, Event 
 
 <figure><img src="../.gitbook/assets/gamma-platform-architecture.png" alt="Gamma platform architecture. Consumers—apps and services, event consumers, and AI agents and clients—send requests into the Gravitee runtime, where the API Gateway, Event Gateway, and AI Gateway route to backend APIs and services, event brokers and streams, and models, MCP servers, and agents. The control plane configures and deploys to the runtime, while identity and access and observability platform services connect to it."><figcaption><p>The Gamma platform architecture</p></figcaption></figure>
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                           Gravitee Gamma                            │
-│                                                                     │
-│   Consumers / API Clients / AI Agents                               │
-│          │                   │                   │                  │
-│          ▼                   ▼                   ▼                  │
-│   ┌────────────┐      ┌────────────┐      ┌────────────┐            │
-│   │ API        │      │ AI         │      │ Event      │            │
-│   │ Gateway    │      │ Gateway    │      │ Gateway    │            │
-│   └──────┬─────┘      └──────┬─────┘      └──────┬─────┘            │
-│          │                   │                   │                  │
-│          └───────────────────┴───────────────────┘                  │
-│                              │                                      │
-│                              ▼                                      │
-│   ┌───────────────────────────────────────────────────────────┐     │
-│   │               Gamma Console (Control Plane)               │     │
-│   │  ┌────────────┐  ┌───────────────┐  ┌──────────────────┐  │     │
-│   │  │  Catalog   │  │ Authorization │  │     Platform     │  │     │
-│   │  │ (Registry) │  │  Management   │  │    Management    │  │     │
-│   │  │            │  │  (PDP/GAPL)   │  │ (Apps/Resources) │  │     │
-│   │  └────────────┘  └───────────────┘  └──────────────────┘  │     │
-│   └───────────────────────────────────────────────────────────┘     │
-└─────────────────────────────────────────────────────────────────────┘
-```
-
 ### Platform Components
 
 Gamma includes the following components:
