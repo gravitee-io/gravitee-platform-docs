@@ -24,9 +24,7 @@ Gamma addresses the following core challenges:
 
 Gamma unifies four product lines under a shared platform: API Management, Event Stream Management, Agent Management, and Authorization Management. All four share a common Catalog of assets and a common authorization engine that defines fine-grained policies against those cataloged assets. They also share common enforcement points—the AI Gateway, API Gateway, and Event Gateway—that evaluate the same policies at the wire level.
 
-The Gamma platform architecture
-
-<figure><img src="../.gitbook/assets/gamma-platform-architecture.png" alt="Gamma platform architecture. Consumers—apps and services, event consumers, and AI agents and clients—send requests into the Gravitee runtime, where the API Gateway, Event Gateway, and AI Gateway route to backend APIs and services, event brokers and streams, and models, MCP servers, and agents. The control plane configures and deploys to the runtime, while identity and access and observability platform services connect to it."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-platform-architecture.png" alt="Gamma platform architecture. Consumers—apps and services, event consumers, and AI agents and clients—send requests into the Gravitee runtime, where the API Gateway, Event Gateway, and AI Gateway route to backend APIs and services, event brokers and streams, and models, MCP servers, and agents. The control plane configures and deploys to the runtime, while identity and access and observability platform services connect to it."><figcaption><p>The Gamma platform architecture</p></figcaption></figure>
 
 ### Platform Components
 
