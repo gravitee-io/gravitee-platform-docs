@@ -1,5 +1,7 @@
 ---
-description: Gravitee Gamma governs, secures, and observes API, event stream, and AI agent traffic from one platform. Learn why it exists and how it works.
+description: >-
+  Gravitee Gamma governs, secures, and observes API, event stream, and AI agent
+  traffic from one platform. Learn why it exists and how it works.
 ---
 
 # Overview
@@ -24,7 +26,7 @@ Gamma addresses the following core challenges:
 
 Gamma unifies four product lines under a shared platform: API Management, Event Stream Management, Agent Management, and Authorization Management. All four share a common Catalog of assets and a common authorization engine that defines fine-grained policies against those cataloged assets. They also share common enforcement points—the AI Gateway, API Gateway, and Event Gateway—that evaluate the same policies at the wire level.
 
-<figure><img src="../.gitbook/assets/gamma-platform-architecture.png" alt="Gamma platform architecture. Consumers—apps and services, event consumers, and AI agents and clients—send requests into the Gravitee runtime, where the API Gateway, Event Gateway, and AI Gateway route to backend APIs and services, event brokers and streams, and models, MCP servers, and agents. The control plane configures and deploys to the runtime, while identity and access and observability platform services connect to it."><figcaption><p>The Gamma platform architecture</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-architecture.png" alt="Gamma platform architecture. Consumers—apps and services, event consumers, and AI agents and clients—send requests into the Gravitee runtime, where the API Gateway, Event Gateway, and AI Gateway route to backend APIs and services, event brokers and streams, and models, MCP servers, and agents. The control plane configures and deploys to the runtime, while identity and access and observability platform services connect to it."><figcaption><p>The Gamma platform architecture</p></figcaption></figure>
 
 ### Platform Components
 
@@ -52,37 +54,37 @@ API creation offers the following starting points:
 * **Quick-start templates**. These presets arrive with security and plans already filled in.
 * **Import API**. This option creates the API from a Gravitee definition, an OpenAPI specification, or a WSDL document.
 
-See [API Management overview](../api-management/get-started/api-management-overview.md).
+See [API Management overview](https://app.gitbook.com/s/Q4nB8XuTLLNUfz3RRuZD/get-started/api-management-overview "mention").
 
 ### Security & Authentication
 
 Every API proxy accepts one or more security plans that define how consumers authenticate. Supported plan types include Keyless, API Key, JWT, OAuth2, and mTLS. Plans move through a defined lifecycle of Staging, Published, Deprecated, and Closed. Plans also support rate limiting, quotas, and resource filtering at the plan level. For AI traffic, the AI Gateway supports OAuth authorization discovery and credential mediation for MCP servers, and token-based rate limiting for LLM Proxies.
 
-See [Secure your API proxy](../api-management/build/secure-your-api-proxy.md).
+See [Secure your API proxy](https://app.gitbook.com/s/a6QVD3iIxTvnV5eQ8OH1/api-management/build/secure-your-api-proxy "mention").
 
 ### Event Stream Management
 
 Event Stream Management governs Kafka clusters, event-driven data flows, and streaming infrastructure. Key capabilities include Kafka cluster registration, Kafka Service creation, and Virtual Clusters for multi-tenant isolation on shared infrastructure. A Kafka Service is the event-stream equivalent of an API proxy. Event sources contributed to the Catalog can be exposed as event tools in Agent Management, which bridges event streams to the AI agent layer without redevelopment.
 
-See [Event Stream Management overview](../event-stream-management/get-started/event-stream-management-overview.md).
+See [Event Stream Management overview](https://app.gitbook.com/s/RAp1PkCOmWWAgHcdqZIK/get-started/event-stream-management-overview "mention").
 
 ### Agent Management & AI Governance
 
 Agent Management governs every protocol in the agentic stack. The **LLM Proxy** handles traffic to LLM providers with guardrails, PII filtering, and token-based rate limiting. Supported providers are OpenAI, Gemini, Anthropic, Bedrock, and Vertex AI. The **MCP Proxy** governs tool invocations in two modes: Proxy mode for transparent governance of upstream MCP servers, and Studio mode for composing catalog assets into an MCP Studio. The **A2A Proxy** governs agent-to-agent delegations with skill discovery, per-skill authorization, and agent identity verification. Every interaction emits an OpenTelemetry span with agent identity, tool name, inputs, outputs, latency, policy decision, and timestamp. Token cost is recorded for LLM traffic.
 
-See [Agent Management overview](../agent-management/overview/README.md).
+See [Overview](https://app.gitbook.com/s/zSRlBOqxETRHyiVBUsMd/ "mention").
 
 ### Authorization Management
 
 Authorization Management provides fine-grained, catalog-aware access control across all Gamma traffic types. Policies are written in Gravitee Authorization Policy Language (GAPL), a subset of the Cedar policy language. A policy declares an effect of `permit` or `forbid`, a principal, an action, a resource, and optional conditions for time-of-day restrictions, IP range checks, token budgets, and custom attribute matching. Policy Management covers MCPs, AI Models, APIs, A2A Agents, and Custom Policies. Principals can be synchronized from Gravitee Access Management or imported from a file.
 
-See [Authorization Management overview](../authorization-management/get-started/authorization-management-overview.md).
+See [Authorization Management overview](https://app.gitbook.com/s/5y6cH6utdbIqSNsQBpQx/get-started/authorization-management-overview "mention").
 
 ### Edge Management
 
 Edge Management provides visibility and control over AI traffic on employee devices. The Edge Daemon, distributed to managed devices as a Kandji Custom App, supports two routing modes. Interception mode is the default and provides transparent DNS-level redirect of AI provider traffic. Proxy mode requires explicit per-tool base URL configuration. The daemon detects shadow AI usage regardless of whether traffic is routed through it. It enforces local pre-egress policies and forwards requests to the AI Gateway for enterprise-wide policy enforcement. The Edge Management dashboard surfaces fleet status, metrics filterable by device and model, and shadow AI usage reports.
 
-See [Edge Management overview](../edge-management/get-started/edge-management-overview.md).
+See [Edge Management overview](https://app.gitbook.com/s/a6QVD3iIxTvnV5eQ8OH1/edge-management/get-started/edge-management-overview "mention").
 
 ***
 
@@ -90,15 +92,15 @@ See [Edge Management overview](../edge-management/get-started/edge-management-ov
 
 Gamma supports the following protocols and standards:
 
-| Protocol    | Support | Notes                                                                                                    |
-| ----------- | ------- | -------------------------------------------------------------------------------------------------------- |
-| REST / HTTP | Full    | API proxies with context path or virtual host routing                                                    |
-| GraphQL     | Full    | Governed through API Management                                                                          |
-| gRPC        | Full    | Governed through API Management                                                                          |
-| WebSocket   | Full    | Governed through API Management                                                                          |
-| Kafka       | Full    | Native Kafka protocol through the Event Gateway, using Kafka Services and Virtual Clusters               |
-| MCP         | Full    | JSON-RPC 2.0 through the MCP Proxy in Proxy mode or Studio mode                                          |
-| A2A         | Full    | Through the A2A Proxy with `/.well-known/agent-card.json` skill discovery                                |
+| Protocol    | Support | Notes                                                                                                      |
+| ----------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| REST / HTTP | Full    | API proxies with context path or virtual host routing                                                      |
+| GraphQL     | Full    | Governed through API Management                                                                            |
+| gRPC        | Full    | Governed through API Management                                                                            |
+| WebSocket   | Full    | Governed through API Management                                                                            |
+| Kafka       | Full    | Native Kafka protocol through the Event Gateway, using Kafka Services and Virtual Clusters                 |
+| MCP         | Full    | JSON-RPC 2.0 through the MCP Proxy in Proxy mode or Studio mode                                            |
+| A2A         | Full    | Through the A2A Proxy with `/.well-known/agent-card.json` skill discovery                                  |
 | LLM APIs    | Full    | Through the LLM Proxy with provider-specific routing for OpenAI, Gemini, Anthropic, Bedrock, and Vertex AI |
 
 ***
@@ -107,12 +109,12 @@ Gamma supports the following protocols and standards:
 
 If you're new to Gravitee Gamma, complete the following steps:
 
-1. [**Create your first API**](../api-management/get-started/create-your-first-api.md). Create an API proxy and enforce a security plan in under five minutes.
-2. [**Create your first MCP server**](../agent-management/get-started/create-your-first-mcp-server.md). Configure an MCP proxy in front of an upstream MCP server and verify tool invocations.
-3. [**Create your first Kafka service**](../event-stream-management/get-started/create-your-first-kafka-service.md). Register a Kafka cluster and create a governed Kafka service.
+1. [Create your first API](https://app.gitbook.com/s/Q4nB8XuTLLNUfz3RRuZD/get-started/create-your-first-api "mention"). Create an API proxy and enforce a security plan in under five minutes.
+2. [Create your first MCP server](https://app.gitbook.com/s/a6QVD3iIxTvnV5eQ8OH1/agent-management/get-started/create-your-first-mcp-server "mention"). Configure an MCP proxy in front of an upstream MCP server and verify tool invocations.
+3. [Create your first Kafka service](https://app.gitbook.com/s/RAp1PkCOmWWAgHcdqZIK/get-started/create-your-first-kafka-service "mention"). Register a Kafka cluster and create a governed Kafka service.
 
 If you're evaluating Gravitee Gamma for your organization, consult the following resources:
 
-* [**Authorization Management overview**](../authorization-management/get-started/authorization-management-overview.md). Understand GAPL policies and how the shared policy engine governs all traffic types.
-* [**Agent Management overview**](../agent-management/overview/README.md). Understand how the AI Gateway, Catalog, and Agent Identity work together to govern AI agent traffic.
-* [**Event Stream Management overview**](../event-stream-management/get-started/event-stream-management-overview.md). Understand how Kafka infrastructure is governed and exposed to agents through the Catalog.
+* [Authorization Management overview](https://app.gitbook.com/s/5y6cH6utdbIqSNsQBpQx/get-started/authorization-management-overview "mention"). Understand GAPL policies and how the shared policy engine governs all traffic types.
+* [Overview](https://app.gitbook.com/s/zSRlBOqxETRHyiVBUsMd/ "mention"). Understand how the AI Gateway, Catalog, and Agent Identity work together to govern AI agent traffic.
+* [Event Stream Management overview](https://app.gitbook.com/s/RAp1PkCOmWWAgHcdqZIK/get-started/event-stream-management-overview "mention"). Understand how Kafka infrastructure is governed and exposed to agents through the Catalog.

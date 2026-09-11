@@ -483,6 +483,25 @@ handlers:
       strict: true
 ```
 
+### DPoP proof validation
+
+The AM Gateway validates the proofs that clients send to obtain and use [DPoP-bound access tokens](../../../guides/auth-protocols/oauth-2.0/demonstrating-proof-of-possession-dpop.md). The following properties control the validity window of a proof and the replay cache that rejects a proof identifier that has already been used:
+
+```yaml
+handlers:
+  oauth2:
+    dpop:
+      # maximum age of a proof, in seconds (default: 30)
+      validitySeconds: 30
+      replayCache:
+        # reject a proof whose jti has already been used (default: true)
+        enabled: true
+        # maximum number of proof identifiers kept per security domain (default: 10000)
+        maxSize: 10000
+```
+
+AM also accepts a proof whose `iat` claim is up to 3 seconds in the future to tolerate clock skew. The replay cache uses the cache implementation selected by `cache.type` in the [Cache](#cache) section. In an environment with more than one AM Gateway, use the `redis` implementation so that a proof can't be replayed on another AM Gateway.
+
 ### Synchronization process
 
 If a configuration is updated on the AM Console, it needs to be propagated on the AM Gateway instances.

@@ -30,3 +30,11 @@ guides/auth-protocols/ciba.md
 # Environment-scoped entrypoints (AM 4.13.0 feature, AM-7165)
 guides/entrypoints.md
 .gitbook/assets/am-organization-entrypoints-list.png
+# DPoP sender-constrained tokens (AM 4.13.0 feature, AM-7273)
+guides/auth-protocols/oauth-2.0/demonstrating-proof-of-possession-dpop.md
+guides/auth-protocols/oauth-2.0/README.md
+guides/auth-protocols/oauth-2.0/best-practices.md
+guides/auth-protocols/openid-connect.md
+getting-started/configuration/configure-am-gateway/README.md
+.gitbook/assets/am-domain-dpop-settings.png
+.gitbook/assets/am-application-dpop-bound-access-tokens.png

@@ -1,7 +1,8 @@
 ---
-hidden: false
-noIndex: false
-description: Wire the OpenTelemetry pipeline that fills the Gamma Trace Explorer. Follow the steps to configure the Gateway exporter, the Collector, and the Management API readers.
+description: >-
+  Wire the OpenTelemetry pipeline that fills the Gamma Trace Explorer. Follow
+  the steps to configure the Gateway exporter, the Collector, and the Management
+  API readers.
 ---
 
 # Configure OpenTelemetry tracing and logs
@@ -23,42 +24,7 @@ The two scopes serve different parts of the Trace Explorer. The trace list is se
 
 Set the following on the Gateway.
 
-<table>
-    <thead>
-        <tr>
-            <th width="330">Setting</th>
-            <th width="380">Description</th>
-            <th>Default</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>services.opentelemetry.enabled</code></td>
-            <td>Turns on OpenTelemetry on the Gateway. While this is <code>false</code>, neither spans nor log records are exported, whatever else is set.</td>
-            <td><code>false</code></td>
-        </tr>
-        <tr>
-            <td><code>services.opentelemetry.exporter.endpoint</code></td>
-            <td>The OTLP endpoint the Gateway sends spans to.</td>
-            <td><code>http://localhost:4317</code></td>
-        </tr>
-        <tr>
-            <td><code>services.opentelemetry.exporter.protocol</code></td>
-            <td>The transport used for spans.</td>
-            <td><code>grpc</code></td>
-        </tr>
-        <tr>
-            <td><code>services.opentelemetry.exporter.logsEndpoint</code></td>
-            <td>The OTLP endpoint for log records. Set the full URL, including the signal path. The shipped default points at Loki, not at your Collector.</td>
-            <td><code>http://localhost:3100/otlp/v1/logs</code></td>
-        </tr>
-        <tr>
-            <td><code>reporters.otel.enabled</code></td>
-            <td>Emits captured request and response payloads as OpenTelemetry log records. Takes effect only when <code>services.opentelemetry.enabled</code> is <code>true</code>.</td>
-            <td><code>false</code></td>
-        </tr>
-    </tbody>
-</table>
+<table><thead><tr><th width="330">Setting</th><th width="380">Description</th><th>Default</th></tr></thead><tbody><tr><td><code>services.opentelemetry.enabled</code></td><td>Turns on OpenTelemetry on the Gateway. While this is <code>false</code>, neither spans nor log records are exported, whatever else is set.</td><td><code>false</code></td></tr><tr><td><code>services.opentelemetry.exporter.endpoint</code></td><td>The OTLP endpoint the Gateway sends spans to.</td><td><code>http://localhost:4317</code></td></tr><tr><td><code>services.opentelemetry.exporter.protocol</code></td><td>The transport used for spans.</td><td><code>grpc</code></td></tr><tr><td><code>services.opentelemetry.exporter.logsEndpoint</code></td><td>The OTLP endpoint for log records. Set the full URL, including the signal path. The shipped default points at Loki, not at your Collector.</td><td><code>http://localhost:3100/otlp/v1/logs</code></td></tr><tr><td><code>reporters.otel.enabled</code></td><td>Emits captured request and response payloads as OpenTelemetry log records. Takes effect only when <code>services.opentelemetry.enabled</code> is <code>true</code>.</td><td><code>false</code></td></tr></tbody></table>
 
 For Docker Compose, add the settings to the environment of the `gateway` service:
 
@@ -94,47 +60,7 @@ Payload logging needs the OpenTelemetry reporter plugin on the Gateway. For the 
 
 Point both repository scopes at the Elasticsearch cluster your Collector writes to.
 
-<table>
-    <thead>
-        <tr>
-            <th width="360">Setting</th>
-            <th width="350">Description</th>
-            <th>Default</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>repositories.otel-traces.type</code></td>
-            <td>Backend for the trace reader. Set it to <code>elasticsearch</code>. While it stays <code>none</code>, trace searches return no results.</td>
-            <td><code>none</code></td>
-        </tr>
-        <tr>
-            <td><code>repositories.otel-traces.elasticsearch.endpoints</code></td>
-            <td>The Elasticsearch endpoints holding the trace data stream.</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td><code>repositories.otel-traces.elasticsearch.index</code></td>
-            <td>The index or data stream template to read traces from.</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td><code>repositories.otel-logs.type</code></td>
-            <td>Backend for the log reader. Set it to <code>elasticsearch</code>. While it stays <code>none</code>, traces open without span events or payloads.</td>
-            <td><code>none</code></td>
-        </tr>
-        <tr>
-            <td><code>repositories.otel-logs.elasticsearch.endpoints</code></td>
-            <td>The Elasticsearch endpoints holding the log data stream.</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td><code>repositories.otel-logs.elasticsearch.index</code></td>
-            <td>The index or data stream template to read log records from.</td>
-            <td>-</td>
-        </tr>
-    </tbody>
-</table>
+<table><thead><tr><th width="360">Setting</th><th width="350">Description</th><th>Default</th></tr></thead><tbody><tr><td><code>repositories.otel-traces.type</code></td><td>Backend for the trace reader. Set it to <code>elasticsearch</code>. While it stays <code>none</code>, trace searches return no results.</td><td><code>none</code></td></tr><tr><td><code>repositories.otel-traces.elasticsearch.endpoints</code></td><td>The Elasticsearch endpoints holding the trace data stream.</td><td>-</td></tr><tr><td><code>repositories.otel-traces.elasticsearch.index</code></td><td>The index or data stream template to read traces from.</td><td>-</td></tr><tr><td><code>repositories.otel-logs.type</code></td><td>Backend for the log reader. Set it to <code>elasticsearch</code>. While it stays <code>none</code>, traces open without span events or payloads.</td><td><code>none</code></td></tr><tr><td><code>repositories.otel-logs.elasticsearch.endpoints</code></td><td>The Elasticsearch endpoints holding the log data stream.</td><td>-</td></tr><tr><td><code>repositories.otel-logs.elasticsearch.index</code></td><td>The index or data stream template to read log records from.</td><td>-</td></tr></tbody></table>
 
 Both index templates follow the OpenTelemetry data stream shape `<type>-<dataset>.otel-<namespace>`. The `<type>` half is fixed by the signal, so it's `traces` for one scope and `logs` for the other, and the `.otel-` separator is part of the OpenTelemetry naming convention. The dataset and namespace halves are yours to choose. The `{orgId}` and `{envId}` placeholders are substituted at query time, which gives each organization or environment its own data stream. Whatever you set here has to match what the Collector writes.
 
@@ -206,11 +132,7 @@ To verify the pipeline is working as expected, follow these steps:
 1. Enable tracing on one API proxy. For the steps, see [Configure logging and tracing](../api-management/build/configure-your-api-proxy/configure-logging-and-tracing.md).
 2. Send a request through the Gateway to that proxy.
 3. Open the Trace Explorer for the same proxy. For the steps, see [View API logs](../api-management/observe/view-api-logs.md).
-4.  Confirm the request appears as a trace.
-
-    <!-- TODO: Screenshot of the Gamma Trace Explorer listing a trace for a proxy after the pipeline is wired -->
-
-    <figure><img src=".gitbook/assets/PLACEHOLDER-gamma-trace-explorer-populated.png" alt=""><figcaption><p>The Trace Explorer listing a trace once the pipeline is wired</p></figcaption></figure>
+4. Confirm the request appears as a trace.
 
 {% hint style="info" %}
 **The Trace Explorer is still empty**
