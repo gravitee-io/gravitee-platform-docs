@@ -45,6 +45,9 @@ The following table lists the identity provider plugins that support secrets, th
 | LinkedIn           | 4.11.0 +       | `clientSecret`                                                           |
 | Twitter            | 4.11.0 +       | `clientSecret`                                                           |
 | Generic OAuth/OIDC | 4.11.0 +       | `clientSecret`                                                           |
+| Azure AD           | 3.1.0 + / 4.1.0 +       | `clientSecret`                                                           |
+| FranceConnect      | 3.2.0 + / 4.1.0 +       | `clientSecret`                                                           |
+| LDAP               | 2.3.0 + / 3.1.0 +       | `password`                                                           |
 
 ### Reporter
 
@@ -62,3 +65,5 @@ The following table lists the resource plugins that support secrets, the minimum
 | ------- | -------------- | --------------------------------------------------------------------------------------------- |
 | Infobip | 4.11.0 +       | `apiKey`                                                                                      |
 | SMTP    | 4.11.0 +       | <ul><li>`password`</li><li>`oauth2ClientSecret`</li><li>`oauth2RefreshToken`</li></ul>        |
+| SFR     | 2.1.0 +        | `servciePassword`                                                                             |
+| Orange  | 2.1.0 +        | `password`                                                                                    |
