@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies gain export, import, and duplicate actions.
+Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies gain export, import, and duplicate actions. The Observability section of Agent Management builds and saves custom dashboards alongside the templates.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -108,6 +108,16 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 * An update by import keeps the target proxy's identity and its plans, and replaces its name, version, description, entrypoint configuration, and providers. It doesn't deploy, so the proxy is left out of sync until you deploy it.
 * The remote URL is fetched by the Management API under the same `imports.whitelist` and `imports.allow-from-private` settings as the classic import-from-URL endpoints.
 * See [Export and import an LLM Proxy](../agent-management/build/export-and-import-an-llm-proxy.md) and [Duplicate an LLM Proxy](../agent-management/build/duplicate-an-llm-proxy.md).
+
+#### Custom observability dashboards
+
+* The **Dashboards** page of Agent Management builds dashboards alongside the templates Gravitee ships. **New dashboard** opens an empty draft, and **Duplicate as custom dashboard** turns a read-only template into an editable copy. The list tells the two apart with a **Custom** or **Template** badge, and adds **Description** and **Last updated** columns.
+* The editor arranges widgets on a 12-column grid by dragging and resizing them, and edits the dashboard title and description in place. A right-side panel configures each widget: pick one of six visualizations, **Timeseries**, **Bars**, **Doughnut**, **Top list**, **Query value**, or **KPI row**, then its metric, measure, grouping dimension, display options, and widget filters, against a preview that redraws as you type.
+* Dashboard filters are saved in the definition and applied to every widget. **Allow viewers to change value** decides whether a reader gets a locked chip or one they re-value, and a filter saved without a value becomes a slot the reader fills. **Set as default** stores the time range the dashboard opens with.
+* A **JSON** tab shows the definition as a document to copy, edit, and apply. The dashboard identifier and its creation and update dates aren't part of the document, widget identifiers are filled in and checked for duplicates, and every validation problem is reported at once.
+* A save refused because someone else saved first offers **Overwrite their version**, **Take their version**, or **Save as a copy**, with their version already on screen. A dashboard deleted while you had it open offers **Save as a new dashboard**.
+* The authoring actions are withdrawn when the environment's dashboards refuse the account, leaving the read-only template experience in place.
+* See [Build a custom dashboard](../agent-management/observe/dashboards/build-a-custom-dashboard.md).
 
 ### API Management
 

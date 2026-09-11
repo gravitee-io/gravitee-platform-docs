@@ -177,6 +177,9 @@ Service Level Agreement
 Mean Time to Detect
 Mean Time to Acknowledge
 Mean Time to Resolve
+[Tt]imeseries
+[Ss]parkline[s]?
+[Ww]idget's
 
 # ============================================
 # Identity & Auth Providers
