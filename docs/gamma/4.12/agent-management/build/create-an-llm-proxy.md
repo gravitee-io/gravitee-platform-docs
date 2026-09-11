@@ -51,6 +51,16 @@ To add a provider inline, select **Add provider**. On the **New provider** card,
 
 The card checks each field against the plugin schema as you type. **Add provider** at the bottom of the card stays disabled until the name and every field are valid. Select it to add the provider, or **Cancel** to drop the card. The added provider is listed with its models, and its bin icon removes it.
 
+{% hint style="warning" %}
+The card doesn't check how the **Vertex AI** provider and **Service account (GCP)** authentication pair up. The plugin schema offers every authentication type for every provider, and it leaves the **GCP Project ID** optional. Three combinations pass the card and fail when the proxy is created:
+
+* **Vertex AI** with any authentication other than **Service account (GCP)**.
+* **Vertex AI** with an empty **GCP Project ID**.
+* **Service account (GCP)** on a provider other than **Vertex AI**.
+
+The console reports the failure when you select **Create only** or **Create & deploy** on the **Review & create** step, and it keeps you on the step with the message. The same three combinations fail on **Save changes** when you edit a provider later on the **Models** page.
+{% endhint %}
+
 <figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-new-provider.png" alt="The New provider card of the Models step with the Provider name, Provider, Provider URL, Models, ModelGovernance, and Authentication fields filled for an Anthropic provider"><figcaption><p>The New provider card of the Models step</p></figcaption></figure>
 
 {% hint style="info" %}
