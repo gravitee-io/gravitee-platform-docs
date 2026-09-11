@@ -96,28 +96,30 @@ The AI Gateway is the unified runtime that processes LLM, MCP, and A2A traffic. 
 | Cost is attributed to the model that actually answered rather than the model the caller asked for. | [Monitor your LLM proxy](../observe/monitor-your-llm-proxy.md#what-the-gateway-records) |
 | AI traffic on employee devices that bypasses the governance layer entirely becomes visible. | [Monitor AI Gateway usage from employee systems](../observe/monitor-ai-gateway-from-devices.md) |
 
-<!-- GAP: the two use-case buckets below link to pages that are currently hidden: true / noIndex: true.
-     Cut this block in one edit if the page publishes before govern/ and cost-and-value/ are unhidden. -->
+<!-- TODO / GAP - input needed from field CTOs.
 
-### Prove how an agent was overseen
+     Two use-case buckets were cut from this position because all ten of their link
+     targets are still hidden: true / noIndex: true, which would publish ten dead
+     links on an evaluator-facing page.
 
-| Outcome | Feature |
-| --- | --- |
-| Every agent in the catalog is continuously scored against the EU AI Act framework, from declared metadata and from the controls actually installed on its proxy. | [Score agent compliance with the EU AI Act framework](../govern/score-agent-compliance-with-the-eu-ai-act.md) |
-| An intended tool call is judged in context and receives a bounded verdict before it executes. | [Guard agent actions with Guardian Agents](../govern/guard-agent-actions-with-guardian-agents.md) |
-| A sensitive tool call waits for a human decision, with no client-side integration in the calling agent. | [Require human approval for MCP tool calls](../govern/require-human-approval-for-mcp-tool-calls.md) |
-| One record carries the decision chain, the result, and the cost for a single consequential action. | [Audit agent activity logs](../govern/agent-activity-logs.md) |
-| Traffic to a single proxy is cut off at the gateway without losing the subscriptions consumers hold. | [Agent kill switch](../build/agent-killswitch.md) |
+     1. "Prove how an agent was overseen" - EU AI Act compliance scoring, Guardian
+        Agents, human approval for sensitive tool calls, agent activity logs, and the
+        agent kill switch.
+        Targets: ../govern/*.md and ../build/agent-killswitch.md
 
-### Set spend against what it bought
+     2. "Set spend against what it bought" - Agent FinOps, business-value attribution
+        per agent run, and performance targets.
+        Targets: ../cost-and-value/*.md and ../observe/performance-targets.md
 
-| Outcome | Feature |
-| --- | --- |
-| Prices live on the catalog items that incur them, and the AI Gateway prices LLM traffic against them as requests flow through. | [Agent FinOps](../cost-and-value/agent-finops.md) |
-| The business value an MCP tool delivers is declared by its owner, and each run is classified by whether it achieved its outcome. | [Attribute business value to agent runs](../cost-and-value/attribute-business-value-to-agent-runs.md) |
-| A proxy or an agent is evaluated against declared thresholds rather than against an expectation in someone's head. | [Performance targets](../observe/performance-targets.md) |
+     These are the most differentiated use cases on the page for an evaluator
+     audience, so this is a real gap rather than trimmed filler. All ten pages are
+     written and already wired into SUMMARY.md (lines 167, 178, and 179-186) - only
+     the frontmatter flags are holding them back.
 
-<!-- END GAP block -->
+     To restore: unhide govern/ and cost-and-value/, then recover the original eight
+     outcome rows with
+       git show 87c66dc25:docs/gamma/4.12/agent-management/overview/README.md
+-->
 
 ## Providers and formats
 
@@ -170,76 +172,6 @@ Agent Management shares three things with API Management and Event Stream Manage
 A typical enterprise AI request might traverse multiple protocols in a single logical request: an agent invocation arrives at the A2A Proxy, the LLM Proxy handles the model call, the MCP Proxy governs the tool call and reaches a Composite MCP Server, the API Gateway serves the underlying API, and the Event Gateway handles the published event.
 
 You need one place to define policy, one place to see the trace, and one place to attribute cost.
-
-## Frequently asked questions
-
-<details>
-
-<summary>What's the difference between an LLM Proxy, an MCP Proxy, and an A2A Proxy?</summary>
-
-They govern three different protocols. An LLM Proxy routes traffic to upstream model providers. An MCP Proxy sits in front of an upstream MCP server and governs every tool invocation, speaking protocol-native JSON-RPC 2.0. An A2A Proxy exposes an upstream agent so other agents can discover and call it, serving the agent's `/.well-known/agent-card.json` descriptor through the gateway. All three share the same authentication chain, policy chain, and observability chain.
-
-</details>
-
-<details>
-
-<summary>Do I have to change my application code to route through an LLM Proxy?</summary>
-
-No. The LLM Proxy is API-compatible with the Anthropic and OpenAI Messages APIs, so you can route existing AI tool traffic by setting `ANTHROPIC_BASE_URL` or `OPENAI_BASE_URL` to the proxy's context path. See [Create an LLM Proxy](../build/create-an-llm-proxy.md#zero-code-integration).
-
-Note that the OpenAI path carries no `/v1` segment and the Anthropic path does. A request to `<context-path>/v1/chat/completions` returns `404`. See [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md).
-
-</details>
-
-<details>
-
-<summary>Which client API formats does an LLM Proxy accept?</summary>
-
-OpenAI, Anthropic Messages, and Gemini `generateContent`. OpenAI is the proxy's internal format, so OpenAI requests pass through with minimal change; Anthropic and Gemini requests are normalized to OpenAI Chat Completions before the policy chain runs, and the response is converted back to the format the client used. See [Accepted request formats](../build/accepted-request-formats.md).
-
-</details>
-
-<details>
-
-<summary>What's the difference between Proxy mode and Studio mode on an MCP Proxy?</summary>
-
-Proxy mode is a transparent intermediary in front of an existing upstream MCP server, adding governance without changing the server. Studio mode is an authoring environment that assembles tools, resources, prompts, and skills from the Catalog into a **Composite MCP Server** that didn't exist as a single unit upstream. Studio is a mode of the MCP Proxy, not a separate product. See [Create an MCP Studio](../build/create-an-mcp-studio.md).
-
-</details>
-
-<details>
-
-<summary>Where are authorization policies written, and where are they enforced?</summary>
-
-Policies are authored in Authorization Management using the Gravitee Authorization Policy Language (GAPL), a subset of the Cedar policy language, and enforced at the wire level by the AI Gateway with no network hop. A call with no matching permit is denied, and `forbid` beats `permit`. After you deploy a policy to the PDP, the AI Gateway syncs it within 30 seconds with no restart. See [Add policies to your MCP server](../build/configure-your-mcp/add-policies-to-mcp-server.md).
-
-</details>
-
-<details>
-
-<summary>Does the Catalog store the credentials for my upstream MCP servers?</summary>
-
-No. The credentials you supply when registering an MCP server are used strictly to discover and catalog the server's capabilities, and secrets are never persisted. When you create an MCP Proxy in front of that server, you configure upstream authentication separately for runtime invocations. See [Register an MCP server](../import/register-an-mcp-server.md).
-
-</details>
-
-<details>
-
-<summary>Do the guardrail and PII models run on the gateway?</summary>
-
-Yes. The classification and ONNX embedding models run locally on the AI Gateway using the ONNX Runtime. Models aren't bundled with the plugin: on first use the resource downloads the model into `$GRAVITEE_HOME/models`, the first request after a gateway start is slower, and a loaded model is shared across every proxy that selects it.
-
-The ONNX Runtime doesn't run on Alpine Linux, which the default Gravitee Docker images are based on. Use the Debian-based gateway image, `graviteeio/apim-gateway:<version>-debian`. See [AI resources](../build/ai-resources.md).
-
-</details>
-
-<details>
-
-<summary>Why is cost missing for some of my LLM traffic?</summary>
-
-Cost is computed by the gateway, not reported by the provider, and it needs both an input price and an output price set on the model. An absent price means *unknown* and no cost is recorded; a price of `0` is valid and means free. The gateway can also only price a model that is declared on the LLM Proxy endpoint, so a runtime model override to an undeclared model is proxied but not priced. See [Monitor your LLM proxy](../observe/monitor-your-llm-proxy.md#troubleshooting).
-
-</details>
 
 ## Guides
 
