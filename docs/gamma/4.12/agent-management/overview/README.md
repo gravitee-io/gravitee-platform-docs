@@ -20,15 +20,6 @@ Enterprise AI adoption introduces three classes of traffic that existing API gat
 
 Agent Management extends the gateway infrastructure that already governs API and event traffic to cover these three protocol types, using the same Catalog, the same authorization engine, and the same enforcement architecture.
 
-## Get started
-
-| Start here | What you do |
-| --- | --- |
-| [**Create your first MCP server**](../get-started/create-your-first-mcp-server.md) | Configure an MCP Proxy in front of an upstream MCP server, and then verify tool invocations through the AI Gateway. |
-| [**Create your first LLM Proxy**](../get-started/create-your-llm-proxy.md) | Configure an LLM Proxy, connect it to a model provider, and then send a test prompt. |
-| [**Expose your agent with the A2A Proxy**](../build/expose-agent-with-a2a-proxy.md) | Make an upstream agent's skills discoverable and callable through the gateway. |
-| [**Roles and permissions**](../get-started/roles-and-permissions.md) | Check which environment-scoped permissions govern the resources you need to create. |
-
 ## The three proxy types
 
 The AI Gateway is the unified runtime that processes LLM, MCP, and A2A traffic. It consists of three proxies that share an authentication chain, a policy chain, an observability chain, and an Authorization Management integration point:
@@ -138,20 +129,6 @@ The Catalog is the authoritative registry of every asset an agent can use. Polic
 
 For the entity types and where each one comes from, see [Import](../import/README.md).
 
-## Scenario recipes
-
-Each recipe connects a real third-party MCP server, curates its tool surface, and then secures it end to end.
-
-* [**Connect and secure the GitHub MCP server**](../build/configure-your-mcp/connect-and-secure-github-mcp-server.md). Hold the personal access token on the gateway instead of copying it into every agent, and authorize each call under the caller's identity.
-* [**Connect and secure the Atlassian MCP server**](../build/configure-your-mcp/connect-and-secure-atlassian-mcp-server.md). Reach Jira and Confluence through the gateway, with the API token held once and every call audited per caller.
-* [**Connect and secure the Stripe MCP server**](../build/configure-your-mcp/connect-and-secure-stripe-mcp-server.md). Withhold the tool that performs every Stripe write, and permit refunds for one role while denying them for another.
-
-## AI tools and SDKs
-
-* [**Connect Claude Code through an LLM Proxy**](../publish/connect-claude-code-through-an-llm-proxy.md). Govern Claude Code traffic while users keep their own OAuth login, with no shared Anthropic key stored in Gravitee.
-* [**Consume your LLM Proxy with LangChain**](../publish/consume-your-llm-proxy-with-langchain.md). Point `ChatOpenAI` at the proxy so the chain never holds a provider credential.
-* [**Connect Claude Code to the Edge Daemon**](../../edge-management/connect-claude-code-to-daemon.md). Route LLM traffic through the local daemon for pre-egress policy before it reaches the AI Gateway.
-
 ## Observability
 
 | Surface | What it answers |
@@ -173,9 +150,26 @@ A typical enterprise AI request might traverse multiple protocols in a single lo
 
 You need one place to define policy, one place to see the trace, and one place to attribute cost.
 
-## Guides
+## Next steps
 
-* [Get started](../get-started/README.md). The overview, the roles reference, and the MCP and LLM quickstarts.
+### Try it
+
+* [Create your first MCP server](../get-started/create-your-first-mcp-server.md). Put an MCP Proxy in front of an upstream MCP server, and verify tool invocations through the AI Gateway.
+* [Create your first LLM Proxy](../get-started/create-your-llm-proxy.md). Connect a proxy to a model provider, and send a test prompt.
+* [Expose your agent with the A2A Proxy](../build/expose-agent-with-a2a-proxy.md). Make an upstream agent's skills discoverable and callable through the gateway.
+
+### Work a real scenario
+
+* [Connect and secure the GitHub MCP server](../build/configure-your-mcp/connect-and-secure-github-mcp-server.md). Hold the personal access token on the gateway instead of copying it into every agent, and authorize each call under the caller's identity.
+* [Connect and secure the Atlassian MCP server](../build/configure-your-mcp/connect-and-secure-atlassian-mcp-server.md). Reach Jira and Confluence through the gateway, with the API token held once and every call audited per caller.
+* [Connect and secure the Stripe MCP server](../build/configure-your-mcp/connect-and-secure-stripe-mcp-server.md). Withhold the tool that performs every Stripe write, and permit refunds for one role while denying them for another.
+* [Connect Claude Code through an LLM Proxy](../publish/connect-claude-code-through-an-llm-proxy.md). Govern Claude Code traffic while users keep their own OAuth login, with no shared Anthropic key stored in Gravitee.
+* [Consume your LLM Proxy with LangChain](../publish/consume-your-llm-proxy-with-langchain.md). Point `ChatOpenAI` at the proxy so the chain never holds a provider credential.
+* [Connect Claude Code to the Edge Daemon](../../edge-management/connect-claude-code-to-daemon.md). Route LLM traffic through the local daemon for pre-egress policy before it reaches the AI Gateway.
+
+### Go deeper
+
+* [Get started](../get-started/README.md). The roles reference and the MCP and LLM quickstarts.
 * [Import](../import/README.md). Populate the Catalog with models, MCP servers, tools, prompts, resources, skills, and agents.
 * [Build](../build/README.md). Create and configure the proxies and the agent identities.
 * [Observe](../observe/README.md). Monitor AI traffic across proxy types and from employee devices.
