@@ -9,6 +9,8 @@ description: API Overview page templates for the New Developer Portal.
 
 API Overview Page Templates provide pre-configured Gravitee Markdown content for API pages in the New Developer Portal. When you add an API to the portal navigation in the Console, Gravitee automatically creates an unpublished **Overview** child page (unless the API navigation item already has a child page). The page uses FreeMarker templating to render API metadata, subscription guidance, and integration instructions. Two templates are available: a standard template for general APIs and an MCP proxy template for Model Context Protocol servers.
 
+A third template covers API Products. When you add an API Product to the portal navigation, Gravitee creates an unpublished **Overview** page under the API Product item, and an **Overview** page under each API item it generates for the APIs of the API Product.
+
 For step-by-step instructions, see [Customize the Navigation](customize-the-navigation.md#api). For Gravitee Markdown component reference, see [Gravitee Markdown components](gravitee-markdown-components.md). For the `<gmd-install-mcp>` install widget used in the MCP proxy template, see [MCP Server Installation Widget for Portal Pages](../../mcp-server-installation-widget-for-portal-pages.md).
 
 ## Key Concepts
@@ -20,6 +22,10 @@ The New Developer Portal supports six API types: `NATIVE`, `MESSAGE`, `PROXY`, `
 ### Standard API Template
 
 The standard template presents API information in a card-based layout with three primary sections: API metadata (version, visibility, owner, deployment date), a three-column **Get started** guide covering subscription, documentation exploration, and integration steps, and customization guidance for API publishers. The template uses styled cards with primary color theming and a 12px border radius for visual consistency.
+
+### API Product template
+
+The API Product template is starter content for the publisher rather than a rendered summary. It doesn't use FreeMarker data. The page opens with the heading **API Product overview**, followed by the sections **About this product**, **Included APIs**, **Get started** with a four-step list, and **Customize this page**. Each section carries a sentence that tells the publisher what to write there, so replace the starter text before publishing the page.
 
 ### MCP Proxy Template
 
@@ -50,6 +56,8 @@ Gravitee selects the Overview template based on API type:
 * **`MCP_PROXY`**: The MCP proxy template is applied. It includes an embedded `<gmd-install-mcp>` component pre-configured with `transport="http"` and a URL constructed from the first gateway entrypoint and the MCP path (`${api.entrypoints[0]}${api.mcp.mcpPath}`).
 * **All other types** (`PROXY`, `MESSAGE`, `NATIVE`, `A2A_PROXY`, `LLM_PROXY`): The generic Overview template is applied without the MCP installation widget.
 
+When you add an API Product to the portal navigation, the API Product item receives the API Product template, and each API item generated under it receives the template that matches its API type. As for APIs, an **Overview** page is created only when the item has no child page yet, and it's created unpublished. For more information about adding an API Product, see [Customize the Navigation](customize-the-navigation.md#api-product).
+
 The page header displays the API name as the title and includes a descriptive subtitle explaining the API's purpose and access model. An API information card presents the version, visibility level, owner display name (if available), and last deployment date (formatted as `yyyy-MM-dd`, if available).
 
 Below the metadata, a three-column grid of action cards guides consumers through subscription, documentation exploration, and integration workflows. For MCP proxy APIs, an **Install in your AI client** section embeds `<gmd-install-mcp>` to generate client configuration from the gateway endpoint and MCP path, followed by action cards focused on MCP-specific tasks.
@@ -60,10 +68,11 @@ A customization section at the bottom encourages API publishers to enhance the o
 
 API publishers can edit the generated Overview page in the Console to add context-specific content:
 
-1. Go to **Portal → Navigation**.
-2. In the navigation tree, select the **Overview** child page under the API navigation item.
-3. Edit the Gravitee Markdown content in the editor, then click **Save**.
-4. Publish the page—or publish the parent API navigation item—to make changes visible in the New Developer Portal.
+1. Open **Portal Settings**.
+2. Click **Navigation**.
+3. In the navigation tree, select the **Overview** child page under the API navigation item or under the API Product navigation item.
+4. Edit the Gravitee Markdown content in the editor, then click **Save**.
+5. Publish the page, or publish the parent navigation item, to make changes visible in the New Developer Portal.
 
 The standard template suggests adding a quick start section, highlighting key use cases, and linking to external guides or changelogs. The MCP proxy template recommends listing available MCP tools, documenting authentication requirements, and describing expected use cases. If your MCP proxy requires OAuth2, see [Secure MCP Proxy with OAuth2](../../ai-agent-management/secure-mcp-proxy-with-oauth2.md).
 

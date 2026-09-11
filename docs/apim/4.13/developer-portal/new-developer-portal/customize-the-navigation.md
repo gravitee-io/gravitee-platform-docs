@@ -11,6 +11,7 @@ You can create the following elements for your navigation:
 * **Folders**: Use these to group related pages together into sections.
 * **Links**: Connect your documentation to external sites or other internal resources.
 * **APIs**: List your APIs in the New Developer Portal documentation.
+* **API Products**: List your API Products, with the APIs they include, in the New Developer Portal documentation.
 
 When you add a new page, you can choose **Gravitee Markdown**, **OpenAPI**, or **AsyncAPI** as the page type. Gravitee Markdown is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention"). For OpenAPI pages, see [creating-openapi-documentation-pages.md](customize-the-navigation/creating-openapi-documentation-pages.md). For AsyncAPI pages, see [creating-asyncapi-documentation-pages.md](customize-the-navigation/creating-asyncapi-documentation-pages.md).
 
@@ -58,6 +59,7 @@ With the New Developer Portal, you can customize your navigation in the followin
 * [Add a folder](customize-the-navigation.md#folders)
 * [Add a link](customize-the-navigation.md#links)
 * [Add an API](customize-the-navigation.md#api)
+* [Add an API Product](customize-the-navigation.md#api-product)
 
 You also link pages to external sources, import a documentation tree from a remote repository with the **Import** button, and import page content from a local file. For more information, see [import-content-from-external-sources.md](customize-the-navigation/import-content-from-external-sources.md "mention").
 
@@ -201,12 +203,10 @@ However, there are some limitations of APIs compared to folders:
 
 1.  Open the context menu of a folder in which you want to add your API by clicking the **ellipses**, and then click **Add API**.<br>
 
-    <!-- TODO: Screenshot of the folder context menu with the Add API option highlighted -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-add-api-context-menu.png" alt=""><figcaption><p>Add API in the folder context menu</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-add-api-context-menu.png" alt="Context menu of a folder in the Navigation items tree, with the Add API entry"><figcaption><p>Add API in the folder context menu</p></figcaption></figure>
 2.  In the **Add APIs** dialog, select the APIs that you want to add. To find an API by name, use the **Search** field.<br>
 
-    <!-- TODO: Screenshot of the Add APIs dialog with an API selected -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-add-apis-dialog.png" alt=""><figcaption><p>Add APIs dialog</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-add-apis-dialog.png" alt="Add APIs dialog listing the APIs with their path and labels, one API selected, above the Authentication toggle"><figcaption><p>Add APIs dialog</p></figcaption></figure>
 3. (Optional) Turn on the **Authentication is required to view selected APIs.** toggle. This ensures that the user has to sign in to the New Developer Portal to view the APIs.
 4. Click **Add**.
 5. Publish the API. To publish the API, complete either of the following steps:
@@ -218,8 +218,7 @@ However, there are some limitations of APIs compared to folders:
 
 6.  In the confirmation dialog, click **Publish**. The dialog title shows the name of your API. For example, **Publish "Payments" API?**<br>
 
-    <!-- TODO: Screenshot of the publish confirmation dialog for an API -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-devportal-publish-api-dialog.png" alt=""><figcaption><p>Publish confirmation dialog for an API</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-publish-api-dialog.png" alt="Publish confirmation dialog for an API navigation item, with the Also publish all nested documentation checkbox"><figcaption><p>Publish confirmation dialog for an API</p></figcaption></figure>
 
 **Default Overview page**
 
@@ -247,6 +246,64 @@ When you add a folder to an API, that folder becomes nested within that API in t
 1. Navigate to the folder in the **Navigation items** menu.
 2. Click **the ellipsis**.
 3. Click **Add folder**.
+
+#### API Product
+
+API Product navigation items represent API Products that exist in the platform. For more information about API Products, see [api-products](../../secure-and-expose-apis/api-products/ "mention").
+
+An API Product navigation item acts like a folder. It can contain pages, folders, links, and the APIs that the API Product includes. The following rules apply:
+
+* An API Product can't be at the top level of the navigation. It has to be inside a folder.
+* An API Product can't be inside an API, and it can't be inside another API Product. The **Add API Product** entry doesn't appear on a folder that sits inside an API Product.
+* Each API Product can be in the navigation once. An API Product that's already in the navigation shows **Already added** in the picker.
+* Only the APIs that the API Product includes can be added under the API Product item.
+
+**Add an API Product**
+
+1.  Open the context menu of the folder in which you want to add your API Product by clicking the **ellipses**, and then click **Add API Product**.<br>
+
+    <figure><img src="../../.gitbook/assets/devportal-api-product-add-menu.png" alt="Context menu of the Products folder in the Navigation items tree, with the Add API Product entry"><figcaption><p>Add API Product in the folder context menu</p></figcaption></figure>
+2.  In the **Add API Products** dialog, select the API Products that you want to add. To find an API Product by name, use the **Search** field. The list shows the name, version, and description of each API Product, and the number of APIs it includes.<br>
+
+    <figure><img src="../../.gitbook/assets/devportal-api-product-add-dialog.png" alt="Add API Products dialog listing an API Product with its version, description, and API count, selected, above the Authentication toggle"><figcaption><p>Add API Products dialog</p></figcaption></figure>
+3. (Optional) Turn on the **Authentication is required to view selected API Products.** toggle. A consumer then has to sign in to the New Developer Portal to see the API Product, and sees it only when they're a member of the API Product, directly or through one of the groups of the API Product.
+4. Click **Add**.
+
+The API Product appears in the navigation with its name as the title, and the panel shows **Linked API Product** with the name and version of the API Product. Gravitee creates an API navigation item under the API Product for every API that the API Product includes, sorted by API name, and an unpublished **Overview** page under the API Product and under each of those APIs. The API Product item and its API items are created unpublished. For more information about the **Overview** pages, see [api-overview-page-templates.md](api-overview-page-templates.md "mention").
+
+<figure><img src="../../.gitbook/assets/devportal-api-product-navigation-tree.png" alt="Navigation items tree with an unpublished API Product expanded under a folder, showing its Overview page and its API items with their own Overview pages, and the Linked API Product header in the panel"><figcaption><p>API Product item with its APIs and Overview pages</p></figcaption></figure>
+
+5.  Publish the API Product. Navigate to the API Product in the navigation bar, click the **ellipses**, and then click **Publish**. You can also click **Publish** in the panel.
+6.  In the **Publish "<API Product name>" API Product?** dialog, select **Also publish all nested documentation and APIs** to publish the API items and the pages below the API Product in the same action, and then click **Publish**. Without the checkbox, only the API Product item is published.<br>
+
+    <figure><img src="../../.gitbook/assets/devportal-api-product-publish-dialog.png" alt="Publish confirmation dialog for an API Product, with the Also publish all nested documentation and APIs checkbox"><figcaption><p>Publish confirmation dialog for an API Product</p></figcaption></figure>
+
+⚠️ An API Product can only be published if all of its ancestor folders are published.
+
+**Add an API to an API Product**
+
+Gravitee adds the APIs of the API Product when it creates the API Product item. Use this procedure to add an API that you removed, or an API that joined the API Product later.
+
+1. Navigate to the API Product in the **Navigation items** menu.
+2. Click **the ellipsis**.
+3. Click **Add API**.
+4. In the **Add APIs** dialog, select the APIs that you want to add. Only the APIs that the API Product includes are listed, and an API that's already under the API Product shows **Already added**.
+5. Click **Add**.
+
+**Add a page, a folder, or a link to an API Product**
+
+1. Navigate to the API Product in the **Navigation items** menu.
+2. Click **the ellipsis**.
+3. Click **Add page**, **Add folder**, or **Add link**.
+
+**Edit an API Product item**
+
+1. Navigate to the API Product in the **Navigation items** menu.
+2. Click **the ellipsis**.
+3. Click **Edit**.
+4. In the **API Product Display Name** field, type the title to display in the New Developer Portal. The linked API Product can't be changed.
+5. (Optional) Turn on or off the `Authentication is required to view this api_product.` toggle.
+6. Click **Save**.
 
 ## Verification
 

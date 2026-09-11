@@ -6,6 +6,8 @@ Gravitee API Management 4.12.0 introduces typo-tolerant API search for the Devel
 
 This feature is disabled by default. Enable it per environment from the Console or through the Management API. Enabling it requires the `ENVIRONMENT_SETTINGS` update permission.
 
+From APIM 4.13, the same setting also applies to the API Products listed in the New Developer Portal catalog. An API Product matches a search when its name contains the query. With typo-tolerant search enabled, each query word of four or more characters also matches a word of the API Product name that starts with the same character and is within one edit for words of four to seven characters, or within two edits for words of eight or more characters. Words shorter than four characters are matched exactly, and queries longer than 512 characters skip the tolerant matching.
+
 ## Enable typo-tolerant search in the Console
 
 The toggle is part of the New Developer Portal settings, which are available with an Enterprise license.

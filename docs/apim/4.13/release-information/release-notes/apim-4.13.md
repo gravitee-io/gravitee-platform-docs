@@ -37,6 +37,7 @@ documentation.gravitee.io links for other versions.
 * The schema registry provider contract now exposes the serialization format of each schema and answers subject membership and version-list lookups, and the bundled Confluent Schema Registry resource implements all three.
 * The plan endpoints of the legacy Management API v1 now reject V4, Federated, and Federated Agent APIs with an HTTP `400` error that points to Management API v2.
 * The New Developer Portal catalog gains categories, so you group APIs in the APIM Console and consumers filter the catalog to one category and share that view by URL.
+* API Products reach the New Developer Portal: publish an API Product in the portal navigation with its APIs and documentation, and consumers discover it in the catalog, subscribe to it, and manage the subscription that covers every API it includes.
 * New Developer Portal navigation pages fetch their content from external sources such as GitHub, GitLab, or an HTTP URL, on demand or on an auto-fetch schedule, and a repository import mirrors a whole documentation tree into a read-only folder.
 * Identity provider claims travel into dynamic client registration requests: list the claims to persist on the identity provider, map them to registration request fields on the client registration provider, and the registration provider receives tenant or user context for each application it registers.
 
@@ -80,10 +81,19 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * Group the APIs of your New Developer Portal catalog into categories, and let consumers filter the catalog to one category at a time. An API belongs to as many categories as you assign it to.
 * Create and manage categories in the APIM Console, under **Catalog** in the Portal Settings menu. A category carries a title, an optional description, and a **Visible** toggle that decides whether consumers see it. Titles are unique per environment, compared without case, and each environment keeps its own set of categories.
 * Assign APIs to a category from the same screen, with **Add API to Category**. Only APIs published in the portal navigation are offered, so an API that consumers can't reach in the portal can't be added to a category.
-* In the portal, the catalog header carries a **Category** dropdown that filters to a single visible category, and list view gains a **Category** column. The selection travels in the catalog URL's `category` query parameter, so consumers share or bookmark a filtered view by its address. API Products are excluded while a category filter is applied.
+* In the portal, the catalog header carries a **Category** dropdown that filters to a single visible category, and list view gains a **Category** column. The selection travels in the catalog URL's `category` query parameter, so consumers share or bookmark a filtered view by its address.
 * On the first Management API startup after the upgrade, Gravitee copies the existing Classic Developer Portal categories and their API assignments into New Developer Portal categories, once per environment. The two sets are independent from then on.
 * These categories are stored and managed apart from the categories under **Categories** in the environment **Settings**, so a change on one screen doesn't affect the other.
 * For more information, see [Manage New Developer Portal categories](../../developer-portal/new-developer-portal/manage-new-developer-portal-categories.md).
+
+#### **API Products in the New Developer Portal**
+
+* Add an API Product to the New Developer Portal navigation from the **Add API Product** entry of a folder's context menu on the **Navigation items** screen. Gravitee creates an API item under the API Product for every API it includes and an unpublished **Overview** page under the API Product and under each of those APIs, so the API Product ships with its documentation tree. An API Product can't be at the top level of the navigation, can't sit inside an API or another API Product, and can be added once.
+* Assign a published API Product to a New Developer Portal category with **Add API Product to Category** on the category screen. The catalog's **Category** filter then lists the API Products assigned to the category alongside the APIs.
+* In the catalog, an API Product card carries the **API PRODUCT** badge and the names of the APIs it includes. The catalog search matches API Product names, with typo-tolerant search when the environment enables it. An API nested under an API Product doesn't get a catalog entry of its own.
+* Consumers subscribe from the **Subscribe** button on the API Product's pages, choosing a published plan of the API Product and an application. General conditions and the subscription form don't apply to API Product plans. The **Subscriptions** page of the portal lists API and API Product subscriptions together, with a **Type** filter.
+* The subscription details page of an API Product subscription shows the credentials once and one card per included API, with its base URL, a cURL example, and a link to its documentation. Consumers pause, resume, or close the subscription, and renew the API key of an API Key plan, from the same page.
+* For more information, see [Manage Portal Navigation and APIs](../../developer-portal/new-developer-portal/customize-the-navigation.md#api-product) and [Manage Subscriptions](../../developer-portal/new-developer-portal/manage-subscriptions.md#subscribe-to-an-api-product).
 
 #### **Schema types and subject membership in the schema registry provider contract**
 
