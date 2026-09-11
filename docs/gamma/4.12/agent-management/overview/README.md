@@ -80,11 +80,12 @@ The AI Gateway is the unified runtime that processes LLM, MCP, and A2A traffic. 
 | Cost is attributed to the model that actually answered rather than the model the caller asked for. | [Monitor your LLM proxy](../observe/monitor-your-llm-proxy.md#what-the-gateway-records) |
 | AI traffic on employee devices that bypasses the governance layer entirely becomes visible. | [Monitor AI Gateway usage from employee systems](../observe/monitor-ai-gateway-from-devices.md) |
 
-<!-- TODO / GAP - input needed from field CTOs.
+<!-- DEFERRED - do not restore on the assumption the flags are about to flip.
 
      Two use-case buckets were cut from this position because all ten of their link
-     targets are still hidden: true / noIndex: true, which would publish ten dead
-     links on an evaluator-facing page.
+     targets are hidden: true / noIndex: true. These capabilities are NOT in 4.12, and
+     whether they land in 4.13 is undecided as of 2026-09-11. Release scope here is
+     owned by the Field CTO - check with them before acting on this block.
 
      1. "Prove how an agent was overseen" - EU AI Act compliance scoring, Guardian
         Agents, human approval for sensitive tool calls, agent activity logs, and the
@@ -95,13 +96,12 @@ The AI Gateway is the unified runtime that processes LLM, MCP, and A2A traffic. 
         per agent run, and performance targets.
         Targets: ../cost-and-value/*.md and ../observe/performance-targets.md
 
-     These are the most differentiated use cases on the page for an evaluator
-     audience, so this is a real gap rather than trimmed filler. All ten pages are
-     written and already wired into SUMMARY.md (lines 167, 178, and 179-186) - only
-     the frontmatter flags are holding them back.
+     The pages themselves are written and already wired into SUMMARY.md (lines 167,
+     178, and 179-186) - only the frontmatter flags are unset. These are the most
+     differentiated use cases on the page for an evaluator audience, so restoring them
+     is worth doing whenever the sections do publish, rather than leaving the gap.
 
-     To restore: unhide govern/ and cost-and-value/, then recover the original eight
-     outcome rows with
+     To restore, recover the original eight outcome rows with
        git show 87c66dc25:docs/gamma/4.12/agent-management/overview/README.md
 -->
 
