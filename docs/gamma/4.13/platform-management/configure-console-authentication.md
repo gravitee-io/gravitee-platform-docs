@@ -27,7 +27,7 @@ To open it, complete the following steps:
 The page subtitle reads "By creating an identity provider, you are providing capabilities to users to login into the portal / management UI using external user accounts from GitHub, Google, OpenID Connect server or Gravitee.io AM."
 
 <!-- TODO: Screenshot of the Authentication page showing the Show login form toggle and the Identity Providers table -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-authentication.png" alt=""><figcaption><p>The Authentication page of the <strong>Organization</strong> section</p></figcaption></figure>
+<figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-authentication.png" alt=""><figcaption><p>The Authentication page of the <strong>Organization</strong> section</p></figcaption></figure>
 
 The page is listed only for a role that reads organization settings and identity providers. If your role reads providers but doesn't change them, the **Add an identity provider** button and the row actions are hidden, and the provider pages open read-only.
 
@@ -87,7 +87,7 @@ To add a provider, complete the following steps:
 2. Under **Provider type**, select **Gravitee.io AM**, **OpenID Connect**, **Google**, or **GitHub**. Changing the type later clears the **Configuration** and **User profile mapping** fields.
 
     <!-- TODO: Screenshot of the Create a new identity provider page showing the Provider type cards -->
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-authentication-create.png" alt=""><figcaption><p>The <strong>Provider type</strong> cards of the Create a new identity provider page</p></figcaption></figure>
+    <figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-authentication-create.png" alt=""><figcaption><p>The <strong>Provider type</strong> cards of the Create a new identity provider page</p></figcaption></figure>
 
 3. Under **General**, enter the settings described in the following table:
 
@@ -148,7 +148,7 @@ If your role reads providers but doesn't update them, the fields are disabled an
 Mappings assign Gravitee groups and roles to a user at sign-in, based on what the provider returns about them. They're set on the provider's edit page, in the **Groups Mapping** and **Roles Mapping** cards, and saved with **Update**.
 
 <!-- TODO: Screenshot of the Groups Mapping and Roles Mapping cards on the edit page -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-authentication-mappings.png" alt=""><figcaption><p>The <strong>Groups Mapping</strong> and <strong>Roles Mapping</strong> cards of a provider's edit page</p></figcaption></figure>
+<figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-authentication-mappings.png" alt=""><figcaption><p>The <strong>Groups Mapping</strong> and <strong>Roles Mapping</strong> cards of a provider's edit page</p></figcaption></figure>
 
 ### Write a condition
 
@@ -224,7 +224,7 @@ To verify that console authentication is working as expected, follow these steps
 9. Open the console sign-in page in a private browser window, and confirm that it shows a **Sign in with** button carrying the provider's name.
 
 <!-- TODO: Screenshot of the Identity Providers table showing the new provider with the Activated status -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-authentication-activated.png" alt=""><figcaption><p>The new provider listed with the <strong>Activated</strong> status</p></figcaption></figure>
+<figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-authentication-activated.png" alt=""><figcaption><p>The new provider listed with the <strong>Activated</strong> status</p></figcaption></figure>
 
 ## Next steps
 

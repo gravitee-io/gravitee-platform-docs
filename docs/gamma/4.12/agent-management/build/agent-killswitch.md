@@ -22,7 +22,7 @@ The page itself is titled **Settings** for all three proxy types.
 
 <!-- TODO: Screenshot of the Settings page of an LLM Proxy showing the Details panel and the API Events card -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-proxy-settings-page.png" alt=""><figcaption><p>The Settings page of a proxy</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-proxy-settings-page.png" alt=""><figcaption><p>The Settings page of a proxy</p></figcaption></figure>
 
 ## Check the current state
 
@@ -47,7 +47,7 @@ The stop action has no confirmation dialog. The proxy stops as soon as you click
 
 <!-- TODO: Screenshot of the API Events card of a started proxy, showing the Stop action -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-api-events-stop.png" alt=""><figcaption><p>The API Events card of a started proxy</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-api-events-stop.png" alt=""><figcaption><p>The API Events card of a started proxy</p></figcaption></figure>
 
 ## Restart a proxy
 

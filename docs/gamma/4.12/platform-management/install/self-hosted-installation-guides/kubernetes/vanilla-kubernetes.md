@@ -754,3 +754,4 @@ If you need the consoles on separate subdomains (for example, `console.example.c
 
 * Create your first MCP server. For more information, see [Create your first MCP server](../../../../agent-management/get-started/create-your-first-mcp-server.md).
 * Add Gamma's agent-identity features. Deploy Access Management and wire it to Gamma. For more information, see [Configure your Access Management instance](../../../../agent-management/build/configure-your-access-management-instance.md).
+* Configure the OpenTelemetry pipeline that fills the Trace Explorer. For more information, see [Configure OpenTelemetry tracing and logs](../../../configure-opentelemetry-tracing-and-logs.md).

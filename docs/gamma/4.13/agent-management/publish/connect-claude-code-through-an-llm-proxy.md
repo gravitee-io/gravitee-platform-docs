@@ -39,13 +39,13 @@ The LLM Proxy provider must be configured with **Authentication: None**. Do not 
 ### Configure the LLM Proxy
 
 1. Create an LLM Proxy. For more information, see [Create an LLM Proxy](../build/create-an-llm-proxy.md).
-2. On the **Models** step, select **Add provider** and configure the provider with the following values:
+2. On the **Models** step, select **Add provider**, configure the provider with the following values, and then select **Add provider** at the bottom of the card:
 
    | Field | Value |
    | --- | --- |
    | Provider name | `Anthropic` |
-   | Request format | `Anthropic` |
-   | Target URL | `https://api.anthropic.com` |
+   | Provider | `Anthropic` |
+   | Provider URL | `https://api.anthropic.com` |
    | Authentication | `None` |
 
 3. On the **Entrypoint** step, set the context path. Here is an example context path:
@@ -55,14 +55,14 @@ The LLM Proxy provider must be configured with **Authentication: None**. Do not 
    ```
 
 {% hint style="warning" %}
-Do not add `/v1` to the target URL. The LLM Proxy appends `/v1/messages` when it forwards the request to Anthropic, so a target URL that already ends in `/v1` produces `/v1/v1/messages` and the request fails.
+Don't add `/v1` to the provider URL. The LLM Proxy appends `/v1/messages` when it forwards the request to Anthropic, so a target URL that already ends in `/v1` produces `/v1/v1/messages` and the request fails.
 {% endhint %}
 
 ### Configure model governance
 
 Claude Code sends Anthropic model IDs without a provider prefix, so the LLM Proxy must accept unprefixed model names.
 
-To edit governance on an existing LLM Proxy, open the LLM Proxy detail page, navigate to **Design** > **Models**, and then edit the provider.
+To edit governance on an existing LLM Proxy, open the LLM Proxy detail page. Under **Design**, select **Models**, and then select the edit icon of the provider. When you're done, select **Done**, click **Save changes**, and deploy the proxy.
 
 1. Set **Prefix needs** to the following:
 
@@ -70,7 +70,7 @@ To edit governance on an existing LLM Proxy, open the LLM Proxy detail page, nav
    Models and aliases do not require a prefix
    ```
 
-2. Choose one of the following model access options. The two options are mutually exclusive: the **Alias** variant hides real model names and accepts only registered models, and the **Unregistered models** variant accepts any model matching a glob.
+2. Choose one of the following model access options. The two options are mutually exclusive: the **Alias** variant accepts only registered models and can hide their real names behind aliases, and the **Unregistered models** variant accepts any model matching a glob.
 
    * **For broad access:** Select the **Unregistered models** variant, and then set **Globbing to accept unregistered models**. Here is an example glob:
 
@@ -84,7 +84,7 @@ To edit governance on an existing LLM Proxy, open the LLM Proxy detail page, nav
      *
      ```
 
-   * **For a strict allowlist:** Leave the glob unset and add each model explicitly. Here is an example of adding each model:
+   * **For a strict allowlist:** Select the **Alias** variant, and then add each model explicitly. Here is an example of adding each model:
 
      ```text
      claude-sonnet-4-6
@@ -95,7 +95,7 @@ To edit governance on an existing LLM Proxy, open the LLM Proxy detail page, nav
 {% hint style="info" %}
 A provider requires at least one model even when globbing is enabled. Add a seed model such as `claude-sonnet-4-6`.
 
-Do not enable **Only use alias** for this flow. Claude Code sends real Anthropic model IDs, and **Only use alias** hides them behind aliases, so every request would be rejected.
+Don't enable **Only use alias** for this flow. Claude Code sends real Anthropic model IDs, and **Only use alias** hides them behind aliases, so every request would be rejected.
 {% endhint %}
 
 ### Create a plan and subscription
@@ -232,8 +232,8 @@ Claude Code may need to be restarted after settings changes. Confirm that `ANTHR
 ### LLM Proxy provider
 
 ```text
-Request format: Anthropic
-Target URL: https://api.anthropic.com
+Provider: Anthropic
+Provider URL: https://api.anthropic.com
 Authentication: None
 Prefix needs: Models and aliases do not require a prefix
 Globbing to accept unregistered models: claude-* or *

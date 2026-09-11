@@ -8,7 +8,7 @@ description: Populate the Agent Management Catalog with the models, MCP servers,
 
 Populate the Catalog with the assets your agents need: models, MCP servers, tools, prompts, resources, skills, and agents. The Catalog is the authoritative registry of everything an agent can use, and fine-grained authorization policies are authored against cataloged entities. A rich Catalog enables precise governance.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-dashboard.png" alt="Agent Management Import catalog showing eight entity type cards"><figcaption><p>The Import section of the Agent Management dashboard. Each card links to a Catalog entity type. The full set of import operations is listed under Import operations.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-dashboard.png" alt="Agent Management Import catalog showing eight entity type cards"><figcaption><p>The Import section of the Agent Management dashboard. Each card links to a Catalog entity type. The full set of import operations is listed under Import operations.</p></figcaption></figure>
 
 ## Catalog entity types
 

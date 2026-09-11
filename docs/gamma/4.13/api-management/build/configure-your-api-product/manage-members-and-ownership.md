@@ -116,4 +116,4 @@ Product roles map to permission checks on the Management API, so the operations 
 ## Next steps
 
 * [Manage product APIs](manage-product-apis.md). Attach the API proxies your product bundles.
-* [Configure API products](README.md). Review the other product configuration areas.
+* [API Products](../../manage/api-products/README.md). Review the other product configuration areas.

@@ -35,7 +35,7 @@ When the environment has no entries, the table reads **No global metadata define
 
 A new environment starts with one entry: name `email-support`, format Mail, and value `support@change.me`.
 
-<figure><img src="../.gitbook/assets/gamma-platform-metadata-list.png" alt=""><figcaption><p>The Metadata page lists the key-value entries that APIs in the selected environment inherit.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-metadata-list.png" alt=""><figcaption><p>The Metadata page lists the key-value entries that APIs in the selected environment inherit.</p></figcaption></figure>
 
 ## Add a metadata entry
 

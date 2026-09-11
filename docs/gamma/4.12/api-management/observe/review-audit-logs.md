@@ -16,7 +16,7 @@ To open the page, follow these steps:
 
 <!-- TODO: Screenshot of the Audit Logs page with events -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-audit-logs.png" alt=""><figcaption><p>The Audit Logs page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-api-audit-logs.png" alt=""><figcaption><p>The Audit Logs page</p></figcaption></figure>
 
 ## Read the audit trail
 
@@ -40,4 +40,4 @@ To verify the audit trail is working as expected, follow these steps:
 
 <!-- TODO: Screenshot of the JSON Patch panel for an audit event -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-audit-patch.png" alt=""><figcaption><p>The JSON Patch panel</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-api-audit-patch.png" alt=""><figcaption><p>The JSON Patch panel</p></figcaption></figure>

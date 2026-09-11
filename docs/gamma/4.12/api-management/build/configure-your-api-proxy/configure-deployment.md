@@ -17,7 +17,7 @@ To open the page, follow these steps:
 
 <!-- TODO: Screenshot of the Deployment Configuration page with sharding tags -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-deployment-configuration.png" alt=""><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-deployment-configuration.png" alt=""><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
 
 ## Assign sharding tags
 
@@ -42,4 +42,4 @@ To verify the deployment configuration is working as expected, follow these step
 
 <!-- TODO: Screenshot of the saved sharding tag selection -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-deployment-tags-saved.png" alt=""><figcaption><p>A saved sharding tag selection</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-deployment-tags-saved.png" alt=""><figcaption><p>A saved sharding tag selection</p></figcaption></figure>

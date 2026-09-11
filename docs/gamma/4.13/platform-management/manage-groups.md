@@ -23,7 +23,7 @@ Use the search field to filter the list by name. The table paginates 10 rows at 
 
 When the environment has no groups yet, the table is replaced by a **No groups** card with a **Create Group** button.
 
-<figure><img src="../.gitbook/assets/gamma-platform-groups-list.png" alt="The Groups page listing three groups with Auto APIs and Auto Applications badges next to two of the names, above the application group requirement switch"><figcaption><p>The Groups page lists the groups of the selected environment. Badges mark the groups that new APIs or applications join automatically.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-groups-list.png" alt="The Groups page listing three groups with Auto APIs and Auto Applications badges next to two of the names, above the application group requirement switch"><figcaption><p>The Groups page lists the groups of the selected environment. Badges mark the groups that new APIs or applications join automatically.</p></figcaption></figure>
 
 ## Create a group
 
@@ -51,7 +51,7 @@ To create a group, complete the following steps:
 
 The console opens the new group's detail page.
 
-<figure><img src="../.gitbook/assets/gamma-platform-groups-create.png" alt="The Create group panel with the name filled in, the three default role lists, the lock and association toggles, and the maximum members field"><figcaption><p>The Create group panel. The default roles and the toggles below the name decide what members hold and how they join.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-groups-create.png" alt="The Create group panel with the name filled in, the three default role lists, the lock and association toggles, and the maximum members field"><figcaption><p>The Create group panel. The default roles and the toggles below the name decide what members hold and how they join.</p></figcaption></figure>
 
 ## Review a group
 
@@ -68,7 +68,7 @@ The **Members** card holds a **Members** tab and an **Invitations** tab. Under i
 
 Select **Back to groups** to return to the list.
 
-<figure><img src="../.gitbook/assets/gamma-platform-group-detail.png" alt="A group's detail page showing the header with the Auto APIs badge, the Settings card with the default roles and invitation methods, and the Members table with three members"><figcaption><p>A group's detail page. The Settings card summarizes the group, and the Members table lists each member with their role in every scope.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-group-detail.png" alt="A group's detail page showing the header with the Auto APIs badge, the Settings card with the default roles and invitation methods, and the Members table with three members"><figcaption><p>A group's detail page. The Settings card summarizes the group, and the Members table lists each member with their role in every scope.</p></figcaption></figure>
 
 ## Edit a group
 
@@ -114,7 +114,7 @@ Adding from a user search needs **Allow invitation via user search** on. To add 
 
 **PRIMARY_OWNER** is offered in the **API** and **API product** lists only when the environment's primary owner mode for that scope isn't **User**, and while no member of the group holds it. With **PRIMARY_OWNER** selected, only one user can be added at a time.
 
-<figure><img src="../.gitbook/assets/gamma-platform-group-add-members.png" alt="The Add members panel with the six role lists above the user search, which lists the one matching user who isn't a member yet"><figcaption><p>The Add members panel. Set the roles first, then search for the users to add.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-group-add-members.png" alt="The Add members panel with the six role lists above the user search, which lists the one matching user who isn't a member yet"><figcaption><p>The Add members panel. Set the roles first, then search for the users to add.</p></figcaption></figure>
 
 ### Invite a member by email
 
@@ -138,7 +138,7 @@ The **Invitations** tab lists each pending invitation with its **Email**, **API 
 
 To cancel an invitation, select the delete action in its row, and select **Continue** in the **Delete Invitation** dialog. Registration through the link in the invitation email is then refused.
 
-<figure><img src="../.gitbook/assets/gamma-platform-group-invitations.png" alt="The Invitations tab of a group listing one pending invitation with its email, API role, application role, and invitation date"><figcaption><p>The Invitations tab lists the invitations that haven't been accepted yet.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-group-invitations.png" alt="The Invitations tab of a group listing one pending invitation with its email, API role, application role, and invitation date"><figcaption><p>The Invitations tab lists the invitations that haven't been accepted yet.</p></figcaption></figure>
 
 ## Change a member's roles
 

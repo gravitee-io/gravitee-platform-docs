@@ -15,7 +15,7 @@ To open the page, follow these steps:
 3.  Under **Operations**, click **Deployment**.
 4.  Click **Configuration**.
 
-    <figure><img src="../../.gitbook/assets/gamma-a2a-proxy-deployment-configuration.png" alt="The Deployment Configuration page for A2A Proxy, showing the Sharding tags card with one tag selected as a chip and the tag list open"><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-a2a-proxy-deployment-configuration.png" alt="The Deployment Configuration page for A2A Proxy, showing the Sharding tags card with one tag selected as a chip and the tag list open"><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
 
 ## Assign sharding tags
 

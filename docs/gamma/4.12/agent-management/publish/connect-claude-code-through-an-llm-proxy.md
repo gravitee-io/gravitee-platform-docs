@@ -40,14 +40,14 @@ The LLM Proxy provider must be configured with **No authentication**. Do not con
 ### Configure the LLM Proxy
 
 1. Create an LLM Proxy. For more information, see [Create an LLM Proxy](../build/create-an-llm-proxy.md).
-2. Add a provider in inline mode and configure it with the following values:
+2. On the **Models** step, select **Add provider**, configure the provider with the following values, and then select **Add provider** at the bottom of the card:
 
    | Field | Value |
    | --- | --- |
    | Provider name | `Anthropic` |
-   | Request format | `Anthropic` |
-   | Target URL | `https://api.anthropic.com` |
-   | Authentication | `No authentication` |
+   | Provider | `Anthropic` |
+   | Provider URL | `https://api.anthropic.com` |
+   | Authentication | `None` |
 
 3. Set the context path. Here is an example context path:
 
@@ -56,24 +56,24 @@ The LLM Proxy provider must be configured with **No authentication**. Do not con
    ```
 
 {% hint style="warning" %}
-Do not add `/v1` to the target URL. The LLM Proxy appends `/v1/messages` when it forwards the request to Anthropic, so a target URL that already ends in `/v1` produces `/v1/v1/messages` and the request fails.
+Don't add `/v1` to the provider URL. The LLM Proxy appends `/v1/messages` when it forwards the request to Anthropic, so a target URL that already ends in `/v1` produces `/v1/v1/messages` and the request fails.
 {% endhint %}
 
 ### Configure model governance
 
 Claude Code sends Anthropic model IDs without a provider prefix, so the LLM Proxy must accept unprefixed model names.
 
-To edit governance on an existing LLM Proxy, open the LLM Proxy detail page, navigate to **General** > **Models**, and then edit the provider.
+To edit governance on an existing LLM Proxy, open the LLM Proxy detail page. Under **Design**, select **Models**, and then select the edit icon of the provider. When you're done, select **Done**, click **Save changes**, and deploy the proxy.
 
-1. Set **Prefix policy** to the following:
+1. Set **Prefix needs** to the following:
 
    ```text
-   No prefix required
+   Models and aliases do not require a prefix
    ```
 
-2. Choose one of the following **Model access** options. The two options are mutually exclusive.
+2. Choose one of the following model access options. The two options are mutually exclusive: the **Alias** variant accepts only registered models and can hide their real names behind aliases, and the **Unregistered models** variant accepts any model matching a glob.
 
-   * **For broad access:** Select **Accept unregistered models (glob)**, and then set **Unregistered models glob**. Here is an example glob:
+   * **For broad access:** Select the **Unregistered models** variant, and then set **Globbing to accept unregistered models**. Here is an example glob:
 
      ```text
      claude-*
@@ -85,7 +85,7 @@ To edit governance on an existing LLM Proxy, open the LLM Proxy detail page, nav
      *
      ```
 
-   * **For a strict allowlist:** Select **Registered models only**, and then add each model explicitly. Here is an example of adding each model:
+   * **For a strict allowlist:** Select the **Alias** variant, and then add each model explicitly. Here is an example of adding each model:
 
      ```text
      claude-sonnet-4-6
@@ -94,9 +94,9 @@ To edit governance on an existing LLM Proxy, open the LLM Proxy detail page, nav
      ```
 
 {% hint style="info" %}
-A provider requires at least one model even when a glob is set. Add a seed model such as `claude-sonnet-4-6`.
+A provider requires at least one model even when globbing is enabled. Add a seed model such as `claude-sonnet-4-6`.
 
-Do not enable **Hide real model names (alias only)** for this flow. Claude Code sends real Anthropic model IDs, and that option hides them behind aliases, so every request would be rejected. The option is available only in **Registered models only** mode.
+Don't enable **Only use alias** for this flow. Claude Code sends real Anthropic model IDs, and **Only use alias** hides them behind aliases, so every request would be rejected.
 {% endhint %}
 
 ### Create a plan and subscription
@@ -209,9 +209,9 @@ The LLM Proxy did not resolve the requested model.
 
 Check that:
 
-* **Prefix policy** is set to **No prefix required**.
-* The requested model is explicitly added, or the unregistered models glob matches it.
-* **Hide real model names (alias only)** is disabled.
+* **Prefix needs** is set to **Models and aliases do not require a prefix**.
+* The requested model is explicitly added, or the unregistered model glob matches it.
+* **Only use alias** is disabled.
 * The LLM Proxy was redeployed after changing model governance.
 * Claude Code is sending the expected model ID, for example `claude-sonnet-4-6`.
 
@@ -220,7 +220,7 @@ Check that:
 If the request reaches Anthropic but fails authentication:
 
 * Confirm the user is logged in to Claude Code with `/login`.
-* Confirm the provider authentication is set to **No authentication**.
+* Confirm the provider authentication is set to **None**.
 * Remove any bearer token or API key authentication configured on the provider.
 * Confirm `ANTHROPIC_API_KEY` and `ANTHROPIC_AUTH_TOKEN` are not set in the Claude Code environment for this flow.
 
@@ -233,12 +233,12 @@ Claude Code may need to be restarted after settings changes. Confirm that `ANTHR
 ### LLM Proxy provider
 
 ```text
-Request format: Anthropic
-Target URL: https://api.anthropic.com
-Authentication: No authentication
-Prefix policy: No prefix required
-Model access: Accept unregistered models (glob)
-Unregistered models glob: claude-* or *
+Provider: Anthropic
+Provider URL: https://api.anthropic.com
+Authentication: None
+Prefix needs: Models and aliases do not require a prefix
+Globbing to accept unregistered models: claude-* or *
+Only use alias: disabled
 ```
 
 ### API Key plan
