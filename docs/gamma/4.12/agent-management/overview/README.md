@@ -145,8 +145,6 @@ You need one place to define policy, one place to see the trace, and one place t
 
 ## Next steps
 
-### Try it
-
 * [Create your first MCP server](../get-started/create-your-first-mcp-server.md). Put an MCP Proxy in front of an upstream MCP server, and verify tool invocations through the AI Gateway.
 * [Create your first LLM Proxy](../get-started/create-your-llm-proxy.md). Connect a proxy to a model provider, and send a test prompt.
 * [Expose your agent with the A2A Proxy](../build/expose-agent-with-a2a-proxy.md). Make an upstream agent's skills discoverable and callable through the gateway.
