@@ -39,16 +39,13 @@ The AI Gateway is the unified runtime that processes LLM, MCP, and A2A traffic. 
 | Provider credentials are held once on the AI Gateway instead of being copied into every team's application configuration. | [Create an LLM Proxy](../build/create-an-llm-proxy.md) |
 | Each consumer authenticates with its own credential, so usage, rate limits, and cost can be attributed per consumer. | [Manage subscriptions](../publish/manage-subscriptions.md) |
 | Existing AI tools route through governance by setting an environment variable, with no code changes. | [Create an LLM Proxy](../build/create-an-llm-proxy.md#zero-code-integration) |
-| An OpenAI SDK, an Anthropic SDK, and a Gemini SDK all point at the same proxy and each receives answers in its own format. | [Accepted request formats](../build/accepted-request-formats.md) |
-| Traffic moves between models without touching the applications that consume the proxy. | [Override the model at runtime](../build/override-the-model-at-runtime.md) |
 
 ### Expose existing enterprise assets as agent tools
 
 | Outcome | Feature |
 | --- | --- |
 | REST APIs already governed in API Management become agent-callable tools, carrying over their security plans, policies, and backend configuration. | [Create API tools](../import/create-api-tools.md) |
-| An agent gets exactly the tools it needs, composed from several upstream servers into one governed endpoint. | [Create an MCP Studio](../build/create-an-mcp-studio.md) |
-| Skill packages, prompt templates, repository resources, and knowledge sources are cataloged and composable alongside MCP-native tools. | [Upload skills](../import/upload-skills.md), [Import prompts](../import/import-prompts.md), [Add MCP resources](../import/add-mcp-resources.md), [Add a knowledge source](../import/add-knowledge-source.md) |
+| An agent gets exactly the tools it needs, composed from several upstream servers into one governed endpoint. | [Create an MCP proxy](../build/create-an-mcp-proxy.md) |
 | An external agent that publishes an A2A agent card is registered in the Catalog from its endpoint. | [Register an agent](../import/import-an-agent.md) |
 
 ### Constrain what an agent can do through a tool
@@ -57,9 +54,7 @@ The AI Gateway is the unified runtime that processes LLM, MCP, and A2A traffic. 
 | --- | --- |
 | A caller reaches only the tools its identity permits, and a call that matches no permit is denied rather than allowed by omission. | [Layered governance for MCP tools](../build/configure-your-mcp/govern-mcp-tool-access.md) |
 | A shared upstream token stops conferring its owner's full permission set on every agent that holds it. | [Connect and secure the GitHub MCP server](../build/configure-your-mcp/connect-and-secure-github-mcp-server.md) |
-| A permitted caller can't call a permitted tool more often than you intended, with each identity given its own allowance. | [Layered governance for MCP tools](../build/configure-your-mcp/govern-mcp-tool-access.md#rate-limits-decide-how-often) |
 | Personal data in a tool response is redacted before it reaches the agent and the model behind it. | [Layered governance for MCP tools](../build/configure-your-mcp/govern-mcp-tool-access.md#redaction-decides-what-comes-back) |
-| A limit applies to one high-value tool rather than to the whole server. | [Apply policies to individual tool invocations](../build/configure-your-mcp/apply-policies-to-tool-invocations.md) |
 
 ### Screen prompts and responses
 
@@ -68,7 +63,6 @@ The AI Gateway is the unified runtime that processes LLM, MCP, and A2A traffic. 
 | Prompts carrying toxicity, harmful intent, or jailbreak prompt injections are logged or blocked before they reach the provider. | [Configure text classification](../build/configure-text-classification.md) |
 | The classification and embedding models run locally on the AI Gateway rather than calling a third-party screening service. | [AI resources](../build/ai-resources.md) |
 | Token spend is capped per consumer over a rolling period, counting the tokens the provider bills you for rather than the number of calls. | [Add the Token Rate Limit policy](../build/add-the-token-rate-limit-policy.md) |
-| Response format constraints are enforced on model responses without changing the client. | [Configure an LLM Proxy](../build/configure-an-llm-proxy.md#structured-output) |
 
 ### Give every agent a verifiable identity
 
@@ -77,7 +71,6 @@ The AI Gateway is the unified runtime that processes LLM, MCP, and A2A traffic. 
 | An agent is registered as an OAuth client with a persona that matches how it runs, so the gateway can authenticate, attribute, and audit it. | [Create an agent identity](../build/create-an-agent-identity.md) |
 | An unattended workload authenticates with JWKS or a SPIFFE JWT-SVID instead of a shared client secret. | [Create an agent identity](../build/create-an-agent-identity.md#workload-agent) |
 | Authorization policies reference the agent itself as a principal. | [Add policies to your MCP server](../build/configure-your-mcp/add-policies-to-mcp-server.md) |
-| Users and groups from your enterprise identity provider become principals in your policies. | [Add policies to your MCP server](../build/configure-your-mcp/add-policies-to-mcp-server.md#scim-integration-for-principals) |
 
 ### Account for what AI traffic costs
 
