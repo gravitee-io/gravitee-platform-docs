@@ -8,7 +8,7 @@ description: Add users to an AI Workspace so each one gets their own API key, ch
 
 Adding a user to an AI Workspace gives them their own way in. Gravitee creates or reuses an application for them, subscribes it to the budget you pick, and issues an API key on that subscription. The key is what the member sends to the workspace entrypoint, and it's what their spend is counted against.
 
-Because every member holds a distinct key on a distinct application, one member exhausting their allowance doesn't affect anyone else in the workspace.
+Because each member is metered on their own application within the workspace, one member exhausting their allowance doesn't affect anyone else.
 
 {% hint style="info" %}
 Add at least one model before adding users. Until the workspace holds a model, it has no Default LLM Proxy for a member's key to reach. See [Add models to an AI workspace](add-models-to-an-ai-workspace.md).
@@ -28,7 +28,7 @@ To add users to an AI Workspace, complete the following steps:
 
 6. In the **User** field, search for a user by name or email.
 
-    The search returns the first matches only. Refine the search when the user you expect isn't listed. A user who already belongs to the workspace is marked **Already a member** and can't be selected.
+    The search returns at most 20 matches from the Gravitee user store, and the field says it shows the first matches only. Refine the search when the user you expect isn't listed. A user who already belongs to the workspace is marked **Already a member** and can't be selected.
 
 7. Select one or more users from the results.
 8. In the **Budget** field, select the budget the members are metered against.
@@ -41,7 +41,7 @@ Each selected user is added in turn. If the server refuses one of them, that use
 
 ## Which application a member gets
 
-Gravitee reuses an application the member already holds for workspace access before it creates a new one, so a person keeps one key across the workspaces they belong to:
+Gravitee reuses an application the member already holds for workspace access before it creates a new one, so a person usually holds one application across the workspaces they belong to. Each membership still gets its own subscription and its own API key, and spend is counted per workspace:
 
 * An application the member already used for this workspace is reused first, including one whose subscription was closed. Removing a member and adding them back therefore restores the same application, key, and spend counter.
 * Otherwise, an application the member used for another workspace is reused.
@@ -71,7 +71,7 @@ The **Users** list holds one row per member, with the following columns:
         </tr>
         <tr>
             <td><strong>Access</strong></td>
-            <td>How many models the member can call, and a selector that changes the budget they're metered against.</td>
+            <td>The number of models the workspace exposes, which is the same for every member, and a selector that changes the budget they're metered against.</td>
         </tr>
         <tr>
             <td><strong>Budget</strong></td>
@@ -122,4 +122,4 @@ To verify a member has working access, follow these steps:
 4. Reveal and copy the member's API key.
 5. On the **Overview** page, copy the entrypoint URL from the **Connection** card.
 6. Call the `/models` path of that URL with the member's key, and confirm the models of the workspace are listed.
-7. Return to the **Users** list, and confirm the member's **Usage (30d)** cell counts the request.
+7. Return to the **Users** list, and confirm the member's **Usage (30d)** cell counts the request. The cell is read from analytics rather than from the subscription, so it can lag behind the call, and it stays empty while the workspace has no analytics data.

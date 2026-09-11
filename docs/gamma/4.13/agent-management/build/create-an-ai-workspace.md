@@ -68,7 +68,7 @@ To create an AI Workspace, complete the following steps:
             <tr>
                 <td><strong>Budget period</strong></td>
                 <td>Yes</td>
-                <td>How often the budget resets: <strong>Per hour</strong>, <strong>Per day</strong>, <strong>Per week</strong>, or <strong>Per month</strong>. Pre-filled with <strong>Per month</strong>.</td>
+                <td>How often the budget resets: <strong>Per hour</strong>, <strong>Per day</strong>, <strong>Per week</strong>, or <strong>Per month</strong>. The window rolls from a member's first request rather than aligning to the calendar, and <strong>Per month</strong> is 30 days. Pre-filled with <strong>Per month</strong>.</td>
             </tr>
             <tr>
                 <td><strong>Request rate limit</strong></td>

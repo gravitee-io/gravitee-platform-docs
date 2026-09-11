@@ -23,7 +23,7 @@ To add models to an AI Workspace, complete the following steps:
 3. Select the workspace.
 4. Under **General**, select **Components**.
 
-    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-components-empty.png" alt="The Components page of a workspace with no models yet, showing the Models, LLM Proxies, MCP Proxies and Agents cards and the Add models from catalog button"><figcaption><p>The Components page before the first model is added</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-components-empty.png" alt="The Components page of a workspace with no models yet, showing the Models, LLM Proxies, MCP Proxies, and Agents cards and the Add models from catalog button"><figcaption><p>The Components page before the first model is added</p></figcaption></figure>
 
 5. Select **Add models from catalog**.
 6. Select the models to add. Each row carries the model name, its provider, and the query name callers send. Search by any of the three to narrow the list.
@@ -33,7 +33,7 @@ To add models to an AI Workspace, complete the following steps:
 7. Select **Add**.
 8. In the **Provider authentication** panel, enter the credentials for each provider whose models you picked, then submit.
 
-The **Components** page then lists the models grouped by provider, with a **Credentials configured** badge on each provider, and the **Models** card counts the models exposed to the workspace.
+The **Components** page then lists the models grouped by provider, with a **Credentials configured** badge on each provider, and the **Models** card counts the models exposed to the workspace. The **LLM Proxies**, **MCP Proxies**, and **Agents** cards beside it always read `0`.
 
 ## Remove a model
 

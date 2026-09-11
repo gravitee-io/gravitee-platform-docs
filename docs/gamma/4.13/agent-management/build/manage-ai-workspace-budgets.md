@@ -43,7 +43,7 @@ To create a budget, complete the following steps:
             <tr>
                 <td><strong>Budget period</strong></td>
                 <td>Yes</td>
-                <td>How often the budget resets: <strong>Per hour</strong>, <strong>Per day</strong>, <strong>Per week</strong>, or <strong>Per month</strong>.</td>
+                <td>How often the budget resets: <strong>Per hour</strong>, <strong>Per day</strong>, <strong>Per week</strong>, or <strong>Per month</strong>. The window rolls from a member's first request rather than aligning to the calendar, and <strong>Per month</strong> is 30 days.</td>
             </tr>
             <tr>
                 <td><strong>Request rate limit</strong></td>
@@ -89,6 +89,14 @@ A workspace always keeps at least one budget. Deleting the last remaining budget
 ## Deploy a budget change
 
 Creating, editing, and deleting a budget saves the change without pushing it to the gateway. While changes are pending, the **This API is out of sync** banner appears on the workspace pages. Select **Deploy**, optionally enter a **Deployment label** of up to 32 characters, and confirm, so a run of budget edits costs one deployment rather than one each.
+
+Adding and removing models don't use this banner. Gravitee deploys the Default LLM Proxy as part of the change. See [Add models to an AI workspace](add-models-to-an-ai-workspace.md).
+
+## Routing a budget carries
+
+Every budget carries the routing configured for the workspace. A member's calls run that routing alongside the cost budget and the request rate limit of the budget they're on. Creating a budget on this page copies the current routing of the workspace onto it. The `Default` budget a workspace starts with carries no routing, because the workspace has none to inherit yet.
+
+The **Router** page under **Access** edits that routing for the workspace. Where a budget carries routing that differs from it, the page reports **Some budgets are running different routing** and names the budgets. Saving the router replaces what those budgets carry. Saving doesn't deploy, so the out-of-sync banner still applies.
 
 ## Verification
 
