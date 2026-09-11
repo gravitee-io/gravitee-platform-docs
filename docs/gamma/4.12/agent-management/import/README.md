@@ -8,7 +8,22 @@ description: Populate the Agent Management Catalog with the models, MCP servers,
 
 Populate the Catalog with the assets your agents need: models, MCP servers, tools, prompts, resources, skills, and agents. The Catalog is the authoritative registry of everything an agent can use, and fine-grained authorization policies are authored against cataloged entities. A rich Catalog enables precise governance.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-dashboard.png" alt="Agent Management Import catalog showing eight entity type cards"><figcaption><p>The Import section of the Agent Management dashboard. Each card links to a Catalog entity type. The full set of import operations is listed below.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-dashboard.png" alt="Agent Management Import catalog showing eight entity type cards"><figcaption><p>The Import section of the Agent Management dashboard. Each card links to a Catalog entity type. The full set of import operations is listed under Import operations.</p></figcaption></figure>
+
+## Catalog entity types
+
+| Entity type | Sources |
+| --- | --- |
+| **AI Models** | Synced from a connected provider integration, synced from Azure AI Foundry, or registered manually. |
+| **MCP Servers** | Registered from a Streamable HTTP endpoint, or authored in MCP Studio. Type: **Native** (upstream) or **Composite**. |
+| **Prompts** | Reusable, parameterized templates with declared arguments. |
+| **MCP Resources** | Server resources discovered from registered MCP servers, and repository resources from Git. |
+| **Tools** | **MCP Tools** from connected MCP servers, **API Tools** built from REST APIs in API Management, and **Kafka API Tools** from Event Stream Management. |
+| **Knowledge & Data** | Document sources registered for agent consumption, inline or fetched from a remote URL. |
+| **Skills** | Uploaded as `.zip` skill packages, exposed to agents as MCP resources using the FastMCP Skills-as-Resources pattern. |
+| **Agents** | Registered from the A2A agent card an agent publishes. |
+
+## Import operations
 
 * [**Connect integrations**](connect-integrations.md). Connect Gamma to a model provider or to Azure AI Foundry so their models import into the Catalog.
 * [**Add an AI model**](add-an-ai-model.md). Import models from a connected integration, and see the metadata each model records.

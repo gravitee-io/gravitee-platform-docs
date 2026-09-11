@@ -134,18 +134,7 @@ The supported providers are OpenAI, Anthropic, Gemini, Bedrock, and Vertex AI. F
 
 The Catalog is the authoritative registry of every asset an agent can use. Policy is authored against cataloged entities, which is why it's intentionally rich.
 
-| Entity type | Sources |
-| --- | --- |
-| **AI Models** | Synced from a connected provider integration, synced from Azure AI Foundry, or registered manually. See [Add an AI model](../import/add-an-ai-model.md). |
-| **MCP Servers** | Registered from a Streamable HTTP endpoint, or authored in MCP Studio. Type: **Native** (upstream) or **Composite**. See [Register an MCP server](../import/register-an-mcp-server.md). |
-| **Prompts** | Reusable, parameterized templates with declared arguments. See [Import prompts](../import/import-prompts.md). |
-| **MCP Resources** | Server resources discovered from registered MCP servers, and repository resources from Git. See [Add MCP resources](../import/add-mcp-resources.md). |
-| **Tools** | **MCP Tools** from connected MCP servers, **API Tools** built from REST APIs in API Management, and **Kafka API Tools** from Event Stream Management. See [Create API tools](../import/create-api-tools.md). |
-| **Knowledge & Data** | Document sources registered for agent consumption, inline or fetched from a remote URL. See [Add a knowledge source](../import/add-knowledge-source.md). |
-| **Skills** | Uploaded as `.zip` skill packages, exposed to agents as MCP resources using the FastMCP Skills-as-Resources pattern. See [Upload skills](../import/upload-skills.md). |
-| **Agents** | Registered from the A2A agent card an agent publishes. See [Register an agent](../import/import-an-agent.md). |
-
-For the full set of import operations, see [Import](../import/README.md).
+For the entity types and where each one comes from, see [Import](../import/README.md).
 
 ## Scenario recipes
 
