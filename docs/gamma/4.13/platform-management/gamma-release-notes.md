@@ -136,6 +136,34 @@ API Management gains a file-based path for building and updating API proxies and
 * The **Add plan flow**, **Add common flow**, and **Add MCP method flow** controls in the flows sidebar and on the empty Policy Studio screen share one link treatment.
 * The changes apply to the Policy Studio of API Management and Agent Management, and to the platform policies of Platform Management.
 
+### Edge Management
+
+Edge Management replaces the single configuration page and its flat lists of DNS domains and routes. A guided setup creates the configuration, and a page per concern edits it. Interception is configured per intercepted agent, and each route names the target API that receives its traffic. The console checks that API against the requirements of the route before you deploy. The analytics pages gain their content, and a Devices page shows the fleet.
+
+#### Guided setup and one page per concern
+
+* A new environment starts on a **Quick Start** page that opens a four-step guided setup: **Gateway**, **Intercepted agents**, **Shadow AI**, and **Deploy**. Nothing is deployed until the last step, which publishes an Edge API for the environment with a keyless plan.
+* Once the environment is configured, the sidebar groups the pages into **General** with **Overview**, **Configuration** with **Gateway**, **Interception**, **Shadow AI**, and **Daemon deployment**, and **Analytics** with **Detected Shadow AI**, **Proxied Traffic**, and **Devices**. Each configuration page saves its own part of the configuration.
+* The **Overview** page shows the Edge API status, the active daemons, the recent shadow AI detections, the recent device activity, and an **Interception readiness** card with the verdict of each configured agent.
+* See [Set up Edge Management](../edge-management/connect/set-up-edge-management.md).
+
+#### Interception per agent
+
+* The **Interception** page configures interception per intercepted agent. An agent owns the domains it calls and the routes under those domains, and each route names the target API that receives it. **Claude Code** is a preset with a fixed domain, decoder format, vendor, and route. **Custom agent** lets you declare everything yourself. **Codex** is listed as coming soon.
+* A route path matches exactly, or as a prefix when it ends with `*`. Requests that match no route pass through to the provider untouched by default, or go to an API you pick under **Everything else**.
+* The target API of a route is chosen from a picker that searches the APIs of the environment, one entry per API, with a second level for the paths of an API that exposes several. An API published on a virtual host can't be a target, and the picker says how many matching APIs it couldn't offer.
+* **Create the target API for this route** builds an LLM Proxy API from the preset of the agent, with a published keyless plan and every model accepted. It's created stopped and undeployed.
+* Each route of a preset is checked against its target API and reports **Ready**, **Check**, **Will not intercept**, **Not verified**, or **Not checked**. A verdict never blocks a save: a dialog names the agents concerned first.
+* A configuration that still carries the legacy DNS domains and routes shows them read-only under **Legacy interception** and can't be saved until they're cleared with **Clear all**. Intercepted agents require Edge Daemon 2.0.0 or later.
+* See [Configure interception](../edge-management/connect/configure-edge-management.md) and [Target API reference](../edge-management/connect/proxy-api-reference.md).
+
+#### Analytics and devices
+
+* **Detected Shadow AI** lists the direct connections of the devices to the watched provider domains, with the device, the provider, the process, and the number of detections.
+* **Proxied Traffic** lists the intercepted requests that reached the gateway, with the device, the tool, the provider, the model, and the token counts.
+* **Devices** lists the devices that run the daemon, with their status, their daemon version, and their heartbeats. A device is **Active** when a heartbeat was received in the last 2 minutes.
+* See [Monitor detected shadow AI](../edge-management/observe/monitor-shadow-ai-traffic.md), [Monitor proxied traffic](../edge-management/observe/monitor-proxied-traffic.md), and [Monitor your devices](../edge-management/observe/monitor-devices.md).
+
 ### Event Stream Management
 
 Event Stream Management adds a duplication path for Kafka Services.
