@@ -94,6 +94,7 @@
   * [Manage subscriptions](publish/manage-subscriptions.md)
   * [Broadcast messages to proxy consumers](build/broadcast-messages-to-proxy-consumers.md)
   * [Configure properties for your proxies](build/configure-properties-for-your-proxies.md)
+  * [Manage metadata for your proxies](build/manage-metadata-for-your-proxies.md)
   * [Configure resources for your proxies](build/configure-resources-for-your-proxies.md)
 * [Observe](observe/README.md)
   * [Dashboards](observe/dashboards/README.md)

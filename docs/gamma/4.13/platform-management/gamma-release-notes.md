@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. It also adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies gain export, import, and duplicate actions. The Observability section of Agent Management builds and saves custom dashboards alongside the templates.
+Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. It also adds API resource configuration, consumer broadcasts, property import, dynamic property sync, and API metadata to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies gain export, import, and duplicate actions. The Observability section of Agent Management builds and saves custom dashboards alongside the templates.
 
 #### AI Workspaces
 
@@ -37,6 +37,16 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 * Choose the **Portal Notifications**, **Email**, or **POST HTTP Message** channel. For the first two, select the recipients, either **API subscribers** or the members holding an application role on the subscribed applications, and enter a title. Enter a message of up to 4,000 characters, with a counter that shows the remaining characters.
 * **Send** stays disabled until the form is valid. After the send, the page confirms the broadcast was sent and, when at least one recipient was reached, how many.
 * See [Broadcast messages to proxy consumers](../agent-management/build/broadcast-messages-to-proxy-consumers.md).
+
+#### API metadata for LLM, MCP, and A2A Proxies
+
+* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Metadata** page under **General** that lists the entries in effect for the proxy: the ones it holds a value for, together with the ones it inherits from its environment. The **Metadata** item appears only when your role can read the metadata of an API.
+* The table carries the **Key**, **Name**, **Format**, and **Value** columns, sorts on any of them, and shows 10 entries per page by default. A **Global** badge marks every entry whose key the environment defines, including the ones the proxy has overridden, and the source list narrows the table to **Global** or **API**.
+* **Add metadata** creates an entry of the **String**, **Numeric**, **Boolean**, **Date**, **Mail**, or **URL** format. A value that starts with `${` is stored as a template resolved against the API, for every format except **Date**. A name is at most 64 characters and a value at most 1,024 characters, and the format of an entry is fixed once the entry exists.
+* The row menu offers **Override** on an entry the proxy only inherits, and **Edit** on one it owns. Removing the proxy's own value reads **Reset** when the environment defines the key and **Delete** when it doesn't, and a reset leaves the environment entry untouched.
+* A proxy synced from the Kubernetes operator lists its metadata without offering to change it.
+* Metadata isn't part of the proxy definition, so a change takes effect without a deployment.
+* See [Manage metadata for your proxies](../agent-management/build/manage-metadata-for-your-proxies.md).
 
 #### Import and dynamic properties for LLM, MCP, and A2A Proxies
 
