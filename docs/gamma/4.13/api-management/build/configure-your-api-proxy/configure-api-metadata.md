@@ -89,7 +89,11 @@ An empty **Value** field shows no format error, and **Add** stays disabled until
 
 ## Use an expression as a value
 
-A value that starts with `${` is treated as an expression and resolved against this API before the format is checked. An entry can therefore carry a value taken from the API itself. A **Mail** entry holding `${api.primaryOwner.email}` passes the format check when the API's primary owner has a valid email address. It's refused when the resolved address isn't one. An expression that resolves to an empty value passes the check.
+A value that starts with `${` is treated as a FreeMarker expression and resolved against this API before the format is checked. An entry can therefore carry a value taken from the API itself, which the expression reaches through `api`. In the metadata list shown earlier, the `email-support` entry holds `${(api.primaryOwner.email)!''}`, which resolves to the email address of the API's primary owner.
+
+A **Mail** or **URL** entry accepts an expression in the **Value** field, so **Invalid email** and **Invalid URL** don't appear while the value is an expression.
+
+An entry is refused when the expression resolves to a value that doesn't match the format. A **Mail** entry is refused when its expression resolves to something other than an email address. An expression that resolves to an empty value passes the check for every format.
 
 The table shows the expression as you entered it, because Gravitee stores the expression rather than the value it resolved to.
 
