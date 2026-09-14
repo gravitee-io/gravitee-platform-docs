@@ -65,5 +65,5 @@ The following table lists the resource plugins that support secrets, the minimum
 | ------- | -------------- | --------------------------------------------------------------------------------------------- |
 | Infobip | 4.11.0 +       | `apiKey`                                                                                      |
 | SMTP    | 4.11.0 +       | <ul><li>`password`</li><li>`oauth2ClientSecret`</li><li>`oauth2RefreshToken`</li></ul>        |
-| SFR     | 2.1.0 +        | `servciePassword`                                                                             |
+| SFR     | 2.1.0 +        | `servicePassword`                                                                             |
 | Orange  | 2.1.0 +        | `password`                                                                                    |
