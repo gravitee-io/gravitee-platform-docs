@@ -14,4 +14,5 @@ Create and configure the AI Gateway components that govern LLM, MCP, and A2A tra
 * [**Manage subscriptions**](../publish/manage-subscriptions.md). Subscribe an application to a plan, approve the request, and find the credential the AI Gateway checks.
 * [**Broadcast messages to proxy consumers**](broadcast-messages-to-proxy-consumers.md). Send a one-way announcement to the consumers of an LLM Proxy, MCP Proxy, or A2A Proxy.
 * [**Configure properties for your proxies**](configure-properties-for-your-proxies.md). Define the key/value properties that policies read at runtime, import them in bulk, or sync them from an HTTP endpoint.
+* [**Manage metadata for your proxies**](manage-metadata-for-your-proxies.md). Add the metadata entries that describe a proxy, override the entries it inherits from its environment, and reset them.
 * [**Configure resources for your proxies**](configure-resources-for-your-proxies.md). Create and manage the resources that the policies of a proxy reference at runtime.
