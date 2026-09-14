@@ -25,6 +25,10 @@ The installer of the daemon sets up a DNS resolver on the device that answers fo
 Because interception works per domain, the daemon sees every request that Claude Code sends to `api.anthropic.com`, including non-LLM calls such as telemetry and authentication. What happens to those depends on the routes of the agent. With the preset, only `/v1/messages` is forwarded to the gateway, and everything else passes through to Anthropic untouched. See [Everything else](connect/configure-edge-management.md#everything-else).
 
 {% hint style="info" %}
+**The daemon doesn't apply policies on the device.** It captures the request and forwards it. Your policies, quotas, and analytics are applied by the gateway, on the target API of the route, so no request is checked or blocked before it leaves the device.
+{% endhint %}
+
+{% hint style="info" %}
 A Claude Code session that was already open when the daemon was installed isn't intercepted. Start a new session after the installation.
 {% endhint %}
 
