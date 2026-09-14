@@ -94,7 +94,7 @@ Deleting an entry removes it from the environment, and APIs that inherited it lo
 
 The entries of an environment are consumed in three places:
 
-* **API metadata**. Each entry is a default value on every API in the environment. An API that defines the same key replaces the environment value with its own for that API.
+* **API metadata**. Each entry is a default value on every API in the environment. An API that defines the same key replaces the environment value with its own for that API. The **Metadata** page of an API proxy lists both, and sets, resets, and removes the API's own values. See [Configure API metadata](../api-management/build/configure-your-api-proxy/configure-api-metadata.md).
 * **Support requests**. A Developer Portal support request that isn't tied to an API is sent to the address held in the `email-support` entry. The platform refuses to send the request while that entry still holds its `support@change.me` default.
 * **Developer Portal pages**. A Developer Portal page that isn't attached to an API can reference environment metadata values by key in its content.
 
