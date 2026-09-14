@@ -9,7 +9,7 @@ description: What Edge Management does, how the Edge Daemon captures the AI traf
 Edge Management puts the Gravitee gateway between the AI coding agents that run on your managed devices and the AI providers they call. An Edge Daemon installed on each device intercepts the agents you choose and forwards their traffic to a target API on the gateway, where your policies, quotas, and analytics apply. The same daemon reports the AI providers that a device reaches directly, without the gateway.
 
 {% hint style="warning" %}
-The Edge Reactor listener is plain HTTP, and the Edge API that Edge Management publishes for an environment uses a keyless plan. The connections between a daemon and the gateway are neither encrypted by the reactor nor authenticated. Don't expose these endpoints over networks you don't trust. Restrict them to a private network, a VPN, or an IP-allowlisted corporate network.
+**Edge Management is a preview feature, and it isn't production-ready.** It's under active development, and authenticated, TLS-secured connections between a daemon and the gateway aren't available yet. The Edge Reactor listener is plain HTTP, and the Edge API that Edge Management publishes for an environment uses a keyless plan. That traffic is neither encrypted by the reactor nor authenticated. Don't expose these endpoints over networks you don't trust. Restrict them to a private network, a VPN, or an IP-allowlisted corporate network.
 {% endhint %}
 
 ## How the traffic flows
@@ -20,6 +20,10 @@ Once Edge Management is set up and the daemon runs on a device, the AI traffic t
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Intercepted traffic** | The daemon captures the request and forwards it to the target API you chose on the gateway. The gateway applies your policies, quotas, and analytics, then relays the request to the AI provider. This traffic appears on the **Proxied Traffic** page. |
 | **Shadow AI**           | The device reached an AI provider directly, without the gateway. The daemon reports that the connection happened. No traffic content is read. These connections appear on the **Detected Shadow AI** page.                                            |
+
+{% hint style="info" %}
+**The daemon doesn't apply policies on the device.** It captures the request and forwards it. Your policies, quotas, and analytics are applied by the gateway, on the target API of the route, so no request is checked or blocked before it leaves the device.
+{% endhint %}
 
 Interception works per domain. The daemon captures every request that an intercepted agent sends to one of its domains, and what happens next depends on the routes you declared for that agent. A request whose path matches a route is forwarded to that route's target API. A request that matches no route passes through to the provider untouched, unless you choose to send everything else to an API. See [Configure interception](../connect/configure-edge-management.md).
 
@@ -49,7 +53,8 @@ Edge Management is a module of the Gamma console. Its pages are grouped by what 
 
 Until the environment has a configuration, the sidebar offers only **Quick Start**. See [Set up Edge Management](../connect/set-up-edge-management.md).
 
-<figure><img src="../.gitbook/assets/edge-overview.png" alt="The Overview page of a configured environment, with the Edge API status, device, shadow AI, and proxied request counters, the Interception readiness card, and the recent activity cards"><figcaption><p>The Overview page of a configured environment.</p></figcaption></figure>
+<!-- TODO: Screenshot of The Overview page of a configured environment -->
+<figure><img src="../.gitbook/assets/PLACEHOLDER-edge-overview.png" alt="The Overview page of a configured environment, with the Edge API status, device, shadow AI, and proxied request counters, the Interception readiness card, and the recent activity cards"><figcaption><p>The Overview page of a configured environment.</p></figcaption></figure>
 
 ## Gateway-side requirements
 
