@@ -24,7 +24,7 @@ A transparent intermediary in front of an existing upstream MCP server. Proxy mo
 {% endtab %}
 
 {% tab title="Studio mode" %}
-An authoring environment that assembles catalog tools into a unified MCP entrypoint. In Studio mode, you select tools from the catalog to expose through a new MCP server that didn't exist as a single unit upstream.
+An authoring environment that assembles catalog assets into a unified MCP entrypoint. In Studio mode, you select tools, resources, prompts, and skills from the catalog to expose through a new MCP server that didn't exist as a single unit upstream.
 
 For Studio mode, see [Create an MCP Studio](create-an-mcp-studio.md).
 {% endtab %}
