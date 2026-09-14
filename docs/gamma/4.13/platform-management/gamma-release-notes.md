@@ -10,7 +10,19 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies gain export, import, and duplicate actions.
+Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. It also adds API resource configuration, consumer broadcasts, property import, and dynamic property sync to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies gain export, import, and duplicate actions. The Observability section of Agent Management builds and saves custom dashboards alongside the templates.
+
+#### AI Workspaces
+
+* The **Secure** group of the Agent Management sidebar adds an **AI Workspaces** section that gives a team governed access to a chosen set of AI models. Each workspace holds the models its members can call, the budgets they're metered against, and the members themselves.
+* Creating a workspace takes a name, a version, an optional description, and a default budget. The gateway path is derived from the name, and the name is refused when a workspace already uses it, when a proxy already uses the identifier derived from it, or when the derived path isn't available. Every workspace starts with one budget named `Default`.
+* Adding the first model from the AI model catalog provisions the Default LLM Proxy of the workspace, scoped to the selected models, and starts and deploys it. Adding more models updates and redeploys the same proxy. Removing the last model deletes the proxy.
+* A request naming a model the workspace doesn't hold is refused with `400` and the `model_not_found` code on the `/chat/completions`, `/responses`, `/embeddings`, and `/count_tokens` paths.
+* A budget caps the dollars each member assigned to it may spend per hour, day, week, or month, charged at each model's real per-request cost, and optionally caps the requests each member sends per second, minute, hour, or day. A member who exhausts the budget is refused with `429`. A model with no configured price consumes nothing from the budget. A workspace always keeps at least one budget.
+* Adding a user creates or reuses an application for them, subscribes it to the budget you pick, and issues an API key on that subscription. Each member's spend is counted against their own application, so members are metered independently and a re-added member returns to the same key and counter.
+* The **Users** page reveals and copies one member's key at a time, changes the budget a member is on, shows each member's access status and 30-day usage in tokens, requests, and cost, and revokes access by closing the subscription.
+* Budget changes are saved without deploying. Deploy the workspace from the out-of-sync banner to apply them.
+* See [AI Workspaces](../agent-management/build/ai-workspaces/README.md).
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -109,6 +121,16 @@ Agent Management adds API resource configuration, consumer broadcasts, property 
 * The remote URL is fetched by the Management API under the same `imports.whitelist` and `imports.allow-from-private` settings as the classic import-from-URL endpoints.
 * See [Export and import an LLM Proxy](../agent-management/build/export-and-import-an-llm-proxy.md) and [Duplicate an LLM Proxy](../agent-management/build/duplicate-an-llm-proxy.md).
 
+#### Custom observability dashboards
+
+* The **Dashboards** page of Agent Management builds dashboards alongside the templates Gravitee ships. **New dashboard** opens an empty draft, and **Duplicate as custom dashboard** turns a read-only template into an editable copy. The list tells the two apart with a **Custom** or **Template** badge, and adds **Description** and **Last updated** columns.
+* The editor arranges widgets on a 12-column grid by dragging and resizing them, and edits the dashboard title and description in place. A right-side panel configures each widget: pick one of six visualizations, **Timeseries**, **Bars**, **Doughnut**, **Top list**, **Query value**, or **KPI row**, then its metric, measure, grouping dimension, display options, and widget filters, against a preview that redraws as you type.
+* Dashboard filters are saved in the definition and applied to every widget. **Allow viewers to change value** decides whether a reader gets a locked chip or one they re-value, and a filter saved without a value becomes a slot the reader fills. **Set as default** stores the time range the dashboard opens with.
+* A **JSON** tab shows the definition as a document to copy, edit, and apply. The dashboard identifier and its creation and update dates aren't part of the document, widget identifiers are filled in and checked for duplicates, and every validation problem is reported at once.
+* A save refused because someone else saved first offers **Overwrite their version**, **Take their version**, or **Save as a copy**, with their version already on screen. A dashboard deleted while you had it open offers **Save as a new dashboard**.
+* The authoring actions are withdrawn when the environment's dashboards refuse the account, leaving the read-only template experience in place.
+* See [Build a custom dashboard](../agent-management/observe/dashboards/build-a-custom-dashboard.md).
+
 ### API Management
 
 API Management gains a file-based path for building and updating API proxies and a redesigned out-of-sync banner in the API detail workspace. Its Policy Studio controls are also clearer.
@@ -135,6 +157,34 @@ API Management gains a file-based path for building and updating API proxies and
 * In the **Add Policy** catalog, pointing to a row reveals an **Add** button that adds the policy directly, and the catalog header shows the phase you're adding to.
 * The **Add plan flow**, **Add common flow**, and **Add MCP method flow** controls in the flows sidebar and on the empty Policy Studio screen share one link treatment.
 * The changes apply to the Policy Studio of API Management and Agent Management, and to the platform policies of Platform Management.
+
+### Edge Management
+
+Edge Management replaces the single configuration page and its flat lists of DNS domains and routes. A guided setup creates the configuration, and a page per concern edits it. Interception is configured per intercepted agent, and each route names the target API that receives its traffic. The console checks that API against the requirements of the route before you deploy. The analytics pages gain their content, and a Devices page shows the fleet.
+
+#### Guided setup and one page per concern
+
+* A new environment starts on a **Quick Start** page that opens a four-step guided setup: **Gateway**, **Intercepted agents**, **Shadow AI**, and **Deploy**. Nothing is deployed until the last step, which publishes an Edge API for the environment with a keyless plan.
+* Once the environment is configured, the sidebar groups the pages into **General** with **Overview**, **Configuration** with **Gateway**, **Interception**, **Shadow AI**, and **Daemon deployment**, and **Analytics** with **Detected Shadow AI**, **Proxied Traffic**, and **Devices**. Each configuration page saves its own part of the configuration.
+* The **Overview** page shows the Edge API status, the active daemons, the recent shadow AI detections, the recent device activity, and an **Interception readiness** card with the verdict of each configured agent.
+* See [Set up Edge Management](../edge-management/connect/set-up-edge-management.md).
+
+#### Interception per agent
+
+* The **Interception** page configures interception per intercepted agent. An agent owns the domains it calls and the routes under those domains, and each route names the target API that receives it. **Claude Code** is a preset with a fixed domain, decoder format, vendor, and route. **Custom agent** lets you declare everything yourself. **Codex** is listed as coming soon.
+* A route path matches exactly, or as a prefix when it ends with `*`. Requests that match no route pass through to the provider untouched by default, or go to an API you pick under **Everything else**.
+* The target API of a route is chosen from a picker that searches the APIs of the environment, one entry per API, with a second level for the paths of an API that exposes several. An API published on a virtual host can't be a target, and the picker says how many matching APIs it couldn't offer.
+* **Create the target API for this route** builds an LLM Proxy API from the preset of the agent, with a published keyless plan and every model accepted. It's created stopped and undeployed.
+* Each route of a preset is checked against its target API and reports **Ready**, **Check**, **Will not intercept**, **Not verified**, or **Not checked**. A verdict never blocks a save: a dialog names the agents concerned first.
+* A configuration that still carries the legacy DNS domains and routes shows them read-only under **Legacy interception** and can't be saved until they're cleared with **Clear all**. Intercepted agents require Edge Daemon 2.0.0 or later.
+* See [Configure interception](../edge-management/connect/configure-edge-management.md) and [Target API reference](../edge-management/connect/proxy-api-reference.md).
+
+#### Analytics and devices
+
+* **Detected Shadow AI** lists the direct connections of the devices to the watched provider domains, with the device, the provider, the process, and the number of detections.
+* **Proxied Traffic** lists the intercepted requests that reached the gateway, with the device, the tool, the provider, the model, and the token counts.
+* **Devices** lists the devices that run the daemon, with their status, their daemon version, and their heartbeats. A device is **Active** when a heartbeat was received in the last 2 minutes.
+* See [Monitor detected shadow AI](../edge-management/observe/monitor-shadow-ai-traffic.md), [Monitor proxied traffic](../edge-management/observe/monitor-proxied-traffic.md), and [Monitor your devices](../edge-management/observe/monitor-devices.md).
 
 ### Event Stream Management
 

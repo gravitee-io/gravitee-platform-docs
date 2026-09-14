@@ -20,5 +20,9 @@ The following core permissions govern access to Agent Management capabilities wi
 | **API_PLAN** | Controls the ability to list, create, publish, and close the plans of LLM Proxies, MCP Proxies, and A2A Proxies. |
 | **ENVIRONMENT_API** | Controls the ability to create new APIs, including LLM Proxies, MCP Proxies, and A2A Proxies. |
 | **API_DEFINITION** | Controls the ability to update the configuration of existing proxies, including modifying the tool composition of an MCP Studio or overriding parameters. |
+| **ENVIRONMENT_AI_WORKSPACE** | Controls the ability to list AI Workspaces in the environment and create new ones. |
+| **AI_WORKSPACE_DEFINITION** | Controls the ability to read, update, and delete an AI Workspace, manage the models it exposes, change its analytics settings, and deploy it. |
+| **AI_WORKSPACE_PLAN** | Controls the ability to list, create, update, and delete the budgets of an AI Workspace, and to read and edit its router. |
+| **AI_WORKSPACE_USER** | Controls the ability to list the members of an AI Workspace, add and remove them, reveal a member's API key, change the budget a member is metered against, and read their usage. |
 
 To manage roles and assign these permissions to users, navigate to the **Settings > Roles** section of the console.
