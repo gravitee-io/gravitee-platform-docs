@@ -19,7 +19,7 @@ For a complete reference on all creation options, see [Create an API proxy](../b
 
 ## Step 1: Open the API creation wizard
 
-<figure><img src="../../.gitbook/assets/gamma-apis-list.png" alt="API Proxies list in the Gamma APIM module"><figcaption><p>The API Proxies list. Select <strong>Create New Proxy</strong> (top-right) to open the creation wizard.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-apis-list.png" alt="API Proxies list in the Gamma APIM module"><figcaption><p>The API Proxies list. Select <strong>Create New Proxy</strong> (top-right) to open the creation wizard.</p></figcaption></figure>
 
 1. From the Gamma console sidebar, select **API Management**.
 2. Navigate to the **APIs** list.
@@ -93,6 +93,6 @@ A successful response returns the echo payload from the upstream, confirming tha
 ## Next steps
 
 * **Secure your API** — Replace the keyless plan with an [API Key or JWT plan](../build/secure-your-api-proxy.md) before exposing the API externally.
-* **Configure advanced settings** — Add CORS rules, sharding tags, and entrypoint customization. See [Configure your API proxy](../build/configure-your-api-proxy/README.md).
+* **Configure advanced settings** — Add CORS rules, sharding tags, and entrypoint customization. See [API proxies](../manage/api-proxies/README.md).
 * **Establish consumer access** — Register applications and create subscriptions. See [Establish consumer access](../build/configure-your-api-proxy/establish-consumer-access.md).
 * **Expose as an API Tool** — Bridge your API to the AI agent layer by creating an API Tool in the Catalog. See [Create API tools](../../agent-management/import/create-api-tools.md).

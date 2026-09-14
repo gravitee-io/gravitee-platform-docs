@@ -16,7 +16,7 @@ To open the page, follow these steps:
 
 <!-- TODO: Screenshot of the API Properties page with defined properties -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-properties-page.png" alt=""><figcaption><p>The API Properties page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-properties-page.png" alt=""><figcaption><p>The API Properties page</p></figcaption></figure>
 
 Once properties exist, the page shows three counters, **Total properties**, **Encrypted**, and `Dynamic (auto-synced)`, above the **Defined properties** table. The table lists each property's **Key**, **Value**, and **Characteristics**, and a search field filters properties by key.
 
@@ -91,4 +91,4 @@ To verify a property is working as expected, follow these steps:
 
 <!-- TODO: Screenshot of a policy field referencing an API property -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-properties-el.png" alt=""><figcaption><p>A policy field referencing an API property</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-properties-el.png" alt=""><figcaption><p>A policy field referencing an API property</p></figcaption></figure>

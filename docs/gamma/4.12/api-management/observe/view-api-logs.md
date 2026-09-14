@@ -7,6 +7,10 @@ description: Inspect individual request logs and full request traces for an API 
 # View API logs
 API logs provide a detailed record of every request processed by the API Gateway for a specific API proxy. Gamma exposes native log viewing and a **Trace Explorer** under the Observability section, giving you full request traces and span data to help you debug and analyze your API traffic.
 
+{% hint style="warning" %}
+The Trace Explorer only shows data once the platform-side OpenTelemetry pipeline is wired. The Gateway has to export traces, a Collector has to write them to Elasticsearch, and the Management API has to read from the same indices. All three are off by default. For the settings, see [Configure OpenTelemetry tracing and logs](../../platform-management/configure-opentelemetry-tracing-and-logs.md).
+{% endhint %}
+
 ## Access logs and traces
 
 1. From the Gamma console sidebar, select **API Management**.

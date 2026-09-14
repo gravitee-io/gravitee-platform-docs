@@ -2,7 +2,7 @@
 description: Everything in the Gravitee Gamma 4.13 release, across Agent, API, Event Stream, and Platform Management. Browse the highlights.
 ---
 
-# Gamma Release Notes
+# Release Notes
 
 ## Release Date: TBD
 
@@ -46,7 +46,7 @@ description: Everything in the Gravitee Gamma 4.13 release, across Agent, API, E
 * The **This API is out of sync** banner replaces the **This API has undeployed changes.** banner in the API detail workspace.
 * The new banner carries an explanation: **Your latest changes are not live yet. Deploy to push them to the gateway.**
 * The **Deploy API** button on the banner and the **Out of sync** state badge in the sidebar header are unchanged.
-* See [Configure your API proxy](../api-management/build/configure-your-api-proxy/README.md).
+* See [API proxies](../api-management/manage/api-proxies/README.md).
 
 ### Event Stream Management
 

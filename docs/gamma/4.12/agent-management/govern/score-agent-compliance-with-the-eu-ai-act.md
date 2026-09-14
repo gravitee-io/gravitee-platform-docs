@@ -49,13 +49,13 @@ The agent's overall status summarizes every active framework:
 
 <!-- TODO: Screenshot of the compliance dashboard showing the EU AI Act framework card with per-agent scores -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-compliance-dashboard-eu-ai-act.png" alt=""><figcaption><p>The compliance dashboard scores every agent in the environment against the active frameworks.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-compliance-dashboard-eu-ai-act.png" alt=""><figcaption><p>The compliance dashboard scores every agent in the environment against the active frameworks.</p></figcaption></figure>
 
 Each agent's catalog entry also carries its own compliance view. It drills down into which controls passed, which failed, and which weren't assessed, so the score is explainable rather than opaque.
 
 <!-- TODO: Screenshot of an agent's Compliance tab showing the per-control drill-down -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-agent-compliance-tab-drilldown.png" alt=""><figcaption><p>The agent's compliance view explains the score control by control.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-agent-compliance-tab-drilldown.png" alt=""><figcaption><p>The agent's compliance view explains the score control by control.</p></figcaption></figure>
 
 ## Activate the framework
 
@@ -68,7 +68,7 @@ Activation is scoped to the environment. Once the framework is active, every age
 3. On the **EU AI Act** card, turn on the switch. Its label changes from **Inactive** to **Active**, and the **Compliance threshold** field appears.
 4. Optional: to change the threshold, enter a whole number from 1 to 100 in **Compliance threshold**, and then click **Save**. Until you save a different value, the field shows the framework's recommended threshold of 100 percent.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-compliance-eu-ai-act-active.png" alt="The Compliance page in the Gamma console with the EU AI Act framework card switched to Active and its Compliance threshold field showing 100 percent"><figcaption><p>The Compliance page lists the built-in frameworks. The EU AI Act framework is active for this environment, with its compliance threshold set to 100 percent.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-compliance-eu-ai-act-active.png" alt="The Compliance page in the Gamma console with the EU AI Act framework card switched to Active and its Compliance threshold field showing 100 percent"><figcaption><p>The Compliance page lists the built-in frameworks. The EU AI Act framework is active for this environment, with its compliance threshold set to 100 percent.</p></figcaption></figure>
 
 ## Remediate a failing control
 
@@ -81,4 +81,4 @@ Applying gateway controls requires a linked proxy. If the agent isn't linked to 
 
 <!-- TODO: Screenshot of the remediation recommendations with the apply action -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-compliance-remediation-apply.png" alt=""><figcaption><p>Remediation turns a score into a list of actions, and gateway controls can be applied directly.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-compliance-remediation-apply.png" alt=""><figcaption><p>Remediation turns a score into a list of actions, and gateway controls can be applied directly.</p></figcaption></figure>

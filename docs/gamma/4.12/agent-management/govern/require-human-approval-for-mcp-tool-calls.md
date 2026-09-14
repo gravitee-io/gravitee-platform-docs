@@ -22,7 +22,7 @@ An approval rule carries a name, an optional description, and the conditions und
 
 <!-- TODO: Screenshot of creating an approval rule against an MCP tool -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-hitl-approval-rule-create.png" alt=""><figcaption><p>An approval rule declares which tool it guards and the conditions that trigger it.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-hitl-approval-rule-create.png" alt=""><figcaption><p>An approval rule declares which tool it guards and the conditions that trigger it.</p></figcaption></figure>
 
 ### Trigger on the call's arguments
 
@@ -42,7 +42,7 @@ The approvals dashboard shows each pending request with the context needed to de
 
 <!-- TODO: Screenshot of the approvals dashboard with a pending request open -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-hitl-approvals-dashboard.png" alt=""><figcaption><p>A pending request carries the context the approver decides on.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-hitl-approvals-dashboard.png" alt=""><figcaption><p>A pending request carries the context the approver decides on.</p></figcaption></figure>
 
 ## Audit decisions and track volume
 
@@ -50,4 +50,4 @@ Every approval decision is recorded durably, so there's an auditable trace of wh
 
 <!-- TODO: Screenshot of the HITL insights dashboard -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-hitl-insights-dashboard.png" alt=""><figcaption><p>Insights cover volume, decision time, pending count, and approved against rejected.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-hitl-insights-dashboard.png" alt=""><figcaption><p>Insights cover volume, decision time, pending count, and approved against rejected.</p></figcaption></figure>

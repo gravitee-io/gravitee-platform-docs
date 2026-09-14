@@ -61,7 +61,7 @@ To connect the Atlassian MCP server, complete the following steps:
 
    The **Transport** is fixed to **Streamable HTTP**.
 
-    <figure><img src="../../../.gitbook/assets/gamma-mcp-atlassian-add-server.png" alt="The Select server step of the Add MCP server wizard, with Atlassian's endpoint entered"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-mcp-atlassian-add-server.png" alt="The Select server step of the Add MCP server wizard, with Atlassian's endpoint entered"><figcaption></figcaption></figure>
 
 6. Select **Test connection**.
 7. On the **Configure connection** step, select **Static credentials**, and then set the credential type to **Basic auth**. Enter the email address that owns the token as the username, and then enter the API token as the password. Discovery uses the credential to read the server's capabilities. It is stored on the Catalog entry and is not used for runtime traffic. Runtime traffic authenticates with the credential you set on the Composite MCP Server.
@@ -86,7 +86,7 @@ To confirm that the Atlassian MCP server is connected, complete the following st
 3. Select the server to open its detail page, and then confirm the **Overview** card shows the protocol version, an **Auth type** of **Basic auth**, and a **Capabilities** row with a tool count.
 4. Confirm that the tools you plan to compose appear under **Tools**. Treat the discovered list as authoritative for this endpoint, because Atlassian's documentation describes a different, finer-grained catalog for its other endpoints.
 
-    <figure><img src="../../../.gitbook/assets/gamma-mcp-servers-catalog.png" alt="The MCP Servers catalog listing the registered Atlassian server"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-mcp-servers-catalog.png" alt="The MCP Servers catalog listing the registered Atlassian server"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Authorization policies reference tools by the server's slug, `atlassian-mcp-server`, and not by the entity ID shown alongside it. A resource written as `MCPTool::"mcp-server.atlassian-mcp-server.getjiraissue"` carries the entity-ID prefix, matches nothing, and is denied by default.
@@ -111,7 +111,7 @@ Fine-grained authorization requires OAuth2 with Gravitee as the authorization se
 
 5. In the **Compose** step, select the Atlassian MCP server from the palette, and then select only the five tools listed at the start of this section.
 
-    <figure><img src="../../../.gitbook/assets/gamma-mcp-atlassian-compose-tools.png" alt="The Compose step showing all 17 discovered Atlassian tools with the 5 composed ones selected"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-mcp-atlassian-compose-tools.png" alt="The Compose step showing all 17 discovered Atlassian tools with the 5 composed ones selected"><figcaption></figcaption></figure>
 
 6. In the **Connect** step, select the Atlassian MCP server, set the credential type to **Basic auth**, and then enter the email address and API token. The Gateway injects the pair as an `Authorization` header on every upstream call. The token is held once rather than distributed to each agent.
 7. In the **Review** step, confirm the composition, and then select **Create & deploy**.
@@ -234,7 +234,7 @@ These statements name a single caller. Enabling fine-grained authorization sets 
 To write `principal in Group::"..."` instead, the Policy Decision Point has to know the group memberships. Sync your identity provider's groups into Authorization Management as entities and set the subject type to match. A group statement evaluated against an empty entity store matches nothing, which denies a `permit` and silently disables a `forbid`.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/gamma-mcp-authorization-policies.png" alt="The deployed authorization policies listed in Authorization Management"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-mcp-authorization-policies.png" alt="The deployed authorization policies listed in Authorization Management"><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 Write the tool name in lowercase in the resource identifier. The console, the Catalog, and `tools/list` show each tool's own casing, and the policy engine evaluates the lowercased form.

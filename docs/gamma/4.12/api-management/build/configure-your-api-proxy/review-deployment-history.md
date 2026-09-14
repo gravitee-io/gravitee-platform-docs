@@ -17,7 +17,7 @@ To open the page, follow these steps:
 
 <!-- TODO: Screenshot of the Deployment History table -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-deployment-history.png" alt=""><figcaption><p>The Deployment History page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-deployment-history.png" alt=""><figcaption><p>The Deployment History page</p></figcaption></figure>
 
 The table lists each deployment's **Version**, **Date**, **User**, and **Label** columns. The most recent deployment carries the **live** badge. The label is the optional deployment label entered in the **Deploy your API** dialog. Before the first deployment, the page reads **No deployments yet**.
 
@@ -53,4 +53,4 @@ To verify the deployment history is working as expected, follow these steps:
 
 <!-- TODO: Screenshot of the diff dialog comparing two versions -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-deployment-diff.png" alt=""><figcaption><p>Comparing two deployed versions</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-deployment-diff.png" alt=""><figcaption><p>Comparing two deployed versions</p></figcaption></figure>

@@ -33,11 +33,15 @@ The **Models** step sets the proxy type, connects the LLM Proxy to an upstream m
 1. Under **Choose a proxy type**, select **Universal LLM Proxy**. It aggregates models from multiple providers behind one endpoint that speaks the OpenAI, Anthropic, and Gemini APIs.
 2. Under **Models**, select **Add provider**, and then configure the following:
 
-| Field              | Value                                              | Notes                                                                                                |
-| ------------------ | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **Provider**       | Select your model provider, such as Anthropic       | Required. Route targets are **OpenAI**, **Anthropic**, **Google**, and **AWS Bedrock**.              |
-| **Model**          | Enter the model to route to, such as Claude Sonnet  | Required. Available models depend on the selected provider.                                          |
-| **Authentication** | Choose **API Key** and enter your provider API key | Required. You can authenticate with an API key or bearer token. For this quickstart, use an API key. |
+| Field              | Value                                                                                 | Notes                                                                                                                   |
+| ------------------ | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **Provider name**  | Enter a name, such as `Anthropic`                                                     | Required. The name identifies the provider within the proxy.                                                            |
+| **Provider**       | Select the API format of your provider, such as **Anthropic**                         | Required. The list offers **OpenAI**, **OpenAI compatible**, **Gemini**, **Bedrock**, **Anthropic**, and **Vertex AI**. |
+| **Provider URL**   | Enter the URL of the provider, such as `https://api.anthropic.com`                    | Required.                                                                                                               |
+| **Models**         | Select **Add**, and then enter the **Model** to route to, such as `claude-sonnet-4-6` | Required. Add at least one model.                                                                                       |
+| **Authentication** | Select **API Key**, and then enter your provider API key in **API Key**               | Required. The **Header name containing the API Key** is `x-api-key` by default.                                         |
+
+Select **Add provider** at the bottom of the card to add the provider.
 
 3. Under **Details**, enter a **Proxy name**, such as `My First LLM Proxy`. The server generates the **Entity ID** from the name and checks that it is still free. **Version number** defaults to `1.0`.
 

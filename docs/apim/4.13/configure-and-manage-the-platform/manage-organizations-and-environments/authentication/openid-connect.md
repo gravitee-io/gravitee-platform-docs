@@ -152,6 +152,7 @@ To configure OpenID Connect authentication using the APIM Console, follow these 
      * Client Secret
      * Token Endpoint
      * Token Introspection Endpoint (optional)
+     * Client Authentication Method (optional). Decides how APIM sends its client credentials to the token and introspection endpoints. See [Choose how APIM authenticates to the identity provider](README.md#choose-how-apim-authenticates-to-the-identity-provider).
      * Authorize Endpoint
      * UserInfo Endpoint
      * UserInfo Logout Endpoint (optional)
@@ -163,6 +164,7 @@ To configure OpenID Connect authentication using the APIM Console, follow these 
      * Last name (optional)
      * Email (optional)
      * Picture (optional)
+   * **Persisted Claims** (optional): the claims to store on each user at login, for injection into dynamic client registration requests. See [Inject identity provider claims into DCR requests](../inject-identity-provider-claims-into-dcr-requests.md).
 
 When you are done, select **Create.** Then go back to the identity provider list and click the activation toggle on the provider's row, so the **Status** column reads **Activated**. That organization activation is what puts the provider on the Console login page. To show it on the Developer Portal as well, turn **Allow portal authentication to use this identity provider** on, then activate the provider on the **Authentication** page of that environment's settings.
 {% endtab %}
@@ -370,6 +372,7 @@ To configure OpenID Connect authentication using the APIM UI, follow these steps
      * Client Secret
      * Token Endpoint
      * Token Introspection Endpoint (optional)
+     * Client Authentication Method (optional). Decides how APIM sends its client credentials to the token and introspection endpoints. See [Choose how APIM authenticates to the identity provider](README.md#choose-how-apim-authenticates-to-the-identity-provider).
      * Authorize Endpoint
      * UserInfo Endpoint
      * UserInfo Logout Endpoint (optional)
@@ -381,6 +384,7 @@ To configure OpenID Connect authentication using the APIM UI, follow these steps
      * Last name (optional)
      * Email (optional)
      * Picture (optional)
+   * **Persisted Claims** (optional): the claims to store on each user at login, for injection into dynamic client registration requests. See [Inject identity provider claims into DCR requests](../inject-identity-provider-claims-into-dcr-requests.md).
 
 When you are done, select **Create.** Then go back to the identity provider list and click the activation toggle on the provider's row, so the **Status** column reads **Activated**. That organization activation is what puts the provider on the Console login page. To show it on the Developer Portal as well, turn **Allow portal authentication to use this identity provider** on, then activate the provider on the **Authentication** page of that environment's settings.
 {% endtab %}

@@ -84,5 +84,5 @@ On a product's **Plans** page, **Create plan** opens a menu offering **API Key**
 ## Next steps
 
 * [Manage product APIs](manage-product-apis.md). Attach and detach API proxies.
-* [Configure API products](README.md). Review where each configuration area lives in the product sidebar.
+* [API Products](../../manage/api-products/README.md). Review where each configuration area lives in the product sidebar.
 * [Create API Products](../api-products.md). Create a product and work through the onboarding checklist.

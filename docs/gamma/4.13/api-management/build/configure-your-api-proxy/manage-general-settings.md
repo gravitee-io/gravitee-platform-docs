@@ -16,7 +16,7 @@ To open the page, follow these steps:
 
 <!-- TODO: Screenshot of the General page of an API proxy -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-general-page.png" alt=""><figcaption><p>The General page of an API proxy</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-general-page.png" alt=""><figcaption><p>The General page of an API proxy</p></figcaption></figure>
 
 {% hint style="info" %}
 When the API proxy is managed by the Kubernetes operator, the page shows the banner **This API is managed by the Kubernetes operator. Configuration changes must be made in your Kubernetes manifests.** and every field is read-only.
@@ -87,4 +87,4 @@ To verify the general settings are working as expected, follow these steps:
 
 <!-- TODO: Screenshot of the Details panel showing the refreshed Updated timestamp -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-general-updated.png" alt=""><figcaption><p>The Details panel after a save</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-general-updated.png" alt=""><figcaption><p>The Details panel after a save</p></figcaption></figure>

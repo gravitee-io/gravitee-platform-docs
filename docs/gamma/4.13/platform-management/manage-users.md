@@ -23,7 +23,7 @@ The users table displays the following columns:
 
 Use the search field to filter by name, email, or ID. Searching a full email address finds the user, because the lookup uses the part before the `@`. The table paginates 10 rows at a time by default, and offers 25, 50, and 100.
 
-<figure><img src="../.gitbook/assets/gamma-platform-users-list.png" alt=""><figcaption><p>The Users page lists the users of the organization with their status, identity provider, and last login. Names and email addresses are obscured in this example.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-users-list.png" alt=""><figcaption><p>The Users page lists the users of the organization with their status, identity provider, and last login. Names and email addresses are obscured in this example.</p></figcaption></figure>
 
 ## Add a user
 
@@ -110,7 +110,7 @@ To add the user to a group, complete the following steps:
 4. Select the roles the membership grants. Select the **Group admin role** checkbox to make the user an administrator of the group, and select an **API Role**, **API Product Role**, **Application Role**, or **Integration Role** as needed. At least one of the five is required.
 5. Select **Save**.
 
-<figure><img src="../.gitbook/assets/gamma-platform-user-add-to-group.png" alt=""><figcaption><p>The Add a group with roles panel. Pick the group, then set the roles the membership grants.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-user-add-to-group.png" alt=""><figcaption><p>The Add a group with roles panel. Pick the group, then set the roles the membership grants.</p></figcaption></figure>
 
 System roles appear in the role lists but aren't selectable.
 
@@ -130,7 +130,7 @@ Under the group table, three tables list what the user is a member of in the sel
 
 Each table has its own search field and pagination, and each name links to the resource.
 
-<figure><img src="../.gitbook/assets/gamma-platform-user-group-memberships.png" alt=""><figcaption><p>The APIs and API Products tables under the Group Memberships card. This user belongs to no group and holds no resource membership in the selected environment.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-user-group-memberships.png" alt=""><figcaption><p>The APIs and API Products tables under the Group Memberships card. This user belongs to no group and holds no resource membership in the selected environment.</p></figcaption></figure>
 
 ## Convert a user to a service account
 
@@ -167,7 +167,7 @@ The dialog then shows the token value once, together with a ready-made `curl` ex
 
 To revoke a token, select the revoke action in the token's row, and confirm in the **Revoke a token** dialog.
 
-<figure><img src="../.gitbook/assets/gamma-platform-user-tokens.png" alt=""><figcaption><p>The Personal Access Tokens card for a user who holds no token yet. API and application names are obscured in this example.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-user-tokens.png" alt=""><figcaption><p>The Personal Access Tokens card for a user who holds no token yet. API and application names are obscured in this example.</p></figcaption></figure>
 
 ## Delete a user
 
@@ -196,7 +196,7 @@ To verify that user management is working as expected, follow these steps:
 8. Select a role, and then close the picker.
 9. Confirm that the role appears under **Organization Roles** on the profile card.
 
-<figure><img src="../.gitbook/assets/gamma-platform-user-detail.png" alt=""><figcaption><p>A user's detail page. The assigned role appears under Organization Roles on the profile card and in the Organization Roles picker below it. The name, email address, and environment name are obscured in this example.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-user-detail.png" alt=""><figcaption><p>A user's detail page. The assigned role appears under Organization Roles on the profile card and in the Organization Roles picker below it. The name, email address, and environment name are obscured in this example.</p></figcaption></figure>
 
 ## Next steps
 

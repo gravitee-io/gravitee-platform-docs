@@ -59,14 +59,14 @@ To create an API proxy from a definition file, follow these steps:
 
     <!-- TODO: Screenshot of the Create API Proxy page with the Import API card expanded to show the three format cards -->
 
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-import-format-cards.png" alt=""><figcaption><p>The <strong>Import API</strong> card expands to show one card per import format.</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-import-format-cards.png" alt=""><figcaption><p>The <strong>Import API</strong> card expands to show one card per import format.</p></figcaption></figure>
 5. In the **Configure file source** section, click **Local file** or **Remote URL**.
 6. Provide the source. For a local file, click the upload area and select the file. For a remote URL, enter the URL in the field.
 7. Optional: for an OpenAPI specification or a WSDL, set the toggles in the **Options** section. See [Import options](#import-options).
 
     <!-- TODO: Screenshot of the import page showing the Configure file source and Options sections -->
 
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-import-create-form.png" alt=""><figcaption><p>The import page collects the file source and, for OpenAPI and WSDL, the import options.</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-import-create-form.png" alt=""><figcaption><p>The import page collects the file source and, for OpenAPI and WSDL, the import options.</p></figcaption></figure>
 8. Click **Create API**.
 
 The console creates the API proxy and opens its **Overview** page. The new API proxy is in the **Stopped** state. Deploy it to push the imported configuration to the Gateway.
@@ -83,7 +83,7 @@ Importing into an existing API proxy replaces its configuration with the content
 
     <!-- TODO: Screenshot of the Import API Definition panel on the General page, with the API format tabs visible -->
 
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-import-update-panel.png" alt=""><figcaption><p>The <strong>Import API Definition</strong> panel opens from the action strip on the <strong>General</strong> page.</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-import-update-panel.png" alt=""><figcaption><p>The <strong>Import API Definition</strong> panel opens from the action strip on the <strong>General</strong> page.</p></figcaption></figure>
 6. In the **Configure file source** section, click **Local file** or **Remote URL**.
 7. Provide the source. For a local file, click the upload area and select the file. For a remote URL, enter the URL in the field.
 8. Optional: for an OpenAPI specification or a WSDL, set the toggles in the **Options** section. See [Import options](#import-options).
@@ -159,11 +159,11 @@ To verify the import worked as expected, follow these steps:
 
     <!-- TODO: Screenshot of the Overview page of an imported API proxy showing Gateway Endpoint and Upstream Service -->
 
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-import-verification-overview.png" alt=""><figcaption><p>The <strong>Overview</strong> page of an API proxy created from an OpenAPI specification.</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-import-verification-overview.png" alt=""><figcaption><p>The <strong>Overview</strong> page of an API proxy created from an OpenAPI specification.</p></figcaption></figure>
 5. In the **GENERAL** section, click **General**, and confirm the name and version match the imported file.
 
 ## Next steps
 
 * [Secure your API proxy](secure-your-api-proxy.md). Attach a security plan to the imported API proxy.
-* [Configure your API proxy](configure-your-api-proxy/README.md). Review endpoints, consumer access, and policies.
+* [API proxies](../manage/api-proxies/README.md). Review endpoints, consumer access, and policies.
 * [Create an API proxy](create-an-api-proxy.md). Build an API proxy from scratch or from a template instead.

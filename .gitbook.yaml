@@ -84,3 +84,16 @@ redirects:
   api-designer/overview/readme: gravitee-cloud/api-designer/guides/api-designer-workspace/README.md
   # deprecated telepresence page — send traffic home
   telepresence/canary-deployments: README.md
+
+  # DOC-1848 Gamma top-level nav: sources that belong to the retiring gravitee-gamma
+  # section and cross a module boundary, so no per-module space can own them.
+  gravitee-gamma/agent-management/edge-daemon: gamma/4.12/edge-management/get-started/README.md
+  gravitee-gamma/agent-management/edge-daemon/connect-claude-code-to-daemon: gamma/4.12/edge-management/connect/README.md
+  gravitee-gamma/event-management/get-started: gamma/4.12/event-stream-management/get-started/README.md
+  gravitee-gamma/event-management/get-started/create-your-first-kafka-topic: gamma/4.12/event-stream-management/get-started/README.md
+  gravitee-gamma/event-management/get-started/event-management-overview: gamma/4.12/event-stream-management/get-started/event-stream-management-overview.md
+  gravitee-gamma/event-management/build/create-a-kafka-service: gamma/4.12/event-stream-management/build/create-a-kafka-service-with-a-registered-cluster.md
+  gravitee-gamma/event-management/explorer: gamma/4.12/event-stream-management/get-started/README.md
+  gravitee-gamma/event-management/explorer/create-kafka-topics: gamma/4.12/event-stream-management/get-started/README.md
+  gravitee-gamma/event-management/explorer/inspect-kafka-messages: gamma/4.12/event-stream-management/get-started/README.md
+  gravitee-gamma/event-management/explorer/manage-connections: gamma/4.12/event-stream-management/get-started/README.md

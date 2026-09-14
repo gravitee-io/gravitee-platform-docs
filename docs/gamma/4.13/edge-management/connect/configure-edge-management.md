@@ -25,7 +25,7 @@ To configure Edge Management, complete the following steps:
 
 The Edge Daemon uses connection URLs to communicate with the Gravitee API Gateway and the Edge Reactor. To configure the Edge Daemon for the Gateway, complete the following fields:
 
-<figure><img src="../../.gitbook/assets/edge-config-gateway.png" alt="Gateway section: Gateway URL and Reactor URL, locked after creation"><figcaption><p>The Gateway and Reactor URLs are locked once the configuration is created.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-config-gateway.png" alt="Gateway section: Gateway URL and Reactor URL, locked after creation"><figcaption><p>The Gateway and Reactor URLs are locked once the configuration is created.</p></figcaption></figure>
 
 The following table describes each field:
 
@@ -42,7 +42,7 @@ The Gateway URL and Reactor URL are locked after the configuration is first crea
 
 Configure how the daemon intercepts traffic and routes it to gateway APIs.
 
-<figure><img src="../../.gitbook/assets/edge-config-proxy.png" alt="Proxy section: DNS domains and routes mapping paths to gateway APIs"><figcaption><p>DNS domains to intercept, and routes mapping each path to a gateway API.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-config-proxy.png" alt="Proxy section: DNS domains and routes mapping paths to gateway APIs"><figcaption><p>DNS domains to intercept, and routes mapping each path to a gateway API.</p></figcaption></figure>
 
 Configure the following settings:
 
@@ -65,7 +65,7 @@ LLM calls to `/v1/messages` are routed to the **LLM Proxy API**. All other traff
 
 Detect direct connections to AI providers that bypass the Gateway.
 
-<figure><img src="../../.gitbook/assets/edge-config-shadow-ai.png" alt="Shadow AI monitoring section: monitored domains and report interval"><figcaption><p>Monitored domains and report interval for shadow AI detection.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-config-shadow-ai.png" alt="Shadow AI monitoring section: monitored domains and report interval"><figcaption><p>Monitored domains and report interval for shadow AI detection.</p></figcaption></figure>
 
 Configure the following settings:
 

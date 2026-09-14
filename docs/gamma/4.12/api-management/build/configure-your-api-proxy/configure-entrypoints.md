@@ -18,7 +18,7 @@ When the API proxy is managed by the Kubernetes operator, the page is read-only.
 
 <!-- TODO: Screenshot of the Entrypoints page in context-path mode -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-entrypoints-page.png" alt=""><figcaption><p>The Entrypoints page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-entrypoints-page.png" alt=""><figcaption><p>The Entrypoints page</p></figcaption></figure>
 
 ## Manage context paths
 
@@ -55,4 +55,4 @@ To verify an entrypoint is working as expected, follow these steps:
 
 <!-- TODO: Screenshot of the Exposed entrypoints card with a resolved gateway URL -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-entrypoints-exposed.png" alt=""><figcaption><p>The Exposed entrypoints card</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-entrypoints-exposed.png" alt=""><figcaption><p>The Exposed entrypoints card</p></figcaption></figure>

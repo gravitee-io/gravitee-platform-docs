@@ -16,7 +16,7 @@ To open the page, follow these steps:
 
 <!-- TODO: Screenshot of the Compose broadcast form -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-broadcasts-compose.png" alt=""><figcaption><p>The Compose broadcast form</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-broadcasts-compose.png" alt=""><figcaption><p>The Compose broadcast form</p></figcaption></figure>
 
 ## Send a broadcast
 
@@ -42,4 +42,4 @@ To verify a broadcast is working as expected, follow these steps:
 
 <!-- TODO: Screenshot of the received portal notification -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-broadcast-received.png" alt=""><figcaption><p>A received broadcast</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-broadcast-received.png" alt=""><figcaption><p>A received broadcast</p></figcaption></figure>

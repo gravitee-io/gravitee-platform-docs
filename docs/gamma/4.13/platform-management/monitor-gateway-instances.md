@@ -29,7 +29,7 @@ The list is scoped to the environment selected in the console, and it returns to
 
 When the table has no rows, it shows **There are no Gateway instances (yet).** and explains that instances appear once they register a heartbeat with the environment.
 
-<figure><img src="../.gitbook/assets/gamma-platform-gateways-list.png" alt=""><figcaption><p>The Gateways page lists the instances registered with the selected environment.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-gateways-list.png" alt=""><figcaption><p>The Gateways page lists the instances registered with the selected environment.</p></figcaption></figure>
 
 ## Read an instance's status
 
@@ -53,7 +53,7 @@ To open an instance, select its name in the **Name** column. The header carries 
 
 The detail view has an **Environment** tab and a **Monitoring** tab. The **Environment** tab holds three sections, described in the following subsections. Each section has its own search field, paginates 10 rows at a time by default, and offers 25, 50, and 100.
 
-<figure><img src="../.gitbook/assets/gamma-platform-gateway-instance-environment.png" alt=""><figcaption><p>The Environment tab of a gateway instance, with the Information and Plugins sections.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-gateway-instance-environment.png" alt=""><figcaption><p>The Environment tab of a gateway instance, with the Information and Plugins sections.</p></figcaption></figure>
 
 ### Information
 
@@ -81,7 +81,7 @@ An instance that reports no system properties shows **No property**.
 
 The **Monitoring** tab reports the instance's live resource use. It refreshes every 5 seconds while the instance is Started.
 
-<figure><img src="../.gitbook/assets/gamma-platform-gateway-instance-monitoring.png" alt=""><figcaption><p>The Monitoring tab of a running instance, with the four headline cards preceding the JVM section.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-gateway-instance-monitoring.png" alt=""><figcaption><p>The Monitoring tab of a running instance, with the four headline cards preceding the JVM section.</p></figcaption></figure>
 
 ### Headline indicators
 

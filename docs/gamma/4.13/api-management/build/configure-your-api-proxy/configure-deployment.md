@@ -15,7 +15,7 @@ To open the page, follow these steps:
 3.  Click **Deployment** in the API proxy sidebar.
 4.  Click **Configuration**.
 
-    <figure><img src="../../../.gitbook/assets/gamma-api-deployment-configuration.png" alt="The Deployment Configuration page, showing the Sharding tags card with one selectable card per organization tag"><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-api-deployment-configuration.png" alt="The Deployment Configuration page, showing the Sharding tags card with one selectable card per organization tag"><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
 
 ## Assign sharding tags
 
@@ -43,7 +43,7 @@ To verify the deployment configuration is working as expected, follow these step
 
 1.  Assign a sharding tag that one of your gateway instances advertises, and click **Save changes**.
 
-    <figure><img src="../../../.gitbook/assets/gamma-api-deployment-tags-saved.png" alt="The Deployment Configuration page after a save, showing the selected tag card, a confirmation message, and the undeployed changes banner"><figcaption><p>A saved sharding tag selection</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-api-deployment-tags-saved.png" alt="The Deployment Configuration page after a save, showing the selected tag card, a confirmation message, and the undeployed changes banner"><figcaption><p>A saved sharding tag selection</p></figcaption></figure>
 
 2.  Deploy the API.
 3.  Send a request through a gateway instance advertising the tag. The request is served. Gateway instances without a matching tag don't load the API definition.

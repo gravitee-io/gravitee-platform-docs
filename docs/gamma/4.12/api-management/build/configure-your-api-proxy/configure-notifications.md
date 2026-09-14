@@ -16,7 +16,7 @@ To open the page, follow these steps:
 
 <!-- TODO: Screenshot of the Notifications page with configured notifiers -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-notifications-page.png" alt=""><figcaption><p>The Notifications page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-notifications-page.png" alt=""><figcaption><p>The Notifications page</p></figcaption></figure>
 
 The page shows the **Console notifiers**, **Email notifiers**, and **Webhook notifiers** counters, and a table with the **Name**, **Channel**, **Events**, and **Target** columns.
 
@@ -51,4 +51,4 @@ To verify a notification is working as expected, follow these steps:
 
 <!-- TODO: Screenshot of a received notification for a triggered API event -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-notification-received.png" alt=""><figcaption><p>A received notification</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-notification-received.png" alt=""><figcaption><p>A received notification</p></figcaption></figure>

@@ -15,7 +15,7 @@ To open the page, follow these steps:
 3. Click **Deployment** in the API proxy sidebar.
 4. Click **History**.
 
-<figure><img src="../../../.gitbook/assets/gamma-api-deployment-history.png" alt="The Deployment History page, listing two deployments with Version, Date, User, and Label columns and a live badge on the newest version"><figcaption><p>The Deployment History page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-api-deployment-history.png" alt="The Deployment History page, listing two deployments with Version, Date, User, and Label columns and a live badge on the newest version"><figcaption><p>The Deployment History page</p></figcaption></figure>
 
 The table lists each deployment's **Version**, **Date**, **User**, and **Label** columns. The most recent deployment carries the **live** badge. The label is the optional deployment label entered in the **Deploy your API** dialog. Before the first deployment, the page reads **No deployments yet**.
 
@@ -59,4 +59,4 @@ To verify the deployment history is working as expected, follow these steps:
 2. Open the **Deployment History** page. Both deployments appear with their labels, and the newest one carries the **live** badge.
 3. Select both versions. The diff view shows the configuration change.
 
-<figure><img src="../../../.gitbook/assets/gamma-api-deployment-diff.png" alt="The Comparing dialog in side-by-side mode, with the Before pane on the left, the After pane on the right, changed lines highlighted, and a Rollback button in the footer"><figcaption><p>Comparing two deployed versions</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-api-deployment-diff.png" alt="The Comparing dialog in side-by-side mode, with the Before pane on the left, the After pane on the right, changed lines highlighted, and a Rollback button in the footer"><figcaption><p>Comparing two deployed versions</p></figcaption></figure>

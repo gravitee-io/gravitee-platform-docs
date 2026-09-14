@@ -18,7 +18,7 @@ Changing any setting reveals the **Discard** and **Save changes** buttons.
 
 <!-- TODO: Screenshot of the CORS page -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-cors-page.png" alt=""><figcaption><p>The CORS page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-cors-page.png" alt=""><figcaption><p>The CORS page</p></figcaption></figure>
 
 ## Enable CORS
 
@@ -57,4 +57,4 @@ To verify CORS is working as expected, follow these steps:
 
 <!-- TODO: Screenshot of a preflight response with Access-Control headers -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-cors-preflight.png" alt=""><figcaption><p>A preflight response with CORS headers</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-cors-preflight.png" alt=""><figcaption><p>A preflight response with CORS headers</p></figcaption></figure>

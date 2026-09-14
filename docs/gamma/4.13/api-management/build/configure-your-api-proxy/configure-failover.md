@@ -19,7 +19,7 @@ When the API proxy is managed by the Kubernetes operator, the settings are read-
 
 <!-- TODO: Screenshot of the Failover page -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-failover-page.png" alt=""><figcaption><p>The Failover page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-failover-page.png" alt=""><figcaption><p>The Failover page</p></figcaption></figure>
 
 ## Enable failover
 
@@ -62,4 +62,4 @@ To verify failover is working as expected, follow these steps:
 
 <!-- TODO: Screenshot of a 502 response while the circuit breaker is open -->
 
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-gamma-api-failover-502.png" alt=""><figcaption><p>A response while the circuit is open</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-failover-502.png" alt=""><figcaption><p>A response while the circuit is open</p></figcaption></figure>

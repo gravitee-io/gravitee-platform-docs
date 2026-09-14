@@ -32,7 +32,7 @@ For an MCP Proxy, click **MCP Proxies** in step 1 instead.
 
 <!-- TODO: Screenshot of the Overview page of an LLM Proxy showing the four stat cards -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-proxy-overview-stats.png" alt=""><figcaption><p>The Overview page of an LLM Proxy</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-proxy-overview-stats.png" alt=""><figcaption><p>The Overview page of an LLM Proxy</p></figcaption></figure>
 
 ## Read the stat cards
 

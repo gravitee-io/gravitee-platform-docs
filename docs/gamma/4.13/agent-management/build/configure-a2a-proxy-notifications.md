@@ -14,7 +14,7 @@ To open the page, follow these steps:
 2. Select your A2A Proxy.
 3. Click **Notifications** in the A2A Proxy sidebar.
 
-<figure><img src="../../.gitbook/assets/gamma-a2a-proxy-notifications.png" alt="The Notifications page for A2A Proxy, listing the Portal notification and an email notification with their Notifier, Subscribed events and Groups columns"><figcaption><p>The Notifications page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-a2a-proxy-notifications.png" alt="The Notifications page for A2A Proxy, listing the Portal notification and an email notification with their Notifier, Subscribed events and Groups columns"><figcaption><p>The Notifications page</p></figcaption></figure>
 
 The table lists each notification's **Name**, **Notifier**, **Subscribed events**, and **Groups** columns. An **Actions** column is added when you can edit or delete a notification.
 

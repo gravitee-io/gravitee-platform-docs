@@ -24,3 +24,4 @@ Every guide serves the Gamma console and the Management API on a single host so 
 ## Next steps
 
 * Once Gamma is running, create your first MCP server. For more information, see [Create your first MCP server](../../../agent-management/get-started/create-your-first-mcp-server.md).
+* Configure the OpenTelemetry pipeline that fills the Trace Explorer. For more information, see [Configure OpenTelemetry tracing and logs](../../configure-opentelemetry-tracing-and-logs.md).

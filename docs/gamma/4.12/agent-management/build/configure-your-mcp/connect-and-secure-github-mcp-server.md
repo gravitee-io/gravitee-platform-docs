@@ -60,7 +60,7 @@ To connect the GitHub MCP server, complete the following steps:
 
    The **Transport** is fixed to **Streamable HTTP**.
 
-   ![The Select server step of the Add MCP server wizard, with GitHub's endpoint entered and Verify URL ready to run](<../../../.gitbook/assets/gamma-mcp-github-add-server.png>)
+   ![The Select server step of the Add MCP server wizard, with GitHub's endpoint entered and Verify URL ready to run](<../../.gitbook/assets/gamma-mcp-github-add-server.png>)
 
 6. Select **Verify URL**.
 7. On the **Configure connection** step, select **Static credential**, set the credential type to **Bearer token**, and then enter the personal access token. Discovery uses the token to read the server's capabilities and does not persist it.
@@ -75,7 +75,7 @@ To confirm that the GitHub MCP server is connected, complete the following steps
 3. Select the server to open its detail page, and then confirm the **Overview** card shows the protocol version, an **Auth type** of **Bearer token**, and a **Capabilities** row with a tool count.
 4. Confirm that the tools listed under **Tools** match the tools for GitHub's MCP server. For more information about GitHub's MCP server, go to [GitHub's documentation](https://github.com/github/github-mcp-server).
 
-   ![The github-mcp-server detail page showing 44 tools, 2 prompts, 4 resources, and an auth type of Bearer token](<../../../.gitbook/assets/gamma-mcp-github-server-detail.png>)
+   ![The github-mcp-server detail page showing 44 tools, 2 prompts, 4 resources, and an auth type of Bearer token](<../../.gitbook/assets/gamma-mcp-github-server-detail.png>)
 
 {% hint style="info" %}
 GitHub's MCP server exposes a large tool surface, and the exact set depends on the token's scopes and the account's plan. Registering the server catalogs everything discovered. The [Expose the GitHub tools as a Composite MCP Server](#expose-the-github-tools-as-a-composite-mcp-server) section narrows that surface to the tools your agents need.
@@ -99,7 +99,7 @@ To expose the GitHub tools as a Composite MCP Server, complete the following ste
 
 After you deploy the server, the composition is visible on the **Tools** page of the **Design** section, grouped by upstream server. The `github-mcp-server` group shows its upstream auth type and the number of tools composed from it.
 
-![The Tools page of the Composite MCP Server, showing the five composed GitHub tools under the github-mcp-server group](<../../../.gitbook/assets/gamma-mcp-github-compose-tools.png>)
+![The Tools page of the Composite MCP Server, showing the five composed GitHub tools under the github-mcp-server group](<../../.gitbook/assets/gamma-mcp-github-compose-tools.png>)
 
 #### Verification
 
@@ -153,7 +153,7 @@ Do not select **Keyless** or **API Key** on a server you intend to govern per ca
 2. Select **+ Create plan**, and then select **OAuth2**. The other options are **Keyless**, which enforces no authentication, and **API Key**.
 3. Configure and publish the plan, and then deploy the server.
 
-   ![The Plans page of the Composite MCP Server, showing one published plan with OAuth2 security](<../../../.gitbook/assets/gamma-mcp-github-plan-oauth2.png>)
+   ![The Plans page of the Composite MCP Server, showing one published plan with OAuth2 security](<../../.gitbook/assets/gamma-mcp-github-plan-oauth2.png>)
 
 #### Verification
 
@@ -189,7 +189,7 @@ To restrict which tools each caller can use, complete the following steps:
 
 1. Open your Composite MCP Server. On the **Overview** page, turn on **Enable FGA**. A confirmation panel reports that the Authorization PEP has been added to the Policy Studio.
 
-   ![The Composite MCP Server Overview page with the Enable FGA toggle turned on](<../../../.gitbook/assets/gamma-mcp-github-enable-fga.png>)
+   ![The Composite MCP Server Overview page with the Enable FGA toggle turned on](<../../.gitbook/assets/gamma-mcp-github-enable-fga.png>)
 
 2. From the product selector, open **Authorization Management**, navigate to the **Policy Management** section, and then select **MCPs**.
 3. Select **+ Create policy**, enter a **Policy name**, and then switch to the **Code** tab.
@@ -231,7 +231,7 @@ The Gateway picks up a deployed policy within 30 seconds, with no restart.
 
 Select an existing policy to review it. The **Visual** tab renders each statement as an effect, a principal, an action, and a resource, and resolves the group identifier to its display name. The **Code** tab shows the same statement as GAPL.
 
-![The forbid statement on create_or_update_file in the visual policy editor, showing the Engineering principal, the GitHub tool resource, and a Deployed status](<../../../.gitbook/assets/gamma-mcp-github-forbid-policy.png>)
+![The forbid statement on create_or_update_file in the visual policy editor, showing the Engineering principal, the GitHub tool resource, and a Deployed status](<../../.gitbook/assets/gamma-mcp-github-forbid-policy.png>)
 
 {% hint style="info" %}
 A tool that no policy permits is denied. Nothing is allowed by omission, so the triage role above needs no forbid statement to be closed to the other three tools. A `forbid` statement always beats a `permit`, so a later broad grant cannot reopen `create_or_update_file`.
@@ -269,7 +269,7 @@ To apply policies to the GitHub MCP server, complete the following steps:
 1. Open your Composite MCP Server, navigate to the **Design** section, and then select **Policy Studio**.
 2. Navigate to the **MCP method flows** section, add a flow, enter a **Flow name**, select the **`tools/call`** method, and then select **Create**. Enabling FGA creates this flow for you, with the Authorization PEP already in the request phase.
 
-   ![The Policy Studio tools/call flow, with the Gravitee Authorization PEP, Rate Limit, and PII Filtering policies in the request phase](<../../../.gitbook/assets/gamma-mcp-github-policy-studio.png>)
+   ![The Policy Studio tools/call flow, with the Gravitee Authorization PEP, Rate Limit, and PII Filtering policies in the request phase](<../../.gitbook/assets/gamma-mcp-github-policy-studio.png>)
 3. In the flow's **Request phase**, select **+** to open the policy catalog, and then select **Rate Limit**.
 4. Configure the limit. Set a **Limit** and a **Period**, for example 10 requests per 60 seconds, and set **Key** to an expression that resolves the caller's identity. This ensures that each identity draws on its own allowance rather than on a shared plan counter. For more information about layered governance for MCP tools, see [Govern MCP tool access](govern-mcp-tool-access.md "mention").
 5. Add the **PII Filtering** policy. Select the AI Model Token Classification resource from the prerequisites, and then select the categories to redact, for example person, email, phone, location, financial account, and government ID. Leave **Confidence Threshold** at the default of `0.5`.
@@ -314,7 +314,7 @@ To observe GitHub MCP interactions, complete the following steps:
 5. With **Trace enabled** and **Verbose** both on, a **Span Attribute Redaction** section appears. Add a rule for each attribute that carries a credential or a repository identifier you don't want exported.
 6. Select **Save changes**.
 
-   ![The Reporter Settings page with both logging modes, both phases, headers, and payload enabled, and the OpenTelemetry card below](<../../../.gitbook/assets/gamma-mcp-github-reporter-settings.png>)
+   ![The Reporter Settings page with both logging modes, both phases, headers, and payload enabled, and the OpenTelemetry card below](<../../.gitbook/assets/gamma-mcp-github-reporter-settings.png>)
 7. Navigate to the **Design** section, select **Policy Studio**, open the `tools/call` flow, and then select **Gravitee Authorization PEP (GAPL)**. Confirm that **Log every decision (SLF4J)** is enabled, and then deploy the server. Each evaluated call then records the subject, the action, the resource, the decision, and the policies that determined it.
 
 {% hint style="warning" %}

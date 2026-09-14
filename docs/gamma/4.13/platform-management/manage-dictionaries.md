@@ -31,7 +31,7 @@ The dictionaries table displays the following columns:
 Use the search bar to filter dictionaries by name, ID, or description. The table supports sorting and pagination.
 
 <!-- TODO: Screenshot of the Dictionaries page listing manual and dynamic dictionaries -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-dictionaries-list.png" alt=""><figcaption><p>The Dictionaries page lists the dictionaries of the selected environment with their type, property count, and deployment dates.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-dictionaries-list.png" alt=""><figcaption><p>The Dictionaries page lists the dictionaries of the selected environment with their type, property count, and deployment dates.</p></figcaption></figure>
 
 ## Create a dictionary
 
@@ -82,7 +82,7 @@ To add properties to a manual dictionary, complete the following steps:
 Edit or delete an existing property from its row in the properties table. Changes to the properties reach the gateways when you deploy the dictionary.
 
 <!-- TODO: Screenshot of a manual dictionary's detail page with the Properties section and Deploy action -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-platform-dictionary-detail.png" alt=""><figcaption><p>The detail page of a manual dictionary. Add, edit, or delete properties, then select Deploy to publish them to the gateways.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-dictionary-detail.png" alt=""><figcaption><p>The detail page of a manual dictionary. Add, edit, or delete properties, then select Deploy to publish them to the gateways.</p></figcaption></figure>
 
 ## Deploy a manual dictionary
 

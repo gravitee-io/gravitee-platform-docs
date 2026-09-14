@@ -38,7 +38,7 @@ The following table compares an API proxy with an API Product:
 
 ## View API Products
 
-<figure><img src="../../.gitbook/assets/gamma-api-products-list.png" alt="API Products list in the Gamma APIM module"><figcaption><p>The API Products list shows all products with their bundled API count, version, sharding tags, and owner.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-api-products-list.png" alt="API Products list in the Gamma APIM module"><figcaption><p>The API Products list shows all products with their bundled API count, version, sharding tags, and owner.</p></figcaption></figure>
 
 1. From the Gamma console sidebar, select **API Management**.
 2. From the module navigation, select **API Products**.

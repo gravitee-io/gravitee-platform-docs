@@ -8,6 +8,10 @@ description: Trace every agent invocation through the AI Gateway with spans that
 
 The agent log provides a detailed trace of every agent invocation through the AI Gateway, using OpenTelemetry (OTel) spans. Each span captures the full context of a single operation — who made the call, what tool was invoked, what data was sent and received, how long it took, what policies were evaluated, and what it cost.
 
+{% hint style="warning" %}
+The Trace Explorer only shows data once the platform-side OpenTelemetry pipeline is wired. The Gateway has to export traces, a Collector has to write them to Elasticsearch, and the Management API has to read from the same indices. All three are off by default. For the settings, see [Configure OpenTelemetry tracing and logs](../../platform-management/configure-opentelemetry-tracing-and-logs.md).
+{% endhint %}
+
 ## What a span contains
 
 Each OTel span in the agent log records:

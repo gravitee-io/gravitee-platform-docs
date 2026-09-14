@@ -27,7 +27,7 @@ To open it, complete the following steps:
 
 The page subtitle reads "Configure the mail server this organization uses for notifications, invitations, and other emails."
 
-<figure><img src="../.gitbook/assets/gamma-platform-smtp.png" alt=""><figcaption><p>The SMTP page with emailing enabled, showing the mail server fields</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-smtp.png" alt=""><figcaption><p>The SMTP page with emailing enabled, showing the mail server fields</p></figcaption></figure>
 
 Whether you can edit these fields depends on your access and on your installation's configuration file, in the same way as the other organization settings pages. See [Understand which fields you can edit](configure-console-management-and-schedulers.md#understand-which-fields-you-can-edit).
 
@@ -119,7 +119,7 @@ The **Default notification email** section previews what's in force when no rule
 
 The **Branded notification email** section holds the rules. Click **Add rule** to add one, and use the delete button in the corner of a rule to remove it.
 
-<figure><img src="../.gitbook/assets/gamma-platform-smtp-branded-senders.png" alt=""><figcaption><p>The mail properties, the read-only default sender preview, and one branded notification email rule</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-smtp-branded-senders.png" alt=""><figcaption><p>The mail properties, the read-only default sender preview, and one branded notification email rule</p></figcaption></figure>
 
 Each rule takes three values:
 

@@ -1,5 +1,17 @@
 # GKO 4.10.x
 
+## Gravitee Kubernetes Operator 4.10.30 - September 10, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Cron Schedule Not Validated by GKO [#11766](https://github.com/gravitee-io/issues/issues/11766)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.10.29 - September 2, 2026
     
 <details>

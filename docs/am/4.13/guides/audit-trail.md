@@ -44,6 +44,7 @@ Audit events are logged for client authentications so that an AM admin can under
 * Authentication success or failure
 * Token creation (sign in, refresh, step-up)
   * The `tokenId` reference and number of tokens created are also logged
+  * For a [DPoP-bound](auth-protocols/oauth-2.0/demonstrating-proof-of-possession-dpop.md#audit-events) token, the `DPOP_JKT` parameter holds the thumbprint of the key the token is bound to
 * Token provisioning (refresh, new sign in, etc.)
 {% endtab %}
 

@@ -13,7 +13,7 @@ To open the page, follow these steps:
 1. From the Gamma console sidebar, select **Agent Management**.
 2.  Under **Secure**, select **LLM Proxies**.
 
-    <figure><img src="../../.gitbook/assets/gamma-llm-proxies-list-owner-sharding-tags.png" alt="The LLM Proxies list, each row starting with a generated picture, with the Owner and Sharding Tags columns and one proxy showing its first tag and a 2 more badge"><figcaption><p>The LLM Proxies list</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-llm-proxies-list-owner-sharding-tags.png" alt="The LLM Proxies list, each row starting with a generated picture, with the Owner and Sharding Tags columns and one proxy showing its first tag and a 2 more badge"><figcaption><p>The LLM Proxies list</p></figcaption></figure>
 
 ## Columns
 

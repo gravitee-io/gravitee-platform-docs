@@ -78,7 +78,7 @@ To confirm that the Stripe MCP server is connected, complete the following steps
 3. Select the server to open its detail page, and then confirm the **Overview** card shows the protocol version, an **Auth type** of **Bearer token**, and a **Capabilities** row with a tool count.
 4. Confirm that the tools listed under **Tools** match the tools documented for the Stripe MCP server. The set can be smaller than the documentation lists, because some tools are gated on the account.
 
-    <figure><img src="../../../.gitbook/assets/gamma-mcp-servers-catalog.png" alt="The MCP Servers catalog listing the registered Stripe server"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-mcp-servers-catalog.png" alt="The MCP Servers catalog listing the registered Stripe server"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Authorization policies reference tools by the server's slug, `stripe-mcp`, and not by the entity ID shown alongside it. A resource written as `MCPTool::"mcp-server.stripe-mcp.create_refund"` carries the entity-ID prefix, matches nothing, and is denied by default.
@@ -103,7 +103,7 @@ Fine-grained authorization requires OAuth2 with Gravitee as the authorization se
 
 5. In the **Compose** step, select the Stripe MCP server from the palette, and then select only the four tools listed at the start of this section. Leave `stripe_api_write` unselected.
 
-    <figure><img src="../../../.gitbook/assets/gamma-mcp-stripe-compose-tools.png" alt="The Compose step showing all 9 discovered Stripe tools with 4 selected and stripe_api_write left unselected"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-mcp-stripe-compose-tools.png" alt="The Compose step showing all 9 discovered Stripe tools with 4 selected and stripe_api_write left unselected"><figcaption></figcaption></figure>
 
 6. In the **Connect** step, select the Stripe MCP server, set the credential type to **Bearer token**, and then enter the restricted API key. The Gateway injects it as an `Authorization` header on every upstream call. The key is held once rather than distributed to each agent.
 7. In the **Review** step, confirm the composition, and then select **Create & deploy**.
@@ -234,7 +234,7 @@ These statements name a single caller. Enabling fine-grained authorization sets 
 To write `principal in Group::"..."` instead, the Policy Decision Point has to know the group memberships. Sync your identity provider's groups into Authorization Management as entities and set the subject type to match. A group statement evaluated against an empty entity store matches nothing, which denies a `permit` and silently disables a `forbid`.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/gamma-mcp-authorization-policies.png" alt="The deployed authorization policies listed in Authorization Management"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-mcp-authorization-policies.png" alt="The deployed authorization policies listed in Authorization Management"><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 A mistyped resource fails in opposite directions depending on the statement. In a `permit` statement it fails closed, because nothing matches and the call is denied. In a `forbid` statement it fails open, because the statement never matches and any broader `permit` still applies. Confirm every `forbid` statement by making the call and reading the decision in the log, rather than by reading the policy back.
@@ -282,7 +282,7 @@ To apply policies to the Stripe MCP server, complete the following steps:
 1. Open your Composite MCP Server, navigate to the **Design** section, and then select **Policy Studio**.
 2. Navigate to the **MCP method flows** section, add a flow, enter a **Flow name**, select the **`tools/call`** method, and then select **Create**. If you enabled FGA, this flow already exists, with the Authorization PEP already in the request phase.
 
-    <figure><img src="../../../.gitbook/assets/gamma-mcp-stripe-policy-studio.png" alt="The Policy Studio tools/call flow with the Authorization PEP, Rate Limit, and PII Filtering policies"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-mcp-stripe-policy-studio.png" alt="The Policy Studio tools/call flow with the Authorization PEP, Rate Limit, and PII Filtering policies"><figcaption></figcaption></figure>
 
 3. In the flow's **Request phase**, select **+** to open the policy catalog, and then select **Rate Limit**.
 4. Configure the limit using the following settings:
