@@ -24,9 +24,7 @@ To open the page, follow these steps:
 
 The **Metadata** item is hidden when your role can't read the metadata of an API.
 
-<!-- TODO: Screenshot of the Metadata page of an LLM Proxy, showing the blended list with a Global badge on an inherited row and the source filter -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-proxy-metadata-list.png" alt=""><figcaption><p>The Metadata page lists the entries in effect for the proxy</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-proxy-metadata-list.png" alt="The Metadata page of an A2A Proxy listing five entries, with a Global badge on the four keys the environment defines and the source list set to All sources"><figcaption><p>The Metadata page lists the entries in effect for the proxy</p></figcaption></figure>
 
 ## Read the metadata list
 
@@ -63,9 +61,7 @@ To add an entry, follow these steps:
 4. Enter a **Value**. For **Boolean**, select `true` or `false`. Selecting the **Boolean** format sets the value to `false`.
 5. Click **Add**.
 
-<!-- TODO: Screenshot of the Add metadata panel of a proxy, showing the Name field, the Format list, and the Value field -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-proxy-metadata-add.png" alt=""><figcaption><p>The Add metadata panel</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-proxy-metadata-add.png" alt="The Add metadata panel with the Name field, the Format list set to String, and the Value field"><figcaption><p>The Add metadata panel</p></figcaption></figure>
 
 The page confirms with **Metadata added**.
 
@@ -110,9 +106,7 @@ To override an entry, follow these steps:
 2. In the **Override global metadata** panel, change the **Name**, the **Value**, or both. **Key** and **Format** are read-only, and **Global value** shows the environment's value for reference.
 3. Click **Save**.
 
-<!-- TODO: Screenshot of the Override global metadata panel, showing the read-only Key and Format fields and the Global value field above Value -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-proxy-metadata-override.png" alt=""><figcaption><p>The Override global metadata panel shows the environment's value above the proxy's own</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-proxy-metadata-override.png" alt="The Override global metadata panel with read-only Key and Format fields, the Global value field showing the environment's value, and the Value field"><figcaption><p>The Override global metadata panel shows the environment's value above the proxy's own</p></figcaption></figure>
 
 The page confirms with **Metadata updated**.
 
@@ -153,6 +147,4 @@ To verify a metadata entry is in effect, follow these steps:
 2. Reload the **Metadata** page. The entry is listed with the key generated from the name, and without a **Global** badge.
 3. Select **API** in the source list. The entry is still listed, because the environment doesn't define its key.
 
-<!-- TODO: Screenshot of the Metadata page filtered to API, showing the entry added in step 1 -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-proxy-metadata-api-filter.png" alt=""><figcaption><p>The entry the proxy owns, listed under the API source</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-proxy-metadata-api-filter.png" alt="The Metadata page with the source list set to API, listing only the Support contact entry the proxy owns"><figcaption><p>The entry the proxy owns, listed under the API source</p></figcaption></figure>
