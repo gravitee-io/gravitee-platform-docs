@@ -133,7 +133,7 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies and a redesigned out-of-sync banner in the API detail workspace. Its Policy Studio controls are also clearer.
+API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer.
 
 #### Import an API proxy
 
@@ -142,6 +142,16 @@ API Management gains a file-based path for building and updating API proxies and
 * Supply each format as a local file or as a remote `http` or `https` URL that the Management API fetches server-side.
 * For OpenAPI and WSDL imports, choose whether to create a documentation page from the specification and whether to add an OpenAPI Specification Validation policy. WSDL imports also offer the REST to SOAP Transformer policy.
 * See [Import an API proxy](../api-management/build/import-an-api-proxy.md).
+
+#### Metadata for API proxies
+
+* The **General** group of the API proxy sidebar adds a **Metadata** page that manages the key and value entries the API carries. The item doesn't appear when your role doesn't grant read access to API metadata.
+* The list carries the **Key**, **Name**, **Format**, and **Value** of each entry. An entry inherited from the environment carries the **Global** badge, and its **Value** shows the environment default until this API overrides it.
+* **Filter by source** narrows the list to **Global** or **API** entries, and the **Key**, **Name**, **Format**, and **Value** columns sort. Sorting and pagination cover every entry of the API, not only the rows on screen.
+* **Add API Metadata** creates an entry from a name, one of the **String**, **Numeric**, **Boolean**, **Date**, **Mail**, and **URL** formats, and a value. Gravitee generates the key from the name, and the format is read-only once the entry exists.
+* Editing an inherited entry creates an override on this API alone, **Reset** returns it to the environment default, and **Delete** removes an entry the API owns.
+* An API managed by the Kubernetes operator shows its metadata as read-only.
+* See [Configure API metadata](../api-management/build/configure-your-api-proxy/configure-api-metadata.md).
 
 #### Out-of-sync banner in the API detail workspace
 
