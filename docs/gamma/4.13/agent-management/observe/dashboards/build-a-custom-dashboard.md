@@ -22,6 +22,8 @@ The authoring actions (**New dashboard**, **Edit**, **Duplicate**, and **Delete*
 
 ## Open the Dashboards list
 
+The **Dashboards** page also appears in **API Management**, where it lists the dashboard templates that module ships. Building and saving your own dashboards is an Agent Management capability.
+
 1. From the Gamma console sidebar, select **Agent Management**.
 2. In the **Observability** section of the sidebar, select **Dashboards**.
 
