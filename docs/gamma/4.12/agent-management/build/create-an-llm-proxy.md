@@ -6,7 +6,7 @@ description: Create an LLM Proxy that routes traffic to upstream model providers
 
 # Create an LLM Proxy
 
-An LLM Proxy routes traffic to upstream model providers—OpenAI, Gemini, Anthropic, Bedrock, and Vertex AI—through the AI Gateway. It adds authentication, cost attribution, observability, guardrails, and fine-grained authorization to every model call.
+An LLM Proxy routes traffic through the AI Gateway to upstream model providers: OpenAI, Gemini, Anthropic, Bedrock, and Gemini Enterprise Agent Platform. It adds authentication, cost attribution, observability, guardrails, and fine-grained authorization to every model call.
 
 {% hint style="info" %}
 For a simplified quickstart, see [Create your first LLM Proxy](../get-started/create-your-llm-proxy.md).
@@ -42,21 +42,21 @@ To add a provider inline, select **Add provider**. On the **New provider** card,
 
 | Field                  | Description |
 | ---------------------- | ----------- |
-| **Provider**           | The API format of the upstream provider: **OpenAI**, **OpenAI compatible**, **Gemini**, **Bedrock**, **Anthropic**, or **Vertex AI**. **OpenAI** is preselected. |
+| **Provider**           | The API format of the upstream provider: **OpenAI**, **OpenAI compatible**, **Gemini**, **Bedrock**, **Anthropic**, or **Gemini Enterprise Agent Platform**. **OpenAI** is preselected. |
 | **Provider URL**       | The URL the proxy calls, without whitespace. The field accepts Expression Language and secret references. |
 | **Models**             | The models the provider serves, at least one. Select **Add** to add an entry, and enter the **Model** name. Optionally, add an **Entity ID**, the catalog entity ID of the model used for fine-grained authorization. Add the **Price per million tokens (input) sent to LLM ($)** and the **Price per million tokens (output) received from LLM ($)**. Add one or more **Aliases of this model**, and a **Parameters Override (JSON)**. Model names are unique within the provider, an alias can't contain `:`, and a price is greater than `0`. |
 | **ModelGovernance**    | Select the **Alias** or the **Unregistered models** variant. Both carry **Prefix needs**. The options are **Models and aliases require the prefix**, the default, **Only aliases require the prefix**, **Only models require the prefix**, and **Models and aliases do not require a prefix**. **Alias** adds the **Only use alias** switch, which hides the real model names so that consumers use the aliases only. **Unregistered models** adds **Globbing to accept unregistered models**, a required pattern such as `*` for any model, `gpt*`, or `(opus\|haiku\|sonnet)*`. |
 | **Authentication**     | **API Key**, **Bearer**, **Service account (GCP)**, or **None**. **API Key** takes the **Header name containing the API Key**, `x-api-key` by default, and the **API Key**. **Bearer** takes the **Bearer** token. **Service account (GCP)** takes the **Service Account Key (JSON)** in a code editor. The key and token fields accept Expression Language and secret references. |
-| **Vertex AI Settings** | Shown for the **Vertex AI** provider only: the **GCP Project ID**, the **GCP Region**, `global` by default, and the **Publisher**, **Google (Gemini)** or **Anthropic (Claude)**. |
+| **Gemini Enterprise Agent Platform Settings** | Shown for the **Gemini Enterprise Agent Platform** provider only: the **GCP Project ID**, the **GCP Region**, `global` by default, and the **Publisher**, **Google (Gemini)** or **Anthropic (Claude)**. |
 
 The card checks each field against the plugin schema as you type. **Add provider** at the bottom of the card stays disabled until the name and every field are valid. Select it to add the provider, or **Cancel** to drop the card. The added provider is listed with its models, and its bin icon removes it.
 
 {% hint style="warning" %}
-The card doesn't check how the **Vertex AI** provider and **Service account (GCP)** authentication pair up. The plugin schema offers every authentication type for every provider, and it leaves the **GCP Project ID** optional. Three combinations pass the card and fail when the proxy is created:
+The card doesn't check how the **Gemini Enterprise Agent Platform** provider and **Service account (GCP)** authentication pair up. The plugin schema offers every authentication type for every provider, and it leaves the **GCP Project ID** optional. Three combinations pass the card and fail when the proxy is created:
 
-* **Vertex AI** with any authentication other than **Service account (GCP)**.
-* **Vertex AI** with an empty **GCP Project ID**.
-* **Service account (GCP)** on a provider other than **Vertex AI**.
+* **Gemini Enterprise Agent Platform** with any authentication other than **Service account (GCP)**.
+* **Gemini Enterprise Agent Platform** with an empty **GCP Project ID**.
+* **Service account (GCP)** on a provider other than **Gemini Enterprise Agent Platform**.
 
 The console reports the failure when you select **Create only** or **Create & deploy** on the **Review & create** step, and it keeps you on the step with the message. The same three combinations fail on **Save changes** when you edit a provider later on the **Models** page.
 {% endhint %}
