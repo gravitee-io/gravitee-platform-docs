@@ -361,10 +361,11 @@ A trace full of `UNSET` spans therefore indicates successful processing, not mis
 The HTTP response status code and the API identity attributes aren't repeated on every span:
 
 * `http.request.method`, `http.response.status_code`, `url.path`, `url.query`, `url.scheme`, `client.address`, `http.request.body.size`, and `http.response.body.size` appear on the root HTTP server span. Calls to the backend carry `http.request.method`, `http.response.status_code`, `url.full`, `server.address`, and `server.port` on the client span.
+* The consuming application is carried on the root HTTP server span as `gravitee.application.id` and `gravitee.application.name`. A request that the Gateway matches to a subscription carries the subscribing application's identifier and its name. A request on a keyless plan carries `gravitee.application.id` with the value `1` and no `gravitee.application.name`. The Gateway omits either attribute when it has no value for it, rather than exporting it empty.
 * The API identity is carried as tracer resource attributes: `gravitee.module`, `gravitee.api.id`, `gravitee.api.name`, `gravitee.api.type`, `gravitee.org.id`, and `gravitee.env.id`.
 * Internal spans carry `gravitee.execution.phase`, `gravitee.request.id`, and `gravitee.transaction.id`. The invoker span adds `gravitee.endpoint.id`. Policy spans add `gravitee.policy`, `gravitee.policy.description`, `gravitee.policy.trigger.executed`, and `gravitee.policy.trigger.condition`. Failed steps add `gravitee.execution-failure.key`, `gravitee.execution-failure.status-code`, and `gravitee.execution-failure.content-type`.
 
-When a tracing backend shows a child span without a status code or API name, inspect the root span and the resource attributes of the trace instead.
+When a tracing backend shows a child span without a status code, an API name, or the consuming application, inspect the root span and the trace's resource attributes instead.
 
 ### Span names
 

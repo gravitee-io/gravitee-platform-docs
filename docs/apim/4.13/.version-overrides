@@ -104,3 +104,6 @@ secure-and-expose-apis/api-products/consuming-api-products.md
 .gitbook/assets/devportal-add-api-context-menu.png
 .gitbook/assets/devportal-add-apis-dialog.png
 .gitbook/assets/devportal-publish-api-dialog.png
+# Consuming application on OpenTelemetry spans and log records (APIM 4.13.0 feature, APIM-15014)
+analyze-and-monitor-apis/opentelemetry.md
+analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
