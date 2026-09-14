@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. It also adds API resource configuration, consumer broadcasts, property import, dynamic property sync, and API metadata to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies gain export, import, and duplicate actions. The Observability section of Agent Management builds and saves custom dashboards alongside the templates.
+Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. It also adds API resource configuration, consumer broadcasts, property import, dynamic property sync, and API metadata to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies and A2A Proxies gain export, import, and duplicate actions. The Observability section of Agent Management builds and saves custom dashboards alongside the templates.
 
 #### AI Workspaces
 
@@ -129,7 +129,20 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 * An export with the **Plans** checkbox cleared can update an existing proxy but can't create one, because a create by import publishes the plans the file carries.
 * An update by import keeps the target proxy's identity and its plans, and replaces its name, version, description, entrypoint configuration, and providers. It doesn't deploy, so the proxy is left out of sync until you deploy it.
 * The remote URL is fetched by the Management API under the same `imports.whitelist` and `imports.allow-from-private` settings as the classic import-from-URL endpoints.
+* Both import routes end on a review step that restates the format and the source before the import runs.
 * See [Export and import an LLM Proxy](../agent-management/build/export-and-import-an-llm-proxy.md) and [Duplicate an LLM Proxy](../agent-management/build/duplicate-an-llm-proxy.md).
+
+#### Export, import, and duplicate for A2A Proxies
+
+* The **Configuration** page of each A2A Proxy adds three actions. **Export** downloads the proxy as a Gravitee API definition or a Kubernetes CRD, and links to the Terraform tutorial. **Import** replaces the proxy from a Gravitee definition. **Duplicate** copies the proxy under a new context path and version.
+* The **Create A2A proxy** button now opens a page offering **Create from scratch** and **Import**. **Create from scratch** opens the existing wizard, and **Import** builds the proxy from a Gravitee definition. Both import routes accept a local file or a remote URL, and only the Gravitee definition format.
+* Both import routes end on a review step. For an A2A Proxy, the review also lists what the console read out of the file: the name, the version, the description, the context path, the target, whether the file carries an upstream credential, and the plans. A file the import would refuse is refused there, before anything is written.
+* An exported file is a standard Gravitee export, so the APIM Console reads it. A create by import rebuilds the name, version, description, context path, agent connection, and plans, plus the OAuth2 resource those plans name. The rest of a classic definition has no A2A Proxy counterpart in Gamma and isn't re-created.
+* An export with the **Plans** checkbox cleared can update an existing proxy but can't create one, because a create by import publishes the plans the file carries.
+* An update by import keeps the target proxy's identity and its plans. It replaces the name, version, description, context path, and agent connection.
+* A create by import leaves the proxy stopped, for you to start from its **Configuration** page.
+* The remote URL is fetched by the Management API under the same `imports.whitelist` and `imports.allow-from-private` settings as the classic import-from-URL endpoints.
+* See [Export and import an A2A Proxy](../agent-management/build/export-and-import-an-a2a-proxy.md) and [Duplicate an A2A Proxy](../agent-management/build/duplicate-an-a2a-proxy.md).
 
 #### Custom observability dashboards
 
