@@ -23,9 +23,7 @@ To open the page, follow these steps:
 
 **Metadata** sits in the **General** group of the API proxy sidebar. The item doesn't appear when your role doesn't grant read access to API metadata, and the page then reads **You don't have permission to view API metadata.**
 
-<!-- TODO: Screenshot of the Metadata page of an API proxy -->
-
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-metadata-page.png" alt=""><figcaption><p>The Metadata page of an API proxy</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-api-metadata-page.png" alt=""><figcaption><p>The Metadata page lists the entries this API inherits from the environment alongside the entries it owns.</p></figcaption></figure>
 
 ## Review the metadata list
 
@@ -74,9 +72,7 @@ To add an entry, complete the following steps:
 
 Gravitee builds the key from the name. Accents are stripped and the text is folded to lower case. Characters that aren't letters, digits, spaces, or dashes are removed, and each run of spaces and dashes becomes a single dash. **Support Email** becomes `support-email`.
 
-<!-- TODO: Screenshot of the Add API Metadata panel -->
-
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-metadata-add-panel.png" alt=""><figcaption><p>The Add API Metadata panel</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-api-metadata-add-panel.png" alt=""><figcaption><p>The Add API Metadata panel takes a name, a format, and a value.</p></figcaption></figure>
 
 The following table describes what each format accepts:
 
@@ -120,9 +116,7 @@ Once an inherited entry holds an override, its row menu offers **Reset** in plac
 
 The dialog names the entry and the value it returns to.
 
-<!-- TODO: Screenshot of the Reset global metadata dialog -->
-
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-metadata-reset-dialog.png" alt=""><figcaption><p>The Reset global metadata dialog</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-api-metadata-reset-dialog.png" alt=""><figcaption><p>The Reset global metadata dialog names the entry and the environment value it returns to.</p></figcaption></figure>
 
 ## Delete an entry
 
