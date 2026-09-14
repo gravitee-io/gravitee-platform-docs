@@ -79,6 +79,8 @@
     * [Accepted request formats](build/accepted-request-formats.md)
   * [A2A Proxies](build/a2a-proxies/README.md)
     * [Expose your agent with the A2A Proxy](build/expose-agent-with-a2a-proxy.md)
+    * [Export and import an A2A Proxy](build/export-and-import-an-a2a-proxy.md)
+    * [Duplicate an A2A Proxy](build/duplicate-an-a2a-proxy.md)
     * [Configure your A2A Proxy](build/configure-your-a2a-proxy/README.md)
       * [General](build/a2a-proxies/general/README.md)
         * [Configure A2A Proxy notifications](build/configure-a2a-proxy-notifications.md)
