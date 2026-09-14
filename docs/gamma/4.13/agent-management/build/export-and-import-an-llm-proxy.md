@@ -153,6 +153,8 @@ The console never fetches the definition itself. It sends the address to the Man
 | `imports.whitelist`          | Empty   | A list of address prefixes. When the list holds at least one entry, only addresses matching an entry are fetched.               |
 | `imports.allow-from-private` | `true`  | When `false`, addresses that resolve to a private network are refused.                                                          |
 
+The two aren't combined. When `imports.whitelist` holds at least one entry, only the whitelist applies and `imports.allow-from-private` is ignored, so a whitelisted address that resolves to a private network is still fetched.
+
 An address the platform refuses, or one that can't be read, is reported as a fetch failure rather than as a problem with the file. When an update by import fails this way, the proxy is left exactly as it was.
 
 ## Verification

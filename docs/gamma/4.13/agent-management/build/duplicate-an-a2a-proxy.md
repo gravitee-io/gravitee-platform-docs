@@ -17,6 +17,7 @@ Use **Duplicate** to copy a proxy inside one environment. To move a proxy to a d
 Before you begin, confirm that you have the following:
 
 * An A2A Proxy. For more information, see [Expose your agent with the A2A Proxy](expose-agent-with-a2a-proxy.md).
+* Permission to read the API definition of the proxy, and permission to create an API in the environment. The **Duplicate** action isn't shown on the **Configuration** page without both.
 
 ## Duplicate the proxy
 

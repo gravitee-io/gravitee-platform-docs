@@ -10,7 +10,7 @@ description: Export an A2A Proxy as a Gravitee definition, and import one from a
 
 An A2A Proxy exports as a Gravitee API definition, and a Gravitee API definition creates or updates an A2A Proxy. Together the two directions move a proxy between environments, keep a definition under version control, and rebuild a proxy without retyping its configuration.
 
-The exported file is a standard Gravitee export with one addition, so the APIM Console reads it unchanged and the Gamma console reads the addition. Everything an A2A Proxy needs already travels in the standard part of the file. That covers the name and description, the context path, the target of the upstream agent and its upstream credential, and the OAuth2 resource that an OAuth2 plan names.
+The exported file is a standard Gravitee export with one addition, so the APIM Console reads it unchanged. Everything an A2A Proxy needs already travels in the standard part of the file. That covers the name and description, the context path, the target of the upstream agent and its upstream credential, and the OAuth2 resource that an OAuth2 plan names.
 
 Both import directions read the file before they write anything, and show you what they read on a review step.
 
@@ -19,6 +19,8 @@ Both import directions read the file before they write anything, and show you wh
 Before you begin, confirm that you have the following:
 
 * An A2A Proxy. For more information, see [Expose your agent with the A2A Proxy](expose-agent-with-a2a-proxy.md).
+* Permission to read the API definition of the proxy. The **Export** action isn't shown on the **Configuration** page without it.
+* Permission to update the API definition of the proxy, to import a definition onto an existing proxy. The **Import** action isn't shown on the **Configuration** page without it.
 
 ## Export an A2A Proxy
 
@@ -179,6 +181,8 @@ The console never fetches the definition itself. It sends the address to the Man
 | ---------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------- |
 | `imports.whitelist`          | Empty   | A list of address prefixes. When the list holds at least one entry, only addresses matching an entry are fetched. |
 | `imports.allow-from-private` | `true`  | When `false`, addresses that resolve to a private network are refused.                                            |
+
+The two aren't combined. When `imports.whitelist` holds at least one entry, only the whitelist applies and `imports.allow-from-private` is ignored, so a whitelisted address that resolves to a private network is still fetched.
 
 The same restrictions apply to the review step, because the review reads the file the import would read.
 
