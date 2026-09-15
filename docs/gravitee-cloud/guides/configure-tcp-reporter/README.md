@@ -1,5 +1,5 @@
 ---
-description: Custom reporters stream analytics from Gravitee gateways to external monitoring systems over TCP. Learn how reporters and gateway linking work.
+description: Custom reporters stream analytics from Gravitee Hosted Gateways to external monitoring systems over TCP or to Datadog. Learn how reporters and gateway linking work.
 ---
 
 # Configure custom reporters
