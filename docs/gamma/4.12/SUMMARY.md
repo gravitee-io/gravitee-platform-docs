@@ -113,6 +113,7 @@
   * [Integrations](agent-management/import/integrations/README.md)
     * [Connect integrations](agent-management/import/connect-integrations.md)
     * [Register an agent](agent-management/import/import-an-agent.md)
+    * [Discover shadow AI agents from Edge Management](agent-management/import/discover-shadow-ai-agents-from-edge-management.md)
     * [Manage a registered agent](agent-management/import/manage-a-registered-agent.md)
   * [Add an AI model](agent-management/import/add-an-ai-model.md)
   * [Add an MCP Registry](agent-management/import/add-an-mcp-registry.md)
