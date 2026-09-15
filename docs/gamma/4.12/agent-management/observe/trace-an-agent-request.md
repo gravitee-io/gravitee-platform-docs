@@ -55,5 +55,6 @@ Every search and every trace in the Trace Explorer is scoped to the proxy you se
 
 ## Next steps
 
+* [View the lineage of an agent or a proxy](../govern/view-agent-lineage.md): Walk the dependencies an agent or a proxy exercised across all its requests, rather than the spans of one trace.
 * [Inspect your agent log](inspect-your-agent-log.md): Read the log entry of a single invocation.
 * [Configure logging and tracing](../build/configure-your-a2a-proxy/configure-logging-and-tracing.md): Turn on tracing, verbose span events, and payload log records for an A2A Proxy.
