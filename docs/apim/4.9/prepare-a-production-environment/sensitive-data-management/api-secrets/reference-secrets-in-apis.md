@@ -1,5 +1,5 @@
 ---
-description: An overview about reference secrets in apis.
+description: Reference secret manager values from within an API Management 4.9 API to hide sensitive data. Follow the steps to use them.
 metaLinks:
   alternates:
     - >-

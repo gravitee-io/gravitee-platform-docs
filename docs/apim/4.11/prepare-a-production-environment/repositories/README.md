@@ -1,5 +1,5 @@
 ---
-description: An overview about repositories.
+description: API Management 4.11 stores data in repositories configured in gravitee.yml or elsewhere. Compare the repository types available.
 metaLinks:
   alternates:
     - ./

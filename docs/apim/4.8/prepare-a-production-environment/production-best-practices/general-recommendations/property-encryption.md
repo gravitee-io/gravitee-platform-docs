@@ -1,5 +1,5 @@
 ---
-description: Setup guide for property encryption.
+description: API Management 4.8 can store encrypted property values on an API. Learn how property encryption works and how to set it up.
 ---
 
 # Property Encryption

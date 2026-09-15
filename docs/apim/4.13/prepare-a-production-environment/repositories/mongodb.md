@@ -1,5 +1,5 @@
 ---
-description: An overview about MongoDB.
+description: The MongoDB plugin ships in the default API Management 4.13 distribution. Follow the steps to configure MongoDB as your repository.
 metaLinks:
   alternates:
     - mongodb.md

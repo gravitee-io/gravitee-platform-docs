@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for deployments.
+description: The API Management 4.10 Management API exposes both the Console and Developer Portal REST APIs. Learn how to deploy them safely.
 metaLinks:
   alternates:
     - deployments.md

@@ -1,3 +1,7 @@
+---
+description: The Hazelcast rate-limit repository is a distributed rate-limiting backend for API Management 4.12 gateways. Learn the key concepts.
+---
+
 # Hazelcast Rate-Limit Repository Overview and Key Concepts
 
 ## Overview

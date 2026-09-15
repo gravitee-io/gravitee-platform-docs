@@ -1,5 +1,5 @@
 ---
-description: Documentation about property encryption in the context of APIs.
+description: API Management 4.10 can store encrypted property values on an API. Learn how property encryption works and how to set it up.
 metaLinks:
   alternates:
     - property-encryption.md

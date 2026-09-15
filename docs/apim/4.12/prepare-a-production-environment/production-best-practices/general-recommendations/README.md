@@ -1,5 +1,5 @@
 ---
-description: Information about general recommendations.
+description: Generalized recommendations for API Management 4.12 production settings and practices. Browse the articles in this section.
 metaLinks:
   alternates:
     - ./
