@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/developer-contributions
+description: Set up a local environment to contribute to Access Management 4.12. Follow the steps to download the image and clone the projects you need.
 ---
 
 # Developer Contributions

@@ -1,3 +1,7 @@
+---
+description: MFA policies apply challenge and enrollment inside an Access Management 4.10 flow, beyond application settings. Compare the two policies.
+---
+
 # MFA Policies
 
 ## Overview

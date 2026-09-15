@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/managing-factors
+description: Access Management 4.12 supports several MFA factors out of the box. Follow the steps to create a factor and compare the supported types.
 ---
 
 # Managing Factors

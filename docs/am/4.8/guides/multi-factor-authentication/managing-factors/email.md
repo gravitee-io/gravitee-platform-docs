@@ -1,5 +1,5 @@
 ---
-description: Overview of Email.
+description: Send an Access Management 4.8 verification code by email as a second factor. Learn how email verification confirms a user's account.
 ---
 
 # Email

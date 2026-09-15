@@ -1,5 +1,5 @@
 ---
-description: Overview of Audit Trail.
+description: The Access Management 4.9 audit trail records what users do when they interact with it. Follow the steps to view organization and domain logs.
 ---
 
 # Audit Trail

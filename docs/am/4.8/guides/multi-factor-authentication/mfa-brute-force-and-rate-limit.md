@@ -1,5 +1,5 @@
 ---
-description: Overview of MFA Brute Force.
+description: MFA rate limiting and brute force detection harden Access Management 4.8 against repeated attempts. Learn how each protection works.
 ---
 
 # MFA Brute Force and Rate Limit

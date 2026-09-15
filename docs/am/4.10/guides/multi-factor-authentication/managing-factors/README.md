@@ -1,3 +1,7 @@
+---
+description: Access Management 4.10 supports several MFA factors out of the box. Follow the steps to create a factor and compare the supported types.
+---
+
 # Managing Factors
 
 ## Overview

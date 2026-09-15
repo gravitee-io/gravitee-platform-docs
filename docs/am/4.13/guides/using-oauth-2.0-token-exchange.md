@@ -1,3 +1,7 @@
+---
+description: In an impersonation exchange the issued Access Management 4.13 token represents the subject directly. Learn scope resolution and requesting an ID token.
+---
+
 # Using OAuth 2.0 Token Exchange
 
 ## Impersonation

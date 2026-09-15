@@ -1,3 +1,7 @@
+---
+description: Recovery codes let an Access Management 4.10 user authenticate when their other factors are unavailable. Learn how the codes are generated.
+---
+
 # Recovery Codes
 
 The **recovery code** factor generates a set of recovery codes that the user can use to authenticate in case the other options are not available. The recovery codes are generated and shown only once to the user during the enrollment or login process. It is thus advisable to download and keep the recovery codes in a safe place.

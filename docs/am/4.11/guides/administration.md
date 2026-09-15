@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/administration
+description: Organizations and environments structure an Access Management 4.11 installation, with roles and permissions on each. Learn how the two fit together.
 ---
 
 # Administration

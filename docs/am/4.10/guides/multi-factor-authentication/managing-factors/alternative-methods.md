@@ -1,3 +1,7 @@
+---
+description: When a user cannot use their primary Access Management 4.10 factor, an alternative method recovers access. Learn how signing in another way works.
+---
+
 # Alternative Methods
 
 ## Overview

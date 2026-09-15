@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/am-expression-language
+description: The Access Management 4.13 Expression Language configures domain behaviour from request and application data. Learn the syntax and what it exposes.
 ---
 
 # AM Expression Language

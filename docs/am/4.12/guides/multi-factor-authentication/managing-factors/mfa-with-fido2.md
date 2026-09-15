@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/managing-factors/mfa-with-fido2
+description: The FIDO2 factor brings passwordless authentication into the Access Management 4.12 MFA flow. Follow the steps to create and enroll it.
 ---
 
 # MFA with FIDO2

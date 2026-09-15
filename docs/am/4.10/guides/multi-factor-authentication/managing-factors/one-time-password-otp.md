@@ -1,3 +1,7 @@
+---
+description: Use an authenticator application as an Access Management 4.10 second factor with one-time passwords. Learn how OTP verification works.
+---
+
 # One-time-password (OTP)
 
 One-Time Password (OTP) allows you to use an Authenticator application via your digital device (mobile phone), such as Google Authenticator, Microsoft Authenticator or Free OTP, to generate a one-time code which changes over time and will be used as the second factor to validate a user’s account.

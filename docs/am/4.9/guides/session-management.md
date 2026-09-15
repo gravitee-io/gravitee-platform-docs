@@ -1,5 +1,5 @@
 ---
-description: Overview of Session Management.
+description: Access Management 4.9 stores a signed-in user in an HTTP session for a set period. Learn the session layers and how to invalidate one.
 ---
 
 # Session Management

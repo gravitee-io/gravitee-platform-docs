@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/bot-detection
+description: Bot detection protects Access Management 4.13 sign-in pages from automated requests. Follow the steps to enable it at domain or application level.
 ---
 
 # Bot Detection

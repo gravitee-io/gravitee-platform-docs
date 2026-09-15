@@ -1,5 +1,5 @@
 ---
-description: Overview of Bot Detection.
+description: Bot detection protects Access Management 4.9 sign-in pages from automated requests. Follow the steps to enable it at domain or application level.
 ---
 
 # Bot Detection

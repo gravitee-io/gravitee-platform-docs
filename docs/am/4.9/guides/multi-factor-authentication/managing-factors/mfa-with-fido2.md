@@ -1,5 +1,5 @@
 ---
-description: Overview of FIDO2.
+description: The FIDO2 factor brings passwordless authentication into the Access Management 4.9 MFA flow. Follow the steps to create and enroll it.
 ---
 
 # MFA with FIDO2

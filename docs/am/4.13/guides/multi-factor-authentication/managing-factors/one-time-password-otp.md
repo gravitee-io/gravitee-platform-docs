@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/managing-factors/one-time-password-otp
+description: Use an authenticator application as an Access Management 4.13 second factor with one-time passwords. Learn how OTP verification works.
 ---
 
 # One-time-password (OTP)

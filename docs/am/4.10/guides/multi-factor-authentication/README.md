@@ -1,3 +1,7 @@
+---
+description: Multi-factor authentication adds steps to the Access Management 4.10 login flow to enforce access control. Learn how MFA works before you configure it.
+---
+
 # Multi-factor Authentication
 
 ## Overview

@@ -1,5 +1,5 @@
 ---
-description: Overview of HTTP Factor.
+description: The HTTP factor calls your own service to verify an Access Management 4.9 user as a second factor. Learn what the factor supports.
 ---
 
 # HTTP Factor

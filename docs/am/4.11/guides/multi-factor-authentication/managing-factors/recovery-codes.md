@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/managing-factors/recovery-codes
+description: Recovery codes let an Access Management 4.11 user authenticate when their other factors are unavailable. Learn how the codes are generated.
 ---
 
 # Recovery Codes

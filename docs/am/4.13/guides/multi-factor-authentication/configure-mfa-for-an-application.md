@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/configure-mfa-for-an-application
+description: Configure Access Management 4.13 MFA per application, covering enrollment and challenge. Follow the steps to enable factors and set selection rules.
 ---
 
 # Configure MFA for an Application

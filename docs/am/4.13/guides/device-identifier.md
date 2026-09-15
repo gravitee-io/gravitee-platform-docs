@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/device-identifier
+description: Device identifiers let Access Management 4.13 remember the devices used to set up MFA. Follow the steps to create one and compare the plugins.
 ---
 
 # Device Identifier

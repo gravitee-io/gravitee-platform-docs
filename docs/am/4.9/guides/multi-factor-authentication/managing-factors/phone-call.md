@@ -1,5 +1,5 @@
 ---
-description: Overview of Phone Call.
+description: Send an Access Management 4.9 verification code by phone call as a second factor. Learn how the Twilio phone factor works for you.
 ---
 
 # Phone Call
