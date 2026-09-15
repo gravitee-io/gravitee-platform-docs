@@ -1,5 +1,5 @@
 ---
-description: Learn how to set the target URL for an OpenAI-compatible provider on an LLM proxy endpoint.
+description: Set the target URL when an API Management 4.12 LLM proxy endpoint uses the OpenAI-compatible provider. Follow the steps to verify the target.
 ---
 
 # Configure an OpenAI-compatible provider

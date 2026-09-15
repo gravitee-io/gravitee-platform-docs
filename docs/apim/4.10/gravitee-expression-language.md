@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - gravitee-expression-language.md
+description: Gravitee Expression Language queries object graphs to configure API Management 4.10 policies dynamically. Learn the basics and use the EL Assistant.
 ---
 
 # Gravitee Expression Language

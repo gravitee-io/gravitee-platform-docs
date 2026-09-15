@@ -1,3 +1,7 @@
+---
+description: Consume an API Management 4.13 LLM proxy with the OpenAI Python SDK. Follow the steps to point the SDK at your proxy and verify the calls.
+---
+
 # Consume your LLM proxy with the OpenAI Python SDK
 
 ## Overview&#x20;

@@ -1,5 +1,5 @@
 ---
-description: An overview about expose your apis as ai-ready tools with mcp.
+description: Deploy an API Management 4.10 REST API as an MCP Server so AI agents can discover and invoke it. Follow the steps to deploy your API.
 ---
 
 # Convert REST APIS to an MCP Server

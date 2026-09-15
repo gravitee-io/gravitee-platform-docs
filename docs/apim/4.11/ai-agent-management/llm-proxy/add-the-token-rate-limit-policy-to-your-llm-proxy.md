@@ -1,3 +1,7 @@
+---
+description: The Token Rate Limit policy caps inbound and outbound tokens on an API Management 4.11 LLM proxy. Follow the steps to add and verify it.
+---
+
 # Add the Token Rate Limit policy to your LLM proxy
 
 ## Overview
