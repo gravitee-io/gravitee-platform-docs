@@ -1,7 +1,5 @@
 ---
-description: >-
-  Documentation about fully self-hosted installation with docker in the context
-  of APIs.
+description: Install a fully self-hosted API Management 4.11 with Docker Compose. Follow the steps to download the compose file and verify the stack.
 metaLinks:
   alternates:
     - local-install-with-docker.md

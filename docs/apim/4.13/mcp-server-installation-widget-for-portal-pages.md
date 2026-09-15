@@ -1,3 +1,7 @@
+---
+description: The Gravitee Markdown install component embeds one-click MCP installer actions on API Management 4.13 portal pages. Learn the supported AI clients.
+---
+
 # MCP Server Installation Widget for Portal Pages
 
 {% hint style="info" %}

@@ -1,5 +1,5 @@
 ---
-description: An overview about integrations.
+description: The major integrations API Management 4.12 offers with event brokers, observability tools, and service discovery. Compare what is supported.
 metaLinks:
   alternates:
     - integrations.md

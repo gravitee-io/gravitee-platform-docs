@@ -1,5 +1,5 @@
 ---
-description: An overview about Gravitee Expression Language
+description: Gravitee Expression Language queries object graphs to configure API Management 4.8 policies dynamically. Learn the basics and use the EL Assistant.
 hidden: true
 noIndex: true
 ---

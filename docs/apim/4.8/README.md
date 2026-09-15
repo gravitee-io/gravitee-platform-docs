@@ -1,5 +1,5 @@
 ---
-description: Guide explaining policies for introduction.
+description: API Management 4.8 accelerates and streamlines the governance and delivery of your APIs. Learn what the platform offers and where to start.
 ---
 
 # Introduction

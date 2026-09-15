@@ -1,5 +1,5 @@
 ---
-description: Introduction to the basics of API
+description: An API is a set of publicly exposed specifications defining how to integrate with a service. Learn the basics before using API Management 4.12.
 ---
 
 # API Basics

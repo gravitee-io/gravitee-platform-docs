@@ -1,5 +1,5 @@
 ---
-description: An overview about core concepts.
+description: The core concepts behind API Management 4.10, from architecture to component configuration. Learn how the pieces fit together.
 metaLinks:
   alternates:
     - core-concepts.md

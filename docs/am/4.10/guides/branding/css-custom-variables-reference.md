@@ -1,3 +1,7 @@
+---
+description: The CSS custom variables that control Access Management 4.10 theme colours and layout. Find the variable you need to override.
+---
+
 # CSS Custom Variables Reference
 
 | Property Name                       | Default Value                      |

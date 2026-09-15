@@ -1,5 +1,5 @@
 ---
-description: An overview about add a policy.
+description: Add the Rate Limit policy to your first API Management 4.10 API. Follow the steps to apply it and verify the limit is enforced.
 metaLinks:
   alternates:
     - add-a-policy.md

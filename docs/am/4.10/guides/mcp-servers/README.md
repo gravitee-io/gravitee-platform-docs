@@ -1,3 +1,7 @@
+---
+description: MCP Servers give Access Management 4.10 a standard way to expose operations to AI clients. Learn the capabilities and how they are implemented.
+---
+
 # MCP Servers
 
 {% hint style="danger" %}

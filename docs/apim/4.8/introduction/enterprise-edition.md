@@ -1,3 +1,7 @@
+---
+description: What the Enterprise Edition adds to open source API Management 4.8, from features to plugins and endpoints. Compare the two distributions.
+---
+
 # Enterprise Edition
 
 ## Overview

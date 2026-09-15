@@ -1,3 +1,7 @@
+---
+description: What to expect from the Gravitee community forum as an API Management 4.8 user. See how to ask a question others can find later.
+---
+
 # Community Forum
 
 We’re pleased to meet you! Before you dive into the forum, we’d love to give you an overview of what to expect.
