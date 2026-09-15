@@ -1,5 +1,5 @@
 ---
-description: An overview about configure jwt security.
+description: Apply JSON Web Token security to your API Management 4.11 APIs. Follow the steps to configure the gateway APIs and the plan.
 metaLinks:
   alternates:
     - configure-jwt-security.md

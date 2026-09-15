@@ -1,5 +1,5 @@
 ---
-description: An overview about deployment.
+description: Deploy an API Management 4.11 plugin by copying its archive into the plugins directory. Follow the steps, including for air-gapped clusters.
 metaLinks:
   alternates:
     - deployment.md

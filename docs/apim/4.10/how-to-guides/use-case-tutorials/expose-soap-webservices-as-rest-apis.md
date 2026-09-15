@@ -1,5 +1,5 @@
 ---
-description: An overview about expose soap webservices as rest apis.
+description: Transform a SOAP endpoint and expose it as a REST service with API Management 4.10. Follow the steps in the Gravitee policy studio.
 metaLinks:
   alternates:
     - expose-soap-webservices-as-rest-apis.md

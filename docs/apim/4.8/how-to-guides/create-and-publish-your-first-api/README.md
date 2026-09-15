@@ -1,5 +1,5 @@
 ---
-description: Guide explaining policies for create & publish your first api.
+description: Create and publish your first API Management 4.8 API, step by step. Follow the articles in order from creation through to publication.
 ---
 
 # Create & Publish Your First API

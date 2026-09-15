@@ -1,5 +1,5 @@
 ---
-description: An overview about apim 4.9 elasticsearch index template changes.
+description: New Elasticsearch index templates enable extra analytics for API Management 4.12 v2 and v4 APIs. Learn which templates are updated.
 metaLinks:
   alternates:
     - apim-4.9-elasticsearch-index-template-changes.md

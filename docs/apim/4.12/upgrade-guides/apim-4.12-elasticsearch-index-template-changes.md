@@ -1,5 +1,5 @@
 ---
-description: An overview of APIM 4.12 Elasticsearch index template changes.
+description: The Elasticsearch index templates gain an api-product-id field for API Management 4.12 v4 APIs. Learn which templates change and how.
 metaLinks:
   alternates:
     - apim-4.12-elasticsearch-index-template-changes.md

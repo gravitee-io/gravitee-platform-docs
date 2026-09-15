@@ -1,5 +1,5 @@
 ---
-description: An overview about configure dcr.
+description: Configure Dynamic Client Registration between API Management 4.9 and Access Management. Follow the steps to set up both sides.
 metaLinks:
   alternates:
     - >-

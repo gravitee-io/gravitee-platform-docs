@@ -1,5 +1,5 @@
 ---
-description: Tutorial on how-to guides.
+description: Gravitee how-to guides for API Management 4.10, from your first API to advanced use cases. Browse the tutorials that match your goal.
 metaLinks:
   alternates:
     - ./

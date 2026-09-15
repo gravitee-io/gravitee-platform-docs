@@ -1,5 +1,5 @@
 ---
-description: Documentation about MongoDB index management in the context of APIs.
+description: The MongoDB indexes that improve query performance on large API Management 4.12 datasets. Follow the steps to create them manually.
 metaLinks:
   alternates:
     - mongodb-index-management.md

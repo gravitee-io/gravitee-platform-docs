@@ -1,5 +1,5 @@
 ---
-description: An overview about create an api.
+description: Create your first API with API Management 4.8, using the Console. Follow the steps to build it, test it, and move to the next stage.
 ---
 
 # Create an API

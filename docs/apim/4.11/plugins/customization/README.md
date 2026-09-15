@@ -1,5 +1,5 @@
 ---
-description: An overview about customization.
+description: API Management 4.11 plugins extend and customize component behaviour. Learn the common structure a plugin shares before you build one.
 metaLinks:
   alternates:
     - ./
