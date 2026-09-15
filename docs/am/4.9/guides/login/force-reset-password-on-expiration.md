@@ -1,5 +1,5 @@
 ---
-description: Overview of Force Reset Password.
+description: Force an Access Management 4.9 user to reset an expired password at next login. Follow the steps to configure it and see the resulting behaviour.
 ---
 
 # Force Reset Password on Expiration

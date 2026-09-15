@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/users/password-options
+description: Control how Access Management 4.13 users set a first password, by forcing a reset or sending a registration email. Follow the steps to choose.
 ---
 
 # Password Options

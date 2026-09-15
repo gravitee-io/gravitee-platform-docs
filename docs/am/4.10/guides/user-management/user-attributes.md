@@ -1,3 +1,7 @@
+---
+description: An Access Management 4.10 user profile holds general details and additional information. Learn the attributes and how to make email optional.
+---
+
 # User attributes
 
 User profiles in Access Management mainly contains of two sections: general details and additional information.\

@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/user-consent
+description: Users control which scopes an application receives in Access Management 4.12. Follow the steps to review and revoke user consent.
 ---
 
 # User Consent

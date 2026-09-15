@@ -1,3 +1,7 @@
+---
+description: Access Management 4.10 includes a basic user registration flow. Follow the steps to enable registration for a security domain.
+---
+
 # User Registration
 
 ## Overview

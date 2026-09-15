@@ -1,3 +1,7 @@
+---
+description: Silent reauthentication uses the OpenID Connect ID token for third parties that cannot hold an Access Management 4.10 session. Learn how it works.
+---
+
 # Silent Reauthentication
 
 To lower authentication friction from third parties which can’t maintain a session with Gravitee Access Management (AM), the use of the OpenID Connect ID Token let you request new tokens in a silent manner.

@@ -1,5 +1,5 @@
 ---
-description: Overview of Remember Authentication Device.
+description: Register the device an Access Management 4.9 user signs in from as trusted. Follow the steps to configure remembered authentication devices.
 ---
 
 # Remember Authentication Device
