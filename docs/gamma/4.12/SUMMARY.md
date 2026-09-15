@@ -114,6 +114,7 @@
     * [Connect integrations](agent-management/import/connect-integrations.md)
     * [Register an agent](agent-management/import/import-an-agent.md)
     * [Manage a registered agent](agent-management/import/manage-a-registered-agent.md)
+      * [Give an agent an identity](agent-management/import/give-an-agent-an-identity.md)
   * [Add an AI model](agent-management/import/add-an-ai-model.md)
   * [Add an MCP Registry](agent-management/import/add-an-mcp-registry.md)
   * [Register an MCP server](agent-management/import/register-an-mcp-server.md)
@@ -184,11 +185,13 @@
   * [Performance targets](agent-management/observe/performance-targets.md)
 * [Govern](agent-management/govern/README.md)
   * [Score agent compliance with the EU AI Act framework](agent-management/govern/score-agent-compliance-with-the-eu-ai-act.md)
+  * [View the lineage of an agent or a proxy](agent-management/govern/view-agent-lineage.md)
   * [Guard agent actions with Guardian Agents](agent-management/govern/guard-agent-actions-with-guardian-agents.md)
   * [Require human approval for MCP tool calls](agent-management/govern/require-human-approval-for-mcp-tool-calls.md)
   * [Audit agent activity logs](agent-management/govern/agent-activity-logs.md)
 * [Cost and value](agent-management/cost-and-value/README.md)
   * [Agent FinOps](agent-management/cost-and-value/agent-finops.md)
+  * [Read what an agent cost](agent-management/cost-and-value/read-what-an-agent-cost.md)
   * [Attribute business value to agent runs](agent-management/cost-and-value/attribute-business-value-to-agent-runs.md)
 
 ## Authorization Management
