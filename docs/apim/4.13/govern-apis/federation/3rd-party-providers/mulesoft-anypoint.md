@@ -1,5 +1,5 @@
 ---
-description: An overview about mulesoft anypoint.
+description: Federate APIs from the Mulesoft Anypoint Platform into API Management 4.13. Learn how the integration discovers and ingests them.
 metaLinks:
   alternates:
     - mulesoft-anypoint.md

@@ -1,5 +1,5 @@
 ---
-description: An overview about edge stack.
+description: Edge Stack is a cloud native API gateway running in Kubernetes, federated into API Management 4.10. Learn how the integration works.
 metaLinks:
   alternates:
     - edge-stack.md

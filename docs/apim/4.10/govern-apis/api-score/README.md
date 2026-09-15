@@ -1,5 +1,5 @@
 ---
-description: An overview about api score.
+description: API Score is the automated governance capability in API Management 4.10, scoring APIs on criteria like security. Learn how it works.
 metaLinks:
   alternates:
     - ./

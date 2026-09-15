@@ -1,5 +1,5 @@
 ---
-description: Documentation about federation agent service account in the context of APIs.
+description: Create a service account so the federation agent can authenticate to your API Management 4.10 installation. Follow the steps.
 metaLinks:
   alternates:
     - federation-agent-service-account.md

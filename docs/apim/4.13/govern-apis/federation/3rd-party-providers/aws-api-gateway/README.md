@@ -1,5 +1,5 @@
 ---
-description: An overview about aws api gateway.
+description: Federate APIs from AWS API Gateway, the built-in AWS solution, into API Management 4.13. Learn how the integration works for you.
 metaLinks:
   alternates:
     - ./
