@@ -139,12 +139,12 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * `applicationname` needs APIM 4.13 or later. On an earlier APIM version the Datadog Reporter omits that tag, and the other tags are unaffected.
 * For more information, see [Datadog Reporter](../../analyze-and-monitor-apis/reporters/datadog-reporter.md#tags-on-the-request-count-metric).
 
-#### **Consuming application on the OpenTelemetry root span**
+#### **Consuming application on OpenTelemetry spans and log records**
 
-* The root HTTP server span now carries `gravitee.application.id` and `gravitee.application.name`, so traces can be grouped and filtered by consumer without a lookup in APIM.
+* The root HTTP server span and the OpenTelemetry log records that the Gateway exports for a request now carry `gravitee.application.id` and `gravitee.application.name`, so a telemetry backend can group and filter them by consuming application.
 * A request that the Gateway matches to a subscription carries the subscribing application's identifier and its name. A request on a keyless plan carries `gravitee.application.id` with the value `1` and no `gravitee.application.name`.
-* Both attributes sit on the root span alone. Child spans, such as phase, flow, and policy spans, don't repeat them.
-* For more information, see [Attribute placement](../../analyze-and-monitor-apis/opentelemetry.md#attribute-placement).
+* Both attributes sit on the root span alone, and child spans don't repeat them. The log records that carry the individual messages of a Message API don't include them either.
+* For more information, see [Attribute placement](../../analyze-and-monitor-apis/opentelemetry.md#attribute-placement) and [OpenTelemetry Logs Integration Overview](../../analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md).
 
 #### **Generate JWT policy: Support for `x5c` with the `INLINE` and `PEM` key resolvers**
 
