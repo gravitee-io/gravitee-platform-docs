@@ -1,5 +1,5 @@
 ---
-description: An overview about docker compose.
+description: Install API Management 4.8 with Docker Compose, the quickest self-hosted route. Follow the steps and see what the deployment includes.
 ---
 
 # Docker Compose
