@@ -1,5 +1,5 @@
 ---
-description: An overview about azure service bus.
+description: Configure the Azure Service Bus endpoint for a v4 message API in API Management 4.13. Follow the steps through the initial settings.
 metaLinks:
   alternates:
     - azure-service-bus.md

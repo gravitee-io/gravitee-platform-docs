@@ -1,3 +1,7 @@
+---
+description: The A2A Proxy is a v4 API type enabling agent-to-agent communication through API Management 4.11. Learn its reactor architecture.
+---
+
 # A2A Proxy API Type Overview
 
 ## Overview

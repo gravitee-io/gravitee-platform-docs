@@ -1,5 +1,5 @@
 ---
-description: An overview about solace.
+description: Configure the Solace endpoint for a v4 message API in API Management 4.10. Learn the configuration it needs and how it is implemented.
 metaLinks:
   alternates:
     - solace.md

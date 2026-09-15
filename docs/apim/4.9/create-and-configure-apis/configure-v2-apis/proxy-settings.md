@@ -1,5 +1,5 @@
 ---
-description: An overview about proxy settings.
+description: Configure the proxy settings of a v2 API Management 4.9 API, covering entrypoints and CORS. Follow the steps to change them.
 metaLinks:
   alternates:
     - >-

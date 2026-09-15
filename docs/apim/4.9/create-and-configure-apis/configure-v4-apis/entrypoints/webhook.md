@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for webhook.
+description: Declare the webhook identifier to use the Webhook entrypoint on a v4 API Management 4.9 API. Follow the steps to configure it.
 metaLinks:
   alternates:
     - >-
