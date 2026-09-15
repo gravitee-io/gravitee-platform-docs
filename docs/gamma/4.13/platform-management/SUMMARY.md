@@ -43,6 +43,7 @@
 * [Manage entrypoints and sharding tags](manage-entrypoints-and-sharding-tags.md)
 * [Manage environment metadata](manage-environment-metadata.md)
 * [Manage groups](manage-groups.md)
+* [Manage roles](manage-roles.md)
 * [Manage shared policy groups](manage-shared-policy-groups.md)
 * [Manage tenants](manage-tenants.md)
 * [Manage users](manage-users.md)

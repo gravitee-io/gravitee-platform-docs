@@ -222,3 +222,5 @@ The initial release of API Products has the following limitations:
 - [Consuming APIs via API Products](consuming-api-products.md)
 - [API Products restrictions and licensing](restrictions-and-licensing.md)
 - [Managing API Products via Management API](manage-api-products-with-management-api.md)
+- [Add an API Product to the New Developer Portal navigation](../../developer-portal/new-developer-portal/customize-the-navigation.md#api-product)
+- [Subscribe to an API Product in the New Developer Portal](../../developer-portal/new-developer-portal/manage-subscriptions.md#subscribe-to-an-api-product)

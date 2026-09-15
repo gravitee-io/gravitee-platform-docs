@@ -54,4 +54,6 @@ The subscription is created with a status based on the plan's validation setting
 
 After the subscription is accepted, the client authenticates requests using the method defined by the plan type (API Key header, JWT bearer token, or client certificate).
 
+Consumers can also subscribe to an API Product themselves from the New Developer Portal, once the API Product is published in the portal navigation. For more information, see [Subscribe to an API Product](../../developer-portal/new-developer-portal/manage-subscriptions.md#subscribe-to-an-api-product).
+
 <figure><img src="../../.gitbook/assets/api-product-subscriptions.png" alt=""><figcaption><p>API Product subscriptions list</p></figcaption></figure>

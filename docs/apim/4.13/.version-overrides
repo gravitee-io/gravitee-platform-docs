@@ -82,3 +82,25 @@ configure-and-manage-the-platform/manage-organizations-and-environments/authenti
 .gitbook/assets/apim-dcr-provider-claim-mappings.png
 .gitbook/assets/apim-idp-client-authentication-method.png
 how-to-guides/use-case-tutorials/configure-dcr.md
+# API Products in the New Developer Portal (APIM 4.13.0 feature, PORTAL-7)
+developer-portal/new-developer-portal/manage-subscriptions.md
+developer-portal/new-developer-portal/manage-api-keys-in-the-developer-portal.md
+developer-portal/new-developer-portal/api-overview-page-templates.md
+developer-portal/typo-tolerant-api-search.md
+secure-and-expose-apis/api-products/README.md
+secure-and-expose-apis/api-products/consuming-api-products.md
+.gitbook/assets/devportal-api-product-add-menu.png
+.gitbook/assets/devportal-api-product-add-dialog.png
+.gitbook/assets/devportal-api-product-navigation-tree.png
+.gitbook/assets/devportal-api-product-publish-dialog.png
+.gitbook/assets/devportal-api-product-category-section.png
+.gitbook/assets/devportal-add-api-product-to-category-dialog.png
+.gitbook/assets/devportal-catalog-api-product-card.png
+.gitbook/assets/devportal-api-product-documentation.png
+.gitbook/assets/devportal-subscribe-api-product-plan.png
+.gitbook/assets/devportal-subscriptions-list-api-product.png
+.gitbook/assets/devportal-api-product-subscription-details.png
+.gitbook/assets/devportal-api-product-subscription-included-apis.png
+.gitbook/assets/devportal-add-api-context-menu.png
+.gitbook/assets/devportal-add-apis-dialog.png
+.gitbook/assets/devportal-publish-api-dialog.png
