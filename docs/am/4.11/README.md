@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/overview/readme
+description: Access Management 4.11 is an open source identity and access management solution securing your applications and APIs. Learn the core components and concepts.
 ---
 
 # Introduction to Gravitee Access Management (AM)

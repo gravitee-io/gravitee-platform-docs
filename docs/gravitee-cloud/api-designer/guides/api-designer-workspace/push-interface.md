@@ -1,5 +1,5 @@
 ---
-description: Overview of Push Interface.
+description: The API Designer push interface turns a design into a deployed API through the API Settings and Push API panes. Learn how the panes work.
 ---
 
 # Push Interface

@@ -1,3 +1,7 @@
+---
+description: DPoP binds an Access Management 4.13 access token to a key pair the client holds, so a stolen token is useless. Follow the steps to require it.
+---
+
 # Demonstrating Proof of Possession (DPoP)
 
 [Demonstrating Proof of Possession (DPoP)](https://datatracker.ietf.org/doc/html/rfc9449) binds an access token to a key pair that the client holds. A DPoP-bound token is useless on its own, because every request that presents the token must also carry a proof signed with the client's private key.

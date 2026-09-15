@@ -1,5 +1,5 @@
 ---
-description: Overview of CIBA.
+description: CIBA lets a client start authentication on a separate device through Access Management 4.8. Learn the protocol and configure the settings.
 ---
 
 # CIBA

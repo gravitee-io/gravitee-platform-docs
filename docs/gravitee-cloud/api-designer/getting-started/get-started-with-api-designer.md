@@ -1,5 +1,5 @@
 ---
-description: Follow the steps below to access Gravitee API Designer
+description: Create a Gravitee Cloud account, then open API Designer from the left navigation. Follow the steps to start designing your first API.
 ---
 
 # Get Started with API Designer

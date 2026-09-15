@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/social-identity-providers
+description: Access Management 4.11 ships social identity providers for Google, Facebook, Twitter, GitHub, LinkedIn, and Azure AD. Compare the providers available.
 ---
 
 # Social Identity Providers

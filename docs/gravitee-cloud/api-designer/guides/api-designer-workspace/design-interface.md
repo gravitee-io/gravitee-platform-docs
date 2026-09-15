@@ -1,5 +1,5 @@
 ---
-description: Concepts and architecture for Design Interface.
+description: The API Designer interface lays out an API as a mind map you define, expose, and refine. Learn how the three elements fit together.
 ---
 
 # Design Interface

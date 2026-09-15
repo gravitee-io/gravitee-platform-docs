@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/legal-identity-providers/franceconnect
+description: Authenticate Access Management 4.13 users with FranceConnect, the French government identity provider. Follow the steps to set up the connection.
 ---
 
 # FranceConnect

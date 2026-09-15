@@ -1,3 +1,7 @@
+---
+description: How Access Management 4.10 is put together, covering the global architecture and the role of the AM Gateway. See how it fits before you install.
+---
+
 # AM Architecture
 
 This page provides details on Gravitee Access Management's (AM) architecture. Before you install and use the product, take a few moments to get to know the AM architecture.

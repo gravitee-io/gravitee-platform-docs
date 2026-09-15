@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/overview/plugins/compatibility-matrices
+description: Which Access Management 4.11 plugins work with which core product version, listed by plugin type. Find the matrix for the plugin you run.
 ---
 
 # Compatibility Matrices

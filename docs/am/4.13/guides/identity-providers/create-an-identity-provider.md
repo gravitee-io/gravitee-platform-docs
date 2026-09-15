@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/create-an-identity-provider
+description: Create an identity provider in Access Management 4.13, including a custom one. Follow the steps to add it and test the connection.
 ---
 
 # Create an Identity Provider

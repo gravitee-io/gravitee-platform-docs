@@ -1,5 +1,5 @@
 ---
-description: Overview of Legal Identity Providers.
+description: Access Management 4.9 includes legal and governmental identity providers for authenticating citizens. Compare the providers available to you.
 ---
 
 # Legal Identity Providers

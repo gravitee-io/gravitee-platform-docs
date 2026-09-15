@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/database-identity-providers/inline
+description: Inline identity providers give Access Management 4.12 an in-memory user directory for testing or default accounts. Follow the steps to create one.
 ---
 
 # Inline

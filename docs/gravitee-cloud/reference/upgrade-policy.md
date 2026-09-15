@@ -1,5 +1,5 @@
 ---
-description: Upgrade and migration guide for Upgrade.
+description: When Gravitee Cloud upgrades your control plane and gateways, and how much notice you get. Learn the upgrade policy before you plan.
 ---
 
 # Upgrade policy

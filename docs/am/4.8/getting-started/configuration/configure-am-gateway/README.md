@@ -1,5 +1,5 @@
 ---
-description: Overview of AM Gateway.
+description: Configure the Access Management 4.8 Gateway through gravitee.yml, system properties, or environment variables. Compare the three methods.
 ---
 
 # AM Gateway

@@ -1,5 +1,5 @@
 ---
-description: API and reference documentation for Gravitee API Designer.
+description: Gravitee API Designer builds APIs through a no-code graphical interface and a design-first approach. Learn what the designer gives you.
 ---
 
 # Introduction to Gravitee API Designer (APID)

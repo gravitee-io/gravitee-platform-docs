@@ -1,3 +1,7 @@
+---
+description: The restrictions that apply to custom TCP reporters in Gravitee Cloud. Browse them before you configure a reporter for your gateways.
+---
+
 # Custom Reporters Reference
 
 ## Restrictions

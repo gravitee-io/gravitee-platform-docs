@@ -1,5 +1,5 @@
 ---
-description: Learn how to use the API Designer Workspace to create an API
+description: The API Designer Workspace is where you manage, create, and configure API designs in Gravitee Cloud. Learn what the workspace offers.
 ---
 
 # API Designer Workspace

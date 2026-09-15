@@ -1,3 +1,7 @@
+---
+description: Authenticate Access Management 4.10 users with Twitter. Follow the steps to register a Twitter application and set up the connection.
+---
+
 # Twitter
 
 ## Overview

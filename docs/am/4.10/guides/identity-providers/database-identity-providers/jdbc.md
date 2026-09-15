@@ -1,3 +1,7 @@
+---
+description: Authenticate Access Management 4.10 users against a SQL database over JDBC. Follow the steps to create the provider and test the connection.
+---
+
 # JDBC
 
 ## Overview
