@@ -1,3 +1,7 @@
+---
+description: Dictionary management gives the Gravitee Kubernetes Operator 4.13 environment-scoped key-value stores for API policies. Learn the key concepts.
+---
+
 # Dictionary management overview
 
 

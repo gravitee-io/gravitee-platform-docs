@@ -1,5 +1,5 @@
 ---
-description: Overview of SharedPolicyGroup.
+description: The SharedPolicyGroup custom resource creates a shared policy group for the Gravitee Kubernetes Operator 4.8. Reference it from an ApiV4Definition.
 ---
 
 # SharedPolicyGroup

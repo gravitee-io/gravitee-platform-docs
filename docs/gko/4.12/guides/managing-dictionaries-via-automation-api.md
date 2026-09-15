@@ -1,3 +1,7 @@
+---
+description: Create and update manual and dynamic dictionaries through the Automation API in Gravitee Kubernetes Operator 4.12 deployments. Follow the steps to set one up.
+---
+
 # Manage dictionaries with the Automation API
 
 ## Overview

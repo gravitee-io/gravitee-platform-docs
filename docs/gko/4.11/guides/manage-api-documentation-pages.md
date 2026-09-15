@@ -1,5 +1,5 @@
 ---
-description: Documentation pages can be defined in the API definition CRDs
+description: Define API documentation pages in Gravitee Kubernetes Operator 4.11 API definition CRDs for the Classic Developer Portal. See what the CRDs support.
 ---
 
 # Manage API documentation pages

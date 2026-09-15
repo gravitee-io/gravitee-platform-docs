@@ -1,3 +1,7 @@
+---
+description: The Group custom resource creates a group in an API Management environment through the Gravitee Kubernetes Operator 4.11. Follow its validation rules.
+---
+
 # Group
 
 The `Group` custom resource allows to create a group in a given APIM environment. Groups created using this resource can be later on either referenced as kubernetes object references (i.e. using the group metadata name and an optional namespace), or using their name as it was already possible for groups created from the API management console.

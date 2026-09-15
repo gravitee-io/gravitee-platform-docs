@@ -1,5 +1,5 @@
 ---
-description: Overview of Templating.
+description: Templating injects values from Kubernetes Secrets and ConfigMaps into Gravitee Kubernetes Operator 4.9 CRDs at runtime. Follow the steps to use it.
 ---
 
 # Templating

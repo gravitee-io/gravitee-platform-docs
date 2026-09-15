@@ -1,5 +1,5 @@
 ---
-description: Overview of Custom Resource Definitions.
+description: The custom resource definitions the Gravitee Kubernetes Operator 4.8 installs to manage APIs, applications, and subscriptions. Browse the full reference.
 ---
 
 # Custom Resource Definitions

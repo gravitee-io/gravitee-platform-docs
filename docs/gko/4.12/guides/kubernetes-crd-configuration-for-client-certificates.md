@@ -1,3 +1,7 @@
+---
+description: The Application CRD holds several client certificates for mTLS plans in the Gravitee Kubernetes Operator 4.12. Rotate them without downtime.
+---
+
 # Kubernetes CRD Configuration for Client Certificates
 
 ## Overview

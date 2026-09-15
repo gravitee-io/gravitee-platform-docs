@@ -1,3 +1,7 @@
+---
+description: Package Gravitee Kubernetes Operator 4.12 custom resources in your own Helm chart. Follow the steps to define, install, and upgrade CRDs with Helm.
+---
+
 # Create your own Helm Charts
 
 ## Overview

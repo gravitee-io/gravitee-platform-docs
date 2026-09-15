@@ -1,5 +1,5 @@
 ---
-description: Overview of Developer Portal.
+description: Publish Gravitee Kubernetes Operator 4.9 APIs to the Developer Portal with the lifecycle state attribute. Follow the steps to publish and set a category.
 ---
 
 # Publish APIs to the Developer Portal

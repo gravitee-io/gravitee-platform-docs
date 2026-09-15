@@ -1,7 +1,5 @@
 ---
-description: >-
-  An end-to-end guide for managing JWT subscriptions with GKO, without the need
-  for an external identity provider.
+description: Manage JWT subscriptions with the Gravitee Kubernetes Operator 4.12 without an external identity provider. Follow the steps from plan to subscription.
 ---
 
 # Manage JWT subscriptions with GKO

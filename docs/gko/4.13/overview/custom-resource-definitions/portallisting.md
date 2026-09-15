@@ -1,3 +1,7 @@
+---
+description: PortalListing publishes APIs to locations in a portal navigation tree through the Gravitee Kubernetes Operator 4.13. See the key fields and validation.
+---
+
 # PortalListing
 
 The `PortalListing` custom resource publishes one or more APIs to specific locations in a portal's navigation tree. Each listing references a parent portal and an array of API entries with target locations and display order.

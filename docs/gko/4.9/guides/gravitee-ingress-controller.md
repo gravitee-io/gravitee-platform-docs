@@ -1,5 +1,5 @@
 ---
-description: Overview of Gravitee Ingress Controller.
+description: Deploy the Gateway as an ingress runtime with the Gravitee Kubernetes Operator 4.9 as its controller. Follow the steps to deploy, test, and secure it.
 ---
 
 # Gravitee Ingress Controller

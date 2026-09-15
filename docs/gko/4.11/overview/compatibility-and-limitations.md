@@ -1,3 +1,7 @@
+---
+description: Which API Management versions the Gravitee Kubernetes Operator 4.11 supports, plus its deprecation policy and known limits. Check it before you upgrade.
+---
+
 # Compatibility and Limitations
 
 ## Overview

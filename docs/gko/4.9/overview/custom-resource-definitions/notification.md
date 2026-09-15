@@ -1,5 +1,5 @@
 ---
-description: Overview of Notification.
+description: The Notification custom resource routes API event alerts to the Console through the Gravitee Kubernetes Operator 4.9. See a worked example.
 ---
 
 # Notification
