@@ -1,5 +1,5 @@
 ---
-description: An overview about entrypoints.
+description: Entrypoints define the protocol and settings consumers use to reach a Kafka API in API Management 4.12. Learn how to configure them.
 metaLinks:
   alternates:
     - entrypoints.md

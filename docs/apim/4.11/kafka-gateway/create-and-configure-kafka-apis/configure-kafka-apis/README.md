@@ -1,5 +1,5 @@
 ---
-description: An overview about configure kafka apis.
+description: Configure Kafka APIs from the API Management 4.11 Console, a UI for creating and amending them. Learn what you can change there.
 ---
 
 # Configure Kafka APIs
