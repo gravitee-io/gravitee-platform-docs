@@ -1,5 +1,5 @@
 ---
-description: Overview of JDBC.
+description: Authenticate Access Management 4.8 users against a SQL database over JDBC. Follow the steps to create the provider and test the connection.
 ---
 
 # JDBC

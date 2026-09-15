@@ -1,5 +1,5 @@
 ---
-description: API and reference documentation for AM API.
+description: Configure the Access Management 4.9 API through gravitee.yml, system properties, or environment variables. Compare the three methods.
 ---
 
 # AM API

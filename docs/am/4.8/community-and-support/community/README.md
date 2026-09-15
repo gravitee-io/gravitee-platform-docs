@@ -1,5 +1,5 @@
 ---
-description: Overview of Community.
+description: What to expect from the Gravitee community forum as an Access Management 4.8 user. See how to ask a question others can find later.
 ---
 
 # Community

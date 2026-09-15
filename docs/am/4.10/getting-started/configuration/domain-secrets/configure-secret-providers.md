@@ -1,3 +1,7 @@
+---
+description: Configure Kubernetes or HashiCorp Vault as a secret provider for Access Management 4.10 domains. Follow the steps and check the known limits.
+---
+
 # Configure Secret Providers
 
 ## Overview <a href="#overview" id="overview"></a>

@@ -1,3 +1,7 @@
+---
+description: The Access Management 4.13 Automation API manages resources declaratively over HTTP. Browse the reference for the endpoints it exposes.
+---
+
 # Automation API Reference
 
 ## Overview

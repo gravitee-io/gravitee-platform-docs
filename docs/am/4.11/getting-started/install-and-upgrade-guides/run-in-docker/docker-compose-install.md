@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/run-in-docker/docker-compose-install
+description: Run Access Management 4.11 images with Docker Compose. Follow the steps to pull the images, start the stack, and check that it is running.
 ---
 
 # Docker Compose Install

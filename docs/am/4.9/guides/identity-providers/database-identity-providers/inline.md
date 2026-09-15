@@ -1,5 +1,5 @@
 ---
-description: Overview of Inline.
+description: Inline identity providers give Access Management 4.9 an in-memory user directory for testing or default accounts. Follow the steps to create one.
 ---
 
 # Inline

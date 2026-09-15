@@ -1,5 +1,5 @@
 ---
-description: Installation guide for Gravitee Cloud Hierarchy.
+description: Gravitee Cloud organizes your organizations and environments into a hierarchy you can edit. Follow the steps to set yours up.
 ---
 
 # Set up your Gravitee Cloud Hierarchy

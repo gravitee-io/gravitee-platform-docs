@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/configuration/secret-providers
+description: Secret provider plugins let Access Management 4.12 read database passwords and certificates from a secret manager. Follow the steps to configure access.
 ---
 
 # Secret Providers

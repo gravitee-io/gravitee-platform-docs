@@ -1,5 +1,5 @@
 ---
-description: Overview of Social Identity Providers.
+description: Access Management 4.8 ships social identity providers for Google, Facebook, Twitter, GitHub, LinkedIn, and Azure AD. Compare the providers available.
 ---
 
 # Social Identity Providers

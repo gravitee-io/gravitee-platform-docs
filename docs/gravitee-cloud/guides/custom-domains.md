@@ -1,7 +1,5 @@
 ---
-description: >-
-  Configure custom domains for your Gravitee Cloud gateways to expose your APIs
-  under your own branded URLs.
+description: Route API traffic through your own domain instead of the default Gravitee gateway URL. Follow the steps to add HTTP and Kafka domains.
 ---
 
 # Configure a Custom Domain for a Gateway

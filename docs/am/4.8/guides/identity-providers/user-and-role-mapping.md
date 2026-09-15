@@ -1,5 +1,5 @@
 ---
-description: Overview of Group Mapping.
+description: Bind identity provider attributes to an Access Management 4.8 user profile with user, role, and group mappers. Follow the steps to map them.
 ---
 
 # User, Role and Group Mapping
