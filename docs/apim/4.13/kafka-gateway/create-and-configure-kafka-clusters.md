@@ -1,5 +1,5 @@
 ---
-description: An overview about create and configure kafka clusters.
+description: Create and manage Kafka clusters from the Kafka UI in the API Management 4.13 Console. Follow the steps to configure a cluster.
 metaLinks:
   alternates:
     - create-and-configure-kafka-clusters.md

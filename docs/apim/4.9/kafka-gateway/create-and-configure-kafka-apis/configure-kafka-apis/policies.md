@@ -1,5 +1,5 @@
 ---
-description: An overview about policies.
+description: Policies are customizable rules the Gateway runs during a Kafka API transaction in API Management 4.9. Learn how they change behaviour.
 metaLinks:
   alternates:
     - >-

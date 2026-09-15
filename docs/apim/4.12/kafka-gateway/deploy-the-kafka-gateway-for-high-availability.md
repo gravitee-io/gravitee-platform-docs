@@ -1,5 +1,5 @@
 ---
-description: Run the Gravitee Kafka gateway with no single point of failure.
+description: The Kafka Gateway is a protocol-aware proxy rewriting broker addresses in API Management 4.12. Learn how to deploy it for high availability.
 ---
 
 # Deploy the Kafka Gateway for High Availability
