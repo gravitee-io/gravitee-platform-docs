@@ -1,5 +1,5 @@
 ---
-description: Overview of Twitter.
+description: Authenticate Access Management 4.8 users with Twitter. Follow the steps to register a Twitter application and set up the connection.
 ---
 
 # Twitter

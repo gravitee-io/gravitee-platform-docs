@@ -1,3 +1,7 @@
+---
+description: Connect Access Management 4.10 to a SAML 2.0 identity provider for XML-based identity exchange. Follow the steps to create the connector.
+---
+
 # SAML 2.0
 
 ## Overview

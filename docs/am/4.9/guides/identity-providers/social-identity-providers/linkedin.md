@@ -1,5 +1,5 @@
 ---
-description: Overview of LinkedIn.
+description: Authenticate Access Management 4.9 users with LinkedIn. Follow the steps to register a LinkedIn application and set up the connection.
 ---
 
 # LinkedIn

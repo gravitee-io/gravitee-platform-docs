@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/social-identity-providers/azure-ad
+description: Authenticate Access Management 4.11 users with Azure Active Directory. Follow the steps to register an application and set up the connection.
 ---
 
 # Azure AD

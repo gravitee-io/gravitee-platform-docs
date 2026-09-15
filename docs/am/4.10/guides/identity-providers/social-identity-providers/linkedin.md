@@ -1,3 +1,7 @@
+---
+description: Authenticate Access Management 4.10 users with LinkedIn. Follow the steps to register a LinkedIn application and set up the connection.
+---
+
 # LinkedIn
 
 ## Overview
