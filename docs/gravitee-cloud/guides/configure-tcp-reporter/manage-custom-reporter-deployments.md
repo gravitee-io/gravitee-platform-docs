@@ -1,5 +1,5 @@
 ---
-description: Monitor a Gravitee Cloud custom reporter as it moves through pending, deployed, and deleting states. Follow the steps to update one.
+description: Link, edit, activate, deactivate, and delete Gravitee Cloud custom reporters, and check their deployment status on each gateway.
 ---
 
 # Manage Custom Reporter Deployments
@@ -22,8 +22,7 @@ You link a TCP reporter and a Datadog reporter to a Gravitee Hosted Gateway from
 3. In the **Datadog Reporter** card or the **TCP Reporter** card, select a reporter from the **Reporter** list. To unlink the current reporter, select **None**. A deactivated reporter is listed with the **(Disabled)** suffix.
 4. Click **Save**.
 
-    <!-- TODO: Screenshot of the Reporter Settings page of a Gateway showing the TCP Reporter and Datadog Reporter cards -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gravitee-cloud-gateway-reporters-datadog-card.png" alt="Reporter Settings page of a Gateway showing the TCP Reporter card and the Datadog Reporter card, each with a Reporter list and Save and Reset buttons"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gravitee-cloud-gateway-reporters-datadog-card.png" alt="The Reporter Settings page of a Gateway showing the TCP Reporter card and the Datadog Reporter card, each with a Reporter list and Save and Reset buttons"><figcaption></figcaption></figure>
 
 The Gateway applies the change, and both cards are locked until the deployment completes. If no reporter of that type exists yet, the card shows a **Configure reporters** link to the **Custom Reporters** settings instead of the list. If the deployment fails, the card shows a warning banner that asks you to contact Gravitee.
 
@@ -64,8 +63,7 @@ To verify that a reporter is deployed as expected, follow these steps:
 2. Click **Custom Reporters**.
 3. Check the **Status** column of the **Your Custom Reporters** table. The table refreshes automatically while an update is in progress.
 
-    <!-- TODO: Screenshot of the Your Custom Reporters table showing a TCP reporter and a Datadog reporter with their Status badges -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gravitee-cloud-custom-reporters-status.png" alt="Your Custom Reporters table showing a TCP reporter and a Datadog reporter with their Status badges, toggles, and Edit reporter and Delete reporter icons"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gravitee-cloud-custom-reporters-status.png" alt="The Your Custom Reporters table with a TCP reporter in the Active status and a Datadog reporter in the Updating status, each with a toggle and the Edit reporter and Delete reporter icons"><figcaption></figcaption></figure>
 
 The **Status** column shows one of the following values:
 

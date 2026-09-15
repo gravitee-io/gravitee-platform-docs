@@ -24,8 +24,7 @@ Before creating a Datadog reporter, ensure you meet the following requirements:
 3. Click **Create Custom Reporter**.
 4. From the **Reporter Type** list, select **Datadog**.
 
-    <!-- TODO: Screenshot of the Reporter Type list on the Create Custom Reporter page, with Datadog selected -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gravitee-cloud-datadog-reporter-type.png" alt="Create Custom Reporter page with Datadog selected in the Reporter Type list"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gravitee-cloud-datadog-reporter-type.png" alt="The Reporter Type list of the custom reporter form with Datadog selected, above the Reporter Name field"><figcaption></figcaption></figure>
 
 5. In the **Reporter Name** field, enter a name for the reporter. The name accepts between 2 and 128 characters, and only letters, numbers, spaces, hyphens, underscores, and periods.
 6. Optional: To link the reporter to Gateways now, complete the following sub-steps. To link Gateways later instead, use the **Reporters** page of a Gateway. For more information, see [Manage custom reporter deployments](manage-custom-reporter-deployments.md).
@@ -58,8 +57,7 @@ Before creating a Datadog reporter, ensure you meet the following requirements:
     The Kafka event metrics aren't available for a Datadog reporter.
 11. Click **Save**. If you linked Gateways, a **Save reporter configuration** dialog warns you that the affected Gateways are rolling-restarted to apply the change. Click **Save** to confirm.
 
-    <!-- TODO: Screenshot of the Create Custom Reporter page with Reporter Type set to Datadog, showing the Configuration, Batching, and Proxy sections -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gravitee-cloud-datadog-reporter-form.png" alt="Create Custom Reporter page with Reporter Type set to Datadog, showing the Configuration, Batching, and Proxy sections"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gravitee-cloud-datadog-reporter-form.png" alt="The custom reporter form with Reporter Type set to Datadog, showing the Gateways, Configuration, Batching, Proxy, and Data Selection sections"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 After you save the reporter, the API key and the proxy password are stored encrypted and displayed as `********`. When you edit the reporter, leave the masked value unchanged to keep the stored value, or enter a new value to replace it.
@@ -73,5 +71,4 @@ To verify the Datadog reporter is working as expected, follow these steps:
 2. Click **Custom Reporters**. The reporter appears in the **Your Custom Reporters** table with the type **Datadog Reporter** and the Datadog site in the **Configuration** column.
 3. Check the **Status** column. If you linked Gateways, the status is **Updating** until every Gateway has applied the configuration, and then **Active**. If you didn't link any Gateway, the status is **Not linked**. For more information about the statuses, see [Manage custom reporter deployments](manage-custom-reporter-deployments.md).
 
-    <!-- TODO: Screenshot of the Your Custom Reporters table showing the new Datadog reporter with the Active status -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-gravitee-cloud-datadog-reporter-active.png" alt="Your Custom Reporters table showing a Datadog reporter with the Active status"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gravitee-cloud-datadog-reporter-active.png" alt="The Custom Reporters page with a Datadog reporter listed in the Your Custom Reporters table with the Active status"><figcaption></figcaption></figure>
