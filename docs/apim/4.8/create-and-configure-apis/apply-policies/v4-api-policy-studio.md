@@ -1,5 +1,5 @@
 ---
-description: An overview about v4 api policy studio.
+description: The v4 Policy Studio designs flows for v4 API Management 4.8 APIs. Follow the steps to design flows and configure the flow mode.
 ---
 
 # v4 API Policy Studio

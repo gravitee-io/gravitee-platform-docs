@@ -1,3 +1,7 @@
+---
+description: Create an API Management 4.12 API from a remote URL in the Console, using a Gravitee definition or OpenAPI. Follow the steps to import.
+---
+
 # Import APIs from Remote URLs (Console)
 
 ## Creating APIs from Remote URLs

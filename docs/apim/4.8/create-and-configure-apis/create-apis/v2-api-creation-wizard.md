@@ -1,5 +1,5 @@
 ---
-description: An overview about v2 api creation wizard.
+description: The v2 API definition is a JSON representation of your Gateway API. Follow the API Management 4.8 creation wizard step by step.
 ---
 
 # v2 API Creation Wizard
