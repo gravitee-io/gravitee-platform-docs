@@ -21,7 +21,7 @@ Populate the Catalog with the assets your agents need: models, MCP servers, tool
 | **Tools** | **MCP Tools** from connected MCP servers, **API Tools** built from REST APIs in API Management, and **Kafka API Tools** from Event Stream Management. |
 | **Knowledge & Data** | Document sources registered for agent consumption, inline or fetched from a remote URL. |
 | **Skills** | Uploaded as `.zip` skill packages, exposed to agents as MCP resources using the FastMCP Skills-as-Resources pattern. |
-| **Agents** | Registered from the A2A agent card an agent publishes. |
+| **Agents** | Registered from the A2A agent card an agent publishes, or discovered as shadow AI agents from the domains the Edge Daemon detects. |
 
 ## Import operations
 
@@ -35,4 +35,5 @@ Populate the Catalog with the assets your agents need: models, MCP servers, tool
 * [**Add a knowledge source**](add-knowledge-source.md). Add external knowledge (documentation, knowledge bases) to the Catalog for agent consumption.
 * [**Upload skills**](upload-skills.md). Catalog skill folders that agents can consume as MCP resources.
 * [**Register an agent**](import-an-agent.md). Add an external agent to the Catalog from the A2A agent card it publishes.
+* [**Discover shadow AI agents from Edge Management**](discover-shadow-ai-agents-from-edge-management.md). Turn the AI provider domains the Edge Daemon detects into shadow AI agents in the Catalog, and read which processes and devices reached each one.
 * [**Re-sync catalog assets**](re-sync-catalog-assets.md). Refresh imported AI models and MCP servers against the source they came from, and read what changed.
