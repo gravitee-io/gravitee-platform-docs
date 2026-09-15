@@ -1,5 +1,5 @@
 ---
-description: API and reference documentation for Cloud API Reference.
+description: The Gravitee Cloud API reference documents the endpoints for managing your organization. Find the specification you need.
 ---
 
 # Cloud API Reference

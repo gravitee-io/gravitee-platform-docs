@@ -1,5 +1,5 @@
 ---
-description: Learn how to access and set up Gravitee Cloud
+description: Register for the Gravitee Cloud self-hosted profile, then navigate the dashboard and hierarchy. Follow the steps to set up your account.
 ---
 
 # Access and setup

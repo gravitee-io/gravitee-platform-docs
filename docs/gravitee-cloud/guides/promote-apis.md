@@ -1,5 +1,5 @@
 ---
-description: Overview of Promote APIs.
+description: API promotion moves an API between Gravitee Cloud environments, from development through to production. Learn how promotion works.
 ---
 
 # Promote APIs

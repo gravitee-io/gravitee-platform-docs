@@ -1,5 +1,5 @@
 ---
-description: Release notes for Gravitee Cloud.
+description: New features in each Gravitee Cloud release, listed newest first by month. Browse the release notes for the changes that affect you.
 ---
 
 # Release Notes

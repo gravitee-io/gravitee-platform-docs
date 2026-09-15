@@ -1,5 +1,5 @@
 ---
-description: Overview of Account Token.
+description: Account tokens are long-lived credentials for calling the Gravitee Cloud Management API. Follow the steps to create and use one.
 ---
 
 # Account Token
