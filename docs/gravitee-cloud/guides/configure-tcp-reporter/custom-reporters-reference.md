@@ -6,7 +6,13 @@ description: The restrictions that apply to custom TCP reporters in Gravitee Clo
 
 ## Restrictions
 
-- Only TCP reporter type is supported
+- Two reporter types are available: TCP and Datadog. The type of an existing reporter is read-only. To switch types, delete the reporter and create a new one
+- A Datadog reporter doesn't send the Kafka event metrics
+- A Datadog reporter targets only the following Datadog sites: `datadoghq.com`, `us3.datadoghq.com`, `us5.datadoghq.com`, `datadoghq.eu`, and `ddog-gov.com`
+- The Datadog log bulk size is between 1 and 1000
+- Datadog custom tags start with a letter, accept only letters, digits, and the characters `_`, `-`, `:`, `.`, and `/`, and are at most 200 characters
+- A Datadog proxy host contains no scheme (`http://`, `https://`, or a SOCKS4 or SOCKS5 scheme), no path, no whitespace, and no control characters
+- A Gateway is linked to one reporter of each type at a time. Linking another reporter of the same type from the **Reporters** page of the Gateway replaces the current one
 - Only JSON output format is supported
 - Gateway Monitoring Metrics data type is always excluded from export
 - Reporter names must match the pattern `^[a-zA-Z0-9\s\-_.]+$`
