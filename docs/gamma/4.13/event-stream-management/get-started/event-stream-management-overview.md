@@ -18,6 +18,7 @@ Event Stream Management provides the following key capabilities:
 * **Kafka cluster registration**. Import existing Kafka clusters into Gamma so they can be governed, monitored, and composed into higher-level services.
 * **Kafka Service creation**. Define a governed Kafka Service, with security plans, policies, and access controls, backed by either a Registered Cluster directly or a Virtual Cluster for isolation. A Kafka Service is analogous to an [API proxy](../../api-management/build/create-an-api-proxy.md) in API Management.
 * **Virtual Clusters**. Provision logically isolated Kafka environments on shared infrastructure for multi-tenant workloads.
+* **Kafka Explorer**. Read the live brokers, topics, consumer groups, and messages of a registered cluster, a Kafka Service, or a broker address through saved connections.
 
 ## How Event Stream Management fits into Gamma
 

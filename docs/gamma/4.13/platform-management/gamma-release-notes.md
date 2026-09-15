@@ -221,7 +221,7 @@ Edge Management replaces the single configuration page and its flat lists of DNS
 
 ### Event Stream Management
 
-Event Stream Management adds a duplication path for Kafka Services.
+Event Stream Management adds the Kafka Explorer and a duplication path for Kafka Services. The Kafka Explorer reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
 
 #### Duplicate a Kafka service
 
@@ -229,6 +229,15 @@ Event Stream Management adds a duplication path for Kafka Services.
 * Provide a name, a version, and a new listener host prefix for the copy. The host prefix is unique per environment, and the source service's prefix counts as already in use.
 * The new service is created in a stopped state and without plans, so you control when it starts accepting connections.
 * See [Duplicate a Kafka service](../event-stream-management/build/duplicate-a-kafka-service.md).
+
+#### Kafka Explorer
+
+* The **Manage** group of the Event Stream Management sidebar adds **Kafka Explorer**, which reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
+* A connection points at a multi-connection cluster registered in Event Stream Management and one of its named connections, at a Kafka Service through a published plan and an accepted subscription, or at broker addresses that you enter directly. An optional security overlay adds or replaces the client-side SASL and TLS settings, and **Test connection** checks that the target is reachable before you save.
+* The explorer lists the brokers with their partition counts and log sizes, the topics with their partitions, replication, size, and configuration, and the consumer groups with their members, committed offsets, and lag. The **Messages** page of a topic fetches a batch from the newest or oldest messages, from a timestamp, or from a specific offset, or streams new messages live for up to 300 seconds.
+* Each connection has its own members and groups. Its creator is the primary owner, and the **USER** and **OWNER** roles of the new **Explorer** scope decide who can read or change a connection's configuration and members.
+* Kafka Explorer requires an enterprise license that includes the `apim-native-kafka-explorer` feature, and stores its connections in a MongoDB management database.
+* See [Kafka Explorer](../event-stream-management/manage/kafka-explorer/README.md).
 
 ### Platform Management
 
