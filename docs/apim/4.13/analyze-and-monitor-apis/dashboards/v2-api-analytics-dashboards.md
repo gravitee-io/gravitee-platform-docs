@@ -1,3 +1,7 @@
+---
+description: The v2 API analytics dashboard shows performance and traffic patterns for an API Management 4.13 v2 API. Follow the steps to access it.
+---
+
 # V2 API analytics dashboards
 
 ## Overview

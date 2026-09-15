@@ -1,5 +1,5 @@
 ---
-description: An overview about api quality.
+description: API Quality assigns customizable governance scores to your API Management 4.8 APIs. Follow the steps to configure and review them.
 ---
 
 # API Quality

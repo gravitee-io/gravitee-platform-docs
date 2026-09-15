@@ -1,3 +1,7 @@
+---
+description: Enable OpenTelemetry logs for an API Management 4.12 API and view the correlated logs in Grafana. Follow the steps to configure it.
+---
+
 # Enable and Use OpenTelemetry Logs for APIs
 
 ## Create an OpeneTelemetry Logs Configuration

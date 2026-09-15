@@ -1,3 +1,7 @@
+---
+description: Collect runtime logs for v4 proxy and message APIs in API Management 4.12, including webhook logs. Follow the steps to configure them.
+---
+
 # Configure API-level Logs
 
 ## Overview

@@ -1,5 +1,5 @@
 ---
-description: An overview about logging.
+description: Logging at Gateway and API level in API Management 4.8, and how to expose metrics to Prometheus. Learn how logging is configured.
 ---
 
 # Logging
