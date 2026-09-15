@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Choose which AI coding agents the Edge Daemon intercepts and which target API on the gateway receives each route. Follow the steps to map, verify, and deploy routes.
+description: Interception is configured per agent in Gamma Edge Management, by the domains and routes it calls. Follow the steps to configure an agent.
 ---
 
 # Configure interception

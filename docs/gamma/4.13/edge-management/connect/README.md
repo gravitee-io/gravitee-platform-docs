@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Connect your environment, your devices, and your AI coding agents to Edge Management, from the guided setup to the target APIs and the daemon deployment. Start with the task you need.
+description: Connect your environment, devices, and AI coding agents to Gamma Edge Management. Learn what each kind of connection involves.
 ---
 
 # Connect

@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Subscribe an application to an LLM Proxy or MCP Proxy plan and issue the credential the AI Gateway checks. Follow the steps to provision and revoke consumer access.
+description: A subscription binds one application to one plan on a Gamma LLM or MCP Proxy. Follow the steps to create, approve, and close subscriptions.
 ---
 
 # Manage subscriptions

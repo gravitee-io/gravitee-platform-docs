@@ -1,5 +1,5 @@
 ---
-description: Connect Atlassian's MCP server to Gravitee, curate the tools it exposes,
+description: An Atlassian MCP server token carries every permission its owner holds. Follow the steps to connect and secure it behind a Gamma MCP Proxy.
   and authorize every call per caller identity. Follow the steps to get started.
 ---
 

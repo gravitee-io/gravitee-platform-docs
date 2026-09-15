@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Expose the Edge Reactor port on Kubernetes so the Edge Daemons on your devices reach it. Follow the steps to enable the listener, the service port, and the ingress.
+description: The Gamma Edge Reactor listens on its own gateway port, which Kubernetes does not expose by default. Follow the steps to create an Edge ingress.
 ---
 
 # Configure Edge Ingress

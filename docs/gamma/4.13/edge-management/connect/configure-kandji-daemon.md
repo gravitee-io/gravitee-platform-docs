@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Deploy the Edge Daemon across your macOS fleet with Kandji, using the download URL and the post-install script that the console generates. Follow the steps to create the Custom App.
+description: Deploy the Gamma Edge Daemon to your device fleet with Kandji. Follow the steps to generate the download URL and create the Custom App.
 ---
 
 # Configure Kandji to deploy the Edge Daemon
