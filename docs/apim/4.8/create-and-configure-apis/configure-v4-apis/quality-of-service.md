@@ -1,5 +1,5 @@
 ---
-description: An overview about quality of service.
+description: Quality of Service sets the delivery guarantee for an asynchronous API Management 4.8 API. Compare the QoS levels and their compatibility.
 ---
 
 # Quality of Service

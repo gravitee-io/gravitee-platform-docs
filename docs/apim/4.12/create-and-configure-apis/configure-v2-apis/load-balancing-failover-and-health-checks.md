@@ -1,5 +1,5 @@
 ---
-description: An overview about load-balancing, failover, & health-checks.
+description: API Management 4.12 provides load balancing, failover, and health checks for v2 API backends. Compare the three backend services.
 metaLinks:
   alternates:
     - load-balancing-failover-and-health-checks.md

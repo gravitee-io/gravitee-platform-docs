@@ -1,5 +1,5 @@
 ---
-description: View Gravitee's complete guide to configure service discovery using the HashiCorp Consul solution.
+description: Bind the backend endpoints of an API Management 4.13 API to a HashiCorp Consul service. Follow the steps to configure discovery.
 metaLinks:
   alternates:
     - service-discovery.md

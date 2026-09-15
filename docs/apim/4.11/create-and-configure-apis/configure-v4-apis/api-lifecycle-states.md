@@ -1,5 +1,5 @@
 ---
-description: Understand the lifecycle states for v4 APIs and the allowed transitions between them.
+description: A v4 API lifecycle state controls its visibility on the API Management 4.11 Developer Portal. Learn the allowed transitions and retirement flow.
 ---
 
 # API lifecycle states

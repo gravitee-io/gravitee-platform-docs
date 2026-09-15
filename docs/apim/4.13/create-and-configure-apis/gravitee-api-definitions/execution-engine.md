@@ -1,5 +1,5 @@
 ---
-description: An overview about execution engine.
+description: The execution engine is the Gateway runtime that executes API Management 4.13 APIs and policy flows. Learn its improvements and policy support.
 metaLinks:
   alternates:
     - execution-engine.md

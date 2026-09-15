@@ -1,5 +1,5 @@
 ---
-description: An overview about user permissions.
+description: Configure user and group access to your API Management 4.10 APIs. Follow the steps to add members and set their permissions.
 metaLinks:
   alternates:
     - user-permissions.md

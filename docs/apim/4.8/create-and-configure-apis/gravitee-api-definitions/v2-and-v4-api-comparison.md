@@ -1,5 +1,5 @@
 ---
-description: An overview about v2 and v4 api comparison.
+description: v2 and v4 API Management 4.8 APIs differ in functionality and supported features. Compare them before you choose a definition.
 ---
 
 # v2 and v4 API Comparison

@@ -1,5 +1,5 @@
 ---
-description: An overview about audit logs.
+description: View and filter the audit logs and events recorded for a v4 API in API Management 4.10. Follow the steps to access and filter them.
 metaLinks:
   alternates:
     - audit-logs.md

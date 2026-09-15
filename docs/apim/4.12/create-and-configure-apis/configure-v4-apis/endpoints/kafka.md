@@ -1,7 +1,5 @@
 ---
-description: >-
-  Configure the Kafka endpoint connector for v4 Message APIs, including
-  security, producer and consumer settings, and dynamic configuration.
+description: The Kafka endpoint mediates between a Kafka cluster and an HTTP client in API Management 4.12. Learn the routing modes for native Kafka APIs.
 metaLinks:
   alternates:
     - kafka.md

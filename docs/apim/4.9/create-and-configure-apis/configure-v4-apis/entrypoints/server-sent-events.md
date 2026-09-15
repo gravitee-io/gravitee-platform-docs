@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for server-sent events.
+description: Configure the Server-Sent Events entrypoint for a v4 API Management 4.9 API, including quality of service. Follow the steps to set it.
 metaLinks:
   alternates:
     - >-

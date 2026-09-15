@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for configure v2 apis.
+description: The articles covering how to configure a v2 API in API Management 4.8, from proxy settings through to access. Browse what you need.
 ---
 
 # Configure v2 APIs
