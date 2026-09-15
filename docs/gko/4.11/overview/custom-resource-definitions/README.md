@@ -1,3 +1,7 @@
+---
+description: The custom resource definitions the Gravitee Kubernetes Operator 4.11 installs, and how to read their status conditions. Browse the full CRD reference.
+---
+
 # Custom Resource Definitions
 
 The Gravitee Kubernetes Operator (GKO) comes with several custom resource definitions (CRDs):

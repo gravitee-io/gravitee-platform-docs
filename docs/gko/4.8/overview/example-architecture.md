@@ -1,5 +1,5 @@
 ---
-description: Examples and code samples for Example Architecture.
+description: How the Gravitee Kubernetes Operator 4.8 fits a platform with a control plane, data planes, and GitOps tooling. See how it fits your architecture.
 ---
 
 # Example Architecture

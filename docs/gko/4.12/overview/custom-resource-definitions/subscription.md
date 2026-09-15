@@ -1,3 +1,7 @@
+---
+description: The Subscription custom resource is the Gravitee Kubernetes Operator 4.12 equivalent of a Console subscription, including API keys. See a worked example.
+---
+
 # Subscription
 
 The `Subscription` custom resource definition (CRD) is the GKO equivalent of the Gravitee subscriptions that can be managed in the API Management Console.

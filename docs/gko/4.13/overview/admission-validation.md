@@ -1,5 +1,5 @@
 ---
-description: The Gravitee Kubernetes Operator admission webhook sends a dry-run call to the APIM Automation API before a custom resource is stored. See what it checks.
+description: Admission validation dry-runs a custom resource against the Automation API before the Gravitee Kubernetes Operator 4.13 stores it. See when the call is skipped.
 ---
 
 # Admission validation

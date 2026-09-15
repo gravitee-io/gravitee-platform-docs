@@ -1,3 +1,7 @@
+---
+description: Deploy the Gateway as an ingress runtime with the Gravitee Kubernetes Operator 4.12 as its controller. Follow the steps and see where v4 support stops.
+---
+
 # Gravitee Ingress Controller
 
 ## Overview

@@ -1,5 +1,5 @@
 ---
-description: Access control for APIs in APIM
+description: Set group and member permissions on APIs and applications through Gravitee Kubernetes Operator 4.10 CRDs. Follow the steps and see the limitations.
 ---
 
 # Manage API and application groups and members

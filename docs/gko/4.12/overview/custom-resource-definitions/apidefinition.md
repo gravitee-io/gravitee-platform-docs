@@ -1,3 +1,7 @@
+---
+description: ApiDefinition declares a v2 API for the Gravitee Kubernetes Operator 4.12 to deploy to the Gateway. Create one, follow its lifecycle, and delete your API.
+---
+
 # ApiDefinition
 
 The `ApiDefinition` custom resource represents the configuration for a v2 API on the Gravitee Gateway. GKO also supports the more recent [v4 API definition](apiv4definition.md) with its own CRD.

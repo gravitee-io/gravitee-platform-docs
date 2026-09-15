@@ -1,3 +1,7 @@
+---
+description: Create an API Management service account so the Gravitee Kubernetes Operator 4.11 can authenticate through a ManagementContext. Follow the steps to set it up.
+---
+
 # Define an APIM service account for GKO
 
 The best way to provide GKO with credentials to connect to your APIM installation through a `ManagementContext` is to create a service account for GKO in the Gravitee APIM Console.

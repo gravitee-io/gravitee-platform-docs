@@ -2,6 +2,7 @@
 metaLinks:
   canonical: >-
     https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/gateway-api/dns-with-external-dns
+description: Automate DNS records for a Gravitee Kubernetes Operator 4.10 Gateway with external-dns annotations. Follow the steps to configure GatewayClassParameters.
 ---
 
 # Configure DNS with external-dns
