@@ -1,10 +1,7 @@
 ---
 hidden: true
 noIndex: true
-description: >-
-  Declare what good looks like for a proxy or an agent. A performance target
-  names the traffic it judges, the window it judges it over, and the rules that
-  set each threshold.
+description: A performance target declares what acceptable looks like for Gamma proxies and agents. Learn how rules are built, scoped, and evaluated.
 ---
 
 # Performance targets

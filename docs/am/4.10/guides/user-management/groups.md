@@ -1,3 +1,7 @@
+---
+description: Create and manage groups in the Access Management 4.10 Console, and assign roles to their members. Follow the steps to manage membership.
+---
+
 # Groups
 
 ## Manage groups

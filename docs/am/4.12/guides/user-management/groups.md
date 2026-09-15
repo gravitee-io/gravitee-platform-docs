@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/groups
+description: Create and manage groups in the Access Management 4.12 Console, and assign roles to their members. Follow the steps to manage membership.
 ---
 
 # Groups

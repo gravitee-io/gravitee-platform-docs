@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Find an LLM Proxy in the LLM Proxies list of the Agent Management module. Sort by name, owner, sharding tags, or status, filter by status, search, and choose the visible columns.
+description: The LLM Proxies page lists every LLM Proxy in a Gamma environment with its owner and deployment. Follow the steps to sort and filter it.
 ---
 
 # Browse the LLM Proxies list

@@ -1,5 +1,5 @@
 ---
-description: Overview of Authentication.
+description: Step-up authentication asks an already signed-in Access Management 4.8 user for another factor. Learn the use cases and when to require it.
 ---
 
 # Step-up Authentication

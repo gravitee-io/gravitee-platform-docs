@@ -1,5 +1,5 @@
 ---
-description: Overview of Account Management.
+description: Let Access Management 4.9 users manage their own accounts. Follow the steps to configure self-service account management for a domain.
 ---
 
 # Self-service Account Management

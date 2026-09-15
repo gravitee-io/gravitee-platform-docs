@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Let browser-based clients on other origins call an LLM Proxy by enabling CORS and setting the allowed origins, methods, and headers. Follow the steps on the CORS page.
+description: Enable cross-origin access for a Gamma LLM Proxy so the gateway adds the Access-Control headers. Follow the steps to set origins and methods.
 ---
 
 # Configure LLM Proxy CORS

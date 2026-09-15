@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/adaptive-multi-factor-authentication
+description: Adaptive MFA asks Access Management 4.12 users for another factor after login, based on context. Learn the use cases and configure it.
 ---
 
 # Adaptive Multi-factor Authentication

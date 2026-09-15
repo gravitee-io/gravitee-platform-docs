@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Review every deployment of an MCP Proxy, inspect or compare versions, and roll back to an earlier API definition.
+description: The Deployment History page lists every deployment of a Gamma MCP Proxy, newest first. Follow the steps to compare versions and roll back.
 ---
 
 # Review MCP Proxy deployment history

@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/redirect-users-after-login
+description: Control where Access Management 4.13 sends a user after login, from an OAuth 2.0, OpenID Connect, or SAML flow. Learn how redirection is decided.
 ---
 
 # Redirect Users After Login

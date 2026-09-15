@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/user-attributes
+description: An Access Management 4.13 user profile holds general details and additional information. Learn the attributes and how to make email optional.
 ---
 
 # User attributes

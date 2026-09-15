@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/remember-authentication-device
+description: Register the device an Access Management 4.11 user signs in from as trusted. Follow the steps to configure remembered authentication devices.
 ---
 
 # Remember Authentication Device

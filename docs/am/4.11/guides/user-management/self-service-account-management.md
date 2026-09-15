@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/self-service-account-management
+description: Let Access Management 4.11 users manage their own accounts. Follow the steps to configure self-service account management for a domain.
 ---
 
 # Self-service Account Management
