@@ -97,7 +97,7 @@ The **Governance** card reads **Passing**, **Failing**, or **Not fully checked**
     </tbody>
 </table>
 
-The **Operations** card appears only when the host API Management offers performance targets. It reads **On target**, **Off target**, or **Not fully checked**, and lists four checks. **Targets** reads **Not configured** until the agent has target rules, **Not evaluated yet** until one of them has a verdict, the rule that's breached and by how much, or how many rules are met. **Activity** reports how many proxies carry the agent's calls, or why its calls can't be read yet. **Cost** reads **Not checked yet** and **Decisions** reads **100%** in this build, and neither links anywhere.
+The **Operations** card appears only when the host API Management offers performance targets. It reads **On target**, **Off target**, or **Not fully checked**, and lists four checks. **Targets** reads **Not configured** until the agent has target rules, **Not evaluated yet** until one of them has a verdict, the rule that's breached and by how much, or how many rules are met. **Activity** reports how many proxies carry the agent's calls, or why its calls can't be read yet. **Cost** reads the last day's spend against the day before, for example **$12.40 in 24h, +12%**, badged **Off trend** when spend rose by a tenth or more and **On trend** otherwise, **No spend in 24h** when neither day spent anything, or **Nothing to read yet** when the agent's cost can't be read at all. The row is advisory, so it never changes the card's verdict, and it links to the agent's **Cost** page. **Decisions** reads **100%** in this build and links nowhere.
 
 A check that couldn't be read shows **Could not be read**, and the card's verdict falls to **Not fully checked**.
 
@@ -161,7 +161,7 @@ The agent's sidebar has three sections. Each entry is a page of its own.
         </tr>
         <tr>
             <td><strong>Agent</strong></td>
-            <td><strong>Dependencies</strong></td>
+            <td><strong>Lineage</strong></td>
             <td>What called the agent and what the agent reached, as observed in gateway traffic. It needs the gateway application to attribute traffic to the agent.</td>
         </tr>
         <tr>

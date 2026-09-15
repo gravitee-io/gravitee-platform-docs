@@ -91,7 +91,7 @@ An OAuth2 plan needs a client ID on the application. When the application has no
 
 The page shows the tools and subscriptions to anyone who can read the Catalog. The **Subscribe**, **Unsubscribe**, and **Subscribe to an MCP proxy** controls appear only for users who can update the Catalog.
 
-The link at the bottom of the page, **See what this agent was observed reaching**, opens the agent's **Dependencies** page.
+The link at the bottom of the page, **See what this agent was observed reaching**, opens the agent's **Lineage** page.
 
 ## Subscribe from a tool's card
 
