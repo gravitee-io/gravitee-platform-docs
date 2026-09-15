@@ -1,5 +1,5 @@
 ---
-description: An overview about assign content.
+description: The Assign Content policy changes or transforms request and response bodies in API Management 4.8. Learn how to configure the transformation.
 ---
 
 # Assign Content
