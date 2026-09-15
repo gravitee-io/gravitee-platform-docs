@@ -1,3 +1,7 @@
+---
+description: Configure authentication for the New Developer Portal 4.12 so only authorized users reach it. Browse the authentication options.
+---
+
 # Configure Authentication
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: Typo-tolerant search helps consumers find APIs in the Developer Portal 4.12 catalog despite spelling mistakes. Learn how it works.
+---
+
 # Typo-tolerant API search
 
 ## Overview

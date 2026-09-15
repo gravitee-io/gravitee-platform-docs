@@ -1,3 +1,7 @@
+---
+description: Manage your Developer Portal 4.11 navigation programmatically with the Management API. Follow the steps to structure it.
+---
+
 # Structure the navigation with the Management API
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: View, revoke, and renew API keys directly in the Developer Portal 4.13. Learn what administrators and developers can do.
+---
+
 # Manage API Keys in the Developer Portal
 
 ## Overview

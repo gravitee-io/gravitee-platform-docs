@@ -1,3 +1,7 @@
+---
+description: Structure the New Developer Portal 4.12 navigation with pages and folders. Browse the guides for each customization task.
+---
+
 # Customize the Navigation
 
 ## Overview

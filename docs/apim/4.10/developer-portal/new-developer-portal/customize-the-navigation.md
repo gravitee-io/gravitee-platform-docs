@@ -1,3 +1,7 @@
+---
+description: Customize New Developer Portal 4.10 navigation and manage which APIs appear in it. Follow the steps to organize the portal.
+---
+
 # Customize the navigation
 
 ## Overview

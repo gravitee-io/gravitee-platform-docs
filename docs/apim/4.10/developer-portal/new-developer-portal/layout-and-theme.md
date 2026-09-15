@@ -1,5 +1,5 @@
 ---
-description: Documentation about layout and theme in the context of APIs.
+description: Set the layout and theme of the New Developer Portal 4.10, and browse the catalog by category. Learn what you can change.
 ---
 
 # Layout and Theme
