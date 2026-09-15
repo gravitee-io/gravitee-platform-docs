@@ -1,3 +1,7 @@
+---
+description: Publish APIs to several logical or physical environments from one Gravitee Kubernetes Operator 4.10 deployment. See how the architecture fits together.
+---
+
 # Multi-environment deployment architecture
 
 In a multi-environment deployment, a single GKO can be deployed and can publish APIs to different environments (logical or physical).

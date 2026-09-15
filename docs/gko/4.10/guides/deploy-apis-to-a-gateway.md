@@ -1,3 +1,7 @@
+---
+description: The state attribute on Gravitee Kubernetes Operator 4.10 API definitions starts or stops an API on the Gateway. Follow the steps to deploy and control it.
+---
+
 # Deploy APIs to a Gateway
 
 The `state` attribute of the `ApiV4Definition` and `ApiDefinition` CRDs determines if an API should be in the `STARTED` or `STOPPED` state. By default, an API's `state` is set to `STARTED`.

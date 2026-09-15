@@ -1,5 +1,5 @@
 ---
-description: Overview of DB.
+description: DB-less mode runs a Gravitee Kubernetes Operator 4.8 Gateway with no database dependencies. See the minimum Helm configuration a DB-less deployment needs.
 ---
 
 # DB-less mode

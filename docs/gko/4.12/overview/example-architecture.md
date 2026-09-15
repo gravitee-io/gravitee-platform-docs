@@ -1,3 +1,7 @@
+---
+description: How the Gravitee Kubernetes Operator 4.12 fits a platform with a control plane, data planes, and GitOps tooling. See how it fits your architecture.
+---
+
 # Example Architecture
 
 The Gravitee Kubernetes Operator (GKO) is commonly used as one piece of a broader API platform that includes components such as a central Gravitee control plane, one or more Gravitee data planes, a GitOps tool like ArgoCD, and a version control system.

@@ -1,3 +1,7 @@
+---
+description: Publish Gravitee Kubernetes Operator 4.10 APIs to the Developer Portal with the lifecycle state attribute. Follow the steps to publish, deprecate, or archive.
+---
+
 # Publish APIs to the Developer Portal
 
 Whether APIs managed by GKO are published to the Gravitee Developer Portal is controlled by an attribute called `lifecycle_state` that is common to both `ApiV4Definition` and `ApiDefinition` CRDs.

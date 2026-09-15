@@ -1,8 +1,5 @@
 ---
-description: >-
-  This guide describes how to use Gravitee APIM with the Kubernetes Gateway API
-  for ingress traffic routing while delegating API management concerns to a
-  dedicated Gravitee APIM Gateway.
+description: Run self-hosted API Management with the Kubernetes Gateway API for ingress, using the Gravitee Kubernetes Operator 4.13. Follow the configuration steps.
 ---
 
 # Configure a self-hosted Gravitee APIM with Kubernetes Gateway API

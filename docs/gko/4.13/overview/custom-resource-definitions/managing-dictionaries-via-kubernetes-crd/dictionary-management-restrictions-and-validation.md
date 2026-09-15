@@ -1,3 +1,7 @@
+---
+description: The constraints and validation rules dictionary management enforces in the Gravitee Kubernetes Operator 4.13. Browse the full list of restrictions.
+---
+
 # Dictionary management restrictions and validation
 
 

@@ -1,5 +1,5 @@
 ---
-description: Easily transition from the GUI to a Kubernetes resource
+description: Export a v2 or v4 API from the Console as a Kubernetes manifest for the Gravitee Kubernetes Operator 4.12. Follow the steps in the UI or the Management API.
 ---
 
 # Export an API as a Kubernetes manifest

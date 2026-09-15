@@ -1,5 +1,5 @@
 ---
-description: Overview of Custom Resource Definitions.
+description: The custom resource definitions the Gravitee Kubernetes Operator 4.9 installs, and how to read their status conditions. Browse the full CRD reference.
 ---
 
 # Custom Resource Definitions

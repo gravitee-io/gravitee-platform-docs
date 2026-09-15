@@ -1,3 +1,7 @@
+---
+description: The Notification custom resource routes API event alerts to the Console through the Gravitee Kubernetes Operator 4.12. See a worked example.
+---
+
 # Notification
 
 The Notification resource lets you configure event-based notifications within Gravitee and targets the Gravitee Console UI. Notifications are triggered by API-related events, and then sent to specific users or groups based on the configuration.

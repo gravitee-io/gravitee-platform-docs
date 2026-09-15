@@ -1,3 +1,7 @@
+---
+description: The Documentation custom resource creates Developer Portal pages through the Gravitee Kubernetes Operator 4.12. Compare portal scope and API scope.
+---
+
 # Documentation
 
 The `Documentation` custom resource creates documentation pages for the next-gen Developer Portal. Pages can be scoped to a portal (platform-level guides) or to an API (API-specific reference material). Supported content types are Gravitee Markdown, OpenAPI, and AsyncAPI.
