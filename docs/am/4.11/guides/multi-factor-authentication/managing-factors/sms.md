@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/managing-factors/sms
+description: Send an Access Management 4.11 verification code by SMS as a second factor. Learn how SMS verification confirms a user's account.
 ---
 
 # SMS

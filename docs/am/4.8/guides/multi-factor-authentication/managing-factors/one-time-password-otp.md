@@ -1,5 +1,5 @@
 ---
-description: Overview of One.
+description: Use an authenticator application as an Access Management 4.8 second factor with one-time passwords. Learn how OTP verification works.
 ---
 
 # One-time-password (OTP)

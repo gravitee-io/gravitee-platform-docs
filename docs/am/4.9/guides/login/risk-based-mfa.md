@@ -1,5 +1,5 @@
 ---
-description: Overview of Risk.
+description: Risk-based MFA decides when Access Management 4.9 challenges a user, from their activity and consent. Follow the steps to activate it.
 ---
 
 # Risk-based MFA

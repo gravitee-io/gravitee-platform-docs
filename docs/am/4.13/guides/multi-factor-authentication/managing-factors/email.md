@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/managing-factors/email
+description: Send an Access Management 4.13 verification code by email as a second factor. Learn how email verification confirms a user's account.
 ---
 
 # Email

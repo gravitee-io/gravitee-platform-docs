@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Define the key/value properties that the policies of an LLM, MCP, or A2A Proxy read at runtime. Follow the steps to add, import, or sync them from an HTTP endpoint.
+description: API properties are key and value pairs Gamma policies read at runtime through the Expression Language. Follow the steps to add and import them.
 ---
 
 # Configure properties for your proxies

@@ -1,3 +1,7 @@
+---
+description: Let Access Management 4.10 users manage their own accounts. Follow the steps to configure self-service account management for a domain.
+---
+
 # Self-service Account Management
 
 ## Overview

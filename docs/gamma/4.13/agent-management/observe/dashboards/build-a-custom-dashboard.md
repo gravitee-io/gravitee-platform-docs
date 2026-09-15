@@ -1,11 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: >-
-  Build your own observability dashboard in Agent Management. Add and arrange
-  widgets, and configure each one from its Data, Display, and Filters tabs. Add
-  dashboard filters and a default time range, edit the definition as JSON, and
-  resolve a save that clashes with a concurrent edit.
+description: Compose a custom Gamma dashboard from scratch, a template, or an existing one. Follow the steps to create and fill your dashboard.
 ---
 
 # Build a custom dashboard

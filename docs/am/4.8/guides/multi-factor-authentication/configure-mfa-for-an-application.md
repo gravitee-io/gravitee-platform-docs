@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for Configure MFA.
+description: Configure Access Management 4.8 MFA per application, covering enrollment and challenge. Follow the steps to enable factors and set selection rules.
 ---
 
 # Configure MFA for an Application

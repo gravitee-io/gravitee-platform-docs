@@ -1,3 +1,7 @@
+---
+description: Reset an Access Management 4.10 user's MFA when they lose their device. Follow the steps to remove the factors from their account.
+---
+
 # Manage User MFA
 
 ## Overview

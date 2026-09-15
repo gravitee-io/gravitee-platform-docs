@@ -1,5 +1,5 @@
 ---
-description: Overview of AM Expression Language.
+description: The Access Management 4.9 Expression Language configures domain behaviour from request and application data. Learn the syntax and what it exposes.
 ---
 
 # AM Expression Language

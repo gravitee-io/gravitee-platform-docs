@@ -1,5 +1,5 @@
 ---
-description: Overview of Password Policy.
+description: Set password strength, expiry, and dictionary rules for an Access Management 4.8 security domain. Follow the steps to configure a policy.
 ---
 
 # Password Policy

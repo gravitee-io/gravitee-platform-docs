@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/manage-user-mfa
+description: Reset an Access Management 4.11 user's MFA when they lose their device. Follow the steps to remove the factors from their account.
 ---
 
 # Manage User MFA

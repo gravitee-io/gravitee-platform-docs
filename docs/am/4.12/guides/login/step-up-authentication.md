@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/step-up-authentication
+description: Step-up authentication asks an already signed-in Access Management 4.12 user for another factor. Learn the use cases and when to require it.
 ---
 
 # Step-up Authentication

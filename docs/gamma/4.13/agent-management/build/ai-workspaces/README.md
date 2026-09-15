@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Give a team governed access to a chosen set of AI models, with a per-member spending budget and a separate API key for every member. Choose the AI Workspace task you want to start with.
+description: An AI Workspace gives a team governed access to chosen AI models with its own budget. Follow the steps to set a Gamma workspace up.
 ---
 
 # AI Workspaces

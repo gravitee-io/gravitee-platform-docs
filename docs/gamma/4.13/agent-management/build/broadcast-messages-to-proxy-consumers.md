@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Send a one-way announcement to the consumers of an LLM Proxy, MCP Proxy, or A2A Proxy about a change, an update, or a maintenance window. Follow the steps to compose one.
+description: Send a one-way announcement to the consumers of a Gamma LLM, MCP, or A2A Proxy. Follow the steps to open Broadcasts and send one.
 ---
 
 # Broadcast messages to proxy consumers

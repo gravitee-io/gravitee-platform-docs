@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: The Metadata page of an API proxy holds the key and value entries the API carries. Add entries, override the ones inherited from the environment, reset them, and delete them.
+description: API metadata is key and value entries carried by a Gamma API proxy, defaulting from the environment. Follow the steps to add and reset entries.
 ---
 
 # Configure API metadata
