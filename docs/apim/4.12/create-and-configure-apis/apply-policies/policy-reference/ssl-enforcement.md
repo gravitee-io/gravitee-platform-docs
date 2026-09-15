@@ -1,5 +1,5 @@
 ---
-description: An overview about ssl enforcement.
+description: The SSL Enforcement policy restricts access to requests meeting your SSL criteria in API Management 4.12. Learn how to configure it.
 metaLinks:
   alternates:
     - ssl-enforcement.md

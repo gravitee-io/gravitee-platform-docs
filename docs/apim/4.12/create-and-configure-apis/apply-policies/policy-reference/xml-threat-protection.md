@@ -1,5 +1,5 @@
 ---
-description: An overview about xml threat protection.
+description: The XML Threat Protection policy validates an XML request body against structural limits in API Management 4.12. Learn how to set them.
 metaLinks:
   alternates:
     - xml-threat-protection.md

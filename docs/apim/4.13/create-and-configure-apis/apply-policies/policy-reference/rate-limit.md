@@ -1,5 +1,5 @@
 ---
-description: An overview about rate limit.
+description: API Management 4.13 offers three rate limit policies for capping request volume. Compare them and learn how to configure each one.
 ---
 
 # Rate Limit

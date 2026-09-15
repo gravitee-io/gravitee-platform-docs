@@ -1,5 +1,5 @@
 ---
-description: An overview about OAuth2.
+description: The OAuth2 policy checks access token validity through introspection in API Management 4.12. Learn how to configure the policy.
 metaLinks:
   alternates:
     - ./

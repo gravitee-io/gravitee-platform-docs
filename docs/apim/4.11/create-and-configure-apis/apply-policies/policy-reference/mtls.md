@@ -1,5 +1,5 @@
 ---
-description: Guide on applying policies related to mtls.
+description: The mTLS policy verifies that a client certificate is present on an API Management 4.11 request. Learn how to configure the policy.
 metaLinks:
   alternates:
     - mtls.md

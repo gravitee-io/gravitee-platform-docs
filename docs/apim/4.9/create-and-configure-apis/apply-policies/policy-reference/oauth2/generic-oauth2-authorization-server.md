@@ -1,5 +1,5 @@
 ---
-description: An overview about generic oauth2 authorization server.
+description: The Generic OAuth2 Authorization Server resource introspects an access token for API Management 4.9. Learn how to configure it.
 metaLinks:
   alternates:
     - >-

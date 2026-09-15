@@ -1,5 +1,5 @@
 ---
-description: An overview about rest to soap.
+description: The REST to SOAP policy exposes a SOAP backend as a REST API through API Management 4.11. Learn how the SOAP envelope is passed on.
 metaLinks:
   alternates:
     - rest-to-soap.md

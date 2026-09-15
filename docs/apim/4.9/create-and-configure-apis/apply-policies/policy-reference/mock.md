@@ -1,5 +1,5 @@
 ---
-description: An overview about mock.
+description: The Mock policy returns mock responses from API Management 4.9 so you can test without a backend. Learn how to configure the mock.
 metaLinks:
   alternates:
     - >-

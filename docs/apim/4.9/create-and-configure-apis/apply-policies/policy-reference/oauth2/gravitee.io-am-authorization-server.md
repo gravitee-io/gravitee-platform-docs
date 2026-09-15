@@ -1,5 +1,5 @@
 ---
-description: An overview about gravitee.io am authorization server.
+description: The Access Management authorization server resource introspects a token issued by Gravitee for API Management 4.9. Learn how to set it.
 metaLinks:
   alternates:
     - >-

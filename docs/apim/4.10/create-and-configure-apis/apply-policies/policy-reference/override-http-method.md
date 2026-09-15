@@ -1,5 +1,5 @@
 ---
-description: An overview about override http method.
+description: The Override HTTP Method policy replaces the method sent by the consumer in API Management 4.10. Learn how to configure the override.
 metaLinks:
   alternates:
     - override-http-method.md
