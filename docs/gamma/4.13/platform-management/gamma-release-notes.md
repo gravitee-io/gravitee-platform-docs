@@ -143,7 +143,7 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies and a redesigned out-of-sync banner in the API detail workspace. Its Policy Studio controls are also clearer.
+API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer.
 
 #### Import an API proxy
 
@@ -152,6 +152,16 @@ API Management gains a file-based path for building and updating API proxies and
 * Supply each format as a local file or as a remote `http` or `https` URL that the Management API fetches server-side.
 * For OpenAPI and WSDL imports, choose whether to create a documentation page from the specification and whether to add an OpenAPI Specification Validation policy. WSDL imports also offer the REST to SOAP Transformer policy.
 * See [Import an API proxy](../api-management/build/import-an-api-proxy.md).
+
+#### Metadata for API proxies
+
+* The **General** group of the API proxy sidebar adds a **Metadata** page that manages the key and value entries the API carries. The item doesn't appear when your role doesn't grant read access to API metadata.
+* The list carries the **Key**, **Name**, **Format**, and **Value** of each entry. An entry inherited from the environment carries the **Global** badge, and its **Value** shows the environment default until this API overrides it.
+* **Filter by source** narrows the list to **Global** or **API** entries, and the **Key**, **Name**, **Format**, and **Value** columns sort. Sorting and pagination cover every entry of the API, not only the rows on screen.
+* **Add API Metadata** creates an entry from a name, one of the **String**, **Numeric**, **Boolean**, **Date**, **Mail**, and **URL** formats, and a value. Gravitee generates the key from the name, and the format is read-only once the entry exists.
+* Editing an inherited entry creates an override on this API alone, **Reset** returns it to the environment default, and **Delete** removes an entry the API owns.
+* An API managed by the Kubernetes operator shows its metadata as read-only.
+* See [Configure API metadata](../api-management/build/configure-your-api-proxy/configure-api-metadata.md).
 
 #### Out-of-sync banner in the API detail workspace
 
@@ -209,7 +219,7 @@ Event Stream Management adds a duplication path for Kafka Services.
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. Platform flows apply policies on request and response phases to every API in the organization. Native Kafka APIs don't have those phases, and TCP proxy APIs don't run policy flows, so both are left untouched. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment now decides who hears about its user, support, federation, and group events, and the organization can reword every email and portal notification it sends. Custom observability dashboards gain server-side storage.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. Platform flows apply policies on request and response phases to every API in the organization. Native Kafka APIs don't have those phases, and TCP proxy APIs don't run policy flows, so both are left untouched. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment now decides who hears about its user, support, federation, and group events, and the organization can reword every email and portal notification it sends. Custom observability dashboards gain server-side storage. Custom roles define the create, read, update, and delete permissions of each scope, and an organization role is assigned from the role's own page or from the user's.
 
 #### Configure console authentication
 
@@ -298,6 +308,15 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Saving asks for confirmation, then deploys the flows to the gateways of the organization. The APIM Console edits the same flows.
 * A role that reads the organization's policies without updating them opens the studio read-only.
 * See [Manage platform policies](manage-platform-policies.md).
+
+#### Manage roles
+
+* List the roles of every scope from the **Roles** page of the **Team** section, with a **System** badge on the roles Gravitee defines and a **Default** badge on the one that new members of a scope receive.
+* Create a custom role in any scope and set the **Create**, **Read**, **Update**, and **Delete** permissions it grants, one row per permission of that scope. Creating a role requires an enterprise license that includes the custom roles feature, and the **Explorer** and **AI Workspace** scopes carry no permissions to set.
+* Edit a role's description, its default flag, and its permissions. A role's name is fixed once it's created, system roles open read-only, and the `TAG`, `TENANT`, and `ENTRYPOINT` permissions of an **Environment** role now belong to the **Organization** scope.
+* Delete a custom role that's neither a system role nor the default of its scope. Every member who held it moves to that scope's default role.
+* Add users to an **Organization** role and remove them from it, from the role's own members page.
+* See [Manage roles](manage-roles.md).
 
 #### Manage shared policy groups
 
