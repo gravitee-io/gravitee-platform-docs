@@ -1,5 +1,5 @@
 ---
-description: Overview of Gravitee Access Management.
+description: Access Management 4.9 is an open source identity and access management solution securing your applications and APIs. Learn the core components and concepts.
 ---
 
 # Introduction to Gravitee Access Management (AM)

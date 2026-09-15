@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/configuration/configure-am-console
+description: Configure the Access Management 4.13 Console with a constants.json file. Follow the steps to set the values your deployment needs.
 ---
 
 # AM Console

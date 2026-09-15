@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/configuration/configure-repositories
+description: Access Management 4.12 stores data in repositories scoped by type. Follow the steps to configure supported storage and the data plane.
 ---
 
 # Repositories & Data Plane

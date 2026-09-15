@@ -1,5 +1,5 @@
 ---
-description: Overview of Reporters.
+description: Reporters send Access Management 4.9 Gateway and API events to MongoDB, a file, or Kafka. Follow the steps to configure the reporter you need.
 ---
 
 # Reporters

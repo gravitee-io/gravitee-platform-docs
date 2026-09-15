@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/configuration/configure-am-api
+description: Configure the Access Management 4.11 API through gravitee.yml, system properties, or environment variables. Compare the three methods.
 ---
 
 # AM API

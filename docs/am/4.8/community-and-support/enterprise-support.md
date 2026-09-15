@@ -1,5 +1,5 @@
 ---
-description: Learn more about Gravitee Enterprise Edition support
+description: Enterprise support packages for Gravitee Enterprise Edition customers running Access Management 4.8. Compare the packages available to you.
 ---
 
 # Enterprise Support
