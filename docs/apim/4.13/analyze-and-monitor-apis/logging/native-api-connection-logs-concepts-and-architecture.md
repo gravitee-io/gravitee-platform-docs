@@ -1,5 +1,5 @@
 ---
-description: Native Kafka API connection logs record every client connection lifecycle event.
+description: Native Kafka API connection logs record every client connection lifecycle event in API Management 4.13. Learn the architecture behind them.
 ---
 
 # Native Kafka API Connection Logs: Concepts and Architecture

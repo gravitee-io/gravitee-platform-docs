@@ -1,5 +1,5 @@
 ---
-description: Setup guide for federation agent service account.
+description: Create a service account so the federation agent can authenticate to your API Management 4.8 installation. Follow the steps.
 ---
 
 # Federation Agent Service Account

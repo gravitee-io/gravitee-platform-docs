@@ -1,5 +1,5 @@
 ---
-description: An overview about multi-account and multi-region aws api gateway federation.
+description: Configure the AWS API Gateway federation agent to ingest APIs across accounts and regions into API Management 4.12. Follow the steps.
 metaLinks:
   alternates:
     - multi-account-and-multi-region-aws-api-gateway-federation.md

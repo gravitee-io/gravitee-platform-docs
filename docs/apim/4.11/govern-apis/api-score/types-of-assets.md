@@ -1,5 +1,5 @@
 ---
-description: An overview about types of assets.
+description: API Score analyses different parts of an API Management 4.11 API against rulesets. Learn which assets are checked and how.
 metaLinks:
   alternates:
     - types-of-assets.md

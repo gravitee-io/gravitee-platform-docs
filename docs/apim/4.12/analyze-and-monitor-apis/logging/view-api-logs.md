@@ -1,3 +1,7 @@
+---
+description: Collect and view runtime logs for v4 proxy and message APIs in API Management 4.12, plus webhook logs. Follow the steps to read them.
+---
+
 # View API Logs
 
 ## Overview

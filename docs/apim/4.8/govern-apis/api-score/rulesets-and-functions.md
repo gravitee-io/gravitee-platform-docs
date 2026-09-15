@@ -1,5 +1,5 @@
 ---
-description: An overview about rulesets and functions.
+description: API Score rulesets hold the rules that rate an API in API Management 4.8. Learn how rulesets and their functions are built.
 ---
 
 # Rulesets and Functions
