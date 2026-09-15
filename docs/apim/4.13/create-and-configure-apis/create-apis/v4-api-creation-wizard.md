@@ -1,5 +1,5 @@
 ---
-description: An overview about v4 api creation wizard.
+description: Create a v4 API with the API Management 4.13 creation wizard, from API details through to entrypoints. Follow the steps in order.
 ---
 
 # v4 API Creation Wizard

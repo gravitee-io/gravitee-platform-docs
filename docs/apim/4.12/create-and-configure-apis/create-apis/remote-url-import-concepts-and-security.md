@@ -1,3 +1,7 @@
+---
+description: Remote URL import creates or updates v4 API Management 4.12 APIs by fetching a definition. Learn the concepts and the security model.
+---
+
 # Remote URL Import: Concepts and Security
 
 ## Overview

@@ -1,5 +1,5 @@
 ---
-description: An overview about import apis.
+description: Import an API into API Management 4.9 as a Gravitee definition or an OpenAPI specification. Follow the steps to import an OpenAPI spec.
 metaLinks:
   alternates:
     - >-

@@ -1,5 +1,5 @@
 ---
-description: An overview about resources.
+description: Resources supply reusable configuration to API Management 4.12 policies. Compare the resource types and follow the steps to create one.
 metaLinks:
   alternates:
     - resources.md

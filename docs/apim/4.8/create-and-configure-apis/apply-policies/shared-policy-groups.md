@@ -1,5 +1,5 @@
 ---
-description: An overview about shared policy groups.
+description: Define a collection of API Management 4.8 policies centrally and reuse them across APIs. Follow the steps to create and add a group.
 ---
 
 # Shared Policy Groups
