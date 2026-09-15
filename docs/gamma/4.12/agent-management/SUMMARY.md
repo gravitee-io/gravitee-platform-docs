@@ -87,7 +87,7 @@
 * [Govern](govern/README.md)
   * [Score agent compliance with the EU AI Act framework](govern/score-agent-compliance-with-the-eu-ai-act.md)
   * [View the lineage of an agent or a proxy](govern/view-agent-lineage.md)
-  * [Guard agent actions with Guardian Agents](govern/guard-agent-actions-with-guardian-agents.md)
+  * [Screen prompts and answers with Guardian Agents](govern/guard-agent-actions-with-guardian-agents.md)
   * [Require human approval for MCP tool calls](govern/require-human-approval-for-mcp-tool-calls.md)
   * [Agent activity](govern/agent-activity-logs.md)
 * [Cost and value](cost-and-value/README.md)
