@@ -1,5 +1,5 @@
 ---
-description: An overview about circuit breaker.
+description: The Circuit Breaker policy switches backend or fails with 503 on errors or latency in API Management 4.12. Learn the guarantees it gives.
 metaLinks:
   alternates:
     - circuit-breaker.md

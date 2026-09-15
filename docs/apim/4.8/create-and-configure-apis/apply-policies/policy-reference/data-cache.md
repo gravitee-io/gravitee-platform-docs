@@ -1,5 +1,5 @@
 ---
-description: An overview about data cache.
+description: The Data Cache policy gets, sets, and expires key-value pairs in an API Management 4.8 cache resource. Learn how to configure it.
 ---
 
 # Data Cache

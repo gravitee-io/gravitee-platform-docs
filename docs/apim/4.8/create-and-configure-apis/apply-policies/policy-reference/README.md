@@ -1,5 +1,5 @@
 ---
-description: Guide explaining policies for policy reference.
+description: Every policy you can apply to a Gravitee API in API Management 4.8, linked to its own reference page. Find the policy you need.
 ---
 
 # Policy Reference

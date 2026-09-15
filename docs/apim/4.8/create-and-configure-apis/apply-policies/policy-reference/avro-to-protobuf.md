@@ -1,5 +1,5 @@
 ---
-description: An overview about avro to protobuf.
+description: The Avro to Protobuf policy applies a transformation to request, response, or message content in API Management 4.8. Learn how to set it.
 ---
 
 # Avro to Protobuf

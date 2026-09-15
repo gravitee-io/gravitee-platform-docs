@@ -1,5 +1,5 @@
 ---
-description: An overview about avro to protobuf.
+description: The Avro to Protobuf policy applies a transformation to request, response, or message content in API Management 4.10. Learn how to set it.
 metaLinks:
   alternates:
     - avro-to-protobuf.md

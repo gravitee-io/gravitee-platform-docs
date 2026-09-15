@@ -1,5 +1,5 @@
 ---
-description: An overview about data logging masking.
+description: The Data Logging Masking policy conceals sensitive data in API Management 4.13 logs using JSONPath rules. Learn how to configure it.
 metaLinks:
   alternates:
     - data-logging-masking.md
