@@ -1,5 +1,5 @@
 ---
-description: An overview about docker cli.
+description: Install the API Management 4.13 Data Plane with Docker CLI commands for a Next-Gen Cloud hybrid. Follow the steps to run it.
 metaLinks:
   alternates:
     - docker-cli.md

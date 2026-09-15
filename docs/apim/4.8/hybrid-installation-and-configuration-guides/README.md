@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for hybrid installation & configuration guides.
+description: A hybrid Gateway architecture mixes self-hosted and cloud API Management 4.8 components. Browse the guides for your deployment stack.
 ---
 
 # Hybrid Installation & Configuration Guides

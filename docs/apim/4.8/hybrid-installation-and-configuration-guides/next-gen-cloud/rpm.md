@@ -1,5 +1,5 @@
 ---
-description: An overview about RPM.
+description: Install a hybrid API Management 4.8 Gateway from the RPM package. Follow the steps for the Linux distribution you are running.
 ---
 
 # RPM

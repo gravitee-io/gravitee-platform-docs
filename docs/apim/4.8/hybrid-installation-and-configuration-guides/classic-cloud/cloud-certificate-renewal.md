@@ -1,5 +1,5 @@
 ---
-description: An overview about cloud certificate renewal.
+description: Renew the certificate that keeps your self-hosted API Management 4.8 instance connected to Gravitee Cloud. Follow the steps to replace it.
 ---
 
 # Cloud Certificate Renewal

@@ -1,5 +1,5 @@
 ---
-description: An overview about generate a new cloud token.
+description: Revoking a cloud token breaks the link between Gravitee Cloud and your hybrid API Management 4.8 Gateway. Follow the steps to replace it.
 ---
 
 # Generate a New Cloud Token

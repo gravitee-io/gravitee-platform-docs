@@ -1,5 +1,5 @@
 ---
-description: An overview about azure aks.
+description: Install a hybrid API Management 4.10 Gateway on Azure Kubernetes Service and connect it to Gravitee Cloud. Follow the steps to deploy.
 metaLinks:
   alternates:
     - azure-aks.md
