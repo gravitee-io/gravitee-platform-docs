@@ -1,5 +1,5 @@
 ---
-description: Tutorial on create & configure apis.
+description: Creating and configuring API Management 4.13 APIs, split into five sections from definitions to v2 and v4 configuration. Browse what you need.
 metaLinks:
   alternates:
     - ./

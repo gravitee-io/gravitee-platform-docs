@@ -1,5 +1,5 @@
 ---
-description: An overview about general settings.
+description: Every v4 API in API Management 4.11 has general settings on its Configuration page. Learn what you can view and change there.
 metaLinks:
   alternates:
     - general-settings.md

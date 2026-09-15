@@ -1,5 +1,5 @@
 ---
-description: An overview about service discovery.
+description: Bind the backend endpoints of an API Management 4.9 API to a HashiCorp Consul service. Follow the steps to configure discovery.
 metaLinks:
   alternates:
     - >-

@@ -1,5 +1,5 @@
 ---
-description: An overview about kafka.
+description: The Kafka endpoint mediates between a Kafka cluster and an HTTP client in API Management 4.8. Follow the steps to set the bootstrap servers.
 ---
 
 # Kafka

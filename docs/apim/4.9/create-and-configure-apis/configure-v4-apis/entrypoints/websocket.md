@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v4-apis/entrypoints/websocket
+description: Configure the WebSocket entrypoint parameters for a v4 API Management 4.9 API. Follow the steps to set them for your API.
 ---
 
 # WebSocket

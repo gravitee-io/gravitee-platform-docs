@@ -1,5 +1,5 @@
 ---
-description: An overview about documentation.
+description: Add documentation to a v4 API from the API Management 4.10 Console so consumers know how to use it. Follow the steps to add pages and folders.
 metaLinks:
   alternates:
     - documentation.md

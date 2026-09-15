@@ -1,5 +1,5 @@
 ---
-description: An overview about response templates.
+description: Response templates override the default values API Management 4.9 sends back to consumers. Follow the steps to configure one.
 metaLinks:
   alternates:
     - >-

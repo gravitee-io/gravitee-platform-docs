@@ -1,5 +1,5 @@
 ---
-description: An overview of load balancing and failover for v4 HTTP proxy APIs.
+description: The API Management 4.11 Gateway spreads requests across an endpoint group using a load balancing algorithm. Compare the four algorithms.
 ---
 
 # Load balancing and failover
