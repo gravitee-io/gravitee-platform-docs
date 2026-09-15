@@ -1,5 +1,5 @@
 ---
-description: Introduction to API Fundamentals
+description: Key API terminology and concepts that make the API Management 4.13 platform easier to use. Learn the fundamentals before you start building.
 ---
 
 # API Fundamentals

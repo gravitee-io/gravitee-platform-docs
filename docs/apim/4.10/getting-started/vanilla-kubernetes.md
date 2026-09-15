@@ -1,5 +1,5 @@
 ---
-description: An overview about fully self-hosted installation with  vanilla kubernetes.
+description: Install a fully self-hosted API Management 4.10 platform on Kubernetes with Helm charts. Follow the steps and review the components first.
 ---
 
 # Fully self-hosted installation with Vanilla Kubernetes
