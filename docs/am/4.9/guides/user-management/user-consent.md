@@ -1,5 +1,5 @@
 ---
-description: Overview of User Consent.
+description: Users control which scopes an application receives in Access Management 4.9. Follow the steps to review and revoke user consent.
 ---
 
 # User Consent

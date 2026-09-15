@@ -1,5 +1,5 @@
 ---
-description: Overview of Roles.
+description: Roles give Access Management 4.8 users a set of permissions for the operations they can perform. Follow the steps to create and use one.
 ---
 
 # Roles

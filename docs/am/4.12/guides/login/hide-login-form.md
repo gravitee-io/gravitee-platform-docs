@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/hide-login-form
+description: Hide the default Access Management 4.12 login form and show only the upstream identity providers. Follow the steps to enable it for an application.
 ---
 
 # Hide Login Form

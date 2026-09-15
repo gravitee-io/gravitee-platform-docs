@@ -1,5 +1,5 @@
 ---
-description: Overview of User.
+description: An Access Management 4.9 user profile holds general details and additional information. Learn the attributes and how to make email optional.
 ---
 
 # User attributes

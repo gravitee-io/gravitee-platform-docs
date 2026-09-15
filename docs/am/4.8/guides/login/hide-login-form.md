@@ -1,5 +1,5 @@
 ---
-description: Overview of Hide Login Form.
+description: Hide the default Access Management 4.8 login form and show only the upstream identity providers. Follow the steps to enable it for an application.
 ---
 
 # Hide Login Form

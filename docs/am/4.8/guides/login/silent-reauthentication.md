@@ -1,5 +1,5 @@
 ---
-description: Overview of Silent Reauthentication.
+description: Silent reauthentication uses the OpenID Connect ID token for third parties that cannot hold an Access Management 4.8 session. Learn how it works.
 ---
 
 # Silent Reauthentication
