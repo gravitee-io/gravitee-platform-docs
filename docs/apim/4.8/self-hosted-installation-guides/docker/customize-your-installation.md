@@ -1,5 +1,5 @@
 ---
-description: This page explains how to customize your Gravitee API Management on Docker
+description: Customize an API Management 4.8 Docker Compose installation through the gateway environment section. Follow the steps to change it.
 ---
 
 # Customize your Installation

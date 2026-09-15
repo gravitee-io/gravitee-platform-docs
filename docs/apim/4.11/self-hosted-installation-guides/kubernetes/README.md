@@ -1,5 +1,5 @@
 ---
-description: Information about kubernetes.
+description: Install API Management 4.11 on Kubernetes with the Helm chart, which requires Kubernetes 1.14 or later. Browse the deployment guides.
 metaLinks:
   alternates:
     - ./

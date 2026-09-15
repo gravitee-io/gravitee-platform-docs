@@ -1,5 +1,5 @@
 ---
-description: An overview about multi-tenancy.
+description: Multi-tenancy in API Management 4.13 Enterprise lets one installation serve several tenants. Learn what the packages include.
 metaLinks:
   alternates:
     - multi-tenancy.md
