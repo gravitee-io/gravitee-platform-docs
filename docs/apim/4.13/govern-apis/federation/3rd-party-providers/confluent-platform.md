@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - confluent-platform.md
+description: Federate APIs from Confluent Platform, the event streaming platform built on Kafka, into API Management 4.13. Learn how it works.
 ---
 
 # Confluent Platform

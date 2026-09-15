@@ -1,5 +1,5 @@
 ---
-description: An overview about federated apis.
+description: Federated APIs are one of the three main v4 Gravitee API types in API Management 4.13. Learn what they can and cannot do.
 metaLinks:
   alternates:
     - federated-apis.md

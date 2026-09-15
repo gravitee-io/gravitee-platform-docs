@@ -1,5 +1,5 @@
 ---
-description: An overview about ibm api connect.
+description: Federate APIs from IBM API Connect, cloud or on-premise, into API Management 4.9. Learn how the integration works for you.
 metaLinks:
   alternates:
     - >-

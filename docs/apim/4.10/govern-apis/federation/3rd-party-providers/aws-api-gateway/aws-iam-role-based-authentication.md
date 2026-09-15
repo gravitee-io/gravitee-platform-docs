@@ -1,5 +1,5 @@
 ---
-description: Set up IAM role-based authentication for the AWS API Gateway federation agent.
+description: IAM role-based authentication lets the AWS federation agent work without static keys in API Management 4.10. Learn how to configure it.
 ---
 
 # AWS IAM Role-Based Authentication

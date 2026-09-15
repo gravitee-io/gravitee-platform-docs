@@ -1,5 +1,5 @@
 ---
-description: An overview about azure api management.
+description: API Management 4.9 federates APIs from Azure API Management, Azure's built-in solution. Learn how the integration works for you.
 metaLinks:
   alternates:
     - >-

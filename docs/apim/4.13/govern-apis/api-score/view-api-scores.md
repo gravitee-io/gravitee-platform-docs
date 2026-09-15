@@ -1,5 +1,5 @@
 ---
-description: An overview about view api scores.
+description: High-level API Score statistics appear on the API Score page in API Management 4.13. Follow the steps to reach your dashboard.
 metaLinks:
   alternates:
     - view-api-scores.md
