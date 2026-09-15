@@ -1,5 +1,5 @@
 ---
-description: An overview about expose metrics to Prometheus.
+description: Expose the API Management 4.13 Gateway internal API metrics to Prometheus. Follow the steps and verify the metrics arrive.
 metaLinks:
   alternates:
   - expose-metrics-to-prometheus.md

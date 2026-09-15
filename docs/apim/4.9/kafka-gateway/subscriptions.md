@@ -1,5 +1,5 @@
 ---
-description: An overview about subscriptions.
+description: A subscription is the contract between a Kafka API publisher and consumer in API Management 4.9. Learn how one is created.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/subscriptions

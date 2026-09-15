@@ -1,5 +1,5 @@
 ---
-description: An overview about deploy a kafka gateway with gravitee cloud.
+description: Use Gravitee Cloud to deploy an API Management 4.8 Gateway that supports the Kafka protocol. Follow the steps to deploy it.
 ---
 
 # Deploy a Kafka Gateway with Gravitee Cloud

@@ -1,5 +1,5 @@
 ---
-description: An overview about endpoints.
+description: Endpoints define the protocol and settings a Kafka API uses to reach its backend in API Management 4.8. Learn how to configure them.
 ---
 
 # Endpoints

@@ -1,3 +1,7 @@
+---
+description: Policies in the Entrypoint Connect phase can interrupt a Kafka connection in API Management 4.12. Learn the Expression Language variables.
+---
+
 # Connection interruption in the Entrypoint Connect phase
 
 ## Template engine variables

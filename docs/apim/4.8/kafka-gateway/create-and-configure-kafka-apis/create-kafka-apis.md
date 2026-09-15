@@ -1,5 +1,5 @@
 ---
-description: An overview about create kafka apis.
+description: Kafka APIs apply API Management 4.8 capabilities directly to the Kafka protocol. Follow the steps to create a Kafka API of your own.
 ---
 
 # Create Kafka APIs
