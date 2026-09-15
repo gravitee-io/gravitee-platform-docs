@@ -1,3 +1,7 @@
+---
+description: Historical analytics survive when you migrate an API Management 4.12 HTTP proxy API from v2 to v4. Follow the steps to update existing indices.
+---
+
 # Maintain analytics continuity after migrating v2 APIs to v4
 
 ## Overview

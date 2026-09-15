@@ -1,5 +1,5 @@
 ---
-description: Guide on applying policies related to introduction.
+description: API Management 4.9 accelerates and streamlines the governance and delivery of your APIs. Learn what the platform offers and where to start.
 metaLinks: {}
 ---
 

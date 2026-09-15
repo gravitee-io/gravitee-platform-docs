@@ -1,5 +1,5 @@
 ---
-description: An overview about agent mesh.
+description: Agent Mesh governs and protects AI use cases across API Management 4.8, from the Agent Gateway to LLM and A2A proxies. Learn what it covers.
 ---
 
 # Agent Mesh
