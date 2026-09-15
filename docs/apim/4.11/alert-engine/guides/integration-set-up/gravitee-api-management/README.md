@@ -1,7 +1,5 @@
 ---
-description: >-
-  This section explains how to integrate and use Gravitee Alert Engine with
-  Gravitee API Management
+description: Integrate Alert Engine with API Management 4.11 so API teams get advanced monitoring. Learn what the integration provides.
 ---
 
 # Gravitee API Management

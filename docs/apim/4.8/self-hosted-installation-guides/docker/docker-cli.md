@@ -1,5 +1,5 @@
 ---
-description: Setup guide for docker cli.
+description: Install API Management 4.8 with the Docker CLI, persisting data and plugins in your own directories. Follow the steps to set it up.
 ---
 
 # Docker CLI

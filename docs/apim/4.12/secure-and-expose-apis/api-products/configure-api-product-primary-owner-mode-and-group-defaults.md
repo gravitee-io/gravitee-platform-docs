@@ -1,3 +1,7 @@
+---
+description: Set who can be primary owner of a new API Management 4.12 API Product, and the group defaults. Follow the steps to configure it.
+---
+
 # Configure API Product Primary Owner Mode and Group Defaults
 
 ## Configure API Product Primary Owner mode

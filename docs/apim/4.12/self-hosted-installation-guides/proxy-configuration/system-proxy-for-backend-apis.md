@@ -1,3 +1,7 @@
+---
+description: Configure a system proxy so the API Management 4.12 Gateway can reach backend APIs. Follow the steps to set the proxy up.
+---
+
 # System Proxy for Backend APIs
 
 ## Overview

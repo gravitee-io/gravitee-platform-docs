@@ -1,5 +1,5 @@
 ---
-description: An overview about azure aks.
+description: Deploy a complete self-hosted API Management 4.13 platform on Azure Kubernetes Service. Follow the steps to install with Helm.
 metaLinks:
   alternates:
     - azure-aks.md

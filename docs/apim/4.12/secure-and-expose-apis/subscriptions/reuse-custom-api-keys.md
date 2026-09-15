@@ -1,5 +1,5 @@
 ---
-description: Learn how to reuse revoked or expired custom API keys for new subscriptions.
+description: Allow inactive custom API keys to be reused for new subscriptions in API Management 4.12. Learn what enabling reuse changes.
 ---
 
 # Reuse Custom API Keys

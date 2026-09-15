@@ -1,5 +1,5 @@
 ---
-description: Information about ---.
+description: Deploy a complete self-hosted API Management 4.9 platform on Google Kubernetes Engine. Follow the steps to install with Helm.
 hidden: true
 noIndex: true
 metaLinks:

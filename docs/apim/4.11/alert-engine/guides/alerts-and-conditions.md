@@ -1,5 +1,5 @@
 ---
-description: This article walks through the basics of alerts and how to set up conditions
+description: Alert Engine sends alerts when conditions are met across your API Management 4.11 platform. Learn how an alert is structured.
 ---
 
 # Alerts and Conditions

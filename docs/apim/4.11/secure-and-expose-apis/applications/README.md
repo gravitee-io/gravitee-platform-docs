@@ -1,5 +1,5 @@
 ---
-description: Tutorial on applications.
+description: Consumers register an application and subscribe to a published plan to reach API Management 4.11 APIs. Learn what applications do.
 metaLinks:
   alternates:
     - ./

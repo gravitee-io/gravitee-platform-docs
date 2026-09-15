@@ -1,5 +1,5 @@
 ---
-description: An overview about ---.
+description: Install and deploy a complete API Management 4.11 platform on any Kubernetes cluster with a manifest. Follow the steps to do it.
 hidden: true
 noIndex: true
 metaLinks:

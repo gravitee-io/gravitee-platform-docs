@@ -1,5 +1,5 @@
 ---
-description: An overview about vanilla kubernetes.
+description: Deploy a complete self-hosted API Management 4.11 platform on Kubernetes using Helm charts. Follow the steps to install the platform.
 metaLinks:
   alternates:
     - ./

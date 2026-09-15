@@ -1,5 +1,5 @@
 ---
-description: API and reference documentation for Gravitee API Management Alerts Dashboard.
+description: The Alerts dashboard sits in the API Management 4.13 Console under Analytics. Learn what Alert Engine surfaces there for you.
 ---
 
 # Gravitee API Management Alerts Dashboard

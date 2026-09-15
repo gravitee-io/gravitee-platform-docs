@@ -1,5 +1,5 @@
 ---
-description: An overview about rpm.
+description: Install API Management 4.11 on RPM-based Linux such as Red Hat, CentOS, or Oracle. Follow the steps for your distribution.
 metaLinks:
   alternates:
     - ./

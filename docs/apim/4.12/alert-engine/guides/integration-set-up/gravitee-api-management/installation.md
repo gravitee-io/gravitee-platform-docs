@@ -1,7 +1,5 @@
 ---
-description: >-
-  This article walks through how to integrate Alert Engine with Gravitee API
-  Management (APIM).
+description: Install the Alert Engine integration for API Management 4.12. Follow the steps, or skip them if you run Enterprise Docker images.
 ---
 
 # Installation

@@ -1,5 +1,5 @@
 ---
-description: An overview about subscription requests.
+description: A subscription is a contract between an API Management 4.8 publisher and a consumer. Learn how requests are made and approved.
 ---
 
 # Subscription Requests

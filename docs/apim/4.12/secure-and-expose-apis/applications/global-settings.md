@@ -1,5 +1,5 @@
 ---
-description: An overview about global settings.
+description: An application's global settings hold its details and a danger zone for destructive actions in API Management 4.12. Learn what each does.
 metaLinks:
   alternates:
     - global-settings.md
