@@ -1,3 +1,7 @@
+---
+description: OAuth 2.0 Token Exchange lets an Access Management 4.11 client swap one security token for another. Learn what the exchange covers.
+---
+
 # OAuth 2.0 Token Exchange Concepts
 
 ## Overview

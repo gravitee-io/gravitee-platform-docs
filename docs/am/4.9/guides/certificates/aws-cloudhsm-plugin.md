@@ -1,5 +1,5 @@
 ---
-description: Overview of AWS CloudHSM.
+description: Load an Access Management 4.9 domain key pair from AWS CloudHSM. Follow the prerequisites and deployment steps to set the plugin up.
 ---
 
 # AWS CloudHSM plugin

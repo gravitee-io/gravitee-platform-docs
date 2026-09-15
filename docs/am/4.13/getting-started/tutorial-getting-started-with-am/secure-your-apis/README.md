@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/tutorial-getting-started-with-am/secure-your-apis
+description: Use API Management to protect an API with OAuth 2.0 and Access Management 4.13 as the authorization server. Follow the steps to configure it.
 ---
 
 # Secure Your APIs

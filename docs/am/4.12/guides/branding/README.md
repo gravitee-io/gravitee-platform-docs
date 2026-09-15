@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/branding
+description: Brand the Access Management 4.12 login and account pages at organization, domain, or application level. Follow the steps to set a logo and theme.
 ---
 
 # Branding

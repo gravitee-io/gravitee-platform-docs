@@ -1,5 +1,5 @@
 ---
-description: Step-by-step tutorial for Getting Started.
+description: A quickstart tutorial covering the basics of Access Management 4.8, from a first application to securing an API. Follow the tutorials in order.
 ---
 
 # Tutorial: Getting Started with AM

@@ -1,3 +1,7 @@
+---
+description: Cross-origin resource sharing restricts which pages can call an Access Management 4.10 domain. Follow the steps to configure CORS parameters.
+---
+
 # Configure CORS for Security Domains
 
 ## Overview
