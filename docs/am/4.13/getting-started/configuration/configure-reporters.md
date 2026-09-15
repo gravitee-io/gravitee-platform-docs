@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/configuration/configure-reporters
+description: Reporters send Access Management 4.13 Gateway and API events to MongoDB, a file, or Kafka. Follow the steps to configure the reporter you need.
 ---
 
 # Reporters

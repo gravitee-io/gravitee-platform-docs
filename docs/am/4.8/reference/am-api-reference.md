@@ -1,5 +1,5 @@
 ---
-description: API and reference documentation for API Reference.
+description: The Access Management 4.8 REST API for scripting administration, covering authorization and the token and authorization endpoints. Browse the reference.
 ---
 
 # API Reference

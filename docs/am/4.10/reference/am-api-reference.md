@@ -1,3 +1,7 @@
+---
+description: The Access Management 4.10 REST API for scripting administration, covering authorization and the token and authorization endpoints. Browse the reference.
+---
+
 # API Reference
 
 ## Overview

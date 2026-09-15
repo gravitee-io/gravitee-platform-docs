@@ -1,3 +1,7 @@
+---
+description: Configure the Access Management 4.10 Console with a constants.json file. Follow the steps to set the values your deployment needs.
+---
+
 # AM Console
 
 You can configure AM Console with a file named `constants.json`.

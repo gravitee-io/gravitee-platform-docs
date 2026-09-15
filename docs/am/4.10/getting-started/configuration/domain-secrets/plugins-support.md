@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for plugin support.
+description: Which Access Management 4.10 certificate plugins support secrets, and the fields that accept secret values. Find the plugin version you need.
 ---
 
 # Plugins support

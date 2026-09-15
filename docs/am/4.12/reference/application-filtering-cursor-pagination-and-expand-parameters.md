@@ -1,5 +1,5 @@
 ---
-description: Reference for filtering, cursor pagination, and field expansion parameters for the Access Management Application list API.
+description: Filter, expand, and paginate the Access Management 4.12 application list API with query filters and cursors. Follow the steps to build your queries.
 ---
 
 # Application Filtering, Cursor Pagination, and Expand Parameters

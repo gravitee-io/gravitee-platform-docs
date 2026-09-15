@@ -1,5 +1,5 @@
 ---
-description: Overview of Reporters.
+description: Reporters send Access Management 4.8 Gateway and API events to a file or to Kafka. Follow the steps to configure the reporter you need.
 ---
 
 # Reporters

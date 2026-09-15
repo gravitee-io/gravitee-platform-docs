@@ -1,3 +1,7 @@
+---
+description: Access Management 4.10 stores data in repositories scoped by type. Follow the steps to configure supported storage and the data plane.
+---
+
 # Repositories & DataPlane
 
 ## Overview

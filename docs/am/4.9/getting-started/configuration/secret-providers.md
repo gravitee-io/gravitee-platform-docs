@@ -1,5 +1,5 @@
 ---
-description: Overview of Secret Providers.
+description: Secret provider plugins let Access Management 4.9 read database passwords and certificates from a secret manager. Follow the steps to configure access.
 ---
 
 # Secret Providers
