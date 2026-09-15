@@ -193,7 +193,7 @@
   * [Rate an agent's risk level](agent-management/govern/rate-an-agents-risk-level.md)
   * [Create a custom compliance ruleset](agent-management/govern/create-a-custom-compliance-ruleset.md)
   * [View the lineage of an agent or a proxy](agent-management/govern/view-agent-lineage.md)
-  * [Guard agent actions with Guardian Agents](agent-management/govern/guard-agent-actions-with-guardian-agents.md)
+  * [Screen prompts and answers with Guardian Agents](agent-management/govern/guard-agent-actions-with-guardian-agents.md)
   * [Require human approval for MCP tool calls](agent-management/govern/require-human-approval-for-mcp-tool-calls.md)
   * [Agent activity](agent-management/govern/agent-activity-logs.md)
 * [Cost and value](agent-management/cost-and-value/README.md)
