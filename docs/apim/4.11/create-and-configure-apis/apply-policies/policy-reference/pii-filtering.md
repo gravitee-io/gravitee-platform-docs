@@ -1,3 +1,7 @@
+---
+description: The PII Filtering policy detects and redacts personally identifiable information in API Management 4.11 using token classification. Learn how.
+---
+
 # PII Filtering
 
 ## Overview

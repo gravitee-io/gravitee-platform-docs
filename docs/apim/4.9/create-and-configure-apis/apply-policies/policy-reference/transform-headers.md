@@ -1,5 +1,5 @@
 ---
-description: An overview about transform headers.
+description: The Transform Headers policy overrides headers on incoming or outgoing API Management 4.9 traffic. Learn how to configure it.
 metaLinks:
   alternates:
     - >-

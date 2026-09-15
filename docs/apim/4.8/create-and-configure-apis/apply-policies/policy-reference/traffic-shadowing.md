@@ -1,5 +1,5 @@
 ---
-description: An overview about traffic shadowing.
+description: The Traffic Shadowing policy asynchronously copies API Management 4.8 traffic to another service. Learn how to configure the copy.
 ---
 
 # Traffic Shadowing

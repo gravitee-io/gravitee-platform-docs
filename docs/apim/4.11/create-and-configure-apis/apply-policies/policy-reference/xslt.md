@@ -1,5 +1,5 @@
 ---
-description: An overview about xslt.
+description: The XSLT policy applies an XSL transformation to an XML request or response body in API Management 4.11. Learn how to configure it.
 metaLinks:
   alternates:
     - xslt.md

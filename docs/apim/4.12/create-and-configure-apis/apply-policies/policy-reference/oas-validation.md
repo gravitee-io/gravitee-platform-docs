@@ -1,5 +1,5 @@
 ---
-description: An overview about oas validation.
+description: The OAS Validation policy checks requests and responses against an embedded OpenAPI specification in API Management 4.12. Learn how.
 metaLinks:
   alternates:
     - oas-validation.md

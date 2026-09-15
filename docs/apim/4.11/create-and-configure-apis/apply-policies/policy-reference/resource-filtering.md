@@ -1,5 +1,5 @@
 ---
-description: An overview about resource filtering.
+description: The Resource Filtering policy restricts or allows access to specific REST resources in API Management 4.11. Learn how to configure it.
 metaLinks:
   alternates:
     - resource-filtering.md

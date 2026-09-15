@@ -1,5 +1,5 @@
 ---
-description: An overview about url rewriting.
+description: The URL Rewriting policy rewrites URLs in an API Management 4.13 response header or response body. Learn how to configure it.
 metaLinks:
   alternates:
     - url-rewriting.md
