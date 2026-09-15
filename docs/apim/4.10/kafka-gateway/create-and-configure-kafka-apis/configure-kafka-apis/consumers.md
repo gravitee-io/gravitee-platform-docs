@@ -1,5 +1,5 @@
 ---
-description: An overview about consumers.
+description: The Consumers section manages how a Kafka API is consumed in API Management 4.10, through plans and subscriptions. Learn what it covers.
 metaLinks:
   alternates:
     - consumers.md

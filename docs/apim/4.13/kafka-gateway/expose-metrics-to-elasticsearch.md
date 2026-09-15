@@ -1,5 +1,5 @@
 ---
-description: An overview about expose metrics to elasticsearch.
+description: Configure the Elasticsearch reporter to store runtime metrics from an API Management 4.13 Kafka Gateway. Follow the steps to set it up.
 metaLinks:
   alternates:
     - expose-metrics-to-elasticsearch.md

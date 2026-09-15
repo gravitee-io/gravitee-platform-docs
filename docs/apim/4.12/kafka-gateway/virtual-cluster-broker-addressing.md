@@ -1,7 +1,5 @@
 ---
-description: >-
-  How the Kafka Gateway rewrites broker IDs when a Kafka API is backed by a Virtual Cluster, and
-  which DNS entries and certificate SANs that requires.
+description: A Virtual Cluster presents several backend Kafka clusters as one in API Management 4.12. Learn how broker addressing works.
 ---
 
 # Virtual Cluster Broker Addressing

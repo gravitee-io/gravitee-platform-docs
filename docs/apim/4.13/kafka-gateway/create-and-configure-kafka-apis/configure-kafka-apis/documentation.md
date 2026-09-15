@@ -1,5 +1,5 @@
 ---
-description: An overview about documentation.
+description: The Documentation section creates Developer Portal pages for a Kafka API in API Management 4.13. Learn how to inform consumers.
 metaLinks:
   alternates:
     - documentation.md

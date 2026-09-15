@@ -1,3 +1,7 @@
+---
+description: The API Management 4.11 Console endpoint table shows a Tenants column for multi-tenant Kafka endpoints. Learn what changed in the UI.
+---
+
 # Console UI changes for multi-tenant Kafka endpoints
 
 ## Overview

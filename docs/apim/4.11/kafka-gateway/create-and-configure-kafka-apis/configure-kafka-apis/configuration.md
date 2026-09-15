@@ -1,5 +1,5 @@
 ---
-description: An overview about configuration.
+description: The Configuration section manages high-level settings for a Kafka API in API Management 4.11. Learn what you can customize.
 ---
 
 # Configuration

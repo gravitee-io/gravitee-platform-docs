@@ -1,5 +1,5 @@
 ---
-description: An overview about configure and deploy kafka console.
+description: The Kafka Console is a standalone UI that integrates with API Management 4.13 to manage Kafka clusters. Follow the steps to deploy it.
 metaLinks:
   alternates:
     - configure-and-deploy-kafka-console.md
