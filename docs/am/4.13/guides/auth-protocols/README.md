@@ -1,5 +1,5 @@
 ---
-description: Authorization, Authentication, and Identity Protocols Supported
+description: The authorization, authentication, and identity protocols Access Management 4.13 uses to let applications interact with it. Compare the protocols.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols

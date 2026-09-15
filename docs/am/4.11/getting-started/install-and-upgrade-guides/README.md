@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides
+description: The Gravitee platform ships Access Management 4.11 as a single distribution bundle. Browse the install and upgrade guides for your deployment.
 ---
 
 # Install & Upgrade Guides

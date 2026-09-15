@@ -1,5 +1,5 @@
 ---
-description: Overview of Which Flow Should.
+description: Choose the Access Management 4.9 OAuth 2.0 flow matching your client type and trust level. Compare the options for web, mobile, and machine clients.
 ---
 
 # Which Flow Should I Use?

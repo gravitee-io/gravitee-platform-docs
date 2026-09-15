@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/oauth-2.0/extension-grants
+description: Extension grants add custom token endpoint grant types to Access Management 4.13, such as JWT Bearer. Follow the steps to create and use one.
 ---
 
 # Extension Grants

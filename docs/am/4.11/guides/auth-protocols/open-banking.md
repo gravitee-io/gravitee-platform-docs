@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/open-banking
+description: Access Management 4.11 supports the FAPI profiles that secure Open Banking APIs. Learn the protocol and configure client registration.
 ---
 
 # Open Banking

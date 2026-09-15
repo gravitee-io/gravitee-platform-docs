@@ -1,5 +1,5 @@
 ---
-description: Installation guide for Install.
+description: Install Access Management 4.9 on Amazon Linux using the yum package manager. Follow the prerequisites and steps to install the full stack.
 ---
 
 # Install on Amazon

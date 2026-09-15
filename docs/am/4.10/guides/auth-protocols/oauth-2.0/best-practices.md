@@ -1,3 +1,7 @@
+---
+description: Security recommendations from the OAuth 2.0 Best Current Practice, applied to Access Management 4.10 clients and servers. Learn what to change.
+---
+
 # Best Practices
 
 The [OAuth 2.0 Security Best Current Practice](https://tools.ietf.org/html/draft-ietf-oauth-security-topics) describes security requirements and other recommendations for clients and servers implementing OAuth 2.0.
