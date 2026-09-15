@@ -1,5 +1,5 @@
 ---
-description: This article walks through how to install Gravitee Alert Engine via .ZIP file
+description: Install Alert Engine from the distribution bundle alongside API Management 4.11. Check the prerequisites before you start.
 ---
 
 # Install via .ZIP file

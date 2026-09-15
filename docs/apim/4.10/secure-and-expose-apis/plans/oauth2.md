@@ -1,5 +1,5 @@
 ---
-description: An overview about oauth2.
+description: An OAuth 2.0 plan gives client applications secure, delegated access to an API Management 4.10 API. Learn how the standard works.
 metaLinks:
   alternates:
     - oauth2.md

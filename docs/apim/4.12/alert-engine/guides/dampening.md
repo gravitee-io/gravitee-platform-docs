@@ -1,5 +1,5 @@
 ---
-description: Overview of Dampening.
+description: Dampening stops Alert Engine flooding users when a condition triggers repeatedly in API Management 4.12. Learn how to configure it.
 ---
 
 # Dampening

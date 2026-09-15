@@ -1,5 +1,5 @@
 ---
-description: An overview about push.
+description: A Push plan suits an API Management 4.12 API with an entrypoint that sends message payloads, such as Webhook. Learn when to use it.
 metaLinks:
   alternates:
     - push.md

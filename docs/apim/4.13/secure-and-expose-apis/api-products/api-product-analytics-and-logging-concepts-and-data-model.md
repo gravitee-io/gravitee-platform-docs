@@ -1,3 +1,7 @@
+---
+description: Track and filter API Management 4.13 requests by API Product across analytics dashboards and logs. Learn the data model behind it.
+---
+
 # API Product Analytics and Logging: Concepts and Data Model
 
 ## Overview

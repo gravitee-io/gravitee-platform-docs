@@ -1,5 +1,5 @@
 ---
-description: This article walks through how to configure the Internal API
+description: Alert Engine exposes an internal API for monitoring the component alongside API Management 4.13. Follow the steps to configure it.
 ---
 
 # Configure the Internal API
