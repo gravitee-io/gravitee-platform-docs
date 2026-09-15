@@ -1,3 +1,7 @@
+---
+description: Create a private network between your Gravitee Cloud gateway and your VPC in Google Cloud Platform. Follow the steps to set one up.
+---
+
 # Create a private network
 
 ## Overview

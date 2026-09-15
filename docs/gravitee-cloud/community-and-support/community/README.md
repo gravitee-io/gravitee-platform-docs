@@ -1,5 +1,5 @@
 ---
-description: Everything you need to know about Gravitee's community
+description: What to expect from the Gravitee community forum as a Gravitee Cloud user. See how to ask a question others can find later.
 ---
 
 # Community

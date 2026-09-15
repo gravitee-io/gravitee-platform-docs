@@ -1,5 +1,5 @@
 ---
-description: Overview of Upgrading.
+description: Upgrade a Gravitee Cloud trial to a paid enterprise account with three preconfigured environments. Follow the steps to convert it.
 ---
 
 # Upgrading your trial to a customer account

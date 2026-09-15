@@ -1,3 +1,7 @@
+---
+description: Monitor a Gravitee Cloud custom reporter as it moves through pending, deployed, and deleting states. Follow the steps to update one.
+---
+
 # Manage Custom Reporter Deployments
 
 ## Managing Reporter Deployments
