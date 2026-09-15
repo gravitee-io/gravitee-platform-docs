@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/tutorial-getting-started-with-am/secure-your-apis/configure-generic-oauth2-authorization-server
+description: Configure a generic OAuth 2.0 authorization server resource for an API secured by Access Management 4.13. Follow the steps and see the example.
 ---
 
 # Configure Generic OAuth2 Authorization Server

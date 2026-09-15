@@ -1,5 +1,5 @@
 ---
-description: Overview of AWS Certificate.
+description: Load an Access Management 4.9 domain certificate from AWS Secret Manager. Follow the steps to create the certificate in the Console.
 ---
 
 # AWS Certificate plugin
