@@ -1,5 +1,5 @@
 ---
-description: Guide on applying policies related to maven archetype.
+description: A policy is a step in the API Management 4.12 request and response proxy chain. Learn how to generate one with the Maven archetype.
 metaLinks:
   alternates:
     - maven-archetype.md

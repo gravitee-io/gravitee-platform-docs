@@ -1,5 +1,5 @@
 ---
-description: An overview about jws validator.
+description: The JWS Validator policy checks token signature, certificate, and expiry before API Management 4.13 calls the backend. Learn how to set it.
 metaLinks:
   alternates:
     - jws-validator.md

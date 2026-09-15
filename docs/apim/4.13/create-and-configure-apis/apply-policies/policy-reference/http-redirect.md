@@ -1,5 +1,5 @@
 ---
-description: An overview about http redirect.
+description: The HTTP Redirect policy sends RFC 7231 redirect responses to clients from API Management 4.13. Learn how to configure the redirect.
 metaLinks:
   alternates:
     - http-redirect.md

@@ -1,5 +1,5 @@
 ---
-description: An overview about kafka topic mapping.
+description: The Kafka Topic Mapping policy maps one topic name to another so clients can use their own in API Management 4.12. Learn how to set it.
 metaLinks:
   alternates:
     - kafka-topic-mapping.md

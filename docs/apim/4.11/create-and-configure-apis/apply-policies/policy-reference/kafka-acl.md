@@ -1,5 +1,5 @@
 ---
-description: An overview about the Kafka ACL policy.
+description: The Kafka ACL policy defines access control lists on cluster resources proxied by API Management 4.11. Learn how to configure them.
 metaLinks:
   alternates:
     - kafka-acl.md
