@@ -1,5 +1,5 @@
 ---
-description: Overview of Get User Profile Information.
+description: Retrieve Access Management 4.9 user profile information with an OpenID Connect ID token. Follow the steps using the Console or the API.
 ---
 
 # Get User Profile Information

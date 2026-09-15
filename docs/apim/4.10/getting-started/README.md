@@ -1,5 +1,5 @@
 ---
-description: Tutorial on getting started.
+description: Start with API Management 4.10 on Gravitee Cloud, hybrid, or fully self-hosted. Compare the deployment options before you install.
 metaLinks:
   alternates:
     - ./

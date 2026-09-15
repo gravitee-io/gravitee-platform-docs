@@ -1,3 +1,7 @@
+---
+description: The core concepts behind API Management 4.8, from architecture to component configuration. Learn how the pieces fit together.
+---
+
 # Core Concepts
 
 ## Overview

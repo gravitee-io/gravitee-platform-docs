@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/authorization-engines
+description: Access Management 4.11 delegates fine-grained authorization to an external engine. Compare the supported engines and the permissions each needs.
 ---
 
 # Authorization Engines
