@@ -1,7 +1,7 @@
 ---
-hidden: false
-noIndex: false
-description: View, create, and manage the consumer applications that subscribe to your API plans. Follow the steps to work with them on the Applications page.
+description: >-
+  View, create, and manage the consumer applications that subscribe to your API
+  plans. Follow the steps to work with them on the Applications page.
 ---
 
 # Manage applications
@@ -21,30 +21,28 @@ The applications table displays the following columns:
 
 Use the search bar to filter applications by name. The **Active**/**Archived** dropdown filter toggles between the active and archived application views. The archived view lists each application with the date it was archived, and you can restore an application directly from its row. The **View** control chooses which columns the table displays, and the list supports pagination for large application sets.
 
-<figure><img src=".gitbook/assets/gamma-platform-applications.png" alt="Platform Applications page showing a searchable table of consumer applications with type and owner columns"><figcaption><p>The Applications page lists all consumer applications with their type (Backend, Service, Web) and owner. Use the search bar and Active/Archived filter to find specific applications.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-applications (1).png" alt="Platform Applications page showing a searchable table of consumer applications with type and owner columns"><figcaption><p>The Applications page lists all consumer applications with their type (Backend, Service, Web) and owner. Use the search bar and Active/Archived filter to find specific applications.</p></figcaption></figure>
 
 ## Create an application
 
 To create an application, complete the following steps:
 
 1. From the applications list, select **Register Application**.
-2. In the **General** section, enter the application details described in the following table:
+2.  In the **General** section, enter the application details described in the following table:
 
     | Field           | Description                                         | Required |
     | --------------- | --------------------------------------------------- | -------- |
     | **Name**        | A human-readable name to identify the application.  | Yes      |
     | **Description** | Freeform text describing the application's purpose. | Yes      |
     | **Domain**      | The domain associated with this application.        | No       |
-
 3. In the **Security** section, select the application type. **Simple** is a standalone client for which you manage your own client ID. Additional OAuth application types are available only when Dynamic Client Registration is enabled for the environment.
-4. Complete the remaining **Security** fields described in the following table:
+4.  Complete the remaining **Security** fields described in the following table:
 
-    | Field                              | Description                                                                                                   | Required |
-    | ---------------------------------- | ------------------------------------------------------------------------------------------------------------- | -------- |
-    | **Type**                           | A freeform descriptor of the application, such as mobile or web.                                              | No       |
-    | **Client ID**                      | The client ID of the application. This field is required to subscribe to certain types of API plan, such as OAuth2 and JWT. | No       |
-    | **Client Certificate (PEM Only)**  | The PEM-encoded client certificate of the application. This field is required to subscribe to certain mTLS plans. | No       |
-
+    | Field                             | Description                                                                                                                 | Required |
+    | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | -------- |
+    | **Type**                          | A freeform descriptor of the application, such as mobile or web.                                                            | No       |
+    | **Client ID**                     | The client ID of the application. This field is required to subscribe to certain types of API plan, such as OAuth2 and JWT. | No       |
+    | **Client Certificate (PEM Only)** | The PEM-encoded client certificate of the application. This field is required to subscribe to certain mTLS plans.           | No       |
 5. Select **Create Application**.
 
 ## Application details

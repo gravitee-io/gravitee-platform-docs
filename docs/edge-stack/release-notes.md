@@ -113,6 +113,16 @@ A new Helm value `rbac.skipClusterRoles` allows you to deploy Ambassador Edge St
 
 The `add_request_headers` and `add_response_headers` fields on Mapping now accept a plain string value as a shorthand, for example, `add_response_headers: {x-foo: bar}`, in addition to the existing object format with `value` and `append` fields. This restores compatibility with the v2 API behavior.
 
+### Version 3.12.14 (September 10, 2026) <a href="#id-3.12.14" id="id-3.12.14"></a>
+
+#### Fixed connection reuse for the External Filter with `protocol: http`
+
+Previously, the External Filter opened a new connection to the authorization service on every authorization call, paying a full TCP handshake, and a TLS handshake for HTTPS backends, per request. Under load this surfaced as an intermittent, small percentage of requests failing with `500` errors (`deadline_exceed: filter processing timed out`) instead of honoring the configured `statusOnError`. HTTP clients are now cached per authorization-service URL and rebuilt when the TLS configuration changes, and successful authorization responses are drained so connections are returned to the keep-alive pool and reused.
+
+#### Fixed diagd memory leak on the incremental reconfigure path
+
+Previously, when incremental reconfiguration was enabled with `AMBASSADOR_FAST_RECONFIGURE=true`, each Mapping-only reconfigure retained the entire previous internal configuration graph in memory, causing unbounded `diagd` memory growth proportional to the number of reconfigures. Cached configuration objects now correctly release references to prior reconfigures, and diagnostics back-references no longer pin stale configuration graphs, so memory usage stays flat across sustained reconfigure activity.
+
 ### Version 3.12.13 (March 12, 2026) <a href="#id-3.12.13" id="id-3.12.13"></a>
 
 #### Upgrade Golang to 1.24.13
