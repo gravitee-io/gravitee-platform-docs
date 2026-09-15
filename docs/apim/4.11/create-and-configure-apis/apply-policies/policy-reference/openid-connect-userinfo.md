@@ -1,5 +1,5 @@
 ---
-description: An overview about openid connect userinfo.
+description: The OpenID Connect UserInfo policy fetches user information from an OAuth2 resource in API Management 4.11. Learn how to configure it.
 metaLinks:
   alternates:
     - openid-connect-userinfo.md

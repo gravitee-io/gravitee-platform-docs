@@ -1,5 +1,5 @@
 ---
-description: An overview about ai - prompt guard rails.
+description: The Prompt Guard Rails policy evaluates prompts for inappropriate or malicious content in API Management 4.9. Learn what it detects.
 metaLinks:
   alternates:
     - >-

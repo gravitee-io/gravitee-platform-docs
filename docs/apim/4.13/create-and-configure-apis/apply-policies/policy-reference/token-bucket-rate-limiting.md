@@ -1,3 +1,7 @@
+---
+description: Token-bucket rate limiting allows controlled bursts of traffic in API Management 4.13, unlike fixed rate limits. Learn how it differs.
+---
+
 # Token-Bucket Rate Limiting
 
 ## Overview

@@ -1,5 +1,5 @@
 ---
-description: An overview about retry.
+description: The Retry policy replays requests in API Management 4.12 when the backend fails or a condition matches. Learn how to configure it.
 metaLinks:
   alternates:
     - retry.md

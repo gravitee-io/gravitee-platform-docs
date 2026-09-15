@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for template.
+description: A policy template to fork as a quick starter for your own API Management 4.10 policy. Learn what the skeleton gives you to build on.
 metaLinks:
   alternates:
     - template.md

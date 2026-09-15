@@ -1,3 +1,7 @@
+---
+description: The MCP ACL policy controls access to MCP server functionality in API Management 4.13 with an access control list. Learn how to configure it.
+---
+
 # AI - MCP ACL
 
 ## Overview

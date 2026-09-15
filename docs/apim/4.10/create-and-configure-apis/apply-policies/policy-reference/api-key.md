@@ -1,5 +1,5 @@
 ---
-description: An overview about api key.
+description: The API Key policy checks API keys during request processing so only approved apps reach your API Management 4.10 API. Learn how to set it.
 metaLinks:
   alternates:
     - api-key.md

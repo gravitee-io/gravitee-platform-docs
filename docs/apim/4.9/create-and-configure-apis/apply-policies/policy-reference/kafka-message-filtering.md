@@ -1,5 +1,5 @@
 ---
-description: An overview about kafka message filtering.
+description: The Kafka Message Filtering policy controls which Kafka messages reach consumers through API Management 4.9. Learn how to configure it.
 metaLinks:
   alternates:
     - >-

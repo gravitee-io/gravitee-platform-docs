@@ -1,5 +1,5 @@
 ---
-description: An overview about regex threat protection.
+description: The Regex Threat Protection policy inspects request headers, path, parameters, and body in API Management 4.8. Learn how to configure it.
 ---
 
 # Regex Threat Protection

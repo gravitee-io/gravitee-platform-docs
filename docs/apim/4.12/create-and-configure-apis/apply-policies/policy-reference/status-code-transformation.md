@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for status code transformation.
+description: The Status Code Transformation policy rewrites the upstream response status code in API Management 4.12. Learn how to configure it.
 metaLinks:
   alternates:
     - status-code-transformation.md

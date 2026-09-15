@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for avro to json.
+description: The Avro to JSON policy applies a transformation to request, response, or message content in API Management 4.9. Learn how to configure it.
 metaLinks:
   alternates:
     - >-

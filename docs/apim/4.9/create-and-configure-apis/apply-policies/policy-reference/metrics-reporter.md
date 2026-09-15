@@ -1,5 +1,5 @@
 ---
-description: An overview about metrics reporter.
+description: The Metrics Reporter policy pushes request metrics to a custom endpoint from API Management 4.9. Learn how to configure the reporter.
 metaLinks:
   alternates:
     - >-

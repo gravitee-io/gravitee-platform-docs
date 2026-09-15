@@ -1,5 +1,5 @@
 ---
-description: An overview about xml to json.
+description: The XML to JSON policy transforms XML content into JSON content in API Management 4.8. Learn how to configure the transformation.
 ---
 
 # XML to JSON

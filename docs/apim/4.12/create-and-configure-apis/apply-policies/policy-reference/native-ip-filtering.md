@@ -1,3 +1,7 @@
+---
+description: The Native IP Filtering policy controls client access to native Kafka APIs in API Management 4.12 by IP address. Learn how to set it.
+---
+
 # Native IP filtering
 
 ## Overview
