@@ -1,5 +1,5 @@
 ---
-description: An overview about execution transparency analytics.
+description: Execution transparency analytics gives actionable diagnostics when an API Management 4.12 call fails. Learn what the components report.
 metaLinks:
   alternates:
     - execution-transparency-analytics.md

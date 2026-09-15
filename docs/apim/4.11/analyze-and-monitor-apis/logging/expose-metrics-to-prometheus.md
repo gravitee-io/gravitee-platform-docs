@@ -1,3 +1,7 @@
+---
+description: Expose API Management 4.11 metrics to Prometheus. Follow the configuration steps needed to make the metrics available to scrape.
+---
+
 # Expose Metrics to Prometheus
 
 ## Overview

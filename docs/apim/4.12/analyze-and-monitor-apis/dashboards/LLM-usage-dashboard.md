@@ -1,3 +1,7 @@
+---
+description: The LLM Dashboard shows LLM usage across an API Management 4.12 environment. Learn the metrics it reports and its prerequisites.
+---
+
 # LLM Usage Dashboard
 
 ## Overview

@@ -1,5 +1,5 @@
 ---
-description: An overview about ---.
+description: Logging at Gateway and API level in API Management 4.8, and exposing metrics to Prometheus. Follow the guide to configure it.
 hidden: true
 noIndex: true
 ---

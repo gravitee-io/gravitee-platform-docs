@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for the Elasticsearch reporter.
+description: Send API Management 4.11 Gateway events to Elasticsearch with the Elasticsearch reporter. Find the configuration details you need.
 metaLinks:
   alternates:
     - elasticsearch-reporter.md

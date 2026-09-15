@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for file reporter.
+description: Write API Management 4.12 Gateway events to a file with the file reporter. Browse the configuration parameters it accepts.
 metaLinks:
   alternates:
     - file-reporter.md
