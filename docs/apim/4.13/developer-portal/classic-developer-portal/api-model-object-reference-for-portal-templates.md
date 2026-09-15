@@ -1,3 +1,7 @@
+---
+description: The api variable in Developer Portal 4.13 templates is one of three model classes chosen by API definition. Find the fields you need.
+---
+
 # API Model Object Reference for Portal Templates
 
 ## API model object

@@ -1,5 +1,5 @@
 ---
-description: API Overview page templates for the New Developer Portal.
+description: API Overview Page Templates supply pre-configured Gravitee Markdown for New Developer Portal 4.13 API pages. Learn what they provide.
 ---
 
 # API Overview Page Templates

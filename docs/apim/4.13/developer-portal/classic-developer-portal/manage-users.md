@@ -1,5 +1,5 @@
 ---
-description: An overview about manage users.
+description: Users reaching the Developer Portal 4.13 from the Management Console are signed in automatically. Learn how user management works.
 metaLinks:
   alternates:
     - manage-users.md

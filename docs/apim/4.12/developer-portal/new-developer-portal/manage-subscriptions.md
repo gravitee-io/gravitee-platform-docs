@@ -1,3 +1,7 @@
+---
+description: Subscribe to APIs and manage your subscriptions in the New Developer Portal 4.12. Follow the steps unless the API is keyless.
+---
+
 # Manage Subscriptions
 
 ### Overview <a href="#overview" id="overview"></a>

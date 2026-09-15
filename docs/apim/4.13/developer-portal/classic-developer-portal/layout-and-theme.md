@@ -1,5 +1,5 @@
 ---
-description: An overview about layout and theme.
+description: Administrators can change the layout and theme of the Developer Portal 4.13 to control how APIs are presented. Learn what you can customize.
 metaLinks:
   alternates:
     - layout-and-theme.md
