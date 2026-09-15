@@ -1,5 +1,5 @@
 ---
-description: A deep dive on Gravitee Access Management's feature set
+description: The guides covering the Access Management 4.12 platform and its features in depth. Browse them to find the topic you need next.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/prologue

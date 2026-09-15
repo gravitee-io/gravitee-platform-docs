@@ -1,5 +1,5 @@
 ---
-description: A deep dive on Gravitee Access Management's feature set
+description: The guides covering the Access Management 4.9 platform and its features in depth. Browse them to find the topic you need next.
 ---
 
 # Prologue

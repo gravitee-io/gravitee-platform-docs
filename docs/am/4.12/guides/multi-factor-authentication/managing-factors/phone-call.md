@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/managing-factors/phone-call
+description: Send an Access Management 4.12 verification code by phone call as a second factor. Learn how the Twilio phone factor works for you.
 ---
 
 # Phone Call

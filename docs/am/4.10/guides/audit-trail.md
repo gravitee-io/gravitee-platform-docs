@@ -1,3 +1,7 @@
+---
+description: The Access Management 4.10 audit trail records what users do, at organization and domain level. Learn the event types and how to view the log.
+---
+
 # Audit Trail
 
 ## Overview

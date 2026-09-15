@@ -1,3 +1,7 @@
+---
+description: Send an Access Management 4.10 verification code by email as a second factor. Learn how email verification confirms a user's account.
+---
+
 # Email
 
 With Email verification, you can receive a verification code on your email address to be used as the second factor to validate a user’s account.

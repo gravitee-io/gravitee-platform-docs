@@ -1,5 +1,5 @@
 ---
-description: Manage the entrypoints that define the base URLs of the AM Gateway, and learn how Gravitee-managed deployments assign one to each environment.
+description: An entrypoint is the base URL the Access Management 4.13 Gateway is reached on, and the source of user-facing URLs. Learn how to manage them.
 ---
 
 # Entrypoints

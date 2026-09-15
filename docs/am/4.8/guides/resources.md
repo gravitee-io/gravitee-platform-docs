@@ -1,5 +1,5 @@
 ---
-description: Overview of Resources.
+description: Resources define reusable configuration sets in Access Management 4.8. Compare the resource types and follow the steps to create one.
 ---
 
 # Resources

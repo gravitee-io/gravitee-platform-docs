@@ -1,3 +1,7 @@
+---
+description: Trust domains are managed from the Workload Identity section of Access Management 4.13 domain settings. Follow the steps to create one.
+---
+
 # Manage SPIFFE Trust Domains
 
 ## Managing Trust Domains

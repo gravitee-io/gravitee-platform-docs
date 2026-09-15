@@ -1,5 +1,5 @@
 ---
-description: Overview of Flows.
+description: Flows extend Access Management 4.8 by running policies at selected stages of a request. Learn how to configure a flow at each level.
 ---
 
 # Flows

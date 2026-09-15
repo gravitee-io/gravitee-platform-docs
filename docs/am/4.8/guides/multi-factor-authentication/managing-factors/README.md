@@ -1,5 +1,5 @@
 ---
-description: Overview of Managing Factors.
+description: Access Management 4.8 supports several MFA factors out of the box. Follow the steps to create a factor and compare the supported types.
 ---
 
 # Managing Factors

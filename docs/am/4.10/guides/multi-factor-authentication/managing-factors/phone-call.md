@@ -1,3 +1,7 @@
+---
+description: Send an Access Management 4.10 verification code by phone call as a second factor. Learn how the Twilio phone factor works for you.
+---
+
 # Phone Call
 
 With phone call verification, you can receive a verification code via a phone call to be used as the second factor to validate a user’s account.
