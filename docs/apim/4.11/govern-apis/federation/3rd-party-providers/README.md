@@ -1,5 +1,5 @@
 ---
-description: An overview about 3rd-party providers.
+description: Each third-party API gateway or event broker has its own integration for federating APIs into API Management 4.11. Compare the providers.
 metaLinks:
   alternates:
     - ./

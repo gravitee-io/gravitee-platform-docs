@@ -1,3 +1,7 @@
+---
+description: API Score does not score automatically in API Management 4.11; each API stays unscored until you act. Follow the steps to generate one.
+---
+
 # Generate an API Score
 
 ## Overview
