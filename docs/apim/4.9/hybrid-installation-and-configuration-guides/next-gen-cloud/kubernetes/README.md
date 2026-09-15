@@ -1,5 +1,5 @@
 ---
-description: An overview about kubernetes.
+description: Install the self-hosted components of a hybrid API Management 4.9 deployment on Kubernetes. Browse the guides for your provider.
 metaLinks:
   alternates:
     - >-

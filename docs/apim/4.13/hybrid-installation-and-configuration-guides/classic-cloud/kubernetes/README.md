@@ -1,5 +1,5 @@
 ---
-description: Information about kubernetes.
+description: Deploy a Classic Cloud hybrid API Management 4.13 Gateway on Kubernetes. Browse the guides for the cloud provider you use.
 metaLinks:
   alternates:
     - ./

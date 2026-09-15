@@ -1,5 +1,5 @@
 ---
-description: Tutorial on gcp gke.
+description: Install an API Management 4.10 Gateway on Kubernetes with GCP GKE. Follow the steps to complete a Classic Cloud hybrid deployment.
 metaLinks:
   alternates:
     - gcp-gke.md

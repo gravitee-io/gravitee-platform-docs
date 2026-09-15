@@ -1,5 +1,5 @@
 ---
-description: Information about docker.
+description: Run a Classic Cloud hybrid API Management 4.10 deployment in Docker. Browse the guides for the CLI and Compose approaches.
 metaLinks:
   alternates:
     - ./

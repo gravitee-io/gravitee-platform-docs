@@ -1,5 +1,5 @@
 ---
-description: An overview about kubernetes.
+description: Route hybrid API Management 4.11 Gateway traffic through a corporate proxy on Kubernetes. Browse the deployment guides you need.
 metaLinks:
   alternates:
     - ./

@@ -1,5 +1,5 @@
 ---
-description: Learn how to configure Cloud gateway client
+description: In a hybrid deployment the API Management 4.12 Gateway reaches Gravitee Cloud through a proxy. Follow the steps to configure the client.
 ---
 
 # Configure Cloud Gateway Client
