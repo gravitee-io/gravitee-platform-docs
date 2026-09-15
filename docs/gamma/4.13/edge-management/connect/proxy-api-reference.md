@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: What an API must be to receive the traffic that an Edge Daemon route forwards to it, and what Edge Management builds when you create one from the picker. Browse the reference.
+description: A target API is the gateway API a route of an intercepted agent forwards to. Learn what Gamma Edge Management requires and creates for you.
 ---
 
 # Target API reference

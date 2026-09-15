@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Create and secure the AI Gateway components that govern LLM, MCP, and A2A traffic. Start with the proxy type you need.
+description: Create and configure the AI Gateway components that govern LLM, MCP, and A2A traffic in Gamma. Learn the settings every proxy type shares.
 ---
 
 # Secure

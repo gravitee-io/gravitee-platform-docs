@@ -1,7 +1,7 @@
 ---
 hidden: true
 noIndex: true
-description: Open a registered agent's page in the Catalog, read what its agent card declared, edit its name and description, remove it, and find where its gateway controls live.
+description: A registered agent's Catalog page records what its agent card declared. Follow the steps to edit, review, or remove an agent in Gamma.
 ---
 
 # Manage a registered agent

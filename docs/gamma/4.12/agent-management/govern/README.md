@@ -1,7 +1,7 @@
 ---
 hidden: true
 noIndex: true
-description: Score every agent in your estate against built-in compliance frameworks, and remediate the controls that fail.
+description: Score every agent in your Gamma estate against built-in compliance frameworks. Learn how a failing score becomes actions you can apply.
 ---
 
 # Govern
