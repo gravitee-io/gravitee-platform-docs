@@ -1,5 +1,5 @@
 ---
-description: An overview about message filtering.
+description: The Message Filtering policy lets a publisher control which messages are streamed to subscribers in API Management 4.8. Learn how to set it.
 ---
 
 # Message Filtering

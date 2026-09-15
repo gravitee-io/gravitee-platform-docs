@@ -1,5 +1,5 @@
 ---
-description: An overview about ai - prompt token tracking.
+description: The Prompt Token Tracking policy counts tokens sent to and received from an AI API in API Management 4.10. Learn how to configure it.
 ---
 
 # AI - Prompt Token Tracking

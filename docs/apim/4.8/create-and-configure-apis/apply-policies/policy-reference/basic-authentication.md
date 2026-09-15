@@ -1,5 +1,5 @@
 ---
-description: An overview about basic authentication.
+description: The Basic Authentication policy manages basic auth headers on API Management 4.8 calls and compares credentials. Learn how to configure it.
 ---
 
 # Basic Authentication

@@ -1,5 +1,5 @@
 ---
-description: An overview about http callout.
+description: The HTTP Callout policy invokes an external URL and stores the response in API Management 4.12 variables. Learn how to configure it.
 metaLinks:
   alternates:
     - http-callout.md

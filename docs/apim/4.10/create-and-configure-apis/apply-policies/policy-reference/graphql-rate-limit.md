@@ -1,5 +1,5 @@
 ---
-description: An overview about graphql rate limit.
+description: The GraphQL Rate Limit policy applies basic rate limiting to GraphQL queries in API Management 4.10. Learn how to configure the limits.
 metaLinks:
   alternates:
     - graphql-rate-limit.md
