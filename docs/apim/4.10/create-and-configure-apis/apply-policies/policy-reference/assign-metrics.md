@@ -1,5 +1,5 @@
 ---
-description: An overview about assign metrics.
+description: The Assign Metrics policy pushes extra metrics alongside the native request metrics in API Management 4.10. Learn how to configure it.
 metaLinks:
   alternates:
     - assign-metrics.md

@@ -1,5 +1,5 @@
 ---
-description: An overview about generate http signature.
+description: The Generate HTTP Signature policy adds HTTP Signature authentication to API Management 4.13 calls. Learn how to configure the signature.
 metaLinks:
   alternates:
     - generate-http-signature.md

@@ -1,5 +1,5 @@
 ---
-description: An overview about assign attributes.
+description: The Assign Attributes policy sets request and execution context attributes in API Management 4.8. Learn how to configure the variables.
 ---
 
 # Assign Attributes
