@@ -1,5 +1,5 @@
 ---
-description: An overview about http signature.
+description: The HTTP Signature policy enforces signature-based authentication on API Management 4.8 calls. Learn how to configure the signature.
 ---
 
 # HTTP Signature

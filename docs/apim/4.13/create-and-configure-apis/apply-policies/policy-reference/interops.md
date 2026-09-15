@@ -1,5 +1,5 @@
 ---
-description: Guide on applying policies related to interops.
+description: InterOPS support in API Management 4.13, with the phase order for proxy and for native APIs. Learn where the policy runs in each.
 metaLinks:
   alternates:
     - interops.md

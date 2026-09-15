@@ -1,5 +1,5 @@
 ---
-description: An overview about latency.
+description: The Latency policy adds artificial delay to a request or a response in API Management 4.12. Learn how to configure the delay.
 metaLinks:
   alternates:
     - latency.md
