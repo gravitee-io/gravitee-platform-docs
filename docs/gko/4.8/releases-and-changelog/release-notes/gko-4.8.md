@@ -1,5 +1,5 @@
 ---
-description: Gravitee Kubernetes Operator 4.8 Release Notes.
+description: Highlights and new features in the Gravitee Kubernetes Operator 4.8 release, including Kubernetes Gateway API support and KafkaRoute. See what shipped.
 ---
 
 # GKO 4.8

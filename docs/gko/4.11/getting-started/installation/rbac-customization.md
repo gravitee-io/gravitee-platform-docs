@@ -1,5 +1,5 @@
 ---
-description: RBAC customization for GKO
+description: The Gravitee Kubernetes Operator 4.11 needs different RBAC permissions in cluster and namespaced scope. Follow the steps to modify or disable the defaults.
 ---
 
 

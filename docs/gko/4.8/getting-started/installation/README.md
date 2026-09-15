@@ -1,5 +1,5 @@
 ---
-description: Installation guide for Installation.
+description: Install the Gravitee Kubernetes Operator 4.8 with Helm, the preferred method. Browse the guides that take you from prerequisites to a running operator.
 ---
 
 # Installation

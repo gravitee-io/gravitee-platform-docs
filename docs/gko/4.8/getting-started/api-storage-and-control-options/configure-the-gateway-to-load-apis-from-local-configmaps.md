@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for ConfigMaps.
+description: Set the Gateway to load API definitions from local ConfigMaps rather than the repository in Gravitee Kubernetes Operator 4.8 deployments. Follow the steps.
 ---
 
 # Configure the Gateway to load APIs from local ConfigMaps

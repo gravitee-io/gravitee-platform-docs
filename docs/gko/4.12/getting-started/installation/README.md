@@ -1,3 +1,7 @@
+---
+description: The methods available for installing the Gravitee Kubernetes Operator 4.12, covering both Helm and OperatorHub. Compare them before you install.
+---
+
 # Installation
 
 This section covers the available methods for installing GKO:

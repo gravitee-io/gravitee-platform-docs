@@ -1,5 +1,5 @@
 ---
-description: Getting started with Quickstart Guide.
+description: Install the Gravitee Kubernetes Operator 4.8, connect it to API Management, and create your first ApiDefinition. Follow the quickstart or the video tutorial.
 ---
 
 # Quickstart Guide

@@ -1,5 +1,5 @@
 ---
-description: Overview of GKO.
+description: The Gravitee Kubernetes Operator 4.9 manages Gravitee APIs, applications, and other assets declaratively in Kubernetes. See how it fits your platform.
 ---
 
 # Introduction

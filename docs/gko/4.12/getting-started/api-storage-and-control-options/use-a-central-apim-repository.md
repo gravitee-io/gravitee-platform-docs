@@ -1,3 +1,7 @@
+---
+description: Send Gravitee Kubernetes Operator 4.12 API definitions and deployment events to the API Management repository, where the Gateway loads them. See the examples.
+---
+
 # Use a central APIM repository
 
 The Gravitee platform can use the APIM repository (e.g., MongoDB database) to configure both GKO and the Gateway. In this setup, GKO sends APIs and deployment events (start/stop) to the repository, and the API Gateway loads APIs and deployment events from the repository.

@@ -1,3 +1,7 @@
+---
+description: Run the Gravitee Kubernetes Operator 4.10 across a whole cluster or scoped to one namespace, set by a Helm parameter. Compare the two before you install.
+---
+
 # Cluster vs Namespaced Install
 
 The Gravitee Kubernetes Operator (GKO) can either be configured to listen to resources across an entire cluster or scoped to a single namespace. The `manager.scope.cluster` boolean parameter is used to determine which installation method is used by the GKO Helm Chart.

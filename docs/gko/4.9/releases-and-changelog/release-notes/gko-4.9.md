@@ -46,7 +46,7 @@
 '44': e
 '45': s
 '46': .
-description: Overview of GKO.
+description: Highlights and new features in the Gravitee Kubernetes Operator 4.9 release, covering Helm configuration and notifications. See what shipped.
 ---
 
 # GKO 4.9
