@@ -1,3 +1,7 @@
+---
+description: The OpenFGA plugin brings fine-grained authorization to Access Management 4.10. Follow the steps to create a plugin instance and configure it.
+---
+
 # OpenFGA
 
 {% hint style="danger" %}

@@ -1,3 +1,7 @@
+---
+description: Retrieve Access Management 4.10 user profile information with an OpenID Connect ID token. Follow the steps using the Console or the API.
+---
+
 # Get User Profile Information
 
 ## Overview

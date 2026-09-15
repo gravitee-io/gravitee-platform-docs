@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/applications
+description: Applications act on behalf of a user to request Access Management 4.13 tokens and reach protected resources. Follow the steps to create one.
 ---
 
 # Applications

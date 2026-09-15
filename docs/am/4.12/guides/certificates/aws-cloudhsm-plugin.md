@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/certificates/aws-cloudhsm-plugin
+description: Load an Access Management 4.12 domain key pair from AWS CloudHSM. Follow the prerequisites and deployment steps to set the plugin up.
 ---
 
 # AWS CloudHSM plugin

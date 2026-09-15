@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/security-domains
+description: A security domain groups Access Management 4.12 applications, users, and identity providers with its own endpoints. Follow the steps to create one.
 ---
 
 # Security Domains

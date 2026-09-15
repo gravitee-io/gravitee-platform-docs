@@ -1,3 +1,7 @@
+---
+description: Enable OAuth 2.0 Token Exchange for an Access Management 4.11 domain, then set delegation depth and scope handling. Follow the steps.
+---
+
 # OAuth 2.0 Token Exchange Configuration
 
 ## Enable Token Exchange

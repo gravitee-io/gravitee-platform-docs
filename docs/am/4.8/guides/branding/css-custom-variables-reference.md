@@ -1,5 +1,5 @@
 ---
-description: API and reference documentation for CSS Custom Variables Reference.
+description: The CSS custom variables that control Access Management 4.8 theme colours and layout. Find the variable you need to override.
 ---
 
 # CSS Custom Variables Reference

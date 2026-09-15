@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/applications/client-secrets
+description: Access Management 4.12 supports multiple client secrets per application with configurable expiration. Learn the use cases and how to manage them.
 ---
 
 # Client Secrets

@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/security-domains/configure-cors-for-security-domains
+description: Cross-origin resource sharing restricts which pages can call an Access Management 4.11 domain. Follow the steps to configure CORS parameters.
 ---
 
 # Configure CORS for Security Domains

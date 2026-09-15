@@ -1,3 +1,7 @@
+---
+description: Set a fallback certificate for an Access Management 4.13 domain from the Console or the Management API. Follow the steps to configure it.
+---
+
 # Configure Domain Certificate Fallback
 
 ## Overview

@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/flows
+description: Flows extend Access Management 4.11 by running policies at selected stages of a request. Learn the execution context and how to configure one.
 ---
 
 # Flows

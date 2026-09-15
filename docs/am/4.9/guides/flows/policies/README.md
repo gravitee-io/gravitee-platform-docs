@@ -1,5 +1,5 @@
 ---
-description: Overview of Policies.
+description: Policies define the actions Access Management 4.9 runs at stages of authentication and user flows. Browse the full policy list.
 ---
 
 # Policies

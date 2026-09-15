@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/tutorial-getting-started-with-am/get-user-profile-information
+description: Retrieve Access Management 4.11 user profile information with an OpenID Connect ID token. Follow the steps using the Console or the API.
 ---
 
 # Get User Profile Information

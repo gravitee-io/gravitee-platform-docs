@@ -1,5 +1,5 @@
 ---
-description: Overview of AM Console.
+description: Reach the Access Management 4.8 Console at the host created during installation. Learn the layout and where security domain settings live.
 ---
 
 # Log in to AM Console

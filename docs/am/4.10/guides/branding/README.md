@@ -1,3 +1,7 @@
+---
+description: Brand the Access Management 4.10 login and account pages at organization, domain, or application level. Follow the steps to set a logo and theme.
+---
+
 # Branding
 
 ## Overview

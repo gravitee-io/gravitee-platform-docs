@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for Configure Generic OAuth2 Authorization Server.
+description: Configure a generic OAuth 2.0 authorization server resource for an API secured by Access Management 4.8. Follow the steps and see the example.
 ---
 
 # Configure Generic OAuth2 Authorization Server

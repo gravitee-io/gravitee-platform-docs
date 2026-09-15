@@ -1,3 +1,7 @@
+---
+description: Access Management 4.10 supports multiple client secrets per application with configurable expiration. Learn the use cases and how to manage them.
+---
+
 # Client Secrets
 
 Gravitee AM supports enhanced client secret management, allowing for multiple secrets for each application and configurable expiration policies at both the domain level and application level. These features improve security and flexibility in managing client credentials.

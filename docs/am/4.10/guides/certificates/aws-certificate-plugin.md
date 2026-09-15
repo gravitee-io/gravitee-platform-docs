@@ -1,3 +1,7 @@
+---
+description: Load an Access Management 4.10 domain certificate from AWS Secret Manager. Follow the steps to create the certificate in the Console.
+---
+
 # AWS Certificate plugin
 
 ## Overview

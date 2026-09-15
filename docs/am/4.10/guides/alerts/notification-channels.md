@@ -1,3 +1,7 @@
+---
+description: Send Access Management 4.10 alerts through SMTP, webhooks, or Slack. Follow the steps to create the notification channel you need.
+---
+
 # Notification Channels
 
 ## Overview

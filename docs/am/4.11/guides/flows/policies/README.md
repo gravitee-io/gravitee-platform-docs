@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/flows/policies
+description: Policies define the actions Access Management 4.11 runs at stages of authentication and user flows. Browse the full policy list.
 ---
 
 # Policies

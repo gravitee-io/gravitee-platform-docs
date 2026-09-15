@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/tutorial-getting-started-with-am/secure-your-apis/configure-gravitee.io-access-management
+description: Configure Access Management 4.11 as the authorization server resource for an API secured with the OAuth 2.0 policy. Follow the steps and example.
 ---
 
 # Configure Gravitee Access Management

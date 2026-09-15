@@ -1,3 +1,7 @@
+---
+description: The Access Management 4.10 MCP Server authorization flow follows the official MCP specification. Learn how an MCP client is authorized.
+---
+
 # Client Authorization
 
 ## Overview <a href="#how-mcp-servers-work" id="how-mcp-servers-work"></a>

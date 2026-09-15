@@ -1,5 +1,5 @@
 ---
-description: Overview of Security Domains.
+description: A security domain groups Access Management 4.9 applications, users, and identity providers with its own endpoints. Follow the steps to create one.
 ---
 
 # Security Domains

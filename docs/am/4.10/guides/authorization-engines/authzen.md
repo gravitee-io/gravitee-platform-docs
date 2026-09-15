@@ -1,3 +1,7 @@
+---
+description: AuthZEN standardizes externalized authorization for Access Management 4.10. Learn the prerequisites and the request format it expects.
+---
+
 # AuthZen
 
 {% hint style="danger" %}

@@ -1,3 +1,7 @@
+---
+description: The default language properties for Access Management 4.10 email templates, login, forgot password, and registration. Find the key you need.
+---
+
 # Language Default Properties Reference
 
 ## Email templates

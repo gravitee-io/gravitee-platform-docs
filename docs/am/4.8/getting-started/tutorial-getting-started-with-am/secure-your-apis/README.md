@@ -1,5 +1,5 @@
 ---
-description: Overview of Secure Your APIs.
+description: Use API Management to protect an API with OAuth 2.0 and Access Management 4.8 as the authorization server. Follow the steps to configure it.
 ---
 
 # Secure Your APIs

@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/authorization-engines/authzen
+description: AuthZEN standardizes externalized authorization for Access Management 4.13. Learn the prerequisites, authentication, and request format.
 ---
 
 # AuthZen

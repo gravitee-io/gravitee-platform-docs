@@ -1,3 +1,7 @@
+---
+description: The Access Management 4.11 Token Exchange API request parameters, token type URNs, and response fields. Browse the full reference.
+---
+
 # OAuth 2.0 Token Exchange API
 
 ## Token Exchange API

@@ -1,5 +1,5 @@
 ---
-description: Overview of Client Secrets.
+description: Access Management 4.8 supports multiple client secrets per application with configurable expiration. Learn the use cases and how to manage them.
 ---
 
 # Client Secrets

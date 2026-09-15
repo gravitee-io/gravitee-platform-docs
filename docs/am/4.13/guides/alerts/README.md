@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/alerts
+description: Set up alerting to warn of unusual or dangerous events on an Access Management 4.13 installation. Learn how alerts and Alert Engine fit together.
 ---
 
 # Alerts

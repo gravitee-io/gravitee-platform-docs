@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/mcp-servers/mcp-tools
+description: MCP Tools are the operations an Access Management 4.13 MCP Server exposes to AI clients. Learn how tools are defined and managed.
 ---
 
 # MCP Tools

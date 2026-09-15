@@ -1,3 +1,7 @@
+---
+description: Configure Access Management 4.10 as the authorization server resource for an API secured with the OAuth 2.0 policy. Follow the steps and example.
+---
+
 # Configure Gravitee Access Management
 
 ## Overview

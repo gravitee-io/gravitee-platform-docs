@@ -1,3 +1,7 @@
+---
+description: Create an MCP Server in Access Management 4.10 from the Console. Follow the steps from the prerequisites to a registered server.
+---
+
 # Create an MCP Server
 
 ## Overview <a href="#prerequisites" id="prerequisites"></a>

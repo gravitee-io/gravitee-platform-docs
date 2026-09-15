@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/mcp-servers/client-authorization
+description: The Access Management 4.12 MCP Server authorization flow follows the official MCP specification. Learn how an MCP client is authorized.
 ---
 
 # Client Authorization

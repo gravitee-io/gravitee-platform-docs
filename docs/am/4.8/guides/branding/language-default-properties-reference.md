@@ -1,5 +1,5 @@
 ---
-description: API and reference documentation for Language Default Properties Reference.
+description: The default language properties for Access Management 4.8 email templates, login, forgot password, and registration. Find the key you need.
 ---
 
 # Language Default Properties Reference

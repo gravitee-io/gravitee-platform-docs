@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/branding/css-custom-variables-reference
+description: The CSS custom variables that control Access Management 4.13 theme colours and layout. Find the variable you need to override.
 ---
 
 # CSS Custom Variables Reference

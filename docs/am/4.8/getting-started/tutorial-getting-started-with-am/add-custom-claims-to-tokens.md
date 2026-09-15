@@ -1,5 +1,5 @@
 ---
-description: Overview of Add Custom Claims.
+description: Add custom claims to Access Management 4.8 access tokens and ID tokens. Follow the steps to configure a claim for your application.
 ---
 
 # Add Custom Claims to Tokens
