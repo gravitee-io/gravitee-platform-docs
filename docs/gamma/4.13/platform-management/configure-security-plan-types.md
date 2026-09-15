@@ -1,3 +1,7 @@
+---
+description: The Security Plan Types page controls which plan security types Gamma APIs can use in an environment. Follow the steps to change them.
+---
+
 # Configure Security Plan Types
 
 The **Security Plan Types** page controls which plan security types are available to APIs across the selected environment. A plan type that is disabled here can't be selected when a plan is created on an API in that environment.

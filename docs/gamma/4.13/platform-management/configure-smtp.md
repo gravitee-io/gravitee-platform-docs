@@ -1,10 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: >-
-  The SMTP page sets the mail server the organization sends its notifications,
-  invitations, and password-reset emails through, and the per-domain sender
-  rules that brand those emails.
+description: Gravitee sends registration, password reset, and notification mail from Gamma. Follow the steps to point your organization at a mail server.
 ---
 
 # Configure the SMTP mail server

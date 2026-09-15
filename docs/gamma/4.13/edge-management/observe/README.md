@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: See what your managed devices do with AI, from the shadow AI they reach directly to the traffic the Edge Daemon intercepts and the devices that run it. Start with the view you need.
+description: See what your managed devices do with AI from within the Gamma console. Learn what Edge Management lets you observe about your fleet.
 ---
 
 # Observe

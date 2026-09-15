@@ -1,9 +1,7 @@
 ---
 hidden: true
 noIndex: true
-description: >-
-  Declare the business value an MCP tool delivers, classify how each agent run
-  ended, and read the value delivered against the cost incurred per agent and per tool.
+description: Value attribution records what a Gamma agent run bought, not just what it cost. Follow the steps to declare tool value and read cost per outcome.
 ---
 
 # Attribute business value to agent runs

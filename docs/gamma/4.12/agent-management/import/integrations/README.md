@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Connect Gamma to an upstream AI platform so the models it offers import into the Catalog, and register external agents from their A2A agent cards. Choose the integration task you need.
+description: Integrations bring models and agents from outside Gamma into the Catalog. Learn what model and agent integrations each provide.
 ---
 
 # Integrations

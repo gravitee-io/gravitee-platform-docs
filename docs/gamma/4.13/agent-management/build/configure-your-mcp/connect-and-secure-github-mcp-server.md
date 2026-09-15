@@ -1,5 +1,5 @@
 ---
-description: Connect GitHub's MCP server to Gravitee, curate the tools it exposes, and
+description: A GitHub MCP server token carries every permission its owner holds. Follow the steps to connect and secure it behind a Gamma MCP Proxy.
   secure them with authentication, fine-grained authorization, rate limits, and PII
   redaction. Follow the steps to get started.
 ---

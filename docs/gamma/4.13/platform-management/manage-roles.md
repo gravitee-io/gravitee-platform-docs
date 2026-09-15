@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Define the roles of your organization, set the create, read, update, and delete permissions each one grants in every scope, and manage who holds an organization role.
+description: A role is a named set of permissions scoped to an organization, environment, or API in Gamma. Follow the steps to create and edit custom roles.
 ---
 
 # Manage roles
