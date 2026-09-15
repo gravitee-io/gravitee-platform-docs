@@ -1,5 +1,5 @@
 ---
-description: An overview about internal apis.
+description: API Management 4.8 enables internal APIs on the Management API and Gateway by default. Learn what they expose and how to secure them.
 ---
 
 # Internal APIs

@@ -1,7 +1,5 @@
 ---
-description: >-
-  These configuration settings and recommendations are critical to the security
-  of your production environment
+description: Default settings from an API Management 4.9 install suit testing, not production. Browse the best practices before you go live.
 metaLinks:
   alternates:
     - >-
