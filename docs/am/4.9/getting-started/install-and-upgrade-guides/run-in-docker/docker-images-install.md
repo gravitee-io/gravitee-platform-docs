@@ -1,5 +1,5 @@
 ---
-description: Installation guide for Docker Images Install.
+description: Run Access Management 4.9 components from their individual Docker images. Follow the steps to run and configure each container.
 ---
 
 # Docker Images Install

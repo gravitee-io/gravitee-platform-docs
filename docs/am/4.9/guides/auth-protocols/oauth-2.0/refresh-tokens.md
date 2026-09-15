@@ -1,5 +1,5 @@
 ---
-description: Overview of Refresh Tokens.
+description: Refresh tokens get a new Access Management 4.9 access token without user interaction. Follow the steps to use, revoke, and rotate them.
 ---
 
 # Refresh Tokens

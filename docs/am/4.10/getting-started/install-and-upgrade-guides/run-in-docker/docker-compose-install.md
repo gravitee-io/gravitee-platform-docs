@@ -1,3 +1,7 @@
+---
+description: Run Access Management 4.10 images with Docker Compose. Follow the steps to pull the images, start the stack, and check that it is running.
+---
+
 # Docker Compose Install
 
 This section explains how to run AM images in Docker. It is intended for users who are already familiar with Docker.

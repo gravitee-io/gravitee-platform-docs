@@ -1,3 +1,7 @@
+---
+description: CIBA lets a client start authentication on a separate device through Access Management 4.10. Learn the protocol and configure the settings.
+---
+
 # CIBA
 
 ## Overview

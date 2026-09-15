@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/scim-2.0
+description: SCIM 2.0 automates user identity exchange with Access Management 4.13, including attributes with special behaviour. See a worked example.
 ---
 
 # SCIM 2.0

@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/run-in-docker
+description: Gravitee publishes Docker images for the maintained Access Management 4.12 components. Compare the ways to run them in your environment.
 ---
 
 # Run in Docker

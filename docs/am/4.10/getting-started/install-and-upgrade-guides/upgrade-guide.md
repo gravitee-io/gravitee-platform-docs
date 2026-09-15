@@ -1,3 +1,7 @@
+---
+description: Upgrading Access Management 4.10 is deployment-specific, with MongoDB index changes at 4.5. Follow the steps that match your deployment.
+---
+
 # 4.5 Upgrade Guide
 
 {% hint style="warning" %}

@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/install-with-.zip
+description: Install Access Management 4.11 from the distribution bundle. Follow the prerequisites for the JDK, database, and HTTP server before you start.
 ---
 
 # Install with .ZIP

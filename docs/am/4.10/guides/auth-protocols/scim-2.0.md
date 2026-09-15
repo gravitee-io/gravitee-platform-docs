@@ -1,3 +1,7 @@
+---
+description: SCIM 2.0 automates user identity exchange with Access Management 4.10, including attributes with special behaviour. See a worked example.
+---
+
 # SCIM 2.0
 
 [The System for Cross-domain Identity Management (SCIM)](https://datatracker.ietf.org/doc/html/rfc7644) 2.0 is a standard for automating the exchange of user identity information between identity domains, or IT systems.
