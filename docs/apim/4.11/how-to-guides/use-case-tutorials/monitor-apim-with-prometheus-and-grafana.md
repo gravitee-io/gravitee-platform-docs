@@ -1,3 +1,7 @@
+---
+description: Deploy a Prometheus and Grafana monitoring stack for API Management 4.11 with Docker Compose. Follow the steps to enable the metrics service.
+---
+
 # Monitor APIM with Prometheus and Grafana using Docker Compose
 
 This guide walks through deploying a full monitoring stack for Gravitee API Management (APIM) with Docker Compose. The stack scrapes the metrics exposed by the Gravitee Prometheus exporter and visualizes them in Grafana, covering API traffic, JVM health, and host system usage.

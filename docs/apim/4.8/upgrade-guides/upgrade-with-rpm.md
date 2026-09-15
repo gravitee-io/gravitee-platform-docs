@@ -1,5 +1,5 @@
 ---
-description: An overview about upgrade with rpm.
+description: Upgrade an API Management 4.8 installation that was installed with RPM packages. Follow the steps to back up your configuration first.
 ---
 
 # Upgrade with RPM

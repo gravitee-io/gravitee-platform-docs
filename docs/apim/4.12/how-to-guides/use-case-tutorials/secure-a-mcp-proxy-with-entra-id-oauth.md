@@ -1,5 +1,5 @@
 ---
-description: Configure an MCP-Proxy with the OAuth plan and Entra ID
+description: Secure an MCP Proxy in API Management 4.12 with an OAuth2 plan and Microsoft Entra ID. Learn the key configuration points to get right.
 ---
 
 # Configure an MCP-Proxy with the OAuth plan and Entra ID

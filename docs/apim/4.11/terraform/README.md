@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for terraform.
+description: Terraform manages your API Management 4.11 infrastructure from configuration files. Check the compatibility matrix before you start.
 ---
 
 # Terraform

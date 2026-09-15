@@ -1,5 +1,5 @@
 ---
-description: Tutorial on use case tutorials.
+description: Detailed use case tutorials for the API Management 4.12 platform. Browse the articles that match the problem you are solving.
 metaLinks:
   alternates:
     - ./

@@ -1,5 +1,5 @@
 ---
-description: An overview about add rbac to your jwt plan.
+description: The Role-based Access Control policy adds authorization on top of an API Management 4.8 JWT plan. Follow the steps to configure your IdP.
 ---
 
 # Add RBAC to your JWT Plan

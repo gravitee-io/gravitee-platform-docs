@@ -1,5 +1,5 @@
 ---
-description: An overview about add security.
+description: Secure your first API Management 4.8 API with an API Key plan. Follow the steps to add the plan and check it is enforced.
 ---
 
 # Add Security

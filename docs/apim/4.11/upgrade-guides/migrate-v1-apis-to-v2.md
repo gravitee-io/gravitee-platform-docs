@@ -1,5 +1,5 @@
 ---
-description: Migrate v1 APIs to a v2 definition before you upgrade to APIM 4.12.0 or later.
+description: Migrate a v1 API to a v2 definition in place with API Management 4.11 tooling. Follow the steps in the Console or the Management API.
 ---
 
 # Migrate v1 APIs to v2

@@ -1,3 +1,7 @@
+---
+description: Implement the backend-for-frontend pattern for single-page apps with an API Management 4.12 shared policy group. Learn what it handles.
+---
+
 # Implement BFF pattern (with a Shared Policy Group)
 
 ## Overview

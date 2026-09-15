@@ -1,5 +1,5 @@
 ---
-description: An overview about plugins.
+description: Plugins expand what the API Management 4.12 Gateway, Management API, and other components can do. Compare the types of plugin available.
 metaLinks:
   alternates:
     - ./

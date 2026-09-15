@@ -1,5 +1,5 @@
 ---
-description: An overview about customization.
+description: API Management 4.9 plugins extend and customize component behaviour. Learn the common structure a plugin shares before you build one.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/plugins/customization

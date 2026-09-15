@@ -1,5 +1,5 @@
 ---
-description: An overview about rate limit rest apis.
+description: Rate limiting protects API Management 4.13 REST APIs and keeps performance predictable. Follow the tutorial through the main use cases.
 metaLinks:
   alternates:
     - rate-limit-rest-apis.md
