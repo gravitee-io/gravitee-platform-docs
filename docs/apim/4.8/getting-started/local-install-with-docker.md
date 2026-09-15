@@ -1,5 +1,5 @@
 ---
-description: Setup guide for local install with docker.
+description: Install API Management 4.8 locally with Docker Compose. Follow the steps to download the compose file and verify the stack is running.
 ---
 
 # Local Install with Docker

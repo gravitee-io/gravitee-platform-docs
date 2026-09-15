@@ -1,3 +1,7 @@
+---
+description: Control how Access Management 4.10 users set a first password, by forcing a reset or sending a registration email. Follow the steps to choose.
+---
+
 # Password Options
 
 Passwords are crucial for users as they protect sensitive information, secure online accounts, and prevent unauthorized access, ensuring privacy and safety.

@@ -1,3 +1,7 @@
+---
+description: SPIFFE and CIMD are configured per Access Management 4.13 security domain rather than in a configuration file. Learn both groups of settings.
+---
+
 # Configure SPIFFE and CIMD Settings
 
 SPIFFE and CIMD are configured **per security domain**, not via `gravitee.yml` or environment variables. Both are stored on the domain's OIDC settings (`oidc.workloadIdentitySettings` for SPIFFE, `oidc.cimdSettings` for CIMD) and can be set from the AM Console or through the domain management API.

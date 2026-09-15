@@ -1,5 +1,5 @@
 ---
-description: Overview of Login.
+description: Login flows confirm a user's identity in Access Management 4.8 before tokens are issued. Compare the login options you can configure.
 ---
 
 # Login

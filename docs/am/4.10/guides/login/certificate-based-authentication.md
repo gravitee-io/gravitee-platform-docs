@@ -1,3 +1,7 @@
+---
+description: Certificate-based authentication verifies Access Management 4.10 users with a client certificate. Follow the steps to install the plugin and enable it.
+---
+
 # Certificate Based Authentication
 
 ## Overview

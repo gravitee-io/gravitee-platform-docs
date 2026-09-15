@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/user-registration
+description: Access Management 4.11 includes a basic user registration flow. Follow the steps to enable registration for a security domain.
 ---
 
 # User Registration

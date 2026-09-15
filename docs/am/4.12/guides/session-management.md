@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/session-management
+description: Access Management 4.12 stores a signed-in user in an HTTP session for a set period. Learn the session layers and how to invalidate one.
 ---
 
 # Session Management

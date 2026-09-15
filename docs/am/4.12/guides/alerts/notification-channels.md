@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/alerts/notification-channels
+description: Send Access Management 4.12 alerts through SMTP, webhooks, or Slack. Follow the steps to create the notification channel you need.
 ---
 
 # Notification Channels

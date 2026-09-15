@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/certificate-based-authentication
+description: Certificate-based authentication verifies Access Management 4.13 users with a client certificate. Follow the steps to install the plugin and enable it.
 ---
 
 # Certificate Based Authentication

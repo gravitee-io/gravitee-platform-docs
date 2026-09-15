@@ -1,5 +1,5 @@
 ---
-description: Overview of Users.
+description: Find and manage Access Management 4.8 users from the Console, with query and filter search. Follow the steps to list and manage them.
 ---
 
 # Users

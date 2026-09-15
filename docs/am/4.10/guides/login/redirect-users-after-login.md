@@ -1,3 +1,7 @@
+---
+description: Control where Access Management 4.10 sends a user after login, from an OAuth 2.0, OpenID Connect, or SAML flow. Learn how redirection is decided.
+---
+
 # Redirect Users After Login
 
 Login flows are always triggered by calling standard endpoints from protocols such as OAuth 2.0/OpenID Connect or SAML 2.0.

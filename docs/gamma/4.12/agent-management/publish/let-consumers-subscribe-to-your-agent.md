@@ -1,7 +1,7 @@
 ---
 hidden: true
 noIndex: true
-description: Let consumers subscribe to the plan of an A2A Proxy from the Developer Portal, with terms to accept, a subscription form to fill in, and an approval that activates access. Follow the steps to set it up.
+description: Consumers reach your agent by subscribing an application to a plan on its Gamma A2A Proxy. Follow the steps to prepare the plan and approve requests.
 ---
 
 # Let consumers subscribe to your agent

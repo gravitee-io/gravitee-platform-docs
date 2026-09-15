@@ -1,5 +1,5 @@
 ---
-description: Overview of Redirect Users After Login.
+description: Control where Access Management 4.8 sends a user after login, from an OAuth 2.0, OpenID Connect, or SAML flow. Learn how redirection is decided.
 ---
 
 # Redirect Users After Login

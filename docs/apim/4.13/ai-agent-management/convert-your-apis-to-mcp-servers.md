@@ -1,5 +1,5 @@
 ---
-description: An overview of how to expose your APIs as AI-ready tools with MCP.
+description: Deploy an API Management 4.13 REST API as an MCP Server for AI agents. Follow the steps and see how the OpenAPI specification maps to MCP tools.
 ---
 
 # Convert REST APIs to an MCP Server

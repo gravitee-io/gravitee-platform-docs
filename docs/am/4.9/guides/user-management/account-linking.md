@@ -1,5 +1,5 @@
 ---
-description: Overview of Account Linking.
+description: Account linking joins identities from different providers to one Access Management 4.9 user account. Follow the steps to activate it.
 ---
 
 # Account Linking

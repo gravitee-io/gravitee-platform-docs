@@ -1,3 +1,7 @@
+---
+description: Application definitions apply at the Access Management 4.13 security domain level. Compare the types and follow the steps to create one.
+---
+
 # Application types
 
 ## Overview

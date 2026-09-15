@@ -1,5 +1,5 @@
 ---
-description: Introduction to the Web APIs
+description: How web APIs are structured, from protocols and transport to the shift to microservices. Learn what underpins API Management 4.12.
 ---
 
 # Web APIs

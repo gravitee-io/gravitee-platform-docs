@@ -1,5 +1,5 @@
 ---
-description: Overview of Identifier.
+description: Identifier-first login splits Access Management 4.8 sign-in into two steps, username then credential. Follow the steps to activate it.
 ---
 
 # Identifier-first Login Flow

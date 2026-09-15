@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/certificates/aws-certificate-plugin
+description: Load an Access Management 4.11 domain certificate from AWS Secret Manager. Follow the steps to create the certificate in the Console.
 ---
 
 # AWS Certificate plugin

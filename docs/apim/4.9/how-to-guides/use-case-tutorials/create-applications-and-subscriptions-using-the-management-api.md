@@ -1,7 +1,5 @@
 ---
-description: >-
-  An overview about create applications and subscriptions using the management
-  api.
+description: Create applications and subscriptions with the Management API in API Management 4.9. Follow the steps to change an API's security first.
 metaLinks:
   alternates:
     - >-

@@ -1,3 +1,7 @@
+---
+description: Secure an MCP proxy API in API Management 4.10 with an OAuth2 plan and Access Management. Learn the use cases and how the flow works.
+---
+
 # Secure MCP Proxy with OAuth2
 
 ## Overview

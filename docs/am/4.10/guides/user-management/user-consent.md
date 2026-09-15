@@ -1,3 +1,7 @@
+---
+description: Users control which scopes an application receives in Access Management 4.10. Follow the steps to review and revoke user consent.
+---
+
 # User Consent
 
 ## User consent

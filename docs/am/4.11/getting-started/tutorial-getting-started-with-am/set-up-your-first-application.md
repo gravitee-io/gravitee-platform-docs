@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/tutorial-getting-started-with-am/set-up-your-first-application
+description: Create your first Access Management 4.11 security domain and application. Follow the steps using either the Console or the API.
 ---
 
 # Set Up Your First Application

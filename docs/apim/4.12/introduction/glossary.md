@@ -1,5 +1,5 @@
 ---
-description: Gravitee's cheat sheet
+description: The Gravitee glossary defines products, components, and terms in four sections, covering API Management 4.12 and Access Management. Find a term.
 ---
 
 # Gravitee Glossary

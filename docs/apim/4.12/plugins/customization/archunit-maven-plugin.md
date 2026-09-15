@@ -1,3 +1,7 @@
+---
+description: The ArchUnit Maven plugin enforces context-aware logging rules at build time for API Management 4.12 plugins. Follow the steps to configure it.
+---
+
 # Enforce Logging Rules with ArchUnit Maven Plugin
 
 ## Overview

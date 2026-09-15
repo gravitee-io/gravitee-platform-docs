@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/mfa-brute-force-and-rate-limit
+description: MFA rate limiting and brute force detection harden Access Management 4.12 against repeated attempts. Learn how each protection works.
 ---
 
 # MFA Brute Force and Rate Limit

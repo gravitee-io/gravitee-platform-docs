@@ -1,3 +1,7 @@
+---
+description: Set password strength, expiry, and dictionary rules for an Access Management 4.10 security domain. Follow the steps to configure a policy.
+---
+
 # Password Policy
 
 > A key concern when using passwords for authentication is password strength. A "strong" password policy makes it difficult or even improbable for one to guess the password through either manual or automated means.

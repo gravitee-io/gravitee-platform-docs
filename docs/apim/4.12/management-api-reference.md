@@ -1,5 +1,5 @@
 ---
-description: An overview guide for Gravitee's management api reference.
+description: The Gravitee Management API is the programmatic interface to the API Management 4.12 backend. Browse the reference for its two sub-APIs.
 metaLinks:
   alternates:
     - management-api-reference.md

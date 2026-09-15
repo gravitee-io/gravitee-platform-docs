@@ -1,3 +1,7 @@
+---
+description: MCP Tools are the operations an Access Management 4.10 MCP Server exposes to AI clients. Learn how tools are defined and managed.
+---
+
 # MCP Tools
 
 ## Overview

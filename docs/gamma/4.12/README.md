@@ -1,5 +1,5 @@
 ---
-description: Overview of Gravitee Gamma.
+description: Gravitee Gamma unifies API Management, Event Stream Management, and Agent Management on one platform. Learn what Gamma offers and get started.
 ---
 
 # Overview

@@ -1,3 +1,7 @@
+---
+description: Adaptive MFA asks Access Management 4.10 users for another factor after login, based on context. Learn the use cases and configure it.
+---
+
 # Adaptive Multi-factor Authentication
 
 ## Overview
