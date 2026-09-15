@@ -1,7 +1,7 @@
 ---
 hidden: true
 noIndex: true
-description: Price the resources agents consume, and turn agent runs into cost records you can explain, attribute, and act on.
+description: Price the resources Gamma agents consume and turn every run into a cost record you can attribute. Learn how cost and value fit together.
 ---
 
 # Cost and value

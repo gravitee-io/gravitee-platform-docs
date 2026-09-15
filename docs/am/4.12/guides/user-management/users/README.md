@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/users
+description: Find and manage Access Management 4.12 users from the Console, with query and filter search. Follow the steps to list and manage them.
 ---
 
 # Users

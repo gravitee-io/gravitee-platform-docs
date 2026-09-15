@@ -1,5 +1,5 @@
 ---
-description: Overview of SCIM.
+description: Access Management 4.9 supports SCIM 2.0 for create, read, update, and delete operations on users and groups. Learn what the protocol covers.
 ---
 
 # SCIM 2.0

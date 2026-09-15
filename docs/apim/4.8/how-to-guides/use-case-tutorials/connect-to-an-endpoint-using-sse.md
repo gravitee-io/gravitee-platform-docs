@@ -1,5 +1,5 @@
 ---
-description: An overview about connect to an endpoint using sse.
+description: Establish a Server-Sent Events channel and consume messages through API Management 4.8. Follow the steps to identify and connect an endpoint.
 ---
 
 # Connect to an Endpoint Using SSE

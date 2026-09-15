@@ -1,5 +1,5 @@
 ---
-description: Documentation about upgrade guides in the context of APIs.
+description: Release notes and changelogs sit alongside these API Management 4.8 upgrade guides. Browse the articles for the version you are moving to.
 ---
 
 # Upgrade Guides

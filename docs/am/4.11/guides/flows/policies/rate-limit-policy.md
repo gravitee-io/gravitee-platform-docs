@@ -1,7 +1,5 @@
 ---
-description: >-
-  This page provides the technical details of the Rate Limit policy in Access
-  Management
+description: The rate limit policy caps how many requests Access Management 4.11 allows over a period. Follow the steps to configure it inside a flow.
 metaLinks:
   alternates:
     - >-

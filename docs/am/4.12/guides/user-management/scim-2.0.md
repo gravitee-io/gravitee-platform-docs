@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/scim-2.0
+description: Access Management 4.12 supports SCIM 2.0 for create, read, update, and delete operations on users and groups. Learn what the protocol covers.
 ---
 
 # SCIM 2.0

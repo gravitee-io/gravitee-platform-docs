@@ -1,3 +1,7 @@
+---
+description: Configure an API Management 4.12 text classification policy by choosing a model and input sources. Follow the steps and see the known limitations.
+---
+
 # AI - Model Text Classification - Configuration and Usage
 
 ## Creating a text classification policy

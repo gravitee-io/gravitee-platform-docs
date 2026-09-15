@@ -1,5 +1,5 @@
 ---
-description: Overview of Passwordless.
+description: Access Management 4.8 supports W3C WebAuthn so users authenticate without a password. Follow the steps to enable passwordless for an application.
 ---
 
 # Passwordless (W3C Webauthn)

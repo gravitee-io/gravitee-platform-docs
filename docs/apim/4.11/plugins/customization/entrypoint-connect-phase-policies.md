@@ -1,3 +1,7 @@
+---
+description: The Entrypoint Connect phase runs when a client opens a native Kafka connection to the API Management 4.11 Gateway. Learn how to interrupt one.
+---
+
 # Policies for the Entrypoint Connect phase
 
 ## Overview

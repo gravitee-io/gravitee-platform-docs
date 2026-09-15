@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/risk-based-mfa
+description: Risk-based MFA decides when Access Management 4.12 challenges a user, from their activity and consent. Follow the steps to activate it.
 ---
 
 # Risk-based MFA

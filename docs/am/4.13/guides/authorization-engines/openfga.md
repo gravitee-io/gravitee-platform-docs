@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/authorization-engines/openfga
+description: The OpenFGA plugin brings fine-grained authorization to Access Management 4.13. Follow the steps to create a plugin instance and configure it.
 ---
 
 # OpenFGA

@@ -1,5 +1,5 @@
 ---
-description: Overview of Device Identifier.
+description: Device identifiers let Access Management 4.8 remember the devices your users use for MFA. Follow the steps to create one with FingerprintJS.
 ---
 
 # Device Identifier

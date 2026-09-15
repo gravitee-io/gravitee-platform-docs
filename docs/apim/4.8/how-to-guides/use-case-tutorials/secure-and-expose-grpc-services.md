@@ -1,5 +1,5 @@
 ---
-description: An overview about secure and expose grpc services.
+description: Use API Management 4.8 as a central place to secure and manage your gRPC APIs. Follow the steps to run the samples with Docker.
 ---
 
 # Secure and Expose gRPC Services

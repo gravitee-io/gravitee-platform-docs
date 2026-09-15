@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for terraform.
+description: Terraform manages your API Management 4.8 infrastructure from configuration files. Learn what the Gravitee provider can manage.
 ---
 
 # Terraform

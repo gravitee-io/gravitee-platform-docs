@@ -1,5 +1,5 @@
 ---
-description: Overview of MFA Policies.
+description: MFA policies apply challenge and enrollment inside an Access Management 4.9 flow, beyond application settings. Compare the two policies.
 ---
 
 # MFA Policies

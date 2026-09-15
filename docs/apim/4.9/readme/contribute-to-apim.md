@@ -1,5 +1,5 @@
 ---
-description: An overview about contribute to apim.
+description: Set up a local environment to contribute to API Management 4.9 development. Follow the steps to clone the project and prepare the UIs.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/readme/contribute-to-apim

@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Change the context paths consumers use to reach an LLM Proxy, switch to virtual hosts, and edit the entrypoint plugin options after creation. Follow the steps on the Entrypoints page.
+description: Configure how consumers reach a Gamma LLM Proxy through context paths or virtual hosts. Follow the steps to manage entrypoints and deploy.
 ---
 
 # Configure LLM Proxy entrypoints

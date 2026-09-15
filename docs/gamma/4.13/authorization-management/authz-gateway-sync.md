@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Gamma continuously synchronizes policies and authorization data to every API Gateway that needs them. Learn what is synchronized, how a change becomes enforceable, and how engines are scoped.
+description: Gamma Authorization Management evaluates policies locally inside the API Gateway. Learn how a change in the console becomes enforceable.
 ---
 
 # Authorization policy synchronization

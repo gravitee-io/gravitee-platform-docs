@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/audit-trail
+description: The Access Management 4.12 audit trail records what users do, at organization and domain level. Learn the event types and how to view the log.
 ---
 
 # Audit Trail

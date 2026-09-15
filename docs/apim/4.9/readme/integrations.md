@@ -1,5 +1,5 @@
 ---
-description: An overview about integrations.
+description: The major integrations API Management 4.9 offers with event brokers, observability tools, and service discovery. Compare what is supported.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/readme/integrations

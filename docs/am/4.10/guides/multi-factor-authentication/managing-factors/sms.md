@@ -1,3 +1,7 @@
+---
+description: Send an Access Management 4.10 verification code by SMS as a second factor. Learn how SMS verification confirms a user's account.
+---
+
 # SMS
 
 With SMS verification, you can receive a verification code on your mobile phone to be used as the second factor to validate a user’s account.

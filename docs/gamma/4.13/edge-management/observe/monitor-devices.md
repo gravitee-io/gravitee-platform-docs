@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Check which of your managed devices run the Edge Daemon, which version they run, and whether they still report, on the Devices page. Learn what each card and column shows.
+description: The Devices page shows which managed devices run a Gamma Edge Daemon and whether each still reports. Follow the steps to read your fleet.
 ---
 
 # Monitor your devices

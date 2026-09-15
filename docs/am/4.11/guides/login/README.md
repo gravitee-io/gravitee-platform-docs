@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login
+description: Login flows confirm a user's identity in Access Management 4.11 before tokens are issued. Compare the login options you can configure.
 ---
 
 # Login

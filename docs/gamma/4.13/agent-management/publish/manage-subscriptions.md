@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Create, approve, reject, close, and export the subscriptions that give consumers access to your LLM, MCP, and A2A Proxies. Follow the steps to manage a subscription through its lifecycle.
+description: Consumers subscribe to the published plans of a Gamma LLM, MCP, or A2A Proxy. Follow the steps to read, export, and create subscriptions.
 ---
 
 # Manage subscriptions

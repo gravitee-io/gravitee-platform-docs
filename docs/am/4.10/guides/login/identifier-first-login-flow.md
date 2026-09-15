@@ -1,3 +1,7 @@
+---
+description: Identifier-first login splits Access Management 4.10 sign-in into two steps, username then credential. Follow the steps to activate it.
+---
+
 # Identifier-first Login Flow
 
 ## Overview

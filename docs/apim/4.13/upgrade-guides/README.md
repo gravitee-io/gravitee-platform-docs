@@ -1,5 +1,5 @@
 ---
-description: Documentation about upgrade guides in the context of APIs.
+description: Upgrade API Management 4.13 components in the right order, and note that downgrades are not supported. Browse the upgrade articles.
 metaLinks:
   alternates:
     - ./

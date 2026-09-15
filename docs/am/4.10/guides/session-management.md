@@ -1,3 +1,7 @@
+---
+description: Access Management 4.10 stores a signed-in user in an HTTP session for a set period. Learn the session layers and how to invalidate one.
+---
+
 # Session Management
 
 ## Overview

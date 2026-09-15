@@ -1,3 +1,7 @@
+---
+description: Magic link authentication signs Access Management 4.13 users in through a time-limited email link. Learn the token, templates, and audit events.
+---
+
 # Magic Link Authentication
 
 ## Overview

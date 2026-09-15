@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/password-policy
+description: Set password strength, expiry, and dictionary rules for an Access Management 4.12 security domain. Follow the steps to configure a policy.
 ---
 
 # Password Policy

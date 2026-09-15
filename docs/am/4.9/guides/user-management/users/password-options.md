@@ -1,5 +1,5 @@
 ---
-description: Overview of Password Options.
+description: Control how Access Management 4.9 users set a first password, by forcing a reset or sending a registration email. Follow the steps to choose.
 ---
 
 # Password Options

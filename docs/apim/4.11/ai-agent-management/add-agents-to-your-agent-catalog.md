@@ -1,5 +1,5 @@
 ---
-description: An overview about discover and catalog ai agents (a2a).
+description: Add AI agents to your API Management 4.11 Agent Catalog by importing or discovering their Agent Cards. Follow the steps to create an integration.
 metaLinks:
   alternates:
     - add-agents-to-your-agent-catalog.md

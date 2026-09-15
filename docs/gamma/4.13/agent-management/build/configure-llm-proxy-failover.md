@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Retry a call on another provider when one is slow or failing, and set the circuit breaker that takes a failing provider out of rotation. Follow the steps on the Failover page.
+description: Retry a Gamma LLM Proxy call on another endpoint when one is slow or failing. Follow the steps to enable failover and tune the circuit breaker.
 ---
 
 # Configure LLM Proxy failover

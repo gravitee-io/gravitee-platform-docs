@@ -1,3 +1,7 @@
+---
+description: Initiate multiple backend calls from API Management 4.12 and aggregate them into a single response. Follow the steps to build the API.
+---
+
 # Aggregating multiple responses
 
 ## Overview

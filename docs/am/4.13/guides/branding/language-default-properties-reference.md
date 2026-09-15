@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/branding/language-default-properties-reference
+description: The default language properties for Access Management 4.13 email templates, login, and registration, including the changed consent keys. Find yours.
 ---
 
 # Language Default Properties Reference
