@@ -1,5 +1,5 @@
 ---
-description: Information about ---.
+description: Deploy a hybrid API Management 4.11 installation with Docker, connecting your gateway to a hosted control plane. Follow the steps to verify it.
 hidden: true
 noIndex: true
 metaLinks:

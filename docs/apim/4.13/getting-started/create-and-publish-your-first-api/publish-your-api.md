@@ -1,5 +1,5 @@
 ---
-description: An overview about publish your api.
+description: Publish your first API Management 4.13 API so consumers can find it. Follow the steps to publish it and verify it is live.
 metaLinks:
   alternates:
     - publish-your-api.md

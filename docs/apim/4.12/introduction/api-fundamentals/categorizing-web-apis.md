@@ -1,5 +1,5 @@
 ---
-description: Overview of API categorization
+description: Web APIs are synchronous or asynchronous, stateless or stateful. Compare the categories that shape how you design for API Management 4.12.
 ---
 
 # Categorizing Web APIs
