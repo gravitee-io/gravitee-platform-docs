@@ -1,3 +1,7 @@
+---
+description: Access Management 4.10 ships social identity providers for Google, Facebook, Twitter, GitHub, LinkedIn, and Azure AD. Compare the providers available.
+---
+
 # Social Identity Providers
 
 Gravitee Access Management (AM) provides the most common social networks out of the box, including Google, Facebook, Twitter, GitHub, LinkedIn and Azure AD.

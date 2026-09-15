@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/overview/am-architecture/control-plane-and-data-plane
+description: Access Management 4.12 lets you choose a database scope per use case, splitting load between the control plane and the data plane. Learn when to isolate them.
 ---
 
 # Control Plane & Data Plane

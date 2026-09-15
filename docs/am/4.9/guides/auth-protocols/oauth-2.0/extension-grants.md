@@ -1,5 +1,5 @@
 ---
-description: Overview of Extension Grants.
+description: Extension grants add custom token endpoint grant types to Access Management 4.9, such as JWT Bearer. Follow the steps to create and use one.
 ---
 
 # Extension Grants

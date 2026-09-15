@@ -1,3 +1,7 @@
+---
+description: OAuth 2.0 is the industry-standard authorization protocol Access Management 4.10 implements. Compare the roles, grant types, and flows.
+---
+
 # OAuth 2.0
 
 ## Overview

@@ -1,5 +1,5 @@
 ---
-description: An overview about reference secrets in domains.
+description: Reference secrets in Access Management 4.12 domain fields using Expression Language. Follow the steps for the general and secret URI syntax.
 metaLinks:
   alternates:
     - >-

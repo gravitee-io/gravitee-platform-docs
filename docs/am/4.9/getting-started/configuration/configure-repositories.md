@@ -1,5 +1,5 @@
 ---
-description: Overview of Repositories.
+description: Access Management 4.9 stores data in repositories scoped by type. Follow the steps to configure supported storage and the data plane.
 ---
 
 # Repositories & DataPlane

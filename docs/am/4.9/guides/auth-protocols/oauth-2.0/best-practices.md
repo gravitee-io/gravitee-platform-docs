@@ -1,5 +1,5 @@
 ---
-description: Overview of Best Practices.
+description: Security recommendations from the OAuth 2.0 Best Current Practice, applied to Access Management 4.9 clients and servers. Learn what to change.
 ---
 
 # Best Practices

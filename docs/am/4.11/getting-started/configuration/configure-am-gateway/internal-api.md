@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/configuration/configure-am-gateway/internal-api
+description: The Access Management 4.11 Gateway exposes an internal API for monitoring and technical information. Follow the steps to configure the endpoints.
 ---
 
 # Internal API

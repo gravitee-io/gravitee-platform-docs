@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/reference/am-api-reference
+description: The Access Management 4.13 REST API for scripting administration, covering authorization and the token and authorization endpoints. Browse the reference.
 ---
 
 # API Reference

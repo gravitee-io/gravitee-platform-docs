@@ -1,3 +1,7 @@
+---
+description: Deploy Access Management 4.10 on Kubernetes with the Helm chart. Follow the steps to add the repository and install the components.
+---
+
 # Deploy in Kubernetes
 
 ## Overview

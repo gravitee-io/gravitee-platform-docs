@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/social-identity-providers/linkedin
+description: Authenticate Access Management 4.13 users with LinkedIn. Follow the steps to register a LinkedIn application and set up the connection.
 ---
 
 # LinkedIn

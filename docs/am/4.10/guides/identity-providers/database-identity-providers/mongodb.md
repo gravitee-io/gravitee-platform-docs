@@ -1,3 +1,7 @@
+---
+description: Authenticate Access Management 4.10 users against your own MongoDB database. Follow the steps to create the provider and set connection precedence.
+---
+
 # MongoDB
 
 ## Overview

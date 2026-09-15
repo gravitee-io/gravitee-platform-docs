@@ -1,3 +1,7 @@
+---
+description: Configure the Access Management 4.10 Gateway through gravitee.yml, system properties, or environment variables. Compare the three methods.
+---
+
 # AM Gateway
 
 ## Overview
