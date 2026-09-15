@@ -1,3 +1,7 @@
+---
+description: PKCE extends the Access Management 4.10 authorization code flow to prevent interception attacks. Learn how it works and see the examples.
+---
+
 # Proof Key for Code Exchange (PKCE)
 
 [Proof Key for Code Exchange (PKCE)](https://datatracker.ietf.org/doc/html/rfc7636) is an extension to the [authorization code](README.md#authorization-code) flow to prevent interception attacks from public clients.

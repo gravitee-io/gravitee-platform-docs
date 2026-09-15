@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for Configure Gateway Resilience Mode.
+description: Resilience mode keeps Access Management 4.8 authenticating users when its database is unavailable. Learn the limitations and configure it.
 ---
 
 # Configure Gateway Resilience Mode

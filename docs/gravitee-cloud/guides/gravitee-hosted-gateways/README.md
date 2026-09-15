@@ -1,7 +1,5 @@
 ---
-description: >-
-  This guide explains how to deploy and run Cloud-hosted Gateways to your
-  Gravitee Cloud Control Plane of API Management.
+description: Deploy a Gravitee-hosted gateway so Gravitee runs both the Control Plane and your gateways. Follow the steps to add and deploy them.
 ---
 
 # Deploy a Gravitee Hosted Gateway

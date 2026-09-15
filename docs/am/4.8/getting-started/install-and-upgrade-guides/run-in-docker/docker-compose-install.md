@@ -1,5 +1,5 @@
 ---
-description: Installation guide for Docker Compose Install.
+description: Run Access Management 4.8 images with Docker Compose. Follow the steps to pull the images, start the stack, and check that it is running.
 ---
 
 # Docker Compose Install

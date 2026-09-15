@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/configure-multiple-data-planes
+description: Split Access Management 4.13 load across data planes by scoping databases per use case. Follow the steps for the Management API and Gateways.
 ---
 
 # Configure Multiple Data Planes

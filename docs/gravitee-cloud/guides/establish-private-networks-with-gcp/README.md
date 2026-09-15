@@ -1,3 +1,7 @@
+---
+description: A private network securely connects your Gravitee Cloud SaaS gateways to a VPC in Google Cloud Platform. Learn how the connection works.
+---
+
 # Establish private networks with GCP
 
 ## Overview

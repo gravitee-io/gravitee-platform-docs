@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce
+description: PKCE extends the Access Management 4.11 authorization code flow to prevent interception attacks. Learn how it works and see the examples.
 ---
 
 # Proof Key for Code Exchange (PKCE)
