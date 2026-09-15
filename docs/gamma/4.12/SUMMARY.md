@@ -184,7 +184,7 @@
   * [Performance targets](agent-management/observe/performance-targets.md)
 * [Govern](agent-management/govern/README.md)
   * [Score agent compliance with the EU AI Act framework](agent-management/govern/score-agent-compliance-with-the-eu-ai-act.md)
-  * [Guard agent actions with Guardian Agents](agent-management/govern/guard-agent-actions-with-guardian-agents.md)
+  * [Screen prompts and answers with Guardian Agents](agent-management/govern/guard-agent-actions-with-guardian-agents.md)
   * [Require human approval for MCP tool calls](agent-management/govern/require-human-approval-for-mcp-tool-calls.md)
   * [Audit agent activity logs](agent-management/govern/agent-activity-logs.md)
 * [Cost and value](agent-management/cost-and-value/README.md)
