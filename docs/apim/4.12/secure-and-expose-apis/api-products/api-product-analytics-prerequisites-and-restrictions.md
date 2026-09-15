@@ -1,3 +1,7 @@
+---
+description: Filter the API Management 4.12 analytics dashboard by API Product. Follow the steps and check the restrictions that apply first.
+---
+
 # API Product Analytics: Prerequisites and Restrictions
 
 ## Prerequisites

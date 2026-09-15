@@ -1,5 +1,5 @@
 ---
-description: Get up and running with Gravitee Alert Engine
+description: Install Alert Engine in your environment alongside API Management 4.12. Browse the guides for the deployment method you use.
 ---
 
 # Install and Upgrade Guides

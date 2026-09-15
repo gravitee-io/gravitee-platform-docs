@@ -1,5 +1,5 @@
 ---
-description: This article walks through how to configure Alert Engine
+description: Three methods configure Alert Engine in an API Management 4.12 platform. Compare them and follow the steps for the one you use.
 ---
 
 # Configure Alert Engine

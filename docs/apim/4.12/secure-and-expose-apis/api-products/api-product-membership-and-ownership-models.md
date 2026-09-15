@@ -1,3 +1,7 @@
+---
+description: The primary owner mode decides whether an API Management 4.12 API Product is owned by a user or a group. Learn the ownership models.
+---
+
 # API Product Membership and Ownership Models
 
 ## Overview 

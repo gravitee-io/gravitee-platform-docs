@@ -1,5 +1,5 @@
 ---
-description: This article walks through sizing requirements for Alert Engine
+description: Resource planning and optimization advice for an Alert Engine install alongside API Management 4.13. Learn what to allow for.
 ---
 
 # Sizing requirements

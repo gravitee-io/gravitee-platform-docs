@@ -1,3 +1,7 @@
+---
+description: Create and manage the subscription form consumers complete in API Management 4.11. Follow the steps in the Management Console.
+---
+
 # Creating and managing subscription forms
 
 ## Creating subscription forms

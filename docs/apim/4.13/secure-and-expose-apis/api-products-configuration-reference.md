@@ -1,3 +1,7 @@
+---
+description: The reference fields for plans and subscriptions created against API Management 4.13 API Products. Find the field you need to set.
+---
+
 # API Products configuration reference
 
 ## API Product properties

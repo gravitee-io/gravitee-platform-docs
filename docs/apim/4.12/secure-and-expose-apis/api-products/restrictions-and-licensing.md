@@ -1,3 +1,7 @@
+---
+description: API Management 4.12 API Products require the Enterprise Universe licence tier. Learn the restrictions before you deploy one.
+---
+
 # API Products restrictions and licensing
 
 ## Licensing

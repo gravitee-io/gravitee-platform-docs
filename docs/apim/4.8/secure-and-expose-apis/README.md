@@ -1,5 +1,5 @@
 ---
-description: Documentation about secure & expose apis in the context of APIs.
+description: Plans, applications, and subscriptions govern how an API Management 4.8 API is exposed to consumers. Learn how the three fit together.
 ---
 
 # Secure & Expose APIs

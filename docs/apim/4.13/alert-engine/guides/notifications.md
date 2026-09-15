@@ -1,5 +1,5 @@
 ---
-description: This article walks through how to configure Alert Engine notifications
+description: Choose the channel Alert Engine notifies you through when an alert fires in API Management 4.13. Compare the providers available.
 ---
 
 # Notifications

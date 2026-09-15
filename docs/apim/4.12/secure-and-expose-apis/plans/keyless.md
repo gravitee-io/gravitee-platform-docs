@@ -1,5 +1,5 @@
 ---
-description: An overview about keyless.
+description: A keyless plan allows public access to an API Management 4.12 API with no authentication. Learn what it offers and when to use it.
 metaLinks:
   alternates:
     - keyless.md

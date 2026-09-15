@@ -1,3 +1,7 @@
+---
+description: Assign sharding tags to an API Management 4.12 API Product to control where it deploys. Follow the steps on the Deployment tab.
+---
+
 # Configuring API Product Deployment with Sharding Tags
 
 ## Creating API Product Deployment Configuration
