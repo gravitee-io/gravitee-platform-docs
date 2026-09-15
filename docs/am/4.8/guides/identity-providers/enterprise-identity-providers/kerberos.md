@@ -1,5 +1,5 @@
 ---
-description: Overview of Kerberos.
+description: Connect Access Management 4.8 to a Kerberos server, the ticket-based network authentication protocol. Follow the steps to create the connector.
 ---
 
 # Kerberos

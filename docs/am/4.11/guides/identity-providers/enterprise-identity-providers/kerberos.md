@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/enterprise-identity-providers/kerberos
+description: Connect Access Management 4.11 to a Kerberos server, the ticket-based network authentication protocol. Follow the steps to create the connector.
 ---
 
 # Kerberos

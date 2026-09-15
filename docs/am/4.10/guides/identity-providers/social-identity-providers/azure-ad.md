@@ -1,3 +1,7 @@
+---
+description: Authenticate Access Management 4.10 users with Azure Active Directory. Follow the steps to register an application and set up the connection.
+---
+
 # Azure AD
 
 ## Overview
