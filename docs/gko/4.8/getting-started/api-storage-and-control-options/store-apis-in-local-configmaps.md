@@ -1,5 +1,5 @@
 ---
-description: Overview of Store APIs.
+description: Deliver Gravitee Kubernetes Operator 4.8 API definitions to the Gateway through ConfigMaps local to the cluster. See the examples and the trade-offs.
 ---
 
 # Store APIs in local ConfigMaps

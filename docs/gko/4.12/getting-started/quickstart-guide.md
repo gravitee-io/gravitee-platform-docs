@@ -1,3 +1,7 @@
+---
+description: Install the Gravitee Kubernetes Operator 4.12, connect it to API Management, and create your first ApiV4Definition. Follow the quickstart or the video tutorial.
+---
+
 # Quickstart Guide
 
 ## Overview

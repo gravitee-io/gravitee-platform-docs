@@ -1,3 +1,7 @@
+---
+description: Install the Gravitee Kubernetes Operator 4.10, connect it with a management context or a cloud token, and create an API. Follow the quickstart or the video.
+---
+
 # Quickstart Guide
 
 ## Overview

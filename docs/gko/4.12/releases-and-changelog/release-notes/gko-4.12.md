@@ -1,5 +1,6 @@
 ---
 title: Gravitee Kubernetes Operator 4.12 Release Notes.
+description: Highlights, breaking changes, and new features in the Gravitee Kubernetes Operator 4.12 release, including API key rotation. Check compatibility first.
 ---
 
 # GKO 4.12

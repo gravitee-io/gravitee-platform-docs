@@ -1,3 +1,7 @@
+---
+description: Highlights and new features in the Gravitee Kubernetes Operator 4.10 release, covering HTTP client configuration and Gateway API conformance. See what shipped.
+---
+
 # GKO 4.10
 
 ## Highlights

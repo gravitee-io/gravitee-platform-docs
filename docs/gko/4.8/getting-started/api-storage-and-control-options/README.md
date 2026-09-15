@@ -1,5 +1,5 @@
 ---
-description: API and reference documentation for Control Options.
+description: The Gravitee Kubernetes Operator 4.8 stores API definitions and deployment events in the API Management repository or in local ConfigMaps. Compare the options.
 ---
 
 # API Storage and Control Options

@@ -1,5 +1,5 @@
 ---
-description: Learn more about Gravitee Enterprise Edition support
+description: Enterprise support packages for Enterprise Edition customers running the Gravitee Kubernetes Operator 4.11. Compare the packages available to you.
 ---
 
 # Enterprise Support

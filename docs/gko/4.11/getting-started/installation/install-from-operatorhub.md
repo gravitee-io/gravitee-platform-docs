@@ -1,3 +1,7 @@
+---
+description: Install the Gravitee Kubernetes Operator 4.11 from OperatorHub on OpenShift or on Kubernetes with OLM. Compare the channels and how it differs from Helm.
+---
+
 # Install from OperatorHub
 
 ## Overview

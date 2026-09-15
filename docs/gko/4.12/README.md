@@ -1,3 +1,7 @@
+---
+description: The Gravitee Kubernetes Operator 4.12 manages Gravitee APIs, applications, and other assets declaratively in Kubernetes. See how it fits your platform.
+---
+
 # Introduction
 
 ## Overview

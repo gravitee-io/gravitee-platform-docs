@@ -1,5 +1,5 @@
 ---
-description: Overview of APIM.
+description: Send Gravitee Kubernetes Operator 4.8 API definitions and deployment events to the API Management repository, where the Gateway loads them. See the examples.
 ---
 
 # Use a central APIM repository
