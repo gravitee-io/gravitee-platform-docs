@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for tcp reporter.
+description: Stream API Management 4.10 Gateway events over TCP with the TCP reporter. Browse the configuration parameters it accepts.
 metaLinks:
   alternates:
     - tcp-reporter.md

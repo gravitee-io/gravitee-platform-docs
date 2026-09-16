@@ -1,5 +1,5 @@
 ---
-description: Create and manage AsyncAPI documentation pages in the New Developer Portal navigation.
+description: The New Developer Portal 4.12 renders AsyncAPI documentation pages alongside Markdown and OpenAPI. Learn how to create them.
 ---
 
 # Creating AsyncAPI Documentation Pages

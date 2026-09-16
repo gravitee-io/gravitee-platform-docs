@@ -1,5 +1,5 @@
 ---
-description: An overview about layout and theme.
+description: Administrators can change the layout and theme of the Developer Portal 4.8 to control how APIs are presented. Learn what you can customize.
 ---
 
 # Layout and Theme

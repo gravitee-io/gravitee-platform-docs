@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for authentication.
+description: Authenticate API Management 4.8 users against an LDAP server or another provider in production. Learn the options available.
 ---
 
 # Authentication

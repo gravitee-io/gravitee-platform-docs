@@ -1,3 +1,7 @@
+---
+description: Portal listings publish APIs to specific locations in Developer Portal 4.12 navigation. Learn what each listing specifies.
+---
+
 # Portal listings
 
 ## Create a portal listing

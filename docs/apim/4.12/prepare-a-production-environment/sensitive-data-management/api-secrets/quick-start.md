@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for quick start.
+description: Configure access to a secret manager and reference a secret from an API Management 4.12 API. Follow the quick start steps.
 metaLinks:
   alternates:
     - quick-start.md

@@ -1,3 +1,7 @@
+---
+description: The Overview Dashboard shows API performance and traffic patterns across your API Management 4.12 environment. Learn the available metrics.
+---
+
 # Overview dashboard
 
 ## Overview

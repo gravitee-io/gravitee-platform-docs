@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for default apim settings.
+description: Update the most common default settings in the API Management 4.9 Console before going live. Follow the steps for each one.
 metaLinks:
   alternates:
     - >-

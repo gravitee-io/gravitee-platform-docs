@@ -1,5 +1,5 @@
 ---
-description: Configure the HTTP server for the Gravitee API Gateway, from HTTPS keystores and HTTP/2 flow control to request timeouts and CRL checks. Follow the steps.
+description: Configure the API Management 4.11 Gateway HTTP server properties. Follow the steps in the tab that matches your deployment.
 metaLinks:
   alternates:
     - configure-your-http-server.md

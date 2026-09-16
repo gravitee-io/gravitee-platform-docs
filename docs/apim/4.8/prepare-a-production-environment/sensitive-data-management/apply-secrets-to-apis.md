@@ -1,5 +1,5 @@
 ---
-description: An overview about apply secrets to apis.
+description: Apply secret manager values to your API Management 4.8 APIs to hide sensitive information. Follow the steps to configure it.
 ---
 
 # Apply Secrets to APIs

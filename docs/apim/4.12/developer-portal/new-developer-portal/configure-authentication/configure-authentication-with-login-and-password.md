@@ -1,3 +1,7 @@
+---
+description: Require a username and password to sign in to the New Developer Portal 4.12. Follow the steps to configure the login method.
+---
+
 # Configure Authentication with Login and Password
 
 ## Overview

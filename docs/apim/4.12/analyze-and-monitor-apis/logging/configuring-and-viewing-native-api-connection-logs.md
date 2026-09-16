@@ -1,5 +1,5 @@
 ---
-description: Configure connection metrics reporting and view Native Kafka API connection logs.
+description: Configure and view connection logs for a native Kafka API in API Management 4.12. Follow the steps to report connection metrics.
 ---
 
 # Configure and View Native Kafka API Connection Logs

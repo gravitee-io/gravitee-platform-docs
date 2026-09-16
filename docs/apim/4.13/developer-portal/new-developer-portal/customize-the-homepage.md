@@ -1,5 +1,5 @@
 ---
-description: An overview about customize the homepage.
+description: Customize the New Developer Portal 4.13 homepage with standard Markdown. Follow the steps to change what consumers see first.
 ---
 
 # Customize the Homepage

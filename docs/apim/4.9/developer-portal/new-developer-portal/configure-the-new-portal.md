@@ -1,5 +1,5 @@
 ---
-description: An overview about enable the new developer portal.
+description: The New Developer Portal 4.9 has an updated interface and more customization. Follow the steps to enable it for your environment.
 metaLinks:
   alternates:
     - >-

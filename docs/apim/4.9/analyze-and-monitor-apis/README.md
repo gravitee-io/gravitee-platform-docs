@@ -1,5 +1,5 @@
 ---
-description: Documentation about analyze & monitor apis in the context of APIs.
+description: Analysing and monitoring API Management 4.9 APIs, across dashboards, logging, and quality. Browse the sections that matter to you.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/analyze-and-monitor-apis

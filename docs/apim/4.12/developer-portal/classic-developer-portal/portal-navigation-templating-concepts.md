@@ -1,3 +1,7 @@
+---
+description: Gravitee Markdown pages served through the Developer Portal 4.12 support FreeMarker template expressions. Learn the templating concepts.
+---
+
 # Portal Navigation Templating Concepts
 
 ## Key Concepts

@@ -1,3 +1,7 @@
+---
+description: Portal-scoped documentation pages provide platform-level guides in the Developer Portal 4.12. Learn how each page is attached.
+---
+
 # Portal documentation
 
 ## Create portal documentation

@@ -1,3 +1,7 @@
+---
+description: The restrictions and known limitations of the Hazelcast rate-limit repository in API Management 4.12. Browse them before you deploy.
+---
+
 # Hazelcast Rate-Limit Repository Restrictions and Known Limitations
 
 ## Restrictions
