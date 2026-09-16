@@ -20,6 +20,16 @@ Gamma addresses the following core challenges:
 * **Fragmented authorization**. Policies written for API gateways don't extend to AI agents or event streams. Different traffic types are governed by different tools with no common enforcement point.
 * **Disjointed infrastructure**. REST APIs, Kafka topics, MCP servers, AI models, and agents sit in separate registries with no shared catalog. Cross-protocol policy can't be expressed, and existing infrastructure can't reach AI agents without redevelopment.
 
+## How the platform fits together
+
+Every module shares the following three foundations:
+
+1. **A common Catalog.** APIs from API Management become API Tools, and Kafka services contribute event sources, so existing enterprise infrastructure becomes agent-accessible without redevelopment.
+2. **A common authorization engine.** [Authorization Management](../authorization-management/get-started/authorization-management-overview.md) defines fine-grained, catalog-aware policies that the AI Gateway, API Gateway, and Event Gateway all enforce at the wire level.
+3. **Common enforcement architecture.** The same Policy Decision Point runs inside every gateway, and it returns a decision at microsecond latency with no network hop.
+
+A single enterprise request often crosses several modules. An agent invocation arrives at the A2A Proxy, the LLM Proxy handles the model call, and the MCP Proxy governs the tool call. The API Gateway then serves the underlying API, and the Event Gateway handles the published event. You need one place to define policy, one place to see the trace, and one place to attribute cost.
+
 ## The modules
 
 The Gamma console presents six application modules. The following table describes what each module governs and where to start:
@@ -49,6 +59,26 @@ Gamma includes the following components:
 
 ## Use cases for Gamma
 
+### Expose existing infrastructure to AI agents
+
+The following table maps each outcome to the feature that delivers it:
+
+| Outcome | Feature |
+| --- | --- |
+| A REST API already governed in API Management becomes an agent-callable tool, carrying over its security plans, policies, and backend configuration. | [Create API tools](../agent-management/import/create-api-tools.md) |
+| An agent gets exactly the tools it needs, composed from several upstream servers into one governed endpoint. | [Create an MCP proxy](../agent-management/build/create-an-mcp-proxy.md) |
+| An external agent that publishes an A2A agent card is registered in the Catalog from its endpoint. | [Register an agent](../agent-management/import/import-an-agent.md) |
+
+### Account for what AI traffic costs
+
+The following table maps each outcome to the feature that delivers it:
+
+| Outcome | Feature |
+| --- | --- |
+| Every LLM call records the provider, the model that answered, and the tokens in and out. | [Monitor your LLM proxy](../agent-management/observe/monitor-your-llm-proxy.md) |
+| Token spend is capped per consumer over a rolling period, counting the tokens the provider bills you for rather than the number of calls. | [Add the Token Rate Limit policy](../agent-management/build/add-the-token-rate-limit-policy.md) |
+| AI traffic on employee devices that bypasses the gateway entirely becomes visible. | [Monitor your shadow AI traffic](../edge-management/observe/monitor-shadow-ai-traffic.md) |
+
 ### Govern every traffic type from one platform
 
 The following table maps each outcome to the feature that delivers it:
@@ -72,16 +102,6 @@ The following table maps each outcome to the feature that delivers it:
 | A policy chain written once is reused across the flows of many APIs. | [Reuse policies with shared policy groups](../api-management/build/shared-policy-groups.md) |
 | Several APIs are published together as one product, with a shared plan and a single subscription. | [Create API Products](../api-management/build/api-products.md) |
 
-### Expose existing infrastructure to AI agents
-
-The following table maps each outcome to the feature that delivers it:
-
-| Outcome | Feature |
-| --- | --- |
-| A REST API already governed in API Management becomes an agent-callable tool, carrying over its security plans, policies, and backend configuration. | [Create API tools](../agent-management/import/create-api-tools.md) |
-| An agent gets exactly the tools it needs, composed from several upstream servers into one governed endpoint. | [Create an MCP proxy](../agent-management/build/create-an-mcp-proxy.md) |
-| An external agent that publishes an A2A agent card is registered in the Catalog from its endpoint. | [Register an agent](../agent-management/import/import-an-agent.md) |
-
 ### Enforce one authorization model across protocols
 
 The following table maps each outcome to the feature that delivers it:
@@ -92,16 +112,6 @@ The following table maps each outcome to the feature that delivers it:
 | Principals come from your existing identity provider rather than a separate list maintained by hand. | [Sync principals from Access Management](../authorization-management/manage/principals/sync-principals-from-access-management.md) |
 | A caller reaches only the tools its identity permits, and a call that matches no permit is denied rather than allowed by omission. | [Layered governance for MCP tools](../agent-management/build/configure-your-mcp/govern-mcp-tool-access.md) |
 | Every gateway reaches the same decision locally, so authorization adds no network hop. | [Configure the Gravitee Gateway as a runtime](../authorization-management/evaluate/configure-gravitee-gateway-as-runtime.md) |
-
-### Account for what AI traffic costs
-
-The following table maps each outcome to the feature that delivers it:
-
-| Outcome | Feature |
-| --- | --- |
-| Every LLM call records the provider, the model that answered, and the tokens in and out. | [Monitor your LLM proxy](../agent-management/observe/monitor-your-llm-proxy.md) |
-| Token spend is capped per consumer over a rolling period, counting the tokens the provider bills you for rather than the number of calls. | [Add the Token Rate Limit policy](../agent-management/build/add-the-token-rate-limit-policy.md) |
-| AI traffic on employee devices that bypasses the gateway entirely becomes visible. | [Monitor your shadow AI traffic](../edge-management/observe/monitor-shadow-ai-traffic.md) |
 
 ### Administer the platform
 
@@ -145,16 +155,6 @@ Gamma records every governed interaction. The following table describes where ea
 | [**Tracing**](../agent-management/observe/tracing/README.md) | How one request moved through a proxy, as a span timeline or a lineage graph. |
 | [**Trace Explorer**](configure-opentelemetry-tracing-and-logs.md) | How one request moved through the gateway, once the OpenTelemetry pipeline is wired. |
 | [**Audit logs**](../api-management/observe/review-audit-logs.md) | Who changed which API configuration, and when. |
-
-## How the platform fits together
-
-Every module shares the following three foundations:
-
-1. **A common Catalog.** APIs from API Management become API Tools, and Kafka services contribute event sources, so existing enterprise infrastructure becomes agent-accessible without redevelopment.
-2. **A common authorization engine.** [Authorization Management](../authorization-management/get-started/authorization-management-overview.md) defines fine-grained, catalog-aware policies that the AI Gateway, API Gateway, and Event Gateway all enforce at the wire level.
-3. **Common enforcement architecture.** The same Policy Decision Point runs inside every gateway, and it returns a decision at microsecond latency with no network hop.
-
-A single enterprise request often crosses several modules. An agent invocation arrives at the A2A Proxy, the LLM Proxy handles the model call, and the MCP Proxy governs the tool call. The API Gateway then serves the underlying API, and the Event Gateway handles the published event. You need one place to define policy, one place to see the trace, and one place to attribute cost.
 
 ## Next steps
 
