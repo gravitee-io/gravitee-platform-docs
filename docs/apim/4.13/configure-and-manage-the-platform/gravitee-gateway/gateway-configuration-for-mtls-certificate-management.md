@@ -1,3 +1,7 @@
+---
+description: The API Management 4.13 Gateway validates uploaded X.509 certificates before storing them. Learn the configuration for mTLS management.
+---
+
 # Gateway Configuration for mTLS Certificate Management
 
 ## Certificate Validation

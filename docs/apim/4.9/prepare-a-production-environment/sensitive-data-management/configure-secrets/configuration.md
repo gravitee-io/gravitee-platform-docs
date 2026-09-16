@@ -1,5 +1,5 @@
 ---
-description: An overview about configuration.
+description: Configure a secret manager so you can reference secrets from API Management 4.9 configuration files. Follow the steps to set it up.
 metaLinks:
   alternates:
     - >-

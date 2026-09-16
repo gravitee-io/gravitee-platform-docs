@@ -1,3 +1,7 @@
+---
+description: View the details of a private network in Gravitee Cloud, including the gateways connected to it. Follow the steps to open the screen.
+---
+
 # View your private network's details
 
 ## Overview

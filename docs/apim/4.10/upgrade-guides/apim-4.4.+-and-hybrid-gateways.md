@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for apim 4.4.+ & hybrid gateways.
+description: From the 4.4 release, API Management 4.10 gateways must explicitly disable certificate checks. Learn what changed and what you must set.
 metaLinks:
   alternates:
     - apim-4.4.+-and-hybrid-gateways.md

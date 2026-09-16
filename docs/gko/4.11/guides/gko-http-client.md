@@ -1,3 +1,7 @@
+---
+description: Configure the HTTP proxy and TrustStore the Gravitee Kubernetes Operator 4.11 uses for outbound calls. Follow the steps to set them at install time.
+---
+
 # GKO HTTP Client
 
 ## Configure GKO HTTP Proxy

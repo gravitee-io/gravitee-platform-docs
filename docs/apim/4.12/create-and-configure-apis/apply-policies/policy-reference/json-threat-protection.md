@@ -1,5 +1,5 @@
 ---
-description: An overview about json threat protection.
+description: The JSON Threat Protection policy validates a request body against structural limits in API Management 4.12. Learn how to set the limits.
 metaLinks:
   alternates:
     - json-threat-protection.md

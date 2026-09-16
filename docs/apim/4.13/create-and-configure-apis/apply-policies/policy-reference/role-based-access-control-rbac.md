@@ -1,5 +1,5 @@
 ---
-description: An overview about role-based access control (rbac).
+description: The Role-based Access Control policy restricts a resource to the roles you specify in API Management 4.13. Learn how to configure it.
 metaLinks:
   alternates:
     - role-based-access-control-rbac.md

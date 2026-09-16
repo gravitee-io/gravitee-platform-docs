@@ -1,5 +1,5 @@
 ---
-description: Guide explaining policies for interops.
+description: InterOPS is a French interoperability standard establishing trust between organizations, supported by API Management 4.8. Learn how it applies.
 ---
 
 # InterOPS

@@ -1,5 +1,5 @@
 ---
-description: Concepts and architecture for AM Architecture.
+description: How Access Management 4.8 is put together, covering the global architecture and the role of the AM Gateway. See how it fits before you install.
 ---
 
 # AM Architecture

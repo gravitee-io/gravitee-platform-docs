@@ -1,3 +1,7 @@
+---
+description: Developer Portal 4.13 page content validators now receive the existing content for context. Learn what changed in the API.
+---
+
 # Portal Page Content Validator API Changes
 
 ## Related Changes

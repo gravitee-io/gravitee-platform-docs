@@ -1,5 +1,5 @@
 ---
-description: This article covers how to install Alert Engine via Docker
+description: Run Alert Engine images in Docker alongside API Management 4.13. Follow the steps if you are already familiar with Docker.
 ---
 
 # Install via Docker

@@ -1,8 +1,5 @@
 ---
-description: >-
-  Configure a custom domain for the Developer Portal and the Portal API of a
-  Gravitee Cloud environment, so your developers reach the portal under your own
-  branded URL.
+description: Serve the Developer Portal of a Gravitee Cloud environment from your own domain. Follow the steps to add the domain and configure DNS.
 ---
 
 # Configure a Custom Domain for the Developer Portal

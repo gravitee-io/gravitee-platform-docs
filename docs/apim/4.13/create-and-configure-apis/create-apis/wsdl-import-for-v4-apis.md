@@ -1,3 +1,7 @@
+---
+description: Create or update a v4 HTTP proxy API in API Management 4.13 from a WSDL 1.1 document. Learn how WSDL converts to OpenAPI.
+---
+
 # WSDL Import for v4 APIs
 
 ## Overview

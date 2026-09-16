@@ -1,5 +1,5 @@
 ---
-description: Overview of ApiV4Definition.
+description: ApiV4Definition declares a v4 API for the Gravitee Kubernetes Operator 4.9, carrying synchronous and asynchronous traffic. Follow its lifecycle.
 ---
 
 # ApiV4Definition

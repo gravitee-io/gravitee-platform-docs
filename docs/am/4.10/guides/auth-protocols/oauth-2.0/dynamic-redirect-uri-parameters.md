@@ -1,3 +1,7 @@
+---
+description: Append dynamic parameters to the redirect URI in an Access Management 4.10 OAuth 2.0 flow. Follow the steps to enable them and see the limits.
+---
+
 # Dynamic Redirect URI Parameters
 
 ## Overview

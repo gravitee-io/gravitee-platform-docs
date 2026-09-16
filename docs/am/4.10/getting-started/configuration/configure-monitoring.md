@@ -1,3 +1,7 @@
+---
+description: Monitor the status and availability of an Access Management 4.10 installation with Prometheus. Follow the steps to enable the metrics service.
+---
+
 # Monitoring
 
 ## Overview

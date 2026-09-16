@@ -1,3 +1,7 @@
+---
+description: Reporters send Access Management 4.10 Gateway and API events to MongoDB, a file, or Kafka. Follow the steps to configure the reporter you need.
+---
+
 # Reporters
 
 ## Overview

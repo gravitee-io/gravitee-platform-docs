@@ -1,3 +1,7 @@
+---
+description: The resources that support AI-powered policies in API Management 4.13, covering model inference and vector storage. Compare what each provides.
+---
+
 # AI Resources
 
 The following resources support AI-powered policies and features in APIM. They provide model inference and vector storage capabilities used by policies such as AI Prompt Guardrails and PII Filtering.

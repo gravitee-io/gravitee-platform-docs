@@ -1,3 +1,7 @@
+---
+description: Serve several domains from one Gravitee Kubernetes Operator 4.13 Gateway with a TLS listener each. Follow the steps to define listeners and attach routes.
+---
+
 # Configure multi-domain TLS on a Gateway
 
 ## Overview

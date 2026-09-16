@@ -1,5 +1,5 @@
 ---
-description: Overview of Add Environments.
+description: Add an environment to your Gravitee Cloud organization from the Dashboard. Follow the steps and change the section layout to suit you.
 ---
 
 # Add Environments

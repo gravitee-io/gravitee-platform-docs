@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/mfa-policies
+description: MFA policies apply challenge and enrollment inside an Access Management 4.11 flow, beyond application settings. Compare the two policies.
 ---
 
 # MFA Policies

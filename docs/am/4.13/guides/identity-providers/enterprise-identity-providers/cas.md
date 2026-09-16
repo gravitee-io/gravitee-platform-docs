@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/enterprise-identity-providers/cas
+description: Connect Access Management 4.13 to a Central Authentication Service server using the ticket-based CAS protocol. Follow the steps to create the connector.
 ---
 
 # CAS

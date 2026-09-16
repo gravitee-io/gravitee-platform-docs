@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: The General section of an API proxy holds the settings that describe the proxy itself. Learn what identity, properties, resources, notifications, CORS, and metadata each control.
+description: The General section of a Gamma API proxy holds the settings describing the proxy itself. Learn what you can change and what it affects.
 ---
 
 # General

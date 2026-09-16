@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/openid-connect
+description: OpenID Connect lets Access Management 4.13 clients request information about authenticated sessions. Compare the authorization code and implicit flows.
 ---
 
 # OpenID Connect

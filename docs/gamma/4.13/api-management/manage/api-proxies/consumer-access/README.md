@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: The Consumer Access section controls how consumers authenticate to an API proxy, subscribe to it, and hear from you. Learn what plans, subscriptions, and broadcasts do.
+description: The Consumer Access section of a Gamma API proxy controls how consumers authenticate, subscribe, and hear from you. Learn what it covers.
 ---
 
 # Consumer access

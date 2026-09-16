@@ -1,5 +1,5 @@
 ---
-description: Overview of Service Level Agreement.
+description: The service level agreements, data retention, disaster recovery, and compliance you can expect from Gravitee Cloud. See what each covers.
 ---
 
 # Service Level Agreement

@@ -1,7 +1,5 @@
 ---
-description: >-
-  How Gateway and endpoint timeouts interact, how each protocol behaves, and how
-  to configure them so that failures are reported accurately.
+description: Timeouts apply at two independent scopes in API Management 4.12, both running on every request. Learn how the two interact.
 ---
 
 # Timeout management

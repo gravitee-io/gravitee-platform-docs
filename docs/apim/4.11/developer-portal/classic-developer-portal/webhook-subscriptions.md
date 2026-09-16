@@ -1,5 +1,5 @@
 ---
-description: An overview about webhook subscriptions.
+description: API consumers configure their webhook subscriptions from the Developer Portal 4.11. Learn what the configuration involves for them.
 metaLinks:
   alternates:
     - webhook-subscriptions.md

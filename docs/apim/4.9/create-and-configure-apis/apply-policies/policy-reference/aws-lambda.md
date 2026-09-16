@@ -1,5 +1,5 @@
 ---
-description: An overview about aws lambda.
+description: The AWS Lambda policy calls a Lambda instead of or alongside the backend in API Management 4.9. Learn how to configure the policy.
 metaLinks:
   alternates:
     - >-

@@ -1,3 +1,7 @@
+---
+description: Every patch release in the Gravitee Kubernetes Operator 4.9 series, newest first, with any fixes it shipped. Browse the full changelog.
+---
+
 # GKO 4.9.x
 
 ## Gravitee Kubernetes Operator 4.9.34 - September 10, 2026

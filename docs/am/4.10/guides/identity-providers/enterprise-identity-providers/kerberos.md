@@ -1,3 +1,7 @@
+---
+description: Connect Access Management 4.10 to a Kerberos server, the ticket-based network authentication protocol. Follow the steps to create the connector.
+---
+
 # Kerberos
 
 ## Overview

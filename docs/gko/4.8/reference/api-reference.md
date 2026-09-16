@@ -1,5 +1,5 @@
 ---
-description: API and reference documentation for API Reference.
+description: The API reference for Gravitee Kubernetes Operator 4.8 custom resources lives in the GKO repository. Find the specification for your version.
 ---
 
 # API Reference

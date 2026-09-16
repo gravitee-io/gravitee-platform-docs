@@ -1,3 +1,7 @@
+---
+description: The Reporter Settings page of a native v4 API Management 4.12 API has an OpenTelemetry section. Learn what Enabled and Verbose do.
+---
+
 # Reporter Settings — OpenTelemetry section (native APIs)
 
 The Reporter Settings page of a V4 native API includes an **OpenTelemetry** section with **Enabled** and **Verbose** toggles for configuring per-API tracing.

@@ -1,5 +1,5 @@
 ---
-description: An overview about generate jwt.
+description: The Generate JWT policy issues a signed JWT with configurable claims for API Management 4.12 to forward to a backend. Learn how to set it.
 metaLinks:
   alternates:
     - generate-jwt.md

@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers
+description: An identity provider authenticates users and passes their information to Access Management 4.13. Compare the social, database, and enterprise types.
 ---
 
 # Identity Providers

@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/configure-gateway-resilience-mode
+description: Resilience mode keeps Access Management 4.11 authenticating users when its database is unavailable. Learn the limitations and configure it.
 ---
 
 # Configure Gateway Resilience Mode

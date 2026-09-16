@@ -1,5 +1,5 @@
 ---
-description: An overview about xml to json.
+description: The XML to JSON policy transforms XML content into JSON content in API Management 4.10. Learn how to configure the transformation.
 metaLinks:
   alternates:
     - xml-to-json.md

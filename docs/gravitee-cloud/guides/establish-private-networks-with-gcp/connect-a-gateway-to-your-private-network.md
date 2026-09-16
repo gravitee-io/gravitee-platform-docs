@@ -1,3 +1,7 @@
+---
+description: Connect a Gravitee Cloud gateway to your private network from the network or gateway details page. Follow the steps to connect it.
+---
+
 # Connect a Gateway to your private network
 
 ## Overview

@@ -1,5 +1,5 @@
 ---
-description: Overview of Salesforce.
+description: Authenticate Access Management 4.9 users with Salesforce. Follow the steps to register an application and test the connection.
 ---
 
 # Salesforce

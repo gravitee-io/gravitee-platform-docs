@@ -1,3 +1,7 @@
+---
+description: API Products bundle several v4 HTTP proxy APIs into one subscribable package in API Management 4.11. Learn how unified access works.
+---
+
 # API Products
 
 ## Overview

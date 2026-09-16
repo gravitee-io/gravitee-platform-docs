@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for avro to json.
+description: The Avro to JSON policy transforms request, response, and message content in API Management 4.12, including native Kafka APIs. Learn how.
 metaLinks:
   alternates:
     - avro-to-json.md

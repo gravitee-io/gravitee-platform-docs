@@ -1,5 +1,5 @@
 ---
-description: Add the new Next-Gen Cloud IP ranges to your firewall rules before Gravitee migrates your environment.
+description: Gravitee is moving Next-Gen Cloud API Management 4.12 environments behind Cloudflare. Update your firewall for the new IP ranges.
 ---
 
 # Add Next-Gen Cloud IP ranges to your firewall rules

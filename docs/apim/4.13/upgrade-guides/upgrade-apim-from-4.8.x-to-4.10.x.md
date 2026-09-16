@@ -1,7 +1,5 @@
 ---
-description: >-
-  A checklist for upgrading Gravitee API Management from 4.8.x to 4.10.x,
-  covering pre-upgrade checks, breaking changes, and post-upgrade validation.
+description: A checklist for the API Management 4.13 upgrade path from the 4.8 line to 4.10. Follow the checks to run before, during, and after.
 ---
 
 # Upgrade APIM from 4.8.x to 4.10.x

@@ -1,5 +1,5 @@
 ---
-description: Getting started with Gravitee Cloud.
+description: Set up a Gravitee Cloud account, create an organization, and deploy your first environment. Follow the steps to get started.
 ---
 
 # Getting started with Gravitee Cloud

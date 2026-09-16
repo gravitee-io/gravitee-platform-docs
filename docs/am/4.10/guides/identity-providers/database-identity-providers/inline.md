@@ -1,3 +1,7 @@
+---
+description: Inline identity providers give Access Management 4.10 an in-memory user directory for testing or default accounts. Follow the steps to create one.
+---
+
 # Inline
 
 ## Overview

@@ -1,5 +1,5 @@
 ---
-description: An overview about plans.
+description: A plan is the service and access layer over a Kafka API in API Management 4.10, setting limits and validation. Learn the options.
 metaLinks:
   alternates:
     - plans.md

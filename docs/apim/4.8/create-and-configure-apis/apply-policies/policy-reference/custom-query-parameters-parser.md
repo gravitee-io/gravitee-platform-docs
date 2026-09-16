@@ -1,5 +1,5 @@
 ---
-description: An overview about custom query parameters parser.
+description: The Custom Query Parameters Parser policy controls how API Management 4.8 reads query parameters. Learn what you can configure with it.
 ---
 
 # Custom Query Parameters Parser

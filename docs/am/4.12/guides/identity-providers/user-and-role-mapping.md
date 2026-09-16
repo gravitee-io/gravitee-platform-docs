@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/user-and-role-mapping
+description: Bind identity provider attributes to an Access Management 4.12 user profile with user, role, and group mappers. Follow the steps to map them.
 ---
 
 # User, Role and Group Mapping

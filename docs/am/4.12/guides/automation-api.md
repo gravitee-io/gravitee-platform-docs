@@ -1,3 +1,7 @@
+---
+description: The Access Management 4.12 Automation API manages resources declaratively over HTTP for infrastructure as code. Compare it with the Management REST API.
+---
+
 # Automation API
 
 ## Overview

@@ -1,5 +1,5 @@
 ---
-description: Overview of Monitor.
+description: Registered installations report their nodes, plugins, and health checks to Gravitee Cloud. Learn what the monitoring data tells you.
 ---
 
 # Monitor and check health of installations

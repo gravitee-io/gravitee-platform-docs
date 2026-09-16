@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Choose which API Gateway instances run an API proxy, and review every version that has been deployed. Learn how sharding tags select Gateways and how deployment history works.
+description: The Operations section of a Gamma API proxy decides which API Gateway instances run it. Learn what it records about each deployment.
 ---
 
 # Deployment

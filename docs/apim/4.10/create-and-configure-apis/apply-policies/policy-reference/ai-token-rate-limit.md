@@ -1,3 +1,7 @@
+---
+description: The Token Rate Limit policy caps inbound and outbound tokens over a period in API Management 4.10. Learn how to configure the limits.
+---
+
 # AI - Token Rate Limit
 
 ### Overview

@@ -48,7 +48,7 @@ When you clear the **Plans** checkbox, the file can update an existing LLM Proxy
 {% endhint %}
 
 {% hint style="info" %}
-Provider credentials travel in the file as they're stored. A credential entered as a literal value is written into the file as that value, and a credential entered as an Expression Language reference travels as the reference. Treat an export that carries literal credentials as a secret, and prefer Expression Language references to secret-manager entries for proxies whose definitions you share.
+The panel warns that the export carries the proxy's upstream credentials and any OAuth2 client secret in clear. Provider credentials travel in the file as they're stored. A credential entered as a literal value is written into the file as that value, and a credential entered as an Expression Language reference travels as the reference. Treat an export that carries literal credentials as a secret, and prefer Expression Language references to secret-manager entries for proxies whose definitions you share.
 {% endhint %}
 
 ## Create an LLM Proxy by importing a definition
@@ -62,14 +62,16 @@ The create flow offers an import route beside the wizard. To create a proxy from
 
     <figure><img src="../.gitbook/assets/gamma-llm-proxy-create-landing.png" alt="The Create an LLM proxy page with the Create from scratch and Import cards"><figcaption><p>The Create an LLM proxy page with the Create from scratch and Import cards</p></figcaption></figure>
 
-5. Select the **Gravitee definition** card. This is the only format the LLM Proxy accepts.
-6. Under **Configure file source**, select **Local file** or **Remote URL**:
+5. On the **Format** step, keep the **Gravitee definition** card selected. This is the only format the LLM Proxy accepts, and it's selected for you.
+6. Select **Next**.
+7. On the **Source** step, under **Configure file source**, select **Local file** or **Remote URL**:
    * For **Local file**, drop a file on the upload area or select it to browse. The picker accepts `.json` files.
    * For **Remote URL**, enter the **Definition URL** of the file, for example `https://example.com/api-definition.json`. The address must be an `http` or `https` URL.
 
-    <figure><img src="../.gitbook/assets/gamma-llm-proxy-import-create.png" alt="The Import Gravitee definition page with the Local file and Remote URL source cards"><figcaption><p>The Import Gravitee definition page with the Local file and Remote URL source cards</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-llm-proxy-import-create.png" alt="The Import an LLM proxy page on the Source step, with the Local file and Remote URL source cards"><figcaption><p>The Import an LLM proxy page on the Source step, with the Local file and Remote URL source cards</p></figcaption></figure>
 
-7. Select **Create LLM proxy**.
+8. Select **Next**.
+9. On the **Review your import** step, check the **Format**, the **Source**, and the **File** or the **URL** you chose, and then select **Create LLM proxy**.
 
 The console creates the proxy and opens its detail page. The import runs the same write path as the wizard's **Create only**, so the new proxy isn't deployed. Deploy it from the out-of-sync banner when you're ready to serve traffic.
 
@@ -117,7 +119,8 @@ The **Import** action on the **Configuration** page replaces an existing proxy's
     <figure><img src="../.gitbook/assets/gamma-llm-proxy-import-update.png" alt="The Import LLM proxy definition panel with the Local file source selected"><figcaption><p>The Import LLM proxy definition panel with the Local file source selected</p></figcaption></figure>
 
 4. Under **Configure file source**, select **Local file** or **Remote URL**, and provide the file or the **Definition URL**.
-5. Select **Import**.
+5. Select **Review**.
+6. On the **Review before updating** step, check the **Format**, the **Source**, and the **File** or the **URL** you chose, and then select **Import**.
 
 The console confirms the import. The proxy keeps its identity, so its links, its subscriptions, and its gateway naming survive the update. The following table shows what the update takes from the file, and what it keeps from the proxy:
 
@@ -149,6 +152,8 @@ The console never fetches the definition itself. It sends the address to the Man
 | ---------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | `imports.whitelist`          | Empty   | A list of address prefixes. When the list holds at least one entry, only addresses matching an entry are fetched.               |
 | `imports.allow-from-private` | `true`  | When `false`, addresses that resolve to a private network are refused.                                                          |
+
+The two aren't combined. When `imports.whitelist` holds at least one entry, only the whitelist applies and `imports.allow-from-private` is ignored, so a whitelisted address that resolves to a private network is still fetched.
 
 An address the platform refuses, or one that can't be read, is reported as a fetch failure rather than as a problem with the file. When an update by import fails this way, the proxy is left exactly as it was.
 

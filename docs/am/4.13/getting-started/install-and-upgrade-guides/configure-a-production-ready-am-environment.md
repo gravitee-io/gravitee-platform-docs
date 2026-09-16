@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/configure-a-production-ready-am-environment
+description: Harden a new Access Management 4.13 installation by replacing default settings. Follow the steps to secure internal APIs, users, and the JWT secret.
 ---
 
 # Configure a Production-ready AM Environment

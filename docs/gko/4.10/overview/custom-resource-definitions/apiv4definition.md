@@ -1,3 +1,7 @@
+---
+description: ApiV4Definition declares a v4 API for the Gravitee Kubernetes Operator 4.10, carrying synchronous and asynchronous traffic. Follow its lifecycle.
+---
+
 # ApiV4Definition
 
 The `ApiV4Definition` custom resource represents the configuration for a v4 API on the Gravitee Gateway. v4 APIs are created from the latest version of the Gravitee API definition, which supports both synchronous and asynchronous APIs. GKO also supports the previous [v2 API definition](apidefinition.md) with a dedicated CRD.

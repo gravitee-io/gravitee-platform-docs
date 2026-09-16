@@ -1,5 +1,5 @@
 ---
-description: Overview of KafkaRoute.
+description: KafkaRoute exposes Kafka traffic through the Gravitee Kubernetes Operator 4.9 Gateway API controller, which is off by default. See how to enable it.
 ---
 
 # KafkaRoute

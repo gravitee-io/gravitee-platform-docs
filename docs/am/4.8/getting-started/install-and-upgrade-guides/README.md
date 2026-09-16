@@ -1,5 +1,5 @@
 ---
-description: Installation guide for Upgrade Guides.
+description: The Gravitee platform ships Access Management 4.8 as a single distribution bundle. Browse the install and upgrade guides for your deployment.
 ---
 
 # Install & Upgrade Guides

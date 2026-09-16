@@ -1,3 +1,7 @@
+---
+description: Subscribe to APIs and API Products, then manage those subscriptions in the New Developer Portal 4.13. Follow the steps here.
+---
+
 # Manage Subscriptions
 
 ### Overview <a href="#overview" id="overview"></a>

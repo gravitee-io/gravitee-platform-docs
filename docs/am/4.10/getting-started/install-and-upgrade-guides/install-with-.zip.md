@@ -1,3 +1,7 @@
+---
+description: Install Access Management 4.10 from the distribution bundle. Follow the prerequisites for the JDK, database, and HTTP server before you start.
+---
+
 # Install with .ZIP
 
 ## Prerequisites

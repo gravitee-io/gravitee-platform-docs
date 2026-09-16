@@ -1,5 +1,5 @@
 ---
-description: An overview about enterprise edition.
+description: The Enterprise Edition of API Management 4.11 can include Event Management and AI Agent Management. Compare the global enterprise features.
 metaLinks:
   alternates:
     - enterprise-edition.md

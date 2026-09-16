@@ -1,5 +1,5 @@
 ---
-description: Documentation about docker cli in the context of APIs.
+description: Install API Management 4.9 with the Docker CLI, persisting data and plugins in your own directories. Follow the steps to set it up.
 metaLinks:
   alternates:
     - >-

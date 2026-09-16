@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/install-on-red-hat
+description: Install Access Management 4.11 on Red Hat Enterprise Linux, CentOS, or Oracle Linux with yum. Follow the steps to install the full stack.
 ---
 
 # Install on Red Hat

@@ -12,7 +12,7 @@ After you create an LLM Proxy, configure guardrails, PII filtering, rate limitin
 
 The LLM Proxy detail view groups its pages as follows.
 
-* **General**: **Overview**, **Configuration**, **API Properties**, and **CORS**. The **Overview** page shows a **Connection** card with the gateway URLs of the proxy.
+* **General**: **Overview**, **Configuration**, **API Properties**, **Metadata**, and **CORS**. The **Overview** page shows a **Connection** card with the gateway URLs of the proxy.
 * **Security**: **User Permissions**.
 * **Design**: **Models**, **Entrypoints**, **Endpoints** with its **Failover** page, **Policy Studio**, and **Resources**.
 * **Consumer Access**: **Plans**, **Consumers**, and **Broadcasts**.

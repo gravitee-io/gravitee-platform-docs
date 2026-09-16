@@ -1,5 +1,5 @@
 ---
-description: Overview of Control Plane.
+description: Access Management 4.9 lets you choose a database scope per use case, splitting load between the control plane and the data plane. Learn when to isolate them.
 ---
 
 # Control Plane & Data Plane

@@ -1,3 +1,7 @@
+---
+description: Install the Gravitee Kubernetes Operator 4.10 with Helm, the preferred method. Follow the steps from prerequisites through upgrades and configuration.
+---
+
 # Install with Helm
 
 ## Overview

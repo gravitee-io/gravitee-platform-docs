@@ -1,5 +1,5 @@
 ---
-description: An overview about json to xml.
+description: The JSON to XML policy converts JSON payloads to XML before API Management 4.10 sends or returns them. Learn how to configure it.
 metaLinks:
   alternates:
     - json-to-xml.md

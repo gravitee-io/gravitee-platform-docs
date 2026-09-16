@@ -1,6 +1,7 @@
 ---
 hidden: true
 noIndex: true
+description: The Management API supports optimistic concurrency for API Management 4.13 plan updates with ETag headers. Learn how conditional updates work.
 ---
 
 # Conditional Updates for Plans

@@ -1,3 +1,7 @@
+---
+description: Authenticate and manage Access Management 4.10 users with an Active Directory or LDAP server. Follow the steps to create the provider.
+---
+
 # Active Directory/LDAP
 
 ## Overview

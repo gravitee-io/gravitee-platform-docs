@@ -1,6 +1,7 @@
 ---
 hidden: true
 noIndex: true
+description: Test the election of a new master node in an API Management 4.12 Gateway cluster. Follow the steps to verify the behaviour.
 ---
 
 # Test the election of a new master node

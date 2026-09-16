@@ -1,7 +1,5 @@
 ---
-description: >-
-  An end-to-end guide for managing API key subscriptions with GKO, including
-  custom keys, expiry dates, and zero-downtime key rotation.
+description: Subscribe an application to an API Key plan with the Gravitee Kubernetes Operator 4.12. Follow the steps to set custom keys and rotate without downtime.
 ---
 
 # Manage API key subscriptions with GKO

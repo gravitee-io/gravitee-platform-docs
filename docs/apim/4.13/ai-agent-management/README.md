@@ -1,5 +1,5 @@
 ---
-description: An overview about AI Agent Management.
+description: AI Agent Management governs and protects AI use cases across API Management 4.13, from the Agent Gateway to LLM and A2A proxies. Learn what it covers.
 ---
 
 # AI Agent Management

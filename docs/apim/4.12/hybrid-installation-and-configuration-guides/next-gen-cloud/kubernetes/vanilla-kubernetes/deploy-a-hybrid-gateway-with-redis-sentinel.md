@@ -1,5 +1,5 @@
 ---
-description: An overview about ---.
+description: Install a hybrid API Management 4.12 Gateway with custom plugins and Redis Sentinel. Follow the steps to connect it to Gravitee Cloud.
 hidden: true
 noIndex: true
 metaLinks:

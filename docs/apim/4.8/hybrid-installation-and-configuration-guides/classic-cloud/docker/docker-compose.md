@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for docker compose.
+description: A sample compose file that sets up a Classic Cloud hybrid API Management 4.8 configuration. Follow the steps to adapt it.
 ---
 
 # Docker Compose

@@ -1,5 +1,5 @@
 ---
-description: An overview about user and group access.
+description: Configure user and group access to your v2 API Management 4.9 APIs. Follow the steps to add members and set their permissions.
 metaLinks:
   alternates:
     - >-

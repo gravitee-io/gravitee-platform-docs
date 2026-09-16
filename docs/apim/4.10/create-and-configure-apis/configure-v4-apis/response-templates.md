@@ -1,5 +1,5 @@
 ---
-description: An overview about response templates.
+description: Change the default values in an API Management 4.10 response with a response template. Follow the steps to create one of your own.
 metaLinks:
   alternates:
     - response-templates.md

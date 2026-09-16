@@ -1,5 +1,5 @@
 ---
-description: Overview of Identity Provider.
+description: Create an identity provider in Access Management 4.9 for your applications. Follow the steps to add one and test the connection.
 ---
 
 # Create an Identity Provider

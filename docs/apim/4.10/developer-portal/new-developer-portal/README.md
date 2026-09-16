@@ -1,5 +1,5 @@
 ---
-description: Tutorial on new developer portal.
+description: The features and functionality of the New Developer Portal 4.10. Browse the tiles to find the area you want to configure.
 ---
 
 # New Developer Portal

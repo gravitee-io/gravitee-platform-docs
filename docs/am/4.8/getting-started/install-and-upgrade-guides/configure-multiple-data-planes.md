@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for Configure Multiple Data Planes.
+description: Split Access Management 4.8 load across data planes by scoping databases per use case. Follow the steps for the Management API and Gateways.
 ---
 
 # Configure Multiple Data Planes

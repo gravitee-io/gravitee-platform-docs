@@ -1,3 +1,7 @@
+---
+description: OpenTelemetry Logs Integration injects trace and span IDs into API Management 4.13 runtime log records. Learn how correlation works.
+---
+
 # OpenTelemetry Logs Integration Overview
 
 ## Overview
@@ -20,6 +24,12 @@ Each log entry corresponds to one of four capture points in the request lifecycl
 | endpoint-request | Request body after request policies (transformed payload) |
 | endpoint-response | Raw backend response body |
 | entrypoint-response | Response body after response policies |
+
+### Consuming application
+
+Each log record that the Gateway exports for a capture point carries the consuming application as `gravitee.application.id` and `gravitee.application.name`, alongside the trace ID and span ID. A request that the Gateway matches to a subscription carries the subscribing application's identifier and its name. A request on a keyless plan carries `gravitee.application.id` with the value `1` and no `gravitee.application.name`. The Gateway omits either attribute from a log record when it has no value for it, rather than exporting it empty. The log records that carry the individual messages of a Message API don't include these two attributes.
+
+The root HTTP server span of the same request carries the same two attributes. For more information, see [Attribute placement](opentelemetry.md#attribute-placement).
 
 ### OTel Logs Toggle
 

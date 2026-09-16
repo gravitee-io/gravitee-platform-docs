@@ -1,5 +1,5 @@
 ---
-description: Overview of Database Identity Providers.
+description: Access Management 4.8 authenticates users against MongoDB, PostgreSQL, MySQL, SQL Server, and MariaDB. Compare the database providers available.
 ---
 
 # Database Identity Providers

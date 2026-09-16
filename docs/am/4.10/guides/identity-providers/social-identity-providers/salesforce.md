@@ -1,3 +1,7 @@
+---
+description: Authenticate Access Management 4.10 users with Salesforce. Follow the steps to register an application and test the connection.
+---
+
 # Salesforce
 
 ## Overview

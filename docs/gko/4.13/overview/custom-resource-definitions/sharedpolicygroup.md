@@ -1,3 +1,7 @@
+---
+description: The SharedPolicyGroup custom resource creates a shared policy group for the Gravitee Kubernetes Operator 4.13. Reference it from an ApiV4Definition.
+---
+
 # SharedPolicyGroup
 
 The SharedPolicyGroup custom resource definition allows you to create a Shared Policy Group in a given APIM environment. Shared policy groups created with this Custom Resource Definition (CRD) can be later on referenced inside ApiV4Definition CRDs using the SharedPolicyGroup metadata name and an optional namespace.

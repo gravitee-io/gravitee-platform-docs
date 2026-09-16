@@ -1,5 +1,5 @@
 ---
-description: Overview of ApiResource.
+description: ApiResource declares reusable pointers to authentication providers and caches for the Gravitee Kubernetes Operator 4.8. Reference them from an API definition.
 ---
 
 # ApiResource

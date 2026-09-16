@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/enterprise-identity-providers/saml-2.0
+description: Connect Access Management 4.11 to a SAML 2.0 identity provider for XML-based identity exchange. Follow the steps to create the connector.
 ---
 
 # SAML 2.0

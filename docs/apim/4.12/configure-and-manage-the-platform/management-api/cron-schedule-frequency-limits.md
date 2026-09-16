@@ -1,3 +1,7 @@
+---
+description: Cron schedule frequency limits let API Management 4.12 administrators enforce minimum intervals. Learn how to set those limits.
+---
+
 # Cron Schedule Frequency Limits
 
 ## Overview

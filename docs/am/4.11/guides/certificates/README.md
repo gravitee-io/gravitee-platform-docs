@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/certificates
+description: Certificates sign the JWT tokens Access Management 4.11 issues. Follow the steps to create a Java KeyStore certificate in the Console.
 ---
 
 # Certificates

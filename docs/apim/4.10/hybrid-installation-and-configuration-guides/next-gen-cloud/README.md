@@ -1,5 +1,5 @@
 ---
-description: An overview about next-gen cloud.
+description: A Next-Gen Cloud hybrid API Management 4.10 deployment needs the Gateway and Redis as a minimum. Browse the installation guides.
 metaLinks:
   alternates:
     - ./

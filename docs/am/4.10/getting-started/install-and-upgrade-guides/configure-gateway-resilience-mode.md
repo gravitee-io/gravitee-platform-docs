@@ -1,3 +1,7 @@
+---
+description: Resilience mode keeps Access Management 4.10 authenticating users when its database is unavailable. Learn the limitations and configure it.
+---
+
 # Configure Gateway Resilience Mode
 
 ## Overview

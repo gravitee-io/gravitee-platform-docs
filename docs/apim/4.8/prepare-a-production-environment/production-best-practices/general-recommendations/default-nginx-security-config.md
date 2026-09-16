@@ -1,5 +1,5 @@
 ---
-description: Guide explaining policies for default nginx security config.
+description: The default Nginx security configuration the API Management 4.8 Console uses. Browse it before you harden your deployment.
 ---
 
 # Default Nginx Security Config

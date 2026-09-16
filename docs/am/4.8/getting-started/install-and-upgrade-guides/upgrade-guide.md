@@ -1,5 +1,5 @@
 ---
-description: Upgrade and migration guide for Upgrade Guide.
+description: Upgrading Access Management 4.8 is deployment-specific, with MongoDB index changes at 4.5. Follow the steps that match your deployment.
 ---
 
 # 4.5 Upgrade Guide

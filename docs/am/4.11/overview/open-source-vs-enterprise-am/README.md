@@ -1,7 +1,5 @@
 ---
-description: >-
-  This article explores the additional features that you get from the enterprise
-  Gravitee Access Management solution.
+description: What the Enterprise Edition adds to open source Access Management 4.11, from plugin packs to advanced monitoring. Compare the two distributions.
 metaLinks:
   alternates:
     - >-

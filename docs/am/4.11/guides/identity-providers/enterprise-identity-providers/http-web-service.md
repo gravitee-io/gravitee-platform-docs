@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/enterprise-identity-providers/http-web-service
+description: Authenticate and manage Access Management 4.11 users through remote API calls. Follow the steps to create and configure an HTTP identity provider.
 ---
 
 # HTTP (web service)

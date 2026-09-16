@@ -1,5 +1,5 @@
 ---
-description: An overview about microsoft entra id.
+description: Set up API Management 4.9 Console authentication with Microsoft Entra ID. Follow the steps to configure the identity provider.
 metaLinks:
   alternates:
     - >-

@@ -1,5 +1,5 @@
 ---
-description: Connect GKO to your APIM installation
+description: ManagementContext connects the Gravitee Kubernetes Operator 4.9 to an API Management organization and environment. Compare the four authentication methods.
 ---
 
 # ManagementContext

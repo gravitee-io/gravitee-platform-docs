@@ -1,5 +1,5 @@
 ---
-description: Overview of Certificates.
+description: Certificates sign the JWT tokens Access Management 4.8 issues. Follow the steps to create a Java KeyStore certificate in the Console.
 ---
 
 # Certificates

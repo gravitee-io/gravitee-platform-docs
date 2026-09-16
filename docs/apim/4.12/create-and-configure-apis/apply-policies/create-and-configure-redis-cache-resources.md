@@ -1,3 +1,7 @@
+---
+description: Create a Redis cache resource for API Management 4.12 Cache and Data Cache policies. Follow the steps for per-resource and Sentinel settings.
+---
+
 # Create and Configure Redis Cache Resources
 
 ## Creating a Redis Cache Resource

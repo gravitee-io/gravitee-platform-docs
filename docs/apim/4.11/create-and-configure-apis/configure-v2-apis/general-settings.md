@@ -1,5 +1,5 @@
 ---
-description: An overview about general settings.
+description: The general settings for a v2 API Management 4.11 API, grouped into three sections. Follow the steps to access and edit them.
 metaLinks:
   alternates:
     - general-settings.md

@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/overview/plugins
+description: Plugins extend the Access Management 4.12 Gateway and Management API, from identity providers to reporters. Compare the types available to you.
 ---
 
 # Plugins

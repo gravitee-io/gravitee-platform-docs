@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Wire the OpenTelemetry pipeline that fills the Gamma Trace Explorer. Follow the steps to configure the Gateway exporter, the Collector, and the Management API readers.
+description: The Gamma Trace Explorer reads from an OpenTelemetry pipeline you run alongside Gravitee. Follow the steps to export, read, and collect traces.
 ---
 
 # Configure OpenTelemetry tracing and logs

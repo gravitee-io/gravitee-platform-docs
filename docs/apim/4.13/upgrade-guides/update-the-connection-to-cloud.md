@@ -1,5 +1,5 @@
 ---
-description: An overview about update the connection to cloud.
+description: Multi-tenancy changed how an API Management 4.13 installation connects to Cloud. Learn what to update for connected Consoles and Portals.
 metaLinks:
   alternates:
     - update-the-connection-to-cloud.md

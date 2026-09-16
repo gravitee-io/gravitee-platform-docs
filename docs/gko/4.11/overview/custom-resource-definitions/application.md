@@ -1,3 +1,7 @@
+---
+description: The Application custom resource declares a consumer application for the Gravitee Kubernetes Operator 4.11. Compare the simple and OAuth types.
+---
+
 # Application
 
 The `Application` custom resource represents the configuration for a Gravitee application. To access Gravitee APIs, consumers must register an application and subscribe to a published API plan. Applications act on behalf of the user to request tokens, provide user identity information, and consume APIs.

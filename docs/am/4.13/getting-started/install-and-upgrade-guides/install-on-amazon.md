@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/install-on-amazon
+description: Install Access Management 4.13 on Amazon Linux using the yum package manager. Follow the prerequisites and steps to install the full stack.
 ---
 
 # Install on Amazon

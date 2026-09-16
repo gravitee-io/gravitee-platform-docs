@@ -1,5 +1,5 @@
 ---
-description: An overview about plans.
+description: A plan is the service and access layer an API Management 4.9 API needs before you expose it. Compare the plan types available.
 metaLinks:
   alternates:
     - >-

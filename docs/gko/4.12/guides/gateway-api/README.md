@@ -1,3 +1,7 @@
+---
+description: The Gravitee Kubernetes Operator 4.12 implements the Kubernetes Gateway API for routing. Follow the steps to enable the controller and map the resources.
+---
+
 # Gateway API
 
 ## Overview

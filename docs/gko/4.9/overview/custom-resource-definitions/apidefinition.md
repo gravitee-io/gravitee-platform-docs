@@ -1,5 +1,5 @@
 ---
-description: Overview of ApiDefinition.
+description: ApiDefinition declares a v2 API for the Gravitee Kubernetes Operator 4.9 to deploy to the Gateway. Create one, follow its lifecycle, and delete your API.
 ---
 
 # ApiDefinition

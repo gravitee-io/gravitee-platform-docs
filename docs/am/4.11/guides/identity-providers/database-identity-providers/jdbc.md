@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/database-identity-providers/jdbc
+description: Authenticate Access Management 4.11 users against a SQL database over JDBC. Follow the steps to create the provider and test the connection.
 ---
 
 # JDBC

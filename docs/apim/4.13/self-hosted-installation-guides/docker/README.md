@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for docker.
+description: The Docker installation architecture for API Management 4.13, including the FIPS image variants. Compare the installation methods.
 metaLinks:
   alternates:
     - ./

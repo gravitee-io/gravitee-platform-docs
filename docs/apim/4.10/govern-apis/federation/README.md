@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for federation.
+description: Federation brings APIs from other gateways and brokers into API Management 4.10 for a single catalogue. Learn how it works.
 metaLinks:
   alternates:
     - ./

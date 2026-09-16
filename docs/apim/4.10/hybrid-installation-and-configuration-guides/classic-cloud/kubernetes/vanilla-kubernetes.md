@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for ---.
+description: Gravitee can use Redis for both caching and rate limiting in a hybrid API Management 4.10 deployment. Follow the steps on Kubernetes.
 hidden: true
 noIndex: true
 metaLinks:

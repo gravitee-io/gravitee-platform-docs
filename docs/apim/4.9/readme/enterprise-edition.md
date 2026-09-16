@@ -1,5 +1,5 @@
 ---
-description: An overview about enterprise edition.
+description: What the Enterprise Edition adds to open source API Management 4.9, from features to plugins and endpoints. Compare the two distributions.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/readme/enterprise-edition

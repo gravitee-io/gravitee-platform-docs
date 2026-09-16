@@ -1,3 +1,7 @@
+---
+description: The Gravitee platform ships Access Management 4.10 as a single distribution bundle. Browse the install and upgrade guides for your deployment.
+---
+
 # Install & Upgrade Guides
 
 {% hint style="warning" %}

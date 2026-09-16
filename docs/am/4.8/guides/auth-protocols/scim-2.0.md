@@ -1,5 +1,5 @@
 ---
-description: Overview of SCIM.
+description: SCIM 2.0 automates the exchange of user identity information with Access Management 4.8. Learn the protocol and how custom attributes work.
 ---
 
 # SCIM 2.0

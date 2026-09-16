@@ -1,3 +1,7 @@
+---
+description: Point the API Management 4.12 Cache and Data Cache policies at a Redis cache resource. Follow the steps to configure the policies.
+---
+
 # Configure Cache Policies to Use Redis Cache Resources
 
 ## Configuring Cache Policies

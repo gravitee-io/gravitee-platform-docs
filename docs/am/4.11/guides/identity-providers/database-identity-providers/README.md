@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/database-identity-providers
+description: Access Management 4.11 authenticates users against MongoDB, PostgreSQL, MySQL, SQL Server, and MariaDB. Compare the database providers available.
 ---
 
 # Database Identity Providers

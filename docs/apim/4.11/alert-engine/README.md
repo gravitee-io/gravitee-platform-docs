@@ -1,5 +1,5 @@
 ---
-description: Overview of Gravitee Alert Engine.
+description: Alert Engine monitors API performance and availability in real time alongside API Management 4.11. Learn what the monitoring solution offers.
 ---
 
 # Introduction to Gravitee Alert Engine

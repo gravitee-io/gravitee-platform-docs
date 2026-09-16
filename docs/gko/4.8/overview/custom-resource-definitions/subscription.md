@@ -1,5 +1,5 @@
 ---
-description: Overview of Subscription.
+description: The Subscription custom resource is the Gravitee Kubernetes Operator 4.8 equivalent of a subscription managed in the Console. See a worked example.
 ---
 
 # Subscription

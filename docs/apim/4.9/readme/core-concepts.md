@@ -1,5 +1,5 @@
 ---
-description: An overview about core concepts.
+description: The core concepts behind API Management 4.9, from architecture to component configuration. Learn how the pieces fit together.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/readme/core-concepts

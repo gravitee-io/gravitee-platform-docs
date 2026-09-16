@@ -1,5 +1,5 @@
 ---
-description: Tutorial on how-to guides.
+description: Gravitee how-to guides for API Management 4.9, from your first API to advanced use cases. Browse the tutorials that match your goal.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides

@@ -1,3 +1,7 @@
+---
+description: The subscription form lets an API Management 4.12 publisher collect details when a consumer subscribes. Learn what the feature offers.
+---
+
 # Subscription form feature overview
 
 ## Overview

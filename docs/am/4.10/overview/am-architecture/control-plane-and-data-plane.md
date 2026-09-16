@@ -1,3 +1,7 @@
+---
+description: Access Management 4.10 lets you choose a database scope per use case, splitting load between the control plane and the data plane. Learn when to isolate them.
+---
+
 # Control Plane & Data Plane
 
 Gravitee provides the flexibility to choose the type of database for each specific use case, referred to as the "scope," to distribute the load and reduce pressure on a single storage point.

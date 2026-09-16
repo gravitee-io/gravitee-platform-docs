@@ -1,5 +1,5 @@
 ---
-description: Overview of SAML.
+description: Connect Access Management 4.8 to a SAML 2.0 identity provider for XML-based identity exchange. Follow the steps to create the connector.
 ---
 
 # SAML 2.0

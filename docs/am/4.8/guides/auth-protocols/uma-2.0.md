@@ -1,5 +1,5 @@
 ---
-description: Overview of UMA.
+description: UMA 2.0 gives an individual one control point for authorizing access to their data through Access Management 4.8. Learn the roles and flow.
 ---
 
 # UMA 2.0

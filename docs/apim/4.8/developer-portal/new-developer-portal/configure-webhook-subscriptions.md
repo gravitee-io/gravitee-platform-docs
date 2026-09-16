@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for configure webhook subscriptions.
+description: Configure a webhook subscription from the Developer Portal 4.8 catalog. Follow the steps to set it up for your application.
 ---
 
 # Configure Webhook Subscriptions

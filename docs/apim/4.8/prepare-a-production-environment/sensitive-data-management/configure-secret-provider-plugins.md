@@ -1,5 +1,5 @@
 ---
-description: An overview about configure secret provider plugins.
+description: Secret managers encrypt, store, and retrieve secrets for API Management 4.8. Follow the steps to configure the provider plugins.
 ---
 
 # Configure Secret Provider Plugins

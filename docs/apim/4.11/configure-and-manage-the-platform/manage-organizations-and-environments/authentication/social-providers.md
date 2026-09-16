@@ -1,5 +1,5 @@
 ---
-description: Documentation about social providers in the context of APIs.
+description: Let users sign in to API Management 4.11 with a GitHub OAuth application or another social provider. Follow the steps to configure it.
 metaLinks:
   alternates:
     - social-providers.md

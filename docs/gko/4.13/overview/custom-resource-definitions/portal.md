@@ -1,3 +1,7 @@
+---
+description: The Portal custom resource declares a Developer Portal instance and its navigation tree for the Gravitee Kubernetes Operator 4.13. See the key fields.
+---
+
 # Portal
 
 The `Portal` custom resource declares a next-gen Developer Portal instance bound to an environment. It manages the portal's name, navigation hierarchy, and top-level folder structure through the Automation API.

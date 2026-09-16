@@ -1,3 +1,7 @@
+---
+description: The toxicity and prompt injection models available to API Management 4.12 text classification, with their performance metrics. Compare the models.
+---
+
 # AI Model Text Classification - Model Reference and Performance Metrics
 
 ## Available models

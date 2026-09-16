@@ -1,3 +1,7 @@
+---
+description: Authenticate Access Management 4.10 users with GitHub. Follow the steps to register a GitHub application and set up the connection.
+---
+
 # Github
 
 ## Overview

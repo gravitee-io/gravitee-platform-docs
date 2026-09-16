@@ -1,5 +1,5 @@
 ---
-description: Deployment guide for Multi.
+description: Publish APIs to several logical or physical environments from one Gravitee Kubernetes Operator 4.8 deployment. See how the architecture fits together.
 ---
 
 # Multi-environment deployment architecture

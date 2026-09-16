@@ -1,5 +1,5 @@
 ---
-description: Add the new Classic Cloud IP ranges to your firewall rules before Gravitee migrates your environment.
+description: Gravitee is migrating Classic Cloud API Management 4.12 environments to a new platform, changing its IP ranges. Update your firewall rules.
 ---
 
 # Add Classic Cloud IP ranges to your firewall rules

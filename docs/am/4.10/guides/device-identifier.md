@@ -1,3 +1,7 @@
+---
+description: Device identifiers let Access Management 4.10 remember the devices used to set up MFA. Follow the steps to create one and compare the plugins.
+---
+
 # Device Identifier
 
 ## Overview

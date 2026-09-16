@@ -1,5 +1,5 @@
 ---
-description: An overview about plans.
+description: A plan is the service and access layer over a Kafka API in API Management 4.9, setting limits and validation. Learn the options.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/plans

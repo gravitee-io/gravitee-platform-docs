@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for plugin support.
+description: Which API Management 4.10 plugins support referencing secrets. Browse the support table before you configure a secret in one.
 metaLinks:
   alternates:
     - plugin-support.md

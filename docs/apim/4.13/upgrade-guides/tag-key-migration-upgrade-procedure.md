@@ -1,6 +1,7 @@
 ---
 hidden: true
 noIndex: true
+description: Two automated migrations add a key field to existing API Management 4.13 tags and tenants on upgrade. Learn what each migration does.
 ---
 
 # Tag and tenant key migration upgrade procedure

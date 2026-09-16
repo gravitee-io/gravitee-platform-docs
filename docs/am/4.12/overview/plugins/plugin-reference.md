@@ -1,5 +1,5 @@
 ---
-description: Complete reference of all available AM plugins from the Gravitee Marketplace.
+description: A catalogue of every Access Management 4.12 plugin from the Gravitee Marketplace, with documentation linked or inline. Find the plugin you need.
 hidden: true
 noIndex: true
 ---

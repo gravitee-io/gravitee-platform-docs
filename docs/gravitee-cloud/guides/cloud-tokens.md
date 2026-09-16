@@ -1,5 +1,5 @@
 ---
-description: Overview of Cloud Tokens.
+description: Cloud tokens are signed JSON Web Tokens connecting self-hosted services to the Gravitee Cloud Control Plane. Follow the steps to create one.
 ---
 
 # Cloud Tokens

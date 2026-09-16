@@ -1,7 +1,5 @@
 ---
-description: >-
-  This page shows the supported geographies and providers available for Gravitee
-  Cloud.
+description: Choose where your Gravitee Cloud API Management control plane is hosted and where hosted gateways run. Compare the supported geographies.
 ---
 
 # Geography and Provider Support

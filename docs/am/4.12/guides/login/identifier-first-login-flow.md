@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/identifier-first-login-flow
+description: Identifier-first login splits Access Management 4.12 sign-in into two steps, username then credential. Follow the steps to activate it.
 ---
 
 # Identifier-first Login Flow

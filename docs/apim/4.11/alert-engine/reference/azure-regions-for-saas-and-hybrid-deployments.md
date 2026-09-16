@@ -1,5 +1,5 @@
 ---
-description: This page shows the Azure regions that Gravitee supports.
+description: The Azure regions Gravitee supports for SaaS and hybrid Alert Engine deployments with API Management 4.11. Find your region.
 ---
 
 # Azure regions for SaaS and Hybrid Deployments

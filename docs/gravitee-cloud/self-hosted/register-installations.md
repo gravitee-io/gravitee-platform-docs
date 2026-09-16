@@ -1,7 +1,5 @@
 ---
-description: >-
-  Learn how to register and link Gravitee API Management and Access Management
-  installations
+description: Register a self-hosted API Management or Access Management installation with Gravitee Cloud. Follow the steps to link it and log in.
 ---
 
 # Register installations

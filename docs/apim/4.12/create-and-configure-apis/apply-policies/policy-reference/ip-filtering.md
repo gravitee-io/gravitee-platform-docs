@@ -1,5 +1,5 @@
 ---
-description: An overview about ip filtering.
+description: The IP Filtering policy allows or denies specific IP addresses on an API Management 4.12 API. Learn how to configure the filters.
 metaLinks:
   alternates:
     - ip-filtering.md

@@ -1,5 +1,5 @@
 ---
-description: Overview of Define.
+description: Create an API Management service account so the Gravitee Kubernetes Operator 4.9 can authenticate through a ManagementContext. Follow the steps to set it up.
 ---
 
 # Define an APIM service account for GKO

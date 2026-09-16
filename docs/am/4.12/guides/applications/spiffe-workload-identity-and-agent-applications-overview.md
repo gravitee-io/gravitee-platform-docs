@@ -1,3 +1,7 @@
+---
+description: SPIFFE Workload Identity makes AI agents first-class OAuth identities in Access Management 4.12. Learn the key concepts and agent application types.
+---
+
 # SPIFFE Workload Identity and Agent Applications Overview
 
 ## Overview

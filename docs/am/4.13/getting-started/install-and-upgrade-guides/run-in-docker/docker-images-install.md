@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/run-in-docker/docker-images-install
+description: Run Access Management 4.13 components from their individual Docker images. Follow the steps to run and configure each container.
 ---
 
 # Docker Images Install

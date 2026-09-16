@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Create the groups of an environment, set the default roles their members hold, add and invite members, and attach groups to the APIs, API Products, and applications they work on.
+description: A Gamma group collects users and gives each member a role on the APIs and applications it is attached to. Follow the steps to create and edit one.
 ---
 
 # Manage groups

@@ -1,5 +1,5 @@
 ---
-description: An overview about reporters.
+description: Reporters record events from the API Management 4.13 Gateway and send them onward. Compare the reporters available to you.
 metaLinks:
   alternates:
     - ./

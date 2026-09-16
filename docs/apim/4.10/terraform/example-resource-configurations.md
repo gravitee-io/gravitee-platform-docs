@@ -1,5 +1,5 @@
 ---
-description: An overview about gravitee resources.
+description: The Gravitee resources Terraform can create and manage in API Management 4.10. Compare the resources and their known limitations.
 metaLinks:
   alternates:
     - example-resource-configurations.md

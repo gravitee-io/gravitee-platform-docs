@@ -1,5 +1,5 @@
 ---
-description: Overview of Recovery Codes.
+description: Recovery codes let an Access Management 4.8 user authenticate when their other factors are unavailable. Learn how the codes are generated.
 ---
 
 # Recovery Codes

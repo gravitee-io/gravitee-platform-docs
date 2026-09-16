@@ -1,5 +1,5 @@
 ---
-description: Overview of Administration.
+description: Organizations and environments structure an Access Management 4.9 installation, with roles and permissions on each. Learn how the two fit together.
 ---
 
 # Administration

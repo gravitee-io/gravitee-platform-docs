@@ -1,5 +1,5 @@
 ---
-description: Overview of Docker.
+description: Gravitee publishes Docker images for the maintained Access Management 4.8 components. Compare the ways to run them in your environment.
 ---
 
 # Run in Docker

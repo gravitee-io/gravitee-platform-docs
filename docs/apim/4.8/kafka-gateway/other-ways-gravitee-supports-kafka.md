@@ -1,5 +1,5 @@
 ---
-description: An overview about other ways gravitee supports kafka.
+description: Gravitee connects to Kafka through protocol mediation or native Kafka APIs in API Management 4.8. Compare the two approaches.
 ---
 
 # Other Ways Gravitee Supports Kafka

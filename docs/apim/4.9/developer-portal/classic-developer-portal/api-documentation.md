@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for api documentation.
+description: Administrators use site-wide documentation in the Developer Portal 4.9 to share best practices and configure pages. Learn what you can set.
 metaLinks:
   alternates:
     - >-

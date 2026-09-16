@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/deploy-in-kubernetes
+description: Deploy Access Management 4.13 on Kubernetes with the Helm chart. Follow the steps to add the repository and install the components.
 ---
 
 # Deploy in Kubernetes

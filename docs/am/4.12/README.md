@@ -1,5 +1,5 @@
 ---
-description: Dive into use case for AM as well as an overview of core components, concepts, and authorization mechanisms with Gravitee.
+description: Access Management 4.12 is an open source identity and access management solution securing your applications and APIs. Learn the core components and concepts.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/overview/readme

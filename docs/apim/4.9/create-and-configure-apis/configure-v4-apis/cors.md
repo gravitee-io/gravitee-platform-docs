@@ -1,5 +1,5 @@
 ---
-description: An overview about cors.
+description: CORS lets a web page request resources from another domain through your API Management 4.9 v4 API. Follow the steps to configure it.
 metaLinks:
   alternates:
     - >-

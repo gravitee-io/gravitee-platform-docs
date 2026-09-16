@@ -1,5 +1,5 @@
 ---
-description: An overview about reference secrets in configurations.
+description: Reference secret manager values from your API Management 4.9 configuration files. Follow the steps to use them safely in production.
 metaLinks:
   alternates:
     - >-

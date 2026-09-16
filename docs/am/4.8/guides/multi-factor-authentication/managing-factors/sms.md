@@ -1,5 +1,5 @@
 ---
-description: Overview of SMS.
+description: Send an Access Management 4.8 verification code by SMS as a second factor. Learn how SMS verification confirms a user's account.
 ---
 
 # SMS

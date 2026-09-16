@@ -1,3 +1,7 @@
+---
+description: Enable SAML 2.0 identity provider support in Access Management 4.10. Follow the steps to activate the IdP and test the connection.
+---
+
 # SAML 2.0
 
 ## Overview

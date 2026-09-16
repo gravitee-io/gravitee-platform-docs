@@ -1,3 +1,7 @@
+---
+description: Automate TLS certificates for a Gravitee Kubernetes Operator 4.11 Gateway with cert-manager. Follow the steps to create a ClusterIssuer and enable HTTPS.
+---
+
 # Configure TLS with cert-manager
 
 ## Overview

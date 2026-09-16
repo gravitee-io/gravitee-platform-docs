@@ -1,5 +1,5 @@
 ---
-description: Gravitee's API Platform as a service.
+description: Gravitee Cloud runs API Management as a service, with the Control Plane hosted by Gravitee. Learn what it offers and how to get started.
 ---
 
 # Gravitee Cloud

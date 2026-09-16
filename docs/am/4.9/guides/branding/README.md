@@ -1,5 +1,5 @@
 ---
-description: Overview of Branding.
+description: Brand the Access Management 4.9 login and account pages at organization, domain, or application level. Follow the steps to set a logo and theme.
 ---
 
 # Branding

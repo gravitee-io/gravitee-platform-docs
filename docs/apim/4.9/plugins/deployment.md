@@ -1,5 +1,5 @@
 ---
-description: An overview about deployment.
+description: Deploy an API Management 4.9 plugin by copying its archive into the plugins directory. Learn how plugins are discovered and then loaded.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/plugins/deployment

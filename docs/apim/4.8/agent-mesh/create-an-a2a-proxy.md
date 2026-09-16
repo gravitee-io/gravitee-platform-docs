@@ -1,5 +1,5 @@
 ---
-description: An overview about set up an ai agent (a2a) proxy.
+description: As organizations adopt AI agents, an API Management 4.8 A2A proxy connects them securely. Follow the steps to create a proxy of your own.
 ---
 
 # Set Up an AI Agent (A2A) Proxy

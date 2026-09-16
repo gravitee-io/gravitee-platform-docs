@@ -1,5 +1,5 @@
 ---
-description: Overview of Compatibility.
+description: Which API Management versions the Gravitee Kubernetes Operator 4.8 supports, and what it cannot yet manage. Compare the versions before you upgrade.
 ---
 
 # Compatibility and Limitations

@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/legal-identity-providers
+description: Access Management 4.12 includes legal and governmental identity providers for authenticating citizens. Compare the providers available to you.
 ---
 
 # Legal Identity Providers

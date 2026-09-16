@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for geoip filtering.
+description: The GeoIP Filtering policy controls access to an API Management 4.8 API by IP address, country, or distance. Learn how to configure it.
 ---
 
 # GeoIP Filtering

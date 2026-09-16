@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/community-and-support/community
+description: What to expect from the Gravitee community forum as an Access Management 4.12 user. See how to ask a question others can find later.
 ---
 
 # Community

@@ -1,5 +1,5 @@
 ---
-description: Overview of Enterprise Identity Providers.
+description: Access Management 4.8 connects to corporate identity servers to authenticate your users. Compare the enterprise providers available to you.
 ---
 
 # Enterprise Identity Providers

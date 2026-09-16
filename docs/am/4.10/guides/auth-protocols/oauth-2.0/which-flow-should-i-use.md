@@ -1,3 +1,7 @@
+---
+description: Choose the Access Management 4.10 OAuth 2.0 flow matching your client type and trust level. Compare the options for web, mobile, and machine clients.
+---
+
 # Which Flow Should I Use?
 
 Deciding which OAuth 2.0 flow to use depends mainly on the type of client the end user will be using and the level of trust between AM authorization server and your clients.

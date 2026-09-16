@@ -1,3 +1,7 @@
+---
+description: The Dictionary custom resource specification for the Gravitee Kubernetes Operator 4.12, with manual and dynamic examples. Find the field you need.
+---
+
 # Dictionary CRD reference
 
 This page describes the `Dictionary` custom resource specification, with examples for manual and dynamic dictionaries, how to reference a dictionary from an API, and how to reference Kubernetes Secrets and ConfigMaps.

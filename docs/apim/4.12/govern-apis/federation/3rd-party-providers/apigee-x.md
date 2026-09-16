@@ -1,5 +1,5 @@
 ---
-description: An overview about apigee x.
+description: Federate APIs from Apigee X, Google Cloud's API management solution, into API Management 4.12. Learn how the integration works.
 metaLinks:
   alternates:
     - apigee-x.md

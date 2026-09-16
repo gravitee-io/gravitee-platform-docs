@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/3rd-party-providers/confluent-platform
+description: Federate APIs from Confluent Platform, the event streaming platform built on Kafka, into API Management 4.9. Learn how it works.
 ---
 
 # Confluent Platform

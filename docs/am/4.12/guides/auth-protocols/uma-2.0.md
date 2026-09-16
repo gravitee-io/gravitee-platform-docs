@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/uma-2.0
+description: UMA 2.0 gives an individual one control point for authorizing access to their data through Access Management 4.12. Learn the roles and flow.
 ---
 
 # UMA 2.0

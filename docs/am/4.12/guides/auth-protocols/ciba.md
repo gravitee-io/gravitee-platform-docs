@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/ciba
+description: CIBA lets a client start authentication on a separate device through Access Management 4.12. Learn the protocol and configure the settings.
 ---
 
 # CIBA

@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/oauth-2.0
+description: OAuth 2.0 is the industry-standard authorization protocol Access Management 4.11 implements. Compare the roles, grant types, and flows.
 ---
 
 # OAuth 2.0

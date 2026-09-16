@@ -1,3 +1,7 @@
+---
+description: Disconnect a Gravitee Cloud gateway from your private network from either details page. Follow the steps to disconnect it safely.
+---
+
 # Disconnect a Gateway from your private network
 
 ## Overview

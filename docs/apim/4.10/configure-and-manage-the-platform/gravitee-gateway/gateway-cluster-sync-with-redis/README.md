@@ -1,7 +1,5 @@
 ---
-description: >-
-  This guide explains how to enable and configure the Gateway Cluster sync with
-  Redis.
+description: Enable and configure Gateway Cluster sync with Redis in API Management 4.10. Follow the steps to set the synchronization up.
 ---
 
 # Gateway Cluster sync with Redis

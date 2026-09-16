@@ -1,3 +1,7 @@
+---
+description: Access Management 4.10 supports the FAPI profiles that secure Open Banking APIs. Learn the protocol and configure client registration.
+---
+
 # Open Banking
 
 ## Overview

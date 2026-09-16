@@ -1,5 +1,5 @@
 ---
-description: Overview of Github.
+description: Authenticate Access Management 4.8 users with GitHub. Follow the steps to register a GitHub application and set up the connection.
 ---
 
 # Github

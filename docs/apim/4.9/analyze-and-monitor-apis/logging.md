@@ -1,5 +1,5 @@
 ---
-description: An overview about logging.
+description: Logging at Gateway and API level in API Management 4.9, and exposing metrics to Prometheus. Follow the guide to configure it.
 metaLinks:
   alternates:
     - >-

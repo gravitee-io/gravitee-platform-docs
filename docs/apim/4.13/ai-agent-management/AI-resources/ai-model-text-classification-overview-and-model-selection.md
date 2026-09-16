@@ -1,3 +1,7 @@
+---
+description: AI Model Text Classification detects toxic content and prompt injection in API Management 4.13 traffic. Compare the detection models available.
+---
+
 # AI - Model Text Classification - Overview and Model Selection
 
 ## Overview

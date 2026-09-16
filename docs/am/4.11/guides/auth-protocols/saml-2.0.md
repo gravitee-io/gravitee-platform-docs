@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/saml-2.0
+description: Enable SAML 2.0 identity provider support in Access Management 4.11 by installing the IdP protocol plugin. Follow the steps for your installation.
 ---
 
 # SAML 2.0

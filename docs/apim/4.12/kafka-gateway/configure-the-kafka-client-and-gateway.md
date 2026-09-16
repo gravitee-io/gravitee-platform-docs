@@ -1,5 +1,5 @@
 ---
-description: Configure the Gravitee Kafka Gateway and Kafka client to proxy a Kafka cluster, including TLS, broker mapping, mTLS authentication, and producing and consuming messages.
+description: Configure the Kafka Gateway and a Kafka client so API Management 4.12 can proxy your Kafka cluster. Follow the steps for both sides.
 metaLinks:
   alternates:
     - configure-the-kafka-client-and-gateway.md

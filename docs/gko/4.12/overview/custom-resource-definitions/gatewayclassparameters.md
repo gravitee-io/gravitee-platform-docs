@@ -1,3 +1,7 @@
+---
+description: GatewayClassParameters configures the Gravitee Kubernetes Operator 4.12 implementation of the Kubernetes Gateway API. See the options and an example.
+---
+
 # GatewayClassParameters
 
 ## Overview

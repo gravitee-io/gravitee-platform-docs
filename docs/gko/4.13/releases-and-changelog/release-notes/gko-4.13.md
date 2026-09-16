@@ -1,5 +1,6 @@
 ---
 title: Gravitee Kubernetes Operator 4.13 Release Notes
+description: Highlights, breaking changes, and new features in the Gravitee Kubernetes Operator 4.13 release, including multi-domain TLS. See what changed before upgrading.
 ---
 
 # GKO 4.13

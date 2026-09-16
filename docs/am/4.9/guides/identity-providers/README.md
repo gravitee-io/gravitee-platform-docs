@@ -1,5 +1,5 @@
 ---
-description: Overview of Identity Providers.
+description: An identity provider authenticates users and passes their information to Access Management 4.9. Compare the social, database, and enterprise types.
 ---
 
 # Identity Providers

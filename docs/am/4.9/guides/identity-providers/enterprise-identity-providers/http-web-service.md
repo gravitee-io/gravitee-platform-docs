@@ -1,5 +1,5 @@
 ---
-description: Overview of HTTP.
+description: Authenticate and manage Access Management 4.9 users through remote API calls. Follow the steps to create and configure an HTTP identity provider.
 ---
 
 # HTTP (web service)

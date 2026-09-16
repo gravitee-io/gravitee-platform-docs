@@ -1,3 +1,7 @@
+---
+description: Add a service attachment so Private Service Connect exposes a VPC service to your Gravitee Cloud gateways. Follow the steps to add one.
+---
+
 # Add a service attachment to your private network
 
 ## Overview

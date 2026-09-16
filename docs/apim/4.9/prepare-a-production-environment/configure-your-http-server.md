@@ -1,5 +1,5 @@
 ---
-description: Configure the HTTP server for the Gravitee API Gateway in gravitee.yaml, covering HTTPS, HTTP/2, WebSocket, and client certificates. Follow the steps.
+description: Configure the API Management 4.9 HTTP server in the gravitee.yaml file. Follow the steps to set the properties you need.
 metaLinks:
   alternates:
     - >-

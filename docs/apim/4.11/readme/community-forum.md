@@ -1,5 +1,5 @@
 ---
-description: An overview about community forum.
+description: What to expect from the Gravitee community forum as an API Management 4.11 user. See how to ask a question others can find later.
 metaLinks:
   alternates:
     - community-forum.md

@@ -1,5 +1,5 @@
 ---
-description: Overview of Code Exchange.
+description: PKCE extends the Access Management 4.9 authorization code flow to prevent interception attacks. Learn how it works and see the examples.
 ---
 
 # Proof Key for Code Exchange (PKCE)

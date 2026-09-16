@@ -1,5 +1,5 @@
 ---
-description: Overview of Active Directory.
+description: Authenticate and manage Access Management 4.8 users with an Active Directory or LDAP server. Follow the steps to create the provider.
 ---
 
 # Active Directory/LDAP

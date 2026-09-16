@@ -1,5 +1,5 @@
 ---
-description: An overview about gravitee gateway.
+description: Configure the general settings of your API Management 4.9 Gateway. Browse the guides covering each part of the configuration.
 metaLinks:
   alternates:
     - >-

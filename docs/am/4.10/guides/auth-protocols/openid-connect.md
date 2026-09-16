@@ -1,3 +1,7 @@
+---
+description: OpenID Connect lets Access Management 4.10 clients request information about authenticated sessions. Compare the authorization code and implicit flows.
+---
+
 # OpenID Connect
 
 ## Overview

@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for domain secrets.
+description: Use a secret manager with Access Management 4.11 domains to keep credentials out of your configuration files. See how the integration works.
 metaLinks:
   alternates:
     - >-

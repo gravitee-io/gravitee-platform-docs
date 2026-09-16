@@ -1,7 +1,5 @@
 ---
-description: >-
-  This article walks through how to configure alert Engine notifications in
-  Gravitee API Management
+description: Use Alert Engine and API Management 4.12 together to configure notifications for your alerts. Follow the steps to set them up.
 ---
 
 # Configure Notifications

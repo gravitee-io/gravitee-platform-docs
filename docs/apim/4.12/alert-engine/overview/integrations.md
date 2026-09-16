@@ -1,5 +1,5 @@
 ---
-description: Overview of Integrations.
+description: Alert Engine works inside and outside the Gravitee ecosystem, including with API Management 4.12. Learn what it connects to.
 ---
 
 # Integrations

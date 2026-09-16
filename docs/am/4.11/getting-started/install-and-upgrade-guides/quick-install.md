@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/quick-install
+description: Install Access Management 4.11 quickly on a clean environment. Compare installing with RPMs, Docker, or Kubernetes and follow your chosen path.
 ---
 
 # Quick Install

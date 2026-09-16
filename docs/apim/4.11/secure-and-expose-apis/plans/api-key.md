@@ -1,5 +1,5 @@
 ---
-description: An overview about api key.
+description: The API Key plan verifies keys during request processing so only approved applications reach your API Management 4.11 API. Learn how.
 metaLinks:
   alternates:
     - api-key.md

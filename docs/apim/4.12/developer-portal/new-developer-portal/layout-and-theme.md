@@ -1,5 +1,5 @@
 ---
-description: Documentation about layout and theme in the context of APIs.
+description: Select the fonts and set the layout and theme of the New Developer Portal 4.12. Follow the steps to change how the portal appears.
 ---
 
 # Layout and Theme

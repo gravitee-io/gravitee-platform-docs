@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for Configuration.
+description: Configure the Access Management 4.8 components and repositories after installation. Browse the guides for each component you set up.
 ---
 
 # Configuration

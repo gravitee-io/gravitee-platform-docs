@@ -1,5 +1,5 @@
 ---
-description: An overview about redis.
+description: The Redis repository plugin connects API Management 4.9 to Redis for the rate limit feature. Follow the steps to configure it.
 metaLinks:
   alternates:
     - >-

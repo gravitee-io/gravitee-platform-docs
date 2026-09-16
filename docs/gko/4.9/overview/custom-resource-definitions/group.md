@@ -1,5 +1,5 @@
 ---
-description: Overview of Group.
+description: The Group custom resource creates a group in an API Management environment through the Gravitee Kubernetes Operator 4.9. Follow its validation rules.
 ---
 
 # Group

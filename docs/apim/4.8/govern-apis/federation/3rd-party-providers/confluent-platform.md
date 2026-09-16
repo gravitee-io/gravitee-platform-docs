@@ -1,5 +1,5 @@
 ---
-description: Tutorial on confluent platform.
+description: Federate APIs from Confluent Platform, the event streaming platform built on Kafka, into API Management 4.8. Learn how it works.
 ---
 
 # Confluent Platform

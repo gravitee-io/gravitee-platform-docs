@@ -1,3 +1,7 @@
+---
+description: The Next-Gen Developer Portal 4.12 supports CI/CD-driven setup of structure, APIs, and documentation. Browse the automation guides.
+---
+
 # Portal automation
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: Configure single sign-on so your team signs in to Gravitee Cloud through your own authentication method. Follow the steps and troubleshoot it.
+---
+
 # Configure Single Sign On
 
 ## Introduction

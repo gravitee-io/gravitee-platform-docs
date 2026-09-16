@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for websocket.
+description: Configure the WebSocket entrypoint parameters for a v4 API Management 4.13 API. Follow the steps to set them for your API.
 metaLinks:
   alternates:
     - websocket.md

@@ -1,7 +1,5 @@
 ---
-description: >-
-  This page describes the breaking changes that may occur when upgrading
-  Gravitee Access Management
+description: Breaking changes across the 4.x releases, and what to change before you upgrade Access Management 4.9. Browse the ones affecting your version.
 ---
 
 # Breaking Changes for Access Management

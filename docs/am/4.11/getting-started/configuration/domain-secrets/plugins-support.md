@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for plugin support.
+description: Which Access Management 4.11 plugins support secrets, their minimum version, and the fields that accept secret values. Find the plugin you need.
 metaLinks:
   alternates:
     - >-

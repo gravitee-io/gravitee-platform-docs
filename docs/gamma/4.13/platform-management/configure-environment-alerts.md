@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: The Alerts page of the Environment section creates alerts on gateway nodes, API traffic, and endpoint health checks, and sends them by email, Slack, or webhook. Follow the steps to create, edit, and track an alert.
+description: An environment alert watches gateway events in Gamma and notifies you when its rule matches. Follow the steps to create one and set conditions.
 ---
 
 # Configure environment alerts

@@ -1,5 +1,5 @@
 ---
-description: Overview of Groups.
+description: Create and manage groups in the Access Management 4.9 Console, and assign roles to their members. Follow the steps to manage membership.
 ---
 
 # Groups

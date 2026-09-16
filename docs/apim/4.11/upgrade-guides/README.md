@@ -1,5 +1,5 @@
 ---
-description: Documentation about upgrade guides in the context of APIs.
+description: Upgrade API Management 4.11 components in the right order. Browse the upgrade articles for the version you are moving to.
 metaLinks:
   alternates:
     - ./

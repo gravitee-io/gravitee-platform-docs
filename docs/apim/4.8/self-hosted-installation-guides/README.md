@@ -1,5 +1,5 @@
 ---
-description: An overview about self-hosted installation guides.
+description: Self-hosted architecture means you host every API Management 4.8 component on your own infrastructure. Browse the installation guides.
 ---
 
 # Self-Hosted Installation Guides

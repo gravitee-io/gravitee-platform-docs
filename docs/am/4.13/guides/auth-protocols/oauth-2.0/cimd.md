@@ -1,3 +1,7 @@
+---
+description: Client ID Metadata Document lets Access Management 4.13 clients present a URL as their client identifier and fetch configuration from it. Learn how.
+---
+
 # Client ID Metadata Document (CIMD)
 
 ## Overview

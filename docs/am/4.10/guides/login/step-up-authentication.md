@@ -1,3 +1,7 @@
+---
+description: Step-up authentication asks an already signed-in Access Management 4.10 user for another factor. Learn the use cases and when to require it.
+---
+
 # Step-up Authentication
 
 ## Overview

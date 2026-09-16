@@ -1,5 +1,5 @@
 ---
-description: Overview of User Registration.
+description: Access Management 4.9 includes a basic user registration flow. Follow the steps to enable registration for a security domain.
 ---
 
 # User Registration

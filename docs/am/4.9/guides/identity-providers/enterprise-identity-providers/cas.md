@@ -1,5 +1,5 @@
 ---
-description: Overview of CAS.
+description: Connect Access Management 4.9 to a Central Authentication Service server using the ticket-based CAS protocol. Follow the steps to create the connector.
 ---
 
 # CAS

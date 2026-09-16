@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/enterprise-identity-providers/active-directory-ldap
+description: Authenticate and manage Access Management 4.11 users with an Active Directory or LDAP server. Follow the steps to create the provider.
 ---
 
 # Active Directory/LDAP

@@ -1,3 +1,7 @@
+---
+description: Control where API Management 4.12 API Products deploy with organization sharding tags. Learn how administrators configure them.
+---
+
 # Managing Organization Sharding Tags
 
 ## Overview

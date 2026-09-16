@@ -1,5 +1,5 @@
 ---
-description: An overview about configure the kafka client & gateway.
+description: Configure the Kafka Gateway and a Kafka client so API Management 4.9 can proxy your Kafka cluster. Follow the steps for both sides.
 metaLinks:
   alternates:
     - >-

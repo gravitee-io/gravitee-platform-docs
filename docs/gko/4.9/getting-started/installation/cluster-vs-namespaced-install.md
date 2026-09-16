@@ -1,5 +1,5 @@
 ---
-description: Installation guide for Namespaced Install.
+description: Run the Gravitee Kubernetes Operator 4.9 across a whole cluster or scoped to one namespace, set by a Helm parameter. Compare the two installation modes.
 ---
 
 # Cluster vs Namespaced Install

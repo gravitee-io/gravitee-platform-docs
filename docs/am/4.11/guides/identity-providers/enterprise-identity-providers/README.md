@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/enterprise-identity-providers
+description: Access Management 4.11 connects to corporate identity servers to authenticate your users. Compare the enterprise providers available to you.
 ---
 
 # Enterprise Identity Providers

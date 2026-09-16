@@ -1,5 +1,5 @@
 ---
-description: Overview of Plugins.
+description: Plugins extend the Access Management 4.9 Gateway and Management API, from identity providers to reporters. Compare the types available to you.
 ---
 
 # Plugins

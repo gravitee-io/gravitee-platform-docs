@@ -1,7 +1,5 @@
 ---
-description: >-
-  This article walks through how to integrate Gravitee Alert Engine with
-  Gravitee Access Management (AM)
+description: Install the Alert Engine integration for Access Management alongside API Management 4.13. Follow the steps, or skip them on Enterprise images.
 ---
 
 # Installation

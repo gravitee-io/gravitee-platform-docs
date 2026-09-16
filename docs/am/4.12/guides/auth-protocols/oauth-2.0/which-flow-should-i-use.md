@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/oauth-2.0/which-flow-should-i-use
+description: Choose the Access Management 4.12 OAuth 2.0 flow matching your client type and trust level. Compare the options for web, mobile, and machine clients.
 ---
 
 # Which Flow Should I Use?

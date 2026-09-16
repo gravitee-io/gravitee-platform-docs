@@ -1,5 +1,5 @@
 ---
-description: An overview about groovy.
+description: Run a Groovy script at any stage of request processing through the API Management 4.8 Gateway. Learn how to configure the policy.
 ---
 
 # Groovy

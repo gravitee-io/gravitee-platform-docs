@@ -1,3 +1,7 @@
+---
+description: Applications act on behalf of a user to request Access Management 4.10 tokens and reach protected resources. Follow the steps to create one.
+---
+
 # Applications
 
 ## Overview

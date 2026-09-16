@@ -1,3 +1,7 @@
+---
+description: ApiResource declares reusable pointers to authentication providers and caches for the Gravitee Kubernetes Operator 4.10. Reference them from an API definition.
+---
+
 # ApiResource
 
 Resources are objects that allow you to define pointers to external resources, such as authentication providers and caches, that can then be referenced from an API definition's policies. Learn more about Gravitee resources in the [APIM user guide](https://documentation.gravitee.io/apim/guides/api-configuration/resources#resource-descriptions).

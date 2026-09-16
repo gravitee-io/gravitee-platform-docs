@@ -1,5 +1,5 @@
 ---
-description: Deployment guide for Deploy APIs.
+description: The state attribute on Gravitee Kubernetes Operator 4.9 API definitions starts or stops an API on the Gateway. Follow the steps to deploy and control it.
 ---
 
 # Deploy APIs to a Gateway

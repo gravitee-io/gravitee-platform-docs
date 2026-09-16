@@ -1,3 +1,7 @@
+---
+description: The Guard Rails policy evaluates prompts on an API Management 4.10 LLM proxy for unsafe content. Follow the steps to add it and create a resource.
+---
+
 # Add the Guard Rails policy to your LLM proxy
 
 ## Overview&#x20;

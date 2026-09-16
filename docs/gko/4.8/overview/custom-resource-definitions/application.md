@@ -1,5 +1,5 @@
 ---
-description: Overview of Application.
+description: The Application custom resource declares a consumer application for the Gravitee Kubernetes Operator 4.8. Compare the simple and OAuth types.
 ---
 
 # Application

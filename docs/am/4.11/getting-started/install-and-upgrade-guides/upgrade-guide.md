@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/upgrade-guide
+description: Upgrading Access Management 4.11 is deployment-specific, with MongoDB index changes at 4.5. Follow the steps that match your deployment.
 ---
 
 # 4.5 Upgrade Guide

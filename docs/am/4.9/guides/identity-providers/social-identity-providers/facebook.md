@@ -1,5 +1,5 @@
 ---
-description: Overview of Facebook.
+description: Authenticate Access Management 4.9 users with Facebook. Follow the steps to register a Facebook application and set up the connection.
 ---
 
 # Facebook

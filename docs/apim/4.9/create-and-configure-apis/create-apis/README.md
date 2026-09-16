@@ -1,5 +1,5 @@
 ---
-description: Documentation about create apis in the context of APIs.
+description: Create or import v2 and v4 APIs in API Management 4.9. Browse the articles covering each creation and import path available.
 metaLinks:
   alternates:
     - >-

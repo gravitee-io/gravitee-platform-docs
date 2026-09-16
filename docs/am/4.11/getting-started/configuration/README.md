@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/configuration
+description: Configure the Access Management 4.11 components and repositories after installation. Browse the guides for each component you set up.
 ---
 
 # Configuration

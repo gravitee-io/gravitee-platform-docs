@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for Kafka Gateway.
+description: The Kafka Gateway applies API Management 4.11 capabilities directly to native Kafka. Learn what it addresses for security and control.
 metaLinks:
   alternates:
     - ./

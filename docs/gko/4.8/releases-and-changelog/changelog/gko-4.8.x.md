@@ -1,5 +1,5 @@
 ---
-description: Overview of GKO.
+description: Every patch release in the Gravitee Kubernetes Operator 4.8 series, newest first, with any fixes it shipped. Browse the full changelog.
 ---
 
 # GKO 4.8.x

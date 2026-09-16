@@ -1,3 +1,7 @@
+---
+description: DB-less mode runs a Gravitee Kubernetes Operator 4.13 Gateway with no database, for faster starts and autoscaling. See what is available and when to use it.
+---
+
 # DB-less mode
 
 DB-less mode deploys a lightweight Gateway designed for the ingress controller and Gateway API use case. With no database dependencies, the gateway starts faster, enabling better autoscaling in Kubernetes environments. Only an operator running in the same cluster or namespace is required. ManagementContext is irrelevant in this mode, as API definitions sync directly from Kubernetes CRDs.

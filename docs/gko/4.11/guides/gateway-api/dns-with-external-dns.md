@@ -1,3 +1,7 @@
+---
+description: Automate DNS records for a Gravitee Kubernetes Operator 4.11 Gateway with external-dns annotations. Follow the steps to configure GatewayClassParameters.
+---
+
 # Configure DNS with external-dns
 
 ## Overview

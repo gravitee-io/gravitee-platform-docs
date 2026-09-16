@@ -1,5 +1,5 @@
 ---
-description: An overview about v4 api policy studio.
+description: The v4 Policy Studio designs flows for APIs using the v4 API Management 4.13 definition. Follow the example to create a flow and add a policy.
 metaLinks:
   alternates:
     - v4-api-policy-studio.md

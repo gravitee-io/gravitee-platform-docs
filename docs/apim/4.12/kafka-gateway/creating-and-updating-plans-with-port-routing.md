@@ -1,5 +1,5 @@
 ---
-description: Create and update plans with port routing for Native Kafka APIs, including bootstrap port and broker range configuration.
+description: Create and update plans for a native Kafka API when port routing is enabled in API Management 4.12. Follow the steps in the plan screen.
 ---
 
 # Create and Update Plans with Port Routing

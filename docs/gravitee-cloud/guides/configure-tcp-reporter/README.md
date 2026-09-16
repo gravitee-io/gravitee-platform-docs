@@ -1,3 +1,7 @@
+---
+description: Custom reporters stream analytics from Gravitee gateways to external monitoring systems over TCP. Learn how reporters and gateway linking work.
+---
+
 # Configure TCP Reporter
 
 ## Overview

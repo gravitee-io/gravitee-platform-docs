@@ -1,5 +1,5 @@
 ---
-description: An overview about version history.
+description: Version History shows a v4 API's deployment history and the JSON definition of each version in API Management 4.9. Follow the steps to view it.
 metaLinks:
   alternates:
     - >-

@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/configuration/domain-secrets/configure-secret-providers
+description: Configure Kubernetes or HashiCorp Vault as a secret provider for Access Management 4.13 domains. Follow the steps and check the known limits.
 ---
 
 # Configure Secret Providers

@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/oauth-2.0/refresh-tokens
+description: Refresh tokens get a new Access Management 4.11 access token without user interaction. Follow the steps to use, revoke, and rotate them.
 ---
 
 # Refresh Tokens

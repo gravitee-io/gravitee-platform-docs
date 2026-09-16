@@ -1,3 +1,7 @@
+---
+description: Gravitee Expression Language queries object graphs to configure API Management 4.11 policies dynamically. Learn the syntax and expression markers.
+---
+
 # Gravitee Expression Language
 
 ## Overview

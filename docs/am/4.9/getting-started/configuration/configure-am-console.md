@@ -1,5 +1,5 @@
 ---
-description: Overview of AM Console.
+description: Configure the Access Management 4.9 Console with a constants.json file. Follow the steps to set the values your deployment needs.
 ---
 
 # AM Console

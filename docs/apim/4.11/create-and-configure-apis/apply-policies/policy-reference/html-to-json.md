@@ -1,5 +1,5 @@
 ---
-description: An overview about html to json.
+description: The HTML to JSON transformation policy converts response content in API Management 4.11. Learn how to configure the mapping it applies.
 metaLinks:
   alternates:
     - html-to-json.md

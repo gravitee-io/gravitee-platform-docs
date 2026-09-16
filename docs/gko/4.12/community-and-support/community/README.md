@@ -1,5 +1,5 @@
 ---
-description: Everything you need to know about Gravitee's community
+description: What to expect from the Gravitee community forum as a user of the Gravitee Kubernetes Operator 4.12 and the wider platform. See how to get involved.
 ---
 
 # Community

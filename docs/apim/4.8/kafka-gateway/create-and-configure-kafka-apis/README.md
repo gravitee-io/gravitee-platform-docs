@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for create & configure kafka apis.
+description: Creating and configuring a Kafka API in API Management 4.8, from the Console. Browse the articles covering each part of the process.
 ---
 
 # Create & Configure Kafka APIs

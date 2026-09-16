@@ -1,3 +1,7 @@
+---
+description: Connectors declare which phases they support on a native API Management 4.11 API. Compare the supported connector modes.
+---
+
 # Native API phases
 
 ## Supported connector modes

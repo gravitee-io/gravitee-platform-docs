@@ -1,3 +1,7 @@
+---
+description: The Access Management 4.13 Automation API is disabled by default. Follow the steps to enable it in gravitee.yml or through the Helm chart.
+---
+
 # Automation API
 
 ## Enabling the Automation API

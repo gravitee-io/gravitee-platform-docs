@@ -1,5 +1,5 @@
 ---
-description: Overview of Gravitee Hosted Gateway.
+description: Delete a Gravitee-hosted gateway you no longer need, freeing resources in your Cloud environment. Follow the steps to remove it.
 ---
 
 # Delete a Gravitee Hosted Gateway

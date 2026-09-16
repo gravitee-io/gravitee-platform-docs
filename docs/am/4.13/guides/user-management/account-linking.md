@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/account-linking
+description: Account linking joins identities from different providers to one Access Management 4.13 user account. Follow the steps to activate it.
 ---
 
 # Account Linking

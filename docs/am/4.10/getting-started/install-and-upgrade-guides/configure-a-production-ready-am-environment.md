@@ -1,3 +1,7 @@
+---
+description: Harden a new Access Management 4.10 installation by replacing default settings. Follow the steps to secure internal APIs, users, and the JWT secret.
+---
+
 # Configure a Production-ready AM Environment
 
 ## Overview

@@ -1,5 +1,5 @@
 ---
-description: An overview about debug mode.
+description: Debug mode diagnoses v2 and v4 proxy API flows in API Management 4.11. Learn how to read the debug timeline and the inspector.
 metaLinks:
   alternates:
     - debug-mode.md
