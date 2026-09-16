@@ -1,5 +1,5 @@
 ---
-description: Guide on applying policies related to default nginx security config.
+description: The default Nginx security configuration the API Management 4.13 Console uses. Browse it before you harden your deployment.
 metaLinks:
   alternates:
     - default-nginx-security-config.md

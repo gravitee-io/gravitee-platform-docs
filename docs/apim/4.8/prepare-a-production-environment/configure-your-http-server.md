@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for configure your http server.
+description: Configure the API Management 4.8 HTTP server in the gravitee.yaml file. Follow the steps to set the properties you need.
 ---
 
 # Configure your HTTP Server

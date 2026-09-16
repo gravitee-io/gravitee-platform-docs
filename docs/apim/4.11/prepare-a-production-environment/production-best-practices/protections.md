@@ -1,5 +1,5 @@
 ---
-description: Tutorial on protections.
+description: A brute-force attack submits a high volume of authentication requests. Learn how API Management 4.11 protects against them.
 metaLinks:
   alternates:
     - protections.md

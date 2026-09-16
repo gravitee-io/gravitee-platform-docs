@@ -1,5 +1,5 @@
 ---
-description: An overview about cache.
+description: Caches store different types of data in API Management 4.8. Compare the cache managers available and how each one is configured.
 ---
 
 # Cache

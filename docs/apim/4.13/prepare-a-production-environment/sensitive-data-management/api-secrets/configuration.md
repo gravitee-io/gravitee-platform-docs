@@ -1,5 +1,5 @@
 ---
-description: An overview about configuration.
+description: Configure a secret manager to hide values inside your API Management 4.13 APIs. Follow the steps to set the integration up.
 metaLinks:
   alternates:
     - configuration.md

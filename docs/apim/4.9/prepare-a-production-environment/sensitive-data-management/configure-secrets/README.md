@@ -1,5 +1,5 @@
 ---
-description: Tutorial on configure secrets.
+description: API Management 4.9 integrates with secret managers for configuration-level secrets. Learn how that integration works in practice.
 metaLinks:
   alternates:
     - >-

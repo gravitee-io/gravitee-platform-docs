@@ -1,5 +1,5 @@
 ---
-description: Documentation about documentation sanitizer in the context of APIs.
+description: API Management 4.10 can sanitize published API documentation pages. Learn what the sanitizer removes and why that matters.
 metaLinks:
   alternates:
     - documentation-sanitizer.md
