@@ -22,9 +22,7 @@ The list needs an A2A Proxy that fronts the agent. Without one it reads **This a
 
 The list follows the time range picker at the top of the page and shows the 25 most recent requests, grouped by UTC day with times in UTC.
 
-<!-- TODO: Screenshot of the Requests list of an agent with one row expanded to its steps, and the technical details panel open beside it -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-activity-record.png" alt=""><figcaption><p>A request in the Requests list, expanded, with its technical details panel</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-activity-record.png" alt="The Requests list of an agent with one request expanded to its step, The agent received a request, and the technical details panel open beside it with the request's outcome, its Asked by row reading Not recorded, its conversation and request IDs, and its one gateway record"><figcaption><p>A request in the Requests list, expanded, with its technical details panel</p></figcaption></figure>
 
 ## How a record is assembled
 

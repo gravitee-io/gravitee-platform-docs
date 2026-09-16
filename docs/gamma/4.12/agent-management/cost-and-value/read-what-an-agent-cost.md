@@ -19,9 +19,7 @@ Both read the traffic attributed to the agent's gateway application through the 
 
 The time range picker opens on the last 30 days, and a period can span up to 366 days.
 
-<!-- TODO: Screenshot of the Cost page of an agent showing the key figures, What changed, and Where the money goes -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-agent-cost.png" alt=""><figcaption><p>The Cost page of an agent</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-agent-cost.png" alt="The Cost page of a registered agent, with the Last 30 days window, the Spend, Runs, and Avg cost per run figures, the What changed card, the Where the money goes card, and the Value declared card"><figcaption><p>The Cost page of an agent</p></figcaption></figure>
 
 ## What the page needs
 

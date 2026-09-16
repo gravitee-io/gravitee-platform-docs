@@ -28,9 +28,7 @@ The card reads **Human approval enabled** and explains that tool calls matching 
 
 To see which proxies are under approval, open **HITL** in the **Govern** section and click **Coverage**. The **Human approval** column reads **On** or **Off** for each MCP Proxy, and the page reminds you that it shows the saved configuration, which takes effect on the proxy's next deployment. Use **Covered** and **All proxies** to narrow the list.
 
-<!-- TODO: Screenshot of the Human approval card on an MCP Proxy's Overview page with the switch on -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-hitl-proxy-human-approval-card.png" alt=""><figcaption><p>The Human approval card on an MCP Proxy's Overview page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/hitl-proxy-human-approval-card.png" alt="The Overview page of an MCP Proxy with the Human approval card: the Enable human approval switch on and the card reading Human approval enabled"><figcaption><p>The Human approval card on an MCP Proxy's Overview page</p></figcaption></figure>
 
 ## Create an approval rule
 
@@ -156,9 +154,7 @@ Open **Decisions** in the **Govern** section and click **Insights**. Select a pe
 
 **Review inbox**, **New rule**, and **Export CSV** at the top of the page lead to the matching actions.
 
-<!-- TODO: Screenshot of the Decision insights page showing the key figures and the Where the holds come from table -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-hitl-insights-dashboard.png" alt=""><figcaption><p>The Decision insights page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/hitl-insights-dashboard.png" alt="The Decision insights page with the History and Insights tabs, the 7 days, 30 days, and 90 days buttons, an observation tagged Worth a look, and the key figures Held calls, Approval rate, Median time to decide, Expired, and Approval cost"><figcaption><p>The Decision insights page</p></figcaption></figure>
 
 ## Next steps
 
