@@ -39,14 +39,14 @@ The **OAuth identity** card gives the application a real identity: the identity'
 1. In the **OAuth identity** card, click **Create an OAuth identity**. When the application already carries a client ID you typed, the card warns that attaching an identity replaces it with the identity's.
 2. In the **Persona** step, pick how the agent authenticates: **Desktop Productivity Agent**, a public client with PKCE enforced and no secret, **Hosted Agent**, a confidential client that acts for a signed-in user or on its own, or **Workload Agent**, a confidential client. The persona can't be changed after creation.
 3. In the **Basics** step, review the **Name**, which is the agent's name and isn't editable here, and optionally enter a **Display name** for the catalog.
-4. In the **Flow settings** step, enter the OAuth inputs the persona asks for. They can be changed after creation.
+4. In the **Flow settings** step, enter the OAuth inputs the persona asks for. Enter the redirect URIs and the identity provider with care: once the identity is created, the attached identity's panel edits its name, display name, description, and credentials, and nothing else.
 5. In the **Review** step, click **Create identity**.
 
 An **Identity created** notification reports the client ID the application now presents. For a confidential persona, a **Save the client secret now** dialog shows the secret once. Store it before closing the dialog, because it can't be read again and the identity would have to be recreated to get a new one.
 
 ## Manage an attached identity
 
-Once an identity is attached, the **OAuth identity** card shows what the identity is and how it authenticates, with **Edit** and **Delete identity** in the card's header. **Edit** opens the identity's fields in place, with **Save changes** and **Cancel**, and confirms with an **Identity updated** notification. Switching the credential mode asks you to confirm, because whatever authenticates with the previous credentials stops working when you save.
+Once an identity is attached, the **OAuth identity** card shows what the identity is and how it authenticates, with **Edit** and **Delete identity** in the card's header. **Edit** opens the **Name**, **Display name**, and **Description** fields and the credentials in place, with **Save changes** and **Cancel**, and confirms with an **Identity updated** notification. The persona, the redirect URIs, and the identity provider are fixed when the identity is created. Switching the credential mode asks you to confirm, because whatever authenticates with the previous credentials stops working when you save.
 
 **Delete identity** opens the **Delete this identity?** dialog. The application stays and can be given a new identity. Whatever authenticates with the deleted client ID can no longer do so, and the deletion can't be undone. Click **Delete identity** to confirm. An **Identity deleted** notification appears. When the identity could be detached from the application but not removed from Access Management, the notification says so and asks you to remove it there.
 
