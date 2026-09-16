@@ -1,5 +1,5 @@
 ---
-description: An overview about developer portal.
+description: The Developer Portal gives API consumers a simplified interface onto your API Management 4.8 APIs. Learn how to configure it.
 ---
 
 # Developer Portal

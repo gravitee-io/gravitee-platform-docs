@@ -1,5 +1,5 @@
 ---
-description: Configure automatic cleanup of events and audit data from the database.
+description: API Management 4.12 stores event and audit data that grows over time. Learn how the cleanup services trim those collections.
 ---
 
 # Cleanup Services

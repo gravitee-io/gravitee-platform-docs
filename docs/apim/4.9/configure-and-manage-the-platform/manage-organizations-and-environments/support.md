@@ -1,5 +1,5 @@
 ---
-description: An overview about support.
+description: Gravitee encourages you to engage your team first if your API Management 4.9 installation has issues. Learn what support covers.
 metaLinks:
   alternates:
     - >-

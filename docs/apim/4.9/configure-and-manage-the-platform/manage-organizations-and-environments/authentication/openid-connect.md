@@ -1,5 +1,5 @@
 ---
-description: An overview about openid connect.
+description: OpenID Connect is an authentication protocol built on OAuth 2.0, supported by API Management 4.9. Follow the steps to configure it.
 metaLinks:
   alternates:
     - >-

@@ -1,5 +1,5 @@
 ---
-description: An overview about authentication providers.
+description: Configure in-memory users, LDAP, or Active Directory authentication for API Management 4.9. Follow the steps for your provider.
 metaLinks:
   alternates:
     - >-

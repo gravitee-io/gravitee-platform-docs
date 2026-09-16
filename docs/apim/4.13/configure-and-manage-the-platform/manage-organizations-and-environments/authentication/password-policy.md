@@ -1,5 +1,5 @@
 ---
-description: The complexity rules APIM applies to passwords for locally managed accounts, and how to change them.
+description: The Console and Developer Portal share one user store in API Management 4.13, so one password policy applies. Learn the settings.
 ---
 
 # Password Policy

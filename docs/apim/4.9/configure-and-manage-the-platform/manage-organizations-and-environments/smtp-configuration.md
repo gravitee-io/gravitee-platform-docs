@@ -1,5 +1,5 @@
 ---
-description: An overview about smtp configuration.
+description: The SMTP configuration API Management 4.9 uses for sending email notifications. Follow the steps to point it at your mail server.
 metaLinks:
   alternates:
     - >-

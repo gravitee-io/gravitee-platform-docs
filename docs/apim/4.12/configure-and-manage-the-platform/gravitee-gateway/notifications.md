@@ -1,5 +1,5 @@
 ---
-description: An overview about notifications.
+description: Set up alerts and notifications based on events the API Management 4.12 Gateway recognizes. Learn what you can be notified about.
 metaLinks:
   alternates:
     - notifications.md

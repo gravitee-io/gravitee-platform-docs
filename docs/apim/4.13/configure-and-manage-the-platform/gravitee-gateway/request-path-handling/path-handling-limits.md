@@ -1,7 +1,5 @@
 ---
-description: >-
-  The path shapes no mode resolves or refuses, and why a segment carrying
-  parameters can defeat a path-based allow or deny rule.
+description: No path handling mode makes the API Management 4.13 Gateway a general defense against path traversal. Learn what is not supported.
 ---
 
 # What Path Handling does not support

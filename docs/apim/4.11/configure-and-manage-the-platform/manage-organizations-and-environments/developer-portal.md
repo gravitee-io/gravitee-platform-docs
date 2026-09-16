@@ -1,5 +1,5 @@
 ---
-description: An overview about developer portal.
+description: The Developer Portal gives API consumers a simplified interface onto your API Management 4.11 APIs. Learn how to configure it.
 metaLinks:
   alternates:
     - developer-portal.md

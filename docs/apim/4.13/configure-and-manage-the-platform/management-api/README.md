@@ -1,5 +1,5 @@
 ---
-description: An overview about management api.
+description: Configure general API Management 4.13 Management API settings in the gravitee.yaml file. Browse the configuration guides you need.
 metaLinks:
   alternates:
     - ./

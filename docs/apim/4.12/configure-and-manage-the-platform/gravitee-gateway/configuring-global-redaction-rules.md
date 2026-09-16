@@ -1,3 +1,7 @@
+---
+description: Configure platform-wide redaction rules in gravitee.yml before any API-specific rule in API Management 4.12. Follow the steps to set them.
+---
+
 # Configure Global Redaction Rules
 
 ## Gateway configuration

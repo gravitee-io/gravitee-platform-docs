@@ -1,6 +1,7 @@
 ---
 hidden: true
 noIndex: true
+description: Test that a new API Management 4.13 Gateway in a cluster syncs after the bridge crashes. Follow the steps to verify the behaviour.
 ---
 
 # Test that a new Gateway in a cluster user bridge syncs if the bridge crashes

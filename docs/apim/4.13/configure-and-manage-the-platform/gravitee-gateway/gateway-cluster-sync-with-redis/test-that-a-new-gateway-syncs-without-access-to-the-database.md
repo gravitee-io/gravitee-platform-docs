@@ -1,6 +1,7 @@
 ---
 hidden: true
 noIndex: true
+description: Test that a new API Management 4.13 Gateway syncs without access to the database. Follow the steps to verify that behaviour.
 ---
 
 # Test that a new Gateway syncs without access to the database

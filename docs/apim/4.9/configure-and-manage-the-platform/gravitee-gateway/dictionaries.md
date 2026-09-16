@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for dictionaries.
+description: Use dictionaries in a multi-tenancy API Management 4.9 deployment. Learn what dictionaries provide and where they apply.
 metaLinks:
   alternates:
     - >-
