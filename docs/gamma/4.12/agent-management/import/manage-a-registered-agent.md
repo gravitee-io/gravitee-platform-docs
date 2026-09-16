@@ -18,8 +18,7 @@ Right after you click **Register agent** on the registration form, the console o
 
 The **Agents** list shows each agent's name and description, its **Source**, its **Gateway state**, its **Governance** rung, its **Owner**, its **Publication** state on the platform it came from, its **Classification**, its **Protocols**, its **Model**, and its **Targets** verdict. The **Provider state**, **Entity ID**, **Version**, **URL**, and **Imported** columns are hidden until you turn them on. The actions menu at the end of each row offers **View details**, **Edit** for an agent registered by hand or **Resync** for an imported one, and **Remove**.
 
-<!-- TODO: Screenshot of a registered agent's Overview page, showing the actions bar, the Governance and Operations cards, and the About section -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-agent-detail.png" alt=""><figcaption><p>The Overview page of a registered agent</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-agent-detail.png" alt="The Overview page of a registered agent in Agent Management, with the Edit, Stop, and Remove actions, the Fails the EU AI Act banner, the Governance and Operations cards, and the About section"><figcaption><p>The Overview page of a registered agent</p></figcaption></figure>
 
 ## Read the Overview
 

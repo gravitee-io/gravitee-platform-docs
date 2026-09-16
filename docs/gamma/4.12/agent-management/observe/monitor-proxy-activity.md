@@ -30,9 +30,7 @@ To open the snapshot for an LLM Proxy, follow these steps:
 
 For an MCP Proxy, click **MCP Proxies** in step 1 instead.
 
-<!-- TODO: Screenshot of the Overview page of an LLM Proxy showing the four stat cards -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-proxy-overview-stats.png" alt=""><figcaption><p>The Overview page of an LLM Proxy</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-proxy-overview-stats.png" alt="The Overview page of an LLM Proxy, with the General and Connection cards, the Requests (24h), Cost (24h), Error rate (24h), and P95 latency (24h) stat cards, the Providers card, and the Observed relationships card"><figcaption><p>The Overview page of an LLM Proxy</p></figcaption></figure>
 
 ## Read the stat cards
 
@@ -79,9 +77,7 @@ A registered agent's **Activity** page reports what the agent did: the model and
 
 The time range picker at the top of the page opens on the last 24 hours. Every card on the page follows the range you pick.
 
-<!-- TODO: Screenshot of the Activity page of an agent, showing the Tokens by model chart, the Tool health table, and the Requests list -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-agent-activity.png" alt=""><figcaption><p>The Activity page of an agent</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-agent-activity.png" alt="The Activity page of an agent, with the Last 24 hours window, the Tokens by model chart, the Tool health table, and the Requests list with its Outcome, Asked by, and Stepped in filters"><figcaption><p>The Activity page of an agent</p></figcaption></figure>
 
 ### What the page needs
 
