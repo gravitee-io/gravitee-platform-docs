@@ -12,4 +12,4 @@ Score every agent in your estate against built-in compliance frameworks, and tur
 * [**View the lineage of an agent or a proxy**](view-agent-lineage.md): walk what an agent or a proxy depended on, reconstructed from gateway traffic over a time window.
 * [**Guard agent actions with Guardian Agents**](guard-agent-actions-with-guardian-agents.md): bind a Guardian into the MCP proxy policy chain so every intended action is judged in context before it executes.
 * [**Require human approval for MCP tool calls**](require-human-approval-for-mcp-tool-calls.md): declare approval rules against MCP tools so sensitive calls wait for a human decision before they execute.
-* [**Audit agent activity logs**](agent-activity-logs.md): read the single record that joins the decision chain, the result, and the cost for one consequential action.
+* [**Audit agent activity logs**](agent-activity-logs.md): read the record of one request an agent handled, with the calls it made through the AI Gateway and every decision a rule, a Guardian, or a person took on it.
