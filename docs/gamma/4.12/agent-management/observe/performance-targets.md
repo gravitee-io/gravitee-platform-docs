@@ -408,6 +408,32 @@ A target is checked against the analytics definition and against the APIs of its
     </tbody>
 </table>
 
+## Targets on an agent
+
+An agent's page carries a **Targets** entry when the APIM behind the console offers performance targets. Otherwise the page reads **Targets are not available** with the reason **This APIM does not offer performance targets.** The page has two tabs: **Rules** and **Notifications**.
+
+### Rules
+
+The **Rules** tab lists the thresholds this agent is held to. A target watches the traffic of the application that acts for the agent, so the tab is read-only until two facts hold, each with its own alert:
+
+* **No application acts for this agent yet**. Create the application from the agent's **Identity** page, as the alert's **Create its application on the Identity page** link does.
+* **Not on the AI Gateway yet**. The application hasn't sent traffic through a proxy yet, so nothing can be attributed to the agent.
+
+An agent with an application and traffic starts with four default rules: **Response time**, the p95 of the proxy fronting the agent, **Error rate**, the failed model and tool calls, **Cost per request**, and **Tokens per request**. **Restore defaults** puts the four back at their shipped thresholds after you changed or deleted them. The **Restore the default targets?** dialog says so and keeps your own rules and targets, and a **Default targets restored** notification confirms it. The filters offered when you narrow a rule are the proxies and models the agent's lineage saw in the last day. When nothing watches the agent, the tab reads **Nothing is watching this agent** with the reason.
+
+The rules can be edited by users who can create and update APIs. Everyone else reads them.
+
+The **Agents** list carries the outcome in its **Targets** column: **No target**, **Missed**, **Met**, or **Not evaluated**.
+
+### Notifications
+
+The **Notifications** tab chooses who hears about a change of verdict on the agent's targets, on two channels:
+
+* **Email**, sent to the agent's owner and to the members of its application. It's on for every event by default.
+* **Webhook**, one POST per change of verdict to the **Webhook URL** you enter. A Slack incoming webhook is recognized and formatted for Slack. It's off by default, and a channel that's on needs an http or https URL before the page saves.
+
+Each channel is turned on per event: **Target missed**, **Target met again**, **Target no longer evaluable**, and **Target evaluable again**. Changes wait in a **You have unsaved changes.** bar until you save.
+
 ## Limitations
 
 Two limits shape what a target is able to say.
