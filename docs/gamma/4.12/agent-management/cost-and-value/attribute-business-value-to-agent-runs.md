@@ -23,9 +23,7 @@ A tool's value is a **Reference value** in US dollars per successful call, set i
 
 A tool with no declared value reads **No declared value**. The notification that confirms the change says when it takes effect: the value applies on the next deployment of the MCP servers that use the tool. Saving a changed value rewrites the value book of every MCP Studio proxy that references the tool, and each proxy picks it up when you deploy it next.
 
-<!-- TODO: Screenshot of the Reference value row on an MCP tool's page in edit mode -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-value-tag-mcp-tool.png" alt=""><figcaption><p>The Reference value row on an MCP tool's page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/value-tag-mcp-tool.png" alt="An MCP tool's page with the Reference value row in edit mode: the amount field open with its confirm and cancel buttons, beside the Reference cost row"><figcaption><p>The Reference value row on an MCP tool's page, in edit mode</p></figcaption></figure>
 
 ## Read the value an agent delivered
 

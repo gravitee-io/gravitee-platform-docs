@@ -28,9 +28,7 @@ A **Created application** notification appears with the application's name. The 
 
 Until an OAuth identity is attached, the **Client ID** row reads **None yet — set one, or create an OAuth identity below** and carries an **Edit** button. Once an identity is attached, the row reads **Supplied by the OAuth identity** and can't be edited here.
 
-<!-- TODO: Screenshot of the Identity page of an agent with the Gateway application card filled in and the OAuth identity card below it -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-agent-identity.png" alt=""><figcaption><p>The Identity page of an agent</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-agent-identity.png" alt="The Identity page of a registered agent, with the Gateway application card filled in, its Client ID supplied by the OAuth identity, and the OAuth identity card below it with its Client and Details groups"><figcaption><p>The Identity page of an agent</p></figcaption></figure>
 
 ## Create an OAuth identity
 

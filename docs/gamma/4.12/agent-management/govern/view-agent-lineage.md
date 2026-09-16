@@ -24,9 +24,7 @@ You can also reach the page from the things it draws:
 * On an LLM Proxy, MCP Proxy, or A2A Proxy, the **Govern** group of the proxy's sidebar carries a **Lineage** item that opens the page in a new browser tab with the proxy as the starting point.
 * On a registered agent's page, the **Lineage** item of the **Agent** section shows a summary and an **Open lineage** button. See [Read the summary on an agent or a proxy](#read-the-summary-on-an-agent-or-a-proxy).
 
-<!-- TODO: Screenshot of the Lineage page with an agent as the starting point, showing the graph and the node details panel -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-lineage-page.png" alt=""><figcaption><p>The Lineage page walked from an agent</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-lineage-page.png" alt="The Lineage page with an agent as the starting point: the window buttons, the graph of the tools, MCP Proxy, LLM Proxy, and model the agent depended on, and the node details panel with its Depends on list"><figcaption><p>The Lineage page walked from an agent</p></figcaption></figure>
 
 ## Read the graph
 
