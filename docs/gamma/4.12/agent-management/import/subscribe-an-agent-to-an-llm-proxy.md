@@ -17,9 +17,7 @@ The agent's gateway application is the application that acts for the agent at th
 3. Click the agent's name.
 4. In the **Agent** section of the agent's sidebar, click **Models**.
 
-<!-- TODO: Screenshot of the Models page of an agent, showing one model card with a subscribed proxy and one with plans to take -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-agent-models.png" alt=""><figcaption><p>The Models page of an agent</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-agent-models.png" alt="The Models page of an agent, with the model the platform declares, which no proxy routes, and a second model whose LLM Proxy block shows the subscribed badge, the plan, the client ID, and the call path"><figcaption><p>The Models page of an agent: one model no proxy routes, and one with a subscribed LLM Proxy</p></figcaption></figure>
 
 ## Read the page
 

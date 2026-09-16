@@ -24,9 +24,7 @@ The link is one to one. An agent is fronted by at most one A2A Proxy, and a prox
 
 The page holds one card, **Exposed through**. Before any proxy is linked, it reads **No A2A proxy fronts &lt;agent&gt;. Callers reach it directly, so no plan, policy or audit trail applies on the way in.** and offers two buttons: **Route through the gateway** and **Open A2A proxies**.
 
-<!-- TODO: Screenshot of the Proxies page of an agent with the Exposed through card showing a linked A2A Proxy -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-agent-proxies.png" alt=""><figcaption><p>The Proxies page of an agent with a linked A2A Proxy</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-agent-proxies.png" alt="The Proxies page of an agent, with the Exposed through card showing the linked A2A Proxy, its plan count and running badge, and the Open proxy, Policies &amp; guardrails, and Detach buttons"><figcaption><p>The Proxies page of an agent with a linked A2A Proxy</p></figcaption></figure>
 
 ## Route the agent through a new proxy
 
