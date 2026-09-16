@@ -1,62 +1,60 @@
 ---
 hidden: true
 noIndex: true
-description: Consumers reach your agent by subscribing an application to a plan on its Gamma A2A Proxy. Follow the steps to prepare the plan and approve requests.
+description: Consumers reach your agent by subscribing an application to a plan on its A2A Proxy. Follow the steps to create and publish a plan in the Gamma console, show your terms in the Developer Portal, and approve the requests.
 ---
 
 # Let consumers subscribe to your agent
 
-A consumer gets access to an agent by subscribing an application to a plan of the A2A Proxy that exposes it. The plan decides how the consumer authenticates and whether a request is approved automatically or by you. A page of general conditions on the plan makes the consumer accept your terms, and the Developer Portal's subscription form collects the details you need before you approve. When the request is approved, the subscription becomes active and the consumer receives the credentials.
+A consumer gets access to an agent by subscribing an application to a plan of the A2A Proxy that exposes it. The plan decides how the consumer authenticates. In the Gamma console, the A2A Proxy's **Plans** page is where you create and publish plans, and its **Consumers** page is where subscription requests are handled. In the Developer Portal, the agent's listing carries the **Subscribe** action, and the terms you write for the agent are shown to the consumer before the request is sent.
 
-## The plan the wizard creates
+## Create and publish a plan
 
-When you create an A2A Proxy, the wizard's **Secure** step creates one plan and publishes it. With **API Key** the plan is named **Default API Key Plan** and reads the key as a bearer token. With **mTLS** the plan is named **Default mTLS Plan**. The plan uses manual validation, so every subscription request waits for your approval. The wizard also makes the proxy's API public and starts it.
+1. From the Gamma console sidebar, select **Agent Management**.
+2. In the **Secure** section of the sidebar, select **A2A Proxies**.
+3. Click the proxy's name.
+4. Under **Consumer Access**, click **Plans**. The page lists the proxy's plans with their **Name**, **Security**, **Created** date, and **Status**.
+5. Click **Create plan** and pick the security type: **Keyless**, **API Key**, **JWT**, **OAuth 2.0**, or **mTLS**.
+6. In the **General** step, enter the **Name**. It's shown to consumers subscribing to this proxy. A plan on an A2A Proxy takes a name and a security configuration and nothing else.
+7. In the **Configure** step, set the security. A **Keyless** plan skips the step. An **OAuth 2.0** plan names the **OAuth2 resource** declared on the proxy that validates the tokens, or an expression that resolves to one, and can **Extract payload** to forward the token payload to the upstream agent and **Check required scopes** against the **Required scopes** you list. The other security types use the same step an LLM Proxy plan does.
+8. In the **Review** step, check the plan and create it. The plan is created in staging.
+9. On the **Plans** page, open the plan's actions menu and click **Publish**. Consumers can subscribe to a published plan only.
 
-At this version, the A2A Proxy pages in the Gamma console have no plan or subscription pages. The API behind the proxy is listed in the APIM Console with the type **A2A Proxy**, and that's where you manage its plans and its subscriptions. The API doesn't appear in the API Management module of the Gamma console, which lists HTTP proxies only.
+To withdraw a plan, click **Close** in its actions menu. The **Close plan?** dialog warns that consumers lose access immediately.
 
-## Prepare the plan for consumers
+<!-- TODO: Screenshot of an A2A Proxy's Plans page with a published plan and the actions menu open -->
 
-1. In the APIM Console, open **APIs**.
-2. Select the A2A Proxy's API.
-3. Under **Consumers**, click **Plans**.
-4. Open the plan.
-5. Set the following on the plan's general settings, and then save.
+<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-a2a-proxy-plans.png" alt=""><figcaption><p>The Plans page of an A2A Proxy</p></figcaption></figure>
 
-<table><thead><tr><th width="330">Setting</th><th>What it does</th></tr></thead><tbody><tr><td><strong>Page of General Conditions</strong></td><td>The documentation page that holds your terms. When it's set, the Developer Portal shows the page in a <strong>Terms and Conditions</strong> dialog when the consumer subscribes, and the subscription is created only after the consumer clicks <strong>Accept</strong>.</td></tr><tr><td><strong>Auto validate subscription</strong></td><td>Off by default on the plan the wizard created. Leave it off to approve each request yourself, or turn it on to accept requests as they arrive.</td></tr><tr><td><strong>Consumer must provide a comment when subscribing to the plan (Classic Portal only)</strong></td><td>Requires a comment from the consumer, with an optional <strong>Custom message to display to consumer</strong>. As the label says, it applies to the Classic Developer Portal only.</td></tr></tbody></table>
+## Show your terms to the consumer
 
-## Add a subscription form
-
-The subscription form is defined once for the New Developer Portal and shown for every API a consumer subscribes to.
+The terms a consumer accepts before subscribing to an agent are written on the agent's navigation item in the New Developer Portal settings. The item must exist first. See [Publish your agent to the Developer Portal](publish-your-agent-to-the-developer-portal.md).
 
 1. In the APIM Console, open **Settings**.
 2. Under **Portal**, click **Settings**.
 3. Scroll to the **New Developer Portal** section.
-4. Click **Open Settings**.
-5. Click **Subscription Form**.
-6. Define the form, and then save.
+4. Click **Open Settings**. The New Developer Portal settings open in a new browser tab.
+5. Click **Navigation**.
+6. In the **Navigation items** panel, select the agent's item. The panel header reads **Linked Agent** followed by the name of the proxy.
+7. Turn on **Show Terms and Conditions**. The toggle is offered to users who can update the environment's documentation.
+8. Write the terms in the editor. Turn on **Preview** to read them as the consumer will.
 
 ## What the consumer does
 
-Once the proxy's API is listed in the Developer Portal, the consumer opens it and clicks **Subscribe**. The subscription flow has four steps:
+In the Developer Portal catalog, the consumer switches from **APIs** to **Agents**, opens the agent's listing, and clicks **Subscribe**. The flow then runs through the following steps:
 
-1. **Choose a plan**. The consumer picks the plan. When the plan has a page of general conditions, the **Terms and Conditions** dialog shows the page and the consumer clicks **Accept**.
-2. **Choose an application**. The consumer picks the application that will hold the credentials.
-3. **Configure Consumer**. For an API Key plan, the consumer chooses the API Key management mode. When a subscription form is defined, it appears here for the consumer to fill in.
+1. **Choose a plan**. The consumer picks one of the published plans.
+2. **Choose an application**. The consumer picks the application that holds the credentials. The step is skipped when the application is already chosen for the agent, and for a **Keyless** plan.
+3. **Configure Consumer**. When a subscription form is defined for the New Developer Portal, it's filled in here. When the agent has terms, a **Terms and Conditions** section shows them, and the request can't be sent until the consumer ticks the checkbox labelled `I accept the terms and conditions`.
 4. **Review**. The consumer clicks **Subscribe**.
 
-With manual validation, the subscription is created in **Pending** status.
+## Handle the requests
 
-## Approve the request
-
-1. In the APIM Console, open **APIs**.
-2. Select the A2A Proxy's API.
-3. Under **Consumers**, click **Subscriptions**.
-4. Open the pending subscription.
-5. Click **Validate subscription**. In the **Validate your subscription** dialog, set a **Validation period (optional)** and a **Message (optional)**, and then click **Validate**. To refuse the request instead, click **Reject subscription**.
-
-The subscription is accepted. For an API Key plan, the consumer sends the key as a bearer token in the `Authorization` header of every call to the proxy.
+1. On the A2A Proxy, under **Consumer Access**, click **Consumers**.
+2. Approve or reject each request that waits for a decision, and read the credential issued to an accepted one, the same way as for an LLM Proxy or MCP Proxy. See [Manage subscriptions](manage-subscriptions.md).
 
 ## Next steps
 
-* [Expose your agent with the A2A Proxy](../build/expose-agent-with-a2a-proxy.md): Create the proxy and its default plan.
-* [Establish consumer access](../../api-management/build/configure-your-api-proxy/establish-consumer-access.md): Applications, subscription lifecycle, and API key management for API proxies.
+* [Expose your agent with the A2A Proxy](../build/expose-agent-with-a2a-proxy.md). Create the proxy the plans belong to.
+* [Publish your agent to the Developer Portal](publish-your-agent-to-the-developer-portal.md). List the agent so consumers can find it.
+* [Manage subscriptions](manage-subscriptions.md). The subscription lifecycle on the Consumers page.

@@ -904,3 +904,5 @@ dashboarding
 Rovo
 Streamable
 Globbing
+Gemini
+evaluable

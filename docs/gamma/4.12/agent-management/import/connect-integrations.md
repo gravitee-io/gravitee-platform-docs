@@ -16,6 +16,8 @@ Gamma offers two kinds of model integration, and they differ in where the list o
 
 **Azure AI Foundry.** Gamma calls the Azure Resource Manager API with the credentials you supply and lists the model deployments in your Azure AI Foundry account. Only deployments whose provisioning state is `Succeeded` are offered for import.
 
+This page covers the integrations that import models. To connect an Azure AI Foundry project or a Gemini Enterprise Agent Platform project for the agents it hosts, see [Connect an agent platform](connect-an-agent-platform.md).
+
 A connection never stores the credential that reaches the provider. You supply that credential on each LLM Proxy that routes to the imported models. See [Create an LLM Proxy](../build/create-an-llm-proxy.md).
 
 ## Supported model providers
