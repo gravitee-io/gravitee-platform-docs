@@ -1,5 +1,5 @@
 ---
-description: An overview about user management.
+description: Set up and manage roles, scopes, permissions and users in API Management 4.9. Follow the steps to configure your organization.
 metaLinks:
   alternates:
     - >-

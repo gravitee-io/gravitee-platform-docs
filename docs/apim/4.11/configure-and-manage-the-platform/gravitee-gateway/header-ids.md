@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for header ids.
+description: The API Management 4.11 Gateway generates an id for every request and sets it in a header. Learn how to change the header names.
 metaLinks:
   alternates:
     - header-ids.md

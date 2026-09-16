@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for dictionaries.
+description: Dictionaries let platform administrators manage values across API Management 4.10 APIs, beyond per-API properties. Learn how they work.
 ---
 
 # Dictionaries

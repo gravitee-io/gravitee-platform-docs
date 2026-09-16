@@ -1,7 +1,5 @@
 ---
-description: >-
-  Confirm which path handling mode a Gateway actually came up in, and observe
-  the path values it holds for a request that carries dot segments.
+description: An unrecognized path handling value falls back rather than stopping the API Management 4.13 Gateway. Follow the steps to verify it.
 ---
 
 # Verify Path Handling on a Running Gateway

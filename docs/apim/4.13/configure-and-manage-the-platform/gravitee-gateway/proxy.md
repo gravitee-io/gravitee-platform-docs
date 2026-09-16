@@ -1,5 +1,5 @@
 ---
-description: An overview about proxy.
+description: Define specific proxies for specific use cases in API Management 4.13. Learn where proxy configurations can be applied to it.
 metaLinks:
   alternates:
     - proxy.md

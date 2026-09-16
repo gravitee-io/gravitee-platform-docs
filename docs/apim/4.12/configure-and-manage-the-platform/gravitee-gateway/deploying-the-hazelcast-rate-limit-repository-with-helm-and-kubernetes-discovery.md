@@ -1,3 +1,7 @@
+---
+description: Deploy the Hazelcast rate-limit repository for API Management 4.12 with Helm and Kubernetes discovery. Learn what the plugin configures.
+---
+
 # Deploying the Hazelcast Rate-Limit Repository with Helm and Kubernetes Discovery
 
 ## Helm Chart Overrides

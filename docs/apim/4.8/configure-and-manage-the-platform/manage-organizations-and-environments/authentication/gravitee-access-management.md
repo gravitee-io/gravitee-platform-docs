@@ -1,5 +1,5 @@
 ---
-description: An overview about gravitee access management.
+description: Gravitee offers Access Management alongside API Management 4.8 for full identity handling. Learn how the two products relate.
 ---
 
 # Gravitee Access Management

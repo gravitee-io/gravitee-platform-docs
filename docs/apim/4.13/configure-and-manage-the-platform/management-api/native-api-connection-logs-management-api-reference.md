@@ -1,3 +1,7 @@
+---
+description: The Management API v2 exposes three endpoints for native API connection logs in API Management 4.13. Browse the reference.
+---
+
 # Native API Connection Logs Management API Reference
 
 ## Management API

@@ -1,5 +1,5 @@
 ---
-description: An overview about alerts.
+description: Set alerting conditions for the API Management 4.13 Gateway from the platform settings. Follow the steps to configure them.
 metaLinks:
   alternates:
     - alerts.md

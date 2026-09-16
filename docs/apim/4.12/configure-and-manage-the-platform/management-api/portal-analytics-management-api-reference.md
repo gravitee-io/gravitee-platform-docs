@@ -1,3 +1,7 @@
+---
+description: The portal analytics REST endpoints let consumers and administrators retrieve API Management 4.12 dashboard data. Browse the reference.
+---
+
 # Portal analytics API reference
 
 The portal analytics REST endpoints let API consumers and administrators retrieve dashboard definitions and run analytics queries from the New Developer Portal. These endpoints belong to the **Portal API**, not the Management API. They are scoped to a single environment, require authentication, and require the `portal.next.analytics.enabled` environment parameter. When it's disabled, every analytics endpoint returns `403`. Results are scoped to the APIs and applications the authenticated user is allowed to see.

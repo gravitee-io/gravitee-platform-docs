@@ -1,3 +1,7 @@
+---
+description: Configure the Hazelcast rate-limit repository for standalone API Management 4.12 gateways. Follow the steps to set up the sample config.
+---
+
 # Configuring the Hazelcast Rate-Limit Repository for Standalone Gateways
 
 ## Gateway Configuration

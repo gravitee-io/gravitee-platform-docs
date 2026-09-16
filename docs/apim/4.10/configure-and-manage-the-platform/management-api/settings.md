@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for settings.
+description: Configure management settings from the Settings page of the API Management 4.10 Console. Learn what each setting controls.
 metaLinks:
   alternates:
     - settings.md

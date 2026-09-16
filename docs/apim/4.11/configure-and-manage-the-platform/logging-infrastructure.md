@@ -1,3 +1,7 @@
+---
+description: The API Management 4.11 Gateway and Management API enrich log entries with request metadata. Learn what context-aware logging adds.
+---
+
 # Context-aware logging
 
 ## Overview

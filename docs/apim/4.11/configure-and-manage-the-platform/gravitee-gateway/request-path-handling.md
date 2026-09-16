@@ -1,8 +1,5 @@
 ---
-description: >-
-  Choose how the Gateway treats the request path before it resolves the listener
-  context path. Compare the RAW, REJECT, and NORMALIZE modes, and understand what
-  they cover and what they leave open.
+description: The path handling setting is available from certain API Management 4.11 patch releases. Learn what it does and when you can use it.
 ---
 
 # Request Path Handling

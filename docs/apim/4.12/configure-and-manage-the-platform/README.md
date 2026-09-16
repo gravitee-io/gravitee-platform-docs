@@ -1,5 +1,5 @@
 ---
-description: Tutorial on configure & manage the platform.
+description: Configuring and managing the API Management 4.12 platform, split into three sections. Browse the area you need to change.
 ---
 
 # Configure & Manage the Platform

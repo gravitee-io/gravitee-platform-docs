@@ -1,6 +1,7 @@
 ---
 hidden: true
 noIndex: true
+description: Each API Management 4.12 tag has a key field separating the human-readable name from the identifier. Browse the schema reference.
 ---
 
 # Tag entity schema and key field reference

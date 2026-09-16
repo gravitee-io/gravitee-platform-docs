@@ -1,7 +1,5 @@
 ---
-description: >-
-  What the NORMALIZE and REJECT modes each do to a request path, the values the
-  Gateway holds afterwards, and the conditions REJECT refuses on.
+description: What each active path handling mode does to a request path in API Management 4.13. Browse the full reference for all the modes.
 ---
 
 # Request Path Handling Reference

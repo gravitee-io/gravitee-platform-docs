@@ -1,5 +1,5 @@
 ---
-description: Configure branded sender rules so that notification emails use a different From address and subject prefix per recipient domain.
+description: By default every API Management 4.13 notification email uses one sender address and subject. Learn how branded senders change that.
 ---
 
 # Branded Senders

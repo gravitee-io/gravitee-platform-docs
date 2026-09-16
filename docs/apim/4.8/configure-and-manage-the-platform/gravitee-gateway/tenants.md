@@ -1,5 +1,5 @@
 ---
-description: An overview about tenants.
+description: Tenants use the API Management 4.8 multi-endpoint capability to route to different backends. Learn what tenants provide.
 ---
 
 # Tenants

@@ -1,5 +1,5 @@
 ---
-description: An overview about manage organizations & environments.
+description: An organization is a logical part of a company sharing settings in API Management 4.10, containing environments. Learn the model.
 metaLinks:
   alternates:
     - ./

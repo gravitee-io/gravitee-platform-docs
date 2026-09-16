@@ -1,3 +1,7 @@
+---
+description: Gateway Cluster sync uses Redis to synchronize API Management 4.11 state across gateways. Follow the steps to configure it with Helm.
+---
+
 # Gateway Cluster sync with Redis using Kubernetes (Helm)
 
 ## Overview

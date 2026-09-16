@@ -1,5 +1,5 @@
 ---
-description: An overview about tenants.
+description: Tenants let an API Management 4.13 API select a backend endpoint per deployment. Learn how the multi-endpoint capability works.
 metaLinks:
   alternates:
     - tenants.md
