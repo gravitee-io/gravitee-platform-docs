@@ -76,26 +76,24 @@ Each detected domain becomes one agent under a source named **Shadow AI**, which
 1. From the Gamma console sidebar, select **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **Agents**.
 
-In the **Agents** list, the **Source** column reads **Shadow AI** for a detected domain, in a highlighted badge, where an agent registered from the console reads **Manual** and an imported one reads its platform's name.
+In the **Agents** list, the source reads under each agent's name: **Shadow AI** for a detected domain, **Manual** for an agent registered from the console, and the platform's name for an imported one. To list the detected domains alone, open the **Source** filter and select **Shadow AI**. A detected domain reads **Not on the gateway** in the **Gateway state** column, **Unassigned** in the **Owner** column, and **Discovered** in the **Governance** column.
 
 The actions menu at the end of the row still offers **Edit** and **Remove**. **Edit** is refused with a notification that Edge Management detected the agent and the next synchronization would write over an edit. **Remove** deletes the entry, and a later pass recreates it while the domain is still being detected.
 
-<!-- TODO: Screenshot of the Agents list with a shadow AI agent row showing the Shadow AI source badge -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-agents-list-shadow-ai.png" alt=""><figcaption><p>A shadow AI agent in the Agents list</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-agents-list-shadow-ai.png" alt="The Agents list filtered to the Shadow AI source, with three detected domains reading Shadow AI under their names, Not on the gateway as gateway state, Unassigned as owner, and Discovered as governance"><figcaption><p>The Agents list filtered to the Shadow AI source</p></figcaption></figure>
 
 ## Read a shadow AI agent's page
 
 Click the domain in the **Agents** list to open it. The page is built around having only an address, so it carries less than a registered agent's page:
 
-* The header shows the domain as the title, a **Shadow AI** badge, and the **Owner** row.
-* The sidebar holds **Overview** and nothing else. The bar of actions at the top of a registered agent's page isn't shown.
-* The **About** section opens with a note that nobody registered the agent, that Edge Management detected the domain carrying agent traffic and re-checks it on every synchronization, and that the sections describing a declared agent aren't shown. Its card holds four rows: **Source**, which reads `edge.shadow-ai`, **Classification**, **Created**, and **Updated**.
+* The header shows the domain as the title with a **Shadow AI** badge, the **Running** and **Discovered** badges, and the **Owner** and **Compliance owner** rows, which read **Nobody** and **Not named**.
+* The sidebar lists the same sections as a registered agent's page. A section nobody declared is marked **Not declared**, and a section the gateway would have to observe is marked **Not observable**. Opening one shows a sentence on why it's empty, for example that nobody declared an identity, so nothing can authenticate as the agent. **Overview** and **Compliance** open as they do for a registered agent. The bar of actions at the top of a registered agent's page isn't shown.
+* A **Shadow AI** banner reads **Nothing is enforced on this domain** and explains that Edge Management saw the traffic leave, and that no proxy, identity, policy, quota, or guardrail applies to it. Under it, the **Governance** card reads **Failing** and the **Operations** card reads **Not measurable**, because the traffic never crossed the gateway.
+* The **What nobody can see** section lists what the gateway never recorded: the model and its version, the prompts, documents, and customer data sent with them, the tokens and the bill they add up to, and the tools and systems it reached.
 * The **Detected traffic** section holds the traffic that produced the entry.
+* The **About** section opens with a note that devices in your fleet reached the domain directly, bypassing the gateway, and that nobody approved the service. Its card holds five rows: **Entity ID**, **Source**, which reads `edge.shadow-ai`, **Classification**, **Created**, and **Updated**. The **Agent card** section reads **Not declared**, because nothing publishes a card for the domain.
 
-<!-- TODO: Screenshot of a shadow AI agent's page showing the About card and the Detected traffic section -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-shadow-agent-page.png" alt=""><figcaption><p>The page of a shadow AI agent</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-shadow-agent-page.png" alt="The top of a shadow AI agent's page: the domain as title with the Shadow AI, Running, and Discovered badges, the sidebar with its Not declared and Not observable markers, the Nothing is enforced on this domain banner, the Governance and Operations cards, and the What nobody can see section"><figcaption><p>The top of a shadow AI agent's page</p></figcaption></figure>
 
 ### Rate the risk
 
@@ -103,7 +101,7 @@ Click the domain in the **Agents** list to open it. The page is built around hav
 
 ### Read the detected traffic
 
-The **Detected traffic** section reads the last 30 days of detections for the domain when the page opens, and it answers who inside the company is talking to the domain. The counts are the Edge Daemons' own tallies of connections, not the number of reports they sent.
+The **Detected traffic** section reads the last 30 days of detections for the domain when the page opens, and it answers who inside the company is talking to the domain. Each Edge Daemon lists its established connections at a fixed interval, and one observation is one connection seen in one pass, so a connection held open is counted in every pass it spans. The totals say how sustained the use is, not how many calls were made.
 
 <table>
     <thead>
@@ -115,11 +113,11 @@ The **Detected traffic** section reads the last 30 days of detections for the do
     <tbody>
         <tr>
             <td><strong>Processes</strong></td>
-            <td><strong>Process</strong>, the process as the daemon saw it, which on most systems is a path, and <strong>Detections</strong>.</td>
+            <td><strong>Process</strong>, the process as the daemon saw it, which on most systems is a path, and <strong>Observations</strong>.</td>
         </tr>
         <tr>
             <td><strong>Devices</strong></td>
-            <td><strong>Device</strong>, the identifier the daemon authenticates with, <strong>OS</strong>, read from the device's own heartbeats, and <strong>Detections</strong>. A device that reached the domain but sent no heartbeat in the window keeps its row and shows a dash for the OS.</td>
+            <td><strong>Device</strong>, the identifier the daemon authenticates with, <strong>OS</strong>, read from the device's own heartbeats, and <strong>Observations</strong>. A device that reached the domain but sent no heartbeat in the window keeps its row and shows a dash for the OS.</td>
         </tr>
     </tbody>
 </table>
