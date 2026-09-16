@@ -1,7 +1,5 @@
 ---
-description: >-
-  This guide focuses on installing the Data Plane using Docker Compose. The Data
-  Plane includes core components like the Gateway and Redis.
+description: Next-Gen Cloud supports hybrid API Management 4.9 deployments through Docker Compose. Follow the steps to configure the compose file.
 metaLinks:
   alternates:
     - >-

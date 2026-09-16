@@ -1,5 +1,5 @@
 ---
-description: An overview about vanilla kubernetes.
+description: Install a hybrid API Management 4.11 Gateway on Kubernetes and connect it to Next-Gen Cloud. Follow the steps to deploy it.
 metaLinks:
   alternates:
     - ./

@@ -1,5 +1,5 @@
 ---
-description: An overview about aws eks.
+description: Install a hybrid API Management 4.12 Gateway on Amazon EKS and connect it to Gravitee Cloud. Follow the steps to deploy it.
 metaLinks:
   alternates:
     - aws-eks.md

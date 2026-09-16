@@ -1,5 +1,5 @@
 ---
-description: An overview about link to a hybrid gateway.
+description: Link a new cloud token to an existing hybrid API Management 4.8 Gateway. Follow the steps to restore the Cloud connection.
 ---
 
 # Link to a Hybrid Gateway

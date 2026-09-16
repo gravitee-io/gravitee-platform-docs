@@ -1,5 +1,5 @@
 ---
-description: An overview about ---.
+description: Install a hybrid API Management 4.9 Gateway on Google Kubernetes Engine and connect it to Gravitee Cloud. Follow the steps to deploy.
 hidden: true
 noIndex: true
 metaLinks:
