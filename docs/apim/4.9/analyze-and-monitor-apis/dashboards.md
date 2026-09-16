@@ -1,5 +1,5 @@
 ---
-description: An overview about dashboards.
+description: The Gravitee Dashboard is where you build custom views of API Management 4.9 performance and status. Follow the steps to create one.
 metaLinks:
   alternates:
     - /broken/spaces/bGmDEarvnV52XdcOiV8o/pages/VzWZiY6KRkqyHZjWmeVT

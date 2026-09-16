@@ -1,5 +1,5 @@
 ---
-description: Create and manage OpenAPI documentation pages in the New Developer Portal navigation.
+description: Choose how each OpenAPI page renders in Developer Portal 4.12 navigation. Follow the steps to configure the rendering mode.
 ---
 
 # Creating OpenAPI Documentation Pages

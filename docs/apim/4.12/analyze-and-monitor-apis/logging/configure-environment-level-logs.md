@@ -1,3 +1,7 @@
+---
+description: Environment-level logs give cross-API visibility into v4 proxy API runtime logs in API Management 4.12. Follow the steps to view them.
+---
+
 # Configure Environment-level Logs
 
 ## Overview

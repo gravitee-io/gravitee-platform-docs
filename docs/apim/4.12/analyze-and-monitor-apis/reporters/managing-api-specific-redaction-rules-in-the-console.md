@@ -1,5 +1,5 @@
 ---
-description: Manage API-specific span attribute redaction rules in the Management Console.
+description: Configure span attribute redaction rules for a single API in the API Management 4.12 Console. Follow the steps to manage them.
 ---
 
 # Manage API-Specific Redaction Rules in the Management Console

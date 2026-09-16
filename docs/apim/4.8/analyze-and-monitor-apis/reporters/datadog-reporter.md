@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for datadog reporter.
+description: Send API Management 4.8 Gateway events to Datadog with the Datadog reporter plugin. Follow the steps to download and configure it.
 ---
 
 # Datadog Reporter

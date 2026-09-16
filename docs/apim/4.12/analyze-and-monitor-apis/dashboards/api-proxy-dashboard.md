@@ -1,3 +1,7 @@
+---
+description: Access and interpret the v4 proxy API traffic dashboard in API Management 4.12. Follow the steps to read what the dashboard reports.
+---
+
 # V4 Proxy API traffic dashboard
 
 ## Overview

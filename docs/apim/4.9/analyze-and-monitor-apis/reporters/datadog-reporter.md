@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/analyze-and-monitor-apis/reporters/datadog-reporter
+description: Send API Management 4.9 Gateway events to Datadog with the Datadog reporter plugin. Follow the steps to download and configure it.
 ---
 
 # Datadog Reporter

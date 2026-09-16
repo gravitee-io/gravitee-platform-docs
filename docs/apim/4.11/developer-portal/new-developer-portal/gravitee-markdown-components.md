@@ -1,3 +1,7 @@
+---
+description: Customize the New Developer Portal 4.11 with Gravitee Markdown components. Learn what the components give you to work with.
+---
+
 # Gravitee Markdown components
 
 ## Overview

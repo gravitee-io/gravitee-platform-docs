@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for configure webhook subscriptions.
+description: Configure a webhook subscription from the Developer Portal 4.13 catalog. Follow the steps to set it up for your application.
 metaLinks:
   alternates:
     - configure-webhook-subscriptions.md

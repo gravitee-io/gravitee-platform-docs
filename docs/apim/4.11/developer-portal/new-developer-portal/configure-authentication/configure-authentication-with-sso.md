@@ -1,3 +1,7 @@
+---
+description: Require a single sign-on login before users can reach the New Developer Portal 4.11. Follow the steps to configure SSO access.
+---
+
 # Configure authentication with SSO
 
 ## Overview&#x20;

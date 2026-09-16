@@ -1,3 +1,7 @@
+---
+description: The Catalog lets consumers discover the APIs published in the New Developer Portal 4.12. Learn how discovery works for them.
+---
+
 # Catalog
 
 ## Overview

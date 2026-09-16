@@ -1,5 +1,5 @@
 ---
-description: An overview about audit trail.
+description: The Audit Trail table and filters let you audit API consumption and activity in API Management 4.13. Follow the steps to use it.
 metaLinks:
   alternates:
     - audit-trail.md

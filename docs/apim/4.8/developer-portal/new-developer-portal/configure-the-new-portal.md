@@ -1,5 +1,5 @@
 ---
-description: An overview about configure the new portal.
+description: Run either the classic or the New Developer Portal 4.8, whichever you prefer. Follow the steps to configure your choice.
 ---
 
 # Configure the New Portal

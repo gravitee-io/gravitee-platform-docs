@@ -1,7 +1,5 @@
 ---
-description: >-
-  This section describes how to configure the high-level settings of the
-  Developer Portal
+description: Reach the Developer Portal 4.9 settings from the Management Console sidebar. Follow the steps to open and change the settings.
 metaLinks:
   alternates:
     - >-

@@ -1,5 +1,5 @@
 ---
-description: An overview about logging.
+description: Enable and configure logging at Gateway and API level in API Management 4.10, then view the detail. Browse the logging guides.
 ---
 
 # Logging
