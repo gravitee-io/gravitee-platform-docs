@@ -108,7 +108,7 @@ A sync mirrors the provider:
 * An agent the Catalog already holds is rewritten from what the provider says: its name, description, model, tags, state, endpoints, protocols, skills, version, and security schemes. The URL, provider, and documentation URL you set, the metadata you added, the owner, and whether you stopped the agent survive a sync.
 * An agent the provider no longer lists is removed, and only after a listing that completed. A listing that fails part-way removes nothing. On Gemini Enterprise Agent Platform, removal is scoped to the regions the sync managed to read.
 * For Azure AI Foundry, each agent's own card is read after the listing, eight agents at a time. When one card can't be read, that agent keeps the description, skills, version, and security schemes it already had, and the sync still succeeds.
-* A listing of more than 5,000 agents is refused rather than cut short, because a short listing would remove the agents it failed to mention.
+* For Azure AI Foundry, a listing of more than 5,000 agents, by default, is refused rather than cut short, because a short listing would remove the agents it failed to mention. For Gemini Enterprise Agent Platform, a sync reads up to 100 pages of agents per region.
 
 To refresh one agent without syncing the whole project, resync it from the bar at the top of the agent's page. See [Manage a registered agent](manage-a-registered-agent.md).
 
@@ -124,7 +124,7 @@ A **Connection updated** notification appears. A save that points the integratio
 
 A Gemini Enterprise Agent Platform integration has no **Edit** action. Another project is another integration, and its credential is rotated under **Credentials**.
 
-When the credential an integration signs in with was removed from **Credentials**, the **Credential** row reads **Credential missing** and every sync fails until another one is attached.
+When the credential an integration signs in with was removed from **Credentials**, the **Credential** row reads **Credential missing** and every sync fails. On an Azure AI Foundry integration, attach another credential with **Edit**. A Gemini Enterprise Agent Platform integration has no **Edit**, so the only way back is to remove the integration, which removes the agents it imported, and add it again.
 
 ## Remove an integration
 
