@@ -50,7 +50,7 @@ A guardian can conclude more than let it through or refuse:
 </table>
 
 {% hint style="warning" %}
-At version 1.0.0-beta.1 of the AI Guardian policy, a guardian that can't be reached, times out, or names a resource the gateway doesn't have lets the exchange through, and the record says that nothing was concluded. That version reads neither the **Fail mode** nor the **Dry run** setting of the **Add guardian** sheet.
+A guardian that can't be reached, times out, or names a resource the gateway doesn't have lets the exchange through, and the record says that nothing was concluded. The policy reads neither the **Fail mode** nor the **Dry run** setting of the **Add guardian** sheet.
 {% endhint %}
 
 Every decision is written down as a decision event that the gateway's reporters index: what the guardian concluded and, separately, what the gateway did about it, one record for the prompt and one for the answer. See [Where a guardian's decisions show](#where-a-guardians-decisions-show).
