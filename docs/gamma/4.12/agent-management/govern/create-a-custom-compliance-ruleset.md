@@ -80,6 +80,8 @@ Turn on the **Active** switch to list the ruleset on every agent's **Compliance*
 
 **Export evidence for an auditor** opens the same kind of evidence page a framework offers, generated from the last run.
 
+<figure><img src="../.gitbook/assets/gamma-aim-custom-ruleset-result.png" alt="A custom ruleset's page after a run: its four rules, the Active switch, the Last run time with the Run now button, the Overall result and Controls met tiles, and the Agents table with Classification, Compliance owner, Result, and Controls met columns"><figcaption><p>A custom ruleset's page after a run</p></figcaption></figure>
+
 ## Edit or delete a ruleset
 
 To edit, click the edit icon on the ruleset's card, change the name or the rules in the **Edit &lt;name&gt;** panel, and click **Save**. A **&lt;name&gt; updated** notification appears.

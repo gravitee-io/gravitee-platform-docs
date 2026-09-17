@@ -36,6 +36,8 @@ A **Classification updated** notification appears and the row shows the new rati
 * The built-in EU AI Act framework requires it: its **Risk classification** control is met once the agent is rated. The agent's **Compliance** page shows the rating in a **Classification** tile with an **Open Overview** link, because the rating is set on the agent's page and not on the compliance one. See [Score agent compliance with the EU AI Act framework](score-agent-compliance-with-the-eu-ai-act.md).
 * The estate tables of a framework and of a custom ruleset list every scored agent with its **Classification**.
 
+<figure><img src="../.gitbook/assets/gamma-aim-agent-classification-tile.png" alt="A rated agent's EU AI Act compliance page, with the Classification tile reading Moderate with its Open Overview link, beside the framework result tile and the Compliance owner tile"><figcaption><p>The Classification tile on a rated agent's EU AI Act page</p></figcaption></figure>
+
 ## Next steps
 
 * [Score agent compliance with the EU AI Act framework](score-agent-compliance-with-the-eu-ai-act.md). Read what else the framework asks of the agent.
