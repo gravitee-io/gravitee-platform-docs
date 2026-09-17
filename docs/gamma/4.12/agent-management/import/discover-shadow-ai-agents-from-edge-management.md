@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: Turn the AI provider domains Edge Management detects into shadow AI agents in the Agent Management Catalog. Learn how the synchronization runs and what a shadow AI agent's page shows.
 ---
 
