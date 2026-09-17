@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: A performance target declares what acceptable looks like for Gamma proxies and agents. Learn how rules are built, scoped, and evaluated.
 ---
 

@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: Activate the built-in EU AI Act framework, read the verdict it computes for every agent, close the gaps it lists on an agent, and export the evidence for an auditor. Follow the steps to activate the framework and remediate an agent.
 ---
 

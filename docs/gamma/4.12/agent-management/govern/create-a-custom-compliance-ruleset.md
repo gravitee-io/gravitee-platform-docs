@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: Check every agent's metadata or the policies on its proxies against rules of your own, run the ruleset on demand, and read the verdict per agent. Follow the steps to create, run, edit, and delete a custom ruleset.
 ---
 

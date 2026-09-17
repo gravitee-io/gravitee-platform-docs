@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: Consumers reach your agent by subscribing an application to a plan on its A2A Proxy. Follow the steps to create and publish a plan in the Gamma console, show your terms in the Developer Portal, and approve the requests.
 ---
 
