@@ -6,12 +6,12 @@ description: Rate an agent on Gravitee's four-step risk scale from its Overview 
 
 # Rate an agent's risk level
 
-Every agent in the Catalog carries a risk classification: the risk your organization rates the agent at. The scale is Gravitee's own, and a compliance framework reads it as an input to its own rules rather than dictating its values. Until someone rates the agent, it reads **Unclassified**.
+Every agent in the Catalog carries a risk classification: the risk your organization rates the agent at. The scale is Gravitee's own, and compliance frameworks use the rating in their checks. Until someone rates the agent, it reads **Unclassified**.
 
 The scale has four values:
 
-* **Negligible risk**. No risk was identified.
-* **Limited risk**. There is risk, and it's bounded.
+* **Negligible risk**. No risk was found.
+* **Limited risk**. Some risk was found, within acceptable limits.
 * **Moderate risk**.
 * **High risk**.
 
@@ -28,9 +28,7 @@ Once set, a rating can be changed to another value and can't be cleared back to 
 
 A **Classification updated** notification appears and the row shows the new rating.
 
-<!-- TODO: Screenshot of an agent's Overview page with the Classification panel open and a value selected -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-agent-classification.png" alt=""><figcaption><p>The Classification panel on an agent's Overview page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-agent-classification.png" alt="An agent's Overview page with the Classification panel open on the right, offering the Classification select and the Save and Cancel buttons"><figcaption><p>The Classification panel on an agent's Overview page</p></figcaption></figure>
 
 ## Where the rating is read
 
