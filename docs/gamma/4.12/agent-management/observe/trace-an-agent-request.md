@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: The Gamma Trace Explorer shows OpenTelemetry traces for a proxy as a timeline and a lineage view. Follow the steps to read a trace and its spans.
 ---
 

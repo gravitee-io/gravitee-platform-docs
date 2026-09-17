@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: The Lineage page of Agent Management reconstructs what an agent or a proxy depended on from gateway traffic. Follow the steps to walk a lineage and read its nodes.
 ---
 

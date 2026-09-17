@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: Price the resources Gamma agents consume and turn every run into a cost record you can attribute. Learn how cost and value fit together.
 ---
 

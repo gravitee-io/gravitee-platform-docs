@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: The Cost page of an agent adds up its model spend, tool spend, and human decisions over a period, and the Agent Overview dashboard charts them. Follow the steps to read both.
 ---
 
