@@ -3,6 +3,7 @@
 * [Overview](overview/README.md)
   * [LLM Proxy provider support](build/llm-proxy-provider-support.md)
   * [AI resources](build/ai-resources.md)
+  * [Release Notes](https://documentation.gravitee.io/platform-management/gamma-release-notes)
 * [Get started](get-started/README.md)
   * [Roles and permissions](get-started/roles-and-permissions.md)
   * [Create your first MCP server](get-started/create-your-first-mcp-server.md)
