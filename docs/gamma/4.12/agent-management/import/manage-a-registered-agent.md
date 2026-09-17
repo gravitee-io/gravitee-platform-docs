@@ -16,7 +16,7 @@ Right after you click **Register agent** on the registration form, the console o
 2. In the **Catalog** section of the sidebar, select **Agents**.
 3. Click the agent's name. Optional: To find it in a long list, type part of its name or description in the search box above the list, or filter by **Classification**.
 
-The **Agents** list shows each agent's name and description, its **Source**, its **Gateway state**, its **Governance** rung, its **Owner**, its **Publication** state on the platform it came from, its **Classification**, its **Protocols**, its **Model**, and its **Targets** verdict. The **Provider state**, **Entity ID**, **Version**, **URL**, and **Imported** columns are hidden until you turn them on. The actions menu at the end of each row offers **View details**, **Edit** for an agent registered by hand or **Resync** for an imported one, and **Remove**.
+The **Agents** list shows each agent's name and description, with its source under the name, and its **Gateway state**, **Provider state**, **Proxies**, **Classification**, **Compliance**, **Owner**, and **Governance** columns. The **Targets**, **Entity ID**, **Version**, **URL**, **Imported**, and **Updated** columns are hidden until you turn them on. The actions menu at the end of each row offers **View details**, **Edit** for an agent registered by hand or **Resync** for an imported one, and **Remove**.
 
 <figure><img src="../.gitbook/assets/gamma-aim-agent-detail.png" alt="The Overview page of a registered agent in Agent Management, with the Edit, Stop, and Remove actions, the Fails the EU AI Act banner, the Governance and Operations cards, and the About section"><figcaption><p>The Overview page of a registered agent</p></figcaption></figure>
 
@@ -51,7 +51,7 @@ The header carries the agent's name and description, a **Running** or **Stopped*
     </tbody>
 </table>
 
-Under the badges, an **Owner** row names the agent's owner, or **Nobody**. A **Compliance owner** row appears when a compliance framework applied to the agent includes an accountable-human control.
+Under the badges, an **Owner** row names the agent's owner, or **No owner**. A **Compliance owner** row appears when a compliance framework applied to the agent includes an accountable-human control.
 
 A bar pinned to the top of every page of the agent carries the actions that apply to the agent as a whole: **Edit** for an agent registered by hand or **Resync** for an imported one, **Stop** or **Start**, and **Remove**. The bar appears only for users who can update or delete the Catalog, and it stays empty for an agent that Edge Management detected rather than one somebody registered.
 
@@ -83,7 +83,7 @@ The **Governance** card reads **Passing**, **Failing**, or **Not fully checked**
         </tr>
         <tr>
             <td><strong>Proxies</strong></td>
-            <td>The name of the A2A Proxy that fronts the agent, or <strong>Callers reach it directly</strong>. An agent that publishes no A2A address reads <strong>Publishes no A2A address</strong>.</td>
+            <td>The name of the A2A Proxy that fronts the agent, or <strong>Callers reach it directly</strong>. An agent that publishes no A2A address reads <strong>Publishes no A2A address</strong>, and one that doesn't speak A2A reads <strong>Speaks no A2A</strong>.</td>
         </tr>
         <tr>
             <td><strong>Identity</strong></td>
@@ -91,18 +91,18 @@ The **Governance** card reads **Passing**, **Failing**, or **Not fully checked**
         </tr>
         <tr>
             <td><strong>Human in the loop inbox</strong></td>
-            <td>The row reads <strong>0</strong> in this build and links nowhere.</td>
+            <td>How many of the agent's calls are waiting for a person in the HITL inbox, which the row opens. It reads <strong>Nothing to read yet</strong> while the agent has no gateway application.</td>
         </tr>
     </tbody>
 </table>
 
-The **Operations** card appears only when the host API Management offers performance targets. It reads **On target**, **Off target**, or **Not fully checked**, and lists four checks. **Targets** reads **Not configured** until the agent has target rules, **Not evaluated yet** until one of them has a verdict, the rule that's breached and by how much, or how many rules are met. **Activity** reports how many proxies carry the agent's calls, or why its calls can't be read yet. **Cost** reads the last day's spend against the day before, for example **$12.40 in 24h, +12%**, badged **Off trend** when spend rose by a tenth or more and **On trend** otherwise, **No spend in 24h** when neither day spent anything, or **Nothing to read yet** when the agent's cost can't be read at all. The row is advisory, so it never changes the card's verdict, and it links to the agent's **Cost** page. **Decisions** reads **100%** in this build and links nowhere.
+The **Operations** card appears only when the host API Management offers performance targets. It reads **On target**, **Off target**, or **Not fully checked**, and lists four checks. **Targets** reads **Not configured** until the agent has target rules, **Not evaluated yet** until one of them has a verdict, the rule that's breached and by how much, or how many rules are met. **Activity** reads **Tracked on &lt;n&gt; proxies** when proxies carry the agent's calls. It reads **No proxy tracks its calls** when none does, or **No application, so calls cannot be attributed** when the agent has no gateway application. **Cost** reads the last day's spend against the day before, for example **$12.40 in 24h, +12%**. The row is badged **Off trend** when spend rose by a tenth or more and **On trend** otherwise. It reads **&lt;spend&gt; in 24h, nothing the day before** when only the last day spent, **No spend in 24h** when neither day spent anything, or **Nothing to read yet** when the agent's cost can't be read at all. The row is advisory, so it never changes the card's verdict, and it links to the agent's **Cost** page. **Decisions** reads the share of the agent's held calls that a person approved over the last day, and links to the decision history. It reads **No decision in 24h** when nobody decided one, or **Nothing to read yet** when the agent has no gateway application.
 
 A check that couldn't be read shows **Could not be read**, and the card's verdict falls to **Not fully checked**.
 
 ### The About section
 
-The **About** section holds what the Catalog records. For an imported agent it opens with a note that the data comes from the last synchronization and is rewritten by the next one, and that the proxy in front of the agent carries its own address and settings. For an agent registered by hand it says that nothing was read from a platform.
+The **About** section holds what the Catalog records. For an imported agent it opens with a note that the data is synced from your integration and overwritten on each sync. The note adds that the gateway settings, which can differ, are on the **Proxies** page. For an agent registered by hand it reads **Added manually**, and says that the details are the catalog record and the agent card its creator wrote.
 
 <table>
     <thead>
@@ -118,7 +118,7 @@ The **About** section holds what the Catalog records. For an imported agent it o
         </tr>
         <tr>
             <td>The platform column</td>
-            <td>Only for an agent a platform describes. It's titled with the platform's name, <strong>Azure AI Foundry</strong> for a Foundry agent, and holds the platform's <strong>State</strong> and <strong>Publication</strong> for the agent, its backing <strong>Model</strong>, and the platform's own facts, such as the <strong>Foundry ID</strong> and <strong>Revision</strong>.</td>
+            <td>Only for an agent a platform describes. It's titled with the platform's name, <strong>Azure AI Foundry</strong> for a Foundry agent, and holds the platform's <strong>State</strong> and <strong>Publication</strong> for the agent, its backing <strong>Model</strong>, the platform's own facts, such as the <strong>Foundry ID</strong> and <strong>Revision</strong>, and a <strong>Tools</strong> row that counts the tools the platform declares and links to the <strong>Tools</strong> page.</td>
         </tr>
         <tr>
             <td>The endpoints column</td>
@@ -206,7 +206,7 @@ The agent's sidebar has three sections. Each entry is a page of its own.
     </tbody>
 </table>
 
-An agent that Edge Management detected from traffic, rather than one somebody registered, has an **Overview** and nothing else. Its **About** section explains that the address is all the Catalog holds.
+An agent that Edge Management detected from traffic, rather than one somebody registered, lists the same entries, marked **Not declared** or **Not observable**. Its **Overview** is built around having only an address.
 
 ## Edit the name and description
 
@@ -225,12 +225,12 @@ An imported agent isn't edited here, because the next synchronization would writ
 The **Stop** button in the bar takes the agent out of service in one move. What it reaches depends on the agent: the subscriptions its gateway application holds are paused at the gateway, and, when the platform that hosts the agent allows it, the agent itself is stopped there. **Start** puts everything back.
 
 1. In the bar at the top of the agent's page, click **Stop**.
-2. In the **Stop this agent?** dialog, read the **What this reaches** list.
+2. In the **Stop this agent?** dialog, read the **What this stops** list.
 3. Click **Stop this agent**.
 
-An **Agent stopped** notification appears, and the header badge reads **Stopped** until you start the agent again. When part of the move failed, the notification reads **This agent was not fully stopped** instead. To start the agent, click **Start** in the bar, and then click **Start this agent** in the **Start this agent?** dialog, which lists what it restores under **What this restores**.
+An **Agent stopped** notification appears, and the header badge reads **Stopped** until you start the agent again. When part of the move failed, the notification reads **Agent only partly stopped. Check its provider and its subscriptions.** instead. To start the agent, click **Start** in the bar, and then click **Start this agent** in the **Start this agent?** dialog, which lists what it restarts under **What this restarts**. An **Agent started** notification appears.
 
-When the agent has no gateway application and its platform can't be told to stop it, the dialog reads **Nothing here can stop this agent** and offers **Go to Identity**, where the application is created.
+When the agent has no gateway application, no A2A Proxy fronts it, and its platform can't be told to stop it, the dialog reads **Cannot stop this agent**. It offers **Go to Identity**, where the application is created.
 
 The proxy that fronts the agent has a stop of its own on its **Settings** page. See [Agent kill switch](../build/agent-killswitch.md).
 
@@ -239,7 +239,7 @@ The proxy that fronts the agent has a stop of its own on its **Settings** page. 
 1. In the bar at the top of the agent's page, click **Remove**.
 2. In the **Remove this agent?** dialog, click **Remove agent**.
 
-Removal is immediate and can't be undone. The agent's gateway application goes with it, which closes every subscription that application held, and so does the identity the agent authenticated as. An A2A Proxy that fronts the agent is detached first and keeps running. A **Removed &lt;agent&gt;** notification appears, and the console returns to the **Agents** list. When the identity couldn't be removed from the identity service, the notification says so and asks you to remove it there.
+Removal is immediate and can't be undone. The agent's gateway application goes with it, which closes every subscription that application held, and so does the identity the agent authenticated as. An A2A Proxy that fronts the agent is detached first and keeps running. A **Removed &lt;agent&gt;** notification appears, and the console returns to the **Agents** list. When the identity couldn't be removed from the identity service, the notification reads **Removed &lt;agent&gt;, but its identity is still in the identity service**. It asks you to remove it there.
 
 ## Next steps
 

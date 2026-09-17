@@ -22,12 +22,12 @@ A registered agent's **Marketplace** page lists the agent in the Developer Porta
 2. In the **Catalog** section of the sidebar, select **Agents**.
 3. Click the agent's name.
 4. In the **Operations** section of the agent's sidebar, click **Marketplace**.
-5. In the **Agent Marketplace** card, under **Location**, select the navigation folder to list the agent under, or select **+ Create new location** and type a folder name under **New location name**. A new location becomes a top-level folder in the portal navigation.
+5. In the **Agent Marketplace** card, under **Location**, select the navigation item to list the agent under, or select **+ Create new location** and type a folder name under **New location name**. A new location becomes a top-level folder in the portal navigation. Leave **Enable Marketplace chat** on to let the Marketplace's chat reach the agent. It adds the portal's origin to the proxy's CORS allowed origins and redeploys the proxy.
 6. Click **Publish**.
 
-The listing is titled with the agent's name. The card then shows the listing's **Location** and a **Published** badge, and offers **Configure in Marketplace Editor**, which opens the navigation editor in a new tab, **View in Marketplace**, which opens the listing in the portal, **Unpublish**, and **Remove**. When the folder above the listing isn't published, the card warns that consumers can't reach the agent yet.
+The listing is titled with the agent's name, and a **&lt;agent&gt; is now in the Marketplace** notification appears. The card then carries a **Published** badge. It offers **Configure in Classic Console**, which opens the navigation editor in a new tab, **View in Marketplace**, which opens the listing in the portal, **Unpublish**, and **Remove**. When the section above the listing isn't published, the card warns that consumers can't reach the agent yet.
 
-**Unpublish** hides the listing and keeps it in the navigation, so **Publish** brings it back in place. **Remove** deletes the listing and the pages published under it from the navigation. The dialog is titled **Remove this agent from the portal?**, and the agent itself is left untouched.
+**Unpublish** hides the listing and keeps it in the navigation, so **Publish** brings it back in place, with an **Agent hidden from the Marketplace** or **Agent published to the Marketplace** notification. The badge reads **Unpublished** while the listing is hidden, and **Not published** before the agent is listed. **Remove** deletes the listing and the pages published under it from the navigation, after the **Remove this agent from the Marketplace?** dialog. The agent itself is left untouched, and an **Agent removed from the Marketplace** notification appears.
 
 Before a proxy is linked, the page reads **Nothing to list yet** and offers **Create proxy for the agent**, which opens the agent's **Proxies** page. An agent that publishes no A2A address reads **Not listable yet**.
 

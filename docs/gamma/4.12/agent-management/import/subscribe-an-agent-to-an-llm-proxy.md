@@ -17,15 +17,20 @@ The agent's gateway application is the application that acts for the agent at th
 3. Click the agent's name.
 4. In the **Agent** section of the agent's sidebar, click **Models**.
 
-<figure><img src="../.gitbook/assets/gamma-aim-agent-models.png" alt="The Models page of an agent, with the model the platform declares, which no proxy routes, and a second model whose LLM Proxy block shows the subscribed badge, the plan, the client ID, and the call path"><figcaption><p>The Models page of an agent: one model no proxy routes, and one with a subscribed LLM Proxy</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-agent-models.png" alt="The Models page of an agent registered by hand, with the Subscribe to an LLM proxy button, one model card, and the LLM Proxy block under it showing the subscribed badge, the plan, the call path, and the credential link"><figcaption><p>The Models page of an agent with a subscribed LLM Proxy</p></figcaption></figure>
 
 ## Read the page
 
-The page shows one card per model. The first card is the model the agent's platform declares as its backing model, marked with a **declared by the platform** badge. The cards after it are the models the agent already reaches through a subscription. An agent registered from the console declares no model, so its page holds only the cards its subscriptions bring.
+What the page shows depends on whether the agent's platform names the model it runs on:
 
-Under each model, the page lists every LLM Proxy that routes it. A proxy routes a model when one of the names the proxy serves the model under, aliases included, is the model's name. An LLM Proxy adopted from API Management rather than created in Gamma can't be matched to a model this way. When no proxy you can open routes the model, the card reads **No LLM proxy you can open routes this model.**
+* An imported agent whose platform names its model gets one card for that model, badged **Declared by provider** and **Direct**, with a note that the provider calls the model inside its own account, so those calls don't go through the gateway. The page offers no subscription for it. When the agent's application already holds subscriptions on LLM Proxies, they're listed under the card. A note says that the provider never calls a model through them, and each can be closed with **Unsubscribe**.
+* An agent registered by hand, or an imported agent whose platform names no model, gets the page described in the rest of this section: the models the agent calls, and the LLM Proxies that can route its prompts to them.
 
-Each proxy block shows the proxy's name, which links to the proxy, an **LLM proxy** badge, a **subscribed** badge when the application holds a subscription on it, and a **Routes** line that names the models the proxy serves. The **Policies & guardrails** button opens the proxy's Policy Studio. What follows in the block depends on whether the application already holds a subscription on the proxy:
+The page shows one card per model the agent reaches through a subscription, badged **Declared by provider** when the platform declared it. Under each model, the page lists every LLM Proxy that routes it. A proxy routes a model when one of the names the proxy serves the model under, aliases included, is the model's name. An LLM Proxy adopted from API Management rather than created in Gamma can't be matched to a model this way. When no proxy you can open routes the model, the card reads **No LLM proxy you can open routes this model.**
+
+Above the cards, under **Subscribe the application to an LLM proxy**, a note says that the gateway application gets a credential for a proxy that routes the model. Everything the proxy adds then applies: guardrails, quotas, failover, and cost attribution. When the agent has no gateway application yet, the page says so and offers **Create it on Identity**.
+
+Each proxy block shows the proxy's name, which links to the proxy, an **LLM proxy** badge, and a **subscribed** badge when the application holds a subscription on it. A **Routes** line names the models the proxy serves, and the **Policies & guardrails** button opens the proxy's Policy Studio. What follows in the block depends on whether the application already holds a subscription on the proxy:
 
 <table>
     <thead>
@@ -41,7 +46,7 @@ Each proxy block shows the proxy's name, which links to the proxy, an **LLM prox
         </tr>
         <tr>
             <td>No subscription, and the proxy publishes plans</td>
-            <td>One row per published plan, with the plan's name and its security badge: <strong>Keyless</strong>, <strong>API Key</strong>, <strong>JWT</strong>, <strong>OAuth2</strong>, or <strong>mTLS</strong>. A keyless plan reads <strong>Keyless: no subscription needed</strong>. Every other plan carries a <strong>Subscribe</strong> button.</td>
+            <td>One row per published plan, with the plan's name and its security badge: <strong>Keyless</strong>, <strong>API key</strong>, <strong>JWT</strong>, <strong>OAuth 2.0</strong>, or <strong>mTLS</strong>. A keyless plan reads <strong>Keyless: no subscription needed</strong>. Every other plan carries a <strong>Subscribe</strong> button.</td>
         </tr>
         <tr>
             <td>No subscription, and the proxy publishes no plan</td>
@@ -50,7 +55,7 @@ Each proxy block shows the proxy's name, which links to the proxy, an **LLM prox
     </tbody>
 </table>
 
-A JWT or OAuth2 plan needs a client ID on the application. When the application has none, the plan's row reads **needs a client id, attach an OAuth identity on Identity** and its **Subscribe** button stays disabled. An API Key or mTLS plan has no such requirement.
+A JWT or OAuth 2.0 plan needs a client ID on the application. When the application has none, the plan's row reads **needs a client id, attach an OAuth identity on Identity** and its **Subscribe** button stays disabled. An API key or mTLS plan has no such requirement.
 
 The page shows the models and subscriptions to anyone who can read the Catalog. The **Subscribe**, **Unsubscribe**, and **Subscribe to an LLM proxy** controls appear only for users who can update the Catalog.
 
@@ -70,13 +75,13 @@ A **Subscribed** notification appears, and the block switches to the subscriptio
 When no card lists the proxy you want, subscribe through the picker instead. The picker lists every LLM Proxy you can see, whether it routes one of the agent's models.
 
 1. On the **Models** page, click **Subscribe to an LLM proxy**. The button is disabled until the agent has a gateway application.
-2. In the **Subscribe to an LLM proxy** dialog, select the proxy under **LLM proxy**. The list holds the first 100 proxies. When the environment has more, the dialog says so and asks you to subscribe from the proxy itself.
-3. Select a plan under **Plan**. The list holds the proxy's published plans other than keyless plans. A JWT or OAuth2 plan reads **needs a client id, attach an OAuth identity on Identity** and can't be selected while the application has no client ID. When the proxy publishes no plan a subscription can take, the dialog reads **This proxy publishes no plan a subscription can take. Publish one on the proxy, then come back.**
+2. In the **Subscribe to an LLM proxy** dialog, select the proxy under **LLM proxy**. The list holds the first 100 proxies. When the environment has more, the dialog says so and asks you to subscribe from the proxy itself. The dialog states that the agent's gateway application subscribes to a plan on the proxy and can then reach what the proxy serves.
+3. Select a plan under **Plan**. The list holds the proxy's published plans other than keyless plans. A JWT or OAuth 2.0 plan reads **needs a client id, attach an OAuth identity on Identity** after its name and can't be selected while the application has no client ID. When the proxy publishes no plan a subscription can take, the dialog reads **This proxy publishes no plan a subscription can take. Publish one on the proxy, then come back.**
 4. Click **Subscribe**.
 
 ## Unsubscribe
 
-Unsubscribing closes the subscription. It can't be reopened, so giving the agent the same proxy again means subscribing to a plan afresh.
+Unsubscribing closes the subscription. The dialog warns that the agent loses access to the proxy's models and that this can't be undone, so giving the agent the same proxy again means subscribing to a plan afresh.
 
 1. On the **Models** page, in the proxy's block, click **Unsubscribe**.
 2. In the **Unsubscribe from &lt;proxy&gt;?** dialog, click **Unsubscribe**.
