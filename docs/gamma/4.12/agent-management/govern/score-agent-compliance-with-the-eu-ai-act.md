@@ -110,51 +110,47 @@ On an agent, every control ends in one of five states:
 * **Met**. The evidence is there.
 * `Gap`. The evidence is missing, too short, or absent from at least one of the proxies it's read from.
 * **Blocking**. The evidence names a value the framework refuses.
-* **Attested**. A person marked the control as done. It counts as met, and the framework page says how many controls were recorded rather than verified.
+* **Recorded**. A person marked the control as done. It counts as met, and the framework page says how many controls were recorded by hand.
 * **Not assessed**. The platform can't read the control yet and nobody marked it as done. It's left out of the score.
 
-The percentage of controls met is counted over the assessed controls only. The verdict is **Pass** when every assessed control is met or attested, and **Fail** otherwise. An agent with nothing assessed reads **Not assessed**.
+The percentage of controls met is counted over the assessed controls only. The result is **Passed** when every assessed control is met or recorded, and **Failed** otherwise. An agent with nothing assessed reads **Not assessed**.
 
 ## Activate the framework
 
 1. From the Gamma console sidebar, select **Agent Management**.
-2. In the **Govern** section of the sidebar, select **Compliance**. The page lists the frameworks and the custom rulesets of the environment with their **Type**, **Verdict**, **Controls met**, and whether each one is **Active**.
+2. In the **Govern** section of the sidebar, select **Compliance**. The page lists the frameworks and the custom rulesets of the environment with their **Type**, **Result**, **Controls met**, and whether each one is **Active**.
 3. Click **EU AI Act**. The framework's page opens.
 4. Turn on the **Active** switch.
 
 An **EU AI Act activated** notification appears. From then on the page scores the estate, and the framework appears on every agent's **Compliance** page. Turning the switch off stops the scoring and lists the framework as **Inactive**.
 
-<!-- TODO: Screenshot of the EU AI Act framework page with the Active switch on, the Estate posture facts, and the Agents table -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-compliance-eu-ai-act.png" alt=""><figcaption><p>The EU AI Act framework page scoring the estate</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-compliance-eu-ai-act.png" alt="The EU AI Act framework page with the Active switch on, the Overall result and Controls met facts, the Frameworks do not enforce policies alert, and the Agents table listing each scored agent with its Classification, Compliance owner, Result, and Controls met"><figcaption><p>The EU AI Act framework page scoring the estate</p></figcaption></figure>
 
 The framework's page reads as follows:
 
-* **Estate posture** is **Pass** or **Fail** for the estate, and **Controls met** is the share of controls met across it, with the number recorded rather than verified when someone attested one. Before anything is scored it reads **Nothing could be scored yet.**
-* An alert reads **This measures; it does not enforce**.
-* The **Agents** table lists every scored agent with its **Classification**, its **Compliance owner** (**Nobody named** until one is), its **Verdict**, and its **Controls met** as a percentage over the assessed controls.
-* **Close the gaps** lists the controls that are open across the estate and how many agents each one is open on, with an **Open overview** or **Open compliance** link to the agent. When nothing is open it reads **Nothing is open. Every scored agent meets every control applied to it.**
-* **Control → policy → enforcement point** lists each control with what it's **Satisfied by** and where it's **Enforced at**, including the policy that answers it.
+* **Overall result** is **Passed** or **Failed** for the estate, and **Controls met** is the share of controls met across it, with the number recorded by hand when someone marked one as done. Before anything is scored it reads **Nothing could be scored yet.**
+* An alert reads **Frameworks do not enforce policies**.
+* The **Agents** table lists every scored agent with its **Classification**, its **Compliance owner** (**No owner** until one is named), its **Result**, and its **Controls met** as a percentage over the assessed controls.
+* **Close the gaps** lists the controls that are open across the estate and how many agents each one is open on, with an **Open overview** or **Open compliance** link to the agent. When nothing is open it reads **Every assessed agent meets every control that applies to it.**
+* **Where controls are enforced** lists each control with what it's **Satisfied by** and where it's **Enforced at**, including the policy that answers it.
 
 ## Close an agent's gaps
 
 1. In the **Catalog** section of the sidebar, select **Agents**, and then click the agent's name.
-2. Under **Governance**, click **Compliance**. The page lists every active framework and custom ruleset with the agent's **Verdict** and **Controls met** for each.
+2. Under **Governance**, click **Compliance**. The page lists every active framework and custom ruleset with the agent's **Result** and **Controls met** for each.
 3. Click **EU AI Act**.
 4. Under **Close the gaps · record here**, fill in each open fact in its field and click **Save**. Recording the fact is the control.
 5. Under **Close the gaps · done elsewhere**, act on each open control:
    * A control read from the proxies reads **Missing on &lt;n&gt; of &lt;m&gt; proxies**. Click **Open policy studio** to add the policy on the proxy, and the control is met on the next read.
-   * A control the platform can't read yet reads **Enforced at &lt;surface&gt;, which the platform cannot read yet — so it is not counted against the score.** Click the **Open** link to reach the surface, and once it's done, click **Mark as done**. The control turns **Attested**.
+   * A control the platform can't read yet reads **Enforced at &lt;surface&gt;, which Gravitee cannot check yet, so it does not count against the score.** Click the link to reach the surface, and once it's done, click **Mark as done**. The control turns **Recorded**.
 
 The page also carries a **Classification** tile with an **Open Overview** link, because the rating is set on the agent's Overview page, and a **Compliance owner** tile with a **Name** or **Change** action to name the person accountable for the agent's compliance. **Show table** opens the full list of controls with where each one is **Enforced at** and its **Answer**.
 
-<!-- TODO: Screenshot of an agent's Compliance page for the EU AI Act framework with the posture tiles and the Close the gaps cards -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-agent-compliance-eu-ai-act.png" alt=""><figcaption><p>An agent's Compliance page for the EU AI Act framework</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-agent-compliance-eu-ai-act.png" alt="An agent's Compliance page for the EU AI Act framework: the EU AI Act tile with its result, the Classification tile with its Open Overview link, the Compliance owner tile with its Name action, and the Close the gaps · record here card"><figcaption><p>An agent's Compliance page for the EU AI Act framework</p></figcaption></figure>
 
 ## Export the evidence for an auditor
 
-On the framework's page, click **Export evidence for an auditor**. The page that opens is titled **EU AI Act · Evidence** and states what the platform can evidence for each agent as of the moment it was generated. It isn't a certification, and the framework scores rather than enforces.
+On the framework's page, click **Export evidence for an auditor**. The page that opens is titled **EU AI Act · Evidence** and lists which controls are met and where each is enforced, as of the moment it was generated. It isn't a certification.
 
 ## Score over the API
 

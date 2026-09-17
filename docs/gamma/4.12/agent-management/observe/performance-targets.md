@@ -410,16 +410,13 @@ A target is checked against the analytics definition and against the APIs of its
 
 ## Targets on an agent
 
-An agent's page carries a **Targets** entry when the APIM behind the console offers performance targets. Otherwise the page reads **Targets are not available** with the reason **This APIM does not offer performance targets.** The page has two tabs: **Rules** and **Notifications**.
+An agent's page carries a **Targets** entry when the APIM behind the console offers performance targets. Otherwise the page reads **Targets are not available** with the reason **This installation does not offer performance targets.** The page has two tabs: **Rules** and **Notifications**.
 
 ### Rules
 
-The **Rules** tab lists the thresholds this agent is held to. A target watches the traffic of the application that acts for the agent, so the tab is read-only until two facts hold, each with its own alert:
+The **Rules** tab lists the thresholds this agent is held to. A target watches the traffic of the proxies that front the agent and of the application that acts for it. The tab is read-only until the agent has one of them. Until then, an alert reads **Not on the AI Gateway yet**. It links to the agent's **Proxies** page with **Add an A2A proxy** and to its **Identity** page with **create its application**. The tab itself reads **No targets. A rule can be added once the agent has a proxy or an application.**
 
-* **No application acts for this agent yet**. Create the application from the agent's **Identity** page, as the alert's **Create its application on the Identity page** link does.
-* **Not on the AI Gateway yet**. The application hasn't sent traffic through a proxy yet, so nothing can be attributed to the agent.
-
-An agent with an application and traffic starts with four default rules: **Response time**, the p95 of the proxy fronting the agent, **Error rate**, the failed model and tool calls, **Cost per request**, and **Tokens per request**. **Restore defaults** puts the four back at their shipped thresholds after you changed or deleted them. The **Restore the default targets?** dialog says so and keeps your own rules and targets, and a **Default targets restored** notification confirms it. The filters offered when you narrow a rule are the proxies and models the agent's lineage saw in the last day. When nothing watches the agent, the tab reads **Nothing is watching this agent** with the reason.
+No rule is created for you. Before the first rule, the tab reads **No targets yet. Add a rule for traffic on this agent's proxies.** The filters offered when you narrow a rule are the proxies and models the agent's lineage saw in the last day.
 
 The rules can be edited by users who can create and update APIs. Everyone else reads them.
 

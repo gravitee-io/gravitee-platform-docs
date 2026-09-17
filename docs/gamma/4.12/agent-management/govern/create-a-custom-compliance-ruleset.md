@@ -20,9 +20,7 @@ A custom ruleset checks an agent's metadata or the policies on the proxies it de
 
 A **&lt;name&gt; created** notification appears and the ruleset is listed on the **Compliance** page.
 
-<!-- TODO: Screenshot of the Add a custom ruleset panel with one Metadata rule and one Policy rule -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-custom-ruleset-add.png" alt=""><figcaption><p>The Add a custom ruleset panel</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-custom-ruleset-add.png" alt="The Add a custom ruleset panel over the Compliance page, with the Name field, one Metadata rule under Rules, the Add a rule button, and the Create button"><figcaption><p>The Add a custom ruleset panel</p></figcaption></figure>
 
 ### What a rule reads
 
@@ -76,9 +74,9 @@ A ruleset is scored when you run it, and the last run is what its page and the a
 1. On the **Compliance** page, click the ruleset's name.
 2. Click **Run now**.
 
-A **&lt;name&gt;: &lt;n&gt;/&lt;m&gt; agents passed** notification appears, and the card reads **Last run** with the time. Before the first run it reads **Never run**. The **Agents** table lists every agent that was scored with its **Classification**, **Compliance owner**, **Verdict**, and **Controls met**. **Close the gaps** lists the rules that are open, with **Answered on the agent's page.** for a metadata rule and **Enforced by a policy on the proxies this agent depends on.** for a policy rule.
+A **&lt;name&gt;: &lt;n&gt;/&lt;m&gt; agents passed** notification appears, and the card reads **Last run** with the time. Before the first run it reads **Never run**. The **Agents** table lists every agent that was scored with its **Classification**, **Compliance owner** (**No owner** until one is named), **Result**, and **Controls met**. **Close the gaps** lists the rules that are open, with **Answered on the agent's page.** for a metadata rule and **Enforced by a policy on the proxies this agent depends on.** for a policy rule.
 
-Turn on the **Active** switch to list the ruleset on every agent's **Compliance** page. There, the agent's row opens the detail with each **Rule** and whether the **Control met**, and a **Run now** button that runs the whole ruleset again.
+Turn on the **Active** switch to list the ruleset on every agent's **Compliance** page. There, the agent's row opens the detail with each **Rule** and whether it's **Met**, a **Result** tile, and a **Run now** button that runs the whole ruleset again.
 
 **Export evidence for an auditor** opens the same kind of evidence page a framework offers, generated from the last run.
 

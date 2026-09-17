@@ -14,13 +14,13 @@ A consumer gets access to an agent by subscribing an application to a plan of th
 2. In the **Secure** section of the sidebar, select **A2A Proxies**.
 3. Click the proxy's name.
 4. Under **Consumer Access**, click **Plans**. The page lists the proxy's plans with their **Name**, **Security**, **Created** date, and **Status**.
-5. Click **Create plan** and pick the security type: **Keyless**, **API Key**, **JWT**, **OAuth 2.0**, or **mTLS**.
+5. Click **Create plan** and pick the security type: **Keyless**, **API key**, **JWT**, **OAuth 2.0**, or **mTLS**.
 6. In the **General** step, enter the **Name**. It's shown to consumers subscribing to this proxy. A plan on an A2A Proxy takes a name and a security configuration and nothing else.
-7. In the **Configure** step, set the security. A **Keyless** plan skips the step. An **OAuth 2.0** plan names the **OAuth2 resource** declared on the proxy that validates the tokens, or an expression that resolves to one, and can **Extract payload** to forward the token payload to the upstream agent and **Check required scopes** against the **Required scopes** you list. The other security types use the same step an LLM Proxy plan does.
+7. In the **Configure** step, set the security. A **Keyless** plan skips the step. An **OAuth 2.0** plan names the **OAuth 2.0 resource** declared on the proxy that validates the tokens, or an expression that resolves to one, and can **Extract payload** to forward the token payload to the upstream agent and **Check required scopes** against the **Required scopes** you list. The other security types use the same step an LLM Proxy plan does.
 8. In the **Review** step, check the plan and create it. The plan is created in staging.
 9. On the **Plans** page, open the plan's actions menu and click **Publish**. Consumers can subscribe to a published plan only.
 
-To withdraw a plan, click **Close** in its actions menu. The **Close plan?** dialog warns that consumers lose access immediately.
+To withdraw a plan, click **Close** in its actions menu. The **Close plan?** dialog warns that **Consumers lose access immediately**.
 
 <!-- TODO: Screenshot of an A2A Proxy's Plans page with a published plan and the actions menu open -->
 
