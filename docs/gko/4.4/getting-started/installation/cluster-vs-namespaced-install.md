@@ -16,7 +16,7 @@ By default, an APIM Gateway installed using the Helm Chart includes a limited se
 
 An overview of this architecture is described by the diagram below.
 
-<figure><img src="../../.gitbook/assets/k8s%20cluster%20mode.png" alt=""><figcaption><p>Default Cluster Mode architecture</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/k8s%20cluster%20mode.png" alt="One GKO instance watches API definitions in every namespace and creates a ConfigMap in each one."><figcaption><p>Default Cluster Mode architecture</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Namespaced Mode" %}
@@ -26,6 +26,6 @@ To achieve this architecture, the `manager.scope.cluster` value must be set to `
 
 An overview of this architecture is described by the diagram below.
 
-<figure><img src="../../.gitbook/assets/k8s%20namespaced%20mode.png" alt=""><figcaption><p>Multiple operators, each listening to its own namespace</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/k8s%20namespaced%20mode.png" alt="A separate GKO in each namespace creates ConfigMaps that only the local Gateway reads."><figcaption><p>Multiple operators, each listening to its own namespace</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
