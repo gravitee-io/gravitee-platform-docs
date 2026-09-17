@@ -17,13 +17,11 @@ What you can do on the page follows your role in the environment. Users who can'
 3. Click the proxy's name.
 4. Under **Consumer Access**, click **Consumers**.
 
-The page counts the subscriptions in three tiles, **Total**, **Accepted**, and **Pending**, and lists them with their **Application**, **Plan**, **Security**, **Status**, and **Created** date. Narrow the list with the **Status**, **Plan**, and **API Key** filters. When nothing matches, the list reads **No subscriptions match these filters.** **Export CSV** downloads the filtered list.
+The page counts the subscriptions in three tiles, **Total**, **Accepted**, and **Pending**, and lists them with their **Application**, **Plan**, **Security**, **Status**, and **Created** date. Narrow the list with the **Status**, **Plan**, and **API key** filters. When nothing matches, the list reads **No subscriptions match these filters.** **Export CSV** downloads the filtered list.
 
 A subscription is in one of five statuses: **Pending**, **Accepted**, **Paused**, **Rejected**, or **Closed**.
 
-<!-- TODO: Screenshot of the Consumers page of an A2A Proxy with the three tiles, the filters, and a few subscriptions -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-a2a-consumers.png" alt=""><figcaption><p>The Consumers page of an A2A Proxy</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-a2a-consumers.png" alt="The Consumers page of an A2A Proxy: the Total, Accepted, and Pending tiles, the Status, Plan, and API key filters, the Export CSV and Create subscription buttons, and one accepted subscription listed with its application, plan, security, status, and creation date"><figcaption><p>The Consumers page of an A2A Proxy</p></figcaption></figure>
 
 ## Create a subscription
 
@@ -41,7 +39,7 @@ The subscription appears in the list with its status.
 1. On the **Consumers** page, click the application's name on the subscription's row. The subscription's page opens, and its **Consumers** button leads back to the list.
 2. Click **Approve** to grant access, or **Reject** to deny it. Both appear while the request waits for a decision.
 
-A **Subscription approved** or **Subscription rejected** notification confirms the outcome. For an API Key plan, the key is generated when the subscription is accepted.
+A **Subscription approved** or **Subscription rejected** notification confirms the outcome. For an API key plan, the key is generated when the subscription is accepted.
 
 ## Read the credentials
 
@@ -51,17 +49,15 @@ The subscription's page carries two cards.
 
 **Credentials** holds what the consumer presents, which depends on the plan's security type:
 
-* For an **API Key** plan, a row says how the key is sent, following the plan's delivery mode: **Sent as** with `Authorization: Bearer`, **Sent as header** with the header's name, or **Sent as query parameter** with the parameter's name. The keys themselves sit in the **API Keys** card below.
+* For an **API key** plan, a row says how the key is sent, following the plan's delivery mode: **Sent as** with `Authorization: Bearer`, **Sent as header** with the header's name, or **Sent as query parameter** with the parameter's name. The keys themselves sit in the **API keys** card below.
 * For a **JWT** or **OAuth 2.0** plan, the **Client ID** the subscription was created with.
 * For an **mTLS** plan, the **Client certificate** the subscription was created with.
 
-<!-- TODO: Screenshot of a subscription's page on an A2A Proxy with the Subscription details, Credentials, and API Keys cards -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-a2a-subscription-detail.png" alt=""><figcaption><p>A subscription's page with its credentials</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-a2a-subscription-detail.png" alt="A subscription's page on an A2A Proxy: the Subscription details card with its ID, plan, status, and dates, the Credentials card reading Sent as with Authorization: Bearer, and the top of the API keys card with its Renew button"><figcaption><p>A subscription's page with its credentials</p></figcaption></figure>
 
 ## Manage the API keys
 
-For an API Key plan, the **API Keys** card lists each key with its **Created** date and its **Revoked / Expired** date. Until the subscription is accepted, the card reads **Generated when the subscription is accepted.**
+For an API key plan, the **API keys** card lists each key with its **Created** date and its **Revoked / Expired** date. Until the subscription is accepted, the card reads **Generated when the subscription is accepted.**
 
 * **Renew** generates a new key. A **API key renewed** notification confirms it.
 * **Copy key** copies a key's value.
@@ -70,7 +66,7 @@ For an API Key plan, the **API Keys** card lists each key with its **Created** d
 
 ## Pause and resume a subscription
 
-To suspend a consumer without closing its subscription, click **Pause** on an accepted subscription. The **Pause subscription?** dialog states that the consumer's access is suspended until the subscription is resumed. Click **Pause subscription** to confirm. The subscription turns **Paused**, and a **Subscription paused** notification appears.
+To suspend a consumer without closing its subscription, click **Pause** on an accepted subscription. The **Pause subscription?** dialog states that the consumer loses access to the proxy until you resume the subscription. Click **Pause subscription** to confirm. The subscription turns **Paused**, and a **Subscription paused** notification appears.
 
 To restore access, click **Resume** on a paused subscription. A **Subscription resumed** notification appears.
 
@@ -92,7 +88,7 @@ A **Subscription end date updated** notification appears, and the **Ending at** 
 
 ## Close a subscription
 
-On a pending, accepted, or paused subscription, click **Close subscription**. The **Close subscription?** dialog states that the consumer's access to the proxy is closed and the subscription is no longer active. Click **Close subscription** to confirm. A **Subscription closed** notification appears. A closed subscription can't be reopened from this page: create a new one instead.
+On a pending, accepted, or paused subscription, click **Close subscription**. The **Close subscription?** dialog states that the subscription ends for good and the consumer loses access to the proxy, and suggests pausing it instead to stop access for a while. Click **Close subscription** to confirm. A **Subscription closed** notification appears. A closed subscription can't be reopened from this page: create a new one instead.
 
 ## Next steps
 
