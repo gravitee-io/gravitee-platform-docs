@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: The Tools page of an agent lists what it calls in Azure AI Foundry and whether those calls go through the gateway. Follow the steps to subscribe the agent's application to the MCP Proxy that fronts a server, create that proxy, and point the tool at the gateway.
 ---
 

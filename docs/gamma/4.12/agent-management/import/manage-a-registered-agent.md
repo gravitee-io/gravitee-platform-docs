@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: A registered agent's page in the Catalog is the hub for everything Gamma holds and controls for it. Learn what its Overview, sidebar, and actions bar offer.
 ---
 

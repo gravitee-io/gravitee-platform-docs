@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: Put an A2A Proxy in front of a registered agent from its Proxies page, or link an existing proxy to it. Learn what the link enforces and how to detach it.
 ---
 

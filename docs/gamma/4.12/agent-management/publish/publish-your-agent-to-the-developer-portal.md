@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: List an agent exposed through a Gamma A2A Proxy in the Developer Portal catalog. Follow the steps to publish it and assign categories.
 ---
 

@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: The Models page of an agent lists the models it calls and the LLM Proxies that route them. Follow the steps to subscribe the agent's application to a proxy.
 ---
 
