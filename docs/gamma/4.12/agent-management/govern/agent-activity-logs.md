@@ -4,7 +4,7 @@ noIndex: true
 description: Read the record of one request an agent handled, with the calls it made through the AI Gateway and every decision a rule, a Guardian, or a person took on it. Learn where the record lives and what it carries.
 ---
 
-# Audit agent activity logs
+# Agent activity
 
 Every request an agent handles through the AI Gateway leaves a record: the call that reached the agent, the model and tool calls the agent made to answer it, and each decision a rule, a Guardian Agent, or a person took along the way. The agent's **Activity** page lists those records under **Requests**, and each one opens into a panel that names the identifiers, the decisions, and the gateway records behind it.
 
@@ -20,7 +20,7 @@ The record is assembled from what the gateway reported, not declared by anyone. 
 
 The list needs an A2A Proxy that fronts the agent. Without one it reads **This agent has no gateway proxy yet. Deploy an A2A proxy to see Activity here.** An agent with a proxy but no traffic in the time range reads **This agent has no activity yet.**
 
-The list follows the time range picker at the top of the page and shows the 25 most recent requests, grouped by UTC day with times in UTC.
+The list follows the time range picker at the top of the page and lists requests 25 at a time, newest first, grouped by UTC day with times in UTC. **Load older activity** at the bottom of the list fetches the next 25 and disappears once the time range is exhausted. While a page loads, the button reads **Loading older activity…**, and a fetch that fails reads **Could not load older activity. Try again.**
 
 <figure><img src="../.gitbook/assets/gamma-aim-activity-record.png" alt="The Requests list of an agent with one request expanded to its step, The agent received a request, and the technical details panel open beside it with the request's outcome, its Asked by row reading Not recorded, its conversation and request IDs, and its one gateway record"><figcaption><p>A request in the Requests list, expanded, with its technical details panel</p></figcaption></figure>
 
@@ -28,7 +28,7 @@ The list follows the time range picker at the top of the page and shows the 25 m
 
 A record joins two kinds of gateway records:
 
-* **The calls**. The inbound call the A2A Proxy received for the agent, and the model calls and tool calls the agent's gateway application made through the LLM and MCP Proxies. Calls that carry the same conversation ID are grouped into one request. A call with no conversation ID stands as a request of its own.
+* **The calls**. The inbound call the A2A Proxy received for the agent, and the model calls and tool calls the agent's gateway application made through the LLM and MCP Proxies. Calls that carry the same `X-Gravitee-Conversation-Id` header are grouped into one request. A model call or a tool call joins the request only when it received that header from its caller. A call without the header stands as a request of its own.
 * **The decisions**. Every decision written to the decision stream for those calls, joined by request ID: the authorization policy's, a human's through the HITL inbox, and an AI Guardian's. A human decision that was asked for and then taken appears once, with the outcome of the decision and the reason it was asked for.
 
 An authorization permit that carries no reason is treated as routine. It isn't listed among the decisions, and it doesn't count as someone stepping in.
@@ -112,7 +112,7 @@ The call labels are what the gateway recorded: **Inbound:** followed by the path
 ## What the record doesn't carry
 
 * **Cost**. The record on this page carries no price. What the request cost is read on the agent's **Cost** page and on the **Agent — Overview** dashboard.
-* **Older requests**. The list shows the 25 most recent requests of the time range. Narrow the range to reach earlier ones.
+* **Older requests**. The list loads 25 requests at a time. Click **Load older activity** to reach earlier ones, or narrow the time range to land on a day directly.
 
 ## Next steps
 

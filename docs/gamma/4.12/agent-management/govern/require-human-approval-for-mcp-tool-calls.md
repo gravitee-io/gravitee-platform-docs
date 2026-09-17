@@ -159,5 +159,5 @@ Open **Decisions** in the **Govern** section and click **Insights**. Select a pe
 ## Next steps
 
 * [Read what an agent cost](../cost-and-value/read-what-an-agent-cost.md). See human decisions next to model and tool spend for one agent.
-* [Audit agent activity logs](agent-activity-logs.md). Read the record of a consequential action.
+* [Agent activity](agent-activity-logs.md). Open the agent's **Activity** page to see the held tool call and the decision taken on it in the same request.
 * [Configure your MCP proxy](../build/configure-your-mcp/README.md). Find the proxy pages the **Human approval** flow lands on.
