@@ -20,7 +20,7 @@ A registered agent's **Marketplace** page lists the agent in the Developer Porta
 2. In the **Catalog** section of the sidebar, select **Agents**.
 3. Click the agent's name.
 4. In the **Operations** section of the agent's sidebar, click **Marketplace**.
-5. In the **Agent Marketplace** card, under **Location**, select the navigation item to list the agent under, or select **+ Create new location** and type a folder name under **New location name**. A new location becomes a top-level folder in the portal navigation. Leave **Enable Marketplace chat** on to let the Marketplace's chat reach the agent. It adds the portal's origin to the proxy's CORS allowed origins and redeploys the proxy.
+5. In the **Agent Marketplace** card, under **Location**, select the navigation item to list the agent under, or select **+ Create new location** and type a folder name under **New location name**. A new location becomes a top-level folder in the portal navigation.
 6. Click **Publish**.
 
 The listing is titled with the agent's name, and a **&lt;agent&gt; is now in the Marketplace** notification appears. The card then carries a **Published** badge. It offers **Configure in Classic Console**, which opens the navigation editor in a new tab, **View in Marketplace**, which opens the listing in the portal, **Unpublish**, and **Remove**. When the section above the listing isn't published, the card warns that consumers can't reach the agent yet.
