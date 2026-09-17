@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: Read the 24-hour activity snapshot on the Overview page of an LLM Proxy or MCP Proxy, and the Activity page of an agent. Learn what each card reports.
 ---
 
