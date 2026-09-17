@@ -23,13 +23,13 @@ A registered agent's **Marketplace** page lists the agent in the Developer Porta
 5. In the **Agent Marketplace** card, under **Location**, select the navigation item to list the agent under, or select **+ Create new location** and type a folder name under **New location name**. A new location becomes a top-level folder in the portal navigation.
 6. Click **Publish**.
 
-The listing is titled with the agent's name, and a **&lt;agent&gt; is now in the Marketplace** notification appears. The card then carries a **Published** badge. It offers **Configure in Classic Console**, which opens the navigation editor in a new tab, **View in Marketplace**, which opens the listing in the portal, **Unpublish**, and **Remove**. When the section above the listing isn't published, the card warns that consumers can't reach the agent yet.
+The listing is titled with the agent's name, and a **&lt;agent&gt; is now in the Marketplace** notification appears. The card then carries a **Published** badge. It offers **Configure in Portal Editor**, which opens the navigation editor in a new tab, **View in Marketplace**, which opens the listing in the portal, **Unpublish**, and **Remove**. When the section above the listing isn't published, the card warns that consumers can't reach the agent yet.
 
 **Unpublish** hides the listing and keeps it in the navigation, so **Publish** brings it back in place, with an **Agent hidden from the Marketplace** or **Agent published to the Marketplace** notification. The badge reads **Unpublished** while the listing is hidden, and **Not published** before the agent is listed. **Remove** deletes the listing and the pages published under it from the navigation, after the **Remove this agent from the Marketplace?** dialog. The agent itself is left untouched, and an **Agent removed from the Marketplace** notification appears.
 
 Before a proxy is linked, the page reads **Nothing to list yet** and offers **Create proxy for the agent**, which opens the agent's **Proxies** page. An agent that publishes no A2A address reads **Not listable yet**.
 
-<figure><img src="../.gitbook/assets/gamma-aim-agent-marketplace-published.png" alt="The Marketplace page of an agent: the Agent Marketplace card with the Published badge, the Location field, the Configure in Classic Console, View in Marketplace, Unpublish, and Remove buttons, and the Enable Marketplace chat toggle"><figcaption><p>The Marketplace page of an agent after it was published</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-agent-marketplace-published.png" alt="The Marketplace page of an agent: the Agent Marketplace card with the Published badge, the Location field, the Configure in Portal Editor, View in Marketplace, Unpublish, and Remove buttons, and the Enable Marketplace chat toggle"><figcaption><p>The Marketplace page of an agent after it was published</p></figcaption></figure>
 
 ## Add the agent to the navigation from the APIM Console
 
