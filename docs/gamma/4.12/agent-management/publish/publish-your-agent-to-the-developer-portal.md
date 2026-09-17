@@ -83,11 +83,11 @@ Consumers find an agent in the following ways:
 
 * **Browse by category**. The **Category** dropdown filters the catalog to the items assigned to that category.
 * **Search**. The search bar matches the agent's name. When **Approximate spelling for API search** is turned on in the New Developer Portal settings, close misspellings match too.
-* **Open the listing**. Selecting the card opens the agent's documentation on its first published page. A **Subscribe** button starts a subscription to the A2A Proxy behind the agent. Consumers who aren't signed in see **Sign in to subscribe** instead.
+* **Open the listing**. Selecting the card opens the agent's documentation on its first published page. The agent's page shows its **Capabilities**, its **Input / Output** modes, and its **Skills** with their examples. A **Subscribe** button starts a subscription to the A2A Proxy behind the agent. Consumers who aren't signed in see **Sign in to subscribe** instead.
 
 A listing follows the visibility of its navigation item and of the folders above it. An unpublished item is hidden from everyone, and an item that requires authentication is hidden from consumers who aren't signed in.
 
-<figure><img src="../.gitbook/assets/gamma-portal-agent-listing.png" alt="An agent's listing in the Developer Portal: the Agents navigation on the left, the agent's page with its Input / Output and Skills sections, and the Sign in to subscribe button"><figcaption><p>An agent's listing in the Developer Portal, as a consumer who isn't signed in sees it</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-portal-agent-listing.png" alt="An agent's listing in the Developer Portal: the Agents navigation on the left, the agent's page with its Capabilities, Input / Output, and Skills sections, and the Subscribe button"><figcaption><p>An agent's listing in the Developer Portal, as a signed-in consumer sees it</p></figcaption></figure>
 
 ## Next steps
 
