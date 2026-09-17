@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: The Consumers page of an A2A Proxy lists the applications subscribed to its plans. Follow the steps to create a subscription, approve a request, read the credentials, pause, transfer, or close a subscription, and manage its API keys.
 ---
 
