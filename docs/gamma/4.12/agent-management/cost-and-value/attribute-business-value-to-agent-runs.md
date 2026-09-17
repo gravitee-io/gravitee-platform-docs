@@ -34,6 +34,8 @@ The value credited to an agent's successful tool calls shows in two places, both
 
 See [Read what an agent cost](read-what-an-agent-cost.md) for the rest of both screens.
 
+<figure><img src="../.gitbook/assets/gamma-aim-agent-spend-and-value.png" alt="The Spend and value card of an agent's Cost page: the Model spend, Tool spend, and Human decision cost tiles with their share of spend, and the Value delivered tile marked Declared value"><figcaption><p>The Spend and value card of an agent's Cost page</p></figcaption></figure>
+
 ## Next steps
 
 * [Agent FinOps](agent-finops.md). Set the prices the cost half of the ledger is built from.
