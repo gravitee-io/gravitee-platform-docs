@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: >-
   Attach prices to the catalog models and MCP tools agents consume, price human
   decisions, and read what a proxy or an agent cost at the AI Gateway.

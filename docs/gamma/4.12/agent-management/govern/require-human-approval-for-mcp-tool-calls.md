@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: Declare approval rules against MCP tools so that matching tool calls wait at the AI Gateway for a human decision. Follow the steps to write rules, decide on held calls, and price decisions.
 ---
 

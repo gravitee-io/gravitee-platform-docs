@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: Read the record of one request an agent handled, with the calls it made through the AI Gateway and every decision a rule, a Guardian, or a person took on it. Learn where the record lives and what it carries.
 ---
 

@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: The Identity page of an agent creates the gateway application that acts for it and gives that application an OAuth identity from Gravitee Access Management. Follow the steps to set both up.
 ---
 

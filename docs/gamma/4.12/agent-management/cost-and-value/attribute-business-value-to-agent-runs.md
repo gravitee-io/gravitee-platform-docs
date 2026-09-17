@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: Declare the business value an MCP tool delivers per successful call, and read the value an agent's tool calls delivered against what they cost. Follow the steps to set and read it.
 ---
 
