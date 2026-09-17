@@ -10,7 +10,7 @@ The framework measures and doesn't enforce. A control is met by a fact recorded 
 
 ## What the framework checks
 
-Each control is answered from one place. The controls answered from the agent's record are recorded on the agent's **Compliance** page. The controls answered from the proxies are read by the platform, as long as it has something to read. When no application acts for the agent, when no gateway-mediated call from the agent was observed in the last 24 hours, or when no LLM Proxy carries it, those controls read **Not assessed** instead. The controls answered elsewhere can't be read by the platform yet. A control that reads **Not assessed** doesn't count against the score until someone marks it as done, whichever place it's answered from.
+Each control is answered from one place. The controls answered from the agent's record are recorded on the agent's **Compliance** page. The controls answered from the proxies are read by the platform, as long as it has something to read. Without an application, without a gateway-mediated call in the last 24 hours, or without an LLM Proxy, those controls read **Not assessed** instead. The controls answered elsewhere can't be read by the platform yet. A control that reads **Not assessed** doesn't count against the score until someone marks it as done, whichever place it's answered from.
 
 <table>
     <thead>
