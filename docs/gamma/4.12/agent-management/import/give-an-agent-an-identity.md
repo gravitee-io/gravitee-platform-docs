@@ -30,8 +30,6 @@ A **Created application** notification appears with the application's name. The 
 
 Until an OAuth identity is attached, the **Client ID** row reads **Not set. Set one or create an OAuth identity.** and carries an **Edit** button. To set or change the client ID, click **Edit**, enter the value or clear the field, and click **Save**, which stays disabled until the value changes. A **Client ID set to …** or **Client ID cleared** notification confirms it. When the save fails, **Could not set the client ID** appears and the field stays open. Once an identity is attached, the row shows the identity's client ID with a copy button, marked **Supplied by the OAuth identity**, and has no **Edit** button. Until the identity supplies one, the row reads **Not set. The OAuth identity supplies it.**.
 
-<figure><img src="../.gitbook/assets/gamma-aim-agent-identity.png" alt="The Identity page of a registered agent, with the Gateway application card filled in, its Client ID supplied by the OAuth identity, and the OAuth identity card below it with its Client and Details groups"><figcaption><p>The Identity page of an agent</p></figcaption></figure>
-
 ## Create an OAuth identity
 
 Once the application exists, an **OAuth identity** card appears below it. The card gives the application an identity of its own, whose client ID replaces the application's. The identity is created in Gravitee Access Management, so the environment's Access Management connection has to be set up first. Without it, the card reads **Identity service not connected** and links to the Access Management settings of Platform Management.
@@ -51,6 +49,8 @@ Once an identity is attached, the **OAuth identity** card shows what the identit
 Turning on the other credential mode's switch and saving asks you to confirm in a **Switch credentials to …?** dialog, with **Keep editing** and **Switch and save**, because whatever authenticates with the current credentials stops working when you save. Turning off the current mode's switch removes its credentials when you save, without asking. An identity created with CIMD shows a **CIMD URL** row and a **CIMD metadata document** card, and has no credentials to edit. When the identity can't be read, the card reads **Could not load the identity**.
 
 **Delete identity** opens the **Delete this identity?** dialog. The application stays and can be given a new identity. Whatever authenticates with the deleted client ID can no longer do so, and the deletion can't be undone. Click **Delete identity** to confirm. An **Identity deleted** notification appears. When the identity could be detached from the application but not removed from Access Management, a warning reads **The identity was detached but still exists in the identity service**, followed by the service's error, and you remove the identity in Access Management yourself. When the deletion is refused, **Could not delete identity** appears inside the dialog, which stays open so you can retry.
+
+<figure><img src="../.gitbook/assets/gamma-aim-agent-identity.png" alt="The Identity page of a registered agent, with the Gateway application card filled in, its Client ID supplied by the OAuth identity, and the OAuth identity card below it with its Client and Details groups"><figcaption><p>The Identity page of an agent with an OAuth identity attached</p></figcaption></figure>
 
 ## Next steps
 
