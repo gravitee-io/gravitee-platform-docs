@@ -24,9 +24,9 @@ Rules don't hold anything on their own. A proxy holds its tool calls only once h
 3. Select the proxy.
 4. On the **Overview** page, in the **Human approval** card, turn on **Enable human approval**.
 
-The card reads **Human approval enabled** and explains that tool calls matching an approval rule are held at the gateway until someone decides in the HITL inbox. The setting is saved as you switch it and applies on the proxy's next deployment. It adds a flow named **Human approval** to the proxy, on the `tools/call` method, with a **Human approval** step on the request and the response, which you can see in the Policy Studio. Turning the switch off removes that flow.
+The card reads **Human approval enabled**. It explains that matching tool calls wait until someone decides in the HITL inbox. The setting applies on the next deployment and is saved as you switch it. It adds a flow named **Human approval** to the proxy, on the `tools/call` method, with a **Human approval** step on the request and the response, which you can see in the Policy Studio. Turning the switch off removes that flow.
 
-To see which proxies are under approval, open **HITL** in the **Govern** section and click **Coverage**. The **Human approval** column reads **On** or **Off** for each MCP Proxy, and the page reminds you that it shows the saved configuration, which takes effect on the proxy's next deployment. Use **Covered** and **All proxies** to narrow the list.
+To see which proxies are under approval, open **HITL** in the **Govern** section and click **Coverage**. The **Human approval** column reads **On** or **Off** for each MCP Proxy, and the page notes that changes apply after the proxy is redeployed. Use **Covered** and **All proxies** to narrow the list.
 
 <figure><img src="../.gitbook/assets/hitl-proxy-human-approval-card.png" alt="The Overview page of an MCP Proxy with the Human approval card: the Enable human approval switch on and the card reading Human approval enabled"><figcaption><p>The Human approval card on an MCP Proxy's Overview page</p></figcaption></figure>
 
@@ -61,7 +61,7 @@ Both open the **New approval rule** panel with the following fields:
         </tr>
         <tr>
             <td><strong>Argument conditions</strong></td>
-            <td>Optional. Each condition names an argument path, an operator, and a value, and the rule holds a call only when every condition matches its arguments. Operators: <strong>=</strong>, <strong>≠</strong>, <strong>&gt;</strong>, <strong>≥</strong>, <strong>&lt;</strong>, <strong>≤</strong>, <strong>contains</strong>, and <strong>matches</strong>. A rule without conditions holds every call of the tool.</td>
+            <td>Optional. Each condition names an argument path, an operator, and a value, and a call needs approval only when its arguments match every condition. Operators: <strong>=</strong>, <strong>≠</strong>, <strong>&gt;</strong>, <strong>≥</strong>, <strong>&lt;</strong>, <strong>≤</strong>, <strong>contains</strong>, and <strong>matches</strong>. A rule without conditions holds every call of the tool.</td>
         </tr>
         <tr>
             <td><strong>Time to decide (seconds)</strong></td>
@@ -90,15 +90,15 @@ Click **Create rule**. A **Rule created** notification appears.
 
 The conditions compare as follows. An argument the call didn't send satisfies only **≠**. When both the argument and the value read as numbers, the comparison is numeric, and otherwise it's a text comparison. **contains** looks for the value inside the argument, and **matches** tests the argument against a regular expression, which is checked when you save the rule.
 
-The **Rules** tab lists the rules in evaluation order, with **P** and the priority on each name, a **catalog** badge on anchored rules, and **every call** under **Conditions** for a rule without conditions. When a held call could match several rules, the first enabled match decides. A call no rule matches runs without waiting for anyone. Deleting a rule stops it guarding new calls, and the approvals it already opened are kept.
+The **Rules** tab lists the rules in evaluation order, with **P** and the priority on each name, a **catalog** badge on anchored rules, and **every call** under **Conditions** for a rule without conditions. When a held call could match several rules, the first enabled match decides. A call no rule matches runs without waiting for anyone. Deleting a rule stops it requiring approval for new tool calls, and the approvals it already opened are kept.
 
 ### Set the environment defaults
 
-The **Rule defaults** card on the **Rules** tab sets what a new rule starts with: **Default time to decide (seconds)**, **Default when nobody decides**, and **Cost per decision (USD)**. Existing rules keep their own time to decide and expiry outcome. Click **Save settings**.
+The **Rule defaults** card on the **Rules** tab sets what a new rule starts with: **Default time to decide (seconds)**, **Default when nobody decides**, and **Cost per decision (USD)**. Existing rules keep their own settings. Click **Save settings**.
 
 ### Simulate a call
 
-To check which rule a call would hit, click **Simulate** on the **Rules** tab. In the **Simulate a call** dialog, enter the **Tool name** and, optionally, the **Arguments (JSON)**. The result reads **Held for approval** with the matched rule, its time to decide, and its outcome when nobody decides, or **Runs unguarded** when no rule matches. Nothing runs and nothing is recorded. The simulation evaluates the rules against the tool's catalog name, not against the name a particular proxy exposes it under.
+To check which rule a call would hit, click **Simulate** on the **Rules** tab. In the **Simulate a call** dialog, enter the **Tool name** and, optionally, the **Arguments (JSON)**. The result reads **Needs approval** with the matched rule, its time to decide, and its outcome when nobody decides, or **No approval needed** when no rule matches. Nothing runs and nothing is recorded. The simulation evaluates the rules against the tool's catalog name, not against the name a particular proxy exposes it under.
 
 ### Which proxies a rule reaches
 
@@ -110,25 +110,21 @@ Open **HITL** in the **Govern** section. The **Inbox** lists the calls held at t
 
 1. Click a held call to open it. The **Decision required** card shows **Expires in** and the remaining time, and the page shows the rule that matched, the call's **Arguments**, and who requested it.
 2. Take one of three actions:
-    * **Approve**. The call proceeds with the arguments the agent sent. An **Approval granted** notification appears.
-    * **Edit & approve…**. In the **Edit the arguments and approve** dialog, change the **Arguments (JSON)**, review the diff under **Changes the agent will not see coming**, add an optional **Reason**, and click **Approve with edits**. The call runs with your arguments instead.
+    * **Approve**. The call proceeds with the arguments the agent sent. A **Call approved** notification appears.
+    * **Edit & approve…**. In the **Edit the arguments and approve** dialog, change the **Arguments (JSON)**, review the diff under **Changes (the agent is not told)**, add an optional **Reason**, and click **Approve with edits**. The call runs with your arguments instead.
     * **Reject…**. In the **Reject this call?** dialog, enter a **Reason**, which is recorded with the decision and returned to the agent, and click **Reject call**.
-
-<!-- TODO: Screenshot of a held call open in the HITL inbox, showing the Decision required card and the Arguments -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-hitl-approvals-dashboard.png" alt=""><figcaption><p>A held call open in the HITL inbox</p></figcaption></figure>
 
 The decision buttons appear only for users who can update the Catalog. Anyone else sees the held call, its countdown, and its record, and can't decide. When two people decide the same call, the second one sees **Someone else decided this call in the meantime.**
 
-The rule's time to decide and its outcome are fixed on the approval the moment the call is held, so editing the rule afterward doesn't change a call that's already waiting. When the time runs out, the approval expires and the card reads **Expired** followed by whether the rule denies or allows the call. An expired approval can't be decided.
+The rule's time to decide and its outcome are fixed on the approval the moment the call is held, so editing the rule afterward doesn't change a call that's already waiting. When the time runs out, the approval expires and the card reads **Expired. The call was denied.** or **Expired. The call was allowed.**, as the rule sets. An expired approval can't be decided.
 
-After the decision, the record shows the **Verdict** as **Approved**, **Approved with edits**, or **Rejected**, who decided and when, and, under **What happened next**, the **Gateway outcome**: **Forwarded**, **Upstream error**, **Refused** when the call was rejected or expired with a deny outcome, or **Not forwarded** when the decision came too late for the held call.
+After the decision, the record shows the **Result** as **Approved**, **Approved with edits**, or **Rejected**, who decided and when, and, under **What happened next**, the **Gateway outcome**: **Forwarded**, **Upstream error**, **Refused** when the call was rejected or expired with a deny outcome, or **Not forwarded** when the decision came too late for the held call.
 
 ## Review decisions
 
-Open **Decisions** in the **Govern** section. The **History** tab lists every decision with its **Source**, **Decision**, **Tool**, **Proxy**, **Agent**, **Rule**, **Decided by**, **Decided** time, and **Outcome**. Filter by tool name, by status with **All decisions**, **Approved**, **Approved with edits**, **Rejected**, or **Expired**, or by the agent or rule you arrived from. The page shows the most recent held calls and says how many exist in total.
+Open **Decisions** in the **Govern** section. The **History** tab lists every decision with its **Source**, **Decision**, **Subject**, **Proxy**, **Agent**, **Rule**, **Decided by**, **Decided** time, and **Outcome**. The **Subject** column is headed **Tool** when the source is **HITL** and **Phase** when it's **Guardians**. Filter by tool name, or by the agent or rule you arrived from. Once a source is selected, filter by status: **All decisions**, **Approved**, **Approved with edits**, **Rejected**, or **Expired** for human decisions. The page shows the most recent human decisions and says how many exist in total.
 
-The **Source** toggle offers **All**, **HITL**, and **Guardians**. **Guardians** can't be selected in this build. Its tooltip explains that Guardian agents report their decisions to the decision stream of the gateway, which this page can't read yet.
+The **Source** toggle offers **All**, **HITL**, and **Guardians**. **HITL** lists the tool calls a person approved, edited, or rejected, or that expired unanswered. **Guardians** lists the prompts and answers your Guardian Agents let through, blocked, or altered over the last 7 days. For those rows, the **Decision** is the Guardian's verdict, **Allowed**, **Denied**, **Transformed**, **Indeterminate**, or **Pending**, and the **Outcome** is what the gateway enforced, **Let through**, **Blocked**, **Altered**, or **Pending**. Under **All**, both sources are listed together, newest first, and a note says that human approvals show their most recent page only. When the APIM version can't list Guardian decisions, the page says so and lists human approvals alone.
 
 **Export CSV** and **Export JSON** download the register as a file named `approval-register`, with the newest ten thousand decisions regardless of the filters. Settled decisions are kept for the retention period set in the Management API configuration, 90 days by default.
 
@@ -147,14 +143,14 @@ The price feeds the **Approval cost** figure of the decision insights and the **
 
 Open **Decisions** in the **Govern** section and click **Insights**. Select a period of **7 days**, **30 days**, or **90 days**. Every figure is compared with the same number of days before.
 
-* **Observations** name what changed and what to do about it, each tagged **Needs attention**, **Worth a look**, or **Looking good**, such as a rise in held calls, slower reviewers, or calls expiring without a decision.
-* The key figures are **Held calls**, **Approval rate**, **Median time to decide**, **Expired**, and **Approval cost**, each with its trend. The approval rate counts human decisions only. When some decisions carried no rate, a note says how many were counted but not costed.
-* **Held calls per day** and **Decisions by status** chart the period.
-* **Where the holds come from** breaks the period down by **Tools**, **Agents**, or **Rules**, with **Held**, **Approved**, **Rejected**, **Expired**, **Approval rate**, and **Median time to decide** per row. Each row offers **See in history**, and a rule row offers **Edit rule**.
+* **Observations** name what changed and what to do about it, each tagged **Needs attention** or **On track**, such as a rise in pending calls, slower reviewers, or calls expiring without a decision.
+* The key figures are **Pending calls**, **Approval rate**, **Median time to decide**, **Expired**, and **Approval cost**, each with its trend. The approval rate counts human decisions only. When some decisions carried no rate, a note says how many were counted but not costed.
+* **Pending calls per day** and **Decisions by status** chart the period.
+* **Pending calls by source** breaks the period down by **Tools**, **Agents**, or **Rules**, with **Pending**, **Approved**, **Rejected**, **Expired**, **Approval rate**, and **Median time to decide** per row. Each row offers **See in history**, and a rule row offers **Edit rule**.
 
-**Review inbox**, **New rule**, and **Export CSV** at the top of the page lead to the matching actions.
+**Review inbox**, **New rule**, and **Export CSV** at the top of the page lead to the matching actions. The insights chart human approvals only. Under **All**, a note reads **Not included: Guardians** and explains that Guardians decide instantly, so the approval rate, the time to decide, and the approval cost don't apply to them. With **Guardians** selected, the page reads **Not available for Guardians** instead.
 
-<figure><img src="../.gitbook/assets/hitl-insights-dashboard.png" alt="The Decision insights page with the History and Insights tabs, the 7 days, 30 days, and 90 days buttons, an observation tagged Worth a look, and the key figures Held calls, Approval rate, Median time to decide, Expired, and Approval cost"><figcaption><p>The Decision insights page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/hitl-insights-dashboard.png" alt="The Decision insights page with the History and Insights tabs, the All, HITL, and Guardians source toggle, the 7 days, 30 days, and 90 days buttons, an observation tagged Needs attention, and the key figures Pending calls, Approval rate, Median time to decide, Expired, and Approval cost"><figcaption><p>The Decision insights page</p></figcaption></figure>
 
 ## Next steps
 

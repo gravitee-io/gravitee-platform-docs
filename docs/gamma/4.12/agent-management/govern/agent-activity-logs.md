@@ -64,7 +64,7 @@ Each row opens with an outcome badge. The outcome is derived from the decisions 
     </tbody>
 </table>
 
-The **Outcome** filter also lists **Handed to a person**, **Nobody decided**, and **Didn't finish**. The feed derives none of them in this build, so those filters match no row.
+The **Outcome** filter also lists **Handed to a person**, **Expired**, and **Didn't finish**. The feed derives none of them in this build, so those filters match no row.
 
 The **Asked by** field and filter read **Not recorded** for every request in this build. The **Stepped in** filter narrows the list to requests where **A rule**, **A Guardian**, or **A person** decided something, and the **Show routine requests** switch, on by default, controls whether requests that finished with nobody stepping in are listed at all.
 
@@ -74,7 +74,7 @@ Expand a row to read the request as a sequence of steps, each with its UTC time:
 
 * What the agent received or served, as **The agent received a request** or **The agent served its card**.
 * Each call the agent made, as **The agent called** followed by the model or the tool.
-* Each decision, as **Rule**, **Guardian**, or **Person** followed by what it did: **proposed**, **held**, **recommended**, **approved**, **declined**, **modified**, **called**, or **error**, and the decider when the decision names one. The reason follows in quotes when the decision recorded one.
+* Each decision, as **Rule**, **Guardian**, or **Person** followed by what it did: **proposed**, **asked to decide**, **recommended**, **approved**, **declined**, **modified**, **called**, or **error**, and the decider when the decision names one. The reason follows in quotes when the decision recorded one.
 
 **View technical details** opens the record's panel. Its title is the outcome and its subtitle names what the agent called. The panel has four sections:
 

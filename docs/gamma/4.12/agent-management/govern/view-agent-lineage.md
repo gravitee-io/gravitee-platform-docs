@@ -61,12 +61,12 @@ Each node carries a badge for its kind:
             <td>A tool served by an MCP Proxy, or a tool the agent reported running through its LLM traffic that matched one served by an MCP Proxy.</td>
         </tr>
         <tr>
-            <td><strong>Unproxied MCP tool</strong></td>
+            <td><strong>Bypasses the gateway</strong></td>
             <td>A tool the agent reached on an MCP server without going through an MCP Proxy. The node and the edge into it are drawn as degraded so the missing proxy stands out.</td>
         </tr>
         <tr>
             <td><strong>Local tool</strong></td>
-            <td>A tool no MCP Proxy serves, most likely a function the agent runs itself.</td>
+            <td>A tool no MCP Proxy serves.</td>
         </tr>
         <tr>
             <td><strong>Tool</strong> with an outline</td>
@@ -75,17 +75,17 @@ Each node carries a badge for its kind:
     </tbody>
 </table>
 
-A node card shows its request count, or its exchange count for a tool observed through LLM traffic, and adds **Tokens** and **Cost** when the node carried tokens and **Errors** when it carried errors. Nodes and edges are colored by health: an error rate above 10% reads as an error, above 1% as degraded, and anything lower as healthy.
+A node card shows its request count, or its LLM call count for a tool observed through LLM traffic, and adds **Tokens** and **Cost** when the node carried tokens and **Errors** when it carried errors. Nodes and edges are colored by health: an error rate above 10% reads as an error, above 1% as degraded, and anything lower as healthy.
 
 Select a node to open its details beside the graph:
 
-* Its badge, name, and the **Requests** or **Exchanges**, **Errors**, **Tokens**, and **Cost** it carried.
+* Its badge, name, and the **Requests** or **LLM calls**, **Errors**, **Tokens**, and **Cost** it carried.
 * **Depends on** and **Used by**, the nodes on either side of it, each with its request count.
 * A note under **Used by** when some or all the traffic arrived on a keyless plan. A keyless plan records no application, so those callers can't be named.
-* **Walk from here**, which restarts the graph from that node, for agents and proxies.
-* **Open LLM proxy**, **Open MCP proxy**, or **Open A2A proxy**, which opens the proxy's page. Agents, models, and tools have no page to open from here.
+* **Start from here**, which restarts the graph from that node, for agents and proxies.
+* An **Open** button that names the proxy's kind in lower case, for example `Open llm proxy`, which opens the proxy's page. Agents, models, and tools have no page to open from here.
 
-Below the graph, the **Requests** section lists the gateway requests behind the selected node, with an **Open in Logs** button that opens the Logs page on the same scope and window and a **View trace** action on each request the gateway traced. For an MCP Proxy the list counts HTTP requests while the graph counts tool invocations, and the section explains the difference: every MCP tool call carries two more requests, the initialize call and its notification.
+Below the graph, the **Requests** section lists the gateway requests behind the selected node, with an **Open in Logs** button that opens the Logs page on the same scope and window and a **View trace** action on each request the gateway traced. For an MCP Proxy the list counts HTTP requests while the graph counts tool invocations, and the section explains that each MCP tool call adds an `initialize` and a `notifications/initialized` request.
 
 ## What the graph doesn't show
 

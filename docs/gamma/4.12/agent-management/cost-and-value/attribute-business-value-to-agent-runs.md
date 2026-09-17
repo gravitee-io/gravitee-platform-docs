@@ -10,7 +10,7 @@ description: Declare the business value an MCP tool delivers per successful call
 
 Counting tokens shows what an agent run cost. It doesn't show what the spend bought. Value attribution adds the other half of the ledger: the business owner of an MCP tool declares what one successful call of it is worth, and the platform credits that value to the agent's successful calls, next to what they cost.
 
-The value is declared, not measured. Every screen that shows it says so.
+The value is declared, not measured, and the tile that shows it is labelled as declared.
 
 ## Declare the value of an MCP tool
 
@@ -29,7 +29,7 @@ A tool with no declared value reads **No declared value**. The notification that
 
 The value credited to an agent's successful tool calls shows in two places, both scoped to the agent's gateway application:
 
-* On the agent's **Cost** page, the **Value declared** card carries a **Value delivered** tile next to **Model spend**, **Tool spend**, and **Human decision cost**. The tile is marked **Declared, not measured**.
+* On the agent's **Cost** page, the **Spend and value** card carries a **Value delivered** tile next to **Model spend**, **Tool spend**, and **Human decision cost**. The tile is marked **Declared value**.
 * On the **Agent — Overview** dashboard, **Total Tool Value** in the **Key Metrics** and **Value Over Time (USD)** chart the same figure over the selected range. The chart counts credited calls only.
 
 See [Read what an agent cost](read-what-an-agent-cost.md) for the rest of both screens.
