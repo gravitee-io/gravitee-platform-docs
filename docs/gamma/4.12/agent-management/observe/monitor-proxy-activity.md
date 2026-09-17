@@ -51,8 +51,8 @@ Below the stat cards, an LLM Proxy carries three charts and a provider list:
 
 | Card | Reports |
 | --- | --- |
-| **Requests by type — last 24 hours** | Request volume broken down by request type. |
-| **Cost over time — last 24 hours** | Token cost over the window. |
+| **Requests by type (24h)** | Request volume broken down by request type. |
+| **Cost over time (24h)** | Token cost over the window. |
 | **Cost by request type** | How the cost divides across request types. |
 | **Providers** | The providers this proxy routes to, with the URL each one resolves to. |
 
@@ -83,8 +83,8 @@ The time range picker at the top of the page opens on the last 24 hours. Every c
 
 The page charts nothing until two things are in place, and it says which one is missing:
 
-* **Nothing carries this agent's calls yet**. No proxy fronts the agent and the agent depends on no model or tool proxy. The **Proxies** button opens the agent's **Proxies** page.
-* **This agent's calls cannot be told apart yet**. The agent has no gateway application, so its calls can't be separated from every other consumer's on the proxies they share. The **Create its application** button opens the agent's **Identity** page.
+* **No proxy tracks this agent yet**. Activity appears once a proxy exposes the agent or the agent uses a model or tool proxy. The **Proxies** button opens the agent's **Proxies** page.
+* **Calls cannot be attributed to this agent yet**. Model and tool proxies are shared by all agents, so the agent needs an application of its own to separate its calls from other agents' calls. The **Create its application** button opens the agent's **Identity** page.
 
 The **Requests** list below the charts also needs an A2A Proxy that fronts the agent. Without one it reads **This agent has no gateway proxy yet. Deploy an A2A proxy to see Activity here.**
 
@@ -115,9 +115,9 @@ The table reports the time the gateway took per tool, not the full response time
 
 ### Read the Requests list
 
-The **Requests** list answers what the agent was asked to do, what it tried, and what happened. It shows the first 25 requests in the time range, grouped by UTC day under **Today**, **Yesterday**, or the date, with times in UTC.
+The **Requests** list answers what the agent was asked to do, what it tried, and what happened. It lists the requests in the time range 25 at a time, newest first, grouped by UTC day under **Today**, **Yesterday**, or the date, with times in UTC. **Load older activity** fetches the next 25.
 
-Each row carries an outcome badge, a one-line summary that names the models and tools the agent called, and the time the request started. The outcomes are **Done**, **Done with changes**, **Stopped**, **Handed to a person**, **Waiting for sign-off**, **Nobody decided**, and **Didn't finish**.
+Each row carries an outcome badge, a one-line summary that names the models and tools the agent called, and the time the request started. The outcomes are **Done**, **Done with changes**, **Stopped**, **Handed to a person**, **Waiting for sign-off**, **Expired**, and **Didn't finish**.
 
 Above the list, the **Outcome**, **Asked by**, and **Stepped in** filters narrow the rows, and the **Show routine requests** switch controls whether requests that finished with nobody stepping in are listed. Routine requests are shown by default.
 

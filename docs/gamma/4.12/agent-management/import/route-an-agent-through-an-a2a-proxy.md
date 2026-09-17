@@ -12,8 +12,8 @@ The link is one to one. An agent is fronted by at most one A2A Proxy, and a prox
 
 ## Before you start
 
-* The agent must publish an A2A address: the URL on its agent card, or an A2A endpoint it declares. When it doesn't, the **Proxies** page reads **This agent does not publish an A2A address, so nothing can be put in front of it yet.** and offers no action.
-* The **Route through the gateway** button appears only for users who can create or update APIs in the environment. Anyone who can read the Catalog sees the page and the linked proxy.
+* The agent must publish an A2A address: the URL on its agent card, or an A2A endpoint it declares. When it doesn't, the **Proxies** page reads **This agent has no A2A address, so it cannot have a proxy.** and offers no action.
+* The **Create a proxy** button appears only for users who can create APIs in the environment, and **Link an existing proxy** only for users who can update them. Anyone who can read the Catalog sees the page and the linked proxy.
 
 ## Open the Proxies page
 
@@ -22,45 +22,44 @@ The link is one to one. An agent is fronted by at most one A2A Proxy, and a prox
 3. Click the agent's name.
 4. In the **Agent** section of the agent's sidebar, click **Proxies**.
 
-The page holds one card, **Exposed through**. Before any proxy is linked, it reads **No A2A proxy fronts &lt;agent&gt;. Callers reach it directly, so no plan, policy or audit trail applies on the way in.** and offers two buttons: **Route through the gateway** and **Open A2A proxies**.
+The page holds one card, **Exposed through**, described as the A2A proxy callers use to reach the agent. Before any proxy is linked, it reads **No A2A proxy. Callers reach &lt;agent&gt; directly, so no plans or policies apply.** and offers two buttons: **Create a proxy** and **Link an existing proxy**.
 
 <figure><img src="../.gitbook/assets/gamma-aim-agent-proxies.png" alt="The Proxies page of an agent, with the Exposed through card showing the linked A2A Proxy, its plan count and running badge, and the Open proxy, Policies &amp; guardrails, and Detach buttons"><figcaption><p>The Proxies page of an agent with a linked A2A Proxy</p></figcaption></figure>
 
 ## Route the agent through a new proxy
 
-To create an A2A Proxy for the agent from its page, follow these steps:
+To create an A2A Proxy for the agent without leaving its page, follow these steps:
 
-1. On the **Proxies** page, click **Route through the gateway**.
-2. In the **Route through the gateway** dialog, under **A2A proxy**, select **Create a new proxy**.
-3. Accept or change the **Proxy name**. The dialog proposes the agent's name followed by **Runtime**.
-4. Accept or change the **Context path**, the address callers use on the gateway. The dialog proposes `/a2a/` followed by the agent's slug, and checks that the path is valid and not already used by another API.
-5. Click **Route through the gateway**.
+1. On the **Proxies** page, click **Create a proxy**.
+2. In the **Create an A2A proxy** card that opens on the page, complete the **Define** step. The name is filled in from the agent's name. Accept or change the **Context path**, the address callers use on the gateway.
+3. In the **Secure** step, choose how callers authenticate.
+4. In the **Connect** step, the **Target URL** is the address from the agent's card and is read-only, with the hint **Taken from the agent's card.**
+5. Complete the **Review** step, and then click **Create A2A proxy**.
 
-The dialog creates the proxy with a plan named **Default API Key Plan** and links it to the agent in the same step, so a refused link never leaves a proxy behind. The proxy forwards to the address the agent publishes on its card, which the dialog names and which you can't change here. To choose how callers authenticate instead of taking the API key plan, create the proxy from **A2A Proxies** under **Secure** and pick the agent in the wizard, as described in [Create the proxy from the wizard](#create-the-proxy-from-the-wizard).
+The card states that callers reach the agent through the proxy, at the address the agent publishes, and that the proxy is linked to the agent as soon as it is created. The steps are the ones of the A2A Proxy wizard under **Secure**, with the agent fixed.
 
-When the agent's address ends in `.json` or contains `/.well-known/`, the dialog warns that the address looks like the agent card itself rather than the endpoint the agent answers on. Fix the address on the agent before routing through the gateway.
+When the agent's address ends in `.json` or contains `/.well-known/`, the **Connect** step warns that the address looks like the agent card itself rather than the endpoint the agent answers on. Fix the address on the agent before creating the proxy.
 
 ## Link an existing proxy
 
 To link an A2A Proxy that already exists, follow these steps:
 
-1. On the **Proxies** page, click **Route through the gateway**.
-2. In the **Route through the gateway** dialog, leave **Link an existing proxy** selected.
-3. Under **Proxy to link**, select the proxy. The list holds the first 50 A2A Proxies of the environment. A proxy can be selected only when it fronts no agent yet and forwards to the agent's address. A proxy that fronts another agent reads **already attached**, and one that forwards somewhere else reads **forwards elsewhere**. A stopped proxy reads **stopped** and can still be selected.
-4. Click **Route through the gateway**.
+1. On the **Proxies** page, click **Link an existing proxy**.
+2. In the **Link an existing proxy** dialog, under **Proxy to link**, select the proxy. The list holds the first 50 A2A Proxies of the environment. A proxy that fronts another agent reads **already attached**, one that forwards somewhere else reads **forwards elsewhere**, and a stopped one reads **stopped** and can still be selected. Only a proxy that forwards to the address the agent publishes can be linked.
+3. Click **Link proxy**.
 
-The dialog pre-selects a proxy when it finds one: first, a proxy whose entity ID contains the agent's slug, and otherwise a proxy whose name is the only one to contain a word of the agent's name longer than three characters.
+The dialog pre-selects a proxy when it finds one among those it can link. It looks first for a proxy whose entity ID contains the agent's slug, and otherwise for a proxy whose name is the only one to contain a word of the agent's name longer than three characters.
 
 A proxy's target URL and the agent's address count as the same when they match after trailing slashes are dropped and the scheme and host are compared without regard to case. The path is compared as written.
 
 ## What the page shows once the proxy is linked
 
-The **Exposed through** card shows the proxy's name, which links to the proxy's **Overview**, a badge with the number of plans on the proxy, and a status badge that reads **running** or **stopped**. Below them, the card shows the proxy's entity ID and its context path. Three buttons follow: **Open proxy**, **Policies & guardrails**, which opens the proxy's Policy Studio, and **Detach**.
+The **Exposed through** card shows the proxy's name, a badge with the number of plans on the proxy, and a status badge that reads **running** or **stopped**. Below them, the card shows the proxy's entity ID and its context path. Three buttons follow: **Open proxy**, which opens the proxy's **Overview**, **Policies & guardrails**, which opens the proxy's Policy Studio, and **Detach**.
 
 The link is visible from the proxy's side too:
 
-* The **General** card on the proxy's **Overview** page gains an **Agent** row that names the agent's slug and links back to the agent's **Proxies** page.
-* On the proxy's **Endpoint** page, the **Target URL** field is read-only while the link stands, with the hint **Taken from the card of the agent this proxy fronts. Detach the agent to point it somewhere else.** A change submitted another way is refused with a message that names the agent and its published address.
+* The **General** card on the proxy's **Overview** page gains an **Agent** row that names the agent's slug.
+* On the proxy's **Endpoint** page, the **Target URL** field is read-only while the link stands, with the hint **Taken from the linked agent's card. Detach the agent to change it.** A change submitted another way is refused with a message that names the agent and its published address.
 
 Plans, policies, and guardrails stay on the proxy. Stopping the agent isn't on this page either. The **Stop** button in the bar at the top of the agent's page cuts every subscription its application holds, this proxy included. See [Manage a registered agent](manage-a-registered-agent.md).
 
@@ -76,7 +75,7 @@ Removing the agent from the Catalog detaches the proxy in the same way before th
 
 ## Create the proxy from the wizard
 
-The A2A Proxy wizard under **Secure** can link the proxy as it creates it, which lets you choose the plan's security instead of taking the default API key plan.
+The A2A Proxy wizard under **Secure** can link the proxy as it creates it, in the same way as the card on the agent's page.
 
 1. From the Gamma console sidebar, select **Agent Management**.
 2. Under **Secure**, select **A2A Proxies**.
