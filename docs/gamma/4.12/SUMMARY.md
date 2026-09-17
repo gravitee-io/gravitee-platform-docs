@@ -188,7 +188,7 @@
   * [View the lineage of an agent or a proxy](agent-management/govern/view-agent-lineage.md)
   * [Guard agent actions with Guardian Agents](agent-management/govern/guard-agent-actions-with-guardian-agents.md)
   * [Require human approval for MCP tool calls](agent-management/govern/require-human-approval-for-mcp-tool-calls.md)
-  * [Audit agent activity logs](agent-management/govern/agent-activity-logs.md)
+  * [Agent activity](agent-management/govern/agent-activity-logs.md)
 * [Cost and value](agent-management/cost-and-value/README.md)
   * [Agent FinOps](agent-management/cost-and-value/agent-finops.md)
   * [Read what an agent cost](agent-management/cost-and-value/read-what-an-agent-cost.md)

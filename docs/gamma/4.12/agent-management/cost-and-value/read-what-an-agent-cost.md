@@ -40,11 +40,11 @@ Like the **Activity** page, the **Cost** page reads nothing until the agent's tr
     <tbody>
         <tr>
             <td>Key figures</td>
-            <td><strong>Spend</strong>, <strong>Runs</strong>, and <strong>Avg cost per run</strong> for the period, each with its trend against the period before when that period had runs or spend. Runs are the POST requests the agent's inbound proxy received.</td>
+            <td><strong>Spend</strong>, <strong>Runs</strong>, and <strong>Avg cost per run</strong> for the period, each with its trend against the period before when that period had runs or spend. Spend is the model, tool, and human-decision cost on the proxies this agent uses, attributed to its gateway application. Runs are the POST requests on the proxy that fronts the agent, whoever sent them. The two can disagree: spend without runs means the agent called models or tools but received no inbound POST in the window. <strong>Avg cost per run</strong> is a dash when <strong>Runs</strong> is 0, not $0.00.</td>
         </tr>
         <tr>
             <td><strong>What changed</strong></td>
-            <td>Up to four sentences on the period, each tagged <strong>Needs attention</strong>, <strong>Worth a look</strong>, <strong>Looking good</strong>, or <strong>Info</strong>: whether spend went up or down and by how much, which of models, tools, or human decisions added or saved the most, the share human decisions took, and the peak bucket.</td>
+            <td>Up to four sentences, each tagged <strong>Needs attention</strong>, <strong>Worth a look</strong>, <strong>Looking good</strong>, or <strong>Info</strong>. Which ones appear depends on the period:<ul><li><strong>Nothing ran in this period</strong> when spend and runs are both 0.</li><li><strong>Nothing to compare with</strong> when the period before saw no runs and no spend.</li><li><strong>Spend up</strong> or <strong>Spend down</strong> with the percentage, <strong>Spend held steady</strong> when the change is under 10%, or <strong>Spending started this period</strong> when the period before spent nothing.</li><li><strong>Models</strong>, <strong>Tools</strong>, or <strong>Human decision</strong> <strong>added</strong> or <strong>saved</strong> an amount, only when that part moved by at least 10% of the previous period's spend.</li><li><strong>Human decisions are N% of spend</strong>, only when human cost is at least half of spend. It's tagged <strong>Info</strong>, not <strong>Needs attention</strong>.</li><li><strong>Peak on</strong> a date or hour, only when one bucket carries at least 25% of the spend and the period has at least three buckets.</li></ul></td>
         </tr>
         <tr>
             <td><strong>Where the money goes</strong></td>
@@ -69,9 +69,9 @@ The **Agent — Overview** dashboard charts one agent across its MCP and LLM tra
 
 The dashboard opens on the last 30 days and carries the following widgets:
 
-* **Key Metrics**: **Total Model Spend**, **Total Tool Spend**, **Total Human Decision Cost**, **Total Tool Value**, **Approvals**, and **Total Calls**.
+* **Key Metrics**: **Total Model Spend**, **Total Tool Spend**, **Total Human Decision Cost**, **Total Tool Value**, **Approvals**, and **Total Calls**. **Total Tool Value** sums the value declared for the tool calls that were credited, which is the successful ones, so it's declared rather than measured.
 * Over time: **Model Spend Over Time (USD)**, **Tool Cost Over Time (USD)**, **Human Decision Cost Over Time (USD)**, **Value Over Time (USD)**, and **Total Spend Over Time (USD)**, which stacks model, tool, and human cost.
-* **Model Spend** and **Tool Spend** tables with cost, volume, cost per call, and average time.
+* **Model Spend** and **Tool Spend** metric groups, each a row of tiles: **Cost (USD)**, **Tokens** or **Calls**, **Tokens / Call** or **Cost / Call**, and **Avg Time**.
 * **Cost by Model**, **Top 5 Tools by Cost**, and **Human Decision Cost** by verdict.
 * **Input vs Output Cost (USD)**, **Tool Calls Over Time**, and **Model Calls Over Time**.
 
