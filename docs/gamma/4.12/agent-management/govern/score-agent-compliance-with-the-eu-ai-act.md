@@ -10,7 +10,7 @@ The framework measures and doesn't enforce. A control is met by a fact recorded 
 
 ## What the framework checks
 
-Each control is answered from one place. The controls answered from the agent's record are recorded on the agent's **Compliance** page. The controls answered from the proxies are read by the platform. The controls answered elsewhere can't be read by the platform yet, so they don't count against the score until someone marks them as done.
+Each control is answered from one place. The controls answered from the agent's record are recorded on the agent's **Compliance** page. The controls answered from the proxies are read by the platform, as long as it has something to read. When no application acts for the agent, when no gateway-mediated call from the agent was observed in the last 24 hours, or when no LLM Proxy carries it, those controls read **Not assessed** instead. The controls answered elsewhere can't be read by the platform yet. A control that reads **Not assessed** doesn't count against the score until someone marks it as done, whichever place it's answered from.
 
 <table>
     <thead>
@@ -107,9 +107,9 @@ On an agent, every control ends in one of five states:
 
 * **Met**. The evidence is there.
 * `Gap`. The evidence is missing, too short, or absent from at least one of the proxies it's read from.
-* **Blocking**. The evidence names a value the framework refuses.
+* **Blocking**. The evidence names a value the control refuses. No control of the EU AI Act framework declares such a value, so none of them reaches this state.
 * **Recorded**. A person marked the control as done. It counts as met, and the framework page says how many controls were recorded by hand.
-* **Not assessed**. The platform can't read the control yet and nobody marked it as done. It's left out of the score.
+* **Not assessed**. The platform can't read the control, because it's answered elsewhere, or because the agent has no application, no gateway-mediated call in the last 24 hours, or no LLM Proxy to read it from, and nobody marked it as done. It's left out of the score.
 
 The percentage of controls met is counted over the assessed controls only. The result is **Passed** when every assessed control is met or recorded, and **Failed** otherwise. An agent with nothing assessed reads **Not assessed**.
 
@@ -140,7 +140,7 @@ The framework's page reads as follows:
 4. Under **Close the gaps · record here**, fill in each open fact in its field and click **Save**. Recording the fact is the control.
 5. Under **Close the gaps · done elsewhere**, act on each open control:
    * A control read from the proxies reads **Missing on &lt;n&gt; of &lt;m&gt; proxies**. Click **Open policy studio** to add the policy on the proxy, and the control is met on the next read.
-   * A control the platform can't read yet reads **Enforced at &lt;surface&gt;, which Gravitee cannot check yet, so it does not count against the score.** Click the link to reach the surface, and once it's done, click **Mark as done**. The control turns **Recorded**.
+   * A control the platform can't read reads **Enforced at &lt;surface&gt;, which Gravitee cannot check yet, so it does not count against the score.** This is also where a proxy-read control lands while the agent has nothing for the platform to read. Click the link to reach the surface, and once it's done, click **Mark as done**. The control turns **Recorded**.
 
 The page also carries a **Classification** tile with an **Open Overview** link, because the rating is set on the agent's Overview page, and a **Compliance owner** tile with a **Name** or **Change** action to name the person accountable for the agent's compliance. **Show table** opens the full list of controls with where each one is **Enforced at** and its **Answer**.
 
@@ -154,8 +154,10 @@ On the framework's page, click **Export evidence for an auditor**. The page that
 
 The same assessment is served by the module's REST API, for a dashboard or a report of your own:
 
-* `GET /compliance/assessment` scores every agent of the environment in one pass against everything activated there.
-* `GET /compliance/agents/{agentId}/assessment` scores one agent against everything activated there.
+* `GET /gamma/organizations/{orgId}/environments/{envId}/modules/aim/compliance/assessment` scores every agent of the environment in one pass against everything activated there.
+* `GET /gamma/organizations/{orgId}/environments/{envId}/modules/aim/compliance/agents/{agentId}/assessment` scores one agent against everything activated there.
+
+Both paths are relative to the Management API's base URL, and the calls take the same authentication as the Management API.
 
 ## Next steps
 

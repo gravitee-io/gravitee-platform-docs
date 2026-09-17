@@ -43,8 +43,9 @@ In the Developer Portal catalog, the consumer switches from **APIs** to **Agents
 
 1. **Choose a plan**. The consumer picks one of the published plans.
 2. **Choose an application**. The consumer picks the application that holds the credentials. The step is skipped when the application is already chosen for the agent, and for a **Keyless** plan.
-3. **Configure Consumer**. When a subscription form is defined for the New Developer Portal, it's filled in here. When the agent has terms, a **Terms and Conditions** section shows them, and the request can't be sent until the consumer ticks the checkbox labelled `I accept the terms and conditions`.
-4. **Review**. The consumer clicks **Subscribe**.
+3. **Review**. When a subscription form is defined for the New Developer Portal, the consumer fills it in here. When the agent has terms, a **Terms and Conditions** section shows them, and the request can't be sent until the consumer ticks the checkbox labelled `I accept the terms and conditions`. The consumer then clicks **Subscribe**.
+
+The **Configure Consumer** step the portal shows for push plans never appears for an agent's plan.
 
 ## Handle the requests
 
