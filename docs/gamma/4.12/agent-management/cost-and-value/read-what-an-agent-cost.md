@@ -19,14 +19,14 @@ Both read the traffic attributed to the agent's gateway application through the 
 
 The time range picker opens on the last 30 days, and a period can span up to 366 days.
 
-<figure><img src="../.gitbook/assets/gamma-aim-agent-cost.png" alt="The Cost page of a registered agent, with the Last 30 days window, the Spend, Runs, and Avg cost per run figures, the What changed card, the Where the money goes card, and the Value declared card"><figcaption><p>The Cost page of an agent</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-agent-cost.png" alt="The Cost page of a registered agent, with the Last 30 days window, the Spend, Runs, and Avg cost per run figures, the What changed card, the Where the money goes card, and the Spend and value card"><figcaption><p>The Cost page of an agent</p></figcaption></figure>
 
 ## What the page needs
 
-Like the **Activity** page, the **Cost** page reads nothing until the agent's traffic can be told apart:
+Like the **Activity** page, the **Cost** page reads nothing until the agent's traffic can be attributed to it:
 
-* **Nothing carries this agent's calls yet**. No proxy fronts the agent and it depends on no model or tool proxy. The **Proxy and tools** button opens the agent's **Proxies** page.
-* **This agent's spend cannot be told apart yet**. The agent has no gateway application, so a shared proxy's bill can't be credited to it. The **Create its application** button opens the agent's **Identity** page.
+* **No proxy tracks this agent yet**. No proxy exposes the agent and it uses no model or tool proxy. The **Proxy and tools** button opens the agent's **Proxies** page.
+* **Spend cannot be attributed to this agent yet**. The agent has no gateway application, so its spend can't be separated from other agents' spend on a shared proxy. The **Create its application** button opens the agent's **Identity** page.
 
 ## Read the page
 
@@ -44,15 +44,15 @@ Like the **Activity** page, the **Cost** page reads nothing until the agent's tr
         </tr>
         <tr>
             <td><strong>What changed</strong></td>
-            <td>Up to four sentences, each tagged <strong>Needs attention</strong>, <strong>Worth a look</strong>, <strong>Looking good</strong>, or <strong>Info</strong>. Which ones appear depends on the period:<ul><li><strong>Nothing ran in this period</strong> when spend and runs are both 0.</li><li><strong>Nothing to compare with</strong> when the period before saw no runs and no spend.</li><li><strong>Spend up</strong> or <strong>Spend down</strong> with the percentage, <strong>Spend held steady</strong> when the change is under 10%, or <strong>Spending started this period</strong> when the period before spent nothing.</li><li><strong>Models</strong>, <strong>Tools</strong>, or <strong>Human decision</strong> <strong>added</strong> or <strong>saved</strong> an amount, only when that part moved by at least 10% of the previous period's spend.</li><li><strong>Human decisions are N% of spend</strong>, only when human cost is at least half of spend. It's tagged <strong>Info</strong>, not <strong>Needs attention</strong>.</li><li><strong>Peak on</strong> a date or hour, only when one bucket carries at least 25% of the spend and the period has at least three buckets.</li></ul></td>
+            <td>Up to four sentences, each tagged <strong>Needs attention</strong>, <strong>Worth a look</strong>, <strong>On track</strong>, or <strong>Info</strong>. Which ones appear depends on the period:<ul><li><strong>Nothing ran in this period</strong> when spend and runs are both 0.</li><li><strong>Nothing to compare with</strong> when the period before saw no runs and no spend.</li><li><strong>Spend up</strong> or <strong>Spend down</strong> with the percentage, <strong>Spend unchanged</strong> when the change is under 10%, or <strong>Spending started this period</strong> when the period before spent nothing.</li><li><strong>Models</strong>, <strong>Tools</strong>, or <strong>Human decision</strong> <strong>added</strong> or <strong>saved</strong> an amount, only when that part moved by at least 10% of the previous period's spend.</li><li><strong>Human decisions are N% of spend</strong>, only when human cost is at least half of spend. It's tagged <strong>Info</strong>, not <strong>Needs attention</strong>.</li><li><strong>Peak on</strong> a date or hour, only when one bucket carries at least 25% of the spend and the period has at least three buckets.</li></ul></td>
         </tr>
         <tr>
             <td><strong>Where the money goes</strong></td>
             <td>The spend split into <strong>Models</strong>, <strong>Tools</strong>, and <strong>Human decision</strong>, with the <strong>Total spend</strong>.</td>
         </tr>
         <tr>
-            <td><strong>Value declared</strong></td>
-            <td>Tiles for <strong>Model spend</strong>, <strong>Tool spend</strong>, and <strong>Human decision cost</strong>, each with its share of spend, and <strong>Value delivered</strong>, the value the tools' owners declared for the successful tool calls in the period. The tile says <strong>Declared, not measured</strong>.</td>
+            <td><strong>Spend and value</strong></td>
+            <td>Tiles for <strong>Model spend</strong>, <strong>Tool spend</strong>, and <strong>Human decision cost</strong>, each with its share of spend, and <strong>Value delivered</strong>, the value the tools' owners declared for the successful tool calls in the period. The tile says <strong>Declared value</strong>.</td>
         </tr>
         <tr>
             <td><strong>Spend over the period</strong></td>
