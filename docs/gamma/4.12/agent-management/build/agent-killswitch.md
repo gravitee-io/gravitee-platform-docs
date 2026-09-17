@@ -1,25 +1,26 @@
 ---
 hidden: true
 noIndex: true
-description: Stop an agent in one move from its page in the Catalog, which pauses its gateway subscriptions and disables it on Azure AI Foundry, or stop the proxy that carries its traffic. Follow the steps for each switch.
+description: Stop an agent in one move from its page in the Catalog, which stops the A2A Proxy in front of it, pauses its gateway subscriptions, and disables it on Azure AI Foundry, or stop a proxy on its own. Follow the steps for each switch.
 ---
 
 # Agent kill switch
 
-Stopping an agent takes it out of service in one move. The **Stop** button on the agent's page pauses the accepted subscriptions of its gateway application, and, for an agent imported from an Azure AI Foundry project, asks Foundry to disable the agent where it runs. **Start** puts everything back. Stopping is reversible, and the dialog names everything the switch reaches before you confirm.
+Stopping an agent takes it out of service in one move. The **Stop** button on the agent's page stops the A2A Proxy that fronts it, pauses the accepted subscriptions of its gateway application, and, for an agent imported from an Azure AI Foundry project, asks Foundry to disable the agent where it runs. **Start** puts everything back. Stopping is reversible, and the dialog names everything the switch reaches before you confirm.
 
 A proxy has a stop of its own on its **Configuration** page, which cuts the traffic that proxy carries whoever the consumer is. Both switches are covered here.
 
 ## What the agent switch reaches
 
-The switch pulls up to two levers, and the **Stop this agent?** dialog lists the ones your agent has under **What this reaches**:
+The switch pulls up to three levers, and the **Stop this agent?** dialog lists the ones your agent has under **What this stops**, in the order they're pulled:
 
-* **Its gateway lines**. Every accepted subscription of the agent's gateway application is paused. The line names the application. A paused subscription reads **Paused** on the **Consumers** page of the proxy it was made on, and it's resumed, not recreated, when you start the agent again.
-* **The agent itself, on the platform it runs on**. This lever exists for an agent imported from an Azure AI Foundry integration whose connection declares the project's agents endpoint. Gamma calls Foundry to disable the agent, and to enable it again on start. The line also reports the platform's own word for the agent's state, as of the last synchronization.
+* **The A2A proxy &lt;name&gt;, which callers use to reach it**. This lever exists when an A2A Proxy fronts the agent and that proxy still exists. The proxy is stopped on the gateway, the same stop as on its own **Configuration** page, and a proxy that's already stopped is left as it is.
+* **Its proxy subscriptions, through application &lt;id&gt;**. Every accepted subscription of the agent's gateway application is paused. A paused subscription reads **Paused** on the **Consumers** page of the proxy it was made on, and it's resumed, not recreated, when you start the agent again.
+* **The agent itself, at its provider**. This lever exists for an agent imported from an Azure AI Foundry integration whose connection declares the project's agents endpoint. Gamma calls Foundry to disable the agent, and to enable it again on start. The line also reports the provider's own word for the agent's state in brackets, as of the last synchronization.
 
-An agent that has no gateway application and no controllable platform has nothing the switch can pull. The dialog then reads **Nothing here can stop this agent** and offers **Go to Identity**, where the application is created.
+An agent with no A2A Proxy in front of it, no gateway application, and no controllable platform has nothing the switch can pull. The dialog then reads **Cannot stop this agent**, says that an A2A Proxy or an application is needed to block its calls, and offers **Go to Identity**, where the application is created.
 
-The switch doesn't reach the A2A Proxy that fronts the agent. To cut the agent's callers, stop that proxy from its own page as described in [Stop a proxy](#stop-a-proxy).
+The A2A Proxy is stopped whoever can see it, so the agent's callers are cut even when the proxy sits outside your own view. To stop a proxy on its own, for every agent and consumer it serves, use its page as described in [Stop a proxy](#stop-a-proxy).
 
 ## Stop an agent
 
@@ -27,19 +28,17 @@ The switch doesn't reach the A2A Proxy that fronts the agent. To cut the agent's
 2. In the **Catalog** section of the sidebar, select **Agents**.
 3. Click the agent's name.
 4. In the bar at the top of the agent's page, click **Stop**.
-5. In the **Stop this agent?** dialog, read the **What this reaches** list.
+5. In the **Stop this agent?** dialog, read the **What this stops** list.
 6. Click **Stop this agent**. The button reads **Stopping…** while the request runs.
 
-The dialog states the consequence before you confirm: the agent stops answering in one move, wherever it runs and whatever it reaches, the traffic it's carrying stops with it, and starting it again puts everything back.
+The dialog states the consequence before you confirm: the agent stops right away, and you can start it again later.
 
-<!-- TODO: Screenshot of the Stop this agent? dialog listing the gateway lines and the platform under What this reaches -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-stop-agent-dialog.png" alt=""><figcaption><p>The Stop this agent? dialog names everything the switch reaches</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-stop-agent-dialog.png" alt="The Stop this agent? dialog over an agent's page, saying the agent stops right away and can be started again later, with the What this stops list naming the A2A proxy callers use to reach it, and the Cancel and Stop this agent buttons"><figcaption><p>The Stop this agent? dialog lists what the switch stops</p></figcaption></figure>
 
 Three outcomes are possible:
 
 * **Agent stopped**. Every lever answered.
-* **This agent was not fully stopped**. At least one lever failed. The levers that answered stay pulled: a subscription that couldn't be paused doesn't stop the others from being paused, and a platform that refused the command leaves the gateway lines cut. The agent is still recorded as stopped, because the record is your intent, not a summary of what the levers did.
+* **Agent only partly stopped. Check its provider and its subscriptions.** At least one lever failed. The levers are pulled in order, the proxy first, the subscriptions next, and the platform last, and the ones that answered stay pulled: a subscription that couldn't be paused doesn't stop the others from being paused, and a platform that refused the command leaves the proxy stopped and the subscriptions paused. The agent is still recorded as stopped, because the record is your intent, not a summary of what the levers did.
 * **Could not stop the agent**. The request itself failed, and the message says why.
 
 After a stop, the agent's header badge reads **Stopped**, and the **Gateway state** column of the **Agents** list reads **Stopped** too. The **Provider state** column carries the platform's own word, **Enabled** or **Disabled** for a Foundry agent, and can disagree with the gateway state for a while: Foundry applies the change after it acknowledges it, and the column is refreshed from the platform right after a successful command and at each synchronization.
@@ -49,20 +48,20 @@ The **Stop** button appears for users who can update the Catalog. It's absent fr
 ## Start an agent
 
 1. In the bar at the top of the agent's page, click **Start**.
-2. In the **Start this agent?** dialog, read the **What this restores** list.
+2. In the **Start this agent?** dialog, read the **What this restarts** list.
 3. Click **Start this agent**. The button reads **Starting…** while the request runs.
 
-The platform is told first, and the gateway lines are resumed after it. An **Agent started** notification confirms the move, **This agent was not fully started** reports a lever that failed, and **Could not start the agent** reports a request that failed. The header badge returns to **Running**.
+The levers are pulled in reverse: the platform is told first, the paused subscriptions are resumed next, including one somebody paused by hand, and the A2A Proxy is started last. An **Agent started** notification confirms the move. **Agent only partly started. Check its provider and its subscriptions.** reports a lever that failed, for example a fronting proxy with no published plan, which can't be started. **Could not start the agent** reports a request that failed. The header badge returns to **Running**.
 
 ## What the agent switch leaves in place
 
 * **The gateway application and its subscriptions**. The subscriptions are paused, not closed, so nothing has to be approved again.
 * **The agent's entry in the Catalog**. A stop isn't a removal. **Remove** in the same bar is the action that deletes the agent.
-* **The proxies**. The A2A Proxy that fronts the agent, and the LLM and MCP Proxies its subscriptions were made on, keep running for every other consumer.
+* **The LLM and MCP Proxies**. The proxies its subscriptions were made on keep running for every other consumer. The A2A Proxy that fronts the agent is the exception: it's stopped with the agent and started with it.
 
-Only an agent published with an endpoint of its own can be disabled on Foundry. For any other agent, Foundry refuses the command, the platform lever fails, and the notification reads **This agent was not fully stopped**.
+Only an agent published with an endpoint of its own can be disabled on Foundry. For any other agent, Foundry refuses the command, the platform lever fails, and the notification reads **Agent only partly stopped. Check its provider and its subscriptions.**
 
-The agent switch writes no audit entry of its own. Each subscription it pauses or resumes is audited as a subscription event, and a proxy stop is audited as described in [Review a proxy stop or start](#review-a-proxy-stop-or-start).
+The agent switch writes no audit entry of its own. Each subscription it pauses or resumes is audited as a subscription event, and the A2A Proxy it stops or starts is audited like any proxy stop, as described in [Review a proxy stop or start](#review-a-proxy-stop-or-start).
 
 ## Stop a proxy
 
@@ -80,9 +79,7 @@ The button reads **Stopping…** while the request is in flight. The card states
 The stop action has no confirmation dialog. The proxy stops as soon as you click, and the change reaches the gateway without a separate deployment.
 {% endhint %}
 
-<!-- TODO: Screenshot of the API Events card of a started proxy on its Configuration page, showing the Stop action -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-api-events-stop.png" alt=""><figcaption><p>The API Events card of a started proxy</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-api-events-stop.png" alt="The API Events card of a started LLM proxy: These actions alter the runtime state of your LLM proxy on the gateway, the Stop LLM proxy action with Gateway stops accepting requests. Subscriptions are preserved, and the disabled Delete this LLM proxy action with A running or published proxy cannot be deleted"><figcaption><p>The API Events card of a started LLM Proxy</p></figcaption></figure>
 
 The **Details** panel on the right of the page is read-only. It lists **Owner**, **Created**, **Updated**, **Visibility**, **Lifecycle**, and **Status**, and the **Status** row reads either **Started** or **Stopped**.
 

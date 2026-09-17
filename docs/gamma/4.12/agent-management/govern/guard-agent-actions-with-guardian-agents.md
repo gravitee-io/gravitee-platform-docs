@@ -95,11 +95,9 @@ The **Guardians** page lists the agents of the environment that expose a guardia
     </tbody>
 </table>
 
-Nothing is edited on this page. The edit icon on a row opens the agent in the agent builder, at the entrypoints section that makes it a guardian, and **New guardian** opens the agent builder's creation screen, where the agent becomes a guardian once it's given a guardian entrypoint. **New guardian** appears for users who can create APIs. Before any guardian exists, the page reads **No guardians yet** and offers **Create a guardian agent**.
+Nothing is edited on this page. The edit icon on a row opens the agent in the agent builder, at the entrypoints section that makes it a guardian. **Create guardian** opens the agent builder's creation screen, where the agent becomes a guardian once it's given a guardian entrypoint. **Create guardian** appears for users who can create APIs. Before any guardian exists, the page reads **No guardians yet** and offers **Create guardian** there too.
 
-<!-- TODO: Screenshot of the Guardians page of the Catalog with two guardians, one Running and In sync, one Not deployed -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-guardians-list.png" alt=""><figcaption><p>The Guardians page of the Catalog</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-guardians-list.png" alt="The Guardians page of the Catalog listing four guardian agents with their Name, Source reading Gravitee, Status reading Running, Evaluation path, and Updated columns, and the Create guardian button"><figcaption><p>The Guardians page of the Catalog</p></figcaption></figure>
 
 ## Add a guardian to an LLM Proxy
 
@@ -112,20 +110,16 @@ Nothing is edited on this page. The edit icon on a row opens the agent in the ag
 7. Review the **Resource name**. It names the resource the gateway hands the exchange to, and the guardian goes by that name in the list and in the Policy Studio. Two guardians of one proxy can't share a name.
 8. Review the **Evaluation URL**.
 9. Enter the **API key** of the plan the agent is published under, or leave it empty for a keyless plan. The key is stored unencrypted in the proxy definition, where anyone who can read that definition can read it back.
-10. Under **Tell the caller's format it was refused**, keep **As an answer**, or select **As a refusal** to end a refused answer as a refusal in the caller's own format, which a client that parses answers reads as the rest never coming.
-11. Under **Fail mode**, keep **Fail open** or select **Fail closed**. The hint describes what the gateway does with the exchange when the agent can't be reached or renders no verdict.
-12. Turn on **Dry run** to log the verdict of the agent without acting on it.
+10. Under **Refusal format**, keep **As an answer**, or select **As a refusal** to end a refused answer as a refusal in the caller's own format, which a client that parses answers reads as the rest never coming.
+11. Under **Fail mode**, keep **Fail open** or select **Fail closed**. The hint says what happens when the agent can't be reached or doesn't respond.
+12. Turn on **Dry run** to log the agent's decision without enforcing it.
 13. Optional: Expand **Advanced** to set the **API key header**, which defaults to `X-Gravitee-Api-Key`, the **Request timeout (ms)**, written as `300000` when left blank, the **Max retries**, and the **Retry backoff (ms)**.
 14. Read the **Guardian summary**, which repeats the resource name, the agent, the phase, and the evaluation URL.
 15. Click **Create guardian**.
 
-A **Guardian created** notification appears, and the guardian joins the list. Saving doesn't deploy: the **This API is out of sync** banner appears at the top of the proxy's pages, and its **Deploy** button pushes the guardian to the gateway.
+A **Guardian created** notification appears, and the guardian joins the list. Saving doesn't deploy: the **This proxy is out of sync** banner appears at the top of the proxy's pages, and its **Deploy** button opens the **Deploy your proxy** dialog that pushes the guardian to the gateway.
 
-The sheet needs a guardian agent resource plugin on the gateway. Without one, it reads **This gateway ships no guardian agent resource plugin, so a guardian has nothing to hand the exchange to.** and can't be submitted.
-
-<!-- TODO: Screenshot of the Add guardian sheet with an agent picked, the phase set to Both, and the Guardian summary visible -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-add-guardian-sheet.png" alt=""><figcaption><p>The Add guardian sheet of an LLM Proxy</p></figcaption></figure>
+The sheet needs a guardian agent resource plugin on the gateway. Without one, it reads **This gateway has no guardian agent resource plugin, so guardians cannot reach an agent.** and can't be submitted.
 
 ## Read the Guardian page
 
@@ -158,17 +152,15 @@ The **Guardian** page of an LLM Proxy lists the guardians of its **Prompt** flow
     </tbody>
 </table>
 
-The proxy's **Resources** page, in the **Design** group of its sidebar, lists the guardian's resource too. That row carries **Managed on the Guardian tab** instead of actions, because editing, disabling, or removing the resource there would leave the guardian's steps pointing at nothing.
+The proxy's **Resources** page, in the **Design** group of its sidebar, lists the guardian's resource too, with a **Configure on the Guardian tab** link back to this page. The row keeps the ordinary **Edit**, **Disable**, and **Delete** actions. Those change or remove the resource without touching the guardian's steps, so edit a guardian from the **Guardian** page instead.
 
-<!-- TODO: Screenshot of the Guardian page of an LLM Proxy with one guardian on Both phases and the row menu open -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-llm-proxy-guardian-page.png" alt=""><figcaption><p>The Guardian page of an LLM Proxy</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-guardian-page.png" alt="The Guardian page of an LLM proxy listing one guardian with its Name, Phase reading Both, Agent, and Status reading Enabled columns, and the Add guardian button"><figcaption><p>The Guardian page of an LLM Proxy</p></figcaption></figure>
 
 ## Edit a guardian
 
 1. On the **Guardian** page, open the row's menu and click **Edit**.
 2. On the guardian's page, titled with its name, open the tab you want to change. Each phase the guardian screens is a tab, **Request** or **Response**, and the **Resource** tab holds how the gateway reaches the agent.
-3. To screen the other side too, click **Add request policy** or **Add response policy**. The new step is prefilled from the existing one. To stop screening one side, click **Remove request policy** or **Remove response policy**, which appears once the guardian has two steps.
+3. To screen the other side too, click **Add request policy** or **Add response policy**. The new step is filled in from the existing one. To stop screening one side, click **Remove request policy** or **Remove response policy**, which appears once the guardian has two steps.
 4. On a phase tab, change the AI Guardian policy's own settings. **Guardian agent** is read-only there, because it's the guardian's own name. A step that's turned off carries a **Disabled** badge.
 5. On the **Resource** tab, pick another **Guardian agent** to point the guardian at it, or change the resource's own settings. Picking an agent fills in the evaluation endpoint. Typing another endpoint over it points the guardian at an endpoint no agent of the environment answers for, and the row then shows the URL instead of an agent's name.
 6. Click **Save guardian**.
@@ -187,7 +179,8 @@ A **Guardian removed** notification appears. The traffic the guardian screened i
 
 ## Where a guardian's decisions show
 
-* On the **Decisions** page, the **Guardians** source toggle is present but not yet available. It reads **Guardian agents report their decisions to the decision stream of the gateway. Listing them here needs the decision read path of the observability API, which is not available yet.**
+* On the **Decisions** page, the **Guardians** source lists the prompts and answers your guardian agents let through, blocked, or altered in the last 7 days, and the table notes **Guardian decisions cover the last 7 days.** When the APIM behind the console can't list them, the page reads **This version of APIM cannot list guardian decisions. Upgrade APIM to see them here.**
+* The **Insights** page of Decisions charts human approvals only. With **Guardians** as the only source it reads **Not available for Guardians**, and beside the figures of the other sources it reads **Not included: Guardians.**, in both cases with the reason that guardians decide instantly, so approval rate, time to decide, and approval cost don't apply to them.
 * The agent's **Activity** page lists a guardian's decision among the steps of a request, and its **Stepped in** filter offers **A Guardian**.
 * The EU AI Act framework's required **Guardian on the model's traffic** control is satisfied when every LLM Proxy the agent was observed calling carries an AI Guardian step. See [Score agent compliance with the EU AI Act framework](score-agent-compliance-with-the-eu-ai-act.md).
 
