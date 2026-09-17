@@ -43,6 +43,8 @@ Three outcomes are possible:
 
 After a stop, the agent's header badge reads **Stopped**, and the **Gateway state** column of the **Agents** list reads **Stopped** too. The **Provider state** column carries the platform's own word, **Enabled** or **Disabled** for a Foundry agent, and can disagree with the gateway state for a while: Foundry applies the change after it acknowledges it, and the column is refreshed from the platform right after a successful command and at each synchronization.
 
+<figure><img src="../.gitbook/assets/gamma-aim-stopped-agent.png" alt="The top of a stopped agent's page: the bar at the top offers Edit, Start, and Remove, the header carries the Stopped badge under the agent's description, and the Overview below shows the compliance banner and the Governance and Operations cards"><figcaption><p>A stopped agent: the header reads Stopped and the bar offers Start</p></figcaption></figure>
+
 The **Stop** button appears for users who can update the Catalog. It's absent from an agent that Edge Management detected, because the traffic of a detected domain bypasses the gateway.
 
 ## Start an agent
@@ -78,8 +80,6 @@ The button reads **Stopping…** while the request is in flight. The card states
 {% hint style="warning" %}
 The stop action has no confirmation dialog. The proxy stops as soon as you click, and the change reaches the gateway without a separate deployment.
 {% endhint %}
-
-<figure><img src="../.gitbook/assets/gamma-aim-api-events-stop.png" alt="The API Events card of a started LLM proxy: These actions alter the runtime state of your LLM proxy on the gateway, the Stop LLM proxy action with Gateway stops accepting requests. Subscriptions are preserved, and the disabled Delete this LLM proxy action with A running or published proxy cannot be deleted"><figcaption><p>The API Events card of a started LLM Proxy</p></figcaption></figure>
 
 The **Details** panel on the right of the page is read-only. It lists **Owner**, **Created**, **Updated**, **Visibility**, **Lifecycle**, and **Status**, and the **Status** row reads either **Started** or **Stopped**.
 
