@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: Connect an Azure AI Foundry project or a Gemini Enterprise Agent Platform project as an integration, then sync its agents into the Catalog. Follow the steps to connect a platform, sync its agents, and remove the integration.
 ---
 

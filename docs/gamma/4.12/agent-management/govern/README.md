@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: Score every agent in your Gamma estate against the built-in EU AI Act framework and rulesets of your own, rate each agent's risk, and hold agent actions to your rules. Learn what each page covers.
 ---
 

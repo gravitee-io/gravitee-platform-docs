@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: Rate an agent on Gravitee's four-step risk scale from its Overview page, so compliance frameworks, the Agents list, and the estate tables can read the rating. Follow the steps to set or change it.
 ---
 
