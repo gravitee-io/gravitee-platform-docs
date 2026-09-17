@@ -162,6 +162,7 @@ Grafana
 Jaeger
 Zipkin
 Fluentd
+listable
 Logstash
 Datadog
 Splunk
@@ -851,7 +852,8 @@ asc
 cacheRedis
 connectTimeout
 prefetch
-resync
+[Rr]esync
+[Rr]esynced
 [Ss]harded
 tlsCiphers
 
