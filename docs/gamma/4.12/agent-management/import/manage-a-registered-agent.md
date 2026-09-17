@@ -57,7 +57,7 @@ A bar pinned to the top of every page of the agent carries the actions that appl
 
 When something needs attention, one banner above the cards names the most important task and offers the button that starts it. Compliance comes first, then the proxy, then the identity:
 
-* **Fails the &lt;framework&gt;**, or **Fails &lt;n&gt; frameworks**, with the unmet controls named. The **Close the gaps** button opens the agent's **Compliance** page.
+* **Fails the &lt;framework&gt;** when one framework fails, naming up to three of its unmet controls and counting the rest as **and &lt;n&gt; more**. **Fails &lt;n&gt; frameworks** when several fail, counting the unmet controls across them and naming the frameworks rather than the controls. The **Close the gaps** button opens the agent's **Compliance** page.
 * **Route callers through an A2A proxy**, when the agent publishes an A2A address and no proxy fronts it. The **Route it** button opens the agent's **Proxies** page.
 * **Give this agent an identity of its own**, when the agent has no identity. The **Create it** button opens the agent's **Identity** page.
 
@@ -65,7 +65,7 @@ The banner is absent when nothing needs attention.
 
 ### The Governance and Operations cards
 
-The **Governance** card reads **Passing**, **Failing**, or **Not fully checked**, and lists four checks. Each check that links somewhere opens the page that can close it.
+The **Governance** card reads **Passing**, **Failing**, or **Not fully checked**, and lists four checks. Each check that links somewhere opens the page that can close it. A card earns its green word only when every counted check is green: one amber check is enough to turn **Governance** to **Failing** and **Operations** to **Off target**, for example a framework nobody configured, a call waiting in the HITL inbox, or a call a person refused in the last day.
 
 <table>
     <thead>
@@ -96,7 +96,7 @@ The **Governance** card reads **Passing**, **Failing**, or **Not fully checked**
 
 The **Operations** card appears only when the host API Management offers performance targets. It reads **On target**, **Off target**, or **Not fully checked**, and lists four checks. **Targets** reads **Not configured** until the agent has target rules, **Not evaluated yet** until one of them has a verdict, the rule that's breached and by how much, or how many rules are met. **Activity** reads **Tracked on &lt;n&gt; proxies** when proxies carry the agent's calls. It reads **No proxy tracks its calls** when none does, or **No application, so calls cannot be attributed** when the agent has no gateway application. **Cost** reads the last day's spend against the day before, for example **$12.40 in 24h, +12%**. The row is badged **Off trend** when spend rose by a tenth or more and **On trend** otherwise. It reads **&lt;spend&gt; in 24h, nothing the day before** when only the last day spent, **No spend in 24h** when neither day spent anything, or **Nothing to read yet** when the agent's cost can't be read at all. The row is advisory, so it never changes the card's verdict, and it links to the agent's **Cost** page. **Decisions** reads the share of the agent's held calls that a person approved over the last day, and links to the decision history. It reads **No decision in 24h** when nobody decided one, or **Nothing to read yet** when the agent has no gateway application.
 
-A check that couldn't be read shows **Could not be read**, and the card's verdict falls to **Not fully checked**.
+A check that couldn't be read shows **Could not be read** and, when no check is red or amber, drops the card's verdict to **Not fully checked**. The **Cost** check is the exception: it's advisory, so it never changes the card's word.
 
 ### The About section
 
@@ -220,7 +220,7 @@ An imported agent isn't edited here, because the next synchronization would writ
 
 ## Stop and start the agent
 
-The **Stop** button in the bar takes the agent out of service in one move. What it reaches depends on the agent: the subscriptions its gateway application holds are paused at the gateway, and, when the platform that hosts the agent allows it, the agent itself is stopped there. **Start** puts everything back.
+The **Stop** button in the bar takes the agent out of service in one move, in a fixed order. The A2A Proxy that fronts the agent is stopped first, so every caller loses access at once. The subscriptions its gateway application holds are paused at the gateway next. Last, when the platform that hosts the agent allows it, the agent itself is stopped there. **Start** pulls the same levers in reverse.
 
 1. In the bar at the top of the agent's page, click **Stop**.
 2. In the **Stop this agent?** dialog, read the **What this stops** list.
