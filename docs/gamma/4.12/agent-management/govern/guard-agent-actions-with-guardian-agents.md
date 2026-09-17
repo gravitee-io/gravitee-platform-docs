@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: Bind a Guardian Agent to an LLM Proxy so an agent screens every prompt and answer before it travels on, and find the guardian agents of your environment in the Catalog. Follow the steps to add, edit, and remove a guardian.
 ---
 
