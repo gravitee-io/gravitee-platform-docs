@@ -146,6 +146,8 @@ To verify an integration is connected as expected, follow these steps:
 4. On the **Choose source type** step, select the same provider again.
 5. Click **Next**, and confirm the models you already imported carry an **Already imported** badge.
 
+<figure><img src="../.gitbook/assets/gamma-aim-models-list.png" alt="The AI Models page listing the imported models, each with its Source and Provider columns, and the Add provider button"><figcaption><p>The AI Models page after a provider was connected</p></figcaption></figure>
+
 ## Next steps
 
 * **Review what a model records.** See the metadata each imported model carries, and what you can edit. See [Add an AI model](add-an-ai-model.md).

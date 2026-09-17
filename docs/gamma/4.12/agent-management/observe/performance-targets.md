@@ -422,6 +422,8 @@ The rules can be edited by users who can create and update APIs. Everyone else r
 
 The **Agents** list carries the outcome in its **Targets** column: **No target**, **Missed**, **Met**, or **Not evaluated**.
 
+<figure><img src="../.gitbook/assets/gamma-aim-agent-targets.png" alt="An agent's Targets page on the Rules tab, with the Not on the AI Gateway yet alert linking to Add an A2A proxy and create its application, and the No targets state below it"><figcaption><p>The Targets page of an agent that has no proxy or application yet</p></figcaption></figure>
+
 ### Notifications
 
 The **Notifications** tab chooses who hears about a change of verdict on the agent's targets, on two channels:
