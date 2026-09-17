@@ -71,7 +71,7 @@ The following table maps each outcome to the feature that delivers it:
 
 ### Account for what AI traffic costs
 
-The following table maps each outcome to the feature that delivers it:
+The following table lists each cost and usage outcome alongside the feature that delivers it:
 
 | Outcome | Feature |
 | --- | --- |
@@ -82,7 +82,7 @@ The following table maps each outcome to the feature that delivers it:
 
 ### Govern every traffic type from one platform
 
-The following table maps each outcome to the feature that delivers it:
+The following table pairs each governance outcome with the feature that achieves it:
 
 | Outcome | Feature |
 | --- | --- |
@@ -94,7 +94,7 @@ The following table maps each outcome to the feature that delivers it:
 
 ### Secure and publish consumer access
 
-The following table maps each outcome to the feature that delivers it:
+Review the following table to find the feature that delivers each consumer access outcome:
 
 | Outcome | Feature |
 | --- | --- |
@@ -105,7 +105,7 @@ The following table maps each outcome to the feature that delivers it:
 
 ### Enforce one authorization model across protocols
 
-The following table maps each outcome to the feature that delivers it:
+The following table matches each authorization outcome to the feature that enforces it:
 
 | Outcome | Feature |
 | --- | --- |
@@ -116,7 +116,7 @@ The following table maps each outcome to the feature that delivers it:
 
 ### Administer the platform
 
-The following table maps each outcome to the feature that delivers it:
+The following table lists each administrative outcome and the feature that provides it:
 
 | Outcome | Feature |
 | --- | --- |
