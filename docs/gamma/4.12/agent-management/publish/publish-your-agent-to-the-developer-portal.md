@@ -31,6 +31,8 @@ The listing is titled with the agent's name, and a **&lt;agent&gt; is now in the
 
 Before a proxy is linked, the page reads **Nothing to list yet** and offers **Create proxy for the agent**, which opens the agent's **Proxies** page. An agent that publishes no A2A address reads **Not listable yet**.
 
+<figure><img src="../.gitbook/assets/gamma-aim-agent-marketplace-published.png" alt="The Marketplace page of an agent: the Agent Marketplace card with the Published badge, the Location field, the Configure in Classic Console, View in Marketplace, Unpublish, and Remove buttons, and the Enable Marketplace chat toggle"><figcaption><p>The Marketplace page of an agent after it was published</p></figcaption></figure>
+
 ## Add the agent to the navigation from the APIM Console
 
 1. In the APIM Console, open **Settings**.
@@ -84,6 +86,8 @@ Consumers find an agent in the following ways:
 * **Open the listing**. Selecting the card opens the agent's documentation on its first published page. A **Subscribe** button starts a subscription to the A2A Proxy behind the agent. Consumers who aren't signed in see **Sign in to subscribe** instead.
 
 A listing follows the visibility of its navigation item and of the folders above it. An unpublished item is hidden from everyone, and an item that requires authentication is hidden from consumers who aren't signed in.
+
+<figure><img src="../.gitbook/assets/gamma-portal-agent-listing.png" alt="An agent's listing in the Developer Portal: the Agents navigation on the left, the agent's page with its Input / Output and Skills sections, and the Sign in to subscribe button"><figcaption><p>An agent's listing in the Developer Portal, as a consumer who isn't signed in sees it</p></figcaption></figure>
 
 ## Next steps
 

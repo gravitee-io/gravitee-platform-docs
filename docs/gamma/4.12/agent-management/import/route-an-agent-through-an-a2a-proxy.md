@@ -24,8 +24,6 @@ The link is one to one. An agent is fronted by at most one A2A Proxy, and a prox
 
 The page holds one card, **Exposed through**, described as the A2A proxy callers use to reach the agent. Before any proxy is linked, it reads **No A2A proxy. Callers reach &lt;agent&gt; directly, so no plans or policies apply.** and offers two buttons: **Create a proxy** and **Link an existing proxy**.
 
-<figure><img src="../.gitbook/assets/gamma-aim-agent-proxies.png" alt="The Proxies page of an agent, with the Exposed through card showing the linked A2A Proxy, its plan count and running badge, and the Open proxy, Policies &amp; guardrails, and Detach buttons"><figcaption><p>The Proxies page of an agent with a linked A2A Proxy</p></figcaption></figure>
-
 ## Route the agent through a new proxy
 
 To create an A2A Proxy for the agent without leaving its page, follow these steps:
@@ -62,6 +60,8 @@ The link is visible from the proxy's side too:
 * On the proxy's **Endpoint** page, the **Target URL** field is read-only while the link stands, with the hint **Taken from the linked agent's card. Detach the agent to change it.** A change submitted another way is refused with a message that names the agent and its published address.
 
 Plans, policies, and guardrails stay on the proxy. Stopping the agent isn't on this page either. The **Stop** button in the bar at the top of the agent's page cuts every subscription its application holds, this proxy included. See [Manage a registered agent](manage-a-registered-agent.md).
+
+<figure><img src="../.gitbook/assets/gamma-aim-agent-proxies.png" alt="The Proxies page of an agent, with the Exposed through card showing the linked A2A Proxy, its plan count and running badge, and the Open proxy, Policies &amp; guardrails, and Detach buttons"><figcaption><p>The Proxies page of an agent with a linked A2A Proxy</p></figcaption></figure>
 
 ## Detach the proxy
 
