@@ -1,3 +1,7 @@
+---
+description: Hybrid API Management 4.11 components often reach Gravitee Cloud through a corporate proxy. Browse the proxy configuration guides.
+---
+
 # Proxy Configuration
 
 ## Overview

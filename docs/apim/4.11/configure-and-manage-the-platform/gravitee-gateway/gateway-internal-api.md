@@ -1,5 +1,5 @@
 ---
-description: An overview about gateway internal api.
+description: The API Management 4.11 Gateway exposes an internal API for monitoring the component. Follow the steps to configure and secure it.
 metaLinks:
   alternates:
     - gateway-internal-api.md

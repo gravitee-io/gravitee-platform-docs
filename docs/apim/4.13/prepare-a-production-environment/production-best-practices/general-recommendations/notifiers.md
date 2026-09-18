@@ -1,5 +1,5 @@
 ---
-description: Documentation about notifiers in the context of APIs.
+description: API publishers can send notifications about their APIs in API Management 4.13. Learn what notifiers do and how to restrict them.
 metaLinks:
   alternates:
     - notifiers.md

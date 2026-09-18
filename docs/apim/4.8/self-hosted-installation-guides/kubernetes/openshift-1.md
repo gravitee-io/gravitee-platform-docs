@@ -1,5 +1,5 @@
 ---
-description: Setup guide for ---.
+description: Install API Management 4.8 within OpenShift, step by step. Follow the procedure to complete the deployment on your cluster.
 hidden: true
 noIndex: true
 ---

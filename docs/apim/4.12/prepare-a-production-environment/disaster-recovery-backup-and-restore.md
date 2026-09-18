@@ -1,7 +1,5 @@
 ---
-description: >-
-  Describes disaster recovery deployment options and backup & restore
-  procedures, for a fully self-hosted Gravitee APIM deployment.
+description: Deploy API Management 4.12 control and data planes active/active or active/passive. Learn how backup and restore work for each.
 ---
 
 # Disaster Recovery (Backup and Restore)

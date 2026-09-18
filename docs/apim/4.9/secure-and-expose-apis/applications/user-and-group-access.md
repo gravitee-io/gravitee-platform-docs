@@ -1,5 +1,5 @@
 ---
-description: An overview about user and group access.
+description: Manage user and group access to an individual API Management 4.9 application. Follow the steps to add and remove members.
 metaLinks:
   alternates:
     - >-

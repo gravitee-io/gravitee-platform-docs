@@ -1,3 +1,7 @@
+---
+description: Enable self-service mTLS certificate management for Developer Portal 4.12 application owners. Follow the steps as an administrator.
+---
+
 # Configure mTLS certificate management (administrator guide)
 
 This guide shows administrators how to enable the self-service mTLS certificate management feature for application owners in the new Developer Portal.

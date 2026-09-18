@@ -1,5 +1,5 @@
 ---
-description: An overview about custom policies.
+description: Policies act as a proxy controller in the API Management 4.10 Gateway. Follow the steps to generate a policy skeleton and apply your own.
 metaLinks:
   alternates:
     - custom-policies.md

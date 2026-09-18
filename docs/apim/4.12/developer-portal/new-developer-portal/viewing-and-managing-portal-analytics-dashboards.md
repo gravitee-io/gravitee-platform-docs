@@ -1,3 +1,7 @@
+---
+description: The New Developer Portal 4.12 presents pre-configured analytics dashboards to consumers and administrators. Learn how to use them.
+---
+
 # View and manage portal analytics dashboards
 
 The New Developer Portal presents pre-configured analytics dashboards that API consumers and administrators can browse, pin, and filter. Dashboards are read-only in the portal. Administrators create and manage them from **Observability** > **Dashboards** in the APIM Console. For prerequisites and enablement, see [Portal analytics configuration reference](portal-analytics-configuration-reference.md). For the Console workflow, see [Create portal analytics dashboards](../../analyze-and-monitor-apis/dashboards/creating-portal-analytics-dashboards.md).

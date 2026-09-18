@@ -1,5 +1,5 @@
 ---
-description: An overview about produce and consume kafka messages with gravitee cloud.
+description: Produce and consume Kafka messages through Gravitee Cloud with API Management 4.12. Follow the steps to send your first messages.
 ---
 
 # Produce and Consume Kafka Messages with Gravitee Cloud

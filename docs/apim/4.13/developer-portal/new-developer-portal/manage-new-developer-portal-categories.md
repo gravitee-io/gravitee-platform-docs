@@ -1,8 +1,5 @@
 ---
-description: >-
-  Group the APIs and API Products in your New Developer Portal catalog into
-  categories in the APIM Console. Create a category and assign APIs and API
-  Products to it.
+description: A category groups related APIs and API Products in the New Developer Portal 4.13 catalog. Follow the steps to create one.
 ---
 
 # Manage New Developer Portal categories

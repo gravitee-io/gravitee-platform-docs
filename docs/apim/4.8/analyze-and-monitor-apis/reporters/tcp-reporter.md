@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for tcp reporter.
+description: Stream API Management 4.8 Gateway events over TCP with the TCP reporter. Browse the configuration parameters it accepts.
 ---
 
 # TCP Reporter

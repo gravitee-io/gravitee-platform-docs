@@ -8,7 +8,7 @@ description: API and reference documentation for Gravitee API Management.
 
 In this section, we will demonstrate how to use [Gravitee API Management](https://www.gravitee.io/products/api-management) to secure your APIs.
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-quickstart-secure-apis-overview.png" alt=""><figcaption><p>Gravitee platform</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-quickstart-secure-apis-overview.png" alt="A six-step diagram in which apps authenticate end-users through AM, which delegates to identity providers and issues tokens, and the app then calls an API through APIM, which validates the token with AM before forwarding the call to backend APIs."><figcaption><p>Gravitee platform</p></figcaption></figure>
 
 ### Before you begin
 
@@ -42,13 +42,13 @@ The OAuth2 policy can be configured in the Gravitee API Management Console:
 5. Select the flow you want to secure.
 6.  Under the Initial connection tab, click the `+` icon of the **Request phase**. The OAuth2 policy can be applied to [v2 APIs and v4 proxy APIs.](README.md) It cannot be applied at the message level.
 
-    <figure><img src="../../../.gitbook/assets/oauth2 add to flow.png" alt=""><figcaption><p>Add a policy to Request phase flow</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/oauth2 add to flow.png" alt="The APIM Policy Studio with a message flow selected and the add policy button circled in the request phase of the initial connection."><figcaption><p>Add a policy to Request phase flow</p></figcaption></figure>
 7.  In the resulting dialog box, **Select** the OAuth2 tile:
 
-    <figure><img src="../../../.gitbook/assets/oauth2 policy.png" alt=""><figcaption><p>Add the OAuth2 policy to the flow</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/oauth2 policy.png" alt="The Policies for Request phase dialog, offering API Key, Assign attributes, JSON Web Tokens, Keyless, Latency, OAuth2, and Transform Headers policies."><figcaption><p>Add the OAuth2 policy to the flow</p></figcaption></figure>
 8.  Configure the OAuth2 policy per the [documentation](https://documentation.gravitee.io/apim/reference/policy-reference/oauth2):
 
-    <figure><img src="../../../.gitbook/assets/oauth2 policy details.png" alt=""><figcaption><p>Configure the OAuth2 policy</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/oauth2 policy details.png" alt="The OAuth2 policy configuration panel, with description, trigger condition, OAuth2 resource, and cache resource fields beside the policy documentation."><figcaption><p>Configure the OAuth2 policy</p></figcaption></figure>
 9. Click **Add policy**.
 10. **Save** and deploy/redeploy your API.
 11. [Verify that your API is OAuth2 secured.](README.md#verify-oauth2-security)

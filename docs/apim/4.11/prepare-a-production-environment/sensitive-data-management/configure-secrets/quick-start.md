@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for quick start.
+description: Configure configuration-level secrets in API Management 4.11. Follow the quick start steps to reference your first secret.
 metaLinks:
   alternates:
     - quick-start.md

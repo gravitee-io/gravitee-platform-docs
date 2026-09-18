@@ -1,5 +1,5 @@
 ---
-description: An overview about javascript.
+description: The JavaScript policy runs scripts at any stage of API Management 4.8 Gateway processing. Learn how to configure the policy.
 ---
 
 # JavaScript

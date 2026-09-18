@@ -1,5 +1,5 @@
 ---
-description: An overview about search for apis in the console.
+description: Filter the list of APIs that appear in the API Management 4.9 Console. Follow the steps to search, and see the worked search examples.
 metaLinks:
   alternates:
     - >-

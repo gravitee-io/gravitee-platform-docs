@@ -1,5 +1,5 @@
 ---
-description: An overview about aws lambda.
+description: The AWS Lambda policy invokes a Lambda function during API Management 4.10 proxy or message requests. Learn how the response is returned.
 ---
 
 # AWS Lambda

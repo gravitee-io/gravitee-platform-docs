@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for ws security sign.
+description: The WS Security Sign policy signs SOAP messages in API Management 4.10 to guarantee integrity. Learn how to configure the signature.
 metaLinks:
   alternates:
     - ws-security-sign.md

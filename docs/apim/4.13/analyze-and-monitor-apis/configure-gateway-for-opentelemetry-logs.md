@@ -1,3 +1,7 @@
+---
+description: Enable OpenTelemetry tracing and set the logs export endpoint on the API Management 4.13 Gateway. Follow the steps to configure it.
+---
+
 # Configure Gateway for OpenTelemetry Logs
 
 ## Gateway Configuration

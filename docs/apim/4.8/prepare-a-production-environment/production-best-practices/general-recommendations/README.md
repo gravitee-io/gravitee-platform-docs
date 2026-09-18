@@ -1,5 +1,5 @@
 ---
-description: Information about general recommendations.
+description: Generalized recommendations for API Management 4.8 production settings and practices. Browse the articles in this section.
 ---
 
 # General Recommendations

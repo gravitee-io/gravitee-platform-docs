@@ -1,5 +1,5 @@
 ---
-description: An overview about mTLS.
+description: An mTLS plan requires a client certificate when connecting to an API Management 4.11 API. Learn how the certificate is used.
 metaLinks:
   alternates:
     - mtls.md

@@ -1,8 +1,5 @@
 ---
-description: >-
-  Fetch New Developer Portal page content from GitHub, GitLab, Git, Bitbucket,
-  or an HTTP URL, keep it in sync with auto-fetch, and import documentation
-  trees and local files.
+description: A New Developer Portal 4.13 navigation page can pull its content from an external source. Learn how importing content works.
 ---
 
 # Import content from external sources

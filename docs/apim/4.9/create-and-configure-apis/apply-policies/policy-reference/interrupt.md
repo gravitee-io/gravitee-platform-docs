@@ -1,5 +1,5 @@
 ---
-description: An overview about interrupt.
+description: The Interrupt policy breaks request processing in API Management 4.9 when a condition is met. Learn how to configure the condition.
 metaLinks:
   alternates:
     - >-

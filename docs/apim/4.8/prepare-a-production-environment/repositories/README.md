@@ -1,5 +1,5 @@
 ---
-description: An overview about repositories.
+description: API Management 4.8 stores data in repositories configured in gravitee.yml. Compare the repository types available to you.
 ---
 
 # Repositories

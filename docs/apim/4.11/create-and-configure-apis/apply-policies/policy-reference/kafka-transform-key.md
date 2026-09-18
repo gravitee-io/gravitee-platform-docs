@@ -1,5 +1,5 @@
 ---
-description: An overview about kafka transform key.
+description: The Kafka Transform Key policy adds a custom message key in API Management 4.11 so you can control partitioning. Learn how to set it.
 metaLinks:
   alternates:
     - kafka-transform-key.md

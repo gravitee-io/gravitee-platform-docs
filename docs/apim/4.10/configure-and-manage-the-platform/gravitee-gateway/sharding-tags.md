@@ -1,5 +1,5 @@
 ---
-description: An overview about sharding tags.
+description: Sharding tags tag API Management 4.10 Gateways so specific APIs deploy to a particular gateway. Learn how the tags work in practice.
 metaLinks:
   alternates:
     - sharding-tags.md

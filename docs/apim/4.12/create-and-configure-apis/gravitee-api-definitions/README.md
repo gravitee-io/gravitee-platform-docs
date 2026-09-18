@@ -1,5 +1,5 @@
 ---
-description: An overview about gravitee api definitions.
+description: Gravitee v2 and v4 API definitions describe the Gateway APIs consumers call in API Management 4.12. Compare the two definitions.
 metaLinks:
   alternates:
     - ./

@@ -1,5 +1,5 @@
 ---
-description: Concepts and architecture for Architecture.
+description: Alert Engine is a standalone application needing no database, running alongside API Management 4.12. Learn how it is built.
 ---
 
 # Architecture

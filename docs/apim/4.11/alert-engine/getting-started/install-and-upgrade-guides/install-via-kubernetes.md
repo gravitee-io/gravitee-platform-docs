@@ -1,5 +1,5 @@
 ---
-description: This article walks through how to install Gravitee Alert Engine via Kubernetes
+description: Deploy Alert Engine in Kubernetes alongside API Management 4.11. Follow the steps if you are already familiar with Kubernetes.
 ---
 
 # Install via Kubernetes

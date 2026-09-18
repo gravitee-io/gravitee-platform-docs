@@ -1,5 +1,5 @@
 ---
-description: An overview about transform query parameters.
+description: The Transform Query Parameters policy overrides incoming query parameters in API Management 4.10. Learn how to configure the override.
 metaLinks:
   alternates:
     - transform-query-parameters.md

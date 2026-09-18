@@ -1,3 +1,7 @@
+---
+description: Gateway logging applies to all v4 API Management 4.12 APIs by default. Follow the steps to enable and configure the logging you need.
+---
+
 # Configure Gateway-level Logs
 
 ## Overview

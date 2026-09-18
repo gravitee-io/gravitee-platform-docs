@@ -1,7 +1,5 @@
 ---
-description: >-
-  Every error key the Gateway reports, with the status it produces, the message
-  it attaches, and what it actually means.
+description: The Gateway records an error key on every failed API Management 4.12 request. Browse the reference to interpret the key you see.
 ---
 
 # Gateway error key reference

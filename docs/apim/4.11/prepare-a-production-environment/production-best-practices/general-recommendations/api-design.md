@@ -1,5 +1,5 @@
 ---
-description: Tutorial on api design.
+description: There is no single rule for designing and exposing API Management 4.11 APIs. Learn the considerations that shape your design.
 metaLinks:
   alternates:
     - api-design.md

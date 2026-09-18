@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for troubleshooting.
+description: An SELinux issue can stop Nginx opening ports 8084 and 8085 for API Management 4.12 on RPM installs. Follow the steps to correct it.
 metaLinks:
   alternates:
     - troubleshooting.md

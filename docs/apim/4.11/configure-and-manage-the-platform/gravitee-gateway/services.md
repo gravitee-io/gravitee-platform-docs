@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for services.
+description: Update the default values for API Management 4.11 Gateway services, which are all enabled by default. Follow the steps to change them.
 metaLinks:
   alternates:
     - services.md

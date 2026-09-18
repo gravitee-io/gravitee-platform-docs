@@ -1,5 +1,5 @@
 ---
-description: Guide on applying policies related to policy reference.
+description: Every policy you can apply to a Gravitee API in API Management 4.12, linked to its own reference page. Find the policy you need.
 metaLinks:
   alternates:
     - ./

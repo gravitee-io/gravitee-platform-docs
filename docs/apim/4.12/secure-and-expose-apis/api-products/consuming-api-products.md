@@ -1,3 +1,7 @@
+---
+description: Consumers use the same authentication for APIs inside an API Management 4.12 API Product as for individual APIs. Learn how it works.
+---
+
 # Consuming APIs via API Products
 
 ## Overview

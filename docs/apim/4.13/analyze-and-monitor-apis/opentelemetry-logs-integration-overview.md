@@ -1,3 +1,7 @@
+---
+description: OpenTelemetry Logs Integration injects trace and span IDs into API Management 4.13 runtime log records. Learn how correlation works.
+---
+
 # OpenTelemetry Logs Integration Overview
 
 ## Overview

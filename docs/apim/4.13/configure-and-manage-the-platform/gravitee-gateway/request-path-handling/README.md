@@ -1,8 +1,5 @@
 ---
-description: >-
-  The http.pathHandling setting decides how the Gateway treats the request path
-  before it resolves the listener context path. Understand the RAW, REJECT, and
-  NORMALIZE modes, and which one to choose.
+description: The path handling setting decides how the API Management 4.13 Gateway treats a request path before resolving it. Learn the modes.
 ---
 
 # Request Path Handling

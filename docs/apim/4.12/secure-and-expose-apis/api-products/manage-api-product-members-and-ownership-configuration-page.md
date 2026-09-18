@@ -1,3 +1,7 @@
+---
+description: Manage the members and ownership of an API Management 4.12 API Product. Follow the steps, and check the permissions you need first.
+---
+
 # Manage API Product Members and Ownership
 
 ## Prerequisites

@@ -1,5 +1,5 @@
 ---
-description: This article walks through how to upgrade your Alert engine instance(s)
+description: Upgrading Alert Engine alongside API Management 4.13 changes only internals between the 1.6 and 2.0 lines. Learn what to check.
 ---
 
 # Upgrade guide

@@ -1,3 +1,7 @@
+---
+description: V4 HTTP proxy APIs in API Management 4.12 support partial updates through PATCH, using JSON Merge Patch. Learn what you can change.
+---
+
 # Partial Updates for V4 HTTP Proxy APIs
 
 ## Overview

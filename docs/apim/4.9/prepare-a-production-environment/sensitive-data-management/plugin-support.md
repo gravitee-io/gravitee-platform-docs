@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for plugin support.
+description: Which API Management 4.9 plugins support referencing secrets. Browse the support table before you configure a secret in one.
 metaLinks:
   alternates:
     - >-

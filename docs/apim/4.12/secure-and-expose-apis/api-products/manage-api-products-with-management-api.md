@@ -1,3 +1,7 @@
+---
+description: Create and manage API Management 4.12 API Products through the Management API. Follow the steps to post a product definition.
+---
+
 # Managing API Products with the Management API
 
 ## Create an API Product

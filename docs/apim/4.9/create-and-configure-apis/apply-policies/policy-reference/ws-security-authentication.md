@@ -1,5 +1,5 @@
 ---
-description: An overview about ws security authentication.
+description: The WS Security Authentication policy secures SOAP API calls in API Management 4.9 by comparing credentials. Learn how to configure it.
 metaLinks:
   alternates:
     - >-

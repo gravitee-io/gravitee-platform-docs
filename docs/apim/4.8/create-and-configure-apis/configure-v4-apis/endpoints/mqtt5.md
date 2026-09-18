@@ -1,5 +1,5 @@
 ---
-description: An overview about mqtt5.
+description: Configure the MQTT5 endpoint for a v4 message API in API Management 4.8. Learn the server information it needs and how it works.
 ---
 
 # MQTT5

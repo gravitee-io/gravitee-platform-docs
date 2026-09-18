@@ -1,5 +1,5 @@
 ---
-description: Learn how to consume secured APIs
+description: Consumers register an application and subscribe to a plan to reach Kafka APIs in API Management 4.8. Learn what applications do.
 ---
 
 # Applications

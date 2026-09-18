@@ -1,5 +1,5 @@
 ---
-description: An overview about xml validation.
+description: The XML Validation policy validates XML against an XSD schema in API Management 4.13, rejecting bad requests. Learn how to configure it.
 metaLinks:
   alternates:
     - xml-validation.md

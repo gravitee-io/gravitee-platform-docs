@@ -1,5 +1,5 @@
 ---
-description: Documentation about application logs in the context of APIs.
+description: API subscribers view paginated logs for every API their application subscribes to in the Developer Portal 4.12. Learn how to read them.
 metaLinks:
   alternates:
     - application-logs.md

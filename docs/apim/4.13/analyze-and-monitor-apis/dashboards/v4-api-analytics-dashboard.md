@@ -1,3 +1,7 @@
+---
+description: The v4 API analytics dashboard shows performance and traffic patterns for an API Management 4.13 v4 API. Learn the metrics it reports.
+---
+
 # V4 API analytics dashboard
 
 ## Overview

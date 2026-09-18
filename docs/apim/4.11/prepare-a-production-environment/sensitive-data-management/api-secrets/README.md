@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for api secrets.
+description: API Management 4.11 integrates with secret managers so the values inside your APIs stay hidden. Learn how API secrets work in practice.
 metaLinks:
   alternates:
     - ./

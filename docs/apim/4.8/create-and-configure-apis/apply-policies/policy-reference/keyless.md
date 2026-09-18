@@ -1,5 +1,5 @@
 ---
-description: An overview about keyless.
+description: The Keyless security policy treats every request to an API Management 4.8 API as valid and blocks none. Learn when to use it.
 ---
 
 # Keyless

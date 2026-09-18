@@ -1,5 +1,5 @@
 ---
-description: An overview about solace.
+description: Federate event APIs from the Solace Event Portal into API Management 4.13. Learn how the integration works with an event mesh.
 metaLinks:
   alternates:
     - solace.md

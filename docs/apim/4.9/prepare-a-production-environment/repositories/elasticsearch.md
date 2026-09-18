@@ -1,5 +1,5 @@
 ---
-description: An overview about elasticsearch.
+description: The Elasticsearch connector for API Management 4.9 uses the HTTP API that Elasticsearch instances expose. Learn how to configure it.
 metaLinks:
   alternates:
     - >-

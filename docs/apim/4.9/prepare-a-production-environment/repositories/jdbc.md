@@ -1,5 +1,5 @@
 ---
-description: An overview about jdbc.
+description: API Management 4.9 can use a JDBC repository for its configuration database. Follow the steps to install the driver and configure it.
 metaLinks:
   alternates:
     - >-

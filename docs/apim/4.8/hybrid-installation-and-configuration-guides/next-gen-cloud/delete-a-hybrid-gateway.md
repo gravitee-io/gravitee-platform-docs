@@ -1,5 +1,5 @@
 ---
-description: An overview about delete a hybrid gateway.
+description: Delete a hybrid API Management 4.8 Gateway you no longer need to keep your environment controlled. Follow the steps to remove it.
 ---
 
 # Delete a Hybrid Gateway

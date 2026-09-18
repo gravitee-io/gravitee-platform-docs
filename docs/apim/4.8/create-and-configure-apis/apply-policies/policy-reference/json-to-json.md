@@ -1,5 +1,5 @@
 ---
-description: An overview about json to json.
+description: The JSON to JSON policy applies a transformation to request, response, or message content in API Management 4.8. Learn how to set it.
 ---
 
 # JSON to JSON

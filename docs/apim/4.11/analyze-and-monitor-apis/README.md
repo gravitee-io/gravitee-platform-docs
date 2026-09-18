@@ -1,5 +1,5 @@
 ---
-description: Documentation about analyze & monitor apis in the context of APIs.
+description: Analysing and monitoring API Management 4.11 APIs, across dashboards, logging, and quality. Browse the sections that matter to you.
 ---
 
 # Analyze & Monitor APIs

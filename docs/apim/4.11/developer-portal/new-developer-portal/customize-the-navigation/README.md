@@ -1,3 +1,7 @@
+---
+description: Structure the New Developer Portal 4.11 navigation with pages and folders. Browse the guides for each customization task.
+---
+
 # Manage Portal Navigation and APIs
 
 ## Overview

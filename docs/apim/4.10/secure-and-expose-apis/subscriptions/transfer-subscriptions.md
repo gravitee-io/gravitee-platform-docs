@@ -1,5 +1,5 @@
 ---
-description: Documentation about transfer subscriptions in the context of APIs.
+description: Transfer an active API Management 4.10 subscription to another plan with the same security type. Follow the steps to move it.
 metaLinks:
   alternates:
     - transfer-subscriptions.md

@@ -1,3 +1,7 @@
+---
+description: Configure MDC filtering, log patterns, and Logback overrides for the API Management 4.11 Gateway. Follow the steps to set them.
+---
+
 # Node logging configuration
 
 Configure MDC filtering, log patterns, and Logback overrides for the Gravitee Gateway and Management API via `gravitee.yml`.

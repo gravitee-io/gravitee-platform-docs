@@ -1,5 +1,5 @@
 ---
-description: An overview about import apis.
+description: Import an API into API Management 4.13 as a Gravitee definition or an OpenAPI specification. Follow the steps to import from a local file.
 metaLinks:
   alternates:
     - import-apis.md

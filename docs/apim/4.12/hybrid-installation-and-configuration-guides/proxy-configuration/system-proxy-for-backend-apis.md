@@ -1,3 +1,7 @@
+---
+description: Configure a system proxy so a hybrid API Management 4.12 Gateway can reach your backend APIs. Follow the steps to set it up.
+---
+
 # System Proxy for Backend APIs
 
 ## Overview

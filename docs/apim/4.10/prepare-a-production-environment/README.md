@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for prepare a production environment.
+description: Preparing an API Management 4.10 environment for production, from sizing through to best practices. Browse the articles you need.
 metaLinks:
   alternates:
     - ./

@@ -1,5 +1,5 @@
 ---
-description: Store selected claims from an identity provider on each user at login, and inject them into dynamic client registration requests so that the registration provider receives tenant or user context.
+description: API Management 4.13 sends a dynamic client registration request when a user creates an application. Learn how to inject provider claims.
 ---
 
 # Inject identity provider claims into DCR requests

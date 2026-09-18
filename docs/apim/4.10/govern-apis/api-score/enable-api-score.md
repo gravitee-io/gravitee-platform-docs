@@ -1,5 +1,5 @@
 ---
-description: An overview about enable api score.
+description: API Score is available in Gravitee Cloud; a self-hosted API Management 4.10 install needs it enabled. Follow the steps to turn it on.
 metaLinks:
   alternates:
     - enable-api-score.md

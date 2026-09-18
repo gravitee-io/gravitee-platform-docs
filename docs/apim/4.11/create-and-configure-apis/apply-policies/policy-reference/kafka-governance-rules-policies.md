@@ -1,3 +1,7 @@
+---
+description: Kafka governance rules policies enforce compliance standards on Kafka requests through the API Management 4.11 Gateway. Learn what they check.
+---
+
 # Kafka governance rules policies
 
 ## Overview

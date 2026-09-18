@@ -1,5 +1,5 @@
 ---
-description: An overview about jwt validator.
+description: The JWT Validator policy checks a token's signature and expiration before API Management 4.8 forwards the call. Learn how to configure it.
 ---
 
 # JWT Validator

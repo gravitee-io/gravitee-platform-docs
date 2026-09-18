@@ -1,7 +1,5 @@
 ---
-description: >-
-  What the FIPS variants of the APIM Docker images are, where to pull them, and
-  what they constrain.
+description: Every API Management 4.13 component ships a FIPS image variant alongside its ordinary image. Learn what the FIPS builds provide.
 ---
 
 # FIPS images

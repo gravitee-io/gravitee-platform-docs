@@ -1,5 +1,5 @@
 ---
-description: An overview about api quality.
+description: API Quality assigns customizable governance scores to your API Management 4.13 APIs. Follow the steps to configure and review them.
 metaLinks:
   alternates:
     - api-quality.md

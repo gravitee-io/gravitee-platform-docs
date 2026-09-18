@@ -1,5 +1,5 @@
 ---
-description: A tutorial guide about manage organizations & environments in Gravitee's platform.
+description: An organization is a logical part of a company sharing settings in API Management 4.12, containing environments. Learn the model.
 metaLinks:
   alternates:
     - ./

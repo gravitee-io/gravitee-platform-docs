@@ -1,5 +1,5 @@
 ---
-description: This article describes how to create documentation for v2 APIs
+description: Create, import, and add metadata to v2 API documentation from the API Management 4.13 Console. Follow the steps to publish it.
 metaLinks:
   alternates:
     - documentation.md

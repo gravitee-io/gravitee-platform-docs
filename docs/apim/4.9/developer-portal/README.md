@@ -1,5 +1,5 @@
 ---
-description: Documentation about developer portal in the context of APIs.
+description: The Developer Portal 4.9 is the web application where consumers discover and consume your APIs. Learn what the portal offers.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal

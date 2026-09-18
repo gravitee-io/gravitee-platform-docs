@@ -1,5 +1,5 @@
 ---
-description: An overview about dynamic routing.
+description: The Dynamic Routing policy dispatches calls to different targets or rewrites URIs in API Management 4.12. Learn how to configure it.
 metaLinks:
   alternates:
     - dynamic-routing.md

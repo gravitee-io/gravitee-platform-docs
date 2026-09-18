@@ -1,3 +1,7 @@
+---
+description: Enable OpenTelemetry tracing for a single Kafka native API in API Management 4.12 once gateway tracing is in place. Follow the steps.
+---
+
 # Enable OpenTelemetry tracing for a Kafka API
 
 This page explains how to enable OpenTelemetry tracing for a single Kafka native API once gateway-level tracing is in place. For the broader OpenTelemetry feature overview and the full attribute reference, see [OpenTelemetry](../../../analyze-and-monitor-apis/opentelemetry.md).

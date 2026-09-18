@@ -162,6 +162,7 @@ Grafana
 Jaeger
 Zipkin
 Fluentd
+listable
 Logstash
 Datadog
 Splunk
@@ -287,6 +288,7 @@ UDP
 [Hh][Tt][Tt][Pp][Ss]?
 SMTP
 [Hh]ostnames?
+Unproxied
 URIs?
 URLs?|url
 [Ll]ocalhost
@@ -850,7 +852,8 @@ asc
 cacheRedis
 connectTimeout
 prefetch
-resync
+[Rr]esync
+[Rr]esynced
 [Ss]harded
 tlsCiphers
 
@@ -903,3 +906,5 @@ dashboarding
 Rovo
 Streamable
 Globbing
+Gemini
+evaluable

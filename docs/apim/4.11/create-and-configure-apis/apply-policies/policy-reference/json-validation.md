@@ -1,5 +1,5 @@
 ---
-description: An overview about json validation.
+description: The JSON Validation policy validates payloads against a JSON schema in API Management 4.11. Learn how to configure the schema it uses.
 metaLinks:
   alternates:
     - json-validation.md

@@ -1,5 +1,5 @@
 ---
-description: An overview about JWT.
+description: A JWT plan secures an API Management 4.11 API with signed claims passed between two parties. Learn how the token is validated.
 metaLinks:
   alternates:
     - jwt.md

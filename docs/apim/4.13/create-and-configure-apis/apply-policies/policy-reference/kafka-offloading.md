@@ -1,5 +1,5 @@
 ---
-description: An overview about kafka offloading.
+description: The Kafka Offloading policy controls how message content is offloaded to storage in API Management 4.13. Learn how to configure it.
 metaLinks:
   alternates:
     - kafka-offloading.md

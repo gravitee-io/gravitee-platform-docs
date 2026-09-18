@@ -1,5 +1,5 @@
 ---
-description: An overview about openshift.
+description: Install a hybrid API Management 4.8 Gateway on OpenShift and connect it to Gravitee Cloud. Follow the steps to deploy it.
 ---
 
 # OpenShift

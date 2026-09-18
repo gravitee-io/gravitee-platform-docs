@@ -1,7 +1,5 @@
 ---
-description: >-
-  This section walks through configuring your already-installed Gravitee Alert
-  Engine instance(s)
+description: Configure Alert Engine and its internal API alongside API Management 4.11. Browse the configuration guides that apply to you.
 ---
 
 # Configuration

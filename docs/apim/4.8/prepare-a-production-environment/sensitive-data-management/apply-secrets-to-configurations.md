@@ -1,5 +1,5 @@
 ---
-description: An overview about apply secrets to configurations.
+description: Apply secret manager values to your API Management 4.8 configuration files. Follow the steps to configure the secret integration.
 ---
 
 # Apply Secrets to Configurations

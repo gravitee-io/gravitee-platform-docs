@@ -1,3 +1,7 @@
+---
+description: Promote an API Management 4.11 API from one environment to another. Follow the steps to request and then approve a promotion.
+---
+
 # Promote APIs
 
 Overview

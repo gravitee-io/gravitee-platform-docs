@@ -1,3 +1,7 @@
+---
+description: Portal analytics dashboards give consumers and administrators pre-configured views of API Management 4.12 traffic. Learn the key concepts.
+---
+
 # Portal analytics dashboards overview
 
 ## Overview

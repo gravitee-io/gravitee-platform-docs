@@ -1,5 +1,5 @@
 ---
-description: An overview about rabbitmq.
+description: Configure the RabbitMQ endpoint for a v4 message API in API Management 4.10. Follow the steps through the initial settings.
 metaLinks:
   alternates:
     - rabbitmq.md

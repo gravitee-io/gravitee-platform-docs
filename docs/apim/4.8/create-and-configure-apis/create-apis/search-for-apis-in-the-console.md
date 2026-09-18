@@ -1,5 +1,5 @@
 ---
-description: An overview about search for apis in the console.
+description: The APIs page in the API Management 4.8 Console lists everything created or imported. Follow the steps to search and filter the list.
 ---
 
 # Search for APIs in the Console

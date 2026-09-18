@@ -1,5 +1,5 @@
 ---
-description: An overview about OpenTelemetry.
+description: Trace every request the API Management 4.12 Gateway handles with the Gravitee OpenTelemetry feature. Learn how tracing is set up.
 ---
 
 # OpenTelemetry

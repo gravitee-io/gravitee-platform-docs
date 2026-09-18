@@ -1,5 +1,5 @@
 ---
-description: An overview about mapi internal api.
+description: The API Management 4.8 Management API exposes its own internal API for monitoring. Follow the steps to configure and secure it.
 ---
 
 # MAPI Internal API

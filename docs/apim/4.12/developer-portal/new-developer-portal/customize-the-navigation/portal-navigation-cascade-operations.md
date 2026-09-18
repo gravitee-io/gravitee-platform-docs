@@ -1,5 +1,5 @@
 ---
-description: Manage portal navigation folders and API sections with cascade publish, unpublish, and delete operations that affect all nested content.
+description: Organize and control the structure of Developer Portal 4.12 navigation, including cascade operations. Learn how changes propagate.
 ---
 
 # Portal Navigation Cascade Operations

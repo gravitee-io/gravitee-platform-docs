@@ -1,5 +1,5 @@
 ---
-description: Documentation about api review and quality in the context of APIs.
+description: Enable API review and quality in API Management 4.9 to avoid unexpected exposure on the Developer Portal. Learn how to turn it on.
 metaLinks:
   alternates:
     - >-

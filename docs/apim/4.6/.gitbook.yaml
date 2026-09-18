@@ -838,7 +838,6 @@ redirects:
  most-common-use-cases/configure-jwt-security-with-apim: getting-started/use-case-tutorials/configure-jwt-security.md
  most-common-use-cases/rate-limiting-rest-api-use-cases: getting-started/use-case-tutorials/rate-limit-rest-apis.md
  most-common-use-cases/secure-and-expose-grpc-services-with-gravitee: getting-started/use-case-tutorials/secure-and-expose-grpc-services.md
- new-release: new release.md
  overview/apim-architecture: overview/changelog/README.md
  overview/apim-architecture/production-deployments-and-capacity-planning: getting-started/production-ready-environment/deployments.md
  overview/changelog/apim-4.2.x: overview/changelog/apim-4.6.x.md
