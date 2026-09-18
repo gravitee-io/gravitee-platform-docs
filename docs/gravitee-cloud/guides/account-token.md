@@ -24,16 +24,16 @@ Follow the steps below to create and manage Account Tokens:
 
 1.  Go to **Settings > Account Tokens**.
 
-    <figure><img src="../.gitbook/assets/guide-account-token-8.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/guide-account-token-8.png" alt="The Account Tokens page with the Generate token button and an empty token list."><figcaption></figcaption></figure>
 2.  Click **Generate token**, give your Account Token a meaningful name, then click **Generate**.
 
-    <figure><img src="../.gitbook/assets/account token_generate.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/account token_generate.png" alt="The Generate Token dialog with a name entered in the Token name field."><figcaption></figcaption></figure>
 3.  The next dialogue box will show your Account Token and a CURL example of how to use it. Make sure to copy your Account Token, as this will not be possible once you close the dialogue box.
 
-    <figure><img src="../.gitbook/assets/account token_copy.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/account token_copy.png" alt="The Generate Token dialog showing the generated token and a curl example, with a warning to copy the token now."><figcaption></figcaption></figure>
 4.  Your Account Token will now be listed in the table.
 
-    <figure><img src="../.gitbook/assets/account token_listed.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/account token_listed.png" alt="The Account Tokens table listing a token with its name, creation date, creator, and a delete icon."><figcaption></figcaption></figure>
 5.  To delete a token, click the **trash icon** on the right of the Account Token entry, enter its name in the **Confirm** field, and, after verifying the token has no dependencies, click **I understand the consequences, revoke this token**.
 
-    <figure><img src="../.gitbook/assets/account token_delete.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/account token_delete.png" alt="The Revoke token dialog warning that access will be revoked immediately, with the token name typed into the Confirm field."><figcaption></figcaption></figure>
