@@ -32,7 +32,7 @@ Step-up authentication is often used in the following scenarios:
   4. Select your MFA factor and set the **Step up authentication** rule.
   5.  Click **SAVE**.
 
-      <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-step-up.png" alt=""><figcaption><p>Application settings</p></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-step-up.png" alt="The Multifactor Auth settings with an SMS factor enabled and a step up authentication rule matching a request scope parameter."><figcaption><p>Application settings</p></figcaption></figure>
 
 You can leverage access control by asking your users to confirm their identity before making any sensitive actions. In this example, the sensitive action is represented by the `pisp` (Payment Initiation Service Provider) OAuth 2.0 scope.
 
