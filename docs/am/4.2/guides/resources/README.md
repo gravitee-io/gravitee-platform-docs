@@ -15,8 +15,8 @@ Resources provide a way to define reusable sets of configuration.
 3. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 4.  Select the resource type and click **Next**.
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-resource-types.png" alt=""><figcaption><p>Create a new resource</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-resource-types.png" alt="The New Resource wizard on the Platform step, offering only a Twilio Verify resource type."><figcaption><p>Create a new resource</p></figcaption></figure>
 5. Enter the resource details and click **Create**.
 6.  Your resource is now available to be used in AM.
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-resource-reference.png" alt=""><figcaption><p>Available resources</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-resource-reference.png" alt="The Settings step of the New factor wizard for an SMS factor, with the factor name, country codes, and the Resource list open showing the Twilio Verify resource."><figcaption><p>Available resources</p></figcaption></figure>
