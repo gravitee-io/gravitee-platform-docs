@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.32 - September 18, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Self-service GET changePassword redirect drops reverse-proxy path prefix, returning 404 [#11806](https://github.com/gravitee-io/issues/issues/11806)
+* SCIM: a null-valued email attribute persists [#11811](https://github.com/gravitee-io/issues/issues/11811)
+
+
+
+
+
+**Other**
+
+* 2DBC pool cannot recover from a silent DB socket after failover, and the three settings that would help are not exposed [#11774](https://github.com/gravitee-io/issues/issues/11774)
+
+</details>
+
+
 ## Gravitee Access Management 4.9.31 - September 3, 2026
 
 <details>
