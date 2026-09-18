@@ -15,6 +15,7 @@
     * [Connect integrations](import/connect-integrations.md)
     * [Connect an agent platform](import/connect-an-agent-platform.md)
     * [Register an agent](import/import-an-agent.md)
+    * [Discover shadow AI agents from Edge Management](import/discover-shadow-ai-agents-from-edge-management.md)
     * [Manage a registered agent](import/manage-a-registered-agent.md)
       * [Give an agent an identity](import/give-an-agent-an-identity.md)
       * [Route an agent through an A2A Proxy](import/route-an-agent-through-an-a2a-proxy.md)
