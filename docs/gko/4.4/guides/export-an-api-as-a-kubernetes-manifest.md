@@ -21,7 +21,7 @@ In the Gravitee API Management console, head to the overview of any v2 or v4 API
 
 In the modal that opens, select the **CRD API Definition** tab and click the **Export** button.
 
-<figure><img src="../.gitbook/assets/guide-export-an-api-as-a-kubernetes-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-export-an-api-as-a-kubernetes-1.png" alt="The Export API modal offering a Gravitee API definition tab and a CRD API Definition tab."><figcaption></figcaption></figure>
 
 You will then be prompted to save your API definition yaml Kubernetes manifest to disk.&#x20;
 

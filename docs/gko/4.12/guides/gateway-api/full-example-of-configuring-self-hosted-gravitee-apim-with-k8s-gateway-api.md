@@ -24,7 +24,7 @@ GatewayClassParameters (Gravitee-specific configuration)
 
 The HTTPRoute defines the ingress path and hostname, then forwards traffic to the APIM gateway service. An `ApiV4Definition` with the same name defines the actual API behavior (listeners, endpoints, plans, flows) on the APIM Gateway.
 
-<figure><img src="../../.gitbook/assets/kubertenes-gateway-api-integration-tooling.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/kubertenes-gateway-api-integration-tooling.png" alt="API requests reach the Gateway API through an HTTPRoute, which GKO backs with Gravitee Gateways."><figcaption></figcaption></figure>
 
 ## Prerequisites
 
@@ -373,7 +373,7 @@ The example below traces a single request end-to-end, showing how it moves throu
 3. The **Gravitee APIM Gateway** matches the request against the `echo` API (by path and virtual host), applies plans and policies, then proxies to the backend (`httpbin-1.gravitee.svc.cluster.local:8080`).
 4.  The backend responds, and the response flows back through both gateways to the client.
 
-    <figure><img src="../../.gitbook/assets/request-flow-kubernetes-cluster-http-route.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/request-flow-kubernetes-cluster-http-route.png" alt="A request passes through the Gateway API gateway and the APIM Gateway before the backend replies."><figcaption></figcaption></figure>
 
 ### **Step 1: Confirm ManagementContext**
 
