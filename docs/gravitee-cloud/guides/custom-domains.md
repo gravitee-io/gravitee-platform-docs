@@ -36,24 +36,24 @@ The number of custom domains for each Gateway is limited by your subscription pl
 
 1.  From the **Dashboard**, navigate to **Gateways**, and then click the Gateway that you want to configure the Custom Domain for. <br>
 
-    <figure><img src="../.gitbook/assets/0E2A7C22-B3FC-47E6-A09C-3BEF4D27E489_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/0E2A7C22-B3FC-47E6-A09C-3BEF4D27E489_1_201_a.jpeg" alt="The Dashboard with a Gateway name highlighted in the Gateways table."><figcaption></figcaption></figure>
 2.  In the Gateway details' menu, click **Custom Domains**.<br>
 
-    <figure><img src="../.gitbook/assets/cloud-custom-domains-page.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/cloud-custom-domains-page.png" alt="The empty Custom Domains page for a Gateway, showing the domain quota and the Add Custom Domain button."><figcaption></figcaption></figure>
 
 3.  Click **+ Add Custom Domain**. The **Custom Domain setup** page opens. It reminds you that the CNAME record must be configured at your registrar before the custom domain works. <br>
 
-    <figure><img src="../.gitbook/assets/cloud-custom-domain-setup-http.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/cloud-custom-domain-setup-http.png" alt="The Custom Domain setup page before a domain is entered, with the type set to HTTP and both the CNAME record and SSL certificate showing Not Configured."><figcaption></figcaption></figure>
 4.  In the **Custom Domain Type** list, select **HTTP**.<br>
 
-    <figure><img src="../.gitbook/assets/cloud-custom-domain-type-list.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/cloud-custom-domain-type-list.png" alt="The Custom Domain Type list open, with HTTP selected and Kafka as the alternative."><figcaption></figcaption></figure>
 5. In the **Custom Domain Name** field, enter the name of your custom domain. For example, `api.example.com`. The custom domain name must follow these rules:
    1. The domain must be a valid domain name. The domain name can contain only lowercase letters, numbers, hyphens, and dots.
    2. The maximum length is 253 characters.
    3. The domain must be unique across all gateways and accounts.
 6.  Scroll to the **CNAME Record Instructions** section. The **Domain Name** row shows the custom domain that you entered, and the **Value** row shows the Gateway host that your CNAME record must point to.<br>
 
-    <figure><img src="../.gitbook/assets/cloud-custom-domain-http-cname-record.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/cloud-custom-domain-http-cname-record.png" alt="The CNAME Record Instructions section, with the entered domain in the Domain Name row and the Gateway host obscured in the Value row."><figcaption></figcaption></figure>
 7.  Sign in to your domain registrar and create a CNAME record with these values.
 
     {% hint style="warning" %}
@@ -65,7 +65,7 @@ The number of custom domains for each Gateway is limited by your subscription pl
    * If the record resolves to the Gateway host, the custom domain is saved, the message **Custom Domain successfully added** appears, and the **Custom Domains** page opens. Gravitee then deploys the DNS configuration for the domain in the background.
    *   If no CNAME record exists for the domain, if the record points to a different host, or if the record can't be looked up, the warning **This custom domain can't be saved until its CNAME record is in place and resolves to the gateway** appears below the buttons. The domain isn't saved and nothing is deployed. Wait for your DNS change to propagate, and then click **Save** again.<br>
 
-       <figure><img src="../.gitbook/assets/cloud-custom-domain-http-cname-not-resolved.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../.gitbook/assets/cloud-custom-domain-http-cname-not-resolved.png" alt="The Custom Domain setup page with a warning that the domain cannot be saved until its CNAME record resolves to the Gateway."><figcaption></figcaption></figure>
    * Other errors appear in an error banner at the top of the form.
 
 To add a Kafka custom domain instead, see [#add-a-kafka-custom-domain](custom-domains.md#add-a-kafka-custom-domain "mention").
@@ -89,10 +89,10 @@ A Kafka custom domain needs two CNAME records at your registrar:
 4. In the **Custom Domain Type** list, select **Kafka**.
 5.  In the **Custom Domain Name** field, enter the domain. The field carries a fixed `{apiHost}.` prefix, so enter only the part that follows it. For example, enter `kafka.example.com` to create the domain `{apiHost}.kafka.example.com`.<br>
 
-    <figure><img src="../.gitbook/assets/cloud-custom-domain-setup-kafka.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/cloud-custom-domain-setup-kafka.png" alt="The Custom Domain setup page with the type set to Kafka and a domain entered, above the ACME delegation and wildcard CNAME record instructions."><figcaption></figcaption></figure>
 6.  Scroll to the **CNAME Record Instructions** section. The **Add the ACME Delegation CNAME Record** section comes first, with the status badge and the refresh icon next to its title. The **Add the Wildcard CNAME Record** section follows.<br>
 
-    <figure><img src="../.gitbook/assets/cloud-kafka-cname-instructions.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/cloud-kafka-cname-instructions.png" alt="The Kafka CNAME Record Instructions, with the ACME delegation record above the wildcard CNAME record."><figcaption></figcaption></figure>
 7. Sign in to your domain registrar and create both records with the **Domain Name** and **Value** shown in each section.
 8. Click **Save**. Gravitee looks up the ACME delegation record and compares its target with the **Value** shown in the **Add the ACME Delegation CNAME Record** section:
    * If the record resolves to that target, the custom domain is saved, the message **Custom Domain successfully added** appears, and the **Custom Domains** page opens. Gravitee then provisions the DNS entry for the domain in the background.
@@ -141,20 +141,20 @@ For a Kafka custom domain, the **CNAME Record Status** reflects the ACME delegat
 
 The **Certificate** column shows `managed` for every Kafka custom domain, because Gravitee issues and renews the wildcard certificate through the ACME delegation.
 
-<figure><img src="../.gitbook/assets/cloud-custom-domains-list-verified.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/cloud-custom-domains-list-verified.png" alt="The Custom Domains table listing a Kafka domain with a Verified CNAME record status and a Managed certificate."><figcaption></figcaption></figure>
 
 ### Check the current status
 
 To open the **Custom Domain setup** page of a saved custom domain, click the **eye** icon in its row on the **Custom Domains** page. The tooltip reads **View setup**.<br>
 
-<figure><img src="../.gitbook/assets/cloud-custom-domains-view-setup.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/cloud-custom-domains-view-setup.png" alt="The Custom Domains table with the eye icon hovered, showing a View setup tooltip beside the refresh and delete icons."><figcaption></figcaption></figure>
 
 *   On the **Custom Domain setup** page of an HTTP custom domain, click the refresh icon next to the status badge in the **CNAME Record Instructions** section or in the **SSL Certificate Issuance** section. Either icon re-checks both the CNAME record and the certificate.<br>
 
-    <figure><img src="../.gitbook/assets/cloud-custom-domain-http-status.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/cloud-custom-domain-http-status.png" alt="The Custom Domain setup page for a saved HTTP domain, with the CNAME record Verified and the SSL certificate Issued."><figcaption></figcaption></figure>
 *   On the **Custom Domain setup** page of a Kafka custom domain, click the refresh icon next to the status badge in the **Add the ACME Delegation CNAME Record** section.<br>
 
-    <figure><img src="../.gitbook/assets/cloud-kafka-custom-domain-status.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/cloud-kafka-custom-domain-status.png" alt="The Kafka CNAME Record Instructions with the ACME delegation record status showing Verified."><figcaption></figcaption></figure>
 * On the **Custom Domains** page, click the refresh icon in the row of the custom domain. The tooltip reads **Refresh status**.
 
 While you add a new custom domain, the refresh icons on the **Custom Domain setup** page are disabled. Clicking **Save** runs the CNAME check.
@@ -167,16 +167,16 @@ Deleting a custom domain is permanent. API traffic routed through this domain st
 
 1.  From the **Dashboard**, navigate to **Gateways**, and then click the Gateway that you want to delete the custom domain for.<br>
 
-    <figure><img src="../.gitbook/assets/guide-custom-domains-45.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/guide-custom-domains-45.png" alt="The Dashboard with a Gateway name highlighted in the Gateways table."><figcaption></figcaption></figure>
 2.  In the Gateway details' menu, click **Custom Domains**.<br>
 
-    <figure><img src="../.gitbook/assets/guide-custom-domains-46.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/guide-custom-domains-46.png" alt="The Gravitee Hosted Gateway page with Custom Domains highlighted in the Gateway menu."><figcaption></figcaption></figure>
 3.  Navigate to the custom domain that you want to delete, and then click the **bin** icon. <br>
 
-    <figure><img src="../.gitbook/assets/4260169E-541D-4709-8AE8-0B3C5220A19B_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/4260169E-541D-4709-8AE8-0B3C5220A19B_1_201_a.jpeg" alt="The Custom Domains table with the bin icon highlighted and a Delete Custom Domain tooltip."><figcaption></figcaption></figure>
 4.  In the **Delete Custom Domain** pop-up dialog box, type the name of the custom domain, and then click **Yes, delete it**. <br>
 
-    <figure><img src="../.gitbook/assets/7F32784B-2E6C-4984-A927-9BC01C8C60B5_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/7F32784B-2E6C-4984-A927-9BC01C8C60B5_1_201_a.jpeg" alt="The Delete Custom Domain dialog warning that the operation is irreversible, with the domain name typed into the Confirm field."><figcaption></figcaption></figure>
 
 This removes the DNS configuration on Gravitee's side. Delete the matching records from your domain registrar too. For an HTTP custom domain, delete the CNAME record. For a Kafka custom domain, delete both the wildcard CNAME record and the ACME delegation CNAME record.
 
@@ -186,4 +186,4 @@ A custom domain whose DNS entry isn't provisioned yet can't be deleted. Its **bi
 
 The custom domain is removed from the **Custom Domains** screen.<br>
 
-<figure><img src="../.gitbook/assets/4CD1DB97-C9D2-4EB0-8D27-BE8791CBA702_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/4CD1DB97-C9D2-4EB0-8D27-BE8791CBA702_1_201_a.jpeg" alt="The Custom Domains page empty again after the domain was deleted, with the quota back to zero."><figcaption></figcaption></figure>
