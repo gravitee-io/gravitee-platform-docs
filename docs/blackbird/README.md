@@ -17,7 +17,7 @@ Blackbird is built for API architects, developers, and QA engineers who want an 
 
 Blackbird supports your API development lifecycle as you design, implement, and test your API specs.
 
-<div align="left"><figure><img src=".gitbook/assets/bb 0.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/bb 0.png" alt="A cycle diagram of continuous API development with six stages - Plan, Design, Implement, Test, Deploy, and Monitor - with Design, Implement, and Test picked out in colour." width="375"><figcaption></figcaption></figure></div>
 
 ## Design
 

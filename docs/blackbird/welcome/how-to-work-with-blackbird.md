@@ -7,7 +7,7 @@ noIndex: true
 
 Blackbird provides flexible tools for designing, implementing, and testing your API, whether you prefer a user interface or command line. Use the following graphic to learn about the differences.
 
-<figure><img src="../.gitbook/assets/bb 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/bb 2.png" alt="A table comparing Blackbird feature support across the UI and the CLI, covering API creation, code generation, API spec editing, code run, code debug, mocks, remote clusters, deployments, user management, and API keys."><figcaption></figcaption></figure>
 
 ## Blackbird UI
 
