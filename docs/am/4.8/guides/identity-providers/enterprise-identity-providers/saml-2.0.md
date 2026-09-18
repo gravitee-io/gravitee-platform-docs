@@ -17,7 +17,7 @@ SAML 2.0 specifies a web browser SSO profile involving an identity provider (IdP
 In this scenario, the AM SAML 2.0 identity provider acts as the Service Provider (SP) via the SP-Initiated SSO flow.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-saml2.png" alt=""><figcaption><p>AM SAML flow</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-saml2.png" alt="A diagram in which applications reach Access Management over OAuth 2.0 or OIDC, and Access Management authenticates against a SAML 2.0 identity provider over SAML 2.0."><figcaption><p>AM SAML flow</p></figcaption></figure>
 
 ## Get your SAML 2.0 identity provider (IdP) metadata
 
@@ -57,7 +57,7 @@ You can test your SAML 2.0 connection using a web application created in AM.
 
 1.  In AM Console, click **Applications > App > Identity Providers** and select your SAML 2.0 connector.
 
-    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select SAML 2.0 IdP</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-list.png" alt="The Identity Providers tab of an application, listing Azure AD, Mongo DB, Facebook, France Connect, Github, Google, Inline, LDAP, LinkedIn, OpenID, Salesforce, and Twitter providers, each with a toggle."><figcaption><p>Select SAML 2.0 IdP</p></figcaption></figure>
 2.  Call the Login page (the `/oauth/authorize` endpoint). If the connection is working you will see a **Sign in with SAML 2.0** button.
 
     If the button is not visible, there may be a problem with the identity provider settings. Check the AM Gateway log for more information.
