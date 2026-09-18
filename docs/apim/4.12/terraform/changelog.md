@@ -8,6 +8,14 @@ metaLinks:
 
 # Changelogs
 <!--INSERT_BELOW-->
+## v1.0.2
+
+### Bug Fixes
+* 58d83022dc924d4babe41a47fb475d9a3705a84e fix: send X-Gravitee-Set-Hrid on Terraform 1.16 export import
+* 1c096fe1577d0e8f11d41212dfe4ba90267964d8 fix: send X-Gravitee-Set-Hrid on Terraform 1.16 export import
+
+
+
 ## v1.0.1
 
 ### Bug fixes
