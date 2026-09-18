@@ -48,7 +48,7 @@ To activate the Account Linking feature for a particular application:
       1. **Attribute name:** Username, email, etc.
       2. **Attribute value:** Supports Expression Language
 
-<figure><img src="../../.gitbook/assets/account linking at app level.png" alt=""><figcaption><p>Apply account linking at the application level</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/account linking at app level.png" alt="The application flow designer with an Account Linking policy added to the Connect flow, beside the policy list and its description."><figcaption><p>Apply account linking at the application level</p></figcaption></figure>
 
 {% hint style="success" %}
 Multiple accounts with the same attributes are now considered to represent the same user.
@@ -72,7 +72,7 @@ To activate the Account Linking feature for the security domain:
       1. **Attribute name:** Username, email, etc.
       2. **Attribute value:** Supports Expression Language
 
-<figure><img src="../../.gitbook/assets/account linking_flows.png" alt=""><figcaption><p>Apply account linking at the security domain level</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/account linking_flows.png" alt="The domain flow designer with the Connect flow highlighted and an Account Linking policy added, its attribute name and value settings open beside the policy documentation."><figcaption><p>Apply account linking at the security domain level</p></figcaption></figure>
 
 {% hint style="success" %}
 Multiple accounts with the same attributes are now considered to represent the same user.
