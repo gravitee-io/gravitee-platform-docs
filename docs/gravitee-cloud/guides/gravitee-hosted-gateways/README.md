@@ -22,17 +22,17 @@ You don't have to scale your Gateways. Gravitee scales your Gateways and manages
 
 1.  From the **Dashboard**, click **Deploy Gateway**.
 
-    <figure><img src="../../.gitbook/assets/5458CF8E-7FFE-4961-9EE5-761E3A3E75CB.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/5458CF8E-7FFE-4961-9EE5-761E3A3E75CB.jpeg" alt="The Gravitee Cloud dashboard Overview, with the Deploy Gateway button highlighted in the Gateways section."><figcaption></figcaption></figure>
 2.  In the **Choose Gateway Deployment Method** pop-up window, Select **Gravitee Hosted Gateway**, and then click **Next**.
 
-    <figure><img src="../../.gitbook/assets/6E074878-3A2D-404F-920F-FFE8B74559CB_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/6E074878-3A2D-404F-920F-FFE8B74559CB_1_201_a.jpeg" alt="The Choose Gateway Deployment Method pop-up window, with Gravitee Hosted Gateway selected and Hybrid Gateway offered as the alternative."><figcaption></figcaption></figure>
 3. In the **Deploy Gateway** screen, complete the following-sub-steps:
    1. Enter the name of your Gateway. For example, Deploy Gateway 2.
    2. Choose the environment for your Gateway.
    3. Choose the provider for your Gateway.
    4.  Choose the region for your Gateway
 
-       <figure><img src="../../.gitbook/assets/deploy-gateway-2.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/deploy-gateway-2.png" alt="The Gateway Details form, with the Name, Environment, Provider, and Region fields highlighted."><figcaption></figcaption></figure>
 
 ### (Optional) Add Development tags
 
@@ -40,20 +40,20 @@ When deploying a new Gateway, you can optionally set sharding tags. To add shard
 
 1.  Navigate to the **Deployment Tags** section.
 
-    <figure><img src="../../.gitbook/assets/deployment-tags-cloud-version.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/deployment-tags-cloud-version.png" alt="The Deployment Tags section of the Gateway form, with the section heading highlighted above the Sharding Tag IDs and Tenant Tag IDs fields."><figcaption></figcaption></figure>
 2.  In the **Sharding Tag Keys** field, enter one or more tag keys that identify this Gateway's purpose. For example, `us-east`, `production`, `eu-west`.
 
-    <figure><img src="../../.gitbook/assets/sharding-tag-ids-cloud.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/sharding-tag-ids-cloud.png" alt="The Sharding Tag IDs field highlighted, holding a staging tag chip."><figcaption></figcaption></figure>
 3.  In the **Tenant Tag Keys** field, enter keys that represent the backend services or tenants the Gateway routes to. For example, `eu-west-1`.
 
-    <figure><img src="../../.gitbook/assets/tenant-tag-ids-description.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/tenant-tag-ids-description.png" alt="The Tenant Tag IDs field highlighted, holding a eu-west-1 tag chip."><figcaption></figcaption></figure>
 4. Click **Save**.
 
 ### (Optional) Add another Gateway
 
 1. Click **+** **Add another Gateway**. Each unique combination of environment, service provider, and region creates a separate Gateway deployment.
 
-<figure><img src="../../.gitbook/assets/add-another-gateway.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/add-another-gateway.png" alt="The Add another Gateway button highlighted beneath the Deployment Tags section."><figcaption></figcaption></figure>
 
 2. In the **Deploy Gateway** screen, complete the following-sub-steps:
    1. Enter the name of your Gateway. For example, Deploy Gateway 2.
@@ -61,15 +61,15 @@ When deploying a new Gateway, you can optionally set sharding tags. To add shard
    3. Choose the provider for your Gateway.
    4.  Choose the region for your Gateway
 
-       <figure><img src="../../.gitbook/assets/deploy-gateway-2.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/deploy-gateway-2.png" alt="The Gateway Details form, with the Name, Environment, Provider, and Region fields highlighted."><figcaption></figcaption></figure>
 3. (Optional) Add development tags. For more information about adding development tags, see [#optional-add-development-tags](./#optional-add-development-tags "mention").
 4.  Click on **Save.**
 
-    <figure><img src="../../.gitbook/assets/click-on-save.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/click-on-save.png" alt="The completed Gateway Details form, with the Save button highlighted."><figcaption></figcaption></figure>
 
 You see both Gateway configurations in the **Gravitee Hosted Gateways** section, including your existing Gateways and the newly created Gateways. Each Gateway shows its unique configuration details, including the assigned domains and regional settings.
 
-<figure><img src="../../.gitbook/assets/two-deployed-gateways.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/two-deployed-gateways.png" alt="The Deploy Gateway page listing two configured Gateways with their provider, region, and tags, above the Deploy Gateways button."><figcaption></figcaption></figure>
 
 ### Deploy the Gateways
 
@@ -83,7 +83,7 @@ You see both Gateway configurations in the **Gravitee Hosted Gateways** section,
 
 The Gateway or Gateways appear in the **Gateways** section of the **Dashboard**.
 
-<figure><img src="../../.gitbook/assets/guide-gravitee-hosted-gateways-read-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-gravitee-hosted-gateways-read-3.png" alt="The Gateways table on the Dashboard, with the two Gravitee Hosted Gateway rows highlighted."><figcaption></figcaption></figure>
 
 For more information about filtering the Gateways list, see [filter-the-gateways-list.md](../filter-the-gateways-list.md "mention").
 
@@ -91,7 +91,7 @@ For more information about filtering the Gateways list, see [filter-the-gateways
 
 *   To the view the details of a Gateway, click the Gateway name to see the Gateway details.
 
-    <figure><img src="../../.gitbook/assets/guide-gravitee-hosted-gateways-read-2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/guide-gravitee-hosted-gateways-read-2.png" alt="The Gravitee Hosted Gateway Details page, showing General Details above the Gateway Deployment Details with the HTTP and Kafka domains."><figcaption></figcaption></figure>
 
 ### Gateway Domains
 
@@ -101,10 +101,10 @@ To view the details of a Gateway:
 
 1.  Click the Gateway name to see the Gateway details.
 
-    <figure><img src="../../.gitbook/assets/viewing-gateway-domains.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/viewing-gateway-domains.png" alt="The Gateways table on the Dashboard, with the two Gravitee Hosted Gateway rows highlighted."><figcaption></figcaption></figure>
 2.  The Gateway deployment details appear in the dashboard overview section showing the HTTP domain and Kafka domain.
 
-    <figure><img src="../../.gitbook/assets/gateway-deployment-details.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gateway-deployment-details.png" alt="The Gateway details page with the Gateway Deployment Details section highlighted, showing the HTTP Domain and Kafka Domain."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 All existing Gateway domains remain fully functional to ensure continuity for current API consumers, custom domain configurations, and existing integrations.
@@ -122,13 +122,13 @@ To update Sharding tags or Tenant tags on an existing Gateway, complete the foll
 
 1.  Navigate to your Gravitee Cloud Dashboard, and then click the Gateway name&#x65;**.** 
 
-    <figure><img src="../../.gitbook/assets/sharding-tags-gateway.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/sharding-tags-gateway.png" alt="The Dashboard Overview with the Sharding Tags Gateway row highlighted in the Gateways table."><figcaption></figcaption></figure>
 2.  Click the Gateway name to access Gateway settings.
 
-    <figure><img src="../../.gitbook/assets/general-details.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/general-details.png" alt="The General Details section of the Gravitee Hosted Gateway Details page, showing the Gateway name, type, environment, version, provider, region, and status."><figcaption></figcaption></figure>
 3.  In the **Tags Deployment Details** section, you can add new sharding tag keys and tenant tag keys. The changes are applied without requiring Gateway restart.
 
-    <figure><img src="../../.gitbook/assets/cloud-deployment-tags-keys.png" alt=""><figcaption><p>Deployment Tags section with Sharding Tag Keys and Tenant Tag Keys</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/cloud-deployment-tags-keys.png" alt="The Deployment Tags section with hosting-environment entered as a sharding tag key and us-east-1 as a tenant tag key."><figcaption><p>Deployment Tags section with Sharding Tag Keys and Tenant Tag Keys</p></figcaption></figure>
 
 {% hint style="info" %}
 Sharding tag changes are applied immediately without gateway downtime. However, API synchronization may take a few minutes to complete.
