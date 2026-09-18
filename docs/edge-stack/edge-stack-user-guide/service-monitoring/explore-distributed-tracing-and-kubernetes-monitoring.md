@@ -24,7 +24,7 @@ The [OpenTelemetry project](https://opentelemetry.io/) was created with the inte
 
 It’s at this point in the conversation that someone inevitably mentions that XKCD...
 
-<figure><img src="../../.gitbook/assets/00 aes 15.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 aes 15.png" alt="The XKCD Standards comic: faced with fourteen competing standards, two people propose one universal standard that covers everyone, and the result is fifteen competing standards."><figcaption></figcaption></figure>
 
 OpenTelemetry ultimately supports multiple formats in its [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector), easing the transition from one technology to another when installed as a middleware and translator to relay trace data to other collectors. Along with many of its long-awaited features, it supports multiple trace exporters for Jaeger, Zipkin and proprietary APIs.
 
