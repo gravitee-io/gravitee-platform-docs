@@ -34,7 +34,7 @@ To scrape metrics directly, follow the instructions for [monitoring-with-prometh
 
 We provide a [sample Grafana dashboard](https://grafana.com/grafana/dashboards/4698-ambassador-edge-stack/) that displays information collected by Prometheus from the `:8877/metrics` endpoint.
 
-<figure><img src="../../.gitbook/assets/00 aes 16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 aes 16.png" alt="A Grafana dashboard for Ambassador Edge Stack showing the control plane version, memory and CPU time series per pod, and a panel of control plane operation times."><figcaption></figcaption></figure>
 
 ## Additional Edge Stack latency metrics
 

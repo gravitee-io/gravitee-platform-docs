@@ -35,7 +35,7 @@ In addition to allowing verification that the service is not crashing or otherwi
 
 Canary tests can be automated, and are typically run after testing in a pre-production environment has been completed. The canary release is only visible to a fraction of actual users, and any bugs or negative changes can be reversed quickly by either routing traffic away from the canary or by rolling-back the canary deployment.
 
-<figure><img src="../.gitbook/assets/00 aes 3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/00 aes 3.png" alt="A canary release diagram in which new functionality moves through phases, first exercised by automated acceptance tests or beta users, then served by a router to a small set of users, and finally rolled out to most users."><figcaption></figcaption></figure>
 
 Canary releases are not a panacea. In particular, many services may not receive sufficient traffic in order for canary releases to provide useful information in an actionable timeframe.
 

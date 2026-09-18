@@ -15,7 +15,7 @@ Traffic shadowing is a deployment pattern where production traffic is asynchrono
 
 Ambassador Edge Stack lets you easily shadow traffic to a given endpoint. In Ambassador Edge Stack, only requests are shadowed; responses from a service are dropped. All normal metrics are collected for the shadow services. This makes it easy to compare the performance of the shadow service versus the production service on the same data set. Ambassador Edge Stack also prioritizes the production path, i.e., it will return responses from the production service without waiting for any responses from the shadow service.
 
-<figure><img src="../../.gitbook/assets/00 aes 18.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 aes 18.png" alt="A traffic shadowing diagram in which a browser request reaches Ambassador Edge Stack, which routes it to the production service and sends a copy as shadow traffic to a shadow service, with metrics collected by Prometheus and Grafana."><figcaption></figcaption></figure>
 
 ## The `shadow` Mapping
 
