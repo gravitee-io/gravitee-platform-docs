@@ -26,12 +26,12 @@ In this example, we are creating an inline identity provider.
 3. In the Providers page, click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 4. Choose an **Inline** identity provider type and click **Next**.
 
-<figure><img src="../../.gitbook/assets/guide-identity-providers-create-an--61.png" alt=""><figcaption><p>Select an Identity Provider to add</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-identity-providers-create-an--61.png" alt="The New provider wizard on the Platform step, offering HTTP, Inline, JDBC, Mongo DB, LDAP, Facebook, Github, Google, and LinkedIn provider types, none of them selected."><figcaption><p>Select an Identity Provider to add</p></figcaption></figure>
 
 5. Give your identity provider a **Name**.
 6. Add as many users as required, by clicking **Add User** for each new user, then click **Create**.
 
-<figure><img src="../../.gitbook/assets/guide-identity-providers-create-an--62.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-identity-providers-create-an--62.png" alt="The Settings step of the New provider wizard, with an empty name field above empty user fields for first name, last name, username, and email."><figcaption></figcaption></figure>
 
 {% code overflow="wrap" %}
 ```sh
@@ -50,7 +50,7 @@ curl -H "Authorization: Bearer :accessToken" \
 
 ## Custom identity provider
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-custom-idp.png" alt=""><figcaption><p>Custom IdP overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-custom-idp.png" alt="A two-step diagram in which clients request a token from Access Management, which then authenticates users against an Inline, LDAP, or custom identity provider."><figcaption><p>Custom IdP overview</p></figcaption></figure>
 
 AM is designed to be extended based on a pluggable module architecture. You can develop your own identity provider using a _plugin_, and provide an authentication method to register your users so they can use AM.
 

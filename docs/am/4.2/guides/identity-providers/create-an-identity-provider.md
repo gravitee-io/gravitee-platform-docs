@@ -22,11 +22,11 @@ In this example, we are creating an inline identity provider.
 3. In the Providers page, click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 4.  Choose an **Inline** identity provider type and click **Next**.
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-idp-type.png" alt=""><figcaption><p>Inline IdP</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-idp-type.png" alt="The New provider wizard on the Platform step, offering HTTP, Inline, JDBC, LDAP, Mongo DB, Azure AD, Facebook, France Connect, and Github provider types, with Inline selected."><figcaption><p>Inline IdP</p></figcaption></figure>
 5. Give your identity provider a **Name**.
 6.  Add as many users as required, by clicking **Add User** for each new user, then click **Create**.
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-create-idp.png" alt=""><figcaption><p>Add user to IdP</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-create-idp.png" alt="The Settings step of the New provider wizard for an Inline provider, with an example user&#x27;s first name, last name, username, email, and masked password."><figcaption><p>Add user to IdP</p></figcaption></figure>
 
     \{% code overflow="wrap" %\}
 
@@ -45,7 +45,7 @@ In this example, we are creating an inline identity provider.
 
     \{% endcode %\}## Custom identity provider
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-custom-idp.png" alt=""><figcaption><p>Custom IdP overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-custom-idp.png" alt="A two-step diagram in which clients request a token from Access Management, which then authenticates users against an Inline, LDAP, or custom identity provider."><figcaption><p>Custom IdP overview</p></figcaption></figure>
 
 AM is designed to be extended based on a pluggable module architecture. You can develop your own identity provider using a _plugin_, and provide an authentication method to register your users so they can use AM.
 

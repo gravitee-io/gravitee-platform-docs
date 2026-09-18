@@ -12,7 +12,7 @@ description: Authenticate Access Management 4.11 users with FranceConnect, the F
 
 You can authenticate users in AM with [FranceConnect](https://franceconnect.gouv.fr/). FranceConnect is the French government Identity Provider that connects millions of legal accounts. You can connect to it with credentials such as your National Insurance Number, postal address, and more.
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-legal-franceconnect-logo.png" alt=""><figcaption><p>FranceConnect logo</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-legal-franceconnect-logo.png" alt="The FranceConnect logo."><figcaption><p>FranceConnect logo</p></figcaption></figure>
 
 Before you begin, you need to sign up for a [FranceConnect account](https://partenaires.franceconnect.gouv.fr/).
 

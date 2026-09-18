@@ -14,20 +14,20 @@ To delete a Hosted Gateway, complete the following steps:
 
 1.  Navigate to your Gravitee Cloud Dashboard, and then click the Gateway name you want to delete.
 
-    <figure><img src="../../.gitbook/assets/guide-gravitee-hosted-gateways-dele-0.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/guide-gravitee-hosted-gateways-dele-0.png" alt="The Dashboard Overview with the Sharding Tags Gateway row highlighted in the Gateways table."><figcaption></figcaption></figure>
 2.  Navigate to the **Danger Zone** section.
 
-    <figure><img src="../../.gitbook/assets/delete-hosted-gateway-danger-zone.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/delete-hosted-gateway-danger-zone.png" alt="The Danger Zone section of the Gateway details page highlighted, with the Delete this Gateway option and its Delete button."><figcaption></figcaption></figure>
 3. Click **Delete.**
 4.  In the Delete Gateway pop-up window, type the exact Gateway name in the confirm field. The Gateway name is displayed for reference.
 
-    <figure><img src="../../.gitbook/assets/delete-confirmation-pop-up.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/delete-confirmation-pop-up.png" alt="The Delete Gateway pop-up window warning that the operation is irreversible, with the Gateway name typed into the Confirm field."><figcaption></figcaption></figure>
 5. Click **Yes, delete it** to delete the Gateway permanently.
 
 ## Verification
 
 Upon successful deletion, a green confirmation pop-up window will display, indicating that the Gateway was successfully deleted.
 
-<figure><img src="../../.gitbook/assets/gateway-deletion-green-pop-up.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gateway-deletion-green-pop-up.png" alt="A green confirmation message reading Gateway has been deleted."><figcaption></figcaption></figure>
 
 The Gateway is immediately removed from your environment and will no longer appear in the Gateways section of your Dashboard.
