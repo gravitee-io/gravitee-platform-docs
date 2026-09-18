@@ -47,7 +47,7 @@ Ensure you have the generated App ID and App Secret from Facebook the applicatio
 6. Enter your Facebook application App ID and App Secret.
 7. Click **Create**.
 
-<figure><img src="../../../.gitbook/assets/guide-identity-providers-social-ide-70.png" alt=""><figcaption><p>Create Facebook Identity Provider</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-identity-providers-social-ide-70.png" alt="The Facebook identity provider Settings tab, with a client ID, masked client secret, and a list of selectable scopes, beside the redirect URI to configure."><figcaption><p>Create Facebook Identity Provider</p></figcaption></figure>
 
 {% hint style="info" %}
 On the right side of the screen under **1. Configure the Redirect URI**, copy the value of the URL. You will use it to update your Facebook application settings.
@@ -74,10 +74,10 @@ You can test your Facebook connection using a web application created in AM.
 
 1. i.e.In AM Console, click **Applications** and select your social identity provider.
 
-<figure><img src="../../../.gitbook/assets/guide-identity-providers-social-ide-71.png" alt=""><figcaption><p>Select your Facebook Identity Provider</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-identity-providers-social-ide-71.png" alt="The Identity Providers tab of an application, with the Mongo DB and JDBC providers switched off and Facebook and Azure AD social providers switched on."><figcaption><p>Select your Facebook Identity Provider</p></figcaption></figure>
 
 2. Call the Login Page (i.e. `/oauth/authorize` endpoint). If the connection is working you will see a **Sign in with …​** button.
 
 If the button is not visible, there may be a problem with the identity provider settings. Check the AM Gateway log for more information.
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-login.png" alt=""><figcaption><p>Sign in Options</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-login.png" alt="The hosted Sign in page with Username and Password fields above social sign-in buttons for OpenID Connect, Facebook, Azure AD, and Github."><figcaption><p>Sign in Options</p></figcaption></figure>
