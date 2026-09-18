@@ -28,13 +28,13 @@ You only need to create a new security domain for an application when you do not
 1. Login to AM Console.
 2.  From the user menu at the top right, click **Create domain**.
 
-    <figure><img src="../../.gitbook/assets/quickstart-create-domain.png" alt=""><figcaption><p>Create a security domain</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/quickstart-create-domain.png" alt="The account menu open, listing the current domain alongside All domains, Create domain, and Sign out options."><figcaption><p>Create a security domain</p></figcaption></figure>
 3.  Give your security domain a **Name** and a **Description** and click **CREATE**.
 
-    <figure><img src="../../.gitbook/assets/quickstart-create-domain2.png" alt=""><figcaption><p>Define your security domain</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/quickstart-create-domain2.png" alt="The New domain page with the security domain name and description completed, above Create and Cancel buttons."><figcaption><p>Define your security domain</p></figcaption></figure>
 4.  Select the **click here** link on the banner to enable the domain.
 
-    <figure><img src="../../.gitbook/assets/quickstart-enable-domain.png" alt=""><figcaption><p>Banner to enable domain</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/quickstart-enable-domain.png" alt="An orange banner on the domain Dashboard warning that the domain is disabled, with a link to enable it."><figcaption><p>Banner to enable domain</p></figcaption></figure>
 
 ### Create a domain with AM API
 
@@ -66,11 +66,11 @@ In this example, we will create a regular web application.
 2. In the Applications page, click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 3.  Choose a **Web** application type.
 
-    <figure><img src="../../.gitbook/assets/quickstart-create-application.png" alt=""><figcaption><p>Select application type</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/quickstart-create-application.png" alt="The New application wizard on the Platform step, offering Web, Single-Page App, Native, and Backend to Backend types, with Web selected."><figcaption><p>Select application type</p></figcaption></figure>
 4. Click the **Next** button.
 5.  Give your application a **Name** and a **Redirect URI** (with HTTPS scheme and non-localhost) and click the **Create** button.
 
-    <figure><img src="../../.gitbook/assets/quickstart-create-application2.png" alt=""><figcaption><p>Application settings</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/quickstart-create-application2.png" alt="The Settings step of the New application wizard, with the application name and redirect URI completed and optional OAuth 2.0 client ID and secret fields below."><figcaption><p>Application settings</p></figcaption></figure>
 
 {% hint style="info" %}
 This application will be used by end users, so we need to bind them with an identity provider.
@@ -86,7 +86,7 @@ In this example, we will create an In-memory identity provider with an inline us
 2. In the Identity Providers page, click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 3.  Choose **Inline** and click **Next**.
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-idp-type.png" alt=""><figcaption><p>IdP selection</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-idp-type.png" alt="The New provider wizard on the Platform step, offering HTTP, Inline, JDBC, LDAP, Mongo DB, Azure AD, Facebook, France Connect, and Github provider types, with Inline selected."><figcaption><p>IdP selection</p></figcaption></figure>
 4.  Give your identity provider a **Name** and enter the user details, then click **Create**.
 
     {% code overflow="wrap" %}
@@ -104,11 +104,11 @@ In this example, we will create an In-memory identity provider with an inline us
     ```
     {% endcode %}
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-create-idp.png" alt=""><figcaption><p>Configure your IdP</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-create-idp.png" alt="The Settings step of the New provider wizard for an Inline provider, with an example user&#x27;s first name, last name, username, email, and masked password."><figcaption><p>Configure your IdP</p></figcaption></figure>
 
 5. Click **Applications** and select your web application. 6. In the **Identity Providers** tab, select **Inline identity provider** and click **SAVE**.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-client-idp.png" alt=""><figcaption><p>Select IdP for application</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-client-idp.png" alt="The Identity Providers tab of an application, with the Inline provider selected and the default Mongo DB provider switched off."><figcaption><p>Select IdP for application</p></figcaption></figure>
 
 ## Test your identity provider with OAuth2
 
@@ -121,11 +121,11 @@ In the case of a **Web Application**, **Single Page Application** or **Native Ap
 1. Click **Applications** and select your web application.
 2. In the **Overview** tab, get to the **Initiate the Login flow** section and copy the given URL
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-client-initiate-the-login-flow.png" alt=""><figcaption><p>Copy redirect URL</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-client-initiate-the-login-flow.png" alt="The application Overview page explaining how to integrate authentication, listing the application domain and client ID and the authorization URL that starts the login flow."><figcaption><p>Copy redirect URL</p></figcaption></figure>
 
 You will be redirected to the Login page where you can enter the credentials configured in the Identity Provider.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-client-login-page.png" alt=""><figcaption><p>Login page for IdP</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-client-login-page.png" alt="The hosted Sign in page for the domain, with Username and Password fields above a Sign In button."><figcaption><p>Login page for IdP</p></figcaption></figure>
 
 Once logged in you will be redirected to the configured `redirect_uri` with the correct parameters regarding your OAuth2 configuration.
 
