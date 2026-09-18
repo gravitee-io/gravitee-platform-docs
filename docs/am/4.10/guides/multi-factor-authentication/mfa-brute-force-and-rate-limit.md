@@ -40,7 +40,7 @@ Gravitee AM monitors the MFA challenge request based on the enabled rate limit c
 
 If a user exceeds the rate limit, a "user rate limit exceeded" message is shown and the user must wait for a certain amount of time before making a new successful request. For example, if the rate limit is set to 2 for a 1-minute time period and the user has already sent 2 requests, the user must wait for another 30 seconds before being able to send another request. The screenshot below shows the challenge step with an exhausted rate limit:
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-m-125.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-m-125.png" alt="The User Accounts settings with login brute force detection off and MFA Brute Force Detection on, allowing three challenge attempts with a one-minute reset."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 You can customize the error message by modifying the value of the `mfa_challenge.rate.limit.error` property in the **messages\_en.properties** or **messages\_fr.properties** file.
@@ -55,11 +55,11 @@ The Brute Force Detection feature enables you to configure and limit the number 
 3. Enable **Brute Force Detection** in the **MFA** section.
 4. Define your **Brute Force Detection** preferences.
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-m-124.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-m-124.png" alt="The SMS verification page showing an mfa_request_limit_exceed error explaining that too many codes were requested."><figcaption></figcaption></figure>
 
 Once the number of maximum attempts is reached, the user will be notified with an error message.
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-m-126.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-m-126.png" alt="The SMS verification page showing a maximum_verify_limit error stating that the maximum number of attempts has been reached."><figcaption></figcaption></figure>
 
 A new log event, `MFA_VERIFY_LIMIT_EXCEED`, is available to log brute force attempts.
 

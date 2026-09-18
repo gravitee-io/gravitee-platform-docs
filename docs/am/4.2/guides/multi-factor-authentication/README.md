@@ -17,7 +17,7 @@ It is split into 2 sections:
 
 Here is what the flow of the Multi-factor Authentication Enroll step looks like.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-enroll-flow.png" alt=""><figcaption><p>MFA enroll step</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-enroll-flow.png" alt="A flowchart of the enroll step, checking whether the application has factors configured, whether the user is already enrolled, and whether the user may skip MFA, ending in skip enroll or must enroll."><figcaption><p>MFA enroll step</p></figcaption></figure>
 
 The flow is pretty straightforward:
 
@@ -30,7 +30,7 @@ The flow is pretty straightforward:
 
 Once the end-user has enrolled, we then proceed to the Challenge step.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-challenge-flow.png" alt=""><figcaption><p>MFA challenge step</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-challenge-flow.png" alt="A flowchart of the MFA challenge step, checking configured factors, prior challenges, adaptive MFA, step-up authentication, and remembered devices, ending in skip challenge or force challenge."><figcaption><p>MFA challenge step</p></figcaption></figure>
 
 * As well as the enroll step, we primarily check if the application has factors.
 * We then verify if the user has already challenged the factor
