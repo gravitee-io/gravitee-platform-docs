@@ -26,6 +26,8 @@ description: Everything in the first Gravitee Gamma release, across Agent, API, 
 * **MCP Proxy**: Governs tool invocations on upstream MCP servers (HubSpot, GitHub, Salesforce, Jira) with authentication, fine-grained policies, and protocol-native JSON-RPC 2.0. Supports both transparent proxy mode and Studio mode.
 * **MCP Studio**: Compose tools, resources, prompts, and skills from multiple sources into a Composite MCP Server without writing code.
 * **A2A Proxy**: Secures agent-to-agent delegations with skill discovery via `/.well-known/agent.json`, per-skill authorization, and agent identity verification across trust boundaries.
+* **Stop this agent** cuts off an agent's traffic, and **Start this agent** restores it.
+* A2A Proxies carry a **Consumer Access** group with **Plans**, **Consumers**, and **Broadcasts**, and an agent that publishes an A2A address can be offered to consumers in the Developer Portal.
 
 #### Catalog
 
@@ -33,6 +35,8 @@ description: Everything in the first Gravitee Gamma release, across Agent, API, 
 * Syncs AI models from AWS Bedrock, Azure AI Foundry, and Gemini Enterprise Agent Platform (formerly Vertex AI), or accepts manual registration.
 * Consumes from external MCP registries (GitHub, Smithery, and third-party) and operates as an MCP Registry itself, so other systems can discover and read from it.
 * REST, GraphQL, and gRPC APIs from API Management become **API Tools**, and Kafka topics from Event Stream Management become **Kafka API Tools**, making existing enterprise infrastructure agent-accessible without redevelopment.
+* Each registered agent opens on a detail view with **Overview**, an **Agent** group holding **Identity**, **Lineage**, **Proxies**, **Models**, and **Tools**, a **Governance** group holding **Compliance**, and an **Operations** group holding **Activity**, **Marketplace**, **Targets**, and **Cost**.
+* **Guardians** and **Integrations** join the Catalog. An integration connects a model provider or an agent platform, and the models and agents it holds land in the Catalog.
 
 #### Agent Identity
 
@@ -40,11 +44,24 @@ description: Everything in the first Gravitee Gamma release, across Agent, API, 
 * Three personas: **Desktop Productivity Agent** (public PKCE client), **Hosted Agent** (confidential web client), and **Workload Agent** (service client with `client_credentials` or token exchange).
 * Supports CIMD (Client ID Metadata Documents) and SPIFFE as credential options within the registration wizard.
 
+#### Governance and compliance
+
+* **Compliance** scores every agent against the bundled EU AI Act framework, and a custom ruleset checks agent metadata, or the policies on an agent's proxies, against rules of your own.
+* Each agent carries a risk rating of **Negligible risk**, **Limited risk**, **Moderate risk**, or **High risk**.
+* **Guardian Agents** bind to an LLM Proxy and screen every prompt and answer before it travels on.
+* **HITL** holds the tool calls waiting on a person, and **Decisions** lists what guardians and people concluded.
+
+#### Cost and value
+
+* Attach prices to the catalog models and MCP tools agents consume, and read what an agent cost over a period on its **Cost** page.
+* Declare the business value an MCP tool delivers per successful call, and read that value against what the calls cost.
+
 #### Observability
 
 * End-to-end OpenTelemetry tracing across every agent hop: agent to tool, agent to LLM, and agent to agent.
 * Every span carries agent identity, tool name, inputs, outputs, latency, policy decision, cost, and timestamp.
 * A lineage view stitches spans into a navigable trace of the full request graph.
+* **Targets** declares the metrics and thresholds an agent or a proxy is held to, and records the result of every evaluation.
 
 ### API Management
 
