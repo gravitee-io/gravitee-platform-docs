@@ -26,18 +26,18 @@ The **Private Network Settings** screen displays the following information:&#x20
 
 1.  From the **Dashboard**, click **Settings**.<br>
 
-    <figure><img src="../../.gitbook/assets/2D30D014-6E78-4B3E-89E2-44AE0E3B6AF7_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/2D30D014-6E78-4B3E-89E2-44AE0E3B6AF7_1_201_a.jpeg" alt="The Gravitee Cloud dashboard Overview with Settings highlighted in the left navigation menu."><figcaption></figcaption></figure>
 2.  In the settings menu, click **Private Networks**. <br>
 
-    <figure><img src="../../.gitbook/assets/4DCD5A23-C78B-4021-AC8E-1C15C8BD4BDE_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/4DCD5A23-C78B-4021-AC8E-1C15C8BD4BDE_1_201_a.jpeg" alt="The Account settings page with Private Networks highlighted in the Settings menu."><figcaption></figcaption></figure>
 
 Your private networks are displayed in a list.&#x20;
 
-<figure><img src="../../.gitbook/assets/C75ECCE2-08A7-425E-8835-B748942BE4DA_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/C75ECCE2-08A7-425E-8835-B748942BE4DA_1_201_a.jpeg" alt="The Private Networks page listing a GCP private network with its name, region, and PSC connectivity."><figcaption></figcaption></figure>
 
 3.  Click **the name of your private network**. The **Private Networks Settings** screen displays the information about your private network. <br>
 
-    <figure><img src="../../.gitbook/assets/10C36FFE-340D-4C11-AEC2-12302E9A7111_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/10C36FFE-340D-4C11-AEC2-12302E9A7111_1_201_a.jpeg" alt="The Private Network Settings page showing General Details, an empty Service Attachment URIs section, and a message that no eligible Gateways are available."><figcaption></figcaption></figure>
 
 ## Next Steps
 

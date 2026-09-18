@@ -12,7 +12,7 @@ Gravitee Cloud (GC) enables you to set up and edit Gravitee hierarchies.
 
 You create your hierarchy from the GC dashboard, select your organization in the left-hand nav.
 
-<figure><img src="../.gitbook/assets/2023-07-19_09-02-12.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/2023-07-19_09-02-12.png" alt="The left-hand navigation menu with the organization entry selected beneath Dashboard."><figcaption></figcaption></figure>
 
 Here, you'll see your various Gravitee APIM and/or AM entities/environments.
 
