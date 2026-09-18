@@ -50,7 +50,7 @@ You can test your Active Directory/LDAP connection via your web applications cre
 
 1.  In AM Console, click **Applications** and select your Active Directory/LDAP identity provider.
 
-    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Application IdP</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-list.png" alt="The Identity Providers tab of an application, listing Azure AD, Mongo DB, Facebook, France Connect, Github, Google, Inline, LDAP, LinkedIn, OpenID, Salesforce, and Twitter providers, each with a toggle."><figcaption><p>Application IdP</p></figcaption></figure>
 2.  Call the Login page (i.e. `/oauth/authorize` endpoint) and try to sign in with the username/password form.
 
     If you are unable to authenticate your user, there may be a problem with the identity provider settings. Check the AM Gateway log and audit logs for more information.
