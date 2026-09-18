@@ -36,7 +36,7 @@ In this example, we will retrieve the username from the execution context `{#con
     * Header: **Name** — `X-Custom-Header` **Value** — `{#context.attributes['user'].username}`
     * Variable: **Name** — `X-Custom-Variable` **Value** — `{#jsonPath(#calloutResponse.content, '$.headers.X-Custom-Header')}`
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-policies.png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-policies.png" alt="The domain flow designer with an HTTP Callout policy added to the pre-login stage of the Login flow, its settings showing the HTTP method and URL."><figcaption><p>Policy Studio</p></figcaption></figure>
 
 {% code overflow="wrap" %}
 ```
