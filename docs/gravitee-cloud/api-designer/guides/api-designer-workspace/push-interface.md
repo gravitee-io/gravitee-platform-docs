@@ -12,11 +12,11 @@ The push interface allows you to make use of your API design. It includes two pa
 
 Here you can view and (optionally) edit the basic parameters of the API (name, version, description). You can also download the API design in JSON format. Lastly, you can review the documentation.
 
-<figure><img src="../../../.gitbook/assets/apid_documentation.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apid_documentation.png" alt="Generated OpenAPI documentation for an example API, listing POST, GET, DELETE, and PUT operations above a schema definition." width="375"><figcaption></figcaption></figure>
 
 ## Push API
 
-<figure><img src="../../../.gitbook/assets/apid_push.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apid_push.png" alt="The Push API panel showing a Not Pushed status and a choice of Documented, Mocked, or Published API, with a Push to APIM button." width="563"><figcaption></figcaption></figure>
 
 Three possible methods for pushing an API to a linked API Management installation result in the following API classifications:
 
