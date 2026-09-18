@@ -44,7 +44,7 @@ You can test your Kerberos connection using a web application created in AM.
 
 1.  In AM Console, click **Applications** and select your Kerberos connector in the **Identity Providers** tab.
 
-    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select Kerberos IdP</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-list.png" alt="The Identity Providers tab of an application, listing Azure AD, Mongo DB, Facebook, France Connect, Github, Google, Inline, LDAP, LinkedIn, OpenID, Salesforce, and Twitter providers, each with a toggle."><figcaption><p>Select Kerberos IdP</p></figcaption></figure>
 
 {% hint style="info" %}
 Once Kerberos is selected, the Kerberos connection will be established before displaying the login page, making it invisible to end users.
