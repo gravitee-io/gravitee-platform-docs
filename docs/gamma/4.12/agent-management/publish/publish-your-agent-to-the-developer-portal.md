@@ -1,20 +1,37 @@
 ---
-hidden: true
-noIndex: true
 description: List an agent exposed through a Gamma A2A Proxy in the Developer Portal catalog. Follow the steps to publish it and assign categories.
 ---
 
 # Publish your agent to the Developer Portal
 
-An agent that you expose through an A2A Proxy can be listed in the Developer Portal catalog. Consumers browse the catalog by category, search for an agent by name, open its listing to read its documentation, and subscribe to the A2A Proxy behind it. You list an agent by adding it to the Developer Portal navigation from the APIM Console, alongside your APIs and API Products.
+An agent that you expose through an A2A Proxy can be listed in the Developer Portal catalog. Consumers browse the catalog by category, search for an agent by name, open its listing to read its documentation, and subscribe to the A2A Proxy behind it. You list an agent from its **Marketplace** page in the Gamma console, or by adding it to the Developer Portal navigation from the APIM Console, alongside your APIs and API Products.
 
 ## Prerequisites
 
-* An A2A Proxy that exposes the agent. See [Expose your agent with the A2A Proxy](../build/expose-agent-with-a2a-proxy.md).
+* An A2A Proxy that exposes the agent. See [Expose your agent with the A2A Proxy](../build/expose-agent-with-a2a-proxy.md). To publish from the agent's **Marketplace** page, the proxy must be linked to the agent. See [Route an agent through an A2A Proxy](../import/route-an-agent-through-an-a2a-proxy.md).
 * The New Developer Portal enabled for the environment. The **Open Settings** link that leads to the navigation settings stays disabled until the portal is enabled.
 * A folder in the Developer Portal navigation. The **Add Agent** action is available only on a folder, so an agent can't sit at the top level of the navigation or inside another agent.
 
-## Add the agent to the navigation
+## Publish from the agent's Marketplace page
+
+A registered agent's **Marketplace** page lists the agent in the Developer Portal without leaving the Gamma console. It needs an A2A Proxy linked to the agent, because consumers reach a listed agent through the proxy and subscribe to its plans.
+
+1. From the Gamma console sidebar, select **Agent Management**.
+2. In the **Catalog** section of the sidebar, select **Agents**.
+3. Click the agent's name.
+4. In the **Operations** section of the agent's sidebar, click **Marketplace**.
+5. In the **Agent Marketplace** card, under **Location**, select the navigation item to list the agent under, or select **+ Create new location** and type a folder name under **New location name**. A new location becomes a top-level folder in the portal navigation.
+6. Click **Publish**.
+
+The listing is titled with the agent's name, and a **&lt;agent&gt; is now in the Marketplace** notification appears. The card then carries a **Published** badge. It offers **Configure in Marketplace Editor**, which opens the navigation editor in a new tab, **View in Marketplace**, which opens the listing in the portal, **Unpublish**, and **Remove**. When the section above the listing isn't published, the card warns that consumers can't reach the agent yet.
+
+**Unpublish** hides the listing and keeps it in the navigation, so **Publish** brings it back in place, with an **Agent hidden from the Marketplace** or **Agent published to the Marketplace** notification. The badge reads **Unpublished** while the listing is hidden, and **Not published** before the agent is listed. **Remove** deletes the listing and the pages published under it from the navigation, after the **Remove this agent from the Marketplace?** dialog. The agent itself is left untouched, and an **Agent removed from the Marketplace** notification appears.
+
+Before a proxy is linked, the page reads **Nothing to list yet** and offers **Create proxy for the agent**, which opens the agent's **Proxies** page. An agent that publishes no A2A address reads **Not listable yet**.
+
+<figure><img src="../.gitbook/assets/gamma-aim-agent-marketplace-published.png" alt="The Marketplace page of an agent: the Agent Marketplace card with the Published badge, the Location field, the Configure in Marketplace Editor, View in Marketplace, Unpublish, and Remove buttons, and the Enable Marketplace chat toggle"><figcaption><p>The Marketplace page of an agent after it was published</p></figcaption></figure>
+
+## Add the agent to the navigation from the APIM Console
 
 1. In the APIM Console, open **Settings**.
 2. Under **Portal**, click **Settings**.
@@ -64,9 +81,11 @@ Consumers find an agent in the following ways:
 
 * **Browse by category**. The **Category** dropdown filters the catalog to the items assigned to that category.
 * **Search**. The search bar matches the agent's name. When **Approximate spelling for API search** is turned on in the New Developer Portal settings, close misspellings match too.
-* **Open the listing**. Selecting the card opens the agent's documentation on its first published page. A **Subscribe** button starts a subscription to the A2A Proxy behind the agent. Consumers who aren't signed in see **Sign in to subscribe** instead.
+* **Open the listing**. Selecting the card opens the agent's documentation on its first published page. The agent's page shows its **Capabilities**, its **Input / Output** modes, and its **Skills** with their examples. A **Subscribe** button starts a subscription to the A2A Proxy behind the agent. Consumers who aren't signed in see **Sign in to subscribe** instead.
 
 A listing follows the visibility of its navigation item and of the folders above it. An unpublished item is hidden from everyone, and an item that requires authentication is hidden from consumers who aren't signed in.
+
+<figure><img src="../.gitbook/assets/gamma-portal-agent-listing.png" alt="An agent's listing in the Developer Portal: the Agents navigation on the left, the agent's page with its Capabilities, Input / Output, and Skills sections, and the Subscribe button"><figcaption><p>An agent's listing in the Developer Portal, as a signed-in consumer sees it</p></figcaption></figure>
 
 ## Next steps
 
