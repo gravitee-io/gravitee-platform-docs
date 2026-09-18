@@ -44,7 +44,7 @@ Let’s imagine a client application wants to retrieve the `telephoneNumber` att
 3. Select your LDAP identity provider and click the **User mappers** tab.
 4.  Map your LDAP (raw) attribute `telephoneNumber` to a new user attribute named `telephone_number`.
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-idp-user-mappers-phoneno.png" alt=""><figcaption><p>LDAP user mappers</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-idp-user-mappers-phoneno.png" alt="The User mappers tab of an LDAP identity provider, mapping firstname to sn and telephone_number to telephoneNumber."><figcaption><p>LDAP user mappers</p></figcaption></figure>
 5. Get the User Profile information via the UserInfo Endpoint and you will see that the new user attribute is present.
 
 {% code overflow="wrap" %}
@@ -103,10 +103,10 @@ We will then dynamically add the `admin` scope to the `access_token`. The client
 8. Click the **Role mappers** tab.
 9.  Set the user’s role configuration:
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-idp-role-mappers.png" alt=""><figcaption><p>LDAP role mapper</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-idp-role-mappers.png" alt="The Role mappers tab of an LDAP identity provider, showing one role mapped to a user attribute condition."><figcaption><p>LDAP role mapper</p></figcaption></figure>
 10. When the client requests the _Token_ endpoint, the new scope representing the user roles will be used.
 11. Ensure you enable the _"Enhance scopes"_ option for your client (**OAuth** tab).
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-user-guide-mapping-idp-enhance-scopes.png" alt=""><figcaption><p>Enhance scopes</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-user-guide-mapping-idp-enhance-scopes.png" alt="The Enhance scopes toggle switched on, described as enhancing client scopes with user permissions."><figcaption><p>Enhance scopes</p></figcaption></figure>
 
 The same principle applies to all identity providers.
