@@ -9,7 +9,7 @@ noIndex: true
 
 Ambassador Edge Stack is a specialized control plane for Envoy Proxy. In this architecture, Ambassador Edge Stack translates configuration (in the form of Kubernetes Custom Resources) to Envoy configuration. All actual traffic is directly handled by the high-performance [Envoy Proxy](https://www.envoyproxy.io).
 
-<figure><img src="../.gitbook/assets/00 aes 4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/00 aes 4.png" alt="An architecture diagram in which services publish configuration that the Ambassador control plane reads and converts into Envoy configuration, while Envoy Proxy routes internet traffic to those services."><figcaption></figcaption></figure>
 
 ## Details
 
