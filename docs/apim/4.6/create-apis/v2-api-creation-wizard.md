@@ -25,7 +25,7 @@ To create a v2 API in Gravitee:
 3. Click **+ Add API** in the top right corner of the UI
 4. In Create Classic API, click **Create V2 API**.
 
-<figure><img src="../.gitbook/assets/kafka-gw-create-kafka-apis-138.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/kafka-gw-create-kafka-apis-138.png" alt="The Choose API creation method dialog, offering Create Classic API with V2 options and Create New API with V4 options."><figcaption></figcaption></figure>
 
 ## Step 1: General
 

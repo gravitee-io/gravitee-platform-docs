@@ -179,13 +179,13 @@ When disabling the shared API key mode in environment settings, applications tha
 
 Shared API key mode also has an important consequence you should be aware of before enabling. Because the shared API key may be used to call APIs that are owned by another group of API publishers, shared API keys cannot be edited from the API publisher subscription view. So while shared API keys are still readable by API publishers, renewal and revocation of shared API keys cannot be performed by the API publisher when a subscription has been made in shared API key mode.
 
-<figure><img src="../../.gitbook/assets/shared-api-key-3.png" alt=""><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared-api-key-3.png" alt="A subscription&#x27;s detail page showing its plan, status, and application, with a Shared API Key section listing two keys and their creation and expiry times."><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
 
 Instead, it is the responsibility of the application owner to perform such operations, and for this reason, shared API keys can only be revoked from the application owner subscription view in either the Management Console or the Developer Portal.
 
-<figure><img src="../../.gitbook/assets/shared-api-key-4.png" alt=""><figcaption><p>Manage shared API key in the Management Console</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared-api-key-4.png" alt="An application&#x27;s subscriptions page, listing two subscriptions that share one API key and a Shared API Key section with a Renew API key button."><figcaption><p>Manage shared API key in the Management Console</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/shared-api-key-4-portal.png" alt=""><figcaption><p>Manage shared API key in the Developer Portal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared-api-key-4-portal.png" alt="The Subscriptions tab of an application in the developer portal, showing the shared API key with Renew and Revoke buttons and two subscriptions whose subscriber names are highlighted."><figcaption><p>Manage shared API key in the Developer Portal</p></figcaption></figure>
 
 ### JSON Web Token (JWT) plan
 

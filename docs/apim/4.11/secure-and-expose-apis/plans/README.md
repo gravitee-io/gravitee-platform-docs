@@ -92,13 +92,13 @@ Depending on the stage it's in, a plan can be edited, published, deprecated, or 
 {% tab title="Edit" %}
 To edit a plan, click on the pencil icon:
 
-<figure><img src="../../.gitbook/assets/plan_edit.png" alt=""><figcaption><p>Edit a plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plan_edit.png" alt="The Plans tab with the PUBLISHED filter selected and the Edit the plan tooltip shown over the pencil icon for a keyless plan."><figcaption><p>Edit a plan</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Publish" %}
 To publish a plan, click on the icon of a cloud with an arrow:
 
-<figure><img src="../../.gitbook/assets/plan_publish.png" alt=""><figcaption><p>Publish a plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plan_publish.png" alt="The Plans tab with the STAGING filter selected and the Publish the plan tooltip shown over the upload icon for an OAuth2 plan."><figcaption><p>Publish a plan</p></figcaption></figure>
 
 Once a plan has been published, it must be redeployed.
 {% endtab %}
@@ -106,13 +106,13 @@ Once a plan has been published, it must be redeployed.
 {% tab title="Deprecate" %}
 To deprecate a plan, click on the icon of a cloud with an 'x':
 
-<figure><img src="../../.gitbook/assets/plan_deprecate.png" alt=""><figcaption><p>Deprecate a plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plan_deprecate.png" alt="The Plans tab with the PUBLISHED filter selected and the Deprecate the plan tooltip shown over the cloud icon for a keyless plan."><figcaption><p>Deprecate a plan</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Close" %}
 To close a plan, click on the 'x' icon:
 
-<figure><img src="../../.gitbook/assets/plan_close.png" alt=""><figcaption><p>Close a plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plan_close.png" alt="The Plans tab with the STAGING filter selected and the Close the plan tooltip shown over the cross icon for an OAuth2 plan."><figcaption><p>Close a plan</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
