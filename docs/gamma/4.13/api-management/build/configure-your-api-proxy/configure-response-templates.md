@@ -28,15 +28,14 @@ Type in **Search key, content-type, or status…** to narrow the list. When noth
 
 A proxy with no templates at all opens on an empty state titled **No Response Templates**, with an **Add new Response Template** button in the middle of it.
 
-<!-- TODO: Screenshot of the Response Templates page listing two templates -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-apim-response-templates-list.png" alt="The Response Templates page of an API proxy, listing templates by Key, Content-Type, and Status Code"><figcaption><p>The Response Templates page of an API proxy</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-apim-response-templates-list.png" alt="The Response Templates page of an API proxy, listing templates by Key, Content-Type, and Status Code"><figcaption><p>The Response Templates page of an API proxy</p></figcaption></figure>
 
 ## Add a response template
 
 1. Click **Add new Response Template**.
 2. Set **Template key** to the error you're overriding. The field suggests **DEFAULT** and the gateway's own error keys, and it accepts a key you type yourself. When your text matches no suggestion, the list reads **No matching keys — your custom value will be used.**
-3. Set **Accept header to match** to the Accept header of the requests this template answers, for example `application/json`.
-4. Set **Status code** to the status the consumer receives. Click the browse button beside the field to pick from the known status codes.
+3. Set **Accept header to match** to the Accept header of the requests this template answers, for example `application/json`. The field starts at `*/*`, which answers any Accept header.
+4. Set **Status code** to the status the consumer receives. The field starts at `400`, and the name of the status you enter appears beside the field. Click the browse button to pick from the known status codes.
 5. Optional: under **HTTP Headers**, click **Add header** and fill in the **Header name** and **Value**. The name field suggests standard HTTP header names and accepts your own. Repeat for each header. A new template starts with no header rows.
 6. Optional: enter the payload in **Body**.
 7. Optional: turn on **Add template key to logs** to record the template key alongside the request.
@@ -44,8 +43,9 @@ A proxy with no templates at all opens on an empty state titled **No Response Te
 
 The console reports **Configuration successfully saved!** and returns to the list.
 
-<!-- TODO: Screenshot of the Create a new Response Template form -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-apim-response-template-form.png" alt="The Create a new Response Template form showing the Template key, Accept header to match, Status code, HTTP Headers, Body, and Add template key to logs fields"><figcaption><p>Creating a response template</p></figcaption></figure>
+Saving a template changes the API definition, so the proxy is left out of sync until you deploy it. Click **Deploy API** on the banner at the top of the page to push the change to the gateway.
+
+<figure><img src="../../.gitbook/assets/gamma-apim-response-template-form.png" alt="The Create a new Response Template form, with the Template key selector, the Accept header to match field holding its default, the Status code field holding its default beside the status name, an empty HTTP Headers section with an Add header button, the Body field, and the Add template key to logs switch"><figcaption><p>Creating a response template</p></figcaption></figure>
 
 ### What the form refuses
 
