@@ -5,6 +5,57 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.20 - September 21, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Streaming /responses silently terminated when model cannot be resolved — uncaught IllegalArgumentException in tokensHandling [#11770](https://github.com/gravitee-io/issues/issues/11770)
+
+**Console**
+
+* Add the path in the Traffic API (API V4) [#10815](https://github.com/gravitee-io/issues/issues/10815)
+* Change Screen Resolution On APIM Console and settings menu goes white. [#11689](https://github.com/gravitee-io/issues/issues/11689)
+* Analytics engine: HTTP_PATH filter queries the unpopulated "path" field and always matches nothing [#11813](https://github.com/gravitee-io/issues/issues/11813)
+
+**Portal**
+
+* Sorting bug in the Portal API /apis/_search endpoint [#11830](https://github.com/gravitee-io/issues/issues/11830)
+
+**Other**
+
+* ILM policy not applied to event-metrics indices [#11705](https://github.com/gravitee-io/issues/issues/11705)
+* A logging condition with a typo in it makes every request to the API fail with a 500 [#11732](https://github.com/gravitee-io/issues/issues/11732)
+* Issue with Syncing between Replica when Distributed Sync is Enabled [#11742](https://github.com/gravitee-io/issues/issues/11742)
+* JsonPath error java.lang.NoClassDefFoundError: Could not initialize class io.gravitee.el.spel.function.json.JsonPathFunction [#11765](https://github.com/gravitee-io/issues/issues/11765)
+* API promotion still fails with DuplicateKeyException on apim_promotions after concurrent write conflict fix [#11775](https://github.com/gravitee-io/issues/issues/11775)
+* Debug mode permanently skips an API on a Gateway after one incomplete debug [#11780](https://github.com/gravitee-io/issues/issues/11780)
+* HTTP/2 large request uploads significantly slower than HTTP/1.1 through Gravitee Gateway [#11789](https://github.com/gravitee-io/issues/issues/11789)
+* Data Logging Masking Policy – Header Masking Not Applied in Response Phase [#11791](https://github.com/gravitee-io/issues/issues/11791)
+* Data Logging Masking Policy – Regex Causes Over-masking [#11792](https://github.com/gravitee-io/issues/issues/11792)
+* Upgrade removes all API group assignments when a MongoDB collection prefix is configured (4.11.24, 4.12.14) [#11800](https://github.com/gravitee-io/issues/issues/11800)
+* Per-API Health Check Alert Option Missing From Console UI [#11807](https://github.com/gravitee-io/issues/issues/11807)
+* User role without Environment Documentation READ cannot save v2 API General Info after 4.12 [#11823](https://github.com/gravitee-io/issues/issues/11823)
+* GeoIP Filtering policy 2.2.2 throws NoSuchMethodError on APIM 4.12 (pre-Vert.x-5 build) [#11824](https://github.com/gravitee-io/issues/issues/11824)
+* 4.12.x still ships circuit-breaker 2.0.0: the APIM-15013 bump is shadowed by a duplicated pom property [#11825](https://github.com/gravitee-io/issues/issues/11825)
+* A single failing auto-fetch page blocks auto-fetch for all other pages [#11829](https://github.com/gravitee-io/issues/issues/11829)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Stop reporting a truncated response when the backend delivered every byte it announced [#11844](https://github.com/gravitee-io/issues/issues/11844)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.19 - September 7, 2026
 <details>
 
