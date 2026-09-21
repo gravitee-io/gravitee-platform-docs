@@ -54,9 +54,9 @@ The shared API key mode allows consumers to reuse the same API key across all AP
 
 API keys can only be shared across API Key plans that belong to distinct Gateway APIs. If you attempt to subscribe to two API Key plans on the same Gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically.
 
-<figure><img src="../../.gitbook/assets/shared-api-key-2-portal.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared-api-key-2-portal.png" alt="The subscription wizard in the developer portal at the API key management mode step, offering a generated API key or a shared API key."><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt="An application&#x27;s Subscriptions page with a dialog asking whether the application should use a new API key per subscription or one shared API key, noting that the choice is permanent."><figcaption></figcaption></figure>
 
 To select the API key type, the shared API key mode must be [enabled](api-key.md#api-key-plan) before creating an application. To enable this option, create a new application and subscribe to two API Key plans.
 

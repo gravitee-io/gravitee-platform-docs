@@ -19,7 +19,7 @@ The v4 API creation wizard makes it easy to create new Gateway APIs from scratch
 
 The API details step is where you can define a name, version number, and description for your API. The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="../../../.gitbook/assets/v4 wizard_step 1.png" alt=""><figcaption><p>Step 1: Define your Gateway API's basic details.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/v4 wizard_step 1.png" alt="Step 1 of the API creation wizard, with the API name, version number, and description filled in."><figcaption><p>Step 1: Define your Gateway API's basic details.</p></figcaption></figure>
 
 ## Step 2: Entrypoints
 
