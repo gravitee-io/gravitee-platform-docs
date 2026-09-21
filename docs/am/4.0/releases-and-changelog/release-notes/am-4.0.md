@@ -13,7 +13,7 @@ AM 4.0 supports the `PREPENDING`, `APPENDING`, and `DIGEST` password salt format
 * A user can sign in to AM via the identity provider `"separate salt" + PREPENDING mode`.
 * If an identity provider (either `"separate salt" + APPENDING mode` or `"separate salt" + DIGEST mode`) user with multiple passwordless roaming authenticator credentials signs in to AM, AM will display the list of credential names.
 
-<figure><img src="../../.gitbook/assets/password salt.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/password salt.png" alt="Password salt settings with separate salt enabled, the salt attribute named salt, a length of 16 bytes, and the salt appended to the password."><figcaption></figcaption></figure>
 
 ## Passwordless device management
 
@@ -21,9 +21,9 @@ A user with a roaming authenticator or cross-platform authenticator can now name
 
 *   If a user signs in to AM and **Enable passwordless** is activated on the security domain, the user can assign a device name during configuration.&#x20;
 
-    <figure><img src="../../.gitbook/assets/passwordless device naming management.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/passwordless device naming management.png" alt="The Passwordless settings with Enable passwordless, Passwordless Device Recognition, and Passwordless Device Naming switched on, above the login options."><figcaption></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/passwordless device naming gateway.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/passwordless device naming gateway.png" alt="The Device registration successful page asking the user to name their device, with a Device name field and a Next button."><figcaption></figcaption></figure>
 * If a user who signs in with AM has multiple passwordless roaming authenticator credentials, AM will display the list of credential names.
 
 ## Configure token steps in flows
@@ -38,8 +38,8 @@ A Gravitee security domain or application owner can leverage an extension to the
 
 An admin can require users to verify their email as part of the registration flow by enabling **Account verification via email** in the **User Accounts** section of the Access Management Console.
 
-<figure><img src="../../.gitbook/assets/email verification.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/email verification.png" alt="The User registration settings with Account verification via email switched on and the other registration options switched off."><figcaption></figcaption></figure>
 
 After a user submits the AM registration form, they will receive an email with a link to confirm their account. If an unverified user does not validate their account, an admin can manually trigger a resend of the email verification link via the user's **Profile** in the **Users** section of the AM Console.
 
-<figure><img src="../../.gitbook/assets/resend email verification.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/resend email verification.png" alt="The Actions section of a user with Enable User switched on, a warning that the user has not completed registration with a Send confirmation button, and a password reset field."><figcaption></figcaption></figure>
