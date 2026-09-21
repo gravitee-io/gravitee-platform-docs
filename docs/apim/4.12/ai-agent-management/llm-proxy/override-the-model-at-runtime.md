@@ -33,7 +33,7 @@ To override the model at runtime, add the Assign attributes policy to the reques
     <figure><img src="../../.gitbook/assets/agent-mesh-llm-proxy-add-the-guard--98.png" alt=""><figcaption></figcaption></figure>
 3.  In the **API's menu**, click **Policies**.<br>
 
-    <figure><img src="../../.gitbook/assets/7CABA049-B484-48FE-859E-B640C6ED9A04_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/7CABA049-B484-48FE-859E-B640C6ED9A04_1_201_a.jpeg" alt="The Configuration page of an API, with Policies highlighted in the API menu beside the general settings and a Danger Zone."><figcaption></figcaption></figure>
 4. In the **Flows** section, select the flow that you want to add the policy to. For example, `POST/chat/completions`.
 5.  In the **Request phase** section, click the **+** icon.<br>
 

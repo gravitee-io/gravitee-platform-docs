@@ -95,7 +95,7 @@ Add differentiated Quota policies to each plan per the instructions below.
 
 10. Click **Deploy API** to redeploy the API and have the changes take effect
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-33.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-33.png" alt="An orange-bordered banner reading &quot;This API is out of sync.&quot; with a Deploy API button on the right."><figcaption></figcaption></figure>
 
 **Gold Tier plan**
 
@@ -114,7 +114,7 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
 1. Select the **+** icon next to **Common flows**
 2. Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-34.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-34.png" alt="The Create a new flow dialog open over an API&#x27;s Policies page, with fields for the flow name, path operator, path, methods, and an optional condition."><figcaption></figcaption></figure>
 
 3. Click **Create**
 4. Select the **+** icon within the request phase section. This lets us use the Rate Limit policy to limit the number of requests any API consumer can make to the API within a short period of time.
@@ -138,7 +138,7 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
 
 9. Click **Deploy API** to redeploy the API and have the changes take effect
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-33.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-33.png" alt="An orange-bordered banner reading &quot;This API is out of sync.&quot; with a Deploy API button on the right."><figcaption></figcaption></figure>
 
 #### **Step 4: Add Spike Arrest policy via Common flows** <a href="#step-4-add-spike-arrest-policy-via-common-flows" id="step-4-add-spike-arrest-policy-via-common-flows"></a>
 
@@ -147,7 +147,7 @@ Now, let's mitigate traffic spikes and maintain quality of service for all consu
 1. Select the **+** icon next to **Common flows**
 2. Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-34.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-34.png" alt="The Create a new flow dialog open over an API&#x27;s Policies page, with fields for the flow name, path operator, path, methods, and an optional condition."><figcaption></figcaption></figure>
 
 3. Click **Create**
 4. Select the **+** icon within the request phase section to use the Spike Arrest policy to limit sudden spikes in traffic. Configured as a **Common flow**, the Spike Arrest policy applies to all API consumers.
@@ -195,7 +195,7 @@ Rate limiting policies can also be added during [Step 4: Security](https://docum
 
 The Spike Arrest policy cannot be added during the API creation process.
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-48.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-48.png" alt="Step 4 of the API creation wizard at the Restriction stage, with rate limiting, quota, and resource filtering all switched off and an Add plan button."><figcaption></figcaption></figure>
 
 7. Toggle Rate Limiting and/or Quota ON to configure rate limiting policies for the plan
 

@@ -84,7 +84,7 @@ WARNING: Removing a plan is irreversible
     <figure><img src="../../.gitbook/assets/3627B0A7-AF24-4E4B-A22B-5AFEB7FB29A5.jpeg" alt=""><figcaption></figcaption></figure>
 3.  In the **Close plan** pop-up window, type Default Keyless (UNSECURED), and then click **Yes, close this plan.**
 
-    <figure><img src="../../.gitbook/assets/api-secrets-quick-start-15.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/api-secrets-quick-start-15.png" alt="The configuration of an HTTP proxy endpoint, showing idle timeout, redirect following, connection pool size, a default Authorization header, proxy options, and SSL options."><figcaption></figcaption></figure>
 
 #### Verification
 
@@ -105,7 +105,7 @@ To test your API Key plan, complete the following steps:
     <figure><img src="../../.gitbook/assets/22CB1B38-1964-47F6-B5B7-8B634D3D8D0B.jpeg" alt=""><figcaption></figcaption></figure>
 2.  In the **Applications** screen, click the **Default application**.
 
-    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-20-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-20-1.png" alt="The Info page of an API scrolled to the Danger Zone, offering to stop, publish, make private, deprecate, or delete the API."><figcaption></figcaption></figure>
 3.  In the **Default application** configuration screen, click **Subscriptions**.
 
     <figure><img src="../../.gitbook/assets/F1AD5888-A518-42D5-8C18-33BCCB583C06.jpeg" alt=""><figcaption></figcaption></figure>

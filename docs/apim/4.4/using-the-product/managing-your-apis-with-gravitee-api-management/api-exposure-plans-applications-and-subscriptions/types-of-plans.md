@@ -90,12 +90,12 @@ A shared API key may be used to call APIs that are owned by other API publishers
 * Shared API keys cannot be edited from an API publisher's subscriptions
 *   API publishers can read shared API keys, but cannot renew or revoke them
 
-    <figure><img src="../../../.gitbook/assets/shared-api-key-3.png" alt=""><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/shared-api-key-3.png" alt="A subscription&#x27;s detail page showing its plan, status, and application, with a Shared API Key section listing two keys and their creation and expiry times."><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
 *   Shared API keys can only be renewed/revoked by the application owner, from the subscription view of their APIM Console or Developer Portal
 
-    <figure><img src="../../../.gitbook/assets/shared-api-key-4.png" alt=""><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/shared-api-key-4.png" alt="An application&#x27;s subscriptions page, listing two subscriptions that share one API key and a Shared API Key section with a Renew API key button."><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
 
-    <figure><img src="../../../.gitbook/assets/shared-api-key-4-portal.png" alt=""><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/shared-api-key-4-portal.png" alt="The Subscriptions tab of an application in the developer portal, showing the shared API key with Renew and Revoke buttons and two subscriptions whose subscriber names are highlighted."><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>
 
 </details>
 

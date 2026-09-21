@@ -27,7 +27,7 @@ To import documentation:
        * Fill in the information appropriate to and required by your selection
        * Click **IMPORT**
    * Import individual files while creating new API documentation:
-     *   Under the **Pages** tab, click the <img src="../../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="" data-size="line"> icon
+     *   Under the **Pages** tab, click the <img src="../../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="A round dark blue button with a white plus sign, used to add a new item." data-size="line"> icon
 
          <figure><img src="../../../../.gitbook/assets/v2 docs_create.png" alt="The Pages tab of an API&#x27;s documentation, empty, with a column of buttons offering page types to create."><figcaption><p>Import via page creation</p></figcaption></figure>
      * Choose from **ASCIIDOC**, **ASYNCAPI**, **SWAGGER**, and **MARKDOWN**
@@ -42,7 +42,7 @@ To create API documentation:
 2. Select **APIs** from the left nav
 3. Select your API
 4. Select **Documentation** from the inner left nav
-5. Under the **Pages** tab, select the <img src="../../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="" data-size="line"> icon
+5. Under the **Pages** tab, select the <img src="../../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="A round dark blue button with a white plus sign, used to add a new item." data-size="line"> icon
 6. Select your preferred format
 7. Create and configure your documentation:
    1. Give your documentation a name

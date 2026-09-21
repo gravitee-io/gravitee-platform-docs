@@ -139,7 +139,7 @@ To learn more, see the [v4 CORS configuration](../../guides/api-configuration/v4
 
 Responses can be templatized if the errors raised during the request/response phase(s) are associated with a policy whose policy keys can be overridden. Multiple templates can be created for one API, for multiple policies and/or multiple error keys sent by the same policy. Multiple template definitions can be created for the same error key in a single template, for different content types or status codes.
 
-<figure><img src="../../.gitbook/assets/create response template.png" alt=""><figcaption><p>Create a response template</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/create response template.png" alt="The Create a new Response Template form, with fields for template key, Accept header, status code, HTTP headers, and body."><figcaption><p>Create a response template</p></figcaption></figure>
 
 ## Gravitee Expression Language
 
