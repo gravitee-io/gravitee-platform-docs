@@ -93,7 +93,7 @@ A shared API key may be used to call APIs that are owned by other API publishers
 
     <figure><img src="../../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt=""><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
 
-    <figure><img src="../../../.gitbook/assets/shared-api-key-3.png" alt=""><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/shared-api-key-3.png" alt="A subscription&#x27;s detail page showing its plan, status, and application, with a Shared API Key section listing two keys and their creation and expiry times."><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>
 
 </details>
 

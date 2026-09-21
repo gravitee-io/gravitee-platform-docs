@@ -598,10 +598,10 @@ Optionally, you can configure Keycloak client roles. These roles can be defined 
 
 1.  In your client, create roles as needed by organization.
 
-    <figure><img src="../../.gitbook/assets/keycloak_mng-04-client-add_roles.png" alt=""><figcaption><p>Add roles in Keycloak</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/keycloak_mng-04-client-add_roles.png" alt="The Add Role form in the identity provider, with a role name entered and a description listing the environment and organization admin permissions it maps to."><figcaption><p>Add roles in Keycloak</p></figcaption></figure>
 2. To then configure Keycloak users with appropriate roles, select **Role Mappings**, and then define roles as appropriate.
 
-<figure><img src="../../.gitbook/assets/keycloak_mng-roles-05-users-add_user_client_roles.png" alt=""><figcaption><p>Define role mappings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/keycloak_mng-roles-05-users-add_user_client_roles.png" alt="The Role Mappings tab for a user in the identity provider, with a client role assigned and shown under both Assigned Roles and Effective Roles."><figcaption><p>Define role mappings</p></figcaption></figure>
 
 Gravitee role mapping uses Spring Expression Language ([SpEL](https://docs.spring.io/spring-framework/docs/3.0.x/reference/expressions.html)) for writing conditions. The only available object in context is #profile set from [userInfoEndpoint](https://www.oauth.com/oauth2-servers/signing-in-with-google/verifying-the-user-info/). For example:
 

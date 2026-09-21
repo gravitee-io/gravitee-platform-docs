@@ -64,13 +64,13 @@ Click **+ Add members** to add members to your API or alter member roles, which 
 
 To give groups access to your API, click **Manage groups** and select the desired group(s) from the drop-down menu. This will give all members of that group access to your API.
 
-<figure><img src="../../../.gitbook/assets/user permissions_manage groups.png" alt=""><figcaption><p>Give groups access to your API</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/user permissions_manage groups.png" alt="The Manage groups dialog open over the User Permissions tab, with the groups dropdown expanded and each group listed with a clear checkbox."><figcaption><p>Give groups access to your API</p></figcaption></figure>
 
 ### Transfer API ownership
 
 If you are the owner of the API, you can transfer ownership to another member, user, or group. Click **Transfer ownership**, then select **API member**, **Other user**, or **Primary owner group.** Next, define the stakeholder to which you want to transfer API ownership and assign that stakeholder a role.
 
-<figure><img src="../../../.gitbook/assets/user permissions_transfer ownership.png" alt=""><figcaption><p>Transfer API ownership</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/user permissions_transfer ownership.png" alt="The Transfer ownership dialog open over the User Permissions tab, with API member selected as the transfer method and no member chosen yet."><figcaption><p>Transfer API ownership</p></figcaption></figure>
 
 ## Properties
 
@@ -82,7 +82,7 @@ To configure API properties:
 
 1.  Select **Properties** from the inner left nav
 
-    <figure><img src="../../../.gitbook/assets/v2 proxy_properties.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 proxy_properties.png" alt="The API properties page with no properties defined, offering Import, Manage dynamically, and Add property."><figcaption><p>Add API properties</p></figcaption></figure>
 2. To add hardcoded properties, either:
    * Click **Add property** and enter property definitions one at a time as a key-value pair
    * Click **Import** and enter property definitions as a list in `<key>=<value>` format
