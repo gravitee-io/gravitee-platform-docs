@@ -23,13 +23,13 @@ The **Messages** page opens in **Browse** mode.
 
 1. In **Partition**, keep **All partitions** or select one partition.
 2. In **Offset**, select where the read starts. See [Offset modes](#offset-modes).
-3. Optional: enter a **Key filter**, a **Value filter**, or both. The explorer keeps the fetched messages whose key, or value, contains the text, without regard to case.
-4. In **Limit**, select **25**, **50**, **100**, or **200** messages.
+3. Optional: enter a **Key filter**, a **Value filter**, or both. The explorer keeps the fetched messages whose key contains the key filter, without regard to case, and whose value contains the value filter. Setting both keeps only the messages that match both. A message with no key can't match a key filter, and a message with no value can't match a value filter.
+4. In **Limit**, select **25**, **50**, **100**, or **200** messages. The default is **50**.
 5. Select **Fetch**.
 
     <figure><img src="../../.gitbook/assets/gamma-esm-kafka-explorer-browse.png" alt="The Messages page of a topic in Browse mode, with the Partition, Offset, Key filter, Value filter, and Limit controls, the Fetch button, and a table of fetched messages"><figcaption><p>The <strong>Messages</strong> page in <strong>Browse</strong> mode, after a fetch.</p></figcaption></figure>
 
-The explorer reads up to the limit from each selected partition in a single read of at most five seconds, applies the filters, and keeps at most the limit. The line above the table reads the number of messages fetched, or **Showing X of Y fetched messages** when the filters or the limit narrowed the result. Each row shows the **Partition**, **Offset**, **Timestamp**, **Key**, and **Value** of a message.
+The explorer reads up to the limit from each selected partition in a single read, applies the filters, and keeps at most the limit. The read waits at most five seconds by default, and the `kafka.timeout.seconds` setting of the Management API raises it. The line above the table reads the number of messages fetched, or **Showing X of Y fetched messages** when the filters or the limit narrowed the result. Each row shows the **Partition**, **Offset**, **Timestamp**, **Key**, and **Value** of a message.
 
 Select the offset or the value of a row, or **View details**, to open the **Message detail** panel. The panel shows the **Partition**, **Offset**, **Timestamp**, and **Key** of the message, its **Payload**, pretty-printed when it's JSON, and its **Headers**.
 
@@ -45,8 +45,8 @@ Select the offset or the value of a row, or **View details**, to open the **Mess
 ## Tail messages live
 
 1. Select **Live tail**.
-2. Optional: select a **Partition**, and enter a **Key filter**, a **Value filter**, or both.
-3. In `Duration (s)`, enter how long the tail runs, from 1 to 300 seconds. The default is 30.
+2. Optional: select a **Partition**, and enter a **Key filter**, a **Value filter**, or both. These three controls are shared with **Browse**, so they keep the values you set there.
+3. In **Duration (s)**, enter how long the tail runs, from 1 to 300 seconds. The default is 30.
 4. In **Max messages**, enter how many messages the tail delivers at most, from 1 to 5000. The default is 1000.
 5. Select **Start**.
 

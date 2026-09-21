@@ -19,13 +19,12 @@ An organization administrator sees every connection of the environment. Any othe
 
 ## Edit a connection
 
-1. Select the name of the connection, or select **Configuration** in its row menu.
-2. In the context sidebar, select **Configuration**.
-3. In **Details**, change the **Name** or the **Description**.
-4. In **Target**, re-select the fields of the target when a saved value no longer exists. A field whose saved value is gone is marked, and the page refuses to save until you pick another value. The target type can't change.
-5. In **Security**, turn on **Add a security overlay**, or **Override the cluster security** for a Cluster target, to add an overlay to a connection that has none. Turn on **Remove security overlay** to drop the stored overlay and fall back to the security of the cluster or of the plan, or to plaintext for a Direct Broker target.
-6. Optional: select **Test connection**. The test uses the values on the page, and a masked secret isn't re-sent, so re-enter the secret to test authentication. Nothing is saved.
-7. Select **Save changes**.
+1. Select **Configuration** in the connection's row menu. Alternatively, select the name of the connection, then select **Configuration** in the context sidebar.
+2. In **Details**, change the **Name** or the **Description**.
+3. In **Target**, re-select the fields of the target when a saved value no longer exists. A field whose saved value is gone is marked, and the page refuses to save until you pick another value. A plan that's been closed or deprecated, and a subscription that's no longer active, are flagged too, but keep working and don't block the save: keep the value or pick another. The target type can't change.
+4. In **Security**, turn on **Add a security overlay**, or **Override the cluster security** for a Cluster target, to add an overlay to a connection that has none. Turn on **Remove security overlay** to drop the stored overlay and fall back to the security of the cluster or of the plan, or to plaintext for a Direct Broker target.
+5. Optional: select **Test connection**. The test uses the values on the page, and a masked secret isn't re-sent, so re-enter the secret to test authentication. Nothing is saved.
+6. Select **Save changes**.
 
     <figure><img src="../../.gitbook/assets/gamma-esm-kafka-explorer-configuration.png" alt="The Configuration page of a Kafka Explorer connection, with the Details, Target, and Security cards"><figcaption><p>The <strong>Configuration</strong> page of a connection.</p></figcaption></figure>
 
