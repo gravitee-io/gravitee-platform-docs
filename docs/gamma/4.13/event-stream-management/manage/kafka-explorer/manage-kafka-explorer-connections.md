@@ -6,7 +6,7 @@ description: Find, edit, test, and delete Kafka Explorer connections, and decide
 
 # Manage Kafka Explorer connections
 
-The **Kafka Explorer** page lists the connections that you can see. Each connection carries a **Configuration** page and a **User Permissions** page under the **Settings** group of its context sidebar. A connection is a stored reference, so editing or deleting it never changes the Kafka cluster or service that it points at.
+The **Kafka Explorer** page lists the connections that you can see. Each connection carries a **Configuration** page and a **User Permissions** page under the **General** group of its context sidebar. A connection is a stored reference, so editing or deleting it never changes the Kafka cluster or service that it points at.
 
 ## Find a connection
 

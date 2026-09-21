@@ -14,9 +14,9 @@ When you open a Kafka Explorer connection, the console reads the live data of it
 2. In the **Manage** group, select **Kafka Explorer**.
 3. Select the name of the connection, or select **Explore** in its row menu.
 
-The connection opens on its **Brokers** page. The context sidebar lists the **Explore** pages, **Brokers**, **Topics**, and **Consumer Groups**, and the **Settings** pages, **Configuration** and **User Permissions**.
+The connection opens on its **Brokers** page. The context sidebar lists the **General** pages, **Configuration** and **User Permissions**, and the **Explore** pages, **Brokers**, **Topics**, and **Consumer Groups**.
 
-<figure><img src="../../.gitbook/assets/gamma-esm-kafka-explorer-brokers.png" alt="The Brokers page of a Kafka Explorer connection, with the Brokers, Topics, and Partitions counters and one broker row marked Controller"><figcaption><p>The <strong>Brokers</strong> page of a connection, with the <strong>Explore</strong> and <strong>Settings</strong> groups of the context sidebar.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-esm-kafka-explorer-brokers.png" alt="The Brokers page of a Kafka Explorer connection, with the Brokers, Topics, and Partitions counters and one broker row marked Controller"><figcaption><p>The <strong>Brokers</strong> page of a connection, with the <strong>General</strong> and <strong>Explore</strong> groups of the context sidebar.</p></figcaption></figure>
 
 ## Brokers
 
