@@ -13,7 +13,7 @@ The **Kafka Explorer** page lists the connections that you can see. Each connect
 1. From the Gamma console sidebar, select **Event Stream Management**.
 2. In the **Manage** group, select **Kafka Explorer**.
 
-The page lists the connections ten per page, with the **Name**, the **Target** badge, **Cluster**, **Kafka Service**, or **Direct Broker**, and the **Target name** of each one. When the target no longer exists, or isn't visible to you, the **Target name** column shows its identifier instead. Type in **Search connections…** to keep the connections whose name or description contains the text, and use the **Type** filter to keep one or more target types. The row menu offers **Explore**, **Configuration**, and **Delete**.
+The page lists the connections ten per page, with the **Name**, the **Target** badge, **Cluster**, **Kafka Service**, or **Direct Broker**, and the **Target name** of each one. When the target no longer exists, or isn't visible to you, the **Target name** column shows its identifier instead. A **Direct Broker** row has no target name, so the column shows its bootstrap servers. Type in **Search connections…** to keep the connections whose name or description contains the text, and use the **Type** filter to keep one or more target types. The row menu offers **Explore**, and adds **Configuration** and **Delete** when your environment role carries the matching **Explorer** permission. See [Who can do what](#who-can-do-what).
 
 An organization administrator sees every connection of the environment. Any other user sees the connections that they're a member of, directly or through one of their groups.
 
@@ -53,14 +53,25 @@ A connection carries the following roles:
 | **OWNER** | Explore the target, edit the configuration, delete the connection, and manage its members and groups. |
 | **USER** | Explore the target, and read the configuration and the members. |
 
-Exploring a target through a connection also requires the environment-level permission to read Kafka Explorer connections. An organization administrator holds every role on every connection.
+## Who can do what
+
+Two layers govern a connection, and both apply.
+
+* The **environment role** of the user decides what the Kafka Explorer pages offer at all. The Management API enforces `EXPLORER` **Create** to create a connection or test a draft, and `EXPLORER` **Read** for everything else the explorer reads. The console additionally hides the **Configuration** and **Delete** entry points unless the environment role also carries `EXPLORER` **Update** and **Delete**, so grant the four actions together to a role that is meant to administer connections. See [User management](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/manage-organizations-and-environments/user-management).
+* The **connection role** of the user, from the table above, decides what the Management API lets them do to that one connection: reading it, editing it, deleting it, and managing its members and groups.
+
+No built-in environment role grants `EXPLORER` **Create**: the built-in **API_PUBLISHER** role only reads. Create a custom environment role with the `EXPLORER` actions you want, or sign in as an organization administrator. When an existing installation is upgraded, each of its environment roles receives the `EXPLORER` actions it already held on `CLUSTER`.
+
+Exploring a **Kafka Service** target also requires the environment permission to read that API. A member of the connection who can't read the API gets an authorization error on the explorer pages instead of the target's data.
+
+An organization administrator holds every role on every connection.
 
 ## Delete a connection
 
 1. In the **Kafka Explorer** list, select **Delete** in the row menu of the connection. Alternatively, open the connection's **Configuration** page and select **Delete connection**.
 2. In the **Delete connection?** dialog, select **Delete connection**.
 
-The connection disappears from the list. The Kafka cluster or service that it pointed at isn't affected. An owner of the connection, or an organization administrator, can delete it.
+The connection disappears from the list. The Kafka cluster or service that it pointed at isn't affected. Deleting needs both an owner role on the connection and the environment `EXPLORER` **Delete** permission, or an organization administrator.
 
 ## Verification
 
