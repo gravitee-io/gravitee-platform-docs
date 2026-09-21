@@ -123,7 +123,7 @@ To configure API properties:
 
 1.  Select **Properties** from the inner left nav
 
-    <figure><img src="../../.gitbook/assets/v2 proxy_properties.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/v2 proxy_properties.png" alt="The API properties page with no properties defined, offering Import, Manage dynamically, and Add property."><figcaption><p>Add API properties</p></figcaption></figure>
 2. To add hardcoded properties, either:
    * Click **Add property** and enter property definitions one at a time as a key-value pair
    * Click **Import** and enter property definitions as a list in `<key>=<value>` format
