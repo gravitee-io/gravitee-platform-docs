@@ -239,7 +239,7 @@ To debug your flows:
 
 Gravitee will initiate a test request, and then you will be presented with a timeline that shows the order of your flows and policies.
 
-<figure><img src="../../.gitbook/assets/Debug mode timeline.png" alt=""><figcaption><p>Debug mode timeline</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Debug mode timeline.png" alt="The Debug tab showing a request that returned 200, with the policy timeline across the request and response phases and an inspector comparing input and output headers and attributes."><figcaption><p>Debug mode timeline</p></figcaption></figure>
 
 ### Understanding different indicators for policies
 

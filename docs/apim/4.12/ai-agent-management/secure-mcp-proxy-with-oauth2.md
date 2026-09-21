@@ -107,7 +107,7 @@ To secure your MCP proxy, complete the following steps:
 
 The API appears in your API management console with your configuration.<br>
 
-<figure><img src="../.gitbook/assets/3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/3.png" alt="The Configuration page of an MCP API, showing its name, version, and description above a Danger Zone offering start, publish, make public, deprecate, and delete."><figcaption></figcaption></figure>
 
 ## Register the MCP Server in AM
 
@@ -157,12 +157,12 @@ To enable DCR, complete the following steps:
     <figure><img src="../.gitbook/assets/client-registration.png" alt=""><figcaption></figcaption></figure>
 3.  Turn on the **Enable Dynamic Client Registration** toggle.
 
-    <figure><img src="../.gitbook/assets/enable-dynamic-client-registration.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/enable-dynamic-client-registration.png" alt="The Client Registration Settings page in Access Management, with dynamic client registration, open registration, templates, localhost redirects, and unsecured redirects all enabled."><figcaption></figcaption></figure>
 4. Configure the settings. To configure settings, complete the following steps:
    * **Allow localhost redirect URIs:** (Optional) Enable for local development and testing.
    *   **Allow custom redirect URIs:** (Optional) Enable for production clients with custom redirect configurations.
 
-       <figure><img src="../.gitbook/assets/enable-dynamic-client-registration.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../.gitbook/assets/enable-dynamic-client-registration.png" alt="The Client Registration Settings page in Access Management, with dynamic client registration, open registration, templates, localhost redirects, and unsecured redirects all enabled."><figcaption></figcaption></figure>
 5. Click **Save**.
 
 ## (Optional) Enable user registration in AM
@@ -199,7 +199,7 @@ For more information on protected resource metadata discovery, see the [MCP spec
 
 1.  In the API Console, navigate to your MCP proxy API.
 
-    <figure><img src="../.gitbook/assets/3.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/3.png" alt="The Configuration page of an MCP API, showing its name, version, and description above a Danger Zone offering start, publish, make public, deprecate, and delete."><figcaption></figcaption></figure>
 2.  Click **Resources**.<br>
 
     <figure><img src="../.gitbook/assets/4.png" alt=""><figcaption></figcaption></figure>
@@ -289,10 +289,10 @@ Verify your configuration in both the APIM Console and AM Console.
 {% tab title="AM Console" %}
 1.  Navigate to your AM domain.<br>
 
-    <figure><img src="../.gitbook/assets/am-domain-mcp-server.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/am-domain-mcp-server.png" alt="The Access Management dashboard with MCP Servers highlighted in the left navigation, showing login, sign-up, user, and application counts above a login activity chart."><figcaption></figcaption></figure>
 2.  Click **MCP Servers**.
 
-    <figure><img src="../.gitbook/assets/am-domain-mcp-server.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/am-domain-mcp-server.png" alt="The Access Management dashboard with MCP Servers highlighted in the left navigation, showing login, sign-up, user, and application counts above a login activity chart."><figcaption></figcaption></figure>
 3.  Verify your MCP server resource is configured.<br>
 
     <figure><img src="../.gitbook/assets/mcp-clients-to-use-am-server.png" alt=""><figcaption></figcaption></figure>
