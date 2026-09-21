@@ -49,7 +49,7 @@ To view your new dashboard and chart:
 2. Click on **Analytics** in the left nav
 3.  Under the **Dashboard** header, select your dashboard from the **Select a dashboard** drop-down menu
 
-    <figure><img src="../../../.gitbook/assets/dashboard_view.png" alt=""><figcaption><p>View your dashboard</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/dashboard_view.png" alt="The Platform Overview dashboard, with the dashboard selector circled above a time-range picker, a status pie chart, and response-time statistics."><figcaption><p>View your dashboard</p></figcaption></figure>
 
 ## Edit an existing dashboard
 

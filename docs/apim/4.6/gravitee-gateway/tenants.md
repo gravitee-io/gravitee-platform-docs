@@ -42,7 +42,7 @@ Once the Gateway has been configured, the tenant definition must be added via th
     <figure><img src="../.gitbook/assets/tenant_BE & customer.png" alt=""><figcaption></figcaption></figure>
 3.  Specify which tenant a backend will apply to. Our two endpoints each point to different backends and are each assigned to a different tenant:
 
-    <figure><img src="../.gitbook/assets/tenant_specify.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/tenant_specify.png" alt="The Endpoints page of an API, listing two endpoints in the default group with their targets, type, tenant, and weight."><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Now that the two endpoints are defined, Gateways GWI1, GWI2, GWI3 and GWI4 will apply this logic:
