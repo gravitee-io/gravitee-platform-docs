@@ -43,11 +43,18 @@ A path-based store keeps the key material out of the database and its backups, w
 
 ## TLS verification
 
-**Verify Host** and **Trust all** both relax the same check: the verification that the broker's certificate matches the host you connected to. Neither one skips validation of the certificate chain.
+The **SSL Options** of an overlay carry two switches that relax two different checks:
 
-A broker presenting a self-signed certificate, or one issued by a private CA, therefore needs a **Truststore** holding that certificate or its CA. Turning **Trust all** on instead leaves the connection failing on the certificate chain, and the error points at the TLS handshake rather than at the missing truststore.
+| Switch | What it relaxes | What still applies |
+| --- | --- | --- |
+| **Verify Host**, on by default | Nothing while it's on. Turning it off skips the check that the broker's certificate matches the host you connected to. | The certificate chain is still validated against the **Truststore**, or against the Java default truststore when you set none. |
+| **Trust all**, off by default | Turning it on skips validation of the certificate chain, and host name verification with it. Any certificate is accepted, including a self-signed one. | Nothing. The connection is still encrypted, but the peer is unauthenticated. |
 
-Relax either switch only against a cluster you control, such as a local or test broker.
+Prefer a **Truststore** holding the broker's certificate, or the CA that issued it, over either switch. It's the only option that keeps the broker authenticated.
+
+{% hint style="warning" %}
+**Trust all** makes the connection vulnerable to a man-in-the-middle attack: the explorer accepts whatever certificate answers at the address. With a `SASL_SSL` protocol it hands the SASL credentials to that unverified peer. Use it only against a cluster you control, such as a local or test broker, and never over the Internet.
+{% endhint %}
 
 ## How an overlay combines with the target's security
 
