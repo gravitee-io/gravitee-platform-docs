@@ -129,7 +129,7 @@ Environment-scoped permissions govern everything within a single environment: th
 | `DOCUMENTATION` | Create, read, update, delete | The Developer Portal documentation content shown to consumers. |
 | `EDGE_CONFIGURATION` | Not enforced | Gateway edge-level runtime settings applied across the environment. This permission isn't currently enforced by a Management API endpoint. |
 | `ENTRYPOINT` | Create, read, update, delete | The base URLs the gateway serves and the portal advertises, scoped to the environment. |
-| `EXPLORER` | Kafka gateway | Access to the Kafka Explorer for browsing topics and messages in the environment. Access is enforced by the Kafka gateway rather than the Management API. |
+| `EXPLORER` | Create, read, update, delete | Kafka Explorer connections in Gamma Event Stream Management. The Management API enforces create (create a connection or test a draft) and read (list the connections, and read the brokers, topics, consumer groups, and messages behind them). Update and delete aren't enforced by an endpoint, but the Gamma console hides the **Configuration** and **Delete** entry points without them, so grant all four to a role meant to administer connections. Editing, deleting, and sharing one connection is also governed by its own `EXPLORER` role membership. |
 | `GROUP` | Create, read, update, delete | User groups, named collections of users that jointly own APIs and applications. |
 | `IDENTITY_PROVIDER_ACTIVATION` | Create, read, update, delete | Controls which identity providers are enabled at the environment level. |
 | `INSTANCE` | Read | API Gateway instance information. |
