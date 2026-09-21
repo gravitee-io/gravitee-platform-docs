@@ -27,7 +27,7 @@ To configure an OAuth2 plan, you must first create an [OAuth2 client resource](.
 
 Configuring an OAuth2 plan presents the following options:
 
-<figure><img src="../../.gitbook/assets/plan_oauth2 configuration.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plan_oauth2 configuration.png" alt="The OAuth2 authentication configuration step, with empty resource fields, scope checking off, and strict mode and authorization header propagation both on."><figcaption></figcaption></figure>
 
 * **OAuth2 resource:** Enter the name of the OAuth2 resource to use as the authorization server
 * **Cache resource:** Optionally enter the name of the cache resource to store responses from the authorization server
