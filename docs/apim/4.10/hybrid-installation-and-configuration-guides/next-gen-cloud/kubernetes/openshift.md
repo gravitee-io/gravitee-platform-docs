@@ -129,7 +129,7 @@ license:
 
 From the Gravitee Cloud Dashboard, you can see your configured Gateway.
 
-<figure><img src="../../../.gitbook/assets/gravitee-cloud-verification-dashboard.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gravitee-cloud-verification-dashboard.png" alt="The Gravitee Cloud Overview with the Gateways table highlighted, showing two hybrid Gateways in the Development environment."><figcaption></figcaption></figure>
 
 To verify that the Gateway is running, make a GET request to the URL on which you have published the Gateway. The output is a default message similar to:
 
