@@ -56,7 +56,7 @@ A Virtual Cluster can't be explored.
 
 The console saves the connection, makes you its primary owner, and opens the connection on its **Brokers** page.
 
-The name is required and holds up to 255 characters. Gamma derives the connection's identifier from the name, and refuses a second connection whose name yields the same identifier in the environment. The wizard then reports **Create failed** with the reason.
+The name is required, and the form accepts up to 255 characters. Gamma derives the connection's identifier from the name, and refuses a second connection whose name yields the same identifier in the environment. The wizard then reports **Create failed** with the reason.
 
 ## Target fields
 
@@ -76,7 +76,7 @@ The **Target** step shows the fields of the target type that you selected.
 | --- | --- |
 | **Kafka Service** | Required. The Kafka Service to explore. When the environment has none, the field reads **No Kafka Service is available in this environment.** |
 | **Plan** | Required. One of the service's published plans, listed with its type: **Keyless**, **API key**, **JWT**, **OAuth2**, or **mTLS**. When the service has no published plan, the field reads **This API has no usable plan.** |
-| **Subscription** | Required for every plan type except Keyless. An accepted subscription to the selected plan, listed by application name. When the plan has none, the field reads **This plan has no accepted subscription**. |
+| **Subscription** | Required for every plan type except Keyless. An accepted subscription to the selected plan, listed by application name. When the plan has none, the field reads **This plan has no accepted subscription — accept one first.** |
 | **Add a security overlay** | Shown for an API key or Keyless plan. Off: the explorer connects with the plan security over TLS. On: the **Security** step appears, to add a truststore for a private or self-signed Kafka gateway certificate, or to override the security. For a JWT, OAuth2, or mTLS plan, the **Security** step always appears. |
 
 ### Direct Broker target
@@ -99,7 +99,7 @@ The **Security** step renders the overlay form of the target type. The form carr
 Each SASL mechanism takes its own fields:
 
 * `PLAIN`, `SCRAM-SHA-256`, and `SCRAM-SHA-512` take a **Username** and a **Password**.
-* `OAUTHBEARER` takes an **OAuth token url**, a **Client id**, a **Client secret**, optional comma-separated **Scopes**, and optional **OAUTHBEARER SASL extensions**, each with an **Extension key** and an **Extension value**. The explorer's Kafka client obtains the token from the token URL with these client credentials.
+* `OAUTHBEARER` takes an **OAuth token url**, a **Client id**, a **Client secret**, optional comma-separated **Scopes**, and optional **OAUTHBEARER SASL extensions**, each with an **Extension key**, made of letters only, and a non-empty **Extension value**. The explorer's Kafka client obtains the token from the token URL with these client credentials.
 * `OAUTHBEARER_TOKEN` takes a **Token value**. The token isn't refreshed, so an expired token drops the connection.
 
 For a Cluster or Direct Broker target, the overlay is the whole connection security: a SASL protocol needs a mechanism other than `NONE`, and `PLAINTEXT` or `SSL` needs the mechanism left at `NONE`. A credential can't contain a control character, such as a pasted line break.
