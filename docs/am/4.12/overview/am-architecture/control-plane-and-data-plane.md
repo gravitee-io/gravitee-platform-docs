@@ -216,4 +216,4 @@ repositories:
 
 For more details on how to configure AM with multiple DataBase or multiple Data Planes, please refer to the [Configure Multiple Data Planes](../../getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md) page.
 
-<figure><img src="../../.gitbook/assets/am-multi-dataplane (1).svg" alt=""><figcaption><p>Multiple DataPlane deployment</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/am-multi-dataplane (1).svg" alt="A multi data plane deployment diagram, with a control plane holding the Management API and its database, linked by a sync process to two data planes that each have their own gateways, data cluster, and identity providers."><figcaption><p>Multiple DataPlane deployment</p></figcaption></figure>

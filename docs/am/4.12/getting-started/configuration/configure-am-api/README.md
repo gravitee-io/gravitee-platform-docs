@@ -585,7 +585,7 @@ notifiers:
         value: 100
 ```
 
-<figure><img src="../../../.gitbook/assets/gs-config-configure-am-api-readme-165.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gs-config-configure-am-api-readme-165.png" alt="The Certificates page listing one default system PKCS#12 certificate with its expiry date and the number of applications using it."><figcaption></figcaption></figure>
 
 #### Email Notifier
 

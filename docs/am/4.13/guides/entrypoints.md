@@ -13,7 +13,7 @@ An entrypoint defines a base URL that the AM Gateway is reached on. AM builds us
 
 The table lists each entrypoint's **Name**, **Endpoint**, and **Environment**.
 
-<figure><img src="../.gitbook/assets/am-organization-entrypoints-list.png" alt=""><figcaption><p>The Entrypoints list</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/am-organization-entrypoints-list.png" alt="The organization Entrypoints page listing one default entrypoint with its endpoint URL and a settings icon, above an add button."><figcaption><p>The Entrypoints list</p></figcaption></figure>
 
 ## Manage entrypoints on a self-hosted installation
 
