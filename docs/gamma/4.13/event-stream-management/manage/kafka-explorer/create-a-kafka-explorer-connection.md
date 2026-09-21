@@ -24,7 +24,7 @@ A Virtual Cluster can't be explored.
 
 * An enterprise license that includes the Kafka Explorer feature, `apim-native-kafka-explorer`.
 * Permission to create Kafka Explorer connections in the environment. The **New connection** button appears only when you have it.
-* A MongoDB management database. The module version that this page documents stores Kafka Explorer connections in MongoDB only.
+* A management database that holds the connections. Event Stream Management stores them in the APIM management database, and picks the MongoDB or the JDBC variant from `management.type`. On JDBC it applies its own schema at startup, unless the deployment sets `management.jdbc.liquibase: false`, in which case a database administrator applies the module's changelog by hand before the Kafka Explorer pages work.
 * For a **Cluster** target, a cluster registered in Event Stream Management with at least one named connection. See [Register your Kafka clusters](../../import/register-your-kafka-clusters.md).
 * For a **Kafka Service** target, a Kafka Service that you're allowed to read, with a published plan and, for every plan type except Keyless, an accepted subscription to that plan.
 

@@ -236,7 +236,7 @@ Event Stream Management adds the Kafka Explorer and a duplication path for Kafka
 * A connection points at a multi-connection cluster registered in Event Stream Management and one of its named connections, at a Kafka Service through a published plan and an accepted subscription, or at broker addresses that you enter directly. An optional security overlay adds or replaces the client-side SASL and TLS settings, and **Test connection** checks that the target is reachable before you save.
 * The explorer lists the brokers with their partition counts and log sizes, the topics with their partitions, replication, size, and configuration, and the consumer groups with their members, committed offsets, and lag. The **Messages** page of a topic fetches a batch from the newest or oldest messages, from a timestamp, or from a specific offset, or streams new messages live for up to 300 seconds.
 * Each connection has its own members and groups. Its creator is the primary owner, and the **USER** and **OWNER** roles of the new **Explorer** scope decide who can read or change a connection's configuration and members.
-* Kafka Explorer requires an enterprise license that includes the `apim-native-kafka-explorer` feature, and stores its connections in a MongoDB management database.
+* Kafka Explorer requires an enterprise license that includes the `apim-native-kafka-explorer` feature. It stores its connections in the APIM management database, on MongoDB or on JDBC, and applies its own schema at startup on JDBC installations that leave `management.jdbc.liquibase` on.
 * See [Kafka Explorer](../event-stream-management/manage/kafka-explorer/README.md).
 
 ### Platform Management
