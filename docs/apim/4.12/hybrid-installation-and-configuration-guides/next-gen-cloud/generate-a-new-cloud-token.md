@@ -15,33 +15,33 @@ When you revoke a Cloud token, you terminate the link between the Cloud and your
 
 1.  Sign in to [Gravitee Cloud](https://cloud.gravitee.io/).
 
-    <figure><img src="../../.gitbook/assets/hybrid-installation-and-configuration-gu-4-1-1-1-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/hybrid-installation-and-configuration-gu-4-1-1-1-1.png" alt="The Gravitee Cloud Sign in page, offering Google and Github sign-in above email and password fields and a company SSO link."><figcaption></figcaption></figure>
 2.  Navigate to the **Gateways** section, and then click the Gateway for which you want to generate a new Cloud token.
 
-    <figure><img src="../../.gitbook/assets/64DFB5D8-427B-4FD2-8013-2206631FEDE2_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/64DFB5D8-427B-4FD2-8013-2206631FEDE2_1_201_a.jpeg" alt="The Gravitee Cloud Overview with three environment cards above the Gateways table, with one hybrid Gateway row highlighted."><figcaption></figcaption></figure>
 3.  In the **Hybrid Gateway Details** screen, navigate to the **Cloud Tokens** section.
 
-    <figure><img src="../../.gitbook/assets/D25FD656-4D9B-426A-8B3E-7CB63E826C47_1_201_a (2).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/D25FD656-4D9B-426A-8B3E-7CB63E826C47_1_201_a (2).jpeg" alt="The Gateway configuration page with the HTTP and Kafka domain fields above the Cloud Tokens section, which is highlighted and lists one active token."><figcaption></figcaption></figure>
 4.  Click the **bin** icon.
 
-    <figure><img src="../../.gitbook/assets/C0E81F31-A36F-4047-8660-BE4B0A72C1B9_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/C0E81F31-A36F-4047-8660-BE4B0A72C1B9_1_201_a.jpeg" alt="The Gateway configuration page with the delete icon highlighted on the single Cloud Token row, above the license key field."><figcaption></figcaption></figure>
 5.  In the **Revoke Cloud Token** pop-up window, type **revoke**, and then click **Revoke Token.** Your Cloud token is deleted.
 
-    <figure><img src="../../.gitbook/assets/1C1BDDA3-6EAD-4574-9AAD-3B1886C5298C_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/1C1BDDA3-6EAD-4574-9AAD-3B1886C5298C_1_201_a.jpeg" alt="The Revoke Cloud Token dialog warning that the operation is irreversible, with revoke typed into the Confirm field."><figcaption></figcaption></figure>
 6.  In the **Cloud Tokens** section, click **Generate Cloud Token.**
 
-    <figure><img src="../../.gitbook/assets/093ECA13-2ABE-4A8A-998D-6F6D2E0E5DF9_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/093ECA13-2ABE-4A8A-998D-6F6D2E0E5DF9_1_201_a.jpeg" alt="The Cloud Tokens section showing a No cloud tokens yet empty state, with the Generate Cloud Token button highlighted below it."><figcaption></figcaption></figure>
 7.  In the **Copy your Cloud Token** pop-up window, click **Copy and Close**.
 
     <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>Store your Cloud token somewhere secure.</p></div>
 
-    <figure><img src="../../.gitbook/assets/18A6E6CD-1BA0-466F-B858-BAB94225DA7E_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/18A6E6CD-1BA0-466F-B858-BAB94225DA7E_1_201_a.jpeg" alt="The generated Cloud Token dialog, warning that the token cannot be seen again, with the token shown above a Copy and Close button."><figcaption></figcaption></figure>
 
     \### Verification
 
 *   In the **Hybrid Gateway Details** screen, navigate to the **Cloud Tokens** section. The table shows the date and time that you created the Cloud token.
 
-    <figure><img src="../../.gitbook/assets/A9D87A59-C9CE-42BC-9FF9-4AC06738C249_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A9D87A59-C9CE-42BC-9FF9-4AC06738C249_1_201_a.jpeg" alt="The Gateway Deployment Details page with the Cloud Tokens section highlighted, listing one token with its creation and expiry dates."><figcaption></figcaption></figure>
 
 ## Next steps
 
