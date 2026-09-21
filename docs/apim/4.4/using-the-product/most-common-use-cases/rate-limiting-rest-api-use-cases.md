@@ -119,22 +119,22 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
 3. Click **Create**
 4. Select the **+** icon within the request phase section. This lets us use the Rate Limit policy to limit the number of requests any API consumer can make to the API within a short period of time.
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-35.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-35.png" alt="The Policies page with a flow added under each API key plan and under Common flows, and the last one selected."><figcaption></figcaption></figure>
 
 5. Use the search bar or scroll to navigate to the **Rate Limit** policy, then click **Select**
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-36.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-36.png" alt="The Policies for Request phase dialog with a rate limit search, offering the GraphQL Rate Limit and Rate Limit policies."><figcaption></figcaption></figure>
 
 6.  Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 5 requests per 1 second
 
     The Rate Limit time period is shorter than the Quota time period.
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-37.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-37.png" alt="The rate limit policy configuration, with an empty key, a static maximum of five requests, and a time window of one second."><figcaption></figcaption></figure>
 
 7. Click **Add policy**
 8. On the **Policies** page, click **Save**
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-38.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-38.png" alt="The Policies page with a rate limit policy added to the request phase of the selected flow."><figcaption></figcaption></figure>
 
 9. Click **Deploy API** to redeploy the API and have the changes take effect
 
@@ -152,20 +152,20 @@ Now, let's mitigate traffic spikes and maintain quality of service for all consu
 3. Click **Create**
 4. Select the **+** icon within the request phase section to use the Spike Arrest policy to limit sudden spikes in traffic. Configured as a **Common flow**, the Spike Arrest policy applies to all API consumers.
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-41.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-41.png" alt="The Policies page with a second flow added under Common flows and selected, showing empty request and response phases."><figcaption></figcaption></figure>
 
 5. Use the search bar or scroll to navigate to the **Rate Limit** policy, then click **Select**
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-42.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-42.png" alt="The Policies for Request phase dialog with a spike search, offering the Spike Arrest policy."><figcaption></figcaption></figure>
 
 6. Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 100 requests per 1 second
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-43.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-43.png" alt="The spike arrest policy configuration, with response headers disabled, an empty key and static limit, and a time window of one second."><figcaption></figcaption></figure>
 
 7. Click **Add policy**
 8. On the **Policies** page, click **Save**
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-44.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-44.png" alt="The Policies page with a spike arrest policy added to the request phase of the selected flow."><figcaption></figcaption></figure>
 
 9. Click **Deploy API** to redeploy the API and have the changes take effect
 
@@ -185,11 +185,11 @@ Rate limiting policies can also be added during [Step 4: Security](https://docum
 3. Click **API Key**
 4. Enter a plan **Name**, **Description** (optional), and modify **Subscriptions** and **Access-Control** (optional)
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-46.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-46.png" alt="The General step of plan creation, with an API key plan named and both subscription toggles switched off above an access control field."><figcaption></figcaption></figure>
 
 5. Click **Next**, then optionally propagate the API Key to upstream API or add a selectional rule
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-47.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-47.png" alt="The API Key authentication configuration step of plan creation, with API key propagation switched off and an empty additional selection rule."><figcaption></figcaption></figure>
 
 6. Click **Next** to add Quota and/or Rate Limit policies
 
@@ -206,9 +206,9 @@ Rate limiting policies added during the API creation process will applied to the
 * Enter a **Key** to specify the consumer group against which the policy will be applied (leave blank to use the default plan/subscription pair)
 * Enter values for **Max requests (static)**, **Time duration**, and **Time unit** intended for that consumer group
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-49.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-49.png" alt="The Restriction step of plan creation, with rate limiting enabled, keyed to the plan name, limited to five requests per second, and quota enabled below."><figcaption></figcaption></figure>
 
 9. Click **Add plan**
 10. Add additional plans or select **Validate my plans** to continue with the API creation process
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-cases-50-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-cases-50-1.png" alt="Step 4 of the API creation wizard, listing a default keyless plan and an API key plan, both in standard mode."><figcaption></figcaption></figure>

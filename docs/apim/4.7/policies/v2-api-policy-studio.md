@@ -136,7 +136,7 @@ To debug your flows:
 6. Define the HTTP method, path, headers, and request bodies for the debug request
 7.  Select **Send** to prompt Gravitee to initiate a test request and present you with a timeline showing the order of your flows and policies
 
-    <figure><img src="../.gitbook/assets/Debug mode timeline.png" alt=""><figcaption><p>Debug mode timeline</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/Debug mode timeline.png" alt="The Debug tab showing a request that returned 200, with the policy timeline across the request and response phases and an inspector comparing input and output headers and attributes."><figcaption><p>Debug mode timeline</p></figcaption></figure>
 
 <details>
 

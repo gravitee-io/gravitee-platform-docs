@@ -17,7 +17,7 @@ Comprehensive connection logs let you analyze the usage of your v4 message APIs 
 3. Navigate to the desired logs applicable to your API.
    1.  To view v4 API runtime logs, click the **Logs** menu item:
 
-       <figure><img src="../../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt="The Runtime Logs page of an API, listing seven requests with their timestamp, method, status, URI, application, plan, and response time, with Logs highlighted in the API menu."><figcaption></figcaption></figure>
    2.  To view the webhook logs for a v4 message API with a webhook entrypoint, click the **Webhook** menu item:
 
        <figure><img src="../../.gitbook/assets/logging-webhook-view3.png" alt=""><figcaption></figcaption></figure>

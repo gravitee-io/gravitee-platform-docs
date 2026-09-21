@@ -88,7 +88,7 @@ Comprehensive connection logs allow you to analyze the usage of your v4 message 
     <figure><img src="../.gitbook/assets/EF1F9221-58FE-470A-8192-7A9468FEF998_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 3.  From the menu, click **Logs.**
 
-    <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt="The Runtime Logs page of an API, listing seven requests with their timestamp, method, status, URI, application, plan, and response time, with Logs highlighted in the API menu."><figcaption></figcaption></figure>
 
 The filters above the list of logs allow you to filter records by timeframe, HTTP method, or plan. The **More** button offers additional filtering options.
 
@@ -117,7 +117,7 @@ You can modify logging information can be modified by configuring the options un
     <figure><img src="../.gitbook/assets/EF1F9221-58FE-470A-8192-7A9468FEF998_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 3.  From the menu, click **Logs.**
 
-    <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt="The Runtime Logs page of an API, listing seven requests with their timestamp, method, status, URI, application, plan, and response time, with Logs highlighted in the API menu."><figcaption></figcaption></figure>
 4.  Click **Configure Reporting**.
 
     <figure><img src="../.gitbook/assets/4BE464F6-77A8-4B28-AFDB-EC8790CA8E94_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
