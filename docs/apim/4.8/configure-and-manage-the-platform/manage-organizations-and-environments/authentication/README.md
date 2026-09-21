@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for authentication.
+description: API Management 4.8 natively supports several authentication types for the Console. Compare the options before you configure one.
 ---
 
 # Authentication

@@ -1,5 +1,5 @@
 ---
-description: An overview about sharding tags.
+description: Sharding tags tag API Management 4.11 Gateways so specific APIs deploy to a particular gateway. Learn how the tags work in practice.
 metaLinks:
   alternates:
     - sharding-tags.md
@@ -71,10 +71,10 @@ To configure sharding tags, complete the following steps:
 
 1.  In the **Dashboard**, click **Organization**.
 
-    <figure><img src="../../.gitbook/assets/apim-console-organization.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/apim-console-organization.png" alt="The console dashboard with Organization highlighted at the foot of the left navigation."><figcaption></figcaption></figure>
 2.  In the **Organization** menu, click **Entrypoints & Sharding Tags**.
 
-    <figure><img src="../../.gitbook/assets/entrypoints-sharding-tags.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/entrypoints-sharding-tags.png" alt="The Entrypoints and Sharding Tags page, with default HTTP, TCP, and Kafka entrypoint values and an empty sharding tags table."><figcaption></figcaption></figure>
 3.  Navigate to **Sharding Tags**, and then click **+ Add a tag**.
 
     <figure><img src="../../.gitbook/assets/add-a-sharding-tag.png" alt=""><figcaption></figcaption></figure>
@@ -186,10 +186,10 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 
 1.  In the **Dashboard**, click **Organization**.
 
-    <figure><img src="../../.gitbook/assets/apim-console-organization.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/apim-console-organization.png" alt="The console dashboard with Organization highlighted at the foot of the left navigation."><figcaption></figcaption></figure>
 2.  In the **Organization** menu, click **Entrypoints & Sharding Tags**.
 
-    <figure><img src="../../.gitbook/assets/entrypoints-sharding-tags.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/entrypoints-sharding-tags.png" alt="The Entrypoints and Sharding Tags page, with default HTTP, TCP, and Kafka entrypoint values and an empty sharding tags table."><figcaption></figcaption></figure>
 3.  Navigate to **Entrypoint Mappings**, and then click **+ Add a mapping**.
 
     <figure><img src="../../.gitbook/assets/entrypoint-mapping.png" alt=""><figcaption></figcaption></figure>
@@ -212,7 +212,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 1. From the **Sharding tags** drop-down menu, select the sharding tags that you want to map to this entrypoint.
 2.  In the **Default TCP port** field, type the number of your TCP port.
 
-    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-20-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-20-1.png" alt="The Info page of an API scrolled to the Danger Zone, offering to stop, publish, make private, deprecate, or delete the API."><figcaption></figcaption></figure>
 3. Click **Ok**.
 {% endtab %}
 

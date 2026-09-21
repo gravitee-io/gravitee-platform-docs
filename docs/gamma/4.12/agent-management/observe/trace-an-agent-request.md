@@ -1,7 +1,5 @@
 ---
-hidden: true
-noIndex: true
-description: Open a trace for an LLM, MCP, or A2A Proxy in the Trace Explorer, read it as a span timeline or a lineage graph, and inspect a single span. Follow the steps to trace a request.
+description: The Gamma Trace Explorer shows OpenTelemetry traces for a proxy as a timeline and a lineage view. Follow the steps to read a trace and its spans.
 ---
 
 # Trace an agent request and view its lineage
@@ -55,5 +53,6 @@ Every search and every trace in the Trace Explorer is scoped to the proxy you se
 
 ## Next steps
 
+* [View the lineage of an agent or a proxy](../govern/view-agent-lineage.md): Walk the dependencies an agent or a proxy exercised across all its requests, rather than the spans of one trace.
 * [Inspect your agent log](inspect-your-agent-log.md): Read the log entry of a single invocation.
 * [Configure logging and tracing](../build/configure-your-a2a-proxy/configure-logging-and-tracing.md): Turn on tracing, verbose span events, and payload log records for an A2A Proxy.

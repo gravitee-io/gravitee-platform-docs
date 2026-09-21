@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for Configure Gravitee.
+description: Configure Access Management 4.9 as the authorization server resource for an API secured with the OAuth 2.0 policy. Follow the steps and example.
 ---
 
 # Configure Gravitee.io Access Management
@@ -20,29 +20,29 @@ The `clientId` used for the resource configuration must match the `clientId` of 
 4. Click **Resources** in the inner left sidebar.
 5.  Select the **Gravitee.io AM Authorization Server** resource:
 
-    <figure><img src="../../../.gitbook/assets/oauth2 resources gravitee.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/oauth2 resources gravitee.png" alt="The API Resources page with the Gravitee.io AM Authorization Server resource circled among the available resource types."><figcaption></figcaption></figure>
 6.  In the CREATE RESOURCE form, enter the **Resource name** that will be used to link this resource to an OAuth 2 plan:
 
-    <figure><img src="../../../.gitbook/assets/resource name.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/resource name.png" alt="The Resource name field of the Create Resource form, containing MyResource."><figcaption></figcaption></figure>
 7.  Specify the base URL to reach the AM Gateway:
 
-    <figure><img src="../../../.gitbook/assets/base url.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/base url.png" alt="The Server URL field containing the address of the Access Management server."><figcaption></figcaption></figure>
 8.  If you toggle **System proxy** ON, the resource will use the proxy settings defined in the APIM Gateway's `gravitee.yaml` file:
 
-    <figure><img src="../../../.gitbook/assets/system proxy.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/system proxy.png" alt="The System proxy toggle, switched off."><figcaption></figcaption></figure>
 9.  Specify the AM version you want to target. For AM v3 and v4, use "v3\_x":
 
-    <figure><img src="../../../.gitbook/assets/version.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/version.png" alt="The Version list set to V3_X."><figcaption></figcaption></figure>
 10. In the **Security domain** field, enter the HRID of the domain declared on AM:
 
-    <figure><img src="../../../.gitbook/assets/security domain.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/security domain.png" alt="The Security domain field containing mydomain."><figcaption></figcaption></figure>
 11. Specify the client credentials to authorize access to the introspect endpoint in AM. The application needs to be configured in AM using the "client\_secret\_basic" method.
 
-    <figure><img src="../../../.gitbook/assets/client credentials.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/client credentials.png" alt="The Client Id field holding an identifier, above a masked Client Secret field."><figcaption></figcaption></figure>
 12. Specify the claim that contains the user identifier (AM provides this information through the `sub` claim by default):
 
-    <figure><img src="../../../.gitbook/assets/user claim 2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/user claim 2.png" alt="The User claim field set to sub."><figcaption></figcaption></figure>
 
 ### Example
 
-<figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/PTtH6lt9KhkmlOEMixpm2dPr.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/PTtH6lt9KhkmlOEMixpm2dPr.png" alt="The Create Resource form for a Gravitee Access Management resource, with the resource name, server URL, version, security domain, client ID, masked client secret, and user claim completed."><figcaption></figcaption></figure>

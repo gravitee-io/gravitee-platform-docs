@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/groups
+description: Create and manage groups in the Access Management 4.11 Console, and assign roles to their members. Follow the steps to manage membership.
 ---
 
 # Groups
@@ -14,7 +15,7 @@ metaLinks:
 1. Log in to AM Console.
 2. Search for groups by clicking **Groups**.
 
-<figure><img src="../../.gitbook/assets/guide-user-management-groups-143.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-user-management-groups-143.png" alt="The Groups page with no groups yet, showing a Groups will appear here empty state and an add button."><figcaption></figcaption></figure>
 
 ### Create a new group
 
@@ -34,7 +35,7 @@ You can add an new member to your group as follows:
 2. Select your group, and in the **Members** tab, click **Add members**.
 3. Search for users by username, then click **Add**.
 
-<figure><img src="../../.gitbook/assets/guide-user-management-groups-144.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-user-management-groups-144.png" alt="The Add members dialog on a new group&#x27;s Members tab, with a partial search showing one matching user and their identity provider."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Currently, only users created by AM API or the SCIM protocol and external users who have already logged in can be found.

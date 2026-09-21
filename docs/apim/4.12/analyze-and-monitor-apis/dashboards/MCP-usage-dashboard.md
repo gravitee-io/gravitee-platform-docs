@@ -1,3 +1,7 @@
+---
+description: The MCP Dashboard shows MCP usage across an API Management 4.12 environment. Learn the metrics it reports and its prerequisites.
+---
+
 # MCP Usage Dashboard
 
 ## Overview

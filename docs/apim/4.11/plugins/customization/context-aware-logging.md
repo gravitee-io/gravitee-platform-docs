@@ -1,3 +1,7 @@
+---
+description: Use the context-aware logging API when developing API Management 4.11 Gateway plugins. Follow the steps for request-scoped logging.
+---
+
 # Context-aware logging in plugins
 
 ## Overview

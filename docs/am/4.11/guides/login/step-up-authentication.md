@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/step-up-authentication
+description: Step-up authentication asks an already signed-in Access Management 4.11 user for another factor. Learn the use cases and when to require it.
 ---
 
 # Step-up Authentication
@@ -36,7 +37,7 @@ Step-up authentication is often used in the following scenarios:
     4. Select your MFA factor and set the **Step up authentication** rule.
     5. Click **SAVE**.
 
-    <figure><img src="../../.gitbook/assets/guide-login-step-up-authentication-100.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/guide-login-step-up-authentication-100.png" alt="The Multifactor Auth settings with Step-Up Authentication switched on and a rule matching a request scope parameter, above a warning that Remember Device needs a Device Identifier plugin."><figcaption></figcaption></figure>
 
 You can leverage access control by asking your users to confirm their identity before making any sensitive actions. In this example, the sensitive action is represented by the `pisp` (Payment Initiation Service Provider) OAuth 2.0 scope.
 

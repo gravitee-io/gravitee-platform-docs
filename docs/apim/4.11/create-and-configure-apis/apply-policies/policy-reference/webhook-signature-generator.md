@@ -1,5 +1,5 @@
 ---
-description: An overview about webhook signature generator.
+description: The Webhook Signature Generator policy computes an HMAC signature over the response body in API Management 4.11. Learn how to set it.
 ---
 
 # Webhook Signature Generator

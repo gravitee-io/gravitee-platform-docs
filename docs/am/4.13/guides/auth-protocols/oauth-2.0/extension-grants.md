@@ -38,11 +38,11 @@ $ openssl rsa -in rsa_private.pem -pubout -out rsa_public.pem
 2. Click **Settings**, then in the **OAUTH 2.0** section, click **Extension Grants**.
 3. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png).
 
-<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-46.png" alt=""><figcaption><p>Create extension grant</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-46.png" alt="The Extension Grants page with none configured, showing an empty state and an add button."><figcaption><p>Create extension grant</p></figcaption></figure>
 
 4. Select **Extension Grant JWT Bearer** and click **Next**.
 
-<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-47.png" alt=""><figcaption><p>Add JWT Bearer</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-47.png" alt="The New extension grant wizard on the Platform step with Extension Grant JWT Bearer selected."><figcaption><p>Add JWT Bearer</p></figcaption></figure>
 
 5. Complete the grant flow configuration and click **Create**.
 
@@ -50,7 +50,7 @@ The plugin provides two types of public key resolver: JWKS\_URL and GIVEN\_KEY. 
 
 To validate assertion against remote JWKS, the resolver parameter must be a specified URL:
 
-<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-48.png" alt=""><figcaption><p>JWKS as resolve parameter</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-48.png" alt="The Settings step of the New extension grant wizard with the grant name and JWT bearer grant type, and the public key resolver set to JWKS_URL, beside the RFC 7523 example."><figcaption><p>JWKS as resolve parameter</p></figcaption></figure>
 
 To validate the token signature against the signature key, it must be in the following format:
 
@@ -60,7 +60,7 @@ or start with:
 
 `-----BEGIN CERTIFICATE-----` .
 
-<div><figure><img src="../../../.gitbook/assets/Screenshot 2025-09-10 at 18.09.55.png" alt=""><figcaption></figcaption></figure> <figure><img src="../../../.gitbook/assets/Screenshot 2025-09-10 at 18.09.44.png" alt=""><figcaption></figcaption></figure></div>
+<div><figure><img src="../../../.gitbook/assets/Screenshot 2025-09-10 at 18.09.55.png" alt="The extension grant configuration with the public key resolver set to GIVEN_KEY and an SSH RSA signature key in the resolver parameter."><figcaption></figcaption></figure> <figure><img src="../../../.gitbook/assets/Screenshot 2025-09-10 at 18.09.44.png" alt="The extension grant configuration with the public key resolver set to GIVEN_KEY and a PEM certificate pasted into the resolver parameter."><figcaption></figcaption></figure></div>
 
 If you want to copy claims from the incoming token to the final access token, you can use the **Claims mapper**. The **Claims mapper** will copy the incoming token claims as additional information about the user profile under the `claims` entry. This will allow you to add these claims using token customization.
 
@@ -70,7 +70,7 @@ If you want to copy claims from the incoming token to the final access token, yo
 2. Select your application and in the **Settings** tab, click **OAuth 2.0 / OIDC**.
 3. In the **Grant flows** section, select your extension grant.
 
-<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-49.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-49.png" alt="The application Grant flows with Authorization Code and the custom extension grant selected, above the refresh token, PKCE, and client authentication settings."><figcaption></figcaption></figure>
 
 4. Click **SAVE**.
 

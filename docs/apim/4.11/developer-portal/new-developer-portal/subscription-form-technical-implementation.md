@@ -1,3 +1,7 @@
+---
+description: Retrieve a Developer Portal 4.11 subscription form with resolved dynamic options. Learn what the endpoint returns to you.
+---
+
 # Subscription form technical implementation
 
 ## Portal API

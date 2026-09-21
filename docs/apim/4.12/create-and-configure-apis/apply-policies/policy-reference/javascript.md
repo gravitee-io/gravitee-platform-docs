@@ -1,5 +1,5 @@
 ---
-description: An overview about javascript.
+description: The JavaScript policy runs scripts at any stage of API Management 4.12 Gateway processing. Learn how to configure the policy.
 metaLinks:
   alternates:
     - javascript.md

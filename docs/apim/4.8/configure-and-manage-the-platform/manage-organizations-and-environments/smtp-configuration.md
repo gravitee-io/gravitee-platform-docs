@@ -1,5 +1,5 @@
 ---
-description: An overview about smtp configuration.
+description: The SMTP configuration API Management 4.8 uses for sending email notifications. Follow the steps to point it at your mail server.
 ---
 
 # SMTP Configuration
@@ -37,11 +37,11 @@ If you change the SMTP settings using the `gravitee.yml` or environment variable
 
 You can also configure SMTP at the organization level in the **Organization > Settings** section of the APIM Console:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-07-20 at 3.27.18 PM.png" alt=""><figcaption><p>Organization SMTP settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-07-20 at 3.27.18 PM.png" alt="The SMTP section of the organization settings, with emailing enabled and locked fields for host, port, username, password, protocol, subject, and sender."><figcaption><p>Organization SMTP settings</p></figcaption></figure>
 
 Or at the environment level in the **Settings > Settings** section of the APIM Console:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-07-20 at 3.30.01 PM.png" alt=""><figcaption><p>Environment SMTP settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-07-20 at 3.30.01 PM.png" alt="The environment-level SMTP settings, shown read-only because they are inherited, with fields for host, port, username, password, protocol, subject, and sender."><figcaption><p>Environment SMTP settings</p></figcaption></figure>
 
 ## Configure the Gmail SMTP server
 

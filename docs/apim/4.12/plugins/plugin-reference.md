@@ -1,5 +1,5 @@
 ---
-description: Complete reference of all available APIM plugins from the Gravitee Marketplace.
+description: A catalogue of every API Management 4.12 plugin, linked to its own documentation or listed inline. Find the plugin you need.
 hidden: true
 noIndex: true
 ---

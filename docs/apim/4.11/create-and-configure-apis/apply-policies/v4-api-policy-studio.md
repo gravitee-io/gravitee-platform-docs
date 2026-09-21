@@ -1,5 +1,5 @@
 ---
-description: An overview about v4 api policy studio.
+description: The v4 Policy Studio designs flows for APIs using the v4 API Management 4.11 definition. Follow the example to create a flow and add a policy.
 metaLinks:
   alternates:
     - v4-api-policy-studio.md
@@ -231,10 +231,10 @@ Configure a v4 proxy API to query the stock levels of shop databases, then dynam
 
 1.  Define a list of properties for the shops, where `<key>` is the unique shop ID and `<value>` is the shop URL
 
-    <figure><img src="../../.gitbook/assets/example1_properties list.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/example1_properties list.png" alt="The API properties page listing three unencrypted key and value pairs, each with a lock icon to encrypt it and a cross to remove it."><figcaption></figcaption></figure>
 2.  Configure a dynamic routing policy that builds new URLs dynamically through property matching via the `#api.properties` statement:
 
-    <div align="left"><figure><img src="../../.gitbook/assets/example1_properties rule.png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/example1_properties rule.png" alt="The Policies for Request phase dialog configuring dynamic routing, with a wildcard match expression and a redirect target built from an API property and a request header." width="375"><figcaption></figcaption></figure></div>
 
 If the ID in the request header matches the key of one of the properties, it is replaced with the URL. The dynamic routing policy then reroutes the API call to the URL.
 
@@ -248,10 +248,10 @@ To monetize data delivery, consider a v4 message API that sends an alert wheneve
 
 1.  Add a keyless flow to the Default Keyless Plan
 
-    <figure><img src="../../.gitbook/assets/example2_keyless flow.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/example2_keyless flow.png" alt="The Flows panel with a custom flow selected, and flow details showing its entrypoints, publish and subscribe operations, and channel operator."><figcaption></figcaption></figure>
 2.  Apply a latency policy to the Default Keyless Plan
 
-    <div align="left"><figure><img src="../../.gitbook/assets/example2_latency.png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/example2_latency.png" alt="The Policies for Publish phase dialog configuring a latency policy, with a description and a time duration of 1800 seconds." width="375"><figcaption></figcaption></figure></div>
 3. Select **Consumers** from the inner left nav
 4.  Under the **Plans** tab, click **+ Add new plan**
 

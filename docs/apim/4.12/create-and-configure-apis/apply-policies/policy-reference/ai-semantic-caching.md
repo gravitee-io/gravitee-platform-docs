@@ -1,3 +1,7 @@
+---
+description: AI Semantic Caching cuts token use and latency in API Management 4.12 by caching on meaning rather than exact text. Learn how it works.
+---
+
 # AI Semantic Caching policy
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: Enable OAuth 2.0 Token Exchange for an Access Management 4.12 domain, then set delegation depth and scope handling. Follow the steps.
+---
+
 # OAuth 2.0 Token Exchange Configuration
 
 ## Enable Token Exchange
@@ -6,10 +10,10 @@ To enable Token Exchange for your environment:
 
 1.  **Domain level:** Navigate to **Settings > OAuth 2.0 > Token Exchange** and toggle **Enable Token Exchange** on. Configure impersonation and delegation as needed.
 
-    <figure><img src="../../.gitbook/assets/lDpWnmyu__Screenshot 2026-03-05 at 11.53.36.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/lDpWnmyu__Screenshot 2026-03-05 at 11.53.36.png" alt="The Token Exchange settings with the feature enabled, the allowed subject and requested token types, and impersonation allowed, beside an explanation of OAuth 2.0 token exchange."><figcaption></figcaption></figure>
 2.  **Application level:** In the application's OAuth 2.0 settings, add `Token Exchange` as an allowed grant type.
 
-    <figure><img src="../../.gitbook/assets/oauth-2-0-token-exchange-configuration-r-2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/oauth-2-0-token-exchange-configuration-r-2.png" alt="The application OAuth 2.0 grant flows with Authorization Code, Password, Client Credentials, and Token Exchange selected, above the refresh token and token exchange scope handling settings."><figcaption></figcaption></figure>
 3. **Client authentication:** The client must authenticate on the token endpoint (e.g., using HTTP Basic authentication with `client_id` and `client_secret`).
 
 ## Domain Configuration Reference

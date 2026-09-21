@@ -1,8 +1,5 @@
 ---
-description: >-
-  From 4.13 the Gateway resolves the request path before it routes. Understand
-  what the new default changes, work through the upgrade checklist, and roll it
-  back if you need to.
+description: The default path handling value changes, altering which API Management 4.13 API a request resolves to. Learn what to check first.
 ---
 
 # Upgrade to the 4.13 Path Handling Default

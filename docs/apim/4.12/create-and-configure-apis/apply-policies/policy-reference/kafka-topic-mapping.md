@@ -1,5 +1,5 @@
 ---
-description: An overview about kafka topic mapping.
+description: The Kafka Topic Mapping policy maps one topic name to another so clients can use their own in API Management 4.12. Learn how to set it.
 metaLinks:
   alternates:
     - kafka-topic-mapping.md
@@ -218,15 +218,15 @@ This shows how to implement the example above using the APIM Console.
 
 Kafka Topic Mapping configuration:
 
-<figure><img src="../../../.gitbook/assets/00 3.png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/00 3.png" alt="The Policies for Interact phase dialog configuring a Kafka topic mapping, with a client-side topic name mapped to a different broker-side name."><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 
 Kafka ACL configuration:
 
-<figure><img src="../../../.gitbook/assets/00 5.png" alt=""><figcaption><p>Kafka ACL policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/00 5.png" alt="The Policies for Interact phase dialog configuring a Kafka ACL, with a literal topic condition, the Any resource pattern, and read-only topic operations."><figcaption><p>Kafka ACL policy configuration UI</p></figcaption></figure>
 
 Here is how the policies should be ordered in the policy chain:
 
-<figure><img src="../../../.gitbook/assets/00 ta.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/00 ta.png" alt="The Interact phase flow, showing a Kafka Topic Mapping policy followed by a Kafka ACL policy between the client and the broker."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}
@@ -293,15 +293,15 @@ This shows how to implement the example above using the APIM Console.
 
 ACL configuration:
 
-<figure><img src="../../../.gitbook/assets/00 6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/00 6.png" alt="The Policies for Interact phase dialog configuring a Kafka ACL, with a wildcard topic condition, the Any resource pattern, and read and write topic operations."><figcaption></figcaption></figure>
 
 Topic mapping configuration:
 
-<figure><img src="../../../.gitbook/assets/00 4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/00 4.png" alt="The Policies for Interact phase dialog configuring a Kafka topic mapping, with a client-side topic name mapped to a broker-side name using a different suffix."><figcaption></figcaption></figure>
 
 Here is how the policies should be ordered in the policy chain:
 
-<figure><img src="../../../.gitbook/assets/00 at.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/00 at.png" alt="The Interact phase flow, showing a Kafka ACL policy followed by a Kafka Topic Mapping policy between the client and the broker."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}

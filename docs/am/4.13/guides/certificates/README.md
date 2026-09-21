@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/certificates
+description: Certificates sign the JWT tokens Access Management 4.13 issues. Follow the steps to create a Java KeyStore certificate in the Console.
 ---
 
 # Certificates
@@ -51,7 +52,7 @@ Default keys are RS256 (SHA256withRSA). For RS512 keys, add the following option
 5. Give your certificate a name, then enter the details of the keystore file.
 6. Click **Create**.
 
-<figure><img src="../../.gitbook/assets/guide-certificates-readme-132.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-certificates-readme-132.png" alt="The New certificate wizard on the Platform step, offering AWS Secret Manager, Java Keystore, and PKCS#12 certificate types with Java Keystore selected."><figcaption></figcaption></figure>
 
 ### Create a new certificate with AM API
 
@@ -76,11 +77,11 @@ You can use public keys to verify a token payload's integrity. To obtain the pub
 1. In AM Console, click **Settings > Certificates**.
 2. Next to your certificate, click the key icon.
 
-<figure><img src="../../.gitbook/assets/guide-certificates-readme-134.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-certificates-readme-134.png" alt="The Certificates page with the Get public key tooltip shown on the key icon of the default system certificate row."><figcaption></figcaption></figure>
 
 3. You can copy/paste the public key to use with third-party libraries to verify your tokens.
 
-<figure><img src="../../.gitbook/assets/guide-certificates-readme-135.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-certificates-readme-135.png" alt="The Public certificate key dialog showing the certificate in PEM and SSH-RSA formats, each with a copy icon."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Gravitee API Management (APIM) comes with a JWT Policy to verify and decode tokens that can be used for your APIs.
@@ -92,7 +93,7 @@ Gravitee API Management (APIM) comes with a JWT Policy to verify and decode toke
 2. In the **Settings** tab, click **Secrets & Certificates** tab.
 3. Choose your certificate and click **SAVE**.
 
-<figure><img src="../../.gitbook/assets/guide-certificates-readme-136.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-certificates-readme-136.png" alt="The Secrets and Certificates tab of an application, with the client secrets table above the Certificate list open showing None and Default."><figcaption></figcaption></figure>
 
 ### Certificate for Mutual TLS authentication <a href="#certificate-for-mutual-tls-authentication" id="certificate-for-mutual-tls-authentication"></a>
 
@@ -102,7 +103,7 @@ To mark a certificate as usable for mTLS, you just have to check the "mTLS" usag
 System certificates can't be used for mTLS authentication as they are self signed certificates generated internally by Access Management.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/guide-certificates-readme-4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-certificates-readme-4.png" alt="The certificate Signing algorithm set to RS256, with the Usage options showing mTLS selected and Signature and Encryption unselected."><figcaption></figcaption></figure>
 
 ### Fallback certificates
 
@@ -178,7 +179,7 @@ This setting is enabled by default. The property is commented out in the default
 
 ### Custom certificates
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-custom-certificate.png" alt=""><figcaption><p>Custom certificate diagram</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-custom-certificate.png" alt="A four-step diagram in which a client requests a token with an ID token, Access Management authenticates the user against an Inline, LDAP, or custom identity provider, signs the ID token with a Java KeyStore or custom certificate, and returns the token with the signed ID token."><figcaption><p>Custom certificate diagram</p></figcaption></figure>
 
 AM is designed to be extended based on a pluggable modules architecture. You can develop your own certificate and provide a sign method for tokens.
 
@@ -247,7 +248,7 @@ Like all certificates, a system certificate has a given validity period, after w
 See this [documentation page](../../getting-started/configuration/configure-am-api/README.md) for details on how to configure notifications about certificate expiry.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/guide-certificates-readme-137.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-certificates-readme-137.png" alt="The Certificates page with the Rotate system key button beside Add new, above the default system certificate row."><figcaption></figcaption></figure>
 
 #### How to configure the applications update
 

@@ -1,5 +1,5 @@
 ---
-description: An overview about add api documentation.
+description: Add documentation to your first API Management 4.8 API so consumers can read it. Follow the steps to attach and verify a page.
 ---
 
 # Add API Documentation

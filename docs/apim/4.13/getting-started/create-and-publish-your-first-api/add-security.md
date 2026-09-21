@@ -1,5 +1,5 @@
 ---
-description: An overview about add security.
+description: Secure your first API Management 4.13 API with an API Key plan. Follow the steps to add the plan and check it is enforced.
 metaLinks:
   alternates:
     - add-security.md
@@ -105,7 +105,7 @@ To test your API Key plan, complete the following steps:
     <figure><img src="../../.gitbook/assets/22CB1B38-1964-47F6-B5B7-8B634D3D8D0B.jpeg" alt=""><figcaption></figcaption></figure>
 2.  In the **Applications** screen, click the **Default application**.
 
-    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-20-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-20-1.png" alt="The Info page of an API scrolled to the Danger Zone, offering to stop, publish, make private, deprecate, or delete the API."><figcaption></figcaption></figure>
 3.  In the **Default application** configuration screen, click **Subscriptions**.
 
     <figure><img src="../../.gitbook/assets/F1AD5888-A518-42D5-8C18-33BCCB583C06.jpeg" alt=""><figcaption></figcaption></figure>

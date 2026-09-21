@@ -1,5 +1,5 @@
 ---
-description: An overview about cache.
+description: The Cache policy stores upstream responses in API Management 4.9 so repeat calls skip the backend. Learn how to configure the cache.
 metaLinks:
   alternates:
     - >-

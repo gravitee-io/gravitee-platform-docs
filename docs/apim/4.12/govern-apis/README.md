@@ -1,5 +1,5 @@
 ---
-description: Documentation about govern apis in the context of APIs.
+description: The API governance features API Management 4.12 offers, from scoring through to federation. Browse what is available to you.
 metaLinks:
   alternates:
     - ./

@@ -1,5 +1,5 @@
 ---
-description: An overview about subscriptions.
+description: A subscription is the contract between a Kafka API publisher and consumer in API Management 4.13. Learn how one is created.
 metaLinks:
   alternates:
     - subscriptions.md
@@ -28,11 +28,11 @@ API consumers can subscribe to APIs with published plans during the application 
   3. Select **Subscriptions** from the inner left nav
   4.  Click the **+ Create a subscription** button
 
-      <figure><img src="../.gitbook/assets/subscription_create 2.png" alt=""><figcaption><p><br>Create a subscription</p></figcaption></figure>
+      <figure><img src="../.gitbook/assets/subscription_create 2.png" alt="The Create a subscription dialog with an empty API search field."><figcaption><p><br>Create a subscription</p></figcaption></figure>
   5. Search for the API you want to subscribe to. To be searchable the API consumer must have access to the API, i.e., the API must be public or the API consumer must be a member of it.
   6.  Select the plan you would like to request a subscription to
 
-      <figure><img src="../.gitbook/assets/subscription_create.png" alt=""><figcaption><p>Select the subscription plan</p></figcaption></figure>
+      <figure><img src="../.gitbook/assets/subscription_create.png" alt="The Create a subscription dialog with an API name entered and two plans offered to subscribe to."><figcaption><p>Select the subscription plan</p></figcaption></figure>
   7. Click **Create** to see the subscription details
 
 ## Manage subscriptions

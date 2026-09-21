@@ -1,5 +1,5 @@
 ---
-description: An overview about health-checks.
+description: Health checks monitor the availability of endpoints behind a v4 HTTP proxy API in API Management 4.8. Follow the steps to configure them.
 ---
 
 # Health-checks

@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management
+description: Manage Access Management 4.11 users, groups, and roles so the right people get the right authorization. Compare what you can control.
 ---
 
 # User Management

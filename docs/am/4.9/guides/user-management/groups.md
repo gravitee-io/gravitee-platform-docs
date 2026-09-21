@@ -1,5 +1,5 @@
 ---
-description: Overview of Groups.
+description: Create and manage groups in the Access Management 4.9 Console, and assign roles to their members. Follow the steps to manage membership.
 ---
 
 # Groups
@@ -11,7 +11,7 @@ description: Overview of Groups.
 1. Log in to AM Console.
 2.  Search for groups by clicking **Groups**.
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-um-search-groups.png" alt=""><figcaption><p>List of groups</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-um-search-groups.png" alt="The Groups page listing one group with settings and delete icons and an add button."><figcaption><p>List of groups</p></figcaption></figure>
 
 ### Create a new group
 
@@ -31,7 +31,7 @@ You can add an new member to your group as follows:
 2. Select your group, and in the **Members** tab, click **Add members**.
 3.  Search for users by username, then click **Add**.
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-um-add-member.png" alt=""><figcaption><p>Add users to group</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-um-add-member.png" alt="The Add members dialog on a group&#x27;s Members tab, with a username search showing two matching users and their identity providers."><figcaption><p>Add users to group</p></figcaption></figure>
 
 {% hint style="info" %}
 Currently, only users created by AM API or the SCIM protocol and external users who have already logged in can be found.

@@ -1,5 +1,5 @@
 ---
-description: An overview about apim console.
+description: The API Management 4.12 Console is the graphical interface for configuring gateways and creating APIs. Learn what it lets you do.
 metaLinks:
   alternates:
     - apim-console.md

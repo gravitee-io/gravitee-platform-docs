@@ -9,16 +9,16 @@ With Auth0 as your IdP, you will need to create an `Application` to handle authe
 
 1.  Navigate to Applications and Select "CREATE APPLICATION"
 
-    <figure><img src="../../.gitbook/assets/00 aes 9.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 aes 9.png" alt="The Auth0 Applications page with the Create Application button in the top right."><figcaption></figcaption></figure>
 2.  In the pop-up window, give the application a name and create a "Machine to Machine App"
 
-    <figure><img src="../../.gitbook/assets/00 aes 10.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 aes 10.png" alt="The Auth0 Create Application dialog with a name entered and Machine to Machine App selected from the application types."><figcaption></figcaption></figure>
 3.  Select the Auth0 Management API. Grant any scope values you may require. (You may grant none.) The API is required so that an `audience` can be specified which will result in a JWT being returned rather than opaque token. A custom API can also be used.
 
-    <figure><img src="../../.gitbook/assets/00 aes 11.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 aes 11.png" alt="The Authorize Machine to Machine Application dialog with the Auth0 Management API selected and a list of grantable scopes, none of them checked."><figcaption></figcaption></figure>
 4.  In your newly created application, click on the Settings tab, add the Domain and Callback URLs for your service and ensure the "Token Endpoint Authentication Method" is set to `Post`. The default YAML installation of Ambassador Edge Stack uses `/.ambassador/oauth2/redirection-endpoint` for the URL, so the values should be the domain name that points to Ambassador Edge Stack, e.g., `example.com/.ambassador/oauth2/redirection-endpoint` and `example.com`.
 
-    <figure><img src="../../.gitbook/assets/00 aes 12.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 aes 12.png" alt="Auth0 application settings with the Token Endpoint Authentication Method set to Post, and the allowed callback URL and web origin filled in."><figcaption></figcaption></figure>
 
     Click Advanced Settings > Grant Types and check "Authorization Code"
 
@@ -26,11 +26,11 @@ With Auth0 as your IdP, you will need to create an `Application` to handle authe
 
 Update the Auth0 `Filter` and `FilterPolicy`. You can get the `ClientID` and `secret` from your application settings:
 
-<figure><img src="../../.gitbook/assets/00 aes 13.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 aes 13.png" alt="The Auth0 application Settings tab showing the name, domain, client ID, and a masked client secret."><figcaption></figcaption></figure>
 
 The `audience` is the API Audience of your Auth0 Management API:
 
-<figure><img src="../../.gitbook/assets/00 aes 14.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 aes 14.png" alt="The Auth0 APIs page listing the Auth0 Management API alongside its API Audience value."><figcaption></figcaption></figure>
 
 The `authorizationURL` is your Auth0 tenant URL.
 

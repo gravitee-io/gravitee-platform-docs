@@ -1,3 +1,7 @@
+---
+description: Resources define reusable configuration sets in Access Management 4.10. Compare the resource types and follow the steps to create one.
+---
+
 # Resources
 
 ## Overview
@@ -21,7 +25,7 @@ Click on the tabs below to learn more.
 {% tab title="HTTP Factor" %}
 The HTTP Factor resource uses HTTP requests to send and verify a generated, one time code. It supports Gravitee Expression Language (EL) to configure the resource properties.
 
-<figure><img src="../../4.10/.gitbook/assets/resource_http 2.png" alt="" width="563"><figcaption><p>Configure an HTTP Factor resource</p></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/resource_http 2.png" alt="An empty HTTP Factor resource configuration with the resource name, base URL, and the Send Verification Code endpoint, HTTP method, and headers." width="563"><figcaption><p>Configure an HTTP Factor resource</p></figcaption></figure>
 
 To configure an HTTP Factor resource, you must specify:
 
@@ -53,7 +57,7 @@ To configure an HTTP Factor resource, you must specify:
 {% tab title="Infobip 2FA" %}
 The Infobip 2FA resource is used to generate PINs, or passcodes, that can be delivered by SMS, voice, or email.
 
-<figure><img src="../../4.10/.gitbook/assets/resource_infobip 2.png" alt="" width="563"><figcaption><p>Configure an Infobip 2FA resource</p></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/resource_infobip 2.png" alt="An empty Infobip 2FA resource configuration with the resource name, application id, message id, API key, API key prefix, and base URL fields." width="563"><figcaption><p>Configure an Infobip 2FA resource</p></figcaption></figure>
 
 To configure an Infobip 2FA resource, you must specify:
 
@@ -68,7 +72,7 @@ To configure an Infobip 2FA resource, you must specify:
 {% tab title="SMTP" %}
 SMTP is a resource you can use to send email over SMTP. Once you have created your SMTP resource, you can reference it in the [email factor configuration](multi-factor-authentication/managing-factors/email.md).
 
-<figure><img src="../../4.10/.gitbook/assets/resource_smtp 2.png" alt="" width="563"><figcaption><p>Configure an SMTP resource</p></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/resource_smtp 2.png" alt="An empty SMTP resource configuration with the resource name, hostname, port 587, from address, smtp protocol, and the authentication, Start TLS, and SSL trust options." width="563"><figcaption><p>Configure an SMTP resource</p></figcaption></figure>
 
 To configure an SMTP resource, you must specify:
 
@@ -86,7 +90,7 @@ To configure an SMTP resource, you must specify:
 {% tab title="Twilio Verify" %}
 The Twilio Verify resource configures a Twilio account to use the `Twilio Verify` service for Multi-factor Authentication. Once you have created your Twilio resource, you can reference it in SMS factor configuration.
 
-<figure><img src="../../4.10/.gitbook/assets/resource_twilio verify 2.png" alt="" width="563"><figcaption><p>Configure a Twilio Verify resource</p></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/resource_twilio verify 2.png" alt="An empty Twilio Verify resource configuration with the resource name, verification service ID, Twilio account ID, authentication token, and a use system proxy option." width="563"><figcaption><p>Configure a Twilio Verify resource</p></figcaption></figure>
 
 To configure a Twilio Verify resource, you must specify:
 
@@ -100,7 +104,7 @@ To configure a Twilio Verify resource, you must specify:
 {% tab title="SFR DMC API" %}
 The SFR DMC API resource is a SMS provider that you can use to send verifications codes to users during the multi-factor authentication process.
 
-<figure><img src="../../4.10/.gitbook/assets/guide-resources-20.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/guide-resources-20.png" alt="An empty SFR DMC resource configuration with the resource name, service host, service id, service password, space id, OADC field, and HTTP client timeout and pool settings."><figcaption></figcaption></figure>
 
 To configure an SRF resource, you must specify:
 
@@ -118,7 +122,7 @@ To configure an SRF resource, you must specify:
 {% tab title="Orange Contact everyone" %}
 The Orange Contact everyone resource is a SMS provider that you can use to send verifications codes to users during the multi-factor authentication process.
 
-<figure><img src="../../4.10/.gitbook/assets/guide-resources-21.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/guide-resources-21.png" alt="An empty resource configuration with the required username, password, token endpoint, diffusion requests endpoint, and encoding fields flagged, above the HTTP client timeout settings and sender name."><figcaption></figcaption></figure>
 
 To configure an Orange Contact everyone resource, you must specify:
 
@@ -143,10 +147,10 @@ To configure an Orange Contact everyone resource, you must specify:
 4. Click the plus icon at the bottom of the page
 5. Select the resource type and click **Next**
 
-<figure><img src="../../4.10/.gitbook/assets/guide-resources-130.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/guide-resources-130.png" alt="The New Resource wizard on the Platform step, offering Infobip 2FA, SMTP, and Twilio Verify resource types, none of them selected."><figcaption></figcaption></figure>
 
 6. Enter the resource configuration values (see [Resource Types](resources.md#resource-types)) and click **Create.**
 
-<figure><img src="../../4.10/.gitbook/assets/guide-resources-131.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/guide-resources-131.png" alt="The Settings step of the New Resource wizard for an Infobip 2FA resource, with the resource name, application id, message id, API key, and API key prefix fields."><figcaption></figcaption></figure>
 
 7. Your resource is now available for use in AM

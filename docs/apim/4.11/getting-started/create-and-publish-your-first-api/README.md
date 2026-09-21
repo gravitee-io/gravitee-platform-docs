@@ -1,5 +1,5 @@
 ---
-description: Guide on applying policies related to create & publish your first api.
+description: Create and publish your first API Management 4.11 API, step by step. Follow the articles in order from creation through to publication.
 metaLinks:
   alternates:
     - ./

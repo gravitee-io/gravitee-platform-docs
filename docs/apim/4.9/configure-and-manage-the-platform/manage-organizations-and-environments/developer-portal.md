@@ -1,5 +1,5 @@
 ---
-description: An overview about developer portal.
+description: The Developer Portal gives API consumers a simplified interface onto your API Management 4.9 APIs. Learn how to configure it.
 metaLinks:
   alternates:
     - >-
@@ -18,11 +18,11 @@ API consumers can easily discover and explore APIs, read documentation, test API
 
 Enterprise trial users should be able to immediately access the Developer Portal from the APIM Console by selecting the **Developer Portal** link in the top left of the Console's nav bar.
 
-<figure><img src="../../.gitbook/assets/DP_console.png" alt=""><figcaption><p>Access Developer Portal from APIM Console</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_console.png" alt="The APIs list in the console, with the Developer Portal link in the top bar highlighted."><figcaption><p>Access Developer Portal from APIM Console</p></figcaption></figure>
 
 This will bring you to the home screen of the Developer Portal.
 
-<figure><img src="../../.gitbook/assets/DP_default.png" alt=""><figcaption><p>Your default Developer Portal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_default.png" alt="The developer portal home page, with a headline, an API search box, and an Explore APIs button."><figcaption><p>Your default Developer Portal</p></figcaption></figure>
 
 From here, you can begin searching for APIs using the Developer Portal's full-context[^1] search. However, you will not be able to subscribe to any APIs until you create an application.
 

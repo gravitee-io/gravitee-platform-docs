@@ -1,5 +1,5 @@
 ---
-description: An overview about kafka.
+description: The Kafka endpoint mediates between a Kafka cluster and an HTTP client in API Management 4.10. Follow the steps to set the bootstrap servers.
 metaLinks:
   alternates:
     - kafka.md
@@ -282,7 +282,7 @@ org.apache.kafka.common.security.plain.PlainLoginModule required username='$Conn
 
 * The value of the connection string can be found by navigating to Settings > Shared access policies in the Azure UI, and clicking on the policy to get the information for that policy. Then, select the entry entitled `Connection string-primary key`.
 
-<figure><img src="../../../.gitbook/assets/config-apis-create-apis-v2-api-crea-138 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/config-apis-create-apis-v2-api-crea-138 (1).png" alt="The Choose API creation method dialog, offering Create Classic API with V2 options and Create New API with V4 options."><figcaption></figcaption></figure>
 
 * The bootstrap server name is in the format:
 

@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for http post.
+description: Configure the HTTP POST entrypoint for a v4 API Management 4.12 API, including message and record mapping. Follow the steps to set it.
 metaLinks:
   alternates:
     - http-post.md

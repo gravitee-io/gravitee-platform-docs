@@ -1,5 +1,5 @@
 ---
-description: An overview about JMS.
+description: Configure the JMS endpoint for a v4 message API in API Management 4.11. Learn the configuration it needs and how it is implemented.
 metaLinks:
   alternates:
     - jms.md

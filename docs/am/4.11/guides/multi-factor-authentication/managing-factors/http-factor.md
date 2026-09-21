@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/managing-factors/http-factor
+description: The HTTP factor calls your own service to verify an Access Management 4.11 user as a second factor. Learn what the factor supports.
 ---
 
 # HTTP Factor
@@ -27,4 +28,4 @@ Our Gravitee MFA HTTP plugin makes that a possibility. With our new Gravitee MFA
 * Bring some customization and offer a better user experience
 * Facilitate solution migration
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-factor-http.png" alt=""><figcaption><p>HTTP MFA integration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-factor-http.png" alt="A diagram in which Access Management shows the verification page to application consumers while exchanging send and check verification code calls with backend services over HTTP."><figcaption><p>HTTP MFA integration</p></figcaption></figure>

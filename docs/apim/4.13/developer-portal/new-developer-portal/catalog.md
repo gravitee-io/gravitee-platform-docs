@@ -1,7 +1,5 @@
 ---
-description: >-
-  The New Developer Portal catalog lists published APIs and API Products for
-  consumers to search, browse in card or list view, and filter by category.
+description: The Catalog lets consumers discover the APIs and API Products published in the New Developer Portal 4.13. Learn how discovery works.
 ---
 
 # Catalog

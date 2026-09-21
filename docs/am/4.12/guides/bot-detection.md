@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/bot-detection
+description: Bot detection protects Access Management 4.12 sign-in pages from automated requests. Follow the steps to enable it at domain or application level.
 ---
 
 # Bot Detection
@@ -58,7 +59,7 @@ AM supports various Bot Detection mechanisms for protecting user account out of 
 
 Once created, the details page of the plugin instance will display some code snippets to help you in the integration with your custom application pages if any.
 
-<figure><img src="../.gitbook/assets/guide-bot-detection-95.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-bot-detection-95.png" alt="A CAPTCHA bot detection plugin with a site key, masked secret key, the reCAPTCHA verify URL, a token parameter name, and a minimum score, beside reCAPTCHA integration snippets."><figcaption></figcaption></figure>
 
 ### Google reCAPTCHA v3
 

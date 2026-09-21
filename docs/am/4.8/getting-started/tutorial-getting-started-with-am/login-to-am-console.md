@@ -1,5 +1,5 @@
 ---
-description: Overview of AM Console.
+description: Reach the Access Management 4.8 Console at the host created during installation. Learn the layout and where security domain settings live.
 ---
 
 # Log in to AM Console
@@ -20,7 +20,7 @@ To log in:
 
 1.  Open AM Console.
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-login-page.png" alt=""><figcaption><p>AM Console login</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-login-page.png" alt="The AM Console Sign In page with Username and Password fields above a Sign In button."><figcaption><p>AM Console login</p></figcaption></figure>
 2. Log in with the administrator credentials. You are redirected to the AM Console dashboard for your default security domain.
 3. If you want to change the security domain, open the user menu from the top bar and select the domain from the list.
 
@@ -36,7 +36,7 @@ AM Console is accessible by `administrative users` you can manage in the **organ
 
 A security domain lets you manage your end users and their respective applications. It gives the ability to sign your users in by selecting multiple identity providers and building your own custom authentication and authorization journey to match your brand requirements and identity.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-dashboard.png" alt=""><figcaption><p>Security domain dashboard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-dashboard.png" alt="The domain Dashboard showing counters for logins, sign ups, users, and applications above a Login Activity chart."><figcaption><p>Security domain dashboard</p></figcaption></figure>
 
 includeThe security domain settings includes several sections that you can navigate using the sidebar menu on your left.
 
@@ -72,7 +72,7 @@ To access the security domains, open the user menu from the top bar and click **
 
 The security domains overview displays all the domains available for the current environment. To access one specific security domain, click on its name.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-list-domains.png" alt=""><figcaption><p>Security Domains overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-list-domains.png" alt="The Domains page listing one security domain with its description and the time it was last updated."><figcaption><p>Security Domains overview</p></figcaption></figure>
 
 ### Environments
 
@@ -88,7 +88,7 @@ Here you can configure several aspects of your organization such as :
 * [Administrative roles](../../guides/administration.md#roles-and-permissions-overview): Register new administrative users and manage their roles.
 * Deployment configuration: Set up entrypoints and sharding tags for your AM gateway.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-organization-settings.png" alt=""><figcaption><p>Organization Settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-organization-settings.png" alt="The organization General settings, with Identity Providers set to Inline users and an empty Social providers list."><figcaption><p>Organization Settings</p></figcaption></figure>
 
 The organization settings include several sections that you can navigate using the sidebar menu on your left.
 

@@ -6,6 +6,7 @@
   * [Create your first Kafka service](get-started/create-your-first-kafka-service.md)
   * [Create your first Virtual Cluster](get-started/create-your-first-virtual-cluster.md)
   * [Installation guides](https://documentation.gravitee.io/platform-management/install)
+  * [Release Notes](https://documentation.gravitee.io/platform-management/gamma-release-notes)
 * [Import](import/README.md)
   * [Register your Kafka clusters](import/register-your-kafka-clusters.md)
 * [Build](build/README.md)

@@ -1,5 +1,5 @@
 ---
-description: An overview about ibm api connect.
+description: Federate APIs from IBM API Connect, cloud or on-premise, into API Management 4.9. Learn how the integration works for you.
 metaLinks:
   alternates:
     - >-
@@ -37,10 +37,10 @@ To integrate IBM API Connect with Gravitee APIM, complete the following steps:
 
 1.  From the Dashboard, click **Integrations**.<br>
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-16-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-16-1.png" alt="The API Management console dashboard with Integrations highlighted in the left navigation menu."><figcaption></figcaption></figure>
 2.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2.png" alt="The Integrations page in the API Management console, with the Create Integration button highlighted above a table of existing integrations."><figcaption></figcaption></figure>
 3.  Select **IBM API Connect**, and then click **Next**.<br>
 
     <figure><img src="../../../.gitbook/assets/click-next-on-integrations-workflow.png" alt=""><figcaption></figcaption></figure>

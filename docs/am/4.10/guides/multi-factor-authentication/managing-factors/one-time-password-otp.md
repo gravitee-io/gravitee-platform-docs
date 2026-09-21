@@ -1,10 +1,14 @@
+---
+description: Use an authenticator application as an Access Management 4.10 second factor with one-time passwords. Learn how OTP verification works.
+---
+
 # One-time-password (OTP)
 
 One-Time Password (OTP) allows you to use an Authenticator application via your digital device (mobile phone), such as Google Authenticator, Microsoft Authenticator or Free OTP, to generate a one-time code which changes over time and will be used as the second factor to validate a user’s account.
 
 If you enable an OTP type factor for your application, next time your users log in they will see the following screens:
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-enroll.png" alt=""><figcaption><p>OTP MFA</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-enroll.png" alt="The Multi-Factor Auth Setup page with three numbered steps for installing an authenticator app, beside the QR code to scan."><figcaption><p>OTP MFA</p></figcaption></figure>
 
 {% hint style="info" %}
 The look and feel of the MFA forms can be overridden. See [custom pages](../../branding/README.md#custom-pages) for more information.

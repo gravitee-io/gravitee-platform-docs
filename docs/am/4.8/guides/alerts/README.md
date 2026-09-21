@@ -1,5 +1,5 @@
 ---
-description: Overview of Alerts.
+description: Set up alerting to warn of unusual or dangerous events on an Access Management 4.8 installation. Learn how alerts and Alert Engine fit together.
 ---
 
 # Alerts
@@ -20,4 +20,4 @@ AM’s system of alerts and notifications is based on the Gravitee Alert Engine 
 Alert Engine is a standalone module that needs to be configured and deployed before use. For more information, see the AE installation documentation.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/overview.png" alt=""><figcaption><p>Alert Engine diagram</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/overview.png" alt="A diagram in which the API platform and backend services send events to the Alert Engine, which ingests, transforms, analyses, and notifies through email, Slack, and webhooks."><figcaption><p>Alert Engine diagram</p></figcaption></figure>

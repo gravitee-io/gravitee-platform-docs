@@ -1,3 +1,7 @@
+---
+description: Configure Access Management 4.10 MFA per application, covering enrollment and challenge. Follow the steps to enable factors and set selection rules.
+---
+
 # Configure MFA for an Application
 
 ## Overview
@@ -14,7 +18,7 @@ Each section is complemented with a flow chart showing the sections part in the 
 
 The first step is to enable factors. This section allows you to control which factors that are enabled for the application, which users that should use each factor, and lastly which factor that should be default factor for users.
 
-<figure><img src="../../../4.10/.gitbook/assets/conf mfa 1.png" alt="" width="375"><figcaption><p>Flow chart for evaluating enabled factors, selection rules and default factor.</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/conf mfa 1.png" alt="A flowchart of factor selection, in which no enabled factors stops the MFA flow, and otherwise a matching selection rule, or the default factor, leads on to enrollment." width="375"><figcaption><p>Flow chart for evaluating enabled factors, selection rules and default factor.</p></figcaption></figure>
 
 ### Enable factors
 
@@ -26,15 +30,15 @@ If you have not already created at least one factor, visit Security Domain setti
 
 1. Click on **Select Factors**
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-109.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-109.png" alt="The Multifactor Auth tab with no factors selected yet and a Select Factors button."><figcaption></figcaption></figure>
 
 2. Select one to many factors, then click **Add Selected**
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-110.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-110.png" alt="The Add Factors dialog listing an SMS factor and a call factor for step-up, both selected, above an Add Selected button."><figcaption></figcaption></figure>
 
 3. You should now have the selected factors enabled for the application
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-111.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-111.png" alt="The Multifactor Auth settings after adding two factors, with the SMS factor as default and the enrollment, challenge, remember device, and step-up sections switched off."><figcaption></figcaption></figure>
 
 ### Selection rules
 
@@ -46,11 +50,11 @@ The selection rule supports Expression Language (EL) and allows you to make deci
 
 1. Click on Selection Rule icon for one factor
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-112.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-112.png" alt="The Factors list with a New selection rule tooltip shown beside the SMS factor&#x27;s selection rule icon."><figcaption></figcaption></figure>
 
 2. Add a Selection Rule and click on **Save**
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-113.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-113.png" alt="The Selection rule dialog with a Gravitee Expression Language condition example matching a user&#x27;s country attribute."><figcaption></figcaption></figure>
 
 3. Only users matching the Selection Rule will be able to enroll using the factor
 
@@ -62,7 +66,7 @@ To remediate this risk, there is a concept of a Default factor. This factor will
 
 Default factor is managed by choosing the factor with a radio button.
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-114.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-114.png" alt="The Factors list with a selection rule saved against the SMS factor and the call factor now set as the default."><figcaption></figcaption></figure>
 
 ## Section 2 - MFA enrollment
 
@@ -72,31 +76,31 @@ An enrollment always requires the user to be challenged the first time to collec
 
 Gravitee Access Management lets you configure the MFA enrollment step using three different ways: Optional, Required, or Conditional enrollment.
 
-<figure><img src="../../../4.10/.gitbook/assets/conf mfa 9.png" alt=""><figcaption><p>Flow chart for how different components of MFA enrollment flow is evaluated.</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/conf mfa 9.png" alt="A flowchart of MFA enrollment, branching on whether enrollment is enabled, optional, required, or conditional, and on whether a factor is enrolled and the user may skip, ending in enroll and challenge, stopping the flow, or continuing to the challenge."><figcaption><p>Flow chart for how different components of MFA enrollment flow is evaluated.</p></figcaption></figure>
 
 ### Optional enrollment
 
 With optional enrollments users will be given the option to enroll with MFA when signing in. You can specify the period of time during which enrollment can be skipped. Once the timer has ended, users will be asked to enroll.
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-115.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-115.png" alt="The MFA Enrollment section enabled with Optional selected and a ten-hour device trust period."><figcaption></figcaption></figure>
 
 ### Required enrollment
 
 With required enrollment, all users will be required to enroll with MFA during sign in.
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-116.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-116.png" alt="The MFA Enrollment section with Required selected, explaining that all users must enrol with MFA during sign-in."><figcaption></figcaption></figure>
 
 ### Conditional enrollment
 
 With conditional enrollment, you will be able to control which users that should or should not be forced to enroll with MFA. This is done by writing Conditional Rules with Expression Language (EL).
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-117.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-117.png" alt="The MFA Enrollment section with Conditional selected, showing an Expression Language rule and a toggle for letting users skip conditional enrollment."><figcaption></figcaption></figure>
 
 #### Allow users to skip Conditional enrollment (Extra flexibility)
 
 You may use conditional enrollment in combination with optional enrollment. This is done by enabling Allow users to skip Conditional Enrollment toggle. You may then add an additional rule that allows some users to skip MFA enrollment for some time even if the matched the first conditional rule.
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-118.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-118.png" alt="Conditional enrollment configured with a rule, skipping enabled under a second rule, and a ten-hour delay before users are asked to enrol."><figcaption></figcaption></figure>
 
 ## Section 3 - MFA challenge
 
@@ -104,7 +108,7 @@ MFA challenge is the concept of leveraging the enrolled factor to challenge the 
 
 Gravitee Access Management lets you tailor the challenge experience so you can have the balanced approach between security and UX. This is done by using three different ways: Risk-based, Required, or Conditional MFA challenge.
 
-<figure><img src="../../../4.10/.gitbook/assets/conf mfa 14.png" alt=""><figcaption><p>Flow chart for how different components of MFA enrollment flow is evaluated.</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/conf mfa 14.png" alt="A flowchart of the MFA challenge with required, conditional, and risk-based branches, each checking factor enrollment, whether the session was issued using MFA, and device recognition."><figcaption><p>Flow chart for how different components of MFA enrollment flow is evaluated.</p></figcaption></figure>
 
 ### Risk-based challenge
 
@@ -116,19 +120,19 @@ This is determined by setting thresholds for three different risk assessments.
 * IP Reputation Score compares the users IP against a malicious IPs.
 * Geolocation Velocity will calculate the speed end user has travelled between sign in A and B. This to determined impossible traveling and hence unlikeliness of being the same end user.
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-119.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-119.png" alt="The MFA Challenge section with Risk-based selected, showing the Associated Devices, IP Reputation Score, and Geolocation Velocity settings, all disabled."><figcaption></figcaption></figure>
 
 ### Required challenge
 
 With required enrollment, all users will be required to enroll with MFA during sign in.
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-120.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-120.png" alt="The MFA Challenge section set to Required, explaining that challenges are always displayed during sign-in."><figcaption></figcaption></figure>
 
 ### Conditional challenge
 
 With conditional challenge, you will be able to control which users that should or should not be forced to be challenged with MFA. This is done by writing Conditional Rules with Expression Language (EL).
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-121.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-121.png" alt="The MFA Challenge section set to Conditional, with an empty Conditional Rules field."><figcaption></figcaption></figure>
 
 ## Section 4 - Remember device
 
@@ -136,7 +140,7 @@ If Remember device is active and the user's device is not known, the end user wi
 
 Remember device also require you to configure a [Device Identifier](../device-identifier.md) on the Security Domain.
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-122.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-122.png" alt="The Remember Device section enabled, with the device identifier provider list open and a ten-hour trust duration."><figcaption></figcaption></figure>
 
 ## Section 5 - Step-up authentication
 
@@ -167,7 +171,7 @@ Step-up authentication is often used in the following scenarios:
 4. Select your MFA factor and set the **Step up authentication** rule.
 5. Click **SAVE**.
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-123.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-multi-factor-authentication-c-123.png" alt="The Remember Device section with a device identifier selected, and Step-Up Authentication enabled with a rule matching a request audience parameter."><figcaption></figcaption></figure>
 
 You can leverage access control by asking your users to confirm their identity before making any sensitive actions. In this example, the sensitive action is represented by the `pisp` (Payment Initiation Service Provider) OAuth 2.0 scope.
 

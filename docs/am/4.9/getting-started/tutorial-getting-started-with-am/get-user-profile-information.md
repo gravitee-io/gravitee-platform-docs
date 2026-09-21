@@ -1,5 +1,5 @@
 ---
-description: Overview of Get User Profile Information.
+description: Retrieve Access Management 4.9 user profile information with an OpenID Connect ID token. Follow the steps using the Console or the API.
 ---
 
 # Get User Profile Information
@@ -27,7 +27,7 @@ You can retrieve an ID Token by requesting an access token with a specific `open
 3. Click the application, then click the **Settings** tab.
 4.  Click **OAuth 2.0 / OIDC**.
 
-    <figure><img src="../../.gitbook/assets/quickstart-applications-oauth2.png" alt=""><figcaption><p>Application grant flows</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/quickstart-applications-oauth2.png" alt="The OAuth 2.0 and OIDC grant flows for an application, with Authorization Code and Implicit selected and the client authentication type set to client_secret_basic."><figcaption><p>Application grant flows</p></figcaption></figure>
 5. In the **Scopes** section, select **openid** from the **Scope** drop-down menu and click **+ADD**.
 6. Scroll to the bottom of the page and click **SAVE**.
 
@@ -94,7 +94,7 @@ Finally, you need to have the ID Token signed by AM.
 1. In AM Console, click **Settings**.
 2.  In the **Security** section, click **Certificates**.
 
-    <figure><img src="../../.gitbook/assets/quickstart-applications-certificates.png" alt=""><figcaption><p>AM Certificates</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/quickstart-applications-certificates.png" alt="The domain Certificates page listing one default PKCS#12 certificate with its expiry date."><figcaption><p>AM Certificates</p></figcaption></figure>
 3. Retrieve your public key by clicking the key icon.
 4. Copy the signature and use a JWT library to verify it.
 
@@ -139,7 +139,7 @@ The identity provider serves default claims such as the user’s `username`, `gi
 2. Select your identity provider settings, then click the **User mappers** tab.
 3.  Map new custom claims with user attributes contained in your user data store.
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-profile-user-mappers.png" alt=""><figcaption><p>Add new user information</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-profile-user-mappers.png" alt="The User mappers tab of an LDAP identity provider, mapping the sub, email, name, and familyname profile attributes to uid, mail, displayname, and sn."><figcaption><p>Add new user information</p></figcaption></figure>
 4. Custom user attributes will be available in the UserInfo Endpoint response.
 
 {% hint style="info" %}

@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for configuration file.
+description: The Developer Portal 4.8 configuration file is assets/config.json. Browse the default configuration and what you can change in it.
 ---
 
 # Configuration File

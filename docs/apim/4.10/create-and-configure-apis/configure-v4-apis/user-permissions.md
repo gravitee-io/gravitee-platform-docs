@@ -1,5 +1,5 @@
 ---
-description: An overview about user permissions.
+description: Configure user and group access to your API Management 4.10 APIs. Follow the steps to add members and set their permissions.
 metaLinks:
   alternates:
     - user-permissions.md
@@ -29,16 +29,16 @@ To configure user and group access for an API:
 
 Click **+ Add members** to add members to your API or alter member roles, which grant specific permissions. For more information on roles, please refer to the [roles documentation.](../../configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md#roles)
 
-<figure><img src="../../.gitbook/assets/user permissions_add members alter roles.png" alt=""><figcaption><p>Add members and alter roles</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/user permissions_add members alter roles.png" alt="The User Permissions tab of an API&#x27;s Configuration page with a member&#x27;s role dropdown open, listing roles including OWNER, READ_ONLY, REVIEWER, USER, and WRITER."><figcaption><p>Add members and alter roles</p></figcaption></figure>
 
 ### Add groups to an API
 
 To give groups access to your API, click **Manage groups** and select the desired group(s) from the drop-down menu. This will give all members of that group access to your API.
 
-<figure><img src="../../.gitbook/assets/user permissions_manage groups.png" alt=""><figcaption><p>Give groups access to your API</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/user permissions_manage groups.png" alt="The Manage groups dialog open over the User Permissions tab, with the groups dropdown expanded and each group listed with a clear checkbox."><figcaption><p>Give groups access to your API</p></figcaption></figure>
 
 ### Transfer API ownership
 
 If you are the owner of the API, you can transfer ownership to another member, user, or group. Click **Transfer ownership**, then select **API member**, **Other user**, or **Primary owner group.** Next, define the stakeholder to which you want to transfer API ownership and assign that stakeholder a role.
 
-<figure><img src="../../.gitbook/assets/user permissions_transfer ownership.png" alt=""><figcaption><p>Transfer API ownership</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/user permissions_transfer ownership.png" alt="The Transfer ownership dialog open over the User Permissions tab, with API member selected as the transfer method and no member chosen yet."><figcaption><p>Transfer API ownership</p></figcaption></figure>

@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for cloudevents.
+description: The CloudEvents policy builds a CloudEvents JSON object from messages in API Management 4.10. Learn how the data content type is set.
 ---
 
 # CloudEvents

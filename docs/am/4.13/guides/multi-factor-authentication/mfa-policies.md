@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/mfa-policies
+description: MFA policies apply challenge and enrollment inside an Access Management 4.13 flow, beyond application settings. Compare the two policies.
 ---
 
 # MFA Policies
@@ -17,10 +18,10 @@ The MFA Challenge policy is an [Enterprise Edition](../../overview/open-source-v
 
 For example, consider an end user who wants to reset their password. After clicking on the RESET PASSWORD email link, the user must complete the form on the MFA Challenge page before their password can be changed.
 
-<figure><img src="../../.gitbook/assets/guide-multi-factor-authentication-m-128.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-multi-factor-authentication-m-128.png" alt="The flow designer with a Latency policy added to the Reset Password flow, beside the flow list and the policy list."><figcaption></figcaption></figure>
 
 ## MFA Enroll policy
 
 The MFA Enroll policy is an [Enterprise Edition](../../overview/open-source-vs-enterprise-am/README.md) policy plugin. It allows a security domain or application owner to apply an MFA enrollment login flow, etc., to enforce security and ensure that the user account is enrolled with MFA depending on the context. You can specify which MFA Factor will be used to do the enrollment step.
 
-<figure><img src="../../.gitbook/assets/guide-multi-factor-authentication-m-129.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-multi-factor-authentication-m-129.png" alt="The flow designer with an Enroll MFA policy added to the post-login stage of the Login flow, its settings panel open below."><figcaption></figcaption></figure>

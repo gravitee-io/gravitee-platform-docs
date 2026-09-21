@@ -1,5 +1,5 @@
 ---
-description: Overview of Flows.
+description: Flows extend Access Management 4.9 by running policies at selected stages of a request. Learn the execution context and how to configure one.
 ---
 
 # Flows
@@ -22,7 +22,7 @@ The following example retrieves `Execution Context` data using the [Gravitee Exp
 ```
 {% endcode %}
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-08-04 at 08.48.36.png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-08-04 at 08.48.36.png" alt="The domain flow designer with the Login flow selected, an HTTP Callout policy in the pre-login phase and Enrich User Profile in the post-login phase, beside the policy list."><figcaption><p>Policy Studio</p></figcaption></figure>
 
 ## Flow configuration
 
@@ -360,7 +360,7 @@ The following attributes are available while processing the policy chain:
 
 </details>
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-08-04 at 08.48.36.png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-08-04 at 08.48.36.png" alt="The domain flow designer with the Login flow selected, an HTTP Callout policy in the pre-login phase and Enrich User Profile in the post-login phase, beside the policy list."><figcaption><p>Policy Studio</p></figcaption></figure>
 
 ## Execution context information
 

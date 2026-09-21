@@ -1,5 +1,5 @@
 ---
-description: An overview about integrations.
+description: Integrations connect Gravitee to third-party API gateways and event brokers for API Management 4.12. Learn what they provide.
 metaLinks:
   alternates:
     - integrations.md
@@ -63,7 +63,7 @@ To delete an integration:
 4. Select **Configuration** from the inner left nav
 5.  In the **Danger Zone** section, click **Delete Integration**
 
-    <figure><img src="../../.gitbook/assets/integration delete.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/integration delete.png" alt="The integration Configuration page showing General Information fields and a Danger Zone with Delete Integration and Delete APIs actions."><figcaption></figcaption></figure>
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>If <strong>Delete Integration</strong> is grayed out, you must first click <strong>Delete APIs</strong> to delete the federated APIs associated with the integration.</p></div>
 

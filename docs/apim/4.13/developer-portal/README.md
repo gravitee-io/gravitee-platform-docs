@@ -1,5 +1,5 @@
 ---
-description: Documentation about developer portal in the context of APIs.
+description: The Developer Portal 4.13 is the web application where consumers discover and consume your APIs. Learn what the portal offers.
 ---
 
 # Developer Portal

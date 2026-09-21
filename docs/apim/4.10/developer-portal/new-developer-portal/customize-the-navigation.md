@@ -1,3 +1,7 @@
+---
+description: Customize New Developer Portal 4.10 navigation and manage which APIs appear in it. Follow the steps to organize the portal.
+---
+
 # Customize the navigation
 
 ## Overview
@@ -13,6 +17,10 @@ You can create the following elements for your navigation:
 * **APIs**: List your APIs in the New Developer Portal documentation.
 
 When you add a new page, you can customize the page with Gravitee Markdown, which is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see[gravitee-markdown-components.md](gravitee-markdown-components.md "mention").
+
+{% hint style="info" %}
+In releases earlier than APIM 4.10.5, navigation items aren't shown to unauthenticated users of the New Developer Portal. If anonymous visitors don't see public navigation items, upgrade to APIM 4.10.5 or later. AsyncAPI page rendering in the New Developer Portal requires APIM 4.10.7 or later.
+{% endhint %}
 
 ### Default navigation items
 

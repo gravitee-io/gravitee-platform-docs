@@ -1,7 +1,5 @@
 ---
-description: >-
-  This section walks through how to configure and use Alert Engine to bolster
-  your Gravitee API Management and/or Gravitee Access Management instance(s)
+description: Alert Engine bolts on to your API Management 4.11 platform and to third-party backends. Compare the integrations available.
 ---
 
 # Integration set up

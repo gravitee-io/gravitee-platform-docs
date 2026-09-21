@@ -1,3 +1,7 @@
+---
+description: The API Management 4.13 LLM Proxy accepts OpenAI, Anthropic Messages, and Gemini request formats. Compare the supported endpoints.
+---
+
 # Accepted request formats
 
 The Gravitee LLM Proxy accepts inbound requests in three client API formats: OpenAI, Anthropic Messages, and Gemini `generateContent`. OpenAI is the LLM Proxy's internal format, so OpenAI requests pass through with minimal change. Anthropic and Gemini requests are normalized to OpenAI Chat Completions format before the policy chain and the backend provider mapping run. The response is then converted back to the format the client used.

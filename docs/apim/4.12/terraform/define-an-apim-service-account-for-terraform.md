@@ -1,5 +1,5 @@
 ---
-description: An overview about define an apim service account for terraform.
+description: Terraform authenticates to API Management 4.12 as a user of the instance. Follow the steps to create a Terraform service account.
 metaLinks:
   alternates:
     - define-an-apim-service-account-for-terraform.md

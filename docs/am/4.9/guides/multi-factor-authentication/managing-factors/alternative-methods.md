@@ -1,5 +1,5 @@
 ---
-description: Overview of Alternative Methods.
+description: When a user cannot use their primary Access Management 4.9 factor, an alternative method recovers access. Learn how signing in another way works.
 ---
 
 # Alternative Methods
@@ -17,11 +17,11 @@ To add an alternative verification method, your applications can use the [Self-s
 1. Sign in to your account.
 2. In the **MFA Challenge** page, click **Having trouble ? Try other options**.
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-alternatives-step1.png" alt=""><figcaption><p>MFA challenge page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-alternatives-step1.png" alt="The Multi-Factor Auth Verification page asking for the code from an authenticator app, with a link to try other options."><figcaption><p>MFA challenge page</p></figcaption></figure>
 
 3. Choose your alternative verification method and press **NEXT**.
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-alternatives-step2.png" alt=""><figcaption><p>Selective alternative MFA factor</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-alternatives-step2.png" alt="The Select a Multi-Factor Auth page offering a mobile app verification code or an email, with Email selected."><figcaption><p>Selective alternative MFA factor</p></figcaption></figure>
 
 4. Continue with the MFA verification process.
 

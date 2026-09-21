@@ -1,5 +1,5 @@
 ---
-description: An overview about endpoints.
+description: Endpoints connect a v4 API Management 4.8 API to its backend, for proxy or message APIs. Compare the endpoint types available.
 ---
 
 # Endpoints

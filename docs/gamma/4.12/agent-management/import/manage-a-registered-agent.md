@@ -1,14 +1,10 @@
 ---
-hidden: true
-noIndex: true
-description: Open a registered agent's page in the Catalog, read what its agent card declared, edit its name and description, remove it, and find where its gateway controls live.
+description: A registered agent's page in the Catalog is the hub for everything Gamma holds and controls for it. Learn what its Overview, sidebar, and actions bar offer.
 ---
 
 # Manage a registered agent
 
-When you register an agent, the Gamma console opens the agent's page in the Catalog. That page is the record of what the agent declared in its agent card. Come back to it to check the endpoint, version, capabilities, and skills that Gamma holds for the agent, to rename or describe it, or to remove it.
-
-The page is a Catalog record, not a control panel for the running agent. Stopping traffic, deployment, logs, and consumer access belong to the A2A Proxy that exposes the agent through the AI Gateway. The [Where the gateway controls live](#where-the-gateway-controls-live) section maps each of those concerns to its page.
+When you register an agent, the Gamma console opens the agent's page in the Catalog. The page is the hub for the agent: its **Overview** reports what still needs attention and what the Catalog holds, the sidebar leads to the pages that govern and operate it, and a bar at the top carries the actions that apply to the agent as a whole. Come back to it to check how the agent is governed, to route its callers through the AI Gateway, to give it access to models and tools, to stop it, or to remove it.
 
 ## Open an agent's page
 
@@ -16,77 +12,236 @@ Right after you click **Register agent** on the registration form, the console o
 
 1. From the Gamma console sidebar, select **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **Agents**.
-3. Click the agent's name. Optional: To find it in a long list, type part of its name or description in the search box above the list.
+3. Click the agent's name. Optional: To find it in a long list, type part of its name or description in the search box above the list, or filter by **Classification**.
 
-The **Agents** list shows each agent's name and description, its **Entity ID**, its **Version**, and its **URL**. The actions menu at the end of each row offers **View details**, **Edit**, and **Remove**.
+The **Agents** list shows each agent's name and description, with its source under the name, and its **Gateway state**, **Provider state**, **Proxies**, **Classification**, **Compliance**, **Owner**, and **Governance** columns. The **Targets**, **Entity ID**, **Version**, **URL**, **Imported**, and **Updated** columns are hidden until you turn them on. The actions menu at the end of each row offers **View details**, **Edit** for an agent registered by hand or **Resync** for an imported one, and **Remove**.
 
-<!-- TODO: Screenshot of a registered agent's page in the Catalog, showing the header, the Overview card, and the Details card -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-agent-detail.png" alt=""><figcaption><p>The page of a registered agent in the Catalog</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-agent-detail.png" alt="The Overview page of a registered agent in Agent Management, with the Edit, Stop, and Remove actions, the Fails the EU AI Act banner, the Governance and Operations cards, and the About section"><figcaption><p>The Overview page of a registered agent</p></figcaption></figure>
 
-## What the page shows
+## Read the Overview
 
-The header carries the agent's name and description, a badge with its version, and, when the agent card names one, a badge with the provider organization. Below the header, the **Overview** card lists what the agent declared and the **Details** card lists what the Catalog recorded.
+The **Overview** is the first page of the agent, and it answers "is anything wrong" before it lists facts.
 
-| Card         | Row                     | What it holds                                                                                                                                                                                            |
-| ------------ | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Overview** | **URL**                 | The endpoint the agent was registered with.                                                                                                                                                              |
-| **Overview** | **Version**             | The version from the agent card, or the one you typed when you registered the agent by hand.                                                                                                             |
-| **Overview** | **Capabilities**        | A **Streaming** badge, a **Push notifications** badge, or both, when the agent card declares them. The row is blank when the card declares neither, and for an agent registered by hand.                 |
-| **Overview** | **Skills**              | Every skill the agent card declares, each with its description. The row is omitted when the card declares no skills.                                                                                     |
-| **Details**  | **ID**                  | The Catalog's identifier for this record, with a copy button.                                                                                                                                            |
-| **Details**  | **Entity ID**           | The stable identifier that other Gamma modules use to reference the agent. It takes the form `agent.<slug>`, where the slug is derived from the agent's name at registration.                            |
-| **Details**  | **Source**              | `manual` for an agent registered from the console.                                                                                                                                                       |
-| **Details**  | **Created** and **Updated** | When the record was registered, and when it was last saved.                                                                                                                                          |
+### The header and the actions bar
 
-The record keeps any other field the agent card carries, such as its documentation URL and its default input and output modes. This page doesn't display them.
+The header carries the agent's name and description, a **Running** or **Stopped** badge, and a governance badge that sums up how far the agent is in hand:
+
+<table>
+    <thead>
+        <tr>
+            <th width="180">Badge</th>
+            <th>What it means</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Governed</strong></td>
+            <td>An A2A Proxy fronts the agent, and the agent has an identity of its own.</td>
+        </tr>
+        <tr>
+            <td><strong>Claimed</strong></td>
+            <td>One of the two is in place: a proxy fronts the agent but it has no identity, or it has an identity but no proxy fronts it. Hover over the badge to read which.</td>
+        </tr>
+        <tr>
+            <td><strong>Discovered</strong></td>
+            <td>The Catalog knows the agent exists. No proxy fronts it and it has no identity yet.</td>
+        </tr>
+    </tbody>
+</table>
+
+Under the badges, an **Owner** row names the agent's owner, or **No owner**. A **Compliance owner** row appears when a compliance framework applied to the agent includes an accountable-human control.
+
+A bar pinned to the top of every page of the agent carries the actions that apply to the agent as a whole: **Edit** for an agent registered by hand or **Resync** for an imported one, **Stop** or **Start**, and **Remove**. The bar appears only for users who can update or delete the Catalog, and it stays empty for an agent that Edge Management detected rather than one somebody registered.
+
+### The task banner
+
+When something needs attention, one banner above the cards names the most important task and offers the button that starts it. Compliance comes first, then the proxy, then the identity:
+
+* **Fails the &lt;framework&gt;** when one framework fails, naming up to three of its unmet controls and counting the rest as **and &lt;n&gt; more**. **Fails &lt;n&gt; frameworks** when several fail, counting the unmet controls across them and naming the frameworks rather than the controls. The **Close the gaps** button opens the agent's **Compliance** page.
+* **Route callers through an A2A proxy**, when the agent publishes an A2A address and no proxy fronts it. The **Route it** button opens the agent's **Proxies** page.
+* **Give this agent an identity of its own**, when the agent has no identity. The **Create it** button opens the agent's **Identity** page.
+
+The banner is absent when nothing needs attention.
+
+### The Governance and Operations cards
+
+The **Governance** card reads **Passing**, **Failing**, or **Not fully checked**, and lists four checks. Each check that links somewhere opens the page that can close it. A card earns its green word only when every counted check is green: one amber check is enough to turn **Governance** to **Failing** and **Operations** to **Off target**, for example a framework nobody configured, a call waiting in the HITL inbox, or a call a person refused in the last day.
+
+<table>
+    <thead>
+        <tr>
+            <th width="230">Check</th>
+            <th>What it reports</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Compliance</strong></td>
+            <td><strong>Not configured</strong> when no framework applies, the framework met or how many frameworks are met, or the first framework with unmet controls and how many it has, with a badge counting the other failing ones.</td>
+        </tr>
+        <tr>
+            <td><strong>Proxies</strong></td>
+            <td>The name of the A2A Proxy that fronts the agent, or <strong>Callers reach it directly</strong>. An agent that publishes no A2A address reads <strong>Publishes no A2A address</strong>, and one that doesn't speak A2A reads <strong>Speaks no A2A</strong>.</td>
+        </tr>
+        <tr>
+            <td><strong>Identity</strong></td>
+            <td>The name of the agent's gateway application when it has an identity, or <strong>No identity</strong>.</td>
+        </tr>
+        <tr>
+            <td><strong>Human in the loop inbox</strong></td>
+            <td>How many of the agent's calls are waiting for a person in the HITL inbox, which the row opens. It reads <strong>Nothing to read yet</strong> while the agent has no gateway application.</td>
+        </tr>
+    </tbody>
+</table>
+
+The **Operations** card appears only when the host API Management offers performance targets. It reads **On target**, **Off target**, or **Not fully checked**, and lists four checks. **Targets** reads **Not configured** until the agent has target rules, **Not evaluated yet** until one of them has a verdict, the rule that's breached and by how much, or how many rules are met. **Activity** reads **Tracked on &lt;n&gt; proxies** when proxies carry the agent's calls. It reads **No proxy tracks its calls** when none does, or **No application, so calls cannot be attributed** when the agent has no gateway application. **Cost** reads the last day's spend against the day before, for example **$12.40 in 24h, +12%**. The row is badged **Off trend** when spend rose by a tenth or more and **On trend** otherwise. It reads **&lt;spend&gt; in 24h, nothing the day before** when only the last day spent, **No spend in 24h** when neither day spent anything, or **Nothing to read yet** when the agent's cost can't be read at all. The row is advisory, so it never changes the card's verdict, and it links to the agent's **Cost** page. **Decisions** reads the share of the agent's held calls that a person approved over the last day, and links to the decision history. It reads **No decision in 24h** when nobody decided one, or **Nothing to read yet** when the agent has no gateway application.
+
+A check that couldn't be read shows **Could not be read** and, when no check is red or amber, drops the card's verdict to **Not fully checked**. The **Cost** check is the exception: it's advisory, so it never changes the card's word.
+
+### The About section
+
+The **About** section holds what the Catalog records. For an imported agent it opens with a note that the data is synced from your integration and overwritten on each sync. The note adds that the gateway settings, which can differ, are on the **Proxies** page. For an agent registered by hand it reads **Added manually**, and says that the details are the catalog record and the agent card its creator wrote.
+
+<table>
+    <thead>
+        <tr>
+            <th width="230">Column or block</th>
+            <th>What it holds</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Registry</strong></td>
+            <td><strong>Entity ID</strong>, the stable identifier other Gamma modules use, in the form <code>agent.&lt;slug&gt;</code>, with a copy button. <strong>Source</strong>, the kind of source the agent came from. <strong>Classification</strong>, the risk rating you give the agent. <strong>Created</strong> and <strong>Updated</strong>.</td>
+        </tr>
+        <tr>
+            <td>The platform column</td>
+            <td>Only for an agent a platform describes. It's titled with the platform's name, <strong>Azure AI Foundry</strong> for a Foundry agent, and holds the platform's <strong>State</strong> and <strong>Publication</strong> for the agent, its backing <strong>Model</strong>, the platform's own facts, such as the <strong>Foundry ID</strong> and <strong>Revision</strong>, and a <strong>Tools</strong> row that counts the tools the platform declares and links to the <strong>Tools</strong> page.</td>
+        </tr>
+        <tr>
+            <td>The endpoints column</td>
+            <td>Only for an agent a platform describes. <strong>Addresses</strong> lists each endpoint the platform declares with its protocol, such as <strong>A2A</strong>.</td>
+        </tr>
+        <tr>
+            <td><strong>Agent card</strong></td>
+            <td>The A2A card as a consumer reads it: <strong>URL</strong>, <strong>Version</strong>, <strong>Capabilities</strong> (<strong>Streaming</strong>, <strong>Push notifications</strong>, <strong>State transition history</strong>, or <strong>The card advertises none.</strong>), <strong>Security</strong>, and <strong>Skills</strong>, three at a time with a <strong>See &lt;n&gt; more</strong> link. The block is omitted when the platform declares that the agent doesn't speak A2A.</td>
+        </tr>
+    </tbody>
+</table>
+
+To rate the agent's risk, click the **Classification** badge in the **Registry** column. The **Classification** panel offers **Negligible risk**, **Limited risk**, **Moderate risk**, and **High risk**. Click **Save**. A **Classification updated** notification appears. A rating can be changed but not cleared.
 
 Two agents can't share a slug. Registering a second agent whose name reduces to the same slug as an existing one is refused with the message **An agent with this name already exists**.
 
+## Find your way around the sidebar
+
+The agent's sidebar has three sections. Each entry is a page of its own.
+
+<table>
+    <thead>
+        <tr>
+            <th width="140">Section</th>
+            <th width="160">Entry</th>
+            <th>What the page does</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Agent</strong></td>
+            <td><strong>Overview</strong></td>
+            <td>This page.</td>
+        </tr>
+        <tr>
+            <td><strong>Agent</strong></td>
+            <td><strong>Identity</strong></td>
+            <td>Creates the agent's <strong>Gateway application</strong>, the application that acts for the agent at the AI Gateway and holds its subscriptions, sets its <strong>Client ID</strong>, and gives it an OAuth identity.</td>
+        </tr>
+        <tr>
+            <td><strong>Agent</strong></td>
+            <td><strong>Lineage</strong></td>
+            <td>What called the agent and what the agent reached, as observed in gateway traffic. It needs the gateway application to attribute traffic to the agent.</td>
+        </tr>
+        <tr>
+            <td><strong>Agent</strong></td>
+            <td><strong>Proxies</strong></td>
+            <td>The A2A Proxy that fronts the agent, and the action that creates or links one. See <a href="route-an-agent-through-an-a2a-proxy.md">Route an agent through an A2A Proxy</a>.</td>
+        </tr>
+        <tr>
+            <td><strong>Agent</strong></td>
+            <td><strong>Models</strong></td>
+            <td>The models the agent calls and the LLM Proxies that route them, with the subscriptions to take or close. See <a href="subscribe-an-agent-to-an-llm-proxy.md">Subscribe an agent to an LLM Proxy</a>.</td>
+        </tr>
+        <tr>
+            <td><strong>Agent</strong></td>
+            <td><strong>Tools</strong></td>
+            <td>The tools the agent's platform declares and the MCP Proxies that front them, with the subscriptions to take or close. See <a href="subscribe-an-agent-to-an-mcp-proxy.md">Subscribe an agent to an MCP Proxy</a>.</td>
+        </tr>
+        <tr>
+            <td><strong>Governance</strong></td>
+            <td><strong>Compliance</strong></td>
+            <td>The frameworks and custom rulesets that apply to the agent, and its verdict against each. See <a href="../govern/score-agent-compliance-with-the-eu-ai-act.md">Score agent compliance with the EU AI Act framework</a>.</td>
+        </tr>
+        <tr>
+            <td><strong>Operations</strong></td>
+            <td><strong>Activity</strong></td>
+            <td>The model and tool calls made on the agent's behalf, and the requests it handled. See <a href="../observe/monitor-proxy-activity.md">Monitor proxy and agent activity</a>.</td>
+        </tr>
+        <tr>
+            <td><strong>Operations</strong></td>
+            <td><strong>Marketplace</strong></td>
+            <td>The agent as a product in the Developer Portal. See <a href="../publish/publish-your-agent-to-the-developer-portal.md">Publish your agent to the Developer Portal</a>.</td>
+        </tr>
+        <tr>
+            <td><strong>Operations</strong></td>
+            <td><strong>Targets</strong></td>
+            <td>The thresholds the agent is held to, and who is notified when one is missed. The entry appears only when the host API Management offers performance targets. See <a href="../observe/performance-targets.md">Performance targets</a>.</td>
+        </tr>
+        <tr>
+            <td><strong>Operations</strong></td>
+            <td><strong>Cost</strong></td>
+            <td>What the agent cost to run, what changed since the period before, and where the money went.</td>
+        </tr>
+    </tbody>
+</table>
+
+An agent that Edge Management detected from traffic, rather than one somebody registered, lists the same entries, marked **Not declared** or **Not observable**. Its **Overview** is built around having only an address.
+
 ## Edit the name and description
 
-Only the name and the description are editable. The endpoint URL and the version are fixed when the agent is registered. To point the Catalog at a different endpoint, register the agent again.
+Only the name and the description are editable, and only for an agent registered by hand. The endpoint URL and the version are fixed when the agent is registered. To point the Catalog at a different endpoint, register the agent again.
 
-1. On the agent's page, click **Edit**.
-2. Change the **Name** or the **Description**.
+1. In the bar at the top of the agent's page, click **Edit**.
+2. On the **Edit agent** page, change the **Name** or the **Description**.
 3. Click **Save changes**.
 
-**Save changes** stays disabled until you change something, and a blank name can't be saved. Saving keeps the capabilities and skills that were fetched from the agent card. Renaming the agent doesn't change its Entity ID.
+**Save changes** stays disabled until you change something, and a blank name can't be saved. An **Agent updated** notification appears, and the console returns to the agent's page. Renaming the agent doesn't change its Entity ID.
+
+An imported agent isn't edited here, because the next synchronization would write over the change. Its bar offers **Resync** instead, which reads the agent again from its platform and reports **Resynced &lt;agent&gt;**.
+
+## Stop and start the agent
+
+The **Stop** button in the bar takes the agent out of service in one move, in a fixed order. The A2A Proxy that fronts the agent is stopped first, so every caller loses access at once. The subscriptions its gateway application holds are paused at the gateway next. Last, when the platform that hosts the agent allows it, the agent itself is stopped there. **Start** pulls the same levers in reverse.
+
+1. In the bar at the top of the agent's page, click **Stop**.
+2. In the **Stop this agent?** dialog, read the **What this stops** list.
+3. Click **Stop this agent**.
+
+An **Agent stopped** notification appears, and the header badge reads **Stopped** until you start the agent again. When part of the move failed, the notification reads **Agent only partly stopped. Check its provider and its subscriptions.** instead. To start the agent, click **Start** in the bar, and then click **Start this agent** in the **Start this agent?** dialog, which lists what it restarts under **What this restarts**. An **Agent started** notification appears.
+
+When the agent has no gateway application, no A2A Proxy fronts it, and its platform can't be told to stop it, the dialog reads **Cannot stop this agent**. It offers **Go to Identity**, where the application is created.
+
+The proxy that fronts the agent has a stop of its own on its **Settings** page. See [Agent kill switch](../build/agent-killswitch.md).
 
 ## Remove an agent
 
-1. On the agent's page, click **Remove**.
+1. In the bar at the top of the agent's page, click **Remove**.
 2. In the **Remove this agent?** dialog, click **Remove agent**.
 
-Removal is immediate and can't be undone. The Catalog doesn't check whether anything references the agent before removing it. Removal also leaves every A2A Proxy untouched, because a proxy stores its own target URL and holds no link to the Catalog record. After removal, the console returns you to the **Agents** list.
-
-## Where the gateway controls live
-
-The agent's page holds no runtime state, no usage or cost figures, no compliance status, and no publication status. Those concerns live on other pages, and none of them link back to the agent's record, so open each one from its own sidebar entry.
-
-| To do this                                                                                     | Go here                                                                                                                                                                                                                                                                                                              |
-| ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Expose the agent through the AI Gateway so that other agents call it through a governed endpoint | Under **Secure**, create an A2A Proxy. The proxy doesn't read the Catalog, so you enter the agent's endpoint again as its **Target URL**. See [Expose your agent with the A2A Proxy](../build/expose-agent-with-a2a-proxy.md).                                                                                       |
-| Stop or restart the traffic that reaches the agent through the gateway                          | Open the A2A Proxy, click **General** in its sidebar, and use the **API Events** card of its **Settings** page.                                                                                                                                                                                                       |
-| Choose which gateway instances load the proxy, and review or roll back its deployments          | In the A2A Proxy sidebar, under **Operations**, click **Deployment**. See [Configure A2A Proxy deployment](../build/configure-a2a-proxy-deployment.md) and [Review A2A Proxy deployment history](../build/review-a2a-proxy-deployment-history.md).                                                                     |
-| Read the proxy's logs and traces                                                                | In the A2A Proxy sidebar, under **Observability**. To choose what the proxy reports, see [Configure logging and tracing](../build/configure-your-a2a-proxy/configure-logging-and-tracing.md).                                                                                                                       |
-| Give client applications access to the proxy and approve their subscriptions                    | In the APIM console, on the API behind the A2A Proxy. The A2A Proxy sidebar carries no consumer pages in this release. See the **Give a client access** section of [Expose your agent with the A2A Proxy](../build/expose-agent-with-a2a-proxy.md).                                                                   |
-| Give the agent a verifiable identity                                                            | **Agent Identity**, also in the **Catalog** section of the sidebar. An agent identity is a separate record and isn't linked to the agent's page. See [Create an agent identity](../build/create-an-agent-identity.md).                                                                                                |
-| See token usage and cost                                                                        | Cost is reported per LLM Proxy. See [Monitor your LLM proxy](../observe/monitor-your-llm-proxy.md).                                                                                                                                                                                                                   |
-
-## Verification
-
-To verify the agent's record is working as expected, follow these steps:
-
-1. On the agent's page, click **Edit**.
-2. Change the **Description**.
-3. Click **Save changes**. An **Agent updated** notification appears, and the console returns to the agent's page with the new description under the agent's name.
-4. In the **Catalog** section of the sidebar, select **Agents**. The list shows the new description under the agent's name, and the **Entity ID** column is unchanged.
-
-<!-- TODO: Screenshot of the Agents list showing the updated description under the agent's name -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-agents-list-updated.png" alt=""><figcaption><p>The updated description in the Agents list</p></figcaption></figure>
+Removal is immediate and can't be undone. The agent's gateway application goes with it, which closes every subscription that application held, and so does the identity the agent authenticated as. An A2A Proxy that fronts the agent is detached first and keeps running. A **Removed &lt;agent&gt;** notification appears, and the console returns to the **Agents** list. When the identity couldn't be removed from the identity service, the notification reads **Removed &lt;agent&gt;, but its identity is still in the identity service**. It asks you to remove it there.
 
 ## Next steps
 
 * [Register an agent](import-an-agent.md). Add another agent to the Catalog from the agent card it publishes.
-* [Expose your agent with the A2A Proxy](../build/expose-agent-with-a2a-proxy.md). Put the agent behind the AI Gateway.
-* [Create an agent identity](../build/create-an-agent-identity.md). Give the agent a verifiable identity for authentication and audit.
+* [Route an agent through an A2A Proxy](route-an-agent-through-an-a2a-proxy.md). Put the agent behind the AI Gateway from its **Proxies** page.
+* [Subscribe an agent to an LLM Proxy](subscribe-an-agent-to-an-llm-proxy.md). Give the agent access to models through its **Models** page.
+* [Subscribe an agent to an MCP Proxy](subscribe-an-agent-to-an-mcp-proxy.md). Give the agent access to tools through its **Tools** page.

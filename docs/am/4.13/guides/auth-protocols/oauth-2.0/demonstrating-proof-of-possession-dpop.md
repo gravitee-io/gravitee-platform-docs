@@ -63,7 +63,7 @@ To turn the setting on in AM Console:
 8. Turn on **DPoP-bound access tokens**.
 9. Click **SAVE**.
 
-<figure><img src="../../../.gitbook/assets/am-application-dpop-bound-access-tokens.png" alt=""><figcaption><p>DPoP-bound access tokens setting on the application Grant Flows tab</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/am-application-dpop-bound-access-tokens.png" alt="The application DPoP settings with DPoP-bound access tokens switched on, above the public and confidential client authentication method."><figcaption><p>DPoP-bound access tokens setting on the application Grant Flows tab</p></figcaption></figure>
 
 To turn the setting on with the AM Management API, patch the application:
 
@@ -95,7 +95,7 @@ To turn the setting on in AM Console:
 5. Turn on **Require DPoP for all clients**.
 6. Click **SAVE**.
 
-<figure><img src="../../../.gitbook/assets/am-domain-dpop-settings.png" alt=""><figcaption><p>DPoP settings of a security domain</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/am-domain-dpop-settings.png" alt="The domain DPoP settings with Require DPoP for all clients switched on and the allowed signing algorithms restricted to ES256 and ES384."><figcaption><p>DPoP settings of a security domain</p></figcaption></figure>
 
 To turn the setting on with the AM Management API, patch the security domain:
 

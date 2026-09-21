@@ -1,3 +1,7 @@
+---
+description: The Entrypoint Connect phase runs when a client opens a Kafka connection in API Management 4.11, before authentication. Learn what runs.
+---
+
 # Entrypoint Connect phase
 
 ## Overview

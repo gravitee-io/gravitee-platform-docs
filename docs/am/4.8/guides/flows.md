@@ -1,5 +1,5 @@
 ---
-description: Overview of Flows.
+description: Flows extend Access Management 4.8 by running policies at selected stages of a request. Learn how to configure a flow at each level.
 ---
 
 # Flows
@@ -24,7 +24,7 @@ In this example, we are getting `Execution Context` data using the Gravitee Expr
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/graviteeio-am-userguide-policies.png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/graviteeio-am-userguide-policies.png" alt="The domain flow designer with the Consent flow selected, HTTP Callout policies in the pre-consent and post-consent phases, and the callout settings open beside the policy list."><figcaption><p>Policy Studio</p></figcaption></figure>
 
 ## Flow configuration
 
@@ -37,7 +37,7 @@ AM includes four flow types:
 * **Consent Flow:** This happens during the user consent phase. It allows you to execute policies before displaying the User Consent HTML Page or after the user has given his consent to the processing of personal data.
 * **Registration Flow:** This happens during the user registration phase. It allows you to execute policies before displaying the User Registration HTML Page or after the user data has been processed.
 
-<figure><img src="../.gitbook/assets/graviteeio-am-userguide-policies.png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/graviteeio-am-userguide-policies.png" alt="The domain flow designer with the Consent flow selected, HTTP Callout policies in the pre-consent and post-consent phases, and the callout settings open beside the policy list."><figcaption><p>Policy Studio</p></figcaption></figure>
 
 ### All flow
 

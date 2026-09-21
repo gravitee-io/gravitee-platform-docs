@@ -1,5 +1,5 @@
 ---
-description: Overview of SMS.
+description: Send an Access Management 4.9 verification code by SMS as a second factor. Learn how SMS verification confirms a user's account.
 ---
 
 # SMS
@@ -14,9 +14,9 @@ Gravitee 4.2 supports a new SMS resource provider based on the SFR vendor. Admin
 
 If you enable an SMS type factor for your application, next time your users log in they will see the following screens:
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-sms-enroll.png" alt=""><figcaption><p>SMS MFA screen 1</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-sms-enroll.png" alt="The SMS Multi-Factor Auth Setup page with a phone number field and a step explaining that the code arrives by SMS."><figcaption><p>SMS MFA screen 1</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-sms-challenge.png" alt=""><figcaption><p>SMS MFA screen 2</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-sms-challenge.png" alt="The Multi-Factor Auth Verification page asking for the code sent by SMS, with a Verify button."><figcaption><p>SMS MFA screen 2</p></figcaption></figure>
 
 {% hint style="info" %}
 You can change the look and feel of forms using [custom pages](../../branding/README.md#custom-pages). The enrollment form must send the phone number using the `phone` parameter in E.164 notation.

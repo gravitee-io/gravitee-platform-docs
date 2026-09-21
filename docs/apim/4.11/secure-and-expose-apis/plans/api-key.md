@@ -1,5 +1,5 @@
 ---
-description: An overview about api key.
+description: The API Key plan verifies keys during request processing so only approved applications reach your API Management 4.11 API. Learn how.
 metaLinks:
   alternates:
     - api-key.md
@@ -66,9 +66,9 @@ The mode of an application only changes while it's `UNSPECIFIED`. After the mode
 
 API keys can only be shared across API Key plans that belong to distinct Gateway APIs. If you attempt to subscribe to two API Key plans on the same Gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically.
 
-<figure><img src="../../.gitbook/assets/shared-api-key-2-portal.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared-api-key-2-portal.png" alt="The subscription wizard in the developer portal at the API key management mode step, offering a generated API key or a shared API key."><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt="An application&#x27;s Subscriptions page with a dialog asking whether the application should use a new API key per subscription or one shared API key, noting that the choice is permanent."><figcaption></figcaption></figure>
 
 To select the API key type, the shared API key mode must be [enabled](api-key.md#api-key-generation) before creating an application. To enable this option, create a new application and subscribe to two API Key plans.
 
@@ -95,12 +95,12 @@ A shared API key may be used to call APIs that are owned by other API publishers
 * Shared API keys cannot be edited from an API publisher's subscriptions
 *   API publishers can read shared API keys, but cannot renew or revoke them
 
-    <figure><img src="../../.gitbook/assets/shared-api-key-3.png" alt=""><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/shared-api-key-3.png" alt="A subscription&#x27;s detail page showing its plan, status, and application, with a Shared API Key section listing two keys and their creation and expiry times."><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
 *   Shared API keys can only be renewed/revoked by the application owner, from the subscription view of their APIM Console or Developer Portal
 
-    <figure><img src="../../.gitbook/assets/shared-api-key-4.png" alt=""><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/shared-api-key-4.png" alt="An application&#x27;s subscriptions page, listing two subscriptions that share one API key and a Shared API Key section with a Renew API key button."><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/shared-api-key-4-portal.png" alt=""><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/shared-api-key-4-portal.png" alt="The Subscriptions tab of an application in the developer portal, showing the shared API key with Renew and Revoke buttons and two subscriptions whose subscriber names are highlighted."><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>
 
 **Manage shared API keys through the API**
 

@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: The Metadata page of an API proxy holds the key and value entries the API carries. Add entries, override the ones inherited from the environment, reset them, and delete them.
+description: API metadata is key and value entries carried by a Gamma API proxy, defaulting from the environment. Follow the steps to add and reset entries.
 ---
 
 # Configure API metadata
@@ -23,7 +23,7 @@ To open the page, follow these steps:
 
 **Metadata** sits in the **General** group of the API proxy sidebar. The item doesn't appear when your role doesn't grant read access to API metadata, and the page then reads **You don't have permission to view API metadata.**
 
-<figure><img src="../../.gitbook/assets/gamma-api-metadata-page.png" alt=""><figcaption><p>The Metadata page lists the entries this API inherits from the environment alongside the entries it owns.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-api-metadata-page.png" alt="A Global badge marks each inherited entry, and a source filter narrows the table."><figcaption><p>The Metadata page lists the entries this API inherits from the environment alongside the entries it owns.</p></figcaption></figure>
 
 ## Review the metadata list
 
@@ -72,7 +72,7 @@ To add an entry, complete the following steps:
 
 Gravitee builds the key from the name. Accents are stripped and the text is folded to lower case. Characters that aren't letters, digits, spaces, or dashes are removed, and each run of spaces and dashes becomes a single dash. **Support Email** becomes `support-email`.
 
-<figure><img src="../../.gitbook/assets/gamma-api-metadata-add-panel.png" alt=""><figcaption><p>The Add API Metadata panel takes a name, a format, and a value.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-api-metadata-add-panel.png" alt="The panel filled in with a name, the String format, and a value, ready to add."><figcaption><p>The Add API Metadata panel takes a name, a format, and a value.</p></figcaption></figure>
 
 The following table describes what each format accepts:
 
@@ -120,7 +120,7 @@ Once an inherited entry holds an override, its row menu offers **Reset** in plac
 
 The dialog names the entry and the value it returns to.
 
-<figure><img src="../../.gitbook/assets/gamma-api-metadata-reset-dialog.png" alt=""><figcaption><p>The Reset global metadata dialog names the entry and the environment value it returns to.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-api-metadata-reset-dialog.png" alt="A confirmation asking whether to return the entry to its environment value, with Cancel and Reset."><figcaption><p>The Reset global metadata dialog names the entry and the environment value it returns to.</p></figcaption></figure>
 
 ## Delete an entry
 

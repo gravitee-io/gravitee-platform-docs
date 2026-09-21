@@ -1,5 +1,5 @@
 ---
-description: An overview about discover and catalog ai agents (a2a).
+description: Add AI agents to your API Management 4.9 Agent Catalog by importing or discovering their Agent Cards. Follow the steps to create an integration.
 metaLinks:
   alternates:
     - >-
@@ -61,7 +61,7 @@ Your Integration appears in the **Integrations** screen.
 
 1.  From the **Integrations page**, click your A2A integration.
 
-    <figure><img src="../.gitbook/assets/76AD6B3F-28DB-44E1-899F-BF030327D9A0_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/76AD6B3F-28DB-44E1-899F-BF030327D9A0_1_201_a.jpeg" alt="The Integrations page listing nine integrations across providers such as AWS API Gateway, Confluent, Mulesoft, Azure, Apigee, Solace, and A2A Protocol, most disconnected."><figcaption></figcaption></figure>
 2.  From the **Overview** screen, navigate to the **Agents** section, and then click the Agent that you want to view.
 
     <figure><img src="../.gitbook/assets/EEAF8CAF-BDD6-43E9-A3DB-FF3DDFE3DBC9_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -77,7 +77,7 @@ The configuration screen displays the agent card for the Agent.
     <figure><img src="../.gitbook/assets/agent-mesh-add-agents-to-your-agent-cata-283-1.png" alt=""><figcaption></figcaption></figure>
 2.  From the **Integrations page**, click your A2A integration.
 
-    <figure><img src="../.gitbook/assets/76AD6B3F-28DB-44E1-899F-BF030327D9A0_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/76AD6B3F-28DB-44E1-899F-BF030327D9A0_1_201_a.jpeg" alt="The Integrations page listing nine integrations across providers such as AWS API Gateway, Confluent, Mulesoft, Azure, Apigee, Solace, and A2A Protocol, most disconnected."><figcaption></figcaption></figure>
 3.  Click **Configuration**.
 
     <figure><img src="../.gitbook/assets/7D196F24-CE07-4CE4-B177-6D3FFBEA5F20.jpeg" alt=""><figcaption></figcaption></figure>

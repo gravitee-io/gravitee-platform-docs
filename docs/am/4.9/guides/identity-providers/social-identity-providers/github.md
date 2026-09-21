@@ -49,7 +49,7 @@ Ensure you have the GitHub application generated Client ID and Client Secret to 
 6. Enter your GitHub application Client ID and Client Secret.
 7.  Click **Create**.
 
-    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-github.png" alt=""><figcaption><p>Create Github IdP</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-github.png" alt="The Github identity provider Settings tab, with placeholder client ID and secret and a list of selectable repository scopes, beside the redirect URI to configure."><figcaption><p>Create Github IdP</p></figcaption></figure>
 
 {% hint style="info" %}
 On the right side of the screen, under **1. Configure the Redirect URI** copy the value of the URL. You will use it to update your GitHub application settings.
@@ -70,9 +70,9 @@ You can test your GitHub connection using a web application created in AM.
 
 1.  In AM Console, click **Applications** and select your social identity provider.
 
-    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select Github IdP</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-list.png" alt="The Identity Providers tab of an application, listing Azure AD, Mongo DB, Facebook, France Connect, Github, Google, Inline, LDAP, LinkedIn, OpenID, Salesforce, and Twitter providers, each with a toggle."><figcaption><p>Select Github IdP</p></figcaption></figure>
 2.  Call the Login Page (i.e the `/oauth/authorize` endpoint). If the connection is working you will see a **Sign in with …​** button.
 
     If the button is not visible, something may be wrong with the identity provider settings. Check the AM Gateway log for more information.
 
-    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-login.png" alt=""><figcaption><p>Sign in options</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-login.png" alt="The hosted Sign in page with Username and Password fields above social sign-in buttons for OpenID Connect, Facebook, Azure AD, and Github."><figcaption><p>Sign in options</p></figcaption></figure>

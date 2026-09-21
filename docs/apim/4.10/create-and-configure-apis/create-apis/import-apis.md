@@ -1,5 +1,5 @@
 ---
-description: An overview about import apis.
+description: Import an API into API Management 4.10 as a Gravitee definition or an OpenAPI specification. Follow the steps to import an OpenAPI spec.
 metaLinks:
   alternates:
     - import-apis.md
@@ -195,7 +195,7 @@ paths:
 
 When importing an OpenAPI definition, you can select the option **Create policies on path** to specify that all routes declared in the OpenAPI specification will be automatically created in APIM. To verify, navigate to the policy management view.
 
-<figure><img src="../../.gitbook/assets/graviteeio-import-openapi-policies-path.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-import-openapi-policies-path.png" alt="The Policies view of an imported OpenAPI specification, listing available policies beside the paths discovered in the specification."><figcaption></figcaption></figure>
 
 You can also choose to activate policies (below) that will be configured using the OpenAPI specification:
 

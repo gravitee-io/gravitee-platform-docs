@@ -1,5 +1,5 @@
 ---
-description: Overview of Adaptive Multi.
+description: Adaptive MFA asks Access Management 4.8 users for another factor after login, based on context. Learn the use cases and configure it.
 ---
 
 # Adaptive Multi-factor Authentication
@@ -36,4 +36,4 @@ The Gravitee Geoip Plugin uses MaxMind, make sure your AM instance is well provi
 3. Set the **Adaptive MFA** rule.
 4. Click **SAVE**.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-adaptive-mfa-rule.png" alt=""><figcaption><p>Configuring A-MFA</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-adaptive-mfa-rule.png" alt="The Multifactor Auth settings with TOTP and Social App factors enabled, an Adaptive MFA rule using geoip country and login attempts, and an empty step-up rule."><figcaption><p>Configuring A-MFA</p></figcaption></figure>

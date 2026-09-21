@@ -1,3 +1,7 @@
+---
+description: The API Products pages in the API Management 4.13 Console, from the list view through to each tab. Find the control you need.
+---
+
 # API Products Console UI reference
 
 ## Navigation

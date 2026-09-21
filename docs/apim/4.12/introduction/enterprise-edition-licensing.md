@@ -1,5 +1,5 @@
 ---
-description: Overview of Enterprise Edition licensing
+description: Request and apply an Enterprise Edition licence for API Management 4.12. Follow the steps to apply it by environment variable or by file.
 ---
 
 # Enterprise Edition licensing

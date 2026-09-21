@@ -1,5 +1,5 @@
 ---
-description: An overview about protobuf to json.
+description: The Protobuf to JSON policy applies a transformation to request, response, or message content in API Management 4.11. Learn how to set it.
 metaLinks:
   alternates:
     - protobuf-to-json.md

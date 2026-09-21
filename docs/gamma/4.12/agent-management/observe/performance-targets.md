@@ -1,10 +1,5 @@
 ---
-hidden: true
-noIndex: true
-description: >-
-  Declare what good looks like for a proxy or an agent. A performance target
-  names the traffic it judges, the window it judges it over, and the rules that
-  set each threshold.
+description: A performance target declares what acceptable looks like for Gamma proxies and agents. Learn how rules are built, scoped, and evaluated.
 ---
 
 # Performance targets
@@ -410,6 +405,31 @@ A target is checked against the analytics definition and against the APIs of its
         </tr>
     </tbody>
 </table>
+
+## Targets on an agent
+
+An agent's page carries a **Targets** entry when the APIM behind the console offers performance targets. Otherwise the page reads **Targets are not available** with the reason **This installation does not offer performance targets.** The page has two tabs: **Rules** and **Notifications**.
+
+### Rules
+
+The **Rules** tab lists the thresholds this agent is held to. A target watches the traffic of the proxies that front the agent and of the application that acts for it. The tab is read-only until the agent has one of them. Until then, an alert reads **Not on the AI Gateway yet**. It links to the agent's **Proxies** page with **Add an A2A proxy** and to its **Identity** page with **create its application**. The tab itself reads **No targets. A rule can be added once the agent has a proxy or an application.**
+
+No rule is created for you. Before the first rule, the tab reads **No targets yet. Add a rule for traffic on this agent's proxies.** The filters offered when you narrow a rule are the proxies and models the agent's lineage saw in the last day.
+
+The rules can be edited by users who can create and update APIs. Everyone else reads them.
+
+The **Agents** list carries the outcome in its **Targets** column: **No target**, **Missed**, **Met**, or **Not evaluated**.
+
+<figure><img src="../.gitbook/assets/gamma-aim-agent-targets.png" alt="An agent's Targets page on the Rules tab, with the Not on the AI Gateway yet alert linking to Add an A2A proxy and create its application, and the No targets state below it"><figcaption><p>The Targets page of an agent that has no proxy or application yet</p></figcaption></figure>
+
+### Notifications
+
+The **Notifications** tab chooses who hears about a change of verdict on the agent's targets, on two channels:
+
+* **Email**, sent to the agent's owner and to the members of its application. It's on for every event by default.
+* **Webhook**, one POST per change of verdict to the **Webhook URL** you enter. A Slack incoming webhook is recognized and formatted for Slack. It's off by default, and a channel that's on needs an http or https URL before the page saves.
+
+Each channel is turned on per event: **Target missed**, **Target met again**, **Target no longer evaluable**, and **Target evaluable again**. Changes wait in a **You have unsaved changes.** bar until you save.
 
 ## Limitations
 

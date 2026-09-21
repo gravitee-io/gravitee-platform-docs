@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/user-consent
+description: Users control which scopes an application receives in Access Management 4.13. Follow the steps to preselect, require, and reuse consent.
 ---
 
 # User Consent
@@ -83,11 +84,11 @@ AM remembers each approved scope until its **User consent** duration expires. A 
 6. Click the **Scopes** tab.
 7. Scroll to the **Consent** section and set the **Preselect consent for all scopes** toggle.
 
-    <figure><img src="../../.gitbook/assets/am-application-scopes-consent-settings.png" alt=""><figcaption><p>Preselect consent for all scopes toggle</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/am-application-scopes-consent-settings.png" alt="The Scopes tab of an application&#x27;s OAuth 2.0 and OpenID Connect settings, with Preselect consent for all scopes switched on and an empty Scopes list."><figcaption><p>Preselect consent for all scopes toggle</p></figcaption></figure>
 
 8. Optional: to add a scope to the application, scroll to the **Scopes** section and click **ADD SCOPES**. In the **Add scope** dialog, select the scopes to add, then click **Add**.
 
-    <figure><img src="../../.gitbook/assets/am-application-add-scope-dialog.png" alt=""><figcaption><p>Add scope dialog</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/am-application-add-scope-dialog.png" alt="The Add scope dialog listing the scopes that can be added to the application, each with its description."><figcaption><p>Add scope dialog</p></figcaption></figure>
 
 9. Select the **Required** checkbox for each scope the application depends on.
 
@@ -120,7 +121,7 @@ You can view a list of applications for which each user has provided consent. To
 4. Select the user.
 5. Click the **Authorized Apps** tab and revoke the application.
 
-<figure><img src="../../.gitbook/assets/guide-user-management-user-consent-150.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-user-management-user-consent-150.png" alt="The Authorized Apps tab of a user with no authorized applications, showing a No authorized applications empty state."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Revoking consent can also be done via the [AM Management API](../../reference/am-api-reference.md).

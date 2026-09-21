@@ -1,5 +1,5 @@
 ---
-description: An overview about azure api management.
+description: API Management 4.10 federates APIs from Azure API Management, Azure's built-in solution. Learn how the integration works for you.
 metaLinks:
   alternates:
     - azure-api-management.md
@@ -37,7 +37,7 @@ To integrate Azure API Management with Gravitee APIM, complete the following ste
     <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-68-1 (1).png" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration.**
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2-1 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2-1 (1).png" alt="The Integrations page in the API Management console, with the Create Integration button highlighted above a table of existing integrations."><figcaption></figcaption></figure>
 3.  Select **Azure API Management**, and then click **Next**.
 
     <figure><img src="../../../.gitbook/assets/click-next-azure-federation.png" alt=""><figcaption></figcaption></figure>

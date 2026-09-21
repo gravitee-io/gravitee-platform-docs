@@ -1,3 +1,7 @@
+---
+description: The Access Management 4.10 Expression Language configures domain behaviour from request and application data. Learn the syntax and what it exposes.
+---
+
 # AM Expression Language
 
 ## Overview
@@ -106,7 +110,7 @@ Flows and policies let you add attributes to the context. For example, you can u
 
 **Attr Value:** `{#jsonPath(#calloutResponse.content, '$.field')}`
 
-<figure><img src="../.gitbook/assets/graviteeio-am-userguide-el-callout.png" alt=""><figcaption><p>EL with HTTP callout policy</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/graviteeio-am-userguide-el-callout.png" alt="The HTTP Callout policy settings with a context variable set by a jsonPath expression, the Exit on error toggle switched off, and an error condition expression matching HTTP status codes 400 to 599."><figcaption><p>EL with HTTP callout policy</p></figcaption></figure>
 
 After the CalloutHttpPolicy execution, this attribute is made available with the expression `{#context.attributes['callout-attribute']}`.
 
@@ -123,7 +127,7 @@ In the Callout HTTP Policy, configure the following variable:
 
 **Attr Value:** `{#jsonPath(#calloutResponse.content, '$.field')}`
 
-<figure><img src="../.gitbook/assets/graviteeio-am-userguide-el-callout.png" alt=""><figcaption><p>EL with HTTP callout policy</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/graviteeio-am-userguide-el-callout.png" alt="The HTTP Callout policy settings with a context variable set by a jsonPath expression, the Exit on error toggle switched off, and an error condition expression matching HTTP status codes 400 to 599."><figcaption><p>EL with HTTP callout policy</p></figcaption></figure>
 
 In the Enrich Authentication Flow Policy, configure the following variable:
 
@@ -131,7 +135,7 @@ In the Enrich Authentication Flow Policy, configure the following variable:
 
 **Attr Value:** `{#context.attributes['callout-attribute']}`
 
-<figure><img src="../.gitbook/assets/graviteeio-am-userguide-el-authflow.png" alt=""><figcaption><p>EL with Enrich Authentication flow</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/graviteeio-am-userguide-el-authflow.png" alt="The Enrich Authentication Flow step in the post-login flow, with its settings open and a context property set from a callout attribute using an expression."><figcaption><p>EL with Enrich Authentication flow</p></figcaption></figure>
 
 In the tokens tab of the application OAuth 2.0 settings `domains > mydomain > applications > myapp > settings > oauth2`, use EL to get information from the authentication flow context:
 
@@ -139,4 +143,4 @@ In the tokens tab of the application OAuth 2.0 settings `domains > mydomain > ap
 
 **Claim Value:** `{#context.attributes['authFlow']['authflow-attribute']}`
 
-<figure><img src="../.gitbook/assets/graviteeio-am-userguide-el-token.png" alt=""><figcaption><p>Application tokens</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/graviteeio-am-userguide-el-token.png" alt="The Tokens tab with the access, refresh, and ID token expiry values, and a custom ID token claim whose value is an expression reading an authentication flow attribute."><figcaption><p>Application tokens</p></figcaption></figure>

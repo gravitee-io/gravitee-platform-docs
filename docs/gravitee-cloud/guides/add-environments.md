@@ -16,14 +16,14 @@ Once you add an environment, you cannot delete the environment.
 
 1.  From the **Dashboard**, navigate to the **Environments** section, and then click **New Environment**.
 
-    <figure><img src="../.gitbook/assets/CE7BEA5B-F918-4BAE-90C7-59A680A0BF39_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/CE7BEA5B-F918-4BAE-90C7-59A680A0BF39_1_201_a.jpeg" alt="The Environments section of the Dashboard with the New Environment button highlighted."><figcaption></figcaption></figure>
 2.  In the **Create New Environment** pop-up window, enter the name of your environment. The Human Readable ID (HRID) is automatically generated.
 
     <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
       <p>Once you create the environment, you cannot change the name of the environment.</p>
     </div>
 
-    <figure><img src="../.gitbook/assets/00792193-3829-426C-A047-6A566735E640_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/00792193-3829-426C-A047-6A566735E640_1_201_a.jpeg" alt="The Create New Environment dialog with the Name and Human Readable ID fields completed and the Create button highlighted."><figcaption></figcaption></figure>
 3.  (Optional) Edit the Human Readable ID. The HRID must meet the following criteria:
 
     * Be a maximum of 16 characters.
@@ -35,16 +35,16 @@ Once you add an environment, you cannot delete the environment.
     </div>
 4. Click **Create**.
 
-    <figure><img src="../.gitbook/assets/00792193-3829-426C-A047-6A566735E640_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/00792193-3829-426C-A047-6A566735E640_1_201_a.jpeg" alt="The Create New Environment dialog with the Name and Human Readable ID fields completed and the Create button highlighted."><figcaption></figcaption></figure>
 
     Your environment appears in the **Environments** section of the **Dashboard**.
 
-    <figure><img src="../.gitbook/assets/68CC2048-1B10-44D6-A7A6-3B891AE2D911_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/68CC2048-1B10-44D6-A7A6-3B891AE2D911_1_201_a.jpeg" alt="The Environments section in tile view, showing the newly created environment alongside the existing ones."><figcaption></figcaption></figure>
 
 ## Change the Environment section layout
 
 *   To change the Environment section from the tile view to a list view, click the **list button**. \\
 
-    <figure><img src="../.gitbook/assets/99B1FD8B-4644-4BD6-A06B-EB6BC09D44DE_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/99B1FD8B-4644-4BD6-A06B-EB6BC09D44DE_1_201_a.jpeg" alt="The Environments section with the list view and tile view buttons highlighted."><figcaption></figcaption></figure>
 
-    <figure><img src="../.gitbook/assets/24DC25BD-272D-499D-8071-F1915F2D471B_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/24DC25BD-272D-499D-8071-F1915F2D471B_1_201_a.jpeg" alt="The Environments section in list view, with each environment as a table row showing product, location, version, and direct access links."><figcaption></figcaption></figure>

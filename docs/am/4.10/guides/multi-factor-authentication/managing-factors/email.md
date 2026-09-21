@@ -1,3 +1,7 @@
+---
+description: Send an Access Management 4.10 verification code by email as a second factor. Learn how email verification confirms a user's account.
+---
+
 # Email
 
 With Email verification, you can receive a verification code on your email address to be used as the second factor to validate a user’s account.
@@ -8,15 +12,15 @@ Email MFA requires a compatible [resource](../../resources.md).
 
 Using the `email-am-factor` plugin configuration form, you can define the number of digits used to generate the verification code. The configured resource must be an [SMTP Resource](../../resources.md#resource-types). The email template used by this plugin is defined in the design section of the domain or application.
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-email-config.png" alt=""><figcaption><p>Email MFA configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-email-config.png" alt="The Email Factor configuration page with the factor name, an Email Sender resource, and the code length set to six digits."><figcaption><p>Email MFA configuration</p></figcaption></figure>
 
 **Subject** and **Template** fields use the freemarker syntax to customize the message content. The generated **code** is available using the expression `${code}`. The user profile and the application are accessible using the expressions `${user}` and `${client}` (ex: `${client.clientName}` will return the application name and `${user.firstName}` will return the first name of the user.)
 
 If you enable an Email type factor for your application, next time your users log in they will see the following screens:
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-email-enroll.png" alt=""><figcaption><p>Email MFA screen 1</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-email-enroll.png" alt="The Multi-Factor Auth Setup page for the email factor, with an email address field and a step explaining that the code arrives by email."><figcaption><p>Email MFA screen 1</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-email-challenge.png" alt=""><figcaption><p>Email MFA screen 2</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-email-challenge.png" alt="The Multi-Factor Auth Verification page asking for the code sent by email, with a Verify button."><figcaption><p>Email MFA screen 2</p></figcaption></figure>
 
 {% hint style="info" %}
 You can change the look and feel of forms using [custom pages](../../branding/README.md#custom-pages). The enrollment form must send the email address using the `email` parameter.

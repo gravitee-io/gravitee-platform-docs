@@ -4,7 +4,6 @@ SUMMARY.md
 getting-started/install-and-upgrade-guides/configure-a-production-ready-am-environment.md
 
 guides/applications/README.md
-guides/applications/application-types.md
 guides/authorization-engines/authzen.md
 guides/certificates/README.md
 guides/certificates/aws-cloudhsm-plugin.md

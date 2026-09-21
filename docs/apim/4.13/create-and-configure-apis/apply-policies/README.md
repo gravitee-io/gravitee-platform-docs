@@ -1,5 +1,5 @@
 ---
-description: An overview about apply policies.
+description: Policies are customizable rules the API Management 4.13 Gateway runs during an API transaction. Compare policy support across v2 and v4 APIs.
 metaLinks:
   alternates:
     - ./

@@ -1,5 +1,5 @@
 ---
-description: An overview about quick start guide.
+description: Manage API Management 4.9 entities with Terraform instead of manual Console updates. Follow the steps to install the Gravitee provider.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/terraform/quick-start-guide

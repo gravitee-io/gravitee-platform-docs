@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Connect Gamma to a model provider or to Azure AI Foundry so their models import into the Catalog, then keep those models in sync. Follow the steps to connect an integration.
+description: An integration connects Gamma to an upstream AI platform so its models import into the AI Models catalog. Follow the steps to connect one.
 ---
 
 # Connect integrations
@@ -15,6 +15,8 @@ Gamma offers two kinds of model integration, and they differ in where the list o
 **Model provider.** Gamma carries a registry of model providers. Selecting one records that provider's base URL, request format, and authentication type on the connection, and the models you can import are the ones the registry lists. Connecting a model provider takes no credentials.
 
 **Azure AI Foundry.** Gamma calls the Azure Resource Manager API with the credentials you supply and lists the model deployments in your Azure AI Foundry account. Only deployments whose provisioning state is `Succeeded` are offered for import.
+
+This page covers the integrations that import models. To connect an Azure AI Foundry project or a Gemini Enterprise Agent Platform project for the agents it hosts, see [Connect an agent platform](connect-an-agent-platform.md).
 
 A connection never stores the credential that reaches the provider. You supply that credential on each LLM Proxy that routes to the imported models. See [Create an LLM Proxy](../build/create-an-llm-proxy.md).
 
@@ -143,6 +145,8 @@ To verify an integration is connected as expected, follow these steps:
 3. Click **Add provider**.
 4. On the **Choose source type** step, select the same provider again.
 5. Click **Next**, and confirm the models you already imported carry an **Already imported** badge.
+
+<figure><img src="../.gitbook/assets/gamma-aim-models-list.png" alt="The AI Models page listing the imported models, each with its Source and Provider columns, and the Add provider button"><figcaption><p>The AI Models page after a provider was connected</p></figcaption></figure>
 
 ## Next steps
 

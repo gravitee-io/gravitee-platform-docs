@@ -1,5 +1,5 @@
 ---
-description: An overview about support.
+description: Gravitee encourages you to engage your team first if your API Management 4.13 installation has issues. Learn what support covers.
 metaLinks:
   alternates:
     - support.md
@@ -23,10 +23,10 @@ You can create and list a subject that is related to an application or API. A su
 {% tab title="Using APIM Console" %}
 1.  Click the user icon on the right of the Management Console header, then click **Support**
 
-    <figure><img src="../../.gitbook/assets/support_console menu.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_console menu.png" alt="The account menu open in the API Management console, listing My account, Task, Support, and Sign out."><figcaption></figcaption></figure>
 2.  Use the drop-down menus and text fields to enter the ticket details
 
-    <figure><img src="../../.gitbook/assets/support_console ticket.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_console ticket.png" alt="The Support ticket creation page, with empty fields for the API, application, subject, and content."><figcaption></figcaption></figure>
 3. Choose whether to receive a copy of the email, then click **CREATE**
 {% endtab %}
 
@@ -37,10 +37,10 @@ You can send a message from either the [user menu](support.md#from-the-user-menu
 
 1.  Click the user name on the right of the Developer Portal header, then click **Contact**
 
-    <figure><img src="../../.gitbook/assets/support_portal menu.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_portal menu.png" alt="The developer portal home page with the account menu open, listing My account, Contact, Tickets, Notifications, Administration, and Sign out."><figcaption></figcaption></figure>
 2.  Use the drop-down menus and text fields to enter the ticket details
 
-    <figure><img src="../../.gitbook/assets/support_portal ticket.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_portal ticket.png" alt="The Contact page of the developer portal account area, with empty fields for the associated API, application, subject, and request."><figcaption></figcaption></figure>
 3. Choose whether to receive a copy of the email, then click **SEND YOUR REQUEST**
 
 **From the API menu**
@@ -49,10 +49,10 @@ You can send a message from the current API.
 
 1.  From the API header menu, click the **Contact** tab
 
-    <figure><img src="../../.gitbook/assets/support_api menu.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_api menu.png" alt="The General information tab of an API in the developer portal, with the Contact tab circled and a review form below."><figcaption></figcaption></figure>
 2.  Use the drop-down menu and text fields to enter the ticket details
 
-    <figure><img src="../../.gitbook/assets/support_api ticket.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_api ticket.png" alt="The Contact tab of an API in the developer portal catalogue, with empty fields for the associated application, subject, and request."><figcaption></figcaption></figure>
 3. Choose whether to receive a copy of the email, then click **SEND YOUR REQUEST**
 {% endtab %}
 {% endtabs %}
@@ -63,13 +63,13 @@ You can send a message from the current API.
 {% tab title="Using APIM Console" %}
 1.  Click the user icon on the right of the Management Console header, then click **Support**
 
-    <figure><img src="../../.gitbook/assets/support_console menu.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_console menu.png" alt="The account menu open in the API Management console, listing My account, Task, Support, and Sign out."><figcaption></figcaption></figure>
 2.  From the ticket creation page, click **See ticket history**
 
-    <figure><img src="../../.gitbook/assets/see tix history.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/see tix history.png" alt="The Support ticket creation page, with the See tickets history link circled beside the heading."><figcaption></figcaption></figure>
 3.  Any tickets you have created will appear as entries in the list. To view the details of a ticket, click the eye icon.
 
-    <figure><img src="../../.gitbook/assets/back to tix history.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/back to tix history.png" alt="The Tickets history page, showing an empty table with columns for date, API, application, and subject."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Using the Developer Portal" %}
@@ -79,7 +79,7 @@ You can send a message from either the [user menu](support.md#from-the-user-menu
 
 1.  Click the user name on the right of the Developer Portal header, then click **Tickets**
 
-    <figure><img src="../../.gitbook/assets/support_tix in portal.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_tix in portal.png" alt="The General information tab of an API in the developer portal with the account menu open and Tickets highlighted."><figcaption></figcaption></figure>
 2. Click a ticket entry in the list to view the ticket details and any messages
 
 **From the API menu**
@@ -88,7 +88,7 @@ You can view your tickets from the current API.
 
 1.  From the API header menu, click the **Tickets** tab
 
-    <figure><img src="../../.gitbook/assets/support_tix from api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_tix from api.png" alt="The General information tab of an API in the developer portal, with the Tickets tab circled and a review form below."><figcaption></figcaption></figure>
 2. Click a ticket entry in the list to view the ticket details and any messages
 {% endtab %}
 {% endtabs %}

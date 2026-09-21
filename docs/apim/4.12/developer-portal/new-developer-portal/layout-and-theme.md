@@ -1,5 +1,5 @@
 ---
-description: Documentation about layout and theme in the context of APIs.
+description: Select the fonts and set the layout and theme of the New Developer Portal 4.12. Follow the steps to change how the portal appears.
 ---
 
 # Layout and Theme
@@ -11,16 +11,16 @@ To select fonts for the New Developer Portal, complete the following steps:
 
 1.  From the Console homepage, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a.jpeg" alt="The API Management console dashboard with Settings highlighted in the left navigation menu."><figcaption></figcaption></figure>
 2.  From the **Settings** menu, click **Settings.**
 
-    <figure><img src="../../.gitbook/assets/A19B0A93-5568-4136-AC4C-7956574C28ED.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A19B0A93-5568-4136-AC4C-7956574C28ED.jpeg" alt="The portal Analytics settings page listing platform and API dashboards, with Settings highlighted in the portal menu."><figcaption></figcaption></figure>
 3.  Navigate to the **New Developer Portal** section, and then click **Open Settings** to open the settings in a new tab.
 
-    <figure><img src="../../.gitbook/assets/8F20A23D-0B5B-4863-B454-6AA244B820AC_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/8F20A23D-0B5B-4863-B454-6AA244B820AC_1_201_a.jpeg" alt="The portal settings page scrolled to the New Developer Portal section, with the portal enabled and the Open Settings button highlighted."><figcaption></figcaption></figure>
 4.  In the **Customization** menu, click **Theme**.
 
-    <figure><img src="../../.gitbook/assets/D15564EE-4952-4032-A48C-109585617DDC.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/D15564EE-4952-4032-A48C-109585617DDC.jpeg" alt="The developer portal Theme customization page, with Theme highlighted in the menu, logo and favicon uploads, a font selection, a primary colour, and a live preview."><figcaption></figcaption></figure>
 5. Navigate to the **Font** section of the page.
 6.  From the **Font** drop-down menu, select a new font. For a list of available fonts, see [#available-fonts](layout-and-theme.md#available-fonts "mention").
 
@@ -77,16 +77,16 @@ You can add custom CSS to your Developer Portal's theme with the Advanced CSS ed
 
 1.  From the Dashboard, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a.jpeg" alt="The API Management console dashboard with Settings highlighted in the left navigation menu."><figcaption></figcaption></figure>
 2.  In the **Settings** menu, navigate to the **Portal** section, and then click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/A19B0A93-5568-4136-AC4C-7956574C28ED.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A19B0A93-5568-4136-AC4C-7956574C28ED.jpeg" alt="The portal Analytics settings page listing platform and API dashboards, with Settings highlighted in the portal menu."><figcaption></figcaption></figure>
 3.  Navigate to the **New Developer Portal** section, and then click **Open Settings** to open the settings in a new tab.
 
-    <figure><img src="../../.gitbook/assets/8F20A23D-0B5B-4863-B454-6AA244B820AC_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/8F20A23D-0B5B-4863-B454-6AA244B820AC_1_201_a.jpeg" alt="The portal settings page scrolled to the New Developer Portal section, with the portal enabled and the Open Settings button highlighted."><figcaption></figcaption></figure>
 4.  In the **Customization** menu, click **Theme**.
 
-    <figure><img src="../../.gitbook/assets/D15564EE-4952-4032-A48C-109585617DDC.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/D15564EE-4952-4032-A48C-109585617DDC.jpeg" alt="The developer portal Theme customization page, with Theme highlighted in the menu, logo and favicon uploads, a font selection, a primary colour, and a live preview."><figcaption></figcaption></figure>
 5.  Navigate to the **Advanced CSS** section, and then click **Advanced CSS**.
 
     <figure><img src="../../.gitbook/assets/877903E7-5E8E-461A-83EF-A8869EE935B2_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>

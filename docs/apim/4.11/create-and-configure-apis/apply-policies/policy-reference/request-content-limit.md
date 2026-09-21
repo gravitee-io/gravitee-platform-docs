@@ -1,5 +1,5 @@
 ---
-description: An overview about request content limit.
+description: The Request Content Limit policy caps the request content length API Management 4.11 accepts. Learn how to configure the maximum.
 metaLinks:
   alternates:
     - request-content-limit.md

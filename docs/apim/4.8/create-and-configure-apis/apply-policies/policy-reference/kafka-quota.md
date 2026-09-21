@@ -1,5 +1,5 @@
 ---
-description: An overview about kafka quota.
+description: The Kafka Quota policy enforces limits on the data Kafka clients exchange through API Management 4.8. Learn how to configure quotas.
 ---
 
 # Kafka Quota

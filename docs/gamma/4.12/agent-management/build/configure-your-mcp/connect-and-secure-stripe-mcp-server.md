@@ -1,5 +1,5 @@
 ---
-description: Connect Stripe's MCP server to Gravitee, withhold the tool that performs
+description: The Stripe MCP server exposes a tool that can write through any Stripe API operation. Follow the steps to secure it behind a Gamma MCP Proxy.
   every write, and deny refunds per caller. Follow the steps to get started.
 ---
 

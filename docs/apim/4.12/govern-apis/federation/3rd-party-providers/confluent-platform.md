@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - confluent-platform.md
+description: Federate APIs from Confluent Platform, the event streaming platform built on Kafka, into API Management 4.12. Learn how it works.
 ---
 
 # Confluent Platform
@@ -33,10 +34,10 @@ To integrate Confluent Platform with Gravitee APIM, complete the following steps
 
 1.  From the Dashboard, click **Integrations**.<br>
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-16-1-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-16-1-1.png" alt="The API Management console dashboard with Integrations highlighted in the left navigation menu."><figcaption></figcaption></figure>
 2.  Click **Create Integration**.<br>
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2.png" alt="The Integrations page in the API Management console, with the Create Integration button highlighted above a table of existing integrations."><figcaption></figcaption></figure>
 3.  Select **Confluent Platform**, and then click **Next**.<br>
 
     <figure><img src="../../../.gitbook/assets/confluent-click-next.png" alt=""><figcaption></figcaption></figure>

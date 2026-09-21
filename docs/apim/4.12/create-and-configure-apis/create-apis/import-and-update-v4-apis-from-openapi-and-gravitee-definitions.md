@@ -1,5 +1,5 @@
 ---
-description: Import a Gravitee v4 API definition or an OpenAPI Specification to create or update v4 APIs.
+description: Create or update a v4 API Management 4.12 API by importing a Gravitee definition or an OpenAPI spec. Compare the import formats.
 ---
 
 # Import and Update v4 APIs from OpenAPI and Gravitee Definitions

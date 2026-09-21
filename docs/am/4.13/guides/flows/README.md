@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/flows
+description: Flows extend Access Management 4.13 by running policies at selected stages of a request. Learn the execution context and how to configure one.
 ---
 
 # Flows
@@ -24,7 +25,7 @@ The following example retrieves `Execution Context` data using the [Gravitee Exp
 ```
 {% endcode %}
 
-<figure><img src="../../.gitbook/assets/guide-flows-readme-157.png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-flows-readme-157.png" alt="The domain flow designer with the Login flow selected, an HTTP Callout policy in the pre-login phase and Enrich User Profile in the post-login phase, the flow configuration open below, and the policy list on the right."><figcaption><p>Policy Studio</p></figcaption></figure>
 
 ## Flow configuration
 

@@ -1,5 +1,5 @@
 ---
-description: An overview about gateway resource sizing.
+description: Resource recommendations for an API Management 4.8 Gateway instance, based on traffic and deployment context. Learn how to size it.
 ---
 
 # Gateway Resource Sizing

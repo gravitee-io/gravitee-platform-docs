@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Send a one-way announcement to the consumers of an LLM Proxy, MCP Proxy, or A2A Proxy about a change, an update, or a maintenance window. Follow the steps to compose one.
+description: Send a one-way announcement to the consumers of a Gamma LLM, MCP, or A2A Proxy. Follow the steps to open Broadcasts and send one.
 ---
 
 # Broadcast messages to proxy consumers
@@ -15,7 +15,7 @@ Each LLM Proxy, MCP Proxy, and A2A Proxy detail view includes a **Broadcasts** p
 3. Select the proxy whose consumers you want to reach.
 4. Under **Consumer Access**, select **Broadcasts**.
 
-<figure><img src="../.gitbook/assets/gamma-aim-broadcasts.png" alt=""><figcaption><p>The Broadcasts page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-broadcasts.png" alt="The introduction card, showing a broadcast travelling from an admin to subscribers."><figcaption><p>The Broadcasts page</p></figcaption></figure>
 
 Until you compose a broadcast, the page shows an introduction to broadcasts instead of the form.
 
@@ -34,7 +34,7 @@ To send a broadcast, follow these steps:
 5. Enter the **Message**, up to 4,000 characters. A counter under the field shows the remaining characters.
 6. Click **Send**. The button stays disabled until the form is valid.
 
-<figure><img src="../.gitbook/assets/gamma-aim-broadcast-compose.png" alt=""><figcaption><p>The Compose broadcast form</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-broadcast-compose.png" alt="Channel, recipients, title, and message are all required, with a 4,000 character counter."><figcaption><p>The Compose broadcast form</p></figcaption></figure>
 
 Switching the channel clears the fields that belong to the previous channel, so a title entered for a portal notification doesn't travel with an HTTP broadcast.
 

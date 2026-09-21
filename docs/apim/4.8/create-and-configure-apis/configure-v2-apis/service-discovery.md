@@ -1,5 +1,5 @@
 ---
-description: An overview about service discovery.
+description: Bind the backend endpoints of an API Management 4.8 API to a HashiCorp Consul service. Follow the steps to configure discovery.
 ---
 
 # Service Discovery
@@ -93,7 +93,7 @@ curl -X PUT -d '{ "ID": "whattimeisit_1", "Name": "whattimeisit", "Address": "ap
 
 The Consul web UI should display a new service named `whattimeisit`:
 
-<figure><img src="../../.gitbook/assets/service-discovery-consul-services.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/service-discovery-consul-services.png" alt="A service registry listing three healthy services, each with one instance."><figcaption></figcaption></figure>
 
 You can also verify that your service is successfully registered in Consul by interacting with Consul Agent API.
 

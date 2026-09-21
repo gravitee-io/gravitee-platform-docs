@@ -1,84 +1,165 @@
 ---
-hidden: true
-noIndex: true
-description: >-
-  Activate the built-in EU AI Act compliance framework, read the compliance
-  score it computes for every agent, and remediate the controls that fail.
+description: Activate the built-in EU AI Act framework, read the verdict it computes for every agent, close the gaps it lists on an agent, and export the evidence for an auditor. Follow the steps to activate the framework and remediate an agent.
 ---
 
 # Score agent compliance with the EU AI Act framework
 
-## Overview
+A compliance framework measures the environment against a regulation. The built-in **EU AI Act** framework holds 15 controls. Once it's active, every agent in the environment is scored against them. The framework's own page scores the whole estate, and each agent's **Compliance** page scores that agent alone.
 
-Compliance frameworks turn regulatory requirements into a live, continuously computed property of your agent estate. A framework is a set of controls, and every agent in the catalog is scored against the controls of each framework you activate.
+The framework measures and doesn't enforce. A control is met by a fact recorded on the agent, by a policy the platform reads on the proxies the agent depends on, or by a person marking it as done. Nothing on the framework's pages installs a policy or changes an agent.
 
-The score is computed from two evidence sources:
+## What the framework checks
 
-* **Declared metadata**: what the agent's catalog entry states about it, for example its intended purpose and its risk classification.
-* **Enforced gateway controls**: the policies that are actually installed on the proxy linked to the agent. Because the Gateway proxies the agent's traffic, this half of the score reflects controls that are enforced at runtime, not controls that are merely claimed.
+Each control is answered from one place. The controls answered from the agent's record are recorded on the agent's **Compliance** page. The controls answered from the proxies are read by the platform, as long as it has something to read. Without an application, without a gateway-mediated call in the last 24 hours, or without an LLM Proxy, those controls read **Not assessed** instead. The controls answered elsewhere can't be read by the platform yet. A control that reads **Not assessed** doesn't count against the score until someone marks it as done, whichever place it's answered from.
 
-An agent that has no linked proxy can still be scored on its declared metadata. Its gateway controls can't be evidenced until a proxy is linked.
+<table>
+    <thead>
+        <tr>
+            <th width="230">Control</th>
+            <th>What meets it</th>
+            <th width="180">Answered from</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Risk classification</strong></td>
+            <td>The agent is rated on its Overview page. See <a href="rate-an-agents-risk-level.md">Rate an agent's risk level</a>.</td>
+            <td>The agent's record</td>
+        </tr>
+        <tr>
+            <td><strong>Intended purpose</strong></td>
+            <td>A statement of at least 20 characters.</td>
+            <td>The agent's record</td>
+        </tr>
+        <tr>
+            <td><strong>Provider and version</strong></td>
+            <td>A value of at least 3 characters.</td>
+            <td>The agent's record</td>
+        </tr>
+        <tr>
+            <td><strong>Accountable human</strong></td>
+            <td>A person picked from the environment's users.</td>
+            <td>The agent's record</td>
+        </tr>
+        <tr>
+            <td><strong>Human oversight measure</strong></td>
+            <td>One of the three measures the field offers.</td>
+            <td>The agent's record</td>
+        </tr>
+        <tr>
+            <td><strong>Known limitations</strong></td>
+            <td>A statement of at least 20 characters.</td>
+            <td>The agent's record</td>
+        </tr>
+        <tr>
+            <td><strong>Risk assessment</strong></td>
+            <td>A value of at least 5 characters.</td>
+            <td>The agent's record</td>
+        </tr>
+        <tr>
+            <td><strong>Event logging</strong></td>
+            <td>The agent's traffic went through a Gravitee proxy in the last 24 hours.</td>
+            <td>The Gateway</td>
+        </tr>
+        <tr>
+            <td><strong>Prompt injection screening</strong></td>
+            <td>The <code>ai-prompt-guard-rails</code> policy is on every LLM Proxy the agent depends on.</td>
+            <td>The LLM Proxies</td>
+        </tr>
+        <tr>
+            <td><strong>Personal data protection</strong></td>
+            <td>The <code>pii-filtering</code> policy is on every LLM Proxy the agent depends on.</td>
+            <td>The LLM Proxies</td>
+        </tr>
+        <tr>
+            <td><strong>Guardian on the model's traffic</strong></td>
+            <td>The <code>ai-guardian</code> policy is on every LLM Proxy the agent depends on.</td>
+            <td>The LLM Proxies</td>
+        </tr>
+        <tr>
+            <td><strong>Transparency disclosure</strong></td>
+            <td>Marked as done by a person.</td>
+            <td>The A2A Proxies, not read yet</td>
+        </tr>
+        <tr>
+            <td><strong>Tool inventory</strong></td>
+            <td>Marked as done by a person.</td>
+            <td>The tool inventory, not read yet</td>
+        </tr>
+        <tr>
+            <td><strong>Authenticated identity</strong></td>
+            <td>Marked as done by a person.</td>
+            <td>The agent identity, not read yet</td>
+        </tr>
+        <tr>
+            <td><strong>Authorization rule</strong></td>
+            <td>Marked as done by a person.</td>
+            <td>The authorization service, not read yet</td>
+        </tr>
+    </tbody>
+</table>
 
-{% hint style="info" %}
-The EU AI Act framework is built in and requires no configuration. You activate it, and every agent in the environment is scored against it.
-{% endhint %}
+The proxies an agent depends on are the ones its lineage links to it through its application. An agent with no proxy has nothing for the proxy-read controls to check.
 
-## The EU AI Act framework controls
+## How a verdict is computed
 
-The framework contains four required controls. Three are evidenced from the agent's catalog metadata, and one is evidenced from the gateway.
+On an agent, every control ends in one of five states:
 
-<table><thead><tr><th width="220">Control</th><th>What satisfies it</th><th width="160">Evidence source</th></tr></thead><tbody><tr><td>Accountable Human</td><td>A natural person is designated as accountable for the AI system's operation and outcomes.</td><td>Catalog metadata</td></tr><tr><td>Intended Purpose</td><td>The intended purpose of the AI system is documented in clear language. A description shorter than 20 characters doesn't satisfy the control.</td><td>Catalog metadata</td></tr><tr><td>Risk Classification</td><td>The system is classified under one of the EU AI Act risk tiers: <code>minimal</code>, <code>limited</code>, <code>high</code>, or <code>unacceptable</code>. The <code>unacceptable</code> tier is a blocking value, because unacceptable risk systems must not be deployed.</td><td>Catalog metadata</td></tr><tr><td>Transparency Disclosure</td><td>A disclosure policy is installed on the agent's linked proxy, so users are informed that they're interacting with an AI system.</td><td>Gateway</td></tr></tbody></table>
+* **Met**. The evidence is there.
+* `Gap`. The evidence is missing, too short, or absent from at least one of the proxies it's read from.
+* **Blocking**. The evidence names a value the control refuses. No control of the EU AI Act framework declares such a value, so none of them reaches this state.
+* **Recorded**. A person marked the control as done. It counts as met, and the framework page says how many controls were recorded by hand.
+* **Not assessed**. The platform can't read the control, because it's answered elsewhere, or because the agent has no application, no gateway-mediated call in the last 24 hours, or no LLM Proxy to read it from, and nobody marked it as done. It's left out of the score.
 
-## Read the compliance score
-
-Each control the framework assesses receives a status:
-
-* **Satisfied**: the evidence for the control is present.
-* **Missing**: the evidence is absent, for example a required metadata field is empty or too short.
-* **Blocking**: the evidence is present but names a value that must not be deployed, for example an `unacceptable` risk classification.
-* **Not assessed**: the platform has no automated check for the control, so it doesn't count toward the score.
-
-The framework's score is the percentage of assessed controls that are satisfied. The framework is compliant when the score meets its compliance threshold, which defaults to 100 percent for the EU AI Act framework.
-
-The agent's overall status summarizes every active framework:
-
-* `Compliant`: the agent meets every active framework.
-* `Partially compliant`: the agent meets some active frameworks but not all.
-* `Non-compliant`: the agent meets none of the active frameworks.
-* `Not assessed`: no framework is active in the environment.
-
-<!-- TODO: Screenshot of the compliance dashboard showing the EU AI Act framework card with per-agent scores -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-compliance-dashboard-eu-ai-act.png" alt=""><figcaption><p>The compliance dashboard scores every agent in the environment against the active frameworks.</p></figcaption></figure>
-
-Each agent's catalog entry also carries its own compliance view. It drills down into which controls passed, which failed, and which weren't assessed, so the score is explainable rather than opaque.
-
-<!-- TODO: Screenshot of an agent's Compliance tab showing the per-control drill-down -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-agent-compliance-tab-drilldown.png" alt=""><figcaption><p>The agent's compliance view explains the score control by control.</p></figcaption></figure>
+The percentage of controls met is counted over the assessed controls only. The result is **Passed** when every assessed control is met or recorded, and **Failed** otherwise. An agent with nothing assessed reads **Not assessed**.
 
 ## Activate the framework
 
-Activation is scoped to the environment. Once the framework is active, every agent in the environment is scored against it, and deactivating it stops the scoring without deleting any agent metadata.
-
-<!-- TODO: verify label in Console UI — the steps and figure below were verified on 2026-09-03 against the Agent Management module's compliance console change (AIAM-489), which hasn't merged yet. Re-verify when it ships. -->
-
 1. From the Gamma console sidebar, select **Agent Management**.
-2. In the **Govern** section of the sidebar, select **Compliance**.
-3. On the **EU AI Act** card, turn on the switch. Its label changes from **Inactive** to **Active**, and the **Compliance threshold** field appears.
-4. Optional: to change the threshold, enter a whole number from 1 to 100 in **Compliance threshold**, and then click **Save**. Until you save a different value, the field shows the framework's recommended threshold of 100 percent.
+2. In the **Govern** section of the sidebar, select **Compliance**. The page lists the frameworks and the custom rulesets of the environment with their **Type**, **Result**, **Controls met**, and whether each one is **Active**.
+3. Click **EU AI Act**. The framework's page opens.
+4. Turn on the **Active** switch.
 
-<figure><img src="../.gitbook/assets/gamma-aim-compliance-eu-ai-act-active.png" alt="The Compliance page in the Gamma console with the EU AI Act framework card switched to Active and its Compliance threshold field showing 100 percent"><figcaption><p>The Compliance page lists the built-in frameworks. The EU AI Act framework is active for this environment, with its compliance threshold set to 100 percent.</p></figcaption></figure>
+An **EU AI Act activated** notification appears. From then on the page scores the estate, and the framework appears on every agent's **Compliance** page. Turning the switch off stops the scoring and lists the framework as **Inactive**.
 
-## Remediate a failing control
+<figure><img src="../.gitbook/assets/gamma-aim-compliance-eu-ai-act.png" alt="The EU AI Act framework page with the Active switch on, the Overall result and Controls met facts, the Frameworks do not enforce policies alert, and the Agents table listing each scored agent with its Classification, Compliance owner, Result, and Controls met"><figcaption><p>The EU AI Act framework page scoring the estate</p></figcaption></figure>
 
-Scoring tells you where an agent falls short. Remediation closes the loop in two ways, depending on the control's evidence source:
+The framework's page reads as follows:
 
-* **Metadata controls**: edit the agent's catalog entry and provide the missing information, for example designate the accountable human or document the intended purpose.
-* **Gateway controls**: apply the missing policies directly. When you apply the recommended controls, the platform installs the missing policies on the agent's linked proxy.
+* **Overall result** is **Passed** or **Failed** for the estate, and **Controls met** is the share of controls met across it, with the number recorded by hand when someone marked one as done. Before anything is scored it reads **Nothing could be scored yet.**
+* An alert reads **Frameworks do not enforce policies**.
+* The **Agents** table lists every scored agent with its **Classification**, its **Compliance owner** (**No owner** until one is named), its **Result**, and its **Controls met** as a percentage over the assessed controls.
+* **Close the gaps** lists the controls that are open across the estate and how many agents each one is open on, with an **Open overview** or **Open compliance** link to the agent. When nothing is open it reads **Every assessed agent meets every control that applies to it.**
+* **Where controls are enforced** lists each control with what it's **Satisfied by** and where it's **Enforced at**, including the policy that answers it.
 
-Applying gateway controls requires a linked proxy. If the agent isn't linked to a proxy, link one first, then apply the controls.
+## Close an agent's gaps
 
-<!-- TODO: Screenshot of the remediation recommendations with the apply action -->
+1. In the **Catalog** section of the sidebar, select **Agents**, and then click the agent's name.
+2. Under **Governance**, click **Compliance**. The page lists every active framework and custom ruleset with the agent's **Result** and **Controls met** for each.
+3. Click **EU AI Act**.
+4. Under **Close the gaps · record here**, fill in each open fact in its field and click **Save**. Recording the fact is the control.
+5. Under **Close the gaps · done elsewhere**, act on each open control:
+   * A control read from the proxies reads **Missing on &lt;n&gt; of &lt;m&gt; proxies**. Click **Open policy studio** to add the policy on the proxy, and the control is met on the next read.
+   * A control the platform can't read reads **Enforced at &lt;surface&gt;, which Gravitee cannot check yet, so it does not count against the score.** This is also where a proxy-read control lands while the agent has nothing for the platform to read. Click the link to reach the surface, and once it's done, click **Mark as done**. The control turns **Recorded**.
 
-<figure><img src="../.gitbook/assets/PLACEHOLDER-compliance-remediation-apply.png" alt=""><figcaption><p>Remediation turns a score into a list of actions, and gateway controls can be applied directly.</p></figcaption></figure>
+The page also carries a **Classification** tile with an **Open Overview** link, because the rating is set on the agent's Overview page, and a **Compliance owner** tile with a **Name** or **Change** action to name the person accountable for the agent's compliance. **Show table** opens the full list of controls with where each one is **Enforced at** and its **Answer**.
+
+<figure><img src="../.gitbook/assets/gamma-aim-agent-compliance-eu-ai-act.png" alt="An agent's Compliance page for the EU AI Act framework: the EU AI Act tile with its result, the Classification tile with its Open Overview link, the Compliance owner tile with its Name action, and the Close the gaps · record here card"><figcaption><p>An agent's Compliance page for the EU AI Act framework</p></figcaption></figure>
+
+## Export the evidence for an auditor
+
+On the framework's page, click **Export evidence for an auditor**. The page that opens is titled **EU AI Act · Evidence** and lists which controls are met and where each is enforced, as of the moment it was generated. It isn't a certification.
+
+## Score over the API
+
+The same assessment is served by the module's REST API, for a dashboard or a report of your own:
+
+* `GET /gamma/organizations/{orgId}/environments/{envId}/modules/aim/compliance/assessment` scores every agent of the environment in one pass against everything activated there.
+* `GET /gamma/organizations/{orgId}/environments/{envId}/modules/aim/compliance/agents/{agentId}/assessment` scores one agent against everything activated there.
+
+Both paths are relative to the Management API's base URL, and the calls take the same authentication as the Management API.
+
+## Next steps
+
+* [Rate an agent's risk level](rate-an-agents-risk-level.md). The framework's first control.
+* [Create a custom compliance ruleset](create-a-custom-compliance-ruleset.md). Add checks of your own beside the framework.

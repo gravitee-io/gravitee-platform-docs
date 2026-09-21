@@ -1,5 +1,5 @@
 ---
-description: An overview about debug logging.
+description: API Management 4.12 supports standard Java logging per component, plus debug logging for specific areas. Learn how to enable it.
 metaLinks:
   alternates:
   - debug-logging.md

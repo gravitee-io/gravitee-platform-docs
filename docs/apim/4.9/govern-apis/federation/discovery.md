@@ -1,5 +1,5 @@
 ---
-description: An overview about discovery.
+description: Discovery is how an integration connects to a third-party management API and finds its assets for API Management 4.9. Learn the process.
 metaLinks:
   alternates:
     - >-

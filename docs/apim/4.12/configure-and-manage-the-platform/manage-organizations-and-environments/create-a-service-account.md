@@ -1,5 +1,5 @@
 ---
-description: Create a service account in Gravitee API Management for non-human authentication.
+description: A service account is a non-human API Management 4.12 user for automated tools and integrations. Follow the steps to create one.
 metaLinks:
   alternates:
     - create-a-service-account.md

@@ -35,7 +35,7 @@ Then, select Documentation under the Portal section. You'll have two main ways t
 
 ## Create API documentation
 
-To create API documentation, select the <img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="" data-size="line"> icon. Then, select your preferred format, and create the documentation. Choose your preferred documentation format.
+To create API documentation, select the <img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="A round dark blue button with a white plus sign, used to add a new item." data-size="line"> icon. Then, select your preferred format, and create the documentation. Choose your preferred documentation format.
 
 After you choose your format, you'll need to:
 

@@ -1,5 +1,5 @@
 ---
-description: An overview about set up an ai agent (a2a) proxy.
+description: As organizations adopt AI agents, an API Management 4.9 A2A proxy connects them securely. Follow the steps to create a proxy of your own.
 metaLinks:
   alternates:
     - >-
@@ -38,7 +38,7 @@ Truly intelligent agents need access to both synchronous (request-response) and 
 
 1.  From the **Dashboard**, click **APIs.**
 
-    <figure><img src="../.gitbook/assets/3AFC7359-4334-44DE-A2AA-3732BE173718_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/3AFC7359-4334-44DE-A2AA-3732BE173718_1_201_a.jpeg" alt="The console dashboard with APIs highlighted in the left navigation, showing summary counts and pie charts for API lifecycle state and API state."><figcaption></figcaption></figure>
 2.  Click **+Add API**.
 
     <figure><img src="../.gitbook/assets/4C33F7FA-43E1-43DB-86E4-3322A25B012A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>

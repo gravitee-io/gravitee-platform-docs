@@ -1,5 +1,5 @@
 ---
-description: An overview about configure secrets.
+description: The options API Management 4.8 offers for protecting sensitive information. Browse them and choose the one that suits you.
 ---
 
 # Configure Secrets

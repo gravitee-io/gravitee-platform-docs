@@ -1,5 +1,5 @@
 ---
-description: Overview of Administration.
+description: Organizations and environments structure an Access Management 4.8 installation, with roles and permissions on each. Learn how the two fit together.
 ---
 
 # Administration
@@ -50,7 +50,7 @@ In order to limit the scope of the roles, scopes are bound to what we call an `a
 * `DOMAIN` — role for a security domain
 * `APPLICATION` — role for an application
 
-<figure><img src="../.gitbook/assets/graviteeio-am-adminguide-roles-permissions.png" alt=""><figcaption><p>Roles</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/graviteeio-am-adminguide-roles-permissions.png" alt="The Roles page listing owner, primary owner, and user roles grouped by application, domain, environment, and organization scope, each tagged default or system."><figcaption><p>Roles</p></figcaption></figure>
 
 ### Role
 
@@ -237,7 +237,7 @@ Let’s imagine we want to create a reviewer role, which allows a user to check 
    * Name : `REVIEWER_APPLICATION`
    *   Description : `Read-only role`
 
-       <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-new-role.png" alt=""><figcaption><p>Creating a new role</p></figcaption></figure>
+       <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-new-role.png" alt="The New Role form with the assignable type set to APPLICATION and a role name and description entered, beside guidance on role scopes."><figcaption><p>Creating a new role</p></figcaption></figure>
 2. Click **CREATE**.
 
 ### Configure the `REVIEWER_APPLICATION` role
@@ -246,19 +246,19 @@ You must give `READ` permissions to all sections of your application. This allow
 
 Click **SAVE** to store the changes.
 
-<figure><img src="../.gitbook/assets/graviteeio-am-adminguide-role-configure.png" alt=""><figcaption><p>Configure a role</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/graviteeio-am-adminguide-role-configure.png" alt="The role configuration page with a permissions matrix of create, read, list, update, and delete columns against application resources, with only read selected."><figcaption><p>Configure a role</p></figcaption></figure>
 
 ### Result
 
 Go to your application **Administrative roles** settings section and add a new member with the `REVIEWER_APPLICATION` role. The user `Reviewer User` now has read access to your application.
 
-<figure><img src="../.gitbook/assets/graviteeio-am-adminguide-role-member.png" alt=""><figcaption><p>Reviewer application role</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/graviteeio-am-adminguide-role-member.png" alt="The Administrative roles tab of an application, listing two users and one group with their assigned roles."><figcaption><p>Reviewer application role</p></figcaption></figure>
 
 ## Users
 
 When users log in to AM Console, they are listed in the **Users** section of the **Global settings** menu.
 
-<figure><img src="../.gitbook/assets/graviteeio-am-adminguide-users.png" alt=""><figcaption><p>User overview</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/graviteeio-am-adminguide-users.png" alt="The organization Users page listing two administrator accounts with their identity provider and last login."><figcaption><p>User overview</p></figcaption></figure>
 
 If you select a user, you have access to detailed account information and will be able to manage the user’s permissions and groups via with the **Administrative roles** and **Groups** sections.
 
@@ -276,7 +276,7 @@ In the example below, we will create a `FOO Team` group where you can put all me
 4. Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 5.  Enter the details of the group.
 
-    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-new-group.png" alt=""><figcaption><p>Group details</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-new-group.png" alt="The New Group form with a group name entered and an empty description, above Cancel and Create."><figcaption><p>Group details</p></figcaption></figure>
 6. Click **CREATE**.
 
 ### Configure group members
@@ -285,13 +285,13 @@ In the example below, we will create a `FOO Team` group where you can put all me
 2. Click the **Members** tab.
 3.  Add a user by clicking **+ Add members**.
 
-    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-new-group-members.png" alt=""><figcaption><p>Add members to group</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-new-group-members.png" alt="The Add members dialog on a group&#x27;s Members tab, with a username search showing two matching administrator accounts."><figcaption><p>Add members to group</p></figcaption></figure>
 
 ### Add the group to an application
 
 Go to the Application you want to modify and click **Administrative roles**.
 
-<figure><img src="../.gitbook/assets/graviteeio-am-adminguide-application-group-members.png" alt=""><figcaption><p>Application admins</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/graviteeio-am-adminguide-application-group-members.png" alt="The Administrative roles tab of an application, listing two users and two groups with their assigned roles."><figcaption><p>Application admins</p></figcaption></figure>
 
 Now the members of the group section will have access to the Application with the group role permissions.
 

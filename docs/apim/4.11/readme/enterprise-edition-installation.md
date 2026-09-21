@@ -1,5 +1,5 @@
 ---
-description: Overview of Enterprise Edition installation
+description: Gravitee ships one bundle per product covering Community and Enterprise features. Follow the steps to install API Management 4.11 as Enterprise.
 ---
 
 # Enterprise Edition installation

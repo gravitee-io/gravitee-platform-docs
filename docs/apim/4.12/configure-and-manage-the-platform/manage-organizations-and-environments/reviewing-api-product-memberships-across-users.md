@@ -1,3 +1,7 @@
+---
+description: Review API Product memberships across users from the API Management 4.12 Organization menu. Follow the steps to audit them.
+---
+
 # Reviewing API Product Memberships Across Users
 
 ## Review API Products

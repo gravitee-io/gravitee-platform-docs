@@ -1,3 +1,7 @@
+---
+description: Configure a hybrid API Management 4.13 Gateway that connects to a remote Management API through a proxy. Follow the steps to set it up.
+---
+
 # Hybrid Gateway Proxy Configuration
 
 ## Overview

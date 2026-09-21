@@ -1,5 +1,5 @@
 ---
-description: An overview about applications.
+description: An application represents a consumer of your API Management 4.11 APIs and holds its subscriptions. Learn how applications work.
 metaLinks:
   alternates:
     - applications.md
@@ -328,7 +328,7 @@ To delete an application, the primary owner must:
 4. Select **Global Settings** from the inner left nav
 5.  In the **Danger Zone**, click **Delete**
 
-    <figure><img src="../../.gitbook/assets/delete application.png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/delete application.png" alt="An application&#x27;s settings page showing its name, description, owner, and type, an OAuth2 integration section with an empty client ID, and a Danger Zone offering deletion."><figcaption><p>Delete an application</p></figcaption></figure>
 
 * A deleted application has a status of `ARCHIVED`, meaning:
   * The link to the primary owner of the application is deleted.

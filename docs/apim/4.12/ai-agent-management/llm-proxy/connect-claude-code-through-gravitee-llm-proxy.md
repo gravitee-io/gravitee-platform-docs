@@ -1,5 +1,5 @@
 ---
-description: Configure Claude Code to access Anthropic through a Gravitee LLM Proxy while preserving Claude Code OAuth login.
+description: Connect Claude Code to Anthropic through an API Management 4.12 LLM Proxy while users keep their own subscription. Follow the steps to connect.
 ---
 
 # Connect Claude Code through a Gravitee LLM Proxy

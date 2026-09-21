@@ -1,3 +1,7 @@
+---
+description: Enforce user authentication so only signed-in users can reach your New Developer Portal 4.13. Follow the steps to enable it.
+---
+
 # Enforce User Authentication
 
 ## Overview&#x20;

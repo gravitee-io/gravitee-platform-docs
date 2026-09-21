@@ -1,5 +1,5 @@
 ---
-description: An overview about create and publish an api using the management api.
+description: Create and publish an HTTP proxy API through the Management API in API Management 4.9. Follow the steps from access token to published API.
 metaLinks:
   alternates:
     - >-

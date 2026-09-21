@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/risk-based-mfa
+description: Risk-based MFA decides when Access Management 4.12 challenges a user, from their activity and consent. Follow the steps to activate it.
 ---
 
 # Risk-based MFA
@@ -23,15 +24,15 @@ Adaptive access allows you to choose between 4 MFA strategies:
 
 * **OPTIONAL**: The end user can skip MFA for a given amount of time (default is 10 hours)
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-risk-based-optional.png" alt=""><figcaption><p>Optional MFA</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-risk-based-optional.png" alt="The Activate MFA step set to Optional, with a ten-hour period during which users can skip MFA."><figcaption><p>Optional MFA</p></figcaption></figure>
 
 * **REQUIRED**: The end user will be required to enroll. They will also be challenged at every login.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-risk-based-required.png" alt=""><figcaption><p>Required MFA</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-risk-based-required.png" alt="The Activate MFA step set to Required, with a note that MFA will always be displayed."><figcaption><p>Required MFA</p></figcaption></figure>
 
 * **CONDITIONAL**: The end user will be prompted to enroll and challenge in regard to [Adaptive MFA](adaptive-multi-factor-authentication.md)
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-risk-based-conditional.png" alt=""><figcaption><p>Conditional MFA</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-risk-based-conditional.png" alt="The Activate MFA step set to Conditional, with a warning that a GeoIP service plugin is needed for geoip variables and an empty Adaptive MFA rule field."><figcaption><p>Conditional MFA</p></figcaption></figure>
 
 * **RISK-BASED**: The end user will be intelligently prompted MFA based on risk assessments
   1. `Devices`: Will check the device of the User across the security domain (Remember Device needs to be activated to collect the user’s device)
@@ -42,7 +43,7 @@ Adaptive access allows you to choose between 4 MFA strategies:
 If device assessment is enabled, we won’t prompt MFA with `Remember Device` as it would be redundant
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-risk-based-intelligent.png" alt=""><figcaption><p>Risk-based MFA</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-risk-based-intelligent.png" alt="The Activate MFA step set to Risk-based, with Associated Devices set to Unknown, IP reputation score set to High, and Geolocation Velocity set to Low."><figcaption><p>Risk-based MFA</p></figcaption></figure>
 
 In order to have the GeoVelocity working, you will need:
 

@@ -1,5 +1,5 @@
 ---
-description: An overview about response templates.
+description: Response templates override the default values API Management 4.9 sends back to consumers. Follow the steps to configure one.
 metaLinks:
   alternates:
     - >-
@@ -55,7 +55,7 @@ To configure a response template:
 6. Click on the **Add new Response Template** button
 7.  Customize the **Create a new Response Template** form
 
-    <figure><img src="../../.gitbook/assets/create response template.png" alt=""><figcaption><p>Configure a new response template</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/create response template.png" alt="The Create a new Response Template form, with fields for template key, Accept header, status code, HTTP headers, and body."><figcaption><p>Configure a new response template</p></figcaption></figure>
 
     * **Template key:** Choose the template key via the **Template key** drop-down.
     * **Accept header to match:** Specify the requests header that should trigger use of the response template. The default value is `*/*`. To send the template override values only for JSON or XML requests, specify `JSON` or `XML.`

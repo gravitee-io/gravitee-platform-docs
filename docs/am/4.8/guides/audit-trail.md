@@ -1,5 +1,5 @@
 ---
-description: Overview of Audit Trail.
+description: The Access Management 4.8 audit trail records what users do when they interact with it. Follow the steps to view organization and domain logs.
 ---
 
 # Audit Trail
@@ -25,7 +25,7 @@ To view Organization Audit log:
 1. Log in to AM Console.
 2. Click Ogranization > Audit
 
-<figure><img src="../.gitbook/assets/Organization audit log.png" alt=""><figcaption><p>Organization audit log</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Organization audit log.png" alt="The organization Audit log with event, status, user, and date filters above a table of two audit entries showing date, event, actor, target, and status."><figcaption><p>Organization audit log</p></figcaption></figure>
 
 ### Domain audit logs
 
@@ -34,7 +34,7 @@ Next to Organization audit logs there is a dedicated audit logs for every domain
 1. Log in to AM Console.
 2.  Click **Settings > Audit Log**.
 
-    <figure><img src="../.gitbook/assets/graviteeio-am-userguide-logs-audit.png" alt=""><figcaption><p>Domain audit log</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-userguide-logs-audit.png" alt="The Audit log page with event, status, user, and date filters above a table of audit entries showing date, event, actor, target, and a success or failure status."><figcaption><p>Domain audit log</p></figcaption></figure>
 
 {% hint style="info" %}
 All of this information can also be retrieved with the [AM API.](../reference/am-api-reference.md)
@@ -79,7 +79,7 @@ By default, a reporter is created for each security domain and allows you to cho
 2. Click **Settings > Audit Log**.
 3.  Click the settings icon and configure the reporter.
 
-    <figure><img src="../.gitbook/assets/graviteeio-am-userguide-logs-audit-reporter.png" alt=""><figcaption><p>Configure reporter</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-userguide-logs-audit-reporter.png" alt="The MongoDB Reporter configuration with the reporter enabled and the connection URI, host, port, authentication, database, and collection fields."><figcaption><p>Configure reporter</p></figcaption></figure>
 
 {% hint style="warning" %}
 There is no log retention. It is up to you define a retention window and periodically clear old data.
@@ -97,7 +97,7 @@ It is possible to populate all audit logs from all domains within organization t
 4. Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 5. Select "Log events from all domains in this organization"
 
-<figure><img src="../.gitbook/assets/Global repoerter.png" alt=""><figcaption><p>Global reporter configuration</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Global repoerter.png" alt="An organization file reporter with the Log events from all domains in this organization toggle highlighted and switched on."><figcaption><p>Global reporter configuration</p></figcaption></figure>
 
 This functionality is supported only for **Organization Audit Logs.**
 
@@ -116,10 +116,10 @@ To create a File reporter for a domain:
 3. Click the settings icon ![am settings icon](../.gitbook/assets/am-settings-icon.png).
 4.  Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 
-    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-add-reporter.png" alt=""><figcaption><p>Audit settings</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-add-reporter.png" alt="The Audit settings page listing one enabled MongoDB reporter with its type and a settings icon, above an add button."><figcaption><p>Audit settings</p></figcaption></figure>
 5.  Select **File** as the reporter type and enter the reporter name and file name.
 
-    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-file-reporter.png" alt=""><figcaption><p>Add a file reporter</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-file-reporter.png" alt="The Reporter File configuration with the reporter type set to File, a reporter name, and the filename where the audit information is written."><figcaption><p>Add a file reporter</p></figcaption></figure>
 
 #### Example: ingest audit logs into ElasticSearch
 
@@ -303,10 +303,10 @@ To create a Kafka reporter for a domain:
 3. Click the settings icon ![am settings icon](../.gitbook/assets/am-settings-icon.png).
 4.  Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 
-    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-add-reporter.png" alt=""><figcaption><p>Audit settings</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-add-reporter.png" alt="The Audit settings page listing one enabled MongoDB reporter with its type and a settings icon, above an add button."><figcaption><p>Audit settings</p></figcaption></figure>
 5.  Select **Kafka** as the reporter type and enter the reporter name and file name.
 
-    <figure><img src="../.gitbook/assets/kafka reporter.png" alt=""><figcaption><p>Add a Kafka reporter</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/kafka reporter.png" alt="An empty Kafka reporter configuration with the reporter type set to Kafka and blank bootstrap servers, topic, acks, schema registry, and producer property fields."><figcaption><p>Add a Kafka reporter</p></figcaption></figure>
 6. Provide **Name**, **Bootstrap servers**, **Topic**, **Acks.**
 
 **Schema Registry**
@@ -339,7 +339,7 @@ Kafka reporter sends all messages to separate partitions based on domain id or o
     `sasl.mechanism = PLAIN`
 4. For security reasons, when a username and a password is provided, a `sasl.jaas.config` property is created with following value: `org.apache.kafka.common.security.plain.PlainLoginModule required username="<<value_from_username_field>>" password="<<value_from_password_field>>";`
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-10-31 at 12.23.54.png" alt=""><figcaption><p>SASL/PLAIN configuration</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2024-10-31 at 12.23.54.png" alt="The Kafka reporter configuration with bootstrap servers, topic, acks, schema registry, username and password, and producer properties for the SASL mechanism and security protocol."><figcaption><p>SASL/PLAIN configuration</p></figcaption></figure>
 
 **TLS/SSL encryption**
 
@@ -358,4 +358,4 @@ If Kafka broker is using SSL/TLS encryption, you must add additional steps to se
 
 `ssl.truststore.password = "secret_password"`
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-10-31 at 12.28.24.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2024-10-31 at 12.28.24.png" alt="The Kafka reporter producer properties configured for SASL_SSL, with the SASL mechanism, security protocol, and truststore location and password."><figcaption></figcaption></figure>

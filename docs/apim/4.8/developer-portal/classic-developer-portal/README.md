@@ -1,5 +1,5 @@
 ---
-description: Tutorial on classic developer portal.
+description: The features and functionality of the classic Developer Portal 4.8. Browse the tiles to find the area you need to change.
 ---
 
 # Classic Developer Portal

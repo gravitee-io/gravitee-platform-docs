@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/tutorial-getting-started-with-am/configure-a-flow
+description: Extend Access Management 4.13 with a flow that runs policies during login. Follow the steps to use an HTTP callout and show a consent page.
 ---
 
 # Configure a Flow
@@ -39,7 +40,7 @@ In this example, we will retrieve the username from the execution context `{#con
     * Header: **Name** — `X-Custom-Header` **Value** — `{#context.attributes['user'].username}`
     * Variable: **Name** — `X-Custom-Variable` **Value** — `{#jsonPath(#calloutResponse.content, '$.headers.X-Custom-Header')}`
 
-    <figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-41.png" alt=""><figcaption><p>Poicy Studio and Flows editor</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-41.png" alt="The domain flow designer with an HTTP Callout policy added to the pre-login stage of the Login flow, its settings panel open below."><figcaption><p>Poicy Studio and Flows editor</p></figcaption></figure>
 
 {% code overflow="wrap" %}
 ```sh
@@ -157,7 +158,7 @@ Notice the `<p th:text="'Hi ' + ${#ctx.getVariable('X-Custom-Variable')} + ' !'"
 5. Initiate the login flow by calling the OpenID Connect Authorization Code or Implicit Flow `https://AM_GW_HOST:8092/your-domain/oauth/authorize?client_id=your-client&response_type=token&redirect_uri=http://localhost:4001/login/callback&scope=openid&state=1234`
 6.  After login you will be redirected to the consent page with your custom code.
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-policies-consent-page.png" alt=""><figcaption><p>Custom consent page</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-policies-consent-page.png" alt="An unstyled consent page greeting the user by a custom username and asking them to review the openid permission, with Authorize and Deny buttons."><figcaption><p>Custom consent page</p></figcaption></figure>
 
 {% code overflow="wrap" %}
 ```sh

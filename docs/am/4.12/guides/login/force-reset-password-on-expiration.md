@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/force-reset-password-on-expiration
+description: Force an Access Management 4.12 user to reset an expired password at next login. Follow the steps to configure it and see the resulting behaviour.
 ---
 
 # Force Reset Password on Expiration
@@ -15,7 +16,7 @@ If a [password policy](../user-management/password-policy.md#configure-a-passwor
 
 The force reset password functionality can be enabled at the domain level, or for a specific application by toggling the `Force reset password on expiration` option, which can be found under the **Login** settings section. Enabling this option has no effect unless a [password policy](../user-management/password-policy.md#configure-a-password-policy) is configured with an expiration duration.
 
-<figure><img src="../../.gitbook/assets/guide-login-force-reset-password-on-12.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-login-force-reset-password-on-12.png" alt="The Force reset password on expiration toggle, switched off."><figcaption></figcaption></figure>
 
 ## Behavior
 

@@ -1,5 +1,5 @@
 ---
-description: Overview of Managing Factors.
+description: Access Management 4.9 supports several MFA factors out of the box. Follow the steps to create a factor and compare the supported types.
 ---
 
 # Managing Factors
@@ -18,7 +18,7 @@ Some factors also require a [**Resource**](../../resources.md).
 2. Click the plus icon.
 3.  Select the factor type and click **Next.**
 
-    <figure><img src="../../../.gitbook/assets/john cr 1.png" alt=""><figcaption><p>Setting up Multifactor Auth from you Security Domain settings.</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/john cr 1.png" alt="The New factor wizard on the Platform step, offering Call, Email, FIDO2, HTTP, Generic OTP, OTP Sender, Recovery Code, and SMS factor types."><figcaption><p>Setting up Multifactor Auth from you Security Domain settings.</p></figcaption></figure>
 4. Enter the factor details and click **Create**.
 
 You now have a factor that can be enabled on Application level!

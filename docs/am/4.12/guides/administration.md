@@ -2,6 +2,7 @@
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/administration
+description: Organizations and environments structure an Access Management 4.12 installation, with roles and permissions on each. Learn how the two fit together.
 ---
 
 # Administration
@@ -52,7 +53,7 @@ In order to limit the scope of the roles, scopes are bound to what we call an `a
 * `DOMAIN` — role for a security domain
 * `APPLICATION` — role for an application
 
-<figure><img src="../.gitbook/assets/guide-admin-158.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-admin-158.png" alt="The organization Roles page listing roles grouped by application, domain, environment, organization, and protected resource scope, each tagged system or default."><figcaption></figcaption></figure>
 
 ### Role
 
@@ -240,7 +241,7 @@ Let’s imagine we want to create a reviewer role, which allows a user to check 
     * Name : `REVIEWER_APPLICATION`
     * Description : `Read-only role`
 
-    <figure><img src="../.gitbook/assets/guide-admin-159.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/guide-admin-159.png" alt="The New Role form with the assignable type set to APPLICATION and a role name and description entered, beside guidance on role scopes."><figcaption></figcaption></figure>
 2. Click **CREATE**.
 
 ### Configure the `REVIEWER_APPLICATION` role
@@ -249,19 +250,19 @@ You must give `READ` permissions to all sections of your application. This allow
 
 Click **SAVE** to store the changes.
 
-<figure><img src="../.gitbook/assets/guide-admin-160.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-admin-160.png" alt="The role configuration page with a permissions matrix of create, read, list, update, and delete columns against application resources, with only read selected."><figcaption></figcaption></figure>
 
 ### Result
 
 Go to your applications' **Administrative roles** settings section and add a new member with the `REVIEWER_APPLICATION` role. The user `Reviewer User` now has read access to your application.
 
-<figure><img src="../.gitbook/assets/guide-admin-161.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-admin-161.png" alt="The Administrative roles tab of an application, listing one administrator user with the primary owner role."><figcaption></figcaption></figure>
 
 ## Users
 
 When users log in to AM Console, they are listed in the **Users** section of the domains' **Settings** menu.
 
-<figure><img src="../.gitbook/assets/guide-admin-162.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-admin-162.png" alt="The Users page listing one user with their identity provider and last login status."><figcaption></figcaption></figure>
 
 If you select a user, you have access to detailed account information and will be able to manage the user’s permissions and groups via with the **Administrative roles** and **Groups** sections.
 
@@ -279,7 +280,7 @@ In the example below, we will create a `FOO Team` group where you can put all me
 4. Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 5. Enter the details of the group.
 
-<figure><img src="../.gitbook/assets/guide-admin-163.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-admin-163.png" alt="The New Group form with empty name and description fields, above Cancel and Create."><figcaption></figcaption></figure>
 
 6. Click **CREATE**.
 
@@ -289,7 +290,7 @@ In the example below, we will create a `FOO Team` group where you can put all me
 2. Click the **Members** tab.
 3. Add a user by clicking **+ Add members**.
 
-<figure><img src="../.gitbook/assets/guide-admin-164.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-admin-164.png" alt="The Add members dialog on a new group&#x27;s Members tab, with a partial search showing one matching user and their identity provider."><figcaption></figcaption></figure>
 
 ### Add the group to an application
 

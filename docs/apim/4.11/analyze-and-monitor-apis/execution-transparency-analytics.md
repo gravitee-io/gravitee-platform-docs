@@ -1,5 +1,5 @@
 ---
-description: An overview about execution transparency analytics.
+description: Execution transparency analytics gives actionable diagnostics when an API Management 4.11 call fails. Learn what the components report.
 metaLinks:
   alternates:
     - execution-transparency-analytics.md
@@ -122,10 +122,10 @@ Runtime Logs provide detailed error information for individual API requests. To 
 
 1.  Navigate to your API Management Console.
 
-    <figure><img src="../.gitbook/assets/api-mangement-console.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/api-mangement-console.png" alt="The console dashboard showing summary counts, API lifecycle and state pie charts, response status, and tables of top and top failed APIs."><figcaption></figcaption></figure>
 2.  Click **APIs** in the left sidebar.
 
-    <figure><img src="../.gitbook/assets/apis-sidebar.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/apis-sidebar.png" alt="The APIs list with APIs highlighted in the left navigation, showing filters for type, status, sharding tags, categories, and portal status above the table."><figcaption></figcaption></figure>
 3.  Select your API.
 
     <figure><img src="../.gitbook/assets/select-your-api.png" alt=""><figcaption></figcaption></figure>
@@ -146,10 +146,10 @@ V2 APIs display execution transparency directly in the logs without requiring ad
 
 1.  Navigate to your API Management Console.
 
-    <figure><img src="../.gitbook/assets/api-mangement-console.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/api-mangement-console.png" alt="The console dashboard showing summary counts, API lifecycle and state pie charts, response status, and tables of top and top failed APIs."><figcaption></figcaption></figure>
 2.  Click **APIs** in the left sidebar.
 
-    <figure><img src="../.gitbook/assets/apis-sidebar.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/apis-sidebar.png" alt="The APIs list with APIs highlighted in the left navigation, showing filters for type, status, sharding tags, categories, and portal status above the table."><figcaption></figcaption></figure>
 3.  Select your V2 API.
 
     <figure><img src="../.gitbook/assets/select-v2-api.png" alt=""><figcaption></figcaption></figure>

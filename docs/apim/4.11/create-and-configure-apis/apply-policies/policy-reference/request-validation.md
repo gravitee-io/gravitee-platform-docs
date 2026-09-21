@@ -1,5 +1,5 @@
 ---
-description: An overview about request validation.
+description: The Request Validation policy validates incoming HTTP requests against rules in API Management 4.11. Learn how to define the rules.
 metaLinks:
   alternates:
     - request-validation.md

@@ -1,3 +1,7 @@
+---
+description: mTLS plans authenticate Kafka native API clients with X.509 certificates in API Management 4.11. Learn how subscriptions resolve.
+---
+
 # mTLS plans for Kafka native APIs
 
 ## Overview

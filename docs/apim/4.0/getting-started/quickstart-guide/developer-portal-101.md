@@ -28,7 +28,7 @@ Before heading over to the Developer Portal, we need to make sure our Gateway AP
 
 First, we need to open the API in the APIM Console. You may already have it open from the previous part of the Quickstart Guide. If not, head back over to the **APIs** homescreen and select the API you created.
 
-<figure><img src="../../.gitbook/assets/DP_homescreen.png" alt=""><figcaption><p>APIs homescreen</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_homescreen.png" alt="The APIs list filtered to a single API, showing its status, context path, owner, definition version, and visibility."><figcaption><p>APIs homescreen</p></figcaption></figure>
 
 > * [x] Select **APIs** in the sidebar
 > * [x] Select the API you created in Gateway APIs 101
@@ -70,13 +70,13 @@ Your Developer Portal URL will depend on your deployment, so please reference th
 
 </details>
 
-<figure><img src="../../.gitbook/assets/DP_console.png" alt=""><figcaption><p>Access Developer Portal from APIM Console</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_console.png" alt="The APIs list in the console, with the Developer Portal link in the top bar highlighted."><figcaption><p>Access Developer Portal from APIM Console</p></figcaption></figure>
 
 > * [x] Select the **Developer Portal** link in the top left of your Console's nav bar
 
 This will bring you to the homescreen of the Developer Portal.
 
-<figure><img src="../../.gitbook/assets/DP_default.png" alt=""><figcaption><p>Your default Developer Portal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_default.png" alt="The developer portal home page, with a headline, an API search box, and an Explore APIs button."><figcaption><p>Your default Developer Portal</p></figcaption></figure>
 
 From here, you can immediately begin searching for APIs using the Developer Portal's full-context[^1] search. However, you will not be able to subscribe to any APIs until you create an application.
 

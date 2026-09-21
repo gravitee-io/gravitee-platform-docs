@@ -1,7 +1,5 @@
 ---
-description: >-
-  This guide covers every supported deployment pattern for the Gravitee APIM
-  Console and Portal UIs
+description: API Management 4.13 has four components that communicate with each other. Learn how to configure the Portal and Console deployments.
 ---
 
 # Configuring Portal and Console deployments

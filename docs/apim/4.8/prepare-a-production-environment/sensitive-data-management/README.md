@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for sensitive data management.
+description: Protecting sensitive information in API Management 4.8, from API secrets to configuration secrets. Browse the articles you need.
 ---
 
 # Sensitive Data Management

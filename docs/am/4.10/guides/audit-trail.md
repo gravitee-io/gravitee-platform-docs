@@ -1,3 +1,7 @@
+---
+description: The Access Management 4.10 audit trail records what users do, at organization and domain level. Learn the event types and how to view the log.
+---
+
 # Audit Trail
 
 ## Overview
@@ -21,7 +25,7 @@ To view Organization Audit log:
 1. Log in to AM Console.
 2. Click Organization > Audit
 
-<figure><img src="../../4.10/.gitbook/assets/guide-audit-trail-151.png" alt=""><figcaption><p>Organization audit log</p></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/guide-audit-trail-151.png" alt="The organization Audit log with filters above a table of audit entries showing date, event, actor, target, and a success or failure status."><figcaption><p>Organization audit log</p></figcaption></figure>
 
 {% hint style="info" %}
 All of this information can also be retrieved with the [AM API.](../reference/am-api-reference.md)
@@ -66,7 +70,7 @@ By default, a reporter is created for each security domain and allows you to cho
 2. Click **Settings > Audit Log**.
 3. Click the settings icon and configure the reporter.
 
-<figure><img src="../../4.10/.gitbook/assets/guide-audit-trail-152.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/guide-audit-trail-152.png" alt="The MongoDB Reporter page for a system reporter, enabled, with a name field above a delete section warning that the operation cannot be undone."><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 There is no log retention. It is up to you define a retention window and periodically clear old data.
@@ -84,7 +88,7 @@ It is possible to populate all audit logs from all domains within organization t
 4. Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 5. Select "Log events from all domains in this organization"
 
-<figure><img src="../../4.10/.gitbook/assets/guide-audit-trail-153.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/guide-audit-trail-153.png" alt="A new Kafka reporter with the Log events from all domains in this organization toggle switched on, above empty bootstrap servers, topic, acks, schema registry, username, and password fields."><figcaption></figcaption></figure>
 
 This functionality is supported only for **Organization Audit Logs.**
 
@@ -103,11 +107,11 @@ To create a File reporter for a domain:
 3. Click the settings icon ![am settings icon](../.gitbook/assets/am-settings-icon.png).
 4. Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 
-<figure><img src="../../4.10/.gitbook/assets/guide-audit-trail-154.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/guide-audit-trail-154.png" alt="The Reporter Type list open, offering File and Kafka, above the filename and backup retention settings."><figcaption></figcaption></figure>
 
 5. Select **File** as the reporter type and enter the reporter name and file name.
 
-<figure><img src="../../4.10/.gitbook/assets/guide-audit-trail-155.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/guide-audit-trail-155.png" alt="A new file reporter with the Log events from all domains in this organization toggle switched on, above empty filename and backup retain days fields."><figcaption></figcaption></figure>
 
 #### Example: ingest audit logs into ElasticSearch
 
@@ -292,7 +296,7 @@ To create a Kafka reporter for a domain:
 4. Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 5. Select **Kafka** as the reporter type and enter the reporter name and file name.
 
-<figure><img src="../../4.10/.gitbook/assets/guide-audit-trail-156.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/guide-audit-trail-156.png" alt="A new Kafka reporter with the reporter type set to Kafka and the Log events from all domains in this organization toggle switched on, above the empty connection settings."><figcaption></figcaption></figure>
 
 6. Provide **Name**, **Bootstrap servers**, **Topic**, **Acks.**
 
@@ -326,7 +330,7 @@ Kafka reporter sends all messages to separate partitions based on domain id or o
     `sasl.mechanism = PLAIN`
 4. For security reasons, when a username and a password is provided, a `sasl.jaas.config` property is created with following value: `org.apache.kafka.common.security.plain.PlainLoginModule required username="<<value_from_username_field>>" password="<<value_from_password_field>>";`
 
-<figure><img src="../../4.10/.gitbook/assets/Screenshot 2024-10-31 at 12.23.54.png" alt=""><figcaption><p>SASL/PLAIN configuration</p></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/Screenshot 2024-10-31 at 12.23.54.png" alt="The Kafka reporter configuration with bootstrap servers, topic, acks, schema registry, username and password, and producer properties for the SASL mechanism and security protocol."><figcaption><p>SASL/PLAIN configuration</p></figcaption></figure>
 
 **TLS/SSL encryption**
 
@@ -345,4 +349,4 @@ If Kafka broker is using SSL/TLS encryption, you must add additional steps to se
 
 `ssl.truststore.password = "secret_password"`
 
-<figure><img src="../../4.10/.gitbook/assets/Screenshot 2024-10-31 at 12.28.24.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/Screenshot 2024-10-31 at 12.28.24.png" alt="The Kafka reporter producer properties configured for SASL_SSL, with the SASL mechanism, security protocol, and truststore location and password."><figcaption></figcaption></figure>

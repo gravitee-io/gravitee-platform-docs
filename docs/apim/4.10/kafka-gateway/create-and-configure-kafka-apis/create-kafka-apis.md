@@ -1,5 +1,5 @@
 ---
-description: An overview about create kafka apis.
+description: Kafka APIs apply API Management 4.10 capabilities directly to the Kafka protocol. Follow the steps to create a Kafka API of your own.
 ---
 
 # Create Kafka APIs
@@ -22,7 +22,7 @@ The API definitions for Kafka APIs can be generated using the APIM Console's API
 
 The API creation wizard comprises several steps, each of which requires you to define certain sets of information.
 
-<figure><img src="../../.gitbook/assets/config-apis-create-apis-v2-api-crea-138 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/config-apis-create-apis-v2-api-crea-138 (1).png" alt="The Choose API creation method dialog, offering Create Classic API with V2 options and Create New API with V4 options."><figcaption></figcaption></figure>
 
 ## API details
 

@@ -1,3 +1,7 @@
+---
+description: The Kafka Message Encryption and Decryption policy secures payloads with AES-GCM in API Management 4.13. Learn how to configure it.
+---
+
 # Kafka message encryption and decryption
 
 ## Overview

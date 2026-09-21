@@ -1,5 +1,5 @@
 ---
-description: An overview about documentation.
+description: Add documentation to a v4 API from the API Management 4.12 Console so consumers know how to use it. Follow the steps to add pages and folders.
 metaLinks:
   alternates:
     - documentation.md
@@ -201,7 +201,7 @@ Dynamic v4 API documentation pages can be created by adding metadata. To view me
 
 To create metadata for v4 API documentation, click **+** **Add API Metadata** and specify the following:
 
-<div align="left"><figure><img src="../../.gitbook/assets/metadata_add.png" alt="" width="375"><figcaption><p>Add API metadata</p></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/metadata_add.png" alt="The Create API metadata dialog with empty Name, Format, and Value fields." width="375"><figcaption><p>Add API metadata</p></figcaption></figure></div>
 
 * **Name:** Enter a name for the metadata
 * **Format:** Select a metadata format from the drop-down menu. Available options are **string**, **numeric**, **boolean**, **date**, **mail**, or **url**.

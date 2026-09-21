@@ -1,3 +1,7 @@
+---
+description: The conditions that must be met before Developer Portal 4.13 analytics dashboards work. Browse the configuration reference.
+---
+
 # Portal analytics configuration reference
 
 ## Prerequisites

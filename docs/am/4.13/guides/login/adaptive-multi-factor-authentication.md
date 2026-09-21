@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/adaptive-multi-factor-authentication
+description: Adaptive MFA asks Access Management 4.13 users for another factor after login, based on context. Learn the use cases and configure it.
 ---
 
 # Adaptive Multi-factor Authentication
@@ -39,4 +40,4 @@ The Gravitee Geoip Plugin uses MaxMind, make sure your AM instance is well provi
 3. Set the **Adaptive MFA** rule.
 4. Click **SAVE**.
 
-<figure><img src="../../.gitbook/assets/guide-login-adaptive-multi-factor-a-101.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-login-adaptive-multi-factor-a-101.png" alt="The Multifactor Auth settings with two TOTP factors, the challenge set to Conditional, and a rule using geoip country code and login attempts."><figcaption></figcaption></figure>

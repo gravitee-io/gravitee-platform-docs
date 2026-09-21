@@ -1,5 +1,5 @@
 ---
-description: An overview about solace.
+description: Federate event APIs from the Solace Event Portal into API Management 4.13. Learn how the integration works with an event mesh.
 metaLinks:
   alternates:
     - solace.md
@@ -31,10 +31,10 @@ To integrate Solace with Gravitee APIM, complete the following steps:
 
 1.  From the Dashboard, click **Integrations.**
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-16-1-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-16-1-1.png" alt="The API Management console dashboard with Integrations highlighted in the left navigation menu."><figcaption></figcaption></figure>
 2.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2.png" alt="The Integrations page in the API Management console, with the Create Integration button highlighted above a table of existing integrations."><figcaption></figcaption></figure>
 3.  Select **Solace**, and then click **Next**.
 
     <figure><img src="../../../.gitbook/assets/select-solace-and-click-next.png" alt=""><figcaption></figcaption></figure>

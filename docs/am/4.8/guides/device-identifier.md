@@ -1,5 +1,5 @@
 ---
-description: Overview of Device Identifier.
+description: Device identifiers let Access Management 4.8 remember the devices your users use for MFA. Follow the steps to create one with FingerprintJS.
 ---
 
 # Device Identifier
@@ -19,10 +19,10 @@ Gravitee Access Management (AM) includes various device identifier mechanisms fo
 
 You don’t need to configure anything extra for FingerprintJS v3 Community device identifiers. Just create the configuration and enable the [remember device feature.](login/remember-authentication-device.md)
 
-<figure><img src="../.gitbook/assets/graviteeio-am-userguide-device-identifier-fpjsv3community.png" alt=""><figcaption><p>FpJS v3 community</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/graviteeio-am-userguide-device-identifier-fpjsv3community.png" alt="A FingerprintJS v3 community device identifier plugin, with a name field, a note that no configuration is required, and a delete section."><figcaption><p>FpJS v3 community</p></figcaption></figure>
 
 ## FingerprintJs v3 Pro
 
 For FingerprintJs v3 Pro device identifiers, you need to create an account and enter your **Browser token** and **Registration region** (this field is optional for non-European accounts).
 
-<figure><img src="../.gitbook/assets/graviteeio-am-userguide-device-identifier-fpjsv3pro.png" alt=""><figcaption><p>FpJS v3 pro</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/graviteeio-am-userguide-device-identifier-fpjsv3pro.png" alt="A FingerprintJS v3 Pro device identifier plugin, with a name, a browser subscription token placeholder, and an optional registration region."><figcaption><p>FpJS v3 pro</p></figcaption></figure>

@@ -1,5 +1,5 @@
 ---
-description: An overview about docker cli.
+description: Install the API Management 4.11 Data Plane with Docker CLI commands for a Next-Gen Cloud hybrid. Follow the steps to run it.
 metaLinks:
   alternates:
     - docker-cli.md
@@ -61,7 +61,7 @@ To enable API rate-limiting, configure your Gateway to use a rate-limiting repos
     * Set `redis_password` environment variable: `export redis_password=your_redis_password` or replace `${redis_password}` with your actual Redis password.
     *   Replace `<add_the_gateway_tag>` with the gateway version to install. It has to align with the control plane of your Gravitee Cloud.
 
-        <figure><img src="../../../.gitbook/assets/hybrid-cloud-docker-docker-cli-62.png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/hybrid-cloud-docker-docker-cli-62.png" alt="The Environments section of the Overview, with the product and version tag highlighted on each of the three environment cards."><figcaption></figcaption></figure>
 
 ## Verification
 

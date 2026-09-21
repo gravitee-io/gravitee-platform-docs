@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for openshift.
+description: Install API Management 4.9 within OpenShift. Follow the steps to deploy the platform on an OpenShift cluster of your own.
 metaLinks:
   alternates:
     - >-

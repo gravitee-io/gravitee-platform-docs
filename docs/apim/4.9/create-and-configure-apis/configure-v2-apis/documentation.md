@@ -1,5 +1,5 @@
 ---
-description: This article describes how to create documentation for v2 APIs
+description: Create, import, and add metadata to v2 API documentation from the API Management 4.9 Console. Follow the steps to publish it.
 metaLinks:
   alternates:
     - >-
@@ -33,7 +33,7 @@ To import documentation:
        * Fill in the information appropriate to and required by your selection
        * Click **IMPORT**
    * Import individual files while creating new API documentation:
-     *   Under the **Pages** tab, click the <img src="../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="" data-size="line"> icon
+     *   Under the **Pages** tab, click the <img src="../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="A round dark blue button with a white plus sign, used to add a new item." data-size="line"> icon
 
          <figure><img src="../../.gitbook/assets/v2 docs_create.png" alt=""><figcaption><p>Import via page creation</p></figcaption></figure>
      * Select one of the following options:
@@ -50,7 +50,7 @@ To import documentation:
 2. From the left nav, select **APIs**
 3. Select the API that you want to add documentation to.
 4. From the inner left nav, select **Documentation**.
-5. Under the **Pages** tab, select the <img src="../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="" data-size="line"> icon.
+5. Under the **Pages** tab, select the <img src="../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="A round dark blue button with a white plus sign, used to add a new item." data-size="line"> icon.
 6. Select your preferred format.
 7. Create and configure your documentation:
    1. Give your documentation a name

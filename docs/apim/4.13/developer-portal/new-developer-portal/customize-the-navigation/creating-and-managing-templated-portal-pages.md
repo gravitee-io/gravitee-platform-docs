@@ -1,3 +1,7 @@
+---
+description: Create Developer Portal 4.13 pages from templates. Check the prerequisites and follow the steps to manage templated pages.
+---
+
 # Creating and Managing Templated Portal Pages
 
 ## Prerequisites

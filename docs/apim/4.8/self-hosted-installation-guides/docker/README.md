@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for docker.
+description: The Docker installation architecture common to each API Management 4.8 install method. Compare the methods available to you.
 ---
 
 # Docker

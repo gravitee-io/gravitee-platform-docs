@@ -1,5 +1,5 @@
 ---
-description: An overview about expose your apis as ai-ready tools with mcp.
+description: Deploy an API Management 4.8 REST API as an MCP Server so AI agents can discover and invoke it. Follow the steps to deploy your API.
 ---
 
 # Expose Your APIs as AI-Ready Tools with MCP
@@ -30,7 +30,7 @@ In this guide, you’ll learn how to publish and expose your API operations thro
 
 1.  From the **Dashboard**, click **APIs**.
 
-    <figure><img src="../.gitbook/assets/3AFC7359-4334-44DE-A2AA-3732BE173718_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/3AFC7359-4334-44DE-A2AA-3732BE173718_1_201_a.jpeg" alt="The console dashboard with APIs highlighted in the left navigation, showing summary counts and pie charts for API lifecycle state and API state."><figcaption></figcaption></figure>
 2.  Find the API that you want to convert into an MCP Server.
 
     <figure><img src="../.gitbook/assets/EFADEF2D-0D48-41A3-9668-C4C2A6F806DA_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>

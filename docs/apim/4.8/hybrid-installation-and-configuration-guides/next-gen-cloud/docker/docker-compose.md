@@ -1,7 +1,5 @@
 ---
-description: >-
-  This guide focuses on installing the Data Plane using Docker Compose. The Data
-  Plane includes core components like the Gateway and Redis.
+description: Next-Gen Cloud supports hybrid API Management 4.8 deployments through Docker Compose. Follow the steps to configure the compose file.
 ---
 
 # Docker Compose
@@ -13,7 +11,7 @@ Gravitee Next Gen Cloud supports hybrid deployments, which provides you with the
 * **Control Plane**: Fully managed by Gravitee in the cloud, responsible for API design, publishing, configuration, analytics, and lifecycle management.
 *   **Data Plane**: Deployed and managed by you, close to your backend services, responsible for executing traffic policies, enforcing security, and routing API traffic.
 
-    <figure><img src="../../../.gitbook/assets/docker-compose-overview-.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/docker-compose-overview-.png" alt="A diagram in which a hybrid Gateway in a self-hosted data plane connects to the Cloud Gate in the Gravitee Cloud control plane."><figcaption></figcaption></figure>
 
 This guide focuses on installing the Data Plane using Docker Compose. The Data Plane includes core components like the Gateway and Redis.\
 \
@@ -112,10 +110,10 @@ To confirm that your Hybrid installation is working, complete the following step
 
 1.  Sign in to Gravitee Cloud.
 
-    <figure><img src="../../../.gitbook/assets/cloud-ssign-in-page.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/cloud-ssign-in-page.png" alt="The Gravitee Cloud Sign in page, offering Google and Github sign-in above email and password fields and a company SSO link."><figcaption></figcaption></figure>
 2.  From the **Dashboard**, navigate to the **Gateways** section. Your new Hybrid Gateway appears here.
 
-    <figure><img src="../../../.gitbook/assets/0023A006-6B47-468B-923B-AA823EF40368_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/0023A006-6B47-468B-923B-AA823EF40368_1_201_a.jpeg" alt="The Gateways table listing five Gravitee Hosted Gateways, two of them greyed out with a Contact Gravitee link in place of a version."><figcaption></figcaption></figure>
 
 If the Gateway does not appear or shows an error state, complete the following checks:
 

@@ -1,5 +1,5 @@
 ---
-description: Configuration guide for configure v4 apis.
+description: The articles covering how to configure a v4 API in API Management 4.13, from endpoints to response templates. Browse what you need.
 metaLinks:
   alternates:
     - ./

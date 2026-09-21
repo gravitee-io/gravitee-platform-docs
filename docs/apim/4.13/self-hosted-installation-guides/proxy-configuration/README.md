@@ -1,3 +1,7 @@
+---
+description: API Management 4.13 components often need to reach the internet through a corporate proxy. Browse the proxy configuration guides.
+---
+
 # Proxy Configuration
 
 ## Overview

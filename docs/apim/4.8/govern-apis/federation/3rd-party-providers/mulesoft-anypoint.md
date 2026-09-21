@@ -1,5 +1,5 @@
 ---
-description: An overview about mulesoft anypoint.
+description: Federate APIs from the Mulesoft Anypoint Platform into API Management 4.8. Learn how the integration discovers and ingests them.
 ---
 
 # Mulesoft Anypoint
@@ -28,10 +28,10 @@ To integrate Mulesoft Anypoint with Gravitee APIM, complete the following steps:
 
 1.  From the Dashboard, click **Integrations**.
 
-    <figure><img src="../../../.gitbook/assets/govern-federation-solace-16.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-federation-solace-16.png" alt="The API Management console dashboard with Integrations highlighted in the left navigation menu."><figcaption></figcaption></figure>
 2.  Click **Create Integration.**
 
-    <figure><img src="../../../.gitbook/assets/govern-federation-solace-18.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-federation-solace-18.png" alt="The Integrations page in the API Management console, with the Create Integration button highlighted above a table of existing integrations."><figcaption></figcaption></figure>
 3.  Select **Mulesoft**, and then click **Next**.
 
     <figure><img src="../../../.gitbook/assets/mulesoft-click-next.png" alt=""><figcaption></figcaption></figure>

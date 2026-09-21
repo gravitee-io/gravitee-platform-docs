@@ -1,5 +1,5 @@
 ---
-description: An overview about roles and groups mapping.
+description: Assign roles to API Management 4.12 users through groups rather than individually. Learn how group and role mapping works.
 metaLinks:
   alternates:
     - roles-and-groups-mapping.md

@@ -1,5 +1,5 @@
 ---
-description: An overview about v2 api policy studio.
+description: The v2 Policy Studio designs flows for APIs using the v2 API Management 4.12 definition. Follow the steps to design and configure flow mode.
 metaLinks:
   alternates:
     - v2-api-policy-studio.md

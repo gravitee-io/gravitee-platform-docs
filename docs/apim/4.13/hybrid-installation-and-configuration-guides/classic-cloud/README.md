@@ -1,5 +1,5 @@
 ---
-description: Documentation about classic cloud in the context of APIs.
+description: The technology stacks and deployment methods for a Classic Cloud hybrid API Management 4.13 install. Compare the options available.
 metaLinks:
   alternates:
     - ./

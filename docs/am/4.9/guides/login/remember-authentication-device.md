@@ -1,5 +1,5 @@
 ---
-description: Overview of Remember Authentication Device.
+description: Register the device an Access Management 4.9 user signs in from as trusted. Follow the steps to configure remembered authentication devices.
 ---
 
 # Remember Authentication Device
@@ -18,4 +18,4 @@ You can configure AM to register the device a user uses for authentication. Afte
 6. Enter the details of the device identifier and the amount of time you want to remember the device (2 hours by default).
 7. Click **SAVE**.
 
-<figure><img src="../../.gitbook/assets/skip remember device.png" alt=""><figcaption><p>AM authentication device</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/skip remember device.png" alt="The Activate MFA step set to Conditional with a bypass rule, above the Remember Device step with both Enable Remember Device and Skip Remember Device collection switched on and a fifteen-day trust period."><figcaption><p>AM authentication device</p></figcaption></figure>

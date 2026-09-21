@@ -208,7 +208,7 @@ Greeter client received: Hello, you!
 
 There is some extra configuration required to connect to a gRPC service through Ambassador Edge Stack over an encrypted channel. Currently, the gRPC call is being sent over cleartext to Ambassador Edge Stack which proxies it to the gRPC application.
 
-<figure><img src="../../.gitbook/assets/00 aes 6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 aes 6.png" alt="A diagram of encrypted traffic flowing between a client holding a root certificate and a server holding a certificate chain and public key."><figcaption></figcaption></figure>
 
 If you want to add TLS encryption to your gRPC calls, first you need to tell Ambassador Edge Stack to add ALPN protocols which are required by HTTP/2 to do TLS. See [tls-overview.md](../../technical-reference/tls-configuration/tls-overview.md "mention") for more information.
 
@@ -241,7 +241,7 @@ Next, you need to change the client code slightly and tell it to open a secure R
 
 Ambassador Edge Stack is now terminating TLS from the gRPC client and proxying the call to the application over cleartext.
 
-<figure><img src="../../.gitbook/assets/00 aes 7.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 aes 7.png" alt="A diagram in which Ambassador Edge Stack, holding the certificate chain and public key, terminates encrypted traffic from the client and forwards it to the server unencrypted."><figcaption></figcaption></figure>
 
 If you want to configure authentication in another language, [gRPC provides examples](https://grpc.io/docs/guides/auth.html) with proper syntax for other languages.
 
@@ -276,7 +276,7 @@ spec:
 
 #### Originating TLS with gRPC service
 
-<figure><img src="../../.gitbook/assets/00 aes 8.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 aes 8.png" alt="A diagram in which Ambassador Edge Stack terminates encrypted traffic from the client and originates a fresh encrypted connection to a server holding a self-signed certificate chain and private key."><figcaption></figcaption></figure>
 
 Ambassador Edge Stack can originate TLS with your gRPC service so the entire RPC channel is encrypted. To configure this, first get some TLS certificates and configure the server to open a secure channel with them. Using self-signed certs this can be done with OpenSSL and adding a couple of lines to the server code.
 

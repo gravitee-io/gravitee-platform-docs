@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/tutorial-getting-started-with-am/login-to-am-console
+description: Reach the Access Management 4.11 Console at the host created during installation. Learn the layout and where security domain settings live.
 ---
 
 # Log in to AM Console
@@ -40,7 +41,7 @@ AM Console is accessible by `administrative users` you can manage in the **organ
 
 A security domain lets you manage your end users and their respective applications. It gives the ability to sign your users in by selecting multiple identity providers and building your own custom authentication and authorization journey to match your brand requirements and identity.
 
-<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-23.png" alt=""><figcaption><p>Access Management Dashboard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-23.png" alt="The domain Dashboard showing counters for logins, sign ups, users, and applications above a Login Activity chart."><figcaption><p>Access Management Dashboard</p></figcaption></figure>
 
 The security domain settings includes several sections that you can navigate using the sidebar menu on your left.
 
@@ -76,7 +77,7 @@ To access the security domains, open the user menu from the top bar and click **
 
 The security domains overview displays all the domains available for the current environment. To access one specific security domain, click on its name.
 
-<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-24.png" alt=""><figcaption><p>Security Domains - All domains, or create new Domain</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-24.png" alt="The account menu open on the Dashboard, listing the current domain alongside All domains, Create domain, and Sign out options."><figcaption><p>Security Domains - All domains, or create new Domain</p></figcaption></figure>
 
 ### Environments
 
@@ -92,7 +93,7 @@ Here you can configure several aspects of your organization such as :
 * [Administrative roles](../../guides/administration.md#roles-and-permissions-overview): Register new administrative users and manage their roles.
 * Deployment configuration: Set up entrypoints and sharding tags for your AM gateway.
 
-<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-25.png" alt=""><figcaption><p>Organization settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-25.png" alt="The organization Authentication settings, with Identity Providers set to Inline users and an empty Social providers list."><figcaption><p>Organization settings</p></figcaption></figure>
 
 The Organization settings include several sections that you can navigate using the sidebar menu on your left.
 

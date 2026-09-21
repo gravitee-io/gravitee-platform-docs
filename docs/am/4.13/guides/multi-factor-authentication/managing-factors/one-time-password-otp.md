@@ -3,6 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/managing-factors/one-time-password-otp
+description: Use an authenticator application as an Access Management 4.13 second factor with one-time passwords. Learn how OTP verification works.
 ---
 
 # One-time-password (OTP)
@@ -11,7 +12,7 @@ One-Time Password (OTP) allows you to use an Authenticator application via your 
 
 If you enable an OTP type factor for your application, next time your users log in they will see the following screens:
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-enroll.png" alt=""><figcaption><p>OTP MFA</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-enroll.png" alt="The Multi-Factor Auth Setup page with three numbered steps for installing an authenticator app, beside the QR code to scan."><figcaption><p>OTP MFA</p></figcaption></figure>
 
 {% hint style="info" %}
 The look and feel of the MFA forms can be overridden. See [custom pages](../../branding/README.md#custom-pages) for more information.

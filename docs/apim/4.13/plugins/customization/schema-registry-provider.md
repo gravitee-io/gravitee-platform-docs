@@ -1,3 +1,7 @@
+---
+description: A schema registry provider connects the API Management 4.13 Gateway to a schema registry. Learn the provider contract and its required methods.
+---
+
 # Implement a schema registry provider
 
 ## Overview

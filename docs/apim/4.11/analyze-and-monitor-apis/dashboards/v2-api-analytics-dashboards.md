@@ -1,3 +1,7 @@
+---
+description: The v2 API analytics dashboard shows performance and traffic patterns for an API Management 4.11 v2 API. Follow the steps to access it.
+---
+
 # V2 API analytics dashboards
 
 ## Overview
@@ -79,7 +83,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 6) (Optional) Select the **Display percentage** checkbox.
 7)  Click **the pencil icon**.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt="The New dashboard page for a platform dashboard, with the edit icon on a widget highlighted."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="line" %}
@@ -109,7 +113,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 5. (Optional) Select the **Allows to check a field filter** checkbox.
 6.  Click **the pencil icon**.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt="The New dashboard page for a platform dashboard, with the edit icon on a widget highlighted."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="pie" %}
@@ -131,7 +135,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
     <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-116.png" alt=""><figcaption></figcaption></figure>
 9.  Click **the pencil icon**.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt="The New dashboard page for a platform dashboard, with the edit icon on a widget highlighted."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="map" %}
@@ -139,7 +143,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 2. (Optional) In the **Subtitle** field, type a subtitle for your widget.
 3.  Click **the pencil icon**.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt="The New dashboard page for a platform dashboard, with the edit icon on a widget highlighted."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="stats" %}
@@ -160,7 +164,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
    * sum
 5.  Click **the pencil icon**.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt="The New dashboard page for a platform dashboard, with the edit icon on a widget highlighted."><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 

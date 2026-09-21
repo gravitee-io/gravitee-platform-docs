@@ -1,7 +1,5 @@
 ---
-description: >-
-  Set http.pathHandling in gravitee.yaml, the .env file, or Helm values, and
-  enable reporting for requests the Gateway refuses.
+description: Path handling is a Gateway-wide setting in the http block of API Management 4.13 configuration. Follow the steps to set its value.
 ---
 
 # Configure Request Path Handling

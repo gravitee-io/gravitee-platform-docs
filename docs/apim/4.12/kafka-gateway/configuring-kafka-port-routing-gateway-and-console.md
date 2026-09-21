@@ -1,5 +1,5 @@
 ---
-description: Configure Kafka port routing at the gateway and Management Console level, including routing mode properties and port conflict detection.
+description: Configure Kafka port routing on the API Management 4.12 Gateway and Console. Check the prerequisites and follow the steps.
 ---
 
 # Configure Kafka Port Routing (Gateway and Console)

@@ -1,5 +1,5 @@
 ---
-description: Validating and managing subscriptions
+description: A subscription is how an API Management 4.12 publisher controls who uses their API and on what terms. Learn how subscriptions work.
 metaLinks:
   alternates:
     - ./

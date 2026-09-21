@@ -1,19 +1,16 @@
 ---
 hidden: true
 noIndex: true
+description: Each API Management 4.12 tag has a key field separating the human-readable name from the identifier. Browse the schema reference.
 ---
 
 # Tag entity schema and key field reference
-
-<!-- DISCREPANCY: This page was placed in 4.11 by the agent, but the feature is merged in APIM 4.12.x only (confirmed by Okhelifi and verified from git history + Liquibase v4_12_0 directory). Move this file to docs/apim/4.12/ once that folder exists. -->
 
 ## Overview
 
 Starting in APIM 4.12, each tag has a dedicated `key` field that separates the human-readable tag identifier from the internal `id`. This affects how tags are referenced in REST API endpoints and how new tags are created.
 
 For existing tags, the migration preserves the current `id` value and copies it into the new `key` field. This means existing API clients continue to work without changes. Only new tags created after migration receive a UUID as their `id`.
-
-<!-- Verified from TagKeyUpgrader.java: tag.setKey(tag.getId()) — existing IDs are preserved, not regenerated. Confirmed by Okhelifi. -->
 
 ## Tag fields
 
@@ -27,8 +24,6 @@ For existing tags, the migration preserves the current `id` value and copies it 
 
 When creating a tag, provide both `key` and `name` (each 1–64 characters). The `key` field is immutable after creation.
 
-<!-- Verified from UpdateTagEntity.java: no key field exists in the update DTO. TagServiceImpl preserves the key on update via .key(existingTag.getKey()). -->
-
 ### Key validation rules
 
 The `key` field is sanitized on creation using the following rules:
@@ -40,8 +35,6 @@ The `key` field is sanitized on creation using the following rules:
 
 For example, `My Tag Name!` becomes `my-tag-name`.
 
-<!-- Verified from sanitizeKeyBase() in TagServiceImpl.java: toLowerCase, replaceAll("[^a-z0-9-]", "-"), replaceAll("-+", "-"), strip leading/trailing hyphens. -->
-
 ## Tenant key differences
 
 Tenant keys follow the same validation rules as tag keys, with the following differences:
@@ -52,8 +45,6 @@ Tenant keys follow the same validation rules as tag keys, with the following dif
 | Name maximum length | 64 characters | 40 characters |
 | Key immutable after creation | Yes — the update DTO doesn't include a `key` field | The update DTO includes a `key` field, but the Console UI disables editing. Treat as effectively immutable. |
 | Used in | `gravitee.yml` `tags` config, API path parameters | `gravitee.yml` `tenant` config, API endpoint tenant assignment |
-
-<!-- UI verified: tenant Create dialog shows Name* 0/40, Key* 0/64, Description 0/160. The @Size(max=40) in NewTenantEntity.java applies to the name field, not the key field. UpdateTenantEntity.java includes key field (unlike UpdateTagEntity), but Console UI disables editing via the form control. -->
 
 ## REST API endpoints
 
@@ -67,8 +58,6 @@ All tag management endpoints use the tag `key` in path parameters.
 | Update tag | PUT | `/tags/{tagKey}` | Accepts `name`, `description`, and `restrictedGroups` only |
 | Delete tag | DELETE | `/tags/{tagKey}` | Delete a tag by key |
 
-<!-- Verified from TagsResource.java: GET /tags, GET /tags/{tag}, POST /tags, PUT /tags/{tag}, DELETE /tags/{tag}. All path params reference the key. -->
-
 ### Create a tag
 
 Send a POST request to `/tags` with the following fields:
@@ -79,8 +68,6 @@ Send a POST request to `/tags` with the following fields:
 - `restrictedGroups` (optional array)
 
 The system generates a UUID for the internal `id` field. If a tag with the same `key` already exists, the request fails.
-
-<!-- Verified: DuplicateTagKeyException is thrown on duplicate key (TagServiceImpl.java line 142). -->
 
 ### Update a tag
 
@@ -97,8 +84,6 @@ For **existing tags**, the migration preserves the original `id` value and sets 
 
 For **new tags** created after migration, the `id` is a generated UUID. API clients interact with new tags using the `key` field in path parameters, not the UUID.
 {% endhint %}
-
-<!-- DISCREPANCY: The original agent draft stated "existing API clients using tag IDs will fail" — this is incorrect. Okhelifi confirmed existing IDs are preserved and the key equals the old ID. Only new tags use UUIDs as IDs. -->
 
 ## Restrictions
 

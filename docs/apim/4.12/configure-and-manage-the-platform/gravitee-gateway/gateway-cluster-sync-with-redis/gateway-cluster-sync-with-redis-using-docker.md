@@ -1,3 +1,7 @@
+---
+description: Gateway Cluster sync uses Redis to synchronize API Management 4.12 state across gateways. Follow the steps to configure it with Docker.
+---
+
 # Gateway Cluster sync with Redis using Docker
 
 ## Overview

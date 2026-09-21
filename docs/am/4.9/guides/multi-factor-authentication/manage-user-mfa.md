@@ -1,5 +1,5 @@
 ---
-description: Overview of Manage User MFA.
+description: Reset an Access Management 4.9 user's MFA when they lose their device. Follow the steps to remove the factors from their account.
 ---
 
 # Manage User MFA
@@ -15,7 +15,7 @@ If users lose their mobile device or can’t use their authenticator application
 3. Select the user and click the **Multi-Factor Authentication** tab.
 4.  Select the MFA factor you want to remove and click the remove icon ![remove icon](../../.gitbook/assets/remove-icon.png).
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-factor-reset.png" alt=""><figcaption><p>MFA factors</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-factor-reset.png" alt="A user&#x27;s Multi-Factor Authentication tab listing one enrolled SMS factor with its last update time and a button to remove it."><figcaption><p>MFA factors</p></figcaption></figure>
 
 You can also reset a user’s MFA with AM API:
 
