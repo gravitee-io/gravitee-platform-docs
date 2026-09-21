@@ -63,7 +63,7 @@ CORS is a mechanism that allows resources on a web page to be requested from ano
 
 All requests rejected because of CORS issues will generate logs that you can view in the `Analytics` section of your API logs.
 
-<img src="../../.gitbook/assets/graviteeio-troubleshooting-cors.png" alt="" data-size="original">
+<img src="../../.gitbook/assets/graviteeio-troubleshooting-cors.png" alt="An API log detail page showing a request that returned status 400, with an error stating that the request headers are not valid." data-size="original">
 {% endhint %}
 
 ## Deployments

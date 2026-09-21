@@ -165,9 +165,9 @@ For technical reasons, in shared mode, API keys can only be shared across API ke
 
 With this mode enabled, consumers will be asked on their application's second subscription to choose between reusing their key across all subscriptions or generating one different API key for each subscription (which is the default mode). This is known as the application API key type.
 
-<figure><img src="../../.gitbook/assets/shared-api-key-2-portal.png" alt=""><figcaption><p>Subscribing in the Developer Portal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared-api-key-2-portal.png" alt="The subscription wizard in the developer portal at the API key management mode step, offering a generated API key or a shared API key."><figcaption><p>Subscribing in the Developer Portal</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt=""><figcaption><p>Subscribing in the management UI</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt="An application&#x27;s Subscriptions page with a dialog asking whether the application should use a new API key per subscription or one shared API key, noting that the choice is permanent."><figcaption><p>Subscribing in the management UI</p></figcaption></figure>
 
 This choice is _permanent_ for that application and consumers will not be able to switch between application API key types after the initial decision.
 

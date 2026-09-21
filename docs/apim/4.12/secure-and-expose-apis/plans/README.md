@@ -17,7 +17,7 @@ Example access scenarios APIM can manage with plans include:
 * Premium access with public resources and access limits for your partners
 * Unlimited access to your internal enterprise applications
 
-<div align="center"><figure><img src="../../.gitbook/assets/plan-diagram.png" alt="" width="375"><figcaption><p>High-level plan diagram</p></figcaption></figure></div>
+<div align="center"><figure><img src="../../.gitbook/assets/plan-diagram.png" alt="A diagram showing an application subscribing to one of three plans, which in turn sit in front of an API." width="375"><figcaption><p>High-level plan diagram</p></figcaption></figure></div>
 
 Each plan must include at least one security type by which subscribers can be authenticated. A security type is a policy integrated directly into a plan. Once a plan is created, the security type can not be changed. However, you can add additional security at the API or plan level with policies.
 
