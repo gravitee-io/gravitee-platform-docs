@@ -1,5 +1,39 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.28 - September 21, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Streaming /responses silently terminated when model cannot be resolved — uncaught IllegalArgumentException in tokensHandling [#11770](https://github.com/gravitee-io/issues/issues/11770)
+
+**Console**
+
+* Add the path in the Traffic API (API V4) [#10815](https://github.com/gravitee-io/issues/issues/10815)
+* Analytics engine: HTTP_PATH filter queries the unpopulated "path" field and always matches nothing [#11813](https://github.com/gravitee-io/issues/issues/11813)
+
+**Other**
+
+* ILM policy not applied to event-metrics indices [#11705](https://github.com/gravitee-io/issues/issues/11705)
+* A logging condition with a typo in it makes every request to the API fail with a 500 [#11732](https://github.com/gravitee-io/issues/issues/11732)
+* Issue with Syncing between Replica when Distributed Sync is Enabled [#11742](https://github.com/gravitee-io/issues/issues/11742)
+* JsonPath error java.lang.NoClassDefFoundError: Could not initialize class io.gravitee.el.spel.function.json.JsonPathFunction [#11765](https://github.com/gravitee-io/issues/issues/11765)
+* API promotion still fails with DuplicateKeyException on apim_promotions after concurrent write conflict fix [#11775](https://github.com/gravitee-io/issues/issues/11775)
+* Endpoint Group information not visibile [#11776](https://github.com/gravitee-io/issues/issues/11776)
+* Debug mode permanently skips an API on a Gateway after one incomplete debug [#11780](https://github.com/gravitee-io/issues/issues/11780)
+* HTTP/2 large request uploads significantly slower than HTTP/1.1 through Gravitee Gateway [#11789](https://github.com/gravitee-io/issues/issues/11789)
+* Data Logging Masking Policy – Header Masking Not Applied in Response Phase [#11791](https://github.com/gravitee-io/issues/issues/11791)
+* Data Logging Masking Policy – Regex Causes Over-masking [#11792](https://github.com/gravitee-io/issues/issues/11792)
+* Upgrade removes all API group assignments when a MongoDB collection prefix is configured (4.11.24, 4.12.14) [#11800](https://github.com/gravitee-io/issues/issues/11800)
+* Per-API Health Check Alert Option Missing From Console UI [#11807](https://github.com/gravitee-io/issues/issues/11807)
+* A single failing auto-fetch page blocks auto-fetch for all other pages [#11829](https://github.com/gravitee-io/issues/issues/11829)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.27 - September 7, 2026
 <details>
 
