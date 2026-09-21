@@ -40,13 +40,13 @@ You can adapt the following instructions to use your own gRPC services and setup
     \{% endcode %\}
 4.  Verify the containers initialize and run
 
-    <figure><img src="../../.gitbook/assets/docker containers.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/docker containers.png" alt="A container dashboard listing the running services of a local stack, each with its image, status, CPU usage, and mapped ports."><figcaption></figcaption></figure>
 
 ### Modify the network
 
 In this exercise, we will use a virtual host and dynamic routing to configure our API in Gravitee. To make that work, we need to modify the network configuration by adding the following lines to the `/etc/hosts` file:
 
-<figure><img src="../../.gitbook/assets/grpc networking.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/grpc networking.png" alt="Three host file entries mapping local example hostnames to the loopback address."><figcaption></figcaption></figure>
 
 ## Examples
 

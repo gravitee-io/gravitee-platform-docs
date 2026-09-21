@@ -91,7 +91,7 @@ If you chose **Introspect messages from Event-driven backend**, you are presente
 * **Webhook**: Front a backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
 * **WebSocket**: Front a backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.
 
-<figure><img src="../../../../.gitbook/assets/v4 wizard_step 2 message entrypoints.png" alt=""><figcaption><p>v4 API creation wizard: Event-driven backend entrypoints</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/v4 wizard_step 2 message entrypoints.png" alt="Step 2 of the API creation wizard, with HTTP GET and HTTP POST ticked and Server-Sent Events and Webhook left clear."><figcaption><p>v4 API creation wizard: Event-driven backend entrypoints</p></figcaption></figure>
 
 Once you select your entrypoint(s), additional configuration is required. The following sections outline the necessary configuration per entrypoint.
 

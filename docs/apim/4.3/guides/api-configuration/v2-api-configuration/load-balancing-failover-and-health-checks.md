@@ -68,7 +68,7 @@ To configure failover:
 3. Select your API
 4.  From the inner left nav, select **Failover** under **Backend services**
 
-    <figure><img src="../../../.gitbook/assets/v2 failover.png" alt=""><figcaption><p>Configure failover</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 failover.png" alt="The failover settings of an endpoint group, with Enable Failover switched off and the max attempts and timeout fields disabled."><figcaption><p>Configure failover</p></figcaption></figure>
 5. Configure the following:
    * Toggle **Enable Failover** ON
    * **Max Attempts:** Define the upper limit for the number of possible Gravitee API Gateway attempts to find a suitable endpoint, according to the load-balancing algorithm, before returning an error
@@ -84,7 +84,7 @@ To configure health-checks:
 3. Select your API
 4.  From the inner left nav, select **Health-check** under **Backend services**
 
-    <figure><img src="../../../.gitbook/assets/v2 health-check.png" alt=""><figcaption><p>Configure health-checks</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 health-check.png" alt="The health check settings of an endpoint group, disabled, showing the schedule presets, request method and path, HTTP headers, and a response status assertion."><figcaption><p>Configure health-checks</p></figcaption></figure>
 5. Configure the following:
    * Toggle **Enable health-check** ON
    * Define the **Trigger Schedule** to establish the time interval between successive health-checks
