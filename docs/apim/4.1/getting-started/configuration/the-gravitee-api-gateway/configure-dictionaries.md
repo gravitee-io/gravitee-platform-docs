@@ -17,7 +17,7 @@ Dictionary properties are based on key-value pairs. You can create two types of 
 
 Dictionaries need to be deployed to the API Gateway before you can use them. You can see the date and time the dictionary was last deployed in the dictionary list:
 
-<figure><img src="../../../.gitbook/assets/gs-config-the-gravitee-api-gateway--46.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gs-config-the-gravitee-api-gateway--46.png" alt="The Dictionaries page listing a dynamic and a manual dictionary, with the Last deployment at column highlighted."><figcaption></figcaption></figure>
 
 ### How are dictionaries used?
 
@@ -40,7 +40,7 @@ To create a manual dictionary, choose **Manual** as the **Type**, and then selec
 
 Then, just give your properties a name and a value.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.24.08 AM.png" alt=""><figcaption><p>Add properties to your dictionary</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.24.08 AM.png" alt="The New property dialog open over a manual dictionary&#x27;s settings, with empty name and value fields and an empty properties list behind it."><figcaption><p>Add properties to your dictionary</p></figcaption></figure>
 
 When you're done, select Add, and then **Save Properties** when you are done defining your key-value pairs. To then start and deploy your dictionary, select **Deploy.**
 
@@ -52,7 +52,7 @@ To create a manual dictionary, choose **Dynamic** as the **Type**. **Trigger** a
 
 The Trigger defines the schedule for which dynamic properties will be created. Define the **Interval** and the **Time Unit** (seconds, minutes, hours).
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.28.44 AM.png" alt=""><figcaption><p>Define your trigger</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.28.44 AM.png" alt="The Trigger section of a dynamic dictionary, with an interval entered and the time unit dropdown open on Seconds, Minutes, and Hours."><figcaption><p>Define your trigger</p></figcaption></figure>
 
 #### Define your Provider settings
 

@@ -198,7 +198,7 @@ To monetize data delivery, consider a v4 message API that sends an alert wheneve
 3. Select **Consumers** from the inner left nav
 4.  Under the **Plans** tab, click **+ Add new plan**
 
-    <figure><img src="../.gitbook/assets/example2_add plan.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/example2_add plan.png" alt="The Plans tab of an API&#x27;s Consumers page, with the PUBLISHED filter selected and a keyless plan and a push plan both published."><figcaption></figcaption></figure>
 5. Select **API Key** from the drop-down menu and configure an API Key plan
 
 Tier 2 customers can use our API for free, but new merchandise alerts are delayed by 30 minutes. Tier 1 customers who purchase the API Key plan are given unlimited access to real-time data.

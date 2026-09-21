@@ -62,7 +62,7 @@ To add security to your API, complete the following steps:
     <figure><img src="../../.gitbook/assets/8AB63E94-AAA6-4BDA-B648-077BB451A35C.jpeg" alt=""><figcaption></figcaption></figure>
 13. In the **Deploy your API** pop-up window, click **Deploy**.
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-49-api-proxy-d-350 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-49-api-proxy-d-350 (1).png" alt="The Deploy your API dialog open over an API&#x27;s Plans tab, asking for a deployment label, with an out-of-sync banner above."><figcaption></figcaption></figure>
 
 #### Verification
 
@@ -90,7 +90,7 @@ WARNING: Removing a plan is irreversible
 
 The Default Keyless (UNSECURED) plan is removed from the **PUBLISHED** tab.
 
-<figure><img src="../../.gitbook/assets/gs-first-api-add-security-58 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-first-api-add-security-58 (1).png" alt="The Create an entrypoint mapping dialog, with empty sharding tags and entrypoint URL fields."><figcaption></figcaption></figure>
 
 ## Verification
 
@@ -118,7 +118,7 @@ To test your API Key plan, complete the following steps:
    3. Click the name of the plan that you created in [#add-an-api-key-plan-to-your-api](add-security.md#add-an-api-key-plan-to-your-api "mention").
    4.  Click **Create**.
 
-       <figure><img src="../../.gitbook/assets/gs-first-api-add-security-59 (1).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/gs-first-api-add-security-59 (1).png" alt="The Create an entrypoint mapping dialog with a Kafka bootstrap domain pattern and port, and an empty sharding tags field."><figcaption></figcaption></figure>
 6.  Copy your API key from the **API Keys** section of the **Subscriptions** page.
 
     <figure><img src="../../.gitbook/assets/0E509DC6-90E7-4154-B768-920FB55DA442.jpeg" alt=""><figcaption></figcaption></figure>

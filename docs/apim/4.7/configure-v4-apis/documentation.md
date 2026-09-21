@@ -150,7 +150,7 @@ The available API properties are listed in the following table:
 {% tab title="Import from file" %}
 Upload a Markdown, OpenAPI, or AsyncAPI file as a documentation page. Only one file can be uploaded at a time.
 
-<figure><img src="../.gitbook/assets/docs_content 1.png" alt=""><figcaption><p>Import a Markdown file</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/docs_content 1.png" alt="The Add content step of the documentation page wizard, with an empty drag-and-drop upload area accepting Markdown and text files."><figcaption><p>Import a Markdown file</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -162,7 +162,7 @@ You have the option to save the page with or without publishing it to the Develo
 
 Dynamic v4 API documentation pages can be created by adding metadata. To view metadata keys and values for v4 API documentation, select the **Metadata** header.
 
-<figure><img src="../.gitbook/assets/metadata_screen.png" alt=""><figcaption><p>View API metadata</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/metadata_screen.png" alt="The Metadata tab of an API&#x27;s documentation, listing global metadata entries with their key, name, format, and value."><figcaption><p>View API metadata</p></figcaption></figure>
 
 To create metadata for v4 API documentation, click **+** **Add API Metadata** and specify the following:
 
