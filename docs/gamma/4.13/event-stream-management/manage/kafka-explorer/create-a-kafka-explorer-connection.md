@@ -104,7 +104,7 @@ Each SASL mechanism takes its own fields:
 
 For a Cluster or Direct Broker target, the overlay is the whole connection security: a SASL protocol needs a mechanism other than `NONE`, and `PLAINTEXT` or `SSL` needs the mechanism left at `NONE`. A credential can't contain a control character, such as a pasted line break.
 
-Before you point a connection at a production cluster, read [Limitations and considerations](limitations-and-considerations.md). It covers where the overlay's credentials are stored, what **Verify Host** and **Trust all** actually relax, the difference between a store given by path and one given by content, and how an overlay combines with the target's own security.
+Before you point a connection at a production cluster, read [Limitations and considerations](limitations-and-considerations.md). It covers where the overlay's credentials are stored, which TLS check each of **Verify Host** and **Trust all** relaxes, the difference between a store given by path and one given by content, and how an overlay combines with the target's own security.
 
 ### How the plan type shapes a Kafka Service connection
 
