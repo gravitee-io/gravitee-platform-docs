@@ -163,7 +163,7 @@ The **Notifications** tab allows you to subscribe to notifications related to a 
 4. Select **Configuration** from the inner left nav.
 5.  Select the **Notifications** header.
 
-    <figure><img src="../../../.gitbook/assets/A 1 config notifications.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/A 1 config notifications.png" alt="The Notifications tab of an API&#x27;s Configuration page, listing a portal notification with no events and a mail notification subscribed to 24 events."><figcaption></figcaption></figure>
 6. Click **+ Add notification** to create a new one.
 7. Give your notification a name and select either:
    * **Default Email Notifier:**

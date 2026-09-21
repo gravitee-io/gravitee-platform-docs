@@ -30,13 +30,13 @@ The legacy execution engine requires execution scopes to indicate the level at w
 
 Execution of all policies working on the body content are postponed until the policies working on headers have been executed. This leads to an execution order that is often different than the one originally designed.
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-execution-scopes-1.png" alt=""><figcaption><p>Legacy engine execution order</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-execution-scopes-1.png" alt="A diagram contrasting three policies as ordered in Policy Studio with their runtime order, where the request-content policy runs last on a separate track."><figcaption><p>Legacy engine execution order</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Reactive engine improvements" %}
 The reactive execution engine does not consider the `REQUEST_CONTENT` and `RESPONSE_CONTENT` phases. All policies are executed in the exact order of the design, regardless of whether they work on the content or not.
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-execution-scopes-2.png" alt=""><figcaption><p>Reactive engine execution order</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-execution-scopes-2.png" alt="A diagram contrasting three policies as ordered in Policy Studio with their runtime order, where all three run in the same sequence on the request track."><figcaption><p>Reactive engine execution order</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -182,7 +182,7 @@ The reactive execution engine implements the following improvements:
 * When a connectivity error occurs during a connection attempt to the backend endpoint, the Gateway response displays an HTTP status code `0` and no headers. This clarifies that no response has been received from the backend endpoint due to the connectivity error.
 * Consumer response headers are displayed more clearly
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-logging-2.png" alt=""><figcaption><p>Sample 502 log with the reactive execution engine</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-logging-2.png" alt="An API log detail page for a request that returned 502, with a connection-refused error and the consumer and gateway headers shown side by side."><figcaption><p>Sample 502 log with the reactive execution engine</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -330,4 +330,4 @@ The example below shows timelines indicating when a timeout should occur dependi
 * There is no timeout defined for the backend in the API’s endpoint configuration (real timeout values should be shorter than `http.requestTimeout` and should interrupt the flow at the invoker level)
 * `http.requestTimeout=2000ms` and `http.requestTimeoutGraceDelay=30ms`
 
-<div align="left"><figure><img src="../../.gitbook/assets/event-native-api-management-timeout.png" alt="" width="375"><figcaption><p>Reactive engine timeout management</p></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/event-native-api-management-timeout.png" alt="A diagram of four request timings against the flow and platform stages, showing which combinations return a 504 timeout and which return a regular response." width="375"><figcaption><p>Reactive engine timeout management</p></figcaption></figure></div>

@@ -8,7 +8,7 @@ description: Documentation on policies and controls for adding a policy.
 
 First, we need to open the API in the APIM Console. You may already have it open from the previous part of the Quickstart Guide. If not, simply head back over to the **APIs** homescreen and select the API you created.
 
-<figure><img src="../../../../.gitbook/assets/DP_homescreen.png" alt=""><figcaption><p>APIs homescreen</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/DP_homescreen.png" alt="The APIs list filtered to a single API, showing its status, context path, owner, definition version, and visibility."><figcaption><p>APIs homescreen</p></figcaption></figure>
 
 > * [x] Select **APIs** in the sidebar
 > * [x] Select the API you created in Gateway APIs 101
