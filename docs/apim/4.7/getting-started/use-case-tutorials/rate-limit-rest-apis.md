@@ -76,20 +76,20 @@ Add differentiated Quota policies to each plan per the instructions below.
 
 5. Use the search bar or scroll to navigate to the **Quota** policy, then click **Select**.
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-rate-limit-re-29.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-rate-limit-re-29.png" alt="The Policies for Request phase dialog with a quota search, offering the Quota policy."><figcaption></figcaption></figure>
 
 6. Toggle **Add response headers** ON and click **Save**.
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-rate-limit-re-30.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-rate-limit-re-30.png" alt="The quota policy configuration, with a plan named in the description, non-strict mode off, response headers on, and an empty quota key."><figcaption></figcaption></figure>
 
 7. Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 100 requests per 1 month
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-rate-limit-re-31.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-rate-limit-re-31.png" alt="The quota policy configuration scrolled to the limits, with a static maximum of 100 requests and a time duration of one month."><figcaption></figcaption></figure>
 
 8. Click **Add policy**
 9. On the **Policies** page, click **Save**
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-rate-limit-re-32.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-rate-limit-re-32.png" alt="The Policies page with a quota policy added to the request phase of the selected flow, beside a list of tiered API key plans and Common flows."><figcaption></figcaption></figure>
 
 10. Click **Deploy API** to redeploy the API and have the changes take effect
 

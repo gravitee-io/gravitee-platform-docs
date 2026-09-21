@@ -79,18 +79,18 @@ Add differentiated Quota policies to each plan per the instructions below.
 
 5. Use the search bar or scroll to navigate to the **Quota** policy, then click **Select**.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-29-2-1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-29-2-1 (1).png" alt="The Policies for Request phase dialog with a quota search, offering the Quota policy."><figcaption></figcaption></figure>
 
 6.  Toggle **Add response headers** ON and click **Save**.<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-195 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-195 (1).png" alt="The quota policy configuration, with a plan named in the description, non-strict mode off, response headers on, and an empty quota key."><figcaption></figcaption></figure>
 7.  Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 100 requests per 1 month<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-196 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-196 (1).png" alt="The quota policy configuration scrolled to the limits, with a static maximum of 100 requests and a time duration of one month."><figcaption></figcaption></figure>
 8. Click **Add policy**
 9.  On the **Policies** page, click **Save**<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-197 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-197 (1).png" alt="The Policies page with a quota policy added to the request phase of the selected flow, beside a list of tiered API key plans and Common flows."><figcaption></figcaption></figure>
 10. Click **Deploy API** to redeploy the API and have the changes take effect<br>
 
     <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-198 (1).png" alt="An orange-bordered banner reading &quot;This API is out of sync.&quot; with a Deploy API button on the right."><figcaption></figcaption></figure>

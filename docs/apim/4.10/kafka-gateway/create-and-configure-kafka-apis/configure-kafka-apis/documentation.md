@@ -20,14 +20,14 @@ To create a homepage:
 1. Click **Create New Page**.
 2.  Select the format of the page content. You can choose between Markdown, an OpenAPI definition, or an AsyncAPI definition. The next steps in the page creation process are identical regardless of which format you choose.
 
-    <figure><img src="../../../.gitbook/assets/1 docs 1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/1 docs 1.png" alt="The Main Pages tab of an API&#x27;s documentation, with no homepage set and the Create New Page menu open on Markdown, OpenAPI, and AsyncAPI."><figcaption></figcaption></figure>
 3.  Choose whether to set your page visibility to **Public** or **Private**.
 
     <figure><img src="../../../.gitbook/assets/01.png" alt=""><figcaption></figcaption></figure>
 
     If you select **Private**, you have the option to choose which groups can view your page. You can also exclude the selected groups, in which case the groups that are not selected will be able to view your page. If you do not select any groups, all groups will be able to view your page.
 
-    <figure><img src="../../../.gitbook/assets/10 1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/10 1.png" alt="The visibility step of page creation, with Private selected over Public, one group permitted to view the page, and the exclude-groups toggle switched off."><figcaption></figcaption></figure>
 4.  Choose how to create the content. You can fill in the content yourself, import a file, or link to an external source.
 
     <figure><img src="../../../.gitbook/assets/02.png" alt=""><figcaption></figcaption></figure>
@@ -36,16 +36,16 @@ To create a homepage:
 
     *   If you choose to fill in the content yourself, you'll need to write the content in Markdown, provide an OpenAPI definition, or provide an AsyncAPI definition.
 
-        <figure><img src="../../../.gitbook/assets/1 fill.png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/1 fill.png" alt="The Add content step of page creation, with Markdown in the editor on the left and its rendered preview on the right."><figcaption></figcaption></figure>
     *   If you choose to import content from a file in your local directory, you'll need to import a Markdown or text file if you chose the Markdown format, or import a JSON or YAML file if you chose either the OpenAPI or AsyncAPI format.
 
-        <figure><img src="../../../.gitbook/assets/1 import.png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/1 import.png" alt="The upload step of page creation, with a Markdown file attached and its rendered preview below."><figcaption></figcaption></figure>
     *   If you choose to link to an external source, you'll be presented with the same set of options, regardless of format.
 
-        <figure><img src="../../../.gitbook/assets/1 link.png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/1 link.png" alt="The Determine source step of page creation, with Link to External Source selected and Bitbucket, GIT, GitHub, GitLab, and HTTP offered as page sources."><figcaption></figcaption></figure>
 5.  After you've provided your page content, click **Save** to generate an unpublished page, or **Save and publish** to publish the page to the Developer Portal.
 
-    <figure><img src="../../../.gitbook/assets/04.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/04.png" alt="The Main Pages tab of an API&#x27;s documentation, listing a published public homepage with edit, unpublish, and delete actions."><figcaption></figcaption></figure>
 
     Your page will appear with its name, publication status, and visibility, as well as the time it was last updated. Under ACTIONS, you can click the pencil icon to edit your page, the cloud to publish/unpublish it, and the trash can to delete it.
 
@@ -55,7 +55,7 @@ Instead of creating a new homepage, you can choose one from your existing docume
 Once you select an existing page as your homepage, it will be removed from your documentation pages. This action is irreversible.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/12.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/12.png" alt="The Select an Existing Page as Your Homepage panel, listing a published page and a folder, with a warning that the choice is final."><figcaption></figcaption></figure>
 
 ## Documentation Pages
 
