@@ -57,6 +57,8 @@ With **Trace enabled** on, the proxy records one span for each call it forwards 
 
 The span is named after the JSON-RPC method of the call, such as `message/send`. When the request carries no readable JSON-RPC method, the span is named `a2a` instead.
 
+<figure><img src="../../.gitbook/assets/gamma-aim-a2a-trace-timeline.png" alt="The Timeline view of an A2A Proxy trace, with the message/send span nested under the endpoint invoker span and above the HTTP client span"><figcaption><p>An A2A span in the trace timeline, named after its JSON-RPC method.</p></figcaption></figure>
+
 The span carries the following attributes:
 
 | Attribute | Value |
@@ -67,6 +69,8 @@ The span carries the following attributes:
 | `jsonrpc.request.id` | The JSON-RPC request id. Absent when the request carries none. |
 | `server.address` | The upstream agent's host, without scheme, port, or path. |
 | `server.port` | The upstream agent's port, filled in from the scheme when the target leaves it implicit. |
+
+<figure><img src="../../.gitbook/assets/gamma-aim-a2a-span-attributes.png" alt="The attributes of an A2A span: server.address, gen_ai.operation.name, rpc.method, server.port, rpc.system.name, and jsonrpc.request.id"><figcaption><p>The attributes of an A2A span.</p></figcaption></figure>
 
 The span records the host and the port, never the full target address, because a target can contain credentials.
 
