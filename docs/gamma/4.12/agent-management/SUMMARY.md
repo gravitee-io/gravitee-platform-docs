@@ -80,6 +80,7 @@
   * [Publish a proxy to the Developer Portal](publish/publish-a-proxy-to-the-developer-portal.md)
   * [Agent kill switch](build/agent-killswitch.md)
 * [Observe](observe/README.md)
+  * [Monitor agents, spend, and compliance on the Overview page](observe/monitor-agents-spend-and-compliance.md)
   * [Monitor proxy and agent activity](observe/monitor-proxy-activity.md)
   * [Dashboards](observe/dashboards/README.md)
     * [Monitor your LLM proxy](observe/monitor-your-llm-proxy.md)
