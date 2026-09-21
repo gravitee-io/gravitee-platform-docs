@@ -49,16 +49,13 @@ The **OpenTelemetry** card configures distributed tracing and OpenTelemetry log 
 * **Verbose**. Adds detailed span events with headers, context attributes, and policy execution details. Requires **Trace enabled**. Enable only for deep debugging, because it increases trace size significantly, and disable it after debugging is complete.
 * **OTel Logs**. Emit request and response payloads as OpenTelemetry log records correlated to the active trace, which enables log-to-trace linking in Grafana and other OpenTelemetry-compatible backends. Requires **Trace enabled**.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-a2a-otel-card.png" alt="The OpenTelemetry card on an A2A Proxy's Reporter Settings page, with the Trace enabled, Verbose, and OTel Logs switches"><figcaption><p>The <strong>OpenTelemetry</strong> card of an A2A Proxy. All three switches are off until you turn them on.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-a2a-otel-card.png" alt="The OpenTelemetry card on an A2A Proxy's Reporter Settings page, with the Trace enabled, Verbose, and OTel Logs switches"><figcaption><p>The <strong>OpenTelemetry</strong> card of an A2A Proxy. <strong>Verbose</strong> and <strong>OTel Logs</strong> are unavailable until <strong>Trace enabled</strong> is on.</p></figcaption></figure>
 
 ### What an A2A trace contains
 
 With **Trace enabled** on, the proxy records one span for each call it forwards to the upstream agent. The span sits under the gateway's invoker span, and the HTTP client span nested below it reports the transport.
 
 The span is named after the JSON-RPC method of the call, such as `message/send`. When the request carries no readable JSON-RPC method, the span is named `a2a` instead.
-
-<!-- TODO: Screenshot of a trace timeline in the Trace Explorer showing the A2A span named after its JSON-RPC method -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-a2a-trace-timeline.png" alt=""><figcaption><p>An A2A span in the trace timeline, named after its JSON-RPC method.</p></figcaption></figure>
 
 The span carries the following attributes:
 
@@ -71,19 +68,11 @@ The span carries the following attributes:
 | `server.address` | The upstream agent's host, without scheme, port, or path. |
 | `server.port` | The upstream agent's port, filled in from the scheme when the target leaves it implicit. |
 
-<!-- TODO: Screenshot of the span details panel listing the A2A span attributes -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-a2a-span-attributes.png" alt=""><figcaption><p>The attributes of an A2A span.</p></figcaption></figure>
+The span records the host and the port, never the full target address, because a target can contain credentials.
 
-The span records the host and the port, never the full target address. A target can resolve a secret, so it can carry credentials.
+Requests that aren't JSON-RPC calls, such as fetching the agent card, are recorded as a span named `a2a` without `rpc.method` or `jsonrpc.request.id`. When the host or port can't be read from the target, the span omits `server.address` or `server.port`. Tracing never changes the outcome of a request.
 
-Each of the following leaves the rest of the trace intact, and none of them changes the outcome of the request:
-
-* A request that isn't a `POST` is forwarded without its JSON-RPC attributes being read, so the span is named `a2a`.
-* A request body that's absent, or isn't JSON-RPC, leaves `rpc.method` and `jsonrpc.request.id` unset, and the span is named `a2a`.
-* A target that isn't a valid URI omits both `server.address` and `server.port`.
-* A target with no scheme or authority omits both `server.address` and `server.port`.
-* A target whose authority carries no host omits both `server.address` and `server.port`.
-* A target naming a non-numeric port omits `server.port` and keeps `server.address`.
+For a streaming call such as `message/stream`, the span ends before the stream does, so its duration doesn't cover the whole stream.
 
 ### Redact span attributes
 
