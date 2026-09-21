@@ -309,7 +309,7 @@ org.apache.kafka.common.security.plain.PlainLoginModule required username='$Conn
 
 * To find the connection string value, navigate to **Settings** and then **Shared access policies** in the Azure UI. Click the policy to view its details, and then select **Connection string-primary key**.
 
-<figure><img src="../../../.gitbook/assets/config-apis-create-apis-v2-api-crea-138.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/config-apis-create-apis-v2-api-crea-138.png" alt="The Choose API creation method dialog, offering Create Classic API with V2 options and Create New API with V4 options."><figcaption></figcaption></figure>
 
 * The bootstrap server name is in the format:
 

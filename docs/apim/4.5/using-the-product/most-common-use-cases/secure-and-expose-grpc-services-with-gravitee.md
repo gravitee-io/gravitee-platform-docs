@@ -65,13 +65,13 @@ Follow the steps below to expose a simple gRPC service with one API on the Gatew
 1. Log in to your APIM Console
 2.  Create a new API using the [v4 API creation wizard](../managing-your-apis/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)
 
-    <div align="left"><figure><img src="../../.gitbook/assets/grpc wizard.png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/grpc wizard.png" alt="The Get started building your API page showing the Create a V4 API from scratch card with a Create button." width="375"><figcaption></figcaption></figure></div>
 3.  Enter the name, version, and description of your API (e.g., **HelloService gRPC** / **1.0** / **Simple gRPC proxy service**)
 
     <figure><img src="../../.gitbook/assets/grpc proxy details.png" alt=""><figcaption></figcaption></figure>
 4.  Select **Proxy Upstream Protocol**
 
-    <figure><img src="../../.gitbook/assets/grpc proxy select.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/grpc proxy select.png" alt="Step 2 of the API creation wizard, with Proxy Upstream Protocol selected as the way to expose the backend service."><figcaption></figcaption></figure>
 5.  Enter the context-path **/helloworld.Greeter** (do not enable virtual hosts for this API)
 
     <figure><img src="../../.gitbook/assets/grpc context path.png" alt=""><figcaption></figcaption></figure>
@@ -84,7 +84,7 @@ Follow the steps below to expose a simple gRPC service with one API on the Gatew
     <figure><img src="../../.gitbook/assets/grpc endpoint.png" alt=""><figcaption></figcaption></figure>
 7.  Configure and validate a **KEY\_LESS** security plan
 
-    <figure><img src="../../.gitbook/assets/grpc keyless.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/grpc keyless.png" alt="Step 4 of the API creation wizard, showing a Default Keyless (UNSECURED) plan listed under Your API plans."><figcaption></figcaption></figure>
 8. Check that all values are correct in the summary, then deploy your API
 9.  Verify that your API **HelloService gRPC** is accessible from the **APIs** menu of the APIM Console
 
@@ -137,13 +137,13 @@ The steps below use the virtual host feature to expose multiple gRPC services ru
 1. Log in to your APIM Console
 2.  Create a new API using the [v4 API creation wizard](../managing-your-apis/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)
 
-    <div align="left"><figure><img src="../../.gitbook/assets/grpc wizard.png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/grpc wizard.png" alt="The Get started building your API page showing the Create a V4 API from scratch card with a Create button." width="375"><figcaption></figcaption></figure></div>
 3.  Enter the name, version, and description of your API (e.g., **gRPC Proxy** / **1.0** / **Simple gRPC proxy service**)
 
     <figure><img src="../../.gitbook/assets/grpc proxy details 2.png" alt=""><figcaption></figcaption></figure>
 4.  Select **Proxy Upstream Protocol**
 
-    <figure><img src="../../.gitbook/assets/grpc proxy select.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/grpc proxy select.png" alt="Step 2 of the API creation wizard, with Proxy Upstream Protocol selected as the way to expose the backend service."><figcaption></figcaption></figure>
 5.  Configure your API entrypoints to use virtual hosts and set the **Virtual host** to `grpc.gravitee.io` (same as the entry in the `/etc/hosts` file), then click **Validate my entrypoints**
 
     <figure><img src="../../.gitbook/assets/grpc entrypoints.png" alt=""><figcaption></figcaption></figure>
@@ -156,7 +156,7 @@ The steps below use the virtual host feature to expose multiple gRPC services ru
     <figure><img src="../../.gitbook/assets/grpc endpoint 2.png" alt=""><figcaption></figcaption></figure>
 7.  Configure and validate a **KEY\_LESS** security plan
 
-    <figure><img src="../../.gitbook/assets/grpc keyless.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/grpc keyless.png" alt="Step 4 of the API creation wizard, showing a Default Keyless (UNSECURED) plan listed under Your API plans."><figcaption></figcaption></figure>
 8. Check that all values are correct in the summary, then deploy your API
 9.  Verify that your API **gRPC Proxy** is accessible from the **APIs** menu of the APIM Console
 
