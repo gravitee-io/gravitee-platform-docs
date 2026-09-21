@@ -7,8 +7,6 @@ structure:
 redirects:
  create: README.md
  getting-started/configuration/configure-automation-api: getting-started/configuration/configure-am-api/README.md
- guides/applications/create-and-manage-agent-applications: guides/applications/application-types.md
- guides/applications/spiffe-workload-identity-and-agent-applications-overview: guides/applications/application-types.md
  guides/auth-protocols/oauth-2.0/cimd: guides/auth-protocols/openid-connect.md
  guides/automation-api: guides/alerts/README.md
  guides/manage-spiffe-trust-domains: guides/security-domains/README.md
