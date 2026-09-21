@@ -28,10 +28,10 @@ To create a plan:
 4. Select **Consumers** from the inner left nav
 5.  Under the **Plans** header tab, click **+ Add new plan** and select your plan security type:
 
-    <figure><img src="../../.gitbook/assets/plan_select security type.png" alt=""><figcaption><p>Add a new plan</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/plan_select security type.png" alt="The Plans tab of an API&#x27;s Consumers page with the Add new plan menu open, listing the available plan types."><figcaption><p>Add a new plan</p></figcaption></figure>
 6.  Configure the general plan settings:
 
-    <figure><img src="../../.gitbook/assets/plan_general.png" alt=""><figcaption><p>Configure general plan settings</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/plan_general.png" alt="The General step of plan creation, with empty name, description, and characteristics fields and both subscription toggles switched off."><figcaption><p>Configure general plan settings</p></figcaption></figure>
 
     * **Name:** Enter a name for your plan
     * **Description:** Enter a description of your plan
@@ -44,10 +44,10 @@ To create a plan:
 7. Click **Next**
 8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See [OAuth2](oauth2.md), [JWT](jwt.md), [API Key](api-key.md), [Keyless](keyless.md), or [Push](push.md) for more information.
 
-    <figure><img src="../../.gitbook/assets/plan_oauth2.png" alt=""><figcaption><p>OAuth2 configuration</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/plan_oauth2.png" alt="The OAuth2 authentication configuration step of plan creation, with empty resource fields, scope checking off, strict mode and authorization header propagation on, and an additional selection rule field."><figcaption><p>OAuth2 configuration</p></figcaption></figure>
 9.  Select any plan restrictions:
 
-    <figure><img src="../../.gitbook/assets/plan_restrictions.png" alt=""><figcaption><p>Select plan restrictions</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/plan_restrictions.png" alt="The Restriction step of plan creation, with rate limiting, quota, and resource filtering all switched off."><figcaption><p>Select plan restrictions</p></figcaption></figure>
 
     * **Rate limiting:** Intended to help avoid unmanageable spikes in traffic by limiting the number of requests an application can make in a given time period.
     * **Quota:** Limits the number of requests an application can make in a given time period. Generally used to tier access to APIs based on subscription level.

@@ -12,7 +12,7 @@ Dictionary properties are based on key-value pairs. You can create two types of 
 
 Dictionaries need to be deployed to the API Gateway before you can use them. You can see the date and time the dictionary was last deployed in the dictionary list:
 
-<figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-gravit-46-1-1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-gravit-46-1-1 (1).png" alt="The Dictionaries page listing a dynamic and a manual dictionary, with the Last deployment at column highlighted."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 **How are dictionaries used?**
@@ -35,7 +35,7 @@ Select the <img src="../../.gitbook/assets/Screen Shot 2023-06-28 at 10.18.10 AM
 
 To create a manual dictionary, choose **Manual** as the **Type**, then click **Create.** You'll be brought to a page where you can define the static properties for your dictionary. To create a property, select the <img src="../../.gitbook/assets/Screen Shot 2023-06-28 at 10.22.56 AM.png" alt="A round dark blue button with a white plus sign, used to add a new item." data-size="line">icon and give your property a name and value.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-06-28 at 10.24.08 AM.png" alt=""><figcaption><p>Add properties to your dictionary</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-06-28 at 10.24.08 AM.png" alt="The New property dialog open over a manual dictionary&#x27;s settings, with empty name and value fields and an empty properties list behind it."><figcaption><p>Add properties to your dictionary</p></figcaption></figure>
 
 Select **Add**, and then **Save Properties** when you are done defining your key-value pairs. To start and deploy your dictionary, select **Deploy.**
 
@@ -47,7 +47,7 @@ To create a dynamic dictionary, choose **Dynamic** as the **Type**. **Trigger** 
 {% tab title="Define trigger settings" %}
 The **Trigger** defines the schedule for which dynamic properties will be created. Define the **Interval** and the **Time Unit** (seconds, minutes, hours).
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-06-28 at 10.28.44 AM.png" alt=""><figcaption><p>Define your trigger</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-06-28 at 10.28.44 AM.png" alt="The Trigger section of a dynamic dictionary, with an interval entered and the time unit dropdown open on Seconds, Minutes, and Hours."><figcaption><p>Define your trigger</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Define provider settings" %}

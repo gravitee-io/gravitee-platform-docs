@@ -78,7 +78,7 @@ To configure user and group access, complete the following steps:
 2. Log in to your APIM Console, and then click **Applications**.
 3.  Find the application you want to configure. Use the radio buttons to select either Active or Archived applications. Next, either scroll through the paginated lists of available applications or use the search field to find the application by name.
 
-    <figure><img src="../../.gitbook/assets/00 groups added to applications 7.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 groups added to applications 7.png" alt="The Applications list filtered by a search term, showing two matching applications with their type and owner."><figcaption></figcaption></figure>
 4. Click on the application you want to configure.
 5.  Click on **User and group access** in the Application menu.
 

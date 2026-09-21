@@ -74,28 +74,28 @@ Add differentiated Quota policies to each plan per the instructions below.
 3. Click **Create**
 4. Select the **+** icon within the request phase section. This lets us use the Quota policy to limit the number of requests Silver Tier members can make to the API per month\_.\_
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-3.png" alt="The Plans tab of an API with the Add new plan menu open, offering OAuth2, JWT, API Key, and Keyless plan types."><figcaption></figcaption></figure>
 
 5. Use the search bar or scroll to navigate to the **Quota** policy, then click **Select**.
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-4.png" alt="The General step of plan creation, with a plan name entered and the auto-validate subscription toggle switched on."><figcaption></figcaption></figure>
 
 6. Toggle **Add response headers** ON and click **Save**.
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-5.png" alt="The JWT authentication configuration step of plan creation, with the signature set to RSA_RS256 above the JWKS resolver options."><figcaption></figcaption></figure>
 
 7. Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 100 requests per 1 month
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-6.png" alt="The JWT authentication configuration step, with the resolver set to JWKS_URL and a resolver parameter built from an expression-language variable."><figcaption></figcaption></figure>
 
 8. Click **Add policy**
 9. On the **Policies** page, click **Save**
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-7.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-7.png" alt="The Restriction step of plan creation, with rate limiting, quota, and resource filtering all switched off and a Create button."><figcaption></figcaption></figure>
 
 10. Click **Deploy API** to redeploy the API and have the changes take effect
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-8.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-8.png" alt="A diagram of the plan lifecycle, with staging leading to published, and published leading either straight to closed or through deprecated."><figcaption></figcaption></figure>
 
 **Gold Tier plan**
 
@@ -114,7 +114,7 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
 1. Select the **+** icon next to **Common flows**
 2. Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-9.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-9.png" alt="The Plans tab with the STAGING filter selected, showing a JWT plan and the Publish the plan tooltip over the upload icon."><figcaption></figcaption></figure>
 
 3. Click **Create**
 4. Select the **+** icon within the request phase section. This lets us use the Rate Limit policy to limit the number of requests any API consumer can make to the API within a short period of time.

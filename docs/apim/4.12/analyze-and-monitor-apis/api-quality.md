@@ -24,7 +24,7 @@ API Quality is configured at the Portal Settings level. To access these settings
 3. Select **API Quality** from the inner left nav
 4.  Configure pre-built quality characteristics that Gravitee automatically enforces:
 
-    <figure><img src="../.gitbook/assets/api quality.png" alt=""><figcaption><p>API Quality settings</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/api quality.png" alt="The API Quality settings page, with API review disabled, quality metrics enabled, and weighting fields for description, logo, categories, labels, and documentation."><figcaption><p>API Quality settings</p></figcaption></figure>
 
     * **Enable API review:** Toggle ON to build API Quality review into your workflow and not allow an API to be published without review
     * **Enable API Quality Metrics:** Toggle ON to enable quality to be measured and viewable within an APIs details
@@ -33,7 +33,7 @@ API Quality is configured at the Portal Settings level. To access these settings
     * **Endpoint:** Specify **Healthcheck weight**
 5.  Click **+ Add new quality rule** to configure a custom rule that will be enforced manually:
 
-    <figure><img src="../.gitbook/assets/api quality_manual rule.png" alt=""><figcaption><p>Create a manual custom rule</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/api quality_manual rule.png" alt="The lower part of the API Quality settings page, showing a Manual rules table with one rule and its weight."><figcaption><p>Create a manual custom rule</p></figcaption></figure>
 
     * Specify the rule name, description, and weight
     * Click **Create**
@@ -48,4 +48,4 @@ To view an API Quality score:
 4. From the inner left nav, select **Info** under **General**
 5.  Scroll to the **Quality** section to view the API Quality score and rules that are impacting it
 
-    <figure><img src="../.gitbook/assets/api quality_applied.png" alt=""><figcaption><p>View the API Quality score</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/api quality_applied.png" alt="The Info page of an API showing a Quality panel scored at 7 percent, listing the rules met and not met, above the Danger Zone."><figcaption><p>View the API Quality score</p></figcaption></figure>
