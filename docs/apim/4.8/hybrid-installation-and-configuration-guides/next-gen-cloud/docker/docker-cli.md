@@ -58,7 +58,7 @@ To enable API rate-limiting, configure your Gateway to use a rate-limiting repos
     * Set `redis_password` environment variable: `export redis_password=your_redis_password` or replace `${redis_password}` with your actual Redis password.
     *   Replace `<CONTROL_PLANE_VERSION>` with the version that matches your Gravitee Cloud Control Plane. For example. 4.8.2.
 
-        <figure><img src="../../../.gitbook/assets/hybrid-cloud-docker-docker-cli-324.png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/hybrid-cloud-docker-docker-cli-324.png" alt="The Generate a token dialog on a user&#x27;s Tokens tab, with a token name entered, above an empty tokens table."><figcaption></figcaption></figure>
 
 ## Verification
 
