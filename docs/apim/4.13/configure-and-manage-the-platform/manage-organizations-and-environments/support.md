@@ -23,7 +23,7 @@ You can create and list a subject that is related to an application or API. A su
 {% tab title="Using APIM Console" %}
 1.  Click the user icon on the right of the Management Console header, then click **Support**
 
-    <figure><img src="../../.gitbook/assets/support_console menu.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_console menu.png" alt="The account menu open in the API Management console, listing My account, Task, Support, and Sign out."><figcaption></figcaption></figure>
 2.  Use the drop-down menus and text fields to enter the ticket details
 
     <figure><img src="../../.gitbook/assets/support_console ticket.png" alt=""><figcaption></figcaption></figure>
@@ -63,7 +63,7 @@ You can send a message from the current API.
 {% tab title="Using APIM Console" %}
 1.  Click the user icon on the right of the Management Console header, then click **Support**
 
-    <figure><img src="../../.gitbook/assets/support_console menu.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_console menu.png" alt="The account menu open in the API Management console, listing My account, Task, Support, and Sign out."><figcaption></figcaption></figure>
 2.  From the ticket creation page, click **See ticket history**
 
     <figure><img src="../../.gitbook/assets/see tix history.png" alt=""><figcaption></figcaption></figure>
