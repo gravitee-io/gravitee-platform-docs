@@ -166,7 +166,7 @@ To delete all of an integration's federated APIs as a group:
 4. Select **Configuration** from the inner left nav
 5.  In the **Danger Zone** section, click **Delete APIs**
 
-    <figure><img src="../../.gitbook/assets/integration delete.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/integration delete.png" alt="The integration Configuration page showing General Information fields and a Danger Zone with Delete Integration and Delete APIs actions."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Federated APIs cannot be deleted if they are published. The **Delete APIs** action will delete unpublished APIs but ignore published APIs.

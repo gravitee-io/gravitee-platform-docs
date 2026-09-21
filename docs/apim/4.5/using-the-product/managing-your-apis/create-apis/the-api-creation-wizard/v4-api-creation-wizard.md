@@ -25,7 +25,7 @@ The v4 API creation wizard makes it easy to create new Gateway APIs from scratch
 
 The API details step is where you can define a name, version number, and description for your API. The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="../../../../.gitbook/assets/v4 wizard_step 1.png" alt=""><figcaption><p>Step 1: Define your Gateway API's basic details.</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/v4 wizard_step 1.png" alt="Step 1 of the API creation wizard, with the API name, version number, and description filled in."><figcaption><p>Step 1: Define your Gateway API's basic details.</p></figcaption></figure>
 
 ## Step 2: Entrypoints
 
@@ -605,7 +605,7 @@ Select Next to define any additional restrictions for the plan. These restrictio
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../../.gitbook/assets/using-the-product-managing-your-api-98.png" alt="" data-size="original">
+<img src="../../../../.gitbook/assets/using-the-product-managing-your-api-98.png" alt="The Restriction step of plan configuration, with rate limiting enabled and its key, static and dynamic limits, and time window shown, and quota and resource filtering switched off." data-size="original">
 
 </details>
 
@@ -650,7 +650,7 @@ Select Next to define any restrictions associated with this plan. Your options i
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../../.gitbook/assets/using-the-product-managing-your-api-98.png" alt="" data-size="original">
+<img src="../../../../.gitbook/assets/using-the-product-managing-your-api-98.png" alt="The Restriction step of plan configuration, with rate limiting enabled and its key, static and dynamic limits, and time window shown, and quota and resource filtering switched off." data-size="original">
 
 </details>
 

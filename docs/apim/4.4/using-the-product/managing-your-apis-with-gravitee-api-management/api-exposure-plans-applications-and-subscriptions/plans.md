@@ -12,7 +12,7 @@ To expose your API to internal or external consumers, it must have at least one 
 * Premium access with public resources and access limits for your partners
 * Unlimited access to your internal enterprise applications
 
-<div align="center"><figure><img src="../../../.gitbook/assets/plan-diagram.png" alt="" width="375"><figcaption><p>High-level plan diagram</p></figcaption></figure></div>
+<div align="center"><figure><img src="../../../.gitbook/assets/plan-diagram.png" alt="A diagram showing an application subscribing to one of three plans, which in turn sit in front of an API." width="375"><figcaption><p>High-level plan diagram</p></figcaption></figure></div>
 
 Each plan must include at least one security type by which subscribers can be authenticated. A security type is a policy integrated directly into a plan. Once a plan is created, the security type can not be changed. However, you can add additional security at the API or plan level with policies.
 
@@ -90,13 +90,13 @@ Depending on the stage it's in, a plan can be edited, published, deprecated, or 
 {% tab title="Edit" %}
 To edit a plan, click on the pencil icon:
 
-<figure><img src="../../../.gitbook/assets/plan_edit.png" alt=""><figcaption><p>Edit a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_edit.png" alt="The Plans tab with the PUBLISHED filter selected and the Edit the plan tooltip shown over the pencil icon for a keyless plan."><figcaption><p>Edit a plan</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Publish" %}
 To publish a plan, click on the icon of a cloud with an arrow:
 
-<figure><img src="../../../.gitbook/assets/plan_publish.png" alt=""><figcaption><p>Publish a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_publish.png" alt="The Plans tab with the STAGING filter selected and the Publish the plan tooltip shown over the upload icon for an OAuth2 plan."><figcaption><p>Publish a plan</p></figcaption></figure>
 
 Once a plan has been published, it must be redeployed.
 {% endtab %}
@@ -104,13 +104,13 @@ Once a plan has been published, it must be redeployed.
 {% tab title="Deprecate" %}
 To deprecate a plan, click on the icon of a cloud with an 'x':
 
-<figure><img src="../../../.gitbook/assets/plan_deprecate.png" alt=""><figcaption><p>Deprecate a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_deprecate.png" alt="The Plans tab with the PUBLISHED filter selected and the Deprecate the plan tooltip shown over the cloud icon for a keyless plan."><figcaption><p>Deprecate a plan</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Close" %}
 To close a plan, click on the 'x' icon:
 
-<figure><img src="../../../.gitbook/assets/plan_close.png" alt=""><figcaption><p>Close a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_close.png" alt="The Plans tab with the STAGING filter selected and the Close the plan tooltip shown over the cross icon for an OAuth2 plan."><figcaption><p>Close a plan</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -241,12 +241,12 @@ A shared API key may be used to call APIs that are owned by other API publishers
 * Shared API keys cannot be edited from an API publisher's subscriptions
 *   API publishers can read shared API keys, but cannot renew or revoke them
 
-    <figure><img src="../../../.gitbook/assets/shared-api-key-3.png" alt=""><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/shared-api-key-3.png" alt="A subscription&#x27;s detail page showing its plan, status, and application, with a Shared API Key section listing two keys and their creation and expiry times."><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
 *   Shared API keys can only be renewed/revoked by the application owner, from the subscription view of their APIM Console or Developer Portal
 
-    <figure><img src="../../../.gitbook/assets/shared-api-key-4.png" alt=""><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/shared-api-key-4.png" alt="An application&#x27;s subscriptions page, listing two subscriptions that share one API key and a Shared API Key section with a Renew API key button."><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
 
-    <figure><img src="../../../.gitbook/assets/shared-api-key-4-portal.png" alt=""><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/shared-api-key-4-portal.png" alt="The Subscriptions tab of an application in the developer portal, showing the shared API key with Renew and Revoke buttons and two subscriptions whose subscriber names are highlighted."><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>
 
 </details>
 

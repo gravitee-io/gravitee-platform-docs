@@ -28,7 +28,7 @@ A typical usage would be to simply overwrite the original request payload with s
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/create-and-configure-apis-apply-policies-177-1.png" alt="" width="375"><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/create-and-configure-apis-apply-policies-177-1.png" alt="The Assign content policy dialog, with a body content field beside documentation describing the policy and the phases it applies to." width="375"><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
 
 ### Replace original payload with dynamic values
 

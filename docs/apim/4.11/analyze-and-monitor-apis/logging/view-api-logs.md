@@ -83,11 +83,11 @@ To view the details of any entry in the list of v4 message API runtime logs, sel
 
 Under the **Connection Logs** tab, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**:
 
-<figure><img src="../../.gitbook/assets/connection details_CROP.png" alt=""><figcaption><p>View log details</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/connection details_CROP.png" alt="The Connection Logs tab of a connection&#x27;s details, showing the entrypoint request URI, method, and headers, with the API key value masked."><figcaption><p>View log details</p></figcaption></figure>
 
 Under the **Messages** header, entrypoint and endpoint message details are grouped by date code:
 
-<figure><img src="../../.gitbook/assets/message details_CROP.png" alt=""><figcaption><p>View message details</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/message details_CROP.png" alt="The Messages tab of a connection&#x27;s details, showing each message with its request, client, and correlation identifiers and the entrypoint and endpoint payloads."><figcaption><p>View message details</p></figcaption></figure>
 
 Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it appears under the tab. If no data was recorded, the field is empty.
 

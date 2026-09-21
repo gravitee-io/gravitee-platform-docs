@@ -19,7 +19,7 @@ In this example, we will demonstrate how to deploy APIM in two different GCP reg
 * A **Management cluster** (pictured on the left of the diagram below) — running the management API, the two APIM UI components, and a bridge gateway
 * A **Gateway cluster** (pictured on the right of the diagram below) — running APIM gateway
 
-<figure><img src="../../../.gitbook/assets/hybrid_deployment_k8s.png" alt=""><figcaption><p>Kubernetes hybrid deployment architecture diagram</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/hybrid_deployment_k8s.png" alt="A diagram of a hybrid deployment across two cloud regions, with the management API, console, portal, database, and bridge gateway in one region and two gateways with a cache in the other, connected over HTTPS."><figcaption><p>Kubernetes hybrid deployment architecture diagram</p></figcaption></figure>
 
 In this schema, we can see that:
 
@@ -39,7 +39,7 @@ You can find everything you need to deploy this hybrid architecture in [Gravitee
 
 Before you deploy APIM, ensure the two GCP clusters exist and that Helm is installed on both clusters:
 
-<figure><img src="../../../.gitbook/assets/hybrid_k8s_clusters.png" alt=""><figcaption><p>Sample K8 clusters</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/hybrid_k8s_clusters.png" alt="A cloud console listing two Kubernetes clusters for a hybrid deployment, each in a different region with three nodes."><figcaption><p>Sample K8 clusters</p></figcaption></figure>
 
 {% hint style="warning" %}
 The following examples use the names in the illustration above, but you can name your clusters whatever you like and replace the names with your own.
@@ -163,7 +163,7 @@ From this file, we can see that:
 * the Gateway is not exposed through the ingress controller (it is not accepting API calls for the bridge gateway)
 * we have enabled the bridge service for the Gateway and declared a new ingress to expose it to remote clusters
 
-<figure><img src="../../../.gitbook/assets/hybrid_deployment_ingress.png" alt=""><figcaption><p>APIM management cluster</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/hybrid_deployment_ingress.png" alt="The Workloads page for the management cluster, listing the API, gateway, portal, and user interface deployments alongside the ingress controller, all running."><figcaption><p>APIM management cluster</p></figcaption></figure>
 
 ### Deploy the Gateway cluster
 
@@ -238,7 +238,7 @@ From this file, we can see that:
 * All the management components have been disabled to prevent their deployment — management API, Management Console, and Developer Portal
 * We have enabled `http` management mode for the gateway, and we use this link to mount all the required information in the Gateway to be able to process API calls
 
-<figure><img src="../../../.gitbook/assets/hybrid_deployment_http.png" alt=""><figcaption><p>APIM gatewaye cluster</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/hybrid_deployment_http.png" alt="The Workloads page for the gateway cluster, listing the gateway deployment and the ingress controller, all running."><figcaption><p>APIM gatewaye cluster</p></figcaption></figure>
 
 If you have a look at the Gateway pod logs, you will see something like this:
 
@@ -251,7 +251,7 @@ If you have a look at the Gateway pod logs, you will see something like this:
 
 We can now open up Management Console and see our two gateways running:
 
-<figure><img src="../../../.gitbook/assets/hybrid_deployment_gateways.png" alt=""><figcaption><p>Hybrid K8 deployment</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/hybrid_deployment_gateways.png" alt="The Gateways page listing two running gateway instances, each with its pod name, address, and version."><figcaption><p>Hybrid K8 deployment</p></figcaption></figure>
 
 {% hint style="success" %}
 Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide/README.md) for your next steps.
