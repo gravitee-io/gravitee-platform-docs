@@ -30,7 +30,7 @@ To configure user and group access for an API:
 
 Click **+ Add members** to add members to your API or alter member roles, which grant specific permissions. For more information on roles, please refer to the [roles documentation.](../administration/user-management.md#roles)
 
-<figure><img src="../.gitbook/assets/user permissions_add members alter roles.png" alt=""><figcaption><p>Add members and alter roles</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/user permissions_add members alter roles.png" alt="The User Permissions tab of an API&#x27;s Configuration page with a member&#x27;s role dropdown open, listing roles including OWNER, READ_ONLY, REVIEWER, USER, and WRITER."><figcaption><p>Add members and alter roles</p></figcaption></figure>
 
 ### Add groups to an API
 
