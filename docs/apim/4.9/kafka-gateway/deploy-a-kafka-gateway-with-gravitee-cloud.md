@@ -16,7 +16,7 @@ This guide explains how to use Gravitee Cloud to deploy a Gravitee Gateway that 
 
 1.  Sign in to [Gravitee Cloud](https://cloud.gravitee.io/).
 
-    <figure><img src="../.gitbook/assets/kafka-gateway-produce-and-consume-kafka-272-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/kafka-gateway-produce-and-consume-kafka-272-1.png" alt="The Gravitee Cloud sign-in page, offering Google and GitHub sign-in above email and password fields and a company SSO link."><figcaption></figcaption></figure>
 2.  From the **Dashboard**, navigate to the **Gateways** section, and then click **Deploy Gateway**.
 
     <figure><img src="../.gitbook/assets/C1B3BA37-339C-4235-9592-B7EABB4DDA45_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
