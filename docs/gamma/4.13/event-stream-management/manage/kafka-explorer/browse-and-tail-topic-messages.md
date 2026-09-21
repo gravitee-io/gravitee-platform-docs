@@ -33,6 +33,8 @@ The explorer reads up to the limit from each selected partition in a single read
 
 Select the offset or the value of a row, or **View details**, to open the **Message detail** panel. The panel shows the **Partition**, **Offset**, **Timestamp**, and **Key** of the message, its **Payload**, pretty-printed when it's JSON, and its **Headers**.
 
+Keys, values, and headers are read as text. An Avro, Protobuf, or otherwise binary payload is shown as the text its bytes decode to, which is unreadable. See [Limitations and considerations](limitations-and-considerations.md).
+
 ### Offset modes
 
 | Offset | Where the read starts |

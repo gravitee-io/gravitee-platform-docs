@@ -12,3 +12,4 @@ Kafka Explorer reads the live data of a Kafka target through a saved connection.
 * [**Explore brokers, topics, and consumer groups**](explore-brokers-topics-and-consumer-groups.md). Inspect the brokers, the topics and their partitions, the broker and topic configuration, and the consumer group lag behind a connection.
 * [**Browse and tail topic messages**](browse-and-tail-topic-messages.md). Fetch a batch of messages from a topic by position, timestamp, or offset, or stream new messages as they arrive.
 * [**Manage Kafka Explorer connections**](manage-kafka-explorer-connections.md). Find, edit, test, and delete connections, and decide who can use each one.
+* [**Limitations and considerations**](limitations-and-considerations.md). What a connection stores, which node reaches your brokers, how an overlay combines with the target's security, and what the explorer can't read.
