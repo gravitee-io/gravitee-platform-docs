@@ -164,7 +164,7 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer.
+API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page and a Response Templates page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer.
 
 #### Import an API proxy
 
@@ -198,6 +198,16 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * In the **Add Policy** catalog, pointing to a row reveals an **Add** button that adds the policy directly, and the catalog header shows the phase you're adding to.
 * The **Add plan flow**, **Add common flow**, and **Add MCP method flow** controls in the flows sidebar and on the empty Policy Studio screen share one link treatment.
 * The changes apply to the Policy Studio of API Management and Agent Management, and to the platform policies of Platform Management.
+
+#### Response templates for API proxies
+
+* The **Design** group of the API proxy sidebar adds a **Response Templates** page that overrides the error payloads the gateway returns by default. A template matches on a template key and an Accept header, and answers with the status code, headers, and body you set, so one proxy can answer a browser and a service differently for the same error.
+* The list carries the **Key**, **Content-Type**, and **Status Code** of each template, with a search field that narrows it by any of the three. A proxy holding no templates opens on an empty state titled **No Response Templates** with a create button in it.
+* **Template key** suggests **DEFAULT** and the gateway's own error keys, and takes a key you type instead. **Accept header to match** and **Status code** are required beside it, and a key and Accept header pair already used on the proxy is refused.
+* Optional **HTTP Headers** rows and a **Body** complete the response, and **Add template key to logs** records the template key alongside the request.
+* An API proxy managed by the Kubernetes operator shows its response templates as read-only, and so does one you don't have permission to update.
+* The page isn't offered on a TCP Proxy API, which forwards raw traffic and has no HTTP response to override, nor on an MCP or LLM Proxy API.
+* See [Configure response templates](../api-management/build/configure-your-api-proxy/configure-response-templates.md).
 
 ### Edge Management
 

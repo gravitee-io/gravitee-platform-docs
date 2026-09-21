@@ -76,6 +76,8 @@
     * [Configure notifications](api-management/build/configure-your-api-proxy/configure-notifications.md)
     * [Configure CORS](api-management/build/configure-your-api-proxy/configure-cors.md)
     * [Configure API metadata](api-management/build/configure-your-api-proxy/configure-api-metadata.md)
+  * [Design](api-management/manage/api-proxies/design/README.md)
+    * [Configure response templates](api-management/build/configure-your-api-proxy/configure-response-templates.md)
   * [Gateway](api-management/manage/api-proxies/gateway/README.md)
     * [Configure entrypoints](api-management/build/configure-your-api-proxy/configure-entrypoints.md)
     * [Configure endpoints](api-management/build/configure-your-api-proxy/configure-backend-security.md)
