@@ -17,11 +17,11 @@ The first task of setting up new authorization and authentication in AM is to cr
 1. Log in to AM Console.
 2.  From the user menu at the top right, click **Create domain**.
 
-    <figure><img src="../.gitbook/assets/quickstart-create-domain.png" alt=""><figcaption><p>Create a domain</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/quickstart-create-domain.png" alt="The account menu open, listing the current domain alongside All domains, Create domain, and Sign out options."><figcaption><p>Create a domain</p></figcaption></figure>
 3. Give your security domain a **Name** and a **Description** and click **CREATE**.
 4.  Select **click here** link on the banner to enable the domain.
 
-    <figure><img src="../.gitbook/assets/quickstart-enable-domain.png" alt=""><figcaption><p>Domain banner</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/quickstart-enable-domain.png" alt="An orange banner on the domain Dashboard warning that the domain is disabled, with a link to enable it."><figcaption><p>Domain banner</p></figcaption></figure>
 
 ## Create a security domain with AM API
 

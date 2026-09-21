@@ -22,13 +22,13 @@ In AM, CORS configuration at the Security Domain level is important for scenario
 
 1. Sign in to your AM Console. The Access Management dashboard appears after login.
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-security-domains-configure-co-54.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-security-domains-configure-co-54.png" alt="The domain Dashboard with counters for logins, sign ups, users, and applications above a Login Activity chart plotting login successes and failures."><figcaption></figcaption></figure>
 
 2. From the Dashboard, Click **Settings.**
 3. In the settings menu, click **Entrypoints.**
 4. Turn on the **Enable CORS** toggle.
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-security-domains-configure-co-55.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-security-domains-configure-co-55.png" alt="The Entrypoints settings with the domain entrypoint URL and context path above the CORS section, with Enable CORS switched on and the remaining fields empty."><figcaption></figcaption></figure>
 
 The CORS configuration includes a toggle to enable or disable CORS for the Security Domain. When CORS is disabled, AM uses the default values from the `gravitee.yml` configuration file.
 
@@ -61,7 +61,7 @@ The `Allow-Origin` setting specifies which origins are permitted to access the r
 When Allow Credentials is enabled, the wildcard (`*`) cannot be used for Allow-Origin. You must specify exact origins instead.
 {% endhint %}
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-security-domains-configure-co-56.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-security-domains-configure-co-56.png" alt="The CORS section with the Allow-Origin field focused, holding three origin chips."><figcaption></figcaption></figure>
 
 The following examples demonstrate common `Allow-Origin` configurations:
 
@@ -73,7 +73,7 @@ The following examples demonstrate common `Allow-Origin` configurations:
 
 The `Allow-Methods` setting specifies which HTTP methods are allowed when accessing the resource.
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-security-domains-configure-co-57.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-security-domains-configure-co-57.png" alt="The Allow-Methods list open, with GET, POST, PUT, and OPTIONS selected and PATCH, DELETE, and HEAD unselected."><figcaption></figcaption></figure>
 
 Configuration details for `Allow Methods` include the following:
 
@@ -84,7 +84,7 @@ Configuration details for `Allow Methods` include the following:
 
 The `Allow-Headers` setting defines which headers can be used in cross-origin requests. The request headers include 'Access-Control-Request-Headers', which relies on CORS configuration to allow its values.
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-security-domains-configure-co-58.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-security-domains-configure-co-58.png" alt="The Allow-Headers field focused, holding two chips of comma-separated request header names."><figcaption></figcaption></figure>
 
 Configuration details for `Allow Headers` include:
 
@@ -97,7 +97,7 @@ Configuration details for `Allow Headers` include:
 
 The `Max age` setting controls how long pre-flight request results are cached.
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-security-domains-configure-co-59.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-security-domains-configure-co-59.png" alt="The Max age field set to 86400 seconds, described as one day."><figcaption></figcaption></figure>
 
 The following configuration details apply to `Max age`:
 
@@ -112,7 +112,7 @@ The `Allow Credentials` setting controls whether credentials can be included in 
 When enabled, you cannot use `*` for Allow-Origin; you must specify exact origins.
 {% endhint %}
 
-<figure><img src="../../../4.10/.gitbook/assets/guide-security-domains-configure-co-60.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-security-domains-configure-co-60.png" alt="The Allow use of credentials toggle, switched off."><figcaption></figcaption></figure>
 
 For example:
 
