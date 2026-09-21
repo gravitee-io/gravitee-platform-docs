@@ -61,7 +61,7 @@ The Developer Portal host of self-managed installations can easily be modified. 
 
 Your Developer Portal URL will depend on your deployment, so please reference the respective installation docs. For example, with the default Docker installation, you can access the Developer Portal at `http://localhost:8085` in your browser.
 
-<img src="../../.gitbook/assets/self-managed dev portal link.png" alt="" data-size="original">
+<img src="../../.gitbook/assets/self-managed dev portal link.png" alt="The portal settings page, showing the API key header, a local portal URL, and options for tiles mode, support, rating, user registration, and analytics." data-size="original">
 
 * [x] Click **Settings** in the sidebar
 * [x] Click **Settings** in the inner sidebar

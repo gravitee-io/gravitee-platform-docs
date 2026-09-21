@@ -134,7 +134,7 @@ Create an API with a fake sensitive that you secure after we make sure everythin
         <figure><img src="../../../.gitbook/assets/prepare-a-production-environment-sensiti-18-1 (1).png" alt=""><figcaption></figcaption></figure>
 11. Click **Validate my endpoints**.
 
-    <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-69 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-69 (1).png" alt="The lower part of an HTTP proxy endpoint&#x27;s configuration, showing proxy options set to no proxy and SSL options with host verification on, trust all off, and no truststore or key store."><figcaption></figcaption></figure>
 12. Click V**alidate my plans**.
 
     <figure><img src="../../../.gitbook/assets/prepare-a-production-environment-sensiti-19-1 (1).png" alt=""><figcaption></figcaption></figure>

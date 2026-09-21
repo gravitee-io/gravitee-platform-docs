@@ -125,7 +125,7 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid architecture diagram
 
-<figure><img src="../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-25-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-25-1.png" alt="The Policies page of an API, listing three API key flows and a Common flows group, with no flows yet selected."><figcaption></figcaption></figure>
 
 In a typical hybrid architecture, the customer manages the Data Plane and Gravitee manages the Control Plane.
 

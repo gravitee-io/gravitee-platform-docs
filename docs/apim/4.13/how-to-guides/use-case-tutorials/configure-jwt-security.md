@@ -54,7 +54,7 @@ All Gateway APIs require at least one published plan to deploy the API to the Ga
 
 In the APIM Console UI, open the Gateway API you want to secure with a JWT plan. You should see a screen similar to the following:<br>
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-192.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-192.png" alt="The Info page of an API, showing its name, version, owner, creation and last connection times, and a Danger Zone below."><figcaption></figcaption></figure>
 
 In the sidebar, select **Plans**, and then select **+Add new plan** in the top right of the screen. In the drop-down that appears, select **JWT**.<br>
 
@@ -125,23 +125,23 @@ For the sake of this demo, we will be creating a Simple application in the Devel
 
 In the Developer Portal, select **Applications** in the top navigation bar and then select **+ Create an app** in the top right of the screen.<br>
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-190.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-190.png" alt="The My applications tab of the developer portal, showing two application cards with their descriptions and subscriber counts."><figcaption></figcaption></figure>
 
 Provide a name and description then select **Next**. On the security screen, select a Simple application and provide a `client_id` that matches the `client_id` of your IdP’s application. For example, in Okta, you can find your `client_id` right next to the name of your application.<br>
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-191.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-191.png" alt="An application&#x27;s settings page in an external identity provider, showing its name, single page application type, and a masked client ID."><figcaption></figcaption></figure>
 
 After providing the `client_id`, select **Next**.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-188.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-188.png" alt="The Security step of the developer portal application wizard, with the Simple type selected, an empty Type field, and a placeholder client ID."><figcaption></figcaption></figure>
 
 On the **Subscription** page, you can directly search for your Gateway API and see the available plans. Search for your API, select **Subscribe**, and then select **Next**.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-63-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-63-1.png" alt="The Subscription step of the developer portal application wizard, with an API searched, a JWT plan selected, and the subscription request listed with a comment."><figcaption></figcaption></figure>
 
 Finally, you can see an overview of your new Gravitee application. After careful review, select **Create the App** to create your application.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-64-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-64-1.png" alt="The Validation step of the developer portal application wizard, summarising the application name, description, type, and client ID beside the subscription request."><figcaption></figcaption></figure>
 
 Bravo! Since your JWT plan has auto-validation enabled, your application is now approved to send requests through Gravitee’s Gateway to access the protected resources. To test, include the `Authorization: Bearer <your_jwt_token_here>` HTTP header with your request to the Gateway:
 

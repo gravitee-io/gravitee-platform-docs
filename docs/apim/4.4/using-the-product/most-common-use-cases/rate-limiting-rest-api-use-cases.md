@@ -58,7 +58,7 @@ To add a Quota policy to each plan of this API:
 
     **Flows vs. policies** Flows are a collection of policies. Flows can be specified for each individual plan, e.g., API Key (SILVER), API Key (GOLD), and API Key (PLATINUM). Alternatively, a common flow can be applied to all plans within the specific API\_.\_
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-25.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-25.png" alt="The Policies page of an API, listing three API key flows and a Common flows group, with no flows yet selected."><figcaption></figcaption></figure>
 
 #### Step 2: Add a Quota policy for each user group <a href="#step-2-add-a-quota-policy-for-each-user-group" id="step-2-add-a-quota-policy-for-each-user-group"></a>
 
@@ -69,7 +69,7 @@ Add differentiated Quota policies to each plan per the instructions below.
 1. Select the **+** icon next to the API Key (SILVER) plan
 2. Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-2.png" alt="The Info page of an API, showing its name, version, owner, creation and last connection times, and a Danger Zone below."><figcaption></figcaption></figure>
 
 3. Click **Create**
 4. Select the **+** icon within the request phase section. This lets us use the Quota policy to limit the number of requests Silver Tier members can make to the API per month\_.\_
@@ -180,7 +180,7 @@ Rate limiting policies can also be added during [Step 4: Security](https://docum
 
     All created APIs will include a **Default Keyless (UNSECURED)** plan. You may modify or delete this plan.
 
-<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-45.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-c-45.png" alt="Step 4 of the API creation wizard at the Security stage, listing one default keyless plan in standard mode."><figcaption></figcaption></figure>
 
 3. Click **API Key**
 4. Enter a plan **Name**, **Description** (optional), and modify **Subscriptions** and **Access-Control** (optional)

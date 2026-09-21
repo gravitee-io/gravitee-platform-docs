@@ -32,7 +32,7 @@ The default simple application enables an API consumer to define the `client_id`
 2. Select **Settings** from the left nav
 3.  Select **Client Registration** from the inner left nav
 
-    <figure><img src="../../../.gitbook/assets/client registration.png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/client registration.png" alt="The application settings page, showing the Simple default application type and a Dynamic Client Registration section with DCR disabled, four allowed application types, and no provider configured."><figcaption><p>Client Registration</p></figcaption></figure>
 4. Under **Default application type**, toggle **Simple** ON
 
 {% hint style="info" %}
@@ -103,7 +103,7 @@ To enable DCR:
 2. Select **Settings** from the left nav
 3.  Select **Client Registration** from the inner left nav
 
-    <figure><img src="../../../.gitbook/assets/client registration.png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/client registration.png" alt="The application settings page, showing the Simple default application type and a Dynamic Client Registration section with DCR disabled, four allowed application types, and no provider configured."><figcaption><p>Client Registration</p></figcaption></figure>
 4. Toggle **Enable Dynamic Client Registration** ON
 
 ### Add a DCR provider

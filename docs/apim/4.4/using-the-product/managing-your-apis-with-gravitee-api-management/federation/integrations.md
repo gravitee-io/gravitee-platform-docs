@@ -52,14 +52,14 @@ To create an integration, the user selects an integration type and provides basi
 2. Select **Integrations** from the left nav
 3.  Click **Create Integration**
 
-    <figure><img src="../../../.gitbook/assets/integration_create.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/integration_create.png" alt="The Integrations page listing existing integrations by name and provider, with a Create Integration button above."><figcaption></figcaption></figure>
 4. Choose an integration provider
 5.  Enter general information for the integration
 
-    <figure><img src="../../../.gitbook/assets/integration_general info.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/integration_general info.png" alt="The Enter Information step of the Create Integration wizard, with a sample name and description filled in."><figcaption></figcaption></figure>
 6.  Click **Create Integration**
 
-    <figure><img src="../../../.gitbook/assets/integration_overview.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/integration_overview.png" alt="The Overview page of a newly created integration, showing a disconnected agent, a warning to check agent connectivity, and an empty APIs panel."><figcaption></figcaption></figure>
 
 ### View or edit an integration
 
@@ -71,10 +71,10 @@ To view or edit an integration:
 2. Select **Integrations** from the left nav
 3.  Click on the integration you're interested in
 
-    <figure><img src="../../../.gitbook/assets/integration_edit 2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/integration_edit 2.png" alt="The Integrations page with the Configure integration tooltip shown over the pencil icon at the end of a row."><figcaption></figcaption></figure>
 4.  From the inner left nav, select **Overview** to run discovery and edit discovered APIs, or select **Configuration** to edit the general information or delete the integration (if no federated APIs are linked to it)
 
-    <figure><img src="../../../.gitbook/assets/integration_edit 3.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/integration_edit 3.png" alt="The Overview page of an integration with a connected agent, listing the APIs discovered from the provider."><figcaption></figcaption></figure>
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
       <p>Integration status provides the user with critical information, such as if the integration is active and can reach the agent, if the agent is running and can reach the provider, and if the agent is receiving errors.</p>
