@@ -55,21 +55,21 @@ In the APIM Console UI, open the Gateway API you want to secure with a JWT plan.
 
 In the sidebar, select **Plans**, and then select **+Add new plan** in the top right of the screen. In the drop-down that appears, select **JWT**.<br>
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-15.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-15.png" alt="The Plans tab of an API with the Add new plan menu open, offering OAuth2, JWT, API Key, and Keyless plan types."><figcaption></figcaption></figure>
 
 Provide your plan a name, and then scroll down and toggle on **Auto validate subscription** so we don’t have to manually validate subscription requests later in the tutorial. Scroll down and select **Next**.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-4-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-4-2.png" alt="The General step of plan creation, with a plan name entered and the auto-validate subscription toggle switched on."><figcaption></figcaption></figure>
 
 On the security page, select the **Signature** that your IdP uses to encrypt your access tokens.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-5-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-5-1.png" alt="The JWT authentication configuration step of plan creation, with the signature set to RSA_RS256 above the JWKS resolver options."><figcaption></figcaption></figure>
 
 Next, you need to tell the Gravitee Gateway where it can retrieve the JSON web key set (JWKS) to validate the signature with a public key. Typically, in a production setup, you want to use JWKS URL as it is more secure and eliminates the need to update the resolver when you rotate keys.
 
 A JWKS URL must be provided by your IdP of choice. Copy the endpoint and return to APIM’s Console UI. Under **JWKS resolver**, select **JWKS\_URL** and then paste the endpoint in the **JWKS\_URL** input box.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-6-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-6-1.png" alt="The JWT authentication configuration step, with the resolver set to JWKS_URL and a resolver parameter built from an expression-language variable."><figcaption></figcaption></figure>
 
 Scroll down and also toggle on **Extract JWT Claims**. This essentially makes all the claims associated with the token available through Gravitee’s Expression Language (EL). This is useful for configuring additional policies such as Role-based Access Control.
 
@@ -77,7 +77,7 @@ For this quick tutorial, everything else can be left as default. Scroll to the b
 
 We won’t be adding any restrictions to the consumption of this API so simply select **Create** on the Restrictions page.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-7-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-7-2.png" alt="The Restriction step of plan creation, with rate limiting, quota, and resource filtering all switched off and a Create button."><figcaption></figcaption></figure>
 
 After creating a plan, it’s initially in the first of the four stages of a plan: staging, published, deprecated, and closed.
 
@@ -86,11 +86,11 @@ After creating a plan, it’s initially in the first of the four stages of a pla
 * **Deprecated**: You can deprecate a plan so that it won’t be available on the APIM Developer Portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remain, so it doesn’t impact your existing API consumers.
 * **Closed**: Once a plan is closed, all associated subscriptions are closed too. This cannot be undone. API consumers subscribed to this plan won’t be able to use your API.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-8-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-8-2.png" alt="A diagram of the plan lifecycle, with staging leading to published, and published leading either straight to closed or through deprecated."><figcaption></figcaption></figure>
 
 Publish your plan by selecting the publish icon on your plan as shown below.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-9-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-configu-9-3.png" alt="The Plans tab with the STAGING filter selected, showing a JWT plan and the Publish the plan tooltip over the upload icon."><figcaption></figcaption></figure>
 
 At this point, it is likely you have both a Keyless and a JWT plan published. Please delete any Keyless plans to ensure the JWT plan can not be bypassed. Select the **X** icon and then follow the prompts in the modal to delete the Keyless plan as shown below:
 

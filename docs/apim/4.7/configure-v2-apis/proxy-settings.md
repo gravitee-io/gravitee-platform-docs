@@ -25,7 +25,7 @@ To configure the API entrypoints:
 
 1.  Select **Entrypoints** from the inner left nav
 
-    <figure><img src="../.gitbook/assets/v2 proxy_entrypoints.png" alt=""><figcaption><p>Configure v2 API entrypoints</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/v2 proxy_entrypoints.png" alt="The entrypoint context-path settings of a V2 API, with virtual hosts enabled and one context path defined."><figcaption><p>Configure v2 API entrypoints</p></figcaption></figure>
 
     * Edit your **Context-path** or create a new one via **Add context-path**
     * Toggle **Enable virtual hosts** ON or OFF
@@ -37,7 +37,7 @@ CORS is a mechanism that allows resources on a web page to be requested from ano
 
 1.  Select **CORS** from the inner left nav
 
-    <figure><img src="../.gitbook/assets/v2 proxy_CORS.png" alt=""><figcaption><p>Configure CORS</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/v2 proxy_CORS.png" alt="The CORS settings of a V2 API, with CORS disabled and the allow-origin, allow-methods, allow-headers, allow-credentials, and max age fields greyed out."><figcaption><p>Configure CORS</p></figcaption></figure>
 2.  Set the following parameters:
 
     * **Enable CORS:** Toggle to ON to enable CORS.
@@ -72,7 +72,7 @@ All requests rejected because of CORS issues will generate logs that you can vie
 
 1.  Select **Deployments** from the inner left nav
 
-    <figure><img src="../.gitbook/assets/v2 proxy_deployments.png" alt=""><figcaption><p>Configure sharding tags</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/v2 proxy_deployments.png" alt="The deployment configuration of an API, with an empty sharding tags field and a note that tags are configured at the organization level."><figcaption><p>Configure sharding tags</p></figcaption></figure>
 2. From the **Sharding tags** drop-down menu, choose one or more sharding tags
 3. Click **Save**
 

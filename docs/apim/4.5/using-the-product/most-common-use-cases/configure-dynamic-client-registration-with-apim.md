@@ -60,7 +60,7 @@ Now let’s configure AM.
 
 The first step is to create or select the security domain that you want to use in AM. The security domain acts as the container to group related applications and configuration settings. Select your user in the top right and then either select an existing domain or **+ Create domain**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.32.02 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.32.02 AM.png" alt="The Access Management dashboard with the account menu open, listing the signed-in user and the domains available to them."><figcaption></figcaption></figure>
 
 Once you have a domain, select **Settings** in the sidebar, scroll down to the **Openid** section, and select **Client Registration**. Toggle on the **Enable/Disable Dynamic Client Registration** setting.
 
