@@ -44,7 +44,7 @@ Once the Gateway has been configured, the tenant definition must be added via th
 
 1.  Navigate to **Organization Settings** and select **Tenants**_**.**_ Select **Add a tenant** and enter the value for each of your regions, e.g., “usa” and “eu." We also recommend giving each tenant a descriptive name.
 
-    <div align="left"><figure><img src="../../.gitbook/assets/tenant_create.png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/tenant_create.png" alt="The Create a tenant dialog, with a tenant name and a description explaining that it routes traffic to a regional datacentre." width="375"><figcaption></figcaption></figure></div>
 2.  Next, configure the Backend and Customer APIs by adding two different endpoints. In our example, these will point to the USA and EU upstream systems (the backend server or the Customer API, depending on which API you are configuring).
 
     <figure><img src="../../.gitbook/assets/tenant_BE &#x26; customer.png" alt=""><figcaption></figcaption></figure>

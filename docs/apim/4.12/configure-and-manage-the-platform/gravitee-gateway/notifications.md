@@ -62,11 +62,11 @@ Application notifications relate to a specific application and include the follo
 
 To subscribe to notifications related to a specific application, go to **APIM Console >** **Applications**, select the application, and click **Notification settings**.
 
-<figure><img src="../../.gitbook/assets/1 not 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 not 1.png" alt="The Notifications page of an application, listing a portal notification with no events and a default mail notification subscribed to eight events."><figcaption></figcaption></figure>
 
 Click a notification's pencil icon to edit which notification events you're subscribed to.
 
-<figure><img src="../../.gitbook/assets/1 not 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 not 2.png" alt="The Edit Default Mail Notifications dialog, with a no-reply recipient address and subscription and support events ticked."><figcaption></figcaption></figure>
 
 To add a notification, click **+ Add notification** and follow the notification creation process. For more information on notifications and how to configure them, see [Notifications](notifications.md).
 {% endtab %}
