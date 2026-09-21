@@ -19,7 +19,7 @@ The AM Console Audit log page displays all events which have occurred, including
 1. Log in to AM Console.
 2.  Click **Settings > Audit Log**.
 
-    <figure><img src="../.gitbook/assets/graviteeio-am-userguide-logs-audit.png" alt=""><figcaption><p>Audit log</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-userguide-logs-audit.png" alt="The Audit log page with event, status, user, and date filters above a table of audit entries showing date, event, actor, target, and a success or failure status."><figcaption><p>Audit log</p></figcaption></figure>
 
 {% hint style="info" %}
 All of this information can also be retrieved with the [AM API.](../reference/am-api-reference.md)
@@ -64,7 +64,7 @@ By default, a reporter is created for each security domain and allows you to cho
 2. Click **Settings > Audit Log**.
 3.  Click the settings icon and configure the reporter.
 
-    <figure><img src="../.gitbook/assets/graviteeio-am-userguide-logs-audit-reporter.png" alt=""><figcaption><p>Configure reporter</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-userguide-logs-audit-reporter.png" alt="The MongoDB Reporter configuration with the reporter enabled and the connection URI, host, port, authentication, database, and collection fields."><figcaption><p>Configure reporter</p></figcaption></figure>
 
 {% hint style="warning" %}
 There is no log retention. It is up to you define a retention window and periodically clear old data.
@@ -87,10 +87,10 @@ To create a File reporter for a domain:
 3. Click the settings icon ![am settings icon](../.gitbook/assets/am-settings-icon.png).
 4.  Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 
-    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-add-reporter.png" alt=""><figcaption><p>Audit settings</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-add-reporter.png" alt="The Audit settings page listing one enabled MongoDB reporter with its type and a settings icon, above an add button."><figcaption><p>Audit settings</p></figcaption></figure>
 5.  Select **File** as the reporter type and enter the reporter name and file name.
 
-    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-file-reporter.png" alt=""><figcaption><p>Add a file reporter</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-file-reporter.png" alt="The Reporter File configuration with the reporter type set to File, a reporter name, and the filename where the audit information is written."><figcaption><p>Add a file reporter</p></figcaption></figure>
 
 #### Example: ingest audit logs into ElasticSearch
 

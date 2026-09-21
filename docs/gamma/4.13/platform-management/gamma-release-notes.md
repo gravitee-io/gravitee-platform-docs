@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. It also adds API resource configuration, consumer broadcasts, property import, dynamic property sync, and API metadata to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies and A2A Proxies gain export, import, and duplicate actions. The Observability section of Agent Management builds and saves custom dashboards alongside the templates.
+Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. It also adds API resource configuration, consumer broadcasts, property import, dynamic property sync, and API metadata to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. The **Cost Rate Limit** policy caps what a consumer spends on an LLM Proxy in dollars over a period. LLM Proxies and A2A Proxies gain export, import, and duplicate actions. The Observability section of Agent Management builds and saves custom dashboards alongside the templates.
 
 #### AI Workspaces
 
@@ -100,6 +100,14 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 * A model alias shared by several providers is what lets a request roll over between them. When every attempt fails, the gateway answers `502`.
 * A save applies to the gateway when you deploy the proxy from the out-of-sync banner.
 * See [Configure LLM Proxy failover](../agent-management/build/configure-llm-proxy-failover.md).
+
+#### Cost Rate Limit for LLM Proxies
+
+* The **Cost Rate Limit** policy caps what a consumer spends on an LLM Proxy in dollars over a period, and a request is refused with `429` once the budget is exceeded.
+* **Max budget (dollars)** takes decimals, so `5` is five dollars and `0.05` is five cents. **Time duration** and **Time unit** set how long a window lasts before the counter resets, in minutes, hours, or days.
+* The budget belongs to the plan and subscription pair by default. Set **Key** to an Expression Language value, and turn on **Use key only**, to give each caller its own budget.
+* The policy runs in the request phase. **Missing price policy** decides what a request is charged when the model that answered has no resolvable price.
+* See [Add the Cost Rate Limit policy](../agent-management/build/add-the-cost-rate-limit-policy.md).
 
 #### Owner and sharding tags in the LLM Proxies list
 

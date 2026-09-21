@@ -22,7 +22,7 @@ You can view a list of applications for which each user has provided consent. To
 2. Click **Settings > Users**.
 3.  Select the user and in the **Authorized Apps** tab, revoke the application.
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-um-consent.png" alt=""><figcaption><p>Revoke user's authorized applications</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-um-consent.png" alt="The Authorized Apps tab of a user, listing one application with its last interaction time and a Revoke all button."><figcaption><p>Revoke user's authorized applications</p></figcaption></figure>
 
 {% hint style="info" %}
 Revoking consent can also be done via the [AM Management API](../../reference/am-api-reference.md).

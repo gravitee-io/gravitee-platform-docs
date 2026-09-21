@@ -16,7 +16,7 @@ You can authenticate and manage users in AM using remote API calls.
 For the Identity Provider to work, the user’s payload must at least contain the following claims: _`sub`_. To obtain more information about your user you can use the link: [Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) of the OpenID Connect protocol. You can achieve this with the AM User Mapper feature.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-http-idp-mapping.png" alt=""><figcaption><p>HTTP IdP</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-http-idp-mapping.png" alt="The User mappers tab of an HTTP identity provider, mapping sub, preferred_username, given_name, family_name, and email to id, username, firstName, lastName, and email."><figcaption><p>HTTP IdP</p></figcaption></figure>
 
 ## Create an HTTP identity provider
 
@@ -102,7 +102,7 @@ You can test your HTTP connection using a web application created in AM.
 
 1.  In AM Console, click **Applications** and select your HTTP identity provider.
 
-    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select application IdP</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-list.png" alt="The Identity Providers tab of an application, listing Azure AD, Mongo DB, Facebook, France Connect, Github, Google, Inline, LDAP, LinkedIn, OpenID, Salesforce, and Twitter providers, each with a toggle."><figcaption><p>Select application IdP</p></figcaption></figure>
 2.  Call the Login page (i.e `/oauth/authorize` endpoint) and try to sign in with the username/password form.
 
     If you are unable to authenticate your user, there may be a problem with the identity provider settings. Check the AM Gateway log and audit logs for more information.
