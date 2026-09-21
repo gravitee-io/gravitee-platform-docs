@@ -84,7 +84,7 @@ WARNING: Removing a plan is irreversible
     <figure><img src="../../.gitbook/assets/3627B0A7-AF24-4E4B-A22B-5AFEB7FB29A5.jpeg" alt=""><figcaption></figcaption></figure>
 3.  In the **Close plan** pop-up window, type Default Keyless (UNSECURED), and then click **Yes, close this plan.**
 
-    <figure><img src="../../.gitbook/assets/gs-first-api-add-security-44 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-first-api-add-security-44 (1).png" alt="The configuration of an HTTP proxy endpoint, showing idle timeout, redirect following, connection pool size, a default Authorization header, proxy options, and SSL options."><figcaption></figcaption></figure>
 
 #### Verification
 

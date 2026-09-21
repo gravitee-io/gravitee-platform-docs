@@ -29,7 +29,7 @@ You might receive an error when you use this policy using the Gravitee's docker 
     <figure><img src="../../.gitbook/assets/2E167D99-A303-4C32-8756-94DB053C73F0_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 3.  In the **API's menu**, click **Policies**.<br>
 
-    <figure><img src="../../.gitbook/assets/7CABA049-B484-48FE-859E-B640C6ED9A04_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/7CABA049-B484-48FE-859E-B640C6ED9A04_1_201_a.jpeg" alt="The Configuration page of an API, with Policies highlighted in the API menu beside the general settings and a Danger Zone."><figcaption></figcaption></figure>
 4.  Navigate to the **Flows** section, and select a flow that you want to add the Token Rate Limit policy to. For example, `POST/chat`.<br>
 
     <figure><img src="../../.gitbook/assets/5F052AB5-79E0-4BA7-BC79-D2962FC510EE_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
