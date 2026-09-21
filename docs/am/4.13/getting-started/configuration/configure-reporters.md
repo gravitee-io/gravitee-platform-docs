@@ -156,9 +156,7 @@ To export an extra field on the audit records a reporter writes:
 5. Click the settings icon on the row of the reporter you want to change.
 6. Scroll to the **Attribute mapping** section.
 
-    <!-- TODO: Screenshot of the Attribute mapping section on a Kafka reporter, with one mapping row filled in and the Limit to event types list below it -->
-
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-am-reporter-attribute-mapping.png" alt=""><figcaption><p>The Attribute mapping section on a reporter</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/am-reporter-attribute-mapping.png" alt="The Attribute mapping section of a Kafka reporter, with three mappings exporting employee_id, user_roles, and application_id, the ADD ATTRIBUTE button, and USER_LOGIN and USER_LOGOUT selected in the Limit to event types list"><figcaption><p>The Attribute mapping section on a reporter</p></figcaption></figure>
 
 7. Click **ADD ATTRIBUTE**.
 8. Enter the name the value takes in the exported payload in **Exported name**.
