@@ -579,7 +579,7 @@ Select Next to define any additional restrictions for the plan. These restrictio
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../.gitbook/assets/guide-create-apis-the-api-creation--98.png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/guide-create-apis-the-api-creation--98.png" alt="The Restriction step of plan configuration, with rate limiting enabled and its key, static and dynamic limits, and time window shown, and quota and resource filtering switched off." data-size="original">
 
 </details>
 
@@ -624,7 +624,7 @@ Select Next to define any restrictions associated with this plan. Your options i
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../.gitbook/assets/guide-create-apis-the-api-creation--98.png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/guide-create-apis-the-api-creation--98.png" alt="The Restriction step of plan configuration, with rate limiting enabled and its key, static and dynamic limits, and time window shown, and quota and resource filtering switched off." data-size="original">
 
 </details>
 

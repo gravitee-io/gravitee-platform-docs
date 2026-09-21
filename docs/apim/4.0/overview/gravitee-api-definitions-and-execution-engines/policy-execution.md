@@ -17,13 +17,13 @@ The legacy execution engine requires execution scopes to indicate the level at w
 
 Execution of all policies working on the body content are postponed until the policies working on headers have been executed. This leads to an execution order that is often different than the one originally designed.
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-execution-scopes-1.png" alt=""><figcaption><p>Legacy engine execution order</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-execution-scopes-1.png" alt="A diagram contrasting three policies as ordered in Policy Studio with their runtime order, where the request-content policy runs last on a separate track."><figcaption><p>Legacy engine execution order</p></figcaption></figure>
 
 ## Reactive execution engine improvements
 
 The reactive execution engine does not consider the `REQUEST_CONTENT` and `RESPONSE_CONTENT` phases. All policies are executed in the exact order of the design, regardless of whether they work on the content or not.
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-execution-scopes-2.png" alt=""><figcaption><p>Reactive engine execution order</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-execution-scopes-2.png" alt="A diagram contrasting three policies as ordered in Policy Studio with their runtime order, where all three run in the same sequence on the request track."><figcaption><p>Reactive engine execution order</p></figcaption></figure>
 
 ## Migration considerations
 

@@ -42,7 +42,7 @@ To subscribe to notifications related to a specific API:
 4. Select **Configuration** from the inner left nav
 5. Select the **Notifications** header
 
-<figure><img src="../../.gitbook/assets/A 1 config notifications.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/A 1 config notifications.png" alt="The Notifications tab of an API&#x27;s Configuration page, listing a portal notification with no events and a mail notification subscribed to 24 events."><figcaption></figcaption></figure>
 
 From here, you can either edit an existing notification or click **+ Add notification** to create a new one.
 {% endtab %}

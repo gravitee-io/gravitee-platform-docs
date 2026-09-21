@@ -34,7 +34,7 @@ API deployment is impacted by how tags are applied to APIs and Gateways.
 
 If you have an architecture that includes both DMZ Gateways and internal corporate Gateways, you can tag these Gateways as external-only and internal-only, as shown in the following diagram:
 
-<figure><img src="../.gitbook/assets/Example architecture.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Example architecture.png" alt="A diagram of an example architecture with a global load balancer distributing traffic to external gateways in two regions, each fronting internal gateways and a replicated database, with access and API management alongside."><figcaption></figcaption></figure>
 
 Before sharding tags can be defined in your APIM Console, you must modify `gravitee.yaml` to assign a tag to a Gateway. For example:
 

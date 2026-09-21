@@ -23,4 +23,4 @@ The reactive execution engine implements the following improvements:
 * When a connectivity error occurs during a connection attempt to the backend endpoint, the Gateway response displays an HTTP status code `0` and no headers. This clarifies that no response has been received from the backend endpoint due to the connectivity error.
 * Consumer response headers are displayed more clearly
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-logging-2.png" alt=""><figcaption><p>Sample 502 log with the reactive execution engine</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-logging-2.png" alt="An API log detail page for a request that returned 502, with a connection-refused error and the consumer and gateway headers shown side by side."><figcaption><p>Sample 502 log with the reactive execution engine</p></figcaption></figure>

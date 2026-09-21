@@ -53,7 +53,7 @@ To select fonts for the New Developer Portal, complete the following steps:
     <figure><img src="../../.gitbook/assets/8F20A23D-0B5B-4863-B454-6AA244B820AC_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 4.  In the **Customization** menu, click **Theme**.
 
-    <figure><img src="../../.gitbook/assets/D15564EE-4952-4032-A48C-109585617DDC.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/D15564EE-4952-4032-A48C-109585617DDC.jpeg" alt="The developer portal Theme customization page, with Theme highlighted in the menu, logo and favicon uploads, a font selection, a primary colour, and a live preview."><figcaption></figcaption></figure>
 5. Navigate to the **Font** section of the page.
 6.  From the **Font** drop-down menu, select a new font. For a list of available fonts, see [#available-fonts](layout-and-theme.md#available-fonts "mention").
 
@@ -108,7 +108,7 @@ You can add custom CSS to your Developer Portal's theme with the CSS editor. To 
     <figure><img src="../../.gitbook/assets/8F20A23D-0B5B-4863-B454-6AA244B820AC_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 4.  In the **Customization** menu, click **Theme**.
 
-    <figure><img src="../../.gitbook/assets/D15564EE-4952-4032-A48C-109585617DDC.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/D15564EE-4952-4032-A48C-109585617DDC.jpeg" alt="The developer portal Theme customization page, with Theme highlighted in the menu, logo and favicon uploads, a font selection, a primary colour, and a live preview."><figcaption></figcaption></figure>
 5.  Navigate to **CSS Editor** and then click the down arrow.
 
     <figure><img src="../../.gitbook/assets/AAE22928-0FC0-4429-9C6E-77C2FFDC76A2.jpeg" alt=""><figcaption></figcaption></figure>
