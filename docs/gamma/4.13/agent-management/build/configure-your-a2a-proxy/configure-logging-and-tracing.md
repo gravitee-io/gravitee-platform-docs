@@ -49,8 +49,7 @@ The **OpenTelemetry** card configures distributed tracing and OpenTelemetry log 
 * **Verbose**. Adds detailed span events with headers, context attributes, and policy execution details. Requires **Trace enabled**. Enable only for deep debugging, because it increases trace size significantly, and disable it after debugging is complete.
 * **OTel Logs**. Emit request and response payloads as OpenTelemetry log records correlated to the active trace, which enables log-to-trace linking in Grafana and other OpenTelemetry-compatible backends. Requires **Trace enabled**.
 
-<!-- TODO: Screenshot of the OpenTelemetry card on an A2A Proxy's Reporter Settings page with Trace enabled turned on -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-aim-a2a-otel-card.png" alt=""><figcaption><p>The <strong>OpenTelemetry</strong> card, with <strong>Trace enabled</strong> on.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-a2a-otel-card.png" alt="The OpenTelemetry card on an A2A Proxy's Reporter Settings page, with the Trace enabled, Verbose, and OTel Logs switches"><figcaption><p>The <strong>OpenTelemetry</strong> card of an A2A Proxy. All three switches are off until you turn them on.</p></figcaption></figure>
 
 ### What an A2A trace contains
 
