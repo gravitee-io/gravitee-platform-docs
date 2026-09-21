@@ -73,15 +73,15 @@ The sequence of policies is as follows:
 
 The configuration for the first data cache policy is:
 
-<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-146.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-146.png" alt="The data cache policy configuration, with a cache resource and cache key named, an empty value, the default operation set to GET, and a cache miss attribute key."><figcaption></figcaption></figure>
 
 Then the HTTP Callout policy has a trigger condition representing the attribute. The return value is put in a context variable called `access-token`:
 
-<figure><img src="../../../.gitbook/assets/create-and-configure-apis-apply-policies-147-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/create-and-configure-apis-apply-policies-147-1.png" alt="The HTTP callout policy configuration, with a description, a trigger condition on the cache miss attribute, the POST method, a token endpoint URL, and an Authorization request header."><figcaption></figcaption></figure>
 
 Lastly, if the first policy resulted in a cache miss, put the token from the HTTP callout policy in the cache:
 
-<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-148.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-148.png" alt="The data cache policy configuration, with a trigger condition on the cache miss attribute, the value read from an access token attribute, and the default operation set to SET."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="API Definition" %}
