@@ -120,7 +120,7 @@ If you change the CORS settings using the `gravitee.yml` or environment variable
     <figure><img src="../../.gitbook/assets/31738772-8FFD-4BC5-B5EF-5F303E24249E_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2.  In the **Settings screen**, navigate to the **CORS** section.
 
-    <figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-manage-14-1-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-manage-14-1-1.png" alt="The organization CORS settings, with the Allow-Headers field highlighted and a list of permitted headers below the allowed methods."><figcaption></figcaption></figure>
 
 ### Configure CORS at the environment level
 
@@ -163,7 +163,7 @@ Configuration details for `Allow Methods` include the following:
 
 The `Allow-Headers` setting defines which headers can be used in cross-origin requests.
 
-<figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-manage-14-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-manage-14-1-1.png" alt="The organization CORS settings, with the Allow-Headers field highlighted and a list of permitted headers below the allowed methods."><figcaption></figcaption></figure>
 
 Configuration details for `Allow Headers` include the following :
 

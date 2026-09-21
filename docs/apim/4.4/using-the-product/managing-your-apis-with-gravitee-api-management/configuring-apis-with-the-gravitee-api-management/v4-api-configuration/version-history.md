@@ -22,4 +22,4 @@ To access the version history:
 
 To view the JSON definition of a specific API version, click the eye icon under the **Action** header to **Show version**:
 
-<figure><img src="../../../../.gitbook/assets/deployment_version history details.png" alt=""><figcaption><p>JSON API definition</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/deployment_version history details.png" alt="The Version History tab of an API&#x27;s Deployment page, showing a selected version with its date, author, and label above the JSON API definition."><figcaption><p>JSON API definition</p></figcaption></figure>

@@ -46,10 +46,10 @@ To integrate IBM API Connect with Gravitee APIM, complete the following steps:
     <figure><img src="../../../.gitbook/assets/click-next-on-integrations-workflow.png" alt=""><figcaption></figcaption></figure>
 4.  Type the **Integration Name**.<br>
 
-    <figure><img src="../../../.gitbook/assets/ibm-connect-name-and-description.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/ibm-connect-name-and-description.png" alt="The Enter Information step of the Create Integration wizard, with a name and description filled in for an IBM API Connect integration."><figcaption></figcaption></figure>
 5.  (Optional) Type the **Description** for the integration.<br>
 
-    <figure><img src="../../../.gitbook/assets/ibm-connect-name-and-description.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/ibm-connect-name-and-description.png" alt="The Enter Information step of the Create Integration wizard, with a name and description filled in for an IBM API Connect integration."><figcaption></figcaption></figure>
 6.  Click **Create Integration**.
 
     <figure><img src="../../../.gitbook/assets/create-integration-ibm-connect.png" alt=""><figcaption></figcaption></figure>
