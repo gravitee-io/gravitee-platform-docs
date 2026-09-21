@@ -11,7 +11,7 @@ The legacy execution engine presents logging issues:
 * A `502` status code normally indicates that the server has responded with a `502` status code, but `502` is also returned for connection failures
 * Consumer response headers are not displayed clearly
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-logging-1.png" alt=""><figcaption><p>Sample 502 log with the legacy execution engine</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-logging-1.png" alt="An API log detail page for a request that returned 502, with a connection-refused error and the request and response headers compared between the consumer and the gateway."><figcaption><p>Sample 502 log with the legacy execution engine</p></figcaption></figure>
 
 ## Reactive execution engine improvements
 

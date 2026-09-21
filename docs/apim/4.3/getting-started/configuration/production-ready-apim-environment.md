@@ -443,13 +443,13 @@ Perform the following steps in APIM Console to update the most common default se
     1. Select **Settings** in the inner sidebar.
     2. Update the **Company name.**
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.34.14 PM.png" alt=""><figcaption><p>Portal settings</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.34.14 PM.png" alt="The portal settings page, showing the company name and the security plan types available in the console, with API key, OAuth2, JWT, and push plans all enabled."><figcaption><p>Portal settings</p></figcaption></figure>
 4.  In the **Gateway** section:
 
     1. Select **API Logging**.
     2. Update the maximum logging duration for APIM API logging to avoid flooding. In this example, we have configured a logging duration of 15 minutes:
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.42.12 PM.png" alt=""><figcaption><p>API logging settings</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.42.12 PM.png" alt="The API logging settings page, with auditing and end-user display enabled and a maximum logging duration set."><figcaption><p>API logging settings</p></figcaption></figure>
 5. Select **Organization** in the main sidebar:
    1.  In the **Gateway** section:
 
@@ -458,14 +458,14 @@ Perform the following steps in APIM Console to update the most common default se
 
 
 
-       <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.38.19 PM.png" alt=""><figcaption><p>Save sharding tag</p></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.38.19 PM.png" alt="The sharding tags page, listing gateway tags and an Entrypoint mappings section with a default entrypoint and one mapped entrypoint."><figcaption><p>Save sharding tag</p></figcaption></figure>
    2. Select **Settings** in the inner sidebar:
       * Update the **Title** of APIM Console to make it more appropriate to your own environment.
       * Update the **Management URL** to your APIM Console URL.
 
 <div align="right" data-full-width="true">
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.31.13 PM.png" alt="" width="563"><figcaption><p>Organization settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.31.13 PM.png" alt="The organization settings page, with the management title and URL, support, user registration, and automatic validation of registration requests all enabled." width="563"><figcaption><p>Organization settings</p></figcaption></figure>
 
 </div>
 

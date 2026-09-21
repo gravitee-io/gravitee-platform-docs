@@ -64,7 +64,7 @@ CORS is a mechanism that allows resources on a web page to be requested from ano
 
 All requests rejected because of CORS issues will generate logs that you can view in the `Analytics` section of your API logs.
 
-<img src="../../.gitbook/assets/graviteeio-troubleshooting-cors.png" alt="" data-size="original">
+<img src="../../.gitbook/assets/graviteeio-troubleshooting-cors.png" alt="An API log detail page showing a request that returned status 400, with an error stating that the request headers are not valid." data-size="original">
 {% endhint %}
 
 ## Deployments
@@ -128,7 +128,7 @@ To configure a response template:
 2. Click on the **Add new Response Template** button
 3.  Customize the **Create a new Response Template** form
 
-    <figure><img src="../../.gitbook/assets/create response template.png" alt=""><figcaption><p>Configure a new response template</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/create response template.png" alt="The Create a new Response Template form, with fields for template key, Accept header, status code, HTTP headers, and body."><figcaption><p>Configure a new response template</p></figcaption></figure>
 
     * **Template key:** Choose the template key via the **Template key** drop-down.
     * **Accept header to match:** Specify the requests header that should trigger use of the response template. The default value is `*/*`. To send the template override values only for JSON or XML requests, specify `JSON` or `XML.`
@@ -180,7 +180,7 @@ To configure API properties:
 
 1.  Select **Properties** from the inner left nav
 
-    <figure><img src="../../.gitbook/assets/v2 proxy_properties.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/v2 proxy_properties.png" alt="The API properties page with no properties defined, offering Import, Manage dynamically, and Add property."><figcaption><p>Add API properties</p></figcaption></figure>
 2. To add hardcoded properties, either:
    * Click **Add property** and enter property definitions one at a time as a key-value pair
    * Click **Import** and enter property definitions as a list in `<key>=<value>` format
@@ -205,7 +205,7 @@ To encrypt a hardcoded API property value:
     ```
 2.  Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value.
 
-    <div align="left"><figure><img src="../../.gitbook/assets/api properties_add.png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/api properties_add.png" alt="The New property dialog with empty Key and Value fields and the Encrypt toggle switched off." width="375"><figcaption></figcaption></figure></div>
 
 ### **Dynamic properties**
 
@@ -213,7 +213,7 @@ To configure dynamic properties:
 
 1.  Click the **Manage dynamically** button and define the configuration
 
-    <figure><img src="../../.gitbook/assets/v2 proxy_properties dynamic.png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/v2 proxy_properties dynamic.png" alt="The API dynamic properties page, with the service disabled and the schedule set to run every five minutes."><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
     * Toggle **Enabled** to ON
     * **Schedule:** A cron expression to schedule the health check

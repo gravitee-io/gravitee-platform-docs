@@ -123,7 +123,7 @@ To encrypt a hardcoded API property value:
     ```
 2. Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value.
 
-   <figure><img src="../../.gitbook/assets/api properties_add (1).png" alt=""><figcaption></figcaption></figure>
+   <figure><img src="../../.gitbook/assets/api properties_add (1).png" alt="The New property dialog with empty Key and Value fields and the Encrypt toggle switched off."><figcaption></figcaption></figure>
 
 ### **Dynamic properties**
 

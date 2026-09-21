@@ -27,16 +27,16 @@ You can use dictionaries anywhere in APIM where [Gravitee Expression Language](.
 
 To create a bew dictionary, select **Settings** in the left-hand nav. Then, select **Dictionaries.**
 
-<figure><img src="../../../.gitbook/assets/2023-06-28_10-17-24 (1) (1).gif" alt=""><figcaption><p>Access dictionary settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/2023-06-28_10-17-24 (1) (1).gif" alt="An animation that navigates from the home board to the environment&#x27;s Dictionaries page, which lists manual and dynamic dictionaries with their property counts and update times."><figcaption><p>Access dictionary settings</p></figcaption></figure>
 
-Then, select the <img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.18.10 AM.png" alt="" data-size="line">icon. You'll be brought to the **Create a new dictionary** page. Here, you'll need to define the **Name, Description,** and **Type.** You'll have two options for **Dictionary type:**
+Then, select the <img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.18.10 AM.png" alt="A round dark blue button with a white plus sign, used to add a new item." data-size="line">icon. You'll be brought to the **Create a new dictionary** page. Here, you'll need to define the **Name, Description,** and **Type.** You'll have two options for **Dictionary type:**
 
 * **Manual**: these dictionaries are made up of static properties defined manually at dictionary creation time
 * **Dynamic**: these dictionaries are made up of properties that are updated continually, based on a schedule and source URL defined at dictionary creation time
 
 ### Create a manual dictionary
 
-To create a manual dictionary, choose **Manual** as the **Type**, and then select **Create.** You'll then be brought to a page where you can define the static properties for your dictionary. To create properties, select the <img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.22.56 AM.png" alt="" data-size="line">icon.
+To create a manual dictionary, choose **Manual** as the **Type**, and then select **Create.** You'll then be brought to a page where you can define the static properties for your dictionary. To create properties, select the <img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.22.56 AM.png" alt="A round dark blue button with a white plus sign, used to add a new item." data-size="line">icon.
 
 Then, just give your properties a name and a value.
 
@@ -74,8 +74,8 @@ From here, you can select any properties you want to delete and/or select **Depl
 
 The following example creates a list of properties based on extracting the names and versions from the JSON at the defined URL and assigning them to the property keys and values:
 
-<figure><img src="../../../.gitbook/assets/configure-dict-dynamic-property-def.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/configure-dict-dynamic-property-def.png" alt="The Provider section of a dynamic dictionary, with a custom HTTP provider, a service URL, the GET method, and a JOLT transformation specification."><figcaption></figcaption></figure>
 
 When you select **Start**, the properties are added to the list according to the defined schedule:
 
-<figure><img src="../../../.gitbook/assets/configure-dict-dynamic-property-list.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/configure-dict-dynamic-property-list.png" alt="The Properties list of a dictionary, showing the key and value pairs fetched from the provider across several pages."><figcaption></figcaption></figure>

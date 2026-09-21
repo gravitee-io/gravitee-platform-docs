@@ -20,13 +20,13 @@ When using the legacy execution engine, a condition can be defined once for the 
 
 For example, a condition could be defined based on a request header that is removed during the `REQUEST` phase (e.g., the user does not want the request header to be transmitted to the backend). The condition is then re-evaluated and the `RESPONSE` phase is skipped completely, as shown below:
 
-<figure><img src="../../../.gitbook/assets/event-native-api-management-flow-condition-1.png" alt=""><figcaption><p>Partial flow execution example</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/event-native-api-management-flow-condition-1.png" alt="The Design tab of an API, with a request flow that removes a header and a response flow noting that it will not run because the header was removed, above the flow condition."><figcaption><p>Partial flow execution example</p></figcaption></figure>
 
 ### Reactive execution engine improvements
 
 When using the reactive execution engine, the flow condition will be applied once for the whole flow. If the condition is evaluated as `true`, then both the `REQUEST` and the `RESPONSE` phases will be executed, as shown below:
 
-<figure><img src="../../../.gitbook/assets/event-native-api-management-flow-condition-2.png" alt=""><figcaption><p>Reactive execution engine flow condition improvements</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/event-native-api-management-flow-condition-2.png" alt="The Design tab of an API, with a request flow that removes a header and a response flow noting that it runs anyway because the condition is evaluated once, above the flow condition."><figcaption><p>Reactive execution engine flow condition improvements</p></figcaption></figure>
 
 ### Migration considerations
 
