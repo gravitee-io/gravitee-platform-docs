@@ -191,7 +191,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
     <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-117.png" alt=""><figcaption></figcaption></figure>
 2.  From the **Select a dashboard**, select the dashboard that you want to view.<br>
 
-    <figure><img src="../../.gitbook/assets/dashboard_view.png" alt=""><figcaption><p>View your dashboard</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/dashboard_view.png" alt="The Platform Overview dashboard, with the dashboard selector circled above a time-range picker, a status pie chart, and response-time statistics."><figcaption><p>View your dashboard</p></figcaption></figure>
 
 ## Edit an existing dashboard
 
