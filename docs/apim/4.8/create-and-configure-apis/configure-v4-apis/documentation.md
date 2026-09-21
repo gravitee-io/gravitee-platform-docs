@@ -150,7 +150,7 @@ The available API properties are listed in the following table:
 {% tab title="Import from file" %}
 Upload a Markdown, OpenAPI, or AsyncAPI file as a documentation page. Only one file can be uploaded at a time.
 
-<figure><img src="../../.gitbook/assets/docs_content 1.png" alt=""><figcaption><p>Import a Markdown file</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/docs_content 1.png" alt="The Add content step of the documentation page wizard, with an empty drag-and-drop upload area accepting Markdown and text files."><figcaption><p>Import a Markdown file</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -173,11 +173,11 @@ When you add an OpenAPI specification to document your API, the **Configure Open
 
 Dynamic v4 API documentation pages can be created by adding metadata. To view metadata keys and values for v4 API documentation, select the **Metadata** header.
 
-<figure><img src="../../.gitbook/assets/metadata_screen.png" alt=""><figcaption><p>View API metadata</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/metadata_screen.png" alt="The Metadata tab of an API&#x27;s documentation, listing global metadata entries with their key, name, format, and value."><figcaption><p>View API metadata</p></figcaption></figure>
 
 To create metadata for v4 API documentation, click **+** **Add API Metadata** and specify the following:
 
-<div align="left"><figure><img src="../../.gitbook/assets/metadata_add.png" alt="" width="375"><figcaption><p>Add API metadata</p></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/metadata_add.png" alt="The Create API metadata dialog with empty Name, Format, and Value fields." width="375"><figcaption><p>Add API metadata</p></figcaption></figure></div>
 
 * **Name:** Enter a name for the metadata
 * **Format:** Select a metadata format from the drop-down menu. Available options are **string**, **numeric**, **boolean**, **date**, **mail**, or **url**.

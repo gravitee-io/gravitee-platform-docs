@@ -59,7 +59,7 @@ To add security to your API, complete the following steps:
     <figure><img src="../../.gitbook/assets/8AB63E94-AAA6-4BDA-B648-077BB451A35C.jpeg" alt=""><figcaption></figcaption></figure>
 13. In the **Deploy your API** pop-up window, click **Deploy**.
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-create-and-publish-your-fi-350-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-create-and-publish-your-fi-350-1.png" alt="The Deploy your API dialog open over an API&#x27;s Plans tab, asking for a deployment label, with an out-of-sync banner above."><figcaption></figcaption></figure>
 
 #### Verification
 

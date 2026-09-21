@@ -110,7 +110,7 @@ APIM uses the subscription to decide whether to accept or deny an incoming reque
 
 First, ensure your API is visible in the developer portal by selecting **General** in the Console UI sidebar and scrolling down to the bottom. In the **Danger Zone**, the API must be published which grants visibility to all members of your API (members are managed under User and group access). Additionally, you can make your API public which makes it visible to anybody who has access to your Developer Portal.
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-20.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-20.png" alt="The Info page of an API scrolled to the Danger Zone, offering to stop, publish, make private, deprecate, or delete the API."><figcaption></figcaption></figure>
 
 ### Access Developer Portal <a href="#access-developer-portal-10" id="access-developer-portal-10"></a>
 

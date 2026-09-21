@@ -60,7 +60,7 @@ The resource appears in the **Resources** section of the **Configuration** scree
 
 1.  In the **API's menu**, click **Policies**.<br>
 
-    <figure><img src="../../.gitbook/assets/7CABA049-B484-48FE-859E-B640C6ED9A04_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/7CABA049-B484-48FE-859E-B640C6ED9A04_1_201_a.jpeg" alt="The Configuration page of an API, with Policies highlighted in the API menu beside the general settings and a Danger Zone."><figcaption></figcaption></figure>
 2. Navigate to the **Flows** section, and select a flow that you want to add the Guard Rails policy to. For example, `POST/chat/completions`.
 3.  In the **Request phase** section, click **the plus.**<br>
 

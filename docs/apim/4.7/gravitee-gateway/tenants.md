@@ -40,7 +40,7 @@ Once the Gateway has been configured, the tenant definition must be added via th
 2. Next, configure the Backend and Customer APIs by adding two different endpoints. In our example, these will point to the USA and EU upstream systems (the backend server or the Customer API, depending on which API you are configuring).
 3.  Specify which tenant a backend will apply to. Our two endpoints each point to different backends and are each assigned to a different tenant:
 
-    <figure><img src="../.gitbook/assets/tenant_specify.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/tenant_specify.png" alt="The Endpoints page of an API, listing two endpoints in the default group with their targets, type, tenant, and weight."><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Now that the two endpoints are defined, Gateways GWI1, GWI2, GWI3 and GWI4 will apply this logic:
