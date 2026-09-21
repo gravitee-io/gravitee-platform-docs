@@ -32,6 +32,7 @@
 * [Configure console authentication](configure-console-authentication.md)
 * [Configure console management and schedulers](configure-console-management-and-schedulers.md)
 * [Configure CORS for the Management API](configure-console-cors.md)
+* [Configure environment alerts](configure-environment-alerts.md)
 * [Configure environment notifications](configure-environment-notifications.md)
 * [Configure OpenAPI viewer](configure-openapi-viewer.md)
 * [Configure OpenTelemetry tracing and logs](configure-opentelemetry-tracing-and-logs.md)
