@@ -61,6 +61,7 @@
   * [Configure TLS with cert-manager](guides/gateway-api/tls-with-cert-manager.md)
   * [Configure multi-domain TLS on a Gateway](guides/gateway-api/multi-domain-tls.md)
   * [Configure DNS with external-dns](guides/gateway-api/dns-with-external-dns.md)
+  * [Configure a self-hosted Gravitee APIM with Kubernetes Gateway API](guides/gateway-api/full-example-of-configuring-self-hosted-gravitee-apim-with-k8s-gateway-api.md)
 
 ## REFERENCE
 

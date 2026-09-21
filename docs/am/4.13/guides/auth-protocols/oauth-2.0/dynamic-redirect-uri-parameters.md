@@ -21,7 +21,7 @@ To enable Gravitee Expression Language and dynamic parameters for redirect URIs,
 3. Select **Client Registration**.
 4. Toggle **Enable/Disable EL and dynamic parameters for redirect URIs** to ON.
 
-<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-dynam-51.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-dynam-51.png" alt="The Client Registration Settings with Dynamic Client Registration and expression-language redirect URIs enabled and the remaining options switched off."><figcaption></figcaption></figure>
 
 Once enabled, you can use EL in redirect URIs to create personalized user experiences.
 
@@ -34,7 +34,7 @@ To use dynamic redirect URIs with query parameters, complete the following steps
 3. In the **Settings** tab, navigate the **Redirect URI** field.
 4. Specify the `redirect_uris` with query parameters, embedding values using Gravitee Expression Language. For more information about available EL objects and their usage, refer to [am-expression-language.md](../../am-expression-language.md "mention").
 
-<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-dynam-52.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-dynam-52.png" alt="The application General settings with a redirect URI containing an expression-language dynamic parameter entered, above the existing redirect URIs list."><figcaption></figcaption></figure>
 
 ### Example
 

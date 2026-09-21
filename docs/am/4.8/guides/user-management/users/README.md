@@ -11,7 +11,7 @@ description: Find and manage Access Management 4.8 users from the Console, with 
 1. Log in to AM Console.
 2.  Search for users by clicking **Settings > Users** and entering the username in the search field.
 
-    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-um-search-users.png" alt=""><figcaption><p>Search for users</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-um-search-users.png" alt="The Users page with a search field and a Search by list, above a table showing one user with their identity provider and last login."><figcaption><p>Search for users</p></figcaption></figure>
 
 You can also list users with the AM API `/users` endpoint.
 
@@ -173,19 +173,19 @@ You create users in a security domain.
 5. (Optional) You can also add/modify specific attributes relating to the user. This user metadata will be available in the user’s profile.
 6.  You will be redirected to the created user’s page.
 
-    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-um-create-user.png" alt=""><figcaption><p>New user creation page</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-um-create-user.png" alt="The New User form with first name, last name, email, username, password, application, and identity provider fields, above an Additional information section."><figcaption><p>New user creation page</p></figcaption></figure>
 
 {% hint style="info" %}
 You can choose to enable `Pre-Registration`, to allow users to finish registering their own account. An email will be sent to the user with instructions.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-um-pre-registration-mail.png" alt=""><figcaption><p>New user registration email</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-um-pre-registration-mail.png" alt="A new user registration email confirming successful registration, with a link to confirm it."><figcaption><p>New user registration email</p></figcaption></figure>
 
 ### Update the username
 
 You can update the username of your user. Updating the username is only available via the console and the management-api.
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-um-user-update-usename.png" alt=""><figcaption><p>Update username</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-um-user-update-usename.png" alt="The Profile tab of a user, showing the Username section with the current username and an Update username button."><figcaption><p>Update username</p></figcaption></figure>
 
 1. Log in to AM Console.
 2. Click **Settings > Users**
@@ -205,8 +205,8 @@ You can assign roles directly from the user profile, or from the identity provid
 If you are using both user roles and the identity provider role mapper feature, the two roles will be in two different places, you can see the different roles in **Settings > Users > "Your User" > Roles**.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-um-user-assigned-dynamic-roles.png" alt=""><figcaption><p>User roles overview</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-um-user-assigned-dynamic-roles.png" alt="The Roles tab of a user, showing one assigned role and one dynamic role assigned by a role mapper, with an Assign roles button."><figcaption><p>User roles overview</p></figcaption></figure>
 
 By default, users are stored in the pre-defined `Default Identity Provider`, which is available by default for each security domain. You can apply role mapping to your users.
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-um-user-role-mapping.png" alt=""><figcaption><p>Default IdP</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-um-user-role-mapping.png" alt="The Role mappers tab of the default identity provider, mapping a username condition to a team role."><figcaption><p>Default IdP</p></figcaption></figure>

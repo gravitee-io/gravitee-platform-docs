@@ -25,7 +25,7 @@ A relying party that uses assertions it has received from the Identity Provider 
 
 An entity that authenticates users and provides to service providers (SP) an authentication assertion that indicates a principal has been authenticated.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-devguide-protocols-saml-overview.png" alt=""><figcaption><p>SAML diagram</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-devguide-protocols-saml-overview.png" alt="A diagram in which end users reach SAML service provider apps that talk to Access Management over the SAML protocol, with AM acting as the SAML identity provider and delegating to external identity providers."><figcaption><p>SAML diagram</p></figcaption></figure>
 
 ## Enable SAML 2.0 Identity Provider support
 

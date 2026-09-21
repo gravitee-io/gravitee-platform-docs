@@ -102,4 +102,4 @@ This service must follow the requirements hereafter :
 * Implement the [notification endpoint](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/current/ciba_external_service/swagger.yml) to receive a notification request
 * Call the AM [callback endpoint](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/current/ciba/swagger.yml) to update the authentication request status
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-CIBA-Flow.png" alt=""><figcaption><p>External HTTP service example</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-CIBA-Flow.png" alt="A CIBA sequence diagram across Access Management, an external HTTP service, and the user device: a CIBA request returns an auth_req_id, a notification reaches the device, the end user accepts or rejects, the response returns on the callback endpoint, and a token request with the auth_req_id returns tokens."><figcaption><p>External HTTP service example</p></figcaption></figure>
