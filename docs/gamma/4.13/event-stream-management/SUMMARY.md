@@ -14,6 +14,7 @@
     * [Explore brokers, topics, and consumer groups](manage/kafka-explorer/explore-brokers-topics-and-consumer-groups.md)
     * [Browse and tail topic messages](manage/kafka-explorer/browse-and-tail-topic-messages.md)
     * [Manage Kafka Explorer connections](manage/kafka-explorer/manage-kafka-explorer-connections.md)
+    * [Limitations and considerations](manage/kafka-explorer/limitations-and-considerations.md)
 * [Build](build/README.md)
   * [Create a Kafka service with a registered cluster](build/create-a-kafka-service-with-a-registered-cluster.md)
   * [Create a Kafka service with a Virtual Cluster](build/create-a-kafka-service-with-a-virtual-cluster.md)

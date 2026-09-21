@@ -121,6 +121,7 @@
     * [Explore brokers, topics, and consumer groups](event-stream-management/manage/kafka-explorer/explore-brokers-topics-and-consumer-groups.md)
     * [Browse and tail topic messages](event-stream-management/manage/kafka-explorer/browse-and-tail-topic-messages.md)
     * [Manage Kafka Explorer connections](event-stream-management/manage/kafka-explorer/manage-kafka-explorer-connections.md)
+    * [Limitations and considerations](event-stream-management/manage/kafka-explorer/limitations-and-considerations.md)
 * [Build](event-stream-management/build/README.md)
   * [Create a Kafka service with a registered cluster](event-stream-management/build/create-a-kafka-service-with-a-registered-cluster.md)
   * [Create a Kafka service with a Virtual Cluster](event-stream-management/build/create-a-kafka-service-with-a-virtual-cluster.md)
