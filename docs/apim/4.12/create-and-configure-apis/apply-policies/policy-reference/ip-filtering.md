@@ -15,7 +15,7 @@ For Native Kafka APIs, use the [Native IP Filtering](native-ip-filtering.md) pol
 
 You can toggle the `Use custom IP address (support EL)` option to filter forwarded IPs using a custom header.
 
-<figure><img src="../../../.gitbook/assets/00 ip.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/00 ip.png" alt="The IP filtering policy configuration, with a custom IP address read from a forwarded-for header and a whitelist section below, beside the policy documentation."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 You can use any header sent with the request if you are using a different header than `X-Forwarded-For` to represent the source IP.

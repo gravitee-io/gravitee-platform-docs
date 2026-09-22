@@ -22,10 +22,10 @@ You can opt-in to API Score from the API Management Console:
 
 1.  From the home page, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/govern-apis-api-score-enable-api-score-218-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-apis-api-score-enable-api-score-218-1.png" alt="The console dashboard with API Score in the left navigation, showing total API and application counts and top API statistics."><figcaption></figcaption></figure>
 2.  In the **Portal** section, click **API Quality**.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-enable-api-score-220.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-enable-api-score-220.png" alt="The API Quality settings, with API Score enabled under a tech preview notice and quality metrics enabled with weighting fields below."><figcaption></figcaption></figure>
 3.  In the **API Score** section, turn on **Enable API Score**.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-enable-api-score-221.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-enable-api-score-221.png" alt="The API Score panel of the API Quality settings, with a tech preview notice and the Enable API Score toggle switched on."><figcaption></figcaption></figure>
