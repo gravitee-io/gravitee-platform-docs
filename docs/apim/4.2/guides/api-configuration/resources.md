@@ -128,7 +128,7 @@ As of Gravitee 4.0, the ability to use Confluent Schema Registry as a resource i
 {% endtab %}
 
 {% tab title="Keycloak Adapter" %}
-<figure><img src="../../.gitbook/assets/resource_keycloak.png" alt=""><figcaption><p>Create a Keycloak Adapter resource</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/resource_keycloak.png" alt="The Create resource form for a Keycloak adapter, with an empty required resource name and client configuration, local token validation enabled, the user claim set to sub, host verification off, and trust all on."><figcaption><p>Create a Keycloak Adapter resource</p></figcaption></figure>
 
 | Config param                  | Description                                           | Default |
 | ----------------------------- | ----------------------------------------------------- | ------- |
