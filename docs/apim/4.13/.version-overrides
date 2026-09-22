@@ -115,3 +115,7 @@ create-and-configure-apis/apply-policies/README.md
 # Kafka Topic Mapping dynamic #topic rules, policy 2.2.0 = 4.13 only (ESM-138)
 create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md
 .gitbook/assets/kafka-topic-mapping-client-to-broker-rule.png
+
+# Gamma modules on a JDBC management repository (APIM 4.13.0 feature, ESM-122)
+prepare-a-production-environment/repositories/apply-schema-migrations-manually.md
+prepare-a-production-environment/repositories/jdbc.md
