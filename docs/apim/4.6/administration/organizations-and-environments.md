@@ -18,7 +18,7 @@ To access your Organization settings:
 2. Select **Organization** from the left nav
 3.  Select **Settings** under **Console**
 
-    <figure><img src="../.gitbook/assets/organization settings.png" alt=""><figcaption><p>Organization settings</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/organization settings.png" alt="The organization Settings page, showing the management title and a locked management URL, with support, user registration, and automatic validation enabled above scheduler intervals."><figcaption><p>Organization settings</p></figcaption></figure>
 4. View or define the settings for your Organization, described below
 
 {% tabs %}
