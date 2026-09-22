@@ -109,3 +109,5 @@ analyze-and-monitor-apis/opentelemetry.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 # EXPLORER environment permission for Kafka Explorer connections, absent from 4.12 (APIM 4.13.0 feature, ESM-43)
 configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md
+# Assign Metrics on LLM proxy APIs: policy compatibility matrix differs from 4.12 (APIM-12722)
+create-and-configure-apis/apply-policies/README.md
