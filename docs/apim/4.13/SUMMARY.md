@@ -551,6 +551,7 @@
     * [MongoDB](prepare-a-production-environment/repositories/mongodb.md)
     * [ElasticSearch](prepare-a-production-environment/repositories/elasticsearch.md)
     * [JDBC](prepare-a-production-environment/repositories/jdbc.md)
+    * [Apply schema migrations manually](prepare-a-production-environment/repositories/apply-schema-migrations-manually.md)
     * [Redis](prepare-a-production-environment/repositories/redis.md)
   * [Configure your HTTP Server](prepare-a-production-environment/configure-your-http-server.md)
   * [Timeout Management](prepare-a-production-environment/timeout-management.md)
