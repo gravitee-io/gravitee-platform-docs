@@ -24,7 +24,7 @@ To configure global settings, complete the following steps:
 4. Click on the application you want to configure.
 5.  Click on **Global settings** in the Application menu.
 
-    <figure><img src="../../.gitbook/assets/00 groups added to applications 1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 groups added to applications 1.png" alt="An application&#x27;s Global settings page, showing its name and description beside the owner, creation date, type, and API key mode, above OAuth2 and TLS panels and a Danger Zone."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Some general details are common to all applications, and others vary by application type.
@@ -50,7 +50,7 @@ To delete an application, the primary owner must:
 4. Select **Global Settings** from the inner left nav
 5.  In the **Danger Zone**, click **Delete**
 
-    <figure><img src="../../.gitbook/assets/00 groups added to applications 2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 groups added to applications 2.png" alt="An application&#x27;s Global settings page with the Delete action circled in the Danger Zone."><figcaption></figcaption></figure>
 
 * A deleted application has a status of `ARCHIVED`, meaning:
   * The link to the primary owner of the application is deleted.

@@ -34,13 +34,13 @@ To integrate Azure API Management with Gravitee APIM, complete the following ste
 
 1.  From the Dashboard, click **Integrations**
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-68-1 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-68-1 (1).png" alt="The console dashboard with Integrations highlighted in the left navigation, showing 3,198 APIs and 827 applications with lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  Click **Create Integration.**
 
     <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2-1 (1).png" alt="The Integrations page in the API Management console, with the Create Integration button highlighted above a table of existing integrations."><figcaption></figcaption></figure>
 3.  Select **Azure API Management**, and then click **Next**.
 
-    <figure><img src="../../../.gitbook/assets/click-next-azure-federation.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/click-next-azure-federation.png" alt="The Choose Provider step of the Create Integration wizard, with Azure API Management selected and the Next button highlighted."><figcaption></figcaption></figure>
 4.  Type the **Integration Name**.
 
     <figure><img src="../../../.gitbook/assets/enter-integration-name.png" alt="The Enter Information step of the Create Integration wizard, with a name and description filled in for an Azure API Management integration."><figcaption></figcaption></figure>
@@ -49,10 +49,10 @@ To integrate Azure API Management with Gravitee APIM, complete the following ste
     <figure><img src="../../../.gitbook/assets/enter-integration-name.png" alt="The Enter Information step of the Create Integration wizard, with a name and description filled in for an Azure API Management integration."><figcaption></figcaption></figure>
 6.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/create-integration-azure-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/create-integration-azure-api.png" alt="The Enter Information step of the Create Integration wizard, with an Azure API Management name and description filled in and the Create Integration button highlighted."><figcaption></figcaption></figure>
 7.  From the Integration overview tab, copy the **Integration ID**. You need this ID for the agent configuration.
 
-    <figure><img src="../../../.gitbook/assets/azure-api-integration-id (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/azure-api-integration-id (1).png" alt="The Overview page of an Azure API Management integration, showing the provider, a disconnected agent, and a partly masked integration identifier."><figcaption></figcaption></figure>
 
 ### Configure the Azure API Management federation agent
 
