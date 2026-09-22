@@ -32,7 +32,7 @@ API notifications relate to a specific API and include the following:
 
 To subscribe to notifications related to a specific API, go to **APIM Console > APIs**, select the API, and click **Notifications**:
 
-<figure><img src="../../../.gitbook/assets/api_notifications.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/api_notifications.png" alt="The Portal Notification settings for an API, listing API key and subscription events with every checkbox cleared."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Application" %}

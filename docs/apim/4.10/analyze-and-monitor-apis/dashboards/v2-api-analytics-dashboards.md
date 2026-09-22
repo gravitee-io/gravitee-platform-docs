@@ -14,7 +14,7 @@ The Dashboard is fully customizable. For more information about creating configu
 
 *   From the **Dashboard**, click **Analytics**.<br>
 
-    <figure><img src="../../.gitbook/assets/A160372A-F5F3-48D2-9354-70460A1D779C_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A160372A-F5F3-48D2-9354-70460A1D779C_1_201_a.jpeg" alt="The console dashboard with Analytics highlighted in the left navigation, showing API and application totals, lifecycle and state pie charts, and top API tables."><figcaption></figcaption></figure>
 
 The Analytics section opens on the v2 API analytics Dashboard.
 

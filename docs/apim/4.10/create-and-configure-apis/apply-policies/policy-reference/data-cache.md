@@ -68,7 +68,7 @@ The full example is shown below:
 {% tab title="Policy Studio" %}
 The sequence of policies is as follows:
 
-<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-145 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-145 (1).png" alt="A flow&#x27;s request phase containing a data cache policy, an HTTP callout, and a second data cache policy, each with a condition shown above it, and an empty response phase below."><figcaption></figcaption></figure>
 
 The configuration for the first data cache policy is:
 

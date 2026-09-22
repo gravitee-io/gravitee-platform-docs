@@ -15,7 +15,7 @@ The API key authentication type enforces verification of API keys during request
 
 An API Key plan offers only basic security, acting more like a unique identifier than a security token.
 
-<figure><img src="../../.gitbook/assets/plan_api key.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plan_api key.png" alt="The API Key authentication configuration step of plan editing, with API key propagation switched off and an empty additional selection rule."><figcaption></figcaption></figure>
 
 * **Propagate API Key to upstream API:** Toggle ON to ensure the request to the backend API includes the API key header sent by the API consumer. This is useful for backend APIs that already have integrated API key authentication.
 * **Additional selection rule:** Allows you to use Gravitee Expression Language (EL) to filter plans of the same type by contextual data (request headers, tokens, attributes, etc.). For example, if there are multiple API key plans, you can set different selection rules on each plan to determine which plan handles each request.
