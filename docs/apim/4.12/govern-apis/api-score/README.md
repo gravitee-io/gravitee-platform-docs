@@ -41,7 +41,7 @@ Each asset is scored individually with the following formula, using only the iss
 
 Each asset's score is projected onto a function that has the following shape:
 
-<figure><img src="../../.gitbook/assets/govern-api-score-readme-77.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/govern-api-score-readme-77.png" alt="A line chart of a decaying curve, falling steeply from one towards zero and flattening out along the horizontal axis."><figcaption></figcaption></figure>
 
 The API score shown in the Console is the arithmetic average of all per-asset scores. The error, warning, info, and hint counts shown next to the score are totals summed across every asset.
 

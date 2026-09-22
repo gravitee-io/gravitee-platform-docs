@@ -40,7 +40,7 @@ To integrate Confluent Platform with Gravitee APIM, complete the following steps
     <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2.png" alt="The Integrations page in the API Management console, with the Create Integration button highlighted above a table of existing integrations."><figcaption></figcaption></figure>
 3.  Select **Confluent Platform**, and then click **Next**.<br>
 
-    <figure><img src="../../../.gitbook/assets/confluent-click-next.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/confluent-click-next.png" alt="The Choose Provider step of the Create Integration wizard, with Confluent Platform selected and the Next button highlighted."><figcaption></figcaption></figure>
 4.  Type the **Integration Name**.<br>
 
     <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description.png" alt="The Enter Information step of the Create Integration wizard, with a name and description filled in for a Confluent Platform integration."><figcaption></figcaption></figure>
@@ -49,10 +49,10 @@ To integrate Confluent Platform with Gravitee APIM, complete the following steps
     <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description.png" alt="The Enter Information step of the Create Integration wizard, with a name and description filled in for a Confluent Platform integration."><figcaption></figcaption></figure>
 6.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description (2).png" alt="The Enter Information step of the Create Integration wizard, with a Confluent Platform name and description entered and the Create Integration button highlighted."><figcaption></figcaption></figure>
 7.  From the Integration overview tab, copy the **Integration ID**. You need this ID for the agent configuration.
 
-    <figure><img src="../../../.gitbook/assets/confluent-integration-id.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/confluent-integration-id.png" alt="The Overview page of a Confluent Platform integration, showing the provider, a disconnected agent, and a partly masked integration identifier."><figcaption></figcaption></figure>
 
 ### Configure the Confluent Platform federation agent
 
@@ -208,7 +208,7 @@ You can deploy the Confluent Platform federation agent using either of the follo
 
 1.  In the Gravitee API Management console, after refreshing, you should now see the agent's status set to **Connected**.<br>
 
-    <figure><img src="../../../.gitbook/assets/confluent-platform-app-connected.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/confluent-platform-app-connected.png" alt="The Overview page of a Confluent Platform integration after the agent connects, with Connected shown in both the menu and the agent connection field."><figcaption></figcaption></figure>
 2. (Optional) If the Agent Connection shows as `Disconnected`, inspect the agent container logs for error messages.
 
 ### Helm
@@ -472,4 +472,4 @@ If your APIM management API uses certificates that require a custom truststore, 
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to **Connected**.
 
-    <figure><img src="../../../.gitbook/assets/govern-federation-confluent-platfor-46.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-federation-confluent-platfor-46.png" alt="The Overview page of a connected Confluent Platform integration, showing the provider, the connected agent, and a partly masked integration identifier."><figcaption></figcaption></figure>
