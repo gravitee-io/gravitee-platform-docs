@@ -219,11 +219,11 @@ However, there are some limitations of APIs compared to folders:
 
 * Navigate to the folder in the navigation bar, click the **ellipses**, and then click **Publish**.
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--246.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--246.png" alt="The Manage your navigation page with an API&#x27;s context menu open, offering Add Page, Add Folder, Add Link, Edit, Publish, and Delete."><figcaption></figcaption></figure>
 
 6. In the **Publish API** pop-up box, click **Publish**.
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--247.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--247.png" alt="The Publish API dialog, confirming that the API and its content will be published and the change will be visible in the developer portal."><figcaption></figcaption></figure>
 
 **Add a page to an API**
 
@@ -249,8 +249,8 @@ The content appears on the New Developer Portal. To view the content, complete t
 
 Click **Open website**.
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--249.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--249.png" alt="The Manage your navigation page with a published Overview page selected, its Markdown template in the editor, and the rendered page on the right."><figcaption></figcaption></figure>
 
 The new root-level items appear in the navigation bar.
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--250.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--250.png" alt="The developer portal Catalog in cards view, showing five API cards that each note their description is missing, with a top bar holding Guides, APIs, Docs, and custom links."><figcaption></figcaption></figure>
