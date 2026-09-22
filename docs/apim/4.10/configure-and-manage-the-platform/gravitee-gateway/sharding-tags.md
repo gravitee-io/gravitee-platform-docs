@@ -77,7 +77,7 @@ To configure sharding tags, complete the following steps:
     <figure><img src="../../.gitbook/assets/entrypoints-sharding-tags.png" alt="The Entrypoints and Sharding Tags page, with default HTTP, TCP, and Kafka entrypoint values and an empty sharding tags table."><figcaption></figcaption></figure>
 3.  Navigate to **Sharding Tags**, and then click **+ Add a tag**.
 
-    <figure><img src="../../.gitbook/assets/add-a-sharding-tag.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/add-a-sharding-tag.png" alt="The organization Sharding Tags page with the Add a tag button highlighted, listing five tags with their ID, name, and description above an Entrypoint Mappings panel."><figcaption></figcaption></figure>
 4. In the **Create a tag** pop-up window, add the following information:
    1. In the **Name** field, add the name of your tag.
    2. (Optional) In the **Description** field, add a description for the tag.
@@ -94,20 +94,20 @@ Take note of the generated 'id', as this may differ from your 'name' (due to the
 
 1.  From the **Dashboard**, click **APIs**.
 
-    <figure><img src="../../.gitbook/assets/click-on-apis (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/click-on-apis (1).png" alt="The console dashboard with APIs highlighted in the left navigation, showing four total APIs and five applications with lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  In the **APIs** screen, select the API to which you want to add a sharding tag.
 
-    <figure><img src="../../.gitbook/assets/select-sharding-tag-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/select-sharding-tag-api.png" alt="The APIs list showing six sample APIs with their definition, status, context path, owner, and visibility."><figcaption></figcaption></figure>
 3.  In the **APIs** menu, click **Deployment**.
 
-    <figure><img src="../../.gitbook/assets/select-deployment-in-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/select-deployment-in-api.png" alt="The Deployment configuration page of an API with Deployments highlighted in the API menu, showing an empty sharding tags selector."><figcaption></figcaption></figure>
 4. In the **Deployment** screen, navigate to the **Deployment configuration** section.
 5.  From the **Sharding tags** drop-down menu, select the sharding tag that you want to add to the API.
 
-    <figure><img src="../../.gitbook/assets/sharding-tags-drop-down-menu.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/sharding-tags-drop-down-menu.png" alt="The Deployment configuration page with the sharding tags dropdown open, listing five tags each with a clear checkbox."><figcaption></figcaption></figure>
 6.  In the **You have unsaved changes** pop-up, click **Save**.
 
-    <figure><img src="../../.gitbook/assets/sharding-tag-popup-save-changes.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/sharding-tag-popup-save-changes.png" alt="The Deployment configuration page with one sharding tag selected and an unsaved changes bar offering Discard and Save."><figcaption></figcaption></figure>
 
 ### Add the tag ID to `values.yaml`, `gravitee.yml` or with environment variables
 
@@ -195,7 +195,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
     <figure><img src="../../.gitbook/assets/entrypoints-sharding-tags.png" alt="The Entrypoints and Sharding Tags page, with default HTTP, TCP, and Kafka entrypoint values and an empty sharding tags table."><figcaption></figcaption></figure>
 3.  Navigate to **Entrypoint Mappings**, and then click **+ Add a mapping**.
 
-    <figure><img src="../../.gitbook/assets/entrypoint-mapping.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/entrypoint-mapping.png" alt="The Entrypoint Mappings panel with the Add a mapping button highlighted, showing an empty table with target, entrypoint, and sharding tag columns."><figcaption></figcaption></figure>
 4. From the **+ Add a mapping** drop-down menu, select one of the following entrypoints:
    * HTTP
    * TCP
