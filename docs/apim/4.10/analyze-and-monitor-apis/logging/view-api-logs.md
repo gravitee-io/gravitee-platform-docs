@@ -57,7 +57,7 @@ To view the details of any entry in the list of runtime logs, select **Logs** fr
 
 The logs screen shows the following API-level logging information:
 
-<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-view-ap-14-1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-view-ap-14-1 (1).png" alt="A connection log detail page, showing the entrypoint request URI, POST method, and headers including host, forwarding, and Gravitee request and transaction identifiers."><figcaption></figcaption></figure>
 
 The **Overview** section provides information about the request and response phases of the API.
 

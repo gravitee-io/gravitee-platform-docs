@@ -84,7 +84,7 @@ From here, you can immediately begin searching for APIs using the Developer Port
 
 Now that we have access to the Developer Portal, we can take on the role of an API consumer. The next step is to create an application that is used to register and agree to plans.
 
-<figure><img src="../../.gitbook/assets/DP_app page.png" alt=""><figcaption><p>Developer Portal Applications page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_app page.png" alt="The My applications tab of the developer portal, showing four application cards with their owner and description."><figcaption><p>Developer Portal Applications page</p></figcaption></figure>
 
 > * [x] Select **Applications** in the top nav bar
 > * [x] Select **+ Create an App** in the subnav bar
@@ -93,7 +93,7 @@ Now that we have access to the Developer Portal, we can take on the role of an A
 
 This will open the application creation wizard. The **General** step is focused on providing application metadata.
 
-<figure><img src="../../.gitbook/assets/DP_general.png" alt=""><figcaption><p>General step of application creation wizard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_general.png" alt="The General step of the developer portal application wizard, with an application name and description entered and an empty image upload area."><figcaption><p>General step of application creation wizard</p></figcaption></figure>
 
 > * [x] Provide a name and description, then click **Next**
 
@@ -107,7 +107,7 @@ The next step is focused on **Security**. This page may look different depending
 A **Simple** application allows an API consumer to define their own `client_id`, but this is not secure and should not be used outside of testing. Therefore, Gravitee allows you to disable **Simple** applications and use [dynamic client registration (DCR)](../../guides/api-exposure-plans-applications-and-subscriptions/applications.md#dcr-application-configuration) to create advanced applications with the identity provider of your choosing.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/DP_security.png" alt=""><figcaption><p>Security step of application creation wizard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_security.png" alt="The Security step of the application wizard, with Simple selected among SPA, Web, Native, and Backend to backend, and empty type and client ID fields."><figcaption><p>Security step of application creation wizard</p></figcaption></figure>
 
 > * [x] Select a **Simple** application, then click **Next**
 
@@ -117,7 +117,7 @@ The **Subscription** step allows you to send API subscription requests as you ar
 
 Once we finish creating the app, the request will be sent for review and approval by the API publisher.
 
-<figure><img src="../../.gitbook/assets/DP_subscription.png" alt=""><figcaption><p>Subscription step of application creation wizard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_subscription.png" alt="The Subscription step of the application wizard, with an API searched, an API key plan selected showing manual validation and personal key, and the request listed for comment."><figcaption><p>Subscription step of application creation wizard</p></figcaption></figure>
 
 > * [x] Search for the API you published and select it
 > * [x] Select **Subscribe** under the API Key Plan, then click **Next**
@@ -126,7 +126,7 @@ Once we finish creating the app, the request will be sent for review and approva
 
 Finally, we just need to complete the **Validation** step. Review your application details and subscription request. If everything looks good, go ahead and create your app!
 
-<figure><img src="../../.gitbook/assets/DP_validation.png" alt=""><figcaption><p>Validation step of application creation wizard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_validation.png" alt="The Validation step of the application wizard, summarising the application name, description, and security type beside the subscription request awaiting manual validation."><figcaption><p>Validation step of application creation wizard</p></figcaption></figure>
 
 > * [x] Click **Create the App**
 
@@ -136,14 +136,14 @@ You should receive confirmation that your app was successfully created. Feel fre
 
 It's time to resume our previous role as an API publisher. Let's return to the APIM Console to manage the subscription request we just submitted. It should have come through as a new **Task**.
 
-<figure><img src="../../.gitbook/assets/DP_view.png" alt=""><figcaption><p>View your tasks in the Console</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_view.png" alt="The APIs list with the account menu open, listing My account, Task with one item, Support, and Sign out."><figcaption><p>View your tasks in the Console</p></figcaption></figure>
 
 > * [x] Select your profile in the top right
 > * [x] Select **Task** from the drop-down menu
 
 This will bring you to a list of all your current tasks, which should consist of a subscription request from the application to your API you just created.
 
-<figure><img src="../../.gitbook/assets/DP_list.png" alt=""><figcaption><p>A list of your tasks in the Console</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_list.png" alt="The My tasks page, showing one subscription request from an application for an API key plan, with a Validate button."><figcaption><p>A list of your tasks in the Console</p></figcaption></figure>
 
 > * [x] Click Validate under the subscription request
 
@@ -155,7 +155,7 @@ This was essentially a shortcut to our API's subscription screen. You can always
 
 Here, you can see all the metadata (e.g., user, application, plan, etc.) for the request and decide on an action. Once you validate, you will have additional options for managing the subscription.
 
-<figure><img src="../../.gitbook/assets/DP_sub val.png" alt=""><figcaption><p>Subscription validation screen</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_sub val.png" alt="A subscription&#x27;s detail page showing its identifier, plan, pending status, subscriber, and application, with Validate subscription and Reject subscription buttons."><figcaption><p>Subscription validation screen</p></figcaption></figure>
 
 > * [x] Click **Validate subscription**
 > * [x] Leave the defaults and click **Validate** in the modal
@@ -171,7 +171,7 @@ At the bottom of the screen, you will see the API key that has been randomly gen
 
 For now, simply copy that API key to your clipboard.
 
-<figure><img src="../../.gitbook/assets/DP_management.png" alt=""><figcaption><p>Subscription management</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_management.png" alt="A subscription&#x27;s detail page after validation, showing the processed and starting timestamps above an API Keys panel with the key value blacked out."><figcaption><p>Subscription management</p></figcaption></figure>
 
 > * [x] Select the **Copy to clipboard** icon next to the API key
 
