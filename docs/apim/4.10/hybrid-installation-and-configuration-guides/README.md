@@ -124,7 +124,7 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid component management
 
-<figure><img src="../.gitbook/assets/hybrid-installation-and-configuration-gu-22-1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/hybrid-installation-and-configuration-gu-22-1 (1).png" alt="A diagram splitting the platform into a control plane managed by Gravitee, holding the console, portal, management API, databases, and SaaS gateways, and a data plane managed by the customer, holding the API gateway and its rate limit and cache storage."><figcaption></figcaption></figure>
 
 ### Hybrid architecture diagram
 

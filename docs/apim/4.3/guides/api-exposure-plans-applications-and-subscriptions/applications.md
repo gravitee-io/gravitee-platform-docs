@@ -32,7 +32,7 @@ The default simple application enables an API consumer to define the `client_id`
 2. Select **Settings** from the left nav
 3.  Select **Client Registration** from the inner left nav
 
-    <figure><img src="../../.gitbook/assets/client registration.png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/client registration.png" alt="The application settings page, showing the Simple default application type and a Dynamic Client Registration section with DCR disabled, four allowed application types, and no provider configured."><figcaption><p>Client Registration</p></figcaption></figure>
 4. Under **Default application type**, toggle **Simple** ON
 
 {% hint style="info" %}
@@ -103,7 +103,7 @@ To enable DCR:
 2. Select **Settings** from the left nav
 3.  Select **Client Registration** from the inner left nav
 
-    <figure><img src="../../.gitbook/assets/client registration.png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/client registration.png" alt="The application settings page, showing the Simple default application type and a Dynamic Client Registration section with DCR disabled, four allowed application types, and no provider configured."><figcaption><p>Client Registration</p></figcaption></figure>
 4. Toggle **Enable Dynamic Client Registration** ON
 
 ### Add a DCR provider
@@ -114,7 +114,7 @@ Any authentication server supporting OIDC can be used as a DCR provider. This gu
 
 At the bottom of the **Client Registration** page, click **+ Add a provider** and configure the following:
 
-<figure><img src="../../.gitbook/assets/client registration provider.png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/client registration provider.png" alt="The New client registration provider page, with empty name and description fields above the OpenID Connect discovery endpoint, initial access token provider, and renew client secret options."><figcaption><p>Add a client registration provider</p></figcaption></figure>
 
 * Set a **Name** and **Description** for the provider
 *   **OpenID Connect Discovery Endpoint:** Enter the URL where an OIDC-compatible authorization server publishes its metadata

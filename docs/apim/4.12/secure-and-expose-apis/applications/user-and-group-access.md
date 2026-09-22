@@ -82,13 +82,13 @@ To configure user and group access, complete the following steps:
 4. Click on the application you want to configure.
 5.  Click on **User and group access** in the Application menu.
 
-    <figure><img src="../../.gitbook/assets/00 groups added to applications 8.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 groups added to applications 8.png" alt="The Members tab of an application&#x27;s user and group access page, with member notification enabled and one primary owner listed."><figcaption></figcaption></figure>
 
 ### Members
 
 Under the **Members** tab, you can add users or groups as members of your application and define their roles to manage and perform tasks and operations. The Members tab is visible when `portal.next.applications.membership.enabled` is `true` and you have `APPLICATION_MEMBER[READ]` permission.
 
-<figure><img src="../../.gitbook/assets/00 groups added to applications 3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 groups added to applications 3.png" alt="The Members tab listing two members, a primary owner and a user, with a delete icon beside the second."><figcaption></figcaption></figure>
 
 * Click **+ Add members** to add members to your application. You can search for users by name or email.
 * Use the **Role** drop-down menu to select member roles, which grant specific permissions. For more information on roles, please refer to the [Roles](../../configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md#roles) documentation.
@@ -132,7 +132,7 @@ Click the **Delete** button next to a member to remove them from the application
 
 Click the **Groups** tab to see which groups have access to your application. Use the drop-down menu to change group selections.
 
-<figure><img src="../../.gitbook/assets/00 groups added to applications 4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 groups added to applications 4.png" alt="The Groups tab of an application, with the groups dropdown open showing named groups and several listed by identifier, one ticked."><figcaption></figcaption></figure>
 
 Selecting a group gives all members of that group access to your application.
 
@@ -206,11 +206,11 @@ Under the **Transfer ownership** tab, you can grant complete application access 
 
 Click **Application member** and use the drop-down menu to select a user who is already a member of your application.
 
-<figure><img src="../../.gitbook/assets/00 groups added to applications 5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 groups added to applications 5.png" alt="The Transfer ownership tab of an application, with Application member selected and the member dropdown open on one name."><figcaption></figcaption></figure>
 
 Click **Other user** to search for someone who is not a member of your application. You can enter either their name or email into the search field. Once you've selected a new primary owner for your application, use the drop-down to assign their role.
 
-<figure><img src="../../.gitbook/assets/00 groups added to applications 6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 groups added to applications 6.png" alt="The Transfer ownership tab with Other user selected, a user searched, and the new role for the current primary owner set to OWNER."><figcaption></figcaption></figure>
 
 #### Transferring Ownership
 
@@ -238,7 +238,7 @@ To require an application to have at least one group added to it, complete the f
 2. From the **Settings** menu, scroll down to the User Management section, and then click **Groups**.
 3.  Turn on the toggle that requires an application to have at least one group before it can be created or updated
 
-    <figure><img src="../../.gitbook/assets/00 groups 4.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 groups 4.png" alt="The environment Groups settings, with the toggle requiring applications to have a group highlighted, above a list of groups with edit and delete actions."><figcaption></figcaption></figure>
 
 By default, this setting is false. If it is set to true, group selection is required during application creation, and the Management API sends a 400 error in response to an attempt to create an application without a group.
 

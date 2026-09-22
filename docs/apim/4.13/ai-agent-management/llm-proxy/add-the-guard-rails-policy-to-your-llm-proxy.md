@@ -37,25 +37,25 @@ To add the Guard Rails policy to your LLM proxy, complete the following steps:
     <figure><img src="../../.gitbook/assets/agent-mesh-llm-proxy-add-the-guard--98.png" alt="The APIs list filtered by a search term, showing two LLM Proxy APIs with their status, context path, and portal visibility."><figcaption></figcaption></figure>
 3.  From the **Configuration** screen, click **Resources**.<br>
 
-    <figure><img src="../../.gitbook/assets/AE9DD4BA-A207-45AF-95D9-7304015C32C2_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/AE9DD4BA-A207-45AF-95D9-7304015C32C2_1_201_a.jpeg" alt="The Configuration page of an API with the Resources tab highlighted, showing the general settings above a Danger Zone."><figcaption></figcaption></figure>
 4.  Click **+ Add resource**.<br>
 
-    <figure><img src="../../.gitbook/assets/3D2BE6ED-6A29-46D0-8566-C35378C9A381_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/3D2BE6ED-6A29-46D0-8566-C35378C9A381_1_201_a.jpeg" alt="The Resources tab of an API&#x27;s Configuration page, empty, with the Add resource button highlighted above a search field and an empty resource table."><figcaption></figcaption></figure>
 5.  In the **Add API Resource** pop-up window, select **AI Model Text Classification** menu, and then click **Select**.<br>
 
-    <figure><img src="../../.gitbook/assets/CE636934-8667-4591-9449-69D2D3AF3F3A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/CE636934-8667-4591-9449-69D2D3AF3F3A_1_201_a.jpeg" alt="The Add API Resource dialog, with AI Model Text Classification selected above HTTP, Inline, and LDAP authentication providers and a cache resource."><figcaption></figcaption></figure>
 6. In the **Configure AI Model Text Classification resource**, complete the following sub-steps
    1. In the **Name** field, type the name of the resource.
    2. In the **Select model** dropdown menu, select the resource model. For example, `minuva/MiniLMv2-toxic-jigsaw-onnx` .
    3.  Click **Save**.<br>
 
-       <figure><img src="../../.gitbook/assets/14F7FC76-AD52-4394-BFF4-AFE0B99389AB_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/14F7FC76-AD52-4394-BFF4-AFE0B99389AB_1_201_a.jpeg" alt="The Configure AI Model Text Classification resource dialog, with a resource name entered and a toxicity classification model selected."><figcaption></figcaption></figure>
 
 #### Verification
 
 The resource appears in the **Resources** section of the **Configuration** screen.
 
-<figure><img src="../../.gitbook/assets/C9554A33-9C5A-4F88-B47E-A935465E9875_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/C9554A33-9C5A-4F88-B47E-A935465E9875_1_201_a.jpeg" alt="The Resources tab of an API&#x27;s Configuration page, listing one AI Model Text Classification resource, under an out-of-sync banner."><figcaption></figcaption></figure>
 
 ### Add the Guard Rails policy to your LLM proxy
 
@@ -68,17 +68,17 @@ The resource appears in the **Resources** section of the **Configuration** scree
     <figure><img src="../../.gitbook/assets/88D4D2EF-A79A-43E6-A61D-90DB74F78C7F_1_201_a.jpeg" alt="The Policies page of an LLM Proxy API, with a chat completions flow selected and the add-policy button in the request phase highlighted."><figcaption></figcaption></figure>
 4.  In the **Policies for Request phase** pop-up window, navigate to **AI - Prompt Guard Rails**, and then click **Select**.<br>
 
-    <figure><img src="../../.gitbook/assets/EB1B1E62-4554-4408-9B9B-B3AEE36582AE_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/EB1B1E62-4554-4408-9B9B-B3AEE36582AE_1_201_a.jpeg" alt="The Policies for Request phase dialog, with the AI - Prompt Guard Rails Select button highlighted among assign attributes, Groovy, HTTP callout, IP filtering, and other policies."><figcaption></figcaption></figure>
 5. In the **Policies for Request phase** pop-up window, complete the following sub-steps:
    1. In the **Resource Name** field, type the name of the resource that you created in the [#create-a-resource-for-the-guard-rails-policy](add-the-guard-rails-policy-to-your-llm-proxy.md#create-a-resource-for-the-guard-rails-policy "mention")section.
    2. In the **Prompt location** field, type the location of the prompt in the JSON request. For example, `{#request.jsonContent.messages[1].content}`.
    3. In the **Content Checks** field, type the model labels in a delimited list. For example, for the `minuva/MiniLMv2-toxic-jigsaw-onnx` model, you can enter `identity_hate, insult, obscene, severe_toxic, threat, toxic` . For a list of labels that you can use for each supported model, go to [gravitee-resource-ai-model-text-classification](https://github.com/gravitee-io/gravitee-resource-ai-model-text-classification?tab=readme-ov-file).
 6.  Click **Add policy**.<br>
 
-    <figure><img src="../../.gitbook/assets/AA20E273-2152-42DE-AAB1-2E3DA3E0CB0F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/AA20E273-2152-42DE-AAB1-2E3DA3E0CB0F_1_201_a.jpeg" alt="The AI Prompt Guard Rails policy configuration, with the resource name, prompt location, content check labels, a sensitivity threshold, and the request policy set to block, beside the policy documentation."><figcaption></figcaption></figure>
 7.  Click **Save**.<br>
 
-    <figure><img src="../../.gitbook/assets/79D5DCFC-267B-4DD3-B9D3-095005C4732F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/79D5DCFC-267B-4DD3-B9D3-095005C4732F_1_201_a.jpeg" alt="The Policies page of an LLM Proxy API, with an AI Prompt Guard Rails policy added to the chat completions request phase and the Save button highlighted."><figcaption></figcaption></figure>
 8.  In the **This API is out of sync.** pop-up window, click **Deploy API**.<br>
 
     <figure><img src="../../.gitbook/assets/372797AD-6AB1-4037-B60E-51BD486C6B6C_1_201_a.jpeg" alt="The Policies page with an AI Prompt Guard Rails policy added to the request phase of the chat completions flow, under an out-of-sync banner."><figcaption></figcaption></figure>

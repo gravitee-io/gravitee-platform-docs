@@ -48,7 +48,7 @@ To integrate Apigee X with Gravitee APIM, complete the following steps:
     <figure><img src="../../../.gitbook/assets/click-on-create-integration.png" alt="The Enter Information step of the Create Integration wizard with the Create Integration button highlighted."><figcaption></figcaption></figure>
 7.  From the Integration overview tab, copy the **Integration ID**. You need this ID for the agent configuration.
 
-    <figure><img src="../../../.gitbook/assets/apigee-federation-agent-connection.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/apigee-federation-agent-connection.png" alt="The Overview page of an Apigee integration, showing the provider, a disconnected agent, and a partly masked integration identifier."><figcaption></figcaption></figure>
 
 ### Run the Apigee X federation Agent
 
@@ -171,7 +171,7 @@ This Docker Compose file supports passing the service account key either inline 
 
 1. In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
 
-<figure><img src="../../../.gitbook/assets/connected.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/connected.png" alt="The Overview page of an Apigee integration after the agent connects, with the status shown as Connected in both the menu and the agent connection field."><figcaption></figcaption></figure>
 
 2. If the Agent Connection shows as `Disconnected`, inspect the agent container logs for error messages.
 
@@ -464,7 +464,7 @@ If your APIM management API uses certificates that require a custom truststore, 
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to Connected:<br>
 
-    <figure><img src="../../../.gitbook/assets/govern-federation-apigee-x-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-federation-apigee-x-1.png" alt="The Overview page of a connected Apigee integration, showing the provider, the connected agent, and a partly masked integration identifier."><figcaption></figcaption></figure>
 
 ## Minimum Apigee permissions required by the agent
 

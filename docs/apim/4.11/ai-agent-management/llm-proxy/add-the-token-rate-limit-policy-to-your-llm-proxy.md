@@ -23,39 +23,39 @@ You might receive an error when you use this policy using the Gravitee's docker 
 
 1.  From the **Dashboard**, click **APIs.**<br>
 
-    <figure><img src="../../.gitbook/assets/EE4EDB52-04C5-4063-894F-2BC66894F224_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/EE4EDB52-04C5-4063-894F-2BC66894F224_1_201_a.jpeg" alt="The console dashboard with APIs highlighted in the left navigation, showing 2,680 APIs and 856 applications with lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  In the **APIs** screen, click your LLM proxy.<br>
 
-    <figure><img src="../../.gitbook/assets/2E167D99-A303-4C32-8756-94DB053C73F0_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/2E167D99-A303-4C32-8756-94DB053C73F0_1_201_a.jpeg" alt="The APIs list filtered by a search term, showing two LLM Proxy APIs with their status and context paths."><figcaption></figcaption></figure>
 3.  In the **API's menu**, click **Policies**.<br>
 
     <figure><img src="../../.gitbook/assets/7CABA049-B484-48FE-859E-B640C6ED9A04_1_201_a.jpeg" alt="The Configuration page of an API, with Policies highlighted in the API menu beside the general settings and a Danger Zone."><figcaption></figcaption></figure>
 4.  Navigate to the **Flows** section, and select a flow that you want to add the Token Rate Limit policy to. For example, `POST/chat`.<br>
 
-    <figure><img src="../../.gitbook/assets/5F052AB5-79E0-4BA7-BC79-D2962FC510EE_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/5F052AB5-79E0-4BA7-BC79-D2962FC510EE_1_201_a.jpeg" alt="The Policies page of an LLM Proxy API, with a flow selected under the default keyless plan and highlighted in the flow list."><figcaption></figcaption></figure>
 5.  In the **Request phase** section, click **the plus.**<br>
 
-    <figure><img src="../../.gitbook/assets/4445D037-80E1-41A1-8C85-1B9EACE4BF68_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/4445D037-80E1-41A1-8C85-1B9EACE4BF68_1_201_a.jpeg" alt="The Policies page with the add-policy button in the request phase of the selected flow highlighted."><figcaption></figcaption></figure>
 6.  In the **Policies for Request phase** pop-up window, navigate to **Token Rate Limit**, and then click **Select**.<br>
 
-    <figure><img src="../../.gitbook/assets/A3B599E7-AF01-4DD8-9F1F-9002259641A5_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A3B599E7-AF01-4DD8-9F1F-9002259641A5_1_201_a.jpeg" alt="The Policies for Request phase dialog with the Token Rate Limit Select button highlighted among HTTP callout, IP filtering, quota, rate limit, and other policies."><figcaption></figcaption></figure>
 7. Navigate to the **Apply rate-limiting** section, and then complete the following sub-steps:
    1. In the **Max tokens (static)** field, add the Max tokens for the token limit. For example, `100`.
    2. In the **Time duration** field, type the time interval that the token limit is set to. For example, `1`.
    3. In the **Time unit** dropdown menu, select the unit of time for the time interval. For example, `MINUTES`.
 8.  Click **Add policy**.<br>
 
-    <figure><img src="../../.gitbook/assets/F230F8B9-CC61-4751-96EF-1B7F52D3D97D_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/F230F8B9-CC61-4751-96EF-1B7F52D3D97D_1_201_a.jpeg" alt="The Token Rate Limit policy configuration, with an empty key, a static maximum of 100 tokens, and a time duration of one minute, beside the policy documentation."><figcaption></figcaption></figure>
 9.  Click **Save.**<br>
 
-    <figure><img src="../../.gitbook/assets/D84C52F2-38CA-4E4D-8F84-0C083FDE4282_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/D84C52F2-38CA-4E4D-8F84-0C083FDE4282_1_201_a.jpeg" alt="The Policies page with a Token Rate Limit policy added to the request phase and the Save button highlighted."><figcaption></figcaption></figure>
 10. In the **This API is out of sync** pop-up window, click **Deploy API**.<br>
 
-    <figure><img src="../../.gitbook/assets/888BF1BF-30C1-4941-AB03-BFA016937E4A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/888BF1BF-30C1-4941-AB03-BFA016937E4A_1_201_a.jpeg" alt="The Policies page under an out-of-sync banner, with the Deploy API button highlighted."><figcaption></figcaption></figure>
 11. (Optional) In the **Deploy your API** pop-up window, type a deployment label for your deployment.
 12. In the **Deploy your API** pop-up window, click **Deploy**.<br>
 
-    <figure><img src="../../.gitbook/assets/E434DBDB-9B1C-4064-BECC-8CADC86CBC76_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/E434DBDB-9B1C-4064-BECC-8CADC86CBC76_1_201_a.jpeg" alt="The Deploy your API dialog open over the Policies page, asking for a label to identify the deployment."><figcaption></figcaption></figure>
 
 ## Verification
 

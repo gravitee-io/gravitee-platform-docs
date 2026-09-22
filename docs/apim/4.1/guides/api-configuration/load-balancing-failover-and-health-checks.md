@@ -103,15 +103,15 @@ Please refer to the load-balancing concepts sectionif you need in-depth explanat
 
 17\. By default, the endpoint will inherit configuration from the configuration that you set at the endpoint group level.
 
-<figure><img src="../../.gitbook/assets/Configure load-balancing - Step 17.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Configure load-balancing - Step 17.jpeg" alt="The Configuration tab of an endpoint, with Inherit configuration from group switched on and a Create button below, under an out-of-sync banner."><figcaption></figcaption></figure>
 
 18\. However, if you want to set up HTTP configuration specific to that endpoint, toggle the **Inherit configuration** OFF.
 
-<figure><img src="../../.gitbook/assets/Configure load-balancing - Step 18.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Configure load-balancing - Step 18.jpeg" alt="The Configuration tab of an endpoint, with Inherit configuration from group switched on and the options below hidden."><figcaption></figcaption></figure>
 
 19\. Once toggled OFF, you can specify a different HTTP configuration for this endpoint. Once you are done, select **Save**.
 
-<figure><img src="../../.gitbook/assets/Configure load-balancing - Step 19.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Configure load-balancing - Step 19.jpeg" alt="The Configuration tab of an endpoint with inheritance switched off, showing HTTP options for h2c upgrade, protocol version, timeouts, keep-alive, pipelining, compression, redirects, and pool size."><figcaption></figcaption></figure>
 
 20\. For the sake of this example, let's toggle the **Inherit configuration** back ON.
 

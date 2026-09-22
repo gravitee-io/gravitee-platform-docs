@@ -54,7 +54,7 @@ To manage subscriptions in APIM Console:
 7. Validate or reject the subscription
    *   If validating, fill out the **Validate your subscription** form, then click **Validate**
 
-       <figure><img src="../../.gitbook/assets/subscription_validate 2.png" alt=""><figcaption><p>Validate the subscription</p></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/subscription_validate 2.png" alt="The Validate your subscription dialog, with optional validation period and message fields."><figcaption><p>Validate the subscription</p></figcaption></figure>
 
 ## Shared API Keys
 
@@ -74,10 +74,10 @@ Subscriptions to API Key plans include additional security management settings:
 
 *   **Renew:** Generate a new API key or provide a custom API key. The previous key stays valid for a two-hour grace period, measured from the moment the new key is created, so that consumers have time to switch over. It then expires automatically. The grace period is fixed and can't be configured.
 
-    <figure><img src="../../.gitbook/assets/subscription_api key renew.png" alt=""><figcaption><p>Renew an API key</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/subscription_api key renew.png" alt="The Renew your API Key dialog, warning that the previous key will no longer be valid in two hours."><figcaption><p>Renew an API key</p></figcaption></figure>
 *   **Revoke:** Immediately invalidate an existing API key. This option is reversible.
 
-    <figure><img src="../../.gitbook/assets/subscription_api key revoke.png" alt=""><figcaption><p>Revoke an API key</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/subscription_api key revoke.png" alt="The Revoke your API Key dialog, asking to confirm revoking the subscription&#x27;s API key."><figcaption><p>Revoke an API key</p></figcaption></figure>
 *   **Expire:** Set a date/time to automatically invalidate an existing API key
 
-    <figure><img src="../../.gitbook/assets/subscription_api key expire.png" alt=""><figcaption><p>Expire an API key</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/subscription_api key expire.png" alt="The Change your API Key&#x27;s expiration date dialog, with an empty expiry date field and the confirm button disabled."><figcaption><p>Expire an API key</p></figcaption></figure>

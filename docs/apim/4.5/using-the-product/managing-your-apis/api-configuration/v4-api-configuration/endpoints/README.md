@@ -26,7 +26,7 @@ Click on the tiles below to learn how to configure and implement v4 proxy API en
 
 After you've configured your endpoints, you can modify or delete existing endpoints, or add new ones:
 
-<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.41.53 AM.png" alt=""><figcaption><p>Edit single endpoints</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.41.53 AM.png" alt="The Backend services page of an API under an out-of-sync banner, showing one HTTP proxy group with a single endpoint and a Deploy API button above."><figcaption><p>Edit single endpoints</p></figcaption></figure>
 
 * **Modify:** To alter an existing endpoint, select the <img src="../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.43.13 AM.png" alt="A pencil icon, used to edit an item." data-size="line"> icon, and then edit your endpoint configuration.
 * **Delete:** To delete an existing endpoint, select the <img src="../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.46.30 AM.png" alt="A grey wastebasket icon, used to delete an item." data-size="line">icon underneath **ACTIONS** in the **Endpoints** menu.

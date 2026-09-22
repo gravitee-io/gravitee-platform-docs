@@ -106,7 +106,7 @@ To test your API Key plan, complete the following steps:
     <figure><img src="../../.gitbook/assets/22CB1B38-1964-47F6-B5B7-8B634D3D8D0B.jpeg" alt="The console dashboard with Applications highlighted in the left navigation, showing one API and one application."><figcaption></figcaption></figure>
 2.  In the **Applications** screen, click the **Default application**.
 
-    <figure><img src="../../.gitbook/assets/gs-first-api-add-security-17.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-first-api-add-security-17.png" alt="The Create an entrypoint mapping dialog, explaining that the mapping links an entrypoint URL to sharding tags, with empty sharding tags and default TCP port fields."><figcaption></figcaption></figure>
 3.  In the **Default application** configuration screen, click **Subscriptions**.
 
     <figure><img src="../../.gitbook/assets/F1AD5888-A518-42D5-8C18-33BCCB583C06.jpeg" alt="The Global settings page of the default application with Subscriptions highlighted in the application menu, showing the name, description, and domain fields beside the owner, type, and API key mode."><figcaption></figcaption></figure>
