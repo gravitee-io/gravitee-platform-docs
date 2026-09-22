@@ -21,7 +21,7 @@ To add documentation to an API:
 3. Select **Documentation** from the inner left sidebar
 4. Click on **Add new page** or **Add new folder** to start structuring your documentation content
 
-<figure><img src="../../../.gitbook/assets/documentation_nothing added.png" alt=""><figcaption><p>Add pages and/or folders to your API documentation</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/documentation_nothing added.png" alt="The Documentation page of an API, empty, with a message that no pages are available yet and Add new folder and Add new page buttons."><figcaption><p>Add pages and/or folders to your API documentation</p></figcaption></figure>
 
 ### Add folders
 
@@ -34,7 +34,7 @@ Folders allow you to organize your documentation by grouping pages. To configure
      * **Public:** This is the default visibility. The contents of the folder can be viewed in the Developer Portal by anonymous users.
      * **Private:** Users must be authenticated to view the contents of the folder in the Developer Portal
 
-<figure><img src="../../../.gitbook/assets/docs_add folder.png" alt=""><figcaption><p>Add a folder</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/docs_add folder.png" alt="The Add new folder dialog, with a folder name entered and Public visibility selected over Private."><figcaption><p>Add a folder</p></figcaption></figure>
 
 Once you click **Add folder**, the folder will appear at the top-level **Home** directory in **Documentation**. The directory will show the folder's status, visibility, the time the folder was last updated, and a badge indicating that the entry is a folder.
 
@@ -42,7 +42,7 @@ Once you click **Add folder**, the folder will appear at the top-level **Home** 
 A folder will be **Hidden**, or not visible in the Developer Portal, until it contains published pages.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/docs_folder added.png" alt=""><figcaption><p>Add a folder to Home directory</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/docs_folder added.png" alt="The Documentation page listing one hidden public folder with its last updated time and edit, reorder, and delete actions."><figcaption><p>Add a folder to Home directory</p></figcaption></figure>
 
 **Documentation** supports a nested structure. Once you've added a folder to the **Home** directory, you can click into it to create additional folders or pages.
 
@@ -59,17 +59,17 @@ The first step is page configuration, which consists of naming the page and sele
   * **Public:** This is the default visibility. The page can be viewed in the Developer Portal by anonymous users.
   * **Private:** Users must be authenticated to view the page in the Developer Portal
 
-<figure><img src="../../../.gitbook/assets/docs_add page.png" alt=""><figcaption><p>Page configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/docs_add page.png" alt="The Configure page step of the documentation page wizard, with a page name entered and Public visibility selected."><figcaption><p>Page configuration</p></figcaption></figure>
 
 #### Step 2: Add content
 
 Enter the page content in the Markdown text editor. **Toggle preview** enables a side-by-side view of the content you enter and the rendered page.
 
-<figure><img src="../../../.gitbook/assets/docs_page content.png" alt=""><figcaption><p>Add page content</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/docs_page content.png" alt="The Add content step of the page wizard, with a Markdown template in the editor and its rendered preview beside it, above Save and publish, Save, and Previous buttons."><figcaption><p>Add page content</p></figcaption></figure>
 
 You have the option to save the page with or without publishing it to the Developer Portal. Once the content is saved, the page can be viewed from whichever directory it was added to. The directory will show the page's status, visibility, the time the page was last updated, and a badge indicating that the entry is a page.
 
-<figure><img src="../../../.gitbook/assets/docs_nested.png" alt=""><figcaption><p>Test page added to test folder</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/docs_nested.png" alt="The Documentation page inside a folder, listing a hidden subfolder and a published page with their visibility and last updated times."><figcaption><p>Test page added to test folder</p></figcaption></figure>
 
 ## Editing
 
@@ -95,7 +95,7 @@ To view the documentation in the Developer Portal:
 
 1.  Click **Open API in Developer Portal**
 
-    <figure><img src="../../../.gitbook/assets/docs_open api.png" alt=""><figcaption><p>Open API in Developer Portal</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/docs_open api.png" alt="The Documentation page with the Open API in Developer Portal button circled above a folder and a published page."><figcaption><p>Open API in Developer Portal</p></figcaption></figure>
 2.  Click on **Documentation** in the header options
 
     <figure><img src="../../../.gitbook/assets/docs_dev portal docs.png" alt=""><figcaption><p>API documentation</p></figcaption></figure>
