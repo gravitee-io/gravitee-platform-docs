@@ -106,4 +106,4 @@ The Create button is visible only for users with he `ENVIRONMENT:APPLICATION:CRE
 
 You are brought to the application's **Settings & Security screen** screen.&#x20;
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-create-an-appl-15.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-create-an-appl-15.png" alt="The Settings and Security tab of an application in the developer portal, showing its owner, type, creation date, domain, and security type above an empty description."><figcaption></figcaption></figure>

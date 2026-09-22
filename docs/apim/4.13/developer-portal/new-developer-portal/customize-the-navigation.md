@@ -39,17 +39,17 @@ By default, some pages are already created for you with content. These pages are
 
 #### Console view
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-12-19 at 19.05.51.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-12-19 at 19.05.51.png" alt="The Manage your navigation page, with a navigation tree on the left, a Markdown editor in the middle, and a live preview of the rendered page on the right."><figcaption></figcaption></figure>
 
 #### Developer portal view
 
 The default navigation appears on your New Developer Portal
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-12-19 at 19.06.57.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-12-19 at 19.06.57.png" alt="The developer portal home page, showing a welcome headline, Explore all APIs and Get started buttons, a banner image, and a toolkit section below."><figcaption></figcaption></figure>
 
 Welcome page in the Developer Portal:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-12-19 at 19.07.11.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-12-19 at 19.07.11.png" alt="A rendered guide page in the developer portal, showing the welcome content beside a navigation tree of guides and core concepts."><figcaption></figcaption></figure>
 
 ## Prerequisites
 
@@ -69,13 +69,13 @@ You also link pages to external sources, import a documentation tree from a remo
 
 1.  From the **Dashboard**, click **Settings**.<br>
 
-    <figure><img src="../../.gitbook/assets/EB3744C8-A282-4EC2-9DB6-218361CB3FA7_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/EB3744C8-A282-4EC2-9DB6-218361CB3FA7_1_201_a.jpeg" alt="The console dashboard with Settings highlighted in the left navigation, showing 2,711 APIs and 855 applications."><figcaption></figcaption></figure>
 2.  From the **Settings** menu, click **Settings**.<br>
 
-    <figure><img src="../../.gitbook/assets/CF7527D1-5E90-4637-8C70-FF5125AEB0BF_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/CF7527D1-5E90-4637-8C70-FF5125AEB0BF_1_201_a.jpeg" alt="The portal Analytics settings with Settings highlighted in the portal menu, listing nine platform dashboards."><figcaption></figcaption></figure>
 3.  Navigate to the **New Developer Portal** section, and then click **Open Settings**. The New Developer Portal settings open on the navigation tab.<br>
 
-    <figure><img src="../../.gitbook/assets/7C64309D-426F-4F5D-B48D-2224931FC9F3_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/7C64309D-426F-4F5D-B48D-2224931FC9F3_4_5005_c.jpeg" alt="The portal settings scrolled to the New Developer Portal section, with the portal enabled and the Open Settings button highlighted beside Open Website."><figcaption></figcaption></figure>
 4. Customize your navigation using the following components:
 
 #### Pages
@@ -86,14 +86,14 @@ When you add a page that is not in a folder, the page appears as a root level me
 
 1.  Click **Add**, and then click **Add Page**.<br>
 
-    <figure><img src="../../.gitbook/assets/FB8F0725-08EB-4B68-B365-122337D12C4F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/FB8F0725-08EB-4B68-B365-122337D12C4F_1_201_a.jpeg" alt="The Manage your navigation page with the Add menu open and Add Page highlighted above Add Link and Add Folder."><figcaption></figcaption></figure>
 2. In the **Add page** pop-up screen, select a content source. **Fill in content** opens the editor, **Import from file** uploads a local file, and **Link to external source** fetches the content from a repository or URL. For the import and external source options, see [import-content-from-external-sources.md](customize-the-navigation/import-content-from-external-sources.md "mention").
 3. Click **Continue**.
 4.  Select one of 3 types of pages: Markdown, OpenAPI, or AsyncAPI.<br>
 
-    <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--251.png" alt=""><figcaption><p>Add page pop-up with Markdown selected</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--251.png" alt="The Add page dialog with Markdown selected as the page type, a page title entered, and authentication not required."><figcaption><p>Add page pop-up with Markdown selected</p></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--252.png" alt=""><figcaption><p>Add page pop-up with OpenAPI selected</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--252.png" alt="The Add page dialog with OpenAPI selected as the page type instead of Markdown."><figcaption><p>Add page pop-up with OpenAPI selected</p></figcaption></figure>
 
     For OpenAPI pages, you can configure Swagger UI or Redoc viewers. For more information, see [Creating OpenAPI Documentation Pages](customize-the-navigation/creating-openapi-documentation-pages.md). For AsyncAPI pages, see [Creating AsyncAPI Documentation Pages](customize-the-navigation/creating-asyncapi-documentation-pages.md).
 5. Type a title for your page.
@@ -106,13 +106,13 @@ When you add a page that is not in a folder, the page appears as a root level me
 
 *   Click **Publish**.<br>
 
-    <figure><img src="../../.gitbook/assets/138D78C1-526C-4741-89DF-C8F9BCF8137D_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/138D78C1-526C-4741-89DF-C8F9BCF8137D_1_201_a.jpeg" alt="The Manage your navigation page with a new unpublished page selected and the Publish button highlighted."><figcaption></figcaption></figure>
 *   Navigate to the page in the navigation bar, click the **ellipses** (<i class="fa-ellipsis-vertical">:ellipsis-vertical:</i>), and then click **Publish**.<br>
 
-    <figure><img src="../../.gitbook/assets/1A5E08E1-648C-4437-81C6-F4C480F04193_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/1A5E08E1-648C-4437-81C6-F4C480F04193_1_201_a.jpeg" alt="The navigation tree with a page&#x27;s context menu open and Publish highlighted above Edit and Delete."><figcaption></figcaption></figure>
 10.  In the confirmation dialog, click **Publish**.<br>
 
-    <figure><img src="../../.gitbook/assets/C52E694A-6761-45A5-B46B-998AE39FF5E1_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/C52E694A-6761-45A5-B46B-998AE39FF5E1_1_201_a.jpeg" alt="The Publish page dialog, confirming that the page will become visible in the developer portal."><figcaption></figcaption></figure>
 
 #### Folders
 
@@ -122,25 +122,25 @@ Folders group related pages together. A folder is a section on your New Develope
 
 1.  Click **Add**, and then click **Add Folder**.<br>
 
-    <figure><img src="../../.gitbook/assets/B4C6D536-2F1D-453D-9269-F80B53854B3F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/B4C6D536-2F1D-453D-9269-F80B53854B3F_1_201_a.jpeg" alt="The Manage your navigation page with the Add menu open and Add Folder highlighted."><figcaption></figcaption></figure>
 2. In the **Add folder** **pop-up** menu, type a title for the folder.
 3. (Optional) Turn on the **Authentication is required to view this folder**. toggle. This ensures that the user has to sign in to the New Developer Portal to view the folder.
 4.  Click **Add**.<br>
 
-    <figure><img src="../../.gitbook/assets/46A3BA38-DD28-42B3-8BBC-BA5B2ABABBE2_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/46A3BA38-DD28-42B3-8BBC-BA5B2ABABBE2_1_201_a.jpeg" alt="The Add folder dialog, with a folder title entered and authentication not required."><figcaption></figcaption></figure>
 5.  Publish the folder. To publish the folder, complete either of the following steps:
 
     ⚠️ A folder can be only published if all of its ancestor folders are published or if it's a top level folder.
 
     *   Click **Publish**.<br>
 
-        <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--89.png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--89.png" alt="The Manage your navigation page with a new unpublished folder selected, showing empty editor and preview panels and the Publish button highlighted."><figcaption></figcaption></figure>
     *   Navigate to the folder in the navigation bar, click the **ellipses**, and then click **Publish**.<br>
 
-        <figure><img src="../../.gitbook/assets/FAD5D2FB-4EEE-49B7-8081-F790D1AE0EC4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../.gitbook/assets/FAD5D2FB-4EEE-49B7-8081-F790D1AE0EC4_1_201_a.jpeg" alt="The navigation tree with a folder&#x27;s context menu open and Publish highlighted among the add, edit, and delete actions."><figcaption></figcaption></figure>
 6.  In the confirmation dialog, click **Publish**.<br>
 
-    <figure><img src="../../.gitbook/assets/0C92FAF4-F289-4D79-89D2-62448A9E8FE8_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/0C92FAF4-F289-4D79-89D2-62448A9E8FE8_1_201_a.jpeg" alt="The Publish folder dialog, confirming that the folder and its content will become visible in the developer portal."><figcaption></figcaption></figure>
 
 **Unpublishing cascade**
 
@@ -154,7 +154,7 @@ When you add a page to a folder, that page becomes a menu item within that secti
 2. Click **the ellipsis**.
 3.  Click **Add page**.<br>
 
-    <figure><img src="../../.gitbook/assets/E4576EEE-A99A-40AF-A637-9AC6F6C44D4A.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/E4576EEE-A99A-40AF-A637-9AC6F6C44D4A.jpeg" alt="The Manage your navigation page with the Add menu open and Add Page highlighted, above a tree containing a page, a folder, and a homepage entry."><figcaption></figcaption></figure>
 
 #### Links
 
@@ -164,27 +164,27 @@ When you add a link, the link appears as a root level menu item. When you publis
 
 1.  Click **Add**, and then click **Add Link**.<br>
 
-    <figure><img src="../../.gitbook/assets/26E3BF6E-215F-43C8-850F-752A02323AEF_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/26E3BF6E-215F-43C8-850F-752A02323AEF_1_201_a.jpeg" alt="The Manage your navigation page with the Add menu open and Add Link highlighted."><figcaption></figcaption></figure>
 2. In the **Add link** pop-up box, complete the following sub-steps:
    1. In the **Title** field, type a title for the link.
    2. In the **Link settings** field, enter the URL for the link.
    3. (Optional) Turn on the **Authentication is required to view this link**. toggle. This toggle ensures that the user has to sign in to the New Developer Portal to view the link.
 3.  Click **Add**.<br>
 
-    <figure><img src="../../.gitbook/assets/3476293A-507F-401E-855B-1CD3999E207E_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/3476293A-507F-401E-855B-1CD3999E207E_1_201_a.jpeg" alt="The Add link dialog, with a link title and an external documentation URL entered and authentication not required."><figcaption></figcaption></figure>
 4.  Publish the page. To publish the page, complete either of the following steps:
 
     ⚠️ A link can be only published if all of its ancestor folders are published or if it's a top level link.
 
     *   Click **Publish**.<br>
 
-        <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--90.png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--90.png" alt="The Manage your navigation page with a new unpublished link selected and the Publish button highlighted."><figcaption></figcaption></figure>
     *   Navigate to link in the navigation bar, click the **ellipses**, and then click **Publish**.<br>
 
-        <figure><img src="../../.gitbook/assets/D897DBD4-B160-4F29-ACD8-14E5D0959CF5_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../.gitbook/assets/D897DBD4-B160-4F29-ACD8-14E5D0959CF5_1_201_a.jpeg" alt="The navigation tree with a link&#x27;s context menu open and Publish highlighted."><figcaption></figcaption></figure>
 5.  In the confirmation dialog, click **Publish**.<br>
 
-    <figure><img src="../../.gitbook/assets/B33EB73A-836D-4E7F-A297-53C23A7AB324_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/B33EB73A-836D-4E7F-A297-53C23A7AB324_1_201_a.jpeg" alt="The Publish link dialog, confirming that the link will become visible in the developer portal."><figcaption></figcaption></figure>
 
 #### API
 
