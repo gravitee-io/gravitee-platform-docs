@@ -16,13 +16,13 @@ To create a new MFA Factor, visit your Security Domain **Settings > Multifactor 
 2. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 3.  Select the factor type and click **Next**.
 
-    <div align="center"><figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-factor-types.png" alt=""><figcaption><p>Add new MFA factor</p></figcaption></figure></div>
+    <div align="center"><figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-factor-types.png" alt="The New factor wizard on the Platform step, offering Call, Email, Generic OTP, Recovery Code, and SMS factor types, with Call Factor selected."><figcaption><p>Add new MFA factor</p></figcaption></figure></div>
 4. Enter the factor details and click **Create**.
 5. Click **Applications** and select your application.
 6. Click the **Settings** tab, then click **Multifactor Auth**.
 7.  Enable MFA by selecting an available factor.
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-application-factor.png" alt=""><figcaption><p>Enable MFA factor</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-application-factor.png" alt="The Multifactor Auth settings for an application, with Voice Call, SMS, and TOTP factors enabled and the Email factor disabled, above the Adaptive MFA and step-up rule fields."><figcaption><p>Enable MFA factor</p></figcaption></figure>
 
 ## OTP
 
@@ -30,7 +30,7 @@ One-Time Password (OTP) allows you to use an Authenticator application via your 
 
 If you enable an OTP type factor for your application, next time your users log in they will see the following screens:
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-enroll.png" alt=""><figcaption><p>OTP MFA</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-enroll.png" alt="The Multi-Factor Auth Setup page with three numbered steps for installing an authenticator app, beside the QR code to scan."><figcaption><p>OTP MFA</p></figcaption></figure>
 
 {% hint style="info" %}
 The look and feel of the MFA forms can be overridden. See [custom pages](../branding/README.md#custom-pages) for more information.
@@ -48,9 +48,9 @@ Gravitee 4.2 supports a new SMS resource provider based on the SFR vendor. Admin
 
 If you enable an SMS type factor for your application, next time your users log in they will see the following screens:
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-sms-enroll.png" alt=""><figcaption><p>SMS MFA screen 1</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-sms-enroll.png" alt="The SMS Multi-Factor Auth Setup page with a phone number field and a step explaining that the code arrives by SMS."><figcaption><p>SMS MFA screen 1</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-sms-challenge.png" alt=""><figcaption><p>SMS MFA screen 2</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-sms-challenge.png" alt="The Multi-Factor Auth Verification page asking for the code sent by SMS, with a Verify button."><figcaption><p>SMS MFA screen 2</p></figcaption></figure>
 
 {% hint style="info" %}
 You can change the look and feel of forms using [custom pages](../branding/README.md#custom-pages). The enrollment form must send the phone number using the `phone` parameter in E.164 notation.
@@ -66,9 +66,9 @@ Phone call MFA requires a compatible [resource](../resources/README.md).
 
 If you enable a **Call** type factor for your application, the next time your users log in they will see the following screens:
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-call-enroll.png" alt=""><figcaption><p>Voice call MFA screen 1</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-call-enroll.png" alt="The Voice Call Multi-Factor Auth Setup page with a phone number field and a step explaining that the code is given during a call."><figcaption><p>Voice call MFA screen 1</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-call-challenge.png" alt=""><figcaption><p>Voice call MFA screen 2</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-call-challenge.png" alt="The Multi-Factor Auth Verification page telling the user a call is coming and asking for the code given during it."><figcaption><p>Voice call MFA screen 2</p></figcaption></figure>
 
 {% hint style="info" %}
 You can change the look and feel of forms using [custom pages](../branding/README.md#custom-pages). The enrollment form must send the phone number using the `phone` parameter in E.164 notation.
@@ -90,15 +90,15 @@ Email MFA requires a compatible [resource](../resources/README.md).
 
 Using the `email-am-factor` plugin configuration form, you can define the number of digits used to generate the verification code. The configured resource must be a [SMTP Resource](../resources/smtp-resource.md). The email template used by this plugin is defined in the design section of the domain or application.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-email-config.png" alt=""><figcaption><p>Email MFA configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-email-config.png" alt="The Email Factor configuration page with the factor name, an Email Sender resource, and the code length set to six digits."><figcaption><p>Email MFA configuration</p></figcaption></figure>
 
 **Subject** and **Template** fields use the freemarker syntax to customize the message content. The generated **code** is available using the expression `${code}`. The user profile and the application are accessible using the expressions `${user}` and `${client}` (ex: `${client.clientName}` will return the application name and `${user.firstName}` will return the first name of the user.)
 
 If you enable an Email type factor for your application, next time your users log in they will see the following screens:
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-email-enroll.png" alt=""><figcaption><p>Email MFA screen 1</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-email-enroll.png" alt="The Multi-Factor Auth Setup page for the email factor, with an email address field and a step explaining that the code arrives by email."><figcaption><p>Email MFA screen 1</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-email-challenge.png" alt=""><figcaption><p>Email MFA screen 2</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-email-challenge.png" alt="The Multi-Factor Auth Verification page asking for the code sent by email, with a Verify button."><figcaption><p>Email MFA screen 2</p></figcaption></figure>
 
 {% hint style="info" %}
 You can change the look and feel of forms using [custom pages](../branding/README.md#custom-pages). The enrollment form must send the email address using the `email` parameter.
@@ -126,4 +126,4 @@ Our Gravitee MFA HTTP plugin makes that a possibility. With our new Gravitee MFA
 * Bring some customization and offer a better user experience
 * Facilitate solution migration
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-factor-http.png" alt=""><figcaption><p>HTTP MFA integration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-factor-http.png" alt="A diagram in which Access Management shows the verification page to application consumers while exchanging send and check verification code calls with backend services over HTTP."><figcaption><p>HTTP MFA integration</p></figcaption></figure>

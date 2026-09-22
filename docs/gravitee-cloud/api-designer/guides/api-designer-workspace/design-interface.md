@@ -12,7 +12,7 @@ The design interface is the core of the API Designer. Initially, the interface s
 * **resource:** The anchor points of the API that conceptually map to a set of entities.
 * **attribute:** The data carriers of the API.
 
-<div align="center"><figure><img src="../../../.gitbook/assets/apid_design_default.png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div align="center"><figure><img src="../../../.gitbook/assets/apid_design_default.png" alt="The default design tree, with the API name as the root node branching to a resource node, which branches to an id and an attribute." width="563"><figcaption></figcaption></figure></div>
 
 Each element can be expanded (+). To remove an element, right-click it and select delete.
 

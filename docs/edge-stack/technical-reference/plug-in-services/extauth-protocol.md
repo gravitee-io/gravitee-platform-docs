@@ -25,7 +25,7 @@ Giving the ExtAuth service the ability to control the response allows many diffe
 * The ExtAuth service can choose to include a `WWW-Authenticate` header in the 401 response, to ask the client to perform HTTP Basic Auth.
 *   The ExtAuth service can issue a 301 `Redirect` to divert the client into an OAuth or OIDC authentication sequence. The control flow of this is shown below.
 
-    <figure><img src="../../.gitbook/assets/00 aes 19.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 aes 19.png" alt="A nine-step sequence diagram of the OAuth redirect flow between the identity provider, client, Ambassador, extauth service, and target service, ending with the request being forwarded to the target service."><figcaption></figcaption></figure>
 
 There are two variants of the ExtAuth: gRPC and plain HTTP.
 

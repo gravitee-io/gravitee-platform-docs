@@ -27,7 +27,7 @@ When you create a domain, the MongoDB reporter is created automatically based on
 
 When MongoDB is used as a backend, the `readPreference` option can be specified in the `reporters` section of the `gravitee.yaml` file:
 
-```
+```yaml
 reporters:
   mongodb: # Configuration of read preference for querying audit records from mongodb, defaults to primary if not provided
     readPreference: secondary # primary, secondary, primaryPreferred, secondaryPreferred, nearest
@@ -83,7 +83,7 @@ To control audit traffic and reduce event noise, you can use the Kafka reporter 
 Use the search box to quickly locate and select specific event types.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/gs-config-configure-reporters-16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-config-configure-reporters-16.png" alt="The Events to report list open with a USER search filter, showing user consent and lifecycle events with two of them selected."><figcaption></figcaption></figure>
 
 ### **Schema Registry**
 
@@ -113,7 +113,7 @@ Kafka reporter sends all messages to separate partitions based on domain id or o
 
 `sasl.jaas.config = org.apache.kafka.common.security.plain.PlainLoginModule required username="<user>" password="<user-secret>";`
 
-<figure><img src="../../.gitbook/assets/kafka-config.png" alt=""><figcaption><p>Kafka plaintext security config</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/kafka-config.png" alt="The Kafka reporter configuration with bootstrap servers, topic, and acks completed, and producer properties for the security protocol, SASL mechanism, and JAAS config."><figcaption><p>Kafka plaintext security config</p></figcaption></figure>
 
 **TLS/SSL encryption**
 
@@ -133,7 +133,119 @@ If the Kafka broker is using SSL/TLS encryption, you must add additional steps t
 
 `ssl.truststore.password = "secret_password"`
 
-<figure><img src="../../.gitbook/assets/kafka-ssl-config.png" alt=""><figcaption><p>Kafka TLS/SSL security config</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/kafka-ssl-config.png" alt="Kafka reporter producer properties for SASL_SSL, with the security protocol, SASL mechanism, JAAS config, and truststore location and password."><figcaption><p>Kafka TLS/SSL security config</p></figcaption></figure>
+
+## Attribute mapping
+
+Attribute mapping exports extra fields alongside the audit records a reporter writes. Each mapping pairs an expression, evaluated against the audit context at the moment the event is reported, with the name that value takes in the exported payload. Attribute mapping changes only what a reporter exports, and it doesn't change which events AM generates.
+
+{% hint style="info" %}
+**Available for:** File, Kafka, and TCP reporters.
+{% endhint %}
+
+A reporter with no attribute mappings exports the payload it exported before, so the reporters you already run aren't affected.
+
+### Add an attribute mapping
+
+To export an extra field on the audit records a reporter writes:
+
+1. Log in to AM Console.
+2. Open **Settings**.
+3. Click **Audit Log**.
+4. Click the settings icon on the **Audit log** page.
+5. Click the settings icon on the row of the reporter you want to change.
+6. Scroll to the **Attribute mapping** section.
+
+    <figure><img src="../../.gitbook/assets/am-reporter-attribute-mapping.png" alt="The Attribute mapping section of a Kafka reporter, with three mappings exporting employee_id, user_roles, and application_id, the ADD ATTRIBUTE button, and USER_LOGIN and USER_LOGOUT selected in the Limit to event types list"><figcaption><p>The Attribute mapping section on a reporter</p></figcaption></figure>
+
+7. Click **ADD ATTRIBUTE**.
+8. Enter the name the value takes in the exported payload in **Exported name**.
+9. Enter the expression AM evaluates in **Expression**.
+10. Click **SAVE**.
+
+### Expression context
+
+An expression reads from the audit context of the event being reported. The context carries the following attributes:
+
+<table>
+    <thead>
+        <tr>
+            <th width="120">Attribute</th>
+            <th width="330">What it holds</th>
+            <th>Example expression</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>user</code></td>
+            <td>The profile of the user the event concerns, including <code>id</code>, <code>username</code>, <code>email</code>, <code>firstName</code>, <code>lastName</code>, <code>roles</code>, <code>groups</code>, <code>claims</code>, <code>additionalInformation</code>, and <code>identities</code></td>
+            <td><code>{#context.attributes['user'].id}</code></td>
+        </tr>
+        <tr>
+            <td><code>client</code></td>
+            <td>The application the event was raised for, including <code>clientId</code>, <code>clientName</code>, <code>name</code>, and <code>metadata</code></td>
+            <td><code>{#context.attributes['client'].clientId}</code></td>
+        </tr>
+        <tr>
+            <td><code>request</code></td>
+            <td><code>ip</code> and <code>userAgent</code> of the request behind the event</td>
+            <td><code>{#context.attributes['request']['ip']}</code></td>
+        </tr>
+        <tr>
+            <td><code>audit</code></td>
+            <td><code>id</code>, <code>type</code>, <code>transactionId</code>, and <code>status</code> of the audit record itself</td>
+            <td><code>{#context.attributes['audit']['type']}</code></td>
+        </tr>
+    </tbody>
+</table>
+
+AM populates `user` and `client` from the event itself, so an event raised without a user leaves `user` unset. An expression that reads an attribute the event doesn't carry exports nothing for that field, and AM still reports the record.
+
+### Exported names and limits
+
+AM applies the following rules when you save a reporter:
+
+* A reporter carries at most 20 attribute mappings.
+* An exported name uses letters, digits, and underscores only, up to 64 characters.
+* Each exported name appears once per reporter.
+* An expression is at most 512 characters.
+
+AM rejects a reporter that breaks one of these rules and reports which rule it broke.
+
+### Exported values
+
+A plain value such as `production` is exported as it's written. Lists and maps are exported too, and a map carries every key it holds, so mapping a single attribute keeps the payload smaller than mapping a whole map.
+
+How the value reaches the payload depends on the reporter:
+
+* The Kafka reporter exports every value as a string, and serializes a value that isn't already a string as JSON.
+* The File and TCP reporters keep the value's own type.
+
+On a File reporter, the `JSON` and `MESSAGE_PACK` output formats carry the exported attributes. The `ELASTICSEARCH` and `CSV` output formats don't.
+
+AM doesn't export a value nested more than 10 levels deep, or holding more than 100 elements in total. When part of a value can't be exported, AM omits the whole field and still reports the record.
+
+### Limit the mappings to certain event types
+
+By default, a reporter exports its mapped attributes on every audit record it writes. To narrow that, select the event types you want in the **Limit to event types** list. This doesn't change which events AM reports, only which reported records carry the exported attributes. Selecting event types without adding at least one mapping is rejected.
+
+### Attributes that are never exported
+
+AM never exports an attribute whose name holds a credential or a token, whatever the mappings ask for. The built-in list covers names such as passwords, client secrets, shared secrets, private keys, API keys, access, refresh, and ID tokens, assertions, and one-time codes including OTP, MFA, recovery, and verification codes. Any name ending in `password`, `passwd`, `secret`, `token`, `credential`, `credentials`, `privatekey`, or `apikey` is denied as well.
+
+AM compares names without case, underscores, hyphens, or dots, so `client_secret`, `clientSecret`, and `CLIENT-SECRET` are one name. The filter applies to the user profile's claims and additional information, to each linked identity's additional information, and to the application's metadata, including the values nested inside them.
+
+To deny more names, list them in the `gravitee.yml` file of the AM Gateway and the Management API:
+
+```yaml
+reporters:
+  audits:
+    attribute_mappings:
+      denied_attributes:
+      - legacy_session_key
+```
+
+The names you add extend the built-in list rather than replacing it.
 
 ## Audit data retention
 
@@ -233,3 +345,20 @@ api:
         retention:
           days: 90
 ```
+
+## Verification
+
+To verify attribute mapping is working as expected, follow these steps:
+
+1. Sign in to the security domain with a user whose profile holds the attribute you mapped.
+2. Open the destination the reporter writes to.
+3. Find the audit record the sign-in produced.
+4. Confirm the record carries a `customAttributes` object holding your exported name and its value:
+
+```json
+"customAttributes": {
+  "employee_id": "E-4471"
+}
+```
+
+A record written before you saved the mapping doesn't carry the field, and a record whose event didn't resolve any mapped attribute omits `customAttributes` entirely.

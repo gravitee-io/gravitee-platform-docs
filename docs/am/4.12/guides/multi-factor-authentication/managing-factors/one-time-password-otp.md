@@ -12,7 +12,7 @@ One-Time Password (OTP) allows you to use an Authenticator application via your 
 
 If you enable an OTP type factor for your application, next time your users log in they will see the following screens:
 
-<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-enroll.png" alt=""><figcaption><p>OTP MFA</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-enroll.png" alt="The Multi-Factor Auth Setup page with three numbered steps for installing an authenticator app, beside the QR code to scan."><figcaption><p>OTP MFA</p></figcaption></figure>
 
 {% hint style="info" %}
 The look and feel of the MFA forms can be overridden. See [custom pages](../../branding/README.md#custom-pages) for more information.

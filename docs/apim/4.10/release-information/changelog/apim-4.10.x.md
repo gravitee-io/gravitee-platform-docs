@@ -1,5 +1,29 @@
 # APIM 4.10.x
  
+## Gravitee API Management 4.10.31 - September 21, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Add the path in the Traffic API (API V4) [#10815](https://github.com/gravitee-io/issues/issues/10815)
+
+**Other**
+
+* Issue with Syncing between Replica when Distributed Sync is Enabled [#11742](https://github.com/gravitee-io/issues/issues/11742)
+* JsonPath error java.lang.NoClassDefFoundError: Could not initialize class io.gravitee.el.spel.function.json.JsonPathFunction [#11765](https://github.com/gravitee-io/issues/issues/11765)
+* API promotion still fails with DuplicateKeyException on apim_promotions after concurrent write conflict fix [#11775](https://github.com/gravitee-io/issues/issues/11775)
+* Debug mode permanently skips an API on a Gateway after one incomplete debug [#11780](https://github.com/gravitee-io/issues/issues/11780)
+* HTTP/2 large request uploads significantly slower than HTTP/1.1 through Gravitee Gateway [#11789](https://github.com/gravitee-io/issues/issues/11789)
+* Data Logging Masking Policy – Header Masking Not Applied in Response Phase [#11791](https://github.com/gravitee-io/issues/issues/11791)
+* Data Logging Masking Policy – Regex Causes Over-masking [#11792](https://github.com/gravitee-io/issues/issues/11792)
+* Per-API Health Check Alert Option Missing From Console UI [#11807](https://github.com/gravitee-io/issues/issues/11807)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.10.30 - September 7, 2026
 <details>
 

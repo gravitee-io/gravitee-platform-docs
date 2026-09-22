@@ -6,8 +6,6 @@ description: Two automated migrations add a key field to existing API Management
 
 # Tag and tenant key migration upgrade procedure
 
-<!-- DISCREPANCY: This page was placed in 4.11 by the agent, but the feature is merged in APIM 4.12.x only (confirmed by Okhelifi and verified from git history + Liquibase v4_12_0 directory). Move this file to docs/apim/4.12/ once that folder exists. -->
-
 ## Overview
 
 When upgrading to APIM 4.12, two automated migrations add a `key` field to all existing tags and tenants. These migrations run once during the platform upgrade and don't require manual intervention.
@@ -23,8 +21,6 @@ The tag key migration runs automatically during startup (execution order 716). F
 3. Saves the updated tag.
 
 Existing tag IDs aren't changed. This preserves backward compatibility and allows rollback to a previous APIM version without database conflicts.
-
-<!-- Verified from TagKeyUpgrader.java: tag.setKey(tag.getId()) — the ID is preserved, not regenerated as a UUID. Confirmed by Okhelifi: "to allow customer to rollback to a previous APIM version, during the migration the existing tags will keep the same ids." -->
 
 **Example:**
 
@@ -42,8 +38,6 @@ Only new tags created after migration receive a UUID as their `id`.
 
 The tenant key migration runs automatically during startup (execution order 717). It follows the same process as the tag key migration: for each existing tenant, the current `id` value is copied into the new `key` field. Existing tenant IDs aren't changed.
 
-<!-- Verified from TenantKeyUpgrader.java: execution order 717, same logic as TagKeyUpgrader — tenant.setKey(tenant.getId()). -->
-
 **Example:**
 
 ```text
@@ -58,8 +52,6 @@ Tenant { id: "usa", key: "usa", name: "USA" }
 
 - The database schema includes the `tags.key` column, added automatically via Liquibase migration (`v4_12_0/00_add_tags_key_column.yml`).
 - The database schema includes the `tenants.key` column, added via the same Liquibase migration set.
-
-<!-- Verified: Liquibase changelog is at gravitee-apim-repository-jdbc/src/main/resources/liquibase/changelogs/v4_12_0/00_add_tags_key_column.yml. Agent draft incorrectly referenced "09_add_tags_key_column.yml". -->
 
 ## Post-migration changes
 

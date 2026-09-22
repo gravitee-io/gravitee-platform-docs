@@ -108,7 +108,7 @@ docker compose up -d
 
 In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
 
-<figure><img src="../../.gitbook/assets/federation-aws-api-gateway-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/federation-aws-api-gateway-3.png" alt="A diagram of a Kafka client connecting over SSL to a gateway server, where an API resolver uses SNI to route the connection to the matching API."><figcaption></figcaption></figure>
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.
 

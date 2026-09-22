@@ -13,7 +13,7 @@ Using Consul with Ambassador Edge Stack is particularly useful when deploying Am
 
 In this architecture, Consul serves as the source of truth for your entire data center, tracking available endpoints, service configuration, and secrets for TLS encryption. New applications and services automatically register themselves with Consul using the Consul agent or API. When you send a request through Ambassador Edge Stack, Ambassador Edge Stack sends the request to an endpoint based on the data in Consul.
 
-<figure><img src="../../.gitbook/assets/00 aes 17.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 aes 17.png" alt="A hybrid architecture diagram with services running on both virtual machines and Kubernetes, all registered with a Consul server, and the Ambassador API gateway routing external traffic to them."><figcaption></figcaption></figure>
 
 This guide first instructs you on registering a service with Consul and using Ambassador Edge Stack to dynamically route requests to that service based on Consul's service discovery data, and subsequently instructs you on using using the Ambassador Consul Connector to use Consul for authorizing and encrypting requests.
 

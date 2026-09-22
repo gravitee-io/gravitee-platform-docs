@@ -25,7 +25,7 @@ This is the first AM version with WebAuthn support and Relying Party (RP) confor
 1. Log in to AM Console.
 2. In the **Settings** menu, click **Login** and toggle on the **Enable passwordless** option.
 
-<figure><img src="../../.gitbook/assets/guide-login-passwordless-w3c-webaut-102.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-login-passwordless-w3c-webaut-102.png" alt="The domain Login settings with Enable passwordless switched on, above the passwordless device recognition, device naming, and certificate based authentication options."><figcaption></figcaption></figure>
 
 ## Manage root certificates
 
@@ -36,7 +36,7 @@ WebAuthn relies on certificates to authenticate the device. These certificates c
 3. Click **Settings**, then click **WebAuthn** in the **Security** section.
 4.  In the **Certificates** section, select the certificate details.
 
-    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-passwordless-certificates.png" alt=""><figcaption><p>Root certificate</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-passwordless-certificates.png" alt="The WebAuthn Certificates section with empty attestation type and certificate fields and a message that no certificate exists."><figcaption><p>Root certificate</p></figcaption></figure>
 
 ## Authenticate with WebAuthn
 
@@ -46,17 +46,17 @@ Before users can use `Passwordless` authentication for your application, they fi
 
 The first time users log in with their username/password, they will see the following screen:
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-passwordless-enroll.png" alt=""><figcaption><p>Passworldless setup UI</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-passwordless-enroll.png" alt="The Passwordless Auth Setup page with two steps for getting a security device and registering the account, above Skip for now and Register."><figcaption><p>Passworldless setup UI</p></figcaption></figure>
 
 After the users complete the registration process, their authenticators are immediately registered and they are redirected to your application.
 
-<figure><img src="../../.gitbook/assets/guide-login-passwordless-w3c-webaut-103.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-login-passwordless-w3c-webaut-103.png" alt="The Credentials tab of a user with no credentials configured, showing a No credentials empty state."><figcaption></figcaption></figure>
 
 #### **Remember device**
 
 To improve user experience, AM can determine if a passwordless device is already enrolled (or not) for a user, and decide to prompt directly the passwordless login page the next time a user wants to sign in.
 
-<figure><img src="../../.gitbook/assets/guide-login-passwordless-w3c-webaut-104.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-login-passwordless-w3c-webaut-104.png" alt="The application Login settings with Enable passwordless, Passwordless Device Recognition, and Passwordless Device Naming all switched on."><figcaption></figcaption></figure>
 
 ### Login
 
@@ -66,11 +66,11 @@ Ensure your users have [registered their security devices.](passwordless-w3c-web
 
 If your application has `Passwordless` authentication enabled, a new link `Sign in with fingerprint, device or security key` will be displayed on the login page.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-passwordless-login-page.png" alt=""><figcaption><p>Passwordless login option</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-passwordless-login-page.png" alt="The Sign in page with username and password fields, a link to sign in with a fingerprint, device, or security key, and social sign-in buttons below."><figcaption><p>Passwordless login option</p></figcaption></figure>
 
 By clicking on the link, users are redirected to the "Passwordless Login Page", where they need to enter their username and click `Sign in`. A security window will pop up, where they follow instructions to sign in.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-passwordless-login-username-page.png" alt=""><figcaption><p>Passworldess login page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-passwordless-login-username-page.png" alt="The passwordless sign-in page asking for a username only, explaining that a security window will open, with a link to switch back to the default sign-in process."><figcaption><p>Passworldess login page</p></figcaption></figure>
 
 {% hint style="info" %}
 The look and feel of the Passwordless forms can be overridden. See [custom pages](../branding/README.md#custom-pages) for more information.

@@ -83,7 +83,7 @@ To control audit traffic and reduce event noise, you can use the Kafka reporter 
 Use the search box to quickly locate and select specific event types.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/gs-config-configure-reporters-16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-config-configure-reporters-16.png" alt="The Events to report list open with a USER search filter, showing user consent and lifecycle events with two of them selected."><figcaption></figcaption></figure>
 
 ### **Schema Registry**
 
@@ -113,7 +113,7 @@ Kafka reporter sends all messages to separate partitions based on domain id or o
 
 `sasl.jaas.config = org.apache.kafka.common.security.plain.PlainLoginModule required username="<user>" password="<user-secret>";`
 
-<figure><img src="../../.gitbook/assets/kafka-config.png" alt=""><figcaption><p>Kafka plaintext security config</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/kafka-config.png" alt="The Kafka reporter configuration with bootstrap servers, topic, and acks completed, and producer properties for the security protocol, SASL mechanism, and JAAS config."><figcaption><p>Kafka plaintext security config</p></figcaption></figure>
 
 **TLS/SSL encryption**
 
@@ -133,7 +133,7 @@ If the Kafka broker is using SSL/TLS encryption, you must add additional steps t
 
 `ssl.truststore.password = "secret_password"`
 
-<figure><img src="../../.gitbook/assets/kafka-ssl-config.png" alt=""><figcaption><p>Kafka TLS/SSL security config</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/kafka-ssl-config.png" alt="Kafka reporter producer properties for SASL_SSL, with the security protocol, SASL mechanism, JAAS config, and truststore location and password."><figcaption><p>Kafka TLS/SSL security config</p></figcaption></figure>
 
 ## Audit data retention
 

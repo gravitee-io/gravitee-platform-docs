@@ -12,19 +12,19 @@ description: >-
 
 The Gateway returns a `500` error with an obscure message when the legacy execution engine fails to evaluate a valid Gravitee Expression Language (EL) expression because it is trying to access missing data.
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-condition-evaluation-1.png" alt=""><figcaption><p>Sample EL condition evaluation error with legacy engine</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-condition-evaluation-1.png" alt="The Debug tab showing a request that returned 500, with the policy timeline and an inspector reporting a condition evaluation error."><figcaption><p>Sample EL condition evaluation error with legacy engine</p></figcaption></figure>
 
 ### Reactive execution engine improvements
 
 The reactive execution engine executes a policy (or flow) when a valid EL expression evaluates as `true`. Otherwise, the policy is skipped because the EL expression evaluates as `false`.
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-condition-evaluation-2.png" alt=""><figcaption><p>Sample EL condition skipping behavior with reactive engine</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-condition-evaluation-2.png" alt="The Debug tab showing a request that returned 200, with the inspector reporting that the flow condition was skipped."><figcaption><p>Sample EL condition skipping behavior with reactive engine</p></figcaption></figure>
 
 The reactive execution engine ensures EL expressions that attempt to access missing data are evaluated as `false`. For example, `{#request.headers['X-Test'][0] == 'something'}` will skip execution even if the request header `X-Test` is not specified.
 
 The execution will fail and throw an error if the provided EL expression cannot be parsed, e.g., if it is syntactically invalid. The error message details why the EL expression cannot be parsed.
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-condition-evaluation-3.png" alt=""><figcaption><p>Sample EL condition error with reactive engine</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-condition-evaluation-3.png" alt="The Debug tab showing a request that returned 200, with the inspector reporting an expression syntax error in the condition."><figcaption><p>Sample EL condition error with reactive engine</p></figcaption></figure>
 
 ## EL expression parsing
 

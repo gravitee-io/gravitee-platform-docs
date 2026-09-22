@@ -32,7 +32,7 @@ To create and apply an ACL, follow the steps below. These steps configure option
 
 You can add more than one ACL in the same policy. Kafka follows the rule that if there is an ACL that denies an action, it takes precedence over ACLs that allow an action. If more than one ACL applies to the client connection to the Gateway, the most restrictive ACL is applied.
 
-<figure><img src="../../.gitbook/assets/kafka-gw-policies-kafka-acl-154.png" alt=""><figcaption><p>Kafka ACL Policy UI</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/kafka-gw-policies-kafka-acl-154.png" alt="The Kafka ACL policy configuration, with a prefixed topic resource pattern limited to the read operation, and a second rule granting access to any group, beside the policy documentation."><figcaption><p>Kafka ACL Policy UI</p></figcaption></figure>
 
 ## Examples
 

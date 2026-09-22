@@ -90,7 +90,7 @@ Comprehensive connection logs allow you to analyze the usage of your v4 message 
     <figure><img src="../.gitbook/assets/EF1F9221-58FE-470A-8192-7A9468FEF998_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 3.  From the menu, click **Logs.**
 
-    <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt="The Runtime Logs page of an API, listing seven requests with their timestamp, method, status, URI, application, plan, and response time, with Logs highlighted in the API menu."><figcaption></figcaption></figure>
 
 The filters above the list of logs allow you to filter records by timeframe, HTTP method, or plan. The **More** button offers additional filtering options.
 
@@ -119,7 +119,7 @@ You can modify logging information can be modified by configuring the options un
     <figure><img src="../.gitbook/assets/EF1F9221-58FE-470A-8192-7A9468FEF998_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 3.  From the menu, click **Logs.**
 
-    <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt="The Runtime Logs page of an API, listing seven requests with their timestamp, method, status, URI, application, plan, and response time, with Logs highlighted in the API menu."><figcaption></figcaption></figure>
 4.  Click **Configure Reporting**.
 
     <figure><img src="../.gitbook/assets/4BE464F6-77A8-4B28-AFDB-EC8790CA8E94_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -208,11 +208,11 @@ To view the details of any entry in the list of runtime logs:
 {% tab title="V4 message APIs" %}
 Under the **Connection Logs** tab, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**:
 
-<figure><img src="../.gitbook/assets/connection details_CROP.png" alt=""><figcaption><p>View log details</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/connection details_CROP.png" alt="The Connection Logs tab of a connection&#x27;s details, showing the entrypoint request URI, method, and headers, with the API key value masked."><figcaption><p>View log details</p></figcaption></figure>
 
 Under the **Messages** header, entrypoint and endpoint message details are grouped by date code:
 
-<figure><img src="../.gitbook/assets/message details_CROP.png" alt=""><figcaption><p>View message details</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/message details_CROP.png" alt="The Messages tab of a connection&#x27;s details, showing each message with its request, client, and correlation identifiers and the entrypoint and endpoint payloads."><figcaption><p>View message details</p></figcaption></figure>
 
 Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty.
 {% endtab %}

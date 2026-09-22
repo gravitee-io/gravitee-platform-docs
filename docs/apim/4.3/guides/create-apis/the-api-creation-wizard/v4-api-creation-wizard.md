@@ -19,7 +19,7 @@ The v4 API creation wizard makes it easy to create new Gateway APIs from scratch
 
 The API details step is where you can define a name, version number, and description for your API. The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="../../../.gitbook/assets/v4 wizard_step 1.png" alt=""><figcaption><p>Step 1: Define your Gateway API's basic details.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/v4 wizard_step 1.png" alt="Step 1 of the API creation wizard, with the API name, version number, and description filled in."><figcaption><p>Step 1: Define your Gateway API's basic details.</p></figcaption></figure>
 
 ## Step 2: Entrypoints
 
@@ -91,7 +91,7 @@ If you chose **Introspect messages from Event-driven backend**, you are presente
 * **Webhook**: Front a backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
 * **WebSocket**: Front a backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.
 
-<figure><img src="../../../.gitbook/assets/v4 wizard_step 2 message entrypoints.png" alt=""><figcaption><p>v4 API creation wizard: Event-driven backend entrypoints</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/v4 wizard_step 2 message entrypoints.png" alt="Step 2 of the API creation wizard, with HTTP GET and HTTP POST ticked and Server-Sent Events and Webhook left clear."><figcaption><p>v4 API creation wizard: Event-driven backend entrypoints</p></figcaption></figure>
 
 Once you select your entrypoint(s), additional configuration is required. The following sections outline the necessary configuration per entrypoint.
 
@@ -579,7 +579,7 @@ Select Next to define any additional restrictions for the plan. These restrictio
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../.gitbook/assets/guide-create-apis-the-api-creation--98.png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/guide-create-apis-the-api-creation--98.png" alt="The Restriction step of plan configuration, with rate limiting enabled and its key, static and dynamic limits, and time window shown, and quota and resource filtering switched off." data-size="original">
 
 </details>
 
@@ -624,7 +624,7 @@ Select Next to define any restrictions associated with this plan. Your options i
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../.gitbook/assets/guide-create-apis-the-api-creation--98.png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/guide-create-apis-the-api-creation--98.png" alt="The Restriction step of plan configuration, with rate limiting enabled and its key, static and dynamic limits, and time window shown, and quota and resource filtering switched off." data-size="original">
 
 </details>
 

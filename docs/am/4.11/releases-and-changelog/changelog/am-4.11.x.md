@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.11.x
 
+## Gravitee Access Management 4.11.17 - September 18, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Token exchange with trusted-issuer User Binding omits user roles from token claims [#11790](https://github.com/gravitee-io/issues/issues/11790)
+* Self-service GET changePassword redirect drops reverse-proxy path prefix, returning 404 [#11806](https://github.com/gravitee-io/issues/issues/11806)
+* SCIM: a null-valued email attribute persists [#11811](https://github.com/gravitee-io/issues/issues/11811)
+
+
+
+
+
+**Other**
+
+* 2DBC pool cannot recover from a silent DB socket after failover, and the three settings that would help are not exposed [#11774](https://github.com/gravitee-io/issues/issues/11774)
+* Support secret provider references for LDAP IdP (and other EE IdP plugins) configuration [#11809](https://github.com/gravitee-io/issues/issues/11809)
+
+</details>
+
+
 ## Gravitee Access Management 4.11.16 - September 3, 2026
 
 <details>

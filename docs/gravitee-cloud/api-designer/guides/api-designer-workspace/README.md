@@ -6,7 +6,7 @@ description: The API Designer Workspace is where you manage, create, and configu
 
 Navigate to the API Designer in Gravitee Cloud to open the API Designer Workspace, which is the administrative interface to the API Designer. Use the workspace to manage existing API designs, create new designs, and configure settings.
 
-<figure><img src="../../../.gitbook/assets/apid_workspace.png" alt=""><figcaption><p>API Designer Workspace</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apid_workspace.png" alt="The API Designs page with a Create API Design tile and two existing API design cards, each carrying export, push, and options icons."><figcaption><p>API Designer Workspace</p></figcaption></figure>
 
 {% hint style="info" %}
 The workspace is organization-centric. API designs and settings exist within the context of the selected organization.
@@ -26,19 +26,19 @@ Click on **API Designs** in the left-hand nav to create or manage an API.
 
 <div align="left" data-full-width="false">
 
-<figure><img src="../../../.gitbook/assets/apid-click.png" alt="" width="38"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apid-click.png" alt="A click icon: a mouse pointer over a circle." width="38"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../../.gitbook/assets/apid-push.png" alt="" width="32"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apid-push.png" alt="A push icon: a rocket." width="32"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../../.gitbook/assets/apid-export.png" alt="" width="31"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apid-export.png" alt="An export icon: a box with an upward arrow." width="31"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../../.gitbook/assets/apid-options.png" alt="" width="32"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apid-options.png" alt="An options icon: three horizontal dots." width="32"><figcaption></figcaption></figure>
 
 </div>
 

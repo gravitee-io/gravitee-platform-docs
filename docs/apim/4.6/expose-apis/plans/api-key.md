@@ -12,7 +12,7 @@ The API key authentication type enforces verification of API keys during request
 
 An API Key plan offers only basic security, acting more like a unique identifier than a security token.
 
-<figure><img src="../../.gitbook/assets/plan_api key.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plan_api key.png" alt="The API Key authentication configuration step of plan editing, with API key propagation switched off and an empty additional selection rule."><figcaption></figcaption></figure>
 
 * **Propagate API Key to upstream API:** Toggle ON to ensure the request to the backend API includes the API key header sent by the API consumer. This is useful for backend APIs that already have integrated API key authentication.
 * **Additional selection rule:** Allows you to use Gravitee Expression Language (EL) to filter plans of the same type by contextual data (request headers, tokens, attributes, etc.). For example, if there are multiple API key plans, you can set different selection rules on each plan to determine which plan handles each request.
@@ -25,7 +25,7 @@ By default, API keys are randomly generated for each subscription, but Gravitee 
 2. Select Settings from the left nav
 3.  Select Settings from the inner left nav:
 
-    <figure><img src="../../.gitbook/assets/plan_key generation.png" alt=""><figcaption><p>API key generation settings</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/plan_key generation.png" alt="The organization settings page, with a company name and every security plan type enabled, including keyless, API key, OAuth2, JWT, and push plans."><figcaption><p>API key generation settings</p></figcaption></figure>
 
 ### Custom API key
 
@@ -37,11 +37,11 @@ You can provide a custom API key when:
 
 *   Creating a subscription
 
-    <figure><img src="../../.gitbook/assets/plan_create subscription.png" alt=""><figcaption><p>Manually create a subscription</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/plan_create subscription.png" alt="The Create a subscription dialog, with an application chosen, an API key plan selected, and an empty custom API key field."><figcaption><p>Manually create a subscription</p></figcaption></figure>
 * Accepting a subscription
 *   Renewing a subscription
 
-    <figure><img src="../../.gitbook/assets/plan_renew api key.png" alt=""><figcaption><p>Renew a subscription</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/plan_renew api key.png" alt="The Renew your API Key dialog open over a subscription, warning that the previous key expires in two hours, with an empty custom key field."><figcaption><p>Renew a subscription</p></figcaption></figure>
 
 ### Shared API key
 
@@ -51,9 +51,9 @@ The shared API key mode allows consumers to reuse the same API key across all AP
 
 API keys can only be shared across API Key plans that belong to distinct Gateway APIs. If you attempt to subscribe to two API Key plans on the same Gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically.
 
-<figure><img src="../../.gitbook/assets/shared-api-key-2-portal.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared-api-key-2-portal.png" alt="The subscription wizard in the developer portal at the API key management mode step, offering a generated API key or a shared API key."><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt="An application&#x27;s Subscriptions page with a dialog asking whether the application should use a new API key per subscription or one shared API key, noting that the choice is permanent."><figcaption></figcaption></figure>
 
 To select the API key type, the shared API key mode must be [enabled](api-key.md#api-key-plan) before creating an application. To enable this option, create a new application and subscribe to two API Key plans.
 
@@ -66,9 +66,9 @@ A shared API key may be used to call APIs that are owned by other API publishers
 * Shared API keys cannot be edited from an API publisher's subscriptions
 *   API publishers can read shared API keys, but cannot renew or revoke them
 
-    <figure><img src="../../.gitbook/assets/shared-api-key-3.png" alt=""><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/shared-api-key-3.png" alt="A subscription&#x27;s detail page showing its plan, status, and application, with a Shared API Key section listing two keys and their creation and expiry times."><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
 *   Shared API keys can only be renewed/revoked by the application owner, from the subscription view of their APIM Console or Developer Portal
 
-    <figure><img src="../../.gitbook/assets/shared-api-key-4.png" alt=""><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/shared-api-key-4.png" alt="An application&#x27;s subscriptions page, listing two subscriptions that share one API key and a Shared API Key section with a Renew API key button."><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/shared-api-key-4-portal.png" alt=""><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/shared-api-key-4-portal.png" alt="The Subscriptions tab of an application in the developer portal, showing the shared API key with Renew and Revoke buttons and two subscriptions whose subscriber names are highlighted."><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>

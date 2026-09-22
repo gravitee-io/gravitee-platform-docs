@@ -33,19 +33,19 @@ To integrate IBM API Connect with Gravitee APIM, complete the following steps:
 
 1.  From the Dashboard, click **Integrations**.<br>
 
-    <figure><img src="../../../.gitbook/assets/govern-federation-solace-16.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-federation-solace-16.png" alt="The API Management console dashboard with Integrations highlighted in the left navigation menu."><figcaption></figcaption></figure>
 2.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/govern-federation-solace-18.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-federation-solace-18.png" alt="The Integrations page in the API Management console, with the Create Integration button highlighted above a table of existing integrations."><figcaption></figcaption></figure>
 3.  Select **IBM API Connect**, and then click **Next**.<br>
 
     <figure><img src="../../../.gitbook/assets/click-next-on-integrations-workflow.png" alt=""><figcaption></figcaption></figure>
 4.  Type the **Integration Name**.<br>
 
-    <figure><img src="../../../.gitbook/assets/ibm-connect-name-and-description.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/ibm-connect-name-and-description.png" alt="The Enter Information step of the Create Integration wizard, with a name and description filled in for an IBM API Connect integration."><figcaption></figcaption></figure>
 5.  (Optional) Type the **Description** for the integration.<br>
 
-    <figure><img src="../../../.gitbook/assets/ibm-connect-name-and-description.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/ibm-connect-name-and-description.png" alt="The Enter Information step of the Create Integration wizard, with a name and description filled in for an IBM API Connect integration."><figcaption></figcaption></figure>
 6.  Click **Create Integration**.
 
     <figure><img src="../../../.gitbook/assets/create-integration-ibm-connect.png" alt=""><figcaption></figcaption></figure>

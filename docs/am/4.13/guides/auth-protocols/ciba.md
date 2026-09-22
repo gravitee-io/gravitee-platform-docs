@@ -22,7 +22,7 @@ To activate CIBA on your security domain:
 * Adapt the CIBA Settings if necessary
 * Save your choice
 
-<figure><img src="../../.gitbook/assets/am-ciba-enable-ciba-toggle.png" alt=""><figcaption><p>Enable CIBA on the security domain</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/am-ciba-enable-ciba-toggle.png" alt="The Client-Initiated Backchannel Authentication Flow settings with the Enable CIBA toggle switched off, beside an explanation of CIBA."><figcaption><p>Enable CIBA on the security domain</p></figcaption></figure>
 
 ### CIBA settings
 
@@ -32,7 +32,7 @@ There are three parameters for CIBA:
 * The interval in seconds that a client must wait between two calls on the token endpoint to obtain an `access_token` using a given **auth\_req\_id**.
 * The maximum number of characters allowed for the `binding_message` parameter.
 
-<figure><img src="../../.gitbook/assets/am-ciba-settings-configuration.png" alt=""><figcaption><p>CIBA settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/am-ciba-settings-configuration.png" alt="The CIBA settings with Enable CIBA switched on, showing the auth_req_id validity period, the poll delay, the binding message length, and the device notifier list."><figcaption><p>CIBA settings</p></figcaption></figure>
 
 The plugin is used to manage the Authentication Device interaction.
 
@@ -78,7 +78,7 @@ This service must follow the requirements hereafter :
 * Implement the [notification endpoint](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/current/ciba_external_service/swagger.yml) to receive a notification request
 * Call the AM [callback endpoint](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/current/ciba/swagger.yml) to update the authentication request status
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-CIBA-Flow.png" alt=""><figcaption><p>External HTTP service example</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-CIBA-Flow.png" alt="A CIBA sequence diagram across Access Management, an external HTTP service, and the user device: a CIBA request returns an auth_req_id, a notification reaches the device, the end user accepts or rejects, the response returns on the callback endpoint, and a token request with the auth_req_id returns tokens."><figcaption><p>External HTTP service example</p></figcaption></figure>
 
 ### CIBA Federation
 
@@ -91,7 +91,7 @@ The **CIBA Federation** plugin delegates the backchannel user authentication to 
 3. Click **CIBA**.
 4. Click the **Device Notifiers** tab.
 
-    <figure><img src="../../.gitbook/assets/am-ciba-device-notifiers-tab.png" alt=""><figcaption><p>Device Notifiers tab</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/am-ciba-device-notifiers-tab.png" alt="The Device Notifiers tab with none configured, showing a Device Notifiers will appear here empty state and an add button."><figcaption><p>Device Notifiers tab</p></figcaption></figure>
 5. Click the plus icon.
 6. Select the **CIBA Federation** notifier type.
 
@@ -99,13 +99,13 @@ The **CIBA Federation** plugin delegates the backchannel user authentication to 
     Both notifier cards display the HTTP logo. Select the card described as **Gravitee IO - Access Management - Authentication Device Notifier - CIBA Federation**. The card described as **External HTTP Service** is the [External HTTP Service](ciba.md#external-http-service) plugin.
     {% endhint %}
 
-    <figure><img src="../../.gitbook/assets/am-ciba-federation-notifier-cards.png" alt=""><figcaption><p>CIBA Federation notifier card</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/am-ciba-federation-notifier-cards.png" alt="The Device Notifiers wizard on the Platform step, offering a CIBA Federation notifier and an External HTTP Service notifier."><figcaption><p>CIBA Federation notifier card</p></figcaption></figure>
 7. Click **Next**.
 
-    <figure><img src="../../.gitbook/assets/am-ciba-federation-notifier-selected.png" alt=""><figcaption><p>CIBA Federation notifier type selected</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/am-ciba-federation-notifier-selected.png" alt="The Device Notifiers wizard with the CIBA Federation notifier selected and a Next button."><figcaption><p>CIBA Federation notifier type selected</p></figcaption></figure>
 8. Enter a **Name** for the notifier.
 
-    <figure><img src="../../.gitbook/assets/am-ciba-federation-notifier-configuration.png" alt=""><figcaption><p>CIBA Federation notifier configuration</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/am-ciba-federation-notifier-configuration.png" alt="The device notifier configuration with empty name, identity provider, resource audience, callback client id and secret fields, and the callback client auth method set to client_secret_post."><figcaption><p>CIBA Federation notifier configuration</p></figcaption></figure>
 9. Configure the notifier with the settings described in the following table.
 10. Click **Create**.
 

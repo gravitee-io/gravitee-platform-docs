@@ -12,13 +12,13 @@ description: Hide the default Access Management 4.13 login form and show only th
 
 Hide Login Form enables you to hide the default Gravitee login form and only display upstream Identity Provider(s) configured and enabled for the application.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-hide-login-form-false.png" alt=""><figcaption><p>Login form where Hide Login Form is not enabled</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-hide-login-form-false.png" alt="The Sign in page with the username and password form shown above social sign-in buttons for two Azure AD providers and Google."><figcaption><p>Login form where Hide Login Form is not enabled</p></figcaption></figure>
 
 If you have one Identity provider configured for the application Gravitee AM will direct the user directly to the Identity Provider.
 
 If you have multiple Identity Providers configured for the application Gravitee AM will display the Identity Providers to the user.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-hide-login-form-multiple-idp.png" alt=""><figcaption><p>Login form where Hide Login Form is enabled and multiple IdPs are enabled</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-hide-login-form-multiple-idp.png" alt="The Sign in page with the username and password form hidden, leaving only social sign-in buttons for two Azure AD providers and Google."><figcaption><p>Login form where Hide Login Form is enabled and multiple IdPs are enabled</p></figcaption></figure>
 
 ## Enable Hide Login Form
 
@@ -29,4 +29,4 @@ To enable Hide Login Form:
 3. Go to **Settings > Login** or **Application > "Your app" > Settings > Login**.
 4. Switch on **Hide login form** and click **SAVE**.
 
-<figure><img src="../../.gitbook/assets/guide-login-hide-login-form-107.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-login-hide-login-form-107.png" alt="The application Login settings in the newer console, with Hide login form switched on above the Passwordless and Certificate Based Authentication sections."><figcaption></figcaption></figure>

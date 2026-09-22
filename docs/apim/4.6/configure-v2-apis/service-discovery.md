@@ -102,7 +102,7 @@ curl -X PUT -d '{ "ID": "whattimeisit_1", "Name": "whattimeisit", "Address": "ap
 
 The Consul web UI should display a new service named `whattimeisit`:
 
-<figure><img src="../.gitbook/assets/service-discovery-consul-services.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/service-discovery-consul-services.png" alt="A service registry listing three healthy services, each with one instance."><figcaption></figcaption></figure>
 
 You can also verify that your service is successfully registered in Consul by interacting with Consul Agent API.
 
@@ -182,7 +182,7 @@ To enable HashiCorp Consul service discovery in your APIM Console:
 3. Select your API
 4.  Select **Endpoints** from the **Backend services** section of the inner left nav
 
-    <figure><img src="../.gitbook/assets/v2 service discovery_endpoints.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/v2 service discovery_endpoints.png" alt="An endpoint group listing one endpoint with its target, type, and weight, above Add new endpoint, Edit group, and Delete group buttons."><figcaption></figcaption></figure>
 5. Click **Edit group**
 6. Click on the **Service discovery** tab
 7.  Toggle **Enabled service discovery** ON, then configure the following:
@@ -215,7 +215,7 @@ To declare an endpoint as secondary:
 3. Select your API
 4.  Select **Endpoints** from the **Backend services** section of the inner left nav
 
-    <figure><img src="../.gitbook/assets/v2 service discovery_endpoints.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/v2 service discovery_endpoints.png" alt="An endpoint group listing one endpoint with its target, type, and weight, above Add new endpoint, Edit group, and Delete group buttons."><figcaption></figcaption></figure>
 5. Click the pencil icon next to the endpoint you want to make secondary
 6.  Under the **General** tab, click the box next to **Secondary endpoint**
 
@@ -256,5 +256,5 @@ To observe how APIM dynamically routes traffic based on Consul’s Service Catal
 
 Consider enabling health-checks for your API to view the status of all endpoints, including the endpoints managed by HashiCorp Consul. For more information on how to enable Gravitee health-checks, refer to [this documentation](load-balancing-failover-and-health-checks.md).
 
-<img src="../.gitbook/assets/service-discovery-consul-healthcheck.png" alt="" data-size="original">
+<img src="../.gitbook/assets/service-discovery-consul-healthcheck.png" alt="A health check dashboard showing global availability and response time over five minutes, with per-endpoint and per-gateway availability broken down by minute, hour, day, week, and month." data-size="original">
 {% endhint %}

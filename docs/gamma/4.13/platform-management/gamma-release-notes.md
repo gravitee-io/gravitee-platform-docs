@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. It also adds API resource configuration, consumer broadcasts, property import, dynamic property sync, and API metadata to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. LLM Proxies and A2A Proxies gain export, import, and duplicate actions. The Observability section of Agent Management builds and saves custom dashboards alongside the templates.
+Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. It also adds API resource configuration, consumer broadcasts, property import, dynamic property sync, and API metadata to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. The **Cost Rate Limit** policy caps what a consumer spends on an LLM Proxy in dollars over a period. LLM Proxies and A2A Proxies gain export, import, and duplicate actions. The Observability section of Agent Management builds and saves custom dashboards alongside the templates.
 
 #### AI Workspaces
 
@@ -100,6 +100,14 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 * A model alias shared by several providers is what lets a request roll over between them. When every attempt fails, the gateway answers `502`.
 * A save applies to the gateway when you deploy the proxy from the out-of-sync banner.
 * See [Configure LLM Proxy failover](../agent-management/build/configure-llm-proxy-failover.md).
+
+#### Cost Rate Limit for LLM Proxies
+
+* The **Cost Rate Limit** policy caps what a consumer spends on an LLM Proxy in dollars over a period, and a request is refused with `429` once the budget is exceeded.
+* **Max budget (dollars)** takes decimals, so `5` is five dollars and `0.05` is five cents. **Time duration** and **Time unit** set how long a window lasts before the counter resets, in minutes, hours, or days.
+* The budget belongs to the plan and subscription pair by default. Set **Key** to an Expression Language value, and turn on **Use key only**, to give each caller its own budget.
+* The policy runs in the request phase. **Missing price policy** decides what a request is charged when the model that answered has no resolvable price.
+* See [Add the Cost Rate Limit policy](../agent-management/build/add-the-cost-rate-limit-policy.md).
 
 #### Owner and sharding tags in the LLM Proxies list
 
@@ -221,7 +229,7 @@ Edge Management replaces the single configuration page and its flat lists of DNS
 
 ### Event Stream Management
 
-Event Stream Management adds a duplication path for Kafka Services.
+Event Stream Management adds the Kafka Explorer and a duplication path for Kafka Services. The Kafka Explorer reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
 
 #### Duplicate a Kafka service
 
@@ -229,6 +237,15 @@ Event Stream Management adds a duplication path for Kafka Services.
 * Provide a name, a version, and a new listener host prefix for the copy. The host prefix is unique per environment, and the source service's prefix counts as already in use.
 * The new service is created in a stopped state and without plans, so you control when it starts accepting connections.
 * See [Duplicate a Kafka service](../event-stream-management/build/duplicate-a-kafka-service.md).
+
+#### Kafka Explorer
+
+* The **Manage** group of the Event Stream Management sidebar adds **Kafka Explorer**, which reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
+* A connection points at a multi-connection cluster registered in Event Stream Management and one of its named connections, at a Kafka Service through a published plan and an accepted subscription, or at broker addresses that you enter directly. An optional security overlay adds or replaces the client-side SASL and TLS settings, and **Test connection** checks that the target is reachable before you save.
+* The explorer lists the brokers with their partition counts and log sizes, the topics with their partitions, replication, size, and configuration, and the consumer groups with their members, committed offsets, and lag. The **Messages** page of a topic fetches a batch from the newest or oldest messages, from a timestamp, or from a specific offset, or streams new messages live for up to 300 seconds.
+* Each connection has its own members and groups. Its creator is the primary owner, and the **USER** and **OWNER** roles of the new **Explorer** scope decide who can read or change a connection's configuration and members. Reaching the pages at all needs the new environment-scoped `EXPLORER` permission, which no built-in role grants for create, update, or delete: give a custom environment role the actions your connection administrators need.
+* Kafka Explorer requires an enterprise license that includes the `apim-native-kafka-explorer` feature. It stores its connections in the APIM management database, on MongoDB or on JDBC, and applies its own schema at startup on JDBC installations that leave `management.jdbc.liquibase` on.
+* See [Kafka Explorer](../event-stream-management/manage/kafka-explorer/README.md).
 
 ### Platform Management
 

@@ -16,7 +16,7 @@ The V4 API analytics dashboard provides you with clear visibility into the API p
 
 1.  From the **Dashboard**, click **Analytics**.<br>
 
-    <figure><img src="../../.gitbook/assets/A160372A-F5F3-48D2-9354-70460A1D779C_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A160372A-F5F3-48D2-9354-70460A1D779C_1_201_a.jpeg" alt="The console dashboard with Analytics highlighted in the left navigation, showing API and application totals, lifecycle and state pie charts, and top API tables."><figcaption></figcaption></figure>
 2.  Click the **V4 Dashboard** tab.<br>
 
     <figure><img src="../../.gitbook/assets/B0A9C126-752D-43F1-BE69-F99008FECD29_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
