@@ -37,11 +37,11 @@ This guide assumes that the `clientId` property has been created in your API. Th
 
 1.  Navigate to the shared policy groups by clicking on Settings, and then **Shared Policy Groups**.<br>
 
-    <figure><img src="../../.gitbook/assets/shared-policy-group-settings.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/shared-policy-group-settings.png" alt="The Shared Policy Group page, listing four deployed proxy request groups for GeoIP rate limiting and three AI examples, with an Add Shared Policy Group button above."><figcaption></figcaption></figure>
 2. Click **Add Shared Policy Group**, and select **Proxy API**.
 3.  Specify a name for this SPG, and ensure the **Request** phase is selected. Then click on the **\[Save]** button.<br>
 
-    <figure><img src="../../.gitbook/assets/add-shared-policy-group-for-proxy-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/add-shared-policy-group-for-proxy-api.png" alt="The Add Shared Policy Group for Proxy API dialog, with a BFF on-request policy name, a description about protecting APIs with a JWT cookie, and the Request phase selected."><figcaption></figcaption></figure>
 4. Add the [**Groovy**](../../create-and-configure-apis/apply-policies/policy-reference/groovy.md) **Policy**
    1. Use the following GroovyScript to get the Auth BFF cookie
 
@@ -70,7 +70,7 @@ context.attributes['bffCookie'] = bffCookie
 
 b. Click on the **\[Add policy]** button, and progress to the next step.
 
-<figure><img src="../../.gitbook/assets/groovy-script-bff-cookie.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/groovy-script-bff-cookie.png" alt="The Groovy policy configuration, with a description of getting the BFF cookie, read and override content both switched off, and a script that parses the cookie header."><figcaption></figcaption></figure>
 
 5. Add the [**Mock**](../../create-and-configure-apis/apply-policies/policy-reference/mock.md) **Policy**
    1. Set the **Trigger condition** to `{#context.attributes['bffCookie'] == null && #request.params['code'] == null}`
@@ -78,7 +78,7 @@ b. Click on the **\[Add policy]** button, and progress to the next step.
    3. Add a new **Header** named `Location`, with value of `https://auth.server.com/oauth/authorize?client_id={#api.properties['clientId']}&response_type=code&redirect_uri={#request.scheme + '://' + #request.host + #request.path}`
    4.  Click on the **\[Add policy]** button, and progress to the next step.
 
-       <figure><img src="../../.gitbook/assets/mock-policy-request-on.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/mock-policy-request-on.png" alt="The Mock policy configuration, with a description of redirecting to the authorization server, a trigger condition on a missing cookie, a 302 status code, and a Location header pointing to an authorize endpoint."><figcaption></figcaption></figure>
 6. Add the [**HTTP Callout**](../../create-and-configure-apis/apply-policies/policy-reference/http-callout.md) **Policy**
    1. Set the **Trigger condition** to `{#context.attributes['bffCookie'] == null && #request.params['code'] != null}`
    2. Set the **HTTP Method** to `POST`
@@ -105,7 +105,7 @@ b. Click on the **\[Add policy]** button, and progress to the next step.
 9. Now that all the policies have been added, click on the **\[Save]** button.
 10. Click the **\[Deploy]** button.
 
-    <figure><img src="../../.gitbook/assets/click-deploy-button-bff.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/click-deploy-button-bff.png" alt="A shared policy group&#x27;s request phase, showing Groovy, Mock, HTTP Callout, Transform Headers, and JSON Web Tokens policies in sequence, each with its trigger condition above, and a Deploy button."><figcaption></figcaption></figure>
 
 <details>
 
@@ -246,11 +246,11 @@ You can import this Shared Policy Group using Gravitee's Management API.
 
 1.  Navigate back to the shared policy groups by clicking on Settings, and then **Shared Policy Groups**.
 
-    <figure><img src="../../.gitbook/assets/shared-policy-groups-geoip.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/shared-policy-groups-geoip.png" alt="The Shared Policy Group page listing five deployed proxy request groups, including the new BFF on-request policy at the top."><figcaption></figcaption></figure>
 2. Click **Add Shared Policy Group**, and select **Proxy API**.
 3.  Specify a name for this SPG, and ensure the **Response** phase is selected. Then click on the **\[Save]** button.
 
-    <figure><img src="../../.gitbook/assets/request-response-beff-onresponse.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/request-response-beff-onresponse.png" alt="The Add Shared Policy Group for Proxy API dialog, with a BFF on-response group name, a description about protecting APIs with a JWT cookie, and the Response phase selected."><figcaption></figcaption></figure>
 4. Add the [**Transform Headers**](../../create-and-configure-apis/apply-policies/policy-reference/transform-headers.md) **Policy**
    1. Set the **Trigger condition** to `{#context.attributes['accessToken'] != null}`
    2. Within the **Set/replace headers** section, add a new **Key** named `Set-Cookie` with a value of `X-Gravitee-BFF-Cookie={#context.attributes['accessToken']}; Path=/; HttpOnly; SameSite=Strict`
