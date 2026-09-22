@@ -28,7 +28,7 @@ The following diagrams illustrate the component management, design, and virtual 
 
 ### Self-hosted component management <a href="#components" id="components"></a>
 
-<img src="../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1).svg" alt="A diagram listing the components managed by Gravitee, including Cockpit, the console, portal, management API, databases, alert engine, and bridge gateways, above those managed by the customer, namely self-hosted gateways, a local rate limit database, and Logstash." class="gitbook-drawing">
 
 ### Self-hosted architecture diagram <a href="#architecture-diagram" id="architecture-diagram"></a>
 

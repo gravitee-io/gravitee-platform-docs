@@ -42,4 +42,4 @@ Before you can define and configure your Webhook subscription, you'll need to fi
     <figure><img src="../../../.gitbook/assets/webhook_choose application.png" alt="The Choice of application step of the subscription wizard, with an empty application dropdown and a comment field for the API owner."><figcaption><p>Choose the subscriber application</p></figcaption></figure>
 7.  Select **Next** to validate your subscription request
 
-    <figure><img src="../../../.gitbook/assets/webhook_validate.png" alt=""><figcaption><p>Submit to validate your Webhook subscription</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/webhook_validate.png" alt="The Validation step of the developer portal subscription wizard, confirming that the default application&#x27;s subscription to a push plan is about to be finalised and needs owner approval."><figcaption><p>Submit to validate your Webhook subscription</p></figcaption></figure>
