@@ -20,7 +20,7 @@ The next two core Gravitee API Management (APIM) concepts we will focus on are p
 
 Plans and policies are managed by the API publisher to add different layers of security and functionality to the backend resources they own.
 
-<figure><img src="../../.gitbook/assets/plans drawing.png" alt=""><figcaption><p>Gateway plans and policies</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plans drawing.png" alt="A hand-drawn diagram of consumers subscribed to two different plans reaching the gateway through a firewall, with policies acting between the gateway and the backend services."><figcaption><p>Gateway plans and policies</p></figcaption></figure>
 
 ### Plans
 

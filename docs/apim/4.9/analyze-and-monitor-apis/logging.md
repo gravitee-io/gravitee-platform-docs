@@ -183,7 +183,7 @@ Select logging options judiciously to optimize the value of recorded data agains
 * **Content data:** Select from **Headers** and **Payload** to customize which data is logged.
 *   **Display conditions:** You have the ability to filter data based on **Request phase condition**. This field supports the use of [Gravitee Expression Language](../gravitee-expression-language.md).
 
-    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-365-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-365-1.png" alt="The runtime logging settings, enabled, with every logging mode, phase, and content data option switched off, an empty request phase condition, and OpenTelemetry tracing disabled."><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -193,13 +193,13 @@ To view the details of any entry in the list of runtime logs:
 
 1.  From the **Dashboard**, click **APIs**.
 
-    <figure><img src="../.gitbook/assets/7142A579-577C-48F7-BF1F-35F6229DBB88_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/7142A579-577C-48F7-BF1F-35F6229DBB88_1_201_a.jpeg" alt="The console dashboard with APIs highlighted in the left navigation, showing 2,978 APIs and 805 applications with lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  Select the API that you want to view the runtime logs for.
 
-    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-366-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-366-1.png" alt="The APIs list showing the first page of 2,952 APIs, with their type, status, access path, quality score, sharding tags, categories, and owner."><figcaption></figcaption></figure>
 3.  Click **Logs**. You are shown a list of API logs.
 
-    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-367-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-367-1.png" alt="The Runtime Logs page of an API, with Logs highlighted in the API menu, listing seven requests that each returned 200 on a default keyless plan."><figcaption></figcaption></figure>
 4.  Click **the eye symbol** next to the log that you want to view the details of.
 
     <figure><img src="../.gitbook/assets/321F6892-812F-4DAA-AEE6-0CA0C44BEFF4_1_201_a.jpeg" alt="The Runtime Logs page of an API, with the view icon on the first row highlighted, listing requests whose API key is visible in the URI."><figcaption></figcaption></figure>
@@ -226,7 +226,7 @@ In the logs screen, you see the following information about your API logs:
 
 The overview section provides information about the Request and Response phase of the API.
 
-<figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-368-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-368-1.png" alt="A log detail page showing the request date, host, method, URI, identifiers, and remote IP beside a 200 response with its timings and content length."><figcaption></figcaption></figure>
 
 **More details**
 
