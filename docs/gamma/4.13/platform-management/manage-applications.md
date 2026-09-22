@@ -37,7 +37,7 @@ To create an application, complete the following steps:
     | **Domain**      | The domain associated with this application.        | No       |
 
 3. Optional: under **Groups**, select the groups to attach to the application. The field appears when the environment has groups, and it's required when the organization requires a group on every application. See [Manage groups](manage-groups.md).
-4. In the **Security** section, select the application type. **Simple** is a standalone client for which you manage your own client ID. Additional OAuth application types are available only when Dynamic Client Registration is enabled for the environment.
+4. In the **Security** section, select the application type. **Simple** is a standalone client for which you manage your own client ID. Additional OAuth application types are available only when Dynamic Client Registration is enabled for the environment. See [Configure client registration](configure-client-registration.md).
 5. Complete the remaining **Security** fields described in the following table:
 
     | Field                              | Description                                                                                                   | Required |
@@ -61,3 +61,4 @@ Select an application from the list to open its detail page, which contains the 
 ## Next steps
 
 * [Establish consumer access](../api-management/build/configure-your-api-proxy/establish-consumer-access.md). Configure subscriptions between applications and API plans.
+* [Configure client registration](configure-client-registration.md). Choose the application types this environment accepts, and configure the provider that registers OAuth clients for them.
