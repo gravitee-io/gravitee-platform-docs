@@ -48,7 +48,7 @@ The following diagrams illustrate the component management and design of a self-
 
 ### Self-hosted component management
 
-<figure><img src="../.gitbook/assets/GraviteeAPIM-SelfHosted-Architecture-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/GraviteeAPIM-SelfHosted-Architecture-1.png" alt="A composable architecture diagram, showing Gravitee-managed Cloud and API Designer above a customer-managed control plane of the management API, console, portal, and databases, and a customer-managed data plane of the gateway and its rate limit storage."><figcaption></figcaption></figure>
 
 Self-hosted component management means that the customer hosts and manages both the Control Plane(s) and Data Plane(s).
 
@@ -56,7 +56,7 @@ To support a multi-environment configuration, the self-hosted Control Plane must
 
 ### Self-hosted architecture diagram (example)
 
-<figure><img src="../.gitbook/assets/GraviteeAPIM-SelfHosted-Architecture-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/GraviteeAPIM-SelfHosted-Architecture-2.png" alt="A self-hosted architecture diagram, with a customer-hosted data plane split across a DMZ and internal network on the left, a Gravitee Cloud band holding Cloud, API Designer, and the alert engine at the top right, and a customer-hosted control plane of databases, the management API, console, and portal below it."><figcaption></figcaption></figure>
 
 In a typical self-hosted architecture, the customer manages both the Data Plane and the Control Plane. The Management Control Plane consists of API Management, and optionally Gravitee Alert Engine and Gravitee Access Management.
 

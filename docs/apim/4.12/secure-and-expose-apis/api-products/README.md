@@ -8,7 +8,7 @@ description: API Products bundle several v4 HTTP proxy APIs into one subscribabl
 
 API Products enable administrators to bundle multiple V4 HTTP Proxy APIs into a single subscribable package with unified access control. Instead of managing subscriptions to individual APIs, organizations define API Product-level plans that grant access to all APIs within the API Product.
 
-<figure><img src="../../.gitbook/assets/api-products-list.png" alt=""><figcaption><p>API Products list page in the APIM Console</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api-products-list.png" alt="The API Products page with API Products highlighted in the left navigation, listing ten of 28 products with their API count, version, and an empty owner column."><figcaption><p>API Products list page in the APIM Console</p></figcaption></figure>
 
 ## What is an API Product?
 
@@ -58,7 +58,7 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 4. Enable the toggle.
 5. Click **Save** to apply the change.
 
-    <figure><img src="../../.gitbook/assets/allow-in-api-products-toggle.png" alt=""><figcaption><p>"Allow in API Products" toggle on the API General Info page</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/allow-in-api-products-toggle.png" alt="The Configuration page of an API, with the Allow in API Products toggle highlighted and switched on above the export, import, duplicate, and promote actions."><figcaption><p>"Allow in API Products" toggle on the API General Info page</p></figcaption></figure>
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 5. Optionally, enter a **Description**.
 6. Click **Create API Product**.
 
-    <figure><img src="../../.gitbook/assets/create-api-product.png" alt=""><figcaption><p>Create API Product form</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/create-api-product.png" alt="The Create API Product page, with a product name, version, and description entered and API Products highlighted in the left navigation."><figcaption><p>Create API Product form</p></figcaption></figure>
 
 ## Edit an API Product
 
@@ -93,7 +93,7 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 If an expected API doesn't appear in the search results, verify that the **Allow in API Products** toggle is enabled on the API's General Info page.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/add-api-to-product.png" alt=""><figcaption><p>Add API dialog for an API Product</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/add-api-to-product.png" alt="The Add API dialog open over an API Product&#x27;s APIs page, noting that APIs must have API products enabled before they appear, with one API already added."><figcaption><p>Add API dialog for an API Product</p></figcaption></figure>
 
 ## Remove an API from an API Product
 
@@ -118,7 +118,7 @@ If an expected API doesn't appear in the search results, verify that the **Allow
 
 Keyless and OAuth plan types aren't available for API Products.
 
-<figure><img src="../../.gitbook/assets/api-product-plan-types.png" alt=""><figcaption><p>Plan type selection for an API Product</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api-product-plan-types.png" alt="The Consumers page of an API Product, with the Add new plan menu open on mTLS, JWT, and API Key, all highlighted, above an empty plan table."><figcaption><p>Plan type selection for an API Product</p></figcaption></figure>
 
 ## Manage plan lifecycle
 
@@ -157,7 +157,7 @@ After creating plans and adding APIs, deploy the API Product to make it availabl
 1. Click **Deploy API Product** in the banner.
 2. In the **Deploy your API Product** dialog, click **Deploy**.
 
-<figure><img src="../../.gitbook/assets/deploy-api-product.png" alt=""><figcaption><p>Deploy API Product confirmation dialog</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/deploy-api-product.png" alt="The Deploy your API Product dialog, warning that all subscribed consumers will be affected, under an out-of-sync banner."><figcaption><p>Deploy API Product confirmation dialog</p></figcaption></figure>
 
 ## Create a subscription
 

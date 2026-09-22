@@ -24,7 +24,7 @@ Head to the Gravitee APIM Console, open the Integrations section in the left men
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab, you'll use this later:
 
-<figure><img src="../../../.gitbook/assets/governance-federation-3rd-party-provider-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/governance-federation-3rd-party-provider-1-1.png" alt="The Overview page of an AWS API Gateway integration, with an arrow pointing to a partly masked integration identifier beside the disconnected agent."><figcaption></figcaption></figure>
 
 ## 2. Configure the AWS APIM federation agent
 
