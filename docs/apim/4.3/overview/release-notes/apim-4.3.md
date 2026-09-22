@@ -66,7 +66,7 @@ Refer to the [API Documentation](../../guides/api-configuration/v4-api-configura
 
 v4 API properties can be dynamically managed via the **Properties** tab of the API Management Console's **Configuration** screen\*\*.\*\* To learn more about properties and how to set them, see the [documentation](../../guides/policy-studio/v4-api-policy-studio.md#api-properties).
 
-<figure><img src="../../.gitbook/assets/api properties_dynamically manage.png" alt=""><figcaption><p>Dynamically manage properties</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api properties_dynamically manage.png" alt="The API dynamic properties page, with the service disabled, a schedule running every thirty seconds, the GET method, and empty URL and request header fields."><figcaption><p>Dynamically manage properties</p></figcaption></figure>
 
 ## Audit logs
 
