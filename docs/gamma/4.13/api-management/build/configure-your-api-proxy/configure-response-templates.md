@@ -13,12 +13,12 @@ Templates are stored on the API proxy and matched per request. One proxy can ans
 ## Before you start
 
 * You need an API proxy that serves HTTP traffic. Response templates aren't offered on TCP Proxy, MCP, or LLM Proxy APIs. See [Where response templates aren't offered](#where-response-templates-arent-offered).
-* You need permission to update the API proxy. Without it the page opens read-only, with no way to add, edit, or delete a template.
+* You need permission to update the response templates of the API proxy. Without it the page opens read-only, with no way to add, edit, or delete a template.
 
 ## Open the Response Templates page
 
 1. Open **API Management** in the Gamma console.
-2. Click **APIs**.
+2. Click **API Proxies**.
 3. Select your API proxy.
 4. In the **Design** group of the sidebar, click **Response Templates**.
 
@@ -49,7 +49,7 @@ Saving a template changes the API definition, so the proxy is left out of sync u
 
 ### What the form refuses
 
-**Template key**, **Accept header to match**, and **Status code** are all required, and each reports its own message when left empty:
+**Template key**, **Accept header to match**, and **Status code** are all required, and the form checks them when you click **Create**. Nothing is flagged while you type. The first click on **Create** reports every problem at once instead of saving, and leaves the button disabled until you've corrected them:
 
 <table>
     <thead>
@@ -81,7 +81,7 @@ Saving a template changes the API definition, so the proxy is left out of sync u
         </tr>
         <tr>
             <td>Entered a header name containing a space</td>
-            <td>The row is marked invalid and <strong>Create</strong> stays disabled.</td>
+            <td><strong>Header name must not contain spaces.</strong></td>
         </tr>
     </tbody>
 </table>
@@ -114,9 +114,9 @@ A reader without permission to see templates at all gets the page title and **Yo
 
 ## Where response templates aren't offered
 
-The **Response Templates** item isn't in the sidebar of a TCP Proxy API. Reaching the page anyway reads **Response Templates are not available for TCP Proxy APIs**, because a TCP Proxy API forwards raw traffic and has no HTTP response to override.
+On a TCP Proxy API, the **Response Templates** item stays in the **Design** group but is disabled, with the tooltip **Coming soon for V4 APIs**. Opening the page by its URL reads **Response Templates are not available for TCP Proxy APIs**. A TCP Proxy API forwards raw traffic, so it has no HTTP response to override.
 
-An MCP or LLM Proxy API reads **Response Templates are not available for MCP and LLM Proxy APIs**.
+On an MCP or LLM Proxy API, the item isn't in the sidebar at all. The page reads **Response Templates are not available for MCP and LLM Proxy APIs**.
 
 ## Next steps
 
