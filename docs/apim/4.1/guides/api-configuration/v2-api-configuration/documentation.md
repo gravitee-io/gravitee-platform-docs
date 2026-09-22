@@ -53,4 +53,4 @@ Once you've either written or imported your API documentation, select **Save.**
 
 ## Add API metadata
 
-If you want to add metadata to your API, select the **Metadata** tab. Then, select <img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.14.20 PM.png" alt="" data-size="line">. From here, you just need to choose a name for your API, select the format (string, numeric, boolean, date, mail, url), and define the value. Then, select **Save.**
+If you want to add metadata to your API, select the **Metadata** tab. Then, select <img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.14.20 PM.png" alt="A teal Add API Metadata button with a plus sign." data-size="line">. From here, you just need to choose a name for your API, select the format (string, numeric, boolean, date, mail, url), and define the value. Then, select **Save.**
