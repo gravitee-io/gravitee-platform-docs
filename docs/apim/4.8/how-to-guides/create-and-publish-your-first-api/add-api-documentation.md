@@ -37,17 +37,17 @@ This guide explains how to add documentation to your first API.
     <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-api-doc-329.png" alt=""><figcaption></figcaption></figure>
 8.  In the Determine source page, click **Next**.
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-api-doc-330.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-api-doc-330.png" alt="The Determine source step of the documentation page wizard, with Fill in the content myself selected over Import from file and Link to External Source."><figcaption></figcaption></figure>
 9. In the **Page content** section, add the documentation for your API using Markdown.
 10. Click **Save and publish**.
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-api-doc-331.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-api-doc-331.png" alt="The Add content step of the page wizard, with Markdown in the editor on the left and its rendered preview on the right, above Save and publish and Save buttons."><figcaption></figcaption></figure>
 
 ## Verification
 
 Your document page appears in the **Documentation pages** tab of the **Documentation** screen.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-api-doc-332.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-api-doc-332.png" alt="The Documentation Pages tab listing one published public page with edit, unpublish, reorder, and delete actions."><figcaption></figcaption></figure>
 
 ## Next steps
 
