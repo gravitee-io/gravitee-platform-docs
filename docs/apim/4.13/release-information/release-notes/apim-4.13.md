@@ -160,3 +160,11 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * Only the provider's error code is passed on. The token exchange no longer relays the provider's raw response body to the caller.
 * Through the Management API, the setting is the `tokenEndpointAuthMethod` key of the provider's `configuration` object. It can't be declared under `security.providers` in `gravitee.yml`.
 * For more information, see [Choose how APIM authenticates to the identity provider](../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md#choose-how-apim-authenticates-to-the-identity-provider).
+
+#### **AI Model Text Embedding resource: Expression Language and secrets in the API key and header values**
+
+* The `apiKey` of the OpenAI provider and the value of each HTTP provider header now take Gravitee Expression Language, including `{#secrets.get('...')}` secret references, so a credential no longer sits in the API definition as plain text.
+* The Gateway resolves these expressions when it starts the resource, which it does when the API is deployed. An expression reads an API property or a dictionary entry of the environment. The deployment context holds nothing from a request, and a new value in a property or a dictionary reaches the resource at the next deployment of the API.
+* Only the value of a header takes an expression. The header name is sent as entered.
+* The change ships in AI Model Text Embedding 2.0.0, which APIM bundles from 4.11.26, 4.12.18, and 4.13.0 onward. The configuration format is unchanged, so an existing resource keeps working as it is.
+* For more information, see [AI Resources](../../ai-agent-management/AI-resources/README.md).

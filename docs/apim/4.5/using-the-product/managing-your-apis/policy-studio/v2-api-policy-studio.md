@@ -134,7 +134,7 @@ To debug your flows:
 4. Select **Policy Studio** from the inner left nav
 5.  Select the **Debug** tab
 
-    <div align="left"><figure><img src="../../../.gitbook/assets/v2 debug.png" alt="" width="188"><figcaption><p>Configure Debug</p></figcaption></figure></div>
+    <div align="left"><figure><img src="../../../.gitbook/assets/v2 debug.png" alt="The Request panel of the Debug tool, with the GET method, a root path, an empty headers table, and Cancel and Send buttons." width="188"><figcaption><p>Configure Debug</p></figcaption></figure></div>
 6. Define the HTTP method, path, headers, and request bodies for the debug request
 7.  Select **Send** to prompt Gravitee to initiate a test request and present you with a timeline showing the order of your flows and policies
 
