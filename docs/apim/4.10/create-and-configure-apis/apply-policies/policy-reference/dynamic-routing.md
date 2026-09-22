@@ -90,7 +90,7 @@ Requests (that start with) `https://gateway/entrypoint-path-A/` will be routed t
 {% endcolumn %}
 
 {% column %}
-<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-244.png" alt=""><figcaption><p>Dynamic Routing policy used within the Flow that has the <code>{#request.contextPath=='/entrypoint-path-BB'}</code> condition</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-244.png" alt="The Dynamic Routing policy dialog, with an empty trigger condition and a routing rule that matches any path and redirects to another service using a capture group."><figcaption><p>Dynamic Routing policy used within the Flow that has the <code>{#request.contextPath=='/entrypoint-path-BB'}</code> condition</p></figcaption></figure>
 
 Requests (that start with) `https://gateway/entrypoint-path-BB/` will be routed to `https://another.service/second-api/`
 {% endcolumn %}

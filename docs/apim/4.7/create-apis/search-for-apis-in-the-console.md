@@ -15,13 +15,13 @@ From this page you can complete the following actions:
 * Browse the list of your APIs
 * View/edit an API by clicking its name or the pencil icon
 
-<figure><img src="../.gitbook/assets/create-apis-search-for-apis-in-the--224.png" alt=""><figcaption><p>Example screenshot of the API menu (in the Gravitee API Management Console)</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/create-apis-search-for-apis-in-the--224.png" alt="The APIs list filtered by a name and owner search, showing 24 APIs with their definition, status, access path, categories, and owner."><figcaption><p>Example screenshot of the API menu (in the Gravitee API Management Console)</p></figcaption></figure>
 
 ## Search for APIs
 
 It can be challenging to browse through a long list of APIs to find a specific API. You can use the search box to filter and find your API.
 
-<figure><img src="../.gitbook/assets/create-apis-search-for-apis-in-the--225.png" alt=""><figcaption><p>Search APIs</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/create-apis-search-for-apis-in-the--225.png" alt="A close-up of the APIs list search field, showing a query that filters by API name and owner name, with the environment selector and first result blurred."><figcaption><p>Search APIs</p></figcaption></figure>
 
 Here is the list of API fields that you can use as search filters:
 
