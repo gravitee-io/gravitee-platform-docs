@@ -141,4 +141,4 @@ Once you've created an application, you can click on it and use the header optio
     <figure><img src="../../../.gitbook/assets/application_alerts.png" alt="The Notifications tab of an application, listing subscription and support events with every toggle switched on."><figcaption><p>Notifications</p></figcaption></figure>
 *   **Alerts:** Use the fields and drop-down menus to define an alert. After you **ADD AN ALERT**, it will appear in the **ALERTS LIST**. Application members will be notified via email.
 
-    <figure><img src="../../../.gitbook/assets/application alerts.png" alt=""><figcaption><p>Alerts</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/application alerts.png" alt="The Alerts tab of an application, listing one alert on all APIs for client errors above a threshold, with a form below to add another."><figcaption><p>Alerts</p></figcaption></figure>

@@ -29,7 +29,7 @@ The default simple application enables an API consumer to define the `client_id`
 3. Select **Client Registration** from the inner left nav
 4. Under **Default application type**, toggle **Simple** ON
 
-<figure><img src="../../.gitbook/assets/0 app.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 app.png" alt="The Client Registration settings, with the Simple default application type highlighted and dynamic client registration switched off."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 To expedite API consumption, a default application is automatically created for every new user (not including admins). To disable this behavior, use the tab that matches your deployment method.
@@ -125,7 +125,7 @@ To enable DCR, complete the following steps:
 3. Select **Client Registration** from the inner left nav
 4. Toggle **Enable Dynamic Client Registration** ON
 
-<figure><img src="../../.gitbook/assets/0 app1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 app1.png" alt="The Client Registration settings, with Enable Dynamic Client Registration highlighted and switched on above the allowed application types."><figcaption></figcaption></figure>
 
 ### Add a DCR provider
 
@@ -135,7 +135,7 @@ Any authentication server supporting OIDC can be used as a DCR provider. This gu
 
 At the bottom of the **Client Registration** page, click **+ Add a provider** and configure the following:
 
-<figure><img src="../../.gitbook/assets/0 app3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 app3.png" alt="The client registration provider form, with a name and description entered, a masked discovery endpoint, masked client ID and secret, and a registration admin scope."><figcaption></figcaption></figure>
 
 * Set a **Name** and **Description** for the provider
 *   **OpenID Connect Discovery Endpoint:** Enter the URL where an OIDC-compatible authorization server publishes its metadata
