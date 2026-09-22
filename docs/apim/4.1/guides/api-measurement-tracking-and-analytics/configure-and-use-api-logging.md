@@ -19,7 +19,7 @@ Gravitee enables you to configure and view logs for your APIs. In this article, 
 
 An API's logs will be visible at the level of the individual API. This is viewed under an APIs **Analytics** by selecting **Logs.**
 
-<figure><img src="../../.gitbook/assets/Access API logs.gif" alt=""><figcaption><p>Access an API's logs</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Access API logs.gif" alt="An animation that opens an API&#x27;s Logs page, showing the time-range presets, request and transaction filters, and an empty log table."><figcaption><p>Access an API's logs</p></figcaption></figure>
 
 If logging isn't enabled for your API, you will need to enable it manually. You can enable logging at the both the Gateway and the API levels.
 

@@ -38,30 +38,30 @@ To request a promotion, you need to have API `DEFINITION` [permissions](../../co
 
 1.  From the dashboard, click APIs.
 
-    <figure><img src="../../.gitbook/assets/click-apis-promotion.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/click-apis-promotion.png" alt="The console dashboard for a development environment with APIs highlighted in the left navigation, showing one API and no applications."><figcaption></figcaption></figure>
 2.  Navigate to the API you want to promote in the APIM Console, and then click the API.
 
-    <figure><img src="../../.gitbook/assets/api-entity-to-promote.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/api-entity-to-promote.png" alt="The APIs list with the table highlighted, showing a Kafka native API and a V2 HTTP proxy API in the test environment."><figcaption></figcaption></figure>
 3.  From the APIs menu, click **General.**
 
-    <figure><img src="../../.gitbook/assets/click-general-from-configuration-tab.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/click-general-from-configuration-tab.png" alt="The Configuration page of an API with the General tab highlighted, showing its name, version, and description above export, import, duplicate, and promote actions."><figcaption></figcaption></figure>
 4.  Click **Promote**.
 
-    <figure><img src="../../.gitbook/assets/click-promote.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/click-promote.png" alt="The Configuration page with the Promote action highlighted beside Export, Import, and Duplicate."><figcaption></figcaption></figure>
 5.  From the **Promote the API** pop-up menu, select the target environment from the **Environment** dropdown menu.
 
-    <figure><img src="../../.gitbook/assets/target-environment-list.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/target-environment-list.png" alt="The Promote the API dialog, with a note about sharding tags and the environment dropdown open on Development and Production."><figcaption></figcaption></figure>
 6.  Click **Promote** to submit the request.
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>Promoting an API does not transfer member and group information. Accepting the promotion updates the API on the target environment.</p></div>
 
-    <figure><img src="../../.gitbook/assets/click-promote-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/click-promote-api.png" alt="The Promote the API dialog with Development selected as the target environment and the Promote button highlighted."><figcaption></figcaption></figure>
 
 ### Verification
 
 The promotion request is logged in the Audit trail and sent to administrators of the target environment.
 
-<figure><img src="../../.gitbook/assets/audit-trail-promote-api.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/audit-trail-promote-api.png" alt="The environment Audit page, listing six API events for the promoted API including page, plan, metadata, membership, and creation entries."><figcaption></figcaption></figure>
 
 ### Accept or reject a promotion
 
@@ -69,32 +69,32 @@ Users with environment `API` [permissions](../../configure-and-manage-the-platfo
 
 1.  Log in to the APIM Console in the **target environment.**
 
-    <figure><img src="../../.gitbook/assets/apim-development.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/apim-development.png" alt="The console dashboard with the Development environment selector highlighted at the top of the left navigation."><figcaption></figcaption></figure>
 2.  Navigate to Tasks.
 
-    <figure><img src="../../.gitbook/assets/navigate-to-tasks.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/navigate-to-tasks.png" alt="The console dashboard with the account menu open and Tasks, showing one pending item, highlighted."><figcaption></figcaption></figure>
 3.  View the pending promotion requests.
 
-    <figure><img src="../../.gitbook/assets/review-pending-promotion-request.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/review-pending-promotion-request.png" alt="The My Tasks page, showing one API promotion request from the test environment to development, with Accept and Reject buttons."><figcaption></figcaption></figure>
 4. Accept or reject the promotion by completing the following steps:
 
 {% tabs %}
 {% tab title="Accept the Promotion" %}
 1)  Click **Accept** to approve the promotion<br>
 
-    <figure><img src="../../.gitbook/assets/config-apis-create-apis-promote-api-184.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/config-apis-create-apis-promote-api-184.png" alt="The Promote the API dialog open over the task list, explaining that accepting will create a new API in the development environment, with the Accept button highlighted."><figcaption></figcaption></figure>
 2)  The API is created in the target environment, and the task is removed from the list.<br>
 
-    <figure><img src="../../.gitbook/assets/config-apis-create-apis-promote-api-185.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/config-apis-create-apis-promote-api-185.png" alt="The APIs list in the development environment, showing the promoted Kafka native API now present and stopped."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Reject the Promotion" %}
 1.  Click Reject to discard the promotion request.
 
-    <figure><img src="../../.gitbook/assets/config-apis-create-apis-promote-api-186.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/config-apis-create-apis-promote-api-186.png" alt="The Reject Promotion Request dialog, warning that a rejected promotion cannot be accepted later without a new request, with the Reject button highlighted."><figcaption></figcaption></figure>
 2.  The task is removed from the list.<br>
 
-    <figure><img src="../../.gitbook/assets/no-task-to-display.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/no-task-to-display.png" alt="An empty My Tasks page reading &quot;No tasks to display.&quot;"><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -104,12 +104,12 @@ Users with environment `API` [permissions](../../configure-and-manage-the-platfo
 {% tab title="Accepted Promotions" %}
 The API appears in the target environment's API list.
 
-<figure><img src="../../.gitbook/assets/api-in-target-environment (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api-in-target-environment (1).png" alt="The APIs list in the development environment with the table highlighted, showing the promoted Kafka native API."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Rejected Promotions" %}
 The promotion request is removed from the Tasks list.
 
-<figure><img src="../../.gitbook/assets/complete-removed-from-task-list.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/complete-removed-from-task-list.png" alt="An empty My Tasks page in the development environment, reading &quot;No tasks to display.&quot;"><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}

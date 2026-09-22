@@ -42,17 +42,17 @@ When choosing how you want to expose your backend, you will be presented with th
 
 Select Kafka Protocol to create a Kafka API. Kafka APIs proxy the native Kafka protocol, with the Gravitee Gateway acting as a Kafka broker to Kafka clients.
 
-<figure><img src="../../.gitbook/assets/A1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/A1.png" alt="Step 2 of the API creation wizard, with Kafka Protocol selected among Proxy Generic Protocol and Protocol Mediation."><figcaption></figcaption></figure>
 
 The only field to configure for the Kafka API entrypoint is the **Host prefix**, for which you should enter the host name. If the default hostname is set, you only need to enter the prefix. This is used to uniquely identify your API server on the gateway.
 
-<figure><img src="../../.gitbook/assets/A2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/A2.png" alt="Step 2 of the API creation wizard at the entrypoints stage, with an empty host prefix field beside the resulting broker domain and port."><figcaption></figcaption></figure>
 
 ## Endpoints
 
 The Kafka endpoint configuration is the Kafka cluster being proxied by your API. Configure the bootstrap server list and security protocol to talk to the cluster.
 
-<figure><img src="../../.gitbook/assets/A3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/A3.png" alt="Step 3 of the API creation wizard, with an empty bootstrap servers field and the security protocol set to PLAINTEXT."><figcaption></figcaption></figure>
 
 Of the following configuration settings, only entering a host/port pair is required. Modifying any other configuration parameters is optional.
 
@@ -93,7 +93,7 @@ Of the following configuration settings, only entering a host/port pair is requi
 
 Define a plan to secure, monitor, and transparently communicate information on how to access your Kafka API. The plan types presented are the same as the plan types used for regular HTTP APIs in Gravitee, but map to a Kafka authentication equivalent.
 
-<figure><img src="../../.gitbook/assets/A4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/A4.png" alt="Step 4 of the API creation wizard, noting that Kafka APIs cannot have conflicting plan authentication, with one default keyless plan listed."><figcaption></figcaption></figure>
 
 Gravitee automatically assigns each API a Default Keyless plan, which grants public access. Click **+ Add plan** to create additional plans.
 
