@@ -20,7 +20,7 @@ Comprehensive connection logs let you analyze the usage of your v4 message APIs 
        <figure><img src="../../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt="The Runtime Logs page of an API, listing seven requests with their timestamp, method, status, URI, application, plan, and response time, with Logs highlighted in the API menu."><figcaption></figcaption></figure>
    2.  To view the webhook logs for a v4 message API with a webhook entrypoint, click the **Webhook** menu item:
 
-       <figure><img src="../../.gitbook/assets/logging-webhook-view3.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/logging-webhook-view3.png" alt="The Webhook Logs page with Webhooks highlighted in the API menu, listing ten of 77 delivery attempts with their timestamp, 200 status, callback URL, and masked application name."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 If logging is disabled, existing logs are displayed with a banner that indicates that the record is not current.
@@ -43,7 +43,7 @@ The **More** button offers additional filtering options.
 
 You can filter v4 message webhook logs based on time period, HTTP status, and application. The **More** button lets you filter by callback URL and a customized timeframe.
 
-<figure><img src="../../.gitbook/assets/logging-webhook-filters.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/logging-webhook-filters.png" alt="A row of webhook log filters for period, HTTP status, and applications, with More and Refresh buttons and a Reset filters link below."><figcaption></figcaption></figure>
 
 ## View log details
 
@@ -79,7 +79,7 @@ The **Response** panel shows the status of the Gateway and consumer, the headers
 
 To view the details of any entry in the list of v4 message API runtime logs, select **Logs** from your API's menu, and then click the eye symbol next to the log whose details you want to view.
 
-<figure><img src="../../.gitbook/assets/logging-webhook-view4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/logging-webhook-view4.png" alt="The Runtime Logs page of a message API, with the view icon on the first row highlighted, listing eight push plan entries with their response times."><figcaption></figcaption></figure>
 
 Under the **Connection Logs** tab, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**:
 
@@ -97,13 +97,13 @@ Webhook logs contain specific metrics related to the HTTP call performed by the 
 
 To view the details of any entry in the list of webhook logs, select **Webhooks** from your API's menu, and then click the eye symbol next to the log whose details you want to view.
 
-<figure><img src="../../.gitbook/assets/logging-webhook-view2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/logging-webhook-view2.png" alt="The Webhook Logs page with the view icon on the first row highlighted, listing delivery attempts with their callback URL and masked application name."><figcaption></figcaption></figure>
 
 The **Overview** section shows general information about the request and response phases.
 
 The request information includes the date of the request, number of delivery attempts, and the callback URL. The response information includes the HTTP status, response duration, and payload size.
 
-<figure><img src="../../.gitbook/assets/logging-webhook-overview.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/logging-webhook-overview.png" alt="An Overview panel for a webhook delivery, showing the request date, attempt count, and callback URL beside a 200 response with zero duration and payload size."><figcaption></figcaption></figure>
 
 If there are connection issues, the response status can be 0. If an HTTP error occurred, the following information is recorded:
 
@@ -114,7 +114,7 @@ If there are connection issues, the response status can be 0. If an HTTP error o
 
 The **Delivery attempts** section records the number of retry attempts, the timestamp of the delivery, its duration, and its HTTP status.
 
-<figure><img src="../../.gitbook/assets/logging-webhook-delivery.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/logging-webhook-delivery.png" alt="A Delivery attempts panel, listing one attempt with its timestamp, zero-millisecond duration, and 200 status."><figcaption></figcaption></figure>
 
 Optionally, you can [enable logging for each of the following](configure-api-level-logs.md):
 
@@ -123,4 +123,4 @@ Optionally, you can [enable logging for each of the following](configure-api-lev
 * Response headers
 * Response body
 
-<figure><img src="../../.gitbook/assets/logging-webhook.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/logging-webhook.png" alt="A webhook delivery detail, showing the gateway request headers and a mock message body beside the callback endpoint&#x27;s response headers and an empty body."><figcaption></figcaption></figure>

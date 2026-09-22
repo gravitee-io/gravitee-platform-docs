@@ -8,7 +8,7 @@ This guide shows administrators how to enable the self-service mTLS certificate 
 
 ## Prerequisites
 
-- APIM 4.11 or later, running with an Enterprise Edition license. The **Enable mTLS Certificate Management** toggle is hidden from the Management Console when no Enterprise license is active.
+- APIM 4.11.2 or later, running with an Enterprise Edition license. The whole **New Developer Portal** section of the portal settings page, including the **Enable mTLS Certificate Management** toggle, is hidden from the Management Console when no Enterprise license is active.
 - The new Developer Portal is enabled for the environment. This sets the `portal.next.access.enabled` parameter and is controlled by the **Enable the New Developer Portal** toggle in the **New Developer Portal** section of the portal settings page in the Management Console.
 - You have permission to edit portal settings for the environment (`environment-settings-u`).
 
@@ -28,7 +28,7 @@ The feature is controlled by a single environment-scoped parameter, `portal.next
 
     <figure><img src="../../.gitbook/assets/console-new-developer-portal-section.png" alt=""><figcaption><p>New Developer Portal section on the portal settings page</p></figcaption></figure>
 
-4. Turn on the **Enable mTLS Certificate Management** toggle.
+4. Turn on the **Enable mTLS Certificate Management** toggle. The toggle stays disabled until **Enable the New Developer Portal** is turned on.
 
     <figure><img src="../../.gitbook/assets/console-enable-mtls-toggle.png" alt=""><figcaption><p>Enable mTLS Certificate Management toggle in the on position</p></figcaption></figure>
 
@@ -38,7 +38,7 @@ The toggle takes effect immediately for the current environment. Application own
 
 ## Disable the feature
 
-Turn off the **Enable mTLS Certificate Management** toggle and click **Save**. Existing certificates aren't deleted — they remain in the database and continue to authenticate existing mTLS subscriptions — but application owners can no longer view or manage them from the new Developer Portal. Re-enable the toggle to restore access.
+Turn off the **Enable mTLS Certificate Management** toggle and click **Save**. Existing certificates aren't deleted. They keep authenticating the existing mTLS subscriptions, and administrators keep managing them from the Console, but application owners can no longer view or manage them from the new Developer Portal. Re-enable the toggle to restore access.
 
 ## Verification
 

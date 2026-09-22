@@ -187,7 +187,7 @@ To enable HashiCorp Consul service discovery in your APIM Console:
 6. Click on the **Service discovery** tab
 7.  Toggle **Enabled service discovery** ON, then configure the following:
 
-    <figure><img src="../../../.gitbook/assets/v2 service discovery_configure.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 service discovery_configure.png" alt="The Service discovery tab of an endpoint group, enabled, with a Consul agent address, empty service, data-centre and ACL fields, and the truststore type set to NONE."><figcaption></figcaption></figure>
 
     * **Type:** Select **Consul.io Service Discovery** from the drop-down menu
     * **Service:** Enter the name of the service registered in Consul, e.g., "whattimeisit"
@@ -219,7 +219,7 @@ To declare an endpoint as secondary:
 5. Click the pencil icon next to the endpoint you want to make secondary
 6.  Under the **General** tab, click the box next to **Secondary endpoint**
 
-    <figure><img src="../../../.gitbook/assets/v2 service discovery_secondary endpoint.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 service discovery_secondary endpoint.png" alt="The General tab of an endpoint, with the type set to http, a target URL, a weight of zero, no tenants, and the secondary endpoint checkbox ticked."><figcaption></figcaption></figure>
 7. Click **Save**
 
 ## **Verification**

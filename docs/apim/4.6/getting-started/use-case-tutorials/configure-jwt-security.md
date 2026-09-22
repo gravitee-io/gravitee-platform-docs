@@ -94,13 +94,13 @@ Publish your plan by selecting the publish icon on your plan as shown below.
 
 At this point, it is likely you have both a Keyless and a JWT plan published. Please delete any Keyless plans to ensure the JWT plan can not be bypassed. Select the **X** icon and then follow the prompts in the modal to delete the Keyless plan as shown below:
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-18.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-18.png" alt="The Close plan confirmation dialog, warning that the operation is irreversible and requiring the plan name to be typed to confirm."><figcaption></figcaption></figure>
 
 ### Redeploying your API <a href="#redeploying-your-api-7" id="redeploying-your-api-7"></a>
 
 As you make modifications to your Gateway API in the Console UI, you will see an orange banner appear that states your API is out of sync. This is because changes you make in the Console UI are not actually synced to the Gateway until you manually redeploy it. Once ready, select **Deploy API** in the banner and then **Deploy** in the subsequent modal to sync your latest changes to the Gravitee Gateway.
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-19.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-19.png" alt="The Deploy your API dialog open over the Plans tab, asking for a label to identify the deployment."><figcaption></figcaption></figure>
 
 ### Subscribe to the JWT Plan <a href="#subscribe-to-the-jwt-plan-8" id="subscribe-to-the-jwt-plan-8"></a>
 
@@ -120,7 +120,7 @@ With that completed, let’s head to the Developer Portal by selecting the Devel
 
 If you do not see a link in your deployment of APIM, please reference the respective installation docs to see how it’s deployed. For example, with default docker installation, you can access the Developer Portal at `localhost:8085` in your browser.
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-21.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-21.png" alt="The developer portal dashboard, listing the signed-in user&#x27;s applications as cards above a table of their subscriptions."><figcaption></figcaption></figure>
 
 #### Create an Application <a href="#create-an-application-11" id="create-an-application-11"></a>
 
@@ -132,23 +132,23 @@ For the sake of this demo, we will be creating a Simple application in the Devel
 
 In the Developer Portal, select **Applications** in the top navigation bar and then select **+ Create an app** in the top right of the screen.
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-22.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-22.png" alt="The My applications tab of the developer portal, showing two application cards with their descriptions and subscriber counts."><figcaption></figcaption></figure>
 
 Provide a name and description then select **Next**. On the security screen, select a Simple application and provide a `client_id` that matches the `client_id` of your IdP’s application. For example, in Okta, you can find your `client_id` right next to the name of your application.
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-23.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-23.png" alt="An application&#x27;s settings page in an external identity provider, showing its name, single page application type, and a masked client ID."><figcaption></figcaption></figure>
 
 After providing the `client_id`, select **Next**.
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-24.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-24.png" alt="The Security step of the developer portal application wizard, with the Simple type selected, an empty Type field, and a placeholder client ID."><figcaption></figcaption></figure>
 
 On the **Subscription** page, you can directly search for your Gateway API and see the available plans. Search for your API, select **Subscribe**, and then select **Next**.
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-63.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-63.png" alt="The Subscription step of the developer portal application wizard, with an API searched, a JWT plan selected, and the subscription request listed with a comment."><figcaption></figcaption></figure>
 
 Finally, you can see an overview of your new Gravitee application. After careful review, select **Create the App** to create your application.
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-64.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-64.png" alt="The Validation step of the developer portal application wizard, summarising the application name, description, type, and client ID beside the subscription request."><figcaption></figcaption></figure>
 
 Bravo! Since your JWT plan has auto-validation enabled, your application is now approved to send requests through Gravitee’s Gateway to access the protected resources. To test, include the `Authorization: Bearer <your_jwt_token_here>` HTTP header with your request to the Gateway:
 

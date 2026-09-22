@@ -120,7 +120,7 @@ To add a dashboard to your Analytics tab, follow these steps:
 {% hint style="success" %}
 If you followed the above steps, you'll see your new dashboard and widget.
 
-<img src="../../.gitbook/assets/guides-api-measurement-tracking-and-anal-40-1.png" alt="" data-size="original">
+<img src="../../.gitbook/assets/guides-api-measurement-tracking-and-anal-40-1.png" alt="The Platform Overview dashboard in the portal, with a sample dashboard selected and a sample widget listing two APIs by hit count." data-size="original">
 {% endhint %}
 
 #### Edit existing Analytics dashboards

@@ -72,7 +72,7 @@ v4 API properties can be dynamically managed via the **Properties** tab of the A
 
 Events and audit entries are now captured at the API level for v4 APIs. These are listed in table format and can be filtered by event type and date range.
 
-<figure><img src="../../.gitbook/assets/audit logs_v4 apis.png" alt=""><figcaption><p>Events and audit logs</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/audit logs_v4 apis.png" alt="The Audit Logs tab of an API&#x27;s Configuration page, listing five events including plan published, plan created, metadata created, and membership created."><figcaption><p>Events and audit logs</p></figcaption></figure>
 
 See the [Audit Logs](../../guides/api-configuration/v4-api-configuration/audit-logs.md) documentation for more information.
 

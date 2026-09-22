@@ -227,7 +227,7 @@ To configure Response templates, follow these few steps:
    * One or more HTTP headers to include in the response
    * A response template body
 
-<figure><img src="../../../.gitbook/assets/Response templates.gif" alt=""><figcaption><p>Configure Response templates</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Response templates.gif" alt="An animation that creates a response template, entering a gateway client connection timeout template key and opening the Accept header dropdown to choose a header to match."><figcaption><p>Configure Response templates</p></figcaption></figure>
 
 {% hint style="success" %}
 **Success!**
