@@ -136,7 +136,7 @@ To configure dynamic properties:
 5. Select the **Properties** tab
 6.  Click the **Manage dynamically** button and define the configuration
 
-    <figure><img src="../.gitbook/assets/api properties_dynamically manage.png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/api properties_dynamically manage.png" alt="The API dynamic properties page, with the service disabled, a schedule running every thirty seconds, the GET method, and empty URL and request header fields."><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
     * Toggle **Enabled** to ON
     * **Schedule:** A cron expression to schedule the health check

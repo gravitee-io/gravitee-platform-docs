@@ -41,7 +41,7 @@ To view the API Score details for a specific API, click on the API in the **APIs
 
 This brings you to a page that shows the details of API metrics.
 
-<figure><img src="../../.gitbook/assets/00 api 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 api 2.png" alt="The API Score page for one API, showing an 82 percent score with tabs for errors, warnings, infos, and hints, above a table of recommendations with their severity, line, and path."><figcaption></figcaption></figure>
 
 ### Filter API Score issues
 
