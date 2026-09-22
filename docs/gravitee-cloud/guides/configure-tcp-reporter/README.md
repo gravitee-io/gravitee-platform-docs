@@ -18,6 +18,7 @@ For more information about the Datadog reporter plugin, see [Datadog Reporter](h
 | --------- | ---------------- |
 | TCP TLS   | 4.11.x and above |
 | TCP Plain | Any version      |
+| Datadog   | 4.12.x and above |
 
 ## Key Concepts
 
