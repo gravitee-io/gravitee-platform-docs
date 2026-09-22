@@ -144,7 +144,52 @@ All ONNX BERT models support a maximum sequence length of 512 tokens.
 
 The OpenAI provider generates embeddings using OpenAI's cloud-based API.
 
-<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>uri</td><td>OpenAI API endpoint URI</td><td>-</td></tr><tr><td>apiKey</td><td>OpenAI API key</td><td>-</td></tr><tr><td>organizationId</td><td>Optional organization ID</td><td>-</td></tr><tr><td>projectId</td><td>Optional project ID</td><td>-</td></tr><tr><td>modelName</td><td>Name of the embedding model (e.g., <code>text-embedding-ada-002</code>)</td><td>-</td></tr><tr><td>dimensions</td><td>Optional embedding dimensions (must be non-negative)</td><td>-</td></tr><tr><td>encodingFormat</td><td>Encoding format. Supported values: <code>FLOAT</code>, <code>BASE64</code></td><td>-</td></tr></tbody></table>
+<table>
+    <thead>
+        <tr>
+            <th width="167">Config param</th>
+            <th width="384">Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>uri</td>
+            <td>OpenAI API endpoint URI</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>apiKey</td>
+            <td>OpenAI API key. Takes an expression or a secret reference</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>organizationId</td>
+            <td>Optional organization ID</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>projectId</td>
+            <td>Optional project ID</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>modelName</td>
+            <td>Name of the embedding model (for example, <code>text-embedding-ada-002</code>)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>dimensions</td>
+            <td>Optional embedding dimensions (must be non-negative)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>encodingFormat</td>
+            <td>Encoding format. Supported values: <code>FLOAT</code>, <code>BASE64</code></td>
+            <td>-</td>
+        </tr>
+    </tbody>
+</table>
 
 {% hint style="info" %}
 Embedding dimensions must be compatible with the vector store configuration.
@@ -173,7 +218,63 @@ Embedding dimensions must be compatible with the vector store configuration.
 
 The HTTP provider generates embeddings using a custom HTTP endpoint.
 
-<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>uri</td><td>HTTP endpoint URI</td><td></td></tr></tbody></table>
+<table>
+    <thead>
+        <tr>
+            <th width="167">Config param</th>
+            <th width="384">Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>uri</td>
+            <td>HTTP endpoint URL for the custom model API</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>method</td>
+            <td>HTTP method for the API request. Supported values: <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>, <code>PATCH</code>, <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code></td>
+            <td><code>POST</code></td>
+        </tr>
+        <tr>
+            <td>headers</td>
+            <td>Additional HTTP headers to send with requests. Each entry holds a <code>name</code> and a <code>value</code>, and the value takes an expression or a secret reference</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>requestBodyTemplate</td>
+            <td>Template for the HTTP request body. Use the <code>{input}</code> placeholder for the text input</td>
+            <td><code>{"text": "{input}"}</code></td>
+        </tr>
+        <tr>
+            <td>inputLocation</td>
+            <td>JSONPath or field name where the input text is placed in the request</td>
+            <td><code>$.text</code></td>
+        </tr>
+        <tr>
+            <td>outputEmbeddingLocation</td>
+            <td>JSONPath or field name where the embedding vector is located in the response</td>
+            <td><code>$.embedding</code></td>
+        </tr>
+    </tbody>
+</table>
+
+**Expression Language and secrets**
+
+The `apiKey` of the OpenAI provider and the value of each HTTP provider header take Gravitee Expression Language, including `{#secrets.get('...')}` secret references. Both fields take them from APIM 4.11.26, 4.12.18, and 4.13.0 onward.
+
+The Gateway resolves these expressions when it starts the resource, which it does when the API is deployed. An expression reads an API property with `{#properties['key']}` or a dictionary entry of the environment with `{#dictionaries['name']['key']}`. The deployment context holds nothing from a request, because no request exists when the resource starts. A new value in a property or a dictionary reaches the resource at the next deployment of the API.
+
+The API definition keeps the expression you entered. The running resource holds the resolved value in memory, and the resolved value never replaces the expression in the definition.
+
+Only the value of a header takes an expression. Enter the header name itself literally.
+
+If the Gateway has no way to resolve the expressions, the resource doesn't start, so an unresolved expression never reaches the model provider.
+
+The ONNX BERT provider has no field that takes an expression.
+
+For the syntax of secret references and the secret managers they read from, see [Reference Secrets in APIs](../../prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis.md).
 
 ## Next steps
 
