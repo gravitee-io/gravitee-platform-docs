@@ -139,4 +139,4 @@ Now you have all the information you need to configure Postman to call your API.
 8. Click **Publish message** to publish the message to your channel.
 9.  You can now go back to Postman, where you should see the message in the **Body** section.
 
-    <figure><img src="../../.gitbook/assets/ably message2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/ably message2.png" alt="An API client showing a GET request that returned 200 OK, with the streamed message expanded to show its identifier, timestamp, connection identifier, channel, and data."><figcaption></figcaption></figure>

@@ -168,35 +168,35 @@ After deploying the Gateway with the system proxy configured, you enable it for 
 
 1.  From the dashboard, click **APIs** from the left menu, then select the API you want to configure.
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 04.08.03.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 04.08.03.png" alt="The Configuration page of an API, showing its name, version, and description, an Allow in API Products toggle, and a Danger Zone below."><figcaption></figcaption></figure>
 2.  Select **Endpoints**, then select the endpoint group you want to modify.
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 04.10.05.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 04.10.05.png" alt="The Endpoints tab of an API, showing one default HTTP proxy group with a single endpoint, its target URL, and weight."><figcaption></figcaption></figure>
 3.  Select **Configuration**.
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 04.10.55.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 04.10.55.png" alt="The Configuration tab of an endpoint group, with Inherit configuration from the endpoint group switched on and the security options below disabled."><figcaption></figcaption></figure>
 4.  Scroll to the **Proxy** section and enable **Use System Proxy**.
 
-    <figure><img src="../../.gitbook/assets/hybrid-proxy-configuration-system-p-193.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/hybrid-proxy-configuration-system-p-193.png" alt="The endpoint proxy options with the dropdown open, offering no proxy, the system-level proxy, or a proxy for client connections, above the truststore and key store selectors."><figcaption></figcaption></figure>
 5. Save and deploy your API.&#x20;
 
 #### **For a new API:**
 
 1.  From the dashboard, click **APIs** from the left menu, then click **Add API**.<br>
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 03.52.04.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 03.52.04.png" alt="The APIs list showing the first page of over two thousand eight hundred APIs, with the Add API button highlighted."><figcaption></figcaption></figure>
 2.  Follow the API creation wizard to configure your API details.
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 03.54.27.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 03.54.27.png" alt="Step 1 of the API creation wizard, with an API name, version, and description filled in."><figcaption></figcaption></figure>
 3.  In the **Endpoints** configuration step, input the HTTP proxy target URL.
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 03.56.14.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 03.56.14.png" alt="Step 3 of the API creation wizard, with an HTTP proxy target URL entered and the security configuration set to HTTP 1.1 with keep-alive enabled."><figcaption></figcaption></figure>
 4.  In the **Configuration** section, scroll to the **Proxy** section and enable **Use System Proxy**.
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 03.56.58.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 03.56.58.png" alt="The endpoint configuration scrolled to the proxy options, with the dropdown open on no proxy, the system-level proxy, and a proxy for client connections."><figcaption></figcaption></figure>
 5.  Complete the remaining steps in the API creation wizard, and deploy your API.
 
-    <figure><img src="../../.gitbook/assets/deploy-api-system-proxy.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/deploy-api-system-proxy.png" alt="Step 5 of the API creation wizard, summarising the API details, entrypoints, endpoints, and a default keyless plan, with Save API and Save and Deploy API buttons."><figcaption></figcaption></figure>
 
 ## Verification
 
