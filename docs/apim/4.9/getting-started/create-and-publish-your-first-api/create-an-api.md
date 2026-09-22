@@ -16,31 +16,31 @@ This guide explains how to create an API with the Gravitee APIM console.
 
 1.  From the Dashboard, click **APIs**.
 
-    <figure><img src="../../.gitbook/assets/0C327947-9B22-4326-A689-3EDB37DED7A1.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/0C327947-9B22-4326-A689-3EDB37DED7A1.jpeg" alt="The console dashboard with APIs highlighted in the left navigation, showing no APIs and one application."><figcaption></figcaption></figure>
 2.  Click **+ Add API**.
 
-    <figure><img src="../../.gitbook/assets/28D18F13-E1B9-4FD2-9A3F-48B07C2C4A31.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/28D18F13-E1B9-4FD2-9A3F-48B07C2C4A31.jpeg" alt="The APIs list, empty, with the Add API button highlighted above the table."><figcaption></figcaption></figure>
 3.  Click **Create V4 API**.
 
-    <figure><img src="../../.gitbook/assets/4841C54B-740F-454B-A6FE-0319A8CC46FD.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/4841C54B-740F-454B-A6FE-0319A8CC46FD.jpeg" alt="The Choose API creation method page with the Create V4 API button highlighted in the Create New API panel."><figcaption></figcaption></figure>
 4.  Enter your API's name and version number, and then click **Validate my API details**. For example, My first API and version 1.
 
-    <figure><img src="../../.gitbook/assets/gs-first-api-create-an-api-19.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-first-api-create-an-api-19.png" alt="Step 1 of the API creation wizard, with an API name and version number entered and an empty description."><figcaption></figcaption></figure>
 5.  Select **HTTP Proxy**, and then click **Select my entrypoints**
 
-    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-14-2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-14-2.png" alt="Step 2 of the API creation wizard, with HTTP Proxy selected over TCP Proxy as the API entrypoint."><figcaption></figcaption></figure>
 6.  Set a unique **Context-path , and** then click **Validate my entrypoints**. For example, /myfirstapi.
 
-    <figure><img src="../../.gitbook/assets/gs-first-api-create-an-api-20.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-first-api-create-an-api-20.png" alt="Step 2 of the API creation wizard at the configure stage, with virtual hosts enabled and a context path entered."><figcaption></figcaption></figure>
 7.  In the **Configure your API endpoints access** screen, set the target URL , and then click **Validate my endpoints**. For example, https://jsonplaceholder.typicode.com
 
     <figure><img src="../../.gitbook/assets/gs-first-api-create-an-api-22.png" alt=""><figcaption></figcaption></figure>
 8.  Click **Validate my plans**. By default, Gravitee adds a **Default keyless plan (UNSECURED)** to your API.
 
-    <figure><img src="../../.gitbook/assets/gs-first-api-create-an-api-21.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-first-api-create-an-api-21.png" alt="Step 4 of the API creation wizard, listing one default keyless plan in standard mode above a Validate my plans button."><figcaption></figcaption></figure>
 9.  Click **Save & Deploy API**.
 
-    <figure><img src="../../.gitbook/assets/F1F03EEB-D24D-4303-A197-39EB859ACC3D_1_105_c.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/F1F03EEB-D24D-4303-A197-39EB859ACC3D_1_105_c.jpeg" alt="Step 5 of the API creation wizard, summarising the API details, entrypoints, endpoints, and plan, with the Save and Deploy API button highlighted."><figcaption></figcaption></figure>
 
 ## Test your API
 

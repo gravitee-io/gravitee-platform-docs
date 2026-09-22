@@ -25,10 +25,10 @@ To enable and configure runtime logging for a v4 proxy API, complete the followi
 3. From your API's menu, click **Logs**.
 4.  Click **Configure Reporting**.
 
-    <figure><img src="../../.gitbook/assets/logging-proxy-configure.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/logging-proxy-configure.png" alt="The Runtime Logs page of a stopped API, with the Configure Reporting button highlighted and a notice that reporting is disabled."><figcaption></figcaption></figure>
 5.  To enable logging, turn on the **Enabled** toggle.
 
-    <figure><img src="../../.gitbook/assets/logging-proxy-full-menu.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/logging-proxy-full-menu.png" alt="The runtime logging settings for a proxy API, enabled, with entrypoint and endpoint modes, request and response phases, headers and payload all switched off, and an empty request phase condition."><figcaption></figcaption></figure>
 6. To configure which information is recorded, select from the following options:
    * **Logging mode:** Select from **Entrypoint** and **Endpoint** to customize which modes are logged.
    * **Logging phase:** Select from **Request** and **Response** to customize which phases are logged.
@@ -49,10 +49,10 @@ To enable and configure runtime logging for a v4 message API, complete the follo
 3. From your API's menu, click **Logs**.
 4.  Click **Configure Reporting**.
 
-    <figure><img src="../../.gitbook/assets/logging-message-configure.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/logging-message-configure.png" alt="The Runtime Logs page of a draft message API, with the Configure Reporting button highlighted and reporting disabled."><figcaption></figcaption></figure>
 5.  To enable logging, toggle **Enabled** to ON.
 
-    <figure><img src="../../.gitbook/assets/logging-message-full-menu.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/logging-message-full-menu.png" alt="The runtime logging settings for a message API, showing logging mode and phase toggles, message content options, and message sampling set to Count with a value of one."><figcaption></figcaption></figure>
 6. To configure which information is recorded, select from the following options:
    * **Logging mode:** Select from **Entrypoint** and **Endpoint** to customize which modes are logged.
    * **Logging phase:** Select from **Request** and **Response** to customize which phases are logged.
@@ -78,10 +78,10 @@ You can configure webhook logging i.e callback HTTP request/response, for v4 mes
 3. From your API's menu, click **Webhooks**.
 4.  Click **Configure Webhook Reporting**.
 
-    <figure><img src="../../.gitbook/assets/logging-configure-webhook.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/logging-configure-webhook.png" alt="The Webhook Logs page of an API, with the Configure Webhook Reporting button highlighted and reporting disabled."><figcaption></figcaption></figure>
 5.  To enable logging, toggle **Enabled** to ON.
 
-    <div align="left"><figure><img src="../../.gitbook/assets/logging-conf-webhook.png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/logging-conf-webhook.png" alt="The Webhook Logs reporting settings dialog, enabled, with request body, request headers, response body, and response headers all switched on." width="375"><figcaption></figcaption></figure></div>
 6. To configure which optional information is recorded, select from the following options:
    * Request body
    * Request headers

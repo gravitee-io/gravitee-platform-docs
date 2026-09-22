@@ -32,7 +32,7 @@ Gravitee Access Management and third-party IdPs provide a number of ways to add 
 
 The next step is to add the necessary policies to the Gateway API you configured in the previous tutorial. In the Console UI, open the API you created previously, and select **Policy Studio** in the inner sidebar.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-20 at 11.39.43 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-20 at 11.39.43 PM.png" alt="The Policy Studio of an API, listing a JWT flow and a Common flows group, with no flows yet selected."><figcaption></figcaption></figure>
 
 The Policy Studio provides a graphical interface to design and configure flows. Flows define the processing logic and order of policies applied to an API transaction and can be applied at the platform, API, and plan levels. We will use the Policy Studio to apply flows at the plan level.
 
@@ -62,6 +62,6 @@ Similar to before, Select the **+ icon** after the Assign Attributes policy in t
 
 From here, you simply need to add the roles required to access the API endpoint that you specified in the flow configuration. In our example, that endpoint is `GET https://your-gateway-host/your-api-context-path/sub-resource` and the required roles are `admin` and `user`.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-20 at 11.58.26 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-20 at 11.58.26 PM.png" alt="The Policies for Request phase dialog configuring role-based access, with two required roles listed and strict mode switched on."><figcaption></figcaption></figure>
 
 After you’ve added the roles, select **Save** in the top right, and redeploy your API. All `GET` requests to the `/sub-resource` route will now have this flow applied that checks the JWT for configured roles.

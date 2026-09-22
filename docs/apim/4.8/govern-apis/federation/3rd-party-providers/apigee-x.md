@@ -30,22 +30,22 @@ To integrate Apigee X with Gravitee APIM, complete the following steps:
 
 1.  From the Dashboard, click **Integrations**
 
-    <figure><img src="../../../.gitbook/assets/select-integrations-left-menu-apigee.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/select-integrations-left-menu-apigee.png" alt="The console dashboard with Integrations highlighted in the left navigation, showing 3,198 APIs and 827 applications with lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  Click **Create Integration.**
 
-    <figure><img src="../../../.gitbook/assets/create-integration-apigee.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/create-integration-apigee.png" alt="The Integrations page with the Create Integration button highlighted, listing disconnected Edge Stack and AWS API Gateway integrations."><figcaption></figcaption></figure>
 3.  Select **Apigee X,** and then click **Next.**
 
-    <figure><img src="../../../.gitbook/assets/select-apigee-integration-from-integrations.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/select-apigee-integration-from-integrations.png" alt="The Choose Provider step of the Create Integration wizard, with Apigee selected among A2A Protocol, AWS API Gateway, Solace, Azure API Management, IBM API Connect, Confluent Platform, Mulesoft, and Edge Stack."><figcaption></figcaption></figure>
 4.  Enter the **Integration** **Name.**
 
-    <figure><img src="../../../.gitbook/assets/govern-federation-apigee-x-0.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-federation-apigee-x-0.png" alt="The Enter Information step of the Create Integration wizard, with an Apigee federation name and description filled in."><figcaption></figcaption></figure>
 5.  (Optional) Enter a **Description** for the integration.
 
-    <figure><img src="../../../.gitbook/assets/name-and-description-apigee-x.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/name-and-description-apigee-x.png" alt="The Enter Information step of the Create Integration wizard, with the name and description fields completed for an Apigee federation."><figcaption></figcaption></figure>
 6.  Click **Create Integration.**
 
-    <figure><img src="../../../.gitbook/assets/click-on-create-integration.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/click-on-create-integration.png" alt="The Enter Information step of the Create Integration wizard with the Create Integration button highlighted."><figcaption></figcaption></figure>
 7.  From the Integration overview tab, copy the **Integration ID**. You need this ID for the agent configuration.
 
     <figure><img src="../../../.gitbook/assets/apigee-federation-agent-connection.png" alt="The Overview page of an Apigee integration, showing the provider, a disconnected agent, and a partly masked integration identifier."><figcaption></figcaption></figure>

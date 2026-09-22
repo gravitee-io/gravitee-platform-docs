@@ -131,13 +131,13 @@ Create an API with a fake/exposed secret, which you will later secure (after we 
         * KEY: `Authorization`
         * VALUE: `ApiKey 123456789`
 
-        <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-18-1.png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-18-1.png" alt="The Close plan confirmation dialog, warning that the operation is irreversible and requiring the plan name to be typed to confirm."><figcaption></figcaption></figure>
 11. Click **Validate my endpoints**.
 
-    <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-12-2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-12-2.png" alt="The lower part of an HTTP proxy endpoint&#x27;s configuration, showing proxy options set to no proxy and SSL options with host verification on, trust all off, and no truststore or key store."><figcaption></figcaption></figure>
 12. Click V**alidate my plans**.
 
-    <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-19-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-19-1.png" alt="The Deploy your API dialog open over the Plans tab, asking for a label to identify the deployment."><figcaption></figcaption></figure>
 13. Click **Save & Deploy API**.
 
     <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-14.png" alt="Step 5 of the API creation wizard, summarising the API details, entrypoints, endpoints, and keyless plan, with Save API and Save and Deploy API buttons."><figcaption></figcaption></figure>
