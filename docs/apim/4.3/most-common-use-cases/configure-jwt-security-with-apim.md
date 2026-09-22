@@ -65,7 +65,7 @@ Provide your plan a name, and then scroll down and toggle on **Auto validate sub
 
 On the security page, select the **Signature** that your IdP uses to encrypt your access tokens.
 
-<figure><img src="../.gitbook/assets/jwt security.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/jwt security.png" alt="The JWT authentication configuration step of plan creation, with the signature set to RSA_RS256 above the JWKS resolver section."><figcaption></figcaption></figure>
 
 Next, you need to tell the Gravitee Gateway where it can retrieve the JSON web key set (JWKS) to validate the signature with a public key. Typically, in a production setup, you want to use JWKS URL as it is more secure and eliminates the need to update the resolver when you rotate keys.
 

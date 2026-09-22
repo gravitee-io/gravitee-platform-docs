@@ -51,7 +51,7 @@ All Gateway APIs require at least one published plan to deploy the API to the Ga
 
 In the APIM Console UI, open the Gateway API you want to secure with a JWT plan. You should see a screen similar to the following:
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-2.png" alt="An API client showing a GET request to an SSE consumer path that returned 200 OK, with one channel query parameter and a streamed JSON message below."><figcaption></figcaption></figure>
 
 In the sidebar, select **Plans**, and then select **+Add new plan** in the top right of the screen. In the drop-down that appears, select **JWT**.
 

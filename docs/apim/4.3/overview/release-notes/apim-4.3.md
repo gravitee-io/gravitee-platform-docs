@@ -50,10 +50,10 @@ Gravitee 4.3 includes numerous API documentation enhancements:
 
     <figure><img src="../../.gitbook/assets/docs_content 1.png" alt="The Add content step of the documentation page wizard, with an empty drag-and-drop upload area accepting Markdown and text files."><figcaption><p>Upload a Markdown file as a documentation page</p></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/docs_markdown content.png" alt=""><figcaption><p>Uploaded Markdown content</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/docs_markdown content.png" alt="The upload step of the documentation page wizard, with a Markdown file attached and its rendered preview below."><figcaption><p>Uploaded Markdown content</p></figcaption></figure>
 *   Like user-created content, imported content can be edited via the Markdown editor, and by enabling **Toggle preview**, you can view the content you enter and the rendered page side-by-side.
 
-    <figure><img src="../../.gitbook/assets/edit imported content 1.png" alt=""><figcaption><p>Use the editor to modify imported content</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/edit imported content 1.png" alt="The Edit content step of a published documentation page, with its Markdown in the editor and the rendered result beside it."><figcaption><p>Use the editor to modify imported content</p></figcaption></figure>
 * Page referencing allows documentation pages to be reused and easily exported between environments. Within an API's documentation, you can link to one page from another via special syntax.
 * In addition to making API documentation available via the Developer Portal, you can send messages to parties interested in your API to advertise updates, warn of upcoming changes, etc. Message delivery mechanism, recipients, and content can be configured in the APIM Console.
 *   Dynamic v4 API documentation pages can be created by adding metadata keys and values.
@@ -82,7 +82,7 @@ See the [Audit Logs](../../guides/api-configuration/v4-api-configuration/audit-l
 
 Markdown support has been extended to the **Description** field in the API Catalog. The rendered Markdown will appear in the Developer Portal.
 
-<figure><img src="../../.gitbook/assets/catalog description.png" alt=""><figcaption><p>Using Markdown for the Description in the Catalog</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/catalog description.png" alt="A description field filled with the default StackEdit sample document, explaining how to create, switch between, and rename files."><figcaption><p>Using Markdown for the Description in the Catalog</p></figcaption></figure>
 
 ### Documentation
 
@@ -114,7 +114,7 @@ For more information, see [Version History](../../guides/api-configuration/v4-ap
 
 If no pre-existing and supported endpoint or endpoint group is available to use for the DLQ, you can create one by clicking **Create new endpoint**:
 
-<figure><img src="../../.gitbook/assets/DLQ_create endpoint.png" alt=""><figcaption><p>Create an endpoint to use for DLQ</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DLQ_create endpoint.png" alt="The Endpoint Group Type step, offering Kafka, Mock, MQTT 5.x, RabbitMQ, and Solace event brokers, none selected."><figcaption><p>Create an endpoint to use for DLQ</p></figcaption></figure>
 
 For more information, see the [Webhook entrypoint configuration ](../../guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/webhook.md)section.
 
@@ -151,7 +151,7 @@ To learn more about Gravitee EL, see [this page](../../guides/gravitee-expressio
 
 Portal, API, and application notifications can be configured for v4 APIs via Portal, Email, and/or Webhook notifiers. For each notification type, default notifications can be edited and new notifications can be added.
 
-<figure><img src="../../.gitbook/assets/notifications api_base.png" alt=""><figcaption><p>Notifications configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/notifications api_base.png" alt="The Notifications tab of an API, listing a portal notification with no events and a default mail notification subscribed to 22 events."><figcaption><p>Notifications configuration</p></figcaption></figure>
 
 For more information, refer to the [Notifications](../../getting-started/configuration/notifications.md) documentation.
 
@@ -218,7 +218,7 @@ To learn more about how to configure and use sharding tags, see the [documentati
 
 Gravitee 4.3 supports a UI for TCP proxy API creation and configuration via the APIM Console.
 
-<figure><img src="../../.gitbook/assets/create proxy api_step 2 http or tcp 1.png" alt=""><figcaption><p>v4 API creation wizard: HTTP or TCP as a backend entrypoint</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/create proxy api_step 2 http or tcp 1.png" alt="Step 2 of the API creation wizard, with TCP Proxy selected over HTTP Proxy as the API entrypoint."><figcaption><p>v4 API creation wizard: HTTP or TCP as a backend entrypoint</p></figcaption></figure>
 
 To learn how to create a TCP proxy API, see the [v4 API creation wizard](../../guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md). To learn how to configure a TCP proxy API, see the documentation on [v4 proxy API entrypoints](../../guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md) and [v4 proxy API endpoints](../../guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md).
 
