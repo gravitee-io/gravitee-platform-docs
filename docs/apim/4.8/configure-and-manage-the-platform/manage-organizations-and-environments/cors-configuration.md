@@ -91,7 +91,7 @@ If you change the CORS settings using the `gravitee.yml` or environment variable
     <figure><img src="../../.gitbook/assets/31738772-8FFD-4BC5-B5EF-5F303E24249E_1_201_a.jpeg" alt="The console dashboard with Organization highlighted at the foot of the left navigation, showing API and application totals and lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  In the **Settings screen**, navigate to the **CORS** section.
 
-    <figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-manage-3.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-manage-3.png" alt="The organization CORS settings, with a locked wildcard allow-origin, six allowed methods, a list of allowed headers, exposed headers, and a max age in seconds."><figcaption></figcaption></figure>
 
 ### Configure CORS at the environment level
 
