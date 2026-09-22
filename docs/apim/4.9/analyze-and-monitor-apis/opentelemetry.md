@@ -167,27 +167,27 @@ To enable OpenTelemetry for an API, you must have OpenTelemetry enabled on your 
 
 1.  From the **Dashboard**, click **APIs**.<br>
 
-    <figure><img src="../.gitbook/assets/analytics-opentelemetry-50.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analytics-opentelemetry-50.png" alt="The console dashboard of an empty environment with APIs highlighted in the left navigation, showing no APIs and one application."><figcaption></figcaption></figure>
 2.  From the **APIs** screen, select the API that you to enable OpenTelemetry for.<br>
 
-    <figure><img src="../.gitbook/assets/analytics-opentelemetry-51.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analytics-opentelemetry-51.png" alt="The APIs list showing a single started V4 HTTP proxy API owned by admin, with a test access path and private visibility."><figcaption></figcaption></figure>
 3.  From your **API** menu, click **Deployment**.<br>
 
-    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-opentelemetry-55-1-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-opentelemetry-55-1-1.png" alt="The Configuration page of an API with Deployment highlighted in the API menu, showing the general settings and Danger Zone alongside."><figcaption></figcaption></figure>
 4.  From the **Deployment** screen, click **Reporter Settings**.<br>
 
-    <figure><img src="../.gitbook/assets/analytics-opentelemetry-49.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analytics-opentelemetry-49.png" alt="The Deployment page with the Reporter Settings tab highlighted, showing an empty sharding tags selector on the Configuration tab."><figcaption></figcaption></figure>
 5.  Navigate to the **OpenTelemetry** section, and then turn on the **Enabled** toggle.<br>
 
-    <figure><img src="../.gitbook/assets/analytics-opentelemetry-52.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analytics-opentelemetry-52.png" alt="The runtime logging settings scrolled to the foot, with the content data and display condition options above OpenTelemetry tracing switched off."><figcaption></figcaption></figure>
 6.  (Optional) Turn on the **Verbose** toggle.<br>
 
     <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>If you enable verbose, the number of spans for each trace increases, which might impact performance.</p></div>
 
-    <figure><img src="../.gitbook/assets/analytics-opentelemetry-53.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analytics-opentelemetry-53.png" alt="The same settings with OpenTelemetry tracing switched on, Verbose still off, and an unsaved changes bar offering Discard and Save."><figcaption></figcaption></figure>
 7.  In the **You have unsaved changes** pop-up window, click **Save**.<br>
 
-    <figure><img src="../.gitbook/assets/analytics-opentelemetry-54.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analytics-opentelemetry-54.png" alt="The same settings with both OpenTelemetry tracing and Verbose switched on, and the Save button in the unsaved changes bar highlighted."><figcaption></figcaption></figure>
 
 ### Verification
 

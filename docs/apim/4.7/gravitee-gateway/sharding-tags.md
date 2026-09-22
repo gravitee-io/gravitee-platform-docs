@@ -68,39 +68,39 @@ To configure sharding tags, complete the following steps:
 
 1.  In the **Dashboard**, click **Organization**.
 
-    <figure><img src="../.gitbook/assets/CF14DEFB-4393-4DDE-917C-BB5F54374E46.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/CF14DEFB-4393-4DDE-917C-BB5F54374E46.jpeg" alt="The console dashboard with Organization highlighted at the foot of the left navigation, showing 2,280 APIs and 732 applications with lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  In the **Organization** menu, click **Entrypoints & Sharding Tags**.
 
-    <figure><img src="../.gitbook/assets/AFBD5A82-D5A8-40E6-9818-95D0D0D2274D_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/AFBD5A82-D5A8-40E6-9818-95D0D0D2274D_1_201_a.jpeg" alt="The Entrypoints and Sharding Tags page, with the menu item highlighted, showing default entrypoint values for two environments with placeholder hostnames and default TCP and Kafka ports."><figcaption></figcaption></figure>
 3.  Navigate to **Sharding Tags**, and then click **+ Add a tag**.
 
-    <figure><img src="../.gitbook/assets/82E766C4-2A59-479A-A23E-1C1C7BE7D308.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/82E766C4-2A59-479A-A23E-1C1C7BE7D308.jpeg" alt="The Sharding Tags panel with the Add a tag button highlighted, listing ten of 21 tags with their ID, name, description, and restricted groups."><figcaption></figcaption></figure>
 4. In the **Create a tag** pop-up window, add the following information:
    1. In the **Name** field, add the name of your tag.
    2. (Optional) In the **Description** field, add a description for the tag.
    3.  (Optional) From the **Restricted groups** drop-down menu, select the groups that you want to be able to deploy to this tag.
 
-       <figure><img src="../.gitbook/assets/gateway-sharding-tags-33.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../.gitbook/assets/gateway-sharding-tags-33.png" alt="The Create a tag dialog open over the tag list, explaining that a tag can be restricted to groups, with empty name, description, and restricted groups fields."><figcaption></figcaption></figure>
 5. Click **Ok**. The sharding tag now appears in the list of **Sharding Tags**.
 
 ### Add sharding tags to your APIs
 
 1.  From the **Dashboard**, click **APIs**.
 
-    <figure><img src="../.gitbook/assets/A06811E0-DEFB-45E3-8ED9-E2EB2334A0AB.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/A06811E0-DEFB-45E3-8ED9-E2EB2334A0AB.jpeg" alt="The console dashboard with APIs highlighted in the left navigation, showing 2,280 APIs and 732 applications with the lifecycle chart still loading."><figcaption></figcaption></figure>
 2.  In the **APIs** screen, select the API to which you want to add a sharding tag.
 
-    <figure><img src="../.gitbook/assets/gateway-sharding-tags-34.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gateway-sharding-tags-34.png" alt="The APIs list showing the first page of 2,265 APIs, with their definition, status, access path, quality score, tags, categories, owner, and visibility."><figcaption></figcaption></figure>
 3.  In the **APIs** menu, click **Deployment**.
 
-    <figure><img src="../.gitbook/assets/88583357-60B3-4FE6-9D0D-8C8FF9FD77A6.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/88583357-60B3-4FE6-9D0D-8C8FF9FD77A6.jpeg" alt="The Configuration page of an API under an out-of-sync banner, with Deployment highlighted in the API menu and the general settings and Danger Zone alongside."><figcaption></figcaption></figure>
 4. In the **Deployment** screen, navigate to the **Deployment configuration** section.
 5.  From the **Sharding tags** drop-down menu, select the sharding tag that you want to add to the API.
 
-    <figure><img src="../.gitbook/assets/gateway-sharding-tags-35.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gateway-sharding-tags-35.png" alt="The Deployment page of an API, with the sharding tags dropdown open listing tags by name and description."><figcaption></figcaption></figure>
 6.  In the **You have unsaved changes** pop-up, click **Save**.
 
-    <figure><img src="../.gitbook/assets/8D761E18-837A-412F-9F06-5863D7AC4C33.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/8D761E18-837A-412F-9F06-5863D7AC4C33.jpeg" alt="The Deployment page with one sharding tag selected and the Save button in the unsaved changes bar highlighted."><figcaption></figcaption></figure>
 
 ### Add the tag ID to `gravitee.yml` or with environment variables
 
@@ -156,10 +156,10 @@ For example, to tell Gravitee API Manager to apply the “internal test” tag t
     <figure><img src="../.gitbook/assets/gateway-sharding-tags-36.png" alt="The console dashboard with Organization highlighted at the foot of the left navigation, showing 2,280 APIs and 732 applications with lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  In the **Organization** menu, click **Entrypoints & Sharding Tags**.
 
-    <figure><img src="../.gitbook/assets/gateway-sharding-tags-37.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gateway-sharding-tags-37.png" alt="The Entrypoints and Sharding Tags page with the menu item highlighted, showing default entrypoint values for two environments with placeholder hostnames."><figcaption></figcaption></figure>
 3.  Navigate to **Entrypoint Mappings**, and then click **+ Add a mapping**.
 
-    <figure><img src="../.gitbook/assets/5B688A6D-71AD-4FC6-A678-B23475AA56D7_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/5B688A6D-71AD-4FC6-A678-B23475AA56D7_1_201_a.jpeg" alt="The Entrypoint Mappings panel with the Add a mapping button highlighted, above a table of six existing mappings."><figcaption></figcaption></figure>
 4. From the **+ Add a mapping** drop-down menu, select one of the following entrypoints:
    * HTTP
    * TCP
@@ -179,7 +179,7 @@ For example, to tell Gravitee API Manager to apply the “internal test” tag t
 1. From the **Sharding tags** drop-down menu, select the sharding tags that you want to map to this entrypoint.
 2.  In the **Default TCP port** field, type the number of your TCP port.
 
-    <div align="left"><figure><img src="../.gitbook/assets/gravitee-gateway-sharding-tags-39-1.png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/gravitee-gateway-sharding-tags-39-1.png" alt="The Create an entrypoint mapping dialog, with the sharding tags field flagged as required and an empty default TCP port field." width="375"><figcaption></figcaption></figure></div>
 3. Click **Ok**.
 {% endtab %}
 
@@ -188,7 +188,7 @@ For example, to tell Gravitee API Manager to apply the “internal test” tag t
 2. In the **Default Kafka domain** field, type your Default Kafka domain.
 3.  In the **Default Kafka port** field, type your default Kafka port.
 
-    <div align="left"><figure><img src="../.gitbook/assets/gravitee-gateway-sharding-tags-40-1.png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/gravitee-gateway-sharding-tags-40-1.png" alt="The Create an entrypoint mapping dialog, with both the sharding tags and default Kafka domain fields flagged as required and the Kafka port set to 9092." width="375"><figcaption></figcaption></figure></div>
 4. Click **Ok**.
 {% endtab %}
 {% endtabs %}

@@ -17,13 +17,13 @@ In the Developer Portal catalog, you can easily find an API based on a category 
     <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--200.png" alt="The portal Analytics settings, listing nine platform dashboards with reorder and delete actions above an Add a new platform dashboard button."><figcaption></figcaption></figure>
 4.  Navigate to the **New Developer Portal** section, then click **Open Settings**.
 
-    <figure><img src="../../.gitbook/assets/dev portal settings.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/dev portal settings.png" alt="The New Developer Portal settings, with a tech preview notice, the portal enabled, the Open Settings button highlighted, and a CORS panel showing two masked allowed origins."><figcaption></figcaption></figure>
 5.  Developer Portal settings open in a new browser tab. Select **Catalog** from the menu.
 
-    <figure><img src="../../.gitbook/assets/00 cat2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 cat2.png" alt="The Catalog customization page, with the category view mode set to Tiles above a table of categories and their API counts."><figcaption></figcaption></figure>
 6.  Use the **Category View Mode** drop-down menu to select **Tabs (Default)** or **Tiles**.
 
-    <figure><img src="../../.gitbook/assets/00 select.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 select.png" alt="The Catalog customization page with the Category View Mode dropdown open on Tabs and Tiles, with Tiles ticked."><figcaption></figcaption></figure>
 
 ### Verification
 
@@ -43,4 +43,4 @@ Below is the view of categories as tiles:
 
 From the tile view, click a category tile to display all of the APIs that match that category. To return to the category tile view, click the **Catalog** link above the APIs.
 
-<figure><img src="../../.gitbook/assets/00 cat.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 cat.png" alt="A developer portal catalogue in tiles mode, showing a welcome banner above a category breadcrumb and three API cards with their versions and descriptions."><figcaption></figcaption></figure>
