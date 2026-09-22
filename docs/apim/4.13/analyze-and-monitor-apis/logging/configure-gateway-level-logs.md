@@ -18,10 +18,10 @@ To configure the Gateway logging capabilities, complete the following steps.
 
 1.  Log in to your APIM Console, and then click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/logging_gc.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/logging_gc.png" alt="The console dashboard with Settings highlighted in the left navigation, showing 2,694 APIs and 857 applications."><figcaption></figcaption></figure>
 2.  In the **Settings** menu, click **API Logging**.
 
-    <figure><img src="../../.gitbook/assets/logging_gc1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/logging_gc1.png" alt="The API Logging settings with API Logging highlighted in the settings menu, showing a maximum duration of zero and both audit options enabled."><figcaption></figcaption></figure>
 3.  Set the API logging capabilities and configuration values:
 
     * **Max Duration** of API full logging
@@ -75,25 +75,25 @@ Set the defaults and limits of the following strategies to control how messages 
     * **Default probability: 0.01** - 1% of messages are sampled.
     * **Default limit: 0.5** - API publishers sampled number of messages cannot exceed 50% of the total.<br>
 
-    <figure><img src="../../.gitbook/assets/logging-probabalistic.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/logging-probabalistic.png" alt="The Probabilistic message sampling settings, with a default probability of 0.01 and a maximum allowed limit of 0.5."><figcaption></figcaption></figure>
 *   **Count:** When the counted number of messages reaches the specified value, that message is sampled, and the count resets. For example, a value of five means that every fifth message is sampled.
 
     * **Default value: 100** - The 100th message is sampled for every 100 messages counted.
     * **Default limit: 10** - No less than 10 messages should be sampled.<br>
 
-    <figure><img src="../../.gitbook/assets/logging-count.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/logging-count.png" alt="The Count message sampling settings, with a default of one message and a minimum limit of one."><figcaption></figcaption></figure>
 *   **Temporal:** Messages are sampled at a specified time duration value that conforms to ISO-8601 format.&#x20;
 
     * **Default value: PT1S** - One message is sampled every seconds.
     * **Default limit: PT1S** - No less than one message per second can be logged.<br>
 
-    <figure><img src="../../.gitbook/assets/logging-temporal.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/logging-temporal.png" alt="The Temporal message sampling settings, with the default and limit both set to a one-second ISO-8601 duration."><figcaption></figcaption></figure>
 *   **Windowed count:** The input value specifies the number of consecutive messages that are sampled during a sliding time window, which conforms to an ISO-8601 duration. Once the message count is reached, no new messages are logged until the window closes and a new window begins.
 
     * **Default value: 1/PT10S** - One message is sampled every ten seconds
     * **Default limit: 1/PT1S** - One message cannot be sampled more than once per second.<br>
 
-    <figure><img src="../../.gitbook/assets/logging-windowed.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/logging-windowed.png" alt="The Windowed count message sampling settings, with a default of one message per ten seconds and a limit of one per second."><figcaption></figcaption></figure>
 
 
 

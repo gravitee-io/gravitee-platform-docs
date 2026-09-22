@@ -22,11 +22,11 @@ To create a resource:
 4. Click **Configuration** in the inner left sidebar.
 5.  Click the **Resources** header.
 
-    <figure><img src="../../.gitbook/assets/A 1 config resources.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A 1 config resources.png" alt="The Resources tab of a Kafka API&#x27;s Configuration page, empty, with an Add resource button above a search field."><figcaption></figcaption></figure>
 6. Click **+ Add resource**.
 7.  Use the search field or scroll to select the resource you'd like to configure.
 
-    <figure><img src="../../.gitbook/assets/A 1 resources 2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A 1 resources 2.png" alt="The Add API Resource dialog, with category filters for authentication, cache, OAuth2 and others above HTTP, inline and LDAP authentication providers."><figcaption></figcaption></figure>
 8. Set the parameters in the resultant form. Configuration varies by resource type.
 
 ## Resource types
