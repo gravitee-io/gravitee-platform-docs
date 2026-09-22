@@ -259,7 +259,7 @@ Event Stream Management adds the Kafka Explorer and a duplication path for Kafka
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. Platform flows apply policies on request and response phases to every API in the organization. Native Kafka APIs don't have those phases, and TCP proxy APIs don't run policy flows, so both are left untouched. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment now decides who hears about its user, support, federation, and group events, and the organization can reword every email and portal notification it sends. Custom observability dashboards gain server-side storage. Custom roles define the create, read, update, and delete permissions of each scope, and an organization role is assigned from the role's own page or from the user's.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. Platform flows apply policies on request and response phases to every API in the organization. Native Kafka APIs don't have those phases, and TCP proxy APIs don't run policy flows, so both are left untouched. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment now decides who hears about its user, support, federation, and group events, and the organization can reword every email and portal notification it sends. Custom observability dashboards gain server-side storage. Custom roles define the create, read, update, and delete permissions of each scope, and an organization role is assigned from the role's own page or from the user's. Every signed-in user also gets their own account page, for their profile, avatar, personal access tokens, and account deletion.
 
 #### Configure console authentication
 
@@ -381,6 +381,14 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Accept or reject a pending registration, convert a user to a service account, and send an Active user a password reset email that opens the reset page of the Gamma console.
 * Generate and revoke personal access tokens for a user, and review the APIs, API Products, and applications the user is a member of.
 * See [Manage users](manage-users.md).
+
+#### Manage your account
+
+* Open your own account from the account menu in the top-right corner of the console. The menu shows your name and email address, and holds **My Account**, a **Theme** section with **Light**, **Dark**, and **System**, and **Sign out**.
+* Edit your first name, last name, and email address when Gravitee holds your account, fill in the custom user fields of the organization, and upload an avatar or return to the default one. An account from an identity provider keeps its identity fields read-only.
+* Generate personal access tokens for the Management API, copy each one once together with a `curl` example, and revoke the tokens you no longer need.
+* Delete your own account once you've handed over every API and application you're the primary owner of. The Management API's external authentication settings decide whether the **Danger Zone** card is shown.
+* See [Manage your account](manage-your-account.md).
 
 #### Monitor gateway instances
 

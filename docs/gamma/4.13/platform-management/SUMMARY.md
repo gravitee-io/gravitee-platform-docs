@@ -48,6 +48,7 @@
 * [Manage shared policy groups](manage-shared-policy-groups.md)
 * [Manage tenants](manage-tenants.md)
 * [Manage users](manage-users.md)
+* [Manage your account](manage-your-account.md)
 * [Monitor gateway instances](monitor-gateway-instances.md)
 * [Review organization and environment audit logs](review-audit-logs.md)
 * [Save observability dashboards with the Gamma API](save-observability-dashboards.md)
