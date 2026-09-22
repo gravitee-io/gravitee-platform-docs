@@ -75,7 +75,7 @@ You have the option to save the page with or without publishing it to the Develo
 
 To edit or delete folders or pages, or to change the documentation structure, use the icons in the **Actions** section of an entry. All edits are immediately shown in the Developer Portal.
 
-<figure><img src="../../../.gitbook/assets/docs_editing.png" alt=""><figcaption><p>Select from Actions to edit</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/docs_editing.png" alt="A documentation pages table listing a hidden public subfolder and a published public page with their last updated times and edit, unpublish, reorder, and delete actions."><figcaption><p>Select from Actions to edit</p></figcaption></figure>
 
 **Edit folders:** To edit a folder's name or visibility, click on the pencil icon in the folder's entry, change the name and/or visibility, then click **Save**. The changes made to a folder's visibility will impact who can see it in the Developer Portal.
 
@@ -98,4 +98,4 @@ To view the documentation in the Developer Portal:
     <figure><img src="../../../.gitbook/assets/docs_open api.png" alt=""><figcaption><p>Open API in Developer Portal</p></figcaption></figure>
 2.  Click on **Documentation** in the header options
 
-    <figure><img src="../../../.gitbook/assets/docs_dev portal docs.png" alt=""><figcaption><p>API documentation</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/docs_dev portal docs.png" alt="The Documentation tab of an API in the developer portal, showing a sample Markdown page beside a page tree and a table of contents."><figcaption><p>API documentation</p></figcaption></figure>
