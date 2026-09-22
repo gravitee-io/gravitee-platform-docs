@@ -24,7 +24,7 @@ Kafka Console is currently only available for self-hosted deployments and not co
 
 1.  From the Dashboard, click **Kafka Cluster**.
 
-    <figure><img src="../.gitbook/assets/83D2B577-1393-4048-8E93-56DB9E8CFB8E_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/83D2B577-1393-4048-8E93-56DB9E8CFB8E_1_201_a.jpeg" alt="The console dashboard with Kafka Clusters highlighted in the left navigation, showing 186 APIs and 79 applications with lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  Click **+ Add cluster**.
 
     <figure><img src="../.gitbook/assets/902A4021-EA90-4AB6-84B4-C0F9E995F54E_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
