@@ -17,7 +17,7 @@ First, we need to open the API in the APIM Console. You may already have it open
 
 Once you're back to your API's **General Info** page, go to the **Policy Studio**.
 
-<figure><img src="../../../../.gitbook/assets/plans_general info.png" alt=""><figcaption><p>API General Info page</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/plans_general info.png" alt="The Info page of an API, showing its name, version, description, labels, and categories beside the owner and timestamps, with the Danger Zone below."><figcaption><p>API General Info page</p></figcaption></figure>
 
 > * [x] Select **Policy Studio** from the inner sidebar
 
@@ -29,7 +29,7 @@ One way to condition a flow is by plan. Every plan that is added to an API can h
 
 You should see your **Default Keyless (UNSECURED)** plan on the left side of the Policy Studio. Additionally, you should see **Common flows**. Let's add a flow to **Common flows** to ensure our policy applies to all consumers of our API, regardless of the plan they are subscribed to.
 
-<figure><img src="../../../../.gitbook/assets/plans_flow.png" alt=""><figcaption><p>Adding a flow under Common flows</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/plans_flow.png" alt="The Create a new flow dialog, with a flow name entered, the equals path operator, a root path, and all methods selected."><figcaption><p>Adding a flow under Common flows</p></figcaption></figure>
 
 > * [x] Select the **+ icon** to the right of **Common flows**
 > * [x] Provide a name for the flow and select **Create**
@@ -81,7 +81,7 @@ The next steps are the same for both traditional and message proxy APIs.
 
 The previous actions will open up the policy selector. We are going to add an Assign Content policy that allows us to modify the content of the payload before it reaches the API consumer.
 
-<figure><img src="../../../../.gitbook/assets/plans_assign content.png" alt=""><figcaption><p>Add an Assign Content policy</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/plans_assign content.png" alt="The Policies for Response phase dialog, listing transformation policies such as Assign attributes, Assign content, Assign metrics, Groovy, and JSON validation."><figcaption><p>Add an Assign Content policy</p></figcaption></figure>
 
 > * [x] Click Select under the **Assign content** policy
 
@@ -89,7 +89,7 @@ Every policy allows you to provide a **Description** and a **Trigger condition**
 
 Additionally, every policy has configuration settings specific to it. For the Assign Content policy, we can override the payload of the response or individual message by supplying a string in the **Body content** input box.
 
-<figure><img src="../../../../.gitbook/assets/plans_configure assign content.png" alt=""><figcaption><p>Configure the Assign Content policy</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/plans_configure assign content.png" alt="The Assign content policy configuration, with an empty description and trigger condition and a line of body content entered."><figcaption><p>Configure the Assign Content policy</p></figcaption></figure>
 
 > * [x] Type a string in the **Body content** input box
 > * [x] Select **Add policy** to add it the flow
@@ -103,7 +103,7 @@ After saving, you'll notice a banner appears at the top of the Console that says
 
 To ensure these changes are synced to the Gateway, the API must be redeployed.
 
-<figure><img src="../../../../.gitbook/assets/plans_redeploying.png" alt=""><figcaption><p>Redeploy an API</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/plans_redeploying.png" alt="The Policy Studio with a flow selected, showing an Assign content policy in the response phase, a saved-configuration toast, and an out-of-sync banner above."><figcaption><p>Redeploy an API</p></figcaption></figure>
 
 > * [x] Select **Deploy API** in the top right
 > * [x] Select **Deploy** in the modal that pops up on the screen
