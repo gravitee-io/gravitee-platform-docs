@@ -128,7 +128,7 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid architecture diagram
 
-<figure><img src="../.gitbook/assets/hybrid-installation-and-configuration-gu-23-1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/hybrid-installation-and-configuration-gu-23-1 (1).png" alt="A hybrid architecture diagram, with a customer-hosted data plane of load-balanced gateways, backend services, and Redis on the left, connected over HTTPS through Cloud Gate to a Gravitee-managed control plane of databases, the management API, consoles, and access management."><figcaption></figcaption></figure>
 
 In a typical hybrid architecture, the customer manages the Data Plane and Gravitee manages the Control Plane.
 

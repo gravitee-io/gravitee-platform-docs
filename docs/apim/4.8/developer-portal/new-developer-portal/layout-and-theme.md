@@ -111,7 +111,7 @@ You can add custom CSS to your Developer Portal's theme with the CSS editor. To 
     <figure><img src="../../.gitbook/assets/D15564EE-4952-4032-A48C-109585617DDC.jpeg" alt="The developer portal Theme customization page, with Theme highlighted in the menu, logo and favicon uploads, a font selection, a primary colour, and a live preview."><figcaption></figcaption></figure>
 5.  Navigate to **CSS Editor** and then click the down arrow.
 
-    <figure><img src="../../.gitbook/assets/AAE22928-0FC0-4429-9C6E-77C2FFDC76A2.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/AAE22928-0FC0-4429-9C6E-77C2FFDC76A2.jpeg" alt="The developer portal Theme customization page, showing the font selection and six colour fields, with the CSS Editor section highlighted at the foot."><figcaption></figcaption></figure>
 6. You can customize the CSS using either of the following options:
    * In the **CSS Editor's box**, enter your CSS code.
    *   In the **CSS Editor's box**, enter CCS tokens. For example:
@@ -128,7 +128,7 @@ You can add custom CSS to your Developer Portal's theme with the CSS editor. To 
 
 *   In the header navigation bar, click **Open Website**. Your New Developer Portal shows your custom CSS updates.\\
 
-    <figure><img src="../../.gitbook/assets/E1F22B44-D7C3-4DED-9E37-72BEB05714A1.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/E1F22B44-D7C3-4DED-9E37-72BEB05714A1.jpeg" alt="The same Theme customization page with the Open Website link highlighted in the top bar."><figcaption></figcaption></figure>
 
 ### Available CSS tokens
 

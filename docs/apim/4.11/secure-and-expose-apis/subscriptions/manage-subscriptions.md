@@ -11,7 +11,7 @@ metaLinks:
 
 To find an application's subscriptions, log in to your APIM Console, and then select **Applications** from the menu.
 
-<figure><img src="../../.gitbook/assets/00 sub 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 sub 1.png" alt="An applications table listing a default application, an ecommerce web app, and a partner integration, all of Simple type and owned by admin."><figcaption></figcaption></figure>
 
 Select the application you're looking for, and then select **Subscriptions** from the menu.
 
@@ -23,15 +23,15 @@ As of version 4.11.0, subscriptions use a reference model that supports both API
 
 When validating subscriptions, the gateway checks API Product subscriptions first before checking API-level plans. This allows organizations to manage access at the API Product level while maintaining backward compatibility with existing API subscriptions.
 
-<figure><img src="../../.gitbook/assets/1 app sub 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 app sub 1.png" alt="The Subscriptions page of an application, with API, status, and API key filters above two API key subscriptions, one pending and one accepted."><figcaption></figcaption></figure>
 
 Use the eye icon to view subscription details.
 
-<figure><img src="../../.gitbook/assets/1 app sub 3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 app sub 3.png" alt="A subscription details panel, listing the identifier, API, plan, accepted status, subscriber, and creation, processing, and starting timestamps."><figcaption></figcaption></figure>
 
 To filter subscriptions, use the **API** and **API Key** search fields and/or the **Status** drop-down menu. Subscriptions can have a status of accepted, closed, paused, pending, rejected, or resumed.
 
-<figure><img src="../../.gitbook/assets/1 app sub 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 app sub 2.png" alt="The Subscriptions page with the status filter dropdown open, showing Accepted, Paused, and Pending ticked and Closed, Rejected, and Resumed clear."><figcaption></figcaption></figure>
 
 To create a new subscription, click **+ Create a subscription** and search for the API you'd like to subscribe to. Refer to the [subscription](README.md) documentation for more information.
 
@@ -60,7 +60,7 @@ To manage subscriptions in APIM Console:
 
 Under the **Shared API Keys** header, you can view the API keys that are shared with all application subscriptions that have an API\_KEY plan.
 
-<figure><img src="../../.gitbook/assets/1 shared 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 shared 1.png" alt="The API Keys panel of an application, noting that the keys are shared with all API key subscriptions, listing one active key with its creation date and a Renew button."><figcaption></figcaption></figure>
 
 Click the **x** icon to revoke an API key, or the **Renew** button to renew it. Renewing a shared API key applies the same two-hour grace period described in [API Key plans](manage-subscriptions.md#api-key-plans), and affects every subscription of the application at once.
 

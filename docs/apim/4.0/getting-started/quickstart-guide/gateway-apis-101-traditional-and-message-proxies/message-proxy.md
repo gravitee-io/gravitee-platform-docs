@@ -14,7 +14,7 @@ A message proxy is functionality enabled exclusively by Gravitee API Management'
 
 With APIM, protocol mediation is extremely simple. The complexity of producing to and consuming from the message broker is handled internally by the Gateway.
 
-<figure><img src="../../../.gitbook/assets/message proxy_example.png" alt=""><figcaption><p>Message proxy example</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/message proxy_example.png" alt="A hand-drawn diagram of external clients connecting to the gateway over HTTP, WebSockets, Webhook, and SSE, with the gateway&#x27;s own consumer and producer exchanging the broker&#x27;s native protocol with a message broker that also serves an external consumer and producer."><figcaption><p>Message proxy example</p></figcaption></figure>
 
 Let's continue with the API creation wizard to see how easily a message proxy can be created.
 
@@ -30,7 +30,7 @@ The next step is configuring how the Gateway will communicate with clients and b
 * **Gateway entrypoint:** Defines the protocol and configuration settings by which the API consumer communicates with the Gateway. In other words, the Gateway entrypoint dictates how the backend message broker is exposed externally through the Gateway.
 * **Gateway endpoint:** Defines the protocol and configuration settings by which the Gateway API will fetch data/functionality from, or post data to, the backend message broker.
 
-<figure><img src="../../../.gitbook/assets/message proxy_gateway.png" alt=""><figcaption><p>Gateway entypoints and endpoints</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/message proxy_gateway.png" alt="A hand-drawn diagram labelling the gateway&#x27;s entrypoints, where external clients connect over WebSockets, HTTP POST, SSE, Webhook and HTTP GET, and its endpoints, where a broker client exchanges the broker&#x27;s native protocol with an event broker and a message broker."><figcaption><p>Gateway entypoints and endpoints</p></figcaption></figure>
 
 ### Entrypoints
 
