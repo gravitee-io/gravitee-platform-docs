@@ -94,7 +94,7 @@ Add differentiated Quota policies to each plan per the instructions below.
     <figure><img src="../.gitbook/assets/haley 7.png" alt=""><figcaption></figcaption></figure>
 10. Click **Deploy API** to redeploy the API and have the changes take effect
 
-    <figure><img src="../.gitbook/assets/haley 8.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 8.png" alt="An orange-bordered banner reading &quot;This API is out of sync.&quot; with a Deploy API button on the right."><figcaption></figcaption></figure>
 
 #### Gold Tier plan
 
@@ -136,7 +136,7 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
     <figure><img src="../.gitbook/assets/haley 13.png" alt=""><figcaption></figcaption></figure>
 9.  Click **Deploy API** to redeploy the API and have the changes take effect
 
-    <figure><img src="../.gitbook/assets/haley 8.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 8.png" alt="An orange-bordered banner reading &quot;This API is out of sync.&quot; with a Deploy API button on the right."><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Congratulations! You have successfully added a Rate Limit policy that applies to all API consumers.
@@ -166,7 +166,7 @@ Now, let's mitigate traffic spikes and maintain quality of service for all consu
     <figure><img src="../.gitbook/assets/haley 17.png" alt=""><figcaption></figcaption></figure>
 9.  Click **Deploy API** to redeploy the API and have the changes take effect
 
-    <figure><img src="../.gitbook/assets/haley 8.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 8.png" alt="An orange-bordered banner reading &quot;This API is out of sync.&quot; with a Deploy API button on the right."><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Congratulations! You have successfully added a Spike Arrest policy that applies to all API consumers.

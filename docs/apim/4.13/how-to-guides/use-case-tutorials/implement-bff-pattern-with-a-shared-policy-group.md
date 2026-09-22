@@ -260,7 +260,7 @@ You can import this Shared Policy Group using Gravitee's Management API.
 5. Now that all the policies have been added, click on the **\[Save]** button.
 6.  Click the **\[Deploy]** button.
 
-    <figure><img src="../../.gitbook/assets/version-history-shared-policy-group.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/version-history-shared-policy-group.png" alt="A deployed BFF on-response shared policy group, showing a Transform Headers policy in the response phase with a condition on a non-null access token."><figcaption></figcaption></figure>
 
 <details>
 
@@ -322,6 +322,6 @@ Now it is time to add these Shared Policy Groups into your existing API.
 5. Click on the **\[Save]** button.
 6.  Finally, click on the **\[Deploy API]** popup, to deploy these configuration changes to your Gateway.
 
-    <figure><img src="../../.gitbook/assets/apis-policies-flow-details.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/apis-policies-flow-details.png" alt="The Policies page of an API, with a BFF flow selected showing the on-request shared policy group in the request phase and the on-response group in the response phase."><figcaption></figcaption></figure>
 
 To quickly test the flow, just call your API via a Web Browser and you should be redirected to the login page of your Authorization Server if no cookie has been found.
