@@ -8,7 +8,7 @@ description: Endpoints define the protocol and settings a Kafka API uses to reac
 
 Endpoints define the protocol and configuration settings the Gateway API uses to fetch data from or post data to the backend API. Kafka APIs can have one endpoint group with a single endpoint. The **Endpoints** section lets you modify your Kafka endpoint group and Kafka endpoint.
 
-<figure><img src="../../../.gitbook/assets/sample-kafka-api-endpoint.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/sample-kafka-api-endpoint.png" alt="The Endpoints page of a Kafka API, showing a default broker group with a single endpoint and an Edit button."><figcaption></figcaption></figure>
 
 ## Security protocols&#x20;
 
@@ -30,16 +30,16 @@ Gravitee assigns each Kafka API endpoint group the default name **Default Broker
 
 1.  Click the **Edit** button with the pencil icon to edit the endpoint group.
 
-    <figure><img src="../../../.gitbook/assets/edit-button-endpoint-group.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/edit-button-endpoint-group.png" alt="The Endpoints page with the Edit button on the default broker group highlighted."><figcaption></figcaption></figure>
 2.  Select the **General** tab to change the name of your Kafka endpoint group.
 
-    <figure><img src="../../../.gitbook/assets/kafka-gw-kafka-apis-configure-kafka-181.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/kafka-gw-kafka-apis-configure-kafka-181.png" alt="The endpoint group editor with the General tab selected and highlighted, showing the group name field."><figcaption></figcaption></figure>
 3.  Select the **Configuration** tab to edit the security settings of your Kafka endpoint group.
 
-    <figure><img src="../../../.gitbook/assets/select-configuration-tab-endpoint-group.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/select-configuration-tab-endpoint-group.png" alt="The endpoint group editor with the Configuration tab selected and highlighted, showing the security protocol set to PLAINTEXT."><figcaption></figcaption></figure>
 4.  Select one of the security protocols from the drop-down menu, and then configure the associated settings to define your Kafka authentication flow.
 
-    <figure><img src="../../../.gitbook/assets/supported-endpoint-security-protocol.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/supported-endpoint-security-protocol.png" alt="The endpoint group Configuration tab with the security protocol dropdown open on PLAINTEXT, SASL_PLAINTEXT, SASL_SSL, and SSL."><figcaption></figcaption></figure>
 
 * **PLAINTEXT:** No further security configuration is necessary.
 * **SASL\_PLAINTEXT:** Choose NON&#x45;**,** GSSAPI, OAUTHBEARER, OAUTHBEARER\_TOKEN, PLAIN, SCRAM-SHA-256, SCRAM-SHA-512, or DELEGATE\_TO\_BROKER.
@@ -71,7 +71,7 @@ Gravitee automatically assigns your Kafka API endpoint the name **Default Broker
     <figure><img src="../../../.gitbook/assets/actions-edit-icon-button.png" alt=""><figcaption></figcaption></figure>
 2.  Select the **General** tab to edit your endpoint name and the list of bootstrap servers.
 
-    <figure><img src="../../../.gitbook/assets/select-the-general-tab.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/select-the-general-tab.png" alt="The endpoint editor with the General tab highlighted, showing the endpoint name and a bootstrap servers field."><figcaption></figcaption></figure>
 3.  By default, endpoints inherit configuration settings from their endpoint group. To override these settings, select the **Configuration** tab and configure custom security settings.
 
-    <figure><img src="../../../.gitbook/assets/ovveride-endpoints-configuration.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/ovveride-endpoints-configuration.png" alt="The endpoint editor with the Configuration tab highlighted and Inherit configuration from the endpoint group switched on, leaving the security protocol read-only."><figcaption></figcaption></figure>

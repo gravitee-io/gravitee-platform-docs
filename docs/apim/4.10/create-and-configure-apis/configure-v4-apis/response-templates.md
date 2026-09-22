@@ -37,38 +37,38 @@ When you create response templates, you can define templates in the following wa
 
 1.  From the **Dashboard**, click **APIs**. <br>
 
-    <figure><img src="../../.gitbook/assets/config-apis-v4-config-response-temp-209.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/config-apis-v4-config-response-temp-209.png" alt="The console dashboard with APIs highlighted in the left navigation, showing one API and one application and no analytics content yet."><figcaption></figcaption></figure>
 2.  Select the API that you want to configure response templates for.<br>
 
-    <figure><img src="../../.gitbook/assets/config-apis-v4-config-response-temp-70.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/config-apis-v4-config-response-temp-70.png" alt="The APIs list showing a single started V4 HTTP proxy API owned by admin, with a test context path and private visibility."><figcaption></figcaption></figure>
 3.  From the API's menu, click **Entrypoints**.<br>
 
-    <figure><img src="../../.gitbook/assets/9DB31EFE-6F36-4050-AD4B-5135E50E66AA.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/9DB31EFE-6F36-4050-AD4B-5135E50E66AA.jpeg" alt="The Configuration page of an API with Entrypoints highlighted in the API menu, showing its name, version, owner, and timestamps above a Danger Zone."><figcaption></figcaption></figure>
 4.  Click **Response Templates**.<br>
 
-    <figure><img src="../../.gitbook/assets/08A581A9-CB23-4B4A-89E8-B5180D4884D8.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/08A581A9-CB23-4B4A-89E8-B5180D4884D8.jpeg" alt="The Entrypoints page with the Response Templates tab highlighted, showing the context path and a placeholder exposed entrypoint URL."><figcaption></figcaption></figure>
 5.  Click **+ Add new Response Template**.<br>
 
-    <figure><img src="../../.gitbook/assets/84234FCA-B6B2-47E1-9641-2E46450476BA.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/84234FCA-B6B2-47E1-9641-2E46450476BA.jpeg" alt="The Response Templates tab, empty, with the Add new Response Template button highlighted."><figcaption></figcaption></figure>
 6. Create the response template. To create the response template, complete the following sub-steps:
    1.  From the **Template key** dropdown menu, select the Template key that you want to apply to the API. For example, `GATEWAY_PLAN_UNRESOLVABLE`. For more information about Template Keys, see [#template-keys](response-templates.md#template-keys "mention").<br>
 
-       <figure><img src="../../.gitbook/assets/config-apis-v4-config-response-temp-224.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/config-apis-v4-config-response-temp-224.png" alt="The Create a new Response Template form, with the template key field highlighted and flagged as required above an Accept header, a 400 status code, and empty headers and body."><figcaption></figcaption></figure>
    2. In the **Accept header to match** field, enter the request header or request headers that trigger the response template. The default value is `*/*`.
    3. In the **Status Code** field, add the status code that you want to associate with the response template. For example, `401`.&#x20;
    4. (Optional) In the **HTTP Headers** field, enter the `KEY` and `VALUE` for the response.&#x20;
    5.  (Optional) In the **Body** field, enter the body of response that you want to return to the consumer. For example, `{"error": "Custom Missing Key Message"}`.<br>
 
-       <figure><img src="../../.gitbook/assets/create-and-configure-apis-configure-v4-a-4-3.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/create-and-configure-apis-configure-v4-a-4-3.png" alt="The Create a new Response Template form, with a gateway plan-unresolvable template key, a 401 status code, and a custom JSON error body entered."><figcaption></figcaption></figure>
 7.  Click **Create**. <br>
 
-    <figure><img src="../../.gitbook/assets/EF0E884E-88BE-466F-A0F7-F73C98780115.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/EF0E884E-88BE-466F-A0F7-F73C98780115.jpeg" alt="The lower part of the Create a new Response Template form, with the Create button highlighted below the body and the add-template-key-to-logs toggle."><figcaption></figcaption></figure>
 8.  In the **This API is out of sync** pop-up banner, click **Deploy API**.<br>
 
-    <figure><img src="../../.gitbook/assets/6A4577E6-D8C6-4A3B-8712-37A7428C9A2A.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/6A4577E6-D8C6-4A3B-8712-37A7428C9A2A.jpeg" alt="The Response Templates tab listing the new template with its key, content type, and 401 status, under an out-of-sync banner with the Deploy API button highlighted."><figcaption></figcaption></figure>
 9.  In the **Deploy your API** pop-up menu, click **Deploy**.<br>
 
-    <figure><img src="../../.gitbook/assets/create-and-configure-apis-configure-v4-a-1-2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/create-and-configure-apis-configure-v4-a-1-2.png" alt="The Deploy your API dialog open over the Response Templates tab, asking for a label to identify the deployment."><figcaption></figcaption></figure>
 
 ## Verification
 
@@ -76,7 +76,7 @@ To verify if the complete the following steps:&#x20;
 
 1.  Verify that the response templates appears in the **Response Templates** tab of the **Entrypoints** screen.<br>
 
-    <figure><img src="../../.gitbook/assets/create-and-configure-apis-configure-v4-a-3-2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/create-and-configure-apis-configure-v4-a-3-2.png" alt="The Response Templates tab of a published API, listing one template with its key, content type, and 401 status."><figcaption></figcaption></figure>
 2.  Call your API to trigger your the error response. For example, if you set an API key plan for your API, call your API without the API key like the following example:<br>
 
     ```

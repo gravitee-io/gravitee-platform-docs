@@ -32,7 +32,7 @@ Under **Client registration providers (DCR)**, toggle on **Enable client registr
 
 With DCR enabled, we now need to configure AM (or any auth server supporting OIDC). Select **+ Add a provider** to begin the configuration process. Provide a **Name** and **Description**:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 9.48.56 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 9.48.56 AM.png" alt="The New client registration provider page, with a name and description entered and an empty OpenID Connect discovery endpoint and token provider."><figcaption></figcaption></figure>
 
 The **Configuration** section first requires you to provide an **OpenID Connect Discovery Endpoint** which is the URL where an OIDC-compatible authorization server publishes its metadata.
 
@@ -62,27 +62,27 @@ Now we just need to create an application in AM. This application is essentially
 
 To create an app in AM, select **Applications** in the sidebar and then select the **+ icon** in the bottom right. This will open up the following application creation wizard:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.39.11 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.39.11 AM.png" alt="The New application page in Access Management, offering Web, Single-Page App, Native, and Backend to Backend application types."><figcaption></figcaption></figure>
 
 Select **Backend to Backend** and then **Next**. Finally, provide a **Name** and **Description** for your app, leave everything else as default, and click **Create**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.40.39 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.40.39 AM.png" alt="The Settings step of the new application wizard, with the domain, name, and description filled in and empty OAuth 2.0 client ID and secret fields."><figcaption></figcaption></figure>
 
 ### 3. Retrieve OpenID Endpoint and Client Credentials <a href="#retrieve-openid-endpoint-and-client-credentials-9" id="retrieve-openid-endpoint-and-client-credentials-9"></a>
 
 Next, we need to retrieve the OpenId configuration endpoint and the client credentials. To retrieve the endpoint, select **Endpoints** from the inner sidebar and scroll down to the **OpenID Configuration endpoint**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.46.20 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.46.20 AM.png" alt="The Endpoints page of an application in Access Management, with the endpoint values masked and the OpenID configuration endpoint path visible."><figcaption></figcaption></figure>
 
 Copy the endpoint and paste it into APIM under **OpenID Connect Discovery Endpoint**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.45.08 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.45.08 AM.png" alt="The client registration provider configuration, with the discovery endpoint partly masked, the token provider set to Client Credentials, and required client ID and secret fields flagged as empty."><figcaption></figcaption></figure>
 
 ### 4. Enable scopes and retrieve client credentials
 
 Lastly, we need to enable the proper scopes for the app and retrieve the client credentials. Back in AM, select **Settings** in the inner sidebar. Next, select the **OAuth 2.0 / OIDC** tab and then select the **Scopes** tab on the lower navigation menu.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.50.26 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.50.26 AM.png" alt="The Scopes tab of an application&#x27;s OAuth 2.0 settings, with adaptive scopes disabled and no scopes defined."><figcaption></figcaption></figure>
 
 We need to add the `dcr_admin` scope to ensure the initial access token tied to this application has the proper permissions to create new applications. Select **+ Add Scopes**, search for **dcr\_admin**, select the **Client\_registration\_admin** scope that pops up, and click **Add**. After adding the scope, make sure you click **Save**.
 

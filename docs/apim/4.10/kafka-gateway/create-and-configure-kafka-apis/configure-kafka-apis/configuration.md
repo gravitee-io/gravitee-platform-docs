@@ -12,7 +12,7 @@ The **Configuration** section allows you to manage and customize high-level sett
 
 The **General** tab displays a section for inputting general API details and a Danger Zone for executing functional and sometimes irreversible actions.
 
-<figure><img src="../../../.gitbook/assets/general-configuration.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/general-configuration.png" alt="The General tab of a Kafka API&#x27;s Configuration page, with the tab row highlighted, showing name, version, and description fields beside API picture and background upload areas."><figcaption></figcaption></figure>
 
 {% tabs %}
 {% tab title="General details" %}
@@ -64,13 +64,13 @@ Click **+ Add members** to add members to your API or alter member roles, which 
 
 To give groups access to your API, click **Manage groups** and select the desired group(s) from the drop-down menu. This will give all members of that group access to your API.
 
-<figure><img src="../../../.gitbook/assets/manage-group-api.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/manage-group-api.png" alt="The Manage groups dialog open over the User Permissions tab, with the groups dropdown expanded and three groups ticked."><figcaption></figcaption></figure>
 
 ### Transfer API ownership
 
 If you are the owner of the API, you can transfer ownership to another member, user, or group. Click **Transfer ownership**, then select **API member**, **Other user**, or **Primary owner group.** Next, define the stakeholder to which you want to transfer API ownership and assign that stakeholder a role.
 
-<figure><img src="../../../.gitbook/assets/transfer-ownership.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/transfer-ownership.png" alt="The Transfer ownership dialog, with API member selected as the transfer method and no member chosen yet."><figcaption></figcaption></figure>
 
 ## Properties
 
@@ -82,7 +82,7 @@ To configure API properties:
 
 1.  Select **Properties** from the inner left nav<br>
 
-    <figure><img src="../../../.gitbook/assets/select-properties.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/select-properties.png" alt="The Properties tab of a Kafka API&#x27;s Configuration page, empty, with Import, Manage dynamically, and Add property buttons."><figcaption></figcaption></figure>
 2. To add hardcoded properties, either:
    * Click **Add property** and enter property definitions one at a time as a key-value pair
    * Click **Import** and enter property definitions as a list in `<key>=<value>` format
@@ -163,7 +163,7 @@ The **Notifications** tab allows you to subscribe to notifications related to a 
 4. Select **Configuration** from the inner left nav.
 5.  Select the **Notifications** header.<br>
 
-    <figure><img src="../../../.gitbook/assets/notification-header.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/notification-header.png" alt="The Notifications tab of a Kafka API, listing a console notification with no events and a default mail notification subscribed to 24 events."><figcaption></figcaption></figure>
 6. Click **+ Add notification** to create a new one.
 7. Give your notification a name and select either:
    * **Default Email Notifier:**
@@ -172,7 +172,7 @@ The **Notifications** tab allows you to subscribe to notifications related to a 
      * Enter the Webhook URL
      *   Choose whether to use system proxy<br>
 
-         <figure><img src="../../../.gitbook/assets/sample-notifier.png" alt=""><figcaption></figcaption></figure>
+         <figure><img src="../../../.gitbook/assets/sample-notifier.png" alt="The New notification dialog, with a notification name entered and the notifier dropdown open on Default Email Notifier and Default Webhook Notifier."><figcaption></figcaption></figure>
 
 The following notifications are available to each notifier:
 
@@ -205,4 +205,4 @@ The following notifications are available to each notifier:
 
 The **Audit Logs** tab displays API-level events and audit entries, which are summarized in table format. These can be filtered by event type and date range.<br>
 
-<figure><img src="../../../.gitbook/assets/kafka-audit-logs.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/kafka-audit-logs.png" alt="The Audit Logs tab of a Kafka API, listing seven events including API updated, plan published, plan created, and metadata created."><figcaption></figcaption></figure>
