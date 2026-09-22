@@ -82,10 +82,10 @@ Comprehensive connection logs allow you to analyze the usage of your v4 message 
 
 1.  From the **Dashboard**, click **APIs**.
 
-    <figure><img src="../.gitbook/assets/DB2B50A2-4291-41F4-8BE4-87694C0FCDDC.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/DB2B50A2-4291-41F4-8BE4-87694C0FCDDC.jpeg" alt="The console Overview dashboard with APIs highlighted in the left navigation, showing total API and application counts and lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  Select your API that you want to view the logs for.
 
-    <figure><img src="../.gitbook/assets/EF1F9221-58FE-470A-8192-7A9468FEF998_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/EF1F9221-58FE-470A-8192-7A9468FEF998_1_201_a.jpeg" alt="The APIs list showing the first page of 2,952 APIs, with their type, status, access path, quality score, sharding tags, categories, owner, and portal status."><figcaption></figcaption></figure>
 3.  From the menu, click **Logs.**
 
     <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt="The Runtime Logs page of an API, listing seven requests with their timestamp, method, status, URI, application, plan, and response time, with Logs highlighted in the API menu."><figcaption></figcaption></figure>
@@ -111,10 +111,10 @@ You can modify logging information can be modified by configuring the options un
 
 1.  From the **Dashboard**, click **APIs**.
 
-    <figure><img src="../.gitbook/assets/DB2B50A2-4291-41F4-8BE4-87694C0FCDDC.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/DB2B50A2-4291-41F4-8BE4-87694C0FCDDC.jpeg" alt="The console Overview dashboard with APIs highlighted in the left navigation, showing total API and application counts and lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  Select your API that you want to modify the logs for.
 
-    <figure><img src="../.gitbook/assets/EF1F9221-58FE-470A-8192-7A9468FEF998_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/EF1F9221-58FE-470A-8192-7A9468FEF998_1_201_a.jpeg" alt="The APIs list showing the first page of 2,952 APIs, with their type, status, access path, quality score, sharding tags, categories, owner, and portal status."><figcaption></figcaption></figure>
 3.  From the menu, click **Logs.**
 
     <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt="The Runtime Logs page of an API, listing seven requests with their timestamp, method, status, URI, application, plan, and response time, with Logs highlighted in the API menu."><figcaption></figcaption></figure>

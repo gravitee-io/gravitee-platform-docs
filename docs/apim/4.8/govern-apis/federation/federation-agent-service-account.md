@@ -22,7 +22,7 @@ Alternatively, you can give the agent the API\_PUBLISHER role at environment lev
 
 The screenshot below shows the environment-level permissions included in the API\_PUBLISHER role by default:
 
-<figure><img src="../../.gitbook/assets/govern-federation-federation-agent--5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/govern-federation-federation-agent--5.png" alt="A permissions matrix for an API role, with create, read, update and delete ticked for API, application and integration, and read ticked for group and platform."><figcaption></figcaption></figure>
 
 From the newly created service account, scroll to the **Tokens** section at the bottom of the page and create a new token:
 
