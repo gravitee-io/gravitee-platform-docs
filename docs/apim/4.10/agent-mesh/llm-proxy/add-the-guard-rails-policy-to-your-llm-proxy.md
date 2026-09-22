@@ -36,10 +36,10 @@ To add the Guard Rails policy to your LLM proxy, complete the following steps:&#
     <figure><img src="../../.gitbook/assets/agent-mesh-llm-proxy-add-the-guard--98.png" alt="The APIs list filtered by a search term, showing two LLM Proxy APIs with their status, context path, and portal visibility."><figcaption></figcaption></figure>
 3.  From the **Configuration** screen, click **Resources**. <br>
 
-    <figure><img src="../../.gitbook/assets/AE9DD4BA-A207-45AF-95D9-7304015C32C2_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/AE9DD4BA-A207-45AF-95D9-7304015C32C2_1_201_a.jpeg" alt="The Configuration page of an API with the Resources tab highlighted, showing the general settings above a Danger Zone."><figcaption></figcaption></figure>
 4.  Click **+ Add resource**. <br>
 
-    <figure><img src="../../.gitbook/assets/3D2BE6ED-6A29-46D0-8566-C35378C9A381_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/3D2BE6ED-6A29-46D0-8566-C35378C9A381_1_201_a.jpeg" alt="The Resources tab of an API&#x27;s Configuration page, empty, with the Add resource button highlighted above a search field and an empty resource table."><figcaption></figcaption></figure>
 5.  In the **Add API Resource** pop-up window, select **AI Model Text Classification** menu, and then click **Select**.<br>
 
     <figure><img src="../../.gitbook/assets/CE636934-8667-4591-9449-69D2D3AF3F3A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
