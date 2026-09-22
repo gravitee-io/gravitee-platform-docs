@@ -20,7 +20,7 @@ You can configure the policy with the following options:
 When using the Kafka Topic Mapping policy together with the Kafka ACL policy, it is important to place the Kafka ACL policy **before** the Kafka Topic Mapping policy, as shown below.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/policy order.png" alt=""><figcaption><p>Screenshot of the Kafka ACL policy placed before the Kafka Topic Mapping policy</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/policy order.png" alt="A diagram of the Interact phase, showing a Kafka ACL policy that allows read access only to mapped topics, followed by a Kafka Topic Mapping policy that maps internal topics to client-side names, between the client and the broker."><figcaption><p>Screenshot of the Kafka ACL policy placed before the Kafka Topic Mapping policy</p></figcaption></figure>
 
 ## Examples <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
 

@@ -46,11 +46,11 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid component management <a href="#components" id="components"></a>
 
-<img src="../../.gitbook/assets/file.excalidraw (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1) (1).svg" alt="A diagram of the three connections between the Gravitee SaaS control plane and a self-hosted deployment, numbered for configuration pulled through the bridge gateways, analytics and logs pushed to an S3 bucket, and events pushed to the optional alert engine, all crossing a firewall with IP filtering." class="gitbook-drawing">
 
 ### Hybrid architecture diagram <a href="#architecture-diagram" id="architecture-diagram"></a>
 
-<img src="../../.gitbook/assets/file.excalidraw (5).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (5).svg" alt="A diagram of a self-hosted VM deployment, with the portal and management API in an external DMZ, the console, Elasticsearch, MongoDB, optional Redis and optional alert engine on the internal network, and two gateway replicas spanning the boundary, each component labelled with its port." class="gitbook-drawing">
 
 ### Self-hosted-to-SaaS connections <a href="#self-hosted-to-saas-connections" id="self-hosted-to-saas-connections"></a>
 

@@ -115,7 +115,7 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
 1. Select the **+** icon next to **Common flows**
 2.  Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
 
-    <figure><img src="../.gitbook/assets/haley 9.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 9.png" alt="The Create a new flow dialog open over the Policies page of a rate limit demo API, with an empty flow name, the Equals path operator, all methods selected, and an empty condition."><figcaption></figcaption></figure>
 3. Click **Create**
 4.  Select the **+** icon within the request phase section. This lets us use the Rate Limit policy to limit the number of requests any API consumer can make to the API within a short period of time.
 
@@ -149,7 +149,7 @@ Now, let's mitigate traffic spikes and maintain quality of service for all consu
 1. Select the **+** icon next to **Common flows**
 2.  Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
 
-    <figure><img src="../.gitbook/assets/haley 9.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 9.png" alt="The Create a new flow dialog open over the Policies page of a rate limit demo API, with an empty flow name, the Equals path operator, all methods selected, and an empty condition."><figcaption></figcaption></figure>
 3. Click **Create**
 4.  Select the **+** icon within the request phase section to use the Spike Arrest policy to limit sudden spikes in traffic. Configured as a **Common flow**, the Spike Arrest policy applies to all API consumers.
 

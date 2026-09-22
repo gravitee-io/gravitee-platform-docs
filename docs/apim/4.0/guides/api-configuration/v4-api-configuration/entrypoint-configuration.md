@@ -204,7 +204,7 @@ When you are done configuring your entrypoints, make sure to select **Save chang
 
 To alter v4 Proxy API entrypoints, select your API, and then select **General** from the **Entrypoints** category in the left-hand nav.
 
-<figure><img src="../../../.gitbook/assets/2023-07-18_10-50-48.png" alt=""><figcaption><p>v4 proxy API entrypoint configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/2023-07-18_10-50-48.png" alt="The Entrypoints page of an API under an out-of-sync banner, with virtual hosts enabled, one masked context path, and a root path below it."><figcaption><p>v4 proxy API entrypoint configuration</p></figcaption></figure>
 
 From here, you can:
 

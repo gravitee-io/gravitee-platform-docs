@@ -24,7 +24,7 @@ DB-less mode allows a Gateway to be deployed with no dependencies, assuming only
 
 You can enable Dead Letter Queue to define an external storage where each unsuccessfully pushed message will be stored and configure a replay strategy. A pre-existing and supported endpoint or endpoint group can be selected. This is an advanced configuration that requires having the endpoint already configured. Refer to the [configuration details](../../guides/api-configuration/v4-api-configuration/entrypoint-configuration.md#webhook) for more information.
 
-<figure><img src="../../.gitbook/assets/configure dlq.png" alt=""><figcaption><p>Configure DLQ</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/configure dlq.png" alt="The Dead Letter Queue settings of a message API, enabled, with the endpoint selector open listing the default MQTT 5.x and Solace endpoints and their groups."><figcaption><p>Configure DLQ</p></figcaption></figure>
 
 ### Endpoint management and defaults
 

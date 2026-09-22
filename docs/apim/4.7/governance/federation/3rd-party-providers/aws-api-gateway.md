@@ -113,7 +113,7 @@ docker compose up -d
 
 In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
 
-<figure><img src="../../../.gitbook/assets/governance-federation-3rd-party-provider-2-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/governance-federation-3rd-party-provider-2-1.png" alt="The Overview page of an AWS API Gateway integration after the agent connects, with Connected shown in both the menu and the agent connection field."><figcaption></figcaption></figure>
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.
 
