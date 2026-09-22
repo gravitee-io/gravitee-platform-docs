@@ -24,7 +24,7 @@ Gravitee API Management 4.5 improves the management of sync and async APIs acros
 
 Shared Policy Groups let you define a collection of policies in a central location and use them across multiple APIs. This makes it easier to implement similar policies across multiple APIs without introducing the risk of human error through repeated manual input. It also improves governance, by enabling you to ensure that all APIs implement certain policies that are critical to your organization.
 
-<figure><img src="../../.gitbook/assets/overview-release-notes-apim-45-131.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/overview-release-notes-apim-45-131.png" alt="The Shared Policy Groups settings, listing the first eight of 41 groups with their API type, phase, and last updated and deployed times."><figcaption></figcaption></figure>
 
 For example, you can use this feature to:
 
@@ -89,7 +89,7 @@ You can use the OAS Validation policy to validate a request to an API or the res
 
 Federation enables the creation of a unified catalog and developer portal for APIs and event streams from any 3rd-party platform.
 
-<figure><img src="../../.gitbook/assets/overview-release-notes-apim-45-132.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/overview-release-notes-apim-45-132.png" alt="The Choose Provider step of the Create Integration wizard, offering AWS API Gateway, Solace, Apigee, Azure API Management, IBM API Connect, and Confluent Platform, with Kong, Mulesoft, and Boomi marked coming soon."><figcaption></figcaption></figure>
 
 With 4.5, we’re excited to announce that federation is now generally available and includes multiple enhancements:
 

@@ -30,7 +30,7 @@ For self-hosted installations and hybrid deployments of Gravitee, you can set th
 
 *   Click the **Open Website** button. The New Developer Portal opens in a new tab. Once the New Developer Portal is enabled, a **Portal Settings** option also appears in the Console sidebar, providing one-click access to the New Developer Portal editor.
 
-    <figure><img src="../../.gitbook/assets/developer-portal-new-developer-portal-co-14-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/developer-portal-new-developer-portal-co-14-1.png" alt="The portal settings scrolled to the New Developer Portal section, with the portal, mTLS certificate management, analytics, application membership, ownership transfer, membership invitation, and approximate spelling all enabled, and the Open Website button highlighted."><figcaption></figcaption></figure>
 
 ## Set the New Developer Portal as default
 

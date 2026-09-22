@@ -285,7 +285,7 @@ The endpoint configuration will determine the endpoint group’s default configu
 
 By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
 
-<figure><img src="../../../.gitbook/assets/default proxy endpoint names.png" alt=""><figcaption><p>Default proxy API endpoint names</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/default proxy endpoint names.png" alt="The Endpoints page of an API under an out-of-sync banner, showing a default HTTP proxy group with round robin load balancing and a single endpoint."><figcaption><p>Default proxy API endpoint names</p></figcaption></figure>
 
 ### **Introspect messages from event-driven backend endpoints**
 
@@ -511,7 +511,7 @@ The endpoint configuration will determine the endpoint group’s default configu
 
 By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
 
-<figure><img src="../../../.gitbook/assets/default message endpoint names.png" alt=""><figcaption><p>Default message API endpoint names</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/default message endpoint names.png" alt="The Endpoints page of a message API, showing a default MQTT 5.x group and a default RabbitMQ group, each with one endpoint and round robin load balancing."><figcaption><p>Default message API endpoint names</p></figcaption></figure>
 
 ## Step 4: Security
 

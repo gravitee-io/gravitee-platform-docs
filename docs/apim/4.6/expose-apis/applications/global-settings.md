@@ -8,7 +8,7 @@ description: An overview about global settings.
 
 The **Global settings** section displays general application details and includes a Danger Zone for executing functional and sometimes irreversible actions.
 
-<figure><img src="../../.gitbook/assets/1 global 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 global 1.png" alt="The Global settings page of an application, showing its name and description fields beside the owner, creation date, type, and API key mode, with picture and background upload areas."><figcaption></figcaption></figure>
 
 Some general details are common to all applications, and others vary by application type.
 

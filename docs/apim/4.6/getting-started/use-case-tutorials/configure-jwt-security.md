@@ -30,7 +30,7 @@ In the Console UI, select the Gateway API you want to secure with a JWT plan.
 
 For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-9.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-9.png" alt="Step 4 of the API creation wizard at the Security stage, listing one default keyless plan in standard mode with a Validate my plans button."><figcaption></figcaption></figure>
 
 Save and deploy the API when you’re finished.
 
@@ -51,7 +51,7 @@ All Gateway APIs require at least one published plan to deploy the API to the Ga
 
 In the APIM Console UI, open the Gateway API you want to secure with a JWT plan. You should see a screen similar to the following:
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-2.png" alt="An API client showing a GET request to an SSE consumer path that returned 200 OK, with one channel query parameter and a streamed JSON message below."><figcaption></figcaption></figure>
 
 In the sidebar, select **Plans**, and then select **+Add new plan** in the top right of the screen. In the drop-down that appears, select **JWT**.
 
