@@ -262,7 +262,7 @@ The HTTP provider generates embeddings using a custom HTTP endpoint.
 
 **Expression Language and secrets**
 
-The `apiKey` of the OpenAI provider and the value of each HTTP provider header take Gravitee Expression Language, including `{#secrets.get('...')}` secret references. Both fields take them from APIM 4.11.26, 4.12.18, and 4.13.0 onward.
+The `apiKey` of the OpenAI provider and the value of each HTTP provider header take Gravitee Expression Language, including `{#secrets.get('...')}` secret references. Both fields take them from APIM 4.12.18.
 
 The Gateway resolves these expressions when it starts the resource, which it does when the API is deployed. An expression reads an API property with `{#properties['key']}` or a dictionary entry of the environment with `{#dictionaries['name']['key']}`. The deployment context holds nothing from a request, because no request exists when the resource starts. A new value in a property or a dictionary reaches the resource at the next deployment of the API.
 
