@@ -26,11 +26,11 @@ To create a Terraform service account, complete the following steps:
     <figure><img src="../.gitbook/assets/00.png" alt=""><figcaption></figcaption></figure>
 3.  From the Organization navigation menu, select **Users**, and then click **Add user**.
 
-    <figure><img src="../.gitbook/assets/01 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/01 (1).png" alt="The organization Users page with Users highlighted in the left navigation and the Add user button highlighted, listing one administrator."><figcaption></figcaption></figure>
 4. Select **Service Account** as the service type, and then enter a value for **Service Name**. Providing a service account email is optional.
 5.  Click **Create**.
 
-    <figure><img src="../.gitbook/assets/02 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/02 (1).png" alt="The Pre-register a user page with Service Account selected, a service name entered, and the Create button highlighted."><figcaption></figcaption></figure>
 6.  From the **Users** screen, click on your service account.
 
     <figure><img src="../.gitbook/assets/03 (1).png" alt=""><figcaption></figcaption></figure>
@@ -41,7 +41,7 @@ To create a Terraform service account, complete the following steps:
     \
     The following screenshot shows the environment-level permissions that are included in the API\_PUBLISHER role:
 
-    <figure><img src="../.gitbook/assets/05 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/05 (1).png" alt="A permissions matrix for a role, with create, read, update, and delete ticked for API, application, integration, and shared policy group, and read ticked for group and platform."><figcaption></figcaption></figure>
 8.  From your newly created service account, scroll to the **Tokens** section, and then click **Generate a personal token**.
 
     <figure><img src="../.gitbook/assets/06 (1).png" alt=""><figcaption></figcaption></figure>

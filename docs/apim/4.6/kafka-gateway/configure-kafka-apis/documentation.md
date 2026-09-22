@@ -68,11 +68,11 @@ The process for creating a documentation page is identical to that for creating 
 
 In addition, **Documentation Pages** supports the creation of folders. To create a folder, click **Add new folder**.
 
-<figure><img src="../../.gitbook/assets/09.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/09.png" alt="The Documentation Pages tab, listing a published public page and a hidden private folder with their last updated times and reorder actions."><figcaption></figcaption></figure>
 
 When prompted, give your folder a name and select either **Public** or **Private** visibility. A folder will be hidden, or not visible in the Developer Portal, until it contains published pages.
 
-<figure><img src="../../.gitbook/assets/18.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/18.png" alt="The Add new folder dialog, with an empty name field and Public visibility selected over Private."><figcaption></figcaption></figure>
 
 **Documentation Pages** supports a nested structure. Once you've added a folder, you can click into it to create additional folders or pages.
 
@@ -84,7 +84,7 @@ The ACTIONS of a documentation page include arrows. If more than one page or fol
 
 Dynamic API documentation pages can be created by adding metadata. To view and filter metadata, select the **Metadata** header.
 
-<figure><img src="../../.gitbook/assets/1 meta.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 meta.png" alt="The Metadata tab of an API&#x27;s documentation, listing seven global metadata entries with their key, name, format, and value."><figcaption></figcaption></figure>
 
 To create metadata for your documentation, click **+** **Add API Metadata**:
 

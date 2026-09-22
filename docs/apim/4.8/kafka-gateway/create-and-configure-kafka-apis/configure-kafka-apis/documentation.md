@@ -20,14 +20,14 @@ To create a homepage:
     <figure><img src="../../../.gitbook/assets/1 docs 1 (1).png" alt=""><figcaption></figcaption></figure>
 3.  Choose whether to set your page visibility to **Public** or **Private**.
 
-    <figure><img src="../../../.gitbook/assets/01.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/01.png" alt="The organization Users page with Users highlighted in the left navigation and the Add user button highlighted, listing one administrator."><figcaption></figcaption></figure>
 
     If you select **Private**, you have the option to choose which groups can view your page. You can also exclude the selected groups, in which case the groups that are not selected will be able to view your page. If you do not select any groups, all groups will be able to view your page.
 
     <figure><img src="../../../.gitbook/assets/10 1 (1).png" alt=""><figcaption></figcaption></figure>
 4.  Choose how to create the content. You can fill in the content yourself, import a file, or link to an external source.
 
-    <figure><img src="../../../.gitbook/assets/02.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/02.png" alt="The Pre-register a user page with Service Account selected, a service name entered, and the Create button highlighted."><figcaption></figcaption></figure>
 
     The format you chose for the page content may impact how you create page content:
 
@@ -60,15 +60,15 @@ Click the **Documentation Pages** header to view a directory of the pages you've
 
 The process for creating a documentation page is identical to that for creating a homepage, except a documentation page requires a name.
 
-<figure><img src="../../../.gitbook/assets/05.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/05.png" alt="A permissions matrix for a role, with create, read, update, and delete ticked for API, application, integration, and shared policy group, and read ticked for group and platform."><figcaption></figcaption></figure>
 
 In addition, **Documentation Pages** supports the creation of folders. To create a folder, click **Add new folder**.
 
-<figure><img src="../../../.gitbook/assets/09 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/09 (1).png" alt="The Documentation Pages tab, listing a published public page and a hidden private folder with their last updated times and reorder actions."><figcaption></figcaption></figure>
 
 When prompted, give your folder a name and select either **Public** or **Private** visibility. A folder will be hidden, or not visible in the Developer Portal, until it contains published pages.
 
-<figure><img src="../../../.gitbook/assets/18 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/18 (1).png" alt="The Add new folder dialog, with an empty name field and Public visibility selected over Private."><figcaption></figcaption></figure>
 
 **Documentation Pages** supports a nested structure. Once you've added a folder, you can click into it to create additional folders or pages.
 
@@ -80,7 +80,7 @@ The ACTIONS of a documentation page include arrows. If more than one page or fol
 
 Dynamic API documentation pages can be created by adding metadata. To view and filter metadata, select the **Metadata** header.
 
-<figure><img src="../../../.gitbook/assets/1 meta (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/1 meta (1).png" alt="The Metadata tab of an API&#x27;s documentation, listing seven global metadata entries with their key, name, format, and value."><figcaption></figcaption></figure>
 
 To create metadata for your documentation, click **+** **Add API Metadata**:
 
