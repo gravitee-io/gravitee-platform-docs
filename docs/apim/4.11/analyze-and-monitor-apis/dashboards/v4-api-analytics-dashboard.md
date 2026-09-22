@@ -19,7 +19,7 @@ The V4 API analytics dashboard provides you with clear visibility into the API p
     <figure><img src="../../.gitbook/assets/A160372A-F5F3-48D2-9354-70460A1D779C_1_201_a.jpeg" alt="The console dashboard with Analytics highlighted in the left navigation, showing API and application totals, lifecycle and state pie charts, and top API tables."><figcaption></figcaption></figure>
 2.  Click the **V4 Dashboard** tab.<br>
 
-    <figure><img src="../../.gitbook/assets/B0A9C126-752D-43F1-BE69-F99008FECD29_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/B0A9C126-752D-43F1-BE69-F99008FECD29_1_201_a.jpeg" alt="The Proxy v4 Dashboard with the V4 Dashboard tab highlighted, showing empty request, error rate, latency, and response time panels."><figcaption></figcaption></figure>
 
 ## Dashboard metrics
 
@@ -35,19 +35,19 @@ You can view the following metrics for your V4 APIs:
 * **Average latency**. This metric is the average latency of your Gateway displayed in milliseconds.
 *   **Average response time of the Gateway.** This is the average response time of the Gateway in milliseconds.<br>
 
-    <figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-dashboards-v4-a-70-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-dashboards-v4-a-70-1.png" alt="A row of statistic cards showing 11,013 requests, a zero percent error rate, two milliseconds average latency, and 39 milliseconds average response time."><figcaption></figcaption></figure>
 
 ### Tables and graphs
 
 *   **HTTP Statuses.** This graph shows the number of each HTTP status returned by the Gateway.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-73.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-73.png" alt="An HTTP Statuses doughnut chart, entirely in the 2XX band, with a tooltip showing 11,007 responses."><figcaption></figcaption></figure>
 *   **Response time**. This graph shows the average response time of the endpoint and the Gateway.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-74.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-74.png" alt="A Response Time area chart over a month, mostly flat with three gateway response-time peaks between 1,500 and 2,000 milliseconds."><figcaption></figcaption></figure>
 *   **Response Statuses.** This graph shows the number of response statuses over a period of time.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-75.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-75.png" alt="A Response Statuses area chart over a month, flat until a single spike of about 11,000 responses in the 2XX band."><figcaption></figcaption></figure>
 *   **Top 5 Applications**. This graph shows the top five applications by HTTP requests.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-76.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-76.png" alt="A Top 5 Applications doughnut chart, entirely one segment labelled Unknown."><figcaption></figcaption></figure>

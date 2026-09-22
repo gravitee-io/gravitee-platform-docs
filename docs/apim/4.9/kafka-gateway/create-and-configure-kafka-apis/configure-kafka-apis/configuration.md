@@ -16,7 +16,7 @@ The **Configuration** section allows you to manage and customize high-level sett
 
 The **General** tab displays a section for inputting general API details and a Danger Zone for executing functional and sometimes irreversible actions.
 
-<figure><img src="../../../.gitbook/assets/A 1 config general.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/A 1 config general.png" alt="The General tab of a Kafka API&#x27;s Configuration page, showing name and version fields with empty description, labels and categories, beside the owner and timestamps."><figcaption></figcaption></figure>
 
 {% tabs %}
 {% tab title="General details" %}
@@ -176,7 +176,7 @@ The **Notifications** tab allows you to subscribe to notifications related to a 
      * Enter the Webhook URL
      * Choose whether to use system proxy
 
-<figure><img src="../../../.gitbook/assets/A 1 notifications 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/A 1 notifications 2.png" alt="The New notification dialog, with a notification name entered and the notifier dropdown open on Default Email Notifier and Default Webhook Notifier."><figcaption></figcaption></figure>
 
 The following notifications are available to each notifier:
 

@@ -24,11 +24,11 @@ The catalog allows you to see the APIs in two view modes:
 
 1. Card view
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-catalog-258.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-catalog-258.png" alt="The developer portal Catalog in cards view, showing six API cards, each noting that its description is missing."><figcaption></figcaption></figure>
 
 2. List view
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-catalog-259.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-catalog-259.png" alt="The developer portal Catalog in list view, showing the same six APIs in a table with their name, labels, and version."><figcaption></figcaption></figure>
 
 You can also use the search bar to narrow your selection by your query.
 
