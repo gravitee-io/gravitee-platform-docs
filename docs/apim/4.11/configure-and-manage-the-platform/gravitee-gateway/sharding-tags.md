@@ -84,7 +84,7 @@ To configure sharding tags, complete the following steps:
    3. (Optional) In the **Description** field, enter a description for the tag.
    4.  (Optional) From the **Restricted groups** drop-down menu, select the groups that you want to be able to deploy to this tag.
 
-       <figure><img src="../../.gitbook/assets/create-a-tag-with-key-field.png" alt=""><figcaption><p>Create a tag dialog with Name, Key, Description, and Restricted groups fields</p></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/create-a-tag-with-key-field.png" alt="The Create a tag dialog open over the Sharding Tags page, with empty name, key, description, and restricted groups fields, above a list of tags."><figcaption><p>Create a tag dialog with Name, Key, Description, and Restricted groups fields</p></figcaption></figure>
 5. Click **Ok**. The sharding tag now appears in the list of **Sharding Tags**. The **Key** column displays the tag key used for Gateway configuration and API operations.
 
 ### Add sharding tags to your APIs
