@@ -42,19 +42,19 @@ To integrate IBM API Connect with Gravitee APIM, complete the following steps:
     <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2-1 (1).png" alt="The Integrations page in the API Management console, with the Create Integration button highlighted above a table of existing integrations."><figcaption></figcaption></figure>
 3.  Select **IBM API Connect**, and then click **Next**.<br>
 
-    <figure><img src="../../../.gitbook/assets/click-next-on-integrations-workflow.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/click-next-on-integrations-workflow.png" alt="The Choose Provider step of the Create Integration wizard, with IBM API Connect selected and the Next button highlighted."><figcaption></figcaption></figure>
 4.  Type the **Integration Name**.<br>
 
-    <figure><img src="../../../.gitbook/assets/ibm-connect-name-and-description.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/ibm-connect-name-and-description.png" alt="The Enter Information step of the Create Integration wizard, with a name and description filled in for an IBM API Connect integration."><figcaption></figcaption></figure>
 5.  (Optional) Type the **Description** for the integration.<br>
 
-    <figure><img src="../../../.gitbook/assets/ibm-connect-name-and-description.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/ibm-connect-name-and-description.png" alt="The Enter Information step of the Create Integration wizard, with a name and description filled in for an IBM API Connect integration."><figcaption></figcaption></figure>
 6.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/create-integration-ibm-connect.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/create-integration-ibm-connect.png" alt="The Enter Information step of the Create Integration wizard, with an IBM API Connect name and description filled in and the Create Integration button highlighted."><figcaption></figcaption></figure>
 7.  From the Integration overview tab, copy the **Integration ID**. You need this ID for the agent configuration.<br>
 
-    <figure><img src="../../../.gitbook/assets/ibm-connect-integraiton-id (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/ibm-connect-integraiton-id (1).png" alt="The Overview page of an IBM API Connect integration, showing the provider, a disconnected agent, and a partly masked integration identifier."><figcaption></figcaption></figure>
 
 ### Run the IBM API Connect federation agent
 
@@ -256,7 +256,7 @@ API_KEY=[your-api-key]
 
 1.  In the Gravitee API Management console, after refreshing, you should now see the agent's status set to **Connected**.
 
-    <figure><img src="../../../.gitbook/assets/ibm-connect-integraiton-id.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/ibm-connect-integraiton-id.png" alt="The Overview page of an IBM API Connect integration after the agent connects, with Connected shown in both the menu and the agent connection field."><figcaption></figcaption></figure>
 2. (Optional) If the Agent Connection shows as **Disconnected**, inspect the agent container logs for error messages.
 
 ### Helm
@@ -618,7 +618,7 @@ Create the Helm values file based on your APIM management API's certificate setu
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to **Connected**.
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-56-1 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-56-1 (1).png" alt="The Overview page of a connected IBM API Connect integration, showing the provider, the connected agent, and a partly masked integration identifier."><figcaption></figcaption></figure>
 
 ## Limitations
 

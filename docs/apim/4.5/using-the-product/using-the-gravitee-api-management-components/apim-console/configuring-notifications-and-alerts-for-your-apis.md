@@ -34,7 +34,7 @@ API notifications relate to a specific API and include the following:
 
 To subscribe to notifications related to a specific API, go to **APIM Console > APIs**, select the API, and click **Notifications**:
 
-<figure><img src="../../../.gitbook/assets/api_notifications.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/api_notifications.png" alt="The Portal Notification settings for an API, listing API key and subscription events with every checkbox cleared."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Application" %}
@@ -53,7 +53,7 @@ Application notifications relate to a specific application and include the follo
 
 To subscribe to notifications related to a specific application, go to **APIM Console >** **Applications**, select the application, and click **Notifications**:
 
-<figure><img src="../../../.gitbook/assets/application_notifications.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/application_notifications.png" alt="The Portal Notification settings for an application, listing subscription and support events with every checkbox cleared."><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -209,7 +209,7 @@ The following documentation is only relevant if you have Gravitee Alert Engine e
 
 When configuring platform settings, you can also set up alerting conditions for the Gateway. To configure alerts, select **Alerts** from the left nav of your APIM console. If you already have alerts configured, you'll see the configured alerts. If not, you'll see a blank alerts menu and a **+** icon.
 
-<figure><img src="../../../.gitbook/assets/Alerts menu.png" alt=""><figcaption><p>Alerts</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Alerts menu.png" alt="The Alerts page of an API, empty, with an add button below and Alerts highlighted in the API menu, under an out-of-sync banner."><figcaption><p>Alerts</p></figcaption></figure>
 
 Select the **+** icon to create your first alert. On the **Create a new alert** page, configure the following:
 

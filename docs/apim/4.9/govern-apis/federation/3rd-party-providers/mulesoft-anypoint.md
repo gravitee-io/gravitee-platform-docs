@@ -38,19 +38,19 @@ To integrate Mulesoft Anypoint with Gravitee APIM, complete the following steps:
     <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2.png" alt="The Integrations page in the API Management console, with the Create Integration button highlighted above a table of existing integrations."><figcaption></figcaption></figure>
 3.  Select **Mulesoft**, and then click **Next**.
 
-    <figure><img src="../../../.gitbook/assets/mulesoft-click-next.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/mulesoft-click-next.png" alt="The Choose Provider step of the Create Integration wizard, with Mulesoft selected among the available providers."><figcaption></figcaption></figure>
 4.  Type the **Integration Name.**
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-39-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-39-1.png" alt="The Enter Information step of the Create Integration wizard for a Mulesoft integration, with the Create Integration button highlighted."><figcaption></figcaption></figure>
 5.  (Optional) Type the **Description** for the integration.
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-39-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-39-1.png" alt="The Enter Information step of the Create Integration wizard for a Mulesoft integration, with the Create Integration button highlighted."><figcaption></figcaption></figure>
 6.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/create-integration-mulesoft.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/create-integration-mulesoft.png" alt="The Enter Information step of the Create Integration wizard, with a Mulesoft name and description filled in and the Create Integration button highlighted."><figcaption></figcaption></figure>
 7.  From the Integration overview tab, copy the **Integration ID**. You need this ID for the agent configuration.
 
-    <figure><img src="../../../.gitbook/assets/integration-overview-tab.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/integration-overview-tab.png" alt="The Overview page of a Mulesoft integration, showing the provider, a disconnected agent, and a partly masked integration identifier."><figcaption></figcaption></figure>
 
 ### Run the Mulesoft Anypoint federation agent
 
@@ -142,7 +142,7 @@ You can deploy the Mulesoft Anypoint federation agent using either of the follow
 
 1.  In the Gravitee API Management console, after refreshing, you should now see the agent's status set to Connected.
 
-    <figure><img src="../../../.gitbook/assets/integration-overview-tab (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/integration-overview-tab (1).png" alt="The Overview page of a Mulesoft integration after the agent connects, with Connected shown in both the menu and the agent connection field."><figcaption></figcaption></figure>
 2. (Optional) If the Agent Connection shows as `Disconnected`, inspect the agent container logs for error messages.
 
 ### Helm
@@ -393,7 +393,7 @@ If your APIM management API uses certificates that require a custom truststore, 
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to **Connected**.
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-62-1 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-62-1 (1).png" alt="The Overview page of a connected Mulesoft integration, showing the provider, the connected agent, and a partly masked integration identifier."><figcaption></figcaption></figure>
 
 ## Limitations
 

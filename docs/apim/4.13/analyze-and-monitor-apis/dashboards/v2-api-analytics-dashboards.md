@@ -14,7 +14,7 @@ The Dashboard is fully customizable. For more information about creating configu
 
 *   From the **Dashboard**, click **Analytics**.<br>
 
-    <figure><img src="../../.gitbook/assets/A160372A-F5F3-48D2-9354-70460A1D779C_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A160372A-F5F3-48D2-9354-70460A1D779C_1_201_a.jpeg" alt="The console dashboard with Analytics highlighted in the left navigation, showing API and application totals, lifecycle and state pie charts, and top API tables."><figcaption></figcaption></figure>
 
 The Analytics section opens on the v2 API analytics Dashboard.
 
@@ -191,7 +191,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
     <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-117.png" alt=""><figcaption></figcaption></figure>
 2.  From the **Select a dashboard**, select the dashboard that you want to view.<br>
 
-    <figure><img src="../../.gitbook/assets/dashboard_view.png" alt=""><figcaption><p>View your dashboard</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/dashboard_view.png" alt="The Platform Overview dashboard, with the dashboard selector circled above a time-range picker, a status pie chart, and response-time statistics."><figcaption><p>View your dashboard</p></figcaption></figure>
 
 ## Edit an existing dashboard
 

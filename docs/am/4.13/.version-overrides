@@ -38,3 +38,6 @@ guides/auth-protocols/openid-connect.md
 getting-started/configuration/configure-am-gateway/README.md
 .gitbook/assets/am-domain-dpop-settings.png
 .gitbook/assets/am-application-dpop-bound-access-tokens.png
+# Reporter attribute mapping (AM 4.13.0 feature, AM-7322)
+getting-started/configuration/configure-reporters.md
+.gitbook/assets/am-reporter-attribute-mapping.png

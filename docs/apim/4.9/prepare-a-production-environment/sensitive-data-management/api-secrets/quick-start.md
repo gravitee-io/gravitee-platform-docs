@@ -115,7 +115,7 @@ Create an API with a fake sensitive that you secure after we make sure everythin
 5. In the **Version number** field, type a version. For example, 1.1.
 6.  Click **Validate my details**.
 
-    <figure><img src="../../../.gitbook/assets/prepare-a-production-environment-sensiti-3-1-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/prepare-a-production-environment-sensiti-3-1-1.png" alt="The organization CORS settings, with a locked wildcard allow-origin, six allowed methods, a list of allowed headers, exposed headers, and a max age in seconds."><figcaption></figcaption></figure>
 7.  Select **HTTP Proxy**, and then click **Select my entrypoints**.
 
     <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-8.png" alt=""><figcaption></figcaption></figure>
@@ -215,7 +215,7 @@ If you export your API, you see the Authorization header as part of the definiti
     <figure><img src="../../../.gitbook/assets/5DF13AD2-0BEC-4D40-9D2E-33BFED89E109.jpeg" alt=""><figcaption></figcaption></figure>
 3.  Click the **Configuration** tab, and then navigate to **HTTP Headers**.
 
-    <figure><img src="../../../.gitbook/assets/gs-first-api-add-security-15.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/gs-first-api-add-security-15.png" alt="The configuration of an HTTP proxy endpoint, showing idle timeout, redirect following, connection pool size, a default Authorization header, proxy options, and SSL options."><figcaption></figcaption></figure>
 4. In the **VALUE** field, replace `ApiKey 123465798` with `ApiKey{#secrets.get('/vault/secret/gravitee/apikeys:username')}` .
 5.  In the **You have unsaved changes** pop-up window, click **Save.**
 

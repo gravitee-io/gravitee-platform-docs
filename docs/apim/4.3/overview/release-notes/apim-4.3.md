@@ -48,7 +48,7 @@ Gravitee 4.3 includes numerous API documentation enhancements:
 * To automate the process of creating OpenAPI or AsyncAPI docs pages for v4 APIs, you can make a Management API endpoint REST call to create a docs page from an OpenAPI or AsyncAPI spec.
 *   Markdown, OpenAPI, and AsyncAPI files can be uploaded as v4 API documentation pages via the Console.
 
-    <figure><img src="../../.gitbook/assets/docs_content 1.png" alt=""><figcaption><p>Upload a Markdown file as a documentation page</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/docs_content 1.png" alt="The Add content step of the documentation page wizard, with an empty drag-and-drop upload area accepting Markdown and text files."><figcaption><p>Upload a Markdown file as a documentation page</p></figcaption></figure>
 
     <figure><img src="../../.gitbook/assets/docs_markdown content.png" alt=""><figcaption><p>Uploaded Markdown content</p></figcaption></figure>
 *   Like user-created content, imported content can be edited via the Markdown editor, and by enabling **Toggle preview**, you can view the content you enter and the rendered page side-by-side.
@@ -58,7 +58,7 @@ Gravitee 4.3 includes numerous API documentation enhancements:
 * In addition to making API documentation available via the Developer Portal, you can send messages to parties interested in your API to advertise updates, warn of upcoming changes, etc. Message delivery mechanism, recipients, and content can be configured in the APIM Console.
 *   Dynamic v4 API documentation pages can be created by adding metadata keys and values.
 
-    <figure><img src="../../.gitbook/assets/metadata_screen.png" alt=""><figcaption><p>API metadata</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/metadata_screen.png" alt="The Metadata tab of an API&#x27;s documentation, listing global metadata entries with their key, name, format, and value."><figcaption><p>API metadata</p></figcaption></figure>
 
 Refer to the [API Documentation](../../guides/api-configuration/v4-api-configuration/documentation.md) section for more information.
 
@@ -66,7 +66,7 @@ Refer to the [API Documentation](../../guides/api-configuration/v4-api-configura
 
 v4 API properties can be dynamically managed via the **Properties** tab of the API Management Console's **Configuration** screen\*\*.\*\* To learn more about properties and how to set them, see the [documentation](../../guides/policy-studio/v4-api-policy-studio.md#api-properties).
 
-<figure><img src="../../.gitbook/assets/api properties_dynamically manage.png" alt=""><figcaption><p>Dynamically manage properties</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api properties_dynamically manage.png" alt="The API dynamic properties page, with the service disabled, a schedule running every thirty seconds, the GET method, and empty URL and request header fields."><figcaption><p>Dynamically manage properties</p></figcaption></figure>
 
 ## Audit logs
 
@@ -98,7 +98,7 @@ For more information on how to configure documentation for the Developer Portal,
 
 The Management Console's Health-check feature can be used for v4 HTTP proxy APIs to monitor the availability and health of your endpoints and/or your API Gateways.
 
-<figure><img src="../../.gitbook/assets/health-check config form.png" alt=""><figcaption><p>Health-check configuration settings for v4 HTTP proxy APIs</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/health-check config form.png" alt="The Health-check tab of an endpoint, with Inherit configuration switched on and the rest of the form disabled, showing schedule, HTTP method, target, and header fields."><figcaption><p>Health-check configuration settings for v4 HTTP proxy APIs</p></figcaption></figure>
 
 For more information, see [Health-check](../../guides/api-configuration/v4-api-configuration/endpoints/health-check.md).
 
@@ -106,7 +106,7 @@ For more information, see [Health-check](../../guides/api-configuration/v4-api-c
 
 The Management Console's Version History feature allows you to view a v4 API's deployment history and the JSON definition of each API version.
 
-<figure><img src="../../.gitbook/assets/deployment_version history details.png" alt=""><figcaption><p>JSON definition of an API version</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/deployment_version history details.png" alt="The Version History tab of an API&#x27;s Deployment page, showing a selected version with its date, author, and label above the JSON API definition."><figcaption><p>JSON definition of an API version</p></figcaption></figure>
 
 For more information, see [Version History](../../guides/api-configuration/v4-api-configuration/version-history.md).
 

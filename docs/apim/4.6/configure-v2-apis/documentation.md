@@ -22,7 +22,7 @@ To import documentation:
 6. To import documentation files, choose either of the following options:
    *   Click on **Import multiple files**
 
-       <figure><img src="../.gitbook/assets/v2 docs_import multiple files.png" alt=""><figcaption><p>Import multiple files</p></figcaption></figure>
+       <figure><img src="../.gitbook/assets/v2 docs_import multiple files.png" alt="The Import Files page for API documentation, with a Publish all imported pages checkbox and source options including Bitbucket, Git, GitHub, GitLab, and a public URL."><figcaption><p>Import multiple files</p></figcaption></figure>
 
        * Toggle **Publish all imported pages** ON or OFF
        * To **Select your source**, choose from: Bitbucket, git, GitHub, GitLab, or a URL
@@ -31,7 +31,7 @@ To import documentation:
    * Import individual files while creating new API documentation:
      *   Under the **Pages** tab, click the <img src="../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="A round dark blue button with a white plus sign, used to add a new item." data-size="line"> icon
 
-         <figure><img src="../.gitbook/assets/v2 docs_create.png" alt=""><figcaption><p>Import via page creation</p></figcaption></figure>
+         <figure><img src="../.gitbook/assets/v2 docs_create.png" alt="The Pages tab of an API&#x27;s documentation, empty, with a column of buttons offering page types to create."><figcaption><p>Import via page creation</p></figcaption></figure>
      * Select one of the following options:
        * ASCIIDOC
        * ASYNCAPI
@@ -71,6 +71,6 @@ To add metadata:
 5. Select the **Metadata** tab
 6.  Click on **+ Add API Metadata**
 
-    <figure><img src="../.gitbook/assets/v2 docs_metadata.png" alt=""><figcaption><p>Add API metadata</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/v2 docs_metadata.png" alt="The Metadata tab of an API&#x27;s documentation, listing six global metadata entries with their key, name, format, and value."><figcaption><p>Add API metadata</p></figcaption></figure>
 7. Choose a name for your API, select the format (string, numeric, boolean, date, mail, url), and define the value
 8. Click **Save**

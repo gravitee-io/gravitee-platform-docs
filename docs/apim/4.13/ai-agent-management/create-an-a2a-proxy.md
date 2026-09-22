@@ -45,38 +45,38 @@ Before configuring an A2A Proxy Gateway, ensure the following requirements are m
     <figure><img src="../.gitbook/assets/3AFC7359-4334-44DE-A2AA-3732BE173718_1_201_a.jpeg" alt="The console dashboard with APIs highlighted in the left navigation, showing summary counts and pie charts for API lifecycle state and API state."><figcaption></figcaption></figure>
 2.  Click **+Add API**.
 
-    <figure><img src="../.gitbook/assets/4C33F7FA-43E1-43DB-86E4-3322A25B012A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/4C33F7FA-43E1-43DB-86E4-3322A25B012A_1_201_a.jpeg" alt="The APIs list with the Add API button highlighted above the table of APIs and their definition, status, and owner."><figcaption></figcaption></figure>
 3.  Click **Create V4 API**.
 
-    <figure><img src="../.gitbook/assets/DAFCAA99-6D7F-4C42-9047-2B0B3DA12703_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/DAFCAA99-6D7F-4C42-9047-2B0B3DA12703_1_201_a.jpeg" alt="The Choose API creation method page, with the Create V4 API button highlighted in the Create New API panel."><figcaption></figcaption></figure>
 4. In the **Provide some details on your API** screen, enter the following details:
    1. API name
    2. Version number
    3.  (Optional) Description
 
-       <figure><img src="../.gitbook/assets/9FB7738A-FEFA-4404-A90A-5C56373D57AE_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../.gitbook/assets/9FB7738A-FEFA-4404-A90A-5C56373D57AE_1_201_a.jpeg" alt="Step 1 of the API creation wizard, with an API name and version entered and an empty description."><figcaption></figcaption></figure>
 5. In the **Select how you want your backend exposed** screen, select **Agent Proxy**.
 6.  Click **Select my API architecture**.
 
-    <figure><img src="../.gitbook/assets/0CCBFFE7-216B-4568-99AC-BAA064FFF12E_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/0CCBFFE7-216B-4568-99AC-BAA064FFF12E_1_201_a.jpeg" alt="Step 2 of the API creation wizard, with Agent Proxy selected and highlighted among Proxy Generic Protocol, Protocol Mediation, and Kafka Protocol."><figcaption></figcaption></figure>
 7. In the **Configure your API entrypoints** screen, enter the following details:
    1. The **Context-path** for the entrypoint.
    2. (Optional) Define the interval at which heartbeats are sent to the client.
 8.  Click **Validate my entrypoints**.
 
-    <figure><img src="../.gitbook/assets/00 agent copy.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/00 agent copy.png" alt="Step 2 of the API creation wizard at the entrypoints stage, with virtual hosts enabled, a context path entered, an agent-to-agent heartbeat interval set, and the validate button highlighted."><figcaption></figcaption></figure>
 9.  In the **Configure your API endpoints access** screen, provide the **Target URL**. The Target URL is the Agent's address and must be a non-null, non-blank string. The endpoint connector validates that the target URL isn't null or blank and throws an `IllegalArgumentException` if validation fails.
 
-    <figure><img src="../.gitbook/assets/4CA47921-5400-4EA4-97C4-43C928118657_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/4CA47921-5400-4EA4-97C4-43C928118657_1_201_a.jpeg" alt="Step 3 of the API creation wizard, with the agent target URL field highlighted and the security configuration set to HTTP 1.1 with keep-alive and timeouts below."><figcaption></figcaption></figure>
 10. Click **Validate my endpoints**.
 
-    <figure><img src="../.gitbook/assets/0E388335-3808-408C-A522-94545A083810_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/0E388335-3808-408C-A522-94545A083810_1_201_a.jpeg" alt="The endpoint configuration scrolled to the proxy and SSL options, with no proxy, host verification on, trust all off, and no truststore or key store, above the validate button."><figcaption></figcaption></figure>
 11. In the **Security** screen, click **Validate my plans**.
 
-    <figure><img src="../.gitbook/assets/B434E9CD-CE30-4CEF-9D51-260356E28546_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/B434E9CD-CE30-4CEF-9D51-260356E28546_1_201_a.jpeg" alt="Step 4 of the API creation wizard, listing one default keyless plan in standard mode, with the validate button highlighted."><figcaption></figcaption></figure>
 12. In the **Review your API configuration** screen, click **Save & Deploy**.
 
-    <figure><img src="../.gitbook/assets/E1E23126-57E1-4FCE-B265-7E0B896F0528_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/E1E23126-57E1-4FCE-B265-7E0B896F0528_1_201_a.jpeg" alt="Step 5 of the API creation wizard, summarising the API details, entrypoints, endpoints, and plan, with the Save and Deploy API button highlighted."><figcaption></figcaption></figure>
 
 ## Gateway configuration
 

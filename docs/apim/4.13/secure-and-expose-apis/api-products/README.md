@@ -192,7 +192,7 @@ The subscription list provides filters to narrow results by:
 
 Click **Reset filters** to clear all active filters.
 
-<figure><img src="../../.gitbook/assets/api-product-subscriptions.png" alt=""><figcaption><p>API Product subscriptions list with filters</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api-product-subscriptions.png" alt="The Subscriptions tab of an API product&#x27;s Consumers page, listing one accepted API key subscription with its plan and timestamps."><figcaption><p>API Product subscriptions list with filters</p></figcaption></figure>
 
 ### Manage subscription lifecycle
 

@@ -205,4 +205,4 @@ The following notifications are available to each notifier:
 
 The **Audit Logs** tab displays API-level events and audit entries, which are summarized in table format. These can be filtered by event type and date range.
 
-<figure><img src="../../.gitbook/assets/A 1 config audit logs.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/A 1 config audit logs.png" alt="The Audit Logs tab of an API&#x27;s Configuration page, listing dated events such as API updated, plan published, and plan created, with a filter for events and a date range."><figcaption></figcaption></figure>

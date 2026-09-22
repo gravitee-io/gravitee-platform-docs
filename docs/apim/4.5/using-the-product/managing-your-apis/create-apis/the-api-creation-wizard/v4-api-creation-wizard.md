@@ -97,7 +97,7 @@ If you chose **Introspect messages from Event-driven backend**, you are presente
 * **Webhook**: Front a backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
 * **WebSocket**: Front a backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.
 
-<figure><img src="../../../../.gitbook/assets/v4 wizard_step 2 message entrypoints.png" alt=""><figcaption><p>v4 API creation wizard: Event-driven backend entrypoints</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/v4 wizard_step 2 message entrypoints.png" alt="Step 2 of the API creation wizard, with HTTP GET and HTTP POST ticked and Server-Sent Events and Webhook left clear."><figcaption><p>v4 API creation wizard: Event-driven backend entrypoints</p></figcaption></figure>
 
 Once you select your entrypoint(s), additional configuration is required. The following sections outline the necessary configuration per entrypoint.
 
@@ -580,7 +580,7 @@ To configure your OAuth2 plan, select OAuth2 from the **+Add plan** drop-down me
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 * **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../../administration/user-management-and-permissions.md#users-and-user-groups).
 
-<img src="../../../../.gitbook/assets/using-the-product-managing-your-api-92.png" alt="" data-size="original">
+<img src="../../../../.gitbook/assets/using-the-product-managing-your-api-92.png" alt="The General step of plan creation, with an OAuth2 plan named and described, both subscription toggles switched on, a custom subscriber message, and an access control field." data-size="original">
 
 Select Next to move on to **OAuth2 authentication configuration**. Here, you'll specify:
 
@@ -592,7 +592,7 @@ Select Next to move on to **OAuth2 authentication configuration**. Here, you'll 
 * Whether to permit authorization headers to target endpoints.
 * (Optional) Define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process. You will need to use the Gravitee Expression Language. For more information on the Gravitee Expression Language, please refer to the Expression Language documentation.
 
-<img src="../../../../.gitbook/assets/using-the-product-managing-your-api-97.png" alt="" data-size="original">
+<img src="../../../../.gitbook/assets/using-the-product-managing-your-api-97.png" alt="The OAuth2 authentication configuration step, with a resource named, an empty cache resource, payload extraction and scope checking off, and strict mode and header propagation on." data-size="original">
 
 Select Next to define any additional restrictions for the plan. These restrictions include:
 

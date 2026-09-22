@@ -59,10 +59,10 @@ The flow and policy configuration options you are presented with differ based on
     * To create a flow for a single existing plan, click the + icon next to that plan.
     * To create a flow that applies to all plans, click the + icon next to **All plans**.
 
-    <figure><img src="../../.gitbook/assets/0 ps1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/0 ps1.png" alt="The Policies page of a proxy API, with no flows defined under the default keyless plan or All plans."><figcaption></figcaption></figure>
 6.  Configure the flow using the **Create a new flow** module with the options shown below
 
-    <div align="left"><figure><img src="../../.gitbook/assets/0 ps2.png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/0 ps2.png" alt="The Create a new flow dialog, with a flow name entered, the equals path operator, an empty path, and all methods selected." width="375"><figcaption></figcaption></figure></div>
 
     * **Flow name:** Give your flow a descriptive name. Otherwise, a name will be automatically generated using the channel and operation.
     * **Path operator:** Apply this flow to requests with a path that **Equals** or **Starts with** the specified **Path**.
@@ -72,12 +72,12 @@ The flow and policy configuration options you are presented with differ based on
 7. Click **Create** in the modal, and then **Save** on the **Policies** page.
 8.  To add a policy to your flow, click the **+** icon for the phase where the policy should be enforced.
 
-    <figure><img src="../../.gitbook/assets/0 ps3.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/0 ps3.png" alt="The Policies page with a new flow selected, showing the add-policy buttons in both the request and response phases highlighted."><figcaption></figcaption></figure>
 9. Select from the pre-populated policies that are valid for your specific entrypoints and endpoints.
 10. In the policy configuration modal, enter the information appropriate to and required by the policy.
 11. Click **Add policy**. The policy appears in the phase it was added to. For example, the following screenshot shows the API Key policy added to the Request phase of a v4 HTTP proxy API.
 
-    <figure><img src="../../.gitbook/assets/0 ps4.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/0 ps4.png" alt="The Policies page with an API Key policy added to the request phase of the selected flow and highlighted."><figcaption></figcaption></figure>
 12. Click **Save** on the **Policies** page, then redeploy your API to the Gateway for the changes to take effect.
 
 {% hint style="info" %}
@@ -92,7 +92,7 @@ The Policy Studio is designed to help you easily distinguish between plans and f
 
 Individual plans are identified by the **Plan:** prefix, as shown in the following example. Each plan can contain one or more flows, where each flow appears as a box under the plan name. You have the option to name your flows and/or their respective paths. Flow names appear above path names, which are prefixed with "/".
 
-<figure><img src="../../.gitbook/assets/0 ps9 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 ps9 (1).png" alt="The Policies page with flows grouped by plan, annotated to show which label is the plan name, which is the path, and which is the flow name."><figcaption></figcaption></figure>
 
 #### Find plans and flows
 
@@ -100,25 +100,25 @@ The single search box in the **Flows** panel can be used to find all plans and f
 
 *   **All of the flows of every plan whose name matches the search text.** In the following example, the search text "JWT" surfaces all of the flows that belong to the plan named **JWT**.
 
-    <figure><img src="../../.gitbook/assets/00 ps2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 ps2.png" alt="The Policies page with the flow search filtered to a plan name, showing the two flows belonging to that plan."><figcaption></figcaption></figure>
 *   **All of the flows with a path that matches the search text.** In the following example, the search text "foo" surfaces every flow whose path name includes **foo**.
 
-    <figure><img src="../../.gitbook/assets/00 ps1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 ps1.png" alt="The Policies page with the flow search filtered to a path fragment, showing the matching flows under two plans."><figcaption></figcaption></figure>
 *   **All of the flows with names that match the search text.** In the following example, the search text "flow" surfaces a flow called **Named flow**.
 
-    <div align="left"><figure><img src="../../.gitbook/assets/00 ps3.png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/00 ps3.png" alt="The Policies page with the flow search filtered to a flow name, showing one matching flow with its tooltip displayed." width="375"><figcaption></figcaption></figure></div>
 
 #### Find a policy
 
 When you click a phase's **+** icon to add a policy to your flow, you can use the search field in the policy selection pop-up to find a policy. The search results surface all policies that include your search text in the policy name or description.
 
-<figure><img src="../../.gitbook/assets/00 ps4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 ps4.png" alt="The Policies for Request phase dialog with an enforcement search, offering API Key, HTTP Signature, and SSL Enforcement policies."><figcaption></figcaption></figure>
 
 ## Configure flow mode
 
 To configure the flow mode, click the gear icon in the **Flows** panel to open the **Flow execution** module:
 
-<div align="left"><figure><img src="../../.gitbook/assets/0 ps5.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/0 ps5.png" alt="The Flow execution dialog, explaining default and best match flow selection, with the mode set to Default and Fail on flow mismatch switched off." width="375"><figcaption></figcaption></figure></div>
 
 * **Default flow mode:** Use the drop-down menu to select **Default** or **Best Match**
 * Enable **Fail on flow mismatch** to generate an error when there is no match between the request and any defined flow
@@ -137,7 +137,7 @@ To configure API properties:
 4. Select **Configuration** from the inner left nav
 5.  Select the **Properties** tab
 
-    <figure><img src="../../.gitbook/assets/0 ps6.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/0 ps6.png" alt="The Properties tab of an API&#x27;s Configuration page, empty, with Import, Manage dynamically, and Add property buttons."><figcaption></figcaption></figure>
 6. To add static properties, either:
    * Click **Add property** and enter property definitions one at a time as a key-value pair
    * Click **Import** and enter property definitions as a list in `<key>=<value>` format
@@ -162,7 +162,7 @@ To encrypt a static API property value:
     ```
 2.  Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value.
 
-    <div align="left"><figure><img src="../../.gitbook/assets/0 ps7.png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/0 ps7.png" alt="The New property dialog, with a key and value entered and the Encrypt toggle switched on." width="375"><figcaption></figcaption></figure></div>
 
 ### **Dynamic properties**
 
@@ -175,7 +175,7 @@ To configure dynamic properties:
 5. Select the **Properties** tab
 6.  Click the **Manage dynamically** button and define the configuration
 
-    <figure><img src="../../.gitbook/assets/0 ps8.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/0 ps8.png" alt="The API dynamic properties page, disabled, with the schedule set to every thirty seconds, the GET method, an empty URL, and a default JOLT transformation."><figcaption></figcaption></figure>
 
     * Toggle **Enabled** to ON
     * **Schedule:** A cron expression to schedule the health check
@@ -237,7 +237,7 @@ To monetize data delivery, consider a v4 message API that sends an alert wheneve
 3. Select **Consumers** from the inner left nav
 4.  Under the **Plans** tab, click **+ Add new plan**
 
-    <figure><img src="../../.gitbook/assets/example2_add plan.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/example2_add plan.png" alt="The Plans tab of an API&#x27;s Consumers page, with the PUBLISHED filter selected and a keyless plan and a push plan both published."><figcaption></figcaption></figure>
 5. Select **API Key** from the drop-down menu and configure an API Key plan
 
 Tier 2 customers can use our API for free, but new merchandise alerts are delayed by 30 minutes. Tier 1 customers who purchase the API Key plan are given unlimited access to real-time data.

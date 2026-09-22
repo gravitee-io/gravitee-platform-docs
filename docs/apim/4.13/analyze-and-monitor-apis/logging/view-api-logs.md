@@ -17,7 +17,7 @@ Comprehensive connection logs let you analyze the usage of your v4 message APIs 
 3. Navigate to the desired logs applicable to your API.
    1.  To view v4 API runtime logs, click the **Logs** menu item:
 
-       <figure><img src="../../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt="The Runtime Logs page of an API, listing seven requests with their timestamp, method, status, URI, application, plan, and response time, with Logs highlighted in the API menu."><figcaption></figcaption></figure>
    2.  To view the webhook logs for a v4 message API with a webhook entrypoint, click the **Webhook** menu item:
 
        <figure><img src="../../.gitbook/assets/logging-webhook-view3.png" alt=""><figcaption></figcaption></figure>
@@ -39,7 +39,7 @@ You can filter v4 proxy API and v4 message API runtime logs based on the followi
 
 The **More** button offers additional filtering options.
 
-<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-view-ap-363-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-view-ap-363-1.png" alt="A row of runtime log filters for period, entrypoints, HTTP methods, and plan, with More and Refresh buttons and a Reset filters link below."><figcaption></figcaption></figure>
 
 You can filter v4 message webhook logs based on time period, HTTP status, and application. The **More** button lets you filter by callback URL and a customized timeframe.
 
@@ -53,7 +53,7 @@ You can view runtime logs for all v4 proxy APIs and v4 message APIs. You can vie
 
 To view the details of any entry in the list of runtime logs, select **Logs** from your API's menu, and then click the eye symbol next to the log whose details you want to view.
 
-<figure><img src="../../.gitbook/assets/321F6892-812F-4DAA-AEE6-0CA0C44BEFF4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/321F6892-812F-4DAA-AEE6-0CA0C44BEFF4_1_201_a.jpeg" alt="The Runtime Logs page of an API, with the view icon on the first row highlighted, listing requests whose API key is visible in the URI."><figcaption></figcaption></figure>
 
 The logs screen shows the following API-level logging information:
 
@@ -63,17 +63,17 @@ The **Overview** section provides information about the request and response pha
 
 The **More details** drop-down menu shows information about the application, plan, endpoint, Gateway host, and Gateway IP associated with the API.
 
-<figure><img src="../../.gitbook/assets/E28EB0D9-6405-4876-8730-BFA28645A4D5_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/E28EB0D9-6405-4876-8730-BFA28645A4D5_1_201_a.jpeg" alt="A log detail page showing the request date, method, URI, identifiers, and remote IP beside the response status and timings, with the host and gateway host masked."><figcaption></figcaption></figure>
 
 The **Details** menu shows the details of the API request and response phases.
 
 The **Request** panel shows the HTTP method and URI for the Gateway and consumer, the headers sent by the user or the backend in the request phase, and the request body.
 
-<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-view-ap-369-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-view-ap-369-1-1.png" alt="A request comparison showing the consumer and gateway views side by side, each with the method, URI, headers, and a small JSON body."><figcaption></figcaption></figure>
 
 The **Response** panel shows the status of the Gateway and consumer, the headers sent by the user or the backend in the response phase, and the body returned in the response.
 
-<figure><img src="../../.gitbook/assets/2421DA4C-35BB-4DAD-A6FA-642B70A17486_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2421DA4C-35BB-4DAD-A6FA-642B70A17486_4_5005_c.jpeg" alt="A response comparison showing the consumer and gateway views side by side, each with status 200, headers, and a JSON body echoing the request headers."><figcaption></figcaption></figure>
 
 ### v4 message API runtime logs
 

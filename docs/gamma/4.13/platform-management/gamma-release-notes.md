@@ -164,7 +164,7 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer.
+API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page and a Response Templates page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer.
 
 #### Import an API proxy
 
@@ -199,6 +199,16 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * The **Add plan flow**, **Add common flow**, and **Add MCP method flow** controls in the flows sidebar and on the empty Policy Studio screen share one link treatment.
 * The changes apply to the Policy Studio of API Management and Agent Management, and to the platform policies of Platform Management.
 
+#### Response templates for API proxies
+
+* The **Design** group of the API proxy sidebar adds a **Response Templates** page that overrides the error payloads the gateway returns by default. A template matches on a template key and an Accept header, and answers with the status code, headers, and body you set, so one proxy can answer a browser and a service differently for the same error.
+* The list carries the **Key**, **Content-Type**, and **Status Code** of each template, with a search field that narrows it by any of the three. A proxy holding no templates opens on an empty state titled **No Response Templates** with a create button in it.
+* **Template key** suggests **DEFAULT** and the gateway's own error keys, and takes a key you type instead. **Accept header to match** and **Status code** are required beside it, and a key and Accept header pair already used on the proxy is refused.
+* Optional **HTTP Headers** rows and a **Body** complete the response, and **Add template key to logs** records the template key alongside the request.
+* An API proxy managed by the Kubernetes operator shows its response templates as read-only, and so does one you don't have permission to update.
+* The page isn't offered on a TCP Proxy API, which forwards raw traffic and has no HTTP response to override, nor on an MCP or LLM Proxy API.
+* See [Configure response templates](../api-management/build/configure-your-api-proxy/configure-response-templates.md).
+
 ### Edge Management
 
 Edge Management replaces the single configuration page and its flat lists of DNS domains and routes. A guided setup creates the configuration, and a page per concern edits it. Interception is configured per intercepted agent, and each route names the target API that receives its traffic. The console checks that API against the requirements of the route before you deploy. The analytics pages gain their content, and a Devices page shows the fleet.
@@ -229,7 +239,7 @@ Edge Management replaces the single configuration page and its flat lists of DNS
 
 ### Event Stream Management
 
-Event Stream Management adds a duplication path for Kafka Services.
+Event Stream Management adds the Kafka Explorer and a duplication path for Kafka Services. The Kafka Explorer reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
 
 #### Duplicate a Kafka service
 
@@ -237,6 +247,15 @@ Event Stream Management adds a duplication path for Kafka Services.
 * Provide a name, a version, and a new listener host prefix for the copy. The host prefix is unique per environment, and the source service's prefix counts as already in use.
 * The new service is created in a stopped state and without plans, so you control when it starts accepting connections.
 * See [Duplicate a Kafka service](../event-stream-management/build/duplicate-a-kafka-service.md).
+
+#### Kafka Explorer
+
+* The **Manage** group of the Event Stream Management sidebar adds **Kafka Explorer**, which reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
+* A connection points at a multi-connection cluster registered in Event Stream Management and one of its named connections, at a Kafka Service through a published plan and an accepted subscription, or at broker addresses that you enter directly. An optional security overlay adds or replaces the client-side SASL and TLS settings, and **Test connection** checks that the target is reachable before you save.
+* The explorer lists the brokers with their partition counts and log sizes, the topics with their partitions, replication, size, and configuration, and the consumer groups with their members, committed offsets, and lag. The **Messages** page of a topic fetches a batch from the newest or oldest messages, from a timestamp, or from a specific offset, or streams new messages live for up to 300 seconds.
+* Each connection has its own members and groups. Its creator is the primary owner, and the **USER** and **OWNER** roles of the new **Explorer** scope decide who can read or change a connection's configuration and members. Reaching the pages at all needs the new environment-scoped `EXPLORER` permission, which no built-in role grants for create, update, or delete: give a custom environment role the actions your connection administrators need.
+* Kafka Explorer requires an enterprise license that includes the `apim-native-kafka-explorer` feature. It stores its connections in the APIM management database, on MongoDB or on JDBC, and applies its own schema at startup on JDBC installations that leave `management.jdbc.liquibase` on.
+* See [Kafka Explorer](../event-stream-management/manage/kafka-explorer/README.md).
 
 ### Platform Management
 

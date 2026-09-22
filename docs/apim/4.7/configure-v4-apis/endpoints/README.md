@@ -17,7 +17,7 @@ To configure v4 proxy API endpoints:
 3. Select **Endpoints** from the inner left nav
 4. Click the pencil icon of the endpoint you want to edit:
 
-<figure><img src="../../.gitbook/assets/edit HTTP endpoint.png" alt=""><figcaption><p>Configure the Default HTTP proxy endpoint in the Default HTTP proxy group</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/edit HTTP endpoint.png" alt="The Endpoints tab of a V4 API, showing one HTTP proxy group with a single endpoint and the Edit endpoint tooltip over the pencil icon."><figcaption><p>Configure the Default HTTP proxy endpoint in the Default HTTP proxy group</p></figcaption></figure>
 
 You can also create additional endpoints in the existing group or in new endpoint groups. Refer to the following sections for step-by-step configuration details per proxy type.
 
@@ -25,7 +25,7 @@ You can also create additional endpoints in the existing group or in new endpoin
 
 Edit the endpoint's settings under the **General** and **Configuration** tabs.
 
-<figure><img src="../../.gitbook/assets/edit HTTP endpoint settings.png" alt=""><figcaption><p>Define the endpoint's General and Configuration settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/edit HTTP endpoint settings.png" alt="The General tab of an HTTP proxy endpoint group, with the endpoint name, target URL, and load balancer weight."><figcaption><p>Define the endpoint's General and Configuration settings</p></figcaption></figure>
 
 {% tabs %}
 {% tab title="General" %}
@@ -95,7 +95,7 @@ Select from the following options.
 
 Edit the endpoint's settings under the **General** and **Configuration** tabs.
 
-<figure><img src="../../.gitbook/assets/tcp_endpoints config.png" alt=""><figcaption><p>Define the endpoint's General and Configuration settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/tcp_endpoints config.png" alt="The General tab of a TCP proxy endpoint group, with the endpoint name and target server host, port, and an SSL toggle."><figcaption><p>Define the endpoint's General and Configuration settings</p></figcaption></figure>
 
 {% tabs %}
 {% tab title="General" %}

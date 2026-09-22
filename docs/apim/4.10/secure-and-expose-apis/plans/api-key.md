@@ -15,7 +15,7 @@ The API key authentication type enforces verification of API keys during request
 
 An API Key plan offers only basic security, acting more like a unique identifier than a security token.
 
-<figure><img src="../../.gitbook/assets/plan_api key.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plan_api key.png" alt="The API Key authentication configuration step of plan editing, with API key propagation switched off and an empty additional selection rule."><figcaption></figcaption></figure>
 
 * **Propagate API Key to upstream API:** Toggle ON to ensure the request to the backend API includes the API key header sent by the API consumer. This is useful for backend APIs that already have integrated API key authentication.
 * **Additional selection rule:** Allows you to use Gravitee Expression Language (EL) to filter plans of the same type by contextual data (request headers, tokens, attributes, etc.). For example, if there are multiple API key plans, you can set different selection rules on each plan to determine which plan handles each request.
@@ -28,7 +28,7 @@ By default, API keys are randomly generated for each subscription, but Gravitee 
 2. Select Settings from the left nav
 3.  Select Settings from the inner left nav:
 
-    <figure><img src="../../.gitbook/assets/plan_key generation.png" alt=""><figcaption><p>API key generation settings</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/plan_key generation.png" alt="The organization settings page, with a company name and every security plan type enabled, including keyless, API key, OAuth2, JWT, and push plans."><figcaption><p>API key generation settings</p></figcaption></figure>
 
 ### Custom API key
 
@@ -40,11 +40,11 @@ You can provide a custom API key when:
 
 *   Creating a subscription
 
-    <figure><img src="../../.gitbook/assets/plan_create subscription.png" alt=""><figcaption><p>Manually create a subscription</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/plan_create subscription.png" alt="The Create a subscription dialog, with an application chosen, an API key plan selected, and an empty custom API key field."><figcaption><p>Manually create a subscription</p></figcaption></figure>
 * Accepting a subscription
 *   Renewing a subscription
 
-    <figure><img src="../../.gitbook/assets/plan_renew api key.png" alt=""><figcaption><p>Renew a subscription</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/plan_renew api key.png" alt="The Renew your API Key dialog open over a subscription, warning that the previous key expires in two hours, with an empty custom key field."><figcaption><p>Renew a subscription</p></figcaption></figure>
 
 ### Shared API key
 

@@ -88,22 +88,22 @@ If you change the CORS settings using the `gravitee.yml` or environment variable
 
 1.  From the **Dashboard**, click **Organization**.
 
-    <figure><img src="../../.gitbook/assets/31738772-8FFD-4BC5-B5EF-5F303E24249E_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/31738772-8FFD-4BC5-B5EF-5F303E24249E_1_201_a.jpeg" alt="The console dashboard with Organization highlighted at the foot of the left navigation, showing API and application totals and lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  In the **Settings screen**, navigate to the **CORS** section.
 
-    <figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-manage-3.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-manage-3.png" alt="The organization CORS settings, with a locked wildcard allow-origin, six allowed methods, a list of allowed headers, exposed headers, and a max age in seconds."><figcaption></figcaption></figure>
 
 ### Configure CORS at the environment level
 
 1.  From the **Dashboard**, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/135B4F2E-B8C1-43A5-8D01-902F42C7816D_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/135B4F2E-B8C1-43A5-8D01-902F42C7816D_1_201_a.jpeg" alt="The console dashboard with Settings highlighted in the left navigation, showing API and application totals and lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  In the **Settings** menu click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/7FA0E4F4-7452-47FD-B854-644ADE2EF363_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/7FA0E4F4-7452-47FD-B854-644ADE2EF363_1_201_a.jpeg" alt="The portal Analytics settings with Settings highlighted in the portal menu, listing platform and API dashboards with reorder and delete actions."><figcaption></figcaption></figure>
 3.  In the **Settings** section, navigate to the **CORS** section.
 
-    <figure><img src="../../.gitbook/assets/883255A4-7111-42D3-93B7-B0CA04CED7F0_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/883255A4-7111-42D3-93B7-B0CA04CED7F0_1_201_a.jpeg" alt="The portal settings scrolled to the New Developer Portal section, with the portal enabled and a CORS panel below showing allowed origins, methods, headers, and max age."><figcaption></figcaption></figure>
 
 ### Configure CORS settings
 
@@ -111,7 +111,7 @@ If you change the CORS settings using the `gravitee.yml` or environment variable
 
 The `Allow-Origin` setting specifies which origins are permitted to access the resources. An origin consists of three components: the scheme, domain, and the port. All three components must match for requests to be considered same-origin.
 
-<figure><img src="../../.gitbook/assets/B63D7FEF-5B6F-4D0A-9E8E-23B8C95D7B6B.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/B63D7FEF-5B6F-4D0A-9E8E-23B8C95D7B6B.jpeg" alt="The organization CORS settings with the Allow-Origin panel highlighted, showing a locked wildcard origin above the allowed methods and headers."><figcaption></figcaption></figure>
 
 The following examples demonstrate common `Allow-Origin` configurations:
 
@@ -123,7 +123,7 @@ The following examples demonstrate common `Allow-Origin` configurations:
 
 The `Allow-Methods` setting specifies which HTTP methods are allowed when accessing the resource.
 
-<figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-manage-1-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-manage-1-1-1.png" alt="The organization CORS settings with the Access-Control-Allow-Methods dropdown open, showing GET, DELETE, PATCH, POST, PUT, and OPTIONS all ticked."><figcaption></figcaption></figure>
 
 Configuration details for `Allow Methods` include the following:
 
@@ -134,7 +134,7 @@ Configuration details for `Allow Methods` include the following:
 
 The `Allow-Headers` setting defines which headers can be used in cross-origin requests.
 
-<figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-manage-2-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-manage-2-1.png" alt="The organization CORS settings, with the Allow-Headers field highlighted and a list of permitted headers below the allowed methods."><figcaption></figcaption></figure>
 
 Configuration details for `Allow Headers` include the following :
 
@@ -147,13 +147,13 @@ Configuration details for `Allow Headers` include the following :
 
 The `Exposed-Headers` setting defines which response headers can be used in cross-origin requests.
 
-<figure><img src="../../.gitbook/assets/A91098D9-C8AE-47E9-B87E-3875C35C69A7.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/A91098D9-C8AE-47E9-B87E-3875C35C69A7.jpeg" alt="The organization CORS settings with the Exposed-Headers panel highlighted, listing ETag, X-Xsrf-Token, a wildcard, and Access-Control-Allow-Origin."><figcaption></figcaption></figure>
 
 ### Max Age (Seconds)
 
 The `Max age` setting controls how long pre-flight request results are cached.
 
-<figure><img src="../../.gitbook/assets/10E6B5B1-9DF0-4CDE-A4C1-28038AFF833C.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/10E6B5B1-9DF0-4CDE-A4C1-28038AFF833C.jpeg" alt="The organization CORS settings with the Max age panel highlighted, showing the preflight cache duration in seconds."><figcaption></figcaption></figure>
 
 The following configuration details apply to `Max age`:
 

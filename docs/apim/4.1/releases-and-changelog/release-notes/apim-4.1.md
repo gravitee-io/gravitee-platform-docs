@@ -30,15 +30,15 @@ You can enable Dead Letter Queue to define an external storage where each unsucc
 
 Endpoints and endpoint groups that have already been configured can be modified or deleted. Single endpoints and endpoint groups can also be added following initial endpoint configuration. By default, the API will use the first endpoint group listed, but the user is able to change the order of the list.
 
-<figure><img src="../../.gitbook/assets/endpoint groups v4 message api backend.png" alt=""><figcaption><p>Edit endpoint groups</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/endpoint groups v4 message api backend.png" alt="The Backend services page of a message API, listing a RabbitMQ group and a Solace group, each with one endpoint and an Add endpoint button."><figcaption><p>Edit endpoint groups</p></figcaption></figure>
 
 The configuration of an endpoint during the creation workflow determines the endpoint group’s default configuration. The endpoint then inherits this configuration from the group by default. Unless inheritance is disabled, changes to the endpoint group configuration will proliferate to all endpoints in the group.
 
-<figure><img src="../../.gitbook/assets/default endpoint group (1).png" alt=""><figcaption><p>Default endpoint group</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/default endpoint group (1).png" alt="The Backend services page of a message API, showing a Kafka group with two endpoints and an MQTT 5.x group with one, each with edit and delete actions."><figcaption><p>Default endpoint group</p></figcaption></figure>
 
 By default, an endpoint added to an endpoint group will inherit the group's configuration. This allows an API publisher to quickly add new endpoints with the same settings and behavior as other endpoints in the group. Changes can be made to the new endpoint's configuration if inheritance is disabled, and will persist if inheritance remains disabled.
 
-<figure><img src="../../.gitbook/assets/default behavior toggle to inherit.png" alt=""><figcaption><p>Toggle to inherit endpoint configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/default behavior toggle to inherit.png" alt="The Configuration tab of a Kafka endpoint group, with Inherit configuration from the endpoint group switched on and the consumer and security options below disabled."><figcaption><p>Toggle to inherit endpoint configuration</p></figcaption></figure>
 
 For more information on endpoint enhancements, refer to [this guide](../../guides/api-configuration/v4-api-configuration/endpoint-configuration.md#endpoint-management).
 
