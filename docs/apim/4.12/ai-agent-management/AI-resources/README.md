@@ -180,13 +180,13 @@ The OpenAI provider generates embeddings using OpenAI's cloud-based API.
         </tr>
         <tr>
             <td>dimensions</td>
-            <td>Optional embedding dimensions (must be non-negative)</td>
+            <td>Optional embedding dimensions. Zero or greater</td>
             <td>-</td>
         </tr>
         <tr>
             <td>encodingFormat</td>
-            <td>Encoding format. Supported values: <code>FLOAT</code>, <code>BASE64</code></td>
-            <td>-</td>
+            <td>Encoding format of the embedding vector. <code>FLOAT</code> is the only value the resource configuration accepts, and it's required</td>
+            <td><code>FLOAT</code></td>
         </tr>
     </tbody>
 </table>
