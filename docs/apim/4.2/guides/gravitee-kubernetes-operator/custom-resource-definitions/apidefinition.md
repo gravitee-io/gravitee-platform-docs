@@ -32,7 +32,7 @@ spec:
 
 You can deploy an API on Gravitee Gateways deployed in different Kubernetes clusters. The Management API will be deployed in the same cluster as the GKO. The following reference diagram is the basis for both the single and multi-Gateway deployment options discussed below.
 
-<figure><img src="../../../.gitbook/assets/guides-gravitee-kubernetes-operator-cust-45-1.png" alt=""><figcaption><p>Gateways in different Kubernetes Clusters</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guides-gravitee-kubernetes-operator-cust-45-1.png" alt="Step 4 of the API creation wizard at the Security stage, listing one default keyless plan in standard mode."><figcaption><p>Gateways in different Kubernetes Clusters</p></figcaption></figure>
 
 {% tabs %}
 {% tab title="Single Gateway" %}
