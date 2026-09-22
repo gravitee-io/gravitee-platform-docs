@@ -139,13 +139,13 @@ Creating a flow opens up the flow editor. This screen will look different based 
 
 * **Traditional proxy:** The only phases available to traditional proxy APIs are request and response. We will be adding a policy to the response phase.
 
-<figure><img src="../../.gitbook/assets/plans_add policy.png" alt=""><figcaption><p>Add policy to the response phase of traditional proxy API</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plans_add policy.png" alt="The Policy Studio of a proxy API with a flow selected, and the Response phase panel highlighted between the HTTP proxy entrypoint and endpoint."><figcaption><p>Add policy to the response phase of traditional proxy API</p></figcaption></figure>
 
 > * [x] Select the **+ icon** in the **Response phase**
 
 * **Message proxy:** The phases available to message proxy APIs are request, response, publish, and subscribe. The publish and subscribe phases allow the policy to be applied at the message level. We will be adding the policy to the subscribe phase.
 
-<figure><img src="../../.gitbook/assets/plans_add policy subscribe.png" alt=""><figcaption><p>Add policy to the subscribe phase of a message proxy API</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plans_add policy subscribe.png" alt="The Policy Studio of a message API with a flow selected on the Event messages tab, and the Subscribe phase panel highlighted."><figcaption><p>Add policy to the subscribe phase of a message proxy API</p></figcaption></figure>
 
 > * [x] Select the **Event messages** tab in the flow editor
 > * [x] Select the **+ icon** in the **Subscribe phase**

@@ -173,13 +173,13 @@ The subscription is created with a status based on the plan's validation setting
 
 After a plan is configured with sharding tags, the plan's tags appear in the **Deploy on** column of the plan list and on the plan details page, not on the subscription details page.
 
-<figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-22.png" alt=""><figcaption><p>Subscription details page showing plan, status, consumer status, and application information</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-22.png" alt="The Subscriptions tab of an API Product&#x27;s Consumers page, showing a subscription&#x27;s details with its identifier, plan, accepted status, subscriber, application, and timestamps."><figcaption><p>Subscription details page showing plan, status, consumer status, and application information</p></figcaption></figure>
 
 The subscription details page shows the plan name, subscription status, consumer status, and application information for both API Product plans and standalone API plans.
 
-<figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-24.png" alt=""><figcaption><p>Subscription details page for API showing plan and application information</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-24.png" alt="The Subscriptions tab of an API&#x27;s Consumers page, showing a subscription&#x27;s details with its identifier, shared API key plan, accepted status, subscriber, and timestamps."><figcaption><p>Subscription details page for API showing plan and application information</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-27.png" alt=""><figcaption><p>Subscription details page showing subscriber information, application details, timestamps, and API keys section</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-27.png" alt="A subscription&#x27;s detail page scrolled to the foot, showing Transfer, Pause, Change end date, and Close subscription actions above an API Keys panel listing one active key."><figcaption><p>Subscription details page showing subscriber information, application details, timestamps, and API keys section</p></figcaption></figure>
 
 ### Filter subscriptions
 
