@@ -34,3 +34,11 @@
 * The AM Gateway endpoints that accept an access token, such as the UserInfo endpoint, the dynamic client registration endpoints, the UMA 2.0 protection API, and the SCIM 2.0 endpoints, reject a DPoP-bound token that's presented without a valid proof or with the `Bearer` scheme. Tokens issued without a proof keep working as bearer tokens.
 * The new **DPoP-bound access tokens** application setting and the new **Require DPoP for all clients** security domain setting make the proof mandatory at the token endpoint. The security domain settings also carry an allowlist of proof signing algorithms, which the OpenID discovery document advertises as `dpop_signing_alg_values_supported`.
 * New `handlers.oauth2.dpop` properties in the AM Gateway `gravitee.yml` control the validity window of a proof and the replay cache. See [Demonstrating Proof of Possession (DPoP)](../../guides/auth-protocols/oauth-2.0/demonstrating-proof-of-possession-dpop.md) for the configuration and the client contract.
+
+#### **Reporter attribute mapping**
+
+* File, Kafka, and TCP reporters export extra fields alongside each audit record they write. Each mapping pairs an expression, evaluated against the audit context when the event is reported, with the name that value takes in the exported payload. A reporter carries up to 20 mappings.
+* The audit context carries the user the event concerns, the application it was raised for, the request's `ip` and `userAgent`, and the audit record's own `id`, `type`, `transactionId`, and `status`.
+* The new **Limit to event types** list restricts the mapped attributes to the event types you select. Leaving it empty exports them on every audit record the reporter writes, and it never changes which events AM reports.
+* AM never exports an attribute whose name holds a credential or a token. The new `reporters.audits.attribute_mappings.denied_attributes` property in `gravitee.yml` extends that built-in list.
+* A reporter with no attribute mappings exports the payload it exported before. See [Reporters](../../getting-started/configuration/configure-reporters.md#attribute-mapping) for the configuration.

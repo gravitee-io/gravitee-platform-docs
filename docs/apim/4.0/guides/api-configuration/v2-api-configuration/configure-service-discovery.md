@@ -257,5 +257,5 @@ You've now integrated the Gravitee API Gateway with HashiCorp Consul, which enab
 
 If you have integrated Gravitee and HashiCorp Consul for Service Discovery, you may want to enable health checks for your API. This will allow you to view the status of all endpoints under the Per-endpoint availability section in Gravitee, including the endpoints managed by HashiCorp Consul. For more details on how to enable Gravitee health checks, refer to [this documentation](load-balancing-failover-and-health-checks.md#configure-gravitee-health-checks).
 
-<img src="../../../.gitbook/assets/service-discovery-consul-healthcheck.png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/service-discovery-consul-healthcheck.png" alt="A health check dashboard showing global availability and response time over five minutes, with per-endpoint and per-gateway availability broken down by minute, hour, day, week, and month." data-size="original">
 {% endhint %}

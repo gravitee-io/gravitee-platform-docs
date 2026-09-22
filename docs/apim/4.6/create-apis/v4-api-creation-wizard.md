@@ -55,13 +55,13 @@ The Gravitee documentation adopts concise terminology to differentiate between t
 **Message API:** An API created using **Protocol Mediation**
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/v4 step 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/v4 step 2.png" alt="Step 2 of the API creation wizard, with Proxy Generic Protocol selected over Protocol Mediation and Kafka Protocol."><figcaption></figcaption></figure>
 
 ### Generic proxy entrypoints
 
 If you chose **Proxy Generic Protocol**, select either HTTP Proxy or TCP Proxy as your entrypoint.
 
-<figure><img src="../.gitbook/assets/v4 3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/v4 3.png" alt="Step 2 of the API creation wizard, with HTTP Proxy selected over TCP Proxy as the API entrypoint."><figcaption></figcaption></figure>
 
 The configuration details for each proxy entrypoint selection are discussed below.
 
@@ -321,7 +321,7 @@ Gravitee supports several different types of endpoints that cater to different p
 
 <table><thead><tr><th width="245">Endpoint</th><th>Description</th></tr></thead><tbody><tr><td><a href="v4-api-creation-wizard.md#azure-service-bus">Azure Service Bus</a></td><td>Publish and subscribe to events in Azure Service Bus using web-friendly protocols such as HTTP or WebSocket. The Gateway mediates the protocol between the client and the backend.</td></tr><tr><td><a href="v4-api-creation-wizard.md#kafka">Kafka</a></td><td>The Gateway opens up a persistent connection and/or sets up a Kafka client to call a backend Kafka broker.</td></tr><tr><td><a href="v4-api-creation-wizard.md#mock">Mock</a></td><td>The Gateway mocks a backend service to emulate the behavior of a typical HTTP server and test processes.</td></tr><tr><td><a href="v4-api-creation-wizard.md#mqtt-5.x">MQTT 5.x</a></td><td>The Gateway opens up a persistent connection and/or sets up an MQTT client to call a backend MQTT broker. The broker must run on MQTT 5.x.</td></tr><tr><td><a href="v4-api-creation-wizard.md#rabbitmq">RabbitMQ</a></td><td>The Gateway opens up a persistent connection and/or calls a backend RabbitMQ resource. The resource must communicate using the AMQP 0-9-1 protocol.</td></tr><tr><td><a href="v4-api-creation-wizard.md#solace">Solace</a></td><td>The Gateway creates an API that exposes Solace resources and event APIs via your chosen entrypoint(s).</td></tr></tbody></table>
 
-<figure><img src="../.gitbook/assets/a v4 00.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/a v4 00.png" alt="Step 3 of the API creation wizard, with Kafka and MQTT 5.x ticked and Azure Service Bus, Mock, RabbitMQ, and Solace left clear."><figcaption></figcaption></figure>
 
 Protocol mediation endpoint configurations are described in detail below.
 
@@ -513,7 +513,7 @@ Entering a URL and VPN name is required. Modifying any other configuration param
 
 Define a plan to secure, monitor, and transparently communicate information on how to access your API. This includes the configuration of authorization resources, such as Gravitee AM or another OAuth2 resource, and access limitations, such as rate limiting and quotas.
 
-<figure><img src="../.gitbook/assets/a v4 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/a v4 1.png" alt="Step 4 of the API creation wizard, listing one default keyless plan in standard mode with edit and remove icons."><figcaption></figcaption></figure>
 
 Gravitee automatically assigns each API a Default Keyless plan, which grants public access.
 

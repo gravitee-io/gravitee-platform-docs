@@ -50,7 +50,7 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid architecture diagram <a href="#architecture-diagram" id="architecture-diagram"></a>
 
-<img src="../.gitbook/assets/file.excalidraw (4).svg" alt="" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.excalidraw (4).svg" alt="A diagram of a hybrid deployment, with the console, portal, management API, databases, alert engine, and bridge gateways hosted as SaaS above, and production gateways, a local rate limit database, and Logstash behind the customer firewall below." class="gitbook-drawing">
 
 ### Self-hosted-to-SaaS connections <a href="#self-hosted-to-saas-connections" id="self-hosted-to-saas-connections"></a>
 

@@ -28,7 +28,7 @@ Simple applications are not secure as they allow API consumers to define their o
 
 Under **Client registration providers (DCR)**, toggle on **Enable client registration providers (DCR) for applications**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 9.29.06 AM.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 9.29.06 AM.jpg" alt="The Client Registration settings, with the Simple application type disabled and Browser, Web, Native, and Backend-to-Backend enabled, above an empty DCR providers table."><figcaption></figcaption></figure>
 
 ### 2. Configure AM as DCR provider <a href="#configure-am-as-dcr-provider-6" id="configure-am-as-dcr-provider-6"></a>
 
@@ -58,7 +58,7 @@ The first step is to create or select the security domain that you want to use i
 
 Once you have a domain, select **Settings** in the sidebar, scroll down to the **Openid** section, and select **Client Registration**. Toggle on the **Enable/Disable Dynamic Client Registration** setting.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.33.29 AM.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.33.29 AM.jpg" alt="The Client Registration Settings page in Access Management, with dynamic client registration enabled and every other option switched off."><figcaption></figcaption></figure>
 
 ### 2. Create AM Client Registration Provider Application <a href="#create-am-client-registration-provider-application-8" id="create-am-client-registration-provider-application-8"></a>
 
