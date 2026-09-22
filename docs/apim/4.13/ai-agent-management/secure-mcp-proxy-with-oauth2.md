@@ -70,38 +70,38 @@ To secure your MCP proxy, complete the following steps:
 
 1.  From the **Dashboard**, click **APIs.**
 
-    <figure><img src="../.gitbook/assets/mcp-click-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/mcp-click-api.png" alt="The console dashboard with APIs highlighted in the left navigation, showing 2,709 APIs and 855 applications."><figcaption></figcaption></figure>
 2.  Click **+ Add API.**
 
-    <figure><img src="../.gitbook/assets/mcp-click-add-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/mcp-click-add-api.png" alt="The APIs list with the Add API button highlighted above the first page of 2,705 APIs."><figcaption></figcaption></figure>
 3.  Click **Create V4 API.**
 
-    <figure><img src="../.gitbook/assets/select-create-v4-api-mcp.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/select-create-v4-api-mcp.png" alt="The Choose API creation method page, with the Create V4 API button highlighted in the Create New API panel."><figcaption></figcaption></figure>
 4. Configure the API. To configure the API, complete the following steps:
    1. **Name**: Enter a name. For example, `My MCP Secure API`
    2. **Version**: Enter a version. For example, `1`.
    3. **(Optional) Description**: Enter a description.
 5.  Click **Validate my API details.**<br>
 
-    <figure><img src="../.gitbook/assets/1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/1.png" alt="Step 1 of the API creation wizard, with an MCP API name, version, and description entered and the Validate my API details button highlighted."><figcaption></figcaption></figure>
 6.  Select AI **Gateway**, and then click **Select my API architecture.**
 
-    <figure><img src="../.gitbook/assets/ai-gateway-mcp.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/ai-gateway-mcp.png" alt="Step 2 of the API creation wizard, with AI Gateway selected as the way to expose the backend service."><figcaption></figcaption></figure>
 7.  Select MCP Proxy, and then click **Select my entrypoints.**
 
-    <figure><img src="../.gitbook/assets/select-my-entrypoint-mcp.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/select-my-entrypoint-mcp.png" alt="Step 2 of the API creation wizard, with MCP Proxy selected and highlighted among the available entrypoints."><figcaption></figcaption></figure>
 8.  Enter the `context-path` . For example: `/my-mcp-secure-api` , and then click **Validate my entrypoints.**<br>
 
-    <figure><img src="../.gitbook/assets/2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/2.png" alt="Step 2 of the API creation wizard at the configure stage, with virtual hosts enabled and an MCP context path entered."><figcaption></figcaption></figure>
 9.  Enter your MCP server URL in the **MCP Server Backend URL field**. For example: [`http://localhost:3001/mcp`](http://localhost:3001/mcp) , and then click **Validate my endpoints.**<br>
 
-    <figure><img src="../.gitbook/assets/environment-mcp-server-url.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/environment-mcp-server-url.png" alt="Step 3 of the API creation wizard, with the MCP server backend URL partly masked, empty HTTP headers, and HTTP 1.1 keep-alive and connection timeouts below."><figcaption></figcaption></figure>
 10. Click **Validate my plans.**
 
-    <figure><img src="../.gitbook/assets/validate-my-plans-keyless.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/validate-my-plans-keyless.png" alt="Step 4 of the API creation wizard, listing one default keyless plan with the Validate my plans button highlighted."><figcaption></figcaption></figure>
 11. Click **Save & Deploy API**.
 
-    <figure><img src="../.gitbook/assets/save-and-deploy-api-mcp.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/save-and-deploy-api-mcp.png" alt="Step 5 of the API creation wizard, summarising the MCP API details, entrypoints, endpoints, and keyless plan, with the Save and Deploy API button highlighted."><figcaption></figcaption></figure>
 
 ### Verification
 
@@ -113,7 +113,7 @@ The API appears in your API management console with your configuration.<br>
 
 1.  From the AM dashboard, click **MCP Servers.**
 
-    <figure><img src="../.gitbook/assets/am-click-mcp-servers.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/am-click-mcp-servers.png" alt="The Access Management dashboard with MCP Servers highlighted in the left navigation, showing login, sign-up, user, and application counts above a login activity chart."><figcaption></figcaption></figure>
 2.  Click the **+ (plus)** icon to create a new MCP server.
 
     <figure><img src="../.gitbook/assets/plus-icon-mcp-server.png" alt=""><figcaption></figcaption></figure>
@@ -122,19 +122,19 @@ The API appears in your API management console with your configuration.<br>
    2. **MCP Resource Identifier:** Enter the APIM API entrypoint URL from [Step 9 above](secure-mcp-proxy-with-oauth2.md#create-the-mcp-proxy-api-in-apim) in [#create-the-mcp-proxy-api-in-apim](secure-mcp-proxy-with-oauth2.md#create-the-mcp-proxy-api-in-apim "mention") section. For example, `https://apim-gateway.example.com/mcp-proxy`.
    3.  (Optional) **Description:** Enter a description.<br>
 
-       <figure><img src="../.gitbook/assets/am-entrypoint-url.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../.gitbook/assets/am-entrypoint-url.png" alt="The New MCP server page, with the security domain, a server name, and a partly masked resource identifier entered, above an empty tools configuration panel."><figcaption></figcaption></figure>
    4. **Client ID:** Enter your Client ID
    5. **Client Secret:** Enter your Client secret.
 4.  Click **Create.**
 
-    <figure><img src="../.gitbook/assets/agent-mesh-secure-mcp-proxy-with-oa-160.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/agent-mesh-secure-mcp-proxy-with-oa-160.png" alt="The New MCP server page scrolled to OAuth 2.0 Settings, with placeholder client ID and client secret values and the Create button highlighted."><figcaption></figcaption></figure>
 5. In the **copy your client secret** pop-up box, copy the **Client Secret** and store the credentials securely.
 
 {% hint style="danger" %}
 The Client Secret is displayed only once. Copy and store it securely before closing the pop-up box.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/agent-mesh-secure-mcp-proxy-with-oa-161.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/agent-mesh-secure-mcp-proxy-with-oa-161.png" alt="The Copy your Client Secret dialog, warning that the hashed secret will not be retrievable, with a placeholder value and a copy-to-clipboard tooltip."><figcaption></figcaption></figure>
 
 ## Enable Dynamic Client Registration in AM
 
