@@ -30,4 +30,4 @@ To give groups access to your API, select the **Groups** tab, and select the des
 
 If you are the owner of the API, you can transfer ownership of the API to another member, user, or group. To this, select the **Transfer ownership** tab, and select either **API member**, **Other user**, or **Group.** Then, select the stakeholder to which you want to transfer API ownership.
 
-<figure><img src="../../../.gitbook/assets/Transfer ownership-1.png" alt=""><figcaption><p>Transfer API ownership</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Transfer ownership-1.png" alt="The Transfer ownership tab of an API, with Group selected as the transfer method and the group dropdown open on a single administrator group."><figcaption><p>Transfer API ownership</p></figcaption></figure>

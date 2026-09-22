@@ -34,7 +34,7 @@ You can send a message from either the [user menu](support.md#from-the-user-menu
 
 1.  Click the user name on the right of the Developer Portal header, then click **Contact**
 
-    <figure><img src="../../.gitbook/assets/support_portal menu.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_portal menu.png" alt="The developer portal home page with the account menu open, listing My account, Contact, Tickets, Notifications, Administration, and Sign out, above one featured API card."><figcaption></figcaption></figure>
 2.  Use the drop-down menus and text fields to enter the ticket details
 
     <figure><img src="../../.gitbook/assets/support_portal ticket.png" alt="The Contact page of the developer portal account area, with empty fields for the associated API, application, subject, and request."><figcaption></figcaption></figure>
@@ -46,7 +46,7 @@ You can send a message from the current API.
 
 1.  From the API header menu, click the **Contact** tab
 
-    <figure><img src="../../.gitbook/assets/support_api menu.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_api menu.png" alt="The General information tab of an API in the developer portal, with the Contact tab circled and a review form below."><figcaption></figcaption></figure>
 2.  Use the drop-down menu and text fields to enter the ticket details
 
     <figure><img src="../../.gitbook/assets/support_api ticket.png" alt="The Contact tab of an API in the developer portal catalogue, with empty fields for the associated application, subject, and request."><figcaption></figcaption></figure>
@@ -76,7 +76,7 @@ You can send a message from either the [user menu](support.md#from-the-user-menu
 
 1.  Click the user name on the right of the Developer Portal header, then click **Tickets**
 
-    <figure><img src="../../.gitbook/assets/support_tix in portal.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_tix in portal.png" alt="The General information tab of an API in the developer portal with the account menu open and Tickets highlighted, and a three-star rating entered in the review form."><figcaption></figcaption></figure>
 2. Click a ticket entry in the list to view the ticket details and any messages
 
 **From the API menu**
