@@ -108,22 +108,22 @@ The provider must already exist on the **Authentication** page of the organizati
 
 1.  From the **Dashboard**, click **Settings**. <br>
 
-    <figure><img src="../../../.gitbook/assets/FBF81839-15D7-4CC9-8ABC-BE5C51A3260A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/FBF81839-15D7-4CC9-8ABC-BE5C51A3260A_1_201_a.jpeg" alt="The console dashboard with Settings highlighted in the left navigation, showing 2,671 APIs and 856 applications."><figcaption></figcaption></figure>
 2.  From the **Settings** menu, navigate to the **Portal** section, and then click **Authentication**.<br>
 
-    <figure><img src="../../../.gitbook/assets/211D2526-0572-46F5-881A-0C4012D772AD_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/211D2526-0572-46F5-881A-0C4012D772AD_1_201_a.jpeg" alt="The portal Analytics settings with Authentication highlighted in the portal menu, listing nine platform dashboards."><figcaption></figcaption></figure>
 3.  Turn on the SSO toggle that you want to activate.<br>
 
-    <figure><img src="../../../.gitbook/assets/8293D9DC-F869-443A-AA92-94FF405AA4DF_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/8293D9DC-F869-443A-AA92-94FF405AA4DF_1_201_a.jpeg" alt="The portal Authentication settings, with force authentication switched off, show login form switched on, and six identity providers listed with their id, name, and enabled state."><figcaption></figcaption></figure>
 4.  (SSO only log in only) Turn off the **Show login form on Portal** toggle. <br>
 
-    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-131.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-131.png" alt="The portal Authentication settings with the Show login form on portal toggle highlighted and switched on."><figcaption></figcaption></figure>
 
 ### Verification
 
 The Login screen for your New Developer Portal shows only SSO login.
 
-<figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-135.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-135.png" alt="The developer portal login panel, with username and password fields, a forgot password link, and buttons to continue with Azure AD, GitHub, Google, or Gravitee Access Management."><figcaption></figcaption></figure>
 
 ## Next steps
 

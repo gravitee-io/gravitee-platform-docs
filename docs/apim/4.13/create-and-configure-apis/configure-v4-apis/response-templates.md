@@ -91,7 +91,7 @@ The built-in payload doesn't include the error key. To expose the error key to A
     <figure><img src="../../.gitbook/assets/6A4577E6-D8C6-4A3B-8712-37A7428C9A2A.jpeg" alt="The Response Templates tab listing the new template with its key, content type, and 401 status, under an out-of-sync banner with the Deploy API button highlighted."><figcaption></figcaption></figure>
 9.  In the **Deploy your API** pop-up menu, click **Deploy**.<br>
 
-    <figure><img src="../../.gitbook/assets/create-and-configure-apis-configure-v4-a-1-2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/create-and-configure-apis-configure-v4-a-1-2.png" alt="The Deploy your API dialog open over the Response Templates tab, asking for a label to identify the deployment."><figcaption></figcaption></figure>
 
 ## Verification
 
@@ -99,7 +99,7 @@ To verify if the complete the following steps:
 
 1.  Verify that the response templates appears in the **Response Templates** tab of the **Entrypoints** screen.<br>
 
-    <figure><img src="../../.gitbook/assets/create-and-configure-apis-configure-v4-a-3-2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/create-and-configure-apis-configure-v4-a-3-2.png" alt="The Response Templates tab of a published API, listing one template with its key, content type, and 401 status."><figcaption></figcaption></figure>
 2.  Call your API to trigger your the error response. For example, if you set an API key plan for your API, call your API without the API key like the following example:<br>
 
     ```
