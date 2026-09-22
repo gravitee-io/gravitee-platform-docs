@@ -26,17 +26,17 @@ Identify the endpoint from which you are going to consume messages. For testing 
 2. Follow the prompts to create an application.
 3.  Click the name of your application to configure it. In this example, the application is named "gevents."
 
-    <figure><img src="../../.gitbook/assets/ably 0.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/ably 0.png" alt="The header bar of a message broker console, showing the account tier and the application name."><figcaption></figcaption></figure>
 4.  Select **API Keys** from the header menu, then click **Create API Key**.
 
-    <figure><img src="../../.gitbook/assets/ably 1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/ably 1.png" alt="The API Keys page of a message broker console, listing two keys with their secrets masked, their capabilities, and Show and Revoke actions."><figcaption></figcaption></figure>
 5.  In the **New API Key** modal, configure your API Key.
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
       <p>You must select at least 1 capability to create an API Key. Naming your key and selecting resource restrictions, revocable tokens options, or additional capabilities are optional.</p>
     </div>
 
-    <figure><img src="../../.gitbook/assets/ably 3.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/ably 3.png" alt="The New API Key dialog, with an empty friendly name and the publish, subscribe, channel metadata, statistics, and privileged headers capabilities ticked."><figcaption></figcaption></figure>
 6. Click **Create key**.
 7. Find and save the endpoint URL. You will enter this as the target URL when you configure your Gravitee API.
    1. Select **API Keys** from the header menu and click **How to use API Keys**.
@@ -44,46 +44,46 @@ Identify the endpoint from which you are going to consume messages. For testing 
    3. In the **Your Ably Credentials** modal, click the **SSE/HTTP Streaming** button.
    4.  Select the **Curl** tab to get the URL of your endpoint.
 
-       <figure><img src="../../.gitbook/assets/ably 00.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/ably 00.png" alt="A credentials dialog with SSE/HTTP Streaming selected, a channel name entered, and a generated curl command shown for the chosen key."><figcaption></figcaption></figure>
 
 ## Create an HTTP proxy API
 
 1. Log in to your Gravitee APIM Console.
 2.  Select **APIs** from the nav and click **+ Add API**.
 
-    <figure><img src="../../.gitbook/assets/gs-use-case-tutorials-connect-to-an-166.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-use-case-tutorials-connect-to-an-166.png" alt="The APIs list showing the first page of over two thousand APIs, with their definition, status, context path, quality score, tags, categories, owner, and visibility."><figcaption></figcaption></figure>
 3.  In the **Create New API** section, click **Create V4 API.**
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
       <p>v2 APIs are also compliant with SSE.</p>
     </div>
 
-    <figure><img src="../../.gitbook/assets/gs-use-case-tutorials-connect-to-an-167.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-use-case-tutorials-connect-to-an-167.png" alt="The Choose API creation method page, offering Create Classic API with V2 options and Create New API with V4 options."><figcaption></figcaption></figure>
 4.  Enter your API's name and version number, then click **Validate my API details**.
 
-    <figure><img src="../../.gitbook/assets/1 sse.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/1 sse.png" alt="Step 1 of the API creation wizard, with an API name and version entered and an empty description."><figcaption></figcaption></figure>
 5.  Select **Proxy Generic Protocol** and click **Select my API architecture**.
 
-    <figure><img src="../../.gitbook/assets/gs-use-case-tutorials-connect-to-an-169.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-use-case-tutorials-connect-to-an-169.png" alt="Step 2 of the API creation wizard, with Proxy Generic Protocol selected, shown beside the numbered step list."><figcaption></figcaption></figure>
 6.  Select **HTTP Proxy** and click **Select my entrypoints**.
 
-    <figure><img src="../../.gitbook/assets/gs-use-case-tutorials-connect-to-an-170.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-use-case-tutorials-connect-to-an-170.png" alt="Step 2 of the API creation wizard, with HTTP Proxy selected over TCP Proxy, shown beside the numbered step list."><figcaption></figcaption></figure>
 7.  Set a unique **Context-path**, for example, `/sseconsumer`, then click **Validate my entrypoints**.
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
       <p>To avoid potential communication issues, do not use characters separated by multiple forward slashes "/" for your context-path.</p>
     </div>
 
-    <figure><img src="../../.gitbook/assets/ably path.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/ably path.png" alt="Step 2 of the API creation wizard, with virtual hosts enabled and a context path entered for the entrypoint."><figcaption></figcaption></figure>
 
     8\. Configure the API endpoint:
 8. For the target URL for the HTTP proxy, enter the URL to your message provider. For example, `https://rest.ably.io/sse?channel=ssechannel&v=1.1`.
 9.  Ensure the `Enable keep-alive` toggle is activated.
 
-    <figure><img src="../../.gitbook/assets/ably channel.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/ably channel.png" alt="Step 3 of the API creation wizard, with an HTTP proxy target URL entered and the security configuration set to HTTP 1.1 with keep-alive enabled."><figcaption></figcaption></figure>
 10. Ensure the `Idle timeout` value is greater than the keep-alive frequency of your endpoint. [https://ably.com/](https://ably.com/) sets the keep-alive frequency to 60000ms, so this example uses 70000ms to be on the safe side.
 
-    <figure><img src="../../.gitbook/assets/ably idle.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/ably idle.png" alt="The endpoint configuration scrolled to the connection options, with Accept-Encoding propagation and redirect following switched off, an idle timeout entered, and a maximum pool size of twenty."><figcaption></figcaption></figure>
 11. Click **Validate my endpoints**.
 12. By default, Gravitee adds a **Default keyless plan (UNSECURED)** to your API. Click **Validate my plans**.
 13. Click **Save & Deploy**.
@@ -97,7 +97,7 @@ To test the SSE connection with Postman, you need to construct the value to use 
    2. In the Organization menu, click on Settings.
    3.  In the Management pane, find the Management URL field.
 
-       <figure><img src="../../.gitbook/assets/ably org.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/ably org.png" alt="The organization Settings page, showing the management title and URL with support, user registration, and automatic validation enabled, above scheduler intervals."><figcaption></figcaption></figure>
    4. Your Gateway URL is the value of the Management URL field, after "console" has been replaced by "gateway." For example, if your Management URL is `https://apim-master-console.team-apim.gravitee.dev`, then your Gateway URL is `https://apim-master-gateway.team-apim.gravitee.dev`.
 2. Create a key-value pair using "Channel" as the key and the name of the channel you linked to your Ably application as the value. For example, `Channel=ssechannel`.
 3. Concatenate your Gateway URL, the context-path of your Gravitee API, and the key-value pair using the syntax `your-gateway-url/context-path?key=value`, e.g., `https://apim-master-gateway.team-apim.gravitee.dev/sseconsumer?Channel=ssechannel`.
@@ -109,7 +109,7 @@ Next, find the API Key username and password for your Ably application.
 2. Select **API Keys** from the header menu.
 3.  Click **Show** on the API Key you're using to authenticate with your application. The string before the colon is the username. The string following the colon is the password.
 
-    <figure><img src="../../.gitbook/assets/ably api key.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/ably api key.png" alt="The API Keys page of a message broker console, listing a root key with its secret masked and its capabilities and resource restrictions below."><figcaption></figcaption></figure>
 
     The API Key used for this example can be broken down into the username `Yz3R3w.Kkgrig` and a password that is obscured by asterisks "\*" until you click **Show**.
 
@@ -117,26 +117,26 @@ Now you have all the information you need to configure Postman to call your API.
 
 1.  In Postman, select **GET** as the command and enter your Gateway URL as the value.
 
-    <figure><img src="../../.gitbook/assets/ably GET.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/ably GET.png" alt="An API client with a GET request to a gateway consumer path, showing one channel query parameter and no response yet."><figcaption></figcaption></figure>
 2. Select **Authorization** from the header menu. From the **Auth Type** drop-down menu, select **Basic Auth**.
 3.  Enter your API Key username and password in the adjoining **Username** and **Password** fields.
 
-    <figure><img src="../../.gitbook/assets/ably basic.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/ably basic.png" alt="An API client with the Authorization tab open, Basic Auth selected, and username and password fields holding the broker key, with a warning that the parameters hold sensitive data."><figcaption></figcaption></figure>
 4.  Click on **Send** to establish the channel. You should receive a keep-alive message at the keep-alive frequency defined for your endpoint.
 
-    <figure><img src="../../.gitbook/assets/ably message4.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/ably message4.png" alt="An API client showing a GET request that returned 200 OK, with two empty streamed messages listed below the query parameters."><figcaption></figcaption></figure>
 5.  You can now go back to Ably to send a message. Go to your application in [https://ably.com/](https://ably.com/) and select **Dev console** from the header menu.
 
-    <figure><img src="../../.gitbook/assets/ably 4.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/ably 4.png" alt="The Dev console of a message broker, listing four application-wide connection events with their time, type, and details, above an empty Channels panel."><figcaption></figcaption></figure>
 6.  Where it says **Enter a channel name**, enter the name of the channel you used in Postman as the value for the key-value pair, e.g., `ssechannel`.
 
-    <figure><img src="../../.gitbook/assets/gs-use-case-tutorials-connect-to-an-0.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-use-case-tutorials-connect-to-an-0.png" alt="The Channels panel of a message broker Dev console, with a channel name entered beside an Attach to channel button."><figcaption></figcaption></figure>
 7.  Enter a message in the **Message data** field for your channel.
 
-    <figure><img src="../../.gitbook/assets/ably ch2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/ably ch2.png" alt="The Channels panel with a channel attached, showing empty event name and message fields above two channel state events."><figcaption></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/ably ch3.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/ably ch3.png" alt="The Channels panel with a message entered in the message data field, ready to publish to the attached channel."><figcaption></figcaption></figure>
 8. Click **Publish message** to publish the message to your channel.
 9.  You can now go back to Postman, where you should see the message in the **Body** section.
 
-    <figure><img src="../../.gitbook/assets/ably message2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/ably message2.png" alt="An API client showing a GET request that returned 200 OK, with the streamed message expanded to show its identifier, timestamp, connection identifier, channel, and data."><figcaption></figcaption></figure>

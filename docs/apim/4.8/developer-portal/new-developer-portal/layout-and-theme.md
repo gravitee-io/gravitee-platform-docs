@@ -32,11 +32,11 @@ In the New Developer Portal catalog, you can search for an API based on an assoc
 
 Here is an example of categories as header tabs:
 
-<figure><img src="../../.gitbook/assets/0 tabs.png" alt=""><figcaption><p>Tabs category view</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 tabs.png" alt="The developer portal Catalog tab, showing a welcome banner above category tabs and a grid of API cards with their version and description."><figcaption><p>Tabs category view</p></figcaption></figure>
 
 Here is an example of categories as tiles:
 
-<figure><img src="../../.gitbook/assets/0 tiles.png" alt=""><figcaption><p>Tiles category view</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 tiles.png" alt="The developer portal Catalog in categories mode, showing a welcome banner above four category cards, each with a View APIs button."><figcaption><p>Tiles category view</p></figcaption></figure>
 
 ## Fonts
 
@@ -57,7 +57,7 @@ To select fonts for the New Developer Portal, complete the following steps:
 5. Navigate to the **Font** section of the page.
 6.  From the **Font** drop-down menu, select a new font. For a list of available fonts, see [#available-fonts](layout-and-theme.md#available-fonts "mention").
 
-    <figure><img src="../../.gitbook/assets/devportal-new-portal-49-layout-and--298.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-49-layout-and--298.png" alt="The developer portal Customization page, with the font dropdown open and colour fields for tertiary, error, page background, and card background below, beside a live preview."><figcaption></figcaption></figure>
 
 ### Available Fonts
 

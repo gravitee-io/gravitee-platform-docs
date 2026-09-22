@@ -66,7 +66,7 @@ Refer to the [API Documentation](../../guides/api-configuration/v4-api-configura
 
 v4 API properties can be dynamically managed via the **Properties** tab of the API Management Console's **Configuration** screen\*\*.\*\* To learn more about properties and how to set them, see the [documentation](../../guides/policy-studio/v4-api-policy-studio.md#api-properties).
 
-<figure><img src="../../.gitbook/assets/api properties_dynamically manage.png" alt=""><figcaption><p>Dynamically manage properties</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api properties_dynamically manage.png" alt="The API dynamic properties page, with the service disabled, a schedule running every thirty seconds, the GET method, and empty URL and request header fields."><figcaption><p>Dynamically manage properties</p></figcaption></figure>
 
 ## Audit logs
 
@@ -88,7 +88,7 @@ Markdown support has been extended to the **Description** field in the API Catal
 
 If incorrect templating is applied to the Markdown page of an API, errors alert the user that the page will not be formatted as intended when published to the Developer Portal.
 
-<figure><img src="../../.gitbook/assets/incorrect templating.png" alt=""><figcaption><p>Example of incorrect templating</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/incorrect templating.png" alt="The Page tab of a documentation template, with FreeMarker markup in the editor on the left and its rendered preview on the right, above a validation message reporting an unclosed if tag."><figcaption><p>Example of incorrect templating</p></figcaption></figure>
 
 For more information on how to configure documentation for the Developer Portal, see [this section](../../guides/developer-portal/configuration/documentation.md).
 
@@ -210,7 +210,7 @@ Refer to the [`ssl-enforcement` policy](../../reference/policy-reference/ssl-enf
 
 Gravitee 4.3 allows sharding tags to be set for v4 APIs via the Management Console. Sharding tags are added to an organization and mapped to entrypoints from the **Organization** menu option. Sharding tags are defined in an API on the **Deployment** page.
 
-<figure><img src="../../.gitbook/assets/deployment_sharding tag.png" alt=""><figcaption><p>v4 sharding tag configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/deployment_sharding tag.png" alt="The Deployment page of an API, showing the deployment configuration with an empty sharding tags selector."><figcaption><p>v4 sharding tag configuration</p></figcaption></figure>
 
 To learn more about how to configure and use sharding tags, see the [documentation](../../getting-started/configuration/apim-gateway/sharding-tags.md).
 

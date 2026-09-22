@@ -35,11 +35,11 @@ The Developer Portal opens in a new browser tab. Select the **Catalog** header t
 
 Below is the view of categories as tabs:
 
-<figure><img src="../../.gitbook/assets/0 tabs.png" alt=""><figcaption><p>Tabs category view</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 tabs.png" alt="The developer portal Catalog tab, showing a welcome banner above category tabs and a grid of API cards with their version and description."><figcaption><p>Tabs category view</p></figcaption></figure>
 
 Below is the view of categories as tiles:
 
-<figure><img src="../../.gitbook/assets/0 tiles.png" alt=""><figcaption><p>Tiles category view</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 tiles.png" alt="The developer portal Catalog in categories mode, showing a welcome banner above four category cards, each with a View APIs button."><figcaption><p>Tiles category view</p></figcaption></figure>
 
 From the tile view, click a category tile to display all of the APIs that match that category. To return to the category tile view, click the **Catalog** link above the APIs.
 

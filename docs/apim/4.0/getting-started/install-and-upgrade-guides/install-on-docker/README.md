@@ -18,7 +18,7 @@ You should be familiar with [Docker](https://docs.docker.com/) before proceeding
 
 The following diagram shows the architecture that all of these installation methods use.
 
-<figure><img src="../../../.gitbook/assets/apim_simple_docker_architecture.png" alt=""><figcaption><p>Docker installation architecture</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apim_simple_docker_architecture.png" alt="A diagram of a Docker deployment, showing the management and portal user interfaces, the gateway, and the REST API with their internal and published ports, all connected to Elasticsearch and MongoDB."><figcaption><p>Docker installation architecture</p></figcaption></figure>
 
 The components have the following configuration.
 

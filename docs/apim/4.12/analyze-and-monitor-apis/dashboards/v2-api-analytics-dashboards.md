@@ -14,11 +14,11 @@ The Dashboard is fully customizable. For more information about creating configu
 
 *   From the **Dashboard**, click **Analytics**.<br>
 
-    <figure><img src="../../.gitbook/assets/A160372A-F5F3-48D2-9354-70460A1D779C_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A160372A-F5F3-48D2-9354-70460A1D779C_1_201_a.jpeg" alt="The console dashboard with Analytics highlighted in the left navigation, showing API and application totals, lifecycle and state pie charts, and top API tables."><figcaption></figcaption></figure>
 
 The Analytics section opens on the v2 API analytics Dashboard.
 
-<figure><img src="../../.gitbook/assets/BAA7119E-81F7-4AB1-A400-5F8CE11D23EA_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/BAA7119E-81F7-4AB1-A400-5F8CE11D23EA_1_201_a.jpeg" alt="The Platform Overview dashboard on the V2 Dashboard tab, with time-range presets, a status pie chart, and response-time statistics above top API and application panels."><figcaption></figcaption></figure>
 
 ## Create a dashboard
 
@@ -26,20 +26,20 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 
 1.  From the **Dashboard**, click **Settings**.<br>
 
-    <figure><img src="../../.gitbook/assets/7534F42D-B743-43DB-9366-986800402C97_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/7534F42D-B743-43DB-9366-986800402C97_1_201_a.jpeg" alt="The console dashboard with Settings highlighted in the left navigation, showing 2,707 APIs and 854 applications."><figcaption></figcaption></figure>
 2.  From the **Settings** menu, click **Analytics**.<br>
 
-    <figure><img src="../../.gitbook/assets/AAD595E6-7AD5-4AB9-BF4B-B0DF0B24F007_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/AAD595E6-7AD5-4AB9-BF4B-B0DF0B24F007_1_201_a.jpeg" alt="The portal Analytics settings with Analytics highlighted in the portal menu, listing nine platform dashboards with reorder and delete actions."><figcaption></figcaption></figure>
 3. Add your new platform dashboard, API dashboard, or application dashboard. To add a new dashboard, follow the steps for the dashboard that you want to create:
 4.  Click **ADD A NEW PLATFORM DASHBOARD**, **ADD A NEW API DASHBOARD**, or **ADD A NEW APPLICATION DASHBOARD**.<br>
 
-    <figure><img src="../../.gitbook/assets/39C2D49D-FFDD-4E68-975B-38C7C6C104F4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/39C2D49D-FFDD-4E68-975B-38C7C6C104F4_1_201_a.jpeg" alt="The portal Analytics settings with the Add a new platform dashboard button highlighted below the dashboard list."><figcaption></figcaption></figure>
 5. In the **Dashboard** name field, type a name for your Dashboard. For example, `sample dashboard`.
 6. (Optional) Clear the **Enabled dashboard**.
 7. (Optional) In the **Query filter** field, type a query filter for your dashboard. For example, to get hits geo-localized in France, use `geoip.country_iso_code:FR`.
 8.  Click the **plus (+)** button to add a widget. A blank widget appears on the screen.<br>
 
-    <figure><img src="../../.gitbook/assets/B0BC1F29-1E91-423E-BA47-93F7B9460C9E_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/B0BC1F29-1E91-423E-BA47-93F7B9460C9E_1_201_a.jpeg" alt="The New dashboard page for a platform dashboard, with an empty required name field, the dashboard enabled, and the add-widget button highlighted."><figcaption></figcaption></figure>
 9. From the **Widget type** dropdown menu, select one of the following widgets:
    * table
    * line
@@ -47,7 +47,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
    * map
    *   stats<br>
 
-       <figure><img src="../../.gitbook/assets/C619DE5C-5B30-464F-802D-F81F81AB33CA_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/C619DE5C-5B30-464F-802D-F81F81AB33CA_1_201_a.jpeg" alt="The New dashboard page with the widget type dropdown open on table, line, pie, map, and stats."><figcaption></figcaption></figure>
 10. Configure your widget. To configure your widget, follow the steps for the widget you selected in step 10:
 
 {% tabs %}
@@ -132,7 +132,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 7. In the **label** field, type a label name for your pie section.
 8.  Use the **color** selector to pick a color for your pie section.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-116.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-116.png" alt="The New dashboard page for an API dashboard, with a name entered and one widget being configured with a title, a custom field toggle, the field set to HTTP Status, and an empty label row."><figcaption></figcaption></figure>
 9.  Click **the pencil icon**.<br>
 
     <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt="The New dashboard page for a platform dashboard, with the edit icon on a widget highlighted."><figcaption></figcaption></figure>

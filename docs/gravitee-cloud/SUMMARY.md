@@ -30,8 +30,9 @@
   * [Connect a Gateway to your private network](guides/establish-private-networks-with-gcp/connect-a-gateway-to-your-private-network.md)
   * [Disconnect a Gateway from your private network](guides/establish-private-networks-with-gcp/disconnect-a-gateway-from-your-private-network.md)
 * [Establish private networks with AWS](guides/establish-private-networks-with-aws.md)
-* [Configure TCP Reporter](guides/configure-tcp-reporter/README.md)
-  * [Create and configure custom reporters](guides/configure-tcp-reporter/create-and-configure-custom-reporters.md)
+* [Configure custom reporters](guides/configure-tcp-reporter/README.md)
+  * [Create a TCP reporter](guides/configure-tcp-reporter/create-and-configure-custom-reporters.md)
+  * [Create a Datadog reporter](guides/configure-tcp-reporter/create-a-datadog-reporter.md)
   * [Custom reporters reference](guides/configure-tcp-reporter/custom-reporters-reference.md)
   * [Manage custom reporter deployments](guides/configure-tcp-reporter/manage-custom-reporter-deployments.md)
   

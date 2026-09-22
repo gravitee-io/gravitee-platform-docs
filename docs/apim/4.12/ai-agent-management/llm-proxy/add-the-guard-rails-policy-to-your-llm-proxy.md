@@ -31,16 +31,16 @@ To add the Guard Rails policy to your LLM proxy, complete the following steps:
 
 1.  From the **Dashboard**, click **APIs**.<br>
 
-    <figure><img src="../../.gitbook/assets/agent-mesh-llm-proxy-add-the-guard--97.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/agent-mesh-llm-proxy-add-the-guard--97.png" alt="The console dashboard with APIs highlighted in the left navigation, showing total API and application counts and lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  In the **APIs** screen, click your LLM proxy.<br>
 
-    <figure><img src="../../.gitbook/assets/agent-mesh-llm-proxy-add-the-guard--98.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/agent-mesh-llm-proxy-add-the-guard--98.png" alt="The APIs list filtered by a search term, showing two LLM Proxy APIs with their status, context path, and portal visibility."><figcaption></figcaption></figure>
 3.  From the **Configuration** screen, click **Resources**.<br>
 
-    <figure><img src="../../.gitbook/assets/AE9DD4BA-A207-45AF-95D9-7304015C32C2_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/AE9DD4BA-A207-45AF-95D9-7304015C32C2_1_201_a.jpeg" alt="The Configuration page of an API with the Resources tab highlighted, showing the general settings above a Danger Zone."><figcaption></figcaption></figure>
 4.  Click **+ Add resource**.<br>
 
-    <figure><img src="../../.gitbook/assets/3D2BE6ED-6A29-46D0-8566-C35378C9A381_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/3D2BE6ED-6A29-46D0-8566-C35378C9A381_1_201_a.jpeg" alt="The Resources tab of an API&#x27;s Configuration page, empty, with the Add resource button highlighted above a search field and an empty resource table."><figcaption></figcaption></figure>
 5.  In the **Add API Resource** pop-up window, select **AI Model Text Classification** menu, and then click **Select**.<br>
 
     <figure><img src="../../.gitbook/assets/CE636934-8667-4591-9449-69D2D3AF3F3A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -65,7 +65,7 @@ The resource appears in the **Resources** section of the **Configuration** scree
 2. Navigate to the **Flows** section, and select a flow that you want to add the Guard Rails policy to. For example, `POST/chat/completions`.
 3.  In the **Request phase** section, click **the plus.**<br>
 
-    <figure><img src="../../.gitbook/assets/88D4D2EF-A79A-43E6-A61D-90DB74F78C7F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/88D4D2EF-A79A-43E6-A61D-90DB74F78C7F_1_201_a.jpeg" alt="The Policies page of an LLM Proxy API, with a chat completions flow selected and the add-policy button in the request phase highlighted."><figcaption></figcaption></figure>
 4.  In the **Policies for Request phase** pop-up window, navigate to **AI - Prompt Guard Rails**, and then click **Select**.<br>
 
     <figure><img src="../../.gitbook/assets/EB1B1E62-4554-4408-9B9B-B3AEE36582AE_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -81,11 +81,11 @@ The resource appears in the **Resources** section of the **Configuration** scree
     <figure><img src="../../.gitbook/assets/79D5DCFC-267B-4DD3-B9D3-095005C4732F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 8.  In the **This API is out of sync.** pop-up window, click **Deploy API**.<br>
 
-    <figure><img src="../../.gitbook/assets/372797AD-6AB1-4037-B60E-51BD486C6B6C_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/372797AD-6AB1-4037-B60E-51BD486C6B6C_1_201_a.jpeg" alt="The Policies page with an AI Prompt Guard Rails policy added to the request phase of the chat completions flow, under an out-of-sync banner."><figcaption></figcaption></figure>
 9. (Optional) In the **Deploy your API** pop-up window, type a deployment label to your deployment.
 10. In the **Deploy your API** pop-up window, click **Deploy**.<br>
 
-    <figure><img src="../../.gitbook/assets/A9784826-C611-41A7-8D3C-00A83247F22C_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A9784826-C611-41A7-8D3C-00A83247F22C_1_201_a.jpeg" alt="The Deploy your API dialog open over the Policies page, asking for a label to identify the deployment."><figcaption></figcaption></figure>
 
 ## Verification
 

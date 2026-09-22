@@ -128,17 +128,17 @@ Runtime Logs provide detailed error information for individual API requests. To 
     <figure><img src="../.gitbook/assets/apis-sidebar.png" alt="The APIs list with APIs highlighted in the left navigation, showing filters for type, status, sharding tags, categories, and portal status above the table."><figcaption></figcaption></figure>
 3.  Select your API.
 
-    <figure><img src="../.gitbook/assets/select-your-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/select-your-api.png" alt="The APIs list with the Name column highlighted, showing each API&#x27;s type, status, context path, and sharding tags."><figcaption></figcaption></figure>
 4. Select **Logs** to view detailed request information including: Timestamp, Method, Status, URI, Application, Response time.
 
-<figure><img src="../.gitbook/assets/view-logs-v4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/view-logs-v4.png" alt="The Runtime Logs page of an API, with Logs highlighted in the API menu, listing ten requests with their timestamp, method, status, URI, application, plan, and response time."><figcaption></figcaption></figure>
 
 5.  Click on the **Timestamp** or Log details of any log entry.
 
-    <figure><img src="../.gitbook/assets/timestamp-log-details.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/timestamp-log-details.png" alt="The Runtime Logs page with the Timestamp column and the row of view icons both highlighted."><figcaption></figcaption></figure>
 6.  The Log Overview section displays complete diagnostic information including:Complete Request Details, Header Details, Response Information, Gateway status, Error Message, Error Key, Component Name, Component Type.
 
-    <figure><img src="../.gitbook/assets/v4-execution-transparency-analytics-logs (4).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/v4-execution-transparency-analytics-logs (4).png" alt="A log detail page for a request that returned 500, showing the request and response summaries with the host masked, above an Issues panel reporting a policy error."><figcaption></figcaption></figure>
 
 ### View Execution Transparency Analytics in V2 APIs
 
@@ -152,19 +152,19 @@ V2 APIs display execution transparency directly in the logs without requiring ad
     <figure><img src="../.gitbook/assets/apis-sidebar.png" alt="The APIs list with APIs highlighted in the left navigation, showing filters for type, status, sharding tags, categories, and portal status above the table."><figcaption></figcaption></figure>
 3.  Select your V2 API.
 
-    <figure><img src="../.gitbook/assets/select-v2-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/select-v2-api.png" alt="The APIs list filtered to two APIs, with the first row highlighted showing a V2 API with a zero percent quality score."><figcaption></figcaption></figure>
 4.  Click **Logs** in the left sidebar.
 
-    <figure><img src="../.gitbook/assets/click-logs-v2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/click-logs-v2.png" alt="The Logs page of a V2 API, with Logs highlighted in the API menu, showing time-range and filter controls above a table of requests and their status."><figcaption></figcaption></figure>
 5.  The logs list displays the following for each request: Errors, Warnings, Date, Status, Application, Plan, Method, Path.
 
-    <figure><img src="../.gitbook/assets/view-logs-v2-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/view-logs-v2-api.png" alt="The Logs page of a V2 API, showing time-range presets, filter fields, and a table of requests with their status, application, plan, and path."><figcaption></figcaption></figure>
 6.  Click on a specific Date.
 
-    <figure><img src="../.gitbook/assets/click-on-a-specific-date.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/click-on-a-specific-date.png" alt="The Logs page of a V2 API with the Date column highlighted, showing requests with mixed 200, 401, and 504 statuses and their response times."><figcaption></figcaption></figure>
 7.  The log details appear, showing all warnings and errors associated with the request.
 
-    <figure><img src="../.gitbook/assets/log-details-request-errors-v2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/log-details-request-errors-v2.png" alt="A log detail page for a request that returned 504, showing the request and response summaries above a connection-timeout failure and an expression evaluation warning."><figcaption></figcaption></figure>
 
 ### **View Execution Transparency Analytics in Dashboard Console**
 
@@ -172,16 +172,16 @@ You can view execution transparency logs from the global analytics page in your 
 
 1.  Navigate to your API Management Console home page.
 
-    <figure><img src="../.gitbook/assets/apim-management-console.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/apim-management-console.png" alt="The console dashboard, showing total API and application counts, lifecycle and state pie charts, and empty response status and top API panels."><figcaption></figcaption></figure>
 2.  Click **Analytics** in the left sidebar.
 
-    <figure><img src="../.gitbook/assets/global-analytics.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/global-analytics.png" alt="The Platform Logs page with Analytics highlighted in the left navigation, listing requests across APIs with their status, application, plan, and path."><figcaption></figcaption></figure>
 3.  Click **Logs** to view the list of log entries.
 
-    <figure><img src="../.gitbook/assets/click-global-logs.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/click-global-logs.png" alt="The Platform Logs page with the Logs tab highlighted at the top, listing requests with mixed 200 and 401 statuses."><figcaption></figcaption></figure>
 4.  Click on a specific log entry to view error details, warn information with complete request and response information.
 
-    <figure><img src="../.gitbook/assets/failure-details.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/failure-details.png" alt="A platform log detail page for a request that returned 401, with the request and response summaries above a highlighted failure panel reporting an invalid JWT token."><figcaption></figcaption></figure>
 
 ### Common Error Scenarios
 

@@ -179,6 +179,7 @@
   * [Publish a proxy to the Developer Portal](agent-management/publish/publish-a-proxy-to-the-developer-portal.md)
   * [Agent kill switch](agent-management/build/agent-killswitch.md)
 * [Observe](agent-management/observe/README.md)
+  * [Monitor agents, spend, and compliance on the Overview page](agent-management/observe/monitor-agents-spend-and-compliance.md)
   * [Monitor proxy and agent activity](agent-management/observe/monitor-proxy-activity.md)
   * [Dashboards](agent-management/observe/dashboards/README.md)
     * [Monitor your LLM proxy](agent-management/observe/monitor-your-llm-proxy.md)

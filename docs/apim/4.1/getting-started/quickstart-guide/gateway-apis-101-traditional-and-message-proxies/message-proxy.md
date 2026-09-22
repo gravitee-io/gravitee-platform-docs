@@ -20,7 +20,7 @@ With APIM, protocol mediation is extremely simple. The complexity of producing t
 
 Let's continue with the API creation wizard to see how easily a message proxy can be created.
 
-<figure><img src="../../../.gitbook/assets/message proxy_create.png" alt=""><figcaption><p>Creating a message proxy</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/message proxy_create.png" alt="Step 2 of the API creation wizard, with Introspect Messages From Event-Driven Backend selected."><figcaption><p>Creating a message proxy</p></figcaption></figure>
 
 > * [x] Select **Introspect Messages From Event-Driven Backend**
 > * [x] Click **Select my API Architecture** to continue
@@ -40,7 +40,7 @@ Unlike traditional proxies, message proxies perform protocol mediation between t
 
 This allows you to expose your message brokers using one or more web-friendly protocols, based on your requirements and those of your API consumers. Each protocol you select has its own set of configuration options.
 
-<figure><img src="../../../.gitbook/assets/message proxy_entrypoints.png" alt=""><figcaption><p>Select your entrypoints</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/message proxy_entrypoints.png" alt="Step 2 of the API creation wizard at the entrypoints stage, with HTTP GET and Websocket ticked and HTTP POST, Server-Sent Events, and Webhook left clear."><figcaption><p>Select your entrypoints</p></figcaption></figure>
 
 > * [x] Select **HTTP GET**
 > * [x] Select **Websocket**
@@ -60,7 +60,7 @@ Let's say we provided a context-path of `/qs-message-api`. Once the API is fully
 
 </details>
 
-<figure><img src="../../../.gitbook/assets/message proxy_entrypoint configure.png" alt=""><figcaption><p>Configure HTTP GET and WebSockets entrypoints</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/message proxy_entrypoint configure.png" alt="Step 2 of the API creation wizard at the configure stage, with virtual hosts enabled, a context path entered, and an HTTP GET message limit of 500."><figcaption><p>Configure HTTP GET and WebSockets entrypoints</p></figcaption></figure>
 
 > * [x] Provide a **Context-path**
 > * [x] Leave the default configuration for the HTTP GET and WebSockets entrypoints
@@ -72,7 +72,7 @@ Endpoints are how your Gateway API connects to your backend message brokers. Eac
 
 For this tutorial, we will select the Mock endpoint, which is ideal for testing and demo purposes. The Mock endpoint allows us to generate data without actually having to run a backend server.
 
-<figure><img src="../../../.gitbook/assets/message proxy_endpoints.png" alt=""><figcaption><p>Select your endpoints</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/message proxy_endpoints.png" alt="Step 3 of the API creation wizard, with Mock selected as the endpoint and Kafka, MQTT 5.x, and RabbitMQ left clear."><figcaption><p>Select your endpoints</p></figcaption></figure>
 
 > * [x] Select the **Mock** endpoint
 > * [x] Click **Select my endpoints** to continue
@@ -83,7 +83,7 @@ Typically, this is where you configure your connection to the backend cluster ru
 
 The configuration is highly specific to the endpoint you select. For our Mock endpoint, we can configure the specifics of the data being produced. We will leave the default settings, which will produce a message every second with a payload of `mock message` as soon as an API consumer connects to one of the entrypoints.
 
-<figure><img src="../../../.gitbook/assets/mock endpoint config.png" alt=""><figcaption><p>Mock endpoint configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/mock endpoint config.png" alt="Step 3 of the API creation wizard configuring the Mock endpoint, with a publication interval of 1000 milliseconds and message content entered."><figcaption><p>Mock endpoint configuration</p></figcaption></figure>
 
 > * [x] Click **Validate my endpoints** to continue
 
@@ -111,7 +111,7 @@ The final step in creating an API is to review and then save your configuration.
 * **Save API:** This option will save your API, but it will not be available on the Gateway. This is useful if you'd like to complete some more advanced configuration (e.g., adding policies) before starting the API on the Gateway.
 * **Save & Deploy API:** This option will save your API and immediately start it on the Gateway.
 
-<figure><img src="../../../.gitbook/assets/message proxy_summary.png" alt=""><figcaption><p>Gateway API summary page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/message proxy_summary.png" alt="Step 5 of the API creation wizard, summarising the message API details, entrypoints, endpoints, and keyless plan, with Save API and Save and Deploy API buttons."><figcaption><p>Gateway API summary page</p></figcaption></figure>
 
 > * [x] Select **Save & Deploy API** so we can begin testing immediately
 
@@ -143,7 +143,7 @@ Below is a short summary of the different actions, each of which alters the stat
 
 On this page, you can manage every aspect of your Gateway API by selecting different tabs from the inner sidebar. We'll be diving into some of these options later in the Quickstart Guide.
 
-<figure><img src="../../../.gitbook/assets/message proxy_general info.png" alt=""><figcaption><p>API General Info page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/message proxy_general info.png" alt="The Info page of a message API, showing its name, version, description, owner, and timestamps above a Danger Zone."><figcaption><p>API General Info page</p></figcaption></figure>
 
 ## Test your API
 

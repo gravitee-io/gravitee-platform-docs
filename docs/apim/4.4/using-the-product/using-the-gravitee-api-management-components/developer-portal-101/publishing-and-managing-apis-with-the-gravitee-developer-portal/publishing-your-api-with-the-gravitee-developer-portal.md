@@ -20,7 +20,7 @@ This will take you straight to your API's **General Info** page. In the **Danger
 * **Publish/Unpublish the API:** This is a toggle that controls the visibility of the API in the Developer Portal. Unless the API is also public, it is only visible to members of the API, which is controlled through **User and group access** in the inner sidebar.
 * **Make Public/Private:** This is a toggle that makes the API visible to anyone with access to the Developer Portal. Note, this toggle only has an impact if the API is published.
 
-<figure><img src="../../../../.gitbook/assets/DP_danger zone.png" alt=""><figcaption><p>API Danger Zone</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/DP_danger zone.png" alt="The Info page of an API scrolled to the Danger Zone, offering to stop, publish, make public, deprecate, or delete the API."><figcaption><p>API Danger Zone</p></figcaption></figure>
 
 > * [x] Click **Publish the API**, then **Publish** in the modal to add the API to the Developer Portal
 > * [x] Click **Make Public**, then **Make Public** again in the modal, to make the API visible to all API consumers

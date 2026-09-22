@@ -28,7 +28,7 @@ Simple applications are not secure as they allow API consumers to define their o
 
 Under **Client registration providers (DCR)**, toggle on **Enable client registration providers (DCR) for applications**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 9.29.06 AM.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 9.29.06 AM.jpg" alt="The Client Registration settings, with the Simple application type disabled and Browser, Web, Native, and Backend-to-Backend enabled, above an empty DCR providers table."><figcaption></figcaption></figure>
 
 ### 2. Configure AM as DCR provider <a href="#configure-am-as-dcr-provider-6" id="configure-am-as-dcr-provider-6"></a>
 
@@ -58,7 +58,7 @@ The first step is to create or select the security domain that you want to use i
 
 Once you have a domain, select **Settings** in the sidebar, scroll down to the **Openid** section, and select **Client Registration**. Toggle on the **Enable/Disable Dynamic Client Registration** setting.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.33.29 AM.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.33.29 AM.jpg" alt="The Client Registration Settings page in Access Management, with dynamic client registration enabled and every other option switched off."><figcaption></figcaption></figure>
 
 ### 2. Create AM Client Registration Provider Application <a href="#create-am-client-registration-provider-application-8" id="create-am-client-registration-provider-application-8"></a>
 
@@ -90,7 +90,7 @@ Lastly, we need to enable the proper scopes for the app and retrieve the client 
 
 We need to add the `dcr_admin` scope to ensure the initial access token tied to this application has the proper permissions to create new applications. Select **+ Add Scopes**, search for **dcr\_admin**, select the **Client\_registration\_admin** scope that pops up, and click **Add**. After adding the scope, make sure you click **Save**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.53.32 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.53.32 AM.png" alt="The Scopes tab of an application&#x27;s OAuth 2.0 settings, with one client registration admin scope added and marked as default."><figcaption></figcaption></figure>
 
 The `dcr_admin` scope must also be added to the scope in the APIM DCR Provider configuration page.
 
@@ -102,15 +102,15 @@ Alternatively, you could make the `dcr_admin` scope a default scope in the "DCR 
 
 To obtain the client credentials, simply click the **General** tab to return to the homepage of your AM application.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.53.48 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.53.48 AM.png" alt="The General settings of an application in Access Management, showing its name, a read-only domain and client ID, and a masked client secret, above options to change the application type or renew the secret."><figcaption></figcaption></figure>
 
 Copy the **Client ID** and **Client Secret** and paste them in the respective inputs inside the APIM client registration provider configuration page. Scroll down and click **Create**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.55.35 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.55.35 AM.png" alt="The client registration provider configuration, with an OpenID Connect discovery endpoint, the token provider set to Client Credentials, a client ID filled in, and an empty client secret."><figcaption></figcaption></figure>
 
 Congrats! You have now configured a DCR provider and are ready to create advanced applications inside of APIM.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.58.26 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.58.26 AM.png" alt="The client registration settings, with all four application types enabled and one registration provider listed with its description and last updated time."><figcaption></figcaption></figure>
 
 ## Create an Advanced APIM App in the Developer Portal <a href="#create-an-advanced-apim-app-in-the-developer-portal-10" id="create-an-advanced-apim-app-in-the-developer-portal-10"></a>
 
@@ -118,7 +118,7 @@ To create the app, let’s head over to the Developer Portal since this is where
 
 To access the Developer Portal, select it from the top menu bar:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.01.30 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.01.30 AM.png" alt="The client registration settings with the Developers Portal link in the top bar highlighted."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 **Accessing the Developer Portal**
@@ -128,20 +128,20 @@ In the default docker installation, you won’t see this link. By default, the D
 
 Inside the Developer Portal, select Application in the top nav and then select **+ Create an App**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.05.21 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.05.21 AM.png" alt="The My applications tab of the developer portal, showing three application cards with their descriptions and subscriber counts."><figcaption></figcaption></figure>
 
 Inside the application creation wizard, provide a **Name** and **Description**, then select **Next**.
 
 Let’s create a Backend to Backend application so we don’t have to worry about a Redirect URI. Select **Backend to Backend** then select **Next**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.07.23 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.07.23 AM.png" alt="The Security step of the developer portal application wizard, with Backend to backend selected and the Client Credentials grant enabled."><figcaption></figcaption></figure>
 
 We can ignore the **Subscription** page and just click **Next** again. Finally, confirm your API details and select **Create The App**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.18.39 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.18.39 AM.png" alt="The Validation step of the developer portal application wizard, confirming that the application has been created."><figcaption></figcaption></figure>
 
 Well done! If you return to AM and select **Applications** in the sidebar, you should see the brand new application you just created in the Developer Portal:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.20.02 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.20.02 AM.png" alt="The Applications list in Access Management, showing two service applications with their last updated times."><figcaption></figcaption></figure>
 
 nn

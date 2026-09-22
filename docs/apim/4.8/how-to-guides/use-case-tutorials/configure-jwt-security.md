@@ -26,11 +26,11 @@ The first step is to create a Gateway API. A Gateway API is simply an API deploy
 
 In the Console UI, select the Gateway API you want to secure with a JWT plan.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2026-01-29 at 13.50.09.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-29 at 13.50.09.png" alt="The APIs list showing the first page of 2,782 APIs, with filters for type, status, sharding tags, categories, and portal status above the table."><figcaption></figcaption></figure>
 
 For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2026-01-29 at 14.02.15.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-29 at 14.02.15.png" alt="Step 4 of the API creation wizard, listing one default keyless plan in standard mode above a Validate my plans button."><figcaption></figcaption></figure>
 
 Save and deploy the API when you’re finished.
 

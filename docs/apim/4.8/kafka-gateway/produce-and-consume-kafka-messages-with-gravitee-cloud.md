@@ -18,7 +18,7 @@ Before you produce and consume Kafka messages, complete the following steps:
 
 1.  Sign in to [Gravitee Cloud](https://cloud.gravitee.io/).
 
-    <figure><img src="../.gitbook/assets/kafka-gw-deploy-a-kafka-gateway-wit-272.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/kafka-gw-deploy-a-kafka-gateway-wit-272.png" alt="The Gravitee Cloud sign-in page, offering Google and GitHub sign-in above email and password fields and a company SSO link."><figcaption></figcaption></figure>
 2.  From the **Dashboard**, navigate to the **Gateways** section, and then click the Gateway that you deployed.
 
     <figure><img src="../.gitbook/assets/kafka-gw-produce-and-consume-kafka--304.png" alt=""><figcaption></figcaption></figure>

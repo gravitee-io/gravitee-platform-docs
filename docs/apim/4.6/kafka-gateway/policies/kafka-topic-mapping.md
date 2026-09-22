@@ -81,7 +81,7 @@ In the Kafka Topic Mapping policy, the broker-side topic name will be `internal.
 
 We can now keep the client-side (external) topic name simple & generic: `organization-updates`.
 
-<figure><img src="../../.gitbook/assets/kafka-gw-policies-kafka-topic-mappi-153.png" alt=""><figcaption><p>UI configuration of the Kafka Topic Mapping policy</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/kafka-gw-policies-kafka-topic-mappi-153.png" alt="The Kafka topic mapping policy configuration, with two mappings from client-side topic names to broker-side names, one built from an expression-language claim lookup."><figcaption><p>UI configuration of the Kafka Topic Mapping policy</p></figcaption></figure>
 
 Below is a sample policy configuration:
 

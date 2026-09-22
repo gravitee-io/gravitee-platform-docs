@@ -10,7 +10,7 @@ description: >-
 
 Now that we have access to the Developer Portal, we can take on the role of an API consumer. The next step is to create an application that is used to register and agree to plans.
 
-<figure><img src="../../../../.gitbook/assets/DP_app page.png" alt=""><figcaption><p>Developer Portal Applications page</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/DP_app page.png" alt="The My applications tab of the developer portal, showing four application cards with their owner and description."><figcaption><p>Developer Portal Applications page</p></figcaption></figure>
 
 > * [x] Select **Applications** in the top nav bar
 > * [x] Select **+ Create an App** in the subnav bar
@@ -19,7 +19,7 @@ Now that we have access to the Developer Portal, we can take on the role of an A
 
 This will open the application creation wizard. The **General** step is focused on providing application metadata.
 
-<figure><img src="../../../../.gitbook/assets/DP_general.png" alt=""><figcaption><p>General step of application creation wizard</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/DP_general.png" alt="The General step of the developer portal application wizard, with an application name and description entered and an empty image upload area."><figcaption><p>General step of application creation wizard</p></figcaption></figure>
 
 > * [x] Provide a name and description, then click **Next**
 
@@ -33,7 +33,7 @@ The next step is focused on **Security**. This page may look different depending
 A **Simple** application allows an API consumer to define their own `client_id`, but this is not secure and should not be used outside of testing. Therefore, Gravitee allows you to disable **Simple** applications and [use dynamic client registration (DCR) to create advanced applications](https://documentation.gravitee.io/apim/guides/api-exposure-plans-applications-and-subscriptions/plans-1#advanced-application-configuration) with the identity provider of your choosing.
 {% endhint %}
 
-<figure><img src="../../../../.gitbook/assets/DP_security.png" alt=""><figcaption><p>Security step of application creation wizard</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/DP_security.png" alt="The Security step of the application wizard, with Simple selected among SPA, Web, Native, and Backend to backend, and empty type and client ID fields."><figcaption><p>Security step of application creation wizard</p></figcaption></figure>
 
 > * [x] Select a **Simple** application, then click **Next**
 
@@ -43,7 +43,7 @@ The **Subscription** step allows you to send API subscription requests as you ar
 
 Once we finish creating the app, the request will be sent for review and approval by the API publisher.
 
-<figure><img src="../../../../.gitbook/assets/DP_subscription.png" alt=""><figcaption><p>Subscription step of application creation wizard</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/DP_subscription.png" alt="The Subscription step of the application wizard, with an API searched, an API key plan selected showing manual validation and personal key, and the request listed for comment."><figcaption><p>Subscription step of application creation wizard</p></figcaption></figure>
 
 > * [x] Search for the API you published and select it
 > * [x] Select **Subscribe** under the API Key Plan, then click **Next**
@@ -52,7 +52,7 @@ Once we finish creating the app, the request will be sent for review and approva
 
 Finally, we just need to complete the **Validation** step. Review your application details and subscription request. If everything looks good, go ahead and create your app!
 
-<figure><img src="../../../../.gitbook/assets/DP_validation.png" alt=""><figcaption><p>Validation step of application creation wizard</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/DP_validation.png" alt="The Validation step of the application wizard, summarising the application name, description, and security type beside the subscription request awaiting manual validation."><figcaption><p>Validation step of application creation wizard</p></figcaption></figure>
 
 > * [x] Click **Create the App**
 
