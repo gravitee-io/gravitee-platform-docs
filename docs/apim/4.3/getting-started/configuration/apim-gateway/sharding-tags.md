@@ -70,10 +70,10 @@ Follow the steps below to add sharding tags to your organization.
 
 1.  Log in to your API Management Console:
 
-    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 1.png" alt="The Home board of the console, showing API and application counts, lifecycle and state pie charts, response status, top APIs, and request statistics."><figcaption></figcaption></figure>
 2.  In the left-hand nav, select **Organization**:
 
-    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 2.png" alt="The same Home board with the Organization item highlighted at the foot of the left navigation."><figcaption></figcaption></figure>
 3.  On the **Organization** page, select **Sharding tags**:
 
     <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 3.png" alt=""><figcaption></figcaption></figure>

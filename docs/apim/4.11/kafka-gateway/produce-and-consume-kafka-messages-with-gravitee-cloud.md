@@ -18,13 +18,13 @@ Before you produce and consume Kafka messages, complete the following steps:
 
 1.  Sign in to [Gravitee Cloud](https://cloud.gravitee.io/).<br>
 
-    <figure><img src="../.gitbook/assets/sign-in-gravitee-cloud.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/sign-in-gravitee-cloud.png" alt="The Gravitee Cloud sign-in page, offering Google and GitHub sign-in above email and password fields and a company SSO link."><figcaption></figcaption></figure>
 2.  From the **Dashboard**, navigate to the **Gateways** section, and then click the Gateway that you deployed.<br>
 
-    <figure><img src="../.gitbook/assets/kafka-gw-produce-and-consume-kafka--178.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/kafka-gw-produce-and-consume-kafka--178.png" alt="A Gravitee Cloud dashboard showing staging and test environment cards above a Gateways table, with the Deploy Gateway button highlighted."><figcaption></figcaption></figure>
 3.  In the **Gravitee Hosted Gateway Details** screen, navigate to the **Gateway Deployment Details** section, and then copy the **Kafka Domain**.
 
-    <figure><img src="../.gitbook/assets/kafka-gw-produce-and-consume-kafka--180.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/kafka-gw-produce-and-consume-kafka--180.png" alt="The Gravitee Hosted Gateway Details page, showing the gateway name, type, environment, version, and provider above the HTTP domain and a highlighted Kafka domain."><figcaption></figcaption></figure>
 4.  Use the **Kafka Domain** to produce and consume Kafka messages to a topic like in the following example:
 
     ```bash
