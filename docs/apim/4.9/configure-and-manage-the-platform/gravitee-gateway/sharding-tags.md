@@ -84,7 +84,7 @@ To configure sharding tags, complete the following steps:
    2. (Optional) In the **Description** field, add a description for the tag.
    3.  (Optional) From the **Restricted groups** drop-down menu, select the groups that you want to be able to deploy to this tag.
 
-       <figure><img src="../../.gitbook/assets/create-a-tag-pop-up.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/create-a-tag-pop-up.png" alt="The Create a tag dialog open over the Sharding Tags page, explaining that a tag can be restricted to groups, with empty name, description, and restricted groups fields."><figcaption></figcaption></figure>
 5. Click **Ok**. The sharding tag now appears in the list of **Sharding Tags**.
 
 {% hint style="info" %}

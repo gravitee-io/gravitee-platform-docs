@@ -50,7 +50,7 @@ For documentation about securing your APIs with OAuth2 and Entra ID, see the doc
 
     <br>
 
-    <figure><img src="../../../.gitbook/assets/platform-manage-organizations-and-e-228.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/platform-manage-organizations-and-e-228.png" alt="The API permissions page of an app registration in an external identity provider, listing four delegated Microsoft Graph permissions for email, openid, profile, and user profile."><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 You can now add a new Identity Provider to Gravitee APIM.

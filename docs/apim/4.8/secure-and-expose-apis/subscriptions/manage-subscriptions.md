@@ -8,7 +8,7 @@ description: Find and manage an application's subscriptions from the API Managem
 
 To find an application's subscriptions, log in to your APIM Console, and then select **Applications** from the menu.
 
-<figure><img src="../../.gitbook/assets/00 sub 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 sub 1.png" alt="The Applications page showing the first three of 734 applications, with their type and the owner column masked."><figcaption></figcaption></figure>
 
 Select the application you're looking for, and then select **Subscriptions** from the menu.
 

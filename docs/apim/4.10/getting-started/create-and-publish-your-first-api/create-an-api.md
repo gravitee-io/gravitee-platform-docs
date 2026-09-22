@@ -33,7 +33,7 @@ This guide explains how to create an API with the Gravitee APIM console.
     <figure><img src="../../.gitbook/assets/gs-first-api-create-an-api-61 (1).png" alt="Step 2 of the API creation wizard at the configure stage, with virtual hosts enabled and a context path entered."><figcaption></figcaption></figure>
 7.  In the **Configure your API endpoints access** screen, set the target URL , and then click **Validate my endpoints**. For example, https://jsonplaceholder.typicode.com
 
-    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-21-1 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-21-1 (1).png" alt="Step 3 of the API creation wizard, with a public placeholder target URL and the security configuration set to HTTP 1.1 with keep-alive and connection timeouts."><figcaption></figcaption></figure>
 8.  Click **Validate my plans**. By default, Gravitee adds a **Default keyless plan (UNSECURED)** to your API.
 
     <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-21-2 (1).png" alt="Step 4 of the API creation wizard, listing one default keyless plan in standard mode above a Validate my plans button."><figcaption></figcaption></figure>
