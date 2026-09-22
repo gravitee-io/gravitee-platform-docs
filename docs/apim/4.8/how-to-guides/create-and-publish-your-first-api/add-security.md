@@ -23,40 +23,40 @@ To add security to your API, complete the following steps:
 
 1.  From the **Dashboard**, click **APIs**.
 
-    <figure><img src="../../.gitbook/assets/FEF08D45-E65E-4131-8D16-4D1D767906F0.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/FEF08D45-E65E-4131-8D16-4D1D767906F0.jpeg" alt="The console dashboard with APIs highlighted in the left navigation, showing one API and one application with empty lifecycle and state panels."><figcaption></figcaption></figure>
 2.  Click your API.
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-securit-320.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-securit-320.png" alt="The APIs list filtered by a saved search, showing one started V4 HTTP proxy API with private visibility."><figcaption></figcaption></figure>
 3.  Click **Consumers**.
 
-    <figure><img src="../../.gitbook/assets/1CEDFEB8-E635-41FE-BEFC-3B815EEB1D69.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/1CEDFEB8-E635-41FE-BEFC-3B815EEB1D69.jpeg" alt="The Configuration page of an API with Consumers highlighted in the API menu, showing the general settings above a Danger Zone."><figcaption></figcaption></figure>
 4.  Click **+ Add new plan**, and then click **API Key**.
 
-    <figure><img src="../../.gitbook/assets/58672F6C-4830-4710-B006-0CFF36ECC865.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/58672F6C-4830-4710-B006-0CFF36ECC865.jpeg" alt="The Plans tab with the PUBLISHED filter selected and the Add new plan menu open, offering mTLS, OAuth2, JWT, API Key, and Keyless plan types."><figcaption></figcaption></figure>
 5.  In the **Name** field, type a name for your API.
 
-    <figure><img src="../../.gitbook/assets/CC6C89DF-138E-4A61-BAF7-D681DCC651C8.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/CC6C89DF-138E-4A61-BAF7-D681DCC651C8.jpeg" alt="The General step of plan creation, with the required Name field highlighted and empty description, characteristics, conditions, and subscription options below."><figcaption></figcaption></figure>
 6.  In the **Subscriptions section**, turn on **Auto validate subscription**.
 
-    <figure><img src="../../.gitbook/assets/46EB2A9A-7339-4073-BE36-7EED0ECB6F95.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/46EB2A9A-7339-4073-BE36-7EED0ECB6F95.jpeg" alt="The General step of plan creation, with a plan name entered and the Auto validate subscription toggle highlighted and switched on."><figcaption></figcaption></figure>
 7.  Click **Next**.
 
-    <figure><img src="../../.gitbook/assets/E43BBC55-59A5-4CC6-B689-57D5433E1F35.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/E43BBC55-59A5-4CC6-B689-57D5433E1F35.jpeg" alt="The General step of plan creation scrolled to the foot, with the Next button highlighted below the deployment and access-control fields."><figcaption></figcaption></figure>
 8.  In the API Key authentication configuration screen, click **Next**.
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-create-and-publish-your-fi-347-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-create-and-publish-your-fi-347-1.png" alt="The API Key authentication configuration step, with API key propagation switched off and an empty additional selection rule field, above Back and Next buttons."><figcaption></figcaption></figure>
 9.  Click **Create**.
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-create-and-publish-your-fi-348-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-create-and-publish-your-fi-348-1.png" alt="The Restriction step of plan creation, with rate limiting, quota, and resource filtering all switched off, above Back and Create buttons."><figcaption></figcaption></figure>
 10. In the **Consumers** screen, click the **Publish the plan** button.
 
-    <figure><img src="../../.gitbook/assets/80812F89-F280-4D0C-A83B-EB9417385B96.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/80812F89-F280-4D0C-A83B-EB9417385B96.jpeg" alt="The Plans tab with the STAGING filter selected and the publish icon highlighted beside a new API key plan."><figcaption></figcaption></figure>
 11. In the Publish plan pop-up window, click **Publish.**
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-create-and-publish-your-fi-349-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-create-and-publish-your-fi-349-1.png" alt="The Publish plan dialog, asking whether to publish the named plan, shown over the staging plan list."><figcaption></figcaption></figure>
 12. Click **Deploy API**.
 
-    <figure><img src="../../.gitbook/assets/8AB63E94-AAA6-4BDA-B648-077BB451A35C.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/8AB63E94-AAA6-4BDA-B648-077BB451A35C.jpeg" alt="The Plans tab under an out-of-sync banner with the Deploy API button highlighted, showing no plans left in staging."><figcaption></figcaption></figure>
 13. In the **Deploy your API** pop-up window, click **Deploy**.
 
     <figure><img src="../../.gitbook/assets/how-to-guides-create-and-publish-your-fi-350-1.png" alt="The Deploy your API dialog open over an API&#x27;s Plans tab, asking for a deployment label, with an out-of-sync banner above."><figcaption></figcaption></figure>
@@ -65,7 +65,7 @@ To add security to your API, complete the following steps:
 
 The new plan appears in the **PUBLISHED** tab of the **Consumers** screen.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-create-and-publish-your-fi-351-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-create-and-publish-your-fi-351-1.png" alt="The Plans tab with the PUBLISHED filter selected, listing a keyless plan and an API key plan, both published."><figcaption></figcaption></figure>
 
 ### Remove the Keyless plan from your API
 
@@ -75,10 +75,10 @@ WARNING: Removing a plan is irreversible
 
 1.  Navigate to the **PUBLISHED** tab of the screen.
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-securit-7.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-securit-7.png" alt="The Plans tab with the PUBLISHED filter selected, listing a keyless plan and an API key plan with edit, deprecate, and close actions."><figcaption></figcaption></figure>
 2.  For your **Default Keyless (UNSECURED)** plan, click **Close the plan** button.
 
-    <figure><img src="../../.gitbook/assets/3627B0A7-AF24-4E4B-A22B-5AFEB7FB29A5.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/3627B0A7-AF24-4E4B-A22B-5AFEB7FB29A5.jpeg" alt="The Plans tab with the close icon highlighted on the keyless plan row."><figcaption></figcaption></figure>
 3.  In the **Close plan** pop-up window, type Default Keyless (UNSECURED), and then click **Yes, close this plan.**
 
     <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-securit-8.png" alt=""><figcaption></figcaption></figure>
@@ -99,16 +99,16 @@ To test your API Key plan, complete the following steps:
 
 1.  From the **Dashboard**, click **Applications**.
 
-    <figure><img src="../../.gitbook/assets/22CB1B38-1964-47F6-B5B7-8B634D3D8D0B.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/22CB1B38-1964-47F6-B5B7-8B634D3D8D0B.jpeg" alt="The console dashboard with Applications highlighted in the left navigation, showing one API and one application."><figcaption></figcaption></figure>
 2.  In the **Applications** screen, click the **Default application**.
 
     <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-securit-10.png" alt=""><figcaption></figcaption></figure>
 3.  In the **Default application** configuration screen, click **Subscriptions**.
 
-    <figure><img src="../../.gitbook/assets/F1AD5888-A518-42D5-8C18-33BCCB583C06.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/F1AD5888-A518-42D5-8C18-33BCCB583C06.jpeg" alt="The Global settings page of the default application with Subscriptions highlighted in the application menu, showing the name, description, and domain fields beside the owner, type, and API key mode."><figcaption></figcaption></figure>
 4.  Click **+ Create a subscription**.
 
-    <figure><img src="../../.gitbook/assets/AD60FD6C-ECAB-49A1-80B3-2C0BD89F08EA.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/AD60FD6C-ECAB-49A1-80B3-2C0BD89F08EA.jpeg" alt="The Subscriptions page of an application, empty, with the Create a subscription button highlighted above the API, status, and API key filters."><figcaption></figcaption></figure>
 5. In the **Create a subscription** pop-up window, complete the following sub-steps:
    1. Type the name of the API that you created in [create-an-api.md](create-an-api.md "mention").
    2. Select your API.
@@ -118,7 +118,7 @@ To test your API Key plan, complete the following steps:
        <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-securit-11.png" alt=""><figcaption></figcaption></figure>
 6.  Copy your API key from the **API Keys** section of the **Subscriptions** page.
 
-    <figure><img src="../../.gitbook/assets/0E509DC6-90E7-4154-B768-920FB55DA442.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/0E509DC6-90E7-4154-B768-920FB55DA442.jpeg" alt="A subscription&#x27;s detail page showing its identifier, API, plan, accepted status, and timestamps, with the API key value highlighted in the API Keys panel below."><figcaption></figcaption></figure>
 
 ### Test your API Key
 

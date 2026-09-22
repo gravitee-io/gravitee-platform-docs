@@ -63,7 +63,7 @@ To add a Quota policy to each plan of this API:
 
     **Flows vs. policies** Flows are a collection of policies. Flows can be specified for each individual plan, e.g., API Key (SILVER), API Key (GOLD), and API Key (PLATINUM). Alternatively, a common flow can be applied to all plans within the specific AP&#x49;_._<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-194.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-194.png" alt="The Policies page of an API, listing three API key flows and a Common flows group, with no flows yet selected."><figcaption></figcaption></figure>
 
 ### Step 2: Add a Quota policy for each user group <a href="#step-2-add-a-quota-policy-for-each-user-group" id="step-2-add-a-quota-policy-for-each-user-group"></a>
 
@@ -175,7 +175,7 @@ Rate limiting policies can also be added during the API creation process. Let's 
 1. Complete the steps of the API creation wizard until it gets to the part about plans
 2. In the plans section, click **Add plan**. All created APIs will include a **Default Keyless (UNSECURED)** plan. You may modify or delete this plan.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-45-2-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-45-2-1.png" alt="Step 4 of the API creation wizard at the Security stage, listing one default keyless plan in standard mode."><figcaption></figcaption></figure>
 
 3. Click **API Key**
 4.  Enter a plan **Name**, **Description** (optional), and modify **Subscriptions** and **Access-Control** (optional)<br>
