@@ -38,24 +38,24 @@ In this guide, you'll learn how to import AI agents from their Agent Cards, enri
 
 1.  From the **Dashboard**, click **Integrations**.
 
-    <figure><img src="../.gitbook/assets/EBC33357-568B-44A2-8B9F-5EBF80D99197_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/EBC33357-568B-44A2-8B9F-5EBF80D99197_1_201_a.jpeg" alt="The console dashboard with Integrations highlighted in the left navigation, showing API and application totals and lifecycle and state pie charts."><figcaption></figcaption></figure>
 2. Click **Create Integration**.
 3.  Click **A2A Protocol**, and then click **Next**.
 
-    <figure><img src="../.gitbook/assets/4736E1B1-3027-4093-91FC-F91A8A3CB3C7_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/4736E1B1-3027-4093-91FC-F91A8A3CB3C7_1_201_a.jpeg" alt="The Choose Provider step of the Create Integration wizard, with A2A Protocol selected among AWS API Gateway, Solace, Apigee, Azure, IBM API Connect, Confluent Platform, and Mulesoft."><figcaption></figcaption></figure>
 4. In the **Create Integration** screen, add the following information:
    1. The name of the integration.
    2. (Optional) A description of the integration.
    3. The **Well-known URL** for your Agent card.
 5.  Click **Create Integration**.
 
-    <figure><img src="../.gitbook/assets/agent-mesh-add-agents-to-your-agent-cata-282-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/agent-mesh-add-agents-to-your-agent-cata-282-1.png" alt="The Enter Information step of the Create Integration wizard, with a name and a well-known URL entered and an empty description."><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Your Integration appears in the **Integrations** screen.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/5EBDA5A1-E875-4861-BF6A-0F1A97464F6C_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/5EBDA5A1-E875-4861-BF6A-0F1A97464F6C_1_201_a.jpeg" alt="The Integrations page listing nine integrations with their provider, agent status, and owner, most of them disconnected."><figcaption></figcaption></figure>
 
 ## View your Agent's APIs
 
@@ -64,7 +64,7 @@ Your Integration appears in the **Integrations** screen.
     <figure><img src="../.gitbook/assets/76AD6B3F-28DB-44E1-899F-BF030327D9A0_1_201_a.jpeg" alt="The Integrations page listing nine integrations across providers such as AWS API Gateway, Confluent, Mulesoft, Azure, Apigee, Solace, and A2A Protocol, most disconnected."><figcaption></figcaption></figure>
 2.  From the **Overview** screen, navigate to the **Agents** section, and then click the Agent that you want to view.
 
-    <figure><img src="../.gitbook/assets/EEAF8CAF-BDD6-43E9-A3DB-FF3DDFE3DBC9_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/EEAF8CAF-BDD6-43E9-A3DB-FF3DDFE3DBC9_1_201_a.jpeg" alt="The Overview page of an A2A integration, showing its provider and one discovered agent, with a Discover button above the agent list."><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 The configuration screen displays the agent card for the Agent.
@@ -74,22 +74,22 @@ The configuration screen displays the agent card for the Agent.
 
 1.  From the **Dashboard**, click **Integrations**.
 
-    <figure><img src="../.gitbook/assets/agent-mesh-add-agents-to-your-agent-cata-283-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/agent-mesh-add-agents-to-your-agent-cata-283-1.png" alt="The console dashboard with Integrations highlighted in the left navigation, showing API and application totals and lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  From the **Integrations page**, click your A2A integration.
 
     <figure><img src="../.gitbook/assets/76AD6B3F-28DB-44E1-899F-BF030327D9A0_1_201_a.jpeg" alt="The Integrations page listing nine integrations across providers such as AWS API Gateway, Confluent, Mulesoft, Azure, Apigee, Solace, and A2A Protocol, most disconnected."><figcaption></figcaption></figure>
 3.  Click **Configuration**.
 
-    <figure><img src="../.gitbook/assets/7D196F24-CE07-4CE4-B177-6D3FFBEA5F20.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/7D196F24-CE07-4CE4-B177-6D3FFBEA5F20.jpeg" alt="The Configuration page of an A2A integration, showing its name and description, one well-known URL, and a Danger Zone offering to delete the agents or the integration."><figcaption></figcaption></figure>
 4.  Navigate to **Well-known URLs**, and then add your new well-known URL.
 
-    <figure><img src="../.gitbook/assets/2B6478B3-B09B-42DE-BA57-E42C3AE4066F.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/2B6478B3-B09B-42DE-BA57-E42C3AE4066F.jpeg" alt="The Configuration page of an A2A integration with the Well-known URLs panel highlighted, listing one URL and a field to add another."><figcaption></figcaption></figure>
 5.  Click **Save**.
 
-    <figure><img src="../.gitbook/assets/CBAADA4B-CF12-4064-9500-0C2658CCC65D_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/CBAADA4B-CF12-4064-9500-0C2658CCC65D_1_201_a.jpeg" alt="The Configuration page of an A2A integration, with a second well-known URL typed into the add field and an unsaved changes bar offering Save."><figcaption></figcaption></figure>
 6.  Click **Overview**.
 
-    <figure><img src="../.gitbook/assets/54891E06-44E2-4728-84F8-6BA6D33CC6E4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/54891E06-44E2-4728-84F8-6BA6D33CC6E4_1_201_a.jpeg" alt="The Overview page of an A2A integration with Overview highlighted in the integration menu, listing one discovered agent."><figcaption></figcaption></figure>
 7.  Click **Discover**. The Agent appears in the **Agents** section.
 
-    <figure><img src="../.gitbook/assets/405A036E-DCBD-40B1-BE02-4889C9E1375F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/405A036E-DCBD-40B1-BE02-4889C9E1375F_1_201_a.jpeg" alt="The Overview page of an A2A integration with the Discover button highlighted above the agent list."><figcaption></figcaption></figure>
