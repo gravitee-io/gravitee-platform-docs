@@ -24,14 +24,14 @@ To create a homepage:
     <figure><img src="../../.gitbook/assets/1 docs 1.png" alt="The Main Pages tab of an API&#x27;s documentation, with no homepage set and the Create New Page menu open on Markdown, OpenAPI, and AsyncAPI."><figcaption></figcaption></figure>
 3.  Choose whether to set your page visibility to **Public** or **Private**.
 
-    <figure><img src="../../.gitbook/assets/01.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/01.png" alt="The Configure page step of the homepage wizard for a Kafka API, with Public visibility selected over Private."><figcaption></figcaption></figure>
 
     If you select **Private**, you have the option to choose which groups can view your page. You can also exclude the selected groups, in which case the groups that are not selected will be able to view your page. If you do not select any groups, all groups will be able to view your page.
 
     <figure><img src="../../.gitbook/assets/10 1.png" alt="The visibility step of page creation, with Private selected over Public, one group permitted to view the page, and the exclude-groups toggle switched off."><figcaption></figcaption></figure>
 4.  Choose how to create the content. You can fill in the content yourself, import a file, or link to an external source.
 
-    <figure><img src="../../.gitbook/assets/02.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/02.png" alt="The Determine source step of the homepage wizard, with Fill in the content myself selected over Import from file and Link to External Source."><figcaption></figcaption></figure>
 
     The format you chose for the page content may impact how you create page content:
 
@@ -64,7 +64,7 @@ Click the **Documentation Pages** header to view a directory of the pages you've
 
 The process for creating a documentation page is identical to that for creating a homepage, except a documentation page requires a name.
 
-<figure><img src="../../.gitbook/assets/05.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/05.png" alt="The Configure page step of the documentation page wizard for a Kafka API, with a page name entered and Public visibility selected."><figcaption></figcaption></figure>
 
 In addition, **Documentation Pages** supports the creation of folders. To create a folder, click **Add new folder**.
 
