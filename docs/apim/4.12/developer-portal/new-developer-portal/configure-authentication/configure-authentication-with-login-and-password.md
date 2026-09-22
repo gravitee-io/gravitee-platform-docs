@@ -341,7 +341,7 @@ docker compose up -d
 
 Users can sign in with their login and password.
 
-<figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-133.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-133.png" alt="The APIM console sign-in page, with username and password fields above six identity provider buttons including Azure AD, GitHub, Google, and Gravitee Access Management."><figcaption></figcaption></figure>
 
 ## Next steps
 
