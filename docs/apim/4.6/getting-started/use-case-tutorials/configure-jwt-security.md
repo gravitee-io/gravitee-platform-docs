@@ -30,7 +30,7 @@ In the Console UI, select the Gateway API you want to secure with a JWT plan.
 
 For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.
 
-<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-9.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-use-case-tutorials-configure-jwt-9.png" alt="Step 4 of the API creation wizard at the Security stage, listing one default keyless plan in standard mode with a Validate my plans button."><figcaption></figcaption></figure>
 
 Save and deploy the API when you’re finished.
 

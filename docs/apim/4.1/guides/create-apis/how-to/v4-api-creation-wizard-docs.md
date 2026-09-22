@@ -50,7 +50,7 @@ If you select :heavy\_check\_mark:**Enable virtual hosts**, you'll have to defin
 
 To disable virtual hosts, select **X Disable virtual hosts**.&#x20;
 
-<figure><img src="../../../.gitbook/assets/HTTP proxy entrypoints.gif" alt=""><figcaption><p>HTTP-Proxy entrypoints</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/HTTP proxy entrypoints.gif" alt="An animation that configures the API entrypoints step, enabling virtual hosts and filling in a sample host and context path."><figcaption><p>HTTP-Proxy entrypoints</p></figcaption></figure>
 
 ### Entrypoint options for the "Introspect messages from Event-driven backend" method
 

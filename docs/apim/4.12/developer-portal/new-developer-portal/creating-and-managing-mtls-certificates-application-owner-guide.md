@@ -17,17 +17,17 @@ This guide shows application owners how to upload, rotate, and delete mTLS clien
 
 1.  Sign in to the new Developer Portal.
 
-    <figure><img src="../../.gitbook/assets/new-portal-homepage.png" alt=""><figcaption><p>New Developer Portal homepage</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/new-portal-homepage.png" alt="The developer portal home page, showing a welcome headline, Explore all APIs and Get started buttons, a banner image, and a toolkit section below."><figcaption><p>New Developer Portal homepage</p></figcaption></figure>
 2.  Go to **Applications**.
 
-    <figure><img src="../../.gitbook/assets/new-portal-applications-list.png" alt=""><figcaption><p>Applications list in the new Developer Portal</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/new-portal-applications-list.png" alt="The Applications page of the developer portal, showing three application cards with their descriptions."><figcaption><p>Applications list in the new Developer Portal</p></figcaption></figure>
 3.  Click the application you want to manage. The application opens on the **Settings & Security** tab in view mode.
 
-    <figure><img src="../../.gitbook/assets/new-portal-application-settings-security-read.png" alt=""><figcaption><p>Settings &#x26; Security tab in view mode, showing the Edit button</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/new-portal-application-settings-security-read.png" alt="The Settings and Security tab of an application in the developer portal, showing its type, creation date, domain, and security type above the description."><figcaption><p>Settings &#x26; Security tab in view mode, showing the Edit button</p></figcaption></figure>
 4. Click **Edit**. The **Settings & Security** tab switches to edit mode and displays the **Application details** form.
 5.  Scroll to the **Certificates** section at the bottom of the form.
 
-    <figure><img src="../../.gitbook/assets/new-portal-application-edit-certificates-empty.png" alt=""><figcaption><p>Certificates section in its empty state, inside the edit form</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/new-portal-application-edit-certificates-empty.png" alt="The Settings and Security tab in edit mode, showing application name, description, domain, type, and client ID fields above an empty Certificates panel with an Upload certificate button."><figcaption><p>Certificates section in its empty state, inside the edit form</p></figcaption></figure>
 
     If no certificate has been uploaded yet, the section shows the empty state message _"No mTLS certificates added"_. Once one or more certificates exist, the section displays the **Active certificates** and **Certificate history** tabs.
 
@@ -35,7 +35,7 @@ This guide shows application owners how to upload, rotate, and delete mTLS clien
 
 1.  In the **Certificates** section, click **Upload certificate**. The **Add certificate** dialog opens on the **Upload** step.
 
-    <figure><img src="../../.gitbook/assets/new-portal-add-certificate-upload-step.png" alt=""><figcaption><p>Upload step of the Add certificate dialog</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/new-portal-add-certificate-upload-step.png" alt="The Add certificate dialog at the Upload step, with an empty certificate name, a field to paste a PEM certificate, and a file chooser accepting .pem, .crt, and .cer files."><figcaption><p>Upload step of the Add certificate dialog</p></figcaption></figure>
 2. In the **Certificate Name** field, enter a name for the certificate. The name can be up to 255 characters.
 3. Provide the PEM-encoded certificate body in one of two ways:
    * Under **Paste certificate**, paste the PEM content into the **Certificate (PEM)** text area.

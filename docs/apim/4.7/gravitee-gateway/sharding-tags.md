@@ -153,7 +153,7 @@ For example, to tell Gravitee API Manager to apply the “internal test” tag t
 
 1.  In the **Dashboard**, click **Organization**.
 
-    <figure><img src="../.gitbook/assets/gateway-sharding-tags-36.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gateway-sharding-tags-36.png" alt="The console dashboard with Organization highlighted at the foot of the left navigation, showing 2,280 APIs and 732 applications with lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  In the **Organization** menu, click **Entrypoints & Sharding Tags**.
 
     <figure><img src="../.gitbook/assets/gateway-sharding-tags-37.png" alt=""><figcaption></figcaption></figure>
@@ -171,7 +171,7 @@ For example, to tell Gravitee API Manager to apply the “internal test” tag t
 1) From the **Sharding tags** drop-down menu, select the sharding tags that you want to map to the entrypoint.
 2)  In the **Entrypoint url** field, enter your entrypoint URL.
 
-    <div align="left"><figure><img src="../.gitbook/assets/gateway-sharding-tags-38.png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/gateway-sharding-tags-38.png" alt="The Create an entrypoint mapping dialog, explaining that the mapping links an entrypoint URL to sharding tags, with the sharding tags field flagged as required." width="375"><figcaption></figcaption></figure></div>
 3) Click **Ok.**
 {% endtab %}
 
