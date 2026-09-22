@@ -23,8 +23,7 @@ The page opens under the environment you have selected, and switching environmen
 
 The same menu holds a **Theme** section, where you pick **Light**, **Dark**, or **System**, and a **Sign out** item that ends your session.
 
-<!-- TODO: Screenshot of the account menu opened from the avatar, showing the name and email address, My Account, the Theme section, and Sign out -->
-<figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-my-account-menu.png" alt=""><figcaption><p>The account menu of the Gamma console. <strong>My Account</strong> opens your account page.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-my-account-menu.png" alt="The account menu opened from the avatar in the top-right corner of the Gamma console, showing the user's name and email address, My Account, the Theme section with Light, Dark, and System, and Sign out"><figcaption><p>The account menu of the Gamma console. <strong>My Account</strong> opens your account page.</p></figcaption></figure>
 
 ## Update your profile
 
@@ -65,8 +64,7 @@ The Management API keeps a copy of the image scaled to 200 by 200 pixels. It acc
 
 A personal access token authenticates calls to the Management API as you, with your roles and permissions, in an `Authorization: Bearer` header. Use one in scripts and CI/CD pipelines instead of your password. The **Personal access tokens** card lists the tokens you hold, oldest first, with the **Name**, **Created**, and **Last use** of each. **Last use** reads **never** until the token has authenticated a request, and updates each time it does.
 
-<!-- TODO: Screenshot of the My Account page showing the User information card and the Personal access tokens card -->
-<figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-my-account-page.png" alt=""><figcaption><p>The My Account page, with the <strong>User information</strong> card and the <strong>Personal access tokens</strong> card.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-my-account-page.png" alt="The My Account page with the User information card, its First name, Last name, and Email fields, the Roles and Groups values, the avatar picker, and the Personal access tokens card listing two tokens with their Name, Created, and Last use"><figcaption><p>The My Account page, with the <strong>User information</strong> card and the <strong>Personal access tokens</strong> card.</p></figcaption></figure>
 
 ### Generate a token
 
@@ -78,8 +76,7 @@ To generate a token, complete the following steps:
 
 The dialog then shows the **Token** value and, under **Usage**, a `curl` command that calls the Management API for the current environment with it. Copy the value now with the copy button next to it. The dialog warns that you won't be able to see the token again, and the list never shows token values. Select **Close** when you're done.
 
-<!-- TODO: Screenshot of the Generate a token dialog after generation, with the token value and the usage example redacted -->
-<figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-my-account-generate-token.png" alt=""><figcaption><p>The <strong>Generate a token</strong> dialog shows the token value once. The value is obscured in this example.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-my-account-generate-token.png" alt="The Generate a token dialog after generation, with the warning to copy the token now, the Token value and the Usage command masked, and the Close button"><figcaption><p>The <strong>Generate a token</strong> dialog shows the token value once. The token value and the usage command are obscured in this example.</p></figcaption></figure>
 
 ### Revoke a token
 
