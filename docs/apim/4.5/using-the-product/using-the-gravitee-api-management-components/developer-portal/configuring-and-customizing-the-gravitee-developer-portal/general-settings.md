@@ -41,4 +41,4 @@ The general settings of the Developer Portal can be overridden with the `gravite
 * **Schedulers:** Configure the frequency with which the Developer Portal runs background tasks such as syncing data and sending/receiving notifications
 *   **(v2 APIs only) Documentation URL:** Set the URL shown at the end of the v2 API creation flow
 
-    <figure><img src="../../../../.gitbook/assets/documentation_url.png" alt=""><figcaption><p>Documentation URL setting for v2 API creation flow</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/documentation_url.png" alt="The final step of the classic API creation wizard, summarising the API, gateway, plan, and documentation, with a link to the API Management documentation highlighted at the foot."><figcaption><p>Documentation URL setting for v2 API creation flow</p></figcaption></figure>
