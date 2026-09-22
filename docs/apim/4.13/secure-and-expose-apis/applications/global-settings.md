@@ -29,6 +29,24 @@ To configure global settings, complete the following steps:
 Some general details are common to all applications, and others vary by application type.
 {% endhint %}
 
+## Certificates
+
+The **Certificates** section of the **Global settings** page lists the client certificates of the application. An application needs at least one active certificate to subscribe to an [mTLS plan](../plans/mtls.md), and it holds several certificates at once so that you rotate them without downtime. For the statuses, the grace period, and the automatic revocation, see [mTLS certificate management for applications](mtls-certificate-management-for-applications-overview-and-concepts.md).
+
+<figure><img src="../../.gitbook/assets/application-certificates-section.png" alt="The Certificates section of an application&#x27;s Global settings page, empty, with the Add certificate button"><figcaption><p>Certificates section of the Global settings page</p></figcaption></figure>
+
+The section shows one row per certificate.
+
+| Column                   | Description                                                                                                                                                   |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name**                 | The name given to the certificate when it was added.                                                                                                          |
+| **Uploaded**             | When the certificate was added.                                                                                                                               |
+| **Expiry date and time** | The expiration date of the certificate itself.                                                                                                                |
+| **Status**               | **Active**, **Scheduled**, or **Expired**. An active certificate whose end date is 15 days away or less shows the number of days left instead of **Active**.  |
+| **Actions**              | **View details** shows the name, subject, issuer, and expiration of the certificate. **Revoke certificate** deletes the certificate after a confirmation.     |
+
+To add a certificate, click **Add certificate** and follow the steps in [How to add a client certificate](../plans/mtls.md#how-to-add-a-client-certificate). Users who aren't allowed to update the application don't see the **Add certificate** button. When the application is archived or managed by the Gravitee Kubernetes Operator, the section is read-only: neither **Add certificate** nor **Revoke certificate** is shown.
+
 ## Application management
 
 Initially, only the application’s creator can view and manage the application. By default, APIM includes three membership roles:
