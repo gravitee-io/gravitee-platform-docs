@@ -114,7 +114,7 @@ Create an API with a fake sensitive that you secure after we make sure everythin
 5. In the **Version number** field, type a version. For example, 1.1.
 6.  Click **Validate my details**.
 
-    <figure><img src="../../../.gitbook/assets/prepare-a-production-environment-sensiti-10-1 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/prepare-a-production-environment-sensiti-10-1 (1).png" alt="The organization CORS settings, with a locked wildcard allow-origin, six allowed methods, a list of allowed headers, exposed headers, and a max age in seconds."><figcaption></figcaption></figure>
 7.  Select **HTTP Proxy**, and then click **Select my entrypoints**.
 
     <figure><img src="../../../.gitbook/assets/prepare-a-production-environment-sensiti-15-1 (1).png" alt=""><figcaption></figcaption></figure>
