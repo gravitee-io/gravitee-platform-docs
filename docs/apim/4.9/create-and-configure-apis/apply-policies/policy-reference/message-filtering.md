@@ -97,7 +97,7 @@ This filters out messages that do not meet the specified criteria, such as the "
 
 Since the message could contain either the `$.account` or `$.contact` payloads, you must first check for `null` values to avoid referencing an attribute that may not exist. Then you can evaluate your desired filter or condition(s).
 
-<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-37.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-37.png" alt="The Message Filtering policy configuration, with a description of the filter rules, empty trigger conditions, a JSON path filter condition, and Ack filtered message switched on." width="375"><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 

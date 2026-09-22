@@ -260,7 +260,7 @@ Select a page to configure the following via the header tabs:
 {% tab title="Page" %}
 If incorrect templating is applied to the Markdown page of an API, errors are generated to alert the user that the page will not be formatted as intended when published to the Developer Portal.
 
-<figure><img src="../.gitbook/assets/incorrect templating.png" alt=""><figcaption><p>Example of incorrect templating</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/incorrect templating.png" alt="The Page tab of a documentation template, with FreeMarker markup in the editor on the left and its rendered preview on the right, above a validation message reporting an unclosed if tag."><figcaption><p>Example of incorrect templating</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Translations" %}

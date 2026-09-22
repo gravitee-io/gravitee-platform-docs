@@ -15,16 +15,16 @@ For self-hosted installations and hybrid deployments of Gravitee, you can set th
 
 1.  From the **Dashboard**, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--45.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--45.png" alt="The console dashboard with Settings highlighted in the left navigation, showing no APIs and one application."><figcaption></figcaption></figure>
 2.  In the **Portal** section of the **Settings** menu, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/developer-portal-new-developer-portal-co-7-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/developer-portal-new-developer-portal-co-7-1.png" alt="The portal Analytics settings with Settings highlighted in the portal menu, listing platform and API dashboards with reorder and delete actions."><figcaption></figcaption></figure>
 3.  Navigate to the **New Developer Portal** section, and then turn on the **Enable the New Developer Portal** toggle.
 
-    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--57.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--57.png" alt="The portal settings scrolled to the New Developer Portal section, with the Enable the New Developer Portal toggle highlighted and switched off, above the CORS panel."><figcaption></figcaption></figure>
 4.  In the **You have unsaved changes** pop-up window, click **Save**.
 
-    <figure><img src="../../.gitbook/assets/developer-portal-new-developer-portal-co-11-1-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/developer-portal-new-developer-portal-co-11-1-1.png" alt="The same portal settings with the New Developer Portal enabled and the Save button in the unsaved changes bar highlighted."><figcaption></figcaption></figure>
 
 ## Verification
 
@@ -125,7 +125,7 @@ Here is an example of the environmental variables set in a `docker-compose-apim.
 
 *   In the APIM Console, click **Developer Portal**. The New Developer Portal opens in a new tab.
 
-    <figure><img src="../../.gitbook/assets/developer-portal-new-developer-portal-co-13-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/developer-portal-new-developer-portal-co-13-1.png" alt="The console dashboard with the Developer Portal link highlighted in the top bar."><figcaption></figcaption></figure>
 
 ## Next Steps
 

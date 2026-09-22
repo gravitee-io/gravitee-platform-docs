@@ -114,7 +114,7 @@ Any authentication server supporting OIDC can be used as a DCR provider. This gu
 
 At the bottom of the **Client Registration** page, click **+ Add a provider** and configure the following:
 
-<figure><img src="../../.gitbook/assets/client registration provider.png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/client registration provider.png" alt="The New client registration provider page, with empty name and description fields above the OpenID Connect discovery endpoint, initial access token provider, and renew client secret options."><figcaption><p>Add a client registration provider</p></figcaption></figure>
 
 * Set a **Name** and **Description** for the provider
 *   **OpenID Connect Discovery Endpoint:** Enter the URL where an OIDC-compatible authorization server publishes its metadata

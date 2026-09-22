@@ -102,7 +102,7 @@ Follow the instructions below to add a sharding tag to a v2 API or a v4 API.
 3. Choose the API you want to tag
 4.  Select **Deployment** from the inner left nav:
 
-    <figure><img src="../../../.gitbook/assets/deployment_sharding tag.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/deployment_sharding tag.png" alt="The Deployment page of an API, showing the deployment configuration with an empty sharding tags selector."><figcaption></figcaption></figure>
 5.  Select one or more tags from the **Sharding tags** drop-down menu, then click **Save**:
 
     <figure><img src="../../../.gitbook/assets/deployment_sharding tag select.png" alt=""><figcaption></figcaption></figure>

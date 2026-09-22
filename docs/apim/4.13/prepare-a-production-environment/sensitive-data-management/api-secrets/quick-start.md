@@ -103,13 +103,13 @@ Create an API with a fake/exposed secret, which you will later secure (after we 
 
 1.  From the **Dashboard**, click **APIs**.
 
-    <figure><img src="../../../.gitbook/assets/0A0FB129-4ED1-4145-BCFF-41395B132328.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/0A0FB129-4ED1-4145-BCFF-41395B132328.jpeg" alt="The console dashboard with APIs highlighted in the left navigation, showing no APIs and one application."><figcaption></figcaption></figure>
 2.  Click **+ Add API**.
 
-    <figure><img src="../../../.gitbook/assets/F7B8591E-F959-4162-9E2C-F44370805678.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/F7B8591E-F959-4162-9E2C-F44370805678.jpeg" alt="The APIs list with the Add API button highlighted above a single API row."><figcaption></figcaption></figure>
 3.  In the **Choose API creation method** screen, click **Create V4 API**.
 
-    <figure><img src="../../../.gitbook/assets/07BE9B4D-3AAD-4317-94D9-E820FD40B5AD.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/07BE9B4D-3AAD-4317-94D9-E820FD40B5AD.jpeg" alt="The Choose API creation method page, with the Create V4 API button highlighted in the Create New API panel."><figcaption></figcaption></figure>
 4. In the **API name** field, type a name for the API. For example, test-api.
 5. In the **Version number** field, type a version. For example, 1.1.
 6.  Click **Validate my details**.
@@ -117,15 +117,15 @@ Create an API with a fake/exposed secret, which you will later secure (after we 
     <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-3-1-1.png" alt="The organization CORS settings, with a locked wildcard allow-origin, six allowed methods, a list of allowed headers, exposed headers, and a max age in seconds."><figcaption></figcaption></figure>
 7.  Select **HTTP Proxy**, and then click **Select my entrypoints**.
 
-    <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-8.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-8.png" alt="Step 2 of the API creation wizard, with HTTP Proxy selected over TCP Proxy as the API entrypoint."><figcaption></figcaption></figure>
 8. In the **context-path** field, type a context path. For example, `/test/secrets/echo` .
 9.  Click **Validate my entrypoints**.
 
-    <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-9.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-9.png" alt="Step 2 of the API creation wizard at the configure stage, with virtual hosts enabled and a context path entered and highlighted."><figcaption></figcaption></figure>
 10. In the **Configure your API endpoints access**, complete the following sub-steps:
     1.  In the **Target url** field, set the target URL to `https://api.gravitee.io/echo` .
 
-        <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-10-1.png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-10-1.png" alt="Step 3 of the API creation wizard, with a target URL entered that fails the required pattern, showing a validation error below the field."><figcaption></figcaption></figure>
     2.  In HTTP Headers section, add the following values:
 
         * KEY: `Authorization`
@@ -140,7 +140,7 @@ Create an API with a fake/exposed secret, which you will later secure (after we 
     <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-19-1.png" alt=""><figcaption></figcaption></figure>
 13. Click **Save & Deploy API**.
 
-    <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-14.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-14.png" alt="Step 5 of the API creation wizard, summarising the API details, entrypoints, endpoints, and keyless plan, with Save API and Save and Deploy API buttons."><figcaption></figcaption></figure>
 
 ### Test the API
 
@@ -208,20 +208,20 @@ In the export of your API, you will see the `Authorization` header - and exposed
 
 1.  In your API configuration screen, click **Endpoints**.
 
-    <figure><img src="../../../.gitbook/assets/E6F61D2D-CFC9-446E-820F-649F4FEF3F97.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/E6F61D2D-CFC9-446E-820F-649F4FEF3F97.jpeg" alt="The Configuration page of an API with Endpoints highlighted in the API menu, showing the general settings above a Danger Zone."><figcaption></figcaption></figure>
 2.  Click **Edit**.
 
-    <figure><img src="../../../.gitbook/assets/5DF13AD2-0BEC-4D40-9D2E-33BFED89E109.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/5DF13AD2-0BEC-4D40-9D2E-33BFED89E109.jpeg" alt="The Endpoints page with the Edit button on the default HTTP proxy group highlighted, above a table listing one endpoint."><figcaption></figcaption></figure>
 3.  Click the **Configuration** tab, and then navigate to **HTTP Headers**.
 
     <figure><img src="../../../.gitbook/assets/api-secrets-quick-start-15.png" alt="The configuration of an HTTP proxy endpoint, showing idle timeout, redirect following, connection pool size, a default Authorization header, proxy options, and SSL options."><figcaption></figcaption></figure>
 4. In the **VALUE** field, replace `ApiKey 123465798` with `ApiKey{#secrets.get('/vault/secret/gravitee/apikeys:username')}` .
 5.  In the **You have unsaved changes** pop-up window, click **Save.**
 
-    <figure><img src="../../../.gitbook/assets/92605F29-EFFF-4614-9AE6-105EF1375C69.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/92605F29-EFFF-4614-9AE6-105EF1375C69.jpeg" alt="The endpoint configuration scrolled to HTTP Headers, with an Authorization header whose value is read from a secrets expression, above the proxy and SSL options."><figcaption></figcaption></figure>
 6.  In the **This API is out of sync** pop-up window, click **Deploy API**.
 
-    <figure><img src="../../../.gitbook/assets/5E632C04-EC1A-4755-97E0-95F2B1495868.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/5E632C04-EC1A-4755-97E0-95F2B1495868.jpeg" alt="The Endpoints page under an out-of-sync banner, with the Deploy API button highlighted and the endpoint security configuration below."><figcaption></figcaption></figure>
 
 ### Test and export
 
