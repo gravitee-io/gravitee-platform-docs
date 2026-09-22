@@ -218,6 +218,7 @@
         * [Configure A2A Proxy notifications](agent-management/build/configure-a2a-proxy-notifications.md)
       * [Design](agent-management/build/a2a-proxies/design/README.md)
         * [Add policies to your A2A Proxy](agent-management/build/configure-your-a2a-proxy/add-policies-to-a2a-proxy.md)
+        * [Configure A2A Proxy response templates](agent-management/build/configure-your-a2a-proxy/configure-a2a-proxy-response-templates.md)
       * [Gateway](agent-management/build/a2a-proxies/gateway/README.md)
         * [Configure logging and tracing](agent-management/build/configure-your-a2a-proxy/configure-logging-and-tracing.md)
       * [Operations](agent-management/build/a2a-proxies/operations/README.md)

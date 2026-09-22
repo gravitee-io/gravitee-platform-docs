@@ -86,6 +86,7 @@
         * [Configure A2A Proxy notifications](build/configure-a2a-proxy-notifications.md)
       * [Design](build/a2a-proxies/design/README.md)
         * [Add policies to your A2A Proxy](build/configure-your-a2a-proxy/add-policies-to-a2a-proxy.md)
+        * [Configure A2A Proxy response templates](build/configure-your-a2a-proxy/configure-a2a-proxy-response-templates.md)
       * [Gateway](build/a2a-proxies/gateway/README.md)
         * [Configure logging and tracing](build/configure-your-a2a-proxy/configure-logging-and-tracing.md)
       * [Operations](build/a2a-proxies/operations/README.md)
