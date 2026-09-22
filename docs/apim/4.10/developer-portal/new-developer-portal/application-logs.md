@@ -16,14 +16,14 @@ The Developer Portal opens in a new browser tab. To view the logs for an API:
 
 1.  Click **Applications** from its header menu.
 
-    <figure><img src="../../.gitbook/assets/00 apps.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 apps.png" alt="The Applications page of the developer portal, showing five application cards with their owners and descriptions."><figcaption></figcaption></figure>
 2. Click on an application, then select the **Analytics & Logs** tab.
 3.  Use the filters to set constraints on which API logs are shown.
 
-    <figure><img src="../../.gitbook/assets/00 logs.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 logs.png" alt="The Analytics and Logs tab of an application in the developer portal, with API, method, response time, and period filters above a table of requests and their status."><figcaption></figcaption></figure>
 4.  Click the arrow to view the details for a particular log entry. **The Connection Logs** tab shows request and response information, which can be recorded for all APIs. The **Messages** tab is used for message logs, which can only be recorded for v4 message APIs.
 
-    <figure><img src="../../.gitbook/assets/00 log.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 log.png" alt="A request&#x27;s detail page in the developer portal, showing its timestamp, API, plan, and transaction identifier above connection log panels for the request and response."><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 The API publisher determines which information is logged for a given API. To configure what information is logged and visible to an API subscriber, see [Modify logging information](../../analyze-and-monitor-apis/logging/README.md).
