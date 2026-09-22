@@ -35,19 +35,19 @@ To integrate AWS API Gateway with Gravitee APIM, complete the following steps:
     <figure><img src="../../../../.gitbook/assets/govern-federation-solace-18.png" alt="The Integrations page in the API Management console, with the Create Integration button highlighted above a table of existing integrations."><figcaption></figcaption></figure>
 3.  Select **AWS API Gateway**, and then click **Next.**
 
-    <figure><img src="../../../../.gitbook/assets/select-aws-api-gateway.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/select-aws-api-gateway.png" alt="The Choose Provider step of the Create Integration wizard, with AWS API Gateway selected and the Next button highlighted."><figcaption></figcaption></figure>
 4.  Type the **Integration Name.**
 
-    <figure><img src="../../../../.gitbook/assets/enter-the-aws-api-integration-name.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/enter-the-aws-api-integration-name.png" alt="The Enter Information step of the Create Integration wizard, with an AWS API Gateway federation name and description filled in."><figcaption></figcaption></figure>
 5.  (Optional) Type a **Description** for the integration.
 
-    <figure><img src="../../../../.gitbook/assets/govern-federation-aws-api-gateway-r-47.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/govern-federation-aws-api-gateway-r-47.png" alt="The Enter Information step of the Create Integration wizard, with a name and description filled in for an AWS API Gateway federation."><figcaption></figcaption></figure>
 6.  Click **Create Integration.**
 
-    <figure><img src="../../../../.gitbook/assets/click-create-integration-for-aws-api-gateway.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/click-create-integration-for-aws-api-gateway.png" alt="The Enter Information step of the Create Integration wizard for an AWS API Gateway federation, with the Create Integration button highlighted."><figcaption></figcaption></figure>
 7.  From the Integration overview tab, copy the **Integration ID**. You need this ID for the agent configuration.
 
-    <figure><img src="../../../../.gitbook/assets/aws-api-gateway-integration.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/aws-api-gateway-integration.png" alt="The Overview page of an AWS API Gateway integration, showing the provider, a disconnected agent, and a partly masked integration identifier."><figcaption></figcaption></figure>
 
 ### Run the AWS API Gateway Federation Agent
 

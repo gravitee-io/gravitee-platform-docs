@@ -14,7 +14,7 @@ In the New Developer Portal, you can customize the homepage of your Developer Po
 
 You can edit the homepage with a Markdown editor. A preview appears next to the Markdown editor.
 
-<figure><img src="../../.gitbook/assets/C8F30709-7053-491F-B74E-ED0FD990C109_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/C8F30709-7053-491F-B74E-ED0FD990C109_1_201_a.jpeg" alt="The developer portal Homepage editor, with Gravitee Markdown in the editor on the left and a live preview of the portal home page on the right."><figcaption></figcaption></figure>
 
 ## Prerequisites
 
@@ -35,13 +35,13 @@ To customize the homepage, complete the following steps:
     <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a.jpeg" alt="The API Management console dashboard with Settings highlighted in the left navigation menu."><figcaption></figcaption></figure>
 3.  In the **Settings** menu, navigate to the **Portal** section, and then click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/601A31D5-D722-4B6B-AC99-72E0D9D5E765_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/601A31D5-D722-4B6B-AC99-72E0D9D5E765_1_201_a.jpeg" alt="The portal Analytics settings with Settings highlighted in the portal menu, listing platform and API dashboards with reorder and delete actions."><figcaption></figcaption></figure>
 4.  Navigate to the **New Developer Portal** section of the page, and then click **Open Settings**. The settings open in a new tab.
 
     <figure><img src="../../.gitbook/assets/8F20A23D-0B5B-4863-B454-6AA244B820AC_1_201_a.jpeg" alt="The portal settings page scrolled to the New Developer Portal section, with the portal enabled and the Open Settings button highlighted."><figcaption></figcaption></figure>
 5.  In the New Developer Portal settings menu, click **Homepage**.
 
-    <figure><img src="../../.gitbook/assets/9C598C3F-9360-464F-95A7-562E2081F60F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/9C598C3F-9360-464F-95A7-562E2081F60F_1_201_a.jpeg" alt="The developer portal Top Bar settings with Homepage highlighted in the menu, listing one website menu link with its target and public visibility."><figcaption></figcaption></figure>
 
 ### Edit the homepage
 
@@ -160,31 +160,31 @@ To edit the homepage, complete the following steps:
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>To view the GMD components in the Markdown editor, press option and the space bar at the same time, and then type the component the name of the component that you want to use. For example, Grid.</p></div>
 
-    <figure><img src="../../.gitbook/assets/FF5F9BA4-70DA-4E07-B90A-7E321A6260B6_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/FF5F9BA4-70DA-4E07-B90A-7E321A6260B6_1_201_a.jpeg" alt="The Homepage editor with the component template autocomplete open in the CSS, offering grid layouts from one to six columns."><figcaption></figcaption></figure>
 2.  Click **Save**.
 
-    <figure><img src="../../.gitbook/assets/406DBE86-4767-4B3F-B7B4-D048AC25B9F8_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/406DBE86-4767-4B3F-B7B4-D048AC25B9F8_1_201_a.jpeg" alt="The Homepage editor with the Save button highlighted above the Markdown editor and live preview."><figcaption></figcaption></figure>
 
 ## Verification
 
 *   To verify that you updated your Developer Portal, click **Open Website**. Your Developer Portal opens in a new tab.
 
-    <figure><img src="../../.gitbook/assets/4FABA433-1720-44BD-BB04-71931137CA69_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/4FABA433-1720-44BD-BB04-71931137CA69_1_201_a.jpeg" alt="The Homepage editor with the Open Website link highlighted in the top bar."><figcaption></figcaption></figure>
 
 ## Unpublish the homepage
 
 1.  To unpublish the homepage, click **Unpublish**.
 
-    <figure><img src="../../.gitbook/assets/A9BD4556-F502-4F49-8795-1AADC7EFCC33_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A9BD4556-F502-4F49-8795-1AADC7EFCC33_1_201_a.jpeg" alt="The Homepage editor with the Unpublish button highlighted beside Save."><figcaption></figcaption></figure>
 2.  In the **Unpublish page?** pop-up window, click **Unpublish.**
 
-    <figure><img src="../../.gitbook/assets/A3F78550-AA9D-4D97-9EF9-5E173B78A6FC.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A3F78550-AA9D-4D97-9EF9-5E173B78A6FC.jpeg" alt="The Unpublish page dialog, warning that the page will no longer be visible on the developer portal but can be published again at any time."><figcaption></figcaption></figure>
 
 ### Verification
 
 If the page unpublished successfully, you receive the following pop-up message:
 
-<figure><img src="../../.gitbook/assets/C8E492D0-4A52-4531-8F4B-A60727E453FA_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/C8E492D0-4A52-4531-8F4B-A60727E453FA_4_5005_c.jpeg" alt="A green toast reading &quot;Page has been unpublished successfully.&quot;"><figcaption></figcaption></figure>
 
 ## Gravitee Markdown components
 

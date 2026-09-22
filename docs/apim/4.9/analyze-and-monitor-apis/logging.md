@@ -43,7 +43,7 @@ Limit the duration of logging by entering a numeric value, in ms, in the **Maxim
 
 The default value is 90000 ms. This value logs minimal call information. A value of 0 is interpreted as no maximum duration.
 
-<figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-360-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-360-1.png" alt="The Duration section of the logging settings, explaining the maximum full-logging duration with the value set to zero."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Audit" %}
@@ -52,13 +52,13 @@ When enabled, the following options track who accessed specific data from the au
 * Enable audit on API Logging consultation
 *   Generate API Logging audit events (API\_LOGGING\_ENABLED, API\_LOGGING\_DISABLED, API\_LOGGING\_UPDATED)
 
-    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-361-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-361-1.png" alt="The Audit section of the logging settings, with auditing of log consultation and generation of logging audit events both enabled."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="User" %}
 Toggle **Display end user on API Logging (in case of OAuth2/JWT plan)** to include information about the end user in the API logging. This is useful when using an OAuth2 or JWT plan.
 
-<figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-362-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-362-1.png" alt="The User section of the logging settings, with display of the end user on API logging enabled."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Message Sampling" %}
@@ -105,7 +105,7 @@ You can filter API logs by the following information:
 * HTTP methods. This is the method the user used to interact with the API.
 *   Plan. This is the plan that the user used to interact with the API.
 
-    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-363-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-363-1.png" alt="A row of runtime log filters for period, entrypoints, HTTP methods, and plan, with More and Refresh buttons and a Reset filters link below."><figcaption></figcaption></figure>
 
 ### Modify logging information
 
@@ -202,7 +202,7 @@ To view the details of any entry in the list of runtime logs:
     <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-367-1.png" alt=""><figcaption></figcaption></figure>
 4.  Click **the eye symbol** next to the log that you want to view the details of.
 
-    <figure><img src="../.gitbook/assets/321F6892-812F-4DAA-AEE6-0CA0C44BEFF4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/321F6892-812F-4DAA-AEE6-0CA0C44BEFF4_1_201_a.jpeg" alt="The Runtime Logs page of an API, with the view icon on the first row highlighted, listing requests whose API key is visible in the URI."><figcaption></figcaption></figure>
 
 {% tabs %}
 {% tab title="V4 message APIs" %}
@@ -220,7 +220,7 @@ Each message record includes placeholder tabs for raw content, headers, and meta
 {% tab title="V4 proxy APIs" %}
 In the logs screen, you see the following information about your API logs:
 
-<figure><img src="../.gitbook/assets/analytics-logging-4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/analytics-logging-4.png" alt="A connection log detail page, showing the entrypoint request URI, POST method, and headers including host, forwarding, and Gravitee request and transaction identifiers."><figcaption></figcaption></figure>
 
 **Overview**
 
@@ -238,7 +238,7 @@ The more detail drop-down menu shows information about the following topics:
 * Gateway Host
 * Gateway IP
 
-<figure><img src="../.gitbook/assets/E28EB0D9-6405-4876-8730-BFA28645A4D5_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/E28EB0D9-6405-4876-8730-BFA28645A4D5_1_201_a.jpeg" alt="A log detail page showing the request date, method, URI, identifiers, and remote IP beside the response status and timings, with the host and gateway host masked."><figcaption></figcaption></figure>
 
 **Details**
 
@@ -258,7 +258,7 @@ In the request section, you see the information about the following topics:
 * **Body**
   *   Shows the body sent in the request.
 
-      <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-369-1-1.png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-369-1-1.png" alt="A request comparison showing the consumer and gateway views side by side, each with the method, URI, headers, and a small JSON body."><figcaption></figcaption></figure>
 
 **Response**
 
@@ -270,7 +270,7 @@ In the request section, you see the information about the following topics:
 * Body
   *   Shows the body returned in the response
 
-      <figure><img src="../.gitbook/assets/2421DA4C-35BB-4DAD-A6FA-642B70A17486_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../.gitbook/assets/2421DA4C-35BB-4DAD-A6FA-642B70A17486_4_5005_c.jpeg" alt="A response comparison showing the consumer and gateway views side by side, each with status 200, headers, and a JSON body echoing the request headers."><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 

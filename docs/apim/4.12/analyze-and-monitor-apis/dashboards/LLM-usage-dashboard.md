@@ -39,10 +39,10 @@ To configure the LLM Dashboard, the user must have the following permissions:
 1. From the **Dashboard**, click **Observability**.
 2.  From the **Observability** dropdown menu, click **Dashboard**. <br>
 
-    <figure><img src="../../.gitbook/assets/LLM_dashboard_navigation.jpg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/LLM_dashboard_navigation.jpg" alt="The console Overview page with Observability and its Overview, Dashboards, and Logs items highlighted in the left navigation, showing request, error rate, and latency panels with no data."><figcaption></figcaption></figure>
 3.  Click **Create dashboard**, and then click **Create from template**. <br>
 
-    <figure><img src="../../.gitbook/assets/LLM_Dashboard_create_dropdown_menu.jpg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/LLM_Dashboard_create_dropdown_menu.jpg" alt="The Dashboards page with the Create dashboard menu open on Create from template and a greyed-out Create from scratch, above a table of dashboards with their creator, last modified date, and labels."><figcaption></figcaption></figure>
 4.  Click **LLM**, and then click **Use template**.&#x20;
 
     <figure><img src="../../.gitbook/assets/LLM_Dashboard_template_screen.jpg" alt=""><figcaption></figcaption></figure>

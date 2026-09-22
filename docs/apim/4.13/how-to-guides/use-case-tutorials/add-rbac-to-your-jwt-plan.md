@@ -43,7 +43,7 @@ Add a flow by selecting the + icon next to the JWT plan. Here you have a number 
 
 Provide a name and select **Save**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-20 at 11.49.45 PM.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-20 at 11.49.45 PM.jpg" alt="The Create a new flow dialog, with a flow name, an equals path operator, a sub-resource path, and the GET method selected."><figcaption></figcaption></figure>
 
 The RBAC policy expects the roles to be in the `gravitee.attribute.user.roles` attribute, where attributes are a kind of variable scoped to the current API transaction. In an OAuth2 plan, OAuth token scopes are automatically added to the `gravitee.attribute.user.roles` attribute. However, in a JWT plan, this must be done manually by using Gravitee’s Expression Language (EL) and the Assign Attributes policy.
 
@@ -55,7 +55,7 @@ This will bring up the configuration options for the Assign Attributes policy. S
 
 The EL expression is `{#context.attributes['jwt.claims']['permissions']}` , which accesses the `permissions` claim from all the JWT’s claims stored in the `jwt.claims` context attribute. Add the expression as the value of the attribute, and then select **Add policy**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-20 at 11.55.36 PM.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-20 at 11.55.36 PM.jpg" alt="The Policies for Request phase dialog configuring an assign-context-attributes policy, with an attribute named for user roles taking its value from a JWT permissions claim."><figcaption></figcaption></figure>
 
 With this set, we can move on to the final step.
 

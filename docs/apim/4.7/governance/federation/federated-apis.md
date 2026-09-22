@@ -56,7 +56,7 @@ When Gravitee API plans are ingested from a 3rd-party provider, they enable subs
 
 To manage your federated API's plans and their subscriptions, go to the **Consumers** tab for your federated API.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-06-18 at 4.12.15 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2024-06-18 at 4.12.15 PM.png" alt="The Plans tab of a tech preview API, with the PUBLISHED filter selected and one published API key plan listed."><figcaption></figcaption></figure>
 
 Under the **Plans** tab, you'll see all of the plans for your API that are either in staging, published, deprecated or closed. You will only be able to alter your federated API plans as it pertains to:
 
@@ -65,7 +65,7 @@ Under the **Plans** tab, you'll see all of the plans for your API that are eithe
 * **Subscription options**: either allowing auto-validation of all subscription requests, or, enforcing API consumers to submit a request for manual approval by the API Publisher
 * Defining certain groups that can or cannot subscribe to your API via Gravitee groups
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-06-18 at 4.10.09 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2024-06-18 at 4.10.09 PM.png" alt="The General step of plan editing, with a plan name entered, both subscription toggles switched off, and a notice that the plan is published."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 By default, the plan state is set to published and the subscription validation policy is set to manual (subscription auto-validation is not enabled).
@@ -127,7 +127,7 @@ From here, API consumers can access their Gravitee Developer Portal and search f
     <figure><img src="../../.gitbook/assets/jonathan demo subscribe.png" alt="The General information tab of an API in the developer portal, showing its description, server URL, base path variable, and a Subscribe button."><figcaption></figcaption></figure>
 2.  Select the plan you want to subscribe to, then click **Next**
 
-    <figure><img src="../../.gitbook/assets/jonathan demo plan.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/jonathan demo plan.png" alt="The Choice of plan step of the developer portal subscription wizard, with one plan selected and its manual validation and personal key features shown."><figcaption></figcaption></figure>
 3.  Use the **Choose an application** drop-down menu to select an application to use for the subscription, then click **Next.** If you do not yet have an application, please refer to the [Applications](../../developer-portal/classic-developer-portal/create-an-application.md) documentation to create a Gravitee Application.
 
     <figure><img src="../../.gitbook/assets/jonathan demo choose app.png" alt="The Choice of application step of the developer portal subscription wizard, with the application dropdown open and one application listed."><figcaption></figcaption></figure>

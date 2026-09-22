@@ -35,7 +35,7 @@ Kafka clients will now be able to specify the mapped topic name (`processed-orde
 {% tab title="Using the APIM Console" %}
 This shows how to implement the example above using the APIM Console:
 
-<figure><img src="../../../.gitbook/assets/00 1.png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/00 1.png" alt="The Kafka topic mapping policy configuration, with one client-side topic name mapped to a different broker-side name."><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}
@@ -106,7 +106,7 @@ You can use the Kafka Topic Mapping policy to create a new topic mapping with a 
 {% tab title="Using the APIM Console" %}
 This shows how to implement the example above using the APIM Console:
 
-<figure><img src="../../../.gitbook/assets/kafka-gateway-configure-kafka-apis-polic-158-1.png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/kafka-gateway-configure-kafka-apis-polic-158-1.png" alt="The Kafka topic mapping policy configuration, with two mappings from client-side topic names to broker-side names, one built from an expression-language claim lookup."><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}
@@ -158,7 +158,7 @@ With this configuration, admin users see logs mapped to `internal.system.logs` a
 {% tab title="Using the APIM Console" %}
 This shows how to implement the example above using the APIM Console:
 
-<figure><img src="../../../.gitbook/assets/00 2.png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/00 2.png" alt="The Kafka topic mapping policy configuration, with a client-side topic name mapped to a broker-side name built from a conditional expression on a user role attribute."><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}

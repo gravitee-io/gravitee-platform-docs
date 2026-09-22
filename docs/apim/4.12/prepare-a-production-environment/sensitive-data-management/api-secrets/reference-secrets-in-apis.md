@@ -359,7 +359,7 @@ The definition does not contain a clear text secret. This definition is saved, a
 
 Here is an example of how to reference a secret when you configure a Redis Cache resource:
 
-<figure><img src="../../../.gitbook/assets/prod-env-secrets-reference-secrets--142.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/prod-env-secrets-reference-secrets--142.png" alt="The Configure Cache Redis resource dialog, with the password read from a secrets expression, SSL enabled, and the host read from a dictionary lookup."><figcaption></figcaption></figure>
 
 ### Native Kafka endpoint API example
 
@@ -428,4 +428,4 @@ The definition does not contain a clear text secret. This definition is saved as
 
 Here is an example of how to reference a secret during a SASL configuration:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-01-23 at 13.54.01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-01-23 at 13.54.01.png" alt="Kafka endpoint settings, with a local bootstrap server, the SASL_PLAINTEXT protocol, the SCRAM-SHA-256 mechanism, and username and password read from secrets expressions."><figcaption></figcaption></figure>

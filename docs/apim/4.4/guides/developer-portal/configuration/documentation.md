@@ -12,7 +12,7 @@ Site-wide documentation creates a direct line of communication with your develop
 Site-wide documentation is separate from API documentation, which can be added to an API by an API publisher.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 10.24.20 AM.png" alt=""><figcaption><p>Developer Portal documentation page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 10.24.20 AM.png" alt="A rendered OpenAPI specification in the developer portal, showing the API title, download link, support details, and introduction beside a page list and an operation menu."><figcaption><p>Developer Portal documentation page</p></figcaption></figure>
 
 The following sections discuss how to:
 
@@ -28,14 +28,14 @@ To create documentation:
 1. Select **Settings** from the left sidebar of the Management Console
 2.  Select **Documentation** from the inner left sidebar
 
-    <figure><img src="../../../.gitbook/assets/documentation_settings.png" alt=""><figcaption><p>Documentation settings page</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/documentation_settings.png" alt="The portal Documentation settings, listing pages and folders by name and last updated time, with Import multiple files and Fetch All above."><figcaption><p>Documentation settings page</p></figcaption></figure>
 3.  Select the **+** icon on the bottom right to display the options below.
 
-    <figure><img src="../../../.gitbook/assets/documentation_options.png" alt=""><figcaption><p>Create new documentation options</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/documentation_options.png" alt="An expanded add menu offering a folder, a Markdown page, a Swagger page, an AsyncAPI page, and an AsciiDoc page, with a New page tooltip above."><figcaption><p>Create new documentation options</p></figcaption></figure>
 
 *   **Folder:** Generate a folder to organize your documentation. Optionally generate [translations](documentation.md#translations) of the folder by selecting **Translate Folder**.
 
-    <figure><img src="../../../.gitbook/assets/documenation_folder.png" alt=""><figcaption><p>Sample documentation folder</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/documenation_folder.png" alt="An empty documentation folder in the portal settings, with Make Private, Rename Folder, and Translate Folder buttons above."><figcaption><p>Sample documentation folder</p></figcaption></figure>
 * **Markdown Template:** Create templates reusable for site-wide and API Markdown documentation.
 * **Markdown:** Use the Markdown syntax for the documentation page.
 * **AsciiDoc:** Use the Asciidoc syntax for the documentation page.
@@ -44,12 +44,12 @@ To create documentation:
 
 Each documentation type provides similar configuration options and a compatible text editor.
 
-<figure><img src="../../../.gitbook/assets/new_docs_page.png" alt=""><figcaption><p>Create a documentation page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/new_docs_page.png" alt="The New Markdown Page form, with an empty name, checkboxes for homepage, publishing, and privacy, three content source options, and a template selector above the editor."><figcaption><p>Create a documentation page</p></figcaption></figure>
 
 * **Name:** Provide a title for your documentation page.
 *   **Set as homepage:** Use the documentation page as the homepage of the Developer Portal. If multiple documentation pages are set as the homepage, the page most recently set will be selected.
 
-    <figure><img src="../../../.gitbook/assets/documentation_homepage.png" alt=""><figcaption><p>Custom homepage example</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/documentation_homepage.png" alt="The developer portal home page with a custom homepage below the search banner, showing two featured API cards with their owners."><figcaption><p>Custom homepage example</p></figcaption></figure>
 * **Publish this page:** Make the page available in the Developer Portal.
 * **Make private:** Make the page private to you and the users you explicitly allow using [access control](documentation.md#access-control).
 
@@ -127,7 +127,7 @@ The API owner is <#if api.primaryOwner.email??><a href="mailto:${api.primaryOwne
 
 The above sample script creates the following in the Developer Portal:
 
-<figure><img src="../../../.gitbook/assets/graviteeio-page-documentation-template.png" alt=""><figcaption><p>Result of templating engine example</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-page-documentation-template.png" alt="A rendered documentation template in the developer portal, showing the API status, creation and deployment dates, description, access URLs, rating, and contact."><figcaption><p>Result of templating engine example</p></figcaption></figure>
 
 **API properties reference**
 
@@ -149,14 +149,14 @@ This method allows you to import your documentation from external sources. APIM 
 * **WWW:** Fetch your documentation from the web
 * **Bitbucket:** Fetch your documentation from a Bitbucket repository
 
-<figure><img src="../../../.gitbook/assets/documentation_external source.png" alt=""><figcaption><p>Documentation fetcher configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/documentation_external source.png" alt="The external source configuration for a documentation page, with GIT selected and empty repository and path fields, a branch, and an auto-fetch option."><figcaption><p>Documentation fetcher configuration</p></figcaption></figure>
 
 The documentation is fetched and stored locally in APIM in the following three scenarios:
 
 * Once, after you finish configuring your fetcher
 *   Any time you select **Fetch All** on the **Documentation** page
 
-    <figure><img src="../../../.gitbook/assets/documentation_fetch all.png" alt=""><figcaption><p>Update all documentation from external sources</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/documentation_fetch all.png" alt="The portal Documentation settings with the Fetch All button highlighted above the page list."><figcaption><p>Update all documentation from external sources</p></figcaption></figure>
 * At regular intervals when auto-fetch is configured
 {% endtab %}
 {% endtabs %}
@@ -210,14 +210,14 @@ Follow the steps below to configure a fetcher to import multiple files:
 
 1.  From the **Documentation** page, select **Import multiple files**
 
-    <figure><img src="../../../.gitbook/assets/Screenshot 2023-06-07 at 4.04.23 PM.png" alt=""><figcaption><p>Import multiple documentation files</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/Screenshot 2023-06-07 at 4.04.23 PM.png" alt="The portal Documentation settings with the Import multiple files link highlighted above the page list."><figcaption><p>Import multiple documentation files</p></figcaption></figure>
 2.  To publish the pages on import, select **Publish all imported pages**
 
-    <figure><img src="../../../.gitbook/assets/import-multiple-files.png" alt=""><figcaption><p>Option to publish all imported files</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/import-multiple-files.png" alt="The Import Files page, warning that every supported file generates one request, with a publish-all checkbox and GitHub and GitLab offered as sources."><figcaption><p>Option to publish all imported files</p></figcaption></figure>
 3. Select the **GitHub** or **GitLab** fetcher
 4.  Specify the details of the external source, such as the URL of the external API, the name of the repository, and the branch. The fields vary slightly depending on the fetcher.
 
-    <figure><img src="../../../.gitbook/assets/import-multiple-file-dets.png" alt=""><figcaption><p>Configure a fetcher</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/import-multiple-file-dets.png" alt="The GitHub import configuration, with the API URL, repository owner, repository, branch, and root filepath filled in and empty username and token fields."><figcaption><p>Configure a fetcher</p></figcaption></figure>
 5. In the **Filepath** field, enter the path to your JSON documentation specification file
 6. Enter a **Username** to authenticate the request
 7. Enter a **Personal Access Token**, which must be generated in your GitHub or GitLab user profile
@@ -236,7 +236,7 @@ If the APIM administrator configured a [maximum fetch frequency](general-setting
 
 9.  Select **IMPORT** for APIM to add the files to your documentation set
 
-    <figure><img src="../../../.gitbook/assets/import-multiple-files-result.png" alt=""><figcaption><p>Import technical folder documentation with fetcher</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/import-multiple-files-result.png" alt="The portal Documentation settings after an import, listing a homepage, a folder, and an OpenAPI page with their last updated times."><figcaption><p>Import technical folder documentation with fetcher</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -252,7 +252,7 @@ Select a page to configure the following via the header tabs:
 * **Attached Resources:** Add additional files to your documentation page.
   * This requires the administrator to configure **Allow Upload Images** and **Max size upload file (bytes)** in [general settings](general-settings.md).
 
-<figure><img src="../../../.gitbook/assets/documentation_page banner.png" alt=""><figcaption><p>Page management options</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/documentation_page banner.png" alt="The Page tab of a documentation page, warning that the page is not published, with Markdown in the editor on the left and its preview on the right."><figcaption><p>Page management options</p></figcaption></figure>
 
 **Page**, **Translations** and **Access Control** are described in greater detail below.
 
@@ -272,7 +272,7 @@ You can add translations for your pages via the **Translations** tab:
 4. (Optional) You can edit the content to add translated content by toggling on the switch
 5. Click **Save Translation** at the bottom of the page
 
-<figure><img src="../../../.gitbook/assets/graviteeio-page-documentation-translations-1.png" alt=""><figcaption><p>Translate a page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-page-documentation-translations-1.png" alt="The Translations tab of a documentation page, with no translations listed and a new French translation being added with a translated title and content."><figcaption><p>Translate a page</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Access control" %}
@@ -281,6 +281,6 @@ From the **Access Control** tab:
 * You can mark a page as **Private** if you want to deny access to anonymous users.
 * If a page is **Private**, you can configure access lists to either require or exclude certain [roles and groups](../../../using-the-product/administration/README.md) by toggling the **Excluded** option.
 
-<figure><img src="../../../.gitbook/assets/graviteeio-page-documentation-access-control.png" alt=""><figcaption><p>Documentation access control</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-page-documentation-access-control.png" alt="The Access Control tab of a documentation page, with Private enabled, the USER role selected, no groups chosen, and Excluded switched on."><figcaption><p>Documentation access control</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}

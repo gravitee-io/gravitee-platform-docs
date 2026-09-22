@@ -221,7 +221,7 @@ When configuring an API's settings, you can also set up alerting conditions for 
 
 If you already have alerts configured, you'll see the configured alerts. If not, you'll see a blank alerts menu and a **+** icon.
 
-<figure><img src="../../.gitbook/assets/Alerts menu.png" alt=""><figcaption><p>Blank alerts page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Alerts menu.png" alt="The Alerts page of an API, empty, with an add button below and Alerts highlighted in the API menu, under an out-of-sync banner."><figcaption><p>Blank alerts page</p></figcaption></figure>
 
 Select the **+** icon to create your first alert. On the **Create a new alert** page, you can configure the following:
 

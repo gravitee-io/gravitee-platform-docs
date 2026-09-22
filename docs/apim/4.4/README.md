@@ -34,7 +34,7 @@ The following diagrams illustrate the component management, design, and virtual 
 
 #### Self-hosted component management
 
-<img src=".gitbook/assets/file.excalidraw (7).svg" alt="" class="gitbook-drawing">
+<img src=".gitbook/assets/file.excalidraw (7).svg" alt="A diagram splitting the platform into components managed by Gravitee, namely API Designer and Cockpit, and components managed by the customer, namely the console, portal, management API, gateways, databases, and the alert engine." class="gitbook-drawing">
 
 #### Self-hosted architecture diagram
 
@@ -52,11 +52,11 @@ The following diagrams illustrate the component management, design, and self-hos
 
 #### Hybrid component management
 
-<img src=".gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src=".gitbook/assets/file.excalidraw (1).svg" alt="A diagram listing the components managed by Gravitee, including Cockpit, the console, portal, management API, databases, alert engine, and bridge gateways, above those managed by the customer, namely self-hosted gateways, a local rate limit database, and Logstash." class="gitbook-drawing">
 
 #### Hybrid architecture diagram
 
-<img src=".gitbook/assets/file.excalidraw (4).svg" alt="" class="gitbook-drawing">
+<img src=".gitbook/assets/file.excalidraw (4).svg" alt="A diagram of a hybrid deployment, with the console, portal, management API, databases, alert engine, and bridge gateways hosted as SaaS above, and production gateways, a local rate limit database, and Logstash behind the customer firewall below." class="gitbook-drawing">
 
 #### Self-hosted-to-SaaS connections
 
