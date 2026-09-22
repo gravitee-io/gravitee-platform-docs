@@ -33,7 +33,7 @@ If you have a broker-side topic called `abcdef.topic.name.internal-only.some-id`
 * Client-side name: `myFriendlyTopicName`
 * Broker-side name: `abcdef.topic.name.internal-only.some-id`
 
-<div align="center" data-full-width="false"><figure><img src="../../.gitbook/assets/kafka-gw-policies-kafka-topic-mappi-158.png" alt="" width="375"><figcaption><p>UI configuration of the Kafka Topic Mapping policy</p></figcaption></figure></div>
+<div align="center" data-full-width="false"><figure><img src="../../.gitbook/assets/kafka-gw-policies-kafka-topic-mappi-158.png" alt="The Kafka Topic Mapping policy configuration, with empty description and trigger condition and one mapping from a friendly client-side topic name to an internal broker-side name." width="375"><figcaption><p>UI configuration of the Kafka Topic Mapping policy</p></figcaption></figure></div>
 
 Kafka clients will now be able to specify the mapped topic name (`myFriendlyTopicName`) in their connection configuration. For example: `kafka-console-consumer.sh --bootstrap-server foo.kafka.local:9092 --consumer.config config/client.properties --topic myFriendlyTopicName`
 
