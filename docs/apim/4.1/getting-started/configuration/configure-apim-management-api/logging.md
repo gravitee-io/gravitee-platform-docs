@@ -29,7 +29,7 @@ Logs will be displayed under the Runtime Logs tab in reverse chronological order
 
 The record of logs will be paginated, with no limit to the number of pages. If logging is disabled, existing logs will still be displayed, but a banner will indicate that the record is not current:
 
-<figure><img src="../../../.gitbook/assets/runtime logs not current.png" alt=""><figcaption><p>History of existing runtime logs</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/runtime logs not current.png" alt="The Runtime Logs page of an API, with a notice that runtime logs may be out of date because logging is disabled, above five requests that each returned 200."><figcaption><p>History of existing runtime logs</p></figcaption></figure>
 
 ### Modify logging information
 
@@ -39,7 +39,7 @@ Select logging options judiciously to optimize the value of recorded data agains
 
 To record additional data, modify the **Runtime Logs** settings under the **Settings** tab:
 
-<figure><img src="../../../.gitbook/assets/runtime logs settings.png" alt=""><figcaption><p>Runtime logs settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/runtime logs settings.png" alt="The Settings tab of an API&#x27;s Runtime Logs page, with a reminder that logging requires extra storage, above unticked logging mode and logging phase options."><figcaption><p>Runtime logs settings</p></figcaption></figure>
 
 The **Settings** page allows you to define the following:
 

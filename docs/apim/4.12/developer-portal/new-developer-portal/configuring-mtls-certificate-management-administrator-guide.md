@@ -18,19 +18,19 @@ The feature is controlled by a single environment-scoped parameter, `portal.next
 
 1. In the Management Console, click **Settings** in the left sidebar.
 
-    <figure><img src="../../.gitbook/assets/console-settings-sidebar.png" alt=""><figcaption><p>Settings entry in the Management Console left sidebar</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/console-settings-sidebar.png" alt="The portal Analytics settings with Settings highlighted in the portal menu, listing eleven platform dashboards."><figcaption><p>Settings entry in the Management Console left sidebar</p></figcaption></figure>
 
 2. In the inner sidebar, under the **Portal** group, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/console-portal-group-settings.png" alt=""><figcaption><p>Settings item under the Portal group in the inner sidebar</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/console-portal-group-settings.png" alt="The portal settings page with Settings highlighted in the portal menu, showing the company name and the security plan types available in the console."><figcaption><p>Settings item under the Portal group in the inner sidebar</p></figcaption></figure>
 
 3. Scroll to the **New Developer Portal** section.
 
-    <figure><img src="../../.gitbook/assets/console-new-developer-portal-section.png" alt=""><figcaption><p>New Developer Portal section on the portal settings page</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/console-new-developer-portal-section.png" alt="The portal settings scrolled to the New Developer Portal section, with the portal and mTLS Certificate Management both enabled above Open Website and Open Settings buttons."><figcaption><p>New Developer Portal section on the portal settings page</p></figcaption></figure>
 
 4. Turn on the **Enable mTLS Certificate Management** toggle. The toggle stays disabled until **Enable the New Developer Portal** is turned on.
 
-    <figure><img src="../../.gitbook/assets/console-enable-mtls-toggle.png" alt=""><figcaption><p>Enable mTLS Certificate Management toggle in the on position</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/console-enable-mtls-toggle.png" alt="The portal settings with the New Developer Portal section highlighted, showing the portal and mTLS Certificate Management both enabled."><figcaption><p>Enable mTLS Certificate Management toggle in the on position</p></figcaption></figure>
 
 5. Click **Save** to apply the change.
 
