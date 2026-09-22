@@ -40,7 +40,7 @@ To integrate Confluent Platform with Gravitee APIM, complete the following steps
     <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2.png" alt="The Integrations page in the API Management console, with the Create Integration button highlighted above a table of existing integrations."><figcaption></figcaption></figure>
 3.  Select **Confluent Platform**, and then click **Next**.<br>
 
-    <figure><img src="../../../.gitbook/assets/confluent-click-next.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/confluent-click-next.png" alt="The Choose Provider step of the Create Integration wizard, with Confluent Platform selected and the Next button highlighted."><figcaption></figcaption></figure>
 4.  Type the **Integration Name**.<br>
 
     <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description.png" alt="The Enter Information step of the Create Integration wizard, with a name and description filled in for a Confluent Platform integration."><figcaption></figcaption></figure>
@@ -49,10 +49,10 @@ To integrate Confluent Platform with Gravitee APIM, complete the following steps
     <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description.png" alt="The Enter Information step of the Create Integration wizard, with a name and description filled in for a Confluent Platform integration."><figcaption></figcaption></figure>
 6.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description (2).png" alt="The Enter Information step of the Create Integration wizard, with a Confluent Platform name and description entered and the Create Integration button highlighted."><figcaption></figcaption></figure>
 7.  From the Integration overview tab, copy the **Integration ID**. You need this ID for the agent configuration.
 
-    <figure><img src="../../../.gitbook/assets/confluent-integration-id.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/confluent-integration-id.png" alt="The Overview page of a Confluent Platform integration, showing the provider, a disconnected agent, and a partly masked integration identifier."><figcaption></figcaption></figure>
 
 ### Configure the Confluent Platform federation agent
 
