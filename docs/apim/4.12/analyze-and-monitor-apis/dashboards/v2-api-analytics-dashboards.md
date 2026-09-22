@@ -172,23 +172,23 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 13. (Optional) Adjust the size of the widget. To adjust the size of the widget, navigate to the edges of the widget or the corner of the widgets, click and hold the widget, and then drag the widget to adjust the size.
 14. (Optional) Enable a preview of your dashboard. To enable a preview of your dashboard, click **ENABLE PREVIEW**.<br>
 
-    <figure><img src="../../.gitbook/assets/4F326025-ECDE-4320-AF6E-1DBC4B7AA16A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/4F326025-ECDE-4320-AF6E-1DBC4B7AA16A_1_201_a.jpeg" alt="The New dashboard page for a platform dashboard, with a name entered and one widget being configured, and the Enable preview button highlighted."><figcaption></figcaption></figure>
 15. Click **SAVE**.
 
 ### Verification
 
 1.  From the **Dashboard**, click **Analytics**.<br>
 
-    <figure><img src="../../.gitbook/assets/3B42B875-734D-4378-9ED3-CFB70B7271C7_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/3B42B875-734D-4378-9ED3-CFB70B7271C7_1_201_a.jpeg" alt="The Platform Overview dashboard with Analytics highlighted in the left navigation, showing a status pie chart and response-time statistics above top API and application panels."><figcaption></figcaption></figure>
 2.  Click the **Select a Dashboard dropdown menu**. Your Dashboard appears in the dropdown menu.<br>
 
-    <figure><img src="../../.gitbook/assets/67C046AF-4AA3-4760-95C4-CEC94B0F4015_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/67C046AF-4AA3-4760-95C4-CEC94B0F4015_1_201_a.jpeg" alt="The Platform Overview dashboard with the dashboard selector open, listing Global, Geo, User, Test Stats, and Test dashboards."><figcaption></figcaption></figure>
 
 ## View your dashboard
 
 1.  From the **Dashboard**, click **Analytics**.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-117.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-117.png" alt="The Platform Overview dashboard with Analytics highlighted in the left navigation, showing the status and stats panels for the last five minutes."><figcaption></figcaption></figure>
 2.  From the **Select a dashboard**, select the dashboard that you want to view.<br>
 
     <figure><img src="../../.gitbook/assets/dashboard_view.png" alt="The Platform Overview dashboard, with the dashboard selector circled above a time-range picker, a status pie chart, and response-time statistics."><figcaption><p>View your dashboard</p></figcaption></figure>
@@ -197,10 +197,10 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 
 1.  From the **Dashboard**, click **Settings**.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-119.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-119.png" alt="The console dashboard with Settings highlighted in the left navigation, showing 2,707 APIs and 854 applications with lifecycle and state pie charts."><figcaption></figcaption></figure>
 2. From the **Settings** menu, click **Analytics**.
 3.  Click the name of the dashboard that you want to view.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-122.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-122.png" alt="The portal Analytics settings with Analytics highlighted in the portal menu, listing nine platform dashboards with reorder and delete actions."><figcaption></figcaption></figure>
 4. Edit your dashboard and widgets. For more information about editing your dashboard, see [#create-a-dashboard](v2-api-analytics-dashboards.md#create-a-dashboard "mention").
 5. Click **SAVE.**
