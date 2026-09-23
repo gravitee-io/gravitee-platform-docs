@@ -13,3 +13,5 @@ guides/gateway-api/httproute.md
 guides/gateway-api/tls-with-cert-manager.md
 guides/gateway-api/multi-domain-tls.md
 getting-started/installation/install-with-helm.md
+overview/admission-validation.md
+overview/drift-detection.md
