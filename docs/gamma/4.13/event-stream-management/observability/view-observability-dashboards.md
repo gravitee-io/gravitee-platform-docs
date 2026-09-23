@@ -8,7 +8,7 @@ description: Open a prebuilt board for the health or the traffic of your Kafka S
 
 The **Dashboards** page of **Observability** lists the boards you can open. Event Stream Management ships four, two per family, and they read the same reported data the logs do.
 
-<figure><img src="../../../.gitbook/assets/esm-observability-dashboards.png" alt="The Dashboards page of Observability, listing the Health and Traffic template boards for Kafka Services and for Message APIs with their descriptions"><figcaption><p>The Dashboards page lists the boards Event Stream Management ships</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/esm-observability-dashboards.png" alt="The Dashboards page of Observability, listing the Health and Traffic template boards for Kafka Services and for Message APIs with their descriptions"><figcaption><p>The Dashboards page lists the boards Event Stream Management ships</p></figcaption></figure>
 
 ## Open a dashboard
 

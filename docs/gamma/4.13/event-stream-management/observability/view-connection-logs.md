@@ -8,7 +8,7 @@ description: List what the gateway recorded for your Kafka Services and Message 
 
 The **Logs** page of **Observability** lists what the gateway recorded across every API in the environment, newest first, with a chart of the same rows above the table. One row is one Kafka connection, or one request that opened a Message API stream.
 
-<figure><img src="../../../.gitbook/assets/esm-observability-logs.png" alt="The Logs page of Observability, with a connection chart above a table whose rows carry the Timestamp, Error Key, API, API Type, Application, and Plan columns of the Common column set"><figcaption><p>The Logs page lists connections and requests across the environment</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/esm-observability-logs.png" alt="The Logs page of Observability, with a connection chart above a table whose rows carry the Timestamp, Error Key, API, API Type, Application, and Plan columns of the Common column set"><figcaption><p>The Logs page lists connections and requests across the environment</p></figcaption></figure>
 
 ## Open the logs
 
@@ -150,7 +150,7 @@ A **Message API** shows a **Runtime logs are disabled** warning. It records noth
 
 Both banners link to the API's **Reporter Settings**, where you switch reporting on.
 
-<figure><img src="../../../.gitbook/assets/esm-observability-metrics-disabled.png" alt="The Overview page of a Kafka Service showing the Connection metrics are disabled warning, which links to Reporter Settings"><figcaption><p>A Kafka Service that reports nothing says so on its own page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/esm-observability-metrics-disabled.png" alt="The Overview page of a Kafka Service showing the Connection metrics are disabled warning, which links to Reporter Settings"><figcaption><p>A Kafka Service that reports nothing says so on its own page</p></figcaption></figure>
 
 ## Verification
 
