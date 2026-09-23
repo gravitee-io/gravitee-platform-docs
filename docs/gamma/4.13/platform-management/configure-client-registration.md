@@ -185,7 +185,7 @@ To verify that client registration is working as expected, follow these steps:
 5. Under **Providers configuration**, select **Add a provider**, complete the form, and select **Create provider**.
 6. Confirm that the provider appears in the table with the name you gave it.
 7. Open **Applications**, select **Register Application**, and confirm that the **Security** section offers the application types you left on.
-8. Register an application of one of the four DCR types, and confirm that it's created.
+8. Complete the form with one of the four DCR types selected, select **Create Application**, and confirm that `Application created` is shown.
 9. On the authorization server, confirm that an OAuth client now exists for that application.
 
 Steps 7 to 9 are the ones that prove registration works. Step 7 alone only shows that the types reach the form, which they do whether a provider exists or not. To see the difference, register an application of one of the four types before you add the provider at step 5. It fails, and the environment offers the types all the same.
