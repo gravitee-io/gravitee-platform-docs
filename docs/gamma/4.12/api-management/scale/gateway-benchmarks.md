@@ -131,164 +131,109 @@ Load is generated from the load generator cluster and sent to the Gateway, which
 
 ## Results
 
-The following results compare APIM 4.12.19 and 4.12.20. CPU is reported in cores consumed against the 4 cores allocated.
+Select a release to see its results. CPU is reported in cores consumed against the 4 cores allocated.
 
 {% hint style="warning" %}
 Each figure comes from a single run, so small differences between releases fall within the range that run-to-run variation can produce. Treat them as a record of each release rather than as a measured trend. Repeat runs are planned for future results.
 {% endhint %}
 
-### Keyless
-
+{% tabs %}
+{% tab title="4.12.20" %}
 <table>
     <thead>
         <tr>
-            <th width="220">Metric</th>
-            <th align="right">4.12.19</th>
-            <th align="right">4.12.20</th>
+            <th width="260">Scenario</th>
+            <th align="right">Transactions per second</th>
+            <th align="right">Average (ms)</th>
+            <th align="right">P95 (ms)</th>
+            <th align="right">P99 (ms)</th>
+            <th align="right">CPU (cores)</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Transactions per second</td>
+            <td>Keyless</td>
             <td align="right">16,900</td>
-            <td align="right">16,900</td>
-        </tr>
-        <tr>
-            <td>Average response time (ms)</td>
-            <td align="right">4.63</td>
             <td align="right">4.62</td>
-        </tr>
-        <tr>
-            <td>P95 response time (ms)</td>
-            <td align="right">5.62</td>
             <td align="right">5.75</td>
-        </tr>
-        <tr>
-            <td>P99 response time (ms)</td>
-            <td align="right">8.01</td>
             <td align="right">9.14</td>
-        </tr>
-        <tr>
-            <td>CPU (cores)</td>
-            <td align="right">3.0</td>
             <td align="right">3.3</td>
         </tr>
-    </tbody>
-</table>
-
-### API Key
-
-<table>
-    <thead>
         <tr>
-            <th width="220">Metric</th>
-            <th align="right">4.12.19</th>
-            <th align="right">4.12.20</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Transactions per second</td>
-            <td align="right">16,800</td>
+            <td>API Key</td>
             <td align="right">16,500</td>
-        </tr>
-        <tr>
-            <td>Average response time (ms)</td>
-            <td align="right">4.65</td>
             <td align="right">4.73</td>
-        </tr>
-        <tr>
-            <td>P95 response time (ms)</td>
-            <td align="right">5.66</td>
             <td align="right">5.92</td>
-        </tr>
-        <tr>
-            <td>P99 response time (ms)</td>
-            <td align="right">7.96</td>
             <td align="right">9.48</td>
-        </tr>
-        <tr>
-            <td>CPU (cores)</td>
-            <td align="right">3.1</td>
             <td align="right">3.4</td>
         </tr>
-    </tbody>
-</table>
-
-### OAuth 2.0
-
-<table>
-    <thead>
         <tr>
-            <th width="220">Metric</th>
-            <th align="right">4.12.19</th>
-            <th align="right">4.12.20</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Transactions per second</td>
-            <td align="right">15,000</td>
+            <td>OAuth 2.0</td>
             <td align="right">15,100</td>
-        </tr>
-        <tr>
-            <td>Average response time (ms)</td>
-            <td align="right">4.77</td>
             <td align="right">4.75</td>
-        </tr>
-        <tr>
-            <td>P95 response time (ms)</td>
-            <td align="right">5.70</td>
             <td align="right">5.76</td>
-        </tr>
-        <tr>
-            <td>P99 response time (ms)</td>
-            <td align="right">7.89</td>
             <td align="right">9.12</td>
-        </tr>
-        <tr>
-            <td>CPU (cores)</td>
-            <td align="right">3.1</td>
             <td align="right">3.3</td>
         </tr>
-    </tbody>
-</table>
-
-### Keyless with Rate Limit policy
-
-<table>
-    <thead>
         <tr>
-            <th width="220">Metric</th>
-            <th align="right">4.12.19</th>
-            <th align="right">4.12.20</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Transactions per second</td>
+            <td>Keyless with Rate Limit policy</td>
             <td align="right">13,500</td>
-            <td align="right">13,500</td>
-        </tr>
-        <tr>
-            <td>Average response time (ms)</td>
-            <td align="right">5.04</td>
             <td align="right">5.06</td>
-        </tr>
-        <tr>
-            <td>P95 response time (ms)</td>
-            <td align="right">6.15</td>
             <td align="right">6.29</td>
-        </tr>
-        <tr>
-            <td>P99 response time (ms)</td>
-            <td align="right">8.15</td>
             <td align="right">9.18</td>
-        </tr>
-        <tr>
-            <td>CPU (cores)</td>
-            <td align="right">3.06</td>
             <td align="right">3.2</td>
         </tr>
     </tbody>
 </table>
+{% endtab %}
+
+{% tab title="4.12.19" %}
+<table>
+    <thead>
+        <tr>
+            <th width="260">Scenario</th>
+            <th align="right">Transactions per second</th>
+            <th align="right">Average (ms)</th>
+            <th align="right">P95 (ms)</th>
+            <th align="right">P99 (ms)</th>
+            <th align="right">CPU (cores)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Keyless</td>
+            <td align="right">16,900</td>
+            <td align="right">4.63</td>
+            <td align="right">5.62</td>
+            <td align="right">8.01</td>
+            <td align="right">3.0</td>
+        </tr>
+        <tr>
+            <td>API Key</td>
+            <td align="right">16,800</td>
+            <td align="right">4.65</td>
+            <td align="right">5.66</td>
+            <td align="right">7.96</td>
+            <td align="right">3.1</td>
+        </tr>
+        <tr>
+            <td>OAuth 2.0</td>
+            <td align="right">15,000</td>
+            <td align="right">4.77</td>
+            <td align="right">5.70</td>
+            <td align="right">7.89</td>
+            <td align="right">3.1</td>
+        </tr>
+        <tr>
+            <td>Keyless with Rate Limit policy</td>
+            <td align="right">13,500</td>
+            <td align="right">5.04</td>
+            <td align="right">6.15</td>
+            <td align="right">8.15</td>
+            <td align="right">3.06</td>
+        </tr>
+    </tbody>
+</table>
+{% endtab %}
+
+{% endtabs %}
