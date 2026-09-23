@@ -51,6 +51,8 @@ APIM isn't the only component that migrates the management database. Each Gamma 
 
 The modules bundled with this release follow the same shape. A module with the id `<id>` keeps its changelog at `liquibase/<id>/master.yml`, tracks it in `{prefix}<id>_databasechangelog` and `{prefix}<id>_databasechangeloglock`, and takes an `<id>_prefix` parameter. Nothing enforces that shape, and a module that stores nothing owns no changelog and needs no run. Take the list of entry points, and the arguments each one takes, from the `README` of the archive described below rather than from this table.
 
+The sections below work Event Stream Management through as the example. Another module takes the same steps with its own changelog, tracking tables, and parameter from the row above, and with its own data tables. Where a module differs, it's called out.
+
 ## Get the changelogs
 
 The migrations ship as one archive, `gravitee-apim-jdbc-migrations-<version>.zip`, published with each APIM release under [Resources](https://download.gravitee.io/#graviteeio-apim/resources/gravitee-apim-jdbc-migrations/) on the Gravitee download website. The version in the filename is the APIM version the archive was built from. The archive carries the changelogs of APIM and of the Gamma modules bundled with that release, at the versions that release bundles. Collecting them from each installed plugin yourself isn't necessary.
@@ -86,7 +88,13 @@ Each stored connection includes its security overlay, which isn't encrypted at r
 
 Liquibase takes a lock in the component's lock table before it applies anything, so that two instances migrating the same database at once can't collide. An instance that dies mid-migration leaves that lock held, and every later instance waits behind it.
 
-The wait is bounded rather than indefinite. Event Stream Management waits up to five minutes for the lock, and makes three attempts in all before it gives up. A lock nobody is going to release therefore delays the module by around fifteen minutes. The module then fails to start, and the Management API logs `Unable to apply ESM liquibase changelogs`. Neither the wait nor the attempt count is configurable. The rest of the Management API keeps running, but the module doesn't recover on its own. Its pages stay unavailable until you clear the lock and restart the Management API.
+How long a module waits for that lock is the module's own behavior rather than a platform setting, so it differs between modules.
+
+Event Stream Management bounds the wait. It waits up to five minutes for the lock and makes three attempts in all. A lock nobody releases therefore holds it up for around fifteen minutes before it gives up, and neither the wait nor the attempt count is configurable.
+
+A module that sets neither of those, as AI Management does, waits once for the period Liquibase applies by default and gives up on the first attempt. Don't wait fifteen minutes for one of those to clear itself.
+
+Either way the module then fails to start, and the Management API logs that it couldn't apply that module's changelogs. For Event Stream Management the line reads `Unable to apply ESM liquibase changelogs`. The rest of the Management API keeps running, but the module doesn't recover on its own. Its pages stay unavailable until you clear the lock and restart the Management API.
 
 To find out whether a lock is stale, read the component's lock table. With no prefix configured, the Event Stream Management lock table is named `esm_databasechangeloglock`:
 
@@ -114,6 +122,8 @@ repositories.management.jdbc.liquibase=false): apply the ESM changelog
 and restart.
 ```
 
+That wording is Event Stream Management's own, so match on the table name rather than on the sentence.
+
 A database the Management API can't reach at all reports a different error, which names the table but not the database's address.
 
 ## Verification
@@ -122,5 +132,5 @@ To verify a component's schema is applied, follow these steps:
 
 1. Connect to the management database as a user that can read its tables.
 2. Confirm the component's tracking table exists and holds one row per applied migration. For Event Stream Management, that's `{prefix}esm_databasechangelog`.
-3. Confirm the component's own tables exist. For Event Stream Management, that's `{prefix}kafka_explorer_connections`.
+3. Confirm the component's own tables exist. Event Stream Management owns one, `{prefix}kafka_explorer_connections`. Another module owns whatever its own changelogs define.
 4. Open the feature in the console and confirm it loads. For Event Stream Management, open the Kafka Explorer and confirm the connection list renders instead of returning an error.
