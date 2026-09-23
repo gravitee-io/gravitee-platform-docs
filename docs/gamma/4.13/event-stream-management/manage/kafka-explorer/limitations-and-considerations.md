@@ -41,6 +41,12 @@ Each of **Truststore** and **Key store** offers both forms:
 
 A path-based store keeps the key material out of the database and its backups, where file permissions protect it instead. Its **password** is still part of the overlay, so it's still stored in the database either way.
 
+## Switching the management database
+
+Connections live in whichever management database the platform runs on, and the MongoDB and JDBC backends are separate stores. Moving an installation from one to the other doesn't carry the saved connections across. The new backend starts empty, and the connections in the old one stay where they are, unread.
+
+Before switching an environment that has connections configured, record what each one targets and how it authenticates, then recreate them afterward. A secret can't be read back from the API once it's saved, so recreating a connection needs the original credentials rather than a copy taken from the console.
+
 ## TLS verification
 
 The **SSL Options** of an overlay carry two switches that relax two different checks:
