@@ -8,8 +8,7 @@ description: Follow one Kafka Service or Message API through the gateway span by
 
 The **Tracing** page of **Observability** follows one API's requests through the gateway. Where the logs answer what happened to a connection, a trace shows the steps the gateway took inside it.
 
-<!-- TODO: Screenshot of the Observability Tracing page for a Kafka Service -->
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-esm-observability-tracing.png" alt=""><figcaption><p>Tracing follows one API at a time</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/esm-observability-tracing.png" alt="The Tracing page of Observability with one Kafka Service chosen in the required API picker, above a table of Start Time, Status, Service, Operation, and Duration columns"><figcaption><p>Tracing follows one API at a time</p></figcaption></figure>
 
 ## Open the traces for an API
 
