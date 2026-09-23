@@ -132,13 +132,13 @@ Create an API with a fake sensitive that you secure after we make sure everythin
         * KEY: `Authorization`
         * VALUE: `ApiKey 123456789`
 
-        <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-11.png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-11.png" alt="An endpoint&#x27;s configuration scrolled to the HTTP headers, showing a placeholder Authorization header value, above proxy options set to no proxy and SSL host verification enabled."><figcaption></figcaption></figure>
 11. Click **Validate my endpoints**.
 
     <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-12.png" alt="The lower part of an HTTP proxy endpoint&#x27;s configuration, showing proxy options set to no proxy and SSL options with host verification on, trust all off, and no truststore or key store."><figcaption></figcaption></figure>
 12. Click V**alidate my plans**.
 
-    <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-13.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-13.png" alt="Step 4 of the API creation wizard at the Security stage, listing one default keyless plan in standard mode with a Validate my plans button."><figcaption></figcaption></figure>
 13. Click **Save & Deploy API**.
 
     <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-14.png" alt="Step 5 of the API creation wizard, summarising the API details, entrypoints, endpoints, and keyless plan, with Save API and Save and Deploy API buttons."><figcaption></figcaption></figure>

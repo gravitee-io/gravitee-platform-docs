@@ -81,13 +81,13 @@ WARNING: Removing a plan is irreversible
     <figure><img src="../../.gitbook/assets/3627B0A7-AF24-4E4B-A22B-5AFEB7FB29A5.jpeg" alt="The Plans tab with the close icon highlighted on the keyless plan row."><figcaption></figcaption></figure>
 3.  In the **Close plan** pop-up window, type Default Keyless (UNSECURED), and then click **Yes, close this plan.**
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-securit-8.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-securit-8.png" alt="The Close plan dialog, warning that the operation is irreversible and that closing removes free access, with the keyless plan name typed to confirm."><figcaption></figcaption></figure>
 
 #### Verification
 
 The Default Keyless (UNSECURED) plan is removed from the **PUBLISHED** tab.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-securit-9.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-securit-9.png" alt="The Plans tab under an out-of-sync banner, with the PUBLISHED filter selected and one published API key plan listed."><figcaption></figcaption></figure>
 
 ## Verification
 
@@ -102,7 +102,7 @@ To test your API Key plan, complete the following steps:
     <figure><img src="../../.gitbook/assets/22CB1B38-1964-47F6-B5B7-8B634D3D8D0B.jpeg" alt="The console dashboard with Applications highlighted in the left navigation, showing one API and one application."><figcaption></figcaption></figure>
 2.  In the **Applications** screen, click the **Default application**.
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-securit-10.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-securit-10.png" alt="The Applications page, listing one default application of Simple type owned by admin."><figcaption></figcaption></figure>
 3.  In the **Default application** configuration screen, click **Subscriptions**.
 
     <figure><img src="../../.gitbook/assets/F1AD5888-A518-42D5-8C18-33BCCB583C06.jpeg" alt="The Global settings page of the default application with Subscriptions highlighted in the application menu, showing the name, description, and domain fields beside the owner, type, and API key mode."><figcaption></figcaption></figure>
@@ -115,7 +115,7 @@ To test your API Key plan, complete the following steps:
    3. Click the name of the plan that you created in [#add-an-api-key-plan-to-your-api](add-security.md#add-an-api-key-plan-to-your-api "mention").
    4.  Click **Create**.
 
-       <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-securit-11.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/how-to-guides-first-api-add-securit-11.png" alt="The Create a subscription dialog, with an API searched by name and its only plan selected."><figcaption></figcaption></figure>
 6.  Copy your API key from the **API Keys** section of the **Subscriptions** page.
 
     <figure><img src="../../.gitbook/assets/0E509DC6-90E7-4154-B768-920FB55DA442.jpeg" alt="A subscription&#x27;s detail page showing its identifier, API, plan, accepted status, and timestamps, with the API key value highlighted in the API Keys panel below."><figcaption></figcaption></figure>

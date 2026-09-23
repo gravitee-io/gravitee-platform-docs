@@ -12,7 +12,7 @@ In Gravitee APIM 4.11, the Developer Portal has a tree-based publishing model. Y
 
 In contrast to the Classic Developer Portal, where you used the `/portal` mAPI - the "Next Gen" Developer Portal uses new endpoints in the `/management/v2` mAPI, and are environment specific.
 
-<figure><img src="../../../.gitbook/assets/navigation-with-mapi-4.png" alt=""><figcaption><p>Hierarchical structure of Folder, API, Page, and Content</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/navigation-with-mapi-4.png" alt="A diagram of the portal documentation hierarchy, showing Root leading to Portal Folder, then API, then Page, then Content, with the foreign key that links each level labelled on the connectors."><figcaption><p>Hierarchical structure of Folder, API, Page, and Content</p></figcaption></figure>
 
 ## Prerequisites
 
@@ -153,7 +153,7 @@ Before you publish an API to the portal, you must create and configure the API. 
 
 * View the APIM Console URL of your API.
 
-<figure><img src="../../../.gitbook/assets/navigation-with-mapi-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/navigation-with-mapi-1.png" alt="The Configuration page of an API in the console, with the API identifier underlined in the browser address bar."><figcaption></figcaption></figure>
 
 * Query the `/apis/_search` endpoint of your API's entry point contextPath using either a curl command or an HTTP request.
 
@@ -470,8 +470,8 @@ curl --location --request PUT 'https://<your-gravitee-mapi-host>/management/v2/o
 
 * The API page has the `published` status in the Developer Portal Console.
 
-<figure><img src="../../../.gitbook/assets/navigation-with-mapi-2.png" alt=""><figcaption><p>View of the API and page in the Developer Portal Navigation Admin Console</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/navigation-with-mapi-2.png" alt="The Manage your navigation panel, with a published public Overview page selected under an API in the tree, its Markdown source in the editor, and the rendered result on the right."><figcaption><p>View of the API and page in the Developer Portal Navigation Admin Console</p></figcaption></figure>
 
 * The API is visible on the Developer Portal with the **Subscribe** button.
 
-<figure><img src="../../../.gitbook/assets/navigation-with-mapi-3.png" alt=""><figcaption><p>View of the published API and documentation page in the Developer Portal</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/navigation-with-mapi-3.png" alt="The developer portal with a custom documentation tab open, showing the Overview page and its breadcrumb beside a navigation tree."><figcaption><p>View of the published API and documentation page in the Developer Portal</p></figcaption></figure>

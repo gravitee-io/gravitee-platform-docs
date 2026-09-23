@@ -201,10 +201,10 @@ In this example, our Gateway API sends an alert whenever inventory is added to o
 
 To monetize data delivery, we can use the Keyless and API Key plans introduced [above](v4-api-policy-studio.md#design). First, we add a "sample Keyless flow" to our Keyless plan.
 
-<figure><img src="../../.gitbook/assets/sample keyless flow.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sample keyless flow.png" alt="The Policy Studio of a message API with a sample keyless flow selected, showing the Event messages tab with publish and subscribe phases between the entrypoints and a Kafka endpoint."><figcaption></figcaption></figure>
 
 Next, we apply a latency policy to our Keyless plan.
 
-<figure><img src="../../.gitbook/assets/sample keyless policy.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sample keyless policy.png" alt="The Policies for Publish phase dialog configuring a latency policy, with a description and a duration of 1800 seconds, beside the policy documentation."><figcaption></figcaption></figure>
 
 Customers can use our API for free, but new merchandise alerts are delayed by 30 minutes. However, customers who purchase our API Key plan are given unlimited access to real-time data.

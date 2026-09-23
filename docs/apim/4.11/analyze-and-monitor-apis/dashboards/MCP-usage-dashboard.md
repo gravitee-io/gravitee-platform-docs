@@ -45,24 +45,24 @@ To configure the MCP Dashboard, the user must have the following permissions:
     <figure><img src="../../.gitbook/assets/LLM_Dashboard_create_dropdown_menu.jpg" alt="The Dashboards page with the Create dashboard menu open on Create from template and a greyed-out Create from scratch, above a table of dashboards with their creator, last modified date, and labels."><figcaption></figcaption></figure>
 4.  Click **MCP**, and then click **Use template**. <br>
 
-    <figure><img src="../../.gitbook/assets/MCP_Dashboard_template.jpg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/MCP_Dashboard_template.jpg" alt="The Create from template dialog with the MCP template selected, showing its description and a preview of request, latency, method usage, resource, prompt, and response status widgets."><figcaption></figcaption></figure>
 5. (Optional) Change the name of the dashboard and the labels for the dashboard. To change the name of the dashboard and the labels for the dashboard, complete the following sub-steps:&#x20;
    1.  Click **Dashboard options**, and then click **Edit**.  <br>
 
-       <figure><img src="../../.gitbook/assets/analytics-dashboards-mcp-usage-dash-8.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/analytics-dashboards-mcp-usage-dash-8.png" alt="An empty MCP dashboard with the overflow menu open on Edit and Delete, both highlighted."><figcaption></figcaption></figure>
    2. In the **Edit dashboard** pop-up window, navigate to the **Name** field, and then enter a new name for your dashboard.&#x20;
    3. To add a new label for your dashboard, click **+ Add label**, and then enter the key-value pair.&#x20;
    4.  To delete a label, click the **X** next the key-value pair that you want to delete. <br>
 
-       <figure><img src="../../.gitbook/assets/MCP_Dashboard_edit_popup_window.jpg" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/MCP_Dashboard_edit_popup_window.jpg" alt="The Edit dashboard dialog for an MCP dashboard, with its name and two label key and value pairs for focus and theme."><figcaption></figcaption></figure>
 6. (Optional) Change the timeframe for the dashboard. To changee the timeframe for the dashboard, complete the following sub-steps:&#x20;
    1. Click the **timeframe** dropdown menu.&#x20;
    2.  Select a new time frame or select **custom** to enter a custome timeframe. <br>
 
-       <figure><img src="../../.gitbook/assets/MCP_Dashboard_timeframe.jpg" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/MCP_Dashboard_timeframe.jpg" alt="An empty MCP dashboard with the timeframe dropdown open and last five minutes ticked."><figcaption></figcaption></figure>
 
 ## Verification
 
 Your dashboard appears in the Dashboard list.&#x20;
 
-<figure><img src="../../.gitbook/assets/MCP_Dashboard_dashboard_list.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/MCP_Dashboard_dashboard_list.jpg" alt="The Dashboards page listing an MCP dashboard and a Proxy Generic Protocol dashboard with their creator, last modified date, and labels."><figcaption></figcaption></figure>

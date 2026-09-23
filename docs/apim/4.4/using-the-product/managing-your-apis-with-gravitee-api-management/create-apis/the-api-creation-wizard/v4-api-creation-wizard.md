@@ -42,7 +42,7 @@ The Gravitee documentation adopts concise terminology to differentiate between t
 
 What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information what each method supports, refer to [this documentation](../README.md#backend-exposure-methods).
 
-<figure><img src="../../../../.gitbook/assets/v4 wizard_step 2 proxy.png" alt=""><figcaption><p>v4 API creation wizard: Select how you want your backend service exposed</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/v4 wizard_step 2 proxy.png" alt="Step 2 of the API creation wizard, with Proxy Upstream Protocol selected over Introspect Messages From Event-Driven Backend."><figcaption><p>v4 API creation wizard: Select how you want your backend service exposed</p></figcaption></figure>
 
 After you choose your method of exposure, click **Select my API architecture** to view the entrypoint selection screen. The entrypoint selection and configuration for each exposure method are discussed below.
 
@@ -50,7 +50,7 @@ After you choose your method of exposure, click **Select my API architecture** t
 
 If you chose **Proxy upstream protocol**, choose either HTTP Proxy or TCP Proxy as your entrypoint.
 
-<figure><img src="../../../../.gitbook/assets/step2.png" alt=""><figcaption><p>v4 API creation wizard: HTTP or TCP as a backend entrypoint</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/step2.png" alt="Step 2 of the API creation wizard, with TCP Proxy selected over HTTP Proxy as the API entrypoint."><figcaption><p>v4 API creation wizard: HTTP or TCP as a backend entrypoint</p></figcaption></figure>
 
 Once you select your entrypoint, additional configuration is required. The following sections outline the necessary configuration per entrypoint.
 
@@ -272,7 +272,7 @@ The endpoint configuration will determine the endpoint group’s default configu
 
 By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
 
-<figure><img src="../../../../.gitbook/assets/tcp_endpoints.png" alt=""><figcaption><p>Default TCP proxy API endpoint names</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/tcp_endpoints.png" alt="The Endpoints page of a TCP API, showing a default TCP proxy group with round robin load balancing and a single endpoint."><figcaption><p>Default TCP proxy API endpoint names</p></figcaption></figure>
 
 ### **Introspect messages from event-driven backend endpoints**
 
@@ -532,7 +532,7 @@ The endpoint configuration will determine the endpoint group’s default configu
 
 By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
 
-<figure><img src="../../../../.gitbook/assets/v4 default endpoints message.png" alt=""><figcaption><p>Default message API endpoint names</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/v4 default endpoints message.png" alt="The Endpoints page of a message API under an out-of-sync banner, showing a default Mock group with round robin load balancing and a single endpoint."><figcaption><p>Default message API endpoint names</p></figcaption></figure>
 
 ## Step 4: Security
 
@@ -558,7 +558,7 @@ You will be able to choose between several different plan types:
 * **Keyless**: A plan that, when configured, does not add security. This is considered an "Open" plan.
 * **Push plan**: A plan that provides an access layer for the Gateway pushing data to consumers. This is used for subscribers.
 
-<figure><img src="../../../../.gitbook/assets/v4 wizard_step 4 http.png" alt=""><figcaption><p>API creation wizard: Different Security plan types</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/v4 wizard_step 4 http.png" alt="Step 4 of the API creation wizard, with the Add plan menu open on OAuth2, JWT, API Key, and Keyless above a default keyless plan."><figcaption><p>API creation wizard: Different Security plan types</p></figcaption></figure>
 
 Configuration differs by plan. See the expandable sections below to learn more about how to configure each of the different plans.
 
