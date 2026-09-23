@@ -84,6 +84,7 @@
   * [APIM 4.9 Elasticsearch Index Template Changes](upgrade-guides/apim-4.9-elasticsearch-index-template-changes.md)
   * [APIM 4.12 Elasticsearch Index Template Changes](upgrade-guides/apim-4.12-elasticsearch-index-template-changes.md)
   * [Migrate v1 APIs to v2](upgrade-guides/migrate-v1-apis-to-v2.md)
+  * [Tag and Tenant Key Migration](upgrade-guides/tag-key-migration-upgrade-procedure.md)
 * [How-To Guides](how-to-guides/README.md)
   * [Use Case Tutorials](how-to-guides/use-case-tutorials/README.md)
     * [Create & Publish Your First API](getting-started/create-and-publish-your-first-api/README.md)
