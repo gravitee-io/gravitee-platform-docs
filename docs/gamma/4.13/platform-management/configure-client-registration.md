@@ -45,6 +45,10 @@ Turn **Simple** off to stop consumers of the environment registering that kind o
 
 While it's off, **Browser**, **Web**, **Native**, and **Backend-to-Backend** aren't offered when an application is registered, whatever their own switches say. Turning it on offers each of the four whose own switch is on.
 
+Turning it on doesn't register anything on its own, and the environment can sit with DCR on and no provider. The four types are still offered in that state. The offered list follows each type's own switch, and never checks whether a provider exists. Registering one of them then fails, the application isn't created, and the error reads `No Dynamic Client Registration provider has been defined, making impossible to create an oauth-based application.` Registering a simple application is unaffected.
+
+Deleting the provider later returns the environment to exactly that state. The provider is looked up each time an application is registered, so the next registration of one of the four types fails the same way. Add the provider before you tell consumers the types are available.
+
 Turning **Simple** off while DCR is off leaves the environment with no application type at all. The **Register Application** form then reads `No application type available. Please check Client Registration configuration.` instead of a type list.
 
 ## Choose the allowed application types
@@ -159,7 +163,7 @@ A role that can read the provider but not change it opens the same form with eve
 
 ## Delete a provider
 
-Deleting the provider stops the environment registering OAuth clients. The delete removes the provider alone, so the applications already registered through it are left as they are.
+Deleting the provider stops the environment registering OAuth clients. The delete removes the provider alone, so the applications already registered through it are left as they are. New registrations of the four DCR types fail until another provider is added, while the types stay on offer. See [Turn on Dynamic Client Registration](#turn-on-dynamic-client-registration).
 
 To delete a provider, complete the following steps:
 
@@ -181,6 +185,10 @@ To verify that client registration is working as expected, follow these steps:
 5. Under **Providers configuration**, select **Add a provider**, complete the form, and select **Create provider**.
 6. Confirm that the provider appears in the table with the name you gave it.
 7. Open **Applications**, select **Register Application**, and confirm that the **Security** section offers the application types you left on.
+8. Register an application of one of the four DCR types, and confirm that it's created.
+9. On the authorization server, confirm that an OAuth client now exists for that application.
+
+Steps 7 to 9 are the ones that prove registration works. Step 7 alone only shows that the types reach the form, which they do whether a provider exists or not. To see the difference, register an application of one of the four types before you add the provider at step 5. It fails, and the environment offers the types all the same.
 
 Creating, updating, and deleting a provider is recorded in the environment audit log.
 
