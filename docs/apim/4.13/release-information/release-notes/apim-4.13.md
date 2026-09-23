@@ -40,6 +40,7 @@ documentation.gravitee.io links for other versions.
 * API Products reach the New Developer Portal: publish an API Product in the portal navigation with its APIs and documentation, and consumers discover it in the catalog, subscribe to it, and manage the subscription that covers every API it includes.
 * New Developer Portal navigation pages fetch their content from external sources such as GitHub, GitLab, or an HTTP URL, on demand or on an auto-fetch schedule, and a repository import mirrors a whole documentation tree into a read-only folder.
 * Identity provider claims travel into dynamic client registration requests: list the claims to persist on the identity provider, map them to registration request fields on the client registration provider, and the registration provider receives tenant or user context for each application it registers.
+* A Kafka Topic Mapping entry that sets only one of `client` and `broker` becomes a rule that applies to any topic, with the `#topic` expression variable bound to the name being resolved, so one entry can prefix or strip a prefix across every topic.
 
 ## Breaking Changes and deprecations
 
@@ -50,6 +51,14 @@ The `http.pathHandling` Gateway setting now defaults to `NORMALIZE`. In 4.12 and
 #### **Management API v1 plan endpoints reject V4, Federated, and Federated Agent APIs**
 
 The plan endpoints of the legacy Management API v1 no longer accept V4, Federated, and Federated Agent APIs. Every plan operation for one of these APIs returns HTTP `400`. The error message names the API's definition version and points to the Management API v2 plan endpoints. Previously, these endpoints didn't check the API's definition version. Read operations for these APIs could fail with HTTP `500` or behave inconsistently, and write operations, for example creating or deleting a plan, could succeed. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Kafka Topic Mapping policy: Invalid mapping entries now stop an API from deploying**
+
+The Kafka Topic Mapping policy now checks its mapping entries when the API is deployed, where 4.12 and earlier checked nothing. An API that deploys today can fail to deploy after the upgrade. Four kinds of entry are refused. An entry that sets neither `client` nor `broker`. An entry whose plain name Kafka wouldn't accept as a topic name. An entry that references `#topic` in both fields. And two entries whose plain `broker` values are equal, or whose plain `client` values are equal. The last is the likeliest to appear in a configuration that works today. Review every Kafka Topic Mapping policy against those four cases before upgrading. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Kafka Topic Mapping policy: A blank mapping field now defines a rule**
+
+A Kafka Topic Mapping entry that sets only one of `client` and `broker` is now a rule that applies to any topic. A field set to a blank string counts as absent. In 4.12 and earlier such an entry matched nothing and never applied. An entry left with a blank field therefore changes from inert to claiming every topic the client names. The configuration schema required both fields before 4.13.0, so an affected entry is one whose field was set to an empty string. Review every Kafka Topic Mapping policy for a blank `client` or `broker` before upgrading. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 ## New Features
 
@@ -128,6 +137,16 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * Each login replaces the stored claims. Removing a claim from the list, or emptying it, removes the corresponding stored values at the user's next login. The stored claims aren't exposed by the Management API or the Portal API.
 * Both settings are also available through the Management API, as the `persistedClaimsWhitelist` array of the identity provider and the `claim_mappings` object of the client registration provider. An update that omits the field keeps the stored value.
 * For more information, see [Inject identity provider claims into DCR requests](../../configure-and-manage-the-platform/manage-organizations-and-environments/inject-identity-provider-claims-into-dcr-requests.md).
+
+#### **Kafka Topic Mapping: Dynamic rules with the `#topic` variable**
+
+* A mapping entry that sets only one of `client` and `broker` becomes a rule that applies to any topic, instead of the exact pair the policy has always required. The `#topic` expression variable carries the name the rule is resolving, so one entry can prefix, strip, or rewrite every topic without listing them.
+* Setting only `broker` makes a client-to-broker rule, with `#topic` bound to the client-side name. `{"broker": "dev-{#topic}"}` sends a client asking for `orders` to `dev-orders`.
+* Setting only `client` makes a broker-to-client rule, with `#topic` bound to the broker-side name, applied to broker topics in an all-topics listing. A rule whose expression returns null or a blank string opts out of that topic.
+* Exact pairs still win over rules, and among rules the declaration order decides. A topic resolves once per connection and keeps that result for the connection's lifetime.
+* Rules resolve the same way in `ALIAS` mode. A topic a broker-to-client rule renames is listed under both names, each with its own topic ID.
+* An entry that sets neither field, or references `#topic` in both, is rejected when the policy is created, and the message names the entry by its position in the list.
+* For more information, see [Kafka Topic Mapping](../../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md).
 
 ## Improvements
 

@@ -17,6 +17,31 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 #### 4.13.0
 
+**Kafka Topic Mapping policy: invalid mapping entries now stop an API from deploying**
+
+From 4.13.0, the Kafka Topic Mapping policy checks its mapping entries when the API is deployed. In 4.12 and earlier it checked nothing, so a configuration the policy can't act on deployed and then behaved unpredictably at runtime. An API that deploys today can therefore fail to deploy after the upgrade.
+
+Four kinds of entry are now refused:
+
+* An entry that sets neither `client` nor `broker`.
+* An entry that writes a plain name Kafka wouldn't accept as a topic name.
+* An entry that references `#topic` in both fields.
+* Two entries whose plain `broker` values are equal, or whose plain `client` values are equal.
+
+The last one is the likeliest to appear in a configuration that works today, because both fields are set and nothing previously objected to the duplicate.
+
+Each message names the entry by its position in the list, counting from zero. Before you upgrade, review every Kafka Topic Mapping policy against the four cases above. For the full set of checks and the messages they produce, see [Kafka Topic Mapping](../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md).
+
+At runtime, an exact pair whose expression resolves either side to nothing, or to a name Kafka wouldn't accept, now fails the connection with `INVALID_CONFIG`. Previously the resolved value was sent to the broker as it was.
+
+**Kafka Topic Mapping policy: A blank mapping field now defines a rule**
+
+From 4.13.0, a Kafka Topic Mapping entry that sets only one of `client` and `broker` is a rule that applies to any topic. A field set to a blank string counts as absent. In 4.12 and earlier, the policy resolved a topic by comparing the name the client used with the entry's `client` value. An entry whose `client` was blank therefore matched nothing and never applied.
+
+An entry left with a blank `client` therefore changes from inert to a client-to-broker rule that claims every topic the client names and sends each one to the value in `broker`. An entry left with a blank `broker` becomes a broker-to-client rule that relabels broker topics in an all-topics listing.
+
+The policy's configuration schema required both fields before 4.13.0. An affected entry is therefore one whose field was set to an empty string rather than omitted. Before you upgrade, review every Kafka Topic Mapping policy for an entry with a blank `client` or `broker`. Remove the entry, or set both fields, to keep the behavior you have today. For what a single-field entry now does, see [Kafka Topic Mapping](../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md).
+
 **The Gateway resolves the request path before it routes**
 
 From 4.13.0, the `http.pathHandling` Gateway setting defaults to `NORMALIZE`. In 4.12 and earlier the default was `RAW`. A deployment that upgrades without changing its configuration resolves request paths before it resolves the listener context path, and therefore before it enforces any plan.
