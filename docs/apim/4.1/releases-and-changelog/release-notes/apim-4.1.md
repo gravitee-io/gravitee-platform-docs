@@ -24,7 +24,7 @@ DB-less mode allows a Gateway to be deployed with no dependencies, assuming only
 
 You can enable Dead Letter Queue to define an external storage where each unsuccessfully pushed message will be stored and configure a replay strategy. A pre-existing and supported endpoint or endpoint group can be selected. This is an advanced configuration that requires having the endpoint already configured. Refer to the [configuration details](../../guides/api-configuration/v4-api-configuration/entrypoint-configuration.md#webhook) for more information.
 
-<figure><img src="../../.gitbook/assets/configure dlq.png" alt=""><figcaption><p>Configure DLQ</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/configure dlq.png" alt="The Dead Letter Queue settings of a message API, enabled, with the endpoint selector open listing the default MQTT 5.x and Solace endpoints and their groups."><figcaption><p>Configure DLQ</p></figcaption></figure>
 
 ### Endpoint management and defaults
 
@@ -62,8 +62,8 @@ A v4 API can now also be duplicated. Refer to [this page](../../guides/api-confi
 
 The Management Console now allows you to view comprehensive connection logs to analyze the usage of your v4 message APIs. The record will be paginated with no limit to the number of pages, and if logging is disabled, existing logs will still be displayed.
 
-<figure><img src="../../.gitbook/assets/runtime logs chron order.png" alt=""><figcaption><p>History of up-to-date runtime logs</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/runtime logs chron order.png" alt="The Runtime Logs page of an API, listing six requests that each ended with status 200, showing the entrypoint, application, subscriber, client identifier, and plan, with a View messages button on each row."><figcaption><p>History of up-to-date runtime logs</p></figcaption></figure>
 
 Runtime log settings can be modified to customize and extend the data capture. You can also drill into a log entry to view detailed message content. For more information on logging, refer to [this section](../../overview/gravitee-api-definitions-and-execution-engines/logging.md).
 
-<figure><img src="../../.gitbook/assets/runtime logs view messages.png" alt=""><figcaption><p>View messages for log details</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/runtime logs view messages.png" alt="The Messages panel of a runtime log, showing an entrypoint and an endpoint message with their request, client, and correlation identifiers and a JSON payload from Kafka."><figcaption><p>View messages for log details</p></figcaption></figure>

@@ -60,6 +60,6 @@ The following table lists the Bridge versions supported by each Gateway version.
 
 ## Architecture
 
-<figure><img src="../../.gitbook/assets/hybrid-classic-cloud-readme-25.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/hybrid-classic-cloud-readme-25.png" alt="A diagram splitting the platform into a Gravitee-managed control plane holding Cloud, the console, portal, management API, databases, alert engine, and SaaS gateways, and a customer-managed data plane holding the gateway, rate limit storage, and Logstash."><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/hybrid-classic-cloud-readme-26.png" alt="A diagram of a hybrid deployment, with a customer-hosted data plane of load-balanced gateways, backend services, Redis, and Logstash on the left, connected over HTTPS to a Gravitee-managed control plane of CloudGate, an S3 bucket, the management API, databases, consoles, and access management on the right."><figcaption></figcaption></figure>

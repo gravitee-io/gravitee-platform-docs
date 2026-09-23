@@ -134,7 +134,7 @@ To extract the value of the `price` property for the book with `title` "The Lord
 
 The Expression Language (EL) Assistant helps you write the EL expression needed for the field. You provide the Assistant with the prompt for the EL that you want, and then the assistant returns the corresponding EL for the prompt.
 
-<figure><img src=".gitbook/assets/anim.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/anim.gif" alt="An animation that edits a flow, filling in the path operator, path, and HTTP method before entering an expression-language condition that matches a request path."><figcaption></figcaption></figure>
 
 ### Prerequisites
 
@@ -180,14 +180,14 @@ Any field that supports Expression Language, supports the AI assistant.
 
 1.  In the field that supports expression language, click the **{EL}** icon.
 
-    <figure><img src=".gitbook/assets/304A887B-9FD1-4011-961A-7DB7D91D3478_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src=".gitbook/assets/304A887B-9FD1-4011-961A-7DB7D91D3478_1_201_a.jpeg" alt="The Create a new flow dialog open over the Policies page, with the expression-language assistant icon in the Condition field circled."><figcaption></figcaption></figure>
 2. In the **EL Assistant** pop-up window, type the prompt for the Expression Language that you want the AI assistant to generate. For example, only run this policy if the header equals test.
 3.  Click **Ask Newt AI**. The AI assistant generates the Expression Language.
 
-    <figure><img src=".gitbook/assets/DBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src=".gitbook/assets/DBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a.jpeg" alt="The Create a new flow dialog with the EL Assistant panel open, showing a plain-English description of the wanted condition and the generated expression-language snippet below it."><figcaption></figcaption></figure>
 4.  (Optional) Provide feedback about the answer. To provide feedback, click either the **thumbs u**p or the **thumbs down**.
 
-    <figure><img src=".gitbook/assets/6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src=".gitbook/assets/6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a.jpeg" alt="The Create a new flow dialog with the EL Assistant panel open and its &quot;Was the answer helpful?&quot; feedback row highlighted."><figcaption></figcaption></figure>
 
 ### Use case examples
 

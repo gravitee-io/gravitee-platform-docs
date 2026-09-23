@@ -21,7 +21,7 @@ For now, we just need to focus on the Gateway and the Console UI. The Gateway ac
 
 The first Gravitee concept you need to understand is Gateway APIs. As the name suggests, Gateway APIs are APIs deployed to the Gateway and are what your API consumers will call or subscribe to in order to retrieve data, functionality, etc., from your backend services or resources. Your backend services are essentially the data source or functionality that you want to expose to your consumers through the Gateway.
 
-<figure><img src="../../../.gitbook/assets/gateway apis_drawing.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gateway apis_drawing.png" alt="A hand-drawn diagram of three external clients calling the gateway through a firewall, the gateway calling a backend service, and the console configuring the gateway."><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 In this Quickstart Guide, the terms _Gateway API_ and _API_ are often used synonymously. However, when referring to an API server used as a backend service or resource, we use the term _backend API_.

@@ -58,7 +58,7 @@ To add a Quota policy to each plan of this API:
 2. Select the API to which you are applying policies
 3.  Select **Policies** from the inner left nav
 
-    <figure><img src="../.gitbook/assets/haley 1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 1.png" alt="The Policies page of a rate limit demo API, listing silver, gold, and platinum API key plans and a Common flows group, with no flows defined yet."><figcaption></figcaption></figure>
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
       <p><strong>Flows vs. policies</strong></p>
@@ -81,20 +81,20 @@ Add differentiated Quota policies to each plan per the instructions below.
     <figure><img src="../.gitbook/assets/haley 3.png" alt="The Policies page with a new flow selected under one of the API key plans, showing empty request and response phases between the HTTP proxy endpoints."><figcaption></figcaption></figure>
 5.  Use the search bar or scroll to navigate to the **Quota** policy, then click **Select**
 
-    <figure><img src="../.gitbook/assets/haley 5.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 5.png" alt="The Policies for Request phase dialog with a quota search, offering the Quota policy."><figcaption></figcaption></figure>
 6.  Toggle **Add response headers** ON and click **Save**
 
-    <figure><img src="../.gitbook/assets/haley 4.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 4.png" alt="The Quota policy configuration, described as the silver API key plan, with non-strict mode off, response headers on, and an empty quota key."><figcaption></figcaption></figure>
 7.  Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 100 requests per 1 month
 
-    <figure><img src="../.gitbook/assets/haley 6.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 6.png" alt="The Quota policy configuration scrolled to the limits, with a static maximum of 100 requests and a time duration of one month."><figcaption></figcaption></figure>
 8. Click **Add policy**
 9.  On the **Policies** page, click **Save**
 
-    <figure><img src="../.gitbook/assets/haley 7.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 7.png" alt="The Policies page with a Quota policy added to the request phase of the silver plan&#x27;s flow."><figcaption></figcaption></figure>
 10. Click **Deploy API** to redeploy the API and have the changes take effect
 
-    <figure><img src="../.gitbook/assets/haley 8.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 8.png" alt="An orange-bordered banner reading &quot;This API is out of sync.&quot; with a Deploy API button on the right."><figcaption></figcaption></figure>
 
 #### Gold Tier plan
 
@@ -115,17 +115,17 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
 1. Select the **+** icon next to **Common flows**
 2.  Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
 
-    <figure><img src="../.gitbook/assets/haley 9.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 9.png" alt="The Create a new flow dialog open over the Policies page of a rate limit demo API, with an empty flow name, the Equals path operator, all methods selected, and an empty condition."><figcaption></figcaption></figure>
 3. Click **Create**
 4.  Select the **+** icon within the request phase section. This lets us use the Rate Limit policy to limit the number of requests any API consumer can make to the API within a short period of time.
 
-    <figure><img src="../.gitbook/assets/haley 10.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 10.png" alt="The Policies page with a flow now listed under each of the three API key plans and under Common flows, the last one selected."><figcaption></figcaption></figure>
 5.  Use the search bar or scroll to navigate to the **Rate Limit** policy, then click **Select**
 
-    <figure><img src="../.gitbook/assets/haley 11.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 11.png" alt="The Policies for Request phase dialog with a rate limit search, offering the GraphQL Rate Limit and Rate Limit policies."><figcaption></figcaption></figure>
 6.  Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 5 requests per 1 second
 
-    <figure><img src="../.gitbook/assets/haley 12.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 12.png" alt="The rate limit policy configuration scrolled to the limits, with a static maximum of five requests and a time duration of one second."><figcaption></figcaption></figure>
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
       <p>The Rate Limit time period is shorter than the Quota time period.</p>
@@ -133,10 +133,10 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
 7. Click **Add policy**
 8.  On the **Policies** page, click **Save**
 
-    <figure><img src="../.gitbook/assets/haley 13.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 13.png" alt="The Policies page with a Rate Limit policy added to the Common flows request phase, described as applying to all API consumers."><figcaption></figcaption></figure>
 9.  Click **Deploy API** to redeploy the API and have the changes take effect
 
-    <figure><img src="../.gitbook/assets/haley 8.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 8.png" alt="An orange-bordered banner reading &quot;This API is out of sync.&quot; with a Deploy API button on the right."><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Congratulations! You have successfully added a Rate Limit policy that applies to all API consumers.
@@ -149,24 +149,24 @@ Now, let's mitigate traffic spikes and maintain quality of service for all consu
 1. Select the **+** icon next to **Common flows**
 2.  Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
 
-    <figure><img src="../.gitbook/assets/haley 9.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 9.png" alt="The Create a new flow dialog open over the Policies page of a rate limit demo API, with an empty flow name, the Equals path operator, all methods selected, and an empty condition."><figcaption></figcaption></figure>
 3. Click **Create**
 4.  Select the **+** icon within the request phase section to use the Spike Arrest policy to limit sudden spikes in traffic. Configured as a **Common flow**, the Spike Arrest policy applies to all API consumers.
 
-    <figure><img src="../.gitbook/assets/haley 15.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 15.png" alt="The Policies page with a second flow added under Common flows and selected, showing empty request and response phases."><figcaption></figcaption></figure>
 5.  Use the search bar or scroll to navigate to the **Rate Limit** policy, then click **Select**
 
-    <figure><img src="../.gitbook/assets/haley 14.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 14.png" alt="The Policies for Request phase dialog with a spike search, offering the Spike Arrest policy."><figcaption></figcaption></figure>
 6.  Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 100 requests per 1 second
 
-    <figure><img src="../.gitbook/assets/haley 16.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 16.png" alt="The spike arrest policy configuration, with response headers off, empty key and static limit fields, and a time duration of one second."><figcaption></figcaption></figure>
 7. Click **Add policy**
 8.  On the **Policies** page, click **Save**
 
-    <figure><img src="../.gitbook/assets/haley 17.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 17.png" alt="The Policies page with a Spike Arrest policy added to the request phase of the second Common flows flow."><figcaption></figcaption></figure>
 9.  Click **Deploy API** to redeploy the API and have the changes take effect
 
-    <figure><img src="../.gitbook/assets/haley 8.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 8.png" alt="An orange-bordered banner reading &quot;This API is out of sync.&quot; with a Deploy API button on the right."><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Congratulations! You have successfully added a Spike Arrest policy that applies to all API consumers.
@@ -183,21 +183,21 @@ Rate limiting policies can also be added during [Step 4: Security](../guides/cre
       <p>All created APIs will include a <strong>Default Keyless (UNSECURED)</strong> plan. You may modify or delete this plan.</p>
     </div>
 
-    <figure><img src="../.gitbook/assets/haley 18.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 18.png" alt="Step 4 of the API creation wizard, listing one default keyless plan in standard mode with Add plan and Validate my plans buttons."><figcaption></figcaption></figure>
 3. Click **API Key**
 4.  Enter a plan **Name**, **Description** (optional), and modify **Subscriptions** and **Access-Control** (optional)
 
-    <figure><img src="../.gitbook/assets/haley 19.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 19.png" alt="The General step of plan creation, with a silver API key plan named, empty description and characteristics, and both subscription toggles switched off."><figcaption></figcaption></figure>
 5.  Click **Next**, then optionally propagate the API Key to upstream API or add a selectional rule
 
-    <figure><img src="../.gitbook/assets/haley 20.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 20.png" alt="The API Key authentication configuration step, with API key propagation switched off above an empty additional selection rule field."><figcaption></figcaption></figure>
 6.  Click **Next** to add Quota and/or Rate Limit policies
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
       <p>The Spike Arrest policy cannot be added during the API creation process.</p>
     </div>
 
-    <figure><img src="../.gitbook/assets/haley 21.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 21.png" alt="The Restriction step of plan creation, with rate limiting, quota, and resource filtering all switched off and an Add plan button."><figcaption></figcaption></figure>
 7.  Toggle Rate Limiting and/or Quota ON to configure rate limiting policies for the plan
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
@@ -205,11 +205,11 @@ Rate limiting policies can also be added during [Step 4: Security](../guides/cre
     </div>
 8. Configure the plan:
 
-    <figure><img src="../.gitbook/assets/haley 22.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 22.png" alt="The Restriction step with rate limiting enabled, keyed to the silver plan, limited to five requests per second, and quota enabled below."><figcaption></figcaption></figure>
 
     * Enter a **Key** to specify the consumer group against which the policy will be applied (leave blank to use the default plan/subscription pair)
     * Enter values for **Max requests (static)**, **Time duration**, and **Time unit** intended for that consumer group
 8. Click **Add plan**
 9.  Add additional plans or select **Validate my plans** to continue with the API creation process
 
-    <figure><img src="../.gitbook/assets/haley 23.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/haley 23.png" alt="Step 4 of the API creation wizard, listing a default keyless plan and a silver API key plan, both in standard mode."><figcaption></figcaption></figure>

@@ -46,7 +46,7 @@ To install Edge stack agent, you must complete the following steps:
     <figure><img src="../../../.gitbook/assets/85E11164-ADD0-4235-8743-4987417C8312.jpeg" alt="The Integrations page, empty, with an illustration, a message reading &quot;No integrations yet&quot;, and the Create Integration button highlighted."><figcaption></figcaption></figure>
 3.  Click **Edge Stack**, and then click **Next**.
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-36-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-36-1.png" alt="The console dashboard with Organization highlighted at the foot of the left navigation, showing 2,280 APIs and 732 applications with lifecycle and state pie charts."><figcaption></figcaption></figure>
 4. In the **Create Integration** screen, type the name of the integration.
 5. (Optional) Type a description for the integration.
 6.  Click **Create** **Integration**.

@@ -246,6 +246,13 @@ Automation API is not enabled by default. On premise Helm Charts users must enab
 * Select one or more tenants. The log search returns only the entries recorded with a matching tenant.
 * Combine the Tenant filter with the other log filters to scope an investigation to the tenants you operate.
 
+#### **Assign Metrics for LLM proxy and A2A proxy APIs**
+
+* From APIM 4.12.18, the [Assign Metrics](../../create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md) policy can be applied to v4 LLM proxy and A2A proxy APIs, in the request and response phases.
+* On an LLM proxy API, the policy evaluates response-phase metrics once the response body has finished streaming. A metric can therefore read the token counts and costs that the endpoint publishes while the response streams, through the `llmproxy.usage.sent.token`, `llmproxy.usage.received.token`, `llmproxy.usage.sent.cost`, and `llmproxy.usage.received.cost` context attributes.
+* Each metric is still evaluated once per request, and the Gateway relays the response to the client chunk by chunk. If the response stream fails part way through, the Gateway records each metric from the values published up to that point.
+* Every other API type evaluates response-phase metrics when the response phase runs, unchanged.
+
 ## Improvements
 
 #### **Policy Description Tracing**

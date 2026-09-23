@@ -28,10 +28,10 @@ These settings can be overridden by logging settings that are applied at the ind
 
 1.  From the **Dashboard**, click **Settings**.
 
-    <figure><img src="../.gitbook/assets/CFB0E2FD-AF9C-4175-80FF-C1F227860D8A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/CFB0E2FD-AF9C-4175-80FF-C1F227860D8A_1_201_a.jpeg" alt="The console dashboard with Settings highlighted in the left navigation, showing 2,960 APIs and 803 applications with lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  In the **Settings** menu, click **API Logging**.
 
-    <figure><img src="../.gitbook/assets/0AA53CCF-8D03-400B-8BB2-A3081C3FDCFD_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/0AA53CCF-8D03-400B-8BB2-A3081C3FDCFD_1_201_a.jpeg" alt="The portal Analytics settings with API Logging highlighted in the Gateway section of the settings menu, listing nine platform dashboards."><figcaption></figcaption></figure>
 
 Configurable settings are grouped in the following categories:
 
@@ -120,7 +120,7 @@ You can modify logging information can be modified by configuring the options un
     <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt="The Runtime Logs page of an API, listing seven requests with their timestamp, method, status, URI, application, plan, and response time, with Logs highlighted in the API menu."><figcaption></figcaption></figure>
 4.  Click **Configure Reporting**.
 
-    <figure><img src="../.gitbook/assets/4BE464F6-77A8-4B28-AFDB-EC8790CA8E94_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/4BE464F6-77A8-4B28-AFDB-EC8790CA8E94_1_201_a.jpeg" alt="The Runtime Logs page of an API, with the Configure Reporting button highlighted above seven requests that each returned 200 on a default keyless plan."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance. Sampling is used to avoid excessive resource consumption and is only relevant to v4 message APIs.
@@ -137,7 +137,7 @@ To configure which information is recorded, select from the following options:
   * **Temporal:** Messages are sampled based on a specified time duration value that conforms to ISO-8601 format.
 *   **Display conditions:** You have the ability to filter the message data based on **Request phase condition** and **Message condition**. Each of these fields supports the use of [Gravitee Expression Language](../gravitee-expression-language.md).
 
-    <figure><img src="../.gitbook/assets/analytics-logging-1-364.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analytics-logging-1-364.png" alt="The runtime logging settings, enabled, with entrypoint and endpoint modes, request and response phases, and all four content data options switched on, message sampling set to Count, and OpenTelemetry tracing switched off."><figcaption></figcaption></figure>
 
 #### Configure sampling methods with `gravitee.yml`
 
@@ -178,7 +178,7 @@ To configure which information is recorded, select from the following options:
 * **Content data:** Select from **Headers** and **Payload** to customize which data is logged.
 *   **Display conditions:** You have the ability to filter data based on **Request phase condition**. This field supports the use of [Gravitee Expression Language](../gravitee-expression-language.md).
 
-    <figure><img src="../.gitbook/assets/analytics-logging-1-365.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analytics-logging-1-365.png" alt="The runtime logging settings, enabled, with every logging mode, phase, and content data option switched off, an empty request phase condition, and OpenTelemetry tracing disabled."><figcaption></figcaption></figure>
 
 ### View messages
 
@@ -186,13 +186,13 @@ To view the details of any entry in the list of runtime logs:
 
 1.  From the **Dashboard**, click **APIs**.
 
-    <figure><img src="../.gitbook/assets/7142A579-577C-48F7-BF1F-35F6229DBB88_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/7142A579-577C-48F7-BF1F-35F6229DBB88_1_201_a.jpeg" alt="The console dashboard with APIs highlighted in the left navigation, showing 2,978 APIs and 805 applications with lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  Select the API that you want to view the runtime logs for.
 
-    <figure><img src="../.gitbook/assets/analytics-logging-1-366.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analytics-logging-1-366.png" alt="The APIs list showing the first page of 2,952 APIs, with their type, status, access path, quality score, sharding tags, categories, and owner."><figcaption></figcaption></figure>
 3.  Click **Logs**. You are shown a list of API logs.
 
-    <figure><img src="../.gitbook/assets/analytics-logging-1-367.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analytics-logging-1-367.png" alt="The Runtime Logs page of an API, with Logs highlighted in the API menu, listing seven requests that each returned 200 on a default keyless plan."><figcaption></figcaption></figure>
 4.  Click **the eye symbol** next to the log that you want to view the details of.
 
     <figure><img src="../.gitbook/assets/321F6892-812F-4DAA-AEE6-0CA0C44BEFF4_1_201_a.jpeg" alt="The Runtime Logs page of an API, with the view icon on the first row highlighted, listing requests whose API key is visible in the URI."><figcaption></figcaption></figure>
@@ -217,7 +217,7 @@ In the logs screen, you see the following information about your API logs:
 
 The overview section provides information about the Request and Response phase of the API.
 
-<figure><img src="../.gitbook/assets/analytics-logging-1-368.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/analytics-logging-1-368.png" alt="A log detail page showing the request date, host, method, URI, identifiers, and remote IP beside a 200 response with its timings and content length."><figcaption></figcaption></figure>
 
 **More details**
 

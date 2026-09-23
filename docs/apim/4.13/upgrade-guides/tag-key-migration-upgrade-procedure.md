@@ -61,8 +61,10 @@ After migration:
 - New tags and tenants created via the API require a `key` field in the request body.
 - API clients that create new tags or tenants and store the `id` for later reference need to use the `key` for subsequent operations (GET, PUT, DELETE), not the UUID `id`.
 
-For the full list of affected endpoints, see [Tag entity schema and key field reference](../configure-and-manage-the-platform/gravitee-gateway/tag-entity-schema-and-key-field-reference.md#rest-api-endpoints).
+{% hint style="warning" %}
+If either migration fails, the Management API logs the failure, stops, and exits with a non-zero status, so the platform doesn't finish starting.
 
-{% hint style="info" %}
-If the migration encounters an error, it logs a failure message and the platform continues to start. Check the application logs for details and contact support if tag operations don't work as expected after upgrade.
+Migrations that run after the failed one are skipped, so a failure in the tag migration leaves tenants unmigrated. The failure isn't recorded, so the migration runs again the next time the Management API starts.
+
+Both migrations are idempotent, so running them again is safe. Check the logs for the upgrader failure and resolve the underlying problem before you restart.
 {% endhint %}

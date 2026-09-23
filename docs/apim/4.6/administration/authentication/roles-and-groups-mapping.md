@@ -33,7 +33,7 @@ Ultimately, defining groups helps you to assign roles more efficiently for the u
 Users are assigned to Groups.  Groups are added to an API, and then configured with a specific Role.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/admin-auth-roles-and-groups-mapping-149.png" alt=""><figcaption><p>APIM Console - adding group(s) to the User Permissions page of an API.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/admin-auth-roles-and-groups-mapping-149.png" alt="The Manage groups dialog open over an API&#x27;s User Permissions tab, with one group selected, above a panel listing the members inherited from that group."><figcaption><p>APIM Console - adding group(s) to the User Permissions page of an API.</p></figcaption></figure>
 
 ### Creating a Group and Role Mapping
 
