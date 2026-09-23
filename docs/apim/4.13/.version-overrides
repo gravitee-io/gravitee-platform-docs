@@ -111,3 +111,7 @@ analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md
 # Assign Metrics on LLM proxy APIs: policy compatibility matrix differs from 4.12 (APIM-12722)
 create-and-configure-apis/apply-policies/README.md
+
+# Kafka Topic Mapping dynamic #topic rules, policy 2.2.0 = 4.13 only (ESM-138)
+create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md
+.gitbook/assets/kafka-topic-mapping-client-to-broker-rule.png
