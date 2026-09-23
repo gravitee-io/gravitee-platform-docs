@@ -9,6 +9,7 @@
   * [Create your first LLM Proxy](get-started/create-your-llm-proxy.md)
   * [Configure your Access Management instance](build/configure-your-access-management-instance.md)
   * [Installation guides](https://documentation.gravitee.io/platform-management/install)
+  * [Release Notes](https://documentation.gravitee.io/platform-management/gamma-release-notes)
 * [Import](import/README.md)
   * [Integrations](import/integrations/README.md)
     * [Connect integrations](import/connect-integrations.md)
