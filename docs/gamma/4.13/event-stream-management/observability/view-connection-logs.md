@@ -150,8 +150,7 @@ A **Message API** shows a **Runtime logs are disabled** warning. It records noth
 
 Both banners link to the API's **Reporter Settings**, where you switch reporting on.
 
-<!-- TODO: Screenshot of the Connection metrics are disabled banner on a Kafka Service -->
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-esm-observability-metrics-disabled.png" alt=""><figcaption><p>A Kafka Service that reports nothing says so on its own page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/esm-observability-metrics-disabled.png" alt="The Overview page of a Kafka Service showing the Connection metrics are disabled warning, which links to Reporter Settings"><figcaption><p>A Kafka Service that reports nothing says so on its own page</p></figcaption></figure>
 
 ## Verification
 
