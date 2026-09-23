@@ -8,8 +8,7 @@ description: Open a failed Kafka connection from the logs and read the verdict t
 
 Opening a Kafka row on the **Logs** page of **Observability** leads with a verdict. One plain sentence says what happened, a badge says which hop it happened on, and an error the gateway recognizes also gets a next step.
 
-<!-- TODO: Screenshot of a failed Kafka connection detail with the verdict header -->
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-esm-observability-log-detail.png" alt=""><figcaption><p>A failed connection opens on the verdict rather than on raw fields</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/esm-observability-log-detail.png" alt="A failed Kafka connection detail opening on a Connection error verdict labelled Gateway and Broker, above the collapsed Client to Gateway, Gateway to Broker, Error, Service activity, and Raw record sections"><figcaption><p>A failed connection opens on the verdict rather than on raw fields</p></figcaption></figure>
 
 ## Open a connection
 

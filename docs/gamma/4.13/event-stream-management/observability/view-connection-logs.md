@@ -8,8 +8,7 @@ description: List what the gateway recorded for your Kafka Services and Message 
 
 The **Logs** page of **Observability** lists what the gateway recorded across every API in the environment, newest first, with a chart of the same rows above the table. One row is one Kafka connection, or one request that opened a Message API stream.
 
-<!-- TODO: Screenshot of the Observability Logs page with the chart and the table -->
-<figure><img src="../../../.gitbook/assets/PLACEHOLDER-esm-observability-logs.png" alt=""><figcaption><p>The Logs page lists connections and requests across the environment</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/esm-observability-logs.png" alt="The Logs page of Observability, with a connection chart above a table whose rows carry the Timestamp, Error Key, API, API Type, Application, and Plan columns of the Common column set"><figcaption><p>The Logs page lists connections and requests across the environment</p></figcaption></figure>
 
 ## Open the logs
 
