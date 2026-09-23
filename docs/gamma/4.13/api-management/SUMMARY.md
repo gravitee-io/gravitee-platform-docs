@@ -5,6 +5,9 @@
   * [Create your first API](get-started/create-your-first-api.md)
   * [Installation guides](https://documentation.gravitee.io/platform-management/install)
 
+* [Deploy](deploy/README.md)
+  * [Gateway benchmarks](deploy/gateway-benchmarks.md)
+
 ## Manage
 
 * [API proxies](manage/api-proxies/README.md)
