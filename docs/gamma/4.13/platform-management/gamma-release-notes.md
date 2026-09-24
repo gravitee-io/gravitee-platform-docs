@@ -278,12 +278,12 @@ Event Stream Management adds the Kafka Explorer and a duplication path for Kafka
 
 #### Observability for Kafka Services and Message APIs
 
-* The Event Stream Management sidebar adds an **Observability** group holding **Dashboards**, **Logs**, and **Tracing**. All three read what the gateway already reported, and all three are scoped to the Kafka Services and Message APIs of the environment.
-* **Logs** lists the connections and requests recorded across these APIs, newest first, with a column set for each family.
+* The Event Stream Management sidebar adds an **Observability** group holding **Dashboards**, **Logs**, and **Tracing**. All three read what the gateway already reported, and all three show only the Kafka Services and Message APIs of the environment.
+* **Logs** lists the connections and requests recorded for these APIs, newest first, with columns for Kafka Services and for Message APIs.
 * Opening a failed Kafka connection leads with a plain-language message naming what broke, a badge naming where, and, for an error the gateway recognizes, what to do next.
-* **Dashboards** ships a health board and a traffic board for each family.
+* **Dashboards** ships a health dashboard and a traffic dashboard for Kafka Services and for Message APIs.
 * **Tracing** follows one API at a time, with two Kafka-specific filters.
-* Each Kafka Service and Message API links straight to its own logs, health board, and traces. An API that reports nothing says so on its own page and links to its **Reporter Settings**.
+* Each Kafka Service and Message API gains **Dashboard**, **Logs**, and **Tracing** under **Observability** in its own sidebar. An API that reports nothing says so on its own page and links to its **Reporter Settings**.
 * See [Observability](../event-stream-management/observability/README.md).
 
 ### Platform Management
