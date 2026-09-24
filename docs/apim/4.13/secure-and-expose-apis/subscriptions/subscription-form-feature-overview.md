@@ -6,7 +6,7 @@ description: The subscription form lets an API Management 4.13 publisher collect
 
 ## Overview
 
-The subscription form feature enables API publishers to define a custom form that API consumers complete when subscribing to API plans. Forms are authored in Gravitee Markdown (GMD) and collect structured metadata stored with each subscription. This feature replaces the legacy comment field from the Classic Portal.
+The subscription form feature enables API publishers to define custom forms that API consumers complete when subscribing to API plans. Forms are authored in Gravitee Markdown (GMD) and collect structured metadata stored with each subscription. An environment can hold several forms, and each form applies to the APIs you assign to it. This feature replaces the legacy comment field from the Classic Portal.
 
 ## Key concepts
 
@@ -113,14 +113,16 @@ When an API consumer submits a subscription form, the form field values are stor
 Metadata belongs to the subscription, not to the form itself. Each subscription stores its own metadata based on the form field values submitted at subscription time.
 {% endhint %}
 
-### Form visibility
+### Forms and APIs
 
-Each environment has one subscription form. The **Visible to API consumers** toggle in the Console controls whether the form appears in the Developer Portal. When disabled, the form remains accessible via Management API but returns 404 from the Portal API.
+An environment holds a list of subscription forms, each with a name that's unique in the environment. You assign each form to the APIs it applies to, and an API belongs to one form at most. The Developer Portal shows an API's form when a consumer subscribes to that API, provided the form is visible. An API with no assigned form, or whose form is hidden, has no subscription form.
 
-Subscription forms aren't displayed for Keyless plans. In the Portal checkout flow, the form only renders when the selected plan requires authentication (API Key, OAuth2, JWT, or mTLS).
+The **Visible** toggle of each form in the Console controls whether consumers see it. A new form is hidden. When a form is hidden, it remains available through the Management API, and the Portal API returns 404 for the APIs assigned to it.
+
+Subscription forms aren't displayed for Keyless plans or for API Product plans.
+
+For the procedures, see [Creating and managing subscription forms](creating-and-managing-subscription-forms.md).
 
 ## Prerequisites
 
-- `environment-metadata-r` permission to view subscription forms
-- `environment-metadata-u` permission to create, update, enable, or disable subscription forms
-- Portal authentication required to retrieve subscription forms via Portal API
+- The New Developer Portal is enabled for the environment.
