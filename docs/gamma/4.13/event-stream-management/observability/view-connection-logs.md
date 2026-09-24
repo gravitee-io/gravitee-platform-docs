@@ -67,7 +67,8 @@ Click a row to see why it failed. See [Diagnose a failed Kafka connection](diagn
 An API records nothing until reporting is on, and its **Overview** page shows a warning until then. The warning links to the API's **Reporter Settings**, where you turn reporting on.
 
 * A Kafka Service shows **Connection metrics are disabled** until both **Enable event-metrics reporting** and **Enable connection-metrics reporting** are on.
-* A Message API shows **Runtime logs are disabled** until the switch on its **Settings** card is on, **Entrypoint** or **Endpoint** is on under **Logging mode**, and **Request** or **Response** is on under **Logging phase**.
+* A Message API shows **Runtime reporting is disabled** until the switch on its **Settings** card is on. That switch alone is what puts its connections in this list.
+* A Message API that reports but captures no **Logging mode** or no **Logging phase** shows **Message content is not recorded** instead. Its connections are listed here, and each row opens with an empty **Messages** section.
 
 <figure><img src="../../.gitbook/assets/esm-observability-metrics-disabled.png" alt="The Overview page of a Kafka Service showing the Connection metrics are disabled warning, which links to Reporter Settings"><figcaption><p>A Kafka Service that reports nothing says so on its own page</p></figcaption></figure>
 
