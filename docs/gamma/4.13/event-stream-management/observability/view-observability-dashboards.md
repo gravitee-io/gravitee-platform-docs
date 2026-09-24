@@ -6,9 +6,9 @@ description: Open a prebuilt board for the health or the traffic of your Kafka S
 
 # View observability dashboards
 
-The **Dashboards** page of **Observability** lists the boards you can open. Event Stream Management ships four, two per family, and they read the same reported data the logs do.
+Event Stream Management ships four dashboards: a health board and a traffic board for Kafka Services, and the same pair for Message APIs. Open a health board to see what's failing and where, or a traffic board to see volumes.
 
-<figure><img src="../../.gitbook/assets/esm-observability-dashboards.png" alt="The Dashboards page of Observability, listing the Health and Traffic template boards for Kafka Services and for Message APIs with their descriptions"><figcaption><p>The Dashboards page lists the boards Event Stream Management ships</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/esm-observability-dashboards.png" alt="The Dashboards page of Observability, listing a custom dashboard above the Health and Traffic templates for Kafka Services and for Message APIs"><figcaption><p>The Dashboards page lists the four templates and any custom dashboard saved in the environment</p></figcaption></figure>
 
 ## Open a dashboard
 
@@ -17,99 +17,14 @@ The **Dashboards** page of **Observability** lists the boards you can open. Even
 3. Click **Dashboards**.
 4. Select the board you want.
 
-**Dashboards** is the first item in the group, so opening **Observability** without picking an item lands here rather than on the logs.
-
-## The boards
-
-<table>
-    <thead>
-        <tr>
-            <th width="150">Family</th>
-            <th width="120">Board</th>
-            <th>What it answers</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Kafka Service</td>
-            <td><strong>Health</strong></td>
-            <td>Connection health, availability, and latency of the Kafka Services: what is failing, where, and for whom.</td>
-        </tr>
-        <tr>
-            <td>Kafka Service</td>
-            <td><strong>Traffic</strong></td>
-            <td>Volumes, throughput, and usage of the Kafka Services exposed by the gateway: who produces and who consumes.</td>
-        </tr>
-        <tr>
-            <td>Message API</td>
-            <td><strong>Health</strong></td>
-            <td>Where Message APIs fail: refused connections, message errors, and how long the gateway holds a message.</td>
-        </tr>
-        <tr>
-            <td>Message API</td>
-            <td><strong>Traffic</strong></td>
-            <td>Volumes, direction, and connectors of the Message APIs exposed by the gateway: what flows, and through what.</td>
-        </tr>
-    </tbody>
-</table>
-
-Each board's title on screen joins the two, as in the health board for Kafka Services.
-
-The Kafka health board breaks failures down by the side that caused them, and ranks the Kafka Services in error alongside the failing clients and client libraries. The Kafka traffic board reports messages and data volume per interval. It also ranks the services, topics, and applications that produce and consume the most.
+To open the health board for one API, open the API from **Kafka Services** or **Message APIs** and click its dashboard link. The board opens filtered to that API over the last 24 hours.
 
 ## Narrow a board
 
-The filters work like the ones on the logs, grouped by the family they apply to. A few are specific to a board rather than to the logs.
+Boards offer three Kafka filters that the logs don't: **Failure Side**, **Kafka Topic**, and **Kafka Operation**. **Failure Side** is the dashboard counterpart of the logs filter **Failure Origin**. **Kafka Topic** and **Kafka Operation** don't suggest values, so type the one you want.
 
-<table>
-    <thead>
-        <tr>
-            <th width="230">Filter</th>
-            <th>Narrows to</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Failure Side</strong></td>
-            <td>The hop that broke. This is the dashboard counterpart of the logs filter named <strong>Failure Origin</strong>.</td>
-        </tr>
-        <tr>
-            <td><strong>Kafka Topic</strong></td>
-            <td>One or more topics. Offered on a board only.</td>
-        </tr>
-        <tr>
-            <td><strong>Kafka Operation</strong></td>
-            <td>One or more Kafka operations. Offered on a board only.</td>
-        </tr>
-        <tr>
-            <td><strong>Native Connection Status</strong></td>
-            <td>One or more of the five connection statuses. Offered on a board and on the logs.</td>
-        </tr>
-    </tbody>
-</table>
+## Custom dashboards
 
-**Kafka Topic** and **Kafka Operation** don't offer a list of values to pick from, so type the value you want.
+You can't create, edit, or delete a dashboard in Event Stream Management. Custom dashboards saved in the same environment still appear in the list, marked **Custom**, for a role that can read the environment's dashboards, and you can open them here. Agent Management and the Gamma API both save custom dashboards. See [Build a custom dashboard](../../agent-management/observe/dashboards/build-a-custom-dashboard.md) and [Save observability dashboards with the Gamma API](../../platform-management/save-observability-dashboards.md).
 
-## Open the dashboard for one API
-
-Each Kafka Service and each Message API links to its own health board.
-
-1. Open the API from **Kafka Services** or **Message APIs**.
-2. Click the dashboard link on the API's page.
-
-The board opens filtered to that API over the last 24 hours, on the health board for that API's family.
-
-## What you can't do here
-
-Event Stream Management ships these four boards read-only. The **Dashboards** page of this module doesn't create, edit, or delete a board, so there's no way to save a custom one alongside the templates.
-
-A board carries no link back to the matching logs. To go from a board to the rows behind it, open **Logs** and apply the same filters.
-
-## Verification
-
-To verify a board is reading your traffic, follow these steps:
-
-1. Open **Observability**, then click **Dashboards**.
-2. Select the traffic board for Kafka Services.
-3. Set the time range to a period when a client was producing or consuming.
-4. Confirm the messages per interval chart is populated rather than empty.
+The four templates don't link back to the logs behind them. To see those rows, open **Logs** and apply the same filters.

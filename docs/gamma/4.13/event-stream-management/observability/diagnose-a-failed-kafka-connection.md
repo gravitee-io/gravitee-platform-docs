@@ -6,7 +6,7 @@ description: Open a failed Kafka connection from the logs and read the verdict t
 
 # Diagnose a failed Kafka connection
 
-Opening a Kafka row on the **Logs** page of **Observability** leads with a verdict. One plain sentence says what happened, a badge says which hop it happened on, and an error the gateway recognizes also gets a next step.
+Open a failed Kafka connection from the logs to see what broke, where it broke, and, for an error the gateway recognizes, what to do next.
 
 <figure><img src="../../.gitbook/assets/esm-observability-log-detail.png" alt="A failed Kafka connection detail opening on a Connection error verdict labelled Gateway and Broker, above the collapsed Client to Gateway, Gateway to Broker, Error, Service activity, and Raw record sections"><figcaption><p>A failed connection opens on the verdict rather than on raw fields</p></figcaption></figure>
 
@@ -17,60 +17,19 @@ Opening a Kafka row on the **Logs** page of **Observability** leads with a verdi
 3. Click **Logs**.
 4. Click the row you want to inspect.
 
-The detail opens beside the table, and you can step through neighboring rows without closing it.
-
 ## Read the verdict
 
-The sentence at the top says what failed, and the badge next to it says where. The sentence never repeats the hop, so read the two together.
+The detail opens on a one-line verdict that says what failed, with a badge that says where. The sections below it split the evidence between the client-to-gateway hop and the gateway-to-broker hop.
 
-A connection that didn't fail gets a plain statement instead: that it was established, that the client disconnected, or that its status is unknown for the request.
-
-A connection counts as failed when its status is **Connection error**, **Session error**, or **Internal error**, or when it carries an error key at all. A row that reads **Connected** and still carries an error key is a failure, and the verdict treats it as one.
-
-## Read the sections
-
-Below the verdict, the detail separates the two hops so you can see which side holds the evidence.
-
-<table>
-    <thead>
-        <tr>
-            <th width="200">Section</th>
-            <th>What it holds</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>The client-to-gateway section</td>
-            <td>What the Kafka client presented to the gateway, and how the gateway saw it.</td>
-        </tr>
-        <tr>
-            <td>The gateway-to-broker section</td>
-            <td>What the gateway did toward the broker on the other side.</td>
-        </tr>
-        <tr>
-            <td><strong>Error</strong></td>
-            <td>The error fields, badged with the error key, plus the message the gateway recorded. Shown only on a failed connection.</td>
-        </tr>
-        <tr>
-            <td><strong>Service activity</strong></td>
-            <td>What the Kafka Service was doing around the time of this connection.</td>
-        </tr>
-        <tr>
-            <td><strong>Raw record</strong></td>
-            <td>The stored record behind the view.</td>
-        </tr>
-    </tbody>
-</table>
-
-The table row and the detail word the hop differently. The row badge reads **Client ↔ Gateway** and **Gateway ↔ Broker**. The detail's two hop headings pair the same names with a one-way arrow instead, because each describes a single direction.
+A connection counts as failed when its status is **Connection error**, **Session error**, or **Internal error**, or when it carries an error key. A connection that reads **Connected** but carries an error key is still a failure.
 
 ## What each error key means
 
-An error the gateway recognizes gets a sentence and a next step. An error it doesn't recognize is shown with its key turned into readable words, and no next step.
+An error the gateway recognizes gets a next step. An error it doesn't recognize shows its key as plain words, with no next step.
 
 ### Client to gateway
 
-These fail before the gateway ever reaches a broker, and the fix is on the client or the plan.
+These fail before the gateway reaches a broker. Fix them on the client or the plan.
 
 <table>
     <thead>
@@ -106,7 +65,7 @@ These fail before the gateway ever reaches a broker, and the fix is on the clien
 
 ### Gateway to broker
 
-These mean the gateway reached the broker and the broker refused, or couldn't answer.
+These fail between the gateway and the broker.
 
 <table>
     <thead>
@@ -200,12 +159,3 @@ These are usually transient, and they resolve without intervention.
         </tr>
     </tbody>
 </table>
-
-## Verification
-
-To verify a diagnosis points where you expect, follow these steps:
-
-1. Connect a Kafka client with an incorrect password to a Kafka Service on a secured plan.
-2. Open **Observability**, then click **Logs**.
-3. Open the new row.
-4. Confirm the verdict reads that SASL authentication failed, and that the badge places the failure between the client and the gateway.
