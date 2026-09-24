@@ -14,14 +14,12 @@ The **Observability** group of the Event Stream Management sidebar holds **Dashb
 
 A failed Kafka connection opens on a plain-language message that says what went wrong, and a badge that says where. See [Diagnose a failed Kafka connection](diagnose-a-failed-kafka-connection.md).
 
-An environment that enables API scoring also renders an **API Score** item in this group. It isn't covered here.
-
 ## What the group covers
 
 **Dashboards** and **Logs** show Kafka Services and Message APIs only, never your HTTP proxies, LLM proxies, or other APIs. **Tracing** works on one API at a time, picked from the started Kafka Services and Message APIs of the environment.
 
 ## What you need
 
-* A role with read access to the environment's APIs or dashboards. Without either, the **Observability** group isn't shown.
+* A role with read access to the environment's APIs or dashboards. Without either, none of these three items is shown. An environment that also enables API scoring keeps an **API Score** item in this group either way.
 * For **Tracing**, read access to the environment's APIs. A role that reads only dashboards gets **Dashboards** and **Logs**, and no **Tracing** item.
 * Reporting switched on for each API you want to see. An API that reports nothing produces no logs and no dashboard data, and its **Overview** page says so. See [View connection logs](view-connection-logs.md#why-an-api-shows-nothing).
