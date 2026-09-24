@@ -258,7 +258,7 @@ Edge Management replaces the single configuration page and its flat lists of DNS
 
 ### Event Stream Management
 
-Event Stream Management adds the Kafka Explorer and a duplication path for Kafka Services. The Kafka Explorer reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
+Event Stream Management adds Message APIs, the Kafka Explorer, and a duplication path for Kafka Services. Message APIs connect clients to message backends such as Kafka, MQTT 5.x, Solace, and RabbitMQ. The Kafka Explorer reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
 
 #### Duplicate a Kafka service
 
@@ -266,6 +266,17 @@ Event Stream Management adds the Kafka Explorer and a duplication path for Kafka
 * Provide a name, a version, and a new listener host prefix for the copy. The host prefix is unique per environment, and the source service's prefix counts as already in use.
 * The new service is created in a stopped state and without plans, so you control when it starts accepting connections.
 * See [Duplicate a Kafka service](../event-stream-management/build/duplicate-a-kafka-service.md).
+
+#### Message APIs
+
+* The **Build** group of the Event Stream Management sidebar adds **Message APIs**. A Message API is a v4 API that connects clients to a message backend. Its entrypoints, such as **HTTP GET**, **HTTP POST**, **Server-Sent Events**, and **Webhook**, set how clients connect. Its endpoints, such as **Kafka**, **MQTT 5.x**, **Solace**, and **RabbitMQ**, set the backend that it produces to and consumes from.
+* **Create Message API** opens a five-step wizard that picks the entrypoints, the endpoints, and the plans. The wizard can deploy the Message API or submit it for review as soon as it's created. **Import** creates a Message API from a Gravitee v4 API definition, as a local file or a remote URL.
+* Each Message API opens on a sidebar with the groups **General**, **Design**, **Consumers**, **Monitoring**, **Observability**, and **Operations**. Its **Overview** page tracks the setup in a five-item checklist.
+* The **Design** group configures the entrypoints and the context path, the flows of the Policy Studio, the endpoints and failover, the response templates, the resources, the API properties, and CORS. The Policy Studio applies policies to the **Initial Connection** and to the **Event Messages** that clients publish and consume.
+* The **Consumers** group manages Keyless, API key, OAuth2, JWT, mTLS, and Push plans, the subscriptions and their API keys, and one-off broadcasts to consumers.
+* The **Monitoring** group holds the notifications, the runtime alerts, the audit logs, and the API Score when the environment uses it. The **Operations** group holds the sharding tags, the deployment history, and the reporter settings.
+* The creation wizard requires a license that includes the `apim-en-message-reactor` feature.
+* See [Message APIs](../event-stream-management/build/message-apis/README.md).
 
 #### Kafka Explorer
 
