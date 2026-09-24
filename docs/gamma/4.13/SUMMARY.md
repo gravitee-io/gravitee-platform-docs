@@ -169,6 +169,7 @@
   * [AI Workspaces](agent-management/build/ai-workspaces/README.md)
     * [Create an AI workspace](agent-management/build/create-an-ai-workspace.md)
     * [Add models to an AI workspace](agent-management/build/add-models-to-an-ai-workspace.md)
+    * [Configure AI workspace routing](agent-management/build/configure-ai-workspace-routing.md)
     * [Manage AI workspace budgets](agent-management/build/manage-ai-workspace-budgets.md)
     * [Assign users to an AI workspace](agent-management/build/assign-users-to-an-ai-workspace.md)
     * [Track AI workspace spend](agent-management/build/track-ai-workspace-spend.md)

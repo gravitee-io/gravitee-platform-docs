@@ -28,6 +28,7 @@
   * [AI Workspaces](build/ai-workspaces/README.md)
     * [Create an AI workspace](build/create-an-ai-workspace.md)
     * [Add models to an AI workspace](build/add-models-to-an-ai-workspace.md)
+    * [Configure AI workspace routing](build/configure-ai-workspace-routing.md)
     * [Manage AI workspace budgets](build/manage-ai-workspace-budgets.md)
     * [Assign users to an AI workspace](build/assign-users-to-an-ai-workspace.md)
     * [Track AI workspace spend](build/track-ai-workspace-spend.md)

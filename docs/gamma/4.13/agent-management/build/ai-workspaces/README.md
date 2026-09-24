@@ -12,6 +12,7 @@ The workspace owns one Default LLM Proxy. Gravitee creates it when you add the f
 
 * [**Create an AI workspace**](../create-an-ai-workspace.md). Name the workspace, derive its gateway path, and set the default budget its members start on.
 * [**Add models to an AI workspace**](../add-models-to-an-ai-workspace.md). Add catalog models to the workspace, and control which models its members can call.
+* [**Configure AI workspace routing**](../configure-ai-workspace-routing.md). Route each request to a model chosen by how much of the member's budget is spent, and chain the policies every call runs.
 * [**Manage AI workspace budgets**](../manage-ai-workspace-budgets.md). Cap what each member spends per period, and optionally cap how fast they send requests.
 * [**Assign users to an AI workspace**](../assign-users-to-an-ai-workspace.md). Add members, give each one an API key, change the budget they're metered against, and review their usage.
 * [**Track AI workspace spend**](../track-ai-workspace-spend.md). Rank the users, budgets, and models of a workspace by spend, drill into one user, and export the user and model rankings as a CSV file.
