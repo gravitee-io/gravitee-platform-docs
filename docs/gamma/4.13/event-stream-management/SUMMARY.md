@@ -27,4 +27,5 @@
   * [View observability dashboards](observability/view-observability-dashboards.md)
   * [View connection logs](observability/view-connection-logs.md)
     * [Diagnose a failed Kafka connection](observability/diagnose-a-failed-kafka-connection.md)
+    * [Inspect a Message API request](observability/inspect-a-message-api-request.md)
   * [Trace requests](observability/trace-requests.md)

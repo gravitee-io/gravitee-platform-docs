@@ -137,6 +137,7 @@
   * [View observability dashboards](event-stream-management/observability/view-observability-dashboards.md)
   * [View connection logs](event-stream-management/observability/view-connection-logs.md)
     * [Diagnose a failed Kafka connection](event-stream-management/observability/diagnose-a-failed-kafka-connection.md)
+    * [Inspect a Message API request](event-stream-management/observability/inspect-a-message-api-request.md)
   * [Trace requests](event-stream-management/observability/trace-requests.md)
 
 ## Agent Management
