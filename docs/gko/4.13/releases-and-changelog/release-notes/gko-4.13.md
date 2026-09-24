@@ -57,3 +57,5 @@ Labels and annotations set under `spec.infrastructure` of a `Gateway` resource p
 #### Drift detection
 
 When you update a resource, GKO can compare it with the resource's current state in APIM, and report the fields that were changed in APIM outside GKO. A policy decides whether the update is rejected, accepted with a warning, or accepted with an entry in the operator logs. Drift detection is disabled by default. Turn it on for every resource with the `manager.driftDetection.enabled` Helm value, or for a single resource with the `gravitee.io/drift-detection` annotation. For details, see [Drift detection](../../overview/drift-detection.md).
+
+Drift detection doesn't cover the deprecated `spec.navigation` field of a `Portal` resource, so a change made to that field in APIM isn't reported. The `spec.structure.topNavbar` field that replaces it is covered.
