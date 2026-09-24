@@ -6,6 +6,20 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.42 - September 24, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Allow to trace WebAuthn errors from the client side (backport from 4.12, not present in 4.9, 4.10 and 4.11)
+
+
+</details>
+
+
 ## Gravitee Access Management 4.8.41 - June 26, 2026
 
 <details>
