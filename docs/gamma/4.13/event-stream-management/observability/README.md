@@ -18,12 +18,10 @@ An environment that enables API scoring also renders an **API Score** item in th
 
 ## What the group covers
 
-**Dashboards** and **Logs** are scoped to the two families Event Stream Management manages, Kafka Services and Message APIs. They never show your HTTP proxies, LLM proxies, or other APIs, whichever environment you open them in.
-
-**Tracing** is scoped differently. It asks you to pick one API first, and its picker offers the started Kafka Services and Message APIs of the environment.
+**Dashboards** and **Logs** show Kafka Services and Message APIs only, never your HTTP proxies, LLM proxies, or other APIs. **Tracing** works on one API at a time, picked from the started Kafka Services and Message APIs of the environment.
 
 ## What you need
 
-* An environment role that can read either the APIs or the dashboards of the environment. Without one, the **Observability** group isn't rendered at all.
-* Reading the APIs of the environment, specifically, for **Tracing**. A role that can read dashboards but not APIs gets **Dashboards** and **Logs**, and no **Tracing** item.
+* An environment role that can read the APIs or the dashboards of the environment. Without either, the **Observability** group isn't shown.
+* For **Tracing**, a role that can read the APIs of the environment. A role that can only read dashboards gets **Dashboards** and **Logs**, and no **Tracing** item.
 * Reporting switched on for each API you want to see. An API that reports nothing produces no logs and no dashboard rows, and its detail page says so. See [View connection logs](view-connection-logs.md#why-an-api-shows-nothing).

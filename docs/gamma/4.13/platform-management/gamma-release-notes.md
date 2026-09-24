@@ -279,12 +279,11 @@ Event Stream Management adds the Kafka Explorer and a duplication path for Kafka
 #### Observability for Kafka Services and Message APIs
 
 * The Event Stream Management sidebar adds an **Observability** group holding **Dashboards**, **Logs**, and **Tracing**. All three read what the gateway already reported, and all three are scoped to the Kafka Services and Message APIs of the environment.
-* **Logs** lists the connections and requests recorded across APIs, newest first, with a chart of the same rows above the table. Three column sets tailor the table to each family, and the page opens on the set both families fill.
-* Opening a failed Kafka connection leads with a plain-language verdict naming what broke, a badge naming the hop it broke on, and, for an error the gateway recognizes, what to do next. The detail separates the client-to-gateway evidence from the gateway-to-broker evidence.
-* **Dashboards** ships four prebuilt boards, a health board and a traffic board for each family. The boards are read-only in this module.
-* **Tracing** follows one API at a time and offers the started Kafka Services and Message APIs of the environment, with two Kafka-specific filters.
-* Each Kafka Service and Message API links straight to its own logs, health board, and traces, all on the last 24 hours. An API that reports nothing says so on its own page and links to its **Reporter Settings**.
-* The group isn't rendered at all for a role that can read neither the APIs nor the dashboards of the environment, and **Tracing** needs to read the APIs.
+* **Logs** lists the connections and requests recorded across these APIs, newest first, with a column set for each family.
+* Opening a failed Kafka connection leads with a plain-language verdict naming what broke, a badge naming where, and, for an error the gateway recognizes, what to do next.
+* **Dashboards** ships a health board and a traffic board for each family.
+* **Tracing** follows one API at a time, with two Kafka-specific filters.
+* Each Kafka Service and Message API links straight to its own logs, health board, and traces. An API that reports nothing says so on its own page and links to its **Reporter Settings**.
 * See [Observability](../event-stream-management/observability/README.md).
 
 ### Platform Management
