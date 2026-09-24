@@ -18,7 +18,7 @@ Tracing is off until you turn it on for the API, and it takes effect only once t
 2. Turn **OpenTelemetry tracing** on. It needs the API's reporting on first.
 3. Redeploy the API.
 
-An API that traces nothing lists no traces here, whatever time range you set.
+An API that traces nothing lists no traces here, whatever time range you set. See [Configure reporter settings](configure-reporter-settings.md).
 
 The spans also have to reach Gamma, which is a platform pipeline rather than an API setting. See [Configure OpenTelemetry tracing and logs](../../platform-management/configure-opentelemetry-tracing-and-logs.md).
 

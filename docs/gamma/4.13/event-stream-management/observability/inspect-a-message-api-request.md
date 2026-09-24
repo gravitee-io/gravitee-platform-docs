@@ -52,7 +52,7 @@ A Message API row opens on the request that opened the stream, what the gateway 
 
 A leg the API doesn't capture is left out. When none was captured, the section reads **No connection log details captured**.
 
-Which legs appear follows **Reporter Settings**: the entrypoint legs need the **Entrypoint** logging mode, the endpoint legs need **Endpoint**, and each leg needs the matching phase, **Request** or **Response**.
+Which legs appear follows [Reporter Settings](configure-reporter-settings.md): the entrypoint legs need the **Entrypoint** logging mode, the endpoint legs need **Endpoint**, and each leg needs the matching phase, **Request** or **Response**.
 
 ## Read the messages
 

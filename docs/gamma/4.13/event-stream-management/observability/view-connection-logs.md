@@ -68,7 +68,7 @@ Click a row to see why it failed. See [Diagnose a failed Kafka connection](diagn
 
 First widen the time range, which opens on the last 5 minutes and hides anything older.
 
-An API also records nothing until reporting is on, and its **Overview** page shows a warning until then. The warning links to the API's **Reporter Settings**, where you turn reporting on.
+An API also records nothing until reporting is on, and its **Overview** page shows a warning until then. The warning links to the API's **Reporter Settings**, where you turn reporting on. See [Configure reporter settings](configure-reporter-settings.md).
 
 * A Kafka Service shows **Connection metrics are disabled** until both **Enable event-metrics reporting** and **Enable connection-metrics reporting** are on.
 * A Message API shows **Runtime reporting is disabled** until the switch on its **Settings** card is on. That switch alone is what puts its connections in this list.

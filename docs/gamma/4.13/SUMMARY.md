@@ -134,6 +134,7 @@
   * [Virtual Clusters overview](event-stream-management/build/kafka-virtual-clusters-overview.md)
   * [Virtual Cluster runtime behavior reference](event-stream-management/build/kafka-virtual-cluster-runtime-behavior-reference.md)
 * [Observability](event-stream-management/observability/README.md)
+  * [Configure reporter settings](event-stream-management/observability/configure-reporter-settings.md)
   * [View observability dashboards](event-stream-management/observability/view-observability-dashboards.md)
   * [View connection logs](event-stream-management/observability/view-connection-logs.md)
     * [Diagnose a failed Kafka connection](event-stream-management/observability/diagnose-a-failed-kafka-connection.md)
