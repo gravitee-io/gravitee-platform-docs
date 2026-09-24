@@ -16,6 +16,8 @@ The **Logs** page lists the connections and requests the gateway recorded for yo
 2. Open **Observability**.
 3. Click **Logs**.
 
+The logs open on the last 5 minutes. Widen the time range before concluding an API records nothing.
+
 To open the logs of one API, follow these steps:
 
 1. Open the API from **Kafka Services** or **Message APIs**.
@@ -64,7 +66,9 @@ Click a row to see why it failed. See [Diagnose a failed Kafka connection](diagn
 
 ## Why an API shows nothing
 
-An API records nothing until reporting is on, and its **Overview** page shows a warning until then. The warning links to the API's **Reporter Settings**, where you turn reporting on.
+First widen the time range, which opens on the last 5 minutes and hides anything older.
+
+An API also records nothing until reporting is on, and its **Overview** page shows a warning until then. The warning links to the API's **Reporter Settings**, where you turn reporting on.
 
 * A Kafka Service shows **Connection metrics are disabled** until both **Enable event-metrics reporting** and **Enable connection-metrics reporting** are on.
 * A Message API shows **Runtime reporting is disabled** until the switch on its **Settings** card is on. That switch alone is what puts its connections in this list.
