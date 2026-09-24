@@ -49,11 +49,13 @@ Drift detection applies to the following resources:
 | `SharedPolicyGroup` | Supported                                                         |
 | `Group`             | Supported                                                         |
 | `Dictionary`        | Supported                                                         |
-| `Portal`            | Supported                                                         |
+| `Portal`            | Supported, except for the deprecated `spec.navigation` field      |
 | `PortalLink`        | Supported                                                         |
 | `PortalListing`     | Supported                                                         |
 | `PortalTheme`       | Supported                                                         |
 | `Documentation`     | Supported                                                         |
+
+On a `Portal`, the deprecated `spec.navigation` field isn't compared, so a change made to it in APIM isn't reported. The `spec.structure.topNavbar` field that replaces it is compared.
 
 Drift detection doesn't apply to other resources, such as an `ApiDefinition` (v2 API), a `ManagementContext`, or an `ApiResource`. These resources, and subscriptions to a v2 API, ignore the annotation.
 
