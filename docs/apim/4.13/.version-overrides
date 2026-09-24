@@ -119,3 +119,12 @@ create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md
 # Gamma modules on a JDBC management repository (APIM 4.13.0 feature, ESM-122)
 prepare-a-production-environment/repositories/apply-schema-migrations-manually.md
 prepare-a-production-environment/repositories/jdbc.md
+# Multiple subscription forms (APIM 4.13.0 feature, PORTAL-4)
+secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms.md
+secure-and-expose-apis/subscriptions/subscription-form-feature-overview.md
+secure-and-expose-apis/subscriptions/README.md
+developer-portal/new-developer-portal/subscription-form-technical-implementation.md
+.gitbook/assets/subscription-forms-console-portal-settings.png
+.gitbook/assets/subscription-forms-catalog.png
+.gitbook/assets/subscription-forms-assign-apis.png
+.gitbook/assets/subscription-forms-portal-checkout.png

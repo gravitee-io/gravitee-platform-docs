@@ -8,7 +8,7 @@ description: Retrieve a Developer Portal 4.13 subscription form with resolved dy
 
 ### GET `/apis/{apiId}/subscription-form`
 
-Retrieves the subscription form for a specific API with resolved dynamic options. Returns 404 if the form doesn't exist or is disabled. The Portal API response includes `gmdContent` and optionally `resolvedOptions` — it doesn't expose the form `id` or `enabled` flag to consumers.
+Retrieves the subscription form assigned to a specific API, with resolved dynamic options. Returns 404 when no form is assigned to the API or when the assigned form is hidden. The Portal API response includes `gmdContent` and optionally `resolvedOptions` — it doesn't expose the form `id` or `enabled` flag to consumers.
 
 **Response fields:**
 
@@ -28,11 +28,7 @@ Retrieves the subscription form for a specific API with resolved dynamic options
 }
 ```
 
-**Authentication:** Required (Portal auth)
-
-{% hint style="info" %}
-The environment-scoped endpoint `GET /subscription-form` is deprecated. Use the API-scoped endpoint `GET /apis/{apiId}/subscription-form` instead, which resolves dynamic options against the API's metadata.
-{% endhint %}
+**Authentication:** Anonymous requests are rejected only when the Developer Portal requires users to log in.
 
 ## Subscription metadata
 
@@ -72,7 +68,8 @@ The Portal UI merges resolved options into the GMD content before rendering, rep
 
 ## Restrictions
 
-- One subscription form per environment
+- Each API is assigned to one subscription form at most
+- Form names are unique in the environment, compared without letter case, with a maximum of 255 characters
 - Maximum 25 fields per subscription form (enforced at save time)
 - Maximum 25 metadata entries per subscription submission (enforced at validation time)
 - GMD content can't be null, empty, or whitespace-only
@@ -81,13 +78,11 @@ The Portal UI merges resolved options into the GMD content before rendering, rep
 - EL expressions in options must include fallback values using syntax `{#expression}:fallback1,fallback2` (missing fallback reports `missingElFallback` error with severity `error`)
 - EL expressions must start with `{#` (expressions starting with `#{` or `{` alone report `invalidElSyntax` error)
 - Subscription forms aren't displayed for Keyless plans — the form only renders when the selected plan requires authentication
-- Disabled forms return 404 from Portal API but remain accessible via Management API
+- Hidden forms return 404 from Portal API but remain accessible via Management API
 - Comment field from Classic Portal is removed in the new Portal — subscription form metadata replaces this functionality
 
 ## Console integration
 
-- A **Subscription Form** menu item appears under Portal Settings with route `/subscription-form`
-- The toggle label is **Visible to API consumers** (not "Enabled")
-- Permissions use `environment-metadata-r/u`
+- The **Subscription Form** menu item of the portal settings opens the **Subscription Forms** list, where each form has a **Visible** toggle
 - Navigation guards prevent navigation away from unsaved form edits
-- The save button is disabled when content is empty, has configuration errors, or has no unsaved changes
+- The **Save** button, labeled **Create** for a new form, is disabled when the name or the content is empty, when the content has configuration errors, or when there are no unsaved changes
