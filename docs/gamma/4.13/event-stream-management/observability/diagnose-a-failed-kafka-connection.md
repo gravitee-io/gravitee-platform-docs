@@ -1,14 +1,14 @@
 ---
 hidden: false
 noIndex: false
-description: Open a failed Kafka connection from the logs to see what broke, which hop it broke on, and what to do about it.
+description: Open a failed Kafka connection from the logs to see what broke, where it broke, and what to do about it.
 ---
 
 # Diagnose a failed Kafka connection
 
 Open a failed Kafka connection from the logs to see what broke, where it broke, and, for an error the gateway recognizes, what to do next.
 
-<figure><img src="../../.gitbook/assets/esm-observability-log-detail.png" alt="The detail of a failed Kafka connection, showing the Connection error status, a Gateway ↔ Broker badge, and a message saying what went wrong and what to do next, above the Client to Gateway, Gateway to Broker, Error, Service activity, and Raw record sections"><figcaption><p>A failed connection opens on what went wrong, before the raw fields</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/esm-observability-log-detail.png" alt="A failed Kafka connection opened from the logs, showing the Connection error status, a Gateway ↔ Broker badge, and a message saying what went wrong and what to do next, above the Client to Gateway, Gateway to Broker, Error, Service activity, and Raw record sections"><figcaption><p>A failed connection opens on what went wrong, before the raw fields</p></figcaption></figure>
 
 ## Open a connection
 
@@ -19,7 +19,7 @@ Open a failed Kafka connection from the logs to see what broke, where it broke, 
 
 ## Read what went wrong
 
-The detail opens with a badge that says where the connection failed and a short message that says what went wrong. The sections below it split the evidence between the client-to-gateway hop and the gateway-to-broker hop.
+The row opens in a panel that starts with a badge saying where the connection failed and a short message saying what went wrong. The sections below show the details on each side of the gateway: between the client and the gateway, and between the gateway and the broker.
 
 A connection counts as failed when its status is **Connection error**, **Session error**, or **Internal error**, or when it carries an error key. A connection that reads **Connected** but carries an error key is still a failure.
 
@@ -159,3 +159,11 @@ These are usually transient, and they resolve without intervention.
         </tr>
     </tbody>
 </table>
+
+## Verification
+
+To verify the diagnosis is working as expected, follow these steps:
+
+1. Open **Logs**.
+2. Click a Kafka row that has an error key.
+3. Confirm the panel starts with a short message saying what went wrong.
