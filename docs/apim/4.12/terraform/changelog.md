@@ -8,6 +8,12 @@ metaLinks:
 
 # Changelogs
 <!--INSERT_BELOW-->
+## v1.0.2
+
+### Bug Fixes
+* fix: send X-Gravitee-Set-Hrid on Terraform 1.16 export import and document it in the registry docs
+
+
 ## v1.0.1
 
 ### Bug fixes
