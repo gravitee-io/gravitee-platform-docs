@@ -22,6 +22,7 @@
   * [PortalListing](overview/custom-resource-definitions/portallisting.md)
   * [Documentation](overview/custom-resource-definitions/documentation.md)
 * [Admission validation](overview/admission-validation.md)
+* [Drift detection](overview/drift-detection.md)
 * [Example Architecture](overview/example-architecture.md)
 * [Compatibility and Limitations](overview/compatibility-and-limitations.md)
 
