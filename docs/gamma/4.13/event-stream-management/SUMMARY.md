@@ -24,6 +24,7 @@
   * [Virtual Clusters overview](build/kafka-virtual-clusters-overview.md)
   * [Virtual Cluster runtime behavior reference](build/kafka-virtual-cluster-runtime-behavior-reference.md)
 * [Observability](observability/README.md)
+  * [Configure reporter settings](observability/configure-reporter-settings.md)
   * [View observability dashboards](observability/view-observability-dashboards.md)
   * [View connection logs](observability/view-connection-logs.md)
     * [Diagnose a failed Kafka connection](observability/diagnose-a-failed-kafka-connection.md)
