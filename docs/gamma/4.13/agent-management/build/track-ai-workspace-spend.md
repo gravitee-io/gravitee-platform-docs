@@ -19,7 +19,7 @@ To open the **Spend** page of a workspace, complete the following steps:
 3. Select the workspace.
 4. Under **Observability**, click **Spend**.
 
-    <!-- TODO: Screenshot of the Spend page of a workspace with traffic: the Spend, Tokens, Requests, and Users figures, the Users table, and the Budgets table -->
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-spend.png" alt="The Spend page of a workspace with the Spend, Tokens, Requests, and Users figures, the Users table ranked by spend with one user at zero, and the Budgets table"><figcaption><p>The Spend page of a workspace</p></figcaption></figure>
 
 The page opens on the last 30 days. Change the range with the time range control in the page header, and every spend, token, and request figure follows it.
 
@@ -43,6 +43,8 @@ To see what each model cost one user, complete the following steps:
 1. In the **Users** table, click the user's name.
 
     A panel opens beside the page. It sets the user's spend, tokens, and requests against the workspace totals, and shows what each model cost them.
+
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-spend-user-panel.png" alt="The panel for one user beside the Spend page, with their spend, tokens, and requests against the workspace totals, their budget, and a card per model"><figcaption><p>The panel for one user</p></figcaption></figure>
 
 2. Optional: To manage the user's access, click **Open Users page**.
 
@@ -82,6 +84,7 @@ To verify the **Spend** page is working as expected, follow these steps:
 1. Call the workspace entrypoint with a user's API key. See [Assign users to an AI workspace](assign-users-to-an-ai-workspace.md).
 2. Open the **Spend** page of the workspace.
 3. Confirm the **Requests** figure and the user's row in the **Users** table count the call.
-4. Click **Export CSV**, and confirm the `Users` table of the file carries the user's row.
 
-    <!-- TODO: Screenshot of the Spend page after a call, with the user's row in the Users table showing the request -->
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-spend-users.png" alt="The Users table of the Spend page listing each user with their spend, tokens, and requests"><figcaption><p>The Users table of the Spend page</p></figcaption></figure>
+
+4. Click **Export CSV**, and confirm the `Users` table of the file carries the user's row.
