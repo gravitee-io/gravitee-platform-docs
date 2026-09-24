@@ -17,7 +17,7 @@ To open the dashboard for one workspace, complete the following steps:
 3. Select the workspace.
 4. Under **Observability**, click **Dashboard**.
 
-    <!-- TODO: Screenshot of the AI Workspace Overview dashboard opened from a workspace, with the AI Workspace filter set to the workspace -->
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-overview-dashboard.png" alt="The AI Workspace Overview dashboard filtered to one workspace over the last 7 days, with the Key Metrics row and the top models by requests and by cost"><figcaption><p>The dashboard opened from a workspace</p></figcaption></figure>
 
 The dashboard opens in a new tab, filtered to the workspace, on the last 7 days. The **Logs** item under **Observability** opens the logs in a new tab, filtered to the same workspace, on the last 5 minutes.
 
@@ -55,4 +55,4 @@ To verify the AI Workspace Overview dashboard is working as expected, follow the
 2. Open the workspace, and under **Observability**, click **Dashboard**.
 3. Confirm the **AI Workspace** filter is set to the workspace, and that **Requests** under **Key Metrics** counts the call.
 
-    <!-- TODO: Screenshot of the AI Workspace Overview dashboard after a call, with the Key Metrics row counting the request -->
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-overview-key-metrics.png" alt="The Key Metrics row of the dashboard with requests, error rate, P95 response time, tokens, and cost"><figcaption><p>The Key Metrics row</p></figcaption></figure>

@@ -96,7 +96,7 @@ The **Users** list holds one row per member, with the following columns:
     </tbody>
 </table>
 
-<figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-users-list.png" alt="The Users list with two members, each showing a masked API key, the model count and budget selector, the budget amount and period, thirty-day usage, and an active status"><figcaption><p>The Users list of a workspace</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-users-list.png" alt="The Users list with five members, each showing their identity source, a masked API key, the model count and budget selector, the share of their budget used with the amount spent in the last 30 days, thirty-day usage, and an active status"><figcaption><p>The Users list of a workspace</p></figcaption></figure>
 
 ### Read a member's budget use
 
