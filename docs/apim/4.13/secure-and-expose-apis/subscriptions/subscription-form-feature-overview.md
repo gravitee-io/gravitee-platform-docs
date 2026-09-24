@@ -126,3 +126,4 @@ For the procedures, see [Creating and managing subscription forms](creating-and-
 ## Prerequisites
 
 - The New Developer Portal is enabled for the environment.
+- Your role in the Environment scope has the `METADATA` permission with the rights you need: **Read** to view subscription forms, **Create** to add one, **Update** to edit, assign APIs to, show, or hide one, and **Delete** to delete one. **Create** and **Delete** are needed from 4.13, so a custom role might need them added.

@@ -9,6 +9,7 @@ An environment holds a list of subscription forms. Each form applies only to the
 ## Prerequisites
 
 - The New Developer Portal is enabled for the environment. The **Portal Settings** entry of the Console sidebar appears only when it is.
+- Your role in the Environment scope has the `METADATA` permission with the rights you need: **Read** to view subscription forms, **Create** to add one, **Update** to edit, assign APIs to, show, or hide one, and **Delete** to delete one. **Create** and **Delete** are needed from 4.13, so a custom role might need them added.
 
 ## Create a subscription form
 
@@ -23,7 +24,7 @@ An environment holds a list of subscription forms. Each form applies only to the
 3. Click **Add**. The editor opens with a starter form that you can edit or replace.
 4. Enter a **Name**. The name is required, can't exceed 255 characters, and must be unique in the environment. Names that differ only in letter case count as the same name.
 5. Write the form content in Gravitee Markdown (GMD). The preview next to the editor shows the rendered form. To hide or show the preview, click **Toggle preview**.
-6. Click **Assign APIs**, and then select the APIs this form applies to. You can search the list. An API that's already assigned to another form can't be selected, and hovering over its checkbox shows which form it's assigned to.
+6. Click **Assign APIs**, and then select the APIs this form applies to. You can search the list. An API that's already assigned to another form can't be selected, and hovering over its checkbox shows which form it's assigned to. An assigned API that the list doesn't show you, for example an API outside the APIs you can access, stays assigned, and the dialog shows how many assigned APIs aren't listed.
 
     <figure><img src="../../.gitbook/assets/subscription-forms-assign-apis.png" alt="Assign APIs dialog with two APIs selected and a third API assigned to another form"><figcaption><p>Assign the APIs a form applies to</p></figcaption></figure>
 
@@ -147,7 +148,7 @@ Creates a subscription form. The new form is hidden.
 }
 ```
 
-`name` and `gmdContent` are required, and `apiIds` is optional. Every API in `apiIds` must belong to the environment. The request is rejected with `409` when another form of the environment uses the same name, or when another form is already assigned one of the APIs.
+`name` and `gmdContent` are required, and `apiIds` is optional. Every API in `apiIds` must belong to the environment. An API that doesn't exist in the environment is rejected with `400` and the message `Unknown APIs in this environment`. The request is rejected with `409` when another form of the environment uses the same name, or when another form is already assigned one of the APIs.
 
 ### GET `/subscription-forms/_template`
 
@@ -171,7 +172,7 @@ Updates the name, the content, and the assigned APIs of a subscription form. It 
 }
 ```
 
-All three fields are required. `apiIds` replaces the APIs assigned to the form, so an empty list removes every API from it.
+All three fields are required. `apiIds` replaces the APIs assigned to the form, so an empty list removes every API from it. The same `400` and `409` rules as for creating a form apply.
 
 ### DELETE `/subscription-forms/{subscriptionFormId}`
 
