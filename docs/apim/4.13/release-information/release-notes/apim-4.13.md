@@ -208,3 +208,9 @@ A Kafka Topic Mapping entry that sets only one of `client` and `broker` is now a
 * Only the value of a header takes an expression. The header name is sent as entered.
 * The change ships in AI Model Text Embedding 2.0.0, which APIM bundles from 4.11.26, 4.12.18, and 4.13.0 onward. The configuration format is unchanged, so an existing resource keeps working as it is.
 * For more information, see [AI Resources](../../ai-agent-management/AI-resources/README.md).
+
+#### **Documentation from private Git repositories**
+
+* Documentation pages that import from **Git** now have **Username** and **Password or access token** fields, so Classic Developer Portal documentation can come from a private repository. Leave both empty for a public repository.
+* After you save, the password or token is masked, and auto-fetch keeps using it.
+* For more information, see [API Documentation](../../developer-portal/classic-developer-portal/api-documentation.md).
