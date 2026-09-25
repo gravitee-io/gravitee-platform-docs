@@ -19,6 +19,9 @@ guides/branding/language-default-properties-reference.md
 # OCI KMS certificate plugin (AM 4.13.0 feature, AM-6489)
 guides/certificates/oci-kms-certificate-plugin.md
 getting-started/configuration/domain-secrets/plugins-support.md
+.gitbook/assets/am-oci-kms-certificate-type.png
+.gitbook/assets/am-oci-kms-certificate-settings.png
+.gitbook/assets/am-oci-kms-certificate-list.png
 # Organization license sync and enforcement (AM 4.13.0 feature, AM-7166)
 overview/open-source-vs-enterprise-am/README.md
 guides/audit-trail.md
