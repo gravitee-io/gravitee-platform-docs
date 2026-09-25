@@ -40,7 +40,7 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 * The **AI Routing** policy picks the model that serves a request from the share of the member's budget already spent. Each band covers the share up to its limit and lists the models it routes to, and the last band catches everything left. The model it picks replaces the model the request names.
 * A band with several models picks one per request by rotating per gateway node, by weight, or at random.
 * **If the budget is unknown** and **When a band has no models** decide the requests the bands don't, including rejecting a request with `503`.
-* The canvas blocks **Save** while the chain can't run or two bands conflict, and lists the problems. A last band with a limit raises only a warning, and the gateway then skips the **AI Routing** step.
+* The canvas blocks **Save** while the chain can't run or two bands conflict, and lists the problems. A last band with a limit raises only a warning, and the gateway then skips the **AI Routing** step for every request.
 * Each model of a workspace takes aliases on the **Components** page, and a routing band routes to an alias like any model.
 * The AI Workspaces list adds a search field, sorting by **Name** and **Version**, and paging, and the **Budgets** page pages too.
 * See [Configure AI workspace routing](../agent-management/build/configure-ai-workspace-routing.md).

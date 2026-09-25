@@ -139,7 +139,7 @@ When a budget carries routing that differs from the router, the page reports **S
     </tbody>
 </table>
 
-The canvas only warns, without blocking **Save**, when the last band has a limit. Clear that limit. If the last band keeps a limit, the gateway skips the **AI Routing** step, and no request is routed.
+The canvas only warns, without blocking **Save**, when the last band has a limit. Clear that limit. If the last band keeps a limit, the gateway doesn't load the **AI Routing** step. It logs an `AI_ROUTING_MISSING_TERMINAL_BAND` error, runs the other steps without it, and serves every request with the model it asked for.
 
 ## Verification
 
