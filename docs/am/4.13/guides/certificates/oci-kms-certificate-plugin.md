@@ -55,14 +55,14 @@ To create the certificate in the security domain whose tokens it signs, complete
 5. Click **Add new**.
 6. Select **OCI KMS**.
 
-    <!-- TODO: Screenshot of the New certificate page on the Platform step with OCI KMS selected -->
+    <figure><img src="../../.gitbook/assets/am-oci-kms-certificate-type.png" alt="The New certificate page on the Platform step, with the OCI KMS certificate type selected next to AWS Secret Manager, Java Keystore (.jks), and PKCS#12 (.p12)."><figcaption></figcaption></figure>
 7. Click **Next**.
 8. In the **Name** field, enter a name for the certificate.
 9. Select an **Authentication method**.
 10. Enter the settings that the authentication method requires. For more information, see [Authentication methods](#authentication-methods).
 11. Enter the key settings. For more information, see [Key settings](#key-settings).
 
-    <!-- TODO: Screenshot of the Settings step with the OCI KMS configuration form -->
+    <figure><img src="../../.gitbook/assets/am-oci-kms-certificate-settings.png" alt="The Settings step of the New certificate page for an OCI KMS certificate, with API key selected as the Authentication method, example values in the key fields, and RS256 as the Signing algorithm."><figcaption></figcaption></figure>
 12. Click **Create**.
 
 Before AM creates or updates the certificate, it reads the key from the vault and signs a test token with it. If this check fails, AM doesn't save the certificate, and the AM Management API log records the reason.
@@ -123,7 +123,7 @@ To verify the OCI KMS certificate is working as expected, follow these steps:
 1. Open **Settings**.
 2. Click **Certificates**. The list shows the new certificate. Its usage reads **Undefined**, because the OCI KMS form has no **Usage** field.
 
-    <!-- TODO: Screenshot of the Certificates page listing the new OCI KMS certificate -->
+    <figure><img src="../../.gitbook/assets/am-oci-kms-certificate-list.png" alt="The Certificates page listing the Default system certificate and an OCI KMS certificate whose usage reads Undefined."><figcaption></figcaption></figure>
 3. Select the certificate for an application. For more information, see [Apply the certificate to your application](README.md#apply-the-certificate-to-your-application).
 4. Request an access token for the application.
 5. Decode the header of the token. The `kid` value is the **Alias** of the certificate, and the `alg` value is its **Signing algorithm**.
