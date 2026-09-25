@@ -42,3 +42,10 @@
 * The new **Limit to event types** list restricts the mapped attributes to the event types you select. Leaving it empty exports them on every audit record the reporter writes, and it never changes which events AM reports.
 * AM never exports an attribute whose name holds a credential or a token. The new `reporters.audits.attribute_mappings.denied_attributes` property in `gravitee.yml` extends that built-in list.
 * A reporter with no attribute mappings exports the payload it exported before. See [Reporters](../../getting-started/configuration/configure-reporters.md#attribute-mapping) for the configuration.
+
+#### **Runtime Data Plane Provisioning**
+
+* Data planes can now be added without editing the **gravitee.yaml** and restarting a node: post the definition to `/_node/dataplanes` on the technical API of the Management API, using Basic authentication and the same `id`, `name`, `type`, and connection settings as a `dataPlanes` entry.
+* A provisioned data plane is usable immediately and is offered as a choice when a user creates a security domain in AM Console.
+* Use `GET /_node/dataplanes` to list the provisioned data planes and `DELETE /_node/dataplanes/{id}` to remove one, which is only possible once every domain bound to it has been deleted.
+* The `id` of a provisioned data plane can't be `default` and can't reuse an identifier already declared in the **gravitee.yaml**. See [Configure multiple data planes](../../getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md).

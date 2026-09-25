@@ -41,3 +41,4 @@ getting-started/configuration/configure-am-gateway/README.md
 # Reporter attribute mapping (AM 4.13.0 feature, AM-7322)
 getting-started/configuration/configure-reporters.md
 .gitbook/assets/am-reporter-attribute-mapping.png
+getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md
