@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. It also adds API resource configuration, consumer broadcasts, property import, dynamic property sync, and API metadata to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. The **Cost Rate Limit** policy caps what a consumer spends on an LLM Proxy in dollars over a period. LLM Proxies and A2A Proxies gain export, import, and duplicate actions, and A2A Proxies gain response templates that override the errors the AI Gateway returns. The Observability section of Agent Management builds and saves custom dashboards alongside the templates. Edge Management's shadow AI detections also reach the Catalog, where each intercepted domain becomes a shadow AI agent whose page shows the processes and devices that reached it.
+Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. Each workspace reports what it spends by user, budget, and model, and exports the user and model rankings as a CSV file. It also adds API resource configuration, consumer broadcasts, property import, dynamic property sync, and API metadata to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. The **Cost Rate Limit** policy caps what a consumer spends on an LLM Proxy in dollars over a period. LLM Proxies and A2A Proxies gain export, import, and duplicate actions, and A2A Proxies gain response templates that override the errors the AI Gateway returns. The Observability section of Agent Management builds and saves custom dashboards alongside the templates. Edge Management's shadow AI detections also reach the Catalog, where each intercepted domain becomes a shadow AI agent whose page shows the processes and devices that reached it.
 
 #### AI Workspaces
 
@@ -23,6 +23,16 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 * The **Users** page reveals and copies one member's key at a time, changes the budget a member is on, shows each member's access status and 30-day usage in tokens, requests, and cost, and revokes access by closing the subscription.
 * Budget changes are saved without deploying. Deploy the workspace from the out-of-sync banner to apply them.
 * See [AI Workspaces](../agent-management/build/ai-workspaces/README.md).
+
+#### Spend tracking for AI Workspaces
+
+* The **Observability** group of each AI Workspace adds a **Spend** page that ranks the users, budgets, and models of the workspace by spend over a time range. Users who spent nothing are listed at zero.
+* Clicking a user opens a panel that sets their spend, tokens, and requests against the workspace totals, and shows what each model cost them.
+* **Export CSV** downloads the ranked users and models as one file named with the workspace ID and the dates of the time range. While a user is selected, the file also carries their models.
+* When the analytics engine doesn't answer, the page shows a dash in place of each figure it couldn't read, and the export is unavailable while the spend of the users can't be read.
+* The **Budget** column of the **Users** page shows the share of the budget each member has used over the budget period.
+* The AI Workspace Overview dashboard template charts requests, error rate, response time, tokens, and cost, with top-five breakdowns by model and by user. The **Dashboard** and **Logs** items of a workspace open the dashboard and the logs in a new tab, filtered to that workspace.
+* See [Track AI workspace spend](../agent-management/build/track-ai-workspace-spend.md) and [Monitor your AI workspaces](../agent-management/observe/monitor-your-ai-workspaces.md).
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
