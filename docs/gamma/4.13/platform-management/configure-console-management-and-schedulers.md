@@ -76,7 +76,24 @@ When it's on, the APIM Console offers a **Support** entry and the platform accep
 
 **Allow User Registration** controls whether people can register a console account themselves. It's on by default.
 
-When it's off, a self-registration attempt is refused. It doesn't affect accounts an administrator creates from the **Users** page, which are created as Active whatever this toggle says. For those, see [Manage users](manage-users.md).
+While it's on, the Gamma console sign-in page offers a **Request an account** link, as long as **Show login form on management console** is also on. For that toggle, see [Show or hide the local login form](configure-console-authentication.md#show-or-hide-the-local-login-form).
+
+The **Request an account** page asks for a first name, a last name, and an email address, plus the fields listed on the **User Fields** page of the **Environment** section. The activation email that follows opens the Gamma console, where the person chooses a password.
+
+The Management API builds the activation link from the Gamma console URL of the organization. Set it in the Management API `gravitee.yml` file, with `installation.standalone.gamma-console.url` for the default organization, or with `installation.standalone.gamma-console.urls`, which takes one `orgId` and `url` pair per organization:
+
+```yaml
+installation:
+  standalone:
+    gamma-console:
+      url: https://gamma.example.com
+```
+
+Without it, a request sent from the Gamma sign-in page fails, and the person sees **Could not send your request**. The email also goes out only while **Enable Emailing** is on for the organization. For more information, see [Configure the SMTP mail server](configure-smtp.md).
+
+The activation link expires after one day. To change that, set `user.creation.token.expire-after` to a number of seconds. The same value applies to password reset links. If a link expires before the person uses it, send them a new one with **Reset password** on their detail page.
+
+When it's off, the sign-in page doesn't offer the link, a self-registration attempt is refused, and an activation link that was already sent doesn't work. It doesn't affect accounts an administrator creates from the **Users** page, which are created as Active whatever this toggle says. For those, and for **Reset password**, see [Manage users](manage-users.md).
 
 ### Enable automatic validation of registration requests
 
