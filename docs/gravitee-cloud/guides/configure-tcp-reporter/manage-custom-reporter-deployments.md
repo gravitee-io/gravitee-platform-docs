@@ -15,14 +15,16 @@ After creating a reporter, monitor its deployment status on linked gateways. Rep
 
 ## Link a reporter from a Gateway
 
-You link a TCP reporter and a Datadog reporter to a Gravitee Hosted Gateway from the Gateway itself, without editing the reporter. A Gateway uses one reporter of each type at a time.
+You link a TCP reporter, a Datadog reporter, and an OpenTelemetry reporter to a Gravitee Hosted Gateway from the Gateway itself, without editing the reporter. A Gateway uses one reporter of each type at a time.
 
 1. From the **Dashboard**, in the **Gateways** section, click the name of the Gateway.
 2. Click **Reporters**.
-3. In the **Datadog Reporter** card or the **TCP Reporter** card, select a reporter from the **Reporter** list. To unlink the current reporter, select **None**. A deactivated reporter is listed with the **(Disabled)** suffix.
+3. In the card of the reporter type, select a reporter from the **Reporter** list. To unlink the current reporter, select **None**. A deactivated reporter is listed with the **(Disabled)** suffix.
 4. Click **Save**.
 
     <figure><img src="../../.gitbook/assets/gravitee-cloud-gateway-reporters-datadog-card.png" alt="The Reporter Settings page of a Gateway showing the TCP Reporter card and the Datadog Reporter card, each with a Reporter list and Save and Reset buttons"><figcaption></figcaption></figure>
+
+    <figure><img src="../../.gitbook/assets/gravitee-cloud-gateway-reporters-otel-card.png" alt="The Reporter Settings page of a Gateway showing the TCP Reporter card and the OpenTelemetry Reporter card, each with a Reporter list and Save and Reset buttons"><figcaption></figcaption></figure>
 
 The Gateway applies the change, and both cards are locked until the deployment completes. If no reporter of that type exists yet, the card shows a **Configure reporters** link to the **Custom Reporters** settings instead of the list. If the deployment fails, the card shows a warning banner that asks you to contact Gravitee.
 

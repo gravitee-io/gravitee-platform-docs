@@ -33,6 +33,7 @@
 * [Configure custom reporters](guides/configure-tcp-reporter/README.md)
   * [Create a TCP reporter](guides/configure-tcp-reporter/create-and-configure-custom-reporters.md)
   * [Create a Datadog reporter](guides/configure-tcp-reporter/create-a-datadog-reporter.md)
+  * [Create an OpenTelemetry reporter](guides/configure-tcp-reporter/create-an-opentelemetry-reporter.md)
   * [Custom reporters reference](guides/configure-tcp-reporter/custom-reporters-reference.md)
   * [Manage custom reporter deployments](guides/configure-tcp-reporter/manage-custom-reporter-deployments.md)
   
