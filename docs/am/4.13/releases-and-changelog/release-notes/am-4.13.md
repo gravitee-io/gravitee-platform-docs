@@ -56,3 +56,10 @@
 * Data planes registered through the Management API internal API are reached with the `id:` prefix, and an update by `id:` doesn't add them to the Automation API list.
 * A domain `PUT` that updates a security domain no longer requires `dataPlaneId`, and one that names a different data plane is rejected with `400`. See [Breaking Changes for Access Management](../../getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md).
 * The `ORGANIZATION_OWNER`, `ORGANIZATION_PRIMARY_OWNER`, `ENVIRONMENT_OWNER`, and `ENVIRONMENT_PRIMARY_OWNER` roles, which listed and read data planes before, now also register, update, and delete them. See [Automation API](../../guides/automation-api.md#manage-data-planes).
+
+#### **Runtime Data Plane Provisioning**
+
+* Data planes can now be added without editing the **gravitee.yaml** and restarting a node: post the definition to `/_node/dataplanes` on the technical API of the Management API, using Basic authentication and the same `id`, `name`, `type`, and connection settings as a `dataPlanes` entry.
+* A provisioned data plane is usable immediately and is offered as a choice when a user creates a security domain in AM Console.
+* Use `GET /_node/dataplanes` to list the provisioned data planes and `DELETE /_node/dataplanes/{id}` to remove one, which is only possible once every domain bound to it has been deleted.
+* The `id` of a provisioned data plane can't be `default` and can't reuse an identifier already declared in the **gravitee.yaml**. See [Configure multiple data planes](../../getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md).
