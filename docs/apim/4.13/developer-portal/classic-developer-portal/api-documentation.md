@@ -218,7 +218,14 @@ This method allows you to import your documentation from external sources. APIM 
 * **WWW:** Fetch your documentation from the web
 * **Bitbucket:** Fetch your documentation from a Bitbucket repository
 
-<figure><img src="../../.gitbook/assets/documentation_external source.png" alt="The External source tab with Bitbucket, Git, GitHub, GitLab and web source options above repository, branch, path and auto-fetch fields."><figcaption><p>Documentation fetcher configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apim-git-fetcher-credentials.png" alt="Select your source with Git selected. The form shows Repository, Branch or Tag, Filepath, Username, Password or access token, Enable Auto Fetch, and Update frequency."><figcaption><p>Git source settings</p></figcaption></figure>
+
+To import from a private Git repository, select **Git** as your source, then enter credentials in **Username** and **Password or access token**. Leave both empty for a public repository.
+
+* Both fields are for HTTP basic authentication. To use an access token, enter it in **Password or access token**. Git hosts usually accept any value in **Username** with a token, such as your account login.
+* Use an `https://` repository URL. Over `http://`, the credentials travel unencrypted.
+* Enter the credentials in these fields rather than in the repository URL. After you save, the password or token is masked, but the repository URL shows exactly as you entered it.
+* When you save the page again without retyping the password or token, the stored one is kept, and auto-fetch and later fetches keep using it.
 
 The documentation is fetched and stored locally in APIM in the following three scenarios:
 
