@@ -1,56 +1,100 @@
 ---
-description: Create and manage the subscription form consumers complete in API Management 4.13. Follow the steps in the Management Console.
+description: Create subscription forms in API Management 4.13, assign each one to the APIs it applies to, and control which forms consumers see.
 ---
 
 # Creating and managing subscription forms
 
-## Creating subscription forms
+An environment holds a list of subscription forms. Each form applies only to the APIs you assign to it, and an API belongs to one form at most. When a consumer subscribes to an API in the New Developer Portal, the portal shows the form assigned to that API if the form is visible. An API with no assigned form, or whose form is hidden, has no subscription form.
 
-1. In the Management Console, click **Settings** in the left sidebar.
+## Prerequisites
 
-    <figure><img src="../../.gitbook/assets/creating-and-managing-subscription-forms-0-v4.png" alt="Management Console dashboard with Settings highlighted"><figcaption><p>Click Settings in the left sidebar</p></figcaption></figure>
+- The New Developer Portal is enabled for the environment. The **Portal Settings** entry of the Console sidebar appears only when it is.
+- Your role in the Environment scope has the `METADATA` permission with the rights you need: **Read** to view subscription forms, **Create** to add one, **Update** to edit, assign APIs to, show, or hide one, and **Delete** to delete one. **Create** and **Delete** are needed from 4.13, so a custom role might need them added.
 
-2. Scroll to the **New Developer Portal** section and click **Open Settings**.
+## Create a subscription form
 
-    <figure><img src="../../.gitbook/assets/creating-and-managing-subscription-forms-0-v2.png" alt="New Developer Portal section with Open Settings button"><figcaption><p>Click Open Settings in the New Developer Portal section</p></figcaption></figure>
+1. In the Console sidebar, click **Portal Settings**. The portal settings open in a new browser tab.
 
-3. In the portal settings sidebar, select **Subscription Form**.
+    <figure><img src="../../.gitbook/assets/subscription-forms-console-portal-settings.png" alt="Console sidebar with the Portal Settings entry"><figcaption><p>Portal Settings in the Console sidebar</p></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/657dxh5i__Zrzut ekranu 2026-03-10 o 14.02.19.png" alt="Portal settings sidebar with Subscription Form highlighted"><figcaption><p>Select Subscription Form in the portal settings sidebar</p></figcaption></figure>
+2. Click **Subscription Form**. The **Subscription Forms** list shows every form of the environment, with a **Visible** toggle for each one.
 
-4. Write form content using the GMD form editor. The live preview pane displays the rendered form in real time.
+    <figure><img src="../../.gitbook/assets/subscription-forms-catalog.png" alt="Subscription Forms list with three forms and the Partner onboarding form open in the editor"><figcaption><p>The Subscription Forms list and the form editor</p></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/HnW9DAMW__Zrzut ekranu 2026-03-10 o 14.04.01.png" alt="GMD form editor with live preview"><figcaption><p>GMD form editor with live preview pane</p></figcaption></figure>
+3. Click **Add**. The editor opens with a starter form that you can edit or replace.
+4. Enter a **Name**. The name is required, can't exceed 255 characters, and must be unique in the environment. Names that differ only in letter case count as the same name.
+5. Write the form content in Gravitee Markdown (GMD). The preview next to the editor shows the rendered form. To hide or show the preview, click **Toggle preview**.
+6. Click **Assign APIs**, and then select the APIs this form applies to. You can search the list. An API that's already assigned to another form can't be selected, and hovering over its checkbox shows which form it's assigned to. An assigned API that the list doesn't show you, for example an API outside the APIs you can access, stays assigned, and the dialog shows how many assigned APIs aren't listed.
 
-5. Toggle the **Visible to API consumers** switch to control whether the form appears in the Developer Portal.
+    <figure><img src="../../.gitbook/assets/subscription-forms-assign-apis.png" alt="Assign APIs dialog with two APIs selected and a third API assigned to another form"><figcaption><p>Assign the APIs a form applies to</p></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/e768lrUA__Zrzut ekranu 2026-03-10 o 14.08.31.png" alt="Visible to API consumers toggle and Save button"><figcaption><p>Visible to API consumers toggle and Save button</p></figcaption></figure>
+7. Click **Apply**. The selection applies to the form you're editing and is saved with it in the next step.
+8. Click **Create**.
 
-6. Click **Save** to persist changes.
+A new form is hidden. Consumers don't see it until you turn on its **Visible** toggle.
 
-An unsaved changes guard prevents accidental navigation away from unsaved edits. Forms are scoped to the environment level — each environment has one subscription form. The form editor enforces a 25-field maximum at save time and rejects forms that exceed this limit.
+A form can have up to 25 fields. Saving is blocked while the editor reports a configuration error, including:
+
+- **Missing EL fallback** (`missingElFallback`): an EL expression in `options` must include a fallback list after the `}:` separator.
+- **Invalid EL syntax** (`invalidElSyntax`): an expression in `options` must start with `{#`.
+
+If you leave the page or select another form with unsaved changes, the Console asks you to confirm before it discards them.
 
 {% hint style="info" %}
-Subscription forms aren't displayed for Keyless plans. The form only appears during the subscription checkout flow when the selected plan requires authentication (API Key, OAuth2, JWT, or mTLS).
+Subscription forms aren't displayed for Keyless plans. The form only appears when the consumer subscribes to a plan that requires authentication.
 {% endhint %}
 
-The form editor validates GMD content in real time. Configuration errors, auto-corrected warnings, and field validation status appear in the validation panel below the editor. Saving is blocked when the editor reports critical errors, including:
+## Manage subscription forms
 
-- **Missing EL fallback** (`missingElFallback`) — EL expressions in `options` must include a fallback list after the `}:` separator.
-- **Invalid EL syntax** (`invalidElSyntax`) — expressions in `options` must start with `{#`.
+The following procedures cover the changes you make to an existing form. Select the form in the **Subscription Forms** list to open it in the editor.
 
-<figure><img src="../../.gitbook/assets/creating-and-managing-subscription-forms-0.png" alt="Validation panel showing configuration errors and field status"><figcaption><p>Validation panel showing configuration errors, warnings, and field status</p></figcaption></figure>
+### Edit a form or its APIs
+
+1. Change the **Name** or the form content, or click **Assign APIs** to change the APIs the form applies to, and then click **Apply**.
+2. Click **Save**.
+
+An API you remove from a form has no subscription form until you assign it to another one.
+
+### Show or hide a form
+
+1. Turn the form's **Visible** toggle on or off.
+2. In the confirmation dialog, click **Show** or **Hide**.
+
+The change applies right away and doesn't need **Save**. When a form is hidden, the APIs assigned to it have no subscription form until you show it again. The APIs stay assigned to the hidden form, so no other form can take them in the meantime.
+
+### Delete a form
+
+1. Click the delete icon on the form's row.
+2. In the confirmation dialog, click **Delete**.
+
+The APIs the form was assigned to have no subscription form afterward. Deleting a form can't be undone.
+
+### Deleting an API
+
+When an API is deleted, it's removed from the form it was assigned to.
+
+## Subscribing from the Classic Developer Portal
+
+The Classic Developer Portal doesn't display subscription forms. When the form assigned to an API is visible and has a required field, a subscription request from the Classic Developer Portal to that API is rejected.
+
+## Subscription metadata
+
+When an API consumer submits a subscription form, the form field values are stored as key-value pairs in the subscription's `metadata` property. Checkbox group selections are serialized as comma-separated strings (for example, `"Authentication,Analytics"`). Empty values (null, empty strings, whitespace-only) are filtered before storage.
+
+Every submitted subscription form is validated on the backend before the subscription is created, not only in the browser, so the constraints defined on the form (`required`, `minLength`, `maxLength`, `pattern`, and allowed options for `gmd-select`, `gmd-radio`, and `gmd-checkbox-group`) can't be bypassed by a misbehaving client. Invalid submissions are rejected with field-level error messages.
+
+Subscription metadata is displayed in the subscription details pages (both API subscriptions and application subscriptions) using a read-only viewer.
 
 ## GMD form components
 
 Use the following GMD components to build subscription forms:
 
-- **`gmd-input`** — Single-line text input. Supports `minLength`, `maxLength`, and `pattern` validation.
-- **`gmd-textarea`** — Multi-line text input. Supports `minLength`, `maxLength`, and configurable `rows`.
-- **`gmd-select`** — Dropdown selection. Define choices with the `options` attribute.
-- **`gmd-checkbox`** — Checkbox field.
-- **`gmd-checkbox-group`** — Checkbox group field. Define choices with the `options` attribute using either a comma-separated list (for example, `"Authentication,Rate Limiting,Analytics"`) or an EL expression with a fallback list (for example, `"{#api.metadata['features']}:Authentication,Rate Limiting"`). Set `required="true"` to require at least one selection.
-- **`gmd-radio`** — Radio button selection. Define choices with the `options` attribute.
+- **`gmd-input`**: Single-line text input. Supports `minLength`, `maxLength`, and `pattern` validation.
+- **`gmd-textarea`**: Multi-line text input. Supports `minLength`, `maxLength`, and configurable `rows`.
+- **`gmd-select`**: Dropdown selection. Define choices with the `options` attribute.
+- **`gmd-checkbox`**: Checkbox field.
+- **`gmd-checkbox-group`**: Checkbox group field. Define choices with the `options` attribute using either a comma-separated list (for example, `"Authentication,Rate Limiting,Analytics"`) or an EL expression with a fallback list (for example, `"{#api.metadata['features']}:Authentication,Rate Limiting"`). Set `required="true"` to require at least one selection.
+- **`gmd-radio`**: Radio button selection. Define choices with the `options` attribute.
 
 All components support `fieldKey`, `name`, `label`, `value`, `required`, and `disabled` attributes. The `fieldKey` attribute determines the metadata key stored with the subscription.
 
@@ -60,100 +104,95 @@ All components support `fieldKey`, `name`, `label`, `value`, `required`, and `di
 
 For the full list of component attributes, see [Subscription form feature overview](subscription-form-feature-overview.md). For backend validation rules, hard length limits, and field-count restrictions, see [Subscription form technical implementation](../../developer-portal/new-developer-portal/subscription-form-technical-implementation.md).
 
-## Managing subscription forms
-
-### Updating form content
-
-1. Edit the GMD content in the form editor.
-2. Click **Save** to persist changes.
-
-### Enabling or disabling forms
-
-Toggle the **Visible to API consumers** switch in the Console, or call the following Management API endpoints:
-
-* `POST /environments/{envId}/subscription-forms/{subscriptionFormId}/_enable`
-* `POST /environments/{envId}/subscription-forms/{subscriptionFormId}/_disable`
-
-When a form is disabled, it remains accessible via Management API (`GET /environments/{envId}/subscription-forms`) but returns 404 from Portal API (`GET /apis/{apiId}/subscription-form`).
-
-### Subscription metadata
-
-When an API consumer submits a subscription form, the form field values are stored as key-value pairs in the subscription's `metadata` property. Checkbox group selections are serialized as comma-separated strings (for example, `"Authentication,Analytics"`). Empty values (null, empty strings, whitespace-only) are filtered before storage.
-
-Every submitted subscription form is validated on the backend before the subscription is created — not only in the browser — so the constraints defined on the form (`required`, `minLength`, `maxLength`, `pattern`, and allowed options for `gmd-select`, `gmd-radio`, and `gmd-checkbox-group`) can't be bypassed by a misbehaving client. Invalid submissions are rejected with field-level error messages.
-
-Subscription metadata is displayed in the subscription details pages (both API subscriptions and application subscriptions) using a read-only viewer.
-
 ## Verification
 
 To verify the subscription form is working as expected, follow these steps:
 
-1. Enable the form using the **Visible to API consumers** toggle.
-2. Click **Open Website** in the portal settings top bar to open the Developer Portal.
+1. Turn on the form's **Visible** toggle, and confirm with **Show**.
+2. In the New Developer Portal, open an API assigned to the form and click **Subscribe**.
+3. Choose a plan that requires authentication, choose an application, and then go to the **Review** step. The form appears below the subscription details.
 
-    <figure><img src="../../.gitbook/assets/yxZoykMa__Zrzut ekranu 2026-03-10 o 14.11.14.png" alt="Open Website button in the portal settings top bar"><figcaption><p>Click Open Website to preview the Developer Portal</p></figcaption></figure>
-
-3. Navigate to an API and start a subscription. The custom form appears on the right side of the subscription checkout flow.
-
-    <figure><img src="../../.gitbook/assets/creating-and-managing-subscription-forms-0-v3.png" alt="Custom subscription form rendered in the Developer Portal checkout"><figcaption><p>Custom subscription form in the Developer Portal subscription checkout</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/subscription-forms-portal-checkout.png" alt="Review step of a subscription in the New Developer Portal with the Partner access request form"><figcaption><p>The assigned form on the Review step in the New Developer Portal</p></figcaption></figure>
 
 ## Management API v2 reference
 
-### GET `/environments/{envId}/subscription-forms`
-
-Retrieves the subscription form for the environment, including disabled forms.
-
-**Response:**
+Every path below is relative to `/management/v2/environments/{envId}`. A subscription form object has the following fields:
 
 ```json
 {
   "id": "string",
+  "name": "string",
   "gmdContent": "string",
-  "enabled": true
+  "enabled": false,
+  "apiIds": ["string"]
 }
 ```
 
-**Permissions:** `environment-metadata-r`
+`enabled` is the **Visible** toggle. `apiIds` lists the APIs the form is assigned to.
 
-### PUT `/environments/{envId}/subscription-forms/{subscriptionFormId}`
+### GET `/subscription-forms`
 
-Updates the subscription form GMD content.
+Lists the subscription forms of the environment, including hidden ones.
+
+### POST `/subscription-forms`
+
+Creates a subscription form. The new form is hidden.
 
 **Request body:**
 
 ```json
 {
-  "gmdContent": "string"
+  "name": "string",
+  "gmdContent": "string",
+  "apiIds": ["string"]
 }
 ```
 
-**Response:** `SubscriptionForm` object
+`name` and `gmdContent` are required, and `apiIds` is optional. Every API in `apiIds` must belong to the environment. An API that doesn't exist in the environment is rejected with `400` and the message `Unknown APIs in this environment`. The request is rejected with `409` when another form of the environment uses the same name, or when another form is already assigned one of the APIs.
 
-**Permissions:** `environment-metadata-u`
+### GET `/subscription-forms/_template`
 
-### POST `/environments/{envId}/subscription-forms/{subscriptionFormId}/_enable`
+Returns the starter content the Console uses for a new form, as `{ "gmdContent": "string" }`.
 
-Enables the subscription form for API consumers.
+### GET `/subscription-forms/{subscriptionFormId}`
 
-**Response:** `SubscriptionForm` object with `enabled: true`
+Retrieves one subscription form.
 
-**Permissions:** `environment-metadata-u`
+### PUT `/subscription-forms/{subscriptionFormId}`
 
-### POST `/environments/{envId}/subscription-forms/{subscriptionFormId}/_disable`
+Updates the name, the content, and the assigned APIs of a subscription form. It doesn't change whether the form is visible.
 
-Disables the subscription form for API consumers.
+**Request body:**
 
-**Response:** `SubscriptionForm` object with `enabled: false`
+```json
+{
+  "name": "string",
+  "gmdContent": "string",
+  "apiIds": ["string"]
+}
+```
 
-**Permissions:** `environment-metadata-u`
+All three fields are required. `apiIds` replaces the APIs assigned to the form, so an empty list removes every API from it. The same `400` and `409` rules as for creating a form apply.
+
+### DELETE `/subscription-forms/{subscriptionFormId}`
+
+Deletes a subscription form.
+
+### POST `/subscription-forms/{subscriptionFormId}/_enable`
+
+Shows the subscription form to API consumers.
+
+### POST `/subscription-forms/{subscriptionFormId}/_disable`
+
+Hides the subscription form from API consumers.
 
 ### Portal API
 
 #### GET `/apis/{apiId}/subscription-form`
 
-Retrieves the subscription form for a specific API, including resolved dynamic options. Only returns the form when it exists and is enabled — returns 404 otherwise. The response includes the GMD content and a `resolvedOptions` map containing the effective option lists for fields with EL expressions. The Portal UI merges resolved options into the GMD content before rendering, replacing static or fallback options with values resolved from API and environment metadata.
+Retrieves the subscription form assigned to an API, including resolved dynamic options. It returns `404` when no form is assigned to the API or when the assigned form is hidden. The response includes the GMD content and a `resolvedOptions` map containing the effective option lists for fields with EL expressions. The New Developer Portal merges resolved options into the GMD content before rendering, replacing static or fallback options with values resolved from API and environment metadata.
 
-When an EL expression's API metadata key is missing, the fallback list is used instead. In the Console subscription form editor, EL expressions aren't resolved — only the fallback values are shown as a preview during form design.
+When an EL expression's API metadata key is missing, the fallback list is used instead. In the Console subscription form editor, EL expressions aren't resolved, and only the fallback values are shown as a preview during form design.
 
 **Response:**
 
@@ -166,4 +205,4 @@ When an EL expression's API metadata key is missing, the fallback list is used i
 }
 ```
 
-**Authentication:** Required (Portal auth)
+**Authentication:** Anonymous requests are rejected only when the Developer Portal requires users to log in.
