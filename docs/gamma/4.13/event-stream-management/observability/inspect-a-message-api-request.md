@@ -8,7 +8,7 @@ description: >-
 
 # Inspect a Message API request
 
-A Message API row opens on the request that opened the stream, what the gateway exchanged on each leg, and the messages that flowed afterwards. A Kafka row opens on a different panel. See [Diagnose a failed Kafka connection](diagnose-a-failed-kafka-connection.md).
+A Message API row opens on the request that opened the stream, what the gateway exchanged on each leg, and the messages that flowed afterward. A Kafka row opens on a different panel. See [Diagnose a failed Kafka connection](diagnose-a-failed-kafka-connection.md).
 
 ## Open a request
 
@@ -48,7 +48,14 @@ A Message API row opens on the request that opened the stream, what the gateway 
 
 ## Read the four legs
 
-**Connection Logs** shows the legs the gateway recorded, in the order it handled them: **Entrypoint Request**, what the client sent the gateway; **Endpoint Request**, what the gateway sent the broker; **Endpoint Response**, how the broker answered; **Entrypoint Response**, how the gateway answered the client. Each carries its method or status, its headers, and its body.
+**Connection Logs** shows the legs the gateway recorded, in the order it handled them:
+
+* **Entrypoint Request**, what the client sent the gateway.
+* **Endpoint Request**, what the gateway sent the broker.
+* **Endpoint Response**, how the broker answered.
+* **Entrypoint Response**, how the gateway answered the client.
+
+Each carries its method or status, its headers, and its body.
 
 A leg the API doesn't capture is left out. When none was captured, the section reads **No connection log details captured**.
 
@@ -73,6 +80,7 @@ To verify a request and its messages reach the panel, follow these steps:
 1. Open a Message API.
 2. Confirm its **Overview** page shows no reporting warning.
 3. Publish a message through the API's entrypoint.
-4. Open **Logs** and set the time range to cover the request.
-5. Open the new row.
-6. Confirm **Connection Logs** shows the entrypoint request, and **Messages** lists the message.
+4. Open **Logs**.
+5. Set the time range to cover the request.
+6. Click the new row.
+7. Confirm **Connection Logs** shows the entrypoint request, and **Messages** lists the message.

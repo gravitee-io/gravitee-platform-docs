@@ -12,11 +12,12 @@ The **Tracing** page follows one API's requests through the gateway. Where the l
 
 ## Before you begin
 
-Tracing is off until you turn it on for the API, and it takes effect only once the API is redeployed, because the gateway builds the tracer when the API starts.
+Tracing is off until you turn it on for the API, and the change takes effect only after you deploy the API again.
 
-1. Open the API and select **Reporter Settings**.
-2. Turn **OpenTelemetry tracing** on. It needs the API's reporting on first.
-3. Redeploy the API.
+1. Open the API from **Kafka Services** or **Message APIs**.
+2. In the API's sidebar, under **Operations**, click **Reporter Settings**.
+3. Turn **OpenTelemetry tracing** on. It needs the API's reporting on first.
+4. Click **Deploy**.
 
 An API that traces nothing lists no traces here, whatever time range you set. See [Configure reporter settings](configure-reporter-settings.md).
 
@@ -40,13 +41,13 @@ The traces open in a new tab over the last 24 hours.
 
 ## Narrow the traces
 
-Once you pick an API, two Kafka filters are available: **Kafka operation** and **Kafka client id**. Both match an exact value.
+Once you pick an API, two Kafka filters are available: **Kafka operation** and **Kafka client id**. Both match an exact value. They're offered whichever API you pick, so they stay available with a Message API selected, where they match nothing.
 
 Consumer group, failure origin, and topic aren't trace filters. To narrow by failure origin, use the logs. To narrow by topic, use a dashboard.
 
 ## Read a trace
 
-Each row is one trace. Click it to open the trace beside the list. The header states the service, the total duration, the number of spans, and when the trace started, above two views of the same spans.
+Each row is one trace. Click it to open the trace beside the list, with two views of the same spans.
 
 * **Timeline** places the spans as a waterfall, each sized by how long it took. This is where a slow step stands out.
 * **Lineage** shows the same spans as a graph of what called what.
@@ -88,7 +89,7 @@ Click any span, in either view, to open its panel.
     </tbody>
 </table>
 
-Each section shows its count, and a section with nothing to show is left out. **Verbose tracing** in **Reporter Settings** is what adds the detailed span events, and it multiplies what a trace stores, so turn it on for an investigation rather than leaving it on.
+Each section shows its count, and a section with nothing to show is left out. **Verbose tracing** in **Reporter Settings** adds the detailed span events. It multiplies what a trace stores, so turn it on for an investigation rather than leaving it on.
 
 ## Verification
 
