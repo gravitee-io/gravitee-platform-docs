@@ -63,7 +63,7 @@ The test uses three separate Kubernetes clusters on Microsoft Azure, so that loa
         </tr>
         <tr>
             <td>Gateway cluster (system under test)</td>
-            <td>CPU-optimized <code>Standard_F8as_v6</code> nodes</td>
+            <td>Compute-optimized <code>Standard_F8as_v6</code> nodes</td>
         </tr>
         <tr>
             <td>Gateway CPU</td>
@@ -131,7 +131,40 @@ Load is generated from the load generator cluster and sent to the Gateway, which
 
 ## Results
 
-Select a release to see its results. CPU is reported in cores consumed against the 4 cores allocated.
+Select a release to see its results. Each result table reports the following metrics.
+
+<table>
+    <thead>
+        <tr>
+            <th width="260">Metric</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>TPS</td>
+            <td>Transactions per second</td>
+        </tr>
+        <tr>
+            <td>Average (ms)</td>
+            <td>Average response time</td>
+        </tr>
+        <tr>
+            <td>P95 (ms)</td>
+            <td>95th percentile response time. 95% of requests completed within this time.</td>
+        </tr>
+        <tr>
+            <td>P99 (ms)</td>
+            <td>99th percentile response time. 99% of requests completed within this time.</td>
+        </tr>
+        <tr>
+            <td>CPU (%)</td>
+            <td>Gateway CPU usage, as a percentage of the 4 vCPU allocated to it</td>
+        </tr>
+    </tbody>
+</table>
+
+Average, P95, and P99 are total end-to-end response times, measured by the client on the load generator cluster. Each one covers the full round trip, including the Gateway's request to the backend.
 
 {% hint style="warning" %}
 Each figure comes from a single run, so small differences between releases fall within the range that run-to-run variation can produce. Treat them as a record of each release rather than as a measured trend. Repeat runs are planned for future results.
@@ -142,12 +175,12 @@ Each figure comes from a single run, so small differences between releases fall 
 <table>
     <thead>
         <tr>
-            <th width="260">Scenario</th>
-            <th align="right">Transactions per second</th>
+            <th width="200">Scenario</th>
+            <th align="right">TPS</th>
             <th align="right">Average (ms)</th>
             <th align="right">P95 (ms)</th>
             <th align="right">P99 (ms)</th>
-            <th align="right">CPU (cores)</th>
+            <th align="right">CPU (%)</th>
         </tr>
     </thead>
     <tbody>
@@ -157,7 +190,7 @@ Each figure comes from a single run, so small differences between releases fall 
             <td align="right">4.62</td>
             <td align="right">5.75</td>
             <td align="right">9.14</td>
-            <td align="right">3.3</td>
+            <td align="right">82</td>
         </tr>
         <tr>
             <td>API Key</td>
@@ -165,7 +198,7 @@ Each figure comes from a single run, so small differences between releases fall 
             <td align="right">4.73</td>
             <td align="right">5.92</td>
             <td align="right">9.48</td>
-            <td align="right">3.4</td>
+            <td align="right">85</td>
         </tr>
         <tr>
             <td>OAuth 2.0</td>
@@ -173,7 +206,7 @@ Each figure comes from a single run, so small differences between releases fall 
             <td align="right">4.75</td>
             <td align="right">5.76</td>
             <td align="right">9.12</td>
-            <td align="right">3.3</td>
+            <td align="right">82</td>
         </tr>
         <tr>
             <td>Keyless with Rate Limit policy</td>
@@ -181,7 +214,7 @@ Each figure comes from a single run, so small differences between releases fall 
             <td align="right">5.06</td>
             <td align="right">6.29</td>
             <td align="right">9.18</td>
-            <td align="right">3.2</td>
+            <td align="right">80</td>
         </tr>
     </tbody>
 </table>
@@ -191,12 +224,12 @@ Each figure comes from a single run, so small differences between releases fall 
 <table>
     <thead>
         <tr>
-            <th width="260">Scenario</th>
-            <th align="right">Transactions per second</th>
+            <th width="200">Scenario</th>
+            <th align="right">TPS</th>
             <th align="right">Average (ms)</th>
             <th align="right">P95 (ms)</th>
             <th align="right">P99 (ms)</th>
-            <th align="right">CPU (cores)</th>
+            <th align="right">CPU (%)</th>
         </tr>
     </thead>
     <tbody>
@@ -206,7 +239,7 @@ Each figure comes from a single run, so small differences between releases fall 
             <td align="right">4.63</td>
             <td align="right">5.62</td>
             <td align="right">8.01</td>
-            <td align="right">3.0</td>
+            <td align="right">75</td>
         </tr>
         <tr>
             <td>API Key</td>
@@ -214,7 +247,7 @@ Each figure comes from a single run, so small differences between releases fall 
             <td align="right">4.65</td>
             <td align="right">5.66</td>
             <td align="right">7.96</td>
-            <td align="right">3.1</td>
+            <td align="right">78</td>
         </tr>
         <tr>
             <td>OAuth 2.0</td>
@@ -222,7 +255,7 @@ Each figure comes from a single run, so small differences between releases fall 
             <td align="right">4.77</td>
             <td align="right">5.70</td>
             <td align="right">7.89</td>
-            <td align="right">3.1</td>
+            <td align="right">78</td>
         </tr>
         <tr>
             <td>Keyless with Rate Limit policy</td>
@@ -230,7 +263,7 @@ Each figure comes from a single run, so small differences between releases fall 
             <td align="right">5.04</td>
             <td align="right">6.15</td>
             <td align="right">8.15</td>
-            <td align="right">3.06</td>
+            <td align="right">77</td>
         </tr>
     </tbody>
 </table>
