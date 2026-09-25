@@ -27,7 +27,9 @@ The logs open in a new tab, filtered to that API over the last 24 hours.
 
 ## Find failed Kafka connections
 
-The table opens on **Common**. Click **Kafka** to show each connection's status, failure origin, client ID, and duration. For Message APIs, **Message** shows the entrypoint, the HTTP status, the request URI, and the gateway response time.
+The **Common**, **Kafka**, and **Message** buttons above the table, next to **View**, choose which columns it shows. It opens on **Common**. Click **Kafka** to show each connection's status, failure origin, client ID, and duration. Click **Message** to show the entrypoint, the HTTP status, the request URI, and the gateway response time.
+
+A Kafka row's status is **Connected**, **Disconnected**, **Connection error**, **Session error**, or **Internal error**.
 
 **Failure Origin** says where the connection broke.
 
@@ -60,7 +62,7 @@ The table opens on **Common**. Click **Kafka** to show each connection's status,
 
 A row with an error key is a failure even when its status reads **Connected** or **Disconnected**.
 
-Filter on **Failure Origin** to see one kind of failure only, such as **Gateway ↔ Broker**, or on **Kafka Client ID** to follow one client. Topic and Kafka operation filters are on the dashboards, not here.
+Filter on **Native Connection Status** to keep one status, or on **Failure Origin** to keep one kind of failure, such as **Gateway ↔ Broker**. Filter on **Kafka Client ID** to follow one client. Topic and Kafka operation filters are on the dashboards, not here.
 
 Click a row to see why it failed. See [Diagnose a failed Kafka connection](diagnose-a-failed-kafka-connection.md).
 

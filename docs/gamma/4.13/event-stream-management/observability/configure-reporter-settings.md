@@ -54,7 +54,7 @@ A Kafka Service reports connection logs only when the first two are both on. Tur
 
 The **Settings** card has one switch in its header, and the rest of the card applies underneath it.
 
-**Logging mode** picks which leg to capture, **Entrypoint** for client to gateway or **Endpoint** for gateway to broker. **Logging phase** picks which phases, **Request** or **Response**. Both are required: a mode with no phase captures nothing, and so does a phase with no mode. They govern captured content only — the API's connections reach the logs as soon as the header switch is on.
+**Logging mode** picks which leg to capture, **Entrypoint** for client to gateway or **Endpoint** for gateway to broker. **Logging phase** picks which phases, **Request** or **Response**. Both are required: a mode with no phase captures nothing, and so does a phase with no mode. They govern captured content only. The API's connections reach the logs as soon as the switch on the **Settings** card is on.
 
 **Content data** picks what to store alongside each logged event: **Message content** for the body itself, **Message headers**, **Message metadata**, and **Headers** for the transport headers of the request rather than of individual messages.
 
@@ -104,5 +104,6 @@ To verify an API is reporting, follow these steps:
 1. Open the API.
 2. Confirm its **Overview** page shows no reporting warning.
 3. Send traffic through it.
-4. Open **Logs** and set the time range to cover that traffic.
-5. Confirm a row for that API appears.
+4. Open **Logs**.
+5. Set the time range to cover that traffic.
+6. Confirm a row for that API appears.
