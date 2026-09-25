@@ -56,6 +56,10 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 
 The Kafka Topic Mapping policy now checks its mapping entries when the API is deployed, where 4.12 and earlier checked nothing. An API that deploys today can fail to deploy after the upgrade. Four kinds of entry are refused. An entry that sets neither `client` nor `broker`. An entry whose plain name Kafka wouldn't accept as a topic name. An entry that references `#topic` in both fields. And two entries whose plain `broker` values are equal, or whose plain `client` values are equal. The last is the likeliest to appear in a configuration that works today. Review every Kafka Topic Mapping policy against those four cases before upgrading. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
+#### **Subscription forms apply only to the APIs they're assigned to**
+
+An environment now holds several subscription forms, and each form applies only to the APIs assigned to it. On the first Management API startup after the upgrade, the existing form of each environment is named **Global Default Form**. If it was visible, it's assigned to every API of the environment. If it was hidden, it's assigned to no API. An API created after the upgrade has no subscription form until you assign it to one, where previously the environment's form applied to every API. New environments start with no subscription form. The Management API v2 `GET /subscription-forms` endpoint now returns a list of forms, and `PUT /subscription-forms/{subscriptionFormId}` requires `name`, `gmdContent`, and `apiIds`. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
 #### **Kafka Topic Mapping policy: A blank mapping field now defines a rule**
 
 A Kafka Topic Mapping entry that sets only one of `client` and `broker` is now a rule that applies to any topic. A field set to a blank string counts as absent. In 4.12 and earlier such an entry matched nothing and never applied. An entry left with a blank field therefore changes from inert to claiming every topic the client names. The configuration schema required both fields before 4.13.0, so an affected entry is one whose field was set to an empty string. Review every Kafka Topic Mapping policy for a blank `client` or `broker` before upgrading. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
@@ -84,6 +88,15 @@ A Kafka Topic Mapping entry that sets only one of `client` and `broker` is now a
 * The thumbprints are computed from the DER-encoded signing certificate resolved by the configured key resolver (`INLINE`, `PEM`, `JKS`, or `PKCS12`). The options apply to RS256 signatures only, and the Console disables them when an HMAC signature is selected.
 * If a thumbprint option is enabled and no certificate matching the signing key is available, the policy rejects requests with HTTP `500` instead of issuing a token without the header.
 * For more information, see [Generate JWT](../../create-and-configure-apis/apply-policies/policy-reference/generate-jwt.md).
+
+#### **Multiple subscription forms in the New Developer Portal**
+
+* Create several subscription forms per environment, and assign each form to the APIs it applies to. An API is assigned to one form at most. Consumers see the form assigned to the API they subscribe to, and an API without an assigned form has no subscription form.
+* Manage forms from **Subscription Form** in the portal settings. The **Subscription Forms** list shows every form with a **Visible** toggle, and **Add** creates a form from a starter template. Each form carries a name that's unique in the environment.
+* Choose a form's APIs with **Assign APIs**. An API already assigned to another form can't be selected.
+* A new form is hidden until you turn on its **Visible** toggle. Deleting a form leaves its APIs without a subscription form, and deleting an API removes it from its form.
+* The Management API v2 adds endpoints to create, retrieve, and delete a form, and to retrieve the starter template.
+* For more information, see [Creating and managing subscription forms](../../secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms.md).
 
 #### **Categories in the New Developer Portal catalog**
 

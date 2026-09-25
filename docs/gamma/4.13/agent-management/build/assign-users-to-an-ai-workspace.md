@@ -66,6 +66,10 @@ The **Users** list holds one row per member, with the following columns:
             <td>The member's display name.</td>
         </tr>
         <tr>
+            <td><strong>Source</strong></td>
+            <td>The identity provider the member's account comes from, such as <strong>Gravitee</strong>, <strong>LDAP</strong>, or <strong>OIDC</strong>. A dash when the account can't be read.</td>
+        </tr>
+        <tr>
             <td><strong>API key</strong></td>
             <td>The member's key, masked. Reveal it and copy it from this cell.</td>
         </tr>
@@ -75,11 +79,11 @@ The **Users** list holds one row per member, with the following columns:
         </tr>
         <tr>
             <td><strong>Budget</strong></td>
-            <td>The amount and period of the budget the member is on.</td>
+            <td>The amount and period of the budget the member is on. Once the member's spend is measured, the cell also shows the share of the budget they've used and what they spent over the budget period. <strong>No budget</strong> appears when the budget carries no cost ceiling or can't be found. See <a href="#read-a-members-budget-use">Read a member's budget use</a>.</td>
         </tr>
         <tr>
             <td><strong>Usage (30d)</strong></td>
-            <td>What the member spent over the last 30 days: tokens, requests, and cost.</td>
+            <td>What the member spent over the last 30 days: tokens, requests, and cost. <strong>Usage unavailable</strong> means the analytics engine didn't answer.</td>
         </tr>
         <tr>
             <td><strong>Status</strong></td>
@@ -92,7 +96,17 @@ The **Users** list holds one row per member, with the following columns:
     </tbody>
 </table>
 
-<figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-users-list.png" alt="The Users list with two members, each showing a masked API key, the model count and budget selector, the budget amount and period, thirty-day usage, and an active status"><figcaption><p>The Users list of a workspace</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-users-list.png" alt="The Users list with five members, each showing their identity source, a masked API key, the model count and budget selector, the share of their budget used with the amount spent in the last 30 days, thirty-day usage, and an active status"><figcaption><p>The Users list of a workspace</p></figcaption></figure>
+
+### Read a member's budget use
+
+The **Budget** cell compares what a member spent with the ceiling of their budget. Note the following points when you read it:
+
+* The spend is measured from analytics over the trailing length of the budget period: the last hour, the last 24 hours, the last 7 days, or the last 30 days. The gateway enforces the budget with its own counter, so the share can differ from the allowance the gateway has left for the member.
+* The share can pass 100%, while the bar stops at full.
+* When the share can't be measured, for example because the analytics engine didn't answer, the cell shows the amount and period of the budget alone.
+
+To rank every member of the workspace by spend over any time range, use the **Spend** page. See [Track AI workspace spend](track-ai-workspace-spend.md).
 
 ## Give a member their API key
 
@@ -122,4 +136,4 @@ To verify a member has working access, follow these steps:
 4. Reveal and copy the member's API key.
 5. On the **Overview** page, copy the entrypoint URL from the **Connection** card.
 6. Call the `/models` path of that URL with the member's key, and confirm the models of the workspace are listed.
-7. Return to the **Users** list, and confirm the member's **Usage (30d)** cell counts the request. The cell is read from analytics rather than from the subscription, so it can lag behind the call, and it stays empty while the workspace has no analytics data.
+7. Return to the **Users** list, and confirm the member's **Usage (30d)** cell counts the request. The cell is read from analytics rather than from the subscription.
