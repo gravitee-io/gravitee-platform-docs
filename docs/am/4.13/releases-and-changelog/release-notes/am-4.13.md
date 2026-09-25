@@ -42,3 +42,9 @@
 * The new **Limit to event types** list restricts the mapped attributes to the event types you select. Leaving it empty exports them on every audit record the reporter writes, and it never changes which events AM reports.
 * AM never exports an attribute whose name holds a credential or a token. The new `reporters.audits.attribute_mappings.denied_attributes` property in `gravitee.yml` extends that built-in list.
 * A reporter with no attribute mappings exports the payload it exported before. See [Reporters](../../getting-started/configuration/configure-reporters.md#attribute-mapping) for the configuration.
+
+#### **OCI KMS certificate plugin**
+
+* A new Enterprise Edition certificate plugin signs the tokens of a security domain with a key stored in an Oracle Cloud Infrastructure (OCI) Vault. AM reads the public key from the vault and sends every signing operation to OCI KMS.
+* The plugin authenticates to OCI with an API key, an OCI config file, instance principals, resource principals, or OKE workload identity, and signs with `RS256`, `RS384`, `RS512`, `PS256`, `PS384`, `PS512`, `ES256`, `ES384`, or `ES512`.
+* The plugin isn't bundled with AM. Install it on the AM Management API and the AM Gateway, with a license that contains the `enterprise-secret-manager` pack. See [Configure the OCI KMS certificate plugin](../../guides/certificates/oci-kms-certificate-plugin.md).

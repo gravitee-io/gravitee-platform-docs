@@ -16,6 +16,9 @@ guides/branding/README.md
 guides/branding/language-default-properties-reference.md
 .gitbook/assets/am-application-scopes-consent-settings.png
 .gitbook/assets/am-application-add-scope-dialog.png
+# OCI KMS certificate plugin (AM 4.13.0 feature, AM-6489)
+guides/certificates/oci-kms-certificate-plugin.md
+getting-started/configuration/domain-secrets/plugins-support.md
 # Organization license sync and enforcement (AM 4.13.0 feature, AM-7166)
 overview/open-source-vs-enterprise-am/README.md
 guides/audit-trail.md
