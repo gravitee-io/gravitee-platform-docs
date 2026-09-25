@@ -10,6 +10,18 @@ This section contains an overview of the new features in Gravitee Cloud's releas
 
 <details>
 
+<summary>23rd September</summary>
+
+**OpenTelemetry reporter for Gravitee Hosted Gateways**
+
+You can now create an OpenTelemetry reporter in Gravitee Cloud and link it to your Gravitee Hosted Gateways. The reporter sends traces, and optionally request and response logs, to your own OpenTelemetry collector over gRPC or HTTP. Optional headers, extra attributes, TLS, and a proxy are available for the traces. Each v4 API opts in to OpenTelemetry in its own settings in APIM.
+
+For more information about how to create an OpenTelemetry reporter, see [Create an OpenTelemetry reporter](../guides/configure-tcp-reporter/create-an-opentelemetry-reporter.md).
+
+</details>
+
+<details>
+
 <summary>14th September</summary>
 
 **Datadog reporter for Gravitee Hosted Gateways**

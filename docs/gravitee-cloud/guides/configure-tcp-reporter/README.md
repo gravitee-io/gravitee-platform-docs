@@ -1,16 +1,18 @@
 ---
-description: Custom reporters stream analytics from Gravitee Hosted Gateways to external monitoring systems over TCP or to Datadog. Learn how reporters and gateway linking work.
+description: Custom reporters stream analytics from Gravitee Hosted Gateways to external monitoring systems over TCP, to Datadog, or to an OpenTelemetry collector. Learn how reporters and gateway linking work.
 ---
 
 # Configure custom reporters
 
 ## Overview
 
-Custom Reporters enable API platform administrators to configure log and metrics exporters that stream analytics data from Gravitee Hosted Gateways to external monitoring systems. Two reporter types are available: a TCP reporter, which streams the data to a TCP endpoint, and a Datadog reporter, which sends the data to your Datadog site. TCP reporters support TLS encryption and configurable reconnection and retry settings, and both types support selective data type filtering. This feature is available to enterprise customers with Galaxy or Universe tier licenses.
+Custom Reporters enable API platform administrators to configure log and metrics exporters that stream analytics data from Gravitee Hosted Gateways to external monitoring systems. Three reporter types are available. A TCP reporter streams the data to a TCP endpoint. A Datadog reporter sends the data to your Datadog site. An OpenTelemetry reporter sends traces and logs to your OpenTelemetry collector. TCP reporters support TLS encryption and configurable reconnection and retry settings, and both types support selective data type filtering. This feature is available to enterprise customers with Galaxy or Universe tier licenses.
 
 For more information about TCP reporter configuration, see [TCP Reporter](https://documentation.gravitee.io/apim/analyze-and-monitor-apis/reporters/tcp-reporter).
 
 For more information about the Datadog reporter plugin, see [Datadog Reporter](https://documentation.gravitee.io/apim/analyze-and-monitor-apis/reporters/datadog-reporter).
+
+For more information about OpenTelemetry on the Gateway, see [OpenTelemetry](https://documentation.gravitee.io/apim/analyze-and-monitor-apis/opentelemetry).
 
 ### Compatibility matrix
 
@@ -19,12 +21,13 @@ For more information about the Datadog reporter plugin, see [Datadog Reporter](h
 | TCP TLS   | 4.11.x and above |
 | TCP Plain | Any version      |
 | Datadog   | 4.12.x and above |
+| OpenTelemetry | 4.12.x and above |
 
 ## Key Concepts
 
 ### Reporter Configuration
 
-A custom reporter defines the connection parameters, security settings, and data selection rules for exporting gateway telemetry. A TCP reporter specifies a TCP endpoint, connection timeouts, reconnection behavior, and optional TLS certificates. A Datadog reporter specifies the Datadog site, an API key, batching settings, optional custom tags, and an optional proxy. Administrators select which data types to export like V2 Logs, V4 Metrics, Kafka event metrics, and then link the reporter to one or more gateways.
+A custom reporter defines the connection parameters, security settings, and data selection rules for exporting gateway telemetry. A TCP reporter specifies a TCP endpoint, connection timeouts, reconnection behavior, and optional TLS certificates. A Datadog reporter specifies the Datadog site, an API key, batching settings, optional custom tags, and an optional proxy. An OpenTelemetry reporter specifies the collector endpoints for traces and logs and the signals to send. It also takes optional headers, attributes, and TLS and proxy settings for traces. Administrators select which data types to export like V2 Logs, V4 Metrics, Kafka event metrics, and then link the reporter to one or more gateways.
 
 <figure><img src="../../.gitbook/assets/gravitee-cloud-custom-reporters-step-04.png" alt="TCP reporter configuration form showing host, port, connection timeout, reconnect attempts, reconnect interval, and retry timeout fields"><figcaption></figcaption></figure>
 
@@ -36,7 +39,7 @@ Reporters are deployed to Gateways through a linking mechanism. A single reporte
 
 ### Data Type Selection
 
-Administrators choose which telemetry streams to export from a predefined set of data types. The available types include V2 Logs, V2 Metrics, V4 Logs, V4 Metrics, V4 Message Logs, V4 Message Metrics, API Health Check Logs, and Kafka event metrics, which include operation, topic, application, and API. A Datadog reporter doesn't send the Kafka event metrics, so they aren't offered when you create one.
+Administrators choose which telemetry streams to export from a predefined set of data types. The available types include V2 Logs, V2 Metrics, V4 Logs, V4 Metrics, V4 Message Logs, V4 Message Metrics, API Health Check Logs, and Kafka event metrics, which include operation, topic, application, and API. A Datadog reporter doesn't send the Kafka event metrics, so they aren't offered when you create one. An OpenTelemetry reporter sends traces and logs instead of these data types, so it has no data selection.
 
 For more information about data selection, see [Configuring Reporters and Selecting Fields](https://documentation.gravitee.io/apim/analyze-and-monitor-apis/reporters#configuring-reporters-and-selecting-fields).
 
@@ -54,8 +57,9 @@ Reporters support mutual TLS authentication using JKS or PFX keystores and trust
 * Account-level permissions to manage custom reporters
 * For a TCP reporter, a TCP endpoint accessible from the gateway network
 * For a Datadog reporter, an API key for your Datadog site
+* For an OpenTelemetry reporter, an OpenTelemetry collector that the Gateways reach
 * (Optional) For a TCP reporter, JKS or PFX certificate files for TLS connections
 
 To learn more about how to configure custom reporters, see the following articles:
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Create a TCP reporter</td><td><a href="create-and-configure-custom-reporters.md">create-and-configure-custom-reporters.md</a></td></tr><tr><td>Create a Datadog reporter</td><td><a href="create-a-datadog-reporter.md">create-a-datadog-reporter.md</a></td></tr><tr><td>Custom Reporters Reference</td><td><a href="custom-reporters-reference.md">custom-reporters-reference.md</a></td></tr><tr><td>Managing Custom Reporter Deployments</td><td><a href="manage-custom-reporter-deployments.md">manage-custom-reporter-deployments.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Create a TCP reporter</td><td><a href="create-and-configure-custom-reporters.md">create-and-configure-custom-reporters.md</a></td></tr><tr><td>Create a Datadog reporter</td><td><a href="create-a-datadog-reporter.md">create-a-datadog-reporter.md</a></td></tr><tr><td>Create an OpenTelemetry reporter</td><td><a href="create-an-opentelemetry-reporter.md">create-an-opentelemetry-reporter.md</a></td></tr><tr><td>Custom Reporters Reference</td><td><a href="custom-reporters-reference.md">custom-reporters-reference.md</a></td></tr><tr><td>Managing Custom Reporter Deployments</td><td><a href="manage-custom-reporter-deployments.md">manage-custom-reporter-deployments.md</a></td></tr></tbody></table>
