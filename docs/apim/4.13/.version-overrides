@@ -130,3 +130,5 @@ developer-portal/new-developer-portal/subscription-form-technical-implementation
 .gitbook/assets/subscription-forms-portal-checkout.png
 # Password policy description shown by the Gamma console (APIM 4.13.0 feature, FOUND-249)
 configure-and-manage-the-platform/manage-organizations-and-environments/authentication/password-policy.md
+developer-portal/classic-developer-portal/api-documentation.md
+.gitbook/assets/apim-git-fetcher-credentials.png
