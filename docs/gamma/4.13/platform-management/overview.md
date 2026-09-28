@@ -32,7 +32,7 @@ A single enterprise request often crosses several modules. An agent invocation a
 
 ## The modules
 
-The Gamma console presents six application modules. The following table describes what each module governs and where to start:
+The Gamma console presents seven application modules. The following table describes what each module governs and where to start:
 
 | Module | What it governs | Start here |
 | --- | --- | --- |
@@ -40,6 +40,7 @@ The Gamma console presents six application modules. The following table describe
 | **Event Stream Management** | Kafka clusters, Kafka Services, and Virtual Clusters | [Event Stream Management overview](../event-stream-management/get-started/event-stream-management-overview.md) |
 | **Agent Management** | LLM calls, MCP tool invocations, and agent-to-agent delegations | [Agent Management overview](../agent-management/get-started/ai-management-overview.md) |
 | **Authorization Management** | Fine-grained access control over every cataloged asset, written in GAPL | [Authorization Management overview](../authorization-management/get-started/authorization-management-overview.md) |
+| **Developer Portals** | The New Developer Portal, where your API consumers find APIs and subscribe to them | [Open the Developer Portal settings](open-the-developer-portal-settings.md) |
 | **Edge Management** | AI traffic that leaves your managed devices | [Edge Management overview](../edge-management/get-started/edge-management-overview.md) |
 | **Platform Management** | Installation, organization and environment settings, users, groups, and shared assets | [Install](install/README.md) |
 

@@ -28,6 +28,7 @@
       * [AWS EKS](install/hybrid-installation-guides/kubernetes/aws-eks.md)
       * [Azure AKS](install/hybrid-installation-guides/kubernetes/azure-aks.md)
       * [OpenShift](install/hybrid-installation-guides/kubernetes/openshift.md)
+* [Open the Developer Portal settings](open-the-developer-portal-settings.md)
 * [Configure Access Management](configure-access-management.md)
 * [Configure client registration](configure-client-registration.md)
 * [Configure console authentication](configure-console-authentication.md)
