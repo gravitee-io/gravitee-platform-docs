@@ -16,11 +16,10 @@ From APIM 4.13, the same setting also applies to the API Products listed in the 
 
 The toggle is part of the New Developer Portal settings, which are available with an Enterprise license.
 
-1. In the Console, open **Settings**.
-2. In the **Portal** section of the settings menu, click **Settings**.
-3. Scroll to the **New Developer Portal** section.
-4. Enable the **Approximate spelling for API search** toggle.
-5. Click **Save**.
+1. In the Console sidebar, click **Portal Settings**. The Portal Settings open in a new browser tab.
+2. Click **Settings**.
+3. In the **Portal capabilities** section, enable the **Approximate spelling for API search** toggle.
+4. Click **Save**.
 
 ## Configuration reference
 

@@ -352,6 +352,7 @@
     * [Create an Application](developer-portal/new-developer-portal/create-an-application.md)
     * [Create and manage mTLS certificates (application owner guide)](developer-portal/new-developer-portal/creating-and-managing-mtls-certificates-application-owner-guide.md)
     * [Enable the New Developer Portal](developer-portal/new-developer-portal/configure-the-new-portal.md)
+    * [Configure New Developer Portal settings](developer-portal/new-developer-portal/configure-new-developer-portal-settings.md)
     * [Layout and Theme](developer-portal/new-developer-portal/layout-and-theme.md)
     * [Customize the Homepage](developer-portal/new-developer-portal/customize-the-homepage.md)
     * [Manage New Developer Portal categories](developer-portal/new-developer-portal/manage-new-developer-portal-categories.md)
