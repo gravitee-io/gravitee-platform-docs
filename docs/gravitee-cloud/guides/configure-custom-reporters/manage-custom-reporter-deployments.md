@@ -26,7 +26,7 @@ You link a TCP reporter, a Datadog reporter, and an OpenTelemetry reporter to a 
 
     <figure><img src="../../.gitbook/assets/gravitee-cloud-gateway-reporters-otel-card.png" alt="The Reporter Settings page of a Gateway showing the TCP Reporter card and the OpenTelemetry Reporter card, each with a Reporter list and Save and Reset buttons"><figcaption></figcaption></figure>
 
-The Gateway applies the change, and both cards are locked until the deployment completes. If no reporter of that type exists yet, the card shows a **Configure reporters** link to the **Custom Reporters** settings instead of the list. If the deployment fails, the card shows a warning banner that asks you to contact Gravitee.
+The Gateway applies the change, and every card is locked until the deployment completes. If no reporter of that type exists yet, the card shows a **Configure reporters** link to the **Custom Reporters** settings instead of the list. If the deployment fails, the card shows a warning banner that asks you to contact Gravitee.
 
 ## Edit a reporter
 
