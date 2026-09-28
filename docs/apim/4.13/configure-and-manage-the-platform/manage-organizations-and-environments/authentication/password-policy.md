@@ -91,5 +91,5 @@ The default policy follows OWASP recommendations. Gravitee recommends that you k
 {% endhint %}
 
 {% hint style="info" %}
-The shipped `gravitee.yml` also includes a `user.password.policy.description` property alongside `pattern`. A comment there states that APIM shows this description to users whose password does not match the policy. No APIM component reads the property, so setting it has no effect. Only `pattern` applies.
+Set `user.password.policy.description` alongside `pattern` to describe the policy in your own words. The Gamma console shows it on its account activation and password reset pages when it can't list any of your pattern's requirements. Only `pattern` decides whether a password is accepted. When you change `pattern` and leave `description` blank, the Management API logs a warning at startup.
 {% endhint %}

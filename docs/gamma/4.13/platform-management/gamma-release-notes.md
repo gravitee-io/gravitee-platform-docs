@@ -370,6 +370,13 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Fragments that other templates include, such as `header.html`, are overridden the same way.
 * See [Customize notification templates](customize-notification-templates.md).
 
+#### Let people request a console account
+
+* While **Allow User Registration** is on, the Gamma console sign-in page offers a **Request an account** link, as long as the local login form is shown.
+* The **Request an account** page asks for a first name, a last name, an email address, and the fields listed on the **User Fields** page. The activation email opens the Gamma console, where the person chooses a password.
+* With automatic validation off, the activation email is sent once an administrator accepts the request from the **Users** page, and its link opens the Gamma console too.
+* See [Configure console management and schedulers](configure-console-management-and-schedulers.md).
+
 #### Manage dictionaries
 
 * Create, edit, search, and delete the dictionaries of the selected environment from the **Dictionaries** page. Dictionaries hold key-value properties that API policies reference at runtime.
