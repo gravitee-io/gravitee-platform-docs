@@ -64,6 +64,26 @@ repositories:
 
 With `system-cluster-restricted` set to `true`, the Management API sets the database and the collection of such a provider when it's created and refuses to change them afterwards. A provider created before the setting was turned on keeps its database and collection. See [MongoDB](../../guides/identity-providers/database-identity-providers/mongodb.md#store-users-on-the-system-cluster) for what AM Console shows.
 
+{% hint style="info" %}
+Known limitation: system-cluster setting consistency
+
+The `repositories.system-cluster` need to be consistent between the ManagementAPI and the Gateaway deployment so an Identity provider will rely on the same settings.
+Once a MongoDB IdentityProvider rely on the "useSystemCluster" option exist, this settings cannot be changed in the gravitee.yaml otherwise the IdentityProvider will not retrieve the data.
+
+{% endhint %}
+
+{% hint style="info" %}
+Known limitation: default identity provider and mixed-version deployments
+
+A default identity provider created by Gravitee AM 4.13 or later cannot be used by gateways running a version earlier than 4.13 when `repositories.system-cluster` is `gateway`. This affects multi data plane deployments where `repositories.system-cluster` is set to gateway.
+
+From 4.13, the Management API stores the management database name in the default identity provider's configuration. Gateways before 4.13 read database settings based on the management scope settings, so they look for the users in the wrong database. Gateways from 4.13 replace it at runtime with the database of the data plane, so they are not affected.
+
+Default identity providers created before 4.13 are not affected.
+
+During a rolling upgrade, upgrade all gateways to 4.13 or later before creating new domains, or do not rely on the default identity provider of domains created in the meantime.
+{% endhint %}
+
 ## MongoDB
 
 The [MongoDB](https://www.mongodb.org/) repository is included with AM by default.
