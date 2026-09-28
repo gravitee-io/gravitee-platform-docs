@@ -11,7 +11,7 @@ A runtime alert watches the requests that a Message API handles and notifies you
 ## Prerequisites
 
 * A license that includes the `alert-engine` feature. Without it, the **Alerts** item of the sidebar shows a lock icon.
-* Alerting turned on for your organization, and Alert Engine installed on your installation. When alerting is turned off, the **Alerts** page warns that **The Alert Engine is not enabled on this installation**. Without both, alerts can't be created or changed.
+* Alerting turned on for your organization, and Alert Engine installed on your installation. When alerting is turned off, the **Alerts** page warns that **The Alert Engine is not enabled on this installation**. Without both, alerts can be configured but aren't evaluated.
 * Permission to read the alerts of the Message API. Without it, the **Alerts** item doesn't appear in the sidebar.
 
 ## Open the alerts
@@ -78,7 +78,7 @@ The metrics are **Response Time (ms)**, **Status Code**, **Request Content-Lengt
 
 * To turn an alert on or off, use the switch in its **Enabled** column.
 * To change an alert, click its row, or select **Edit** in its actions menu.
-* To remove an alert, select **Delete** in its actions menu.
+* To remove an alert, select **Delete** in its actions menu, then click **Delete** in the **Delete this alert?** dialog. The console confirms with **Alert deleted**.
 
 ## Verification
 

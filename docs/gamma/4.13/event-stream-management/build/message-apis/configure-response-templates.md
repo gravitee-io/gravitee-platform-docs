@@ -11,7 +11,8 @@ A response template replaces the error that the gateway returns for a Message AP
 When an error occurs, the gateway looks for a template in this order:
 
 1. A template for the error key.
-2. A template for the `DEFAULT` key.
+2. A template for the parent key of the error, when the error reports one. Some errors report a specific key and a more general parent key, so a template on the parent key covers every error under it.
+3. A template for the `DEFAULT` key.
 
 Among the templates of that key, the gateway picks the one whose `Accept` header matches the request. A request without an `Accept` header, or with one that matches no template of that key, gets the `*/*` template of that key. Without one, the gateway returns its standard error. The gateway doesn't fall back to `DEFAULT` once the error key has a template.
 

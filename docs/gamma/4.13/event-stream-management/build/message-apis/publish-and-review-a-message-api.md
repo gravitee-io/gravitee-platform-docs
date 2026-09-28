@@ -71,7 +71,7 @@ Reviewers see **This review is yours to rule on** in the banner of a Message API
 
 1. Open the Message API.
 2. In the review banner, click **Review changes**.
-3. In the **Review Message API** dialog, tick the items of the **Quality checklist**. The checklist appears when the environment defines quality rules.
+3. In the **Review Message API** dialog, select the items of the **Quality checklist**. The checklist appears when the environment defines quality rules.
 4. Optional: Enter **Review comments**, up to 500 characters.
 5. Click **Accept** or **Reject**.
 

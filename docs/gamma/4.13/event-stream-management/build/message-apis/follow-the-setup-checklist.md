@@ -27,7 +27,7 @@ The **Checklist** card lists five items, with a counter and a completion ring. E
         <tr>
             <th width="220">Item</th>
             <th width="190">Link</th>
-            <th>Ticks itself when</th>
+            <th>Marks itself done when</th>
         </tr>
     </thead>
     <tbody>
@@ -59,7 +59,7 @@ The **Checklist** card lists five items, with a counter and a completion ring. E
     </tbody>
 </table>
 
-Depending on your role, policies that sit only on plan flows may not tick **Apply policies**. Tick it by hand in that case.
+Depending on your role, policies that sit only on plan flows may not mark **Apply policies** done. Mark it done by hand in that case.
 
 To mark an item done or not done by hand, click its checkbox. An item that you clear by hand stays cleared even when its condition is met. These manual marks are stored in your browser only, so other users and other browsers don't see them.
 
@@ -88,4 +88,4 @@ A new Message API has reporting turned on and no logging settings, so it shows n
 To verify that the Message API is set up, follow these steps:
 
 1. Open the **Overview** page of the Message API.
-2. Check that the counter of the **Checklist** card reads 5/5. Items that you ticked by hand count toward it too.
+2. Check that the counter of the **Checklist** card reads 5/5. Items that you marked done by hand count toward it too.

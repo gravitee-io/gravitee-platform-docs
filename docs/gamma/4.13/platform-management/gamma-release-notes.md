@@ -285,7 +285,7 @@ Event Stream Management adds Message APIs, the Kafka Explorer, and a duplication
 * The **Design** group configures the entrypoints and the context path, the flows of the Policy Studio, the endpoints and failover, the response templates, the resources, the API properties, and CORS. The Policy Studio applies policies to the **Initial Connection** and to the **Event Messages** that clients publish and consume.
 * The **Consumers** group manages Keyless, API key, OAuth2, JWT, mTLS, and Push plans, the subscriptions and their API keys, and one-off broadcasts to consumers.
 * The **Monitoring** group holds the notifications, the runtime alerts, the audit logs, and the API Score when the environment uses it. The **Operations** group holds the sharding tags, the deployment history, and the reporter settings.
-* The creation wizard requires a license that includes the `apim-en-message-reactor` feature.
+* The creation wizard requires an enterprise license that includes the `apim-en-message-reactor` feature.
 * See [Message APIs](../event-stream-management/build/message-apis/README.md).
 
 #### Kafka Explorer
