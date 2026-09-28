@@ -249,6 +249,16 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * The page isn't offered on a TCP Proxy API, which forwards raw traffic and has no HTTP response to override, nor on an MCP or LLM Proxy API.
 * See [Configure response templates](../api-management/build/configure-your-api-proxy/configure-response-templates.md).
 
+### Developer Portals
+
+The Gamma console links to the settings of the New Developer Portal, which open in the APIM Console.
+
+#### Open the Developer Portal settings from the Gamma console
+
+* The **Applications** section of the home page adds a **Developer Portals** card, and the menu at the top of every page lists **Developer Portals** with the other products.
+* Both open the Developer Portal settings of the environment selected in the Gamma console, on the **Navigation** page, in a new browser tab.
+* See [Open the Developer Portal settings](open-the-developer-portal-settings.md).
+
 ### Edge Management
 
 Edge Management replaces the single configuration page and its flat lists of DNS domains and routes. A guided setup creates the configuration, and a page per concern edits it. Interception is configured per intercepted agent, and each route names the target API that receives its traffic. The console checks that API against the requirements of the route before you deploy. The analytics pages gain their content, and a Devices page shows the fleet.

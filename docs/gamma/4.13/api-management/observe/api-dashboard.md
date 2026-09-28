@@ -30,6 +30,8 @@ If your environment has no APIs or policies yet, the dashboard provides empty st
 
 Once resources are created, the empty states resolve to display your live resource counts.
 
+The **Developer Portals** card opens the Developer Portal settings in the APIM Console, in a new tab. For more information, see [Open the Developer Portal settings](../../platform-management/open-the-developer-portal-settings.md).
+
 ## Unified filter catalog
 
 Across the Gamma console's observability views (such as the API analytics dashboard and the API log viewer), you can dynamically narrow your data using the unified filter catalog. This catalog provides a consistent set of available filters—such as filtering by time range, subscription plan, consumer application, response status code, or specific error keywords.
