@@ -132,3 +132,15 @@ developer-portal/new-developer-portal/subscription-form-technical-implementation
 configure-and-manage-the-platform/manage-organizations-and-environments/authentication/password-policy.md
 developer-portal/classic-developer-portal/api-documentation.md
 .gitbook/assets/apim-git-fetcher-credentials.png
+# Settings page of the Portal Settings, New Developer Portal toggles moved out of the Console settings (APIM 4.13.0 feature, PORTAL-173)
+developer-portal/new-developer-portal/configure-new-developer-portal-settings.md
+developer-portal/new-developer-portal/configure-the-new-portal.md
+developer-portal/new-developer-portal/configuring-mtls-certificate-management-administrator-guide.md
+developer-portal/new-developer-portal/creating-and-managing-mtls-certificates-application-owner-guide.md
+developer-portal/new-developer-portal/portal-analytics-configuration-reference.md
+developer-portal/new-developer-portal/customize-the-navigation/creating-asyncapi-documentation-pages.md
+analyze-and-monitor-apis/dashboards/creating-portal-analytics-dashboards.md
+.gitbook/assets/portal-settings-settings-page.png
+.gitbook/assets/portal-settings-enable-mtls.png
+.gitbook/assets/portal-settings-saved.png
+.gitbook/assets/console-settings-new-developer-portal-open-website.png

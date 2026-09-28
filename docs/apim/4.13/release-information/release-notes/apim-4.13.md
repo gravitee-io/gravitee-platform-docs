@@ -215,3 +215,11 @@ A Kafka Topic Mapping entry that sets only one of `client` and `broker` is now a
 * After you save, the password or token is masked, and auto-fetch keeps using it.
 * The change ships in Git fetcher 3.1.0, which APIM bundles from 4.9.36, 4.10.32, 4.11.29, 4.12.21, and 4.13.0 onward.
 * For more information, see [API Documentation](../../developer-portal/classic-developer-portal/api-documentation.md).
+
+#### **New Developer Portal: A Settings page in the Portal Settings**
+
+* The Portal Settings gain a **Settings** page, so you configure the New Developer Portal from the Portal Settings. It holds the API key header, the permitted Kafka SASL mechanisms, the Portal URL, the registration settings, and the default OpenAPI viewer. With an Enterprise license, it also holds the **Portal capabilities** and **Application membership** sections.
+* **Enable mTLS Certificate Management**, **Enable Analytics**, **Approximate spelling for API search**, and the three application membership toggles move from the **New Developer Portal** section of the Console **Settings** page to the new page. That section keeps **Enable the New Developer Portal**, **Open Website**, and **Open Settings**, and **Open Settings** now opens the new page.
+* The API key header, the Portal URL, the registration settings, and the default OpenAPI viewer stay on the Console **Settings** page too. Both pages change the same values, and the values you set before the upgrade don't change.
+* The **API** entry of the Portal Settings is removed. Its API key header and Kafka SASL mechanisms settings are on the new page, and its **API Details** list stays under **API Portal Information** in the Console **Settings**.
+* For more information, see [Configure New Developer Portal settings](../../developer-portal/new-developer-portal/configure-new-developer-portal-settings.md).
