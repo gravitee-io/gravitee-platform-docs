@@ -14,7 +14,7 @@ The Gamma console links to the settings of the New Developer Portal as **Develop
 
 Before you open the Developer Portal settings, complete the following steps:
 
-* Set the address of your APIM Console. **Developer Portals** opens the APIM Console at that address, and opens `http://localhost:4000` while no address is set. For more information, see [Management URL](configure-console-management-and-schedulers.md#management-url).
+* Set the address of your APIM Console. **Developer Portals** opens the APIM Console at that address. For more information, see [Management URL](configure-console-management-and-schedulers.md#management-url).
 * Make sure your role can view or change the settings of the environment. Without that access, the **Navigation** page doesn't open.
 
 ## Open the settings from the home page
