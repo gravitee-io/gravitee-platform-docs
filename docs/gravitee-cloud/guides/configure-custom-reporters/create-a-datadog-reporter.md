@@ -27,7 +27,7 @@ Before creating a Datadog reporter, ensure you meet the following requirements:
     <figure><img src="../../.gitbook/assets/gravitee-cloud-datadog-reporter-type.png" alt="The Reporter Type list of the custom reporter form with Datadog selected, above the Reporter Name field"><figcaption></figcaption></figure>
 
 5. In the **Reporter Name** field, enter a name for the reporter. The name accepts between 2 and 128 characters, and only letters, numbers, spaces, hyphens, underscores, and periods.
-6. Optional: To link the reporter to Gateways now, complete the following sub-steps. To link Gateways later instead, use the **Reporters** page of a Gateway. For more information, see [Manage custom reporter deployments](manage-custom-reporter-deployments.md).
+6. Optional: To link the reporter to Gateways now, complete the following sub-steps. To link Gateways later instead, edit the reporter, or use the **Reporters** page of a Gateway. For more information, see [Manage custom reporter deployments](manage-custom-reporter-deployments.md).
    1. In the **Gateways** section, click **Add gateways**.
    2. In the **Select gateways to link** window, select the Gateways to link. The window lists only Gateways that are deployed, Gravitee-hosted, and not already linked to a Datadog reporter.
    3. Click **Add**. The button label includes the number of Gateways you selected, for example, **Add 2 gateways**.

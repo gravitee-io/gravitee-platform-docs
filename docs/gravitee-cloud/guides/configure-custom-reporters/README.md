@@ -6,7 +6,7 @@ description: Custom reporters stream analytics from Gravitee Hosted Gateways to 
 
 ## Overview
 
-Custom Reporters enable API platform administrators to configure log and metrics exporters that stream analytics data from Gravitee Hosted Gateways to external monitoring systems. Three reporter types are available. A TCP reporter streams the data to a TCP endpoint. A Datadog reporter sends the data to your Datadog site. An OpenTelemetry reporter sends traces and logs to your OpenTelemetry collector. TCP reporters support TLS encryption and configurable reconnection and retry settings, and both types support selective data type filtering. This feature is available to enterprise customers with Galaxy or Universe tier licenses.
+Custom Reporters enable API platform administrators to configure log and metrics exporters that stream analytics data from Gravitee Hosted Gateways to external monitoring systems. Three reporter types are available. A TCP reporter streams the data to a TCP endpoint. A Datadog reporter sends the data to your Datadog site. An OpenTelemetry reporter sends traces and logs to your OpenTelemetry collector. TCP reporters support TLS encryption and configurable reconnection and retry settings. TCP and Datadog reporters support selective data type filtering, and an OpenTelemetry reporter sends traces and, optionally, logs instead. This feature is available to enterprise customers with Galaxy or Universe tier licenses.
 
 For more information about TCP reporter configuration, see [TCP Reporter](https://documentation.gravitee.io/apim/analyze-and-monitor-apis/reporters/tcp-reporter).
 
