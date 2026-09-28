@@ -7,3 +7,9 @@ root: ./
 redirects:
   guides/hybrid/install-on-docker: guides/hybrid.md
   guides/hybrid/install-on-kubernetes: guides/hybrid.md
+  guides/configure-tcp-reporter: guides/configure-custom-reporters/README.md
+  guides/configure-tcp-reporter/create-and-configure-custom-reporters: guides/configure-custom-reporters/create-and-configure-custom-reporters.md
+  guides/configure-tcp-reporter/create-a-datadog-reporter: guides/configure-custom-reporters/create-a-datadog-reporter.md
+  guides/configure-tcp-reporter/create-an-opentelemetry-reporter: guides/configure-custom-reporters/create-an-opentelemetry-reporter.md
+  guides/configure-tcp-reporter/custom-reporters-reference: guides/configure-custom-reporters/custom-reporters-reference.md
+  guides/configure-tcp-reporter/manage-custom-reporter-deployments: guides/configure-custom-reporters/manage-custom-reporter-deployments.md
