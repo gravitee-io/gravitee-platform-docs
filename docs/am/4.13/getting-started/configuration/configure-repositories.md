@@ -47,6 +47,23 @@ The following matrix shows the compatibility between scopes and implementations:
 
 **DataPlanes** are a type of plugin similar to repositories, which allow the Management API to target a backend dedicated to a Data Plane. This plugin must have the same configuration elements as the target Data Plane's repository gateway scope (a.k.a. the gateways). In addition to the backend connection elements, the Data Plane plugin requires an identifier as well as the base URL to access the Gateways associated with this Data Plane. Please refer to section [Control Plane & Data Plane](../../overview/am-architecture/control-plane-and-data-plane.md) or [Configure Multiple Data Planes](../install-and-upgrade-guides/configure-multiple-data-planes.md) for more information.
 
+### System cluster
+
+A MongoDB identity provider created with the **Use System Cluster** option enabled reuses one of the connections declared in this file instead of its own. The `system-cluster` setting names the scope it reuses, `management` or `gateway`. When it's `gateway` and the identity provider belongs to a security domain served by a MongoDB data plane, the provider reuses the connection of that data plane.
+
+```yaml
+repositories:
+  # Cluster bound to Mongo IDPs that have "use system cluster" option enabled (management or gateway)
+  system-cluster: management
+  # When true, the platform owns where a Mongo identity provider created with the "use system
+  # cluster" option enabled stores its users: the database is the one the node serving the
+  # provider reads, and the users collection is named after the identity provider.
+  # Always true on a Gravitee-managed cloud installation, and false by default anywhere else.
+  system-cluster-restricted: false
+```
+
+With `system-cluster-restricted` set to `true`, the Management API sets the database and the collection of such a provider when it's created and refuses to change them afterwards. A provider created before the setting was turned on keeps its database and collection. See [MongoDB](../../guides/identity-providers/database-identity-providers/mongodb.md#store-users-on-the-system-cluster) for what AM Console shows.
+
 ## MongoDB
 
 The [MongoDB](https://www.mongodb.org/) repository is included with AM by default.
