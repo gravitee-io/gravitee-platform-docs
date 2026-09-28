@@ -57,7 +57,9 @@ To process a pending registration, complete the following steps:
 2. In the **Registration Pending** banner, select **Accept** or **Reject**.
 3. In the **User registration** dialog, confirm the action.
 
-Accepting sets the status to Active. Rejecting sets it to Rejected and frees the address, so the same person registers again with the same email. Either outcome sends the user an email that names the decision.
+Accepting sets the status to Active. Rejecting sets it to Rejected and frees the address, so the same person registers again with the same email.
+
+Either outcome sends the user an email. Accepting someone who hasn't chosen a password yet sends them the activation email, which lets them choose one. For a request sent from the Gamma sign-in page, its link opens the Gamma console. Every other outcome sends an email that names the decision.
 
 ## Review a user's profile
 
