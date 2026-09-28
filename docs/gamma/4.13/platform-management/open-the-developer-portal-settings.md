@@ -41,10 +41,7 @@ The Developer Portal settings open in a new tab.
 
 ## Verification
 
-To verify the Developer Portal settings open as expected, follow these steps:
-
-1. On the home page of the Gamma console, click **Developer Portals**.
-2. In the new tab, check that the APIM Console shows **Manage your navigation**.
+In the new tab, check that the Developer settings are displayed and the selected page is **Manage your navigation**.
 
     <figure><img src=".gitbook/assets/gamma-developer-portal-settings-navigation.png" alt="The Developer Portal settings in the APIM Console, open on the Navigation page under the Manage your navigation heading, with the navigation items and the selected page"><figcaption><p>The <strong>Navigation</strong> page of the Developer Portal settings in the APIM Console</p></figcaption></figure>
 
