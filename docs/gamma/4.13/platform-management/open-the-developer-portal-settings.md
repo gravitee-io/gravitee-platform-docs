@@ -8,7 +8,7 @@ description: >-
 
 # Open the Developer Portal settings
 
-The settings of the New Developer Portal live in the APIM Console. The Gamma console links to them as **Developer Portals**, on its home page and in the menu at the top of every page. Both open the Developer Portal settings of the environment selected in the Gamma console, on the **Navigation** page, in a new browser tab. If the APIM Console asks you to sign in, it opens the **Navigation** page once you're signed in.
+The Gamma console links to the settings of the New Developer Portal as **Developer Portals**, on its home page and in the menu at the top of every page. Both open the Developer Portal settings of the environment selected in the Gamma console, on the **Navigation** page, in a new browser tab. If the APIM Console asks you to sign in, it opens the **Navigation** page once you're signed in.
 
 ## Prerequisites
 
