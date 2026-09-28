@@ -157,6 +157,13 @@
   * [Establish a Virtual Cluster](event-stream-management/build/establish-a-virtual-cluster.md)
   * [Virtual Clusters overview](event-stream-management/build/kafka-virtual-clusters-overview.md)
   * [Virtual Cluster runtime behavior reference](event-stream-management/build/kafka-virtual-cluster-runtime-behavior-reference.md)
+* [Observability](event-stream-management/observability/README.md)
+  * [Configure reporter settings](event-stream-management/observability/configure-reporter-settings.md)
+  * [View observability dashboards](event-stream-management/observability/view-observability-dashboards.md)
+  * [View connection logs](event-stream-management/observability/view-connection-logs.md)
+    * [Diagnose a failed Kafka connection](event-stream-management/observability/diagnose-a-failed-kafka-connection.md)
+    * [Inspect a Message API request](event-stream-management/observability/inspect-a-message-api-request.md)
+  * [Trace requests](event-stream-management/observability/trace-requests.md)
 
 ## Agent Management
 
@@ -186,6 +193,7 @@
   * [AI Workspaces](agent-management/build/ai-workspaces/README.md)
     * [Create an AI workspace](agent-management/build/create-an-ai-workspace.md)
     * [Add models to an AI workspace](agent-management/build/add-models-to-an-ai-workspace.md)
+    * [Configure AI workspace routing](agent-management/build/configure-ai-workspace-routing.md)
     * [Manage AI workspace budgets](agent-management/build/manage-ai-workspace-budgets.md)
     * [Assign users to an AI workspace](agent-management/build/assign-users-to-an-ai-workspace.md)
     * [Track AI workspace spend](agent-management/build/track-ai-workspace-spend.md)

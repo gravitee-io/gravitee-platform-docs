@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. Each workspace reports what it spends by user, budget, and model, and exports the user and model rankings as a CSV file. It also adds API resource configuration, consumer broadcasts, property import, dynamic property sync, and API metadata to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. The **Cost Rate Limit** policy caps what a consumer spends on an LLM Proxy in dollars over a period. LLM Proxies and A2A Proxies gain export, import, and duplicate actions, and A2A Proxies gain response templates that override the errors the AI Gateway returns. The Observability section of Agent Management builds and saves custom dashboards alongside the templates. Edge Management's shadow AI detections also reach the Catalog, where each intercepted domain becomes a shadow AI agent whose page shows the processes and devices that reached it.
+Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. Each workspace reports what it spends by user, budget, and model, and exports the user and model rankings as a CSV file. Its router moves a member's requests to other models as they spend their budget. It also adds API resource configuration, consumer broadcasts, property import, dynamic property sync, and API metadata to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. The **Cost Rate Limit** policy caps what a consumer spends on an LLM Proxy in dollars over a period. LLM Proxies and A2A Proxies gain export, import, and duplicate actions, and A2A Proxies gain response templates that override the errors the AI Gateway returns. The Observability section of Agent Management builds and saves custom dashboards alongside the templates. Edge Management's shadow AI detections also reach the Catalog, where each intercepted domain becomes a shadow AI agent whose page shows the processes and devices that reached it.
 
 #### AI Workspaces
 
@@ -33,6 +33,17 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 * The **Budget** column of the **Users** page shows the share of the budget each member has used over the budget period.
 * The AI Workspace Overview dashboard template charts requests, error rate, response time, tokens, and cost, with top-five breakdowns by model and by user. The **Dashboard** and **Logs** items of a workspace open the dashboard and the logs in a new tab, filtered to that workspace.
 * See [Track AI workspace spend](../agent-management/build/track-ai-workspace-spend.md) and [Monitor your AI workspaces](../agent-management/observe/monitor-your-ai-workspaces.md).
+
+#### Router and AI Routing for AI Workspaces
+
+* The **Router** page of each AI Workspace chains the policies every call of the workspace runs, whatever budget the member is on. Drag a policy from **Policies** onto the canvas and draw the arrows to set the order. Saving writes the router to every budget, and deploying the workspace applies it.
+* The **AI Routing** policy picks the model that serves a request from the share of the member's budget already spent. Each band covers the share up to its limit and lists the models it routes to, and the last band catches everything left. The model it picks replaces the model the request names.
+* A band with several models picks one per request by rotating per gateway node, by weight, or at random.
+* **If the budget is unknown** and **When a band has no models** decide the requests the bands don't, including rejecting a request with `503`.
+* The canvas blocks **Save** while the chain can't run or two bands conflict, and lists the problems. A last band with a limit raises only a warning, and the gateway then skips the **AI Routing** step for every request.
+* Each model of a workspace takes aliases on the **Components** page, and a routing band routes to an alias like any model.
+* The AI Workspaces list adds a search field, sorting by **Name** and **Version**, and paging, and the **Budgets** page pages too.
+* See [Configure AI workspace routing](../agent-management/build/configure-ai-workspace-routing.md).
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -297,6 +308,16 @@ Event Stream Management adds Message APIs, the Kafka Explorer, and a duplication
 * Kafka Explorer requires an enterprise license that includes the `apim-native-kafka-explorer` feature. It stores its connections in the APIM management database, on MongoDB or on JDBC, and applies its own schema at startup on JDBC installations that leave `management.jdbc.liquibase` on.
 * See [Kafka Explorer](../event-stream-management/manage/kafka-explorer/README.md).
 
+#### Observability for Kafka Services and Message APIs
+
+* The Event Stream Management sidebar adds an **Observability** group holding **Dashboards**, **Logs**, and **Tracing**. All three read what the gateway already reported, and all three show only the Kafka Services and Message APIs of the environment.
+* **Logs** lists the connections and requests recorded for these APIs, newest first, with columns for Kafka Services and for Message APIs.
+* Opening a failed Kafka connection leads with a plain-language message naming what broke, a badge naming where, and, for an error the gateway recognizes, what to do next.
+* **Dashboards** ships a health dashboard and a traffic dashboard for Kafka Services and for Message APIs.
+* **Tracing** follows one API at a time, with two Kafka-specific filters.
+* Each Kafka Service and Message API gains **Dashboard**, **Logs**, and **Tracing** under **Observability** in its own sidebar. An API that reports nothing says so on its own page and links to its **Reporter Settings**.
+* See [Observability](../event-stream-management/observability/README.md).
+
 ### Platform Management
 
 Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. Platform flows apply policies on request and response phases to every API in the organization. Native Kafka APIs don't have those phases, and TCP proxy APIs don't run policy flows, so both are left untouched. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment now decides who hears about its user, support, federation, and group events, and the organization can reword every email and portal notification it sends. Custom observability dashboards gain server-side storage. Custom roles define the create, read, update, and delete permissions of each scope, and an organization role is assigned from the role's own page or from the user's. Each environment also chooses the application types its consumers can register, and holds the OpenID Connect provider that registers an OAuth client for them.
@@ -359,6 +380,13 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Turn on **Override default template** on a channel card, edit the title and the FreeMarker content, and save. Turn the override off to send the built-in default again without losing your wording.
 * Fragments that other templates include, such as `header.html`, are overridden the same way.
 * See [Customize notification templates](customize-notification-templates.md).
+
+#### Let people request a console account
+
+* While **Allow User Registration** is on, the Gamma console sign-in page offers a **Request an account** link, as long as the local login form is shown.
+* The **Request an account** page asks for a first name, a last name, an email address, and the fields listed on the **User Fields** page. The activation email opens the Gamma console, where the person chooses a password.
+* With automatic validation off, the activation email is sent once an administrator accepts the request from the **Users** page, and its link opens the Gamma console too.
+* See [Configure console management and schedulers](configure-console-management-and-schedulers.md).
 
 #### Manage dictionaries
 

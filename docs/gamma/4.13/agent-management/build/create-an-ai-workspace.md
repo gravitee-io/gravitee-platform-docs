@@ -18,7 +18,7 @@ To create an AI Workspace, complete the following steps:
 2. Under **Secure**, select **AI Workspaces**.
 3. Select **+ Create AI workspace**.
 
-    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspaces-list.png" alt="The AI Workspaces list with three workspaces, the Workspaces, Deployed and Owners cards, and the Create AI workspace button"><figcaption><p>The AI Workspaces list</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspaces-list.png" alt="The AI Workspaces list with three workspaces, the Workspaces, Deployed, and Owners cards, the search field, and the Create AI workspace button"><figcaption><p>The AI Workspaces list</p></figcaption></figure>
 
 4. In the **Details** section, complete the following fields:
 

@@ -96,7 +96,7 @@ Adding and removing models don't use this banner. Gravitee deploys the Default L
 
 Every budget carries the routing configured for the workspace. A member's calls run that routing alongside the cost budget and the request rate limit of the budget they're on. Creating a budget on this page copies the current routing of the workspace onto it. The `Default` budget a workspace starts with carries no routing, because the workspace has none to inherit yet.
 
-The **Router** page under **Access** edits that routing for the workspace. Where a budget carries routing that differs from it, the page reports **Some budgets are running different routing** and names the budgets. Saving the router replaces what those budgets carry. Saving doesn't deploy, so the out-of-sync banner still applies.
+The **Router** page under **Access** edits that routing for the workspace. Where a budget carries routing that differs from it, the page reports **Some budgets are running different routing** and names the budgets. Saving the router replaces what those budgets carry. Saving doesn't deploy, so the out-of-sync banner still applies. To route a member's requests by the share of their budget spent, see [Configure AI workspace routing](configure-ai-workspace-routing.md).
 
 ## Verification
 

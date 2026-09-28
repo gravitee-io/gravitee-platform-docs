@@ -10,6 +10,9 @@
   * [Migrate an API estate to Gravitee](migrate/migrate-an-api-estate-to-gravitee.md)
   * [Source gateway reference](migrate/source-gateway-reference.md)
 
+* [Deploy](deploy/README.md)
+  * [Gateway benchmarks](deploy/gateway-benchmarks.md)
+
 ## Manage
 
 * [API proxies](manage/api-proxies/README.md)

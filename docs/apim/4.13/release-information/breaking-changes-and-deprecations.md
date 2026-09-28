@@ -17,6 +17,25 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 #### 4.13.0
 
+**Subscription forms apply only to the APIs they're assigned to**
+
+From 4.13.0, an environment holds several subscription forms, and each form applies only to the APIs assigned to it. In 4.12 and earlier, each environment had one form, and it applied to every API of the environment.
+
+On the first Management API startup after the upgrade, the existing form of each environment is named **Global Default Form** and assigned as follows:
+
+* If the form was visible, it's assigned to every API of the environment.
+* If the form was hidden, it's assigned to no API. Showing it later doesn't bring it back to any API until you assign APIs to it.
+
+An API created after the upgrade has no subscription form until you assign it to one. New environments start with no subscription form, where 4.12 created a hidden one for each new environment.
+
+The Management API v2 endpoints change as follows:
+
+* `GET /subscription-forms` returns a list of forms instead of a single form.
+* `PUT /subscription-forms/{subscriptionFormId}` requires `name`, `gmdContent`, and `apiIds`. `apiIds` replaces the APIs assigned to the form, so an empty list removes every API from it.
+* A subscription form object carries `name` and `apiIds`.
+
+Before you upgrade, update any script that reads the environment's form from `GET /subscription-forms` or updates it with `PUT`. After the upgrade, assign each new API to a form. For more information, see [Creating and managing subscription forms](../secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms.md).
+
 **Kafka Topic Mapping policy: invalid mapping entries now stop an API from deploying**
 
 From 4.13.0, the Kafka Topic Mapping policy checks its mapping entries when the API is deployed. In 4.12 and earlier it checked nothing, so a configuration the policy can't act on deployed and then behaved unpredictably at runtime. An API that deploys today can therefore fail to deploy after the upgrade.
