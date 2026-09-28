@@ -47,6 +47,12 @@ The tag is the ordinary version tag with the `-chainguard-fips` suffix. It's ava
 
 The three UI images are built on a FIPS-validated nginx base rather than a JVM one. They serve static content over plain HTTP, with TLS terminated upstream, so the keystore constraints below concern the Gateway and the Management API only.
 
+## Gateway TLS on the FIPS images
+
+On the FIPS images, the keystores the Gateway builds itself are BouncyCastle FIPS keystores rather than PKCS12 ones. This includes the keystore behind each HTTPS listener, the default `http` listener and each `servers[]` entry alike, the keystore behind the Kafka Gateway listener, a keystore built from `pem` certificate and key files, the `self-signed` certificate, and the truststore the Gateway fills with the client certificates of mTLS plan subscriptions.
+
+So the HTTPS listeners, client certificate authentication, mTLS plans, and the Kafka Gateway listener no longer depend on PKCS12 on these images. The formats that load from a file are listed in the next section.
+
 ## Keystore and truststore formats
 
 This is the constraint that most often surprises. Under *approved only* mode, the formats APIM accepts don't all load:
@@ -58,19 +64,21 @@ This is the constraint that most often surprises. Under *approved only* mode, th
 | `pkcs12` | **Doesn't load.** There's no PKCS12 keystore implementation at all on this JDK once `SunJCE` is gone, and requesting one fails immediately. |
 | `jks` | **Doesn't load.** BouncyCastle FIPS answers for JKS read-only, so APIM can't open it. |
 | `bcfks` | **Works.** The BouncyCastle FIPS keystore, designed for approved-only mode. Unlike PKCS12 it's also writable, so it's the option to reach for when you need a single password-protected container rather than separate certificate and key files. |
-| `self-signed` | Not recommended: generating the certificate exercises the same non-approved paths. |
+| `self-signed` | The certificate is kept in a BouncyCastle FIPS keystore, so it doesn't go through PKCS12. |
 
-In practice, **configure your keystores and truststores as `pem`**: it needs no password and no conversion tooling. Where you'd rather ship one password-protected container file, `bcfks` is the other format that loads. Those two are the only ones on this line.
+In practice, **configure your keystores and truststores as `pem`**: it needs no password and no conversion tooling. Where you'd rather ship one password-protected container file, `bcfks` is the other format that loads. PEM files and `bcfks` are the only formats that load on this line.
+
+The table describes the Gateway's listeners. The Management API's own HTTPS listener reads a `jks` or `pkcs12` keystore only.
 
 {% hint style="warning" %}
-This is stricter than the 4.12 FIPS images, which run on JDK 21 and still tolerate `pkcs12` and `jks` in some paths. A deployment that upgrades from 4.12 to 4.13 while keeping a `jks` or `pkcs12` keystore fails to start its TLS listeners. Convert those keystores before upgrading, to PEM or to `bcfks` if you'd rather keep a single password-protected container, which is the closer equivalent of the JKS you're leaving behind.
+This is stricter than the 4.12 FIPS images, which run on JDK 21 and still tolerate `pkcs12` and `jks` in some paths. A deployment that upgrades from 4.12 to 4.13 while keeping a `jks` or `pkcs12` keystore fails to start its TLS listeners. Convert the Gateway's listener keystores before upgrading, to PEM or, for a store read from a file, to `bcfks` if you'd rather keep a single password-protected container, which is the closer equivalent of the JKS you're leaving behind.
 {% endhint %}
 
 The JVM-level trust store is a separate matter: `javax.net.ssl.trustStore` doesn't accept PEM. The FIPS base image carries `-Djavax.net.ssl.trustStoreType=FIPS` in `JDK_JAVA_OPTIONS`, which reads the bundled `cacerts` in compatibility mode. APIM doesn't set it, so this follows the base image rather than a Gravitee decision. It applies to the TLS connections APIM opens to JDBC, Redis, and Elasticsearch or OpenSearch.
 
 ### Configure a PEM keystore
 
-With Docker, point the listener at the certificate and key files:
+Use an unencrypted private key file. An encrypted key fails with `No private key found for the specified pem content.` With Docker, point the listener at the certificate and key files:
 
 ```yaml
 environment:
@@ -94,6 +102,32 @@ gateway:
 ```
 
 The same key exists per listener under `gateway.servers[].ssl.keystore`, for the Kafka listener under `gateway.kafka.ssl.keystore`, for the rate limit repository under `gateway.ratelimit.redis.keystore`, and for distributed sync under `gateway.distributedSync.redis.keystore`.
+
+### Configure a BCFKS keystore
+
+`bcfks` is accepted for a keystore or truststore read from a file `path`, on the HTTP and TCP listeners and the Kafka Gateway listener. Point the store at the file and give its password. The keys inside are read with that same password. With Docker:
+
+```yaml
+environment:
+  - gravitee_http_secured=true
+  - gravitee_http_ssl_keystore_type=bcfks
+  - gravitee_http_ssl_keystore_path=/certificates/server.bcfks
+  - gravitee_http_ssl_keystore_password=secret
+```
+
+With the Helm chart:
+
+```yaml
+gateway:
+  ssl:
+    enabled: true
+    keystore:
+      type: bcfks
+      path: /certificates/server.bcfks
+      password: secret
+```
+
+The type isn't accepted from a Kubernetes secret or configmap location, or from a secret-provider reference. A `bcfks` store configured that way isn't loaded: the Gateway logs `No loader accepted the store configuration, no certificate will be loaded` and the store stays empty. The Redis stores for rate limiting and distributed sync don't accept it either: they take `jks`, `pkcs12`, and `pem`.
 
 ## Known limitations
 
