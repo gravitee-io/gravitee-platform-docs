@@ -146,3 +146,5 @@ analyze-and-monitor-apis/dashboards/creating-portal-analytics-dashboards.md
 .gitbook/assets/console-settings-new-developer-portal-open-website.png
 # LLM Proxy reads images, audio, video, and files and filters them per entrypoint option (APIM 4.13.0, AIAM-51)
 ai-agent-management/llm-proxy/accepted-request-formats.md
+# Kafka listener keystore types: the bcfks comment carries a 'from 4.12.19' qualifier on 4.12 only (FOUND-141)
+kafka-gateway/configure-the-kafka-client-and-gateway.md

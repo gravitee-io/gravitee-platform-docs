@@ -443,7 +443,7 @@ kafka:
   # SSL configuration
   #ssl:
   #  keystore:
-       # Supports either JKS or PEM
+       # Supports JKS, PEM, PKCS12, and BCFKS from 4.12.19
   #    type: JKS
   #    path: /opt/graviteeio-gateway/ssl/server.keystore.jks
   #    password: secret

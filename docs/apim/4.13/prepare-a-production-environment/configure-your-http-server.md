@@ -174,7 +174,7 @@ keytool -genkey \
 
 ### Reference a keystore file
 
-Point the Gateway at the keystore that contains the certificate and private key. Supported keystore types are `jks`, `pem`, `pkcs12`, and `self-signed`. For PEM keystores, use the `certificates` array form instead of `path`.
+Point the Gateway at the keystore that contains the certificate and private key. Supported keystore types are `jks`, `pem`, `pkcs12`, `bcfks`, and `self-signed`. For PEM keystores, use the `certificates` array form instead of `path`. The `bcfks` type is the BouncyCastle FIPS keystore. It's read from a file `path` only, and it loads only when a BouncyCastle provider is registered in the JVM, which is the case on the [FIPS images](../self-hosted-installation-guides/docker/fips-images.md). On an image without one, the keystore fails to load with `Keystore type BCFKS needs a registered BouncyCastle provider, and this JVM has none.`
 
 {% tabs %}
 {% tab title="gravitee.yaml" %}
@@ -187,13 +187,13 @@ http:
     tlsProtocols: TLSv1.2, TLSv1.3
     tlsCiphers: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
     keystore:
-      type: jks # Supports jks, pem, pkcs12, self-signed
+      type: jks # Supports jks, pem, pkcs12, bcfks, self-signed
       path: /path/to/keystore.jks
       password: adminadmin
       watch: true # Reloads the keystore on filesystem changes. Default true.
       defaultAlias: # Optional. Target a specific key pair when the keystore contains more than one.
     truststore:
-      type: jks # Supports jks, pem, pkcs12, pem-folder
+      type: jks # Supports jks, pem, pkcs12, bcfks, pem-folder
       path:
       password:
       watch: true # Reloads the truststore on filesystem changes. Default true.
@@ -235,15 +235,28 @@ gateway:
     enabled: true
     clientAuth: none # Supports none, request, required
     keystore:
-      type: jks # Supports jks, pem, pkcs12, self-signed
+      type: jks # Supports jks, pem, pkcs12, bcfks, self-signed
       path: /path/to/keystore.jks
       password: adminadmin
       watch: true
     truststore:
-      type: jks # Supports jks, pem, pkcs12, pem-folder
+      type: jks # Supports jks, pem, pkcs12, bcfks, pem-folder
 ```
 
-The single-server `gateway.ssl.*` block renders only `keystore.{type,path,password,kubernetes,watch,secret}`, `truststore.{type,path,password}`, `clientAuth`, `crl.{path,watch}`, and `sni`. To set `tlsProtocols`, `tlsCiphers`, `defaultAlias`, `openssl`, the `certificates` array, or any per-truststore reload setting on a Helm install, switch to the `gateway.servers[]` array form described in [Multi-server support.](configure-your-http-server.md#multi-server-support)
+For a PEM keystore, use the `certificates` array instead of `path`:
+
+```yaml
+gateway:
+  ssl:
+    enabled: true
+    keystore:
+      type: pem
+      certificates:
+        - cert: /path/to/mycompany.org.pem
+          key: /path/to/mycompany.org.key
+```
+
+The single-server `gateway.ssl.*` block and each `gateway.servers[]` entry render the same TLS settings: `keystore.{type,path,certificates,password,kubernetes,watch,secret}`, `truststore.{type,path,password}`, `clientAuth`, `sendClientCertificateAuthorities`, `crl.{path,watch}`, and `sni`. The chart doesn't render `tlsProtocols`, `tlsCiphers`, `defaultAlias`, `openssl`, or a truststore `watch` for the HTTP listeners in either form.
 {% endtab %}
 {% endtabs %}
 
@@ -332,7 +345,7 @@ gravitee_http_ssl_openssl=true
 {% endtab %}
 
 {% tab title="Helm values.yaml" %}
-The single-server `gateway.ssl.*` form supports `sni` but doesn't render `openssl`. To set `openssl` on a Helm install, use the `gateway.servers[]` array described in [Multi-server support.](configure-your-http-server.md#multi-server-support)
+The chart renders `sni` for the HTTP listeners but not `openssl`, in the single-server `gateway.ssl.*` form or the `gateway.servers[]` array.
 
 ```yaml
 gateway:
@@ -388,12 +401,12 @@ The following fields configure HTTPS on the Gateway HTTP server. Set them under 
         </tr>
         <tr>
             <td><code>http.ssl.keystore.type</code></td>
-            <td>Keystore type. Accepts <code>jks</code>, <code>pem</code>, <code>pkcs12</code>, or <code>self-signed</code>.</td>
+            <td>Keystore type. Accepts <code>jks</code>, <code>pem</code>, <code>pkcs12</code>, <code>bcfks</code>, or <code>self-signed</code>.</td>
             <td><code>jks</code></td>
         </tr>
         <tr>
             <td><code>http.ssl.keystore.path</code></td>
-            <td>Filesystem path to the keystore. Required when <code>type</code> is <code>jks</code> or <code>pkcs12</code>.</td>
+            <td>Filesystem path to the keystore. Required for <code>bcfks</code>, and for <code>jks</code> and <code>pkcs12</code> unless the store comes from <code>kubernetes</code> or <code>secret</code>.</td>
             <td><code>${gravitee.home}/security/keystore.jks</code></td>
         </tr>
         <tr>
@@ -428,7 +441,7 @@ The following fields configure HTTPS on the Gateway HTTP server. Set them under 
         </tr>
         <tr>
             <td><code>http.ssl.truststore.type</code></td>
-            <td>Truststore type. Accepts <code>jks</code>, <code>pem</code>, <code>pkcs12</code>, or <code>pem-folder</code>. The <code>pem-folder</code> type watches a folder for added, updated, or removed PEM files.</td>
+            <td>Truststore type. Accepts <code>jks</code>, <code>pem</code>, <code>pkcs12</code>, <code>bcfks</code>, or <code>pem-folder</code>. The <code>pem-folder</code> type watches a folder for added, updated, or removed PEM files.</td>
             <td><code>jks</code></td>
         </tr>
         <tr>

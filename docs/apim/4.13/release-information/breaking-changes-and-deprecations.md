@@ -101,6 +101,12 @@ From 4.13.0, an LLM Proxy reads images, audio, video, and files in requests sent
 
 To forward a content type, set its option to `ALLOW` in the entrypoint configuration of the LLM Proxy, and redeploy the API. `REJECT` refuses a request that carries the content, with an HTTP `400` error and the code `modality_blocked`.
 
+**FIPS images: JKS and PKCS12 keystores no longer load**
+
+From 4.13.0, the FIPS image variants are built on a JDK 25 FIPS base image. The 4.12 FIPS images used JDK 21. On the JDK 25 base, BouncyCastle FIPS in approved-only mode provides no PKCS12 keystore and answers JKS read-only, so neither format loads. A FIPS deployment that upgrades from 4.12 while keeping a `jks` or `pkcs12` keystore or truststore on the Gateway fails to start its TLS listeners.
+
+Before you upgrade, convert the Gateway's listener keystores and truststores to `pem`, or to `bcfks` where a store is read from a file. Both formats load on the FIPS images of 4.12.19 and later and of 4.13. `bcfks` isn't accepted by the Redis stores for rate limiting and distributed sync, which take `jks`, `pkcs12`, and `pem`. A store loaded from a Kubernetes configmap location takes `jks` and `pkcs12` only. The Management API's own HTTPS listener reads a `jks` or `pkcs12` keystore only. The ordinary images aren't affected. For the full list of formats and how each behaves, see [FIPS images](../self-hosted-installation-guides/docker/fips-images.md).
+
 #### 4.12.0
 
 **JSON Validation policy: response error keys corrected**
