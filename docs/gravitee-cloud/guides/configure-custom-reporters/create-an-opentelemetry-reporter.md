@@ -44,7 +44,7 @@ Before creating an OpenTelemetry reporter, ensure you meet the following require
    2. In the **Select gateways to link** window, select the Gateways to link.
    3. Click **Add**. The button label includes the number of Gateways you selected, for example, **Add 2 gateways**.
 7. In the **Configuration** section, under **Endpoints**, configure where the Gateways send the data:
-   1. In the **Traces Endpoint** field, enter the full URL of the collector, including the port, for example `https://collector.example.com:4318` for `HTTP / protobuf` or `https://collector.example.com:4317` for `gRPC`. Use `http` or `https`, and don't add a signal path such as `/v1/traces`, because the Gateway appends it. Don't include credentials in the URL.
+   1. In the **Traces Endpoint** field, enter the full URL of the collector, including the port, for example `https://collector.example.com:4318`. Use `http` or `https`, and don't add a signal path such as `/v1/traces`, because the Gateway appends it. Don't include credentials in the URL.
    2. From the **Traces Protocol** list, select `gRPC` or `HTTP / protobuf`. The default is `HTTP / protobuf`.
    3. Optional: In the **Logs Endpoint** field, enter the full URL of the logs endpoint, including the HTTP port and the signal path, for example `https://collector.example.com/otlp/v1/logs`. Logs are always sent over HTTP, whatever the traces protocol. This field is required when you turn on logs in step 12.
 8. Optional: Under **Headers**, add the headers that the Gateways send with every export, for example an authentication token for the collector:
