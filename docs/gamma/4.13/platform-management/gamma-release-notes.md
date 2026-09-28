@@ -251,7 +251,7 @@ API Management gains a file-based path for building and updating API proxies. Ea
 
 ### Developer Portals
 
-The Gamma console links to the settings of the New Developer Portal, which open in the APIM Console.
+The Gamma console links to the settings of the New Developer Portal, which open in a separate tab.
 
 #### Open the Developer Portal settings from the Gamma console
 
