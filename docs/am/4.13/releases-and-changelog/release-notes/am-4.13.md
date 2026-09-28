@@ -69,3 +69,16 @@
 
 * The new `repositories.system-cluster-restricted` property in the Management API `gravitee.yml` lets the platform own where a MongoDB identity provider created with **Use System Cluster** stores its users: the database is the one the node serving the provider reads, and the collection is named after the provider. Under this rule, those settings and the **Use System Cluster** toggle of every MongoDB identity provider can't be changed after creation. Gravitee-managed deployments always apply it.
 * The default identity provider created with a security domain now relies on the system cluster instead of carrying its own copy of the management connection settings, and reuses the security domain's data plane when `repositories.system-cluster` is `gateway`. The new `domains.identities.default.useSystemCluster` property turns that off on a self-hosted installation. See [MongoDB](../../guides/identity-providers/database-identity-providers/mongodb.md#store-users-on-the-system-cluster) and [Repositories & Data Plane](../../getting-started/configuration/configure-repositories.md#system-cluster).
+
+
+{% hint style="info" %}
+Known limitation: default identity provider and mixed-version deployments
+
+A default identity provider created by Gravitee AM 4.13 or later cannot be used by gateways running a version earlier than 4.13 when `repositories.system-cluster` is `gateway`. This affects multi data plane deployments where `repositories.system-cluster` is set to gateway.
+
+From 4.13, the Management API stores the management database name in the default identity provider's configuration. Gateways before 4.13 read database settings based on the management scope settings, so they look for the users in the wrong database. Gateways from 4.13 replace it at runtime with the database of the data plane, so they are not affected.
+
+Default identity providers created before 4.13 are not affected.
+
+During a rolling upgrade, upgrade all gateways to 4.13 or later before creating new domains, or do not rely on the default identity provider of domains created in the meantime.
+{% endhint %}
