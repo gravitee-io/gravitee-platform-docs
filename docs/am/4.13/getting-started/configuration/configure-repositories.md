@@ -47,6 +47,43 @@ The following matrix shows the compatibility between scopes and implementations:
 
 **DataPlanes** are a type of plugin similar to repositories, which allow the Management API to target a backend dedicated to a Data Plane. This plugin must have the same configuration elements as the target Data Plane's repository gateway scope (a.k.a. the gateways). In addition to the backend connection elements, the Data Plane plugin requires an identifier as well as the base URL to access the Gateways associated with this Data Plane. Please refer to section [Control Plane & Data Plane](../../overview/am-architecture/control-plane-and-data-plane.md) or [Configure Multiple Data Planes](../install-and-upgrade-guides/configure-multiple-data-planes.md) for more information.
 
+### System cluster
+
+A MongoDB identity provider created with the **Use System Cluster** option enabled reuses one of the connections declared in this file instead of its own. The `system-cluster` setting names the scope it reuses, `management` or `gateway`. When it's `gateway` and the identity provider belongs to a security domain served by a MongoDB data plane, the provider reuses the connection of that data plane.
+
+```yaml
+repositories:
+  # Cluster bound to Mongo IDPs that have "use system cluster" option enabled (management or gateway)
+  system-cluster: management
+  # When true, the platform owns where a Mongo identity provider created with the "use system
+  # cluster" option enabled stores its users: the database is the one the node serving the
+  # provider reads, and the users collection is named after the identity provider.
+  # Always true on a Gravitee-managed cloud installation, and false by default anywhere else.
+  system-cluster-restricted: false
+```
+
+With `system-cluster-restricted` set to `true`, the Management API sets the database and the collection of such a provider when it's created and refuses to change them afterwards. A provider created before the setting was turned on keeps its database and collection. See [MongoDB](../../guides/identity-providers/database-identity-providers/mongodb.md#store-users-on-the-system-cluster) for what AM Console shows.
+
+{% hint style="info" %}
+Known limitation: system-cluster setting consistency
+
+The `repositories.system-cluster` need to be consistent between the ManagementAPI and the Gateaway deployment so an Identity provider will rely on the same settings.
+Once a MongoDB IdentityProvider rely on the "useSystemCluster" option exist, this settings cannot be changed in the gravitee.yaml otherwise the IdentityProvider will not retrieve the data.
+
+{% endhint %}
+
+{% hint style="info" %}
+Known limitation: default identity provider and mixed-version deployments
+
+A default identity provider created by Gravitee AM 4.13 or later cannot be used by gateways running a version earlier than 4.13 when `repositories.system-cluster` is `gateway`. This affects multi data plane deployments where `repositories.system-cluster` is set to gateway.
+
+From 4.13, the Management API stores the management database name in the default identity provider's configuration. Gateways before 4.13 read database settings based on the management scope settings, so they look for the users in the wrong database. Gateways from 4.13 replace it at runtime with the database of the data plane, so they are not affected.
+
+Default identity providers created before 4.13 are not affected.
+
+During a rolling upgrade, upgrade all gateways to 4.13 or later before creating new domains, or do not rely on the default identity provider of domains created in the meantime.
+{% endhint %}
+
 ## MongoDB
 
 The [MongoDB](https://www.mongodb.org/) repository is included with AM by default.
