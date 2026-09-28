@@ -8,7 +8,11 @@ description: Choose what a Message API reports in Event Stream Management, from 
 
 The reporter settings of a Message API decide what it reports: the runtime logs of its connections and messages, how many messages those logs keep, and its OpenTelemetry traces. What the Message API reports is what Observability shows for it.
 
-Every option costs storage and gateway throughput. Recommended: Turn on message content and verbose tracing for an investigation, then turn them off.
+Every option costs storage and gateway throughput.
+
+{% hint style="info" %}
+Turn on message content, verbose tracing, and OTel logs for an investigation, then turn them off.
+{% endhint %}
 
 ## Open the reporter settings
 
@@ -52,15 +56,16 @@ Under **Display conditions**, both conditions are optional and accept Gravitee E
 * **Request phase condition**. Logs only the requests that meet the condition. Leave it empty to log every request.
 * **Message condition**. Logs only the messages that meet the condition. Leave it empty to log every message.
 
-When your organization caps how long runtime logging stays on, the page shows **Logging stops on its own** with the date when logging stops. Saving again pushes the date back.
+When your environment caps how long runtime logging stays on, the page shows **Logging stops on its own** with the date when logging stops. Saving again pushes the date back.
 
 ## Turn on OpenTelemetry
 
 1. In the **OpenTelemetry** section, turn on **OpenTelemetry tracing**.
 2. Optional: Turn on **Verbose tracing** to add detailed span events, with headers, context attributes, and policy execution details. Verbose mode makes traces much larger.
-3. Optional: Under **Span Attribute Redaction**, click **Add rule** to mask span attributes. Enter an **Attribute Name Pattern**, then choose a **Masking Type**: a full mask that replaces the whole value, or a partial mask that keeps a prefix and a suffix visible.
+3. Optional: Turn on **OTel logs** to emit message payloads as OpenTelemetry log records correlated to the active trace, for log-to-trace linking in OTel-compatible backends. Message sampling applies to them too. The switch is available only while **OpenTelemetry tracing** is on.
+4. Optional: Under **Span Attribute Redaction**, click **Add rule** to mask span attributes. Enter an **Attribute Name Pattern**, then choose a **Masking Type**: a full mask that replaces the whole value, or a partial mask that keeps a prefix and a suffix visible.
 
-Redaction rules apply to span attributes only. They don't redact the message payloads written to the runtime logs.
+Redaction rules apply to span attributes only. They don't redact the message payloads written to the runtime logs or exported by **OTel logs**.
 
 ## Save the reporter settings
 

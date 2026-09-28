@@ -23,7 +23,7 @@ Without permission to change the Message API's definition, the page shows a read
 
 The cards cover every endpoint connector that supports Message APIs, for example **Kafka**, **MQTT 5.x**, **Solace**, **RabbitMQ**, and **Mock**. A checked card has at least one endpoint group on the Message API.
 
-* To add an endpoint group, click an unchecked card. The new group is named `Default <connector> group` and holds one endpoint named `Default <connector>`.
+* To add an endpoint group, click an unchecked card. The new group is named `Default <connector> group` and holds one endpoint named `Default <connector>`. That endpoint starts with empty **Endpoint settings**, so saving the new group fails for the same connectors as a new endpoint.
 * To remove every endpoint group of a connector, click its checked card.
 * To remove one endpoint group, click **Remove group** on its card.
 
@@ -33,14 +33,16 @@ A Message API keeps at least one endpoint group. While only one remains, its car
 
 Each endpoint group card holds the group's connection settings in a form titled `<connector> connection`, followed by the group's endpoints.
 
-* To add an endpoint to the group, click **Add endpoint**. The new endpoint uses the connector's name followed by a number, for example `Kafka 2`. It starts with empty settings that the console doesn't let you fill in, so saving a new **Kafka**, **MQTT 5.x**, **Solace**, **RabbitMQ**, or **Agent to agent** endpoint fails.
+* To add an endpoint to the group, click **Add endpoint**. The new endpoint uses the connector's name followed by a number, for example `Kafka 2`. It starts with empty **Endpoint settings**. While it inherits the connection settings of its group, the page hides that form, so saving a new **Kafka**, **MQTT 5.x**, **Solace**, **RabbitMQ**, or **Agent to agent** endpoint fails.
 * To remove an endpoint, click **Remove** on its row. A group keeps at least one endpoint.
 
 ### Configure an endpoint
 
 When the connector has group connection settings, each endpoint shows **Inherit connection settings from group**, turned on for every endpoint that the console creates. While the toggle is on, the endpoint uses the connection settings of its group, and the page hides the endpoint's **Endpoint settings** form.
 
-Recommended: Keep **Inherit connection settings from group** turned on. Event Stream Management has no form for the connection settings of a single endpoint. Turning the toggle off makes the save fail for **Kafka**, **MQTT 5.x**, **Solace**, **RabbitMQ**, and **Azure Service Bus** endpoints.
+{% hint style="info" %}
+Keep **Inherit connection settings from group** turned on. Turning it off shows the endpoint's **Endpoint settings** form, but the console has no form for the connection settings that override the group's. The save then fails for **Kafka**, **MQTT 5.x**, **Solace**, **RabbitMQ**, and **Azure Service Bus** endpoints.
+{% endhint %}
 
 ### Save the endpoints
 

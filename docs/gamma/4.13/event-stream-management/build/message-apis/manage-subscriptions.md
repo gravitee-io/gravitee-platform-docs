@@ -88,7 +88,7 @@ A subscription to an API key plan lists its API keys once it's accepted, paused,
 * **Renew** issues a new key for the subscription. Optional: When the environment allows custom API keys, enter a custom API key.
 * **Expire** stops a key on the date you choose.
 * **Revoke** stops a key immediately.
-* **Reactivate** restores a revoked or expired key while the subscription is accepted or paused.
+* **Reactivate** restores a revoked or expired key while the subscription is accepted, paused, or resumed.
 
 An application that shares one API key across its subscriptions shows **Shared API key**. Renew or revoke that key from the application instead.
 

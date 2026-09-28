@@ -60,7 +60,7 @@ To drop your changes instead, click **Discard**.
 
 ## Set the images
 
-The **Images** section holds the **Picture** and the **Background** of the Message API. Each accepts a PNG or JPG file of up to 500 KB.
+The **Images** section holds the **Picture** and the **Background** of the Message API. Each accepts a PNG, JPG, or SVG file of up to 500 KB.
 
 * To set an image, click it and select a file.
 * To clear an image, click **Remove**.
@@ -92,11 +92,23 @@ Importing updates the Message API from the content of a Gravitee API definition.
 
 The console confirms with **Message API definition imported**.
 
+## Duplicate the Message API
+
+1. Click **Duplicate**.
+2. In the **Duplicate Message API** dialog, enter the **Name**, the **Version**, and the **Host prefix** of the copy.
+3. Click **Duplicate**.
+
+The copy keeps the context path of the original, so it's refused because the path is already in use. See [Limitations and considerations](limitations-and-considerations.md).
+
 **Promote** opens a dialog that explains that promotion to another environment goes through Gravitee Cloud. It doesn't promote the Message API.
 
 ## Delete the Message API
 
-Deleting a Message API removes it, with its plans and subscriptions. It can't be undone.
+Deleting a Message API removes it, with its plans and subscriptions.
+
+{% hint style="warning" %}
+Deleting a Message API can't be undone.
+{% endhint %}
 
 1. Stop the Message API. The Management API refuses to delete a started API. See [Start, stop, and deploy a Message API](start-stop-and-deploy-a-message-api.md).
 2. When the Message API is published, unpublish it. See [Publish and review a Message API](publish-and-review-a-message-api.md).

@@ -147,7 +147,7 @@ The **Plans** page has no delete action. To retire a plan, deprecate it so that 
 ## Edit or reorder plans
 
 * To edit a plan, click its name, or select **Edit** in its actions menu. The name, the security configuration, the subscription validation, and the description can change. The console confirms with **Plan updated**.
-* To reorder the published plans, click the up or down arrow of a row.
+* To reorder the plans, click the up or down arrow of a row. The arrows are available on every status card and move the plan within the plans of that status.
 
 ## Verification
 
