@@ -204,7 +204,7 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page and a Response Templates page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer.
+API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, a Response Templates page, and an API Score page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer.
 
 #### Import an API proxy
 
@@ -248,6 +248,15 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * An API proxy managed by the Kubernetes operator shows its response templates as read-only, and so does one you don't have permission to update.
 * The page isn't offered on a TCP Proxy API, which forwards raw traffic and has no HTTP response to override, nor on an MCP or LLM Proxy API.
 * See [Configure response templates](../api-management/build/configure-your-api-proxy/configure-response-templates.md).
+
+#### API Score for API proxies
+
+* The **General** group of the API proxy sidebar adds an **API Score** page when API Score is turned on for the environment, with **Enable API Score** on the **API Review** page of the **Environment** section in Platform Management.
+* **Evaluate** checks the API definition and every OpenAPI or AsyncAPI documentation page of the API against the rulesets of the environment. The page shows the score, when the API was last evaluated, and the findings of each asset.
+* Severity filters narrow the findings, and each asset has its own search field and pagination.
+* A failed evaluation, a timed-out evaluation, and an asset that couldn't be scored each show a message on the page.
+* An evaluation requires an installation connected to Gravitee Cloud.
+* See [Review the API Score](../api-management/build/configure-your-api-proxy/review-the-api-score.md).
 
 ### Developer Portals
 

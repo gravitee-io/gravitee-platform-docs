@@ -19,6 +19,7 @@
       * [Manage general settings](build/configure-your-api-proxy/manage-general-settings.md)
       * [Manage user permissions](build/configure-your-api-proxy/manage-user-permissions.md)
       * [Configure API metadata](build/configure-your-api-proxy/configure-api-metadata.md)
+      * [Review the API Score](build/configure-your-api-proxy/review-the-api-score.md)
     * [Design](manage/api-proxies/design/README.md)
       * [Configure entrypoints](build/configure-your-api-proxy/configure-entrypoints.md)
       * [Apply security policies](build/configure-your-api-proxy/apply-security-policies.md)
