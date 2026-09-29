@@ -18,7 +18,7 @@ To load APIs from local ConfigMaps, ensure that the Gateway's configuration sets
 * If your Gateway is deployed using a Helm Chart, you can enable the Kubernetes Operator option [through Helm values](../installation/install-with-helm.md).
 * For other deployment strategies (e.g., deployment using a VM), you can update the configuration:
   * By setting an environment variable: `GRAVITEE_SERVICES_SYNC_KUBERNETES_ENABLED=true`
-  *   Directly in the [`gravitee.yml`](https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/src/main/resources/config/gravitee.yml#L264) file:
+  *   Directly in the [`gravitee.yml`](https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-distribution/gravitee-apim-distribution-standalone/gravitee-apim-distribution-standalone-gateway/src/main/resources/config/gravitee.yml#L842) file:
 
       ```yaml
       # Enable Kubernetes Synchronization

@@ -193,4 +193,4 @@ spec:
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-http-redirect/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-http-redirect/blob/main/CHANGELOG.md" %}
