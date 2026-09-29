@@ -112,7 +112,7 @@ Adding from a user search needs **Allow invitation via user search** on. To add 
 3. Under **Search users**, type at least 2 characters of a name or an email address, and select the users to add. Users who already belong to the group aren't listed. Each selected user appears above the results.
 4. Select **Add member**, or **Add N members** when several users are selected.
 
-**PRIMARY_OWNER** is offered in the **API** and **API product** lists only when the environment's primary owner mode for that scope isn't **User**, and while no member of the group holds it. With **PRIMARY_OWNER** selected, only one user can be added at a time.
+**PRIMARY_OWNER** is offered in the **API** and **API product** lists only when the environment's [primary owner mode](configure-primary-owner-mode.md) for that scope isn't **User**, and while no member of the group holds it. With **PRIMARY_OWNER** selected, only one user can be added at a time.
 
 <figure><img src=".gitbook/assets/gamma-platform-group-add-members.png" alt="The Add members panel with the six role lists above the user search, which lists the one matching user who isn't a member yet"><figcaption><p>The Add members panel. Set the roles first, then search for the users to add.</p></figcaption></figure>
 

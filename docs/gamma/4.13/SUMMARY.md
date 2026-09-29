@@ -42,6 +42,7 @@
 * [Configure environment notifications](platform-management/configure-environment-notifications.md)
 * [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
 * [Configure OpenTelemetry tracing and logs](platform-management/configure-opentelemetry-tracing-and-logs.md)
+* [Configure primary owner mode](platform-management/configure-primary-owner-mode.md)
 * [Configure Security Plan Types](platform-management/configure-security-plan-types.md)
 * [Configure the SMTP mail server](platform-management/configure-smtp.md)
 * [Customize notification templates](platform-management/customize-notification-templates.md)
