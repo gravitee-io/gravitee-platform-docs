@@ -58,9 +58,7 @@ To verify a broadcast is working as expected, follow these steps:
 1. Send a broadcast on the **Portal Notifications** channel to a role that a test user holds on the environment.
 2. Sign in to the Developer Portal as that user and open **Notifications**. The notification carries the title and message you entered.
 
-<!-- TODO: Screenshot of the received notification in the Developer Portal -->
-
-<figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-broadcasts-received.png" alt=""><figcaption><p>A broadcast received in the Developer Portal</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-broadcasts-received.png" alt="The Notifications page of the Developer Portal listing the received broadcast with its title and message"><figcaption><p>A broadcast received in the Developer Portal</p></figcaption></figure>
 
 ## Next steps
 
