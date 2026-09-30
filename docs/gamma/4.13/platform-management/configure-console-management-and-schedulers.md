@@ -78,7 +78,7 @@ When it's on, the APIM Console offers a **Support** entry and the platform accep
 
 While it's on, the Gamma console sign-in page offers a **Request an account** link, as long as **Show login form on management console** is also on. For that toggle, see [Show or hide the local login form](configure-console-authentication.md#show-or-hide-the-local-login-form).
 
-The **Request an account** page asks for a first name, a last name, and an email address, plus the fields listed on the **User Fields** page of the **Environment** section. The activation email that follows opens the Gamma console, where the person chooses a password.
+The **Request an account** page asks for a first name, a last name, and an email address, plus the fields listed on the **User Fields** page of the **Environment** section. For those fields, see [Manage user fields](manage-user-fields.md). The activation email that follows opens the Gamma console, where the person chooses a password.
 
 The request only goes through once the Gamma console's URL is set for your installation. Until then, the person sees **Could not send your request**. The activation email goes out only while **Enable Emailing** is on for the organization. For more information, see [Configure the SMTP mail server](configure-smtp.md).
 

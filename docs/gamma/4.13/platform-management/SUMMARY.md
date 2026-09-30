@@ -46,6 +46,7 @@
     * [Manage applications](manage-applications.md)
     * [Manage environment metadata](manage-environment-metadata.md)
     * [Manage dictionaries](manage-dictionaries.md)
+    * [Manage user fields](manage-user-fields.md)
     * [Manage shared policy groups](manage-shared-policy-groups.md)
     * [Open the Developer Portal settings](open-the-developer-portal-settings.md)
   * [System & Security](environment/system-and-security/README.md)
