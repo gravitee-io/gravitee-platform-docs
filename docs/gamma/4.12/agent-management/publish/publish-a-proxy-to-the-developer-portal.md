@@ -1,6 +1,4 @@
 ---
-hidden: true
-noIndex: true
 description: Make an LLM, MCP, or A2A Proxy discoverable to consumers in the Developer Portal. Follow the steps to set its categories and publish the underlying API.
 ---
 
