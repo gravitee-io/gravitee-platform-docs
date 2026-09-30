@@ -101,7 +101,11 @@ redirects:
  event-stream-management/import: event-stream-management/manage/README.md
  event-stream-management/import/register-your-kafka-clusters: event-stream-management/import/register-your-kafka-clusters.md
  platform-management/configure-access-management: platform-management/configure-access-management.md
+ platform-management/configure-openapi-viewer: platform-management/configure-openapi-viewer.md
+ platform-management/configure-opentelemetry-tracing-and-logs: platform-management/configure-opentelemetry-tracing-and-logs.md
  platform-management/manage-applications: platform-management/manage-applications.md
  platform-management/manage-dictionaries: platform-management/manage-dictionaries.md
  platform-management/manage-environment-metadata: platform-management/manage-environment-metadata.md
  platform-management/manage-the-platform: platform-management/overview.md
+ platform-management/overview-1: platform-management/applications/README.md
+ platform-management/overview-1/manage-applications: platform-management/manage-applications.md

@@ -12,6 +12,7 @@ redirects:
  configure-console-management-and-schedulers: configure-console-management-and-schedulers.md
  configure-environment-alerts: configure-environment-alerts.md
  configure-environment-notifications: configure-environment-notifications.md
+ configure-openapi-viewer: configure-openapi-viewer.md
  configure-opentelemetry-tracing-and-logs: configure-opentelemetry-tracing-and-logs.md
  configure-primary-owner-mode: configure-primary-owner-mode.md
  configure-security-plan-types: configure-security-plan-types.md
@@ -28,6 +29,11 @@ redirects:
  manage-tenants: manage-tenants.md
  manage-the-platform: overview.md
  manage-users: manage-users.md
+ manage-your-account: manage-your-account.md
  monitor-gateway-instances: monitor-gateway-instances.md
+ observe: environment/system-and-security/README.md
+ observe/configure-opentelemetry-tracing-and-logs: configure-opentelemetry-tracing-and-logs.md
+ observe/save-observability-dashboards: save-observability-dashboards.md
+ open-the-developer-portal-settings: open-the-developer-portal-settings.md
  review-audit-logs: review-audit-logs.md
  save-observability-dashboards: save-observability-dashboards.md
