@@ -95,6 +95,12 @@ From 4.13.0, the plan endpoints of the legacy Management API v1 (`/management/or
 
 This applies to listing, reading, creating, updating, and deleting plans, and to closing, publishing, and deprecating a plan. Previously, these endpoints didn't check the API's definition version. Read operations for these APIs could fail with HTTP `500` or behave inconsistently, and write operations, for example creating or deleting a plan, could succeed. Update any scripts or integrations that manage the plans of these APIs to use the Management API v2 plan endpoints (`/management/v2/environments/{envId}/apis/{apiId}/plans`).
 
+**LLM Proxy removes images, audio, video, and files from requests by default**
+
+From 4.13.0, an LLM Proxy reads images, audio, video, and files in requests sent in the OpenAI Chat Completions, OpenAI Responses, Anthropic Messages, and Gemini formats. Four entrypoint options of the LLM Proxy decide what happens to them: **Images sent by the client**, **Audio sent by the client**, **Video sent by the client**, and **Files sent by the client**. Each defaults to `STRIP`, which removes that content before the request reaches the provider. An LLM Proxy created in 4.12 or earlier has none of these options set, so it removes this content after the upgrade.
+
+To forward a content type, set its option to `ALLOW` in the entrypoint configuration of the LLM Proxy, and redeploy the API. `REJECT` refuses a request that carries the content, with an HTTP `400` error and the code `modality_blocked`.
+
 #### 4.12.0
 
 **JSON Validation policy: response error keys corrected**
