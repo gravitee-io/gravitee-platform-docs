@@ -9,6 +9,7 @@ description: The APIs & Assets group of the Environment section holds applicatio
 The **APIs & Assets** group of the **Environment** section holds the **Applications**, **API Score**, **Integrations**, **Metadata**, **Dictionaries**, **User Fields**, **Shared Policy Groups**, and **Broadcasts** pages.
 
 * [**Manage applications**](../../manage-applications.md). View the applications that subscribe to your API plans, create one, and open its details.
+* [**Manage API Score**](../../manage-api-score.md). Review the latest score of every API in the environment, and manage the rulesets and functions that evaluations include.
 * [**Manage environment metadata**](../../manage-environment-metadata.md). Add, edit, and delete the metadata entries that every API in the environment inherits.
 * [**Manage dictionaries**](../../manage-dictionaries.md). Create, deploy, edit, and delete dictionaries, and start and stop a dynamic dictionary.
 * [**Manage user fields**](../../manage-user-fields.md). Add, edit, and delete the extra questions people answer when they sign up.

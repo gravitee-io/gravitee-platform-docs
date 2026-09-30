@@ -6,7 +6,7 @@ description: API Score rates a Gamma API proxy against the rulesets of its envir
 
 # Review the API Score
 
-API Score rates an API proxy against the rulesets of its environment and lists what to fix. An evaluation checks the API definition and every OpenAPI or AsyncAPI documentation page of the API. It returns one score for the API, as a percentage, and the findings of each asset. You run an evaluation on demand, and the page shows the result of the latest one. The score doesn't update on its own. Editing the API, its documentation pages, or the rulesets of the environment doesn't change the score or **Last evaluated** until you click **Evaluate** again.
+API Score rates an API proxy against the [rulesets of its environment](../../../platform-management/manage-api-score.md) and lists what to fix. An evaluation checks the API definition and every OpenAPI or AsyncAPI documentation page of the API. It returns one score for the API, as a percentage, and the findings of each asset. You run an evaluation on demand, and the page shows the result of the latest one. The score doesn't update on its own. Editing the API, its documentation pages, or the rulesets of the environment doesn't change the score or **Last evaluated** until you click **Evaluate** again.
 
 ## Prerequisites
 
