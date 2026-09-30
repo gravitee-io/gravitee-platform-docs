@@ -6,13 +6,13 @@ description: Edit the name, version, metadata, and images of an API proxy, and s
 
 # Manage general settings
 
-The **General** page groups the identity fields, images, metadata, and lifecycle actions of an API proxy.
+The **Settings** page groups the identity fields, images, metadata, and lifecycle actions of an API proxy.
 
 To open the page, follow these steps:
 
 1. Click **API Proxies** in the module sidebar.
 2. Select your API proxy.
-3. Click **General** in the API proxy sidebar.
+3. Under **General** in the API proxy sidebar, click **Settings**.
 
 <!-- TODO: Screenshot of the General page of an API proxy -->
 
@@ -94,6 +94,8 @@ The **API Events** card alters the runtime state of the API on the gateway:
 
 * **Stop API**. Shown while the API is started. The gateway stops accepting requests. Subscriptions are preserved.
 * **Start API**. Shown while the API is stopped. Starts the API and makes it available on all connected gateways.
+
+While **Enable API Review** is on for the environment, the card offers **Ask for a review** instead of these two actions until a reviewer accepts the API proxy. A stopped API proxy that was never reviewed can't be started either. See [Review an API proxy](review-an-api-proxy.md).
 
 ## Delete the API
 

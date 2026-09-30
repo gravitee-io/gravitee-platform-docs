@@ -204,7 +204,7 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, a Response Templates page, and an API Score page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer, and an API proxy can be promoted to another environment through Gravitee Cloud.
+API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, a Response Templates page, and an API Score page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer, and an API proxy can be promoted to another environment through Gravitee Cloud. An API proxy can also be sent for review, and then waits for a reviewer before it starts.
 
 #### Import an API proxy
 
@@ -264,6 +264,14 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * The **Promote the API** dialog lists the environments to promote to. An environment that already has a promotion of the API waiting shows **(pending)** and can't be selected.
 * Someone in the target environment accepts or rejects the request from **Tasks & Approvals**. Accepting creates the API there, or updates the API an earlier promotion created.
 * See [Manage general settings](../api-management/build/configure-your-api-proxy/manage-general-settings.md#promote-the-api).
+
+#### Review an API proxy
+
+* While **Enable API Review** is on for the environment, an API proxy can't be started or published until a reviewer accepts it. A banner at the top of the API proxy's pages tracks the review.
+* Authors ask for a review from the **API Events** card of the **Settings** page, or with the **Ask for a review** toggle in the last step of the creation wizard.
+* Reviewers accept or reject from the banner, in the **API Review** panel, checking the manual rules of the environment and leaving comments.
+* The **Tasks & Approvals** page lists the API proxies waiting for a review and those with changes requested.
+* See [Review an API proxy](../api-management/build/configure-your-api-proxy/review-an-api-proxy.md).
 
 ### Developer Portals
 
@@ -346,7 +354,7 @@ Event Stream Management adds Message APIs, the Kafka Explorer, and a duplication
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. Platform flows apply policies on request and response phases to every API in the organization. Native Kafka APIs don't have those phases, and TCP proxy APIs don't run policy flows, so both are left untouched. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment now decides who hears about its user, support, federation, and group events, and the organization can reword every email and portal notification it sends. Custom observability dashboards gain server-side storage. Custom roles define the create, read, update, and delete permissions of each scope, and an organization role is assigned from the role's own page or from the user's. Each environment also chooses the application types its consumers can register, and holds the OpenID Connect provider that registers an OAuth client for them. Every signed-in user also gets their own account page, for their profile, avatar, personal access tokens, and account deletion. It also decides who owns a new API or API Product: the person who creates it, or one of their groups. The organization also chooses the extra questions people answer when they sign up. Each environment can also send a broadcast to the members who hold one of its roles, by portal notification, email, or HTTP request. One page shows the health-check availability of its v4 HTTP proxy APIs.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. Platform flows apply policies on request and response phases to every API in the organization. Native Kafka APIs don't have those phases, and TCP proxy APIs don't run policy flows, so both are left untouched. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment now decides who hears about its user, support, federation, and group events, and the organization can reword every email and portal notification it sends. Custom observability dashboards gain server-side storage. Custom roles define the create, read, update, and delete permissions of each scope, and an organization role is assigned from the role's own page or from the user's. Each environment also chooses the application types its consumers can register, and holds the OpenID Connect provider that registers an OAuth client for them. Every signed-in user also gets their own account page, for their profile, avatar, personal access tokens, and account deletion. It also decides who owns a new API or API Product: the person who creates it, or one of their groups. The organization also chooses the extra questions people answer when they sign up. Each environment can also send a broadcast to the members who hold one of its roles, by portal notification, email, or HTTP request. One page shows the health-check availability of its v4 HTTP proxy APIs. Each environment also turns API Score on or off, and can require a review before an API is started or published.
 
 #### Broadcast messages to environment members
 
@@ -354,6 +362,13 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * **Send** stays disabled until the form is complete. After the send, the page confirms the broadcast was sent and how many recipients it was delivered to.
 * The page appears only for a role that can send broadcasts in the environment. Every broadcast is recorded on the **Audit** page of the environment.
 * See [Broadcast messages to environment members](broadcast-messages-to-environment-members.md).
+#### Configure API Review
+
+* Turn on **Enable API Score** and **Enable API Review** for an environment from the **API Review** page of the **Environment** section, each on its own.
+* Add, edit, and delete the manual rules that reviewers check when they accept or reject an API. Each rule has a name and a description.
+* With API Score off, the **API Score** pages of the environment and of each API proxy are hidden. With API Review off, APIs start and publish without a reviewer.
+* See [Configure API Review](configure-api-review.md).
+
 #### Configure client registration
 
 * Decide which application types the environment accepts from the **Client Registration** page under **System & Security** in the **Environment** section. **Simple** covers a standalone client whose `client_id` the person registering it supplies, and it's on by default.

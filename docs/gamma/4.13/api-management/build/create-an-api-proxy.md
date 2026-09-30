@@ -208,6 +208,8 @@ The **Deploy and start API immediately** toggle publishes the API proxy to the A
 
 This toggle is enabled by default, and the create button reads **Create & Deploy**. If you disable it, the button reads **Create API** and the API proxy is created in a draft state. You can deploy it later from the API detail page.
 
+While **Enable API Review** is on for the environment, the toggle reads **Ask for a review** instead, and it's on by default. The API proxy is then saved as a draft and sent for review, and the button reads **Create & ask for review**. Turn the toggle off to save the draft without asking, and the button reads **Create API**. Either way the API proxy can't be started until a reviewer accepts it. See [Review an API proxy](configure-your-api-proxy/review-an-api-proxy.md).
+
 ## After creation
 
 Once your API proxy is created, the console opens the **Overview** page for that proxy. To return to it later, go to **API Proxies**, select your API, and open **Overview** in the **GENERAL** section. This page summarizes setup progress, endpoint details, and traffic.
