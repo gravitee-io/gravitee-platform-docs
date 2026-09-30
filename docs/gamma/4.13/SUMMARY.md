@@ -135,9 +135,10 @@
   * [Register your first cluster](event-stream-management/get-started/register-your-first-cluster.md)
   * [Create your first Kafka service](event-stream-management/get-started/create-your-first-kafka-service.md)
   * [Create your first Virtual Cluster](event-stream-management/get-started/create-your-first-virtual-cluster.md)
-* [Import](event-stream-management/import/README.md)
-  * [Register your Kafka clusters](event-stream-management/import/register-your-kafka-clusters.md)
+  * [Installation guides](https://documentation.gravitee.io/platform-management/install)
+  * [Release Notes](https://documentation.gravitee.io/platform-management/gamma-release-notes)
 * [Manage](event-stream-management/manage/README.md)
+  * [Register your Kafka clusters](event-stream-management/import/register-your-kafka-clusters.md)
   * [Kafka Explorer](event-stream-management/manage/kafka-explorer/README.md)
     * [Create a Kafka Explorer connection](event-stream-management/manage/kafka-explorer/create-a-kafka-explorer-connection.md)
     * [Explore brokers, topics, and consumer groups](event-stream-management/manage/kafka-explorer/explore-brokers-topics-and-consumer-groups.md)
@@ -175,13 +176,13 @@
   * [Establish a Virtual Cluster](event-stream-management/build/establish-a-virtual-cluster.md)
   * [Virtual Clusters overview](event-stream-management/build/kafka-virtual-clusters-overview.md)
   * [Virtual Cluster runtime behavior reference](event-stream-management/build/kafka-virtual-cluster-runtime-behavior-reference.md)
-* [Observability](event-stream-management/observability/README.md)
-  * [Configure reporter settings](event-stream-management/observability/configure-reporter-settings.md)
+* [Observe](event-stream-management/observability/README.md)
   * [View observability dashboards](event-stream-management/observability/view-observability-dashboards.md)
   * [View connection logs](event-stream-management/observability/view-connection-logs.md)
     * [Diagnose a failed Kafka connection](event-stream-management/observability/diagnose-a-failed-kafka-connection.md)
     * [Inspect a Message API request](event-stream-management/observability/inspect-a-message-api-request.md)
   * [Trace requests](event-stream-management/observability/trace-requests.md)
+  * [Configure reporter settings](event-stream-management/observability/configure-reporter-settings.md)
 
 ## Agent Management
 
