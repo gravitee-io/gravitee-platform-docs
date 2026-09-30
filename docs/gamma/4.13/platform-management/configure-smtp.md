@@ -50,7 +50,7 @@ The following table maps each field to the configuration setting that locks it:
 Unlike the other two organization settings pages, mail settings can also be stored per environment, so four sources can supply a value. Gravitee takes the first one it finds, in this order:
 
 1. The Management API configuration file, or the matching environment variable.
-2. The environment-level value, for mail sent in the context of an environment.
+2. The environment-level value, for mail sent in the context of an environment. See [Configure the SMTP mail server for an environment](configure-environment-smtp.md).
 3. The organization-level value, which is what this page writes.
 4. The built-in default.
 
@@ -68,7 +68,7 @@ On a trial instance, the SMTP page shows "SMTP is not available on trial instanc
 
 Turn it on to reveal the server fields described in the next section. Turning it off again hides them without clearing the stored values.
 
-The branded-sender sections stay on the page while emailing is off, but nothing in them can be changed. The **Add rule** button and the per-rule delete buttons are hidden, and the fields are inert.
+The branded-sender sections stay on the page while emailing is off, but nothing in them can be changed. The **Add configuration** button and the per-rule delete buttons are hidden, and the fields are inert.
 
 ## Point the organization at your mail server
 
@@ -114,7 +114,7 @@ By default every email leaves with the **From** address and **Subject** template
 
 The **Default notification email** section previews what's in force when no rule matches. **Default From** and **Default subject prefix** are read-only echoes of the **From** and **Subject** fields above, and change as you edit those.
 
-The **Branded notification email** section holds the rules. Click **Add rule** to add one, and use the delete button in the corner of a rule to remove it.
+The **Branded notification email** section holds the rules. Click **Add configuration** to add one, and use the delete button in the corner of a rule to remove it.
 
 <figure><img src=".gitbook/assets/gamma-platform-smtp-branded-senders.png" alt="A rule matching one recipient domain, with its own From address and subject prefix."><figcaption><p>The mail properties, the read-only default sender preview, and one branded notification email rule</p></figcaption></figure>
 
