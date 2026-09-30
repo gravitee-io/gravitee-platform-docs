@@ -204,7 +204,7 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, a Response Templates page, and an API Score page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer.
+API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, a Response Templates page, and an API Score page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer, and an API proxy can be promoted to another environment through Gravitee Cloud.
 
 #### Import an API proxy
 
@@ -257,6 +257,13 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * A failed evaluation, a timed-out evaluation, and an asset that couldn't be scored each show a message on the page.
 * An evaluation requires an installation connected to Gravitee Cloud.
 * See [Review the API Score](../api-management/build/configure-your-api-proxy/review-the-api-score.md).
+
+#### Promote an API proxy
+
+* **Promote** on the **Settings** page of an API proxy sends a copy of it to another environment through Gravitee Cloud. It's available once the installation is registered with Gravitee Cloud and accepted there.
+* The **Promote the API** dialog lists the environments to promote to. An environment that already has a promotion of the API waiting shows **(pending)** and can't be selected.
+* Someone in the target environment accepts or rejects the request from **Tasks & Approvals**. Accepting creates the API there, or updates the API an earlier promotion created.
+* See [Manage general settings](../api-management/build/configure-your-api-proxy/manage-general-settings.md#promote-the-api).
 
 ### Developer Portals
 
