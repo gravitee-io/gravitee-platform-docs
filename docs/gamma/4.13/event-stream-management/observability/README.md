@@ -4,7 +4,7 @@ noIndex: false
 description: Read what the gateway recorded about your Kafka Services and Message APIs, from the dashboards down to a single failed connection. Pick the task you need.
 ---
 
-# Observability
+# Observe
 
 The **Observability** group of the Event Stream Management sidebar holds **Dashboards**, **Logs**, and **Tracing**. All three read what the gateway already reported, and none of them changes an API.
 

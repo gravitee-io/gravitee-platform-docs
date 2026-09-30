@@ -326,7 +326,7 @@ Event Stream Management adds Message APIs, the Kafka Explorer, and a duplication
 * **Dashboards** ships a health dashboard and a traffic dashboard for Kafka Services and for Message APIs.
 * **Tracing** follows one API at a time, with two Kafka-specific filters.
 * Each Kafka Service and Message API gains **Dashboard**, **Logs**, and **Tracing** under **Observability** in its own sidebar. An API that reports nothing says so on its own page and links to its **Reporter Settings**.
-* See [Observability](../event-stream-management/observability/README.md).
+* See [Observe](../event-stream-management/observability/README.md).
 
 ### Platform Management
 
