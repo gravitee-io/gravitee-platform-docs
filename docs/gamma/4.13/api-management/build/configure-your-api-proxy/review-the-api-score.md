@@ -6,23 +6,24 @@ description: API Score rates a Gamma API proxy against the rulesets of its envir
 
 # Review the API Score
 
-API Score rates an API proxy against the rulesets of its environment and lists what to fix. An evaluation checks the API definition and every OpenAPI or AsyncAPI documentation page of the API. It returns one score for the API, as a percentage, and the findings of each asset. You run an evaluation on demand, and the page shows the result of the latest one.
+API Score rates an API proxy against the rulesets of its environment and lists what to fix. An evaluation checks the API definition and every OpenAPI or AsyncAPI documentation page of the API. It returns one score for the API, as a percentage, and the findings of each asset. You run an evaluation on demand, and the page shows the result of the latest one. The score doesn't update on its own. Editing the API, its documentation pages, or the rulesets of the environment doesn't change the score or **Last evaluated** until you click **Evaluate** again.
 
 ## Prerequisites
 
 * API Score turned on for the environment. An administrator turns on **Enable API Score** on the **API Review** page of the **Environment** section in **Platform Management**, then clicks **Save changes**. Until then, the **API Score** item doesn't appear in the API proxy sidebar.
-* An installation connected to Gravitee Cloud. Without that connection, an evaluation fails.
+* An installation connected to Gravitee Cloud. Without that connection, an evaluation fails. For a self-hosted installation, see [Register installations](https://documentation.gravitee.io/gravitee-cloud/self-hosted/register-installations).
 
 ## Open API Score
 
 To open the page, complete the following steps:
 
-1. At the top of the console, click the name of the current module, then select **API Management**.
-2. Click **API Proxies** in the module sidebar.
-3. Select your API proxy.
-4. Under **General** in the API proxy sidebar, click **API Score**.
+1. Click **API Proxies** in the module sidebar.
+2. Select your API proxy.
+3. Under **General** in the API proxy sidebar, click **API Score**.
 
-**API Score** is also available for a federated API. Until the API is evaluated for the first time, the page explains how scoring works in place of a score.
+**API Score** is also on the sidebar of a federated API.
+
+Until an API is evaluated for the first time, the page explains how scoring works in place of a score, under **Why run API Score?** and **How it works**: **API assets**, **Rulesets**, **Score & findings**, and **Fix & re-evaluate**.
 
 <figure><img src="../../.gitbook/assets/gamma-api-score-first-use.png" alt="The API Score page of an API proxy before its first evaluation, with the Evaluate button and the How it works explanation"><figcaption><p>The API Score page of an API proxy that hasn't been evaluated yet.</p></figcaption></figure>
 
@@ -30,7 +31,7 @@ To open the page, complete the following steps:
 
 To evaluate the API, click **Evaluate**.
 
-The evaluation runs in the background, and you can leave the page while it runs. **Evaluate** stays disabled until the evaluation finishes, and the new result then replaces the previous one. The time limit of an evaluation depends on how many assets and rulesets it checks, and never exceeds 15 minutes.
+While the evaluation runs, the page shows **A request is currently processing, updated result will appear below once completed** and **Evaluate** stays disabled. You can leave the page: the evaluation keeps running, and the page picks it up again when you come back. When the evaluation finishes, the new result replaces the previous one. The time limit of an evaluation depends on how many assets and rulesets it checks, and never exceeds 15 minutes.
 
 ## Read the results
 
