@@ -3,3 +3,6 @@ root: ./
 structure:
   readme: get-started/README.md
   summary: SUMMARY.md
+redirects:
+ import: manage/README.md
+ import/register-your-kafka-clusters: import/register-your-kafka-clusters.md
