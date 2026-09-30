@@ -144,3 +144,5 @@ analyze-and-monitor-apis/dashboards/creating-portal-analytics-dashboards.md
 .gitbook/assets/portal-settings-enable-mtls.png
 .gitbook/assets/portal-settings-saved.png
 .gitbook/assets/console-settings-new-developer-portal-open-website.png
+# LLM Proxy reads images, audio, video, and files and filters them per entrypoint option (APIM 4.13.0, AIAM-51)
+ai-agent-management/llm-proxy/accepted-request-formats.md
