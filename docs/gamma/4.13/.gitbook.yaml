@@ -86,6 +86,7 @@ redirects:
  api-management/view-api-logs: api-management/observe/view-api-logs.md
  authorization-management/build: authorization-management/get-started/README.md
  authorization-management/build/create-authorization-policies: authorization-management/configure/create-update-delete-policies.md
+ authorization-management/configure/authz-gateway-sync: authorization-management/authz-gateway-sync.md
  event-management/build/create-a-kafka-service: event-stream-management/build/create-a-kafka-service-with-a-registered-cluster.md
  event-management/explorer: event-stream-management/get-started/README.md
  event-management/explorer/create-kafka-topics: event-stream-management/get-started/README.md
