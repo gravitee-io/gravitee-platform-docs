@@ -73,10 +73,11 @@ You also link pages to external sources, import a documentation tree from a remo
 2.  From the **Settings** menu, click **Settings**.<br>
 
     <figure><img src="../../.gitbook/assets/CF7527D1-5E90-4637-8C70-FF5125AEB0BF_1_201_a.jpeg" alt="The portal Analytics settings with Settings highlighted in the portal menu, listing nine platform dashboards."><figcaption></figcaption></figure>
-3.  Navigate to the **New Developer Portal** section, and then click **Open Settings**. The New Developer Portal settings open on the navigation tab.<br>
+3.  Navigate to the **New Developer Portal** section, and then click **Open Settings**. The Portal Settings open in a new tab, on the **Settings** page.<br>
 
     <figure><img src="../../.gitbook/assets/7C64309D-426F-4F5D-B48D-2224931FC9F3_4_5005_c.jpeg" alt="The portal settings scrolled to the New Developer Portal section, with the portal enabled and the Open Settings button highlighted beside Open Website."><figcaption></figcaption></figure>
-4. Customize your navigation using the following components:
+4. Click **Navigation**.
+5. Customize your navigation using the following components:
 
 #### Pages
 
