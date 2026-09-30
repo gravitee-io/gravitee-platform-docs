@@ -96,6 +96,8 @@ redirects:
  event-management/get-started: event-stream-management/get-started/README.md
  event-management/get-started/create-your-first-kafka-topic: event-stream-management/get-started/README.md
  event-management/get-started/event-management-overview: event-stream-management/get-started/event-stream-management-overview.md
+ event-stream-management/import: event-stream-management/manage/README.md
+ event-stream-management/import/register-your-kafka-clusters: event-stream-management/import/register-your-kafka-clusters.md
  platform-management/configure-access-management: platform-management/configure-access-management.md
  platform-management/manage-applications: platform-management/manage-applications.md
  platform-management/manage-dictionaries: platform-management/manage-dictionaries.md
