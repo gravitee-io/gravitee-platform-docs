@@ -1,19 +1,16 @@
 ---
 hidden: false
 noIndex: false
-description: Create and configure the AI Gateway components that govern LLM, MCP, and A2A traffic, along with agent identities. Start with the proxy you need.
+description: The Secure group of the Agent Management sidebar holds the proxies that govern LLM, MCP, and agent-to-agent traffic. Start with the proxy you need.
 ---
 
-# Build
+# Secure
 
-Create and configure the AI Gateway components that govern LLM, MCP, and A2A traffic, along with agent identities for every agent that touches your infrastructure.
+The **Secure** group of the Agent Management sidebar holds the **LLM Proxies**, **MCP Proxies**, and **A2A Proxies** pages.
 
-* [**Create an MCP proxy**](create-an-mcp-proxy.md): Set up an MCP Proxy in front of an upstream MCP server to add authentication, policies, and observability to every tool invocation.
-* [**Configure your MCP proxy**](configure-your-mcp/README.md): Configure mediation, credential management, and the MCP Proxy's connection to upstream servers.
-  * [**Add policies to your MCP server**](configure-your-mcp/add-policies-to-mcp-server.md): Apply fine-grained authorization policies at the tool level.
-* [**Create an MCP Studio**](create-an-mcp-studio.md): Compose tools, resources, prompts, and skills from multiple sources into a Composite MCP Server.
-* [**Create an LLM Proxy**](create-an-llm-proxy.md): Configure an LLM Proxy to route model traffic through the AI Gateway with authentication, cost attribution, and observability.
-* [**Configure an LLM Proxy**](configure-an-llm-proxy.md): Set up guardrails, PII filtering, rate limiting, security plans, and policies.
-* [**Configure your Access Management instance**](configure-your-access-management-instance.md): Connect the module to Gravitee Access Management, select an environment and domain, and check that the domain has the capabilities agent identities rely on.
-* [**Create an agent identity**](create-an-agent-identity.md): Register an agent as an OAuth client with a Desktop Productivity Agent, Hosted Agent, or Workload Agent persona, identified by a client ID or a CIMD metadata document.
-* [**Expose your agent with the A2A Proxy**](expose-agent-with-a2a-proxy.md): Make an agent's skills discoverable and callable across trust boundaries with per-skill authorization.
+* [**LLM Proxies**](llm-proxies/README.md). Create, design, and publish an LLM Proxy that routes model traffic through the AI Gateway.
+* [**MCP Proxies**](mcp-proxies/README.md). Create and govern an MCP Proxy that fronts an upstream MCP server with authentication, policies, and observability.
+* [**A2A Proxies**](a2a-proxies/README.md). Expose an upstream agent behind the AI Gateway with an A2A Proxy, then configure and secure it.
+* [**Manage subscriptions**](../publish/manage-subscriptions.md). A subscription binds one application to one plan on a Gamma LLM or MCP Proxy.
+* [**Publish a proxy to the Developer Portal**](../publish/publish-a-proxy-to-the-developer-portal.md). Make an LLM, MCP, or A2A Proxy discoverable to consumers in the Developer Portal.
+* [**Agent kill switch**](agent-killswitch.md). Stop an agent in one move from its page in the Catalog, which stops the A2A Proxy in front of it, pauses its gateway subscriptions, and disables it on Azure AI Foundry, or stop a proxy on its own.
