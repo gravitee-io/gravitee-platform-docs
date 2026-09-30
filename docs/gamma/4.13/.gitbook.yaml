@@ -129,3 +129,33 @@ redirects:
  platform-management/open-the-developer-portal-settings: platform-management/open-the-developer-portal-settings.md
  platform-management/review-audit-logs: platform-management/review-audit-logs.md
  platform-management/save-observability-dashboards: platform-management/save-observability-dashboards.md
+ platform-management/applications: platform-management/environment/apis-and-assets/README.md
+ platform-management/applications/manage-applications: platform-management/manage-applications.md
+ platform-management/apis-and-assets: platform-management/environment/apis-and-assets/README.md
+ platform-management/apis-and-assets/manage-environment-metadata: platform-management/manage-environment-metadata.md
+ platform-management/apis-and-assets/manage-dictionaries: platform-management/manage-dictionaries.md
+ platform-management/system-and-security: platform-management/environment/system-and-security/README.md
+ platform-management/system-and-security/configure-access-management: platform-management/configure-access-management.md
+ platform-management/system-and-security/configure-opentelemetry-tracing-and-logs: platform-management/configure-opentelemetry-tracing-and-logs.md
+ platform-management/system-and-security/configure-openapi-viewer: platform-management/configure-openapi-viewer.md
+ platform-management/overview-1: platform-management/environment/apis-and-assets/README.md
+ platform-management/overview-1/manage-applications: platform-management/manage-applications.md
+ agent-management/overview: agent-management/get-started/ai-management-overview.md
+ api-management/manage/api-proxies/general/configure-api-properties: api-management/build/configure-your-api-proxy/configure-api-properties.md
+ api-management/manage/api-proxies/general/configure-api-resources: api-management/build/configure-your-api-proxy/configure-api-resources.md
+ api-management/manage/api-proxies/general/configure-notifications: api-management/build/configure-your-api-proxy/configure-notifications.md
+ api-management/manage/api-proxies/general/configure-cors: api-management/build/configure-your-api-proxy/configure-cors.md
+ api-management/manage/api-proxies/gateway: api-management/manage/api-proxies/design/README.md
+ api-management/manage/api-proxies/gateway/configure-entrypoints: api-management/build/configure-your-api-proxy/configure-entrypoints.md
+ api-management/manage/api-proxies/gateway/configure-backend-security: api-management/build/configure-your-api-proxy/configure-backend-security.md
+ api-management/manage/api-proxies/gateway/configure-failover: api-management/build/configure-your-api-proxy/configure-failover.md
+ api-management/manage/api-proxies/gateway/monitor-endpoint-health: api-management/observe/monitor-endpoint-health.md
+ api-management/manage/api-proxies/gateway/configure-logging-and-tracing: api-management/build/configure-your-api-proxy/configure-logging-and-tracing.md
+ api-management/manage/api-proxies/consumer-access: api-management/manage/api-proxies/consumers/README.md
+ api-management/manage/api-proxies/consumer-access/secure-your-api-proxy: api-management/build/secure-your-api-proxy.md
+ api-management/manage/api-proxies/consumer-access/establish-consumer-access: api-management/build/configure-your-api-proxy/establish-consumer-access.md
+ api-management/manage/api-proxies/consumer-access/broadcast-messages-to-consumers: api-management/build/configure-your-api-proxy/broadcast-messages-to-consumers.md
+ api-management/manage/api-proxies/security: api-management/manage/api-proxies/general/README.md
+ api-management/manage/api-proxies/security/manage-user-permissions: api-management/build/configure-your-api-proxy/manage-user-permissions.md
+ api-management/manage/api-products/security: api-management/manage/api-products/general/README.md
+ api-management/manage/api-products/security/manage-members-and-ownership: api-management/build/configure-your-api-product/manage-members-and-ownership.md
