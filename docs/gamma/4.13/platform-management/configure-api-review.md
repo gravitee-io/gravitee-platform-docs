@@ -82,7 +82,7 @@ To delete a manual rule, complete the following steps:
 
 To verify your settings, complete the following steps:
 
-1. At the top of the page, click **Platform Management**, then select **API Management**.
+1. At the top of the page, click the name of the product you're working in, then select **API Management**.
 2. Click **API Proxies** in the module sidebar, and select an API proxy.
 3. Check the **General** group of the API proxy sidebar. With **Enable API Score** on, it lists **API Score**.
 4. Under **General**, click **Settings**. With **Enable API Review** on, and while the API proxy isn't under review, the **API Events** card offers **Ask for a review**.

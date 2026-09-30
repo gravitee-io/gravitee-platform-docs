@@ -362,6 +362,7 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * **Send** stays disabled until the form is complete. After the send, the page confirms the broadcast was sent and how many recipients it was delivered to.
 * The page appears only for a role that can send broadcasts in the environment. Every broadcast is recorded on the **Audit** page of the environment.
 * See [Broadcast messages to environment members](broadcast-messages-to-environment-members.md).
+
 #### Configure API Review
 
 * Turn on **Enable API Score** and **Enable API Review** for an environment from the **API Review** page of the **Environment** section, each on its own.
