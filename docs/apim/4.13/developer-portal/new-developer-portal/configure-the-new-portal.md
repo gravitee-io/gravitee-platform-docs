@@ -30,7 +30,7 @@ For self-hosted installations and hybrid deployments of Gravitee, you can set th
 
 *   Click the **Open Website** button. The New Developer Portal opens in a new tab. Once the New Developer Portal is enabled, a **Portal Settings** option also appears in the Console sidebar, providing one-click access to the New Developer Portal editor.
 
-    <figure><img src="../../.gitbook/assets/developer-portal-new-developer-portal-co-14-1.png" alt="The portal settings scrolled to the New Developer Portal section, with the portal, mTLS certificate management, analytics, application membership, ownership transfer, membership invitation, and approximate spelling all enabled, and the Open Website button highlighted."><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/console-settings-new-developer-portal-open-website.png" alt="The portal settings scrolled to the New Developer Portal section, with the portal enabled and the Open Website button highlighted beside Open Settings."><figcaption></figcaption></figure>
 
 ## Set the New Developer Portal as default
 
@@ -130,3 +130,4 @@ Here is an example of the environmental variables set in a `docker-compose-apim.
 ## Next Steps
 
 * Customize your New Developer Portal. For more information about customizing your New Developer Portal, see [layout-and-theme.md](layout-and-theme.md "mention") and [customize-the-homepage.md](customize-the-homepage.md "mention").
+* Configure the settings of your New Developer Portal. For more information, see [configure-new-developer-portal-settings.md](configure-new-developer-portal-settings.md "mention").

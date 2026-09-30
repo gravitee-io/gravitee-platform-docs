@@ -45,7 +45,7 @@ You can also change the default timeframe and widget layout from the dashboard e
 
 ## Verify in the New Developer Portal
 
-1. Confirm **Enable Analytics** is turned on in **Settings** > **Portal** > **Settings**.
+1. Confirm **Enable Analytics** is turned on in the **Portal capabilities** section of the **Settings** page of the Portal Settings.
 2. Sign in to the New Developer Portal as a user who should see the dashboard.
 3. Open **Analytics** from the user avatar menu (desktop) or the mobile menu.
 4. Confirm the dashboard appears in the list and opens with the expected widgets.

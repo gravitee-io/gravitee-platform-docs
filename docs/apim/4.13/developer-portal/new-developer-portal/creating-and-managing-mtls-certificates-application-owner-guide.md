@@ -9,7 +9,7 @@ This guide shows application owners how to upload, rotate, and delete mTLS clien
 ## Prerequisites
 
 * The new Developer Portal is enabled for your environment (`portal.next.access.enabled`).
-* Your administrator has turned on the **Enable mTLS Certificate Management** toggle in the **New Developer Portal** section of the **Portal** settings page in the Management Console. Without this toggle the Certificates section isn't shown. For details, see [Configuring mTLS certificate management (administrator guide)](configuring-mtls-certificate-management-administrator-guide.md).
+* Your administrator has turned on the **Enable mTLS Certificate Management** toggle in the **Portal capabilities** section of the **Settings** page of the Portal Settings in the Management Console. Without this toggle the Certificates section isn't shown. For details, see [Configuring mTLS certificate management (administrator guide)](configuring-mtls-certificate-management-administrator-guide.md).
 * You have `APPLICATION_DEFINITION[UPDATE]` on the application. The Certificates section is rendered inside the application's edit form, so `APPLICATION_DEFINITION[READ]` alone isn't enough to view or manage certificates from the new Developer Portal.
 * Your certificate is a valid X.509 certificate in PEM format. CA certificates aren't accepted.
 
