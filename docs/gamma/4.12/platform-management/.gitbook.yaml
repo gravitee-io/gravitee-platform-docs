@@ -5,4 +5,8 @@ structure:
   summary: SUMMARY.md
 
 redirects:
+ configure-access-management: configure-access-management.md
+ manage-applications: manage-applications.md
+ manage-dictionaries: manage-dictionaries.md
+ manage-environment-metadata: manage-environment-metadata.md
  manage-the-platform: overview.md
