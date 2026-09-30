@@ -7,3 +7,4 @@ structure:
 redirects:
  build: get-started/README.md
  build/create-authorization-policies: configure/create-update-delete-policies.md
+ configure/authz-gateway-sync: authz-gateway-sync.md
