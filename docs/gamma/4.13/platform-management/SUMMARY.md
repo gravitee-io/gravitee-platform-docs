@@ -44,6 +44,7 @@
 * [Environment](environment/README.md)
   * [APIs & Assets](environment/apis-and-assets/README.md)
     * [Manage applications](manage-applications.md)
+    * [Manage API Score](manage-api-score.md)
     * [Manage environment metadata](manage-environment-metadata.md)
     * [Manage dictionaries](manage-dictionaries.md)
     * [Manage user fields](manage-user-fields.md)
