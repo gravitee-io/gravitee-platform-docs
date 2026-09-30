@@ -53,6 +53,7 @@
   * [System & Security](environment/system-and-security/README.md)
     * [Configure primary owner mode](configure-primary-owner-mode.md)
     * [Configure Access Management](configure-access-management.md)
+    * [Configure API Review](configure-api-review.md)
     * [Monitor gateway instances](monitor-gateway-instances.md)
     * [Configure environment alerts](configure-environment-alerts.md)
     * [Configure environment notifications](configure-environment-notifications.md)

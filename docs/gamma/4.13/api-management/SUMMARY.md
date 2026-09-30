@@ -17,6 +17,7 @@
     * [Import an API proxy](build/import-an-api-proxy.md)
     * [General](manage/api-proxies/general/README.md)
       * [Manage general settings](build/configure-your-api-proxy/manage-general-settings.md)
+      * [Review an API proxy](build/configure-your-api-proxy/review-an-api-proxy.md)
       * [Manage user permissions](build/configure-your-api-proxy/manage-user-permissions.md)
       * [Configure API metadata](build/configure-your-api-proxy/configure-api-metadata.md)
       * [Review the API Score](build/configure-your-api-proxy/review-the-api-score.md)

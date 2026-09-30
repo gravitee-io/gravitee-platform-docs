@@ -10,7 +10,7 @@ API Score rates an API proxy against the rulesets of its environment and lists w
 
 ## Prerequisites
 
-* API Score turned on for the environment. An administrator turns on **Enable API Score** on the **API Review** page of the **Environment** section in **Platform Management**, then clicks **Save changes**. Until then, the **API Score** item doesn't appear in the API proxy sidebar.
+* API Score turned on for the environment. An administrator turns on **Enable API Score** on the **API Review** page of the **Environment** section in **Platform Management**, then clicks **Save changes**. Until then, the **API Score** item doesn't appear in the API proxy sidebar. See [Configure API Review](../../../platform-management/configure-api-review.md).
 * An installation connected to Gravitee Cloud. Without that connection, an evaluation fails. For a self-hosted installation, see [Register installations](https://documentation.gravitee.io/gravitee-cloud/self-hosted/register-installations).
 
 ## Open API Score
