@@ -12,7 +12,7 @@ You don't evaluate APIs from this page. Each API is evaluated from its own **API
 
 ## Prerequisites
 
-* API Score turned on for the environment. Someone whose role can change the environment's settings turns on **Enable API Score** on the **API Review** page of the **Environment** section, then clicks **Save changes**. When the installation's configuration sets API Score, the switch is locked, and hovering over it shows **Configuration provided by the system**. Until API Score is on, the **API Score** item doesn't appear in the sidebar.
+* API Score turned on for the environment. Someone whose role can change the environment's settings turns on **Enable API Score** on the **API Review** page of the **Environment** section, then clicks **Save changes**. Until then, the **API Score** item doesn't appear in the sidebar. See [Configure API Review](configure-api-review.md).
 * A role that can read the environment's integrations. Without it, the **API Score** item doesn't appear in the sidebar, even when API Score is turned on.
 
 ## Open API Score
@@ -40,7 +40,7 @@ To open the **API Score** page of one API, click the API's name, or select **Vie
 
 A score changes only when an evaluation of that API succeeds. A failed evaluation keeps the previous score. Changing the rulesets or the functions doesn't change any score until each API is evaluated again.
 
-Until an API has been evaluated successfully, the tab shows **No score results yet** in place of the average and the counts.
+Until at least one API in the environment has been evaluated successfully, the tab shows **No score results yet** in place of the average and the counts.
 
 ## Import a ruleset
 
@@ -59,7 +59,7 @@ To import a ruleset, complete the following steps:
 
 9. Click **Import**.
 
-**Import** stays unavailable until the format, the name, and the file are set. An empty file isn't accepted, and the content of the file isn't checked when you import it.
+**Import** stays unavailable until the format, the name, and the file are set. An empty file isn't accepted, and the content of the file isn't checked when you import it. When an evaluation fails, the **API Score** page of that API shows the reason. For more information, see [Troubleshoot an evaluation](../api-management/build/configure-your-api-proxy/review-the-api-score.md#troubleshoot-an-evaluation).
 
 After the import, you can change the ruleset's name and description, but not its rules. To change the rules, delete the ruleset and import the new version.
 
