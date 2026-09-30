@@ -49,6 +49,45 @@ Both accept PNG, JPG, and SVG files up to 500 KB.
 
 The **Details** panel is read-only and lists **Owner**, **Created**, **Updated**, **Visibility**, **Lifecycle**, and **Status**.
 
+## Promote the API
+
+Promoting an API proxy sends a copy of it to another environment through Gravitee Cloud. Nothing changes in the target environment until someone there accepts the request.
+
+Promotion is available once your installation is registered with Gravitee Cloud and accepted there. Until then, **Promote** opens **Meet Gravitee Cloud**, which links to Gravitee Cloud to create an account and register the installation.
+
+**Promote** appears when you can edit the API proxy, and never on a federated API. It's unavailable in the following cases:
+
+* The API proxy is managed by the Kubernetes operator.
+* The API lifecycle is `DEPRECATED`.
+* **Enable API Review** is on for the environment, and the API carries one of its review banners, such as **This API is a draft.**
+
+To promote the API proxy, follow these steps:
+
+1. Click **Promote**.
+2. In the **Promote the API** dialog, select the target environment from the **Environment** list.
+
+    <figure><img src="../../.gitbook/assets/gamma-api-promote-dialog.png" alt="The Promote the API dialog with Docbot Production selected in the Environment list, and the Cancel and Promote buttons."><figcaption><p>The Promote the API dialog</p></figcaption></figure>
+
+3. Click **Promote**.
+
+The dialog closes and **Promotion requested** confirms the request. When the request fails, the dialog stays open and shows the error.
+
+The **Environment** list holds the environments Gravitee Cloud returns for your installation. An environment that already has a promotion of this API waiting shows **(pending)** and can't be selected until that promotion is accepted or rejected. When there's no environment to promote to, the dialog shows **No environment is available to promote this API.**
+
+### Accept or reject a promotion
+
+The request reaches the target environment as a task in **Tasks & Approvals**. The task is listed for people who can create APIs in that environment. When an earlier promotion of the same API was accepted there and its API still exists, the request updates that API instead. The task is then listed for people who can update APIs there.
+
+To accept or reject a promotion, follow these steps:
+
+1. At the top right of the Gamma console, click the clipboard icon next to your avatar.
+2. In the task's row, click **Review promotion**.
+3. In the **API promotion request** panel, click **Accept**, or click **Reject** and then **Confirm reject**.
+
+    <figure><img src="../../.gitbook/assets/gamma-api-promotion-request.png" alt="The API promotion request panel for Docbot Orders API, from Default environment to Docbot Production, with the Open API, Close, Reject, and Accept buttons."><figcaption><p>The API promotion request panel</p></figcaption></figure>
+
+**API promotion accepted.** or **API promotion rejected.** confirms your choice. Accepting creates the API in the target environment, or updates the API an earlier promotion created there. The panel says which one before you choose. After a rejection, the environment can be selected again in the **Promote the API** dialog.
+
 ## Start or stop the API
 
 The **API Events** card alters the runtime state of the API on the gateway:
