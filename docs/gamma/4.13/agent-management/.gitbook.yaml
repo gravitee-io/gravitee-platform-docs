@@ -5,4 +5,8 @@ structure:
   summary: SUMMARY.md
 
 redirects:
+ build/llm-proxies/configure-an-llm-proxy/configure-llm-proxy-cors: build/configure-llm-proxy-cors.md
+ build/llm-proxies/override-the-model-at-runtime: build/override-the-model-at-runtime.md
  import/create-event-tools: import/README.md
+ overview/ai-resources: build/ai-resources.md
+ overview/llm-proxy-provider-support: build/llm-proxy-provider-support.md
