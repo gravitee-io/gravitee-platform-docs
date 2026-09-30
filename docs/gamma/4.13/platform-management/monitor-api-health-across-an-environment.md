@@ -22,9 +22,7 @@ To open the page, complete the following steps:
 
 While the environment has no v4 HTTP proxy API, the page explains health checks in place of the banner and the table.
 
-<!-- TODO: Screenshot of the API Health Check page with the report banner and the table -->
-
-<figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-api-health-check.png" alt=""><figcaption><p>The API Health Check page of the <strong>Environment</strong> section</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-api-health-check.png" alt="The API Health Check page of the Environment section with the Timeframe select on Last minute, the Refresh and Filter to APIs with Health Check enabled buttons, the API Health Check Report banner counting one API in error, and the table of APIs"><figcaption><p>The API Health Check page of the <strong>Environment</strong> section</p></figcaption></figure>
 
 ## Choose the window
 
@@ -69,9 +67,7 @@ To verify the page is working as expected, follow these steps:
 1. Enable the health check on an endpoint group of a v4 HTTP proxy API, and deploy the API.
 2. Open the **API Health Check** page, wait for a check to run, and select **Refresh**. The row of the API shows its availability, and the banner counts the API when it's in error or in warning.
 
-<!-- TODO: Screenshot of an API row with its availability over the window -->
-
-<figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-api-health-check-row.png" alt=""><figcaption><p>An API with health check enabled, with its availability over the window</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-api-health-check-row.png" alt="The API table with the Name, State, and API Availability columns: one API at 100% availability, one at 0%, and one that reads Health check has not been configured"><figcaption><p>An API with health check enabled, with its availability over the window</p></figcaption></figure>
 
 ## Next steps
 
