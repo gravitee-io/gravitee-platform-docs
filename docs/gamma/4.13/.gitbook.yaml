@@ -25,6 +25,7 @@ redirects:
  platform-management/configure-console-management-and-schedulers: platform-management/configure-console-management-and-schedulers.md
  platform-management/configure-environment-alerts: platform-management/configure-environment-alerts.md
  platform-management/configure-environment-notifications: platform-management/configure-environment-notifications.md
+ platform-management/configure-openapi-viewer: platform-management/configure-openapi-viewer.md
  platform-management/configure-opentelemetry-tracing-and-logs: platform-management/configure-opentelemetry-tracing-and-logs.md
  platform-management/configure-primary-owner-mode: platform-management/configure-primary-owner-mode.md
  platform-management/configure-security-plan-types: platform-management/configure-security-plan-types.md
@@ -41,6 +42,11 @@ redirects:
  platform-management/manage-tenants: platform-management/manage-tenants.md
  platform-management/manage-the-platform: platform-management/overview.md
  platform-management/manage-users: platform-management/manage-users.md
+ platform-management/manage-your-account: platform-management/manage-your-account.md
  platform-management/monitor-gateway-instances: platform-management/monitor-gateway-instances.md
+ platform-management/observe: platform-management/environment/system-and-security/README.md
+ platform-management/observe/configure-opentelemetry-tracing-and-logs: platform-management/configure-opentelemetry-tracing-and-logs.md
+ platform-management/observe/save-observability-dashboards: platform-management/save-observability-dashboards.md
+ platform-management/open-the-developer-portal-settings: platform-management/open-the-developer-portal-settings.md
  platform-management/review-audit-logs: platform-management/review-audit-logs.md
  platform-management/save-observability-dashboards: platform-management/save-observability-dashboards.md
