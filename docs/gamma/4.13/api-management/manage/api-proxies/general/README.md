@@ -1,16 +1,13 @@
 ---
 hidden: false
 noIndex: false
-description: The General section of a Gamma API proxy holds the settings describing the proxy itself. Learn what you can change and what it affects.
+description: The General group of an API proxy's sidebar holds the Overview, Settings, User Permissions, Authorization, Metadata, and API Score pages. Choose the page you need.
 ---
 
 # General
 
-The **General** section of an API proxy holds the settings that describe the proxy itself rather than how it routes traffic.
+The **General** group of an API proxy's sidebar holds the **Overview**, **Settings**, **User Permissions**, **Authorization**, **Metadata**, and **API Score** pages.
 
-* [**Manage general settings**](../../../build/configure-your-api-proxy/manage-general-settings.md). Name, version, metadata, images, and the proxy lifecycle.
-* [**Configure API properties**](../../../build/configure-your-api-proxy/configure-api-properties.md). Key and value pairs that policies read at runtime.
-* [**Configure API resources**](../../../build/configure-your-api-proxy/configure-api-resources.md). Resources this proxy's policies reference.
-* [**Configure notifications**](../../../build/configure-your-api-proxy/configure-notifications.md). Alerts raised when API events occur.
-* [**Configure CORS**](../../../build/configure-your-api-proxy/configure-cors.md). Cross-origin access for browser clients.
-* [**Configure API metadata**](../../../build/configure-your-api-proxy/configure-api-metadata.md). Key and value entries this API carries, inherited from the environment and overridable.
+* [**Manage general settings**](../../../build/configure-your-api-proxy/manage-general-settings.md). Edit the name, version, metadata, and images of an API proxy, and start, stop, or delete it.
+* [**Manage user permissions**](../../../build/configure-your-api-proxy/manage-user-permissions.md). Add direct members, attach groups, and transfer primary ownership of an API proxy.
+* [**Configure API metadata**](../../../build/configure-your-api-proxy/configure-api-metadata.md). API metadata is key and value entries carried by a Gamma API proxy, defaulting from the environment.
