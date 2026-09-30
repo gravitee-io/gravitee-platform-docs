@@ -14,9 +14,7 @@ To open the page, follow these steps:
 2. Select your API proxy.
 3. Under **General** in the API proxy sidebar, click **Settings**.
 
-<!-- TODO: Screenshot of the Settings page of an API proxy -->
-
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-general-page.png" alt=""><figcaption><p>The Settings page of an API proxy</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-api-settings-page.png" alt="The Settings page of the Docbot Orders API proxy, selected under General in the API proxy sidebar, with the identity fields, the Images and Details panels, the Export, Import, Duplicate, and Promote buttons, and the API Events card."><figcaption><p>The Settings page of an API proxy</p></figcaption></figure>
 
 {% hint style="info" %}
 When the API proxy is managed by the Kubernetes operator, the page shows the banner **This API is managed by the Kubernetes operator. Configuration changes must be made in your Kubernetes manifests.** and every field is read-only.
@@ -120,12 +118,10 @@ Deletion is permanent. The dialog deletes the API along with all plans, subscrip
 
 ## Verification
 
-To verify the general settings are working as expected, follow these steps:
+To verify your changes on the **Settings** page, follow these steps:
 
 1. Edit the **Description** field.
 2. Click **Save changes**.
 3. Reload the page. The **Description** field shows the new text, and the **Updated** row of the **Details** panel shows the current date.
 
-<!-- TODO: Screenshot of the Details panel showing the refreshed Updated timestamp -->
-
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-general-updated.png" alt=""><figcaption><p>The Details panel after a save</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-api-details-updated.png" alt="The Details panel of an API proxy, listing Owner, Created, Updated, Visibility, Lifecycle, and Status."><figcaption><p>The Details panel after a save</p></figcaption></figure>
