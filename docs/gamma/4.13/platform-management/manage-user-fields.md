@@ -10,9 +10,9 @@ noIndex: false
 
 User fields are the extra questions people answer when they request an account, next to their first name, last name, and email address. Use them to collect details such as a department, a country, or a job title. Each answer is kept on the person's profile.
 
-User fields belong to the organization, so the list is the same whichever environment is selected. The same fields are asked when someone signs up in the APIM Console or the Developer Portal.
+The **User Fields** page sits in the **Environment** section of the sidebar, but the fields belong to the organization. The list is the same whichever environment is selected, and a change made in one environment applies everywhere. The same fields are asked when someone signs up in the APIM Console or the Developer Portal.
 
-Each person's answers appear on their detail page, which opens from the **Users** page. There, each answer is listed under its field's key. For more information, see [Manage users](manage-users.md).
+Each person's answers appear on their detail page, which opens from the **Users** page. There, each answer is listed under its field's key, with a copy action. For more information, see [Review a user's profile](manage-users.md#review-a-users-profile).
 
 ## Open the User Fields page
 
@@ -52,7 +52,7 @@ To edit a user field, complete the following steps:
 3. Change the label, the **Required** switch, or the values. The key is read-only.
 4. Click **Save changes**.
 
-Answers people already gave stay on their profile unchanged, even when you remove their value from the list. When you make a field required, people who haven't answered it have to answer it before they can save changes to their own account.
+Answers people already gave stay on their profile unchanged, even when you remove their value from the list. When you make a field required, people who haven't answered it can still sign in and use the console as before. The next time they open their own account page, the field shows **This field is required.** and **Update** stays unavailable until they answer it.
 
 ## Delete a user field
 
