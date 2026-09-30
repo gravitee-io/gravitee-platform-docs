@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Edit the name, version, metadata, and images of an API proxy, and start, stop, or delete it. Follow the steps on the General page to update them.
+description: Edit the name, version, metadata, and images of an API proxy, and start, stop, or delete it. Follow the steps on the Settings page to update them.
 ---
 
 # Manage general settings
@@ -14,9 +14,9 @@ To open the page, follow these steps:
 2. Select your API proxy.
 3. Under **General** in the API proxy sidebar, click **Settings**.
 
-<!-- TODO: Screenshot of the General page of an API proxy -->
+<!-- TODO: Screenshot of the Settings page of an API proxy -->
 
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-general-page.png" alt=""><figcaption><p>The General page of an API proxy</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-general-page.png" alt=""><figcaption><p>The Settings page of an API proxy</p></figcaption></figure>
 
 {% hint style="info" %}
 When the API proxy is managed by the Kubernetes operator, the page shows the banner **This API is managed by the Kubernetes operator. Configuration changes must be made in your Kubernetes manifests.** and every field is read-only.
