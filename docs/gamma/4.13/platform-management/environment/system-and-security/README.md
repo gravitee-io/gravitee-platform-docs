@@ -13,6 +13,7 @@ The **System & Security** group of the **Environment** section holds the **Prima
 * [**Monitor gateway instances**](../../monitor-gateway-instances.md). Read the status of a gateway instance, view its details, monitor its health metrics, and troubleshoot missing data.
 * [**Configure environment alerts**](../../configure-environment-alerts.md). Create, edit, and delete alerts, and track their activity and history.
 * [**Configure environment notifications**](../../configure-environment-notifications.md). Choose the events you see in the console, add an email or webhook notification, and edit or delete one.
+* [**Monitor API health across an environment**](../../monitor-api-health-across-an-environment.md). Choose the window, read the report and the availability of each API, and open the dashboard of an API.
 * [**Configure Security Plan Types**](../../configure-security-plan-types.md). Change which plan security types are available to the APIs of the environment.
 * [**Configure client registration**](../../configure-client-registration.md). Allow simple applications, turn on Dynamic Client Registration, choose the allowed application types, and add, edit, or delete a client registration provider.
 * [**Configure OpenTelemetry tracing and logs**](../../configure-opentelemetry-tracing-and-logs.md). Configure the Gateway to export trace data, the Management API to read it, and an OpenTelemetry Collector between them.
