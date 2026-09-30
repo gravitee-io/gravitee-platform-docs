@@ -80,6 +80,16 @@ A proxy created from the wizard starts with both token options on, because the w
 Content other than text is stripped from requests by default. Policies such as prompt guard rails inspect only text, so choosing `ALLOW` lets content reach the provider that no guardrail on the gateway has examined.
 {% endhint %}
 
+The four content options apply to requests sent in the OpenAI Chat Completions, OpenAI Responses, Anthropic Messages, and Gemini formats. Embeddings requests aren't filtered, and neither is anything the model returns.
+
+* `ALLOW` forwards the content to the provider.
+* `STRIP` removes the content, and the request continues. When removing it leaves a message empty, the message carries the text `[MODALITY_BLOCKED:IMAGE]` instead, with the content type in place of `IMAGE`.
+* `REJECT` refuses the request before it reaches the provider. The client receives an HTTP `400` error in the error format of its own API, with the code `modality_blocked` and a message such as `Modality IMAGE is blocked on INPUT`.
+
+A request that carries content set to `REJECT` is refused, even when it also carries content set to `STRIP`.
+
+An LLM Proxy created before these options existed has none of them set, and removes this content all the same. To forward a content type, set its option to `ALLOW`, save, and deploy the proxy.
+
 ## Save and deploy
 
 A change on the page shows the save bar. Click **Save changes** to apply, or **Discard** to revert. A successful save shows **Entrypoints saved.** The first row is the context path shown in the **Context path** column of the LLM Proxies list.
