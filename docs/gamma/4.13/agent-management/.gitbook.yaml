@@ -10,3 +10,4 @@ redirects:
  import/create-event-tools: import/README.md
  overview/ai-resources: build/ai-resources.md
  overview/llm-proxy-provider-support: build/llm-proxy-provider-support.md
+ overview: get-started/ai-management-overview.md

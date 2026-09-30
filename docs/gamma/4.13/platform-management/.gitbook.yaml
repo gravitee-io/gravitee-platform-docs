@@ -37,3 +37,14 @@ redirects:
  open-the-developer-portal-settings: open-the-developer-portal-settings.md
  review-audit-logs: review-audit-logs.md
  save-observability-dashboards: save-observability-dashboards.md
+ applications: environment/apis-and-assets/README.md
+ applications/manage-applications: manage-applications.md
+ apis-and-assets: environment/apis-and-assets/README.md
+ apis-and-assets/manage-environment-metadata: manage-environment-metadata.md
+ apis-and-assets/manage-dictionaries: manage-dictionaries.md
+ system-and-security: environment/system-and-security/README.md
+ system-and-security/configure-access-management: configure-access-management.md
+ system-and-security/configure-opentelemetry-tracing-and-logs: configure-opentelemetry-tracing-and-logs.md
+ system-and-security/configure-openapi-viewer: configure-openapi-viewer.md
+ overview-1: environment/apis-and-assets/README.md
+ overview-1/manage-applications: manage-applications.md

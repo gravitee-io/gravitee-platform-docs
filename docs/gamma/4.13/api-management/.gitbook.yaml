@@ -76,3 +76,21 @@ redirects:
  observe/view-api-logs: observe/view-api-logs.md
  review-audit-logs: observe/review-audit-logs.md
  view-api-logs: observe/view-api-logs.md
+ manage/api-proxies/general/configure-api-properties: build/configure-your-api-proxy/configure-api-properties.md
+ manage/api-proxies/general/configure-api-resources: build/configure-your-api-proxy/configure-api-resources.md
+ manage/api-proxies/general/configure-notifications: build/configure-your-api-proxy/configure-notifications.md
+ manage/api-proxies/general/configure-cors: build/configure-your-api-proxy/configure-cors.md
+ manage/api-proxies/gateway: manage/api-proxies/design/README.md
+ manage/api-proxies/gateway/configure-entrypoints: build/configure-your-api-proxy/configure-entrypoints.md
+ manage/api-proxies/gateway/configure-backend-security: build/configure-your-api-proxy/configure-backend-security.md
+ manage/api-proxies/gateway/configure-failover: build/configure-your-api-proxy/configure-failover.md
+ manage/api-proxies/gateway/monitor-endpoint-health: observe/monitor-endpoint-health.md
+ manage/api-proxies/gateway/configure-logging-and-tracing: build/configure-your-api-proxy/configure-logging-and-tracing.md
+ manage/api-proxies/consumer-access: manage/api-proxies/consumers/README.md
+ manage/api-proxies/consumer-access/secure-your-api-proxy: build/secure-your-api-proxy.md
+ manage/api-proxies/consumer-access/establish-consumer-access: build/configure-your-api-proxy/establish-consumer-access.md
+ manage/api-proxies/consumer-access/broadcast-messages-to-consumers: build/configure-your-api-proxy/broadcast-messages-to-consumers.md
+ manage/api-proxies/security: manage/api-proxies/general/README.md
+ manage/api-proxies/security/manage-user-permissions: build/configure-your-api-proxy/manage-user-permissions.md
+ manage/api-products/security: manage/api-products/general/README.md
+ manage/api-products/security/manage-members-and-ownership: build/configure-your-api-product/manage-members-and-ownership.md
