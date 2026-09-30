@@ -354,7 +354,7 @@ Event Stream Management adds Message APIs, the Kafka Explorer, and a duplication
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. Platform flows apply policies on request and response phases to every API in the organization. Native Kafka APIs don't have those phases, and TCP proxy APIs don't run policy flows, so both are left untouched. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment now decides who hears about its user, support, federation, and group events, and the organization can reword every email and portal notification it sends. Custom observability dashboards gain server-side storage. Custom roles define the create, read, update, and delete permissions of each scope, and an organization role is assigned from the role's own page or from the user's. Each environment also chooses the application types its consumers can register, and holds the OpenID Connect provider that registers an OAuth client for them. Every signed-in user also gets their own account page, for their profile, avatar, personal access tokens, and account deletion. It also decides who owns a new API or API Product: the person who creates it, or one of their groups. The organization also chooses the extra questions people answer when they sign up. Each environment can also send a broadcast to the members who hold one of its roles, by portal notification, email, or HTTP request. One page shows the health-check availability of its v4 HTTP proxy APIs. Each environment also turns API Score on or off, and can require a review before an API is started or published. With API Score on, a page of the environment lists the latest score of every API, next to the rulesets and functions that API evaluations include.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. Platform flows apply policies on request and response phases to every API in the organization. Native Kafka APIs don't have those phases, and TCP proxy APIs don't run policy flows, so both are left untouched. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment now decides who hears about its user, support, federation, and group events, and the organization can reword every email and portal notification it sends. Custom observability dashboards gain server-side storage. Custom roles define the create, read, update, and delete permissions of each scope, and an organization role is assigned from the role's own page or from the user's. Each environment also chooses the application types its consumers can register, and holds the OpenID Connect provider that registers an OAuth client for them. Every signed-in user also gets their own account page, for their profile, avatar, personal access tokens, and account deletion. It also decides who owns a new API or API Product: the person who creates it, or one of their groups. The organization also chooses the extra questions people answer when they sign up. Each environment can also send a broadcast to the members who hold one of its roles, by portal notification, email, or HTTP request. One page shows the health-check availability of its v4 HTTP proxy APIs. Each environment also turns API Score on or off, and can require a review before an API is started or published. With API Score on, a page of the environment lists the latest score of every API, next to the rulesets and functions that API evaluations include. Each environment also gets its own mail server and Developer Portal API CORS settings. An API Logging page caps full logging, audits API logging, and sets message sampling for the organization.
 
 #### Broadcast messages to environment members
 
@@ -362,6 +362,13 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * **Send** stays disabled until the form is complete. After the send, the page confirms the broadcast was sent and how many recipients it was delivered to.
 * The page appears only for a role that can send broadcasts in the environment. Every broadcast is recorded on the **Audit** page of the environment.
 * See [Broadcast messages to environment members](broadcast-messages-to-environment-members.md).
+
+#### Configure API logging
+
+* The **API Logging** page of the **Environment** section caps how long APIs log full payloads, with **Max Duration (in ms)**. Its values belong to the organization and apply to every environment.
+* One switch records in an API's audit log each time someone opens the details of an API log, and another each time someone changes the API's logging. A third adds a **User** column to API logs exported as a CSV file.
+* The **Message Sampling** card sets a default and a limit for the probabilistic, count, temporal, and windowed count sampling of message APIs.
+* See [Configure API logging](configure-api-logging.md).
 
 #### Configure API Review
 
@@ -392,6 +399,12 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Set how often the console polls for tasks and for notifications, in seconds.
 * A setting supplied by the Management API configuration file is shown as read-only, with a tooltip naming the system as its source.
 * See [Configure console management and schedulers](configure-console-management-and-schedulers.md).
+
+#### Configure CORS for the Developer Portal API
+
+* The **CORS** page of the **Environment** section controls which browser origins may call the Developer Portal API of the environment, and which methods and headers a cross-origin request may use.
+* Changes take effect without restarting the Management API.
+* See [Configure CORS for the Developer Portal API](configure-developer-portal-cors.md).
 
 #### Configure CORS for the Management API
 
@@ -428,6 +441,12 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Set the authentication, `STARTTLS`, and certificate-trust properties of the connection.
 * Add branded sender rules that replace the sender address and subject template for the recipients at a given domain.
 * See [Configure the SMTP mail server](configure-smtp.md).
+
+#### Configure the SMTP mail server for an environment
+
+* The **SMTP** page of the **Environment** section sets the mail server the environment uses, with the same fields as the organization's **SMTP** page. For mail sent in the context of the environment, its values take precedence over the organization's.
+* **Reset to Org settings** removes the environment's own branded notification email rules, so the organization's rules apply again.
+* See [Configure the SMTP mail server for an environment](configure-environment-smtp.md).
 
 #### Customize notification templates
 

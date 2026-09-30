@@ -15,6 +15,9 @@ The **System & Security** group of the **Environment** section holds the **Prima
 * [**Configure environment alerts**](../../configure-environment-alerts.md). Create, edit, and delete alerts, and track their activity and history.
 * [**Configure environment notifications**](../../configure-environment-notifications.md). Choose the events you see in the console, add an email or webhook notification, and edit or delete one.
 * [**Monitor API health across an environment**](../../monitor-api-health-across-an-environment.md). Choose the window, read the report and the availability of each API, and open the dashboard of an API.
+* [**Configure the SMTP mail server for an environment**](../../configure-environment-smtp.md). Set the mail server the environment uses, and reset its branded senders to the organization's.
+* [**Configure CORS for the Developer Portal API**](../../configure-developer-portal-cors.md). Choose the origins, methods, and headers the environment's Developer Portal API accepts from a browser.
+* [**Configure API logging**](../../configure-api-logging.md). Cap full logging, audit API logging, show the end user in exported logs, and set the message sampling defaults and limits.
 * [**Configure Security Plan Types**](../../configure-security-plan-types.md). Change which plan security types are available to the APIs of the environment.
 * [**Configure client registration**](../../configure-client-registration.md). Allow simple applications, turn on Dynamic Client Registration, choose the allowed application types, and add, edit, or delete a client registration provider.
 * [**Configure OpenTelemetry tracing and logs**](../../configure-opentelemetry-tracing-and-logs.md). Configure the Gateway to export trace data, the Management API to read it, and an OpenTelemetry Collector between them.
