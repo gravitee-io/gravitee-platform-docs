@@ -50,6 +50,7 @@
     * [Manage applications](platform-management/manage-applications.md)
     * [Manage environment metadata](platform-management/manage-environment-metadata.md)
     * [Manage dictionaries](platform-management/manage-dictionaries.md)
+    * [Manage user fields](platform-management/manage-user-fields.md)
     * [Manage shared policy groups](platform-management/manage-shared-policy-groups.md)
     * [Open the Developer Portal settings](platform-management/open-the-developer-portal-settings.md)
   * [System & Security](platform-management/environment/system-and-security/README.md)

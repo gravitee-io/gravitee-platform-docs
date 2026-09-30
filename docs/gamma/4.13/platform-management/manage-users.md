@@ -70,7 +70,7 @@ Select a user's name in the table to open the detail page. The profile card at t
 * **Last Login**. When the user last signed in, or **Never**.
 * **Created**. When the account was created.
 
-Custom fields that the user carries appear under those values, each with its own copy action. Select **Back to Users** to return to the list.
+The user's answers to the organization's user fields appear under those values, each listed under its field's key and with its own copy action. To manage the fields themselves, see [Manage user fields](manage-user-fields.md). Select **Back to Users** to return to the list.
 
 ## Assign organization roles
 
