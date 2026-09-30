@@ -1,18 +1,16 @@
 ---
 hidden: false
 noIndex: false
-description: Monitor AI traffic across your MCP, LLM, and A2A proxies, and from employee devices through Edge Management. Start with the traffic you need to see.
+description: The Observability group of the Agent Management sidebar holds the Dashboards, Logs, and Tracing pages. Open the view you need.
 ---
 
 # Observe
 
-Monitor AI traffic across the MCP, LLM, and A2A proxy types, and from employee devices through Edge Management.
+The **Observability** group of the Agent Management sidebar holds the **Dashboards**, **Logs**, and **Tracing** pages.
 
-* [**Monitor agents, spend, and compliance on the Overview page**](monitor-agents-spend-and-compliance.md). Read what the Agents, Spend through the gateway, and Compliance sections of the Agent Management landing page report across the environment.
-* [**Monitor proxy and agent activity**](monitor-proxy-activity.md). Read the rolling 24-hour snapshot on the Overview page of a single LLM Proxy or MCP Proxy, and the Activity page of a registered agent.
-* [**Monitor your MCP servers**](monitor-your-mcp-servers.md): view tool invocation metrics, error rates, and latency for MCP Proxies.
-* [**Monitor your LLM proxy**](monitor-your-llm-proxy.md): read token usage, cost, model and provider mix, and error rates for LLM Proxies on the LLM Overview dashboard.
-* [**Inspect your agent log**](inspect-your-agent-log.md): read the log entries of agent invocations through the AI Gateway.
-* [**Trace an agent request and view its lineage**](trace-an-agent-request.md): open a trace for a proxy in the Trace Explorer, read its timeline and lineage graph, and inspect a single span.
-* [**Monitor AI Gateway usage from employee systems**](monitor-ai-gateway-from-devices.md): view per-device and per-team AI traffic, shadow AI detection, and system health from the Edge Management dashboard.
-* [**Performance targets**](performance-targets.md): declare the metrics and thresholds a proxy or an agent is evaluated against, and read the outcome each evaluation records.
+* [**Dashboards**](dashboards/README.md). Read the dashboards that report AI traffic, cost, and tool usage across proxies and employee devices.
+* [**Logs**](logs/README.md). Trace an individual invocation through the AI Gateway from its log entry.
+* [**Tracing**](tracing/README.md). Open the traces recorded for a proxy in the Trace Explorer and read each one as a span timeline or a lineage graph.
+* [**Monitor agents, spend, and compliance on the Overview page**](monitor-agents-spend-and-compliance.md). The Overview page is the Agent Management landing page.
+* [**Monitor proxy and agent activity**](monitor-proxy-activity.md). Read the 24-hour activity snapshot on the Overview page of an LLM Proxy or MCP Proxy, and the Activity page of an agent.
+* [**Performance targets**](performance-targets.md). A performance target declares what acceptable looks like for Gamma proxies and agents.
