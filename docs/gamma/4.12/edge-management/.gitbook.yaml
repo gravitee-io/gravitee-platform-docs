@@ -3,3 +3,5 @@ root: ./
 structure:
   readme: get-started/README.md
   summary: SUMMARY.md
+redirects:
+ connect-claude-code-to-daemon: connect-claude-code-to-daemon.md

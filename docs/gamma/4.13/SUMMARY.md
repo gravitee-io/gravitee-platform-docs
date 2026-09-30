@@ -51,6 +51,7 @@
     * [Manage environment metadata](platform-management/manage-environment-metadata.md)
     * [Manage dictionaries](platform-management/manage-dictionaries.md)
     * [Manage shared policy groups](platform-management/manage-shared-policy-groups.md)
+    * [Open the Developer Portal settings](platform-management/open-the-developer-portal-settings.md)
   * [System & Security](platform-management/environment/system-and-security/README.md)
     * [Configure primary owner mode](platform-management/configure-primary-owner-mode.md)
     * [Configure Access Management](platform-management/configure-access-management.md)
@@ -59,16 +60,14 @@
     * [Configure environment notifications](platform-management/configure-environment-notifications.md)
     * [Configure Security Plan Types](platform-management/configure-security-plan-types.md)
     * [Configure client registration](platform-management/configure-client-registration.md)
+    * [Configure OpenTelemetry tracing and logs](platform-management/configure-opentelemetry-tracing-and-logs.md)
+    * [Save observability dashboards with the Gamma API](platform-management/save-observability-dashboards.md)
+    * [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
 * [Team](platform-management/team/README.md)
   * [Manage users](platform-management/manage-users.md)
   * [Manage groups](platform-management/manage-groups.md)
   * [Manage roles](platform-management/manage-roles.md)
-* [Observe](platform-management/observe/README.md)
-  * [Configure OpenTelemetry tracing and logs](platform-management/configure-opentelemetry-tracing-and-logs.md)
-  * [Save observability dashboards with the Gamma API](platform-management/save-observability-dashboards.md)
-* [Configure OpenAPI viewer](platform-management/configure-openapi-viewer.md)
-* [Manage your account](platform-management/manage-your-account.md)
-* [Open the Developer Portal settings](platform-management/open-the-developer-portal-settings.md)
+  * [Manage your account](platform-management/manage-your-account.md)
 
 ## API Management
 

@@ -6,7 +6,11 @@ structure:
 
 redirects:
  configure-access-management: configure-access-management.md
+ configure-openapi-viewer: configure-openapi-viewer.md
+ configure-opentelemetry-tracing-and-logs: configure-opentelemetry-tracing-and-logs.md
  manage-applications: manage-applications.md
  manage-dictionaries: manage-dictionaries.md
  manage-environment-metadata: manage-environment-metadata.md
  manage-the-platform: overview.md
+ overview-1: applications/README.md
+ overview-1/manage-applications: manage-applications.md
