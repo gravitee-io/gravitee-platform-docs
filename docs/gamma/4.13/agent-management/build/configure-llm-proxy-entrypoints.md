@@ -88,7 +88,7 @@ The four content options apply to requests sent in the OpenAI Chat Completions, 
 
 A request that carries content set to `REJECT` is refused, even when it also carries content set to `STRIP`.
 
-An LLM Proxy created before these options existed has none of them set, and removes this content all the same. To forward a content type, set its option to `ALLOW`, save, and deploy the proxy.
+An LLM Proxy created before these options existed has none of them set, and removes this content all the same. In 4.12, an LLM Proxy forwarded this content to an **OpenAI** or **OpenAI compatible** provider. Before calling any other provider, it dropped each message that carried the content, text included. Requests sent in the Gemini format were the exception: for every provider, it removed the content and kept the text, as `STRIP` does. To forward a content type, set its option to `ALLOW`, save, and deploy the proxy.
 
 ## Save and deploy
 
