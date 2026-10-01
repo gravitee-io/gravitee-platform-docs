@@ -273,6 +273,22 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * The **Tasks & Approvals** page lists the API proxies waiting for a review and those with changes requested.
 * See [Review an API proxy](../api-management/build/configure-your-api-proxy/review-an-api-proxy.md).
 
+### Authorization Management
+
+Authorization Management imports principals from SCIM 2.0 directories. A directory reads the users and groups of an identity provider when you sync it or on its schedule. Every sync leaves a report of what it imported, changed, and left out.
+
+#### SCIM directories
+
+* The Authorization Management sidebar adds a **Directories** group, with **SCIM Directories** and **All sync activity**.
+* **Add directory** connects a SCIM 2.0 directory in four steps: **Overview**, **Authentication**, **Settings**, and **Review**. **Check URL** reads the authentication scheme the directory advertises, and **Test connection** checks that the directory answers and accepts the credential before you continue.
+* A directory authenticates with **OAuth2** client credentials, a **Bearer token**, **Basic** authentication, or a **Custom header**. Gravitee stores the secret encrypted.
+* A sync imports the users and groups its scope covers as principals with the source `scim.<slug>`. When the scope includes groups, each principal gets the groups that list it as a member as its parents. An entity that another source already owns is left as it is.
+* A sync runs from **Sync now** or **Full resync**, or on a cron schedule read in UTC. Once a sync has succeeded, later syncs usually read only the users that changed and every group in their scope. **Full resync** reads the whole directory, and so does a sync when the last full one is more than a day old, by default.
+* A user the directory marks inactive is deactivated. While **Deactivate principals absent from a sync** is on, so is a principal the directory no longer returns. Deactivating a principal doesn't revoke a policy that permits it by its entity ID.
+* A directory larger than its sync limit fails the sync before anything is written.
+* **All sync activity** lists the syncs of every directory. Each report lists the principals the sync handled, and the records it skipped with the reason.
+* See [Sync principals from a SCIM directory](../authorization-management/directories/sync-principals-from-a-scim-directory.md) and [Review SCIM sync runs](../authorization-management/directories/review-scim-sync-runs.md).
+
 ### Developer Portals
 
 The Gamma console links to the settings of the New Developer Portal, which open in a separate tab.
