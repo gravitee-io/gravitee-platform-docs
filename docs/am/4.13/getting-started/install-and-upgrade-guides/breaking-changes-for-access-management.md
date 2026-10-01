@@ -12,6 +12,14 @@ metaLinks:
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+### 4.13.0
+
+**Automation API rejects a data plane change on an existing security domain**
+
+A domain `PUT` to the Automation API that names a different `dataPlaneId` for an existing security domain is now rejected with `400` and the message `Once domain is created, [dataPlaneId] cannot be changed.` Before 4.13, the request succeeded and the new value was ignored.
+
+Action Required: Before you upgrade AM, set `dataPlaneId` in each security domain definition to the data plane the security domain already uses.
+
 ### 4.12.0
 
 **Java 25 runtime requirement**
