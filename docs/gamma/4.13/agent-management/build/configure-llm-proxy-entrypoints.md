@@ -83,12 +83,12 @@ Content other than text is stripped from requests by default. Policies such as p
 The four content options apply to requests sent in the OpenAI Chat Completions, OpenAI Responses, Anthropic Messages, and Gemini formats. Embeddings requests aren't filtered, and neither is anything the model returns.
 
 * `ALLOW` forwards the content to the provider.
-* `STRIP` removes the content, and the request continues. When removing it leaves a message empty, the message carries the text `[MODALITY_BLOCKED:IMAGE]` instead, with the content type in place of `IMAGE`.
+* `STRIP` removes the content, and the request continues. This option reproduces the behavior of 4.12. When removing it leaves a message empty, the message carries the text `[MODALITY_BLOCKED:IMAGE]` instead, with the content type in place of `IMAGE`.
 * `REJECT` refuses the request before it reaches the provider. The client receives an HTTP `400` error in the error format of its own API, with the code `modality_blocked` and a message such as `Modality IMAGE is blocked on INPUT`.
 
 A request that carries content set to `REJECT` is refused, even when it also carries content set to `STRIP`.
 
-An LLM Proxy created before these options existed has none of them set, and removes this content all the same. In 4.12, an LLM Proxy forwarded this content to an **OpenAI** or **OpenAI compatible** provider. Before calling any other provider, it dropped each message that carried the content, text included. Requests sent in the Gemini format were the exception: for every provider, it removed the content and kept the text, as `STRIP` does. To forward a content type, set its option to `ALLOW`, save, and deploy the proxy.
+An LLM Proxy created before these options existed has none of them set, and removes this content all the same. To forward a content type, set its option to `ALLOW`, save, and deploy the proxy.
 
 ## Save and deploy
 
