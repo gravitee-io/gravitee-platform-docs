@@ -48,3 +48,11 @@
 * A new Enterprise Edition certificate plugin signs the tokens of a security domain with a key stored in an Oracle Cloud Infrastructure (OCI) Vault. AM reads the public key from the vault and sends every signing operation to OCI KMS.
 * The plugin authenticates to OCI with an API key, an OCI config file, instance principals, resource principals, or OKE workload identity, and signs with `RS256`, `RS384`, `RS512`, `PS256`, `PS384`, `PS512`, `ES256`, `ES384`, or `ES512`.
 * The plugin isn't bundled with AM. Install it on the AM Management API and the AM Gateway, with a license that contains the `enterprise-secret-manager` pack. See [Configure the OCI KMS certificate plugin](../../guides/certificates/oci-kms-certificate-plugin.md).
+
+#### **Data planes in the Automation API**
+
+* The Automation API lists, registers, updates, and deletes the data planes of an environment at `/organizations/<orgId>/environments/<envId>/dataplanes`. A data plane is identified by its `id`, responses never include its `configuration`, and every Management API node serves a new data plane without a restart.
+* A `PUT` that repeats a data plane's stored settings leaves it as it is, and a data plane that a security domain uses isn't deleted. An update that points a data plane at another database doesn't copy any data: the Management API uses the new store, and Gateways keep the store their own configuration names.
+* Data planes registered through the Management API internal API are reached with the `id:` prefix, and an update by `id:` doesn't add them to the Automation API list.
+* A domain `PUT` that updates a security domain no longer requires `dataPlaneId`, and one that names a different data plane is rejected with `400`. See [Breaking Changes for Access Management](../../getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md).
+* The `ORGANIZATION_OWNER`, `ORGANIZATION_PRIMARY_OWNER`, `ENVIRONMENT_OWNER`, and `ENVIRONMENT_PRIMARY_OWNER` roles, which listed and read data planes before, now also register, update, and delete them. See [Automation API](../../guides/automation-api.md#manage-data-planes).
