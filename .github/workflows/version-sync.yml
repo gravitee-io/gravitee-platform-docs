@@ -16,6 +16,7 @@ on:
     paths:
       - 'docs/apim/4.12/**'
       - 'docs/am/4.12/**'
+      - 'docs/am/4.13/**'
       - 'docs/gko/4.12/**'
   workflow_dispatch:
 
@@ -28,6 +29,7 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         include:
           - product: apim
@@ -36,6 +38,9 @@ jobs:
           - product: am
             current: "4.12"
             next: "4.13"
+          - product: am
+            current: "4.13"
+            next: "4.14"
           - product: gko
             current: "4.12"
             next: "4.13"
