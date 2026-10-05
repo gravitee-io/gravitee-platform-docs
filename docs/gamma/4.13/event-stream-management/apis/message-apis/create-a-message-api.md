@@ -19,7 +19,9 @@ A Message API connects clients to a message backend. Its entrypoints set how cli
 2. In the sidebar, click **Message APIs**.
 3. Click **Create Message API**.
 
-The wizard has five steps: **Details**, **Entrypoints**, **Endpoints**, **Security**, and **Summary**. **Next** stays disabled until the current step is complete.
+The wizard has five steps: **Details**, **Entrypoints**, **Endpoints**, **Security**, and **Review**. The button that moves forward names the next step, for example **Next: Entrypoints**. It stays disabled until the current step is complete.
+
+To leave the wizard, click **Cancel**. When you have entered something, the **Discard changes?** dialog asks you to confirm. Click **Discard changes** to leave, or **Keep editing** to stay.
 
 ### Details
 
@@ -87,14 +89,14 @@ When the Message API is created, Keyless and Push plans are published immediatel
 
 The wizard sets the subscription validation of every plan to manual.
 
-### Summary
+### Review
 
-Review the name, version, entrypoints, context path, endpoints, and plans. Then choose what happens right after the Message API is created:
+Review the name, version, entrypoints, context path, endpoints, and plans. Then choose what happens right after the Message API is created. The step shows one of two checkboxes, both cleared by default:
 
-* **Deploy now** starts the Message API on the gateway. Starting it also deploys it. The option appears when the environment doesn't use the API review workflow.
-* **Ask for review** submits the Message API for review. The option appears when the environment uses the API review workflow.
+* **Deploy now**. Select it to start the Message API on the gateway right after creation. The checkbox appears when the environment doesn't use the API review workflow.
+* **Ask for review**. Select it to submit the Message API for review. The checkbox appears when the environment uses the API review workflow.
 
-Starting a new Message API needs a published plan. If you turn on **Deploy now** after removing every Keyless and Push plan, the Message API is still created, and a message reports that the start failed.
+Starting a new Message API needs a published plan. If you select **Deploy now** after removing every Keyless and Push plan, the Message API is still created, and a message reports that the start failed.
 
 Click **Create Message API**. The console confirms with **Message API created** and returns to the **Message APIs** list.
 

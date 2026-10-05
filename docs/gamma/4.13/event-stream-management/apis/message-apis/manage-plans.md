@@ -64,8 +64,8 @@ The security type of a plan is set when you create it, and it can't change later
 
 1. Open the plans of the Message API.
 2. Create the plan:
-    * When the Message API has no plan yet, click **Create plan**. The form opens for a Keyless plan.
-    * Otherwise, click **Create plan**, then select the type of plan.
+    * When the Message API has no plan yet, the page shows **No plans yet**. Click **Create plan**. The form opens for a Keyless plan, and its type can't change.
+    * Otherwise, click **Create plan**, then select the type of plan. The menu lists **Push (webhook)** when the Message API has a subscription entrypoint such as **Webhook**.
 3. Complete the plan form:
 
 <table>
@@ -106,6 +106,8 @@ The security type of a plan is set when you create it, and it can't change later
 4. Click **Create plan**.
 
 The console confirms with **Plan created**, and the plan appears under **Staging**.
+
+The first plan that you create from the **Plans** page is always a Keyless plan. The other types, **Push (webhook)** included, appear in the **Create plan** menu once the Message API has a plan, whatever its status. To start a Message API with a Push plan only, add it in the **Security** step of the creation wizard. See [Create a Message API](create-a-message-api.md).
 
 ## Publish, deprecate, or close a plan
 

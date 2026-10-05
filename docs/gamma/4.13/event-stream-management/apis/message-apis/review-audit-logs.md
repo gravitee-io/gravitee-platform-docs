@@ -11,7 +11,7 @@ The audit logs of a Message API record changes made to it, such as updates to it
 ## Prerequisites
 
 * A license that includes the `apim-audit-trail` feature. Without it, the **Audit Logs** item of the sidebar shows a lock icon.
-* Permission to read the audit logs of the Message API.
+* Permission to read the audit logs of the Message API. Without it, the **Audit Logs** page shows a locked card that says the feature requires an enterprise license, even when your license includes it.
 
 ## Review the audit logs
 
@@ -19,6 +19,8 @@ The audit logs of a Message API record changes made to it, such as updates to it
 2. In the sidebar, click **Message APIs**.
 3. Click the name of the Message API.
 4. In the **Monitoring** group of the Message API sidebar, click **Audit Logs**.
+
+While the Message API has no audit event, the page explains why audit logs are worth tracking instead of showing a list. Once events exist, that explanation opens from the ⓘ button next to the **Audit Logs** title.
 
 The list shows the **Date**, **User**, **Event**, and **Target** of each change. To see the change itself, click the view icon in the **Patch** column. The row expands to show the JSON patch.
 

@@ -173,6 +173,7 @@
     * [Configure notifications](event-stream-management/apis/message-apis/configure-notifications.md)
     * [Configure alerts](event-stream-management/apis/message-apis/configure-alerts.md)
     * [Review audit logs](event-stream-management/apis/message-apis/review-audit-logs.md)
+    * [View webhook delivery attempts](event-stream-management/apis/message-apis/view-webhook-delivery-attempts.md)
     * [Review the API Score](event-stream-management/apis/message-apis/review-the-api-score.md)
     * [Start, stop, and deploy a Message API](event-stream-management/apis/message-apis/start-stop-and-deploy-a-message-api.md)
     * [Configure reporter settings](event-stream-management/apis/message-apis/configure-reporter-settings.md)

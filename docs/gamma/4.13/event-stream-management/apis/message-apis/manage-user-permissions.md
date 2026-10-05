@@ -36,7 +36,7 @@ The console confirms with **Member added**, or with the number of members added.
 ## Change a role or remove a member
 
 * To change a member's role, select the new role in the member's row. The change applies at once, and the console confirms with **Member role updated**.
-* To remove a member, open the actions menu of the member's row, click **Remove member**, then confirm. The console confirms with **Member removed**.
+* To remove a member, open the actions menu of the member's row, and click **Remove member**. In the **Remove <name>?** dialog, click **Remove member**. The console confirms with **Member removed**.
 
 ## Give access to groups
 

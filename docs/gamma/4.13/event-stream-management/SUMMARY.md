@@ -34,6 +34,7 @@
     * [Configure notifications](apis/message-apis/configure-notifications.md)
     * [Configure alerts](apis/message-apis/configure-alerts.md)
     * [Review audit logs](apis/message-apis/review-audit-logs.md)
+    * [View webhook delivery attempts](apis/message-apis/view-webhook-delivery-attempts.md)
     * [Review the API Score](apis/message-apis/review-the-api-score.md)
     * [Start, stop, and deploy a Message API](apis/message-apis/start-stop-and-deploy-a-message-api.md)
     * [Configure reporter settings](apis/message-apis/configure-reporter-settings.md)

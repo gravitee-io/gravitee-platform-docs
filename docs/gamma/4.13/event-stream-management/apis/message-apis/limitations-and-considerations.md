@@ -20,7 +20,7 @@ Event Stream Management configures v4 Message APIs. This page lists the network 
 The console has no field for the following settings. Except for the context paths, it keeps the values that a Message API already has, for example from an imported definition.
 
 * **Several context paths or virtual hosts.** The **Context path** field sets one path, and editing it replaces every path of the HTTP listener with that path. An imported definition that listens on several paths or on virtual hosts loses them when you edit the context path.
-* **The connection settings of a single endpoint.** Every endpoint that the console creates inherits the connection settings of its group. Turning **Inherit connection settings from group** off shows the endpoint's **Endpoint settings** form, but the console has no form for the connection settings that override the group's, so the save fails. See [Configure endpoints and failover](configure-endpoints-and-failover.md).
+* **The connection settings of a single endpoint.** Every endpoint that the console creates inherits the connection settings of its group. Clearing **Inherit connection settings from group** shows the endpoint's **Endpoint settings** form, but the console has no form for the connection settings that override the group's, so the save fails for every connector whose connection settings have required fields. See [Configure endpoints and failover](configure-endpoints-and-failover.md).
 * **Endpoint weights.** Every endpoint that the console creates has a weight of 1.
 * **Plan details beyond the plan form.** The general conditions, characteristics, tags, excluded groups, and subscription comment settings of a plan.
 * **The webhook settings of a Push plan subscription.** The **Create subscription** panel doesn't collect them, so it can't create a subscription to a Push plan.
@@ -29,8 +29,10 @@ The console has no field for the following settings. Except for the context path
 
 The following actions are missing from the console, or don't work on a Message API.
 
-* **Duplicating a Message API.** The **Settings** page offers **Duplicate**, but the copy keeps the context path of the original, so the Management API refuses it because the path is already in use.
-* **Adding an endpoint to a group.** A new endpoint starts with empty settings that the console doesn't let you fill in. See [Configure endpoints and failover](configure-endpoints-and-failover.md).
+* **Duplicating a Message API.** The **Settings** page offers **Duplicate**, but its dialog requires a **Host prefix**, a Kafka Service setting that a Message API doesn't use, and writes it on every listener of the copy. The copy also keeps the context path of the original, so the Management API refuses it because the path is already in use.
+* **Adding an endpoint to a group.** A new endpoint starts with empty **Endpoint settings**, and the page hides that form while the endpoint inherits the connection settings of its group. The save fails for connectors that require endpoint settings. See [Configure endpoints and failover](configure-endpoints-and-failover.md).
+* **Alerting on messages.** Alerts watch the requests of a Message API. No alert metric counts or inspects messages. See [Configure alerts](configure-alerts.md).
+* **Validating subscription metadata.** The metadata that you edit on a subscription isn't validated against the subscription form of the Message API, and the console doesn't cap the number of entries. See [Manage subscriptions](manage-subscriptions.md).
 * **Rolling back a deployment.** The **Deployment History** page compares deployments but has no rollback.
 
 ## Irreversible actions
@@ -41,7 +43,7 @@ The following actions are missing from the console, or don't work on a Message A
 ## Sensitive data
 
 * An encrypted API property can't be read back. Keep the value elsewhere if you need it later.
-* **Message content** in the reporter settings writes message bodies to the log store as-is, and **OTel logs** exports them as OpenTelemetry log records. Turn them on only when you need them, and only for data that you're allowed to store.
+* **Message content** in the reporter settings writes message bodies to the log store as-is, and **OTel logs** exports them as OpenTelemetry log records. Select them only when you need them, and only for data that you're allowed to store.
 * Span attribute redaction rules apply to trace attributes only. They don't redact the message payloads written to the runtime logs or exported by **OTel logs**.
 
 ## Related pages

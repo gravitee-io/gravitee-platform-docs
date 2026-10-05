@@ -21,6 +21,8 @@ A runtime alert watches the requests that a Message API handles and notifies you
 3. Click the name of the Message API.
 4. In the **Monitoring** group of the Message API sidebar, click **Alerts**.
 
+While the Message API has no alert, the page explains what runtime alerts are for. Once it has one, that explanation opens from the ⓘ button next to the **Runtime Alerts** title.
+
 The **Runtime Alerts** card lists each alert with its **Name**, **Rule**, **Severity**, **Last alert**, and whether it's **Enabled**. It also shows how many times each alert fired in the last five minutes, hour, day, and month.
 
 ## Create an alert
@@ -28,7 +30,7 @@ The **Runtime Alerts** card lists each alert with its **Name**, **Rule**, **Seve
 1. Click **Add alert**.
 2. On the **Alerts** tab, complete the general settings:
     * **Name**. Required. Between 3 and 50 characters.
-    * **Enable alert**. On by default.
+    * **Enable alert**. Selected by default.
     * **Rule**. The kind of condition that the alert evaluates. See [Alert rules](#alert-rules).
     * **Severity**. `info`, `warning`, or `critical`.
     * **Description**. Optional. Up to 256 characters.
@@ -37,9 +39,9 @@ The **Runtime Alerts** card lists each alert with its **Name**, **Rule**, **Seve
 5. Optional: Under **Filters**, click **Add filter** to evaluate the condition on part of the traffic only, for example one application or one plan.
 6. On the **Notifications** tab, choose the **Mode** of **Dampening**, which limits how many notifications a condition that stays true sends.
 7. Under **Notifications**, click **Add notification**, select a notifier, then complete its configuration.
-8. Click **Create**.
+8. At the bottom of the page, click **Create**. **Create** and **Cancel** appear once you change a field.
 
-The console confirms with **Alert created**.
+The console confirms with **Alert created**. If you leave the page before you create the alert, the **Leave without saving?** dialog asks you to confirm.
 
 The notifiers are the notifier plugins installed on the environment, plus **System email**.
 
@@ -72,13 +74,16 @@ The notifiers are the notifier plugins installed on the environment, plus **Syst
     </tbody>
 </table>
 
-The metrics are **Response Time (ms)**, **Status Code**, **Request Content-Length**, **Response Content-Length**, **Error Key**, **Tenant**, **Application**, and **Plan**. The rule of an existing alert can't change.
+The metric rule and the rate rule watch one of these metrics: **Response Time (ms)**, **Status Code**, **Request Content-Length**, **Response Content-Length**, **Error Key**, **Tenant**, **Application**, and **Plan**. The aggregation rule aggregates **Response Time (ms)**, **Request Content-Length**, or **Response Content-Length** only, and evaluates it per **Error Key**, **Tenant**, **Application**, or **Plan** when you choose one. No metric counts messages: the alerts watch the requests of the Message API. Filters can use every metric of the list.
+
+The rule of an existing alert can't change.
 
 ## Manage the alerts
 
 * To turn an alert on or off, use the switch in its **Enabled** column.
-* To change an alert, click its row, or select **Edit** in its actions menu.
-* To remove an alert, select **Delete** in its actions menu, then click **Delete** in the **Delete this alert?** dialog. The console confirms with **Alert deleted**.
+* To change an alert, click its row, or select **Edit** in its actions menu. Change the settings, then click **Save changes** in the save bar at the bottom of the page. The console confirms with **Alert updated**. **Discard** restores the saved alert. If you leave the page with unsaved changes, the **Leave without saving?** dialog asks you to confirm.
+* To review when an alert fired, open it and click the **History** tab. It lists the events of the alert with their **Date** and **Message**.
+* To remove an alert, select **Delete** in its actions menu, then click **Delete** in the **Delete alert <name>?** dialog. The console confirms with **Alert deleted**.
 
 The alerts of a Message API are the same alerts that the APIM Console shows for the API. An alert changed in one console keeps its settings in the other.
 

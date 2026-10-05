@@ -13,13 +13,13 @@ A Message API runs on the gateway when it's started and deployed. Starting and s
 The actions above every page of a Message API include **Start** while it's stopped, and **Stop** while it's started.
 
 1. Open the Message API.
-2. Click **Start**, or click **Stop** and confirm.
+2. Click **Start**, or click **Stop**. To stop, confirm in the **Stop <name>?** dialog by clicking **Stop Message API**.
 
-The console confirms with **Message API started** or **Message API stopped**. The same actions are in the row menu of the **Message APIs** list, and in the **Service events** section of the **Settings** page.
+The console confirms with **Message API started** or **Message API stopped**. The same actions are in the row menu of the **Message APIs** list, and in the **Message API events** card of the **Settings** page as **Start Message API** and **Stop Message API**.
 
 A Message API starts only when it has at least one published or deprecated plan. See [Manage plans](manage-plans.md). The first start of a Message API that was never deployed also deploys it.
 
-When the environment uses the API review workflow, a Message API can't start until a reviewer accepts it. Until then, the page header and the **Service events** section don't offer **Start** or **Stop**. A Message API created before the environment turned on the workflow still offers **Start**, but starting it fails until a reviewer accepts it. The actions menu of its row in the **Message APIs** list offers **Start** and **Stop** in every case. See [Publish and review a Message API](publish-and-review-a-message-api.md).
+When the environment uses the API review workflow, a Message API can't start until a reviewer accepts it. Until then, the page header and the **Message API events** card don't offer **Start** or **Stop**. A Message API created before the environment turned on the workflow still offers **Start**, but starting it fails until a reviewer accepts it. The actions menu of its row in the **Message APIs** list offers **Start** and **Stop** in every case. See [Publish and review a Message API](publish-and-review-a-message-api.md).
 
 Without permission to change the Message APIs of the environment, the actions don't appear.
 
@@ -27,7 +27,7 @@ Without permission to change the Message APIs of the environment, the actions do
 
 A change to what the gateway runs is saved first and reaches the gateway at the next deployment. Until then, the header of the Message API sidebar shows **Out of sync**, and, if you can deploy the Message API, the page header shows **Deploy**.
 
-1. Click **Deploy**.
+1. Click **Deploy**. The **Message API events** card of the **Settings** page offers the same action as **Deploy changes**, and the row menu of the **Message APIs** list as **Deploy**.
 
 The console confirms with **Deployment triggered**, and the badge changes to **Deployed**.
 
@@ -48,7 +48,7 @@ Sharding tags decide which gateway instances load the Message API. A gateway con
 
 1. In the **Operations** group of the Message API sidebar, click **Sharding Tags**.
 2. Select one or more tags.
-3. Click **Save changes**.
+3. In the save bar at the bottom of the page, click **Save changes**.
 4. Click **Deploy**.
 
 The tags come from your organization. When none exist, the page says so. See [Manage entrypoints and sharding tags](../../../platform-management/manage-entrypoints-and-sharding-tags.md).
