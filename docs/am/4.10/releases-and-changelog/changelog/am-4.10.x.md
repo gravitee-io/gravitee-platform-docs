@@ -6,6 +6,43 @@ description: >-
 
 # AM 4.10.x
 
+## Gravitee Access Management 4.10.24 - October 5, 2026
+
+<details>
+
+<summary>What's new !</summary>
+
+=**What's new!**
+
+* Push artifact on Azure DevOps direcotry instead of Nexus&Artifactory
+
+</details>
+
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* MCP tool scopes lost on JDBC when gateway loads a domain [#11892](https://github.com/gravitee-io/issues/issues/11892)
+* OIDC discovery never lists none in token_endpoint_auth_methods_supported [#11895](https://github.com/gravitee-io/issues/issues/11895)
+
+**Management API**
+
+* Scheduled purge: one invalid entry in services.purge.exclude silently purges every excluded target [#11871](https://github.com/gravitee-io/issues/issues/11871)
+* Scheduled Purge: one failing sweeper silently aborts all remaining purge targets [#11872](https://github.com/gravitee-io/issues/issues/11872)
+
+
+
+**Other**
+
+* Always hide default reporter DB credentials and invert compatibility flag [#11866](https://github.com/gravitee-io/issues/issues/11866)
+* Concurrent gateway pages can be served another request's CSP script nonce [#11919](https://github.com/gravitee-io/issues/issues/11919)
+
+</details>
+
+
 ## Gravitee Access Management 4.10.23 - September 18, 2026
 
 <details>
