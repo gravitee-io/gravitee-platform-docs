@@ -24,7 +24,7 @@ A sync that succeeds but reports warnings reads **Completed with warnings**, and
 
 A report counts what the sync did with the records it fetched. A sync rewrites only the principals whose data changed, and counts the principals it leaves as they were as **Unchanged**. Below the counts, the report holds two lists:
 
-* **Entities** lists the principals the sync handled, each with a reason: **Created**, **Updated**, **Parents reconciled**, **Deactivated**, or **Unchanged**. **Parents reconciled** marks a user that the sync didn't read, whose group memberships it updated from the groups. When the list is full, changes take the place of unchanged principals.
+* **Entities** lists the principals the sync handled, each with a reason: **Created**, **Updated**, **Parents reconciled**, **Deactivated**, or **Unchanged**. **Parents reconciled** marks a user that the sync didn't read, whose group memberships it updated from the groups. The report of a purge lists the principals it removed as **Deleted**. When the list is full, changes take the place of unchanged principals.
 * **Records not written** lists the records counted as **Skipped**, each with the reason. Most of them produced no principal.
 
 Each list shows up to 100 records. The line under **Entities** says how many changes it doesn't list, and the line under **Records not written** says how many records it doesn't list.
@@ -37,8 +37,9 @@ The following table describes each reason a record appears under **Records not w
 | --- | --- | --- |
 | **Owned by another source** | An entity with the same ID already exists from another source, which the **Owner** column names. | Delete that entity for the directory's next sync to import the record. |
 | **Inactive** | The directory marks the user `active: false`, and the directory has no principal for the user yet, so none is created. | Activate the user in the directory if the user needs a principal. |
-| **Invalid id** | The record's entity ID isn't valid. A user's entity ID is the value of its identifier attribute, or its SCIM `id` when it has no value for it, and a group's entity ID is its SCIM `id`. A valid entity ID holds at most 255 characters, isn't `.` or `..`, and holds no whitespace, control character, double quote, backslash, `/`, `%`, `;`, `?`, or `#`. | Choose an identifier attribute whose values meet these rules. A group, or a user with no value for the identifier attribute, keeps the SCIM `id` the directory gives it. |
+| **Invalid id** | The record's entity ID isn't valid. A user's entity ID is the value of its identifier attribute, or its SCIM `id` when it has no value for it, and a group's entity ID is its SCIM `id`. A valid entity ID holds at most 255 characters, isn't `.` or `..`, and holds no whitespace, control character, invisible formatting character such as a zero-width space, double quote, backslash, `/`, `%`, `;`, `?`, or `#`. | Choose an identifier attribute whose values meet these rules. A group, or a user with no value for the identifier attribute, keeps the SCIM `id` the directory gives it. |
 | **Duplicate id** | Another record of the same sync resolved to the same entity ID. | Choose an identifier attribute whose values are unique across the directory. |
+| **Id taken by another type** | The directory already imported an entity with the same ID as another type. For example, a user's entity ID matches the SCIM `id` of a group that an earlier sync imported. | Delete that entity for the directory's next sync to import the record, or choose an identifier attribute whose values don't match it. |
 | **Circular group nesting** | Nested groups form a loop. These groups are imported without their parent groups. | Break the loop in the directory. |
 
 ## Read a sync that didn't complete

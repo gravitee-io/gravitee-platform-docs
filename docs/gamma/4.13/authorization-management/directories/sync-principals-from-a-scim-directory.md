@@ -27,7 +27,7 @@ To add a directory, complete the following steps:
 6. In **Base URL**, enter the base URL of the directory's SCIM API, starting with `http://` or `https://` and without a query string.
 7. Click **Check URL**.
 
-    Gravitee reads the configuration the directory publishes, without a credential. When the directory advertises one authentication scheme that Gravitee supports, that scheme is selected and marked **Advertised**.
+    Gravitee reads the configuration the directory publishes, without a credential. **What the directory supports** lists the features it advertises, such as cursor pages, index pages, and filters, each marked **Supported**, **Not supported**, or **Not advertised**. When the directory advertises one authentication scheme that Gravitee supports, that scheme is marked **Advertised**. It's also selected if you haven't entered a credential yet.
 8. Under **Authentication**, select the scheme the directory accepts, and then complete its fields:
 
     | Scheme | Fields |
@@ -42,7 +42,7 @@ To add a directory, complete the following steps:
 
     **Next** stays unavailable until the directory answers and accepts the credential. The test saves nothing.
 
-    <figure><img src="../.gitbook/assets/gamma-authz-scim-add-directory-authentication.png" alt="The Authentication step of Add SCIM directory, with SCIM provider found under the base URL, Bearer token selected and marked Advertised, and a Connected result that reports the directory reachable, the credential accepted, and 10 records"><figcaption><p>The Authentication step after Check URL and Test connection.</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-authz-scim-add-directory-authentication.png" alt="The Authentication step of Add SCIM directory, with SCIM provider found, Bearer token selected and marked Advertised, a Connected result that reports the directory reachable, the credential accepted, and 10 records, and the features the directory supports"><figcaption><p>The Authentication step after Check URL and Test connection.</p></figcaption></figure>
 10. Click **Next**.
 11. Review the settings described in the following table, and change the ones your directory needs:
 
@@ -52,11 +52,11 @@ To add a directory, complete the following steps:
     | **Pagination** | How a sync pages through the directory. **As the directory advertises** pages by cursor when the directory advertises cursor paging, and by index otherwise. **Always index** and **Always cursor** hold the directory to one method. | **As the directory advertises** |
     | **Identifier attribute** | The SCIM attribute whose value becomes each user's entity ID. A user with no value for it is keyed on its SCIM `id` instead. For an attribute of an enterprise or custom extension, write the extension's schema URN first, for example `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber`. | `externalId` |
     | **Sync limit** | The most users and groups, counted together, that a sync accepts. A directory larger than the limit fails the sync before anything is written. The limit stays within the maximum your installation allows, which is 1,000 by default. | The installation's maximum |
-    | **Enabled** | A disabled directory doesn't sync, by hand or on its schedule. | On |
-    | **Deactivate principals absent from a sync** | Deactivates the principals the directory no longer returns. For details, see [What a sync deactivates](#what-a-sync-deactivates). | On |
-    | **Sync on a schedule** | Runs a sync on the **Schedule**, a cron expression of five fields read in UTC: minute, hour, day of month, month, and day of week. The shortest schedule is every minute. | Off |
+    | **Enabled** | A disabled directory doesn't sync, by hand or on its schedule. | Selected |
+    | **Deactivate principals absent from a sync** | Deactivates the principals the directory no longer returns. For details, see [What a sync deactivates](#what-a-sync-deactivates). | Selected |
+    | **Sync on a schedule** | Runs a sync on the **Schedule**, a cron expression of five fields read in UTC: minute, hour, day of month, month, and day of week. The shortest schedule is every minute. | Cleared |
 
-    <figure><img src="../.gitbook/assets/gamma-authz-scim-add-directory-settings.png" alt="The Settings step of Add SCIM directory, with Users and groups, As the directory advertises, externalId, a sync limit of 1000, Enabled and Deactivate principals absent from a sync turned on, and a daily schedule at 02:00 UTC"><figcaption><p>The Settings step with a daily schedule.</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-authz-scim-add-directory-settings.png" alt="The Settings step of Add SCIM directory, with Users and groups, As the directory advertises, externalId, a sync limit of 1000, Enabled, Deactivate principals absent from a sync, and Sync on a schedule selected, and a daily schedule at 02:00 UTC"><figcaption><p>The Settings step with a daily schedule.</p></figcaption></figure>
 12. Click **Next**.
 13. Click **Create directory**.
 
@@ -67,7 +67,7 @@ To add a directory, complete the following steps:
 A sync imports the users and the groups its **Sync scope** covers as principals, of type `User` or `Group`, with the source `scim.<slug>`:
 
 * A user's entity ID is the value of its **Identifier attribute**, or its SCIM `id` when the user has no value for it. A group's entity ID is its SCIM `id`.
-* When the sync scope includes groups, each principal gets the groups that list it as a member as its parents. Each such sync rewrites these memberships, so a membership the directory drops disappears at the next sync. A **Users only** sync reads no groups, so the users it writes carry no group memberships.
+* When the sync scope includes groups, each principal gets the groups that list it as a member as its parents. Each such sync rewrites these memberships, so a membership the directory drops disappears at the next sync. A **Users only** sync reads no groups. A user it creates has no group memberships, and a user it updates keeps the memberships it already has.
 * A sync rewrites only the principals whose data changed.
 
 A user principal carries the following attributes. An attribute whose value the directory doesn't send is left out:
@@ -115,13 +115,46 @@ An incremental sync doesn't tell a user who left the directory from a user who d
 A sync deactivates principals in the following cases:
 
 * The directory marks a user inactive with `active: false`. The principal is deactivated whatever **Deactivate principals absent from a sync** is set to. An inactive user who has no principal yet isn't imported.
-* The directory no longer returns a principal, and **Deactivate principals absent from a sync** is on. A sync deactivates only the kinds of principal its **Sync scope** reads, so a **Users only** sync never deactivates groups.
+* The directory no longer returns a principal, and **Deactivate principals absent from a sync** is selected. A sync deactivates only the kinds of principal its **Sync scope** reads, so a **Users only** sync never deactivates groups.
 
 Deactivation runs after a sync has read the whole directory, so a sync that fails while reading deactivates nobody. A deactivated principal stays on the **Entities** page with the **Inactive** status, and Gravitee withdraws it from your PDP gateways. When the directory returns the user as active again, the next sync that reads the user reactivates its principal.
 
 {% hint style="warning" %}
 Deactivating a principal isn't a revocation. A policy that permits a principal by its entity ID keeps granting after the principal is deactivated. Withdraw or edit the policy to cut off access.
 {% endhint %}
+
+## Manage the principals of a directory
+
+The **Entities** section of a directory lists only the principals that the directory imported. To activate, deactivate, or delete some of them, complete the following steps:
+
+1. In **SCIM Directories**, click the name of the directory.
+2. In the directory's sidebar, select **Entities**.
+3. Select the principals.
+4. Click **Activate**, **Deactivate**, or **Delete**. **Deactivate** and **Delete** ask you to confirm.
+
+Deleting a principal removes it from Authorization Management only, and the directory keeps the user or group. The members of a deleted group stay, without that group. Deleting a principal doesn't revoke a policy that names it by its entity ID.
+
+While the directory is enabled, its next full sync undoes these changes. It activates every principal that the directory still holds, and writes back the principals you deleted. When **Deactivate principals absent from a sync** is selected, it also deactivates the principals that the directory no longer holds.
+
+### Purge the principals of a directory
+
+A purge deletes the principals that a directory imported. Gravitee refuses a purge while the directory is enabled, because its next sync writes the principals back. To purge a directory, complete the following steps:
+
+1. In **SCIM Directories**, click the name of the directory.
+2. In the directory's sidebar, select **Settings**.
+3. Click **Edit**.
+4. Clear **Enabled**, and then click **Save changes**.
+5. In the directory's sidebar, select **Entities**.
+6. Click **Purge**.
+7. In the **Purge principals** dialog, select what to purge:
+    * **All users and groups**: deletes every principal the directory imported.
+    * **Users only**: the groups stay, with no user members.
+    * **Groups only**: the users stay, and lose these groups. A user keeps its other groups.
+8. Click the button that confirms the purge, for example **Purge 13 principals**.
+
+    The purge runs in the background, and its report opens. You can't undo a purge. To import the principals again, enable the directory and sync it.
+
+A purge is listed in **Sync History** and **All sync activity** as **Purge all**, **Purge users**, or **Purge groups**. A policy that names a purged principal by its entity ID keeps matching it.
 
 ## Edit a directory
 
@@ -134,7 +167,9 @@ To change a directory, complete the following steps:
 
 The slug stays locked. The saved secret is never shown: leave it to keep it, or click **Replace** to enter a new one. Changing the **Base URL** or the **Token endpoint** requires a new secret and a passing **Test connection** before **Save changes** is available. Changing the authentication scheme requires a new secret.
 
-Changing the **Identifier attribute** gives the directory's users new entity IDs. The next sync, a full one, creates their principals under the new IDs, and deactivates the old principals only when **Deactivate principals absent from a sync** is on. Policies that name the old IDs keep naming them. Narrowing the **Sync scope** leaves the principals of the kind the directory no longer reads as they are.
+Changing the **Identifier attribute** gives the directory's users new entity IDs. The next sync, a full one, creates their principals under the new IDs, and deactivates the old principals only when **Deactivate principals absent from a sync** is selected. Policies that name the old IDs keep naming them. Narrowing the **Sync scope** leaves the principals of the kind the directory no longer reads as they are.
+
+The **Settings** section also shows **What the directory supports**, read from the directory each time the section opens. A sync pages the directory by the features Gravitee last stored, and reads them again when they get old. To store a new read now, click **Read again**.
 
 ## Delete a directory
 
@@ -142,9 +177,9 @@ To delete a directory, complete the following steps:
 
 1. In **SCIM Directories**, click the name of the directory.
 2. Click **Delete**.
-3. In the **Delete SCIM directory?** dialog, click **Delete**.
+3. In the **Delete SCIM directory** dialog, click **Delete directory**.
 
-Deleting a directory removes it, its stored secret, and its sync history. The principals it imported stay, marked inactive, and deleting the directory doesn't revoke anyone's access. A directory isn't deleted while one of its syncs is running. Its slug stays taken while its principals exist, so a new directory takes the slug only after you delete them.
+Deleting a directory removes it, its stored secret, and its sync history. The principals it imported stay, marked inactive, and deleting the directory doesn't revoke anyone's access. A directory isn't deleted while one of its syncs is running. Its slug stays taken while its principals exist, so a new directory takes the slug only after you delete them. To free the slug when you delete the directory, [purge its principals](#purge-the-principals-of-a-directory) first.
 
 ## Verification
 
@@ -154,11 +189,11 @@ To verify the directory imports its principals as expected, follow these steps:
 2. Click **Sync now**.
 3. In the sync's report, check that the outcome reads **Success**, and that **Records not written** lists no record you expected to import.
 4. In the Authorization Management sidebar, select **Entities** in the **Policy Structure** group.
-5. On the **Principals** tab, open the **All sources** list, and select the directory's source, `scim.<slug>`.
+5. On the **Principals** tab, click **Source**, and select the directory's source, `scim.<slug>`.
 
     The directory's users and groups are listed with that source and the **Active** status.
 
-    <figure><img src="../.gitbook/assets/gamma-authz-scim-entities.png" alt="The Entities page on the Principals tab, filtered to the scim.workforce source, listing imported users and a group with the source scim.workforce and the Active status"><figcaption><p>Principals imported by a directory with the slug workforce.</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-authz-scim-entities.png" alt="The Entities page on the Principals tab, with one source selected in the Source filter, listing imported users and a group with the source scim.workforce and the Active status"><figcaption><p>Principals imported by a directory with the slug workforce.</p></figcaption></figure>
 
 ## Next steps
 

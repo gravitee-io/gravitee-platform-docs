@@ -286,6 +286,7 @@ Authorization Management imports principals from SCIM 2.0 directories. A directo
 * A sync runs from **Sync now** or **Full resync**, or on a cron schedule read in UTC. Once a sync has succeeded, later syncs usually read only the users that changed and every group in their scope. **Full resync** reads the whole directory, and so does a sync when the last full one is more than a day old, by default.
 * A user the directory marks inactive is deactivated. While **Deactivate principals absent from a sync** is on, so is a principal the directory no longer returns. Deactivating a principal doesn't revoke a policy that permits it by its entity ID.
 * A directory larger than its sync limit fails the sync before anything is written.
+* The **Entities** section of a directory lists the principals it imported, and activates, deactivates, or deletes them in bulk. **Purge** deletes the directory's users, groups, or both, while the directory is disabled.
 * **All sync activity** lists the syncs of every directory. Each report lists the principals the sync handled, and the records it skipped with the reason.
 * See [Sync principals from a SCIM directory](../authorization-management/directories/sync-principals-from-a-scim-directory.md) and [Review SCIM sync runs](../authorization-management/directories/review-scim-sync-runs.md).
 
