@@ -10,7 +10,7 @@ This quickstart walks you through registering your first Kafka cluster in the Ga
 Gamma does not host Kafka clusters; it governs them. A registered cluster is a reusable **Multi-connection** profile: it holds one or more named **connections**, each pointing at a Kafka backend with its own bootstrap servers and security settings.
 
 {% hint style="info" %}
-For a complete reference on registering and managing clusters, see [Register your Kafka clusters](../import/register-your-kafka-clusters.md).
+For a complete reference on registering and managing clusters, see [Register your Kafka clusters](../kafka-infrastructure/clusters/register-your-kafka-clusters.md).
 {% endhint %}
 
 ## Prerequisites

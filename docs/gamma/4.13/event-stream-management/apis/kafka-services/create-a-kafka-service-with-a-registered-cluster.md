@@ -11,7 +11,7 @@ A Kafka Service is the client-facing endpoint managed by Gravitee. It is the Eve
 The backend infrastructure can be a standalone broker list, a specific connection on a registered physical cluster, or a Virtual Cluster.
 
 {% hint style="info" %}
-For a simplified walkthrough that covers just the basics, see [Create your first Kafka service](../get-started/create-your-first-kafka-service.md).
+For a simplified walkthrough that covers just the basics, see [Create your first Kafka service](../../get-started/create-your-first-kafka-service.md).
 {% endhint %}
 
 ## How Kafka services work
@@ -23,7 +23,7 @@ A single Kafka Service can route to multiple clusters by binding to a Virtual Cl
 ## Prerequisites
 
 * Access to a running Gamma console instance
-* At least one registered Kafka cluster (see [Register your Kafka clusters](../import/register-your-kafka-clusters.md))
+* At least one registered Kafka cluster (see [Register your Kafka clusters](../../kafka-infrastructure/clusters/register-your-kafka-clusters.md))
 
 ## Create a Kafka service
 
@@ -87,5 +87,5 @@ Once a plan is established, you can apply **Policies** to enforce quotas, messag
 
 ## Next steps
 
-* **Provision a Virtual Cluster**. Add multi-tenant isolation on top of your Kafka Service. See [Establish a virtual cluster](establish-a-virtual-cluster.md).
+* **Provision a Virtual Cluster**. Add multi-tenant isolation on top of your Kafka Service. See [Establish a virtual cluster](../../kafka-infrastructure/virtual-clusters/establish-a-virtual-cluster.md).
 * **Create topics**. Create Kafka topics for producing and consuming messages.

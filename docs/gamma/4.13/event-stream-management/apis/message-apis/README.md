@@ -6,7 +6,7 @@ description: Create and manage Message APIs in Event Stream Management, the v4 A
 
 # Message APIs
 
-A Message API is a v4 API that connects clients to a message backend. Its entrypoints, for example **HTTP GET**, **Server-Sent Events**, or **Webhook**, set how clients connect. Its endpoints, for example **Kafka** or **MQTT 5.x**, set the backend that it produces to and consumes from. The **Message APIs** item of the **Build** group lists them. Each Message API opens on a sidebar with the groups **General**, **Design**, **Consumers**, **Monitoring**, **Observability**, and **Operations**, and these guides follow that sidebar.
+A Message API is a v4 API that connects clients to a message backend. Its entrypoints, for example **HTTP GET**, **Server-Sent Events**, or **Webhook**, set how clients connect. Its endpoints, for example **Kafka** or **MQTT 5.x**, set the backend that it produces to and consumes from. The **Message APIs** item of the **APIs** group lists them. Each Message API opens on a sidebar with the groups **General**, **Design**, **Consumers**, **Monitoring**, **Observability**, and **Operations**, and these guides follow that sidebar.
 
 * [**Create a Message API**](create-a-message-api.md). Build a Message API with the creation wizard, or import one from a Gravitee API definition.
 * [**Follow the setup checklist**](follow-the-setup-checklist.md). Track what a Message API still needs on its **Overview** page.

@@ -88,9 +88,9 @@ The following table pairs each governance outcome with the feature that achieves
 | Outcome | Feature |
 | --- | --- |
 | A REST, GraphQL, gRPC, or WebSocket API reaches its consumers behind a security plan, a policy chain, and analytics. | [Create an API proxy](../api-management/build/create-an-api-proxy.md) |
-| A Kafka cluster is consumed as a governed service rather than a set of bootstrap addresses handed out by hand. | [Create a Kafka service with a registered cluster](../event-stream-management/build/create-a-kafka-service-with-a-registered-cluster.md) |
+| A Kafka cluster is consumed as a governed service rather than a set of bootstrap addresses handed out by hand. | [Create a Kafka service with a registered cluster](../event-stream-management/apis/kafka-services/create-a-kafka-service-with-a-registered-cluster.md) |
 | Provider credentials for LLM traffic are held once on the AI Gateway instead of being copied into every team's configuration. | [Create an LLM Proxy](../agent-management/build/create-an-llm-proxy.md) |
-| A Kafka cluster is shared by several teams without exposing any of them to the topics of the others. | [Establish a Virtual Cluster](../event-stream-management/build/establish-a-virtual-cluster.md) |
+| A Kafka cluster is shared by several teams without exposing any of them to the topics of the others. | [Establish a Virtual Cluster](../event-stream-management/kafka-infrastructure/virtual-clusters/establish-a-virtual-cluster.md) |
 | An API estate running on another gateway moves to Gravitee without a rewrite of every proxy. | [Plan a gateway migration](../api-management/migrate/plan-a-gateway-migration.md) |
 
 ### Secure and publish consumer access

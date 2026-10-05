@@ -44,4 +44,4 @@ Consumer groups scoped to a single backend behave the same as a direct backend c
 5. Complete the remaining wizard steps and select **Create Kafka Service**.
 6. Configure security plans and policies on the service's overview page.
 
-For a full walkthrough, see [Create a Kafka service with a Virtual Cluster](create-a-kafka-service-with-a-virtual-cluster.md).
+For a full walkthrough, see [Create a Kafka service with a Virtual Cluster](../../apis/kafka-services/create-a-kafka-service-with-a-virtual-cluster.md).

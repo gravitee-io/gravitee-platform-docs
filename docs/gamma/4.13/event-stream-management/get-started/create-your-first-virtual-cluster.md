@@ -9,13 +9,13 @@ description: Federate two Registered Clusters into a single unified endpoint wit
 This quickstart walks you through creating a Virtual Cluster that federates two Registered Clusters into a single unified endpoint. Clients connecting to the Virtual Cluster can access topics from both backends without needing separate connections.
 
 {% hint style="info" %}
-For a complete reference on all Virtual Cluster options, see [Establish a Virtual Cluster](../build/establish-a-virtual-cluster.md).
+For a complete reference on all Virtual Cluster options, see [Establish a Virtual Cluster](../kafka-infrastructure/virtual-clusters/establish-a-virtual-cluster.md).
 {% endhint %}
 
 ## Prerequisites
 
 * Access to a running Gamma console instance
-* At least two Registered Clusters (see [Register your Kafka clusters](../import/register-your-kafka-clusters.md))
+* At least two Registered Clusters (see [Register your Kafka clusters](../kafka-infrastructure/clusters/register-your-kafka-clusters.md))
 
 ## Step 1: Open the Virtual Cluster wizard
 
@@ -55,5 +55,5 @@ After creation, you are navigated to the Virtual Cluster's overview page, where 
 
 ## Next steps
 
-* **Add a Kafka Service** — Apply security plans and policies on top of the Virtual Cluster. See [Establish a Virtual Cluster](../build/establish-a-virtual-cluster.md).
+* **Add a Kafka Service** — Apply security plans and policies on top of the Virtual Cluster. See [Establish a Virtual Cluster](../kafka-infrastructure/virtual-clusters/establish-a-virtual-cluster.md).
 
