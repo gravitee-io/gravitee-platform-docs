@@ -105,7 +105,13 @@ To forward a content type, set its option to `ALLOW` in the entrypoint configura
 
 From 4.13.0, the FIPS image variants are built on a JDK 25 FIPS base image. The 4.12 FIPS images used JDK 21. On the JDK 25 base, BouncyCastle FIPS in approved-only mode provides no PKCS12 keystore and answers JKS read-only, so neither format loads. A FIPS deployment that upgrades from 4.12 while keeping a `jks` or `pkcs12` keystore or truststore on the Gateway fails to start its TLS listeners.
 
-Before you upgrade, convert the Gateway's listener keystores and truststores to `pem`, or to `bcfks` where a store is read from a file. Both formats load on the FIPS images of 4.12.19 and later and of 4.13. `bcfks` isn't accepted by the Redis stores for rate limiting and distributed sync, which take `jks`, `pkcs12`, and `pem`. A store loaded from a Kubernetes configmap location takes `jks` and `pkcs12` only. The Management API's own HTTPS listener reads a `jks` or `pkcs12` keystore only. The ordinary images aren't affected. For the full list of formats and how each behaves, see [FIPS images](../self-hosted-installation-guides/docker/fips-images.md).
+Before you upgrade, convert the Gateway's listener keystores and truststores to `pem`, or to `bcfks` where a store is read from a file. Both formats load on the FIPS images of 4.12.19 and later and of 4.13. Some stores don't accept `bcfks`, so on the 4.13 FIPS images:
+
+* The Management API can't serve HTTPS. Its own HTTPS listener reads only a `jks` or `pkcs12` keystore, and neither loads. Terminate TLS in front of it instead.
+* A Gateway keystore read from a Kubernetes configmap can't load, because a configmap location takes only `jks` and `pkcs12`. Put it in a Kubernetes TLS secret as `pem` instead, or read it from a file path.
+* The Redis stores for rate limiting and distributed sync load `pem` only.
+
+The ordinary images aren't affected. For the full list of formats and how each behaves, see [FIPS images](../self-hosted-installation-guides/docker/fips-images.md).
 
 #### 4.12.0
 
