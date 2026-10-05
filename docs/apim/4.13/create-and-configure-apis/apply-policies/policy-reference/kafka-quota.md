@@ -9,7 +9,14 @@ metaLinks:
 
 ## Overview <a href="#user-content-description" id="user-content-description"></a>
 
-The Gravitee Kafka Policy Quota is a policy designed to enforce quotas on Kafka messages. It allows you to define limits on the amount of data that can be produced or consumed by a Kafka client. This policy can be used to protect your Kafka cluster from being overwhelmed by a single client.
+The Gravitee Kafka Policy Quota is a policy designed to enforce quotas on Kafka messages. It sets a byte-rate threshold for producers and consumers:
+
+* In the Publish phase, it limits the amount of data a producer can send to Kafka per second.
+* In the Subscribe phase, it limits the amount of data a consumer can fetch from Kafka per second.
+
+The limit applies to each quota key. By default, the key is the plan and subscription pair, followed by the value of `key` when you set one. When `useKeyOnly` is enabled, the key is the value of `key` alone. All the connections that share a key on a Gateway instance count against the same limit. Each Gateway instance keeps its own count, so with several Gateway instances, a client can reach the limit on each of them.
+
+When a client goes over the limit, the Gateway pauses the connection and sets a throttle time in the Kafka response, as a Kafka broker does for its own quotas.
 
 <figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-155.png" alt="The Kafka quota policy configuration, with an empty key, use key only switched off, and a static limit of five bytes, beside the policy documentation."><figcaption><p>Kafka Quota Policy UI</p></figcaption></figure>
 

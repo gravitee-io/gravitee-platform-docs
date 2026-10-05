@@ -32,8 +32,8 @@ The Management API v2 exposes three endpoints for programmatic access to native 
 |:------|:-----|:------------|
 | `timestamp` | string | Connection lifecycle event time |
 | `apiId` | string | API identifier |
-| `requestId` | string | Unique request identifier |
-| `transactionId` | string | Transaction identifier |
+| `requestId` | string | Identifier of this log entry, unique per lifecycle event |
+| `transactionId` | string | Connection identifier, shared by all the log entries of the connection |
 | `applicationId` | string | Application identifier |
 | `planId` | string | Plan identifier |
 | `clientIdentifier` | string | Free-form client identifier |
@@ -45,8 +45,12 @@ The Management API v2 exposes three endpoints for programmatic access to native 
 | `host` | string | Host header value |
 | `errorKey` | string | Error classification key |
 | `errorMessage` | string | Human-readable error message |
-| `connectionStatus` | string | `CONNECTED`, `CONNECTION_ERROR`, `SESSION_ERROR`, or `INTERNAL_ERROR` |
+| `connectionStatus` | string | `CONNECTED`, `DISCONNECTED`, `CONNECTION_ERROR`, `SESSION_ERROR`, or `INTERNAL_ERROR` |
 | `clientId` | string | Kafka client ID |
+| `clientSoftwareName` | string | Client library advertised at the connection handshake, or `unknown` |
+| `clientSoftwareVersion` | string | Version of the client library advertised at the connection handshake, or `unknown` |
+| `securityType` | string | Type of credential the connection authenticated with. Absent for an anonymous connection |
+| `securityToken` | string | Client ID of the OAuth2 or JWT credential. Never an API key |
 | `brokerId` | string | Broker node identifier |
 | `connectionDurationMs` | number | Connection duration in milliseconds |
 

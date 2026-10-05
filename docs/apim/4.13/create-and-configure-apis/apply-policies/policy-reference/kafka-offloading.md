@@ -12,8 +12,7 @@ metaLinks:
 With the Kafka Offloading policy, you can configure how Kafka message content is offloaded to storage. You have the option to activate message offloading based on the content size of the message. This policy is particularly useful for decreasing the load on Kafka and optimizing processing performance.
 
 {% hint style="info" %}
-* This policy is not included by default in the APIM product and must be installed manually.\
-  You can download it from [Gravitee Policy Plugins](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/).
+* This policy is included in the default APIM distribution.
 * This policy requires a Storage Resource plugin. Currently, the only compatible resource is Azure Storage Resource, which must be installed separately. To download the Azure Storage Resource, go to [Gravitee Resource Plugins](https://download.gravitee.io/#graviteeio-apim/plugins/resources/).
 {% endhint %}
 
@@ -40,7 +39,7 @@ With the Kafka Offloading policy, you can configure how Kafka message content is
 
 | Plugin version | APIM version    |
 | -------------- | --------------- |
-| 1.0.x          | 4.8.x to latest |
+| 1.x            | 4.8.x to latest |
 
 ## Examples
 

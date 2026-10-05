@@ -169,3 +169,21 @@ govern-apis/federation/3rd-party-providers/README.md
 .gitbook/assets/federation-sap-api-management-choose-provider.png
 .gitbook/assets/federation-sap-api-management-integration-overview.png
 .gitbook/assets/federation-sap-api-management-plans.png
+# Native Kafka on reactor 8.0 and the Kafka policy versions 4.13 pins: per-event connection logs,
+# DISCONNECTED, client library fields, new metrics and gateway keys, policy pages (ESM 4.13 docs audit)
+analyze-and-monitor-apis/logging/configuring-and-viewing-native-api-connection-logs.md
+analyze-and-monitor-apis/logging/native-api-connection-logs-concepts-and-architecture.md
+configure-and-manage-the-platform/management-api/native-api-connection-logs-management-api-reference.md
+create-and-configure-apis/apply-policies/policy-reference/kafka-acl.md
+create-and-configure-apis/apply-policies/policy-reference/kafka-message-filtering.md
+create-and-configure-apis/apply-policies/policy-reference/kafka-offloading.md
+create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md
+create-and-configure-apis/apply-policies/policy-reference/kafka-transform-key.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies.md
+kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md
+kafka-gateway/expose-metrics-to-prometheus.md
+kafka-gateway/plans.md
+kafka-gateway/virtual-cluster-broker-addressing.md
+.gitbook/assets/apim-native-connection-log-detail.png
+.gitbook/assets/apim-native-connection-logs-list.png

@@ -124,6 +124,26 @@ Here is a full list of metrics for your Kafka Gateway that are viewable with Pro
 | kafka\_upstream\_duration\_seconds                 | Time spent on the Gateway before the request is forwarded to the target cluster |
 | kafka\_endpoint\_duration\_seconds                 | Time spent on the endpoint Kafka cluster                              |
 | kafka\_downstream\_duration\_seconds               | Time spent on the Gateway before the response is forwarded to the client |
+| kafka\_upstream\_produce\_topic\_records\_failed\_total | Number of produced records that the broker rejected. Labeled with `error` |
+| kafka\_upstream\_produce\_topic\_record\_bytes\_failed\_total | Bytes of produced records that the broker rejected. Labeled with `error` |
+| kafka\_downstream\_fetch\_errors\_total and kafka\_upstream\_fetch\_errors\_total | Number of fetch responses that failed as a whole. Labeled with `error` |
+| kafka\_downstream\_fetch\_partition\_errors\_total and kafka\_upstream\_fetch\_partition\_errors\_total | Number of partition-level errors in fetch responses. Labeled with `error` |
+| kafka\_active\_connections                       | Number of active client connections per plan, application, and client identity. Disabled by default. See [Kafka active connections](../analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md#kafka-active-connections) |
+
+### Error metrics
+
+The produce and fetch error counters carry an `error` label set to the name of the Kafka error code, for example `NOT_LEADER_OR_FOLLOWER` or `RECORD_TOO_LARGE`.
+
+* The produce failure counters exist on the upstream leg only. They count the records and bytes that the broker rejected. `kafka_upstream_produce_topic_records_total` still counts every record that the Gateway sends to the broker, rejected or not.
+* A fetch response that fails as a whole increments `kafka_<direction>_fetch_errors_total`, and its records aren't counted in the fetch record metrics.
+
+The error counters don't carry the `principal_name` label, while the record totals do. To compute a failure ratio, aggregate the total first, for example:
+
+```
+sum without(principal_name) (rate(kafka_upstream_produce_topic_records_failed_total[5m]))
+  / ignoring(error) group_left
+sum without(principal_name) (rate(kafka_upstream_produce_topic_records_total[5m]))
+```
 
 ### Duration metrics
 
