@@ -22,7 +22,7 @@ Among the templates of that key, the gateway picks the one whose `Accept` header
 2. In the sidebar, click **Message APIs**.
 3. Click the name of the Message API.
 4. In the **Design** group of the Message API sidebar, click **Response Templates**.
-5. Click **Add template**.
+5. Click **Add template**. The **Add response template** panel opens.
 6. Complete the following fields:
 
 <table>
@@ -56,12 +56,18 @@ Among the templates of that key, the gateway picks the one whose `Accept` header
     </tbody>
 </table>
 
-7. Click **Save template**.
-8. Click **Save changes**.
+7. Click **Save template**. The panel closes, and the template appears in the table.
+8. In the save bar at the bottom of the page, click **Save changes**.
 
-The templates are saved only when you click **Save changes**. The console confirms with **API updated**. The templates reach the gateway at the next deployment, and until then the Message API shows **Out of sync**. See [Start, stop, and deploy a Message API](start-stop-and-deploy-a-message-api.md).
+The templates are saved only when you click **Save changes**. A template whose key and `Accept` header match an existing template replaces it. The console confirms with **API updated**. The templates reach the gateway at the next deployment, and until then the Message API shows **Out of sync**. See [Start, stop, and deploy a Message API](start-stop-and-deploy-a-message-api.md).
 
-To change or remove a template, use the edit or delete icon of its row, then click **Save changes**.
+If you close the panel with unsaved edits, the **Discard unsaved changes?** dialog asks you to confirm. Click **Keep editing** to go back to the panel, or **Discard** to close it.
+
+To change a template, click the edit icon of its row, change the fields in the **Edit response template** panel, click **Save template**, then click **Save changes**.
+
+To remove a template, click the delete icon of its row. In the **Delete this response template?** dialog, click **Delete**, then click **Save changes**.
+
+To drop the changes you haven't saved, click **Discard** in the save bar. If you leave the page with unsaved changes, the **Leave without saving?** dialog asks you to confirm.
 
 Without permission to change the response templates of the Message API, the page is read-only.
 

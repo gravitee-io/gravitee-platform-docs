@@ -50,6 +50,8 @@ The publication of a Message API is separate from its runtime state on the gatew
 
 The console confirms with **Message API updated**.
 
+Without permission to change the Message APIs of the environment, the **Publication** section doesn't appear.
+
 Once the Message API is deprecated, the **Publication** section disappears, and the console offers no way to undo the deprecation.
 
 When the environment uses the API review workflow, **Publish** and **Unpublish** appear in two cases only. Either a reviewer has accepted the Message API, or the Message API was created before the environment turned on the review workflow.
@@ -63,7 +65,7 @@ When the environment uses the API review workflow, the review banner above the p
 
 The console confirms with **Message API submitted for review**. For users who aren't reviewers, the banner then reads **Waiting for a review**. Until a reviewer accepts it, you can't start or publish the Message API.
 
-To submit the Message API for review as soon as you create it, turn on **Ask for review** in the last step of the creation wizard. See [Create a Message API](create-a-message-api.md).
+To submit the Message API for review as soon as you create it, select the **Ask for review** checkbox in the **Review** step of the creation wizard. See [Create a Message API](create-a-message-api.md).
 
 ## Review a Message API
 

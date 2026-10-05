@@ -11,7 +11,7 @@ The reporter settings of a Message API decide what it reports: the runtime logs 
 Every option costs storage and gateway throughput.
 
 {% hint style="info" %}
-Turn on message content, verbose tracing, and OTel logs for an investigation, then turn them off.
+Select message content, verbose tracing, and OTel logs for an investigation, then clear them.
 {% endhint %}
 
 ## Open the reporter settings
@@ -23,10 +23,10 @@ Turn on message content, verbose tracing, and OTel logs for an investigation, th
 
 Without permission to change the Message API's definition, the page is read-only.
 
-## Turn on runtime logs
+## Enable runtime logs
 
-1. Turn on the switch next to the **Settings** title. The **Logging mode**, **Message sampling**, **Display conditions**, and **OpenTelemetry tracing** options become available.
-2. Under **Logging mode**, select what to capture:
+1. Select **Enable analytics**, next to the **Settings** title. The **Logging mode**, **Message sampling**, **Display conditions**, and **OpenTelemetry tracing** options become available, and **Message sampling** is pre-set to **Count** with its default value.
+2. Under **Logging mode**, select the checkbox of what to capture:
     * **Entrypoint**. The exchange between the client and the gateway.
     * **Endpoint**. The exchange between the gateway and the backend broker.
 3. Under **Logging phase**, select **Request**, **Response**, or both.
@@ -58,18 +58,22 @@ Under **Display conditions**, both conditions are optional and accept Gravitee E
 
 When your environment caps how long runtime logging stays on, the page shows **Logging stops on its own** with the date when logging stops. Saving again pushes the date back.
 
-## Turn on OpenTelemetry
+## Enable OpenTelemetry
 
-1. In the **OpenTelemetry** section, turn on **OpenTelemetry tracing**.
-2. Optional: Turn on **Verbose tracing** to add detailed span events, with headers, context attributes, and policy execution details. Verbose mode makes traces much larger.
-3. Optional: Turn on **OTel logs** to emit message payloads as OpenTelemetry log records correlated to the active trace, for log-to-trace linking in OTel-compatible backends. Message sampling applies to them too. The switch is available only while **OpenTelemetry tracing** is on.
-4. Optional: Under **Span Attribute Redaction**, click **Add rule** to mask span attributes. Enter an **Attribute Name Pattern**, then choose a **Masking Type**: a full mask that replaces the whole value, or a partial mask that keeps a prefix and a suffix visible.
+1. In the **OpenTelemetry** section, select **OpenTelemetry tracing**.
+2. Optional: Select **Verbose tracing** to add detailed span events, with headers, context attributes, and policy execution details. Verbose mode makes traces much larger.
+3. Optional: Select **OTel logs** to emit message payloads as OpenTelemetry log records correlated to the active trace, for log-to-trace linking in OTel-compatible backends. Message sampling applies to them too. The checkbox is available only while **OpenTelemetry tracing** is selected.
+4. Optional: Under **Span Attribute Redaction**, which appears while **OpenTelemetry tracing** is selected, click **Add rule** to mask span attributes. Enter an **Attribute Name Pattern**, then choose a **Masking Type**: a full mask that replaces the whole value, or a partial mask that keeps a prefix and a suffix visible.
 
 Redaction rules apply to span attributes only. They don't redact the message payloads written to the runtime logs or exported by **OTel logs**.
 
 ## Save the reporter settings
 
+As soon as the page holds an unsaved change, a save bar at the bottom of the page shows **Unsaved changes**, **Discard**, and **Save changes**.
+
 1. Click **Save changes**.
+
+When the **Message sampling** value is invalid, clicking **Save changes** doesn't save: the save bar shows **Fix the errors to save** with the reason. When the save fails, the save bar shows **Couldn't save** with the reason, and **Save changes** becomes **Try again**. If you leave the page with unsaved changes, the **Leave without saving?** dialog asks you to confirm.
 
 The console confirms with **Runtime logs settings saved**. The settings reach the gateway at the next deployment, and until then the Message API shows **Out of sync**. See [Start, stop, and deploy a Message API](start-stop-and-deploy-a-message-api.md).
 
@@ -78,5 +82,5 @@ The console confirms with **Runtime logs settings saved**. The settings reach th
 To verify the reporter settings, follow these steps:
 
 1. Deploy the Message API.
-2. Open its **Overview** page, and check that no reporting banner is shown.
+2. Open its **Overview** page, and check that it doesn't show **Runtime reporting is disabled**. Unless you selected at least one logging mode and one logging phase, the page shows **Message content is not recorded**, which is expected.
 3. Send traffic to the Message API, then open **Logs** in the **Observability** group of the Message API sidebar, and check that its connections appear.

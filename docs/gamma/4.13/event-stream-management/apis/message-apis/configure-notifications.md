@@ -26,7 +26,7 @@ The **Console Notification** row holds your own console notifications for the Me
 3. In **Channel**, select **Default Email Notifier** or **Default Webhook Notifier**.
 4. Enter the target:
     * For an email channel, enter the addresses in `Email address(es)`.
-    * For a webhook channel, enter the URL in **Webhook URL**. Optional: Turn on **Use system proxy**.
+    * For a webhook channel, enter the URL in **Webhook URL**. Optional: Select **Use system proxy**.
 5. Under **Events**, select the events that send the notification. The events are grouped by category.
 6. Click **Add notification**.
 
@@ -36,8 +36,10 @@ The console saves the notification and confirms with **Notification saved**.
 
 Open the actions menu of the notification's row:
 
-* **Edit events** changes the events, the target, and the proxy setting of the notification. The channel can't change.
-* **Delete** removes the notification.
+* **Edit events** opens the notification. Change the events, the target, or the proxy setting, then click **Save**. The name and the channel can't change. The console confirms with **Notification saved**.
+* **Delete** opens the **Delete notification <name>?** dialog. Click **Delete**. The console confirms with **Notification deleted**.
+
+A notification that wasn't created in the console, for example one that the Gravitee Kubernetes Operator manages, is read-only and offers no **Edit events**.
 
 On the **Console Notification** row, events that come from one of your groups show as selected and can't be cleared.
 

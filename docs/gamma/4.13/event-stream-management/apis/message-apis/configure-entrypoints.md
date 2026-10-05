@@ -28,7 +28,7 @@ The cards cover every entrypoint that supports Message APIs, for example **HTTP 
 
 A Message API keeps at least one entrypoint. While only one is enabled, its card and its **Remove** button are disabled.
 
-Adding **Webhook** also lets the **Plans** page create Push plans. See [Manage plans](manage-plans.md).
+Adding **Webhook** also lets the **Plans** page create Push plans. See [Manage plans](manage-plans.md). To record the calls that the gateway makes to the callback URLs of its subscribers, select **Enable callback metrics** under **Callback reporting settings** in its configuration. See [View webhook delivery attempts](view-webhook-delivery-attempts.md).
 
 ## Configure an entrypoint
 
@@ -41,22 +41,21 @@ Each enabled entrypoint shows the following settings:
 
 The **Context path** field appears while at least one enabled entrypoint listens over HTTP. Of the entrypoints that Gravitee ships for Message APIs, only **Webhook** doesn't listen over HTTP, so a Message API whose only entrypoint is **Webhook** has no context path.
 
-Enter the path that clients call, starting with `/`:
+Enter the path that clients call, starting with `/`. A path that doesn't start with `/` shows **Context path must start with a slash (/).** under the field. When the path is empty or doesn't start with `/`, clicking **Save changes** doesn't save: the save bar shows **Fix the errors to save** with **Context path must start with a slash (/).**, and the focus moves to **Context path**.
 
-* A path that doesn't start with `/` shows **Context path must start with a slash (/).** and disables **Save changes**.
-* An empty path also disables **Save changes**.
-
-The context path can't overlap the context path of another API in the environment, unless that API listens on a virtual host. Two paths overlap when they're identical, or when one extends the other by whole path segments. For example, `/orders` and `/orders/eu` overlap, but `/orders` and `/orders-eu` don't. When the path overlaps, the save fails, and **Save failed** shows the path that's already in use.
+The context path can't overlap the context path of another API in the environment, unless that API listens on a virtual host. Two paths overlap when they're identical, or when one extends the other by whole path segments. For example, `/orders` and `/orders/eu` overlap, but `/orders` and `/orders-eu` don't. When the path overlaps, the save fails, and the save bar shows **Couldn't save** with the message of the Management API.
 
 ## Save your changes
 
-**Save changes** and **Discard** appear as soon as the page holds an unsaved change.
+As soon as the page holds an unsaved change, a save bar at the bottom of the page shows **Unsaved changes**, **Discard**, and **Save changes**.
 
 1. Click **Save changes**.
 
 The console saves the entrypoints and confirms with **API updated**. The save fails when an endpoint connector of the Message API doesn't support the quality of service of an entrypoint. The change reaches the gateway at the next deployment, and until then the Message API shows **Out of sync**. See [Start, stop, and deploy a Message API](start-stop-and-deploy-a-message-api.md).
 
-To drop your changes instead, click **Discard**.
+When the save fails, the save bar shows **Couldn't save** with the reason, and **Save changes** becomes **Try again**.
+
+To drop your changes instead, click **Discard**. If you leave the page with unsaved changes, for example from the sidebar or the breadcrumb, the **Leave without saving?** dialog asks you to confirm. Click **Stay** to keep editing, or **Leave and discard** to leave. The browser's back and forward buttons don't ask.
 
 ## Verification
 

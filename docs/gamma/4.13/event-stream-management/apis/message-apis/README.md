@@ -27,9 +27,10 @@ A Message API is a v4 API that connects clients to a message backend. Its entryp
 * [**Configure notifications**](configure-notifications.md). Get notified by email or by webhook when events happen, and choose the events of your console notifications.
 * [**Configure alerts**](configure-alerts.md). Set up runtime alerts on the traffic of the Message API.
 * [**Review audit logs**](review-audit-logs.md). Review the history of changes made to the Message API.
+* [**View webhook delivery attempts**](view-webhook-delivery-attempts.md). Check the calls that the gateway makes to the callback URLs of webhook subscribers.
 * [**Review the API Score**](review-the-api-score.md). Evaluate the Message API against the scoring rules of the environment.
 * [**Start, stop, and deploy a Message API**](start-stop-and-deploy-a-message-api.md). Run the Message API on the gateway, choose its gateways with sharding tags, and compare its deployments.
 * [**Configure reporter settings**](configure-reporter-settings.md). Choose the runtime logs, the message sampling, and the traces that the Message API reports.
 * [**Limitations and considerations**](limitations-and-considerations.md). Network paths, settings that the console doesn't edit, and sensitive data.
 
-The **Monitoring** group also shows **Webhooks** when the Message API has a **Webhook** entrypoint and you can read its logs, and **API Score** when the environment uses API Score. The **Observability** group opens the **Dashboard**, **Logs**, and **Tracing** of the Message API in a new tab. See [Observability](../../observability/README.md).
+The **Monitoring** group shows **Webhooks** only when the Message API has a **Webhook** entrypoint and you can read its logs, and **API Score** only when the environment uses API Score. The **Observability** group opens the **Dashboard**, **Logs**, and **Tracing** of the Message API in a new tab. See [Observability](../../observability/README.md).

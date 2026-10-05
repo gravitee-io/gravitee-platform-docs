@@ -79,9 +79,9 @@ In two cases, a banner at the top of the page says what the Message API doesn't 
 * **Runtime reporting is disabled**. Reporting is off, so **Logs** in Observability stays empty for this Message API.
 * **Message content is not recorded**. Reporting is on, and the Message API has logging settings, but they don't include both a logging mode and a logging phase. The connections of this Message API appear in **Logs** without their messages.
 
-To clear the banner, turn on reporting and choose at least one logging mode and one logging phase.
+To clear the banner, open **Reporter Settings**, select **Enable analytics**, and select at least one **Logging mode** and one **Logging phase**.
 
-A new Message API has reporting turned on and no logging settings, so it shows no banner. See [Configure reporter settings](configure-reporter-settings.md).
+A new Message API has reporting enabled and no logging settings, so it shows no banner. See [Configure reporter settings](configure-reporter-settings.md).
 
 ## Verification
 

@@ -24,8 +24,10 @@ Without permission to change the Message API's definition, the page is read-only
 1. Click **Add property**.
 2. In **Key**, enter a key that the Message API doesn't use yet.
 3. In **Value**, enter the value.
-4. Optional: Turn on **Encrypt value** to store the value encrypted. Once saved, an encrypted value can't be read back.
+4. Optional: Select **Encrypt value** to store the value encrypted. Once saved, an encrypted value can't be read back.
 5. Click **Add property**.
+
+If you close the panel with unsaved edits, the **Discard unsaved changes?** dialog asks you to confirm. Click **Keep editing** to go back to the panel, or **Discard** to close it.
 
 The console saves the property and confirms with **Message API updated**. The property reaches the gateway at the next deployment, and until then the Message API shows **Out of sync**. See [Start, stop, and deploy a Message API](start-stop-and-deploy-a-message-api.md).
 
@@ -53,12 +55,12 @@ An imported key that already exists replaces the existing property, unless that 
 Dynamic properties are fetched on a schedule from an HTTP endpoint that you choose. The Management API polls the endpoint, so it needs network access to it.
 
 1. Click **Manage dynamically**.
-2. Turn on **Enable dynamic properties**.
+2. Select **Enable dynamic properties**. The other fields become editable.
 3. In **Schedule (cron)**, enter a cron expression of six fields, `sec min hr dom mon dow`, or select a preset in **Quick select:**. The default, `0 */5 * * * *`, polls every five minutes.
-4. Under **Request**, select the HTTP method, then enter the URL of the endpoint. Optional: Add **Request headers** and a **Request body**.
+4. Under **Request**, select the HTTP method, then enter the URL of the endpoint. Optional: Select **Use system proxy** to route the request through the system proxy, and add **Request headers** and a **Request body**.
 5. In **JOLT transformation specification**, enter a JOLT specification that turns the response into a list of objects with a `key` and a `value` field.
 6. Optional: Expand **HTTP client options**, **Proxy**, or **SSL / TLS** to tune the HTTP client, route the calls through a proxy, or set the trust store and key store of the connection.
-7. Click **Save changes**.
+7. At the top of the form, click **Save changes**. **Save changes** and **Discard** appear once you change a field.
 8. Deploy the Message API. See [Start, stop, and deploy a Message API](start-stop-and-deploy-a-message-api.md).
 
 The Management API starts polling the source once the Message API is deployed while it's started. After a poll that returns the status code 200, the properties that the source returns appear as **Dynamic** properties, except for keys that you defined yourself. The policies read them like any other property. When the Message API has no other undeployed changes, the Management API redeploys it with the new values. Otherwise, they reach the gateway at your next deployment.

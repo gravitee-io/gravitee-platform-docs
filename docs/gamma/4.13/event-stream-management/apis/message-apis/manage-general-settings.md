@@ -15,7 +15,7 @@ The **Settings** page of a Message API holds its name, version, description, lab
 3. Click the name of the Message API.
 4. In the **General** group of the Message API sidebar, click **Settings**.
 
-Without permission to change the Message APIs of the environment, the fields are read-only.
+Without permission to change the Message APIs of the environment, the fields and images are read-only, and the **Import**, **Duplicate**, and **Promote** buttons are hidden. **Export** needs permission to read the API definition. The **Message API events** card shows only the actions that your role allows.
 
 ## Edit the general information
 
@@ -52,7 +52,7 @@ Without permission to change the Message APIs of the environment, the fields are
     </tbody>
 </table>
 
-2. Click **Save changes**.
+2. At the top of the page, click **Save changes**. **Save changes** and **Discard** appear once you change a field. **Save changes** stays disabled while **Name** or **Version** is empty.
 
 The console confirms with **Message API updated**.
 
@@ -95,10 +95,11 @@ The console confirms with **Message API definition imported**.
 ## Duplicate the Message API
 
 1. Click **Duplicate**.
-2. In the **Duplicate Message API** dialog, enter the **Name**, the **Version**, and the **Host prefix** of the copy.
-3. Click **Duplicate**.
+2. In the **Duplicate Message API** dialog, enter the **Name** and the **Version** of the copy. **Name** is pre-filled with the name of the original followed by `(copy)`.
+3. Enter a **Host prefix**. The field is required, even though a Message API doesn't use a listener host. The dialog is shared with Kafka Services.
+4. Click **Duplicate**.
 
-The copy keeps the context path of the original, so it's refused because the path is already in use. See [Limitations and considerations](limitations-and-considerations.md).
+The copy keeps the context path of the original, so the Management API refuses it because the path is already in use. See [Limitations and considerations](limitations-and-considerations.md).
 
 **Promote** opens a dialog that explains that promotion to another environment goes through Gravitee Cloud. It doesn't promote the Message API.
 
@@ -112,15 +113,15 @@ Deleting a Message API can't be undone.
 
 1. Stop the Message API. The Management API refuses to delete a started API. See [Start, stop, and deploy a Message API](start-stop-and-deploy-a-message-api.md).
 2. When the Message API is published, unpublish it. See [Publish and review a Message API](publish-and-review-a-message-api.md).
-3. On the **Settings** page, scroll to the **Service events** section.
-4. Click **Delete this service**. The tile stays disabled while the Message API is started or published.
-5. In **Type <name> to confirm**, type the name of the Message API.
+3. On the **Settings** page, scroll to the **Message API events** card.
+4. Click **Delete this Message API**. The tile stays disabled while the Message API is started or published. It appears only when you have permission to delete the Message APIs of the environment.
+5. In the **Delete Message API?** dialog, under **Type <name> to confirm**, type the name of the Message API. You can select and copy the name from the prompt.
 6. Keep **Also close and delete its plans (required if the Message API has active plans)** checked. While a plan is published, the Management API refuses to delete the Message API unless its plans are closed.
 7. Click **Delete Message API**.
 
 The console confirms with **Message API deleted** and returns to the **Message APIs** list.
 
-The **Delete** action of the Message API's row in the **Message APIs** list opens the same confirmation.
+The **Delete** action of the Message API's row in the **Message APIs** list opens the same confirmation. Unlike the **Delete this Message API** tile, the row action is offered while the Message API is started or published. Stop and unpublish the Message API first, as in steps 1 and 2.
 
 ## Verification
 
