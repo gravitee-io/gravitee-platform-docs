@@ -8,7 +8,7 @@ description: Open a failed Kafka connection from the logs to see what broke, whe
 
 Open a failed Kafka connection from the logs to see what broke, where it broke, and, for an error the gateway recognizes, what to do next.
 
-<figure><img src="../../.gitbook/assets/esm-observability-log-detail.png" alt="A failed Kafka connection opened from the logs, showing the Connection error status, a Gateway ↔ Broker badge, and a message saying what went wrong and what to do next, above the Client to Gateway, Gateway to Broker, Error, Service activity, and Raw record sections"><figcaption><p>A failed connection opens on what went wrong, before the raw fields</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/esm-observability-log-detail.png" alt="A failed Kafka connection opened from the logs, showing the Connection error status, a Gateway ↔ Broker badge, and a message saying what went wrong and what to do next, above the Client → Gateway, Gateway → Broker, Error, Kafka Service activity, and Raw record sections"><figcaption><p>A failed connection opens on what went wrong, before the raw fields</p></figcaption></figure>
 
 ## Open a connection
 
@@ -19,9 +19,52 @@ Open a failed Kafka connection from the logs to see what broke, where it broke, 
 
 ## Read what went wrong
 
-The row opens in a panel that starts with a badge saying where the connection failed and a short message saying what went wrong. The sections below show the details on each side of the gateway: between the client and the gateway, and between the gateway and the broker.
+The row opens in a panel headed by the Kafka Service name, a **Kafka Service** badge, the row's status, and how long ago it was recorded.
 
-A connection counts as failed when its status is **Connection error**, **Session error**, or **Internal error**, or when it carries an error key. A connection that reads **Connected** but carries an error key is still a failure.
+Each row is one event of a connection. When the panel finds the connection's opening record and the record that ended it, a line under the header places the row in that connection: when it opened, when it closed or failed, and how long it lasted. **(this record)** marks the row you opened when it's one of the two. The line needs both records, so it shows only when the Kafka Service reports **Connected** events, and **Disconnected** events for a connection that closed normally. See [Configure reporter settings](configure-reporter-settings.md#choose-which-connection-events-are-reported).
+
+For a failed connection, a badge then says where the connection failed, when the gateway could tell, and a short message says what went wrong.
+
+A connection counts as failed when its status is **Connection error**, **Session error**, or **Internal error**, or when it carries an error key.
+
+## Read the sections
+
+<table>
+    <thead>
+        <tr>
+            <th width="230">Section</th>
+            <th>What it shows</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Client → Gateway</strong></td>
+            <td>The client side: the remote address, the Kafka <code>client.id</code>, the client library, the application, the plan, the subscription, and the credential.</td>
+        </tr>
+        <tr>
+            <td><strong>Gateway → Broker</strong></td>
+            <td>The broker side: the broker id, the target host, and the gateway that handled the connection.</td>
+        </tr>
+        <tr>
+            <td><strong>Error</strong></td>
+            <td>The error key, the component that failed, the connection duration, and the error message. Shown for a failed connection only.</td>
+        </tr>
+        <tr>
+            <td><strong>This connection</strong></td>
+            <td>How many requests the connection had served when the row was written, in total and per Kafka operation. Hover an operation to see its Kafka protocol name, such as <code>FETCH</code>. Shown on <strong>Disconnected</strong> and error rows, once the connection has served at least one request.</td>
+        </tr>
+        <tr>
+            <td><strong>Kafka Service activity</strong></td>
+            <td>Two charts, <strong>Kafka requests by operation</strong> and <strong>Broker round-trip by operation</strong>, across every client of the Kafka Service over the 15 minutes either side of this row. They show what the Kafka Service was handling at the time, not this connection alone.</td>
+        </tr>
+        <tr>
+            <td><strong>Raw record</strong></td>
+            <td>The stored record behind the panel.</td>
+        </tr>
+    </tbody>
+</table>
+
+A section opens on **Error** for a failed connection, and on **Client → Gateway** otherwise. Rows with no value are left out.
 
 ## What each error key means
 
@@ -155,7 +198,7 @@ These are usually transient, and they resolve without intervention.
         <tr>
             <td><code>UNKNOWN_SERVER_ERROR</code></td>
             <td>An unexpected server error occurred.</td>
-            <td>Inspect the gateway logs around this request id.</td>
+            <td>Inspect the gateway logs around this connection's transaction id.</td>
         </tr>
     </tbody>
 </table>
@@ -166,4 +209,4 @@ To verify the diagnosis is working as expected, follow these steps:
 
 1. Open **Logs**.
 2. Click a Kafka row that has an error key.
-3. Confirm the panel starts with a short message saying what went wrong.
+3. Confirm the panel shows a short message saying what went wrong, under the header.
