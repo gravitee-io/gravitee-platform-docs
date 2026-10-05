@@ -11,7 +11,7 @@ When you open a Kafka Explorer connection, the console reads the live data of it
 ## Open a connection
 
 1. From the Gamma console sidebar, select **Event Stream Management**.
-2. In the **Manage** group, select **Kafka Explorer**.
+2. In the **Kafka Infrastructure** group, select **Explorer**.
 3. Select the name of the connection, or select **Explore** in its row menu.
 
 The connection opens on its **Brokers** page. The context sidebar lists the **General** pages, **Configuration** and **User Permissions**, and the **Explore** pages, **Brokers**, **Topics**, and **Consumer Groups**.

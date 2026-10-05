@@ -18,12 +18,12 @@ A connection points at one of the following targets:
 | **Kafka Service** | A Kafka Service, one of its published plans, and an accepted subscription to that plan. A Keyless plan needs no subscription. | The plan decides the authentication. An overlay is required for a JWT, OAuth2, or mTLS plan, and optional for an API key or Keyless plan. |
 | **Direct Broker** | One or more `host:port` bootstrap addresses, with no registered cluster or Kafka Service between the explorer and the broker. | No authentication, in plaintext, unless you add an overlay. The overlay then defines the whole connection security. |
 
-A Virtual Cluster can't be explored.
+A Virtual Cluster can't be a **Cluster** target.
 
 ## Prerequisites
 
 * An enterprise license that includes the Kafka Explorer feature, `apim-native-kafka-explorer`.
-* An environment role that grants the `EXPLORER` **Create** permission. The **New connection** button appears only when you have it. No built-in role grants it, so create a custom environment role or sign in as an organization administrator. See [Who can do what](manage-kafka-explorer-connections.md#who-can-do-what).
+* An environment role that grants the `EXPLORER` **Create** permission. The **Create Connection** button appears only when you have it. The environment **ADMIN** role grants it. No other built-in role does, so for other users, create a custom environment role. See [Who can do what](manage-kafka-explorer-connections.md#who-can-do-what).
 * A management database that holds the connections. Event Stream Management stores them in the APIM management database, and picks the MongoDB or the JDBC variant from `management.type`. On JDBC it applies its own schema at startup, unless the deployment sets `management.jdbc.liquibase: false`, in which case a database administrator applies the module's changelog by hand before the Kafka Explorer pages work.
 * For a **Cluster** target, a cluster registered in Event Stream Management with at least one named connection. See [Register your Kafka clusters](../clusters/register-your-kafka-clusters.md).
 * For a **Kafka Service** target, a Kafka Service with a published plan and, for every plan type except Keyless, an accepted subscription to that plan. Permission to read that API is required every time the connection is used, not only when it's created, so everyone you later share the connection with needs it too.
@@ -31,28 +31,28 @@ A Virtual Cluster can't be explored.
 ## Create the connection
 
 1. From the Gamma console sidebar, select **Event Stream Management**.
-2. In the **Manage** group, select **Kafka Explorer**.
-3. Select **New connection**.
+2. In the **Kafka Infrastructure** group, select **Explorer**.
+3. On the **Kafka Explorer** page, select **Create Connection**.
 
-    <figure><img src="../../.gitbook/assets/gamma-esm-kafka-explorer-connections.png" alt="The Kafka Explorer page listing two connections with their Target badges and the New connection button"><figcaption><p>The Kafka Explorer page lists the connections that you can see, with a <strong>Target</strong> badge on each row.</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-esm-kafka-explorer-connections.png" alt="The Kafka Explorer page listing two connections with their Target badges and the Create Connection button"><figcaption><p>The Kafka Explorer page lists the connections that you can see, with a <strong>Target</strong> badge on each row.</p></figcaption></figure>
 
 4. In the **Target type** step, select **Cluster**, **Kafka Service**, or **Direct Broker**.
 
-    <figure><img src="../../.gitbook/assets/gamma-esm-kafka-explorer-target-type.png" alt="The Target type step of the New connection wizard with the Cluster, Kafka Service, and Direct Broker cards"><figcaption><p>The <strong>Target type</strong> step offers the three kinds of target.</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-esm-kafka-explorer-target-type.png" alt="The Target type step of the Create Connection wizard with the Cluster, Kafka Service, and Direct Broker cards"><figcaption><p>The <strong>Target type</strong> step offers the three kinds of target.</p></figcaption></figure>
 
-5. Select **Next**.
+5. Select **Next: Target**.
 6. In the **Target** step, enter a **Name** and an optional **Description**, then complete the fields of your target type. See [Target fields](#target-fields).
 
-    <figure><img src="../../.gitbook/assets/gamma-esm-kafka-explorer-target-step.png" alt="The Target step of the New connection wizard for a Direct Broker target, with the Name, Description, and Bootstrap servers fields and the Add a security overlay toggle"><figcaption><p>The <strong>Target</strong> step for a <strong>Direct Broker</strong> target.</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-esm-kafka-explorer-target-step.png" alt="The Target step of the Create Connection wizard for a Direct Broker target, with the Name, Description, and Bootstrap servers fields and the Add a security overlay checkbox"><figcaption><p>The <strong>Target</strong> step for a <strong>Direct Broker</strong> target.</p></figcaption></figure>
 
-7. Select **Next**.
-8. Optional: in the **Security** step, complete the security overlay form, then select **Next**. The step appears only when the target requires an overlay, or when you turned on the overlay toggle in the previous step. See [Security overlay](#security-overlay).
+7. Select **Next: Security**, or **Next: Review** when the target needs no overlay.
+8. Optional: in the **Security** step, complete the security overlay form, then select **Next: Review**. The step appears only when the target requires an overlay, or when you selected the overlay checkbox in the previous step. See [Security overlay](#security-overlay).
 9. In the **Review** step, check the summary of the connection.
 10. Optional: select **Test connection**. The explorer resolves the target and connects to it without saving anything. A reachable target shows **Connection reachable** with its broker count. An unreachable target shows **Connection test failed** with the reason, and doesn't block the creation.
 
-    <figure><img src="../../.gitbook/assets/gamma-esm-kafka-explorer-review.png" alt="The Review step of the New connection wizard showing the connection summary and the Connection reachable result of the test"><figcaption><p>The <strong>Review</strong> step, after a successful <strong>Test connection</strong>.</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-esm-kafka-explorer-review.png" alt="The Review step of the Create Connection wizard showing the connection summary and the Connection reachable result of the test"><figcaption><p>The <strong>Review</strong> step, after a successful <strong>Test connection</strong>.</p></figcaption></figure>
 
-11. Select **Create connection**.
+11. Select **Create Connection**.
 
 The console saves the connection, makes you its primary owner, and opens the connection on its **Brokers** page.
 
@@ -68,7 +68,7 @@ The **Target** step shows the fields of the target type that you selected.
 | --- | --- |
 | **Cluster** | Required. A multi-connection cluster registered in Event Stream Management. When the environment has none, the field reads **No managed Kafka cluster is available in this environment.** |
 | **Named connection** | Required when the cluster defines named connections. The connection whose broker the explorer reads. |
-| **Override the cluster security** | Off: the explorer uses the cluster's own security. On: the **Security** step appears, and its overlay fully replaces the cluster security. |
+| **Override the Cluster security** | A checkbox. Cleared: the explorer uses the cluster's own security. Selected: the **Security** step appears, and its overlay fully replaces the cluster security. |
 
 ### Kafka Service target
 
@@ -77,14 +77,14 @@ The **Target** step shows the fields of the target type that you selected.
 | **Kafka Service** | Required. The Kafka Service to explore. When the environment has none, the field reads **No Kafka Service is available in this environment.** |
 | **Plan** | Required. One of the service's published plans, listed with its type: **Keyless**, **API key**, **JWT**, **OAuth2**, or **mTLS**. When the service has no published plan, the field reads **This API has no usable plan.** |
 | **Subscription** | Required for every plan type except Keyless. An accepted subscription to the selected plan, listed by application name. When the plan has none, the field reads **This plan has no accepted subscription — accept one first.** |
-| **Add a security overlay** | Shown for an API key or Keyless plan. Off: the explorer connects with the plan security over TLS. On: the **Security** step appears, to add a truststore for a private or self-signed Kafka gateway certificate, or to override the security. For a JWT, OAuth2, or mTLS plan, the **Security** step always appears. |
+| **Add a security overlay** | A checkbox, shown for an API key or Keyless plan. Cleared: the explorer connects with the plan security over TLS. Selected: the **Security** step appears, to add a truststore for a private or self-signed Kafka gateway certificate, or to override the security. For a JWT, OAuth2, or mTLS plan, the **Security** step always appears. |
 
 ### Direct Broker target
 
 | Field | Description |
 | --- | --- |
 | **Bootstrap servers** | Required. A comma-separated list of `host:port` entries. Any reachable entry bootstraps the connection. Each host is a hostname, an IPv4 address, or a bracketed IPv6 address, and each port is between 1 and 65535. |
-| **Add a security overlay** | Off: the explorer connects in plaintext, with no authentication. On: the **Security** step appears, to secure the connection with SASL, TLS, or both. |
+| **Add a security overlay** | A checkbox. Cleared: the explorer connects in plaintext, with no authentication. Selected: the **Security** step appears, to secure the connection with SASL, TLS, or both. |
 
 ## Security overlay
 
@@ -121,7 +121,7 @@ For a Kafka Service target, the explorer connects to the gateway addresses that 
 
 To verify that the connection works as expected, follow these steps:
 
-1. In the **Manage** group, select **Kafka Explorer**.
+1. In the **Kafka Infrastructure** group, select **Explorer**.
 2. Confirm that the connection appears in the list with its **Target** badge.
 3. Select the connection's name.
 
