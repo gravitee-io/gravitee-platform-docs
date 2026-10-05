@@ -11,7 +11,7 @@ The **Messages** page of a topic reads messages in two modes. **Browse** fetches
 ## Open the messages page
 
 1. From the Gamma console sidebar, select **Event Stream Management**.
-2. In the **Manage** group, select **Kafka Explorer**.
+2. In the **Kafka Infrastructure** group, select **Explorer**.
 3. Select the name of the connection.
 4. In the context sidebar, select **Topics**.
 5. Select the name of the topic.

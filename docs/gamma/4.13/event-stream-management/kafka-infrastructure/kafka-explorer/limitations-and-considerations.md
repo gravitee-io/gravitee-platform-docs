@@ -71,15 +71,15 @@ The overlay means two different things depending on the target, and this is the 
 | **Cluster**, **Direct Broker** | **Replaces** the target's security entirely. It's never merged field by field. |
 | **Kafka Service** | **Adds to** the plan's security. The plan imposes the authentication, and the overlay supplies only what the plan leaves open, such as the protocol variant or a truststore. |
 
-The replacement case is the one to watch. When you turn **Override the cluster security** on for a Cluster target, the named connection's own protocol, SASL mechanism, credentials, and stores all stop applying — the overlay is the whole security. If the cluster used SASL with a truststore, you must restate both in the overlay, not just the part you wanted to change.
+The replacement case is the one to watch. When you select **Override the Cluster security** for a Cluster target, the named connection's own protocol, SASL mechanism, credentials, and stores all stop applying — the overlay is the whole security. If the cluster used SASL with a truststore, you must restate both in the overlay, not just the part you wanted to change.
 
-Turning the override back off, with **Remove security overlay** on the **Configuration** page, restores the target's own security.
+Selecting **Remove security overlay** on the **Configuration** page restores the target's own security.
 
 ## What the explorer can't read
 
 * **Binary and schema-encoded payloads.** Message keys, values, and headers are read as text. An Avro, Protobuf, or otherwise binary payload is shown as the text its bytes decode to, which is unreadable. There's no schema registry integration and no way to choose a deserializer.
 * **A cluster using a SASL mechanism the explorer doesn't model.** A registered cluster's named connection resolves for `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`, and no authentication. A connection to a cluster configured with anything else fails to resolve unless you override its security with an overlay the explorer supports.
-* **A Virtual Cluster.** Virtual Clusters aren't explorable.
+* **A Virtual Cluster as a Cluster target.** The **Cluster** target lists only the registered Clusters, and the Management API refuses a Virtual Cluster.
 
 ## What the explorer never writes
 
