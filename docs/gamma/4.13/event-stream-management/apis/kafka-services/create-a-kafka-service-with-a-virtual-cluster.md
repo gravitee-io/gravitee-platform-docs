@@ -23,8 +23,8 @@ A single Virtual Cluster can host multiple Kafka Services, each with its own sec
 ## Prerequisites
 
 * Access to a running Gamma console instance
-* At least two Registered Clusters (see [Register your Kafka clusters](../import/register-your-kafka-clusters.md))
-* A Virtual Cluster federating those clusters (see [Establish a Virtual Cluster](establish-a-virtual-cluster.md))
+* At least two Registered Clusters (see [Register your Kafka clusters](../../kafka-infrastructure/clusters/register-your-kafka-clusters.md))
+* A Virtual Cluster federating those clusters (see [Establish a Virtual Cluster](../../kafka-infrastructure/virtual-clusters/establish-a-virtual-cluster.md))
 
 ## Create a Kafka service with a Virtual Cluster
 

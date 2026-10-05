@@ -8,7 +8,7 @@ description: Create a governed Kafka Service in the Gamma console with a standal
 This quickstart walks you through creating a governed Kafka Service in the Gamma console. You'll use the simplest configuration — a standalone endpoint with a keyless plan — to get a working Kafka Service in under five minutes.
 
 {% hint style="info" %}
-For a complete reference on all configuration options, see [Create a Kafka service with a registered cluster](../build/create-a-kafka-service-with-a-registered-cluster.md).
+For a complete reference on all configuration options, see [Create a Kafka service with a registered cluster](../apis/kafka-services/create-a-kafka-service-with-a-registered-cluster.md).
 {% endhint %}
 
 ## Prerequisites
@@ -84,6 +84,6 @@ Once the plan is created and published, your Kafka Service is active. You can no
 
 ## Next steps
 
-* **Create a Virtual Cluster** — Provision a logically isolated Kafka environment on top of your service. See [Establish a virtual cluster](../build/establish-a-virtual-cluster.md).
+* **Create a Virtual Cluster** — Provision a logically isolated Kafka environment on top of your service. See [Establish a virtual cluster](../kafka-infrastructure/virtual-clusters/establish-a-virtual-cluster.md).
 * **Create a topic** — Start producing and consuming messages.
-* **Explore all configuration options** — Security plans, policies, and advanced settings. See [Create a Kafka service with a registered cluster](../build/create-a-kafka-service-with-a-registered-cluster.md).
+* **Explore all configuration options** — Security plans, policies, and advanced settings. See [Create a Kafka service with a registered cluster](../apis/kafka-services/create-a-kafka-service-with-a-registered-cluster.md).

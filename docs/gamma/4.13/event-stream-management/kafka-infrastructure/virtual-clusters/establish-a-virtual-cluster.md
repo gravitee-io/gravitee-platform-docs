@@ -8,10 +8,10 @@ description: Federate multiple Kafka backends into one endpoint by establishing 
 
 A Virtual Cluster federates multiple independent Kafka backends into a single unified endpoint. Instead of managing separate cluster connections for each team or workload, a Virtual Cluster lets clients connect to one endpoint and transparently interact with topics spread across multiple underlying Registered Clusters.
 
-Once established, a Virtual Cluster can back a Kafka Service — see [Create a Kafka service with a virtual cluster](create-a-kafka-service-with-a-virtual-cluster.md).
+Once established, a Virtual Cluster can back a Kafka Service — see [Create a Kafka service with a virtual cluster](../../apis/kafka-services/create-a-kafka-service-with-a-virtual-cluster.md).
 
 {% hint style="info" %}
-For a simplified walkthrough, see [Create your first virtual cluster](../get-started/create-your-first-virtual-cluster.md).
+For a simplified walkthrough, see [Create your first virtual cluster](../../get-started/create-your-first-virtual-cluster.md).
 {% endhint %}
 
 ## Why Virtual Clusters
@@ -26,7 +26,7 @@ Managing connections to multiple Kafka clusters adds coordination overhead — c
 ## Prerequisites
 
 * Access to a running Gamma console instance
-* At least two Registered Clusters (see [Register your Kafka clusters](../import/register-your-kafka-clusters.md))
+* At least two Registered Clusters (see [Register your Kafka clusters](../clusters/register-your-kafka-clusters.md))
 
 ## Create a Virtual Cluster
 
@@ -83,4 +83,4 @@ Removing a backend from a deployed Virtual Cluster affects any clients consuming
 ## Next steps
 
 * **Create topics** — Set up Kafka topics inside your Virtual Cluster.
-* **Create a Kafka Service** — Add governance, security plans, and policies on top of the Virtual Cluster. See [Create a Kafka service with a virtual cluster](create-a-kafka-service-with-a-virtual-cluster.md).
+* **Create a Kafka Service** — Add governance, security plans, and policies on top of the Virtual Cluster. See [Create a Kafka service with a virtual cluster](../../apis/kafka-services/create-a-kafka-service-with-a-virtual-cluster.md).

@@ -271,21 +271,21 @@ Event Stream Management adds Message APIs, the Kafka Explorer, and a duplication
 
 * Create a copy of an existing Kafka Service with **Duplicate** on the service's **General** page. The copy reuses the source service's listener and endpoint configuration.
 * The new service is created in a stopped state and without plans, so you control when it starts accepting connections.
-* See [Duplicate a Kafka service](../event-stream-management/build/duplicate-a-kafka-service.md).
+* See [Duplicate a Kafka service](../event-stream-management/apis/kafka-services/duplicate-a-kafka-service.md).
 
 #### Message APIs
 
 * The **Build** group of the Event Stream Management sidebar adds **Message APIs**. A Message API is a v4 API that connects clients to a message backend.
 * **Create Message API** opens a five-step wizard that picks the entrypoints, the endpoints, and the plans.
 * The creation wizard requires an enterprise license that includes the `apim-en-message-reactor` feature.
-* See [Message APIs](../event-stream-management/build/message-apis/README.md).
+* See [Message APIs](../event-stream-management/apis/message-apis/README.md).
 
 #### Kafka Explorer
 
 * The **Manage** group of the Event Stream Management sidebar adds **Kafka Explorer**, which reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
 * Reaching the pages at all needs the new environment-scoped `EXPLORER` permission, which no built-in role grants for create, update, or delete: give a custom environment role the actions your connection administrators need.
 * Kafka Explorer requires an enterprise license that includes the `apim-native-kafka-explorer` feature.
-* See [Kafka Explorer](../event-stream-management/manage/kafka-explorer/README.md).
+* See [Kafka Explorer](../event-stream-management/kafka-infrastructure/kafka-explorer/README.md).
 
 #### Observability for Kafka Services and Message APIs
 

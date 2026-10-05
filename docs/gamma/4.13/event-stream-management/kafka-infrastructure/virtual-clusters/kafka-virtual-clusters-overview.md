@@ -56,4 +56,4 @@ Deploy or undeploy a Virtual Cluster using the row actions on the **Virtual Clus
 ## Next steps
 
 * [Establish a Virtual Cluster](establish-a-virtual-cluster.md) — Create and configure a Virtual Cluster in the Gamma console.
-* [Create a Kafka service with a Virtual Cluster](create-a-kafka-service-with-a-virtual-cluster.md) — Add a governance layer on top of your Virtual Cluster.
+* [Create a Kafka service with a Virtual Cluster](../../apis/kafka-services/create-a-kafka-service-with-a-virtual-cluster.md) — Add a governance layer on top of your Virtual Cluster.

@@ -87,7 +87,7 @@ redirects:
  authorization-management/build: authorization-management/get-started/README.md
  authorization-management/build/create-authorization-policies: authorization-management/configure/create-update-delete-policies.md
  authorization-management/configure/authz-gateway-sync: authorization-management/authz-gateway-sync.md
- event-management/build/create-a-kafka-service: event-stream-management/build/create-a-kafka-service-with-a-registered-cluster.md
+ event-management/build/create-a-kafka-service: event-stream-management/apis/kafka-services/create-a-kafka-service-with-a-registered-cluster.md
  event-management/explorer: event-stream-management/get-started/README.md
  event-management/explorer/create-kafka-topics: event-stream-management/get-started/README.md
  event-management/explorer/inspect-kafka-messages: event-stream-management/get-started/README.md
@@ -95,8 +95,8 @@ redirects:
  event-management/get-started: event-stream-management/get-started/README.md
  event-management/get-started/create-your-first-kafka-topic: event-stream-management/get-started/README.md
  event-management/get-started/event-management-overview: event-stream-management/get-started/event-stream-management-overview.md
- event-stream-management/import: event-stream-management/manage/README.md
- event-stream-management/import/register-your-kafka-clusters: event-stream-management/import/register-your-kafka-clusters.md
+ event-stream-management/import: event-stream-management/kafka-infrastructure/README.md
+ event-stream-management/import/register-your-kafka-clusters: event-stream-management/kafka-infrastructure/clusters/register-your-kafka-clusters.md
  platform-management/configure-access-management: platform-management/configure-access-management.md
  platform-management/configure-client-registration: platform-management/configure-client-registration.md
  platform-management/configure-console-authentication: platform-management/configure-console-authentication.md
@@ -159,3 +159,42 @@ redirects:
  api-management/manage/api-proxies/security/manage-user-permissions: api-management/build/configure-your-api-proxy/manage-user-permissions.md
  api-management/manage/api-products/security: api-management/manage/api-products/general/README.md
  api-management/manage/api-products/security/manage-members-and-ownership: api-management/build/configure-your-api-product/manage-members-and-ownership.md
+ event-stream-management/build: event-stream-management/apis/README.md
+ event-stream-management/build/create-a-kafka-service-with-a-registered-cluster: event-stream-management/apis/kafka-services/create-a-kafka-service-with-a-registered-cluster.md
+ event-stream-management/build/create-a-kafka-service-with-a-virtual-cluster: event-stream-management/apis/kafka-services/create-a-kafka-service-with-a-virtual-cluster.md
+ event-stream-management/build/duplicate-a-kafka-service: event-stream-management/apis/kafka-services/duplicate-a-kafka-service.md
+ event-stream-management/build/establish-a-virtual-cluster: event-stream-management/kafka-infrastructure/virtual-clusters/establish-a-virtual-cluster.md
+ event-stream-management/build/kafka-virtual-cluster-runtime-behavior-reference: event-stream-management/kafka-infrastructure/virtual-clusters/kafka-virtual-cluster-runtime-behavior-reference.md
+ event-stream-management/build/kafka-virtual-clusters-overview: event-stream-management/kafka-infrastructure/virtual-clusters/kafka-virtual-clusters-overview.md
+ event-stream-management/build/message-apis: event-stream-management/apis/message-apis/README.md
+ event-stream-management/build/message-apis/broadcast-messages-to-consumers: event-stream-management/apis/message-apis/broadcast-messages-to-consumers.md
+ event-stream-management/build/message-apis/configure-alerts: event-stream-management/apis/message-apis/configure-alerts.md
+ event-stream-management/build/message-apis/configure-api-metadata: event-stream-management/apis/message-apis/configure-api-metadata.md
+ event-stream-management/build/message-apis/configure-api-properties: event-stream-management/apis/message-apis/configure-api-properties.md
+ event-stream-management/build/message-apis/configure-cors: event-stream-management/apis/message-apis/configure-cors.md
+ event-stream-management/build/message-apis/configure-endpoints-and-failover: event-stream-management/apis/message-apis/configure-endpoints-and-failover.md
+ event-stream-management/build/message-apis/configure-entrypoints: event-stream-management/apis/message-apis/configure-entrypoints.md
+ event-stream-management/build/message-apis/configure-notifications: event-stream-management/apis/message-apis/configure-notifications.md
+ event-stream-management/build/message-apis/configure-reporter-settings: event-stream-management/apis/message-apis/configure-reporter-settings.md
+ event-stream-management/build/message-apis/configure-resources: event-stream-management/apis/message-apis/configure-resources.md
+ event-stream-management/build/message-apis/configure-response-templates: event-stream-management/apis/message-apis/configure-response-templates.md
+ event-stream-management/build/message-apis/create-a-message-api: event-stream-management/apis/message-apis/create-a-message-api.md
+ event-stream-management/build/message-apis/design-flows-in-the-policy-studio: event-stream-management/apis/message-apis/design-flows-in-the-policy-studio.md
+ event-stream-management/build/message-apis/follow-the-setup-checklist: event-stream-management/apis/message-apis/follow-the-setup-checklist.md
+ event-stream-management/build/message-apis/limitations-and-considerations: event-stream-management/apis/message-apis/limitations-and-considerations.md
+ event-stream-management/build/message-apis/manage-general-settings: event-stream-management/apis/message-apis/manage-general-settings.md
+ event-stream-management/build/message-apis/manage-plans: event-stream-management/apis/message-apis/manage-plans.md
+ event-stream-management/build/message-apis/manage-subscriptions: event-stream-management/apis/message-apis/manage-subscriptions.md
+ event-stream-management/build/message-apis/manage-user-permissions: event-stream-management/apis/message-apis/manage-user-permissions.md
+ event-stream-management/build/message-apis/publish-and-review-a-message-api: event-stream-management/apis/message-apis/publish-and-review-a-message-api.md
+ event-stream-management/build/message-apis/review-audit-logs: event-stream-management/apis/message-apis/review-audit-logs.md
+ event-stream-management/build/message-apis/review-the-api-score: event-stream-management/apis/message-apis/review-the-api-score.md
+ event-stream-management/build/message-apis/start-stop-and-deploy-a-message-api: event-stream-management/apis/message-apis/start-stop-and-deploy-a-message-api.md
+ event-stream-management/manage: event-stream-management/kafka-infrastructure/README.md
+ event-stream-management/manage/kafka-explorer: event-stream-management/kafka-infrastructure/kafka-explorer/README.md
+ event-stream-management/manage/kafka-explorer/browse-and-tail-topic-messages: event-stream-management/kafka-infrastructure/kafka-explorer/browse-and-tail-topic-messages.md
+ event-stream-management/manage/kafka-explorer/create-a-kafka-explorer-connection: event-stream-management/kafka-infrastructure/kafka-explorer/create-a-kafka-explorer-connection.md
+ event-stream-management/manage/kafka-explorer/explore-brokers-topics-and-consumer-groups: event-stream-management/kafka-infrastructure/kafka-explorer/explore-brokers-topics-and-consumer-groups.md
+ event-stream-management/manage/kafka-explorer/limitations-and-considerations: event-stream-management/kafka-infrastructure/kafka-explorer/limitations-and-considerations.md
+ event-stream-management/manage/kafka-explorer/manage-kafka-explorer-connections: event-stream-management/kafka-infrastructure/kafka-explorer/manage-kafka-explorer-connections.md
+ event-stream-management/manage/register-your-kafka-clusters: event-stream-management/kafka-infrastructure/clusters/register-your-kafka-clusters.md

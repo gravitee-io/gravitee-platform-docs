@@ -57,4 +57,4 @@ Removing a cluster registration does not affect the cluster itself—it only rem
 
 ## Next steps
 
-* **Create a Kafka Service**. Build a governed Kafka Service on top of your registered cluster. See [Create a Kafka service with a registered cluster](../build/create-a-kafka-service-with-a-registered-cluster.md).
+* **Create a Kafka Service**. Build a governed Kafka Service on top of your registered cluster. See [Create a Kafka service with a registered cluster](../../apis/kafka-services/create-a-kafka-service-with-a-registered-cluster.md).
