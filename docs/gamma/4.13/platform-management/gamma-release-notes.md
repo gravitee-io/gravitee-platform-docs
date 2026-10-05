@@ -265,24 +265,63 @@ Edge Management replaces the single configuration page and its flat lists of DNS
 
 ### Event Stream Management
 
-Event Stream Management adds Message APIs, the Kafka Explorer, and a duplication path for Kafka Services. Message APIs connect clients to message backends such as Kafka, MQTT 5.x, Solace, and RabbitMQ. The Kafka Explorer reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
+Event Stream Management regroups its sidebar by object and opens on a new Overview page. It adds Message APIs, the Kafka Explorer, and an Observability section, and brings Kafka Services to the same management depth as Message APIs: a Security step in the creation wizard, subscriptions, metadata, broadcasts, alerts, API Score, the review workflow, import, export, and duplication. Message APIs connect clients to message backends such as Kafka, MQTT 5.x, Solace, and RabbitMQ. The Kafka Explorer reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
+
+#### Sidebar groups and the Overview page
+
+* The Event Stream Management sidebar groups its pages by object: **General** holds **Overview**, **APIs** holds **Kafka Services** and **Message APIs**, **Kafka Infrastructure** holds **Clusters**, **Virtual Clusters**, and **Explorer**, and **Observability** holds **Dashboards**, **Logs**, and **Tracing**. The **Manage** and **Build** groups are gone.
+* The module opens on the **Overview** page. One card per area shows the total and the state breakdown of the Kafka Services, Message APIs, Clusters, Virtual Clusters, and Kafka Explorer connections of the environment, with **Create**, **Import** for the two API types, and **Manage** buttons that follow your role.
+* A banner on the Overview page counts the clusters and Virtual Clusters with pending changes, and the **Observability** section links to the screens that your role can open.
+* See [Use the Overview page](../event-stream-management/general/use-the-overview-page.md).
+
+#### Kafka Service creation wizard
+
+* The **Create Kafka Service** wizard has five steps: **Identity**, **Listener**, **Endpoint**, **Security**, and **Review**. Each forward button names the next step, for example **Next: Security**.
+* The new **Security** step lines up the plans of the Kafka Service before it exists. It adds a Keyless plan by default, which is published at creation, so the Kafka Service can be consumed right away. Plans of the other security types are created in Staging, to finish and publish on the **Plans** page.
+* The **Review** step offers **Deploy now** to start the Kafka Service right after creation, or **Ask for review** when the environment uses the API review workflow.
+* The **Listener** step checks that the host prefix is free in the environment while you type.
+* See [Create your first Kafka Service](../event-stream-management/get-started/create-your-first-kafka-service.md).
+
+#### Kafka Service management
+
+* Each Kafka Service opens on a sidebar with the groups **General**, **Design**, **Consumers**, **Monitoring**, **Observability**, and **Operations**. The **General** page is now **Settings**, the **Configuration** page splits into **Entrypoint** and **Endpoints**, and deployment splits into **Sharding Tags** and **Deployment History**.
+* The **Overview** page tracks the setup in a five-item checklist, and shows the bootstrap server that the gateway resolved once the Kafka Service is deployed.
+* New pages: **Metadata**, **Broadcasts**, a **Subscriptions** page that manages subscriptions and their API keys, **Alerts**, and **API Score** when the environment uses it.
+* **Alerts** offers Kafka rules in five categories: **Connection**, **Topic traffic**, **Operations**, **Policy rejections**, and **Authentication**. A banner warns that most of them can't fire while analytics are disabled on the Kafka Service.
+* Publishing a secured plan while a Keyless plan is live opens a dialog that closes the conflicting plans and publishes the new one in one step.
+* Saving in the **Policy Studio** no longer deploys the Kafka Service. Deploy the changes from the header of the Kafka Service.
+* The **Settings** page imports a Gravitee API definition over the Kafka Service, as a local file or a remote URL, and exports the definition. **Import** on the **Kafka Services** list creates a Kafka Service the same way.
+* Kafka Services follow the API review workflow, with a review badge and a banner to ask for or review changes.
+* See [Kafka Services](../event-stream-management/apis/kafka-services/README.md).
+
+#### Subscription metadata
+
+* The detail page of a subscription, on a Kafka Service or a Message API, gains a **Metadata** card to add, edit, and delete the key and value entries of the subscription.
+
+#### Clusters and Virtual Clusters
+
+* The **Clusters** and **Virtual Clusters** lists gain a **Lifecycle** filter with **Deployed**, **Pending changes**, and **Undeployed**, and count each state above the list.
+* Editing a deployed cluster or Virtual Cluster sets it to **Pending changes**. **Deploy changes**, in the row menu or at the top of its page, pushes the edits to the gateway.
+* The sidebar of a cluster or Virtual Cluster holds **Overview**, **Settings**, **Configuration**, **User Permissions**, and **Used by Kafka Services**.
+* The **Kafka Service** wizard and the **Virtual Cluster** wizard list only deployed clusters and Virtual Clusters.
+* See [Register your Kafka clusters](../event-stream-management/kafka-infrastructure/clusters/register-your-kafka-clusters.md) and [Virtual Clusters](../event-stream-management/kafka-infrastructure/virtual-clusters/README.md).
 
 #### Duplicate a Kafka service
 
-* Create a copy of an existing Kafka Service with **Duplicate** on the service's **General** page. The copy reuses the source service's listener and endpoint configuration.
+* Create a copy of an existing Kafka Service with **Duplicate** on the service's **Settings** page. The copy reuses the source service's listener and endpoint configuration.
 * The new service is created in a stopped state and without plans, so you control when it starts accepting connections.
 * See [Duplicate a Kafka service](../event-stream-management/apis/kafka-services/duplicate-a-kafka-service.md).
 
 #### Message APIs
 
-* The **Build** group of the Event Stream Management sidebar adds **Message APIs**. A Message API is a v4 API that connects clients to a message backend.
+* The **APIs** group of the Event Stream Management sidebar adds **Message APIs**. A Message API is a v4 API that connects clients to a message backend.
 * **Create Message API** opens a five-step wizard that picks the entrypoints, the endpoints, and the plans.
 * The creation wizard requires an enterprise license that includes the `apim-en-message-reactor` feature.
 * See [Message APIs](../event-stream-management/apis/message-apis/README.md).
 
 #### Kafka Explorer
 
-* The **Manage** group of the Event Stream Management sidebar adds **Kafka Explorer**, which reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
+* The **Kafka Infrastructure** group of the Event Stream Management sidebar adds **Explorer**, which opens the Kafka Explorer. The Kafka Explorer reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
 * Reaching the pages at all needs the new environment-scoped `EXPLORER` permission, which no built-in role grants for create, update, or delete: give a custom environment role the actions your connection administrators need.
 * Kafka Explorer requires an enterprise license that includes the `apim-native-kafka-explorer` feature.
 * See [Kafka Explorer](../event-stream-management/kafka-infrastructure/kafka-explorer/README.md).
@@ -291,7 +330,9 @@ Event Stream Management adds Message APIs, the Kafka Explorer, and a duplication
 
 * The Event Stream Management sidebar adds an **Observability** group holding **Dashboards**, **Logs**, and **Tracing**. All three read what the gateway already reported, and all three show only the Kafka Services and Message APIs of the environment.
 * Each Kafka Service and Message API gains **Dashboard**, **Logs**, and **Tracing** under **Observability** in its own sidebar.
-* See [Observe](../event-stream-management/observability/README.md).
+* The **Reporter Settings** page of a Kafka Service turns **Aggregated metrics** and **Connection events** on or off, and picks which connection events the gateway records: **Connected**, **Disconnected**, and **Errors**.
+* When the environment enables API Score, the **Observability** group also holds **API Score**, with a **Dashboard** tab and a **Rulesets** tab.
+* See [Observability](../event-stream-management/observability/README.md) and [Configure reporter settings](../event-stream-management/observability/configure-reporter-settings.md).
 
 ### Platform Management
 
