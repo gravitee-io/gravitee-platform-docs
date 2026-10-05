@@ -49,7 +49,7 @@ The three UI images are built on a FIPS-validated nginx base rather than a JVM o
 
 ## Gateway TLS on the FIPS images
 
-From APIM 4.12.19, the keystores the Gateway builds itself on the FIPS images are BouncyCastle FIPS keystores rather than PKCS12 ones. This includes the keystore behind each HTTPS listener, the default `http` listener and each `servers[]` entry alike, the keystore behind the Kafka Gateway listener, a keystore built from `pem` certificate and key files, the `self-signed` certificate, and the truststore the Gateway fills with the client certificates of mTLS plan subscriptions.
+From APIM 4.12.19, the keystores the Gateway builds itself on the FIPS images are BouncyCastle FIPS keystores rather than PKCS12 ones.
 
 So the HTTPS listeners, client certificate authentication, mTLS plans, and the Kafka Gateway listener no longer depend on PKCS12 on these images. The formats that load from a file are listed in the next section.
 

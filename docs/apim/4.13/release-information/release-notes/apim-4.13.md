@@ -67,7 +67,7 @@ A Kafka Topic Mapping entry that sets only one of `client` and `broker` is now a
 
 #### **FIPS images: JKS and PKCS12 keystores no longer load**
 
-The 4.13 FIPS images are built on a JDK 25 FIPS base image, where the 4.12 FIPS images used JDK 21. On the JDK 25 base, BouncyCastle FIPS in approved-only mode provides no PKCS12 keystore and answers JKS read-only, so neither format loads. A FIPS deployment that upgrades from 4.12 while keeping a `jks` or `pkcs12` keystore or truststore on the Gateway fails to start its TLS listeners. Convert the Gateway's listener keystores and truststores to `pem`, or to `bcfks` where a store is read from a file, before upgrading. The Redis stores for rate limiting and distributed sync take `jks`, `pkcs12`, and `pem` only, and the Management API's own HTTPS listener reads a `jks` or `pkcs12` keystore only. The ordinary images aren't affected. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+The 4.13 FIPS images run on JDK 25, where `jks` and `pkcs12` stores don't load. Convert them before upgrading. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 ## New Features
 

@@ -49,7 +49,7 @@ The three UI images are built on a FIPS-validated nginx base rather than a JVM o
 
 ## Gateway TLS on the FIPS images
 
-On the FIPS images, the keystores the Gateway builds itself are BouncyCastle FIPS keystores rather than PKCS12 ones. This includes the keystore behind each HTTPS listener, the default `http` listener and each `servers[]` entry alike, the keystore behind the Kafka Gateway listener, a keystore built from `pem` certificate and key files, the `self-signed` certificate, and the truststore the Gateway fills with the client certificates of mTLS plan subscriptions.
+On the FIPS images, the keystores the Gateway builds itself are BouncyCastle FIPS keystores rather than PKCS12 ones.
 
 So the HTTPS listeners, client certificate authentication, mTLS plans, and the Kafka Gateway listener no longer depend on PKCS12 on these images. The formats that load from a file are listed in the next section.
 
@@ -68,7 +68,11 @@ This is the constraint that most often surprises. Under *approved only* mode, th
 
 In practice, **configure your keystores and truststores as `pem`**: it needs no password and no conversion tooling. Where you'd rather ship one password-protected container file, `bcfks` is the other format that loads. PEM files and `bcfks` are the only formats that load on this line.
 
-The table describes the Gateway's listeners. The Management API's own HTTPS listener reads a `jks` or `pkcs12` keystore only.
+The table describes the Gateway's listeners. Some stores don't accept `bcfks`, so on these images:
+
+* The Management API can't serve HTTPS. Its own HTTPS listener reads only a `jks` or `pkcs12` keystore, and neither loads. Terminate TLS in front of it instead.
+* A Gateway keystore read from a Kubernetes configmap can't load, because a configmap location takes only `jks` and `pkcs12`. Put it in a Kubernetes TLS secret as `pem` instead, or read it from a file path.
+* The Redis stores for rate limiting and distributed sync load `pem` only.
 
 {% hint style="warning" %}
 This is stricter than the 4.12 FIPS images, which run on JDK 21 and still tolerate `pkcs12` and `jks` in some paths. A deployment that upgrades from 4.12 to 4.13 while keeping a `jks` or `pkcs12` keystore fails to start its TLS listeners. Convert the Gateway's listener keystores before upgrading, to PEM or, for a store read from a file, to `bcfks` if you'd rather keep a single password-protected container, which is the closer equivalent of the JKS you're leaving behind.
