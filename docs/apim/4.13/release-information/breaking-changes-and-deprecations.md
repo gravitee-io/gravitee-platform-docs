@@ -61,6 +61,12 @@ An entry left with a blank `client` therefore changes from inert to a client-to-
 
 The policy's configuration schema required both fields before 4.13.0. An affected entry is therefore one whose field was set to an empty string rather than omitted. Before you upgrade, review every Kafka Topic Mapping policy for an entry with a blank `client` or `broker`. Remove the entry, or set both fields, to keep the behavior you have today. For what a single-field entry now does, see [Kafka Topic Mapping](../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md).
 
+**Native Kafka connection logs: One log entry per connection event**
+
+From 4.13.0, a native Kafka connection writes one log entry per lifecycle event: one when it opens, one when it fails, and, if the API selects the Disconnected event, one when it closes cleanly. In 4.12 and earlier, every entry of a connection carried the connection ID as its request ID, and the Elasticsearch reporter uses the request ID as the document ID, so a later entry replaced the earlier one and each connection kept a single entry.
+
+The request ID is now unique to each entry, in the form `<connection-id>:<sequence>:<status>`. The transaction ID is the connection ID and ties the entries of a connection together. Before you upgrade, review any dashboard or query that counts connection log entries as connections, or that looks up an entry by connection ID through the request ID. For more information, see [Native Kafka API Connection Logs: Concepts and Architecture](../analyze-and-monitor-apis/logging/native-api-connection-logs-concepts-and-architecture.md).
+
 **The Gateway resolves the request path before it routes**
 
 From 4.13.0, the `http.pathHandling` Gateway setting defaults to `NORMALIZE`. In 4.12 and earlier the default was `RAW`. A deployment that upgrades without changing its configuration resolves request paths before it resolves the listener context path, and therefore before it enforces any plan.

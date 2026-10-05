@@ -17,7 +17,7 @@ ACLs are restrictive because once they are applied, proxy clients must be author
 
 To create and apply an ACL, complete the following steps. These steps configure options that correspond to the operations defined in Kafka, as listed in the [Confluent documentation](https://docs.confluent.io/platform/current/security/authorization/acls/overview.html#operations).
 
-1. Select the **resource type** for which you want to apply the ACLs (topics, clusters, or groups).
+1. Select the **resource type** for which you want to apply the ACLs (topics, clusters, groups, or transactional IDs).
 2. Choose the **pattern** used to name the resource. This pattern can be:
    * `Any`: All resources of the specified type receive the ACL on proxy connections.
    * `Match`: Resources matching the pattern (prefixed, literal, or wildcard "\*") receive the ACL.
@@ -31,7 +31,7 @@ To create and apply an ACL, complete the following steps. These steps configure 
 You can add more than one ACL in the same policy.
 
 {% hint style="info" %}
-Kafka follows the rule that if there is an ACL that denies an action, it takes precedence over ACLs that allow an action. If more than one ACL applies to the client connection to the Gateway, the most restrictive ACL is applied.
+ACLs in this policy only grant access. There is no deny rule. An action is allowed when at least one ACL whose condition applies grants it, and any action that no ACL grants is denied. An ACL whose condition fails to evaluate doesn't apply.
 {% endhint %}
 
 <figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-154.png" alt="The Kafka ACL policy configuration, with a prefixed topic resource pattern limited to the read operation, and a second rule granting access to any group, beside the policy documentation."><figcaption><p>Kafka ACL Policy UI</p></figcaption></figure>
@@ -55,11 +55,9 @@ Gravitee Expression Language (EL) can be used to define conditions on each ACL. 
 
 ## Using resources
 
-### Token resource
+### Delegation tokens
 
-ACLs on the `Token` resource determine whether the user can manage [delegation tokens](https://docs.confluent.io/platform/current/security/authentication/delegation-tokens/overview.html#kafka-sasl-delegate-auth) in the cluster. When added to the policy, proxy clients are either permitted or restricted from using delegation tokens to perform clustered operations through the proxy.
-
-For example, when using a clustered processing framework like [Apache Spark](https://spark.apache.org/), delegation tokens can be used to share resources across the same application without requiring the distribution of Kerberos keytabs across the cluster when mTLS is used.
+The policy has no resource for [delegation tokens](https://docs.confluent.io/platform/current/security/authentication/delegation-tokens/overview.html#kafka-sasl-delegate-auth). When the Kafka ACL policy is applied, every request to create, renew, expire, or describe a delegation token is rejected with the `DELEGATION_TOKEN_AUTH_DISABLED` error, whatever ACLs you define.
 
 ### Transactional ID resource
 
@@ -106,7 +104,7 @@ This shows how to implement the example above in a v4 API definition:
   "api": {
     ...
   },
-  "plans: [    
+  "plans": [
     {
       "flows": [
         {
@@ -129,17 +127,25 @@ This shows how to implement the example above in a v4 API definition:
               "enabled": true,
               "policy": "kafka-acl",
               "configuration": {
-                "authorizedTopics": [
-                  "internal.orders.processing.12345"
-                ],
-                "authorizationType": "READ"
+                "authorizations": [
+                  {
+                    "resources": [
+                      {
+                        "type": "TOPIC",
+                        "resourcePatternType": "LITERAL",
+                        "resourcePattern": "internal.orders.processing.12345",
+                        "operations": ["TOPIC_READ", "TOPIC_DESCRIBE"]
+                      }
+                    ]
+                  }
+                ]
               }
             }
           ]
         }
       ]
     }
-  }
+  ]
 }
 ```
 {% endtab %}
@@ -153,8 +159,8 @@ In this scenario, the ACL policy must be able to handle wildcard rules for group
 
 With this configuration:
 
-* ACL ensures users can access only `internal.orders.*` topics.
-* Topic mapping consolidates all internal topics into a single `orders` topic for external consumers.
+* The ACL policy runs first, so it checks the client-side topic names. It grants read and write access only to topics whose client-side name matches the `orders*` expression.
+* Topic mapping then exposes the `internal.orders.global` broker topic to external consumers as `orders`.
 
 {% tabs %}
 {% tab title="Using the APIM Console" %}
@@ -181,7 +187,7 @@ This shows how to implement the example above in a v4 API definition:
   "api": {
     ...
   },
-  "plans: [    
+  "plans": [
     {
       "flows": [
         {
@@ -191,10 +197,18 @@ This shows how to implement the example above in a v4 API definition:
               "enabled": true,
               "policy": "kafka-acl",
               "configuration": {
-                "authorizedTopics": [
-                  "internal.orders.*"
-                ],
-                "authorizationType": "READ_WRITE"
+                "authorizations": [
+                  {
+                    "resources": [
+                      {
+                        "type": "TOPIC",
+                        "resourcePatternType": "EXPRESSION",
+                        "resourcePattern": "orders*",
+                        "operations": ["TOPIC_READ", "TOPIC_WRITE", "TOPIC_DESCRIBE"]
+                      }
+                    ]
+                  }
+                ]
               }
             },
             {
@@ -214,7 +228,7 @@ This shows how to implement the example above in a v4 API definition:
         }
       ]
     }
-  }
+  ]
 }
 ```
 {% endtab %}

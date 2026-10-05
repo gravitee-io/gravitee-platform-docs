@@ -19,21 +19,19 @@ This policy uses an Expression Language to evaluate each message and decide whet
 
 ## Usage
 
-#### Example 1: Filter Messages by Header Value
+#### Example 1: Filter messages by header value
 
-**Goal:** Only allow messages where the Kafka header `eventType` equals `"order.created"`.
+**Goal:** Only allow messages where the Kafka header `eventType` equals `order.created`.
 
-**Policy Configuration:**
+**Policy configuration:**
 
-**Filter:** `#message.headers['eventType'] == 'order.created'`
+**Filter:** `{#message.headersString['eventType'] == 'order.created'}`
 
-Only messages with the header `eventType=order.created` will be sent to the subscriber. Others will be discarded. If the header is missing or invalid, and `excludeMessagesOnError` is `true`, the message is not delivered.
+Only messages with the header `eventType=order.created` are sent to the consumer. Other messages are discarded. `headersString` exposes the record headers with their values decoded as strings. For the other message properties you can use in the expression, see [Gravitee Expression Language](../../../gravitee-expression-language.md).
 
 ## Phases <a href="#user-content-phases" id="user-content-phases"></a>
 
-| onRequest | onMessageRequest | onResponseContent | onMessageResponse |
-| --------- | ---------------- | ----------------- | ----------------- |
-|           |                  |                   | X                 |
+The Kafka Message Filtering policy applies to native Kafka APIs, in the Subscribe phase.
 
 ## Compatibility matrix <a href="#user-content-compatibility-matrix" id="user-content-compatibility-matrix"></a>
 
@@ -47,14 +45,12 @@ You can configure the policy with the following options:
 
 | Property               | Required | Description                                                                                                                                                                                                                                                                                                                           | Type                         | Default |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ------- |
-| filter                 | X        | The filtering expression that determines which messages to include. The expression should evaluate to a boolean value. When the expression evaluates to 'true', the message is propagated; otherwise, the message is filtered out. You can use the Expression Language to access message content, headers, and subscription metadata. | string (Expression Language) | -       |
-| excludeMessagesOnError |          | In case of error when evaluating filter condition, message is not sent.                                                                                                                                                                                                                                                               | boolean                      | false   |
+| filter                 | X        | The filtering expression that determines which messages to include. The expression should evaluate to a boolean value. When the expression evaluates to `true`, the message is propagated. Otherwise, the message is filtered out. You can use the Expression Language to access message content, headers, and subscription metadata. | string (Expression Language) | -       |
+| excludeMessagesOnError |          | What to do with a message when the filter expression fails to evaluate for it. When `false`, the message is propagated as is. When `true`, the message is dropped.                                                                                                                                                                     | boolean                      | false   |
 
 ## Examples <a href="#user-content-example" id="user-content-example"></a>
 
-<table><thead><tr><th width="200">Format</th><th width="300">Example</th><th>Description</th></tr></thead><tbody><tr><td>Single IP (IPv4)</td><td><code>192.168.1.1</code></td><td>Exact match</td></tr><tr><td>Single IP (IPv6)</td><td><code>fd12:3456:789a::1</code></td><td>Exact match</td></tr><tr><td>CIDR (IPv4)</td><td><code>192.168.1.0/24</code></td><td>Network range</td></tr><tr><td>CIDR (IPv6)</td><td><code>fd12:3456:789a::/64</code></td><td>Network range</td></tr><tr><td>IP range (IPv4)</td><td><code>192.168.1.1-192.168.1.10</code></td><td>Inclusive range</td></tr><tr><td>IP range (IPv6)</td><td><code>fd12:3456:789a::1-fd12:3456:789a::a</code></td><td>Inclusive range</td></tr><tr><td>Comma-separated</td><td><code>192.168.1.1,192.168.2.0/24</code></td><td>Multiple values evaluated individually</td></tr><tr><td>Expression Language</td><td><code>{#api.properties['allowed_ips']}</code></td><td>Evaluated at runtime</td></tr></tbody></table>
-
-If my message looks like:
+If your message looks like this:
 
 ```json
 {
@@ -63,16 +59,16 @@ If my message looks like:
 }
 ```
 
-I can filter messages by subscriptions metadata `keyword` using the following policy configuration:
+You can filter messages by the subscription metadata `keyword` with the following policy configuration:
 
 ```json
- {
+{
     "name": "Key filter",
     "description": "Filter messages based on subscription metadata key",
     "enabled": true,
     "policy": "kafka-message-filtering",
     "configuration": {
-        "filter": "#message.content.contains('#subscription.metadata.keyword')",
+        "filter": "{#message.content.contains(#subscription.metadata['keyword'])}",
         "excludeMessagesOnError": false
     }
 }
