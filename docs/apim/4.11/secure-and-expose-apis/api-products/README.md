@@ -8,7 +8,7 @@ description: API Products bundle several v4 HTTP proxy APIs into one subscribabl
 
 API Products enable administrators to bundle multiple V4 HTTP Proxy APIs into a single subscribable package with unified access control. Instead of managing subscriptions to individual APIs, organizations define API Product-level plans that grant access to all APIs within the API Product.
 
-This feature requires an Enterprise Universe tier license.
+This feature requires an Enterprise license with the Planet, Galaxy, or Universe tier. Before APIM 4.11.21, it requires the Universe tier.
 
 <figure><img src="../../.gitbook/assets/api-products-list.png" alt="The API Products page with API Products highlighted in the left navigation, listing ten of 28 products with their API count, version, and an empty owner column."><figcaption><p>API Products list page in the APIM Console</p></figcaption></figure>
 
@@ -63,7 +63,7 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 
 ## Prerequisites
 
-- Gravitee APIM Enterprise license with Universe tier
+- Gravitee APIM Enterprise license with the Planet, Galaxy, or Universe tier (the Universe tier before APIM 4.11.21)
 - Environment-level permissions for API Product management (`api_product-definition-*`)
 - V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled
 
@@ -159,7 +159,7 @@ After creating plans and adding APIs, deploy the API Product to make it availabl
 1. Click **Deploy API Product** in the banner.
 2. In the **Deploy your API Product** dialog, click **Deploy**.
 
-Deployment requires an active Enterprise Universe tier license.
+Deployment requires an active Enterprise license with the Planet, Galaxy, or Universe tier. Before APIM 4.11.21, it requires the Universe tier.
 
 <figure><img src="../../.gitbook/assets/deploy-api-product.png" alt="The Deploy your API Product dialog, warning that all subscribed consumers will be affected, under an out-of-sync banner."><figcaption><p>Deploy API Product confirmation dialog</p></figcaption></figure>
 
