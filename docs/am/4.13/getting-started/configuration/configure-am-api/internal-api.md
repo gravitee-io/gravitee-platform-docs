@@ -81,4 +81,21 @@ Content-Type: application/json
 "mem": {
 ...
 }
-</code></pre></td></tr></tbody></table>
+</code></pre></td></tr><tr><td><code>POST /_node/dataplanes</code></td><td>Provisions a data plane while the node runs. The body carries the same settings as a <code>dataPlanes</code> entry of the <code>gravitee.yml</code>, with the connection settings in a <code>configuration</code> block. Returns <code>201 Created</code> with the definition, without its credentials, <code>400 Bad Request</code> when the definition is rejected, and <code>409 Conflict</code> when the identifier is already provisioned.</td><td><pre><code>HTTP/1.1 201 Created
+Content-Type: application/json
+{
+"id": "dataplane3",
+"name": "DataPlane_3",
+"type": "mongodb",
+"gatewayUrl": "https://my.dataplane3.io/",
+"organizationId": "DEFAULT",
+"environmentId": "DEFAULT",
+"database": "gravitee-am-dp3",
+"hosts": [ "my.dp3.mongodb.atlas:27017" ],
+"managedBy": "NONE",
+"createdAt": 1758990000000,
+"updatedAt": 1758990000000
+}
+</code></pre></td></tr><tr><td><code>GET /_node/dataplanes</code></td><td>Lists the provisioned data planes, without their credentials.</td><td><code>GET /_node/dataplanes</code></td></tr><tr><td><code>GET /_node/dataplanes/{id}</code></td><td>Gets one provisioned data plane, without its credentials. Returns <code>404 Not Found</code> for an unknown identifier.</td><td><code>GET /_node/dataplanes/dataplane3</code></td></tr><tr><td><code>DELETE /_node/dataplanes/{id}</code></td><td>Deletes a provisioned data plane. Returns <code>204 No Content</code>, <code>404 Not Found</code> for an unknown identifier, and <code>409 Conflict</code> while a security domain still uses it.</td><td><code>DELETE /_node/dataplanes/dataplane3</code></td></tr></tbody></table>
+
+The `/_node/dataplanes` endpoints add data planes without restarting the node. See [Configure Multiple Data Planes](../../install-and-upgrade-guides/configure-multiple-data-planes.md#provision-a-data-plane-at-runtime) for the definition they accept and what happens once a data plane is provisioned.

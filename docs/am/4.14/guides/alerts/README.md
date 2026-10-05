@@ -1,0 +1,26 @@
+---
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/alerts
+description: Set up alerting to warn of unusual or dangerous events on an Access Management 4.13 installation. Learn how alerts and Alert Engine fit together.
+---
+
+# Alerts
+
+## Overview
+
+You can put in place a system of alerting to warn of any unusual and potentially dangerous events on the Gravitee Access Management (AM) authorization server that may be of interest to administrators or monitoring services.
+
+AM integrates with the Alert Engine product, a notification system to deliver messages using channels such as SMTP, Webhooks or [Slack](https://slack.com/).
+
+Out of the box, some pre-defined alerts and notification systems (known as notifiers) are available to help you get started.
+
+### Alert Engine
+
+AM’s system of alerts and notifications is based on the Gravitee Alert Engine product.
+
+{% hint style="info" %}
+Alert Engine is a standalone module that needs to be configured and deployed before use. For more information, see the AE installation documentation.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/overview.png" alt="A diagram in which the API platform and backend services send events to the Alert Engine, which ingests, transforms, analyses, and notifies through email, Slack, and webhooks."><figcaption><p>Alert Engine diagram</p></figcaption></figure>

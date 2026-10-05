@@ -94,7 +94,7 @@ A top-level `system` value becomes the first message with the `system` role. Eac
 
 * A string content value is kept as-is.
 * An array of `text` blocks is joined into one string, with a newline between blocks.
-* A mixed content array keeps `text` blocks and converts `image` blocks to OpenAI `image_url` blocks using a base64 data URL. Unrecognized block types pass through unchanged.
+* A mixed content array keeps its `text` blocks. Its `image` and `document` blocks are handled by the entrypoint options of the proxy, which remove them by default. See [Configure LLM Proxy entrypoints](configure-llm-proxy-entrypoints.md#edit-the-entrypoint-options).
 
 On the way back, a Chat Completions response is converted to Anthropic Messages shape, and a response already in Anthropic shape passes through. The stop reason is mapped:
 
@@ -129,7 +129,7 @@ A body requires `contents`. The Gemini format allows additional fields, but the 
 Message handling:
 
 * Each entry in `contents` becomes a message. The `model` role becomes `assistant`, other roles are kept, and a missing role defaults to `user`.
-* Only `text` parts are read, and the text parts of a message are concatenated into one string. Non-text parts are not included.
+* Image, audio, video, and file parts, sent as inline data or file data, are read along with the text parts. The same entrypoint options decide what happens to them, and remove them by default.
 * The text parts of `systemInstruction` are concatenated into the first `system` message.
 
 Dropped fields include `tools`, `toolConfig`, `safetySettings`, `cachedContent`, and the `generationConfig` fields `topK`, `seed`, `candidateCount`, `responseMimeType`, `presencePenalty`, and `frequencyPenalty`.
@@ -152,7 +152,6 @@ For a `:streamGenerateContent` request, the streaming events aren't converted. T
 
 * The `/responses` conversion maps the first choice and text content only. Tool calls and structured outputs aren't converted.
 * A streaming `/responses` request passes the backend event stream through without converting it to Responses streaming events.
-* Gemini normalization reads `text` parts only. Inline data, file data, and function calls aren't sent to the backend.
 * Gemini has no passthrough, so unmapped fields are dropped.
 * Gemini streaming responses aren't converted to Gemini event format.
 * The converted Gemini response omits `usageMetadata.totalTokenCount`.

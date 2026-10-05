@@ -1,0 +1,34 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/managing-factors/alternative-methods
+description: When a user cannot use their primary Access Management 4.13 factor, an alternative method recovers access. Learn how signing in another way works.
+---
+
+# Alternative Methods
+
+## Overview
+
+If your users are unable to sign in to their account with their primary MFA factor, they can use an alternative verification method to recover access.
+
+{% hint style="info" %}
+To add an alternative verification method, your applications can use the [Self-service account management API.](../../user-management/self-service-account-management.md)
+{% endhint %}
+
+## Sign in another way
+
+1. Sign in to your account.
+2. In the **MFA Challenge** page, click **Having trouble ? Try other options**.
+
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-alternatives-step1.png" alt="The Multi-Factor Auth Verification page asking for the code from an authenticator app, with a link to try other options."><figcaption><p>MFA challenge page</p></figcaption></figure>
+
+3. Choose your alternative verification method and press **NEXT**.
+
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-alternatives-step2.png" alt="The Select a Multi-Factor Auth page offering a mobile app verification code or an email, with Email selected."><figcaption><p>Selective alternative MFA factor</p></figcaption></figure>
+
+4. Continue with the MFA verification process.
+
+{% hint style="info" %}
+You can change the look and feel of forms using [custom pages](../../branding/README.md#custom-pages).
+{% endhint %}

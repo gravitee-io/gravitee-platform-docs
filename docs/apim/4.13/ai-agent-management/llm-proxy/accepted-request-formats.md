@@ -92,7 +92,7 @@ A top-level `system` value becomes the first message with the `system` role. Eac
 
 * A string content value is kept as-is.
 * An array of `text` blocks is joined into a single string with a newline between blocks.
-* A mixed content array keeps `text` blocks and converts `image` blocks to OpenAI `image_url` blocks using a base64 data URL. Block types the LLM Proxy doesn't recognize are passed through unchanged.
+* A mixed content array keeps its `text` blocks. Its `image` and `document` blocks are handled by the **Images sent by the client** and **Files sent by the client** entrypoint options of the LLM Proxy, which remove them by default.
 
 When the response comes back, the LLM Proxy converts a Chat Completions response to Anthropic Messages shape. A response that's already in Anthropic shape is passed through. The stop reason is mapped from the backend finish reason:
 
@@ -129,7 +129,7 @@ The LLM Proxy maps these fields:
 Message handling:
 
 * Each entry in `contents` maps to a message. The `model` role becomes `assistant`. Other roles are kept, and a missing role defaults to `user`.
-* Only `text` parts are read. The text parts of a message are concatenated into a single string. Non-text parts aren't included.
+* Image, audio, video, and file parts, sent as inline data or file data, are read along with the text parts. The **Images sent by the client**, **Audio sent by the client**, **Video sent by the client**, and **Files sent by the client** entrypoint options decide what happens to them, and remove them by default.
 * The text parts of `systemInstruction` are concatenated into the first `system` message.
 
 Fields the LLM Proxy doesn't map are dropped and not sent to the backend. This includes `tools`, `toolConfig`, `safetySettings`, `cachedContent`, and the `generationConfig` fields `topK`, `seed`, `candidateCount`, `responseMimeType`, `presencePenalty`, and `frequencyPenalty`.
@@ -163,7 +163,6 @@ When the LLM Proxy is configured with `injectTokenHeaders` set to `true`, which 
 
 * The `/responses` conversion maps the first choice and text content only. Tool calls and structured outputs aren't converted.
 * For a `/responses` request with streaming, the event stream passes through from the backend and isn't converted to Responses streaming events.
-* Gemini normalization reads `text` parts only. Other part types, such as inline data, file data, and function calls, aren't sent to the backend.
 * Gemini has no passthrough. Unmapped Gemini fields, including `tools`, `toolConfig`, `safetySettings`, and most `generationConfig` fields, are dropped.
 * Gemini streaming responses aren't converted to Gemini event format. The client receives OpenAI Chat Completions stream events.
 * The Gemini converted response doesn't include `usageMetadata.totalTokenCount`.

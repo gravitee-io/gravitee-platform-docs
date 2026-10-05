@@ -46,7 +46,7 @@ The notification properties are values which have been sent or computed while pr
 | `request.user_agent.os_version`      | OS version of the user agent                                                                                 | ${notification.properties\['request.user\_agent.os\_version']}      | useragent |
 | `request.user_agent.browser_name`    | Browser name of the user agent                                                                               | ${notification.properties\['request.user\_agent.browser\_name']}    | useragent |
 | `request.user_agent.browser_version` | Browser version of the user agent                                                                            | ${notification.properties\['request.user\_agent.browser\_version']} | useragent |
-| `user`                               | Request user                                                                                                 | ${notification.properties\['user']}                                 | -         |
+| `user` | Request user. JWT and OAuth2 plans set it from the token's user claim, and the Basic Authentication and WS-Security Authentication policies set it from the username. API Key and Keyless plans don't set it, so on those plans it's empty unless one of these policies runs in the API's flows. | ${notification.properties\['user']}                                 | -         |
 | `api`                                | Request API                                                                                                  | ${notification.properties\['api']}                                  | -         |
 | `application`                        | Request application                                                                                          | ${notification.properties\['application']}                          | -         |
 | `plan`                               | Request plan                                                                                                 | ${notification.properties\['plan']}                                 | -         |
@@ -55,9 +55,9 @@ The notification properties are values which have been sent or computed while pr
 | `response.response_time`             | Response time                                                                                                | ${notification.properties\['response.response\_time']}              | -         |
 | `response.content_length`            | Response content length                                                                                      | ${notification.properties\['response.content\_length']}             | -         |
 | `response.upstream_response_time`    | Upstream response time (the time between the Gateway and the backend)                                        | ${notification.properties\['response.upstream\_response\_time']}    | -         |
-| `quota.counter`                      | Quota counter state                                                                                          | ${notification.properties\['quota.counter']}                        | -         |
-| `quota.limit`                        | Quota limit                                                                                                  | ${notification.properties\['quota.limit']}                          | -         |
-| `error.key`                          | Key for identify the root cause of error                                                                     | ${notification.properties\['error.key']}                            | -         |
+| `quota.counter` | Quota counter state. Only the Quota policy sets it. The Rate Limit policy doesn't. | ${notification.properties\['quota.counter']}                        | -         |
+| `quota.limit` | Quota limit. Only the Quota policy sets it, with the value of **Max requests (static)**, so it reads `0` when the policy uses **Max requests (dynamic)**. The Rate Limit policy doesn't set it. | ${notification.properties\['quota.limit']}                          | -         |
+| `error.key` | Key that identifies the root cause of an error the gateway records itself, for example a security or plan rejection, a policy interruption, a timeout, or a failed connection to the backend. It's never taken from the backend's HTTP status, so when the backend itself answers with a `4xx` or `5xx` status, `response.status` is set and `error.key` is empty. When a response template matches the error, `error.key` stays empty unless **Add template key to logs** is enabled on that template. The request's log details show the same key. | ${notification.properties\['error.key']}                            | -         |
 
 ### Data
 
@@ -91,8 +91,10 @@ For the `application`, you can access the following data:
 | `description`              | Application description                | ${application.description}              |
 | `status`                   | Application status                     | ${application.status}                   |
 | `type`                     | Application type                       | ${application.type}                     |
-| `primaryOwner.email`       | Application description                | ${application.primaryOwner.email}       |
-| `primaryOwner.displayName` | Application primary owner display name | ${application.primaryOwner.displayName} |
+| `owner.email`              | Application primary owner email address | ${application.owner.email}              |
+| `owner.displayName`        | Application primary owner display name | ${application.owner.displayName}        |
+
+These fields are only filled when the request comes through an application's subscription. On a Keyless plan, `${application.name}` reads `Unknown application (keyless)` and the other fields aren't set.
 
 #### Plan
 

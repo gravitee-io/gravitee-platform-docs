@@ -41,6 +41,7 @@ documentation.gravitee.io links for other versions.
 * New Developer Portal navigation pages fetch their content from external sources such as GitHub, GitLab, or an HTTP URL, on demand or on an auto-fetch schedule, and a repository import mirrors a whole documentation tree into a read-only folder.
 * Identity provider claims travel into dynamic client registration requests: list the claims to persist on the identity provider, map them to registration request fields on the client registration provider, and the registration provider receives tenant or user context for each application it registers.
 * A Kafka Topic Mapping entry that sets only one of `client` and `broker` becomes a rule that applies to any topic, with the `#topic` expression variable bound to the name being resolved, so one entry can prefix or strip a prefix across every topic.
+* The FIPS images move to a JDK 25 base, where `jks` and `pkcs12` keystores no longer load, so a FIPS deployment converts the Gateway's listener stores to `pem`, or to `bcfks` where a store is read from a file, before upgrading.
 
 ## Breaking Changes and deprecations
 
@@ -63,6 +64,10 @@ An environment now holds several subscription forms, and each form applies only 
 #### **Kafka Topic Mapping policy: A blank mapping field now defines a rule**
 
 A Kafka Topic Mapping entry that sets only one of `client` and `broker` is now a rule that applies to any topic. A field set to a blank string counts as absent. In 4.12 and earlier such an entry matched nothing and never applied. An entry left with a blank field therefore changes from inert to claiming every topic the client names. The configuration schema required both fields before 4.13.0, so an affected entry is one whose field was set to an empty string. Review every Kafka Topic Mapping policy for a blank `client` or `broker` before upgrading. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **FIPS images: JKS and PKCS12 keystores no longer load**
+
+The 4.13 FIPS images run on JDK 25, where `jks` and `pkcs12` stores don't load. Convert them before upgrading. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 ## New Features
 

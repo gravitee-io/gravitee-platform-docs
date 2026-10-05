@@ -144,3 +144,10 @@ analyze-and-monitor-apis/dashboards/creating-portal-analytics-dashboards.md
 .gitbook/assets/portal-settings-enable-mtls.png
 .gitbook/assets/portal-settings-saved.png
 .gitbook/assets/console-settings-new-developer-portal-open-website.png
+# LLM Proxy reads images, audio, video, and files and filters them per entrypoint option (APIM 4.13.0, AIAM-51)
+ai-agent-management/llm-proxy/accepted-request-formats.md
+# Kafka listener keystore types: the bcfks comment carries a 'from 4.12.19' qualifier on 4.12 only (FOUND-141)
+kafka-gateway/configure-the-kafka-client-and-gateway.md
+# API Products license tier: the 'Before APIM 4.12.10' note is on 4.12 only (DOC-1947)
+secure-and-expose-apis/api-products/manage-api-products-with-management-api.md
+secure-and-expose-apis/api-products/restrictions-and-licensing.md

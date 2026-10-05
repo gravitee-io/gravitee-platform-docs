@@ -32,7 +32,7 @@ Update an API Product by sending a PUT request to `/environments/{envId}/api-pro
 
 ## Deploy an API Product
 
-Deploy an API Product by sending a POST request to `/environments/{envId}/api-products/{id}/deployments`. Deployment requires an active Enterprise Universe tier license.
+Deploy an API Product by sending a POST request to `/environments/{envId}/api-products/{id}/deployments`. Deployment requires an active Enterprise license with the Planet, Galaxy, or Universe tier.
 
 To verify deployment readiness before deploying, send a GET request to `/environments/{envId}/api-products/{id}/deployments/_verify`. The response includes:
 
