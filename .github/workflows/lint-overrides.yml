@@ -12,6 +12,7 @@ on:
     paths:
       - 'docs/apim/4.13/**'
       - 'docs/am/4.13/**'
+      - 'docs/am/4.14/**'
       - 'docs/gko/4.13/**'
 
 jobs:
@@ -29,6 +30,9 @@ jobs:
           - product: am
             current: "4.12"
             next: "4.13"
+          - product: am
+            current: "4.13"
+            next: "4.14"
           - product: gko
             current: "4.12"
             next: "4.13"
