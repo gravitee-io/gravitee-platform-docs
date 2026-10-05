@@ -1,52 +1,76 @@
 ---
 hidden: false
 noIndex: false
-description: Copy an existing Kafka Service with a new name, version, and listener host prefix instead of rebuilding it. Follow the steps to duplicate one.
+description: Copy an existing Kafka Service in Event Stream Management with a new name, version, and listener host prefix instead of rebuilding it. Follow the steps to duplicate one.
 ---
 
-# Duplicate a Kafka service
+# Duplicate a Kafka Service
 
-When you operate several Kafka Services with a consistent configuration, duplicating an existing service is faster than creating each one with the wizard. The **Duplicate** action creates a new Kafka Service from the source service's configuration and prompts you for a name, a version, and a new listener host prefix.
+When you operate several Kafka Services with a consistent configuration, duplicating an existing one is faster than running the wizard again. The **Duplicate** action creates a new Kafka Service from the configuration of the source, under a new name, version, and listener host prefix.
 
 ## What the copy includes
 
-The duplicated Kafka Service reuses the following configuration from the source service:
+The duplicated Kafka Service reuses the following configuration of the source:
 
-* The description, visibility, tags, and groups.
-* The listener configuration, with the host prefix replaced by the value that you provide.
-* The endpoint binding that determines how the service reaches Kafka.
+* The description, the visibility, the tags, and the groups.
+* The listener, with the host prefix replaced by the value that you enter.
+* The endpoint groups and their endpoints, so the copy reaches the same cluster, Virtual Cluster, or brokers.
 
-The copy doesn't include the source service's labels, categories, plans, or policies. The new service is created in a stopped state, and you become its primary owner.
+The copy doesn't include the labels, categories, plans, flows, resources, properties, metadata, members, or reporter settings of the source. The new Kafka Service is created stopped.
 
 {% hint style="info" %}
-Configure a **Plan** for the new service before clients consume from or produce to it.
+The copy has no plan, so clients can't connect to it until you create and publish one. See [Manage plans](manage-plans.md).
 {% endhint %}
 
-## Duplicate the service
+## Duplicate the Kafka Service
 
-1. From the Gamma console sidebar, select **Event Stream Management**.
-2. Navigate to **Kafka Services**.
-3. Select the Kafka Service that you want to copy.
-4. In the service sidebar, select **General**.
-5. Select **Duplicate**.
+1. From the Gamma console, open **Event Stream Management**.
+2. In the **APIs** group of the sidebar, click **Kafka Services**.
+3. Click the name of the Kafka Service that you want to copy.
+4. In the **General** group of the Kafka Service sidebar, click **Settings**.
+5. Click **Duplicate**. The button appears only when you have permission to change the Kafka Service.
 6. In the **Duplicate Kafka Service** dialog, complete the following fields:
 
-| Field           | Description                                                                                                                                                                                                                                                     |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Name**        | The name of the new service. Pre-filled with the source service's name followed by `(copy)`.                                                                                                                                                                     |
-| **Version**     | The version of the new service. Pre-filled with the source service's version.                                                                                                                                                                                    |
-| **Host prefix** | The listener host prefix of the new service. A single DNS label of lowercase letters, digits, and hyphens, up to 49 characters. Enter a prefix that isn't in use by any other API in the environment. The source service's own prefix counts as already in use. |
+<table>
+    <thead>
+        <tr>
+            <th width="160">Field</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Name</strong></td>
+            <td>Required. Pre-filled with the name of the source followed by <code>(copy)</code>.</td>
+        </tr>
+        <tr>
+            <td><strong>Version</strong></td>
+            <td>Required. Pre-filled with the version of the source.</td>
+        </tr>
+        <tr>
+            <td><strong>Host prefix</strong></td>
+            <td>Required. Empty when the dialog opens. The same format rules as at creation apply: lowercase letters, digits, hyphens, and underscores, with dots to separate labels, a first label of at most 49 characters, and at most 241 characters in all. Enter a prefix that no other API in the environment uses. The host prefix of the source, shown under the field, is already in use.</td>
+        </tr>
+    </tbody>
+</table>
 
-7. Select **Duplicate**.
+7. Click **Duplicate**.
 
-The console creates the new Kafka Service and redirects you to its overview page.
+The console confirms with **Kafka Service duplicated** and opens the **Overview** page of the new Kafka Service.
 
-If the host prefix is already in use, the service isn't created and the dialog shows the error message. Enter a different prefix and select **Duplicate** again.
+The dialog checks the format of the host prefix while you type, but not whether another API uses it. When the host prefix is in use, the Management API refuses the copy, and the dialog shows the reason. Enter another prefix, then click **Duplicate** again.
+
+## Verification
+
+To verify the copy, follow these steps:
+
+1. Open the **Kafka Services** list, and check that the new Kafka Service is listed with its own listener host.
+2. Open the new Kafka Service, and check its **Entrypoint** and **Endpoints** pages.
 
 ## Next steps
 
-After duplicating the service, prepare the copy to serve traffic:
+After duplicating the Kafka Service, prepare the copy to serve traffic:
 
-* Configure a **Plan** to allow clients to consume from or produce to the new service. See [Create a Kafka service with a registered cluster](create-a-kafka-service-with-a-registered-cluster.md).
-* Review the endpoint binding from the service's **Configuration** page if the new service targets different backend infrastructure.
-* Start the service from its **General** page when it's ready to accept connections.
+* Create and publish a plan. See [Manage plans](manage-plans.md).
+* Review the endpoint binding on the **Endpoints** page if the copy targets other Kafka infrastructure. See [Configure endpoints](configure-endpoints.md).
+* Start the Kafka Service from its **Settings** page when it's ready to accept connections. See [Manage general settings](manage-general-settings.md).
