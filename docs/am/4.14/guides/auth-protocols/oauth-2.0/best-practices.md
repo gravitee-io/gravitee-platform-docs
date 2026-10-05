@@ -1,0 +1,21 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/oauth-2.0/best-practices
+description: Security recommendations from the OAuth 2.0 Best Current Practice, applied to Access Management 4.13 clients and servers. Learn what to change.
+---
+
+# Best Practices
+
+The [OAuth 2.0 Security Best Current Practice](https://tools.ietf.org/html/draft-ietf-oauth-security-topics) describes security requirements and other recommendations for clients and servers implementing OAuth 2.0.
+
+We recommend you note the following points:
+
+* **Use HTTPs**: communicate with AM server over HTTPs all the way.
+* **Token expiration**: use short-lived access tokens (a couple of minutes) to limit the risk of leaked access tokens.
+* **Force PKCE**: PKCE must be used for SPA and mobile/native applications.
+* **DPoP-bound access tokens**: bind access tokens to a key held by the client, so a stolen token can't be replayed without the private key. See [Demonstrating Proof of Possession (DPoP)](demonstrating-proof-of-possession-dpop.md).
+* **Restrict data payload**: tokens can be easily decoded and propagated to multiple layers, so add the minimum information to the payload.
+* **Set up callbacks**: configure application callbacks to avoid open redirection attacks.
+* **Privilege restriction**: limit the use of OAuth 2.0 scopes to strictly match application actions.
