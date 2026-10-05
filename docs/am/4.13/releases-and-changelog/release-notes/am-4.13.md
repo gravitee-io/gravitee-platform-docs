@@ -56,3 +56,29 @@
 * Data planes registered through the Management API internal API are reached with the `id:` prefix, and an update by `id:` doesn't add them to the Automation API list.
 * A domain `PUT` that updates a security domain no longer requires `dataPlaneId`, and one that names a different data plane is rejected with `400`. See [Breaking Changes for Access Management](../../getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md).
 * The `ORGANIZATION_OWNER`, `ORGANIZATION_PRIMARY_OWNER`, `ENVIRONMENT_OWNER`, and `ENVIRONMENT_PRIMARY_OWNER` roles, which listed and read data planes before, now also register, update, and delete them. See [Automation API](../../guides/automation-api.md#manage-data-planes).
+
+#### **Data planes provisioned at runtime**
+
+* A data plane can be added while the Management API runs, by posting its definition to the `/_node/dataplanes` endpoint of the Management API internal API. Every Management API node loads it without a restart, and loads it again after one. Its `id` can't be `default` or an identifier already declared in `gravitee.yml`, and the response never returns the credentials.
+* A provisioned data plane is offered in the **Data Plane** list when a security domain is created in its environment. Before the first domain is created on it, the Management API checks that the store answers with the settings it was provisioned with, and rejects the domain when it doesn't. The data planes declared in `gravitee.yml` aren't checked. The new `dataPlaneVerification` properties control the check.
+* `GET /_node/dataplanes` lists the provisioned data planes and `DELETE /_node/dataplanes/{id}` removes one, once no security domain uses it. The new `DATA_PLANE_CREATED`, `DATA_PLANE_UPDATED`, and `DATA_PLANE_DELETED` audit events record every change.
+* A security domain created without a `dataPlaneId` is assigned to `default` when `default` is the only data plane the node declares and none has been provisioned for the environment. AM Console shows the identifier beside each data plane name.
+* Deleting a security domain now purges everything it holds in its data plane, including users, groups, WebAuthn credentials, devices, login attempts, password history, consents, UMA resources, and user activity, and the deletion still completes when the data plane can't be reached. See [Configure Multiple Data Planes](../../getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md#provision-a-data-plane-at-runtime).
+
+#### **Identity provider storage on the system cluster**
+
+* The new `repositories.system-cluster-restricted` property in the Management API `gravitee.yml` lets the platform own where a MongoDB identity provider created with **Use System Cluster** stores its users: the database is the one the node serving the provider reads, and the collection is named after the provider. Under this rule, those settings and the **Use System Cluster** toggle of every MongoDB identity provider can't be changed after creation. Gravitee-managed deployments always apply it.
+* The default identity provider created with a security domain now relies on the system cluster instead of carrying its own copy of the management connection settings, and reuses the security domain's data plane when `repositories.system-cluster` is `gateway`. The new `domains.identities.default.useSystemCluster` property turns that off on a self-hosted installation. See [MongoDB](../../guides/identity-providers/database-identity-providers/mongodb.md#store-users-on-the-system-cluster) and [Repositories & Data Plane](../../getting-started/configuration/configure-repositories.md#system-cluster).
+
+
+{% hint style="info" %}
+Known limitation: default identity provider and mixed-version deployments
+
+A default identity provider created by Gravitee AM 4.13 or later cannot be used by gateways running a version earlier than 4.13 when `repositories.system-cluster` is `gateway`. This affects multi data plane deployments where `repositories.system-cluster` is set to gateway.
+
+From 4.13, the Management API stores the management database name in the default identity provider's configuration. Gateways before 4.13 read database settings based on the management scope settings, so they look for the users in the wrong database. Gateways from 4.13 replace it at runtime with the database of the data plane, so they are not affected.
+
+Default identity providers created before 4.13 are not affected.
+
+During a rolling upgrade, upgrade all gateways to 4.13 or later before creating new domains, or do not rely on the default identity provider of domains created in the meantime.
+{% endhint %}
