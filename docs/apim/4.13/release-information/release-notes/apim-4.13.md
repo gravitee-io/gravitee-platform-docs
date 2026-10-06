@@ -42,6 +42,7 @@ documentation.gravitee.io links for other versions.
 * Identity provider claims travel into dynamic client registration requests: list the claims to persist on the identity provider, map them to registration request fields on the client registration provider, and the registration provider receives tenant or user context for each application it registers.
 * A Kafka Topic Mapping entry that sets only one of `client` and `broker` becomes a rule that applies to any topic, with the `#topic` expression variable bound to the name being resolved, so one entry can prefix or strip a prefix across every topic.
 * The FIPS images move to a JDK 25 base, where `jks` and `pkcs12` keystores no longer load, so a FIPS deployment converts the Gateway's listener stores to `pem`, or to `bcfks` where a store is read from a file, before upgrading.
+* SAP Business Technology Platform joins the federation providers: an agent ingests the API proxies of SAP API Management with their OpenAPI specification and documentation, turns the subscribable SAP products into plans, and creates approved Gravitee subscriptions in the SAP Developer Hub.
 
 ## Breaking Changes and deprecations
 
@@ -177,6 +178,15 @@ Version 3.0.0 of the Inline Authentication Provider resource evaluates the usern
 * Rules resolve the same way in `ALIAS` mode. A topic a broker-to-client rule renames is listed under both names, each with its own topic ID.
 * An entry that sets neither field, or references `#topic` in both, is rejected when the policy is created, and the message names the entry by its position in the list.
 * For more information, see [Kafka Topic Mapping](../../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md).
+
+#### **SAP Business Technology Platform federation**
+
+* Federate the APIs of SAP API Management on SAP Business Technology Platform. Create an integration with the **SAP Business Technology Platform** provider in the APIM Console, and run its agent with a service key for the SAP API portal and one for the SAP Developer Hub.
+* Each API proxy of the API portal becomes a federated API, with its OpenAPI specification and a page of its SAP documentation. Each version of an SAP API is a federated API of its own.
+* Each product that the Developer Hub marks as subscribable becomes a plan on every API it contains: an OAuth2 plan for a product of External OAuth APIs, and an API Key plan for the others.
+* An approved subscription to an API Key plan creates an SAP application for the Gravitee application in the Developer Hub, and the consumer receives the SAP application key as the API key. Closing a subscription removes only its own access in SAP.
+* The agent requires the Developer Hub to approve subscriptions automatically. When SAP waits for its own approval, the agent rejects the Gravitee subscription.
+* For more information, see [SAP Business Technology Platform](../../govern-apis/federation/3rd-party-providers/sap-api-management.md).
 
 ## Improvements
 
