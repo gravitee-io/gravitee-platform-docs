@@ -91,6 +91,7 @@ noIndex: false
 **Portal**
 
 * Sorting bug in the Portal API /apis/_search endpoint [#11830](https://github.com/gravitee-io/issues/issues/11830)
+* New Developer Portal: Markdown anchor links redirect to the homepage instead of scrolling to the section [#11840](https://github.com/gravitee-io/issues/issues/11840)
 
 **Other**
 
