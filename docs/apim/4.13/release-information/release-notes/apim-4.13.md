@@ -40,16 +40,34 @@ documentation.gravitee.io links for other versions.
 * API Products reach the New Developer Portal: publish an API Product in the portal navigation with its APIs and documentation, and consumers discover it in the catalog, subscribe to it, and manage the subscription that covers every API it includes.
 * New Developer Portal navigation pages fetch their content from external sources such as GitHub, GitLab, or an HTTP URL, on demand or on an auto-fetch schedule, and a repository import mirrors a whole documentation tree into a read-only folder.
 * Identity provider claims travel into dynamic client registration requests: list the claims to persist on the identity provider, map them to registration request fields on the client registration provider, and the registration provider receives tenant or user context for each application it registers.
+* A Kafka Topic Mapping entry that sets only one of `client` and `broker` becomes a rule that applies to any topic, with the `#topic` expression variable bound to the name being resolved, so one entry can prefix or strip a prefix across every topic.
+* The FIPS images move to a JDK 25 base, where `jks` and `pkcs12` keystores no longer load, so a FIPS deployment converts the Gateway's listener stores to `pem`, or to `bcfks` where a store is read from a file, before upgrading.
 
 ## Breaking Changes and deprecations
 
 #### **The Gateway resolves the request path before it routes**
 
-The `http.pathHandling` Gateway setting now defaults to `NORMALIZE`. In 4.12 and earlier the default was `RAW`. A deployment that upgrades without changing its configuration resolves request paths before it resolves the listener context path, and therefore before it enforces any plan. A request carrying dot segments is routed on the resolved path, so it can reach a different API than it did before. Percent-encoded unreserved characters are decoded, duplicate slashes are merged, and a malformed percent sequence is answered with `400`. Encoded slashes are never decoded. Set `http.pathHandling: RAW` to restore the previous behavior, which also restores a known authorization bypass, or `http.pathHandling: REJECT` to close the exposure without changing any routing decision. For the upgrade checklist and the limits of each mode, see [Request Path Handling](../../configure-and-manage-the-platform/gravitee-gateway/request-path-handling/README.md). For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+The `http.pathHandling` Gateway setting now defaults to `NORMALIZE`. In 4.12 and earlier the default was `RAW`. A deployment that upgrades without changing its configuration resolves request paths before it resolves the listener context path, and therefore before it enforces any plan. A request carrying dot segments is routed on the resolved path, so it can reach a different API than it did before. Percent-encoded unreserved characters are decoded, duplicate slashes are merged, and a malformed `%` sequence is answered with `400`. Encoded slashes are never decoded. Set `http.pathHandling: RAW` to restore the previous behavior, which also restores a known authorization bypass, or `http.pathHandling: REJECT` to close the exposure without changing any routing decision. For the upgrade checklist and the limits of each mode, see [Request Path Handling](../../configure-and-manage-the-platform/gravitee-gateway/request-path-handling/README.md). For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 #### **Management API v1 plan endpoints reject V4, Federated, and Federated Agent APIs**
 
 The plan endpoints of the legacy Management API v1 no longer accept V4, Federated, and Federated Agent APIs. Every plan operation for one of these APIs returns HTTP `400`. The error message names the API's definition version and points to the Management API v2 plan endpoints. Previously, these endpoints didn't check the API's definition version. Read operations for these APIs could fail with HTTP `500` or behave inconsistently, and write operations, for example creating or deleting a plan, could succeed. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Kafka Topic Mapping policy: Invalid mapping entries now stop an API from deploying**
+
+The Kafka Topic Mapping policy now checks its mapping entries when the API is deployed, where 4.12 and earlier checked nothing. An API that deploys today can fail to deploy after the upgrade. Four kinds of entry are refused. An entry that sets neither `client` nor `broker`. An entry whose plain name Kafka wouldn't accept as a topic name. An entry that references `#topic` in both fields. And two entries whose plain `broker` values are equal, or whose plain `client` values are equal. The last is the likeliest to appear in a configuration that works today. Review every Kafka Topic Mapping policy against those four cases before upgrading. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Subscription forms apply only to the APIs they're assigned to**
+
+An environment now holds several subscription forms, and each form applies only to the APIs assigned to it. On the first Management API startup after the upgrade, the existing form of each environment is named **Global Default Form**. If it was visible, it's assigned to every API of the environment. If it was hidden, it's assigned to no API. An API created after the upgrade has no subscription form until you assign it to one, where previously the environment's form applied to every API. New environments start with no subscription form. The Management API v2 `GET /subscription-forms` endpoint now returns a list of forms, and `PUT /subscription-forms/{subscriptionFormId}` requires `name`, `gmdContent`, and `apiIds`. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Kafka Topic Mapping policy: A blank mapping field now defines a rule**
+
+A Kafka Topic Mapping entry that sets only one of `client` and `broker` is now a rule that applies to any topic. A field set to a blank string counts as absent. In 4.12 and earlier such an entry matched nothing and never applied. An entry left with a blank field therefore changes from inert to claiming every topic the client names. The configuration schema required both fields before 4.13.0, so an affected entry is one whose field was set to an empty string. Review every Kafka Topic Mapping policy for a blank `client` or `broker` before upgrading. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **FIPS images: JKS and PKCS12 keystores no longer load**
+
+The 4.13 FIPS images run on JDK 25, where `jks` and `pkcs12` stores don't load. Convert them before upgrading. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 ## New Features
 
@@ -75,6 +93,15 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * The thumbprints are computed from the DER-encoded signing certificate resolved by the configured key resolver (`INLINE`, `PEM`, `JKS`, or `PKCS12`). The options apply to RS256 signatures only, and the Console disables them when an HMAC signature is selected.
 * If a thumbprint option is enabled and no certificate matching the signing key is available, the policy rejects requests with HTTP `500` instead of issuing a token without the header.
 * For more information, see [Generate JWT](../../create-and-configure-apis/apply-policies/policy-reference/generate-jwt.md).
+
+#### **Multiple subscription forms in the New Developer Portal**
+
+* Create several subscription forms per environment, and assign each form to the APIs it applies to. An API is assigned to one form at most. Consumers see the form assigned to the API they subscribe to, and an API without an assigned form has no subscription form.
+* Manage forms from **Subscription Form** in the portal settings. The **Subscription Forms** list shows every form with a **Visible** toggle, and **Add** creates a form from a starter template. Each form carries a name that's unique in the environment.
+* Choose a form's APIs with **Assign APIs**. An API already assigned to another form can't be selected.
+* A new form is hidden until you turn on its **Visible** toggle. Deleting a form leaves its APIs without a subscription form, and deleting an API removes it from its form.
+* The Management API v2 adds endpoints to create, retrieve, and delete a form, and to retrieve the starter template.
+* For more information, see [Creating and managing subscription forms](../../secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms.md).
 
 #### **Categories in the New Developer Portal catalog**
 
@@ -103,7 +130,15 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * Every addition carries a default implementation (`UNKNOWN` type, empty results), so an existing provider compiled against contract version `1.0.1` compiles and runs unchanged, and a registry that doesn't support these lookups returns the defaults.
 * The Confluent Schema Registry resource implements the new surface from plugin version `5.1.0`, bundled with APIM 4.13. For more information, see [Implement a schema registry provider](../../plugins/customization/schema-registry-provider.md).
 
-#### **Kafka Gateway: broker addressing for Virtual Clusters**
+#### **Gamma modules on a JDBC management repository**
+
+* A Gamma module that stores data now runs on the same JDBC management repository as APIM, so an installation standardized on PostgreSQL, MariaDB, MySQL, or Microsoft SQL Server no longer keeps MongoDB alongside it for Gamma's own persistence. The module reads `management.type` and loads its MongoDB or its JDBC persistence accordingly, with `repositories.management.type` accepted as a fallback spelling.
+* Each module keeps its migration history in its own tracking tables, `{prefix}<id>_databasechangelog` and `{prefix}<id>_databasechangeloglock`, so a module's migration never touches APIM's own, and isn't touched by it.
+* Event Stream Management stores the saved Kafka Explorer connections in one table, `{prefix}kafka_explorer_connections`, created at startup on JDBC.
+* An installation that sets `management.jdbc.liquibase` to `false` applies each module's migrations itself. They ship in one archive published with the release, alongside APIM's own. A module whose migration was skipped still starts, and its pages then report the missing table and the setting that skipped it rather than a bare error.
+* For more information, see [Apply schema migrations manually](../../prepare-a-production-environment/repositories/apply-schema-migrations-manually.md).
+
+#### **Kafka Gateway: Broker addressing for Virtual Clusters**
 
 * A Virtual Cluster rewrites broker IDs so they stay unique across its backends, which means the hostnames clients resolve are not the ones a single-backend deployment used. `gateway.kafka.routingHostMode.virtualClusterBrokerDomainPattern` sets the broker domain pattern for Kafka APIs backed by a Virtual Cluster only, so adopting one no longer moves the DNS records and certificate SANs of every other Kafka API on the same Gateway. It is optional: left unset, Virtual Clusters keep following `brokerDomainPattern`, and both defaults are unchanged.
 * Two placeholders come with it, usable in either pattern: `{realBrokerId}`, the broker ID as configured on the backend, and `{clusterIndex}`, the backend's zero-based position in the Virtual Cluster. Together they let a hostname keep your own broker numbering instead of the rewritten IDs. A Virtual Cluster pattern must still tell the backends apart — through `{brokerId}`, which encodes the backend, or through `{clusterIndex}` alongside `{realBrokerId}` — and the Gateway now refuses to deploy a pattern that cannot, rather than routing to the wrong backend silently.
@@ -128,6 +163,16 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * Each login replaces the stored claims. Removing a claim from the list, or emptying it, removes the corresponding stored values at the user's next login. The stored claims aren't exposed by the Management API or the Portal API.
 * Both settings are also available through the Management API, as the `persistedClaimsWhitelist` array of the identity provider and the `claim_mappings` object of the client registration provider. An update that omits the field keeps the stored value.
 * For more information, see [Inject identity provider claims into DCR requests](../../configure-and-manage-the-platform/manage-organizations-and-environments/inject-identity-provider-claims-into-dcr-requests.md).
+
+#### **Kafka Topic Mapping: Dynamic rules with the `#topic` variable**
+
+* A mapping entry that sets only one of `client` and `broker` becomes a rule that applies to any topic, instead of the exact pair the policy has always required. The `#topic` expression variable carries the name the rule is resolving, so one entry can prefix, strip, or rewrite every topic without listing them.
+* Setting only `broker` makes a client-to-broker rule, with `#topic` bound to the client-side name. `{"broker": "dev-{#topic}"}` sends a client asking for `orders` to `dev-orders`.
+* Setting only `client` makes a broker-to-client rule, with `#topic` bound to the broker-side name, applied to broker topics in an all-topics listing. A rule whose expression returns null or a blank string opts out of that topic.
+* Exact pairs still win over rules, and among rules the declaration order decides. A topic resolves once per connection and keeps that result for the connection's lifetime.
+* Rules resolve the same way in `ALIAS` mode. A topic a broker-to-client rule renames is listed under both names, each with its own topic ID.
+* An entry that sets neither field, or references `#topic` in both, is rejected when the policy is created, and the message names the entry by its position in the list.
+* For more information, see [Kafka Topic Mapping](../../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md).
 
 ## Improvements
 
@@ -160,3 +205,38 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 * Only the provider's error code is passed on. The token exchange no longer relays the provider's raw response body to the caller.
 * Through the Management API, the setting is the `tokenEndpointAuthMethod` key of the provider's `configuration` object. It can't be declared under `security.providers` in `gravitee.yml`.
 * For more information, see [Choose how APIM authenticates to the identity provider](../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md#choose-how-apim-authenticates-to-the-identity-provider).
+
+#### **AI Model Text Embedding resource: Expression Language and secrets in the API key and header values**
+
+* The `apiKey` of the OpenAI provider and the value of each HTTP provider header now take Gravitee Expression Language, including `{#secrets.get('...')}` secret references, so a credential no longer sits in the API definition as plain text.
+* The Gateway resolves these expressions when it starts the resource, which it does when the API is deployed. An expression reads an API property or a dictionary entry of the environment. The deployment context holds nothing from a request, and a new value in a property or a dictionary reaches the resource at the next deployment of the API.
+* Only the value of a header takes an expression. The header name is sent as entered.
+* The change ships in AI Model Text Embedding 2.0.0, which APIM bundles from 4.11.26, 4.12.18, and 4.13.0 onward. The configuration format is unchanged, so an existing resource keeps working as it is.
+* For more information, see [AI Resources](../../ai-agent-management/AI-resources/README.md).
+
+#### **Documentation from private Git repositories**
+
+* Documentation pages that import from **Git** now have **Username** and **Password or access token** fields, so Classic Developer Portal documentation can come from a private repository. Leave both empty for a public repository.
+* After you save, the password or token is masked, and auto-fetch keeps using it.
+* The change ships in Git fetcher 3.1.0, which APIM bundles from 4.9.36, 4.10.32, 4.11.29, 4.12.21, and 4.13.0 onward.
+* For more information, see [API Documentation](../../developer-portal/classic-developer-portal/api-documentation.md).
+
+#### **New Developer Portal: A Settings page in the Portal Settings**
+
+* The Portal Settings gain a **Settings** page, so you configure the New Developer Portal from the Portal Settings. It holds the API key header, the permitted Kafka SASL mechanisms, the Portal URL, the registration settings, and the default OpenAPI viewer. With an Enterprise license, it also holds the **Portal capabilities** and **Application membership** sections.
+* **Enable mTLS Certificate Management**, **Enable Analytics**, **Approximate spelling for API search**, and the three application membership toggles move from the **New Developer Portal** section of the Console **Settings** page to the new page. That section keeps **Enable the New Developer Portal**, **Open Website**, and **Open Settings**, and **Open Settings** now opens the new page.
+* The API key header, the Portal URL, the registration settings, and the default OpenAPI viewer stay on the Console **Settings** page too. Both pages change the same values, and the values you set before the upgrade don't change.
+* The **API** entry of the Portal Settings is removed. Its API key header and Kafka SASL mechanisms settings are on the new page, and its **API Details** list stays under **API Portal Information** in the Console **Settings**.
+* For more information, see [Configure New Developer Portal settings](../../developer-portal/new-developer-portal/configure-new-developer-portal-settings.md).
+
+#### **New Developer Portal: An Authentication page in the Portal Settings**
+
+* The Portal Settings gain an **Authentication** page. It holds **Force authentication to access portal**, **Show login form on portal**, and the list of identity providers to activate for the portal.
+* The **Authentication** page in the **Portal** section of the Console **Settings** stays. Both pages change the same settings.
+* For more information, see [Enforce User Authentication](../../developer-portal/new-developer-portal/configure-authentication/enforce-user-authentication.md) and [Configure authentication with SSO](../../developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-sso.md).
+
+#### **New Developer Portal: The navigation tree starts collapsed**
+
+* The navigation tree of the portal now starts with its folders, APIs, and API Products collapsed, except the ones that lead to the page it opens. Previously, every branch started expanded.
+* When a consumer opens an API or API Product from the catalog, the tree expands that API or API Product and keeps the other branches collapsed.
+* For more information, see [Manage Portal Navigation and APIs](../../developer-portal/new-developer-portal/customize-the-navigation.md#developer-portal-view).

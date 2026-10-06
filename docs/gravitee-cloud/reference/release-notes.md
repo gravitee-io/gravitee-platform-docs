@@ -6,6 +6,32 @@ description: New features in each Gravitee Cloud release, listed newest first by
 
 This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:
 
+## September 2026
+
+<details>
+
+<summary>23rd September</summary>
+
+**OpenTelemetry reporter for Gravitee Hosted Gateways**
+
+You can now create an OpenTelemetry reporter in Gravitee Cloud and link it to your Gravitee Hosted Gateways. The reporter sends traces, and optionally request and response logs, to your own OpenTelemetry collector over gRPC or HTTP. Optional headers, extra attributes, TLS, and a proxy are available for the traces. Each v4 API opts in to OpenTelemetry in its own settings in APIM.
+
+For more information about how to create an OpenTelemetry reporter, see [Create an OpenTelemetry reporter](../guides/configure-custom-reporters/create-an-opentelemetry-reporter.md).
+
+</details>
+
+<details>
+
+<summary>14th September</summary>
+
+**Datadog reporter for Gravitee Hosted Gateways**
+
+You can now create a Datadog reporter in Gravitee Cloud and link it to your Gravitee Hosted Gateways. The reporter sends the logs and metrics that you select to your Datadog site, with optional custom tags and an optional proxy. Activate, deactivate, update, or delete the reporter from the **Custom Reporters** settings, and check its deployment status for each Gateway.
+
+For more information about how to create a Datadog reporter, see [Create a Datadog reporter](../guides/configure-custom-reporters/create-a-datadog-reporter.md).
+
+</details>
+
 ## August 2026
 
 <details>

@@ -68,11 +68,11 @@ To create a Common flow, complete the following steps:
 
 1. Within your API's Policy Studio, navigate to **Common flows**, and then click the plus button.
 
-   <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ex-52.png" alt=""><figcaption></figcaption></figure>
+   <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ex-52.png" alt="A collapsed Common flows bar with a plus icon to add a flow."><figcaption></figcaption></figure>
 2. Name the flow. For example,JSON Request?
 3. Specify the required condition. For example, `{#request.headers['Content-Type'][0] == 'application/json'}`.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ex-53.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ex-53.png" alt="The Edit flow dialog, with a flow name, a starts-with path operator, all methods selected, and a condition matching a JSON content type." width="375"><figcaption></figcaption></figure>
 
 ## Transforming the payload
 

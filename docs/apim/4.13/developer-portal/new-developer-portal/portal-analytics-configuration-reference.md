@@ -14,9 +14,10 @@ Before using portal analytics dashboards, make sure these conditions are met:
 
 ## Enable analytics in the Console
 
-1. From the **Settings** menu, navigate to the **Portal** section, and then click **Settings**.
-2. In the **New Developer Portal** card, turn on **Enable Analytics**.
-3. Click **Save**.
+1. In the Console sidebar, click **Portal Settings**. The Portal Settings open in a new browser tab.
+2. Click **Settings**.
+3. In the **Portal capabilities** section, turn on **Enable Analytics**.
+4. Click **Save**.
 
 This sets the `portal.next.analytics.enabled` environment parameter to `true`. The New Developer Portal reads the same value (surfaced as `portalNext.analytics.enabled` in the portal configuration) to show the **Analytics** navigation entry and route guards, so this single parameter controls both the Portal API and the UI.
 

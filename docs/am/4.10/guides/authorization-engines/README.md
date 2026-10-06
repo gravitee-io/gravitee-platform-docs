@@ -81,4 +81,4 @@ To manage Authorization Engines in a domain, the following permissions are requi
    1. AM returns a decision (`allow` or `deny`).
    2. The MCP Server enforces the decision before executing the operation.
 
-<figure><img src="../../../4.10/.gitbook/assets/auth-eng.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/auth-eng.jpg" alt="A sequence diagram of an authorization flow with the MCP server as policy enforcement point: the user&#x27;s action passes from the MCP client to the MCP server, which sends an AuthZen authorization query through AM to the Authorization Engine acting as policy decision point, and on allow the operation runs and returns a result while on deny access is refused."><figcaption></figcaption></figure>

@@ -185,6 +185,8 @@ The JDBC repository creates the following tables automatically via Liquibase on 
 
 <table><thead><tr><th width="200">Table</th><th>Purpose</th><th>Notes</th></tr></thead><tbody><tr><td><code>tokenbucket</code></td><td>Token-bucket rate-limit state</td><td>Created automatically by Liquibase. Respects <code>ratelimit.jdbc.prefix</code> configuration. Has no native row TTL—rows persist until purged externally. For high-cardinality keyspaces (per-subscription/per-resource), the table grows with the number of distinct keys ever seen.</td></tr></tbody></table>
 
+Each Gamma module that stores data adds its own tables to the same database. A module runs its own Liquibase migration and tracks it in its own tables rather than APIM's, so the tables above aren't the whole schema on an installation that runs Gamma modules. See [Apply schema migrations manually](apply-schema-migrations-manually.md).
+
 ## Gravitee Helm chart JDBC configuration details
 
 {% hint style="info" %}
@@ -372,6 +374,8 @@ If you are migrating an existing installation, follow these steps:
 4. Rename your tables using format `prefix_tablename`.
 5. Rename your indexes using format `idx_prefix_indexname`.
 6. Rename your primary keys using format `pk_prefix_pkname`.
+
+Running the application in step 2 also generates a tracking table for each Gamma module that stores data, named `prefix_<id>_databasechangelog`, alongside that module's own tables, indexes, and primary keys. Apply steps 3 through 6 to those too. See [Apply schema migrations manually](apply-schema-migrations-manually.md).
 
 ### Database enforcing use of primary key on all tables
 

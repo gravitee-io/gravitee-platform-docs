@@ -124,11 +124,11 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid component management
 
-<figure><img src="../.gitbook/assets/hybrid-component-management.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/hybrid-component-management.png" alt="A diagram splitting the platform into a Gravitee-managed control plane holding Cloud, the console, portal, databases, SaaS gateways, and the alert engine, and a customer-managed data plane holding the gateway and its rate limit and cache storage."><figcaption></figcaption></figure>
 
 ### Hybrid architecture diagram
 
-<figure><img src="../.gitbook/assets/GraviteeAPIM-Hybrid-Architecture-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/GraviteeAPIM-Hybrid-Architecture-2.png" alt="A hybrid architecture diagram, with a customer-hosted data plane of load-balanced gateways, backend services, Redis, and a secret manager on the left, connected over HTTPS through CloudGate to a Gravitee-managed control plane of databases, the management API, consoles, and identity and access management on the right."><figcaption></figcaption></figure>
 
 In a typical hybrid architecture, the customer manages the Data Plane and Gravitee manages the Control Plane.
 

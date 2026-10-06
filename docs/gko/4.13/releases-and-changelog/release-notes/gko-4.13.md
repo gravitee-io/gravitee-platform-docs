@@ -12,6 +12,7 @@ This page describes the new features and breaking changes introduced in GKO 4.13
 * The Kubernetes Gateway API implementation is upgraded to Gateway API v1.6.1, and GKO is listed upstream as a conformant implementation.
 * A Gateway serves several domains on the same port, each with its own TLS certificate, using Server Name Indication (SNI).
 * HTTPRoute resources support method matching, host rewrite, backend request header modification, and H2C backends.
+* Drift detection checks an update to a resource against the resource's current state in APIM, so a change made in APIM isn't replaced without notice.
 
 {% hint style="info" %}
 The Gateway API updates listed on this page are also available in GKO 4.12 starting with version 4.12.11.
@@ -27,7 +28,7 @@ In earlier releases, GKO ignored the `spec.infrastructure.parametersRef` field o
 
 ## New features
 
-The following features extend the Kubernetes Gateway API support in GKO.
+The following features extend the Kubernetes Gateway API support in GKO, and add drift detection for the resources that GKO manages in APIM.
 
 #### Gateway API v1.6.1
 
@@ -52,3 +53,9 @@ The `gatewayAPI.controller.matchAcrossRoutes` Helm option merges HTTPRoute resou
 #### Gateway infrastructure metadata
 
 Labels and annotations set under `spec.infrastructure` of a `Gateway` resource propagate to the Kubernetes resources GKO creates for the Gateway deployment.
+
+#### Drift detection
+
+When you update a resource, GKO can compare it with the resource's current state in APIM, and report the fields that were changed in APIM outside GKO. A policy decides whether the update is rejected, accepted with a warning, or accepted with an entry in the operator logs. Drift detection is disabled by default. Turn it on for every resource with the `manager.driftDetection.enabled` Helm value, or for a single resource with the `gravitee.io/drift-detection` annotation. For details, see [Drift detection](../../overview/drift-detection.md).
+
+Drift detection doesn't cover the deprecated `spec.navigation` field of a `Portal` resource, so a change made to that field in APIM isn't reported. The `spec.structure.topNavbar` field that replaces it is covered.

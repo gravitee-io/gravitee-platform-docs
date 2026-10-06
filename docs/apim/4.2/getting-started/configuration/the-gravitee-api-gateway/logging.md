@@ -31,7 +31,7 @@ To configure runtime logging for your v4 Gateway APIs:
 2. Go to **Settings** in the left sidebar
 3. Click on **API logging** in the inner left sidebar
 
-<figure><img src="../../../.gitbook/assets/global api logging settings.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/global api logging settings.png" alt="The API Logging settings, with a maximum full-logging duration of 90,000 milliseconds and both audit options enabled, above the user display section."><figcaption></figcaption></figure>
 
 Configurable settings are grouped in the following categories:
 
@@ -81,7 +81,7 @@ Comprehensive connection logs allow you to analyze the usage of your v4 message 
 
 Logs are displayed under the **Connections** tab in reverse chronological order:
 
-<figure><img src="../../../.gitbook/assets/runtime logs_list message.png" alt=""><figcaption><p>Sample v4 message API runtime log entries</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/runtime logs_list message.png" alt="The Runtime Logs page of a message API, listing four connections with their timestamp, HTTP method, response status, masked application name, client identifier, and plan."><figcaption><p>Sample v4 message API runtime log entries</p></figcaption></figure>
 
 The filters above the list of logs allow you to filter records by timeframe, HTTP method, or plan. The **More** button offers additional filtering options.
 
@@ -114,7 +114,7 @@ To configure which information is recorded, select from the following options:
   * **Temporal:** Messages are sampled based on a specified time duration value that conforms to ISO-8601 format.
 * **Display conditions:** You have the ability to filter the message data based on **Request phase condition** and **Message condition**. Each of these fields supports the use of [Gravitee Expression Language](../../../guides/gravitee-expression-language.md).
 
-<figure><img src="../../../.gitbook/assets/runtime logs_settings message.png" alt=""><figcaption><p>Runtime logs settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/runtime logs_settings message.png" alt="The Settings tab of a message API&#x27;s Runtime Logs page, with entrypoint and endpoint logging modes and the request and response phases all ticked."><figcaption><p>Runtime logs settings</p></figcaption></figure>
 
 #### Configure sampling methods with `gravitee.yml`
 
@@ -157,7 +157,7 @@ To configure which information is recorded, select from the following options:
 * **Content data:** Select from **Headers** and **Payload** to customize which data is logged.
 * **Display conditions:** You have the ability to filter data based on **Request phase condition**. This field supports the use of [Gravitee Expression Language](../../../guides/gravitee-expression-language.md).
 
-<figure><img src="../../../.gitbook/assets/proxy api settings.png" alt=""><figcaption><p>Runtime logs settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/proxy api settings.png" alt="The Settings tab scrolled further, showing the logging modes and phases ticked alongside the headers and payload content data options."><figcaption><p>Runtime logs settings</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -176,11 +176,11 @@ To view the details of any entry in the list of runtime logs:
 {% tab title="v4 message APIs" %}
 Under the **Connection Logs** tab, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**:
 
-<figure><img src="../../../.gitbook/assets/connection details.png" alt=""><figcaption><p>View Connection Logs details</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/connection details.png" alt="A connection log detail page, showing the entrypoint request URI, GET method, and headers including host, forwarding, and an API key header."><figcaption><p>View Connection Logs details</p></figcaption></figure>
 
 Under the **Messages** header, entrypoint and endpoint message details are grouped by date code:
 
-<figure><img src="../../../.gitbook/assets/message details.png" alt=""><figcaption><p>View Messages details</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/message details.png" alt="The Messages tab of a connection&#x27;s details, showing two messages with their request, client, and correlation identifiers and the entrypoint and endpoint payloads."><figcaption><p>View Messages details</p></figcaption></figure>
 
 Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty.
 {% endtab %}
@@ -188,7 +188,7 @@ Each message record includes placeholder tabs for raw content, headers, and meta
 {% tab title="v4 proxy APIs" %}
 Under **Details**, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**, with **Headers** and **Payload** as the content:
 
-<figure><img src="../../../.gitbook/assets/proxy logs.png" alt=""><figcaption><p>View log details</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/proxy logs.png" alt="A connection log detail page for a POST request, showing the entrypoint request URI and headers including host, forwarding, and Gravitee request and transaction identifiers."><figcaption><p>View log details</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 

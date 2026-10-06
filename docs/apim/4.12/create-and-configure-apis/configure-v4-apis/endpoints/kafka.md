@@ -178,7 +178,7 @@ Repeated use of the same key on each message guarantees that messages are relega
 
 To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` can be set on the message, in an [Assign Attributes](../../apply-policies/policy-reference/assign-attributes.md) policy in the Publish flow (see example in screenshot below).
 
-<figure><img src="../../../.gitbook/assets/kafka-recordkey-assign-attributes-example-screenshot.png" alt="" width="375"><figcaption><p>Example: Assign Attributes policy configured to extract the key from the <code>X-Kafka-Key</code> header and set the <code>gravitee.attribute.kafka.recordKey</code> value</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/kafka-recordkey-assign-attributes-example-screenshot.png" alt="The Assign attributes policy configuration, with one attribute named for the Kafka record key taking its value from an expression-language lookup of a request header." width="375"><figcaption><p>Example: Assign Attributes policy configured to extract the key from the <code>X-Kafka-Key</code> header and set the <code>gravitee.attribute.kafka.recordKey</code> value</p></figcaption></figure>
 
 A shared producer is created by the endpoint and reused for all requests with that same configuration. The producer configuration includes the **ClientId**, **Topic**, and **Partitioning**. The client ID is generated for the producer in the format `gio-apim-producer-<first part of uuid>`, for example, `gio-apim-producer-a0eebc99`
 
@@ -311,7 +311,7 @@ org.apache.kafka.common.security.plain.PlainLoginModule required username='$Conn
 
 * To find the connection string value, navigate to **Settings** and then **Shared access policies** in the Azure UI. Click the policy to view its details, and then select **Connection string-primary key**.
 
-<figure><img src="../../../.gitbook/assets/config-apis-create-apis-v2-api-crea-138.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/config-apis-create-apis-v2-api-crea-138.png" alt="The Choose API creation method dialog, offering Create Classic API with V2 options and Create New API with V4 options."><figcaption></figcaption></figure>
 
 * The bootstrap server name is in the format:
 

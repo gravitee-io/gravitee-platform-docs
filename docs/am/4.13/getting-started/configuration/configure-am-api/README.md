@@ -585,7 +585,7 @@ notifiers:
         value: 100
 ```
 
-<figure><img src="../../../.gitbook/assets/gs-config-configure-am-api-readme-165.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gs-config-configure-am-api-readme-165.png" alt="The Certificates page listing one default system PKCS#12 certificate with its expiry date and the number of applications using it."><figcaption></figcaption></figure>
 
 #### Email Notifier
 
@@ -699,6 +699,15 @@ domains:
   identities:
     default:
 enabled: false
+```
+
+The default identity provider stores its users through the system cluster connection described in [Repositories & Data Plane](../configure-repositories.md#system-cluster), and reuses the security domain's data plane when the system cluster is the `gateway` scope. To configure it from the `management` repository settings instead, set `useSystemCluster` to `false`. A Gravitee-managed deployment always uses the system cluster.
+
+```yaml
+domains:
+  identities:
+    default:
+      useSystemCluster: false
 ```
 
 ### Default Reporter

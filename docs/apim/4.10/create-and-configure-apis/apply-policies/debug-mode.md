@@ -41,20 +41,20 @@ Debug mode cannot test the following policies and features:
 1. From the **Dashboard**, select **APIs**.
 2.  Select the API to debug.
 
-    <figure><img src="../../.gitbook/assets/F7FEF455-70DE-4D69-88CF-E4C1492FFCC4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/F7FEF455-70DE-4D69-88CF-E4C1492FFCC4_1_201_a.jpeg" alt="The APIs list with APIs highlighted in the left navigation, showing the first page of 2,319 APIs with their definition, status, tags, and categories."><figcaption></figcaption></figure>
 3.  From the **API** menu, select **Debug**.
 
-    <figure><img src="../../.gitbook/assets/4113783D-63E4-4EC3-BF1D-E036512CE99E.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/4113783D-63E4-4EC3-BF1D-E036512CE99E.png" alt="The Debug page of an API with Debug highlighted in the API menu, showing an empty request form with the GET method and root path."><figcaption></figcaption></figure>
 4. From the **HTTP method** drop-down menu, select the HTTP method to test.
 5. In the **Path** field, enter the path to test.
 6. In the **Headers** tab, enter the name and value of the key.
 7. In the **Request body** field, enter the request body.
 8.  Click **Send**. You are shown a timeline of the order of the flows and policies.
 
-    <figure><img src="../../.gitbook/assets/create-and-configure-apis-apply-policies-302-1-1 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/create-and-configure-apis-apply-policies-302-1-1 (1).png" alt="The Debug page after sending a request that returned 404, showing the policy timeline with a keyless security step and a prompt to select a step."><figcaption></figcaption></figure>
 9.  Select a step in the timeline to compare its inputs and outputs.
 
-    <figure><img src="../../.gitbook/assets/56CF95D5-879A-4F32-AB8C-98A640017267.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/56CF95D5-879A-4F32-AB8C-98A640017267.jpeg" alt="The Debug page with the Client APP step selected in the timeline, showing an inspector with collapsible HTTP properties, headers, attributes, and body sections."><figcaption></figcaption></figure>
 
 ### Understand the Debug mode timeline and inspector
 

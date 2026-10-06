@@ -21,7 +21,7 @@ The v4 API creation wizard makes it easy to create new Gateway APIs from scratch
 
 The API details step is where you can define a name, version number, and description for your API. The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-03-15 at 12.38.10 PM.png" alt=""><figcaption><p>Step 1: define your Gateway API's basic details.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-03-15 at 12.38.10 PM.png" alt="Step 1 of the API creation wizard, with a sample API name, version, and description filled in and a Validate my API details button."><figcaption><p>Step 1: define your Gateway API's basic details.</p></figcaption></figure>
 
 ## Step 2: Entrypoints
 
@@ -34,7 +34,7 @@ The first part of the Entrypoints step is to choose how you want to expose your 
 
 What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information on the exact support that these two methods offer, please [refer to this documentation. ](../README.md#backend-exposure-methods)
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.39.02 AM.png" alt=""><figcaption><p>v4 API creation wizard: select how you want your backend service exposed</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.39.02 AM.png" alt="Step 2 of the API creation wizard, with Introspect Messages From Event-Driven Backend selected over Proxy Upstream Protocol."><figcaption><p>v4 API creation wizard: select how you want your backend service exposed</p></figcaption></figure>
 
 After you choose your method of exposure, select **Select my API architecture,** and you'll be taken to the entrypoint selection screen. Please read the following content to learn more about entrypoint selection and configuration, based on your selected exposure method.
 
@@ -50,7 +50,7 @@ If you select :heavy\_check\_mark:**Enable virtual hosts**, you'll have to defin
 
 To disable virtual hosts, select **X Disable virtual hosts**.&#x20;
 
-<figure><img src="../../../.gitbook/assets/HTTP proxy entrypoints.gif" alt=""><figcaption><p>HTTP-Proxy entrypoints</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/HTTP proxy entrypoints.gif" alt="An animation that configures the API entrypoints step, enabling virtual hosts and filling in a sample host and context path."><figcaption><p>HTTP-Proxy entrypoints</p></figcaption></figure>
 
 ### Entrypoint options for the "Introspect messages from Event-driven backend" method
 
@@ -62,7 +62,7 @@ If you chose **Introspect messages from Event-driven backend,** you get a much d
 * **Webhook**: allows you to front a chosen backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
 * **WebSocket**: allows you to front a chosen backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.44.08 AM.png" alt=""><figcaption><p>v4 API creation wizard: event-driven backend entrypoints</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.44.08 AM.png" alt="Step 2 of the API creation wizard, listing HTTP GET, HTTP POST, Webhook, Websocket, and Server-Sent Events entrypoints, none yet selected."><figcaption><p>v4 API creation wizard: event-driven backend entrypoints</p></figcaption></figure>
 
 Once you select your entrypoints from the entrypoints page, there will be further configuration required. The following sections outline the necessary configuration per entrypoint.
 
@@ -365,7 +365,7 @@ A plan is essentially an access layer around an API that provides the API produc
 * **Keyless**: a plan that results in no added security via plan configuration. This is considered an "Open" plan.
 * **Push plan**: a plan that provides an access layer for the Gateway pushing data to consumers. This is used for subscribers.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-01 at 12.14.02 PM.png" alt=""><figcaption><p>API creation wizard: different Security plan types</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-01 at 12.14.02 PM.png" alt="Step 4 of the API creation wizard, with the Add plan menu open on OAuth2, JWT, API Key, and Keyless above a default keyless plan."><figcaption><p>API creation wizard: different Security plan types</p></figcaption></figure>
 
 Depending on which plan you select, the configuration will differ. Please see the expandable sections below to learn more about how to configure each of the different plans.
 
@@ -383,7 +383,7 @@ On the **General** screen, define:
 * **Subscription** options: choose whether to auto-validate subscriptions, require a message from consumers during subscription, and/or to present a message to the consumer upon subscription
 * **Access control**: here, select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
 
-<img src="../../../.gitbook/assets/guide-create-apis-how-to-v4-api-cre-0.png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/guide-create-apis-how-to-v4-api-cre-0.png" alt="The APIs list in a trial environment, with a walkthrough tooltip explaining that the to-do list API is already configured with a rate limiting policy and inviting the reader to open it." data-size="original">
 
 
 
@@ -399,7 +399,7 @@ Once you're done, select Next, and move on to **OAuth2 authentication configurat
 * Choose whether or not to permit authorization headers to target endpoints&#x20;
 * Optionally, you can define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan's selection process. You will need to use the Gravitee Expression Language here. For more information on the Gravitee Expression Language, please refer to the Expression Language documentation.
 
-<figure><img src="../../../.gitbook/assets/guide-create-apis-how-to-v4-api-cre-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-create-apis-how-to-v4-api-cre-1.png" alt="A Cockpit dashboard showing the remaining trial days, counts for organizations, environments, installations, and nodes, and a highlighted panel linking to the API Management trial."><figcaption></figcaption></figure>
 
 After you're done with the configuration, select Next to define any additional restrictions for the plan. These Restrictions include:
 
@@ -412,7 +412,7 @@ After you're done with the configuration, select Next to define any additional r
 * **Quota**: defines a rate limit over a period of hours, days, or months. If you choose this, you'll need to then define the same settings as you would for rate limiting (see above)
 * **Resource filtering**: this allows you to restrict resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<figure><img src="../../../.gitbook/assets/guide-create-apis-how-to-v4-api-cre-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-create-apis-how-to-v4-api-cre-2.png" alt="The Home board of a trial environment with a welcome dialog offering to explore use cases with the trial application or to explore the trial independently."><figcaption></figcaption></figure>
 
 </details>
 
@@ -459,7 +459,7 @@ Once you're done configuring your JWT plan, select **Next**. You'll then define 
 * **Quota**: defines a rate limit over a period of hours, days, or months. If you choose this, you'll need to then define the same settings as you would for rate limiting (see above)
 * **Resource filtering**: this allows you to restrict resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<figure><img src="../../../.gitbook/assets/guides-create-apis-how-to-v4-api-creatio-2-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guides-create-apis-how-to-v4-api-creatio-2-1.png" alt="Step 2 of the sign-up flow, asking how to set up the company and trial, with Manual setup selected over the recommended Quick setup and its capabilities listed alongside."><figcaption></figcaption></figure>
 
 </details>
 

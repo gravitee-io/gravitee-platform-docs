@@ -63,11 +63,11 @@ To test OpenTracing in Docker:
    1. Open JaegerUI by visiting `http://localhost:16686` (note that JaegerUI was automatically installed earlier in the process)
    2.  Select **Search** and find the API you called
 
-       <figure><img src="../../../.gitbook/assets/tracing-info-general.png" alt=""><figcaption><p>See API calls using JaegerUI</p></figcaption></figure>
+       <figure><img src="../../../.gitbook/assets/tracing-info-general.png" alt="A distributed tracing UI showing one gateway request trace, with its duration and span count above a timeline of the key-less and transform-headers policy spans."><figcaption><p>See API calls using JaegerUI</p></figcaption></figure>
 
        Each policy traversed is listed on a different line to provide greater visibility and assist with debugging. Timestamp info is included in the detailed view.
 
-       <figure><img src="../../../.gitbook/assets/tracing-info-detailed.png" alt=""><figcaption><p>Timestamp information in the detailed view</p></figcaption></figure>
+       <figure><img src="../../../.gitbook/assets/tracing-info-detailed.png" alt="A distributed tracing UI showing a gateway request trace with each span expanded, listing HTTP method, status, and URI tags and process details for the server and client spans."><figcaption><p>Timestamp information in the detailed view</p></figcaption></figure>
 
 ### Configure Environment Variables
 

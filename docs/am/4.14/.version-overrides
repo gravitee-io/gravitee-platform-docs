@@ -1,0 +1,8 @@
+# Files with version-specific content — do NOT sync from previous version
+# Auto-managed by the documentation pipeline
+# Seeded slim at 4.14 creation (4.14 starts as a byte-identical copy of 4.13), so only
+# genuinely version-specific files belong here. Add entries as 4.14 diverges —
+# the Lint Version Overrides check flags divergent 4.14 edits that need one.
+SUMMARY.md
+.gitbook.yaml
+releases-and-changelog/release-notes/am-4.13.md

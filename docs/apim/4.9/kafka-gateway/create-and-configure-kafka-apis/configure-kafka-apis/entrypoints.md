@@ -12,7 +12,7 @@ metaLinks:
 
 Entrypoints define the protocol and configuration settings by which the API consumer accesses the Gateway API. The **Entrypoints** section allows you to modify the host name of your Kafka API entrypoint.
 
-<figure><img src="../../../.gitbook/assets/A 11 entrypoint.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/A 11 entrypoint.png" alt="The Entrypoints page of a Kafka API, with a host prefix entered and the resulting broker domain and port shown beside it."><figcaption></figcaption></figure>
 
 Change the host name by modifying and saving the value of **Host prefix**. The host name must meet the following requirements:
 

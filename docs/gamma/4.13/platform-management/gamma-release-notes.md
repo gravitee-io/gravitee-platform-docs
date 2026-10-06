@@ -10,7 +10,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. It also adds API resource configuration, consumer broadcasts, property import, dynamic property sync, and API metadata to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. The **Cost Rate Limit** policy caps what a consumer spends on an LLM Proxy in dollars over a period. LLM Proxies and A2A Proxies gain export, import, and duplicate actions. The Observability section of Agent Management builds and saves custom dashboards alongside the templates.
+Agent Management adds AI Workspaces. A workspace gives a team governed access to a chosen set of models, with a per-member spending budget and a separate API key for every member. Each workspace reports what it spends by user, budget, and model, and exports the user and model rankings as a CSV file. Its router moves a member's requests to other models as they spend their budget. It also adds API resource configuration, consumer broadcasts, property import, dynamic property sync, and API metadata to each proxy detail view, and brings plans and subscriptions to A2A Proxies. The **Consumers** page of each proxy exports its subscription list as a CSV file. The LLM Proxy detail view gains an Entrypoints page, a CORS page, a Failover page, a regrouped navigation, and a **Models** page that edits providers after creation. The provider forms of the wizard and of the **Models** page render the LLM Proxy plugin's own schema. LLM Proxies also read images, audio, video, and files in a request, and remove them by default unless you choose to forward them. Agent Management also shows the owner, sharding tags, and picture of each proxy in the LLM Proxies list, and lets you record a negotiated price on a cataloged AI model. The **Cost Rate Limit** policy caps what a consumer spends on an LLM Proxy in dollars over a period. The **AI Token Compression** policy shrinks the tool output an LLM Proxy request carries before the request reaches the model. LLM Proxies and A2A Proxies gain export, import, and duplicate actions, and A2A Proxies gain response templates that override the errors the AI Gateway returns. The Observability section of Agent Management builds and saves custom dashboards alongside the templates. Edge Management's shadow AI detections also reach the Catalog, where each intercepted domain becomes a shadow AI agent whose page shows the processes and devices that reached it.
 
 #### AI Workspaces
 
@@ -23,6 +23,27 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 * The **Users** page reveals and copies one member's key at a time, changes the budget a member is on, shows each member's access status and 30-day usage in tokens, requests, and cost, and revokes access by closing the subscription.
 * Budget changes are saved without deploying. Deploy the workspace from the out-of-sync banner to apply them.
 * See [AI Workspaces](../agent-management/build/ai-workspaces/README.md).
+
+#### Spend tracking for AI Workspaces
+
+* The **Observability** group of each AI Workspace adds a **Spend** page that ranks the users, budgets, and models of the workspace by spend over a time range. Users who spent nothing are listed at zero.
+* Clicking a user opens a panel that sets their spend, tokens, and requests against the workspace totals, and shows what each model cost them.
+* **Export CSV** downloads the ranked users and models as one file named with the workspace ID and the dates of the time range. While a user is selected, the file also carries their models.
+* When the analytics engine doesn't answer, the page shows a dash in place of each figure it couldn't read, and the export is unavailable while the spend of the users can't be read.
+* The **Budget** column of the **Users** page shows the share of the budget each member has used over the budget period.
+* The AI Workspace Overview dashboard template charts requests, error rate, response time, tokens, and cost, with top-five breakdowns by model and by user. The **Dashboard** and **Logs** items of a workspace open the dashboard and the logs in a new tab, filtered to that workspace.
+* See [Track AI workspace spend](../agent-management/build/track-ai-workspace-spend.md) and [Monitor your AI workspaces](../agent-management/observe/monitor-your-ai-workspaces.md).
+
+#### Router and AI Routing for AI Workspaces
+
+* The **Router** page of each AI Workspace chains the policies every call of the workspace runs, whatever budget the member is on. Drag a policy from **Policies** onto the canvas and draw the arrows to set the order. Saving writes the router to every budget, and deploying the workspace applies it.
+* The **AI Routing** policy picks the model that serves a request from the share of the member's budget already spent. Each band covers the share up to its limit and lists the models it routes to, and the last band catches everything left. The model it picks replaces the model the request names.
+* A band with several models picks one per request by rotating per gateway node, by weight, or at random.
+* **If the budget is unknown** and **When a band has no models** decide the requests the bands don't, including rejecting a request with `503`.
+* The canvas blocks **Save** while the chain can't run or two bands conflict, and lists the problems. A last band with a limit raises only a warning, and the gateway then skips the **AI Routing** step for every request.
+* Each model of a workspace takes aliases on the **Components** page, and a routing band routes to an alias like any model.
+* The AI Workspaces list adds a search field, sorting by **Name** and **Version**, and paging, and the **Budgets** page pages too.
+* See [Configure AI workspace routing](../agent-management/build/configure-ai-workspace-routing.md).
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -78,6 +99,13 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 * The detail navigation is regrouped. **Models**, **Entrypoints**, **Endpoints**, **Policy Studio**, and **Resources** sit under **Design**, **Reporter Settings** and **Notifications** sit under **Monitoring**, **Security** follows **General**, and the **General** page is renamed **Configuration**. **LLM Studio** is renamed **Policy Studio**, and a link to the former page redirects to it.
 * See [Configure LLM Proxy entrypoints](../agent-management/build/configure-llm-proxy-entrypoints.md).
 
+#### Images, audio, video, and files in LLM Proxy requests
+
+* LLM Proxies read images, audio, video, and files in requests sent in the OpenAI Chat Completions, OpenAI Responses, Anthropic Messages, and Gemini formats.
+* Four entrypoint options decide what happens to each content type: **Images sent by the client**, **Audio sent by the client**, **Video sent by the client**, and **Files sent by the client**. `ALLOW` forwards the content to the provider, `STRIP` removes it, and `REJECT` refuses the request with an HTTP `400` error and the code `modality_blocked`.
+* Each option defaults to `STRIP`, because policies such as prompt guard rails inspect only text. An LLM Proxy created before 4.13 removes this content after the upgrade until you set its option to `ALLOW` and deploy it.
+* See [Configure LLM Proxy entrypoints](../agent-management/build/configure-llm-proxy-entrypoints.md#edit-the-entrypoint-options).
+
 #### Provider forms and the Models page for LLM Proxies
 
 * The inline provider card of the creation wizard renders the configuration schema of the LLM Proxy endpoint plugin, with the labels, help text, and validation rules the plugin ships. A field that a later plugin version adds appears without a console update, and the **Provider** list offers **OpenAI compatible**.
@@ -108,6 +136,13 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 * The budget belongs to the plan and subscription pair by default. Set **Key** to an Expression Language value, and turn on **Use key only**, to give each caller its own budget.
 * The policy runs in the request phase. **Missing price policy** decides what a request is charged when the model that answered has no resolvable price.
 * See [Add the Cost Rate Limit policy](../agent-management/build/add-the-cost-rate-limit-policy.md).
+
+#### AI Token Compression for LLM Proxies
+
+* The **AI Token Compression** policy shrinks the tool output an LLM Proxy request carries, such as test runs, build logs, linter output, and directory listings, before the request reaches the model. It keeps what each run concluded and doesn't change the model's response.
+* **How much may be lost** sets how far it goes. `Noise only — what the model never reads` reduces test runs to their totals and failures, drops routine build lines, trims Git diffs, and replaces base64 data. `Adds detail that is rarely load-bearing`, the default, also condenses linter output, search results, directory listings, stack traces, and repeated log lines. `Adds content the model may have needed` also cuts long output, tables, and web pages.
+* The policy runs in the request phase and acts only on requests whose conversation carries tool output. It passes every other request through unchanged, so no condition is needed.
+* See [Add the AI Token Compression policy](../agent-management/build/add-the-ai-token-compression-policy.md).
 
 #### Owner and sharding tags in the LLM Proxies list
 
@@ -145,12 +180,21 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 * The **Configuration** page of each A2A Proxy adds three actions. **Export** downloads the proxy as a Gravitee API definition or a Kubernetes CRD, and links to the Terraform tutorial. **Import** replaces the proxy from a Gravitee definition. **Duplicate** copies the proxy under a new context path and version.
 * The **Create A2A proxy** button now opens a page offering **Create from scratch** and **Import**. **Create from scratch** opens the existing wizard, and **Import** builds the proxy from a Gravitee definition. Both import routes accept a local file or a remote URL, and only the Gravitee definition format.
 * Both import routes end on a review step. For an A2A Proxy, the review also lists what the console read out of the file: the name, the version, the description, the context path, the target, whether the file carries an upstream credential, and the plans. A file the import would refuse is refused there, before anything is written.
-* An exported file is a standard Gravitee export, so the APIM Console reads it. A create by import rebuilds the name, version, description, context path, agent connection, and plans, plus the OAuth2 resource those plans name. The rest of a classic definition has no A2A Proxy counterpart in Gamma and isn't re-created.
+* An exported file is a standard Gravitee export, so the APIM Console reads it. A create by import rebuilds the name, version, description, context path, agent connection, and plans, plus the OAuth2 resource those plans name and the response templates the file carries. The rest of a classic definition has no A2A Proxy counterpart in Gamma and isn't re-created.
 * An export with the **Plans** checkbox cleared can update an existing proxy but can't create one, because a create by import publishes the plans the file carries.
-* An update by import keeps the target proxy's identity and its plans. It replaces the name, version, description, context path, and agent connection.
+* An update by import keeps the target proxy's identity and its plans. It replaces the name, version, description, context path, agent connection, and response templates. A file that carries no response templates removes the ones the proxy had.
 * A create by import leaves the proxy stopped, for you to start from its **Configuration** page.
 * The remote URL is fetched by the Management API under the same `imports.whitelist` and `imports.allow-from-private` settings as the classic import-from-URL endpoints.
 * See [Export and import an A2A Proxy](../agent-management/build/export-and-import-an-a2a-proxy.md) and [Duplicate an A2A Proxy](../agent-management/build/duplicate-an-a2a-proxy.md).
+
+#### Response templates for A2A Proxies
+
+* The **Design** group of each A2A Proxy adds a **Response Templates** page that replaces the AI Gateway's default error payload for one error and one kind of client. A template matches on a template key and an Accept header, and returns a status code, headers, and a body. The list carries the **Key**, **Content-Type**, and **Status Code** columns, and a search across the three.
+* **Add new Response Template** opens a form whose **Template key** field suggests `DEFAULT` and the gateway's own error keys and accepts a key you type. **Accept header to match** starts at `*/*` and **Status code** starts at `400`, with the name of the status shown beside it. **HTTP Headers**, **Body**, and **Add template key to logs** are optional.
+* **Template key**, **Accept header to match**, and **Status code** are required, and the pair of a template key and an Accept header has to be unique on the proxy.
+* The page is read-only for a proxy managed by the Kubernetes operator, for a role that can't update the proxy, and while Gamma can't confirm which of the two applies. A role that can't read response templates gets the page title and a message in place of the list.
+* Among the proxy types in Agent Management, response templates are offered on A2A Proxies only.
+* See [Configure A2A Proxy response templates](../agent-management/build/configure-your-a2a-proxy/configure-a2a-proxy-response-templates.md).
 
 #### Custom observability dashboards
 
@@ -162,14 +206,24 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 * The authoring actions are withdrawn when the environment's dashboards refuse the account, leaving the read-only template experience in place.
 * See [Build a custom dashboard](../agent-management/observe/dashboards/build-a-custom-dashboard.md).
 
+#### Shadow AI agents discovered from Edge Management
+
+* The Catalog imports the AI provider domains Edge Management detects, so unsanctioned AI usage sits in the **Agents** list beside the agents you govern. Each entry is one intercepted domain, under a source named **Shadow AI** that the first synchronization pass creates in each environment, even when nothing has been detected.
+* The synchronization runs inside the Management API on two schedules, and both are on out of the box. The incremental pass runs every 30 seconds, creates new entries, and never removes any. The full pass runs every hour, reads the last 30 days, and removes every entry whose domain had no detection in that window. Setting `modules.aim.shadow-ai.sync.incremental.delay` or `modules.aim.shadow-ai.sync.full.delay` to `0` turns that pass off.
+* A run reads at most 500 domains. It removes nothing when the read returns no domain at all, so an unreachable telemetry store never empties the Catalog, and it leaves the risk classification and compliance details you record untouched.
+* The **Agents** list reads the source under each agent's name, and the **Source** filter narrows the list to **Shadow AI**. A detected domain reads **Not on the gateway** as its gateway state, **No owner** as its owner, and **Discovered** as its governance, and its row menu offers **View details** alone.
+* A detected domain opens on a page built around having only an address: a **Shadow AI** badge beside the domain, a sidebar that marks each section nobody declared **Not declared** and each section the gateway would have to observe **Not observable**, a **Nothing is enforced on this domain** banner, a **What is not recorded** list, and a **Detected traffic** section holding the processes and devices that reached the domain over the last 30 days.
+* **Classification** is the one field you set from a detected domain's overview. Compliance details are recorded on its **Compliance** page as on a registered agent, and the synchronization keeps both.
+* See [Discover shadow AI agents from Edge Management](../agent-management/import/discover-shadow-ai-agents-from-edge-management.md).
+
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer.
+API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, a Response Templates page, and an API Score page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer, and an API proxy can be promoted to another environment through Gravitee Cloud. An API proxy can also be sent for review, and then waits for a reviewer before it starts.
 
 #### Import an API proxy
 
 * Create an API proxy from a Gravitee v4 API definition, an OpenAPI specification, or a WSDL document. The three formats are available from the **Import API** card on the **Create API Proxy** page.
-* Replace the configuration of an existing API proxy from the same three formats, using **Import** on the **General** page of the API proxy.
+* Replace the configuration of an existing API proxy from the same three formats, using **Import** on the **Settings** page of the API proxy.
 * Supply each format as a local file or as a remote `http` or `https` URL that the Management API fetches server-side.
 * For OpenAPI and WSDL imports, choose whether to create a documentation page from the specification and whether to add an OpenAPI Specification Validation policy. WSDL imports also offer the REST to SOAP Transformer policy.
 * See [Import an API proxy](../api-management/build/import-an-api-proxy.md).
@@ -198,6 +252,50 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * In the **Add Policy** catalog, pointing to a row reveals an **Add** button that adds the policy directly, and the catalog header shows the phase you're adding to.
 * The **Add plan flow**, **Add common flow**, and **Add MCP method flow** controls in the flows sidebar and on the empty Policy Studio screen share one link treatment.
 * The changes apply to the Policy Studio of API Management and Agent Management, and to the platform policies of Platform Management.
+
+#### Response templates for API proxies
+
+* The **Design** group of the API proxy sidebar adds a **Response Templates** page that overrides the error payloads the gateway returns by default. A template matches on a template key and an Accept header, and answers with the status code, headers, and body you set, so one proxy can answer a browser and a service differently for the same error.
+* The list carries the **Key**, **Content-Type**, and **Status Code** of each template, with a search field that narrows it by any of the three. A proxy holding no templates opens on an empty state titled **No Response Templates** with a create button in it.
+* **Template key** suggests **DEFAULT** and the gateway's own error keys, and takes a key you type instead. **Accept header to match** and **Status code** are required beside it, and a key and Accept header pair already used on the proxy is refused.
+* Optional **HTTP Headers** rows and a **Body** complete the response, and **Add template key to logs** records the template key alongside the request.
+* An API proxy managed by the Kubernetes operator shows its response templates as read-only, and so does one you don't have permission to update.
+* The page isn't offered on a TCP Proxy API, which forwards raw traffic and has no HTTP response to override, nor on an MCP or LLM Proxy API.
+* See [Configure response templates](../api-management/build/configure-your-api-proxy/configure-response-templates.md).
+
+#### API Score for API proxies
+
+* The **General** group of the API proxy sidebar adds an **API Score** page when API Score is turned on for the environment, with **Enable API Score** on the **API Review** page of the **Environment** section in Platform Management.
+* **Evaluate** checks the API definition and every OpenAPI or AsyncAPI documentation page of the API against the rulesets of the environment. The page shows the score, when the API was last evaluated, and the findings of each asset.
+* Severity filters narrow the findings, and each asset has its own search field and pagination.
+* A failed evaluation, a timed-out evaluation, and an asset that couldn't be scored each show a message on the page.
+* An evaluation requires an installation connected to Gravitee Cloud.
+* See [Review the API Score](../api-management/build/configure-your-api-proxy/review-the-api-score.md).
+
+#### Promote an API proxy
+
+* **Promote** on the **Settings** page of an API proxy sends a copy of it to another environment through Gravitee Cloud. It's available once the installation is registered with Gravitee Cloud and accepted there.
+* The **Promote the API** dialog lists the environments to promote to. An environment that already has a promotion of the API waiting shows **(pending)** and can't be selected.
+* Someone in the target environment accepts or rejects the request from **Tasks & Approvals**. Accepting creates the API there, or updates the API an earlier promotion created.
+* See [Manage general settings](../api-management/build/configure-your-api-proxy/manage-general-settings.md#promote-the-api).
+
+#### Review an API proxy
+
+* While **Enable API Review** is on for the environment, an API proxy can't be started or published until a reviewer accepts it. A banner at the top of the API proxy's pages tracks the review.
+* Authors ask for a review from the **API Events** card of the **Settings** page, or with the **Ask for a review** toggle in the last step of the creation wizard.
+* Reviewers accept or reject from the banner, in the **API Review** panel, checking the manual rules of the environment and leaving comments.
+* The **Tasks & Approvals** page lists the API proxies waiting for a review and those with changes requested.
+* See [Review an API proxy](../api-management/build/configure-your-api-proxy/review-an-api-proxy.md).
+
+### Developer Portals
+
+The Gamma console links to the settings of the New Developer Portal, which open in a separate tab.
+
+#### Open the Developer Portal settings from the Gamma console
+
+* The **Applications** section of the home page adds a **Developer Portals** card, and the menu at the top of every page lists **Developer Portals** with the other products.
+* Both open the Developer Portal settings of the environment selected in the Gamma console, on the **Navigation** page, in a new browser tab.
+* See [Open the Developer Portal settings](open-the-developer-portal-settings.md).
 
 ### Edge Management
 
@@ -229,7 +327,7 @@ Edge Management replaces the single configuration page and its flat lists of DNS
 
 ### Event Stream Management
 
-Event Stream Management adds a duplication path for Kafka Services.
+Event Stream Management adds Message APIs, the Kafka Explorer, and a duplication path for Kafka Services. Message APIs connect clients to message backends such as Kafka, MQTT 5.x, Solace, and RabbitMQ. The Kafka Explorer reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
 
 #### Duplicate a Kafka service
 
@@ -238,9 +336,68 @@ Event Stream Management adds a duplication path for Kafka Services.
 * The new service is created in a stopped state and without plans, so you control when it starts accepting connections.
 * See [Duplicate a Kafka service](../event-stream-management/build/duplicate-a-kafka-service.md).
 
+#### Message APIs
+
+* The **Build** group of the Event Stream Management sidebar adds **Message APIs**. A Message API is a v4 API that connects clients to a message backend. Its entrypoints, such as **HTTP GET**, **HTTP POST**, **Server-Sent Events**, and **Webhook**, set how clients connect. Its endpoints, such as **Kafka**, **MQTT 5.x**, **Solace**, and **RabbitMQ**, set the backend that it produces to and consumes from.
+* **Create Message API** opens a five-step wizard that picks the entrypoints, the endpoints, and the plans. The wizard can deploy the Message API or submit it for review as soon as it's created. **Import** creates a Message API from a Gravitee v4 API definition, as a local file or a remote URL.
+* Each Message API opens on a sidebar with the groups **General**, **Design**, **Consumers**, **Monitoring**, **Observability**, and **Operations**. Its **Overview** page tracks the setup in a five-item checklist.
+* The **Design** group configures the entrypoints and the context path, the flows of the Policy Studio, the endpoints and failover, the response templates, the resources, the API properties, and CORS. The Policy Studio applies policies to the **Initial Connection** and to the **Event Messages** that clients publish and consume.
+* The **Consumers** group manages Keyless, API key, OAuth2, JWT, mTLS, and Push plans, the subscriptions and their API keys, and one-off broadcasts to consumers.
+* The **Monitoring** group holds the notifications, the runtime alerts, the audit logs, and the API Score when the environment uses it. The **Operations** group holds the sharding tags, the deployment history, and the reporter settings.
+* The creation wizard requires an enterprise license that includes the `apim-en-message-reactor` feature.
+* See [Message APIs](../event-stream-management/build/message-apis/README.md).
+
+#### Kafka Explorer
+
+* The **Manage** group of the Event Stream Management sidebar adds **Kafka Explorer**, which reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
+* A connection points at a multi-connection cluster registered in Event Stream Management and one of its named connections, at a Kafka Service through a published plan and an accepted subscription, or at broker addresses that you enter directly. An optional security overlay adds or replaces the client-side SASL and TLS settings, and **Test connection** checks that the target is reachable before you save.
+* The explorer lists the brokers with their partition counts and log sizes, the topics with their partitions, replication, size, and configuration, and the consumer groups with their members, committed offsets, and lag. The **Messages** page of a topic fetches a batch from the newest or oldest messages, from a timestamp, or from a specific offset, or streams new messages live for up to 300 seconds.
+* Each connection has its own members and groups. Its creator is the primary owner, and the **USER** and **OWNER** roles of the new **Explorer** scope decide who can read or change a connection's configuration and members. Reaching the pages at all needs the new environment-scoped `EXPLORER` permission, which no built-in role grants for create, update, or delete: give a custom environment role the actions your connection administrators need.
+* Kafka Explorer requires an enterprise license that includes the `apim-native-kafka-explorer` feature. It stores its connections in the APIM management database, on MongoDB or on JDBC, and applies its own schema at startup on JDBC installations that leave `management.jdbc.liquibase` on.
+* See [Kafka Explorer](../event-stream-management/manage/kafka-explorer/README.md).
+
+#### Observability for Kafka Services and Message APIs
+
+* The Event Stream Management sidebar adds an **Observability** group holding **Dashboards**, **Logs**, and **Tracing**. All three read what the gateway already reported, and all three show only the Kafka Services and Message APIs of the environment.
+* **Logs** lists the connections and requests recorded for these APIs, newest first, with columns for Kafka Services and for Message APIs.
+* Opening a failed Kafka connection leads with a plain-language message naming what broke, a badge naming where, and, for an error the gateway recognizes, what to do next.
+* **Dashboards** ships a health dashboard and a traffic dashboard for Kafka Services and for Message APIs.
+* **Tracing** follows one API at a time, with two Kafka-specific filters.
+* Each Kafka Service and Message API gains **Dashboard**, **Logs**, and **Tracing** under **Observability** in its own sidebar. An API that reports nothing says so on its own page and links to its **Reporter Settings**.
+* See [Observe](../event-stream-management/observability/README.md).
+
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. Platform flows apply policies on request and response phases to every API in the organization. Native Kafka APIs don't have those phases, and TCP proxy APIs don't run policy flows, so both are left untouched. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment now decides who hears about its user, support, federation, and group events, and the organization can reword every email and portal notification it sends. Custom observability dashboards gain server-side storage. Custom roles define the create, read, update, and delete permissions of each scope, and an organization role is assigned from the role's own page or from the user's.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. Tenants pair each gateway with the endpoints it loads. Groups collect the users of an environment behind shared default roles, and shared policy groups bundle policy steps for reuse across API flows. Platform flows apply policies on request and response phases to every API in the organization. Native Kafka APIs don't have those phases, and TCP proxy APIs don't run policy flows, so both are left untouched. It also adds a view of the gateway instances running behind an environment, and an audit trail of configuration changes at both organization and environment scope. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment now decides who hears about its user, support, federation, and group events, and the organization can reword every email and portal notification it sends. Custom observability dashboards gain server-side storage. Custom roles define the create, read, update, and delete permissions of each scope, and an organization role is assigned from the role's own page or from the user's. Each environment also chooses the application types its consumers can register, and holds the OpenID Connect provider that registers an OAuth client for them. Every signed-in user also gets their own account page, for their profile, avatar, personal access tokens, and account deletion. It also decides who owns a new API or API Product: the person who creates it, or one of their groups. The organization also chooses the extra questions people answer when they sign up. Each environment can also send a broadcast to the members who hold one of its roles, by portal notification, email, or HTTP request. One page shows the health-check availability of its v4 HTTP proxy APIs. Each environment also turns API Score on or off, and can require a review before an API is started or published. With API Score on, a page of the environment lists the latest score of every API, next to the rulesets and functions that API evaluations include. Each environment also gets its own mail server and Developer Portal API CORS settings. An API Logging page caps full logging, audits API logging, and sets message sampling for the organization.
+
+#### Broadcast messages to environment members
+
+* Send a one-way message to the members of the selected environment from the **Broadcasts** page under **APIs & Assets** in the **Environment** section. Choose the **Portal Notifications**, **Email**, or **POST HTTP Message** channel. For the first two, select the environment roles that receive it and enter a title. Enter a message of up to 4,000 characters, with a counter that shows the remaining characters.
+* **Send** stays disabled until the form is complete. After the send, the page confirms the broadcast was sent and how many recipients it was delivered to.
+* The page appears only for a role that can send broadcasts in the environment. Every broadcast is recorded on the **Audit** page of the environment.
+* See [Broadcast messages to environment members](broadcast-messages-to-environment-members.md).
+
+#### Configure API logging
+
+* The **API Logging** page of the **Environment** section caps how long APIs log full payloads, with **Max Duration (in ms)**. Its values belong to the organization and apply to every environment.
+* One switch records in an API's audit log each time someone opens the details of an API log, and another each time someone changes the API's logging. A third adds a **User** column to API logs exported as a CSV file.
+* The **Message Sampling** card sets a default and a limit for the probabilistic, count, temporal, and windowed count sampling of message APIs.
+* See [Configure API logging](configure-api-logging.md).
+
+#### Configure API Review
+
+* Turn on **Enable API Score** and **Enable API Review** for an environment from the **API Review** page of the **Environment** section, each on its own.
+* Add, edit, and delete the manual rules that reviewers check when they accept or reject an API. Each rule has a name and a description.
+* With API Score off, the **API Score** pages of the environment and of each API proxy are hidden. With API Review off, APIs start and publish without a reviewer.
+* See [Configure API Review](configure-api-review.md).
+
+#### Configure client registration
+
+* Decide which application types the environment accepts from the **Client Registration** page under **System & Security** in the **Environment** section. **Simple** covers a standalone client whose `client_id` the person registering it supplies, and it's on by default.
+* **Enable Dynamic Client Registration** decides whether the environment offers the **Browser**, **Web**, **Native**, and **Backend-to-Backend** types at all. It's off by default, and while it's off those four aren't offered whatever their own switches say. Each of the four is on by default.
+* Add one OpenID Connect Dynamic Client Registration provider per environment, so that registering an application of one of those four types creates an OAuth client on the authorization server. Authenticate with client credentials or an initial access token, and optionally add scopes, a client template, a trust store, a key store, client secret renewal, and claim mappings.
+* The Management API contacts the discovery endpoint and checks the credentials on every save, so a provider it can't reach isn't saved. Adding or opening a provider requires an enterprise license that includes the `apim-dcr-registration` feature. Without it the page still opens and its switches still work.
+* See [Configure client registration](configure-client-registration.md).
 
 #### Configure console authentication
 
@@ -256,6 +413,12 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Set how often the console polls for tasks and for notifications, in seconds.
 * A setting supplied by the Management API configuration file is shown as read-only, with a tooltip naming the system as its source.
 * See [Configure console management and schedulers](configure-console-management-and-schedulers.md).
+
+#### Configure CORS for the Developer Portal API
+
+* The **CORS** page of the **Environment** section controls which browser origins may call the Developer Portal API of the environment, and which methods and headers a cross-origin request may use.
+* Changes take effect without restarting the Management API.
+* See [Configure CORS for the Developer Portal API](configure-developer-portal-cors.md).
 
 #### Configure CORS for the Management API
 
@@ -279,6 +442,13 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Change the events and the target of a notification after creating it, and delete the email and webhook notifications you no longer need.
 * See [Configure environment notifications](configure-environment-notifications.md).
 
+#### Configure primary owner mode
+
+* Decide who can be the primary owner of an API or API Product from the **Primary Owner Mode** page under **System & Security** in the **Environment** section. APIs and API Products each have their own setting.
+* With **Hybrid**, the default, a user or a group can be the primary owner. With **User**, only a person can be the primary owner, and the **PRIMARY_OWNER** role can't be selected for that kind of resource when you add or edit group members. In both modes, the person who creates the API or API Product becomes its primary owner.
+* With **Group**, one of the creator's groups in which a member holds the **PRIMARY_OWNER** role for that kind of resource becomes the primary owner. A person without such a group can't create the API or API Product. For APIs, saving the settings of an API proxy that a person owns then needs a qualifying group too, and that group is added to the groups of the API proxy.
+* See [Configure primary owner mode](configure-primary-owner-mode.md).
+
 #### Configure the SMTP mail server
 
 * Point the organization at its mail server from the **SMTP** page, with the host, port, credentials, protocol, sender address, and subject template.
@@ -286,12 +456,34 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Add branded sender rules that replace the sender address and subject template for the recipients at a given domain.
 * See [Configure the SMTP mail server](configure-smtp.md).
 
+#### Configure the SMTP mail server for an environment
+
+* The **SMTP** page of the **Environment** section sets the mail server the environment uses, with the same fields as the organization's **SMTP** page. For mail sent in the context of the environment, its values take precedence over the organization's.
+* **Reset to Org settings** removes the environment's own branded notification email rules, so the organization's rules apply again.
+* See [Configure the SMTP mail server for an environment](configure-environment-smtp.md).
+
 #### Customize notification templates
 
 * Reword the email and portal notifications the organization sends from the **Templates** page of the **Organization** section, where they're grouped by category and a **Custom** badge marks each overridden template.
 * Turn on **Override default template** on a channel card, edit the title and the FreeMarker content, and save. Turn the override off to send the built-in default again without losing your wording.
 * Fragments that other templates include, such as `header.html`, are overridden the same way.
 * See [Customize notification templates](customize-notification-templates.md).
+
+#### Let people request a console account
+
+* While **Allow User Registration** is on, the Gamma console sign-in page offers a **Request an account** link, as long as the local login form is shown.
+* The **Request an account** page asks for a first name, a last name, an email address, and the fields listed on the **User Fields** page. The activation email opens the Gamma console, where the person chooses a password.
+* With automatic validation off, the activation email is sent once an administrator accepts the request from the **Users** page, and its link opens the Gamma console too.
+* See [Configure console management and schedulers](configure-console-management-and-schedulers.md).
+
+#### Manage API Score
+
+* Review the latest score of every API in the selected environment from the **API Score** page under **APIs & Assets** in the **Environment** section. The **Overview** tab shows the average score, the number of findings by severity, and the score of each API, highest first.
+* Open the **API Score** page of one API from its row to evaluate it. The environment page doesn't run evaluations.
+* Import custom rulesets for OpenAPI, AsyncAPI, or one type of Gravitee API from YAML or JSON files, and import JavaScript functions that extend them, on the **Rulesets & Functions** tab. Every evaluation of an API in the environment includes them.
+* Rename a ruleset or change its description later. To change its rules, delete it and import the new version.
+* The page appears once **Enable API Score** is turned on for the environment on the **API Review** page, for people whose role can read the environment's integrations.
+* See [Manage API Score](manage-api-score.md).
 
 #### Manage dictionaries
 
@@ -355,6 +547,15 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Add the key to a gateway's `gravitee.yml` file and to the **Tenants** field of an API's endpoints. A gateway loads an endpoint when the endpoint has no tenant or lists the gateway's own tenant.
 * See [Manage tenants](manage-tenants.md).
 
+#### Manage user fields
+
+* Choose the extra questions people answer when they sign up, from the **User Fields** page of the **Environment** section. The Gamma console, APIM Console, and Developer Portal sign-up forms all ask them, and every environment of the organization shares the same list.
+* Give each field a key, a label, and optionally a list of values that turns it into a choice. Turn on **Required** to make people answer a field to sign up.
+* Each person's answers are kept on their profile, and appear on their detail page, which opens from the **Users** page.
+* Change a field's label, **Required** switch, or values later. The key is fixed once the field exists.
+* Deleting a field also deletes every person's answer to it.
+* See [Manage user fields](manage-user-fields.md).
+
 #### Manage users
 
 * Add, review, and delete the users and service accounts of the organization from the **Users** page, and search the list by name, email, or ID.
@@ -362,6 +563,21 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Accept or reject a pending registration, convert a user to a service account, and send an Active user a password reset email that opens the reset page of the Gamma console.
 * Generate and revoke personal access tokens for a user, and review the APIs, API Products, and applications the user is a member of.
 * See [Manage users](manage-users.md).
+
+#### Manage your account
+
+* Open your own account from the account menu in the top-right corner of the console. The menu shows your name and email address, and holds **My Account**, a **Theme** section with **Light**, **Dark**, and **System**, and **Sign out**.
+* Edit your first name, last name, and email address when Gravitee holds your account, fill in the custom user fields of the organization, and upload an avatar or return to the default one. An account from an identity provider keeps its identity fields read-only.
+* Generate personal access tokens for the Management API, copy each one once together with a `curl` example, and revoke the tokens you no longer need.
+* Delete your own account once you've handed over every API and application you're the primary owner of. The Management API's external authentication settings decide whether the **Danger Zone** card is shown.
+* See [Manage your account](manage-your-account.md).
+
+#### Monitor API health across an environment
+
+* Review the health-check availability of the v4 HTTP proxy APIs of the selected environment from the **API Health Check** page under **System & Security** in the **Environment** section, over the last minute, hour, day, week, or month.
+* The **API Health Check Report** banner counts the APIs in error, at 80% availability or less, and in warning, at 95% or less, across every API with health check enabled. The table shows the availability of each API, or that its health check isn't configured or has no data in the window.
+* Filter the table to the APIs with health check enabled, search it, and open the **Health Check Dashboard** of an API from its row menu.
+* See [Monitor API health across an environment](monitor-api-health-across-an-environment.md).
 
 #### Monitor gateway instances
 

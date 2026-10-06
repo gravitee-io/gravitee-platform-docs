@@ -33,11 +33,11 @@ To import your API:
 3. Select **+ Add API**.
 4.  In the **Create New API** tile, click **Import v4 API**.
 
-    <figure><img src="../../.gitbook/assets/00 import 1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 import 1.png" alt="The Choose API creation method page, offering Create Classic API with V2 options and Create New API with V4 options."><figcaption></figcaption></figure>
 
     This loads the options for importing your API.
 
-    <figure><img src="../../.gitbook/assets/00 import 2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 import 2.png" alt="The Import API page, with the Gravitee definition format and a local file source selected, a drag-and-drop area, and options to create a documentation page and add specification validation."><figcaption></figcaption></figure>
 5. Choose an **API format**. You can select either **Gravitee definition** or **OpenAPI specification**.
 6.  Choose a **File source**.
 
@@ -196,7 +196,7 @@ paths:
 
 When importing an OpenAPI definition, you can select the option **Create policies on path** to specify that all routes declared in the OpenAPI specification will be automatically created in APIM. To verify, navigate to the policy management view.
 
-<figure><img src="../../.gitbook/assets/graviteeio-import-openapi-policies-path.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-import-openapi-policies-path.png" alt="The Policies view of an imported OpenAPI specification, listing available policies beside the paths discovered in the specification."><figcaption></figcaption></figure>
 
 You can also choose to activate policies (below) that will be configured using the OpenAPI specification:
 

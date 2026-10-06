@@ -99,7 +99,7 @@ security:
 
 3.  Update the default administrator password:
 
-    <figure><img src="../../.gitbook/assets/admin-pwd.png" alt=""><figcaption><p>Admin password</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/admin-pwd.png" alt="A YAML snippet for an inline admin user with the password hash highlighted, above the assigned organization and environment admin roles."><figcaption><p>Admin password</p></figcaption></figure>
 
 ### Step 3: Update the JWT secret
 

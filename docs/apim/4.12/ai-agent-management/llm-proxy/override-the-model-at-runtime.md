@@ -27,17 +27,17 @@ To override the model at runtime, add the Assign attributes policy to the reques
 
 1.  From the **Dashboard**, click **APIs**.<br>
 
-    <figure><img src="../../.gitbook/assets/agent-mesh-llm-proxy-add-the-guard--97.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/agent-mesh-llm-proxy-add-the-guard--97.png" alt="The console dashboard with APIs highlighted in the left navigation, showing total API and application counts and lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  In the **APIs** screen, click your LLM proxy.<br>
 
-    <figure><img src="../../.gitbook/assets/agent-mesh-llm-proxy-add-the-guard--98.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/agent-mesh-llm-proxy-add-the-guard--98.png" alt="The APIs list filtered by a search term, showing two LLM Proxy APIs with their status, context path, and portal visibility."><figcaption></figcaption></figure>
 3.  In the **API's menu**, click **Policies**.<br>
 
-    <figure><img src="../../.gitbook/assets/7CABA049-B484-48FE-859E-B640C6ED9A04_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/7CABA049-B484-48FE-859E-B640C6ED9A04_1_201_a.jpeg" alt="The Configuration page of an API, with Policies highlighted in the API menu beside the general settings and a Danger Zone."><figcaption></figcaption></figure>
 4. In the **Flows** section, select the flow that you want to add the policy to. For example, `POST/chat/completions`.
 5.  In the **Request phase** section, click the **+** icon.<br>
 
-    <figure><img src="../../.gitbook/assets/88D4D2EF-A79A-43E6-A61D-90DB74F78C7F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/88D4D2EF-A79A-43E6-A61D-90DB74F78C7F_1_201_a.jpeg" alt="The Policies page of an LLM Proxy API, with a chat completions flow selected and the add-policy button in the request phase highlighted."><figcaption></figcaption></figure>
 6. In the **Policies for Request phase** pop-up window, navigate to **Assign attributes**, and then click **Select**.<br>
 7. In the **Assign context attributes** section, add an attribute, and then complete the following sub-steps:
    1. In the **Name** field, type `llmproxy.model.override`.
@@ -46,10 +46,10 @@ To override the model at runtime, add the Assign attributes policy to the reques
 9. Click **Save**.
 10. In the **This API is out of sync.** pop-up window, click **Deploy API**.<br>
 
-    <figure><img src="../../.gitbook/assets/372797AD-6AB1-4037-B60E-51BD486C6B6C_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/372797AD-6AB1-4037-B60E-51BD486C6B6C_1_201_a.jpeg" alt="The Policies page with an AI Prompt Guard Rails policy added to the request phase of the chat completions flow, under an out-of-sync banner."><figcaption></figcaption></figure>
 11. In the **Deploy your API** pop-up window, click **Deploy**.<br>
 
-    <figure><img src="../../.gitbook/assets/A9784826-C611-41A7-8D3C-00A83247F22C_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A9784826-C611-41A7-8D3C-00A83247F22C_1_201_a.jpeg" alt="The Deploy your API dialog open over the Policies page, asking for a label to identify the deployment."><figcaption></figcaption></figure>
 
 For more information about the policy, see [assign-attributes.md](../../create-and-configure-apis/apply-policies/policy-reference/assign-attributes.md "mention").
 

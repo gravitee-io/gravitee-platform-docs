@@ -16,7 +16,7 @@ ACLs are restrictive in that once they are applied, proxy clients must be author
 When using the Kafka Topic Mapping policy together with the Kafka ACL policy, it is important to place the Kafka ACL policy **before** the Kafka Topic Mapping policy, as shown below.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/policy order.png" alt=""><figcaption><p>Screenshot of the Kafka ACL policy placed before the Kafka Topic Mapping policy</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/policy order.png" alt="A diagram of the Interact phase, showing a Kafka ACL policy that allows read access only to mapped topics, followed by a Kafka Topic Mapping policy that maps internal topics to client-side names, between the client and the broker."><figcaption><p>Screenshot of the Kafka ACL policy placed before the Kafka Topic Mapping policy</p></figcaption></figure>
 
 ## How to formulate ACLs in the policy
 
@@ -32,7 +32,7 @@ To create and apply an ACL, follow the steps below. These steps configure option
 
 You can add more than one ACL in the same policy. Kafka follows the rule that if there is an ACL that denies an action, it takes precedence over ACLs that allow an action. If more than one ACL applies to the client connection to the Gateway, the most restrictive ACL is applied.
 
-<figure><img src="../../.gitbook/assets/kafka-gw-policies-kafka-acl-154.png" alt=""><figcaption><p>Kafka ACL Policy UI</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/kafka-gw-policies-kafka-acl-154.png" alt="The Kafka ACL policy configuration, with a prefixed topic resource pattern limited to the read operation, and a second rule granting access to any group, beside the policy documentation."><figcaption><p>Kafka ACL Policy UI</p></figcaption></figure>
 
 ## Examples
 

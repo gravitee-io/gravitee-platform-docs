@@ -5,6 +5,16 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.14.3 (September 28, 2026) <a href="#id-3.14.3" id="id-3.14.3"></a>
+
+#### AuthService `status_on_error` now defaults to `504`
+
+Previously, when an `AuthService` omitted `status_on_error`, Envoy's `ext_authz` filter fell back to its built-in default of `403` whenever it could not get a verdict from the authentication service, such as a timeout, a refused connection, a transport error, or a `5xx` response from an HTTP `AuthService`. A `403` maps to the gRPC `PERMISSION_DENIED` code, which misreports an infrastructure failure as an authorization verdict and causes gRPC clients to give up instead of retrying. Ambassador Edge Stack now defaults to `504`, which maps to `UNAVAILABLE` and is treated as transient and retryable. The Helm chart's `authService.optional_configurations` default has been updated to match, bringing it in line with the published YAML manifests. This is a behaviour change for anyone running their own `AuthService` without the field. An explicit `status_on_error` is always honoured, so set `status_on_error: {code: 403}` to restore the previous behaviour.
+
+#### Fixed spurious authorization failures on cold AuthService connections
+
+Previously, the Envoy cluster for the AuthService did not declare a per-connection HTTP/2 stream limit, so on a cold connection pool Envoy could attach an entire burst of requests to a single still-connecting connection before the AuthService's `SETTINGS_MAX_CONCURRENT_STREAMS` arrived. The AuthService then reset the excess streams, which Envoy counted as `ext_authz` errors and turned into client-facing denials. Envoy now advertises an explicit `max_concurrent_streams` on the AuthService cluster and opens additional connections instead, and `amb-sidecar` pins its HTTP/2 server stream limit to the same value. Both read the new `AES_AUTH_MAX_CONCURRENT_STREAMS` environment variable, which defaults to `250`. Values below `1` are rejected with a warning and fall back to the default.
+
 ### Version 3.14.2 (September 2, 2026) <a href="#id-3.14.2" id="id-3.14.2"></a>
 
 #### Fixed connection reuse for the External Filter with `protocol: http`

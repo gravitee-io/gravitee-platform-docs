@@ -16,7 +16,7 @@ APIM uses client IDs to recognize applications that have subscribed to a JWT pla
 
 A JWT plan presents the following configuration options:
 
-<figure><img src="../../../.gitbook/assets/plan_jwt configure.png" alt=""><figcaption><p>JWT plan configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_jwt configure.png" alt="The JWT authentication configuration step, with the signature set to RSA_RS256, the resolver set to GIVEN_KEY, authorization header propagation on, and the user claim set to sub."><figcaption><p>JWT plan configuration</p></figcaption></figure>
 
 * **Signature:** Select the algorithm used to hash and encrypt your JWT
 * **JWKS resolver:** Select a method to retrieve the JSON Web Key (JWK), which is often stored inside a JSON Web Key Set (JWKS) and required by the Gateway to validate the signature of the JWT:
@@ -49,7 +49,7 @@ A JWT plan presents the following configuration options:
 * **Extract client certificate from headers:** Extracts the client certificate from the request header (provided in **Header name** field). Necessary when the mTLS connection is handled by a proxy.
 *   **Additional selection rule:** Allows you to use the EL to filter by contextual data (request headers, tokens, attributes, etc.) for plans of the same type (e.g., for two JWT plans, you can set different selection rules on each plan to determine which plan handles each request)
 
-    <figure><img src="../../../.gitbook/assets/jwt selection rule.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/jwt selection rule.png" alt="The Additional selection rule panel of plan configuration, explaining that a rule improves plan selection when several plans share a type, with an empty selection rule field and an expression-language example."><figcaption></figcaption></figure>
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>Plan selection and evaluation of the selection rule use the EL syntax <code>#context.attributes['jwt'].claims['iss']</code> per the example above. However, when the policy is executed, the field is placed directly in the attributes map with the key. The correct EL syntax to access JWT fields changes to <code>#context.attributes['jwt.claims']['iss']</code>.</p></div>
 

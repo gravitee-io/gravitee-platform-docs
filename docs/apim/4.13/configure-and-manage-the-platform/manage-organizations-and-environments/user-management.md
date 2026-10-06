@@ -129,7 +129,7 @@ Environment-scoped permissions govern everything within a single environment: th
 | `DOCUMENTATION` | Create, read, update, delete | The Developer Portal documentation content shown to consumers. |
 | `EDGE_CONFIGURATION` | Not enforced | Gateway edge-level runtime settings applied across the environment. This permission isn't currently enforced by a Management API endpoint. |
 | `ENTRYPOINT` | Create, read, update, delete | The base URLs the gateway serves and the portal advertises, scoped to the environment. |
-| `EXPLORER` | Kafka gateway | Access to the Kafka Explorer for browsing topics and messages in the environment. Access is enforced by the Kafka gateway rather than the Management API. |
+| `EXPLORER` | Create, read, update, delete | Kafka Explorer connections in Gamma Event Stream Management. The Management API enforces create (create a connection or test a draft) and read (list the connections, and read the brokers, topics, consumer groups, and messages behind them). Update and delete aren't enforced by an endpoint, but the Gamma console hides the **Configuration** and **Delete** entry points without them, so grant all four to a role meant to administer connections. Editing, deleting, and sharing one connection is also governed by its own `EXPLORER` role membership. |
 | `GROUP` | Create, read, update, delete | User groups, named collections of users that jointly own APIs and applications. |
 | `IDENTITY_PROVIDER_ACTIVATION` | Create, read, update, delete | Controls which identity providers are enabled at the environment level. |
 | `INSTANCE` | Read | API Gateway instance information. |
@@ -251,14 +251,14 @@ To pre-register a user:
 
     **Pre-register a user**
 
-    <figure><img src="../../.gitbook/assets/create user_user type.png" alt=""><figcaption><p>Add a User user type</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/create user_user type.png" alt="The Pre-register a user page with the User type selected, showing empty first name, last name, and email fields above an identity provider selector."><figcaption><p>Add a User user type</p></figcaption></figure>
 
     * Enter the user's info: **First Name**, **Last Name**, **Email**
     * Using the drop-down menu, select the **Identity Provider** name. See [IdP configuration](README.md#defining-organization-authentication-and-access-settings) for more details.
 
     **Pre-register a service account:** Set up a user as a service account to enable someone from a Gravitee servicer (for example, a partner or consultant) to subscribe to Gravitee email notifications
 
-    <figure><img src="../../.gitbook/assets/create user_service account.png" alt=""><figcaption><p>Add a Service Account user type</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/create user_service account.png" alt="The Pre-register a user page with Service Account selected, showing empty service name and email fields."><figcaption><p>Add a Service Account user type</p></figcaption></figure>
 
     * Enter a **Service Name** for the service account
     * Enter the service account's email
@@ -268,7 +268,7 @@ To pre-register a user:
 
 To delete a user from your Organization, select the **Delete user** icon from the table on the **Users** page:
 
-<figure><img src="../../.gitbook/assets/user_delete.png" alt=""><figcaption><p>Delete a user</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/user_delete.png" alt="The organization Users page, with the delete icon on one row circled, listing ten of 153 users whose display names are masked."><figcaption><p>Delete a user</p></figcaption></figure>
 
 A user can only be deleted if they are not the Primary Owner of a Gravitee user group, application, or API. If the user is the Primary Owner of any of these Gravitee objects, the trash can icon does not appear until the object is transferred or deleted.
 
@@ -288,7 +288,7 @@ To create a user group:
 4. Click the plus icon at the bottom of the page
 5.  Configure the user group
 
-    <figure><img src="../../.gitbook/assets/user group_create.png" alt=""><figcaption><p>Create a user group</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/user group_create.png" alt="The Create a group page, with an empty name, a max members field, invitation and role options, association checkboxes, and Create and Reset buttons."><figcaption><p>Create a user group</p></figcaption></figure>
 
     * **General:** Enter a name for the user group
     * **Roles & Members:** Define the maximum number of members and choose whether or not to allow:
@@ -315,7 +315,7 @@ To manage a user group:
 2. Select **Settings** from the left nav
 3.  Under **User Management**, select **Groups**
 
-    <figure><img src="../../.gitbook/assets/user group_manage.png" alt=""><figcaption><p>Manage user groups</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/user group_manage.png" alt="A groups table listing three groups by identifier plus an administrator marked as primary owner, each with a delete icon."><figcaption><p>Manage user groups</p></figcaption></figure>
 
     * **Edit a user group:** Click its hyperlink to make changes, and then do either of the following:
       * Reset the user group settings by selecting **RESET** under **Actions**

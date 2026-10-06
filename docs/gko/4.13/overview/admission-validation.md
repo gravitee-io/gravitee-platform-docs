@@ -13,6 +13,8 @@ Validation runs in the following two stages:
 1. **Local validation.** GKO checks the resource on its own, without contacting APIM. This covers structural and semantic rules. Examples include flow and endpoint group definitions, broker port ranges on Native Kafka API plans, references to other custom resources, and API context path conflicts in the namespace or cluster.
 2. **Dry-run validation against APIM.** If the resource references a `ManagementContext`, GKO asks APIM to validate the resource as well, before it enters the cluster.
 
+When drift detection is enabled, an update to a resource that references a `ManagementContext` is also compared with the resource's current state in APIM. This check is disabled by default. See [drift-detection.md](drift-detection.md "mention").
+
 ## Dry-run validation against the Automation API
 
 Local validation alone cannot tell you whether APIM accepts a resource. A resource can be well-formed and still be rejected by APIM, because only APIM knows the state and configuration of the target environment.
@@ -208,7 +210,7 @@ Kubernetes refuses a webhook `timeoutSeconds` above 30. Past 25 seconds of HTTP 
     ```
 
 {% hint style="info" %}
-Only the dry run is bound to these budgets. A resource that carries no context reference is still admitted through the webhook, but validation stays local, so GKO makes no APIM call and the inner budget never opens.
+Only the calls to APIM are bound to these budgets: the dry run, and the read of the resource's current state when drift detection is enabled. A resource that carries no context reference is still admitted through the webhook, but validation stays local, so GKO makes no APIM call and the inner budget never opens.
 {% endhint %}
 
 ## When the dry-run call is skipped
@@ -219,7 +221,7 @@ The dry-run call only happens when the resource references a `ManagementContext`
 
 * **APIM must be reachable when you apply a resource, not just when GKO reconciles it.** Both webhooks are registered with `failurePolicy: Fail`, and a failed dry-run call is treated as a severe error. If APIM is down, unreachable, or the `ManagementContext` credentials are invalid, `kubectl apply` on a context-bound resource is rejected rather than queued.
 * **The credentials in the `ManagementContext` need write permissions.** Nothing is written, but the dry run calls the same create and update endpoint as a real apply. See [define-an-apim-service-account-for-gko.md](../guides/define-an-apim-service-account-for-gko.md "mention").
-* **Each resource you apply costs a round trip to APIM.** On bulk applies, this is one call per context-bound resource.
+* **Each resource you apply costs a round trip to APIM.** On bulk applies, this is one call per context-bound resource. When drift detection is enabled, each update to a context-bound resource also reads the resource's current state from APIM.
 * **The calls appear in APIM's logs.** They look like ordinary Automation API requests, and the `dryRun=true` query parameter is what distinguishes them from a real apply.
 
 ## Disable the webhooks
@@ -235,7 +237,7 @@ manager:
 {% endcode %}
 
 {% hint style="danger" %}
-If you disable the webhooks, no validation happens at apply time, and that includes the dry-run call. Invalid resources are then accepted into the cluster and only fail later, during reconciliation. The error surfaces in the resource status and the operator logs instead of in your `kubectl` output.
+If you disable the webhooks, no validation happens at apply time, and that includes the dry-run call and drift detection. GKO doesn't start when you disable the webhooks while `manager.driftDetection.enabled` is `true`. Invalid resources are then accepted into the cluster and only fail later, during reconciliation. The error surfaces in the resource status and the operator logs instead of in your `kubectl` output.
 {% endhint %}
 
 To keep the webhooks but widen the API context path conflict check from the resource's namespace to the whole cluster, set `manager.webhook.admission.checkApiContextPathConflictInCluster` to `true`.

@@ -246,6 +246,21 @@ Automation API is not enabled by default. On premise Helm Charts users must enab
 * Select one or more tenants. The log search returns only the entries recorded with a matching tenant.
 * Combine the Tenant filter with the other log filters to scope an investigation to the tenants you operate.
 
+#### **Assign Metrics for LLM proxy and A2A proxy APIs**
+
+* From APIM 4.12.18, the [Assign Metrics](../../create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md) policy can be applied to v4 LLM proxy and A2A proxy APIs, in the request and response phases.
+* On an LLM proxy API, the policy evaluates response-phase metrics once the response body has finished streaming. A metric can therefore read the token counts and costs that the endpoint publishes while the response streams, through the `llmproxy.usage.sent.token`, `llmproxy.usage.received.token`, `llmproxy.usage.sent.cost`, and `llmproxy.usage.received.cost` context attributes.
+* Each metric is still evaluated once per request, and the Gateway relays the response to the client chunk by chunk. If the response stream fails part way through, the Gateway records each metric from the values published up to that point.
+* Every other API type evaluates response-phase metrics when the response phase runs, unchanged.
+
+#### **FIPS 140-3 images and FIPS-aware Gateway TLS**
+
+* From APIM 4.12.11, each backend and frontend component has a FIPS image variant next to its ordinary image, built on a FIPS 140-3 validated base image and published to the private Gravitee registry only, under the ordinary version tag with the `-chainguard-fips` suffix.
+* From APIM 4.12.19, HTTPS listeners, client certificate authentication, mTLS plans, and the Kafka Gateway listener work on the FIPS images.
+* From APIM 4.12.19, `bcfks`, the BouncyCastle FIPS keystore format, joins `jks`, `pem`, and `pkcs12` as an accepted type for a keystore or truststore read from a file path, where a BouncyCastle provider is registered, as it is on the FIPS images.
+* From chart 4.12.19, the Helm chart accepts a PEM keystore on the `http` listener and each `servers[]` entry with `gateway.ssl.keystore.certificates` and `gateway.servers[].ssl.keystore.certificates`, a list of `cert` and `key` pairs.
+* For more information, see [FIPS images](../../self-hosted-installation-guides/docker/fips-images.md).
+
 ## Improvements
 
 #### **Policy Description Tracing**

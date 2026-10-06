@@ -67,16 +67,16 @@ To enforce user authentication, complete the following steps:&#x20;
 
 1.  From the **Dashboard**, click **Settings**.
 
-    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-126.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-126.png" alt="The console dashboard with Settings highlighted in the left navigation, showing 2,671 APIs and 856 applications."><figcaption></figcaption></figure>
 2.  In the **Settings** menu, navigate to the **Portal** section, and then click **Authentication**.&#x20;
 
-    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-127.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-127.png" alt="The portal Analytics settings with Authentication highlighted in the portal menu, above the platform dashboard list."><figcaption></figcaption></figure>
 3.  Turn on **Force authentication to access portal**.
 
-    <figure><img src="../../../.gitbook/assets/C59621FB-6019-478F-BEB5-65646363CD72_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/C59621FB-6019-478F-BEB5-65646363CD72_1_201_a.jpeg" alt="The portal Authentication settings with the Force authentication to access portal toggle highlighted and switched off."><figcaption></figcaption></figure>
 
 ## Verification&#x20;
 
 *   Log out of your New Developer Portal, and then try to access a page on your New Developer Portal. You are redirected to the login screen. <br>
 
-    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-132.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-132.png" alt="The developer portal login panel, with username and password fields above the four identity provider buttons."><figcaption></figcaption></figure>

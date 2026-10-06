@@ -466,7 +466,7 @@ The sequence follows six main phases:
 5. **Access Attempt**: The client presents this new JWT token to the Gravitee Gateway.
 6. **Resolution**: Gravitee validates the token and, if correct, forwards the original request to the MCP Tool Server, allowing the user to successfully complete their action.
 
-<figure><img src="../../.gitbook/assets/secure-a-mcp-proxy-with-entra-id-oauth-flow1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/secure-a-mcp-proxy-with-entra-id-oauth-flow1.png" alt="A six-step diagram of a user logging into an MCP tool server, from an access-denied error in the editor, through the gateway forcing authentication and the identity provider issuing a JWT, to the client presenting the token and the tool responding."><figcaption></figcaption></figure>
 
 ## Appendix 3: Working with Claude Code
 

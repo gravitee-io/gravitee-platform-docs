@@ -65,18 +65,19 @@ To enforce user authentication, complete the following steps:&#x20;
 
 ### Enforce user authentication via the APIM Console&#x20;
 
-1.  From the **Dashboard**, click **Settings**.
+1.  In the Console sidebar, click **Portal Settings**. The Portal Settings open in a new browser tab.
 
-    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-126.png" alt=""><figcaption></figcaption></figure>
-2.  In the **Settings** menu, navigate to the **Portal** section, and then click **Authentication**.&#x20;
+    <figure><img src="../../../.gitbook/assets/subscription-forms-console-portal-settings.png" alt="The Console sidebar with the Portal Settings entry"><figcaption></figcaption></figure>
+2.  Click **Authentication**.
 
-    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-127.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/portal-settings-authentication.png" alt="The Authentication page of the Portal Settings, with Force authentication to access portal switched off, Show login form on portal switched on, and three identity providers listed"><figcaption></figcaption></figure>
 3.  Turn on **Force authentication to access portal**.
 
-    <figure><img src="../../../.gitbook/assets/C59621FB-6019-478F-BEB5-65646363CD72_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/portal-settings-authentication-force-login.png" alt="Force authentication to access portal switched on, with the Discard and Save buttons below it"><figcaption></figcaption></figure>
+4.  Click **Save**.
 
 ## Verification&#x20;
 
 *   Log out of your New Developer Portal, and then try to access a page on your New Developer Portal. You are redirected to the login screen. <br>
 
-    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-132.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-132.png" alt="The developer portal login panel, with username and password fields above the four identity provider buttons."><figcaption></figcaption></figure>

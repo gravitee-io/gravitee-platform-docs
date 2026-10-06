@@ -18,16 +18,16 @@ To configure user and group access for your APIs, navigate to the APIs list, and
 
 Here, you can add members to your API by using the **+ Add members icon**, as well as alter member roles. These roles come with specific permissions. For more information on roles, please refer to the [roles documentation.](../../administration/user-management-and-permissions.md#roles)
 
-<figure><img src="../../../.gitbook/assets/guides-api-configuration-v2-api-configur-39-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guides-api-configuration-v2-api-configur-39-1.png" alt="The Members tab of an API&#x27;s user and group access page, with the primary owner&#x27;s name blurred and a panel of ten inherited group members below, all names blurred."><figcaption></figcaption></figure>
 
 ### Add groups to your API
 
 To give groups access to your API, select the **Groups** tab, and select the desired group from the Groups dropdown. This will give all members of that group access to your API.
 
-<figure><img src="../../../.gitbook/assets/Add groups.png" alt=""><figcaption><p>Add groups to your API</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Add groups.png" alt="The Groups tab of an API, with the groups dropdown open and all six group names blurred, the first ticked."><figcaption><p>Add groups to your API</p></figcaption></figure>
 
 ### Transfer API ownership
 
 If you are the owner of the API, you can transfer ownership of the API to another member, user, or group. To this, select the **Transfer ownership** tab, and select either **API member**, **Other user**, or **Group.** Then, select the stakeholder to which you want to transfer API ownership.
 
-<figure><img src="../../../.gitbook/assets/Transfer ownership.png" alt=""><figcaption><p>Transfer API ownership</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Transfer ownership.png" alt="The Transfer ownership tab of an API, with Group selected as the transfer method and the group dropdown open on a single administrator group."><figcaption><p>Transfer API ownership</p></figcaption></figure>

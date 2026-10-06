@@ -87,7 +87,7 @@ Kafka reporter sends all messages to separate partitions based on domain id or o
 
 `sasl.jaas.config = org.apache.kafka.common.security.plain.PlainLoginModule required username="<user>" password="<user-secret>";`
 
-<figure><img src="../../.gitbook/assets/kafka-config.png" alt=""><figcaption><p>Kafka plaintext security config</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/kafka-config.png" alt="The Kafka reporter configuration with bootstrap servers, topic, and acks completed, and producer properties for the security protocol, SASL mechanism, and JAAS config."><figcaption><p>Kafka plaintext security config</p></figcaption></figure>
 
 **TLS/SSL encryption**
 
@@ -107,4 +107,4 @@ If the Kafka broker is using SSL/TLS encryption, you must add additional steps t
 
 `ssl.truststore.password = "secret_password"`
 
-<figure><img src="../../.gitbook/assets/kafka-ssl-config.png" alt=""><figcaption><p>Kafka TLS/SSL security config</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/kafka-ssl-config.png" alt="Kafka reporter producer properties for SASL_SSL, with the security protocol, SASL mechanism, JAAS config, and truststore location and password."><figcaption><p>Kafka TLS/SSL security config</p></figcaption></figure>

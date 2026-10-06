@@ -20,4 +20,4 @@ YAML (`yml`) format is sensitive to indentation. Ensure you include the correct 
 
 The following is a reference of the default configuration of APIM Gateway in your `gravitee.yml` file:
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/src/main/resources/config/gravitee.yml" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-distribution/gravitee-apim-distribution-standalone/gravitee-apim-distribution-standalone-gateway/src/main/resources/config/gravitee.yml" %}

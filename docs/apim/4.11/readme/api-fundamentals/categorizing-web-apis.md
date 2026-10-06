@@ -101,9 +101,9 @@ Core to Javascript, [event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ) fu
 
 Though contrived, the above example effectively illustrates the power of asynchronous programming. Both `simulateSyncWork("Web API Work", 3000)` and `simulateAsyncWork("Web API Work", 3000)` represent calls to the same web API, but asynchronous programming enabled a change in response as further clarified by the following graphics.
 
-<figure><img src="../../.gitbook/assets/IOBound.png" alt=""><figcaption><p>Diagram of synchronous calls to a web API from <a href="https://realpython.com/python-concurrency/">blog</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/IOBound.png" alt="A timing diagram of synchronous I/O, where three requests wait in sequence and the CPU processes only in the short gaps between them."><figcaption><p>Diagram of synchronous calls to a web API from <a href="https://realpython.com/python-concurrency/">blog</a></p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/Asyncio.png" alt=""><figcaption><p>Diagram of asynchronous calls to a web API from <a href="https://realpython.com/python-concurrency/">blog</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Asyncio.png" alt="A timing diagram of asynchronous I/O, where three requests overlap while waiting and the CPU processes them together in two larger blocks."><figcaption><p>Diagram of asynchronous calls to a web API from <a href="https://realpython.com/python-concurrency/">blog</a></p></figcaption></figure>
 
 ### **Sync vs async web APIs**
 

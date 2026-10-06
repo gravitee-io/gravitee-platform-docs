@@ -1,12 +1,12 @@
 ---
-description: API Management 4.13 API Products require the Enterprise Universe licence tier. Learn the restrictions before you deploy one.
+description: API Management 4.13 API Products require an Enterprise license with the Planet, Galaxy, or Universe tier. Learn the restrictions before you deploy one.
 ---
 
 # API Products restrictions and licensing
 
 ## Licensing
 
-API Products require the Enterprise Universe tier. Deployment fails if the organization license tier isn't "universe."
+API Products require an Enterprise license with the Planet, Galaxy, or Universe tier. Deployment fails if the organization doesn't have an active license that includes API Products.
 
 ## Supported API types
 
@@ -25,7 +25,7 @@ API Products support the following plan types:
 - **JWT**
 - **mTLS**
 
-Keyless and OAuth plans aren't supported. The Console UI only displays API Key, JWT, and mTLS as available plan types when creating a plan for an API Product. The Management API rejects Keyless plans with a `400 Bad Request` error: "Plan Security Type KeyLess is not allowed."
+Keyless and OAuth plans aren't supported. The Console UI only displays API Key, JWT, and mTLS as available plan types when creating a plan for an API Product. The Management API rejects Keyless plans with a `400 Bad Request` error: `Plan Security Type KeyLess is not allowed.`
 
 ## Naming requirements
 

@@ -12,4 +12,4 @@ When using the legacy execution engine, you can configure Cross-Origin Resource 
 
 When using the reactive execution engine, the allowed origin(s) you specify is returned instead of `*`. For example, in the configuration shown below, `Access-Control-Allowed-Origin: https://test.gravitee.io`.
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-cors.png" alt=""><figcaption><p>Sample CORS configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-cors.png" alt="The CORS settings for an API, enabled with one allowed origin, a list of allowed methods, and preflight policy execution turned off."><figcaption><p>Sample CORS configuration</p></figcaption></figure>

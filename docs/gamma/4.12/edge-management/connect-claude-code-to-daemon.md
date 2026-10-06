@@ -26,7 +26,7 @@ The Edge Daemon runs as a local reverse proxy on the employee's device. When you
 {% hint style="warning" %}
 Only LLM traffic is redirected through the Edge Daemon using this method. Claude Code also makes direct calls to `api.anthropic.com` for telemetry, authentication, and other operations — these requests bypass the Edge Daemon and reach Anthropic directly.
 
-An interception mode is in development that will redirect all traffic (including telemetry and auth) using local DNS resolution. This requires additional certificate configuration.
+Interception mode is available and on by default after the installation. It redirects all traffic to `api.anthropic.com` (including telemetry and auth) using local DNS resolution, with no change in Claude Code. The installer handles the certificate configuration.
 {% endhint %}
 
 No code changes are required in Claude Code — the base URL override is the only configuration needed.

@@ -66,12 +66,10 @@ create-and-configure-apis/apply-policies/policy-reference/javascript-policy-new-
 create-and-configure-apis/configure-v4-apis/general-settings.md
 create-and-configure-apis/development-tools/README.md
 configure-and-manage-the-platform/gravitee-gateway/gateway-configuration-for-mtls-certificate-management.md
-configure-and-manage-the-platform/gravitee-gateway/tag-entity-schema-and-key-field-reference.md
 ai-agent-management/AI-resources/README.md
 ai-agent-management/AI-resources/ai-model-text-classification-overview-and-model-selection.md
 ai-agent-management/AI-resources/ai-model-text-classification-configuration-and-usage.md
 release-information/breaking-changes-and-deprecations.md
-upgrade-guides/tag-key-migration-upgrade-procedure.md
 
 # Renamed directories — block old paths from being synced as new files
 # 4.10 agent-mesh/ was renamed to ai-agent-management/ in 4.11

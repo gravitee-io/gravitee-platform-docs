@@ -60,4 +60,4 @@ After the subscription is accepted, the client authenticates requests using the 
 
 Consumers can also subscribe to an API Product themselves from the New Developer Portal, once the API Product is published in the portal navigation. For more information, see [Subscribe to an API Product](../../developer-portal/new-developer-portal/manage-subscriptions.md#subscribe-to-an-api-product).
 
-<figure><img src="../../.gitbook/assets/api-product-subscriptions.png" alt=""><figcaption><p>API Product subscriptions list</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api-product-subscriptions.png" alt="The Subscriptions tab of an API product&#x27;s Consumers page, listing one accepted API key subscription with its plan and timestamps."><figcaption><p>API Product subscriptions list</p></figcaption></figure>

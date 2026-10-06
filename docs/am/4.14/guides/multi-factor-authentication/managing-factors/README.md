@@ -1,0 +1,42 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/managing-factors
+description: Access Management 4.13 supports several MFA factors out of the box. Follow the steps to create a factor and compare the supported types.
+---
+
+# Managing Factors
+
+## Overview
+
+Gravitee Access Management (AM) supports various factors out of the box. These factors can be used as MFA for protecting user account access.
+
+Factors are created and managed on Security Domain level, and can then be reused across all of your applications within that Security Domain.\
+\
+Some factors also require a [**Resource**](../../resources.md).
+
+## Create a factor
+
+1. In AM Console UI, click **Settings > Multifactor Auth**.
+2. Click the plus icon.
+3. Select the factor type and click **Next.**
+
+<figure><img src="../../../.gitbook/assets/guide-multi-factor-authentication-m-108.png" alt="The New factor wizard on the Platform step with the SMS Factor selected among the available factor types."><figcaption><p>Setting up Multifactor Auth from you Security Domain settings.</p></figcaption></figure>
+
+4. Enter the factor details and click **Create**.
+
+You now have a factor that can be enabled on Application level!
+
+### Supported Factors
+
+Gravitee Access Management supports the following Factors:
+
+* Email
+* One-time-password (OTP)
+* SMS
+* Phone Call
+* MFA with FIDO2
+* Alternative Methods
+* Recovery Codes
+* HTTP Factor

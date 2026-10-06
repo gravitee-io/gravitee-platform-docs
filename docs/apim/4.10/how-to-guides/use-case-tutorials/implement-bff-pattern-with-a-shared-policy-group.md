@@ -22,7 +22,7 @@ Due to the above issues, the recommended security approach for SPAs is to avoid 
 The **BFF pattern** can also serve as a valuable approach in scenarios where backend APIs or applications lack existing protection, providing a transparent and secure mechanism for consumers to access them through web browsers.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-1-3.png" alt=""><figcaption><p>BFF - High level architecture</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-1-3.png" alt="A diagram of the backend-for-frontend pattern, where a single-page application served from a CDN exchanges credentials with API Management, whose OAuth agent and proxy call an authorization server and return a secure cookie holding a signed access token."><figcaption><p>BFF - High level architecture</p></figcaption></figure>
 
 #### BFF Shared Policy Group responsibilities
 
@@ -37,12 +37,12 @@ This guide assumes that the `clientId` property has been created in your API. Th
 
 1. Navigate to the shared policy groups by clicking on Settings, and then **Shared Policy Groups**.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-2-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-2-3.png" alt="The Shared Policy Groups settings, listing four deployed proxy request groups for GeoIP rate limiting and three AI examples, with an Add Shared Policy Group button."><figcaption></figcaption></figure>
 
 2. Click **Add Shared Policy Group**, and select **Proxy API**.
 3. Specify a name for this SPG, and ensure the **Request** phase is selected.  Then click on the **\[Save]** button.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-3-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-3-3.png" alt="The Add Shared Policy Group for Proxy API dialog, with a BFF on-request name, a description about protecting APIs with a JWT cookie, an empty prerequisite message, and the Request phase selected."><figcaption></figcaption></figure>
 
 4. Add the [**Groovy**](../../create-and-configure-apis/apply-policies/policy-reference/4.9-groovy.md) **Policy**
    1. Use the following GroovyScript to get the Auth BFF cookie
@@ -72,7 +72,7 @@ context.attributes['bffCookie'] = bffCookie
 
 &#x20;     b. Click on the **\[Add policy]** button, and progress to the next step.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-4-4.png" alt="" width="188"><figcaption><p>Groovy Policy - Get Auth BFF cookie</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-4-4.png" alt="The Groovy policy configuration, described as getting the BFF cookie, with read and override content both switched off and a script that parses the cookie header for a named value." width="188"><figcaption><p>Groovy Policy - Get Auth BFF cookie</p></figcaption></figure>
 
 5. Add the [**Mock**](../../create-and-configure-apis/apply-policies/policy-reference/mock.md) **Policy**
    1. Set the **Trigger condition** to `{#context.attributes['bffCookie'] == null && #request.params['code'] == null}`
@@ -80,7 +80,7 @@ context.attributes['bffCookie'] = bffCookie
    3. Add a new **Header** named `Location`, with value of `https://auth.server.com/oauth/authorize?client_id={#api.properties['clientId']}&response_type=code&redirect_uri={#request.scheme + '://' + #request.host + #request.path}`
    4. Click on the **\[Add policy]** button, and progress to the next step.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-6-3.png" alt="" width="188"><figcaption><p>Mock Policy - Redirect to Auth Server if no cookie</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-6-3.png" alt="The Mock policy configuration, described as redirecting to the authorization server, with a trigger condition on a missing cookie, a 302 status code, and a Location header pointing to an authorize endpoint, beside the policy documentation." width="188"><figcaption><p>Mock Policy - Redirect to Auth Server if no cookie</p></figcaption></figure>
 
 6. Add the [**HTTP Callout**](../../create-and-configure-apis/apply-policies/policy-reference/http-callout.md) **Policy**
    1. Set the **Trigger condition** to `{#context.attributes['bffCookie'] == null && #request.params['code'] != null}`
@@ -91,14 +91,14 @@ context.attributes['bffCookie'] = bffCookie
    6. Add a new **Context Variable** named `accessToken`, with value of `{#jsonPath(#calloutResponse.content, '$.access_token')}`
    7. Click on the **\[Add policy]** button, and progress to the next step.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-7-4.png" alt="" width="188"><figcaption><p>HTTP Callout Policy - Exchange code for a token</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-7-4.png" alt="The HTTP Callout policy configuration for exchanging an authorization code, with a POST to a token endpoint, a form-encoded content type header, a request body carrying the grant type and code, and a context variable capturing the access token." width="188"><figcaption><p>HTTP Callout Policy - Exchange code for a token</p></figcaption></figure>
 
 7. Add the [**Transform Headers**](../../create-and-configure-apis/apply-policies/policy-reference/transform-headers.md) **Policy**
    1. Set the **Trigger condition** to `{#context.attributes['bffCookie'] != null}`
    2. Within the **Set/replace headers** section, add a new **Key** named `Authorization` with a value of `Bearer {#context.attributes['bffCookie']}`
    3. Click on the **\[Add policy]** button, and progress to the next step.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-9-5.png" alt="" width="188"><figcaption><p>Transform Headers Policy - Add Bearer token fetch from the cookie if any</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-9-5.png" alt="The Transform Headers policy configuration, with a trigger condition on the cookie attribute and an Authorization header set to a Bearer token read from that cookie." width="188"><figcaption><p>Transform Headers Policy - Add Bearer token fetch from the cookie if any</p></figcaption></figure>
 
 8. Add the [**JSON Web Tokens**](../../create-and-configure-apis/apply-policies/policy-reference/jws-validator.md) **Policy**
    1. Set the **Trigger condition** to `{#context.attributes['bffCookie'] != null}`
@@ -106,12 +106,12 @@ context.attributes['bffCookie'] = bffCookie
    3. Set the **Resolver parameter** to `https://auth.server.com/.well-known/jwks.json`
    4. Click on the **\[Add policy]** button, and progress to the next step.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-11-3.png" alt="" width="188"><figcaption><p>JSON Web Tokens Policy - Verify Auth BFF cookie</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-11-3.png" alt="The JSON Web Tokens policy configuration, with the RSA_RS256 signature, the JWKS_URL resolver, a resolver parameter, authorization header propagation on, and the user claim set to sub." width="188"><figcaption><p>JSON Web Tokens Policy - Verify Auth BFF cookie</p></figcaption></figure>
 
 9. Now that all the policies have been added, click on the **\[Save]** button.
 10. Click the **\[Deploy]** button.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-12-3.png" alt=""><figcaption><p>BFF On-Request Shared Policy Group</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-12-3.png" alt="An undeployed BFF on-request shared policy group, showing Groovy, Mock, HTTP Callout, Transform Headers, and JSON Web Tokens policies in the request phase, each with its trigger condition above, and a Deploy button."><figcaption><p>BFF On-Request Shared Policy Group</p></figcaption></figure>
 
 <details>
 
@@ -252,24 +252,24 @@ You can import this Shared Policy Group using Gravitee's Management API.
 
 1. Navigate back to the shared policy groups by clicking on Settings, and then **Shared Policy Groups**.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-13-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-13-3.png" alt="The Shared Policy Groups settings listing five deployed proxy request groups, with the new BFF on-request policy at the top."><figcaption></figcaption></figure>
 
 2. Click **Add Shared Policy Group**, and select **Proxy API**.
 3. Specify a name for this SPG, and ensure the **Response** phase is selected.  Then click on the **\[Save]** button.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-14-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-14-3.png" alt="The Add Shared Policy Group for Proxy API dialog, with a BFF on-response name and description and the Response phase selected."><figcaption></figcaption></figure>
 
 4. Add the [**Transform Headers**](../../create-and-configure-apis/apply-policies/policy-reference/transform-headers.md) **Policy**
    1. Set the **Trigger condition** to `{#context.attributes['accessToken'] != null}`
    2. Within the **Set/replace headers** section, add a new **Key** named `Set-Cookie` with a value of `X-Gravitee-BFF-Cookie={#context.attributes['accessToken']}; Path=/; HttpOnly; SameSite=Strict`
    3. Click on the **\[Add policy]** button, and progress to the next step.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-15-2.png" alt="" width="188"><figcaption><p>Transform Headers Policy - Add OAuth 2.0 access token in Auth BFF cookie</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-15-2.png" alt="The Transform Headers policy configuration for the response phase, setting a Set-Cookie header that stores the access token as an HttpOnly, SameSite strict cookie." width="188"><figcaption><p>Transform Headers Policy - Add OAuth 2.0 access token in Auth BFF cookie</p></figcaption></figure>
 
 5. Now that all the policies have been added, click on the **\[Save]** button.
 6. Click the **\[Deploy]** button.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-16-2.png" alt=""><figcaption><p>BFF On-Response Shared Policy Group</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-16-2.png" alt="A deployed BFF on-response shared policy group, showing a single Transform Headers policy in the response phase with a condition on a non-null access token."><figcaption><p>BFF On-Response Shared Policy Group</p></figcaption></figure>
 
 <details>
 
@@ -331,6 +331,6 @@ Now it is time to add these Shared Policy Groups into your existing API.
 5. Click on the **\[Save]** button.
 6. Finally, click on the **\[Deploy API]** popup, to deploy these configuration changes to your Gateway.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-17-2.png" alt=""><figcaption><p>BFF Shared Policy Groups applied on your API</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-impleme-17-2.png" alt="The Policies page of an API, with a BFF flow selected showing the on-request shared policy group in the request phase and the on-response group in the response phase."><figcaption><p>BFF Shared Policy Groups applied on your API</p></figcaption></figure>
 
 To quickly test the flow, just call your API via a Web Browser and you should be redirected to the login page of your Authorization Server if no cookie has been found.

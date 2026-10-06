@@ -182,7 +182,7 @@ The Kafka endpoint includes the dynamic configuration feature, meaning that you 
 *   Override any configuration parameters using an attribute (via the Assign Attribute policy). Your attribute needs to start with `gravitee.attributes.endpoint.kafka`, followed by the property you want to override (e.g. `gravitee.attributes.endpoint.kafka.security.sasl.saslMechanism`). To override the topics property, add an Assign Attribute policy and set the attribute `gravitee.attributes.endpoint.kafka.consumer.topics` using a request header value or a query param, for example.
 
 
-    <figure><img src="../../.gitbook/assets/Assign attributes.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Assign attributes.png" alt="The Assign attributes policy configuration on a Kafka Streams API, with one attribute setting the consumer auto-offset-reset from a request header."><figcaption></figcaption></figure>
 * Use EL in any "String" type property. The following example shows how to use EL to populate the consumer autoOffsetReset property:
 
 ```json

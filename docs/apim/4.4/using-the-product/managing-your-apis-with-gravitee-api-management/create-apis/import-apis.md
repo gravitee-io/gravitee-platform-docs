@@ -21,10 +21,10 @@ To import your API:
 2. Select **APIs** from the left nav
 3.  Select **+ Add API**
 
-    <figure><img src="../../../.gitbook/assets/import_add api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/import_add api.png" alt="The Get started building your API page, offering Create a V4 API from scratch, Build with API Designer, Create a V2 API from scratch, and Import an API definition."><figcaption></figcaption></figure>
 4.  In the **Import an API definition** tile, click **Import**
 
-    <figure><img src="../../../.gitbook/assets/import_import.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/import_import.png" alt="The Import an API dialog on the Upload a file tab, with a drag-and-drop area listing the supported file formats and API definition versions."><figcaption></figcaption></figure>
 5. Choose and configure an import option:
    * **Upload a file:** Import a YML, YAML, JSON, WSDL, or XML file
    * **Swagger / OpenAPI:**

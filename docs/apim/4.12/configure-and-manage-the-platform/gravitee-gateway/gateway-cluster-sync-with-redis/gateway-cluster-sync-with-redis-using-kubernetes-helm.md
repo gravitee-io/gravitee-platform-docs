@@ -20,7 +20,7 @@ These two scenarios are based on deploying Gateways into Kubernetes with the bui
 
 Three pods are running (one primary, two secondaries) when the Control Plane disappears. A rolling restart is then triggered.
 
-<figure><img src="../../../.gitbook/assets/gateway-sync-scenario-a.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gateway-sync-scenario-a.png" alt="A four-panel diagram of a rolling restart while the control plane is unreachable, showing the primary continuing to serve from memory, a new pod joining as a secondary and loading the catalogue from Redis, the oldest remaining member being promoted, and a steady state where the primary catches up once the control plane returns."><figcaption></figcaption></figure>
 
 Summary:  All pods keep serving traffic.  New pods load the catalogue from Redis; a promoted primary node already has it in memory.
 
@@ -28,7 +28,7 @@ Summary:  All pods keep serving traffic.  New pods load the catalogue from Redis
 
 All pods are stopped and started again. Redis still holds the catalogue published before the stop (events never expire).
 
-<figure><img src="../../../.gitbook/assets/gateway-sync-scenario-b.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gateway-sync-scenario-b.png" alt="A four-panel diagram of a cold start while the control plane is unreachable, showing all pods starting at once, only the secondaries serving while the primary fails its startup probe, Kubernetes restarting the primary after 29 failed checks, and a steady state about six minutes in."><figcaption></figcaption></figure>
 
 Summary: All pods serve traffic after about 6 minutes (configurable via the startup probe).  The blocked primary node is eventually restarted by kubelet and comes back as a secondary.
 

@@ -5,4 +5,46 @@ structure:
   summary: SUMMARY.md
 
 redirects:
+ configure-access-management: configure-access-management.md
+ configure-client-registration: configure-client-registration.md
+ configure-console-authentication: configure-console-authentication.md
+ configure-console-cors: configure-console-cors.md
+ configure-console-management-and-schedulers: configure-console-management-and-schedulers.md
+ configure-environment-alerts: configure-environment-alerts.md
+ configure-environment-notifications: configure-environment-notifications.md
+ configure-openapi-viewer: configure-openapi-viewer.md
+ configure-opentelemetry-tracing-and-logs: configure-opentelemetry-tracing-and-logs.md
+ configure-primary-owner-mode: configure-primary-owner-mode.md
+ configure-security-plan-types: configure-security-plan-types.md
+ configure-smtp: configure-smtp.md
+ customize-notification-templates: customize-notification-templates.md
+ manage-applications: manage-applications.md
+ manage-dictionaries: manage-dictionaries.md
+ manage-entrypoints-and-sharding-tags: manage-entrypoints-and-sharding-tags.md
+ manage-environment-metadata: manage-environment-metadata.md
+ manage-groups: manage-groups.md
+ manage-platform-policies: manage-platform-policies.md
+ manage-roles: manage-roles.md
+ manage-shared-policy-groups: manage-shared-policy-groups.md
+ manage-tenants: manage-tenants.md
  manage-the-platform: overview.md
+ manage-users: manage-users.md
+ manage-your-account: manage-your-account.md
+ monitor-gateway-instances: monitor-gateway-instances.md
+ observe: environment/system-and-security/README.md
+ observe/configure-opentelemetry-tracing-and-logs: configure-opentelemetry-tracing-and-logs.md
+ observe/save-observability-dashboards: save-observability-dashboards.md
+ open-the-developer-portal-settings: open-the-developer-portal-settings.md
+ review-audit-logs: review-audit-logs.md
+ save-observability-dashboards: save-observability-dashboards.md
+ applications: environment/apis-and-assets/README.md
+ applications/manage-applications: manage-applications.md
+ apis-and-assets: environment/apis-and-assets/README.md
+ apis-and-assets/manage-environment-metadata: manage-environment-metadata.md
+ apis-and-assets/manage-dictionaries: manage-dictionaries.md
+ system-and-security: environment/system-and-security/README.md
+ system-and-security/configure-access-management: configure-access-management.md
+ system-and-security/configure-opentelemetry-tracing-and-logs: configure-opentelemetry-tracing-and-logs.md
+ system-and-security/configure-openapi-viewer: configure-openapi-viewer.md
+ overview-1: environment/apis-and-assets/README.md
+ overview-1/manage-applications: manage-applications.md

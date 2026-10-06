@@ -103,6 +103,10 @@ Use these parameters to configure the deployment, and the ways in which the oper
 | `manager.httpClient.proxy.password`         | The proxy password if authentication is needed                                                                   | `""`                             |
 | `manager.httpClient.trustStore.path`        | Path to a custom trust store file (PEM format). Not needed if certificates are in `/etc/ssl/certs`.              | `""`                             |
 | `manager.templating.enabled`                | If false resources containing markers `[[...]]` will not be evaluated.                                           | `true`                           |
+| `manager.driftDetection.enabled`            | If true, the admission webhook checks updates to supported resources for drift against APIM. Requires `manager.webhook.enabled`. See [Drift detection](../../overview/drift-detection.md). | `false` |
+| `manager.driftDetection.policy`             | What happens when drift is found: `deny`, `warn`, or `allow`.                                                    | `deny`                           |
+| `manager.driftDetection.onRemoteMissing.policy` | What happens when the resource doesn't exist in APIM: `deny`, `warn`, or `allow`.                          | `deny`                           |
+| `manager.driftDetection.onFetchFailure.policy`  | What happens when the resource's state in APIM can't be fetched: `deny`, `warn`, or `allow`.               | `deny`                           |
 {% endtab %}
 
 {% tab title="Ingress" %}

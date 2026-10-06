@@ -16,7 +16,7 @@ To configure Kafka APIs:
 
 The inner left nav separates API configuration settings into several categories:<br>
 
-<figure><img src="../../../.gitbook/assets/inner-left-nav-categories.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/inner-left-nav-categories.png" alt="The Configuration page of a Kafka API, with the API menu items highlighted from Configuration through to Alerts."><figcaption></figcaption></figure>
 
 The screen for each category selection includes a row of headers from which you can manage your API and its parameters, behavior, and access details. Click on the cards below to learn more about each configuration category.
 

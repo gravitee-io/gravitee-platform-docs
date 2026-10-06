@@ -10,7 +10,7 @@ description: >-
 
 With the new version of the Twilio resource for SMS or Call factors, you can specify the template Sid as a configuration option. With this update, you can publish different messages according to the application using a single serviceID on the Twilio side.
 
-<figure><img src="../../.gitbook/assets/releases-and-changelog-release-note-0.png" alt=""><figcaption><p>New Template ID option</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/releases-and-changelog-release-note-0.png" alt="A Twilio resource configuration with masked service ID, account ID, and authentication token, and a message template identifier highlighted."><figcaption><p>New Template ID option</p></figcaption></figure>
 
 ## New version of the LDAP Identity Provider
 
@@ -22,7 +22,7 @@ Operational attributes are available for User mappers and are not added to user 
 
 To retrieve all operational attributes,  set `+` as a value into the configuration form. To retrieve only the ones you are interested in, add the names you are expecting separated using a coma. For example, createTimestamp,modifyTimestamp.
 
-<figure><img src="../../.gitbook/assets/releases-and-changelog-release-note-1.png" alt=""><figcaption><p>New Operational Attributes settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/releases-and-changelog-release-note-1.png" alt="LDAP provider settings with the user search filter and base, the User return attribute field highlighted requesting operational timestamp attributes, and group fetching enabled."><figcaption><p>New Operational Attributes settings</p></figcaption></figure>
 
 ## User Migration
 
@@ -38,7 +38,7 @@ In SCIM request, `lastPasswordReset` attribute is expected to be a String using 
 
 Additional audit logs have been added on the SCIM endpoint to track failing user creations or updates due to an invalid password. In addition to this update, a distinction is made between user login with password and using passwordless. The dashboard now shows both of these login types.
 
-<figure><img src="../../.gitbook/assets/releases-and-changelog-release-note-2.png" alt=""><figcaption><p>Login Type repartition</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/releases-and-changelog-release-note-2.png" alt="Two pie charts: Login type, split between username login at 80 percent and webauthn login at 20 percent, and WebAuthN Logins, showing success at 100 percent."><figcaption><p>Login Type repartition</p></figcaption></figure>
 
 ## Bulk action for user provisioning
 

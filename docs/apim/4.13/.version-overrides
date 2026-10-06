@@ -107,3 +107,56 @@ secure-and-expose-apis/api-products/consuming-api-products.md
 # Consuming application on OpenTelemetry spans and log records (APIM 4.13.0 feature, APIM-15014)
 analyze-and-monitor-apis/opentelemetry.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
+# EXPLORER environment permission for Kafka Explorer connections, absent from 4.12 (APIM 4.13.0 feature, ESM-43)
+configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md
+# Assign Metrics on LLM proxy APIs: policy compatibility matrix differs from 4.12 (APIM-12722)
+create-and-configure-apis/apply-policies/README.md
+
+# Kafka Topic Mapping dynamic #topic rules, policy 2.2.0 = 4.13 only (ESM-138)
+create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md
+.gitbook/assets/kafka-topic-mapping-client-to-broker-rule.png
+
+# Gamma modules on a JDBC management repository (APIM 4.13.0 feature, ESM-122)
+prepare-a-production-environment/repositories/apply-schema-migrations-manually.md
+prepare-a-production-environment/repositories/jdbc.md
+# Multiple subscription forms (APIM 4.13.0 feature, PORTAL-4)
+secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms.md
+secure-and-expose-apis/subscriptions/subscription-form-feature-overview.md
+secure-and-expose-apis/subscriptions/README.md
+developer-portal/new-developer-portal/subscription-form-technical-implementation.md
+.gitbook/assets/subscription-forms-console-portal-settings.png
+.gitbook/assets/subscription-forms-catalog.png
+.gitbook/assets/subscription-forms-assign-apis.png
+.gitbook/assets/subscription-forms-portal-checkout.png
+# Password policy description shown by the Gamma console (APIM 4.13.0 feature, FOUND-249)
+configure-and-manage-the-platform/manage-organizations-and-environments/authentication/password-policy.md
+developer-portal/classic-developer-portal/api-documentation.md
+.gitbook/assets/apim-git-fetcher-credentials.png
+# Settings page of the Portal Settings, New Developer Portal toggles moved out of the Console settings (APIM 4.13.0 feature, PORTAL-173)
+developer-portal/new-developer-portal/configure-new-developer-portal-settings.md
+developer-portal/new-developer-portal/configure-the-new-portal.md
+developer-portal/new-developer-portal/configuring-mtls-certificate-management-administrator-guide.md
+developer-portal/new-developer-portal/creating-and-managing-mtls-certificates-application-owner-guide.md
+developer-portal/new-developer-portal/portal-analytics-configuration-reference.md
+developer-portal/new-developer-portal/customize-the-navigation/creating-asyncapi-documentation-pages.md
+analyze-and-monitor-apis/dashboards/creating-portal-analytics-dashboards.md
+.gitbook/assets/portal-settings-settings-page.png
+.gitbook/assets/portal-settings-enable-mtls.png
+.gitbook/assets/portal-settings-saved.png
+.gitbook/assets/console-settings-new-developer-portal-open-website.png
+# LLM Proxy reads images, audio, video, and files and filters them per entrypoint option (APIM 4.13.0, AIAM-51)
+ai-agent-management/llm-proxy/accepted-request-formats.md
+# Kafka listener keystore types: the bcfks comment carries a 'from 4.12.19' qualifier on 4.12 only (FOUND-141)
+kafka-gateway/configure-the-kafka-client-and-gateway.md
+# API Products license tier: the 'Before APIM 4.12.10' note is on 4.12 only (DOC-1947)
+secure-and-expose-apis/api-products/manage-api-products-with-management-api.md
+secure-and-expose-apis/api-products/restrictions-and-licensing.md
+# Authentication page of the Portal Settings (APIM 4.13.0 feature, PORTAL-174)
+developer-portal/new-developer-portal/configure-authentication/enforce-user-authentication.md
+developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-sso.md
+.gitbook/assets/portal-settings-authentication.png
+.gitbook/assets/portal-settings-authentication-force-login.png
+.gitbook/assets/portal-settings-authentication-activate-identity-provider.png
+.gitbook/assets/portal-settings-authentication-hide-login-form.png
+# New Developer Portal navigation tree starts collapsed, 4.13 only (PORTAL-214)
+.gitbook/assets/devportal-navigation-tree-collapsed.png

@@ -22,7 +22,7 @@ Head to the Gravitee APIM Console, open the Integrations section in the left men
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab, you'll use this later:
 
-<figure><img src="../../.gitbook/assets/federation-3rd-party-providers-aws-api-g-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/federation-3rd-party-providers-aws-api-g-1.png" alt="The Overview page of an AWS API Gateway integration, with an arrow pointing to a partly masked integration identifier beside the disconnected agent."><figcaption></figcaption></figure>
 
 ## 2. Configure the AWS APIM federation agent
 
@@ -108,7 +108,7 @@ docker compose up -d
 
 In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
 
-<figure><img src="../../.gitbook/assets/federation-aws-api-gateway-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/federation-aws-api-gateway-3.png" alt="A diagram of a Kafka client connecting over SSL to a gateway server, where an API resolver uses SNI to route the connection to the matching API."><figcaption></figcaption></figure>
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.
 

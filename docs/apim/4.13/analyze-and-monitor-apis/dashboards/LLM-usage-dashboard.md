@@ -23,7 +23,7 @@ The LLM dashboard shows the following metrics:
 * Total requests. All HTTP calls processed by the Gateway.
 * LLM requests. Total call volume targeting LLM providers.
 
-<figure><img src="../../.gitbook/assets/LLM_Dashboard_metrics.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/LLM_Dashboard_metrics.jpg" alt="An LLM dashboard showing total tokens, average tokens per request, token count and cost over time, tokens per model, total and average cost, response status repartition, and total and LLM request counts."><figcaption></figcaption></figure>
 
 ## Prerequisities
 
@@ -39,29 +39,29 @@ To configure the LLM Dashboard, the user must have the following permissions:
 1. From the **Dashboard**, click **Observability**.
 2.  From the **Observability** dropdown menu, click **Dashboard**. <br>
 
-    <figure><img src="../../.gitbook/assets/LLM_dashboard_navigation.jpg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/LLM_dashboard_navigation.jpg" alt="The console Overview page with Observability and its Overview, Dashboards, and Logs items highlighted in the left navigation, showing request, error rate, and latency panels with no data."><figcaption></figcaption></figure>
 3.  Click **Create dashboard**, and then click **Create from template**. <br>
 
-    <figure><img src="../../.gitbook/assets/LLM_Dashboard_create_dropdown_menu.jpg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/LLM_Dashboard_create_dropdown_menu.jpg" alt="The Dashboards page with the Create dashboard menu open on Create from template and a greyed-out Create from scratch, above a table of dashboards with their creator, last modified date, and labels."><figcaption></figcaption></figure>
 4.  Click **LLM**, and then click **Use template**.&#x20;
 
-    <figure><img src="../../.gitbook/assets/LLM_Dashboard_template_screen.jpg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/LLM_Dashboard_template_screen.jpg" alt="The Create from template dialog with the LLM template selected, showing its description, labels, and a preview of the dashboard widgets, beside Proxy Generic Protocol and MCP templates."><figcaption></figcaption></figure>
 5. (Optional) Change the name of the dashboard and the labels for the dashboard. To change the name of the dashboard and the labels for the dashboard, complete the following sub-steps:&#x20;
    1.  Click **Dashboard options**, and then click **Edit**. <br>
 
-       <figure><img src="../../.gitbook/assets/analytics-dashboards-llm-usage-dash-5.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/analytics-dashboards-llm-usage-dash-5.png" alt="An empty LLM dashboard with the overflow menu open on Edit and Delete, both highlighted."><figcaption></figcaption></figure>
    2. In the **Edit dashboard** pop-up window, navigate to the **Name** field, and then enter a new name for your dashboard.&#x20;
    3. To add a new label for your dashboard, click **+ Add label**, and then enter the key-value pair.&#x20;
    4.  To delete a label, click the **X** next the key-value pair that you want to delete.&#x20;
 
-       <figure><img src="../../.gitbook/assets/LLM_Dashboard_edit_popup_window.jpg" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/LLM_Dashboard_edit_popup_window.jpg" alt="The Edit dashboard dialog, with the dashboard name and two label key and value pairs for focus and theme."><figcaption></figcaption></figure>
 6. (Optional) Change the timeframe for the dashboard. To changee the timeframe for the dashboard, compelte the following sub-steps:&#x20;
    1.  Click the **timeframe** dropdown menu. b. Select a new time frame or select **custom** to enter a custome timeframe. <br>
 
-       <figure><img src="../../.gitbook/assets/LLM_Dashboard_timeframe_dropdown_menu.jpg" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/LLM_Dashboard_timeframe_dropdown_menu.jpg" alt="An empty LLM dashboard with the timeframe dropdown open on last minute, five minutes, hour, day, week, month, and custom, with five minutes ticked."><figcaption></figcaption></figure>
 
 ## Verification
 
 Your dashboard appears in the Dashboard list.&#x20;
 
-<figure><img src="../../.gitbook/assets/LLM_Dashboard_dashboard_list.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/LLM_Dashboard_dashboard_list.jpg" alt="The Dashboards page listing the last two of twelve dashboards, with their creator, last modified date, and labels."><figcaption></figcaption></figure>

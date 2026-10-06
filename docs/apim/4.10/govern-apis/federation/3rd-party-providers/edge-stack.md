@@ -39,24 +39,24 @@ To install Edge stack agent, you must complete the following steps:
 
 1.  From the APIM console, click **Integrations**.
 
-    <figure><img src="../../../.gitbook/assets/6F54CA44-3D24-4B1F-BC85-D02023B39481.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/6F54CA44-3D24-4B1F-BC85-D02023B39481.jpeg" alt="The console dashboard with Integrations highlighted in the left navigation, showing one API and one application with empty lifecycle and state panels."><figcaption></figcaption></figure>
 2.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/85E11164-ADD0-4235-8743-4987417C8312.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/85E11164-ADD0-4235-8743-4987417C8312.jpeg" alt="The Integrations page, empty, with an illustration, a message reading &quot;No integrations yet&quot;, and the Create Integration button highlighted."><figcaption></figcaption></figure>
 3.  Click **Edge Stack**, and then click **Next**.
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-36-1 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-36-1 (1).png" alt="The Choose Provider step of the Create Integration wizard, with Edge Stack selected and the Next button available."><figcaption></figcaption></figure>
 4. In the **Create Integration** screen, type the name of the integration.
 5. (Optional) Type a description for the integration.
 6.  Click **Create** **Integration**.
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-2-1-1-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-2-1-1-1.png" alt="The Enter Information step of the Create Integration wizard, with a short name entered and an empty description."><figcaption></figcaption></figure>
 
 #### Verification
 
 The Edge stack integration appears in the **Integrations** screen.
 
-<figure><img src="../../../.gitbook/assets/7243EB9F-3D83-44B4-9CBA-B35981D57DCD_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/7243EB9F-3D83-44B4-9CBA-B35981D57DCD_4_5005_c.jpeg" alt="The Integrations page listing ten of 86 integrations across Edge Stack, AWS API Gateway, IBM API Connect, Confluent Platform, and A2A Protocol providers, all disconnected."><figcaption></figcaption></figure>
 
 ### Configure and run the Edge Stack agent
 
@@ -200,4 +200,4 @@ You can run the Edge Stack using either of the following methods:
 
 In the **Integrations** screen of the APIM Console, the agent status shows **Connected**.
 
-<figure><img src="../../../.gitbook/assets/7E1EE616-C0AB-488E-BECC-1CE7B116FCE9_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/7E1EE616-C0AB-488E-BECC-1CE7B116FCE9_4_5005_c.jpeg" alt="The Integrations page with the Connected status highlighted on one Edge Stack integration, the rest of the rows disconnected."><figcaption></figcaption></figure>

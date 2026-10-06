@@ -65,6 +65,6 @@ The following table lists the Bridge versions supported by each Gateway version.
 
 ## Architecture
 
-<figure><img src="../../.gitbook/assets/hybrid-installation-and-configuration-gu-24-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/hybrid-installation-and-configuration-gu-24-1-1.png" alt="A diagram splitting the platform into a control plane managed by Gravitee, holding the console, portal, management API, databases, and SaaS gateways, and a data plane managed by the customer, holding the API gateway and its rate limit and cache storage."><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/hybrid-installation-and-configuration-gu-26-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/hybrid-installation-and-configuration-gu-26-1.png" alt="A diagram of a hybrid deployment, with a customer-hosted data plane of load-balanced gateways, backend services, Redis, and Logstash on the left, connected over HTTPS to a Gravitee-managed control plane of CloudGate, an S3 bucket, the management API, databases, consoles, and access management on the right."><figcaption></figcaption></figure>

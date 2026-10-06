@@ -5161,11 +5161,13 @@ You can use the `assign-metrics` policy to push extra metrics in addition to the
 
 These metrics can then be used from analytics dashboards to create custom widgets and, optionally, apply aggregations based on their value.
 
-| Plugin version | APIM version  |
-| -------------- | ------------- |
-| 1.x            | Up to 3.17    |
-| 2.x            | 3.18 to 3.20  |
-| 3.x            | 4.0 to latest |
+| Plugin version | APIM version   |
+| -------------- | -------------- |
+| 1.x            | Up to 3.17     |
+| 2.x            | 3.18 to 3.20   |
+| 3.x            | 4.0 and later  |
+| 4.x            | 4.8 and later  |
+| 5.x            | 4.10 and later |
 
 **Policy identifier**
 
@@ -5181,7 +5183,7 @@ To display your request distribution based on a particular HTTP header in your d
 "assign-metrics": {
     "metrics": [
         {
-            "name": "myCustomHeader,
+            "name": "myCustomHeader",
             "value": "{#request.headers['X-MyCustomHeader'] != null ? #request.headers['X-MyCustomHeader'][0] : null}"
         }
     ]

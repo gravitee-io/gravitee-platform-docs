@@ -61,7 +61,7 @@ Integrations are a new component in the Gravitee API Management Console. The Int
 * Auto discover and create subscription plans from those providers
 * And more
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-06-24 at 4.29.44 PM.png" alt=""><figcaption><p>Gravitee integrations</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2024-06-24 at 4.29.44 PM.png" alt="The Choose Provider step of the Create Integration wizard, offering AWS API Gateway, Solace, and Apigee."><figcaption><p>Gravitee integrations</p></figcaption></figure>
 
 \
 Auto-discovery is quick and easy. Simply [install the Gravitee Agent](../../using-the-product/managing-your-apis-with-gravitee-api-management/federation/federation-agent.md) in your target environment, click Discover, and you’ll be met with a list of API assets that the Gravitee agent automatically discovers. Try out the new discovery functionality using the interactive tutorial below:
@@ -131,7 +131,7 @@ The 4.4 release brings us multiple steps closer to complete feature parity, intr
 
 As of Gravitee 4.4, you can now import API definition bundles as v4 APIs and create pages, members, groups, and other relevant resources at the time of import. This is done during the API creation phase.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-06-24 at 5.07.21 PM (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2024-06-24 at 5.07.21 PM (1).png" alt="The Import API dialog, with the OpenAPI specification format and a local file source selected, a drag-and-drop area, and the create-documentation-page option switched on."><figcaption></figcaption></figure>
 
 For v4 Proxy APIs, we also support importing OpenAPI specifications.
 
@@ -203,7 +203,7 @@ Gravitee’s protocol mediation enables teams to expose message and event-based 
 
 Gravitee 4.4 introduces a new backend endpoint, Azure Service Bus. Now, you can expose events and messages from Azure Service Bus via the already-existing API entrypoints.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-06-24 at 5.14.21 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2024-06-24 at 5.14.21 PM.png" alt="Step 3 of the API creation wizard, with Azure Service Bus ticked and Kafka, Mock, MQTT 5.x, RabbitMQ, and Solace left clear."><figcaption></figcaption></figure>
 
 We’ve also introduced a UI/UX improvement to the Developer Portal. As the API Publisher, you can now define the order in which your APIs are presented to your API consumers. This is all done on a per-category basis.
 

@@ -24,21 +24,21 @@ DB-less mode allows a Gateway to be deployed with no dependencies, assuming only
 
 You can enable Dead Letter Queue to define an external storage where each unsuccessfully pushed message will be stored and configure a replay strategy. A pre-existing and supported endpoint or endpoint group can be selected. This is an advanced configuration that requires having the endpoint already configured. Refer to the [configuration details](../../guides/api-configuration/v4-api-configuration/entrypoint-configuration.md#webhook) for more information.
 
-<figure><img src="../../.gitbook/assets/configure dlq.png" alt=""><figcaption><p>Configure DLQ</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/configure dlq.png" alt="The Dead Letter Queue settings of a message API, enabled, with the endpoint selector open listing the default MQTT 5.x and Solace endpoints and their groups."><figcaption><p>Configure DLQ</p></figcaption></figure>
 
 ### Endpoint management and defaults
 
 Endpoints and endpoint groups that have already been configured can be modified or deleted. Single endpoints and endpoint groups can also be added following initial endpoint configuration. By default, the API will use the first endpoint group listed, but the user is able to change the order of the list.
 
-<figure><img src="../../.gitbook/assets/endpoint groups v4 message api backend.png" alt=""><figcaption><p>Edit endpoint groups</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/endpoint groups v4 message api backend.png" alt="The Backend services page of a message API, listing a RabbitMQ group and a Solace group, each with one endpoint and an Add endpoint button."><figcaption><p>Edit endpoint groups</p></figcaption></figure>
 
 The configuration of an endpoint during the creation workflow determines the endpoint group’s default configuration. The endpoint then inherits this configuration from the group by default. Unless inheritance is disabled, changes to the endpoint group configuration will proliferate to all endpoints in the group.
 
-<figure><img src="../../.gitbook/assets/default endpoint group (1).png" alt=""><figcaption><p>Default endpoint group</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/default endpoint group (1).png" alt="The Backend services page of a message API, showing a Kafka group with two endpoints and an MQTT 5.x group with one, each with edit and delete actions."><figcaption><p>Default endpoint group</p></figcaption></figure>
 
 By default, an endpoint added to an endpoint group will inherit the group's configuration. This allows an API publisher to quickly add new endpoints with the same settings and behavior as other endpoints in the group. Changes can be made to the new endpoint's configuration if inheritance is disabled, and will persist if inheritance remains disabled.
 
-<figure><img src="../../.gitbook/assets/default behavior toggle to inherit.png" alt=""><figcaption><p>Toggle to inherit endpoint configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/default behavior toggle to inherit.png" alt="The Configuration tab of a Kafka endpoint group, with Inherit configuration from the endpoint group switched on and the consumer and security options below disabled."><figcaption><p>Toggle to inherit endpoint configuration</p></figcaption></figure>
 
 For more information on endpoint enhancements, refer to [this guide](../../guides/api-configuration/v4-api-configuration/endpoint-configuration.md#endpoint-management).
 
@@ -62,8 +62,8 @@ A v4 API can now also be duplicated. Refer to [this page](../../guides/api-confi
 
 The Management Console now allows you to view comprehensive connection logs to analyze the usage of your v4 message APIs. The record will be paginated with no limit to the number of pages, and if logging is disabled, existing logs will still be displayed.
 
-<figure><img src="../../.gitbook/assets/runtime logs chron order.png" alt=""><figcaption><p>History of up-to-date runtime logs</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/runtime logs chron order.png" alt="The Runtime Logs page of an API, listing six requests that each ended with status 200, showing the entrypoint, application, subscriber, client identifier, and plan, with a View messages button on each row."><figcaption><p>History of up-to-date runtime logs</p></figcaption></figure>
 
 Runtime log settings can be modified to customize and extend the data capture. You can also drill into a log entry to view detailed message content. For more information on logging, refer to [this section](../../overview/gravitee-api-definitions-and-execution-engines/logging.md).
 
-<figure><img src="../../.gitbook/assets/runtime logs view messages.png" alt=""><figcaption><p>View messages for log details</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/runtime logs view messages.png" alt="The Messages panel of a runtime log, showing an entrypoint and an endpoint message with their request, client, and correlation identifiers and a JSON payload from Kafka."><figcaption><p>View messages for log details</p></figcaption></figure>

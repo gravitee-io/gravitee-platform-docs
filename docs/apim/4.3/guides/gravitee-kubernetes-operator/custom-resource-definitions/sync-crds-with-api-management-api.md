@@ -163,4 +163,4 @@ Different APIs are published on each of the environments because although APIs u
 
 The following diagram illustrates the multi-environment deployment architectural approach:
 
-<figure><img src="../../../.gitbook/assets/gko-architecture-3-multi-env.png" alt=""><figcaption><p>Multi-environment deployment architecture</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gko-architecture-3-multi-env.png" alt="A diagram of the operator in one cluster writing config maps that the gateway listens to, and publishing the same custom resources to the management APIs of a dev and a prod environment."><figcaption><p>Multi-environment deployment architecture</p></figcaption></figure>

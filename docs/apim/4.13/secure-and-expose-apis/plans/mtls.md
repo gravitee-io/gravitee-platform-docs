@@ -24,10 +24,10 @@ Currently, mTLS plans have the following limitations:
 
 * You can apply mTLS plans to only v4 APIs.
 * You can't use mTLS plans in Gravitee Cloud with SaaS-based Gateways.
-* Applications don't provide a warning that certificates are going to expire.
+* The Console shows how many days are left when a certificate's end date is 15 days away or less, and the New Developer Portal shows the days remaining, but APIM doesn't send a notification before a certificate expires.
 
 {% hint style="info" %}
-Starting with APIM 4.11, application owners can upload, rotate, and retire multiple client certificates per application from the new Developer Portal, with grace-period rotation that keeps both the old and new certificate active during cut-over. For details, see [mTLS certificate management for applications](../applications/mtls-certificate-management-for-applications-overview-and-concepts.md).
+Starting with APIM 4.11, an application holds several client certificates at once, so you rotate a certificate without downtime. Add the new one, keep the old one active during a grace period, and let APIM revoke it when the grace period ends. Certificates are managed from the Console, the New Developer Portal, the Management API, GKO, and Terraform. For the statuses, the grace period, and the automatic revocation, see [mTLS certificate management for applications](../applications/mtls-certificate-management-for-applications-overview-and-concepts.md).
 {% endhint %}
 
 ## Restrictions
@@ -85,38 +85,40 @@ The Gateway validates that no conflicting plan types remain in published state. 
 
 ## How to add a client certificate
 
-To subscribe to an mTLS plan, the client has to add a certificate to their application. To add a certificate to an application, complete the following steps:
+To subscribe to an mTLS plan, the application needs at least one active client certificate. To add a certificate to an application, complete the following steps:
 
-1. In the Console, navigate to **Applications**, and then click a specific application.
-2. In the application sidebar, click **Global settings**.
+1. In the Console, click **Applications**, and then click the application.
+2. In the application menu, click **Global settings**.
 3.  Scroll to the **Certificates** section.
 
-    <figure><img src="../../.gitbook/assets/application-certificates-section.png" alt=""><figcaption><p>Certificates section in the application Global settings page</p></figcaption></figure>
-4. Click **+ Add certificate** to open the dialog.
-5. In the **Certificate Name** field, enter a name for the certificate.
-6.  In the **Certificate** field under **Paste certificate**, paste the PEM-encoded client certificate. Alternatively, under **Upload file**, drag and drop a `.pem` or `.crt` file.
+    <figure><img src="../../.gitbook/assets/application-certificates-section.png" alt="The Certificates section of an application's Global settings page, empty, with the Add certificate button"><figcaption><p>Certificates section of the Global settings page</p></figcaption></figure>
+4. Click **Add certificate**.
+5. On the **Upload** step, enter a name in the **Certificate Name** field.
+6.  Provide the PEM-encoded certificate. Either paste it in the **Certificate** field under **Paste certificate**, or drag and drop a `.pem` or `.crt` file under **Upload file**.
 
-    <figure><img src="../../.gitbook/assets/add-certificate-dialog.png" alt=""><figcaption><p>Add certificate dialog with Certificate Name, Paste certificate, and Upload file fields</p></figcaption></figure>
-7. Click **Continue**, and then set the **Active until** date.
-8. Review the certificate summary and click **Add**.
+    <figure><img src="../../.gitbook/assets/add-certificate-dialog.png" alt="The Upload step of the Add certificate dialog, with the Certificate Name field, the Paste certificate field, and the Upload file zone"><figcaption><p>Upload step of the Add certificate dialog</p></figcaption></figure>
+7. Click **Continue**. APIM validates the certificate. If it isn't a valid client certificate, the dialog shows **Invalid certificate format** and you stay on the **Upload** step.
+8. On the **Configure** step, set the **Active until** date. The field is pre-filled with the expiration date of the certificate, and the date can't be later than that expiration or earlier than today.
+9. If the application already has an active certificate, set the **Grace Period end for current certificate** date. Both certificates stay active until that date, which can't be later than the expiration date of the current certificate. The field is required.
+10. Click **Continue**.
+11. On the **Confirm** step, review the **Certificate Summary**, and then click **Add Certificate**.
 
 {% hint style="warning" %}
-Multiple applications in the same APIM instance may not share client certificates. You can't save an application's configuration if its client certificate is already associated with another application.
+A client certificate belongs to one application. APIM rejects a certificate whose SHA-256 fingerprint already belongs to a certificate that isn't revoked on an active application of the same environment. Through the Console, this check also rejects a certificate that the same application already holds.
 {% endhint %}
 
-When a client certificate is added to an application, the Gateway adds the application to its in-memory truststore. At runtime, the Gateway checks if a certificate in the truststore matches the certificate of an application subscribed to the API.
+The certificate appears in the **Certificates** section with the status **Active**, and APIM adds it to the mTLS subscriptions of the application. For the statuses, the grace period, and the automatic revocation, see [mTLS certificate management for applications](../applications/mtls-certificate-management-for-applications-overview-and-concepts.md).
 
 ## Creating a subscription with mTLS
 
-To create a subscription with mTLS:
+To subscribe an application to an mTLS plan:
 
 1. Navigate to the application's **Subscriptions** page.
 2. Select the mTLS plan.
-3. Provide the client certificate in PEM format.
 
-The subscription service computes the MD5 hash of the certificate and stores it as the security token. The Gateway's trust store manager loads the certificate into its internal registry.
+The application must already hold at least one active certificate. The subscription records every active certificate of the application, and APIM updates the subscription whenever the certificates of the application change. You don't provide a certificate when you subscribe.
 
-When the client connects with the certificate, the Gateway extracts it from the TLS session, computes its MD5 hash, and matches it against registered subscriptions. On successful match, the Gateway populates the connection context with `planId`, `applicationId`, and `subscriptionId`. Metrics and analytics reflect the resolved subscription instead of ANONYMOUS.
+When the client connects with a certificate, the Gateway extracts it from the TLS session, computes its SHA-256 fingerprint, and matches it against the certificates registered by the subscriptions to the plan. On a successful match, the Gateway populates the connection context with `planId`, `applicationId`, and `subscriptionId`. Metrics and analytics reflect the resolved subscription instead of ANONYMOUS.
 
 ## How to call an API
 

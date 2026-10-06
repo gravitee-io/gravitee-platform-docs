@@ -101,7 +101,7 @@ A file the import would refuse is refused on this step, with the message the imp
 
 ### What the import rebuilds, and what it leaves behind
 
-The import feeds the wizard's own write path, so it rebuilds what an A2A Proxy models. That covers the name, the version, the description, and the primary context path. It also covers the connection to the upstream agent, the plans with their security type, validation mode, and comment requirement, and the OAuth2 resource that those plans name.
+The import feeds the wizard's own write path, so it rebuilds what an A2A Proxy models. That covers the name, the version, the description, and the primary context path. It also covers the connection to the upstream agent, and the plans with their security type, validation mode, and comment requirement. It covers the OAuth2 resource that those plans name, and the response templates the file carries.
 
 The rest of a Gravitee definition has no A2A Proxy counterpart in Gamma and isn't re-created. That leaves behind API-level flows and properties, further listener paths, CORS, path mappings, and health checks. It also leaves behind other resources, tags, categories, groups, metadata, pages, and members. To bring such a file over whole, import it in the APIM Console instead.
 
@@ -164,6 +164,7 @@ The console confirms the import. The proxy keeps its identity, so its links, its
 | The name, version, and description | The proxy's own identifier, whatever identifier the file carries     |
 | The context path                   | The plans, and therefore their live subscriptions                    |
 | The target of the upstream agent and its upstream credential |                                            |
+| The response templates, which replace the proxy's. A file carrying none removes them |                       |
 
 An update by import accepts the same file shapes as a create, and refuses the same ones, with one difference. It accepts a file exported without its plans, because it never writes plans, and it never refuses a file over the plans it carries.
 

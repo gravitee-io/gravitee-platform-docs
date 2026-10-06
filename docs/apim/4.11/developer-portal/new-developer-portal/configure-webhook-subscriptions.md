@@ -16,19 +16,19 @@ metaLinks:
 
 1. From the Developer Portal's catalog, navigate to the webhook that you want to configure and click on its card.
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-16.png" alt="The developer portal Catalog in cards view, showing six API cards with missing descriptions."><figcaption></figcaption></figure>
 
 2. Click **Subscribe**.
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-17.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-17.png" alt="An API documentation page in the developer portal, showing a placeholder page with overview, example, use case, and next steps sections beside an API navigation tree."><figcaption></figcaption></figure>
 
 3. Click the plan that you want to subscribe to, and then click **Next**.
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-18.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-18.png" alt="Step 1 of the developer portal subscription wizard, with a standard push plan selected over a default push plan, both requiring approval."><figcaption></figcaption></figure>
 
 4. Select the application that you want to use to subscribe to the API, and then click **Next**.
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-21.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-21.png" alt="Step 2 of the subscription wizard, with the default application selected among three application cards."><figcaption></figcaption></figure>
 
 5. In the **Configure Consumer** page, complete the following steps:
    1. (Optional) In the **Channel** field, select the channel that sends events to your callback URL.
@@ -38,7 +38,7 @@ metaLinks:
    5. From the **Security configuration** drop-down menu, select the configuration to connect to the callback URL. The default is **No security**.
    6. (Optional) In the **SSL** section, enable **Verify host** and **Trust all**.
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-22.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-22.png" alt="Step 3 of the subscription wizard, with empty channel and callback URL fields, no retry, no security, and SSL trust store and key store set to none."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 In previous versions, it was possible to add a comment to explain why you want to subscribe to the API
@@ -48,10 +48,10 @@ Starting from 4.11, you can use the **#Subscription metadata form** for a richer
 
 7. Click **Subscribe**.
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-23.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-23.png" alt="Step 4 of the subscription wizard, summarising the subscription as under admin review with its API, application, and push plan."><figcaption></figcaption></figure>
 
 ## Verification
 
 Once you subscribe to an API, the Developer Portal displays the description details. For example:
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-24.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-24.png" alt="A subscription detail page in the developer portal, showing its API, application, timestamps, identifier, plan, and keyless authentication above the channel, callback URL, headers, and retry configuration."><figcaption></figcaption></figure>

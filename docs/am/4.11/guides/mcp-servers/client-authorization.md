@@ -20,7 +20,7 @@ The MCP Server authorization flow follows the official [MCP specification](https
 
 The following diagram shows full MCP Server authorization flow with [AuthZen](../authorization-engines/authzen.md) and [OpenFGA](../authorization-engines/openfga.md) as the Authorization Engine.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-11-27 at 12.09.35.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-11-27 at 12.09.35.png" alt="A sequence diagram of the MCP server authorization flow using OAuth 2.1, AuthZen, and OpenFGA, moving through an initial unauthenticated call that returns 401, protected resource and authorization server discovery, the authorization code flow with PKCE, the authorized tool call, token and scope validation by introspection, and a fine-grained permission check, ending in either the tool result or an access denied error."><figcaption></figcaption></figure>
 
 ## MCP Server authorization flow <a href="#how-mcp-servers-work" id="how-mcp-servers-work"></a>
 

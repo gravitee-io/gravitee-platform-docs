@@ -20,7 +20,7 @@ You can configure the policy with the following options:
 When using the Kafka Topic Mapping policy together with the Kafka ACL policy, it is important to place the Kafka ACL policy **before** the Kafka Topic Mapping policy, as shown below.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/policy order.png" alt=""><figcaption><p>Screenshot of the Kafka ACL policy placed before the Kafka Topic Mapping policy</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/policy order.png" alt="A diagram of the Interact phase, showing a Kafka ACL policy that allows read access only to mapped topics, followed by a Kafka Topic Mapping policy that maps internal topics to client-side names, between the client and the broker."><figcaption><p>Screenshot of the Kafka ACL policy placed before the Kafka Topic Mapping policy</p></figcaption></figure>
 
 ## Examples <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
 
@@ -33,7 +33,7 @@ If you have a broker-side topic called `abcdef.topic.name.internal-only.some-id`
 * Client-side name: `myFriendlyTopicName`
 * Broker-side name: `abcdef.topic.name.internal-only.some-id`
 
-<div align="center" data-full-width="false"><figure><img src="../../.gitbook/assets/kafka-gw-policies-kafka-topic-mappi-158.png" alt="" width="375"><figcaption><p>UI configuration of the Kafka Topic Mapping policy</p></figcaption></figure></div>
+<div align="center" data-full-width="false"><figure><img src="../../.gitbook/assets/kafka-gw-policies-kafka-topic-mappi-158.png" alt="The Kafka Topic Mapping policy configuration, with empty description and trigger condition and one mapping from a friendly client-side topic name to an internal broker-side name." width="375"><figcaption><p>UI configuration of the Kafka Topic Mapping policy</p></figcaption></figure></div>
 
 Kafka clients will now be able to specify the mapped topic name (`myFriendlyTopicName`) in their connection configuration. For example: `kafka-console-consumer.sh --bootstrap-server foo.kafka.local:9092 --consumer.config config/client.properties --topic myFriendlyTopicName`
 
@@ -81,7 +81,7 @@ In the Kafka Topic Mapping policy, the broker-side topic name will be `internal.
 
 We can now keep the client-side (external) topic name simple & generic: `organization-updates`.
 
-<figure><img src="../../.gitbook/assets/kafka-gw-policies-kafka-topic-mappi-153.png" alt=""><figcaption><p>UI configuration of the Kafka Topic Mapping policy</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/kafka-gw-policies-kafka-topic-mappi-153.png" alt="The Kafka topic mapping policy configuration, with two mappings from client-side topic names to broker-side names, one built from an expression-language claim lookup."><figcaption><p>UI configuration of the Kafka Topic Mapping policy</p></figcaption></figure>
 
 Below is a sample policy configuration:
 

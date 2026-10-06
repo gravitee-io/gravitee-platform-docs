@@ -84,16 +84,16 @@ To import custom rulesets, complete the following steps:
 
 1.  Log in to your APIM Console, then click **API Score**.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-211.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-211.png" alt="The console dashboard with APIs highlighted in the left navigation, showing lifecycle and state pie charts and top API statistics."><figcaption></figcaption></figure>
 2.  Click **Rulesets & Functions**.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-212.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-212.png" alt="The API Score Overview page, showing an average score, error, warning, hint, and info counts above a table of APIs and their individual scores."><figcaption></figcaption></figure>
 3.  Click **Import**.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-213.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-213.png" alt="The Rulesets and Functions page, listing six rulesets by asset format above a Functions section with one custom function."><figcaption></figcaption></figure>
 4.  In **Asset Format**, choose the format for your ruleset.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-214.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-214.png" alt="The Import a Ruleset page, offering OpenAPI, AsyncAPI, and Gravitee API asset formats above empty name and description fields and a file upload area."><figcaption></figcaption></figure>
 5. In **Ruleset Information**, type the name of your ruleset.
 6. (Optional) Type a description for your ruleset.
 7. Attach the ruleset file. You can attach a file in the following formats:
@@ -110,15 +110,15 @@ To edit a ruleset:
 
 1.  Log in to your APIM Console, then click **API Score**.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-215.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-215.png" alt="The console dashboard with API Score highlighted in the left navigation, showing lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  Click **Rulesets & Functions**.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-216.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-216.png" alt="The API Score Overview page, showing the summary counts above the first page of a 2,226-API score table."><figcaption></figcaption></figure>
 3. In **Rulesets**, navigate to the ruleset that you want to edit.
 4. Click the ruleset.
 5.  Click **Edit**. You can now edit the ruleset.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-217.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-217.png" alt="The Rulesets and Functions page with one ruleset expanded, showing its YAML rules for description and version checks with Edit and Delete buttons."><figcaption></figcaption></figure>
 
 ## Functions
 

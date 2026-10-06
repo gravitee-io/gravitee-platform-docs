@@ -73,11 +73,11 @@ To summarize, APIs depend on many protocols. The ideal protocol stack, just like
 
 Modern web browsers are applications that communicate over the HTTP/HTTPS protocol (HTTPS is HTTP with encryption and verification) but often truncate the visible website address to omit the protocol and subdomain. This is evidenced by visiting a site such as [Google](https://google.com/) and double-clicking the URL.
 
-<div><figure><img src="../../.gitbook/assets/google_shortened.png" alt=""><figcaption><p>Shortened URL</p></figcaption></figure> <figure><img src="../../.gitbook/assets/google_expanded.png" alt=""><figcaption><p>Expanded URL</p></figcaption></figure></div>
+<div><figure><img src="../../.gitbook/assets/google_shortened.png" alt="A browser address bar showing a shortened domain with a padlock icon."><figcaption><p>Shortened URL</p></figcaption></figure> <figure><img src="../../.gitbook/assets/google_expanded.png" alt="A browser address bar showing the same domain in full, with its scheme and subdomain."><figcaption><p>Expanded URL</p></figcaption></figure></div>
 
 The graphic below clarifies the structure and individual components of a web address, which concatenate to form the broader uniform resource locator (URL), uniform resource identifier (URI), and uniform resource name (URN).
 
-<figure><img src="../../.gitbook/assets/uri_diagram1.png" alt=""><figcaption><p>URI vs URL vs URN</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/uri_diagram1.png" alt="A diagram labelling the parts of a sample web address, marking the scheme, host, port, path, query parameter, and fragment below it, and bracketing the URL, URN, and full URI above."><figcaption><p>URI vs URL vs URN</p></figcaption></figure>
 
 A communication link between two applications requires that each endpoint is defined by a network socket, which is a combination of transport layer protocol, domain (which resolves to an IP address), and port number that uniquely and completely resolves the web address of a client request to a web server.
 

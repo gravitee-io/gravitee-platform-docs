@@ -22,16 +22,16 @@ In AM, CORS configuration at the Security Domain level is important for scenario
 
 1.  Sign in to your AM Console. The Access Management dashboard appears after login.
 
-    <figure><img src="../../.gitbook/assets/access-management-dashboard.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/access-management-dashboard.png" alt="The domain Dashboard with counters for logins, sign ups, users, and applications above Login Activity and Sign up Activity charts."><figcaption></figcaption></figure>
 2.  From the Dashboard, Click **Settings.**
 
-    <figure><img src="../../.gitbook/assets/am-settings-left-nav.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/am-settings-left-nav.png" alt="The domain General settings with Settings highlighted in the left navigation menu, showing the enable domain toggle, the domain name, and the description field."><figcaption></figcaption></figure>
 3.  In the settings menu, click **Entrypoints.**
 
-    <figure><img src="../../.gitbook/assets/entrypoint-security-domain.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/entrypoint-security-domain.png" alt="The Entrypoints settings with Entrypoints highlighted in the menu, showing the cross-origin resource sharing section with Enable CORS switched off."><figcaption></figcaption></figure>
 4.  Turn on the **Enable CORS** toggle.
 
-    <figure><img src="../../.gitbook/assets/enable-cors-toggle-button.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/enable-cors-toggle-button.png" alt="The CORS section with the Enable CORS toggle highlighted and switched on, above the Allow-Origin, Allow-Methods, Allow-Headers, and Max age fields."><figcaption></figcaption></figure>
 
 The CORS configuration includes a toggle to enable or disable CORS for the Security Domain. When CORS is disabled, AM uses the default values from the `gravitee.yml` configuration file.
 
@@ -64,7 +64,7 @@ The `Allow-Origin` setting specifies which origins are permitted to access the r
 When Allow Credentials is enabled, the wildcard (`*`) cannot be used for Allow-Origin. You must specify exact origins instead.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/allow-origin-parameter.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/allow-origin-parameter.png" alt="The Allow-Origin field highlighted, holding several origin chips including a wildcard."><figcaption></figcaption></figure>
 
 The following examples demonstrate common `Allow-Origin` configurations:
 
@@ -76,7 +76,7 @@ The following examples demonstrate common `Allow-Origin` configurations:
 
 The `Allow-Methods` setting specifies which HTTP methods are allowed when accessing the resource.
 
-<figure><img src="../../.gitbook/assets/allow-methods-parameter.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/allow-methods-parameter.png" alt="The Allow-Methods list highlighted and open, with GET, POST, PUT, DELETE, and OPTIONS selected and PATCH and HEAD unselected."><figcaption></figcaption></figure>
 
 Configuration details for `Allow Methods` include the following:
 
@@ -87,7 +87,7 @@ Configuration details for `Allow Methods` include the following:
 
 The `Allow-Headers` setting defines which headers can be used in cross-origin requests. The request headers include 'Access-Control-Request-Headers', which relies on CORS configuration to allow its values.
 
-<figure><img src="../../.gitbook/assets/allow-headers-access-management.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/allow-headers-access-management.png" alt="The Allow-Headers field highlighted, holding three chips of comma-separated request header names."><figcaption></figcaption></figure>
 
 Configuration details for `Allow Headers` include:
 
@@ -100,7 +100,7 @@ Configuration details for `Allow Headers` include:
 
 The `Max age` setting controls how long pre-flight request results are cached.
 
-<figure><img src="../../.gitbook/assets/max-age-seconds.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/max-age-seconds.png" alt="The Max age field highlighted, set to 86400 seconds."><figcaption></figcaption></figure>
 
 The following configuration details apply to `Max age`:
 
@@ -115,7 +115,7 @@ The `Allow Credentials` setting controls whether credentials can be included in 
 When enabled, you cannot use `*` for Allow-Origin; you must specify exact origins.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/allow-use-credentials.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/allow-use-credentials.png" alt="The Allow use of credentials toggle highlighted and switched off, below the Max age field."><figcaption></figcaption></figure>
 
 For example:
 

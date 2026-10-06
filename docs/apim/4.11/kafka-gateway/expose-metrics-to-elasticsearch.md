@@ -43,25 +43,25 @@ To enable metrics reporting in the APIM Console, complete the following steps:
 
 1.  Navigate to your APIM Console
 
-    <figure><img src="../.gitbook/assets/navigate-to-apim-console.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/navigate-to-apim-console.png" alt="The console dashboard showing total API and application counts with lifecycle and state pie charts, and the environment name blacked out in the left navigation."><figcaption></figcaption></figure>
 2.  Click on **APIs**
 
-    <figure><img src="../.gitbook/assets/click-on-apis.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/click-on-apis.png" alt="The APIs list with APIs highlighted in the left navigation, showing filters above a table of APIs with their type, status, and access path."><figcaption></figcaption></figure>
 3.  Select your API
 
-    <figure><img src="../.gitbook/assets/select-v4-kafka-gateway-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/select-v4-kafka-gateway-api.png" alt="The APIs list filtered to started Kafka APIs, with one row highlighted by name."><figcaption></figcaption></figure>
 4.  Click on **Deployment**
 
-    <figure><img src="../.gitbook/assets/select-deployment.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/select-deployment.png" alt="The Deployment page of a Kafka API with Deployment highlighted in the API menu, showing an empty sharding tags selector on the Configuration tab."><figcaption></figcaption></figure>
 5.  Select **Reporter Settings**
 
-    <figure><img src="../.gitbook/assets/click-on-reporter-settings.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/click-on-reporter-settings.png" alt="The Deployment page with the Reporter Settings tab highlighted, showing the Enable metrics reporting toggle switched on."><figcaption></figcaption></figure>
 6.  Enable **Enable metrics reporting**
 
-    <figure><img src="../.gitbook/assets/enable-metrics-reporting-toggle.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/enable-metrics-reporting-toggle.png" alt="The Reporter Settings tab with the Enable metrics reporting panel highlighted and the toggle switched on."><figcaption></figcaption></figure>
 7.  Deploy the API
 
-    <figure><img src="../.gitbook/assets/deploy-api-sync.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/deploy-api-sync.png" alt="The Reporter Settings tab under an out-of-sync banner, with the banner and its Deploy API button highlighted."><figcaption></figcaption></figure>
 
 The Gateway collects metrics when your API produces or consumes Kafka messages. For more information about message operations, see [#produce-and-consume-messages](configure-the-kafka-client-and-gateway.md#produce-and-consume-messages "mention").
 

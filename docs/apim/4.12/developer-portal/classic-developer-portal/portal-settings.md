@@ -13,10 +13,10 @@ metaLinks:
 2. Select **Settings** from the left sidebar
 3.  Select **Settings** from the inner left sidebar
 
-    <figure><img src="../../.gitbook/assets/dev portal_settings.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/dev portal_settings.png" alt="The portal Settings page, with a company name field above the console section listing the available security plan types."><figcaption></figcaption></figure>
 4.  Scroll down to the **Portal** header
 
-    <figure><img src="../../.gitbook/assets/dev portal_portal.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/dev portal_portal.png" alt="The Portal settings page, with the API key header, portal URL and homepage title above options for tiles mode, support, rating and registration."><figcaption></figcaption></figure>
 5. Configure the settings described below:
 
 {% hint style="info" %}
@@ -30,7 +30,7 @@ The general settings of the Developer Portal can be overridden with the `gravite
       * **Allow custom API Key reuse.** Enable reuse of revoked or expired custom API keys for new subscriptions. This toggle is disabled when API Key security is disabled or when custom API keys are disabled.
 *   **Portal URL:** Enter the URL of the Developer Portal. This will add a link to the Developer Portal on the top navigation bar of the Management Console. Additionally, the [theme editor](portal-settings.md#theme-customization) will show a live preview of the Developer Portal.
 
-    <figure><img src="../../.gitbook/assets/dev_portal_link.png" alt=""><figcaption><p>Link to Developer Portal from Management Console</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/dev_portal_link.png" alt="The console with the Developers Portal link highlighted in the top navigation bar."><figcaption><p>Link to Developer Portal from Management Console</p></figcaption></figure>
 * **Override homepage title:** Toggling to ON allows you to change the Developer Portal title from "Unleash the power of your APIs." to a custom title
 * **Options**
   * **Use Tiles Mode:** Sets the default view of APIs to tiles as opposed to a list
@@ -46,5 +46,5 @@ The general settings of the Developer Portal can be overridden with the `gravite
 * **Schedulers:** Configure the frequency with which the Developer Portal runs background tasks such as syncing data and sending/receiving notifications
 *   **(v2 APIs only) Documentation URL:** Set the URL shown at the end of the v2 API creation flow
 
-    <figure><img src="../../.gitbook/assets/documentation_url.png" alt=""><figcaption><p>Documentation URL setting for v2 API creation flow</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/documentation_url.png" alt="The final step of the API creation wizard, summarising the API, gateway, plan and documentation, with the link to the API Management documentation highlighted."><figcaption><p>Documentation URL setting for v2 API creation flow</p></figcaption></figure>
 

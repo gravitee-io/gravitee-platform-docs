@@ -68,7 +68,7 @@ By default, emulation mode is not enabled for v2 APIs because it may cause unexp
 
 v2 Gateway APIs can be run in emulation mode:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-07-19 at 4.45.21 PM.png" alt=""><figcaption><p>v2 API emulation mode</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-07-19 at 4.45.21 PM.png" alt="The Info page of an API, with the Emulate v4 engine toggle highlighted and switched off above the export, import, duplicate, and promote actions."><figcaption><p>v2 API emulation mode</p></figcaption></figure>
 
 Enabling this option allows v2 Gateway APIs to access the improvements built into the reactive execution engine. The functional benefits provided by the reactive engine are detailed in subsequent sections.
 
@@ -110,13 +110,13 @@ The legacy execution engine requires execution scopes to indicate the level at w
 
 Execution of all policies working on the body content are postponed until the policies working on headers have been executed. This leads to an execution order that is often different than the one originally designed.
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-execution-scopes-1.png" alt=""><figcaption><p>Legacy engine execution order</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-execution-scopes-1.png" alt="A diagram contrasting three policies as ordered in Policy Studio with their runtime order, where the request-content policy runs last on a separate track."><figcaption><p>Legacy engine execution order</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Reactive engine improvements" %}
 The reactive execution engine does not consider the `REQUEST_CONTENT` and `RESPONSE_CONTENT` phases. All policies are executed in the exact order of the design, regardless of whether they work on the content or not.
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-execution-scopes-2.png" alt=""><figcaption><p>Reactive engine execution order</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-execution-scopes-2.png" alt="A diagram contrasting three policies as ordered in Policy Studio with their runtime order, where all three run in the same sequence on the request track."><figcaption><p>Reactive engine execution order</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -214,13 +214,13 @@ When using the legacy execution engine, a condition can be defined once for the 
 
 For example, a condition could be defined based on a request header that is removed during the `REQUEST` phase (e.g., the user does not want the request header to be transmitted to the backend). The condition is then re-evaluated and the `RESPONSE` phase is skipped completely, as shown below:
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-flow-condition-1.png" alt=""><figcaption><p>Partial flow execution example</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-flow-condition-1.png" alt="The Design tab of an API, with a request flow that removes a header and a response flow noting that it will not run because the header was removed, above the flow condition."><figcaption><p>Partial flow execution example</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Reactive engine improvements" %}
 When using the reactive execution engine, the flow condition will be applied once for the whole flow. If the condition is evaluated as `true`, then both the `REQUEST` and the `RESPONSE` phases will be executed, as shown below:
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-flow-condition-2.png" alt=""><figcaption><p>Reactive execution engine flow condition improvements</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-flow-condition-2.png" alt="The Design tab of an API, with a request flow that removes a header and a response flow noting that it runs anyway because the condition is evaluated once, above the flow condition."><figcaption><p>Reactive execution engine flow condition improvements</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -253,7 +253,7 @@ The legacy execution engine presents logging issues:
 * A `502` status code normally indicates that the server has responded with a `502` status code, but `502` is also returned for connection failures
 * Consumer response headers are not displayed clearly
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-logging-1.png" alt=""><figcaption><p>Sample 502 log with the legacy execution engine</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-logging-1.png" alt="An API log detail page for a request that returned 502, with a connection-refused error and the request and response headers compared between the consumer and the gateway."><figcaption><p>Sample 502 log with the legacy execution engine</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Reactive engine improvements" %}
@@ -262,7 +262,7 @@ The reactive execution engine implements the following improvements:
 * When a connectivity error occurs during a connection attempt to the backend endpoint, the Gateway response displays an HTTP status code `0` and no headers. This clarifies that no response has been received from the backend endpoint due to the connectivity error.
 * Consumer response headers are displayed more clearly
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-logging-2.png" alt=""><figcaption><p>Sample 502 log with the reactive execution engine</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-logging-2.png" alt="An API log detail page for a request that returned 502, with a connection-refused error and the consumer and gateway headers shown side by side."><figcaption><p>Sample 502 log with the reactive execution engine</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -274,19 +274,19 @@ The reactive execution engine implements the following improvements:
 {% tab title="Legacy engine behavior" %}
 The Gateway returns a `500` error with an obscure message when the legacy execution engine fails to evaluate a valid Gravitee Expression Language (EL) expression because it is trying to access missing data.
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-condition-evaluation-1.png" alt=""><figcaption><p>Sample EL condition evaluation error with legacy engine</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-condition-evaluation-1.png" alt="The Debug tab showing a request that returned 500, with the policy timeline and an inspector reporting a condition evaluation error."><figcaption><p>Sample EL condition evaluation error with legacy engine</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Reactive engine improvements" %}
 The reactive execution engine executes a policy (or flow) when a valid EL expression evaluates as `true`. Otherwise, the policy is skipped because the EL expression evaluates as `false`.
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-condition-evaluation-2.png" alt=""><figcaption><p>Sample EL condition skipping behavior with reactive engine</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-condition-evaluation-2.png" alt="The Debug tab showing a request that returned 200, with the inspector reporting that the flow condition was skipped."><figcaption><p>Sample EL condition skipping behavior with reactive engine</p></figcaption></figure>
 
 The reactive execution engine ensures EL expressions that attempt to access missing data are evaluated as `false`. For example, `{#request.headers['X-Test'][0] == 'something'}` will skip execution even if the request header `X-Test` is not specified.
 
 The execution will fail and throw an error if the provided EL expression cannot be parsed, e.g., if it is syntactically invalid. The error message details why the EL expression cannot be parsed.
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-condition-evaluation-3.png" alt=""><figcaption><p>Sample EL condition error with reactive engine</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-condition-evaluation-3.png" alt="The Debug tab showing a request that returned 200, with the inspector reporting an expression syntax error in the condition."><figcaption><p>Sample EL condition error with reactive engine</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -376,7 +376,7 @@ When using the legacy execution engine, you can configure Cross-Origin Resource 
 {% tab title="Reactive engine improvements" %}
 When using the reactive execution engine, the allowed origin(s) you specify is returned instead of `*`. For example, in the configuration shown below, `Access-Control-Allowed-Origin: https://test.gravitee.io`.
 
-<figure><img src="../../.gitbook/assets/event-native-api-management-cors.png" alt=""><figcaption><p>Sample CORS configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-cors.png" alt="The CORS settings for an API, enabled with one allowed origin, a list of allowed methods, and preflight policy execution turned off."><figcaption><p>Sample CORS configuration</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -422,4 +422,4 @@ The example below shows timelines indicating when a timeout should occur dependi
 * There is no timeout defined for the backend in the API’s endpoint configuration (real timeout values should be shorter than `http.requestTimeout` and should interrupt the flow at the invoker level)
 * `http.requestTimeout=2000ms` and `http.requestTimeoutGraceDelay=30ms`
 
-<div align="left"><figure><img src="../../.gitbook/assets/event-native-api-management-timeout.png" alt="" width="375"><figcaption><p>Reactive engine timeout management</p></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/event-native-api-management-timeout.png" alt="A diagram of four request timings against the flow and platform stages, showing which combinations return a 504 timeout and which return a regular response." width="375"><figcaption><p>Reactive engine timeout management</p></figcaption></figure></div>

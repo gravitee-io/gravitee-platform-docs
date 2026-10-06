@@ -1,0 +1,31 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/managing-factors/http-factor
+description: The HTTP factor calls your own service to verify an Access Management 4.13 user as a second factor. Learn what the factor supports.
+---
+
+# HTTP Factor
+
+{% hint style="info" %}
+HTTP MFA requires a compatible [resource](../../resources.md).
+{% endhint %}
+
+Multi-factor authentication (MFA) can take several forms such as :
+
+* Security key
+* FIDO 2 (biometrics)
+* Mobile application (TOTP based)
+* SMS
+* and more
+
+Most of the time, these MFA methods are backed with 3rd party vendors, which each comes with pros and cons. While we recommend that you explore Gravitee Identity and Access Management, we understand that some teams already have a vendor that they are happy with, and we want to make sure that we support those use cases as well.
+
+Our Gravitee MFA HTTP plugin makes that a possibility. With our new Gravitee MFA HTTP plugin you can :
+
+* Easily integrate your existing MFA solution into your Gravitee IAM and APIM strategies
+* Bring some customization and offer a better user experience
+* Facilitate solution migration
+
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-factor-http.png" alt="A diagram in which Access Management shows the verification page to application consumers while exchanging send and check verification code calls with backend services over HTTP."><figcaption><p>HTTP MFA integration</p></figcaption></figure>

@@ -17,7 +17,7 @@ The APIM hybrid deployment solution (in the form of hybrid components, or plugin
 
 The following diagram shows a typical hybrid APIM architecture:
 
-<figure><img src="../../.gitbook/assets/hybrid_deployment_architecture.png" alt=""><figcaption><p>Hybrid deployment architecture</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/hybrid_deployment_architecture.png" alt="A diagram of a hybrid deployment, with an on-premises zone holding the console, management API, two load-balanced gateways, MongoDB and Elasticsearch, connected over HTTPS to an AWS zone holding a gateway, a backend, and Elasticache."><figcaption><p>Hybrid deployment architecture</p></figcaption></figure>
 
 ## Configuration
 

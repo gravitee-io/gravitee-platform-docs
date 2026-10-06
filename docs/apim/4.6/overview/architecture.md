@@ -42,7 +42,7 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid component management
 
-<img src="../.gitbook/assets/file.excalidraw (7).svg" alt="" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.excalidraw (7).svg" alt="A diagram splitting the platform into components managed by Gravitee, namely API Designer and Cockpit, and components managed by the customer, namely the console, portal, management API, gateways, databases, and the alert engine." class="gitbook-drawing">
 
 ### Hybrid architecture diagram
 

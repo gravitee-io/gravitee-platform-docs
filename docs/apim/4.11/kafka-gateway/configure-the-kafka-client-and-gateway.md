@@ -41,7 +41,7 @@ kafka:
 
 * The Gateway runs multiple APIs on different **domains**. The Kafka client will connect to the API using the bootstrap server `{apiHost}.{defaultDomain}:{defaultPort}`, where `{apiHost}` is host prefix defined for each API and `{defaultDomain}` is one of the configured `domains`.
 
-<figure><img src="../.gitbook/assets/kafka-gateway-configure-the-kafka-client-17-1.png" alt="" width="555"><figcaption><p>The Kafka client routes to the correct API through the gateway using SNI routing.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/kafka-gateway-configure-the-kafka-client-17-1.png" alt="A diagram of a Kafka client connecting over SSL to a gateway server, where an API resolver uses SNI to route the connection to the matching API." width="555"><figcaption><p>The Kafka client routes to the correct API through the gateway using SNI routing.</p></figcaption></figure>
 
 * To route to the correct API, the Gateway uses [SNI routing](https://en.wikipedia.org/wiki/Server_Name_Indication), which is part of the TLS protocol. Consequently, all client connections **must** happen over TLS (with at least `security.protocol=SSL` set in the Kafka client configuration).
 * The client **must** trust the certificate provided by the Gateway. To handle the variable host in the proxy bootstrap server URL, you will likely need to request a wildcard SAN to use as the certificate presented by the Gateway.
@@ -83,11 +83,11 @@ Then, for two APIs, the client will connect to, for example, `my-bootstrap-api1.
 
 After the Kafka client connects to the API, the Gateway (acting as the bootstrap server) returns the list of brokers in the upstream cluster.
 
-<figure><img src="../.gitbook/assets/kafka-gw-configure-the-kafka-client-151.png" alt="" width="563"><figcaption><p>The proxy obtains the list of brokers from the upstream cluster.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/kafka-gw-configure-the-kafka-client-151.png" alt="A diagram of a Kafka client connecting over SSL to a gateway server, where an API resolver uses SNI to route the connection to the matching API and on to the brokers." width="563"><figcaption><p>The proxy obtains the list of brokers from the upstream cluster.</p></figcaption></figure>
 
 To properly provide the client with the list of brokers and the associated metadata about topics and partitions on those brokers, the Gateway creates a one-to-one mapping between the brokers in the upstream cluster and the brokers seen by the client.
 
-<figure><img src="../.gitbook/assets/kafka-gateway-configure-the-kafka-client-153-1.png" alt="" width="563"><figcaption><p>The gateway returns the list of brokers back to the client, rewritten to use the gateway hostname.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/kafka-gateway-configure-the-kafka-client-153-1.png" alt="A diagram of a Kafka client connecting over SSL to a gateway server, showing the per-API broker names the client is given after the API resolver matches it." width="563"><figcaption><p>The gateway returns the list of brokers back to the client, rewritten to use the gateway hostname.</p></figcaption></figure>
 
 The mapping combines the `brokerPrefix` and `domainSeparator` variables and the configured domain, along with the API host prefix. The Kafka client must be able to route to `{brokerPrefix}{brokerId}{domainSeparator}{apiHost}.{defaultDomain}`, for as many brokers as there are in the Kafka cluster, on each configured domain. Again, a wildcard DNS entry is the preferred way to do this.
 
@@ -250,11 +250,11 @@ To configure the APIM Console to use the Kafka domain and port values for your O
 3. Select **Entrypoints & Sharding Tags** from the left nav.
 4.  In the **Entrypoint Configuration** section, confirm that the **Default Kafka domain** and **Default Kafka port** values match those of your Kafka API.
 
-    <figure><img src="../.gitbook/assets/00 kafka.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/00 kafka.png" alt="The Entrypoints and Sharding Tags page, with the default Kafka domain and port fields highlighted below the default entrypoint and TCP port."><figcaption></figcaption></figure>
 
     This value is then displayed on the entrypoint page of your APIs.
 
-    <figure><img src="../.gitbook/assets/00 kafka 1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/00 kafka 1.png" alt="The Entrypoints tab of a Kafka API, with a host prefix entered and the resulting domain and port highlighted beside it."><figcaption></figcaption></figure>
 
 ## Configure the Kafka client
 
@@ -340,10 +340,10 @@ The following example provides a template for how to produce and consume message
 3. After selecting your API, click on the **My Subscriptions** tab.
 4.  Copy the script in the **Review Kafka Properties** section and paste it into your `connect.properties` file.
 
-    <div align="left"><figure><img src="../.gitbook/assets/1 pc 2.png" alt="" width="563"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/1 pc 2.png" alt="A connect.properties file for calling the API, with the security protocol set to SASL_SSL, the OAUTHBEARER mechanism, and placeholder token endpoint, client, and truststore values." width="563"><figcaption></figcaption></figure></div>
 5.  Copy either the produce or consume commands from the **Calling the API** section.
 
-    <div align="left"><figure><img src="../.gitbook/assets/00 kafka 2.png" alt="" width="563"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/00 kafka 2.png" alt="The Producer tab of the calling instructions, showing a kafka-console-producer command with a bootstrap server, topic, and producer config file." width="563"><figcaption></figcaption></figure></div>
 6. In a terminal, change your working directory to the top-level folder of your Kafka download.
 7. Paste and execute the commands you copied to produce or consume messages.
 

@@ -16,13 +16,13 @@ To configure Gravitee to use the new Developer Portal:
 1. Log in to your APIM Console.
 2.  From the home page, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--199.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--199.png" alt="The console dashboard with Settings highlighted in the left navigation, showing 2,226 APIs and 711 applications with lifecycle and state pie charts."><figcaption></figcaption></figure>
 3.  In the **Portal** section of the settings menu, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--200.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--200.png" alt="The portal Analytics settings, listing nine platform dashboards with reorder and delete actions above an Add a new platform dashboard button."><figcaption></figcaption></figure>
 4.  Navigate to the **New Developer Portal** section, and then turn on the **Enable the New Developer Portal** toggle.
 
-    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--201.png" alt=""><figcaption><p>New Developer Portal section</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--201.png" alt="The New Developer Portal section of the portal settings, with a tech preview notice, the portal enabled, and Open Website and Open Settings buttons."><figcaption><p>New Developer Portal section</p></figcaption></figure>
 
 To verify that the new theme is enabled, click the **Open Website** button. The new Developer Portal should launch.
 

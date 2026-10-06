@@ -34,7 +34,7 @@ You can add more than one ACL in the same policy.
 Kafka follows the rule that if there is an ACL that denies an action, it takes precedence over ACLs that allow an action. If more than one ACL applies to the client connection to the Gateway, the most restrictive ACL is applied.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-154.png" alt=""><figcaption><p>Kafka ACL Policy UI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-154.png" alt="The Kafka ACL policy configuration, with a prefixed topic resource pattern limited to the read operation, and a second rule granting access to any group, beside the policy documentation."><figcaption><p>Kafka ACL Policy UI</p></figcaption></figure>
 
 ## Examples
 
@@ -87,15 +87,15 @@ This shows how to implement the example above using the APIM Console.
 
 Kafka Topic Mapping configuration:
 
-<figure><img src="../../../.gitbook/assets/00 3.png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/00 3.png" alt="The Policies for Interact phase dialog configuring a Kafka topic mapping, with a client-side topic name mapped to a different broker-side name."><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 
 Kafka ACL configuration:
 
-<figure><img src="../../../.gitbook/assets/00 5.png" alt=""><figcaption><p>Kafka ACL policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/00 5.png" alt="The Policies for Interact phase dialog configuring a Kafka ACL, with a literal topic condition, the Any resource pattern, and read-only topic operations."><figcaption><p>Kafka ACL policy configuration UI</p></figcaption></figure>
 
 Here is how the policies should be ordered in the policy chain:
 
-<figure><img src="../../../.gitbook/assets/00 ta.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/00 ta.png" alt="The Interact phase flow, showing a Kafka Topic Mapping policy followed by a Kafka ACL policy between the client and the broker."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}
@@ -162,15 +162,15 @@ This shows how to implement the example above using the APIM Console.
 
 ACL configuration:
 
-<figure><img src="../../../.gitbook/assets/00 6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/00 6.png" alt="The Policies for Interact phase dialog configuring a Kafka ACL, with a wildcard topic condition, the Any resource pattern, and read and write topic operations."><figcaption></figcaption></figure>
 
 Topic mapping configuration:
 
-<figure><img src="../../../.gitbook/assets/00 4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/00 4.png" alt="The Policies for Interact phase dialog configuring a Kafka topic mapping, with a client-side topic name mapped to a broker-side name using a different suffix."><figcaption></figcaption></figure>
 
 Here is how the policies should be ordered in the policy chain:
 
-<figure><img src="../../../.gitbook/assets/00 at.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/00 at.png" alt="The Interact phase flow, showing a Kafka ACL policy followed by a Kafka Topic Mapping policy between the client and the broker."><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}

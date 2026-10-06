@@ -45,7 +45,7 @@ When enabled, a group is automatically attached to every API Product created aft
 3. Navigate to the group you want to configure, and then click the **pencil icon**.
 4. Navigate to the **Roles & Permissions** section, and then enable the **Automatically add group to new API Products** toggle.
 
-<figure><img src="../../.gitbook/assets/apim-api-product-ownership-transfer-group-management-step-10.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apim-api-product-ownership-transfer-group-management-step-10.png" alt="The environment Groups settings, showing default role selectors, toggles for changing default roles and automatically adding the group to new APIs, API products, and applications, and a Members Management section below."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 The auto assign setting is evaluated at API Product creation. Disabling the toggle does not detach the group from API Products that were created while the toggle was enabled.

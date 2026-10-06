@@ -71,40 +71,40 @@ To configure sharding tags, complete the following steps:
 
 1.  In the **Dashboard**, click **Organization**.
 
-    <figure><img src="../../.gitbook/assets/apim-console-organization.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/apim-console-organization.png" alt="The console dashboard with Organization highlighted at the foot of the left navigation."><figcaption></figcaption></figure>
 2.  In the **Organization** menu, click **Entrypoints & Sharding Tags**.
 
-    <figure><img src="../../.gitbook/assets/entrypoints-sharding-tags.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/entrypoints-sharding-tags.png" alt="The Entrypoints and Sharding Tags page, with default HTTP, TCP, and Kafka entrypoint values and an empty sharding tags table."><figcaption></figcaption></figure>
 3.  Navigate to **Sharding Tags**, and then click **+ Add a tag**.
 
-    <figure><img src="../../.gitbook/assets/add-a-sharding-tag.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/add-a-sharding-tag.png" alt="The organization Sharding Tags page with the Add a tag button highlighted, listing five tags with their ID, name, and description above an Entrypoint Mappings panel."><figcaption></figcaption></figure>
 4. In the **Create a tag** pop-up window, enter the following information:
    1. In the **Name** field, enter the name of the tag.
    2. In the **Key** field, enter a unique key for the tag. The key accepts 1–64 lowercase alphanumeric characters and hyphens only. The key is immutable after creation and is the value used in `gravitee.yml` and API path parameters.
    3. (Optional) In the **Description** field, enter a description for the tag.
    4.  (Optional) From the **Restricted groups** drop-down menu, select the groups that you want to be able to deploy to this tag.
 
-       <figure><img src="../../.gitbook/assets/create-a-tag-with-key-field.png" alt=""><figcaption><p>Create a tag dialog with Name, Key, Description, and Restricted groups fields</p></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/create-a-tag-with-key-field.png" alt="The Create a tag dialog open over the Sharding Tags page, with empty name, key, description, and restricted groups fields, above a list of tags."><figcaption><p>Create a tag dialog with Name, Key, Description, and Restricted groups fields</p></figcaption></figure>
 5. Click **Ok**. The sharding tag now appears in the list of **Sharding Tags**. The **Key** column displays the tag key used for Gateway configuration and API operations.
 
 ### Add sharding tags to your APIs
 
 1.  From the **Dashboard**, click **APIs**.
 
-    <figure><img src="../../.gitbook/assets/click-on-apis (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/click-on-apis (1).png" alt="The console dashboard with APIs highlighted in the left navigation, showing four total APIs and five applications with lifecycle and state pie charts."><figcaption></figcaption></figure>
 2.  In the **APIs** screen, select the API to which you want to add a sharding tag.
 
-    <figure><img src="../../.gitbook/assets/select-sharding-tag-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/select-sharding-tag-api.png" alt="The APIs list showing six sample APIs with their definition, status, context path, owner, and visibility."><figcaption></figcaption></figure>
 3.  In the **APIs** menu, click **Deployment**.
 
-    <figure><img src="../../.gitbook/assets/select-deployment-in-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/select-deployment-in-api.png" alt="The Deployment configuration page of an API with Deployments highlighted in the API menu, showing an empty sharding tags selector."><figcaption></figcaption></figure>
 4. In the **Deployment** screen, navigate to the **Deployment configuration** section.
 5.  From the **Sharding tags** drop-down menu, select the sharding tag that you want to add to the API.
 
-    <figure><img src="../../.gitbook/assets/sharding-tags-drop-down-menu.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/sharding-tags-drop-down-menu.png" alt="The Deployment configuration page with the sharding tags dropdown open, listing five tags each with a clear checkbox."><figcaption></figcaption></figure>
 6.  In the **You have unsaved changes** pop-up, click **Save**.
 
-    <figure><img src="../../.gitbook/assets/sharding-tag-popup-save-changes.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/sharding-tag-popup-save-changes.png" alt="The Deployment configuration page with one sharding tag selected and an unsaved changes bar offering Discard and Save."><figcaption></figcaption></figure>
 
 ### Add the tag key to `values.yaml`, `gravitee.yml` or with environment variables
 
@@ -186,13 +186,13 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 
 1.  In the **Dashboard**, click **Organization**.
 
-    <figure><img src="../../.gitbook/assets/apim-console-organization.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/apim-console-organization.png" alt="The console dashboard with Organization highlighted at the foot of the left navigation."><figcaption></figcaption></figure>
 2.  In the **Organization** menu, click **Entrypoints & Sharding Tags**.
 
-    <figure><img src="../../.gitbook/assets/entrypoints-sharding-tags.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/entrypoints-sharding-tags.png" alt="The Entrypoints and Sharding Tags page, with default HTTP, TCP, and Kafka entrypoint values and an empty sharding tags table."><figcaption></figcaption></figure>
 3.  Navigate to **Entrypoint Mappings**, and then click **+ Add a mapping**.
 
-    <figure><img src="../../.gitbook/assets/entrypoint-mapping.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/entrypoint-mapping.png" alt="The Entrypoint Mappings panel with the Add a mapping button highlighted, showing an empty table with target, entrypoint, and sharding tag columns."><figcaption></figcaption></figure>
 4. From the **+ Add a mapping** drop-down menu, select one of the following entrypoints:
    * HTTP
    * TCP
@@ -204,7 +204,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 1) From the **Sharding tags** drop-down menu, select the sharding tags that you want to map to the entrypoint.
 2)  In the **Entrypoint url** field, enter your entrypoint URL.
 
-    <figure><img src="../../.gitbook/assets/gs-first-api-add-security-58.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-first-api-add-security-58.png" alt="The Create an entrypoint mapping dialog, with empty sharding tags and entrypoint URL fields."><figcaption></figcaption></figure>
 3) Click **Ok.**
 {% endtab %}
 
@@ -212,7 +212,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 1. From the **Sharding tags** drop-down menu, select the sharding tags that you want to map to this entrypoint.
 2.  In the **Default TCP port** field, type the number of your TCP port.
 
-    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-20-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-20-1.png" alt="The Info page of an API scrolled to the Danger Zone, offering to stop, publish, make private, deprecate, or delete the API."><figcaption></figcaption></figure>
 3. Click **Ok**.
 {% endtab %}
 
@@ -221,7 +221,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 2. In the **Default Kafka domain** field, type your Default Kafka domain.
 3.  In the **Default Kafka port** field, type your default Kafka port.
 
-    <figure><img src="../../.gitbook/assets/gs-first-api-add-security-59.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-first-api-add-security-59.png" alt="The Create an entrypoint mapping dialog with a Kafka bootstrap domain pattern and port, and an empty sharding tags field."><figcaption></figcaption></figure>
 4. Click **Ok**.
 {% endtab %}
 {% endtabs %}

@@ -8,4 +8,4 @@ Gravitee Alert Engine (AE) is a standalone application. It does not require any 
 
 AE can integrate with your existing Gravitee API Management and Access Management instances to layer on intelligent API Monitoring services on top of your entire API platform. It sits between your API platform and your backend services, and can then "talk" to your various notification channels. Please see the architecture diagram below to learn more:
 
-<figure><img src="../../.gitbook/assets/overview-architecture-0.png" alt=""><figcaption><p>Gravitee AE architecture diagram</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/overview-architecture-0.png" alt="A diagram of the alert engine ingesting, transforming, analysing, and notifying on events from API Management, Access Management, and backend services, with email, chat, and webhook outputs below."><figcaption><p>Gravitee AE architecture diagram</p></figcaption></figure>

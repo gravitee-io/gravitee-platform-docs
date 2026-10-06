@@ -28,7 +28,7 @@ Head to the Gravitee APIM Console, open the Integrations section in the left men
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab, you'll use this later:
 
-<figure><img src="../../../.gitbook/assets/governance-federation-3rd-party-provider-2-1-v2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/governance-federation-3rd-party-provider-2-1-v2.png" alt="The Overview page of a connected Solace integration, showing the provider, a connected agent, and a partly masked integration identifier."><figcaption></figcaption></figure>
 
 ## 2. Configure the Solace federation agent
 
@@ -119,7 +119,7 @@ docker compose up -d
 
 In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2024-10-10 at 00.27.32.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-10-10 at 00.27.32.png" alt="The Overview page of a connected Solace integration, showing the provider and the connected agent."><figcaption></figcaption></figure>
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.
 

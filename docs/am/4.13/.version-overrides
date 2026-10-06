@@ -16,6 +16,12 @@ guides/branding/README.md
 guides/branding/language-default-properties-reference.md
 .gitbook/assets/am-application-scopes-consent-settings.png
 .gitbook/assets/am-application-add-scope-dialog.png
+# OCI KMS certificate plugin (AM 4.13.0 feature, AM-6489)
+guides/certificates/oci-kms-certificate-plugin.md
+getting-started/configuration/domain-secrets/plugins-support.md
+.gitbook/assets/am-oci-kms-certificate-type.png
+.gitbook/assets/am-oci-kms-certificate-settings.png
+.gitbook/assets/am-oci-kms-certificate-list.png
 # Organization license sync and enforcement (AM 4.13.0 feature, AM-7166)
 overview/open-source-vs-enterprise-am/README.md
 guides/audit-trail.md
@@ -38,3 +44,16 @@ guides/auth-protocols/openid-connect.md
 getting-started/configuration/configure-am-gateway/README.md
 .gitbook/assets/am-domain-dpop-settings.png
 .gitbook/assets/am-application-dpop-bound-access-tokens.png
+# Reporter attribute mapping (AM 4.13.0 feature, AM-7322)
+getting-started/configuration/configure-reporters.md
+.gitbook/assets/am-reporter-attribute-mapping.png
+# Data planes in the Automation API (AM 4.13.0 feature, AM-7245)
+guides/automation-api.md
+reference/automation-api-reference.md
+getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md
+.gitbook/assets/am-new-domain-data-plane-list.png
+# Data plane per environment (AM 4.13.0 feature, AM-7167)
+getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md
+getting-started/configuration/configure-am-api/internal-api.md
+getting-started/configuration/configure-am-api/README.md
+guides/identity-providers/database-identity-providers/mongodb.md

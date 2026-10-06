@@ -29,7 +29,7 @@ Gravitee 4.2 supports a new SMS resource provider based on the SFR vendor. Admin
 
 Gravitee 4.2 includes enhancements to the Remember Device feature that provides login authentication. After setting up an identifier for your authentication device, you can elect conditional MFA, supply a rule based on context attributes, and toggle **Skip Remember Device collection if conditional MFA evaluates no risk** to ON. If the condition is met, you can bypass MFA when logging in, regardless of other Remember Device settings.&#x20;
 
-<figure><img src="../../.gitbook/assets/skip remember device.png" alt=""><figcaption><p>AM authentication device</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/skip remember device.png" alt="The Activate MFA step set to Conditional with a bypass rule, above the Remember Device step with both Enable Remember Device and Skip Remember Device collection switched on and a fifteen-day trust period."><figcaption><p>AM authentication device</p></figcaption></figure>
 
 For more information on configuring an authentication device, see [this page](../../guides/login/remember-authentication-device.md).&#x20;
 
@@ -46,7 +46,7 @@ Gravitee 4.2 offers the option for the client secret to store a hashed value in 
 {% hint style="warning" %}
 The client secret will no longer be available through the AM Console or Management API. The secret will be provided only once, after the application creation or after the secret renewal. Before upgrading to AM 4.2, make sure to copy the client secret of your existing applications.
 
-<img src="../../.gitbook/assets/copy-client-secret.png" alt="" data-size="original">
+<img src="../../.gitbook/assets/copy-client-secret.png" alt="The Copy your Client Secret dialog warning that the secret will not be retrievable once closed, with a placeholder secret and a copy icon, over the application settings form." data-size="original">
 {% endhint %}
 
 {% hint style="info" %}

@@ -23,11 +23,11 @@ Application definitions apply at the _security domain_ level.
 4. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 5. Select the application type and click **Next**.
 
-<figure><img src="../../.gitbook/assets/guide-applications-readme-80.png" alt=""><figcaption><p>Select the Application type</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-applications-readme-80.png" alt="The New application wizard on the Platform step, offering Web, Single-Page App, Native, and Backend to Backend types, with Web selected."><figcaption><p>Select the Application type</p></figcaption></figure>
 
 6. Specify the application details and click **Create**.
 
-<figure><img src="../../.gitbook/assets/guide-applications-readme-81.png" alt=""><figcaption><p>Application settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-applications-readme-81.png" alt="The Settings step of the New application wizard, with the application name and redirect URI completed and an optional OAuth 2.0 client ID below."><figcaption><p>Application settings</p></figcaption></figure>
 
 ### AM API
 
@@ -135,7 +135,7 @@ The response includes the `clientId` field:
 
 After you have created the new application, you will be redirected to the application's `Overview` page, which contains some documentation and code samples to help you start configuring the application.
 
-<figure><img src="../../.gitbook/assets/guide-applications-readme-82.png" alt=""><figcaption><p>Application overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-applications-readme-82.png" alt="The application Overview page explaining how to integrate authentication, listing the application domain and client ID, the authorization URL that starts the login flow, and the callback URL."><figcaption><p>Application overview</p></figcaption></figure>
 
 ### Test the application
 
@@ -150,7 +150,7 @@ The application identity providers are separated into two sections:
 * The regular Identity Providers (called also **internal**) that operate inside AM without redirecting to another provider
 * The Social/Enterprise Identity Providers that require an external service to perform authentication (usually via SSO)
 
-<figure><img src="../../.gitbook/assets/guide-applications-readme-83.png" alt=""><figcaption><p>Application Identity Provider selection options</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-applications-readme-83.png" alt="The Identity Providers tab of an application, with identity providers and social providers listed in separate tables showing type, selection rule, selection toggle, and priority."><figcaption><p>Application Identity Provider selection options</p></figcaption></figure>
 
 You can enable/disable them to include them within your authentication flow.
 
@@ -170,7 +170,7 @@ Identity provider selection rules also give you more control over the authentica
 
 When coupled with [flows](../flows/README.md) you can decide which provider will be used to authenticate your end users.
 
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-application-identity-providers-selection-rule.png" alt=""><figcaption><p>Selection rule</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-application-identity-providers-selection-rule.png" alt="The Selection rule dialog with an expression matching a username request parameter, above the application&#x27;s identity provider list."><figcaption><p>Selection rule</p></figcaption></figure>
 
 To apply a selection rule:
 
@@ -206,7 +206,7 @@ By default this feature is disabled. You can enable it through the domain settin
 There is another parameter called **Enable\Disable Open Dynamic Client Registration**. This parameter is used to allow any unauthenticated requests to register new clients through the registration endpoint. It is part of the OpenID specification, but for security reasons, it is disabled by default.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/guide-applications-readme-84.png" alt=""><figcaption><p>Enable DCR</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-applications-readme-84.png" alt="The Client Registration Settings with Dynamic Client Registration switched on and the remaining options, including open registration, templates, and the redirect URI rules, switched off."><figcaption><p>Enable DCR</p></figcaption></figure>
 
 ### Enable Dynamic Client Registration with AM API
 
@@ -492,7 +492,7 @@ Once a client is set up as a template, it can no longer be used for authenticati
 
 You can enable the template feature in the AM Dynamic Client Registration **Settings** tab:
 
-<figure><img src="../../.gitbook/assets/guide-applications-readme-85.png" alt=""><figcaption><p>Enable DCR Templates</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-applications-readme-85.png" alt="The Client Registration Settings with both Dynamic Client Registration and Dynamic Client Registration Templates switched on, and the redirect URI options switched off."><figcaption><p>Enable DCR Templates</p></figcaption></figure>
 
 You can also enable this feature using AM API:
 

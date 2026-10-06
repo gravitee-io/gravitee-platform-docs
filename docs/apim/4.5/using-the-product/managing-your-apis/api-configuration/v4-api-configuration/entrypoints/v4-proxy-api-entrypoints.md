@@ -18,7 +18,7 @@ Refer to the following sections for step-by-step configuration details per proxy
 
 Edit the entrypoint's settings under the **Entrypoints** tab.
 
-<figure><img src="../../../../../.gitbook/assets/edit HTTP entrypoint.png" alt=""><figcaption><p>v4 HTTP proxy API entrypoint configuration</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/edit HTTP entrypoint.png" alt="The Entrypoints tab of a V4 API, with virtual hosts enabled and one context path defined."><figcaption><p>v4 HTTP proxy API entrypoint configuration</p></figcaption></figure>
 
 You have the option to:
 
@@ -32,7 +32,7 @@ Redeploy the API for your changes to take effect.
 
 Edit the entrypoint's settings under the **Entrypoints** tab.
 
-<figure><img src="../../../../../.gitbook/assets/tcp_entrypoints.png" alt=""><figcaption><p>v4 TCP proxy API entrypoint configuration</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/tcp_entrypoints.png" alt="The Entrypoints tab of a V4 API, with one entrypoint host defined and an Add host button."><figcaption><p>v4 TCP proxy API entrypoint configuration</p></figcaption></figure>
 
 You have the option to:
 

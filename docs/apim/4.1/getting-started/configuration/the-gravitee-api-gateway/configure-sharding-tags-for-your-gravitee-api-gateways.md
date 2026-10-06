@@ -50,7 +50,7 @@ API deployment is impacted by how tags are applied to APIs and Gateways.
 
 Our discussion of sharding tag configuration assumes an architecture that includes both DMZ Gateways and internal, corporate Gateways. We want to tag these Gateways as external-only and internal-only, respectively, per the diagram below:
 
-<figure><img src="../../../.gitbook/assets/Example architecture.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Example architecture.png" alt="A diagram of an example architecture with a global load balancer distributing traffic to external gateways in two regions, each fronting internal gateways and a replicated database, with access and API management alongside."><figcaption></figcaption></figure>
 
 Before sharding tags can be defined in the Gravitee API Management Console, the API Gateway `gravitee.yaml` file must be modified to assign a Gravitee API Gateway to a specific sharding tag:
 
@@ -128,7 +128,7 @@ To demonstrate, let's instruct Gravitee API Manager to apply the “internal tes
 
 You can view your entrypoint mapping in the **Entrypoint mappings** section:
 
-<figure><img src="../../../.gitbook/assets/getting-started-configuration-the-gravit-48-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/getting-started-configuration-the-gravit-48-1.png" alt="Step 4 of the API creation wizard at the Restriction stage, with rate limiting, quota, and resource filtering all switched off and an Add plan button."><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 You've just learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs in order to control where those APIs are deployed, refer to [this documentation](../../../guides/api-configuration/v2-api-configuration/configure-cors.md#configure-deployments).

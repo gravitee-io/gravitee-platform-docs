@@ -23,12 +23,13 @@ When creating a new documentation page in portal navigation, administrators can 
 
 1. From the **Dashboard**, click **Settings**.
 2. From the **Settings** menu, click **Settings**.
-3. Navigate to the **New Developer Portal** section, and then click **Open Settings**. The New Developer Portal settings open on the navigation tab.
-4. Click **Add**, and then click **Add Page**.
-5. In the **Add page** pop-up screen, type a title for your page.
-6. Select **AsyncAPI** as the page type.
-7. (Optional) Turn on the **Authentication is required to view this page** toggle.
-8. Click **Add**.
+3. Navigate to the **New Developer Portal** section, and then click **Open Settings**. The Portal Settings open in a new tab, on the **Settings** page.
+4. Click **Navigation**.
+5. Click **Add**, and then click **Add Page**.
+6. In the **Add page** pop-up screen, type a title for your page.
+7. Select **AsyncAPI** as the page type.
+8. (Optional) Turn on the **Authentication is required to view this page** toggle.
+9. Click **Add**.
 
 New AsyncAPI pages are created with a **starter AsyncAPI 3.0 template** so editing can begin immediately, similar to default content for other page types.
 

@@ -1,18 +1,17 @@
 ---
 hidden: false
 noIndex: false
-description: An API proxy sits between your consumers and your backend. Learn what the main sections of a proxy's sidebar configure, from general settings to deployment.
+description: Create an API proxy, then configure it from the groups of its own sidebar. Choose the group that holds the setting you need.
 ---
 
-# API proxies
+# API Proxies
 
-An API proxy sits between your consumers and your backend, and the **API Proxies** page in the API Management module is where you create, list, and open one. Opening a proxy replaces the module sidebar with the proxy's own, whose main sections these pages follow.
+An API proxy has its own sidebar. Its groups are **General**, **Design**, **Consumers**, **Monitoring**, **Operations**, and **Observability**.
 
-* [**Create an API proxy**](../../build/create-an-api-proxy.md). Build a proxy from scratch or from a template.
-* [**Import an API proxy**](../../build/import-an-api-proxy.md). Create or replace a proxy from a definition file.
-* [**General**](general/README.md). Identity, properties, resources, notifications, and CORS.
-* [**Gateway**](gateway/README.md). Entrypoints, endpoints, and what the proxy reports.
-* [**Policy Studio**](policy-studio/README.md). The policies that run on every request and response.
-* [**Consumer access**](consumer-access/README.md). Plans, subscriptions, and consumer messaging.
-* [**Security**](security/README.md). Who can administer the proxy.
-* [**Deployment**](deployment/README.md). Where the proxy runs, and its deployment history.
+* [**Create an API proxy**](../../build/create-an-api-proxy.md). Create an API proxy in the Gamma console with the from-scratch wizard or a quick-start template.
+* [**Import an API proxy**](../../build/import-an-api-proxy.md). Create or replace an API proxy by importing a Gravitee definition, an OpenAPI specification, or a WSDL document.
+* [**General**](general/README.md). Holds the **Overview**, **Settings**, **User Permissions**, **Authorization**, **Metadata**, and **API Score** pages.
+* [**Design**](design/README.md). Holds the **Entrypoints**, **Policy Studio**, **Endpoints**, **Failover**, **Response Templates**, **Resources**, **API Properties**, and **CORS** pages.
+* [**Consumers**](consumers/README.md). Holds the **Plans**, **Subscriptions**, and **Broadcasts** pages.
+* [**Monitor**](monitoring/README.md). Holds the Monitor pages.
+* [**Operate**](operations/README.md). Holds the Operate pages.

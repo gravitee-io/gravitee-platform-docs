@@ -57,7 +57,9 @@ To process a pending registration, complete the following steps:
 2. In the **Registration Pending** banner, select **Accept** or **Reject**.
 3. In the **User registration** dialog, confirm the action.
 
-Accepting sets the status to Active. Rejecting sets it to Rejected and frees the address, so the same person registers again with the same email. Either outcome sends the user an email that names the decision.
+Accepting sets the status to Active. Rejecting sets it to Rejected and frees the address, so the same person registers again with the same email.
+
+Either outcome sends the user an email. Accepting someone who hasn't chosen a password yet sends them the activation email, which lets them choose one. For a request sent from the Gamma sign-in page, its link opens the Gamma console. Every other outcome sends an email that names the decision.
 
 ## Review a user's profile
 
@@ -68,7 +70,7 @@ Select a user's name in the table to open the detail page. The profile card at t
 * **Last Login**. When the user last signed in, or **Never**.
 * **Created**. When the account was created.
 
-Custom fields that the user carries appear under those values, each with its own copy action. Select **Back to Users** to return to the list.
+The user's answers to the organization's user fields appear under those values, each listed under its field's key and with its own copy action. To manage the fields themselves, see [Manage user fields](manage-user-fields.md). Select **Back to Users** to return to the list.
 
 ## Assign organization roles
 

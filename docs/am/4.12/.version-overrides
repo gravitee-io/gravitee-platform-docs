@@ -21,7 +21,6 @@ reference/automation-api-reference.md
 .gitbook/assets/am-trust-domain-jwks-url.png
 .gitbook/assets/am-trust-domain-name-description.png
 .gitbook/assets/am-trust-domains-list.png
-guides/applications/application-types.md
 guides/applications/create-and-manage-agent-applications.md
 guides/applications/spiffe-workload-identity-and-agent-applications-overview.md
 guides/manage-spiffe-trust-domains.md

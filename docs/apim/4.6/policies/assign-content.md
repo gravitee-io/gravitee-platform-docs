@@ -29,7 +29,7 @@ A typical usage would be to simply overwrite the original request payload with s
 }
 ```
 
-<figure><img src="../.gitbook/assets/policies-assign-content-177.png" alt="" width="375"><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/policies-assign-content-177.png" alt="The Assign content policy dialog, with a body content field beside documentation describing the policy and the phases it applies to." width="375"><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
 
 ### Replace original payload with dynamic values
 
@@ -194,7 +194,7 @@ Let's walk through the above Freemarker code, line by line:
 
 **Line 7:** Output all key/value pairs to the final response.
 
-<figure><img src="../.gitbook/assets/policies-assign-content-176 (1).png" alt=""><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/policies-assign-content-176 (1).png" alt="The Assign content policy dialog, with a trigger condition on an API key header and a FreeMarker template that filters a list by status, beside the policy documentation."><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
 
 {% code title="Final response payload (sent onto client):" %}
 ```json

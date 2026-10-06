@@ -20,4 +20,4 @@ Uploaded certificates are validated before storage. The certificate must be an X
 
 Application owners can upload and manage client certificates through the new Developer Portal when an administrator enables the **Enable mTLS Certificate Management** toggle. For details, see [mTLS certificate management for applications](../../secure-and-expose-apis/applications/mtls-certificate-management-for-applications-overview-and-concepts.md).
 
-For Kubernetes-managed certificate configuration, see [Kubernetes CRD Configuration for Client Certificates](../../../../gko/4.11/guides/kubernetes-crd-configuration-for-client-certificates.md).
+For Kubernetes-managed certificate configuration, see [Kubernetes CRD Configuration for Client Certificates](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/kubernetes-crd-configuration-for-client-certificates).

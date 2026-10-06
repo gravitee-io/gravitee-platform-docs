@@ -17,6 +17,50 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 #### 4.13.0
 
+**Subscription forms apply only to the APIs they're assigned to**
+
+From 4.13.0, an environment holds several subscription forms, and each form applies only to the APIs assigned to it. In 4.12 and earlier, each environment had one form, and it applied to every API of the environment.
+
+On the first Management API startup after the upgrade, the existing form of each environment is named **Global Default Form** and assigned as follows:
+
+* If the form was visible, it's assigned to every API of the environment.
+* If the form was hidden, it's assigned to no API. Showing it later doesn't bring it back to any API until you assign APIs to it.
+
+An API created after the upgrade has no subscription form until you assign it to one. New environments start with no subscription form, where 4.12 created a hidden one for each new environment.
+
+The Management API v2 endpoints change as follows:
+
+* `GET /subscription-forms` returns a list of forms instead of a single form.
+* `PUT /subscription-forms/{subscriptionFormId}` requires `name`, `gmdContent`, and `apiIds`. `apiIds` replaces the APIs assigned to the form, so an empty list removes every API from it.
+* A subscription form object carries `name` and `apiIds`.
+
+Before you upgrade, update any script that reads the environment's form from `GET /subscription-forms` or updates it with `PUT`. After the upgrade, assign each new API to a form. For more information, see [Creating and managing subscription forms](../secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms.md).
+
+**Kafka Topic Mapping policy: invalid mapping entries now stop an API from deploying**
+
+From 4.13.0, the Kafka Topic Mapping policy checks its mapping entries when the API is deployed. In 4.12 and earlier it checked nothing, so a configuration the policy can't act on deployed and then behaved unpredictably at runtime. An API that deploys today can therefore fail to deploy after the upgrade.
+
+Four kinds of entry are now refused:
+
+* An entry that sets neither `client` nor `broker`.
+* An entry that writes a plain name Kafka wouldn't accept as a topic name.
+* An entry that references `#topic` in both fields.
+* Two entries whose plain `broker` values are equal, or whose plain `client` values are equal.
+
+The last one is the likeliest to appear in a configuration that works today, because both fields are set and nothing previously objected to the duplicate.
+
+Each message names the entry by its position in the list, counting from zero. Before you upgrade, review every Kafka Topic Mapping policy against the four cases above. For the full set of checks and the messages they produce, see [Kafka Topic Mapping](../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md).
+
+At runtime, an exact pair whose expression resolves either side to nothing, or to a name Kafka wouldn't accept, now fails the connection with `INVALID_CONFIG`. Previously the resolved value was sent to the broker as it was.
+
+**Kafka Topic Mapping policy: A blank mapping field now defines a rule**
+
+From 4.13.0, a Kafka Topic Mapping entry that sets only one of `client` and `broker` is a rule that applies to any topic. A field set to a blank string counts as absent. In 4.12 and earlier, the policy resolved a topic by comparing the name the client used with the entry's `client` value. An entry whose `client` was blank therefore matched nothing and never applied.
+
+An entry left with a blank `client` therefore changes from inert to a client-to-broker rule that claims every topic the client names and sends each one to the value in `broker`. An entry left with a blank `broker` becomes a broker-to-client rule that relabels broker topics in an all-topics listing.
+
+The policy's configuration schema required both fields before 4.13.0. An affected entry is therefore one whose field was set to an empty string rather than omitted. Before you upgrade, review every Kafka Topic Mapping policy for an entry with a blank `client` or `broker`. Remove the entry, or set both fields, to keep the behavior you have today. For what a single-field entry now does, see [Kafka Topic Mapping](../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md).
+
 **The Gateway resolves the request path before it routes**
 
 From 4.13.0, the `http.pathHandling` Gateway setting defaults to `NORMALIZE`. In 4.12 and earlier the default was `RAW`. A deployment that upgrades without changing its configuration resolves request paths before it resolves the listener context path, and therefore before it enforces any plan.
@@ -50,6 +94,24 @@ For the full option reference, see [Control which certificate authorities the Ga
 From 4.13.0, the plan endpoints of the legacy Management API v1 (`/management/organizations/{orgId}/environments/{envId}/apis/{apiId}/plans`) reject V4, Federated, and Federated Agent APIs. Every plan operation for one of these APIs returns HTTP `400`. The error message names the API's definition version, for example: `API definition version 4.0.0 is not supported by Management API v1. Use Management API v2 instead (/management/v2/environments/{envId}/apis/{apiId}/...).`
 
 This applies to listing, reading, creating, updating, and deleting plans, and to closing, publishing, and deprecating a plan. Previously, these endpoints didn't check the API's definition version. Read operations for these APIs could fail with HTTP `500` or behave inconsistently, and write operations, for example creating or deleting a plan, could succeed. Update any scripts or integrations that manage the plans of these APIs to use the Management API v2 plan endpoints (`/management/v2/environments/{envId}/apis/{apiId}/plans`).
+
+**LLM Proxy removes images, audio, video, and files from requests by default**
+
+From 4.13.0, an LLM Proxy reads images, audio, video, and files in requests sent in the OpenAI Chat Completions, OpenAI Responses, Anthropic Messages, and Gemini formats. Four entrypoint options of the LLM Proxy decide what happens to them: **Images sent by the client**, **Audio sent by the client**, **Video sent by the client**, and **Files sent by the client**. Each defaults to `STRIP`, which removes that content before the request reaches the provider. An LLM Proxy created in 4.12 or earlier has none of these options set, so it removes this content after the upgrade.
+
+To forward a content type, set its option to `ALLOW` in the entrypoint configuration of the LLM Proxy, and redeploy the API. `REJECT` refuses a request that carries the content, with an HTTP `400` error and the code `modality_blocked`.
+
+**FIPS images: JKS and PKCS12 keystores no longer load**
+
+From 4.13.0, the FIPS image variants are built on a JDK 25 FIPS base image. The 4.12 FIPS images used JDK 21. On the JDK 25 base, BouncyCastle FIPS in approved-only mode provides no PKCS12 keystore and answers JKS read-only, so neither format loads. A FIPS deployment that upgrades from 4.12 while keeping a `jks` or `pkcs12` keystore or truststore on the Gateway fails to start its TLS listeners.
+
+Before you upgrade, convert the Gateway's listener keystores and truststores to `pem`, or to `bcfks` where a store is read from a file. Both formats load on the FIPS images of 4.12.19 and later and of 4.13. Some stores don't accept `bcfks`, so on the 4.13 FIPS images:
+
+* The Management API can't serve HTTPS. Its own HTTPS listener reads only a `jks` or `pkcs12` keystore, and neither loads. Terminate TLS in front of it instead.
+* A Gateway keystore read from a Kubernetes configmap can't load, because a configmap location takes only `jks` and `pkcs12`. Put it in a Kubernetes TLS secret as `pem` instead, or read it from a file path.
+* The Redis stores for rate limiting and distributed sync load `pem` only.
+
+The ordinary images aren't affected. For the full list of formats and how each behaves, see [FIPS images](../self-hosted-installation-guides/docker/fips-images.md).
 
 #### 4.12.0
 

@@ -16,7 +16,7 @@ APIM doesn't support encrypting dictionary property values. Dictionaries don't h
 
 Dictionaries need to be deployed to the API Gateway before you can use them. You can see the date and time the dictionary was last deployed in the dictionary list:
 
-<figure><img src="../../.gitbook/assets/dictionaries-screenshot-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/dictionaries-screenshot-1.png" alt="The Dictionaries page, listing a manual dictionary with one property and a stopped dynamic dictionary with none, each with their last updated and deployment times."><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 **How are dictionaries used?**
@@ -57,18 +57,18 @@ Deploy the dictionary to the Gateway before you reference it.
 
 To create a new dictionary, select **Settings** in the left hand nav, then select **Dictionaries.**
 
-<figure><img src="../../.gitbook/assets/2023-06-28_10-17-24 (1).gif" alt=""><figcaption><p>Access dictionary settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2023-06-28_10-17-24 (1).gif" alt="An animation that navigates from the home board to the environment&#x27;s Dictionaries page, which lists manual and dynamic dictionaries with their property counts and update times."><figcaption><p>Access dictionary settings</p></figcaption></figure>
 
-Select the <img src="../../.gitbook/assets/Screen Shot 2023-06-28 at 10.18.10 AM.png" alt="" data-size="line">icon. You'll be brought to the **Create a new dictionary** page. Here, you'll need to define the **Name, Description,** and **Type.** You'll have two options for **Dictionary type**:
+Select the <img src="../../.gitbook/assets/Screen Shot 2023-06-28 at 10.18.10 AM.png" alt="A round dark blue button with a white plus sign, used to add a new item." data-size="line">icon. You'll be brought to the **Create a new dictionary** page. Here, you'll need to define the **Name, Description,** and **Type.** You'll have two options for **Dictionary type**:
 
 * **Manual**: These dictionaries are made up of static properties defined manually at dictionary creation time
 * **Dynamic**: These dictionaries are made up of properties that are updated continuously, based on a schedule and source URL defined at dictionary creation time
 
 ### Create a manual dictionary
 
-To create a manual dictionary, choose **Manual** as the **Type**, then click **Create.** You'll be brought to a page where you can define the static properties for your dictionary. To create a property, select the <img src="../../.gitbook/assets/Screen Shot 2023-06-28 at 10.22.56 AM.png" alt="" data-size="line">icon and give your property a name and value.
+To create a manual dictionary, choose **Manual** as the **Type**, then click **Create.** You'll be brought to a page where you can define the static properties for your dictionary. To create a property, select the <img src="../../.gitbook/assets/Screen Shot 2023-06-28 at 10.22.56 AM.png" alt="A round dark blue button with a white plus sign, used to add a new item." data-size="line">icon and give your property a name and value.
 
-<figure><img src="../../.gitbook/assets/dictionaries-screenshot-2.png" alt=""><figcaption><p>Add properties to your dictionary</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/dictionaries-screenshot-2.png" alt="The New property dialog open over a dictionary&#x27;s settings, with empty name and value fields above a properties table holding one key and value pair."><figcaption><p>Add properties to your dictionary</p></figcaption></figure>
 
 Select **Add**, and then **Save Properties** when you are done defining your key-value pairs. To start and deploy your dictionary, select **Deploy.**
 
@@ -80,7 +80,7 @@ To create a dynamic dictionary, choose **Dynamic** as the **Type**. **Trigger** 
 {% tab title="Define trigger settings" %}
 The **Trigger** defines the schedule for which dynamic properties will be created. Define the **Interval** and the **Time Unit** (seconds, minutes, hours).
 
-<figure><img src="../../.gitbook/assets/dictionaries-screenshot-trigger-1.png" alt=""><figcaption><p>Define your trigger (for how often to retrieve properties from the 3rd-party service)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/dictionaries-screenshot-trigger-1.png" alt="The Trigger section of a dynamic dictionary, with an interval of 24 and the time unit dropdown open on Seconds, Minutes, and Hours."><figcaption><p>Define your trigger (for how often to retrieve properties from the 3rd-party service)</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Define provider settings" %}
@@ -96,7 +96,7 @@ In the **Provider** section, specify the details of the source of the properties
 
 Example Screenshot:
 
-<figure><img src="../../.gitbook/assets/dictionaries-screenshot-provider-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/dictionaries-screenshot-provider-1.png" alt="The Provider section of a dynamic dictionary, with a custom HTTP provider, a local management API URL, the GET method, an Authorization bearer header, a content type header, and a JOLT transformation below."><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -110,10 +110,10 @@ You can select any properties you want to delete and/or select **Deploy** to dep
 
 The following example creates a list of properties based on extracting the names and versions from the JSON at the defined URL and assigning them to the property keys and values:
 
-<img src="../../.gitbook/assets/configure-dict-dynamic-property-def.png" alt="" data-size="original">
+<img src="../../.gitbook/assets/configure-dict-dynamic-property-def.png" alt="The Provider section of a dynamic dictionary, with a custom HTTP provider, a service URL, the GET method, and a JOLT transformation specification." data-size="original">
 
 When you select **Start**, the properties are added to the list according to the defined schedule:
 
-<img src="../../.gitbook/assets/configure-dict-dynamic-property-list.png" alt="" data-size="original">
+<img src="../../.gitbook/assets/configure-dict-dynamic-property-list.png" alt="The Properties list of a dictionary, showing the key and value pairs fetched from the provider across several pages." data-size="original">
 
 </details>

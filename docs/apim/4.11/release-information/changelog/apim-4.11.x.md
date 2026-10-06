@@ -1,5 +1,93 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.29 - October 5, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Portal**
+
+* New Developer Portal: "Sign up" link still displayed when "Allow User Registration" is disabled [#11793](https://github.com/gravitee-io/issues/issues/11793)
+* Sorting bug in the Portal API /apis/_search endpoint [#11830](https://github.com/gravitee-io/issues/issues/11830)
+* Card Grid Never Adapts to Narrow Windows [#11863](https://github.com/gravitee-io/issues/issues/11863)
+
+**Other**
+
+* arm64 kubernetes-operator image ships amd64 binary [#11362](https://github.com/gravitee-io/issues/issues/11362)
+* Transfer-Encoding: chunked incorrectly injected on outbound requests to HTTP/2 [#11548](https://github.com/gravitee-io/issues/issues/11548)
+* Gateway prometheus endpoint timeout doesn't recover [#11709](https://github.com/gravitee-io/issues/issues/11709)
+* Group Primary Owner role is silently reset on SSO re-authentication when using "Computed during each user authentication" mapping. [#11710](https://github.com/gravitee-io/issues/issues/11710)
+* How configure API v2 to propagate http request cancellation [#11761](https://github.com/gravitee-io/issues/issues/11761)
+* API promotion fails when documentation contains shell scripts [#11768](https://github.com/gravitee-io/issues/issues/11768)
+* Custom OpenAPI and AsyncAPI scoring rulesets both run on every documentation page [#11781](https://github.com/gravitee-io/issues/issues/11781)
+* APIM discards the stored client_secret when a DCR update response omits it (RFC 7592 §2.2) [#11803](https://github.com/gravitee-io/issues/issues/11803)
+* gravitee-policy-aws-lambda Setup work runs inside the first request and blocks the event loop [#11804](https://github.com/gravitee-io/issues/issues/11804)
+* Degraded GW because of thread block [#11810](https://github.com/gravitee-io/issues/issues/11810)
+* Analytics engine: HTTP_METHOD filter fails with number_format_exception on v4 metrics [#11812](https://github.com/gravitee-io/issues/issues/11812)
+* Cannot change a group's API PRIMARY_OWNER member; guard counts APIs assigned to the group rather than owned by it [#11833](https://github.com/gravitee-io/issues/issues/11833)
+* API V4 websocket permessage-deflate [#11839](https://github.com/gravitee-io/issues/issues/11839)
+* Gateway rejects client certificates during the TLS handshake for non-mTLS plans once an mTLS subscription is loaded on a shared listener (clientAuth: request) [#11845](https://github.com/gravitee-io/issues/issues/11845)
+* nvalid Vault secret path causes gateway to hang and fail to become ready [#11847](https://github.com/gravitee-io/issues/issues/11847)
+* Logs "Search in payload" returns 500 when the value contains `"` or `:` [#11856](https://github.com/gravitee-io/issues/issues/11856)
+* Random Endpoint resolution failed [#11859](https://github.com/gravitee-io/issues/issues/11859)
+* API Subscription Failure - ClassCastException during subscription processing [#11861](https://github.com/gravitee-io/issues/issues/11861)
+* \[JDBC] Management API logs "Failed to update command" errors when several instances run (regression from #11644) [#11867](https://github.com/gravitee-io/issues/issues/11867)
+* API as WebSocket proxy stopped to work [#11874](https://github.com/gravitee-io/issues/issues/11874)
+* Kafka gateway: unbounded OAuth token call holds the LoginManager lock and stalls all connections [#11875](https://github.com/gravitee-io/issues/issues/11875)
+* Console Debug evaluates resource secret EL before discovery, so Redis Cache AUTH fails [#11878](https://github.com/gravitee-io/issues/issues/11878)
+* Multi-env gateway revokes SPG Vault secrets when the same crossId is deployed in another environment [#11879](https://github.com/gravitee-io/issues/issues/11879)
+* Audit logs record system user instead of authenticated user [#11883](https://github.com/gravitee-io/issues/issues/11883)
+* Dynamic #secrets.get() reference permanently denies all other keys after one missing-key lookup [#11884](https://github.com/gravitee-io/issues/issues/11884)
+* HTTP/1.1 Connection Stalls after Rejected Upload [#11886](https://github.com/gravitee-io/issues/issues/11886)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* Export V4 APIs groups using names  [#10949](https://github.com/gravitee-io/issues/issues/10949)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.11.28 - September 21, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Streaming /responses silently terminated when model cannot be resolved — uncaught IllegalArgumentException in tokensHandling [#11770](https://github.com/gravitee-io/issues/issues/11770)
+
+**Console**
+
+* Add the path in the Traffic API (API V4) [#10815](https://github.com/gravitee-io/issues/issues/10815)
+* Analytics engine: HTTP_PATH filter queries the unpopulated "path" field and always matches nothing [#11813](https://github.com/gravitee-io/issues/issues/11813)
+
+**Other**
+
+* ILM policy not applied to event-metrics indices [#11705](https://github.com/gravitee-io/issues/issues/11705)
+* A logging condition with a typo in it makes every request to the API fail with a 500 [#11732](https://github.com/gravitee-io/issues/issues/11732)
+* Issue with Syncing between Replica when Distributed Sync is Enabled [#11742](https://github.com/gravitee-io/issues/issues/11742)
+* JsonPath error java.lang.NoClassDefFoundError: Could not initialize class io.gravitee.el.spel.function.json.JsonPathFunction [#11765](https://github.com/gravitee-io/issues/issues/11765)
+* API promotion still fails with DuplicateKeyException on apim_promotions after concurrent write conflict fix [#11775](https://github.com/gravitee-io/issues/issues/11775)
+* Endpoint Group information not visibile [#11776](https://github.com/gravitee-io/issues/issues/11776)
+* Debug mode permanently skips an API on a Gateway after one incomplete debug [#11780](https://github.com/gravitee-io/issues/issues/11780)
+* HTTP/2 large request uploads significantly slower than HTTP/1.1 through Gravitee Gateway [#11789](https://github.com/gravitee-io/issues/issues/11789)
+* Data Logging Masking Policy – Header Masking Not Applied in Response Phase [#11791](https://github.com/gravitee-io/issues/issues/11791)
+* Data Logging Masking Policy – Regex Causes Over-masking [#11792](https://github.com/gravitee-io/issues/issues/11792)
+* Upgrade removes all API group assignments when a MongoDB collection prefix is configured (4.11.24, 4.12.14) [#11800](https://github.com/gravitee-io/issues/issues/11800)
+* Per-API Health Check Alert Option Missing From Console UI [#11807](https://github.com/gravitee-io/issues/issues/11807)
+* A single failing auto-fetch page blocks auto-fetch for all other pages [#11829](https://github.com/gravitee-io/issues/issues/11829)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.27 - September 7, 2026
 <details>
 

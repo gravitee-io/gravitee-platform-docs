@@ -1,12 +1,14 @@
 ---
 hidden: false
 noIndex: false
-description: Manage the principals, resources, actions, and schemas that your authorization policies are written against. Start with the entity type you need.
+description: The Policy Structure group of the Authorization Management sidebar holds the entities, actions, and schemas your policies are written against.
 ---
 
-# Manage
+# Policy Structure
 
-* [Manage principals](principals/README.md)
-* [Manage resources](resources/README.md)
-* [Manage actions](actions/README.md)
-* [Manage schemas](schemas/README.md)
+The **Policy Structure** group of the Authorization Management sidebar holds the **Entities**, **Actions**, and **Schema** pages.
+
+* [**Manage principals**](principals/README.md). Sync principals from Access Management, create local ones, and give them attributes and relationships.
+* [**Manage resources**](resources/README.md). Import resources from the Catalog, create local ones, and give them attributes and relationships.
+* [**Manage actions**](actions/README.md). Actions are the verbs your policies grant or forbid.
+* [**Manage schemas**](schemas/README.md). The schema declares the entity types, relationships, and actions your policies are written against.

@@ -46,7 +46,7 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid component management <a href="#components" id="components"></a>
 
-<img src="../../.gitbook/assets/file.excalidraw (6) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (6) (1).svg" alt="A diagram of a self-hosted deployment, with Gravitee Cockpit in a Gravitee SaaS band above a customer network holding the console, portal, management API, config and analytics databases, the alert engine, a local rate limit database, and the production and non-production gateways, which reach internal and external backends and consumer apps." class="gitbook-drawing">
 
 ### Hybrid architecture diagram <a href="#architecture-diagram" id="architecture-diagram"></a>
 
