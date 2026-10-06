@@ -13,10 +13,16 @@ The Trace Explorer only shows data once the platform-side OpenTelemetry pipeline
 
 ## Access logs and traces
 
+In this version, the API proxy sidebar doesn't have an **Observability** group. Logs and traces are in the module sidebar.
+
 1. From the Gamma console sidebar, select **API Management**.
-2. Navigate to the API detail page for your API proxy.
-3. In the sidebar under **Monitoring**, select **Observability**.
-4. Use the Observability navigation to switch between **Logs** and **Traces**.
+2. Click **Logs** under **Observability** in the module sidebar.
+3. Click **Add filter**.
+4. In **Filter by**, select **API**.
+5. In **Filter value**, select your API proxy.
+6. Click **Apply**.
+7. To view traces, click **Tracing** under **Observability** in the module sidebar.
+8. In **API**, select your API proxy.
 
 ## Log entry fields
 
