@@ -158,3 +158,5 @@ developer-portal/new-developer-portal/configure-authentication/configure-authent
 .gitbook/assets/portal-settings-authentication-force-login.png
 .gitbook/assets/portal-settings-authentication-activate-identity-provider.png
 .gitbook/assets/portal-settings-authentication-hide-login-form.png
+# New Developer Portal navigation tree starts collapsed, 4.13 only (PORTAL-214)
+.gitbook/assets/devportal-navigation-tree-collapsed.png

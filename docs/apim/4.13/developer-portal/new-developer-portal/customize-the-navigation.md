@@ -49,7 +49,9 @@ The default navigation appears on your New Developer Portal
 
 Welcome page in the Developer Portal:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-12-19 at 19.07.11.png" alt="A rendered guide page in the developer portal, showing the welcome content beside a navigation tree of guides and core concepts."><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-navigation-tree-collapsed.png" alt="A guide page in the developer portal, with the Getting started page open and the Core concepts folder collapsed in the navigation tree."><figcaption></figcaption></figure>
+
+In the portal, the navigation tree starts with its folders, APIs, and API Products collapsed, except the ones that lead to the page it opens.
 
 ## Prerequisites
 
