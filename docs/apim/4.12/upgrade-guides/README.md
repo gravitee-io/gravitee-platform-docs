@@ -1,5 +1,5 @@
 ---
-description: Upgrade API Management 4.12 components in the right order, and note that downgrades are not supported. Browse the upgrade articles.
+description: Upgrade API Management 4.12 components in the right order, and roll back to an earlier version from a database backup. Browse the upgrade articles.
 metaLinks:
   alternates:
     - ./
@@ -27,9 +27,9 @@ An APIM upgrade touches several components. Upgrade them in the following order:
 
 Validate each environment before you move to the next one: upgrade and test a non-production environment first, and then repeat the same sequence in production.
 
-## Downgrades aren't supported
+## Roll back to an earlier version
 
-Gravitee supports upgrades only. After you upgrade an installation, don't roll it back to an earlier version.
+You can roll back to an earlier version of APIM by restoring a backup of your database. Don't start the earlier version on a database that the later version has already upgraded.
 
 APIM applies data migrations the first time the new version of the Management API starts. Those migrations run forward only, and the new version writes values that an earlier version doesn't recognize. Pointing an earlier version of APIM at a database that a later version has already migrated leads to startup failures and data errors.
 
