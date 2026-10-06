@@ -21,7 +21,32 @@ metaLinks:
 
 ### Resources
 
-<table><thead><tr><th width="213">Resource</th><th>Configuration Field</th></tr></thead><tbody><tr><td>OAuth2</td><td>Client ID, client secret</td></tr><tr><td>Redis Cache</td><td>Password</td></tr><tr><td>LDAP</td><td>LDAP URL, base DN, username, password</td></tr></tbody></table>
+<table>
+    <thead>
+        <tr>
+            <th width="213">Resource</th>
+            <th>Configuration Field</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>OAuth2</td>
+            <td>Client ID, client secret</td>
+        </tr>
+        <tr>
+            <td>Redis Cache</td>
+            <td>Password</td>
+        </tr>
+        <tr>
+            <td>LDAP</td>
+            <td>LDAP URL, base DN, username, password</td>
+        </tr>
+        <tr>
+            <td>Inline Authentication Provider</td>
+            <td>Username, password (from version 3.0.0)</td>
+        </tr>
+    </tbody>
+</table>
 
 ### Policies
 

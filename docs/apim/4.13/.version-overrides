@@ -160,3 +160,6 @@ developer-portal/new-developer-portal/configure-authentication/configure-authent
 .gitbook/assets/portal-settings-authentication-hide-login-form.png
 # New Developer Portal navigation tree starts collapsed, 4.13 only (PORTAL-214)
 .gitbook/assets/devportal-navigation-tree-collapsed.png
+# Inline Authentication Provider 3.0.0: EL and secrets in usernames and passwords, 4.13 docs only (APIM-14078)
+prepare-a-production-environment/sensitive-data-management/plugin-support.md
+.gitbook/assets/inline-auth-provider-el-credentials.png
