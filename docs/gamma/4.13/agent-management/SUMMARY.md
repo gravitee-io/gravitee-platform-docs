@@ -46,6 +46,7 @@
         * [Configure LLM Proxy failover](build/configure-llm-proxy-failover.md)
         * [Add the Token Rate Limit policy](build/add-the-token-rate-limit-policy.md)
         * [Add the Cost Rate Limit policy](build/add-the-cost-rate-limit-policy.md)
+        * [Add the AI Token Compression policy](build/add-the-ai-token-compression-policy.md)
         * [Select a text classification model](build/select-a-text-classification-model.md)
         * [Configure text classification](build/configure-text-classification.md)
         * [Override the model at runtime](build/override-the-model-at-runtime.md)
