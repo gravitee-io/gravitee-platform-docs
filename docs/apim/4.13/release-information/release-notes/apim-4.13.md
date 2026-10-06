@@ -228,3 +228,9 @@ The 4.13 FIPS images run on JDK 25, where `jks` and `pkcs12` stores don't load. 
 * The API key header, the Portal URL, the registration settings, and the default OpenAPI viewer stay on the Console **Settings** page too. Both pages change the same values, and the values you set before the upgrade don't change.
 * The **API** entry of the Portal Settings is removed. Its API key header and Kafka SASL mechanisms settings are on the new page, and its **API Details** list stays under **API Portal Information** in the Console **Settings**.
 * For more information, see [Configure New Developer Portal settings](../../developer-portal/new-developer-portal/configure-new-developer-portal-settings.md).
+
+#### **New Developer Portal: An Authentication page in the Portal Settings**
+
+* The Portal Settings gain an **Authentication** page. It holds **Force authentication to access portal**, **Show login form on portal**, and the list of identity providers to activate for the portal.
+* The **Authentication** page in the **Portal** section of the Console **Settings** stays. Both pages change the same settings.
+* For more information, see [Enforce User Authentication](../../developer-portal/new-developer-portal/configure-authentication/enforce-user-authentication.md) and [Configure authentication with SSO](../../developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-sso.md).

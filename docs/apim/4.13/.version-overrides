@@ -151,3 +151,10 @@ kafka-gateway/configure-the-kafka-client-and-gateway.md
 # API Products license tier: the 'Before APIM 4.12.10' note is on 4.12 only (DOC-1947)
 secure-and-expose-apis/api-products/manage-api-products-with-management-api.md
 secure-and-expose-apis/api-products/restrictions-and-licensing.md
+# Authentication page of the Portal Settings (APIM 4.13.0 feature, PORTAL-174)
+developer-portal/new-developer-portal/configure-authentication/enforce-user-authentication.md
+developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-sso.md
+.gitbook/assets/portal-settings-authentication.png
+.gitbook/assets/portal-settings-authentication-force-login.png
+.gitbook/assets/portal-settings-authentication-activate-identity-provider.png
+.gitbook/assets/portal-settings-authentication-hide-login-form.png
