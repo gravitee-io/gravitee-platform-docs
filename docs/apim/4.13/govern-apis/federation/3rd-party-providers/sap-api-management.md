@@ -11,7 +11,7 @@ metaLinks:
 
 SAP API Management, part of SAP Integration Suite on SAP Business Technology Platform (SAP BTP), exposes two management APIs: the API portal and the Developer Hub. The SAP Business Technology Platform agent connects them to Gravitee:
 
-* Every API proxy of the API portal becomes a federated API, with its OpenAPI specification and a page of its SAP documentation.
+* Every API proxy of the API portal becomes a federated API, with its OpenAPI specification and a page of its SAP documentation when SAP has them.
 * Every SAP product that the Developer Hub marks as subscribable becomes a plan on each API it contains.
 * A subscription to one of these plans, once it's approved in Gravitee, is created in the SAP Developer Hub. For an API Key plan, the consumer receives the SAP application key as the API key.
 
@@ -120,7 +120,7 @@ The agent's configuration holds the two SAP service keys and the developer. Run 
     DEVELOPER_HUB_DEVELOPER_ID='<developer-id>'
     ```
 
-    * Replace `<integration-controller-url>` with the URL of the APIM integration controller. The controller listens on port `8072` of the Management API.
+    * Replace `<integration-controller-url>` with the URL of the APIM integration controller. By default, the controller listens on port `8072` of the Management API.
     * Replace `<your-token>` with the APIM token that you want the agent to use.
     * Replace `<your-integration-id>` with the ID of the APIM integration.
     * Replace the `<api-portal-...>` values with the `url`, `tokenUrl`, `clientId`, and `clientSecret` of the API portal service key.
@@ -232,9 +232,9 @@ An ingested API takes its name, version, and description from the proxy, with th
 * `<proxy name>-oas.json`, the OpenAPI specification SAP generates for the proxy. An API whose specification is missing, belongs to a SOAP API, can't be read, or is larger than `maxOasLength` is ingested without it, and the agent logs a warning naming the proxy and the reason.
 * `<proxy name>-sap-documentation.md`, with the SAP description of the proxy, the documentation of each resource converted from HTML, and the products that grant access to it. Documentation that SAP stores in a binary format is listed but not imported, and the agent logs a warning. An API with no resource and no product gets no documentation page.
 
-The SAP release status, service code, and versioning fields of the proxy are kept as API metadata, when SAP sets them.
+The SAP release status, service code, version and versioning fields, externally managed flag, and provider name of the proxy are kept as API metadata, when SAP sets them.
 
-Ingesting the APIs again updates them instead of creating new ones. Pages that you add to an ingested API in Gravitee are kept.
+Ingesting the APIs again updates them instead of creating new ones. Pages that you add to an ingested API in Gravitee are kept, and so are the visibility and publication settings that you change on its ingested pages. A page that SAP no longer provides is removed.
 
 ## How SAP products become plans
 
@@ -242,10 +242,10 @@ SAP consumers subscribe to products. Each product that the Developer Hub marks a
 
 <figure><img src="../../../.gitbook/assets/federation-sap-api-management-plans.png" alt="The Plans tab of an ingested SAP API with two published API Key plans created from SAP products"><figcaption></figcaption></figure>
 
-* A product of External OAuth APIs becomes an OAuth2 plan, and its description names the identity provider and its issuer. Every other product becomes an API Key plan.
+* A product of External OAuth APIs becomes an OAuth2 plan, and its description names the identity provider, and its issuer when SAP provides it. Every other product becomes an API Key plan.
 * An API with no subscribable product gets no plan, and its description ends with the reason.
 * Every plan is published with manual validation, so a subscription waits for its approval in Gravitee before the agent creates it in SAP.
-* A product removed in SAP loses its plan at the next ingestion, and APIM closes the subscriptions to that plan.
+* A product removed in SAP loses its plan at the next ingestion, and APIM closes and deletes the subscriptions to that plan.
 * When the agent can't read the SAP products, the whole ingestion fails and no API is updated, so their plans and subscriptions stay unchanged. The agent log names the SAP API that failed.
 
 ## How subscriptions work in SAP
