@@ -12,7 +12,7 @@ An agent's requests to an LLM Proxy carry the output of each tool the model aske
 
 The policy recognizes the tool that produced each output and keeps what the run concluded, such as the totals and the failures of a test run. It doesn't ask a model what to keep. The instructions, the messages the caller wrote, the tool definitions, the reasoning, and the model's own turns are sent as they arrived.
 
-The policy runs in the request phase of an LLM Proxy and doesn't change the model's response. When the policy can't read a request, or can't compress it, it sends the request on as it arrived.
+The policy runs in the request phase of an LLM Proxy and doesn't change the model's response. It acts only on requests whose conversation carries tool output and passes every other request through unchanged, so the flow doesn't need a condition. When the policy can't read a request, or can't compress it, it sends the request on as it arrived.
 
 ## Prerequisites
 
@@ -27,13 +27,12 @@ Before you begin, confirm that you have a deployed LLM Proxy. For more informati
 
     <figure><img src="../.gitbook/assets/gamma-aim-ai-token-compression-add-policy.png" alt="The Prompt flow in Policy Studio with the Add policy search showing AI Token Compression in the Request Phase"><figcaption></figcaption></figure>
 5. Select **AI Token Compression**.
-6.  Recommended: In **Condition**, enter `{#context.attributes['gravitee.attribute.llm.kind'] == 'TOOL_CALL'}`. The policy then runs only on requests whose conversation carries tool output, which are the only requests it has anything to compress in. Without the condition, the policy reads every request on the flow.
+6.  In **How much may be lost**, select an option. For more information, see [Settings](#settings).
 
-    <figure><img src="../.gitbook/assets/gamma-aim-ai-token-compression-configuration.png" alt="The AI Token Compression step with the Condition set to requests that carry tool output and How much may be lost set to Adds detail that is rarely load-bearing"><figcaption></figcaption></figure>
-7. In **How much may be lost**, select an option. For more information, see [Settings](#settings).
-8. Click **Save**.
-9. When **This API is out of sync** appears, click **Deploy**.
-10. In the **Deploy your API** dialog, click **Deploy**.
+    <!-- TODO: Screenshot of the AI Token Compression step with How much may be lost set to Adds detail that is rarely load-bearing and the Condition left empty. The figure is omitted rather than pointed at a missing asset. -->
+7. Click **Save**.
+8. When **This API is out of sync** appears, click **Deploy**.
+9. In the **Deploy your API** dialog, click **Deploy**.
 
 ## Settings
 
