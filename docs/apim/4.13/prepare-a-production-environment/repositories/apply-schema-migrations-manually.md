@@ -39,7 +39,7 @@ APIM isn't the only component that migrates the management database. Each Gamma 
             <td><code>esm_prefix</code></td>
         </tr>
         <tr>
-            <td>AI Management</td>
+            <td>Agent Management</td>
             <td><code>liquibase/aim/master.yml</code></td>
             <td><code>{prefix}aim_databasechangelog</code> and <code>{prefix}aim_databasechangeloglock</code></td>
             <td><code>aim_prefix</code></td>
@@ -92,7 +92,7 @@ How long a module waits for that lock is the module's own behavior rather than a
 
 Event Stream Management bounds the wait. It waits up to five minutes for the lock and makes three attempts in all. A lock nobody releases therefore holds it up for around fifteen minutes before it gives up, and neither the wait nor the attempt count is configurable.
 
-A module that sets neither of those, as AI Management does, waits once for the period Liquibase applies by default and gives up on the first attempt. Don't wait fifteen minutes for one of those to clear itself.
+A module that sets neither of those, as Agent Management does, waits once for the period Liquibase applies by default and gives up on the first attempt. Don't wait fifteen minutes for one of those to clear itself.
 
 Either way the module then fails to start, and the Management API logs that it couldn't apply that module's changelogs. For Event Stream Management the line reads `Unable to apply ESM liquibase changelogs`. The rest of the Management API keeps running, but the module doesn't recover on its own. Its pages stay unavailable until you clear the lock and restart the Management API.
 
