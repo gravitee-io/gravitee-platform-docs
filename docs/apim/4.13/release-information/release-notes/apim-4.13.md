@@ -234,3 +234,9 @@ The 4.13 FIPS images run on JDK 25, where `jks` and `pkcs12` stores don't load. 
 * The Portal Settings gain an **Authentication** page. It holds **Force authentication to access portal**, **Show login form on portal**, and the list of identity providers to activate for the portal.
 * The **Authentication** page in the **Portal** section of the Console **Settings** stays. Both pages change the same settings.
 * For more information, see [Enforce User Authentication](../../developer-portal/new-developer-portal/configure-authentication/enforce-user-authentication.md) and [Configure authentication with SSO](../../developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-sso.md).
+
+#### **New Developer Portal: The navigation tree starts collapsed**
+
+* The navigation tree of the portal now starts with its folders, APIs, and API Products collapsed, except the ones that lead to the page it opens. Previously, every branch started expanded.
+* When a consumer opens an API or API Product from the catalog, the tree expands that API or API Product and keeps the other branches collapsed.
+* For more information, see [Manage Portal Navigation and APIs](../../developer-portal/new-developer-portal/customize-the-navigation.md#developer-portal-view).
