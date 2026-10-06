@@ -219,12 +219,35 @@ The HTTP Authentication Provider resource validates user credentials against an 
 
 The Inline Authentication Provider resource authenticates a user in memory.
 
-| Property       | Required | Description                                                                                 | Type   | Default |
-| -------------- | -------- | ------------------------------------------------------------------------------------------- | ------ | ------- |
-| serverURL      | Yes      | The URL of the Gravitee.io Access Management server.                                        | string | N/A     |
-| securityDomain | Yes      | The security domain (realm) from where the token has been generated and must be introspect. | string |         |
-| clientId       | Yes      | The client identifier.                                                                      | string |         |
-| clientSecret   | Yes      | The client secret                                                                           | string |         |
+{% hint style="info" %}
+The **Inline Authentication Provider** plugin isn't included in the default APIM distribution. To use it, [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-auth-provider-inline/) and deploy it. For more information, see [Deployment](../../plugins/deployment.md). **Username** and **Password** accept Expression Language from version 3.0.0 of the plugin.
+{% endhint %}
+
+| Property         | Required | Description                                                                                                      | Type   | Default | Supports EL | Supports Secrets |
+| ---------------- | -------- | ---------------------------------------------------------------------------------------------------------------- | ------ | ------- | ----------- | ---------------- |
+| users            | Yes      | The users that the resource authenticates, shown as **Inline users**.                                            | array  | N/A     | N/A         | N/A              |
+| users[].username | Yes      | The username. The comparison ignores case. If two users share a username, only the first one in the list counts. | string | N/A     | Yes         | Yes (v4 APIs)    |
+| users[].password | No       | The password. The comparison is case-sensitive.                                                                  | string | N/A     | Yes         | Yes (v4 APIs)    |
+
+To keep a credential out of the resource, set **Username** or **Password** to an expression. For example:
+
+* `{#api.properties['basic-auth-password']}` reads an API property. Recommended: Encrypt the property. For more information, see [API properties](v4-api-policy-studio.md#api-properties).
+* `{#dictionaries['basic-auth']['password']}` reads a dictionary entry. For more information, see [Dictionaries](../../configure-and-manage-the-platform/gravitee-gateway/dictionaries.md).
+* `{#secrets.get('/vault/secret/gravitee/basic-auth:password')}` reads a secret from a secret manager. Secrets work with only v4 APIs. For more information, see [API Secrets](../../prepare-a-production-environment/sensitive-data-management/api-secrets/README.md).
+
+<figure><img src="../../.gitbook/assets/inline-auth-provider-el-credentials.png" alt="The Configure Inline Authentication Provider resource dialog, with the username and password read from API properties."><figcaption></figcaption></figure>
+
+Both fields are evaluated once, when the API starts on a Gateway:
+
+* An expression can't read the request, such as its headers or attributes.
+* After you change a property, a dictionary entry, or a secret, deploy the API again. Until then, a Gateway that restarts uses the new dictionary entry or secret, while the other Gateways keep the old one. A secret set to [reload on change](../../prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis.md#secret-renewal) reaches the API without a new deployment.
+* If an expression in any user's **Username** or **Password** fails, or returns no value or an empty value, the resource rejects every user, not only that one. A property that doesn't exist returns no value. The error appears in the Gateway logs when the API starts.
+
+On a v2 API, these expressions need the Gateway's default classloader. If the Gateway runs the legacy classloader and any username or password holds an expression, the resource rejects every user.
+
+{% hint style="warning" %}
+A literal username or password isn't used as typed when it contains `{#`, `{T`, or `{(` followed by a closing `}`. That part is read as an expression, and spaces after the `{` don't change this. A `{#` with no closing `}` makes the evaluation fail.
+{% endhint %}
 
 #### LDAP Authentication Provider
 

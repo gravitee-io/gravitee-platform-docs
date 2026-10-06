@@ -113,6 +113,14 @@ Before you upgrade, convert the Gateway's listener keystores and truststores to 
 
 The ordinary images aren't affected. For the full list of formats and how each behaves, see [FIPS images](../self-hosted-installation-guides/docker/fips-images.md).
 
+**Inline Authentication Provider resource 3.0.0: Usernames and passwords are read as Expression Language**
+
+Version 3.0.0 of the Inline Authentication Provider resource evaluates the username and password of each user as Gravitee Expression Language when the API is deployed. Earlier versions didn't evaluate either value. The plugin isn't included in the default APIM distribution, so the change applies when you deploy version 3.0.0.
+
+A literal value that contains `{#`, `{T`, or `{(` followed by a closing `}` is therefore read as an expression, not as the text it holds. Spaces after the `{` don't change this. A `{#` with no closing `}` makes the evaluation fail. If the evaluation fails, or returns no value or an empty value, the resource rejects every user, not only the user that holds the value. When the evaluation fails, the value appears in the Gateway logs as typed.
+
+Before you deploy version 3.0.0, check every Inline Authentication Provider resource for a username or password that contains a `{`, and change it. For more information, see [Inline Authentication Provider](../create-and-configure-apis/apply-policies/resources.md#inline-authentication-provider).
+
 #### 4.12.0
 
 **JSON Validation policy: response error keys corrected**

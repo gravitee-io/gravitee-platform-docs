@@ -69,6 +69,10 @@ A Kafka Topic Mapping entry that sets only one of `client` and `broker` is now a
 
 The 4.13 FIPS images run on JDK 25, where `jks` and `pkcs12` stores don't load. Convert them before upgrading. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
+#### **Inline Authentication Provider resource 3.0.0: Usernames and passwords are read as Expression Language**
+
+Version 3.0.0 of the Inline Authentication Provider resource evaluates the username and password of each user as Gravitee Expression Language when the API is deployed. A literal value that contains `{#`, `{T`, or `{(` followed by `}` is now read as an expression, not as the text it holds. Spaces after the `{` don't change this, and a `{#` with no closing `}` makes the evaluation fail. Before you deploy version 3.0.0, check every Inline Authentication Provider resource for usernames and passwords that contain a `{`. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
 ## New Features
 
 #### **Branded Senders for Notification Emails**
@@ -213,6 +217,14 @@ The 4.13 FIPS images run on JDK 25, where `jks` and `pkcs12` stores don't load. 
 * Only the value of a header takes an expression. The header name is sent as entered.
 * The change ships in AI Model Text Embedding 2.0.0, which APIM bundles from 4.11.26, 4.12.18, and 4.13.0 onward. The configuration format is unchanged, so an existing resource keeps working as it is.
 * For more information, see [AI Resources](../../ai-agent-management/AI-resources/README.md).
+
+#### **Inline Authentication Provider resource: Expression Language and secrets in usernames and passwords**
+
+* From version 3.0.0, the username and password of each user take Gravitee Expression Language, so they read, for example, an API property, a dictionary entry, or, in v4 APIs, a `{#secrets.get('...')}` secret reference. The resource no longer has to hold the credential as plain text.
+* Both fields are evaluated once, when the API starts on a Gateway. An expression can't read the request. After you change a property, a dictionary entry, or a secret, deploy the API again.
+* If an expression fails, or returns no value or an empty value, the resource rejects every user until every expression resolves and the API is deployed again.
+* The plugin isn't included in the default APIM distribution. Download and deploy version 3.0.0 to use these expressions. From that version, some literal values that contain a `{` are read as expressions. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+* For more information, see [Resources](../../create-and-configure-apis/apply-policies/resources.md#inline-authentication-provider).
 
 #### **Documentation from private Git repositories**
 
