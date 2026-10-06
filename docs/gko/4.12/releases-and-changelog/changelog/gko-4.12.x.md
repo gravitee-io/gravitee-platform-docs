@@ -4,6 +4,18 @@ description: Every patch release in the Gravitee Kubernetes Operator 4.12 series
 
 # GKO 4.12.x
 
+## Gravitee Kubernetes Operator 4.12.21 - October 6, 2026
+    
+<details>
+<summary>Improvements</summary>
+
+  **Others**
+
+  * Missing properties from APIM [#11723](https://github.com/gravitee-io/issues/issues/11723)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.12.20 - September 24, 2026
 
 There is nothing new in version 4.12.20.
