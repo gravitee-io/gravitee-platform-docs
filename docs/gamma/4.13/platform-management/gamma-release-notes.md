@@ -141,7 +141,7 @@ Agent Management adds AI Workspaces. A workspace gives a team governed access to
 
 * The **AI Token Compression** policy shrinks the tool output an LLM Proxy request carries, such as test runs, build logs, linter output, and directory listings, before the request reaches the model. It keeps what each run concluded and doesn't change the model's response.
 * **How much may be lost** sets how far it goes. `Noise only — what the model never reads` reduces test runs to their totals and failures, drops routine build lines, trims Git diffs, and replaces base64 data. `Adds detail that is rarely load-bearing`, the default, also condenses linter output, search results, directory listings, stack traces, and repeated log lines. `Adds content the model may have needed` also cuts long output, tables, and web pages.
-* The policy runs in the request phase. Set its **Condition** to `{#context.attributes['gravitee.attribute.llm.kind'] == 'TOOL_CALL'}` so that it runs only on requests whose conversation carries tool output.
+* The policy runs in the request phase and acts only on requests whose conversation carries tool output. It passes every other request through unchanged, so no condition is needed.
 * See [Add the AI Token Compression policy](../agent-management/build/add-the-ai-token-compression-policy.md).
 
 #### Owner and sharding tags in the LLM Proxies list
