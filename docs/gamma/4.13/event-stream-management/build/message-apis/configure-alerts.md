@@ -80,9 +80,30 @@ The metrics are **Response Time (ms)**, **Status Code**, **Request Content-Lengt
 * To change an alert, click its row, or select **Edit** in its actions menu.
 * To remove an alert, select **Delete** in its actions menu, then click **Delete** in the **Delete this alert?** dialog. The console confirms with **Alert deleted**.
 
+The alerts of a Message API are the same alerts that the APIM Console shows for the API. An alert changed in one console keeps its settings in the other.
+
+## Review the firing history
+
+1. Click the row of the alert.
+2. Click the **History** tab.
+
+**Events history for this alert** lists each time the alert fired, newest first, with its **Date** and **Message**. The message comes from Alert Engine, for example `[response.response_time: 5010] is greater than [1.0]`.
+
+## Considerations
+
+* Alert Engine evaluates each HTTP request that the gateway handles for the Message API, not each message. On a long-lived connection, such as an SSE or WebSocket subscription, **Response Time (ms)** measures the whole connection.
+* No metric counts messages, so an alert can't fire on a number of messages.
+* An alert that fires because no request arrived, with the rule **Alert when there is no request matching filters received for a period of time**, has no message. Don't use `${notification.message}` in the configuration of its notifiers: the notification fails to render and isn't sent.
+
 ## Verification
 
 To verify an alert, follow these steps:
 
 1. Open **Alerts** for the Message API.
 2. Check that the alert is listed with the rule and the severity you chose, and that its **Enabled** switch is on.
+3. Send traffic to the Message API that meets the condition of the alert.
+4. After a few seconds, reload the page. Check that the counters of the alert rise and that **Last alert** shows the time and the message.
+
+    <figure><img src="../../.gitbook/assets/gamma-esm-message-api-alerts.png" alt="The Runtime Alerts card after the Slow responses alert fired, with its Last 5m / 1h / 1d / 1M counters at 3 / 3 / 3 / 3 and the time and message of its Last alert"><figcaption><p>The Runtime Alerts card after the alert fired</p></figcaption></figure>
+
+5. Click the row of the alert, then click the **History** tab. Check that the firing is listed, and that each notifier received a notification.
