@@ -7,7 +7,7 @@ description: Migrate a v1 API to a v2 definition in place with API Management 4.
 APIM versions 3.20 through 4.11.x include tooling that migrates a v1 API to a v2 definition in place. APIM 4.12.0 and later versions don't include this tooling, so migrate your v1 APIs while your installation runs version 4.11.x or earlier. For more information about how each APIM version handles v1 APIs, see [Support for v1 APIs](../release-information/support-for-v1-apis.md).
 
 {% hint style="warning" %}
-If you already upgraded to APIM 4.12.0 or later with v1 APIs still present, restore the database backup that you took before the upgrade, start your previous APIM version against the restored database, and migrate the v1 APIs before you upgrade again. For more information about moving back to an earlier version, see [Upgrade Guides](README.md#downgrades-arent-supported).
+If you already upgraded to APIM 4.12.0 or later with v1 APIs still present, restore the database backup that you took before the upgrade, start your previous APIM version against the restored database, and migrate the v1 APIs before you upgrade again. For more information about moving back to an earlier version, see [Upgrade Guides](README.md#roll-back-to-an-earlier-version).
 {% endhint %}
 
 ## Migrate a v1 API with the Console
