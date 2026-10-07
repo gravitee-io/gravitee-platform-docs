@@ -11,7 +11,7 @@ This checklist covers the upgrade path from APIM 4.8.x to 4.10.x. It collects th
 The upgrade crosses two minor versions, so the breaking changes of both 4.9.0 and 4.10.0 apply. Read the [Breaking Changes and Deprecations](../release-information/breaking-changes-and-deprecations.md) page in full before you start.
 
 {% hint style="warning" %}
-Downgrades aren't supported. Take a backup of your database before you upgrade. For more information, see [Downgrades aren't supported](README.md#downgrades-arent-supported).
+Take a backup of your database before you upgrade. It's what you restore to roll back. For more information, see [Roll back to an earlier version](README.md#roll-back-to-an-earlier-version).
 {% endhint %}
 
 ## Before you upgrade
