@@ -103,4 +103,7 @@ To verify an alert, follow these steps:
 2. Check that the alert is listed with the rule and the severity you chose, and that its **Enabled** switch is on.
 3. Send traffic to the Message API that meets the condition of the alert.
 4. After a few seconds, reload the page. Check that the counters of the alert rise and that **Last alert** shows the time and the message.
+
+    <figure><img src="../../.gitbook/assets/gamma-esm-message-api-alerts.png" alt="The Runtime Alerts card after the Slow responses alert fired, with its Last 5m / 1h / 1d / 1M counters at 3 / 3 / 3 / 3 and the time and message of its Last alert"><figcaption><p>The Runtime Alerts card after the alert fired</p></figcaption></figure>
+
 5. Click the row of the alert, then click the **History** tab. Check that the firing is listed, and that each notifier received a notification.
