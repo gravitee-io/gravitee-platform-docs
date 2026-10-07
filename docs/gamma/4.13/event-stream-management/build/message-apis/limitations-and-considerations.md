@@ -13,6 +13,7 @@ Event Stream Management configures v4 Message APIs. This page lists the network 
 * The gateway connects to the backends of the endpoints, such as your Kafka brokers or MQTT servers. Open the network path from the gateway, not from the console.
 * The Management API fetches a definition that you import from a URL, and it polls the HTTP source of dynamic properties. Both need network access from the Management API.
 * The Management API sends the email and webhook notifications of a Message API. A webhook URL must be reachable from the Management API.
+* Alert Engine sends the notifications of the alerts of a Message API. The webhook URL or the SMTP server of an alert notification must be reachable from Alert Engine. See [Configure alerts](configure-alerts.md).
 
 ## Settings that the console doesn't edit
 
