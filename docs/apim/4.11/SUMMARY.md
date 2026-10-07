@@ -277,6 +277,7 @@
       * [XML Validation](create-and-configure-apis/apply-policies/policy-reference/xml-validation.md)
       * [XSLT](create-and-configure-apis/apply-policies/policy-reference/xslt.md)
       * [Webhook Signature Generator](create-and-configure-apis/apply-policies/policy-reference/webhook-signature-generator.md)
+      * [Webhook Signature Validator](create-and-configure-apis/apply-policies/policy-reference/webhook-signature-validator.md)
 * [Secure & Expose APIs](secure-and-expose-apis/README.md)
   * [Plans](secure-and-expose-apis/plans/README.md)
     * [Keyless](secure-and-expose-apis/plans/keyless.md)
