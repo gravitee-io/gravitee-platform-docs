@@ -18,6 +18,7 @@ Before you begin, confirm that you have the following:
 
 * An installation registered with Gravitee Cloud and accepted there. Until it is, **Promote** opens **Meet Gravitee Cloud**, which links to Gravitee Cloud to create an account and register the installation.
 * Permission to update the API definition of the proxy. Without it, **Promote** doesn't appear on the **Settings** page.
+* Every sharding tag of the proxy available in the target environment. Accepting the promotion fails when the proxy uses a tag that the organization doesn't define. It also fails when a tag is restricted to groups that the person accepting isn't in, unless that person is an administrator of the environment. The error names the tags.
 
 ## Promote a proxy
 
@@ -44,12 +45,12 @@ To promote a proxy, follow these steps:
 The **Environment** list holds the environments Gravitee Cloud returns for your installation. An environment that already has a promotion of this proxy waiting shows **(pending)** and can't be selected until that promotion is accepted or rejected.
 
 {% hint style="info" %}
-When an LLM Proxy uses credentials saved in the Catalog, the panel's **Providers** notice lists the providers the target environment needs, each with its own credential. After the promotion is accepted, deploying or starting the proxy in the target environment fails until a matching provider exists there for each one. Each provider must be visible to the primary owner of the proxy. The error names the providers that are missing.
+When an LLM Proxy uses credentials saved in the Catalog, the panel adds a notice that the target environment needs the same Catalog items. After the promotion is accepted, deploying or starting the proxy in the target environment fails until that environment has a matching provider for each one the proxy uses. Each provider must be visible to the primary owner of the proxy. The error names the providers that are missing.
 {% endhint %}
 
 ## Accept or reject a promotion
 
-The request reaches the target environment as a task in **Tasks & Approvals**. The task is listed for people who can create APIs in that environment.
+The request reaches the target environment as a task in **Tasks & Approvals**. A first promotion is listed for people who can create APIs in that environment. A promotion of a proxy that an earlier promotion already created there is listed for people who can update APIs there.
 
 To accept or reject a promotion, follow these steps:
 
@@ -62,7 +63,7 @@ To accept or reject a promotion, follow these steps:
 **API promotion accepted.** or **API promotion rejected.** confirms your choice. After a rejection, the environment can be selected again in the **Environment** list.
 
 {% hint style="warning" %}
-A promotion can't update a proxy that an earlier promotion created. When the target environment still holds that proxy, the task is listed for people who can update APIs there. The panel says that accepting will update the proxy, and accepting fails with an error. Once that copy is deleted, a new promotion creates the proxy again when it's accepted.
+A promotion can't update a proxy that an earlier promotion created. When the target environment still holds that proxy, the panel says that accepting will update it, and accepting fails with an error. Once that copy is deleted, a new promotion creates the proxy again when it's accepted.
 {% endhint %}
 
 ## Verification
