@@ -10,7 +10,7 @@ Event Stream Management ships four dashboards: **Kafka Service — Health**, **K
 
 What a Kafka Service dashboard shows depends on what the Kafka Service reports. Traffic and operation charts need **Aggregated metrics**, and the failed-connection charts need **Connection events**. See [Configure reporter settings](configure-reporter-settings.md).
 
-<figure><img src="../../.gitbook/assets/esm-observability-dashboards.png" alt="The Dashboards page of Observability, listing a custom dashboard above the Health and Traffic templates for Kafka Services and for Message APIs"><figcaption><p>The Dashboards page lists the four templates and any custom dashboard saved in the environment</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/esm-observability-dashboards.png" alt="The Dashboards page of Observability, listing a custom dashboard above the Health and Traffic templates for Kafka Services and for Message APIs"><figcaption><p>The Dashboards page lists the four templates and any custom dashboard saved in the environment</p></figcaption></figure>
 
 ## Open a dashboard
 

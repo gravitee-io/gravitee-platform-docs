@@ -58,6 +58,8 @@ One backend is enough. To reach the topics of a second cluster through the same 
 
 Select **Next: Review**.
 
+<figure><img src="../.gitbook/assets/gamma-esm-virtual-cluster-composition.png" alt="The Composition step of the Virtual Cluster wizard started from the Kafka Mesh template, with two backends added and the Kafka Mesh badge"><figcaption><p>Two backends composed into one Virtual Cluster</p></figcaption></figure>
+
 ## Step 5: Review and create
 
 1. Review the Virtual Cluster details and composed backends.

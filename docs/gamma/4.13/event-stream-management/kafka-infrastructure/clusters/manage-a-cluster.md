@@ -41,6 +41,8 @@ The row menu (**⋯**) of each Cluster offers **Open**, and the lifecycle action
 
 The ⓘ button next to the **Clusters** title opens the **Why register a Cluster?** explainer. Select the button again, or dismiss the panel, to close it.
 
+<figure><img src="../../.gitbook/assets/gamma-esm-clusters-list.png" alt="The Clusters page filtered on Kafka, with the Total, Deployed, Pending, and Undeployed counters, the Lifecycle filter, and the menu of a deployed cluster whose Delete action says Undeploy it first"><figcaption><p>The <strong>Clusters</strong> page</p></figcaption></figure>
+
 ## Cluster lifecycle
 
 A Cluster is in one of three states:

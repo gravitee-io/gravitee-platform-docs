@@ -50,6 +50,8 @@ You can also deploy from the **Kafka Services** list: open the actions menu of t
 
 Saving in the Policy Studio doesn't deploy the flows. Deploy them with one of the actions above.
 
+<figure><img src="../../.gitbook/assets/gamma-esm-deploy-api-dialog.png" alt="The Deploy your API dialog, with a deployment label typed and its character counter at 29 of 32"><figcaption><p>The <strong>Deploy your API</strong> dialog</p></figcaption></figure>
+
 ## Start a Kafka Service bound to a Virtual Cluster
 
 A Kafka Service whose endpoint is a Virtual Cluster can't start until that Virtual Cluster is deployed. While it isn't, the Kafka Service shows the **Virtual Cluster not deployed** banner, which links to the Virtual Cluster. The **Start** button of the page header, the **Start Kafka Service** tile of the **Settings** page, and the **Start** action of its row in the **Kafka Services** list are disabled.

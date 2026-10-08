@@ -46,6 +46,8 @@ The following changes need a deployment:
 
 The name, version, description, labels, categories, images, visibility, and publication of the Message API don't need a deployment, and neither do its members, metadata, notifications, and alerts.
 
+<figure><img src="../../.gitbook/assets/gamma-esm-deploy-api-dialog.png" alt="The Deploy your API dialog, with a deployment label typed and its character counter at 29 of 32"><figcaption><p>The <strong>Deploy your API</strong> dialog</p></figcaption></figure>
+
 ## Choose the gateways that load the Message API
 
 Sharding tags decide which gateway instances load the Message API. A gateway configured with sharding tags loads it when it carries one of the gateway's tags and none of the tags that the gateway excludes. A gateway configured with no sharding tags loads every API.
