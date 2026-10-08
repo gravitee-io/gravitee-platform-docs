@@ -116,6 +116,8 @@ Consider the following before you edit metadata:
 * When a subscription form governs the Kafka Service, the card shows **This API has a subscription form**, with the name of the form. Values edited on this card aren't validated against that form, but follow it anyway: a value that the form refuses gets the consumer rejected at their next subscription update.
 * Past 25 entries, the card shows a warning badge, because a consumer who submits the portal subscription form again would be refused. The card itself doesn't enforce the limit.
 
+<figure><img src="../../.gitbook/assets/gamma-esm-kafka-service-subscription-metadata.png" alt="The detail page of a subscription to a Kafka Service, with the Metadata card listing three entries and the API keys card"><figcaption><p>The metadata of a subscription</p></figcaption></figure>
+
 ## Verification
 
 To verify that an application can consume the Kafka Service, follow these steps:

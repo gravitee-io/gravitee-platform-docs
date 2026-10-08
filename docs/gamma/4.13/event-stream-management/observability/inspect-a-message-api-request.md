@@ -17,6 +17,8 @@ A Message API row opens on the request that opened the stream, what the gateway 
 3. Click **Logs**.
 4. Click a row whose **API Type** reads **Message API**.
 
+<figure><img src="../.gitbook/assets/esm-observability-message-api-request.png" alt="The log panel of a Message API request, with the Overview, Connection Logs, and Messages sections"><figcaption><p>A Message API request opened from the logs</p></figcaption></figure>
+
 ## Read the sections
 
 <table>

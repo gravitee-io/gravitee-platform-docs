@@ -30,6 +30,8 @@ Without permission to change the Kafka Service, the list is read-only.
 
 Every change on this page is saved as soon as you confirm it, and the console confirms with **Kafka Service updated**. When a save fails, the console shows **The endpoints could not be saved.**, followed by the reason, or by **Try again.** when the Management API gives none. A change reaches the gateway at the next deployment, and until then the Kafka Service shows **Out of sync**. To deploy, click **Deploy** in the page header.
 
+<figure><img src="../../.gitbook/assets/gamma-esm-kafka-service-endpoints.png" alt="The Endpoints page of a Kafka Service, with the default endpoint group bound to a Managed Cluster and its endpoint available to all gateways"><figcaption><p>The endpoint groups of a Kafka Service</p></figcaption></figure>
+
 ## Add an endpoint group
 
 1. Click **Add endpoint group**.

@@ -21,6 +21,8 @@ Without permission to change the Kafka Service's plans, the page is read-only.
 
 A Kafka Service created with the wizard already has plans. Its **Security** step adds a Keyless plan by default and publishes it at creation. Every other plan chosen in that step is created in **Staging**, so you finish its configuration and publish it here. See [Create a Kafka Service with a registered cluster](create-a-kafka-service-with-a-registered-cluster.md).
 
+<figure><img src="../../.gitbook/assets/gamma-esm-kafka-service-plans.png" alt="The Plans page of a Kafka Service, with the Staging, Published, Deprecated, and Closed status cards and the Published card selected above an API key plan"><figcaption><p>The <strong>Plans</strong> page opens on the published plans.</p></figcaption></figure>
+
 ## Plan types
 
 The security type of a plan is set when you create it, and it can't change later.
@@ -124,6 +126,8 @@ A deprecated plan still counts as live. These rules apply when you publish a pla
 4. Click **Create plan**.
 
 The console confirms with **Plan created**, and the plan appears under **Staging**.
+
+<figure><img src="../../.gitbook/assets/gamma-esm-kafka-service-plan-form.png" alt="The API key plan form of a Kafka Service, scrolled to the Characteristics field, the comment option with its custom message, and the Sharding tags"><figcaption><p>The plan form</p></figcaption></figure>
 
 ## Publish, deprecate, or close a plan
 

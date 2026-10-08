@@ -85,6 +85,8 @@ The rollback doesn't deploy: the restored definition is saved, the Message API s
 
 While the Message API is in sync with its live deployment, the live deployment doesn't offer a rollback. Once the Message API has undeployed changes, rolling back to the live deployment discards them.
 
+<figure><img src="../../.gitbook/assets/gamma-esm-deployment-history-rollback.png" alt="The comparison of two deployments, side by side with the older version on the left, and a Rollback button for each version"><figcaption><p>Two deployments compared, with their rollback buttons</p></figcaption></figure>
+
 ## Verification
 
 To verify that the Message API is started and deployed, follow these steps:

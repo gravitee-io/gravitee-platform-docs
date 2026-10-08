@@ -19,6 +19,8 @@ Without permission to change the Kafka Service, the fields and the images are re
 
 A Kafka Service managed by the Gravitee Kubernetes Operator is read-only, whatever your role. See [Detach a Kubernetes-managed Kafka Service](#detach-a-kubernetes-managed-kafka-service).
 
+<figure><img src="../../.gitbook/assets/gamma-esm-kafka-service-settings.png" alt="The Settings page of a started Kafka Service, with the general information form, the images and details, the Export, Import, Duplicate, and Promote actions, and the Kafka Service events card with the Stop and Delete tiles"><figcaption><p>The <strong>Settings</strong> page of a Kafka Service</p></figcaption></figure>
+
 ## Edit the general information
 
 1. Change the fields you need:

@@ -69,6 +69,8 @@ The card is informational: the constraints can't be configured. The gateway runs
 
 For the details of each behavior, see [Virtual Cluster runtime behavior reference](kafka-virtual-cluster-runtime-behavior-reference.md).
 
+<figure><img src="../../.gitbook/assets/gamma-esm-virtual-cluster-kafka-mesh.png" alt="The Configuration page of a Virtual Cluster with two backends, and the Kafka Mesh card with its 2 backends badge and the six behaviors the gateway applies"><figcaption><p>The Kafka Mesh card of a Virtual Cluster</p></figcaption></figure>
+
 ## Deploy and undeploy
 
 The lifecycle actions of a Virtual Cluster are the same as for a Cluster. See [Cluster lifecycle](../clusters/manage-a-cluster.md#cluster-lifecycle). The following rules are specific to a Virtual Cluster:

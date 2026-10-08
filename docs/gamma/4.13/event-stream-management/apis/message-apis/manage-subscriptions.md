@@ -37,6 +37,9 @@ To download the subscriptions that match the filters, click **Export CSV**. The 
 4. In **Plan**, select a published plan. Keyless plans aren't offered, because consumers don't subscribe to them.
 5. Optional: For an API key plan, enter a key in **Custom API key (optional)**. Left empty, the key is generated. The field appears for every API key plan, whatever the custom API key setting of the environment.
 6. For a Push plan, set where the gateway pushes the messages. See [Set the push delivery of a subscription](#set-the-push-delivery-of-a-subscription).
+
+    <figure><img src="../../.gitbook/assets/gamma-esm-message-api-create-push-subscription.png" alt="The Create subscription panel on a Push plan, with the Entrypoint and Channel fields and the configuration of the Webhook entrypoint"><figcaption><p>A Push subscription created from the console</p></figcaption></figure>
+
 7. Click **Create subscription**.
 
 A JWT or OAuth2 plan needs an application that has a client ID. The panel shows a reminder when you select one.

@@ -68,6 +68,8 @@ The live deployment isn't offered for a rollback, unless the Kafka Service is **
 
 A rollback doesn't deploy the Kafka Service and doesn't add a line to the history. When the restored definition differs from the deployed one, the Kafka Service shows **Out of sync** until you deploy it. See [Deploy your changes](start-stop-and-deploy-a-kafka-service.md#deploy-your-changes).
 
+<figure><img src="../../.gitbook/assets/gamma-esm-deployment-history-rollback.png" alt="The comparison of two deployments of a Kafka Service, side by side with the older version on the left, and a Rollback button for each version"><figcaption><p>Two deployments compared, with their rollback buttons</p></figcaption></figure>
+
 ## Verification
 
 To verify the deployment configuration, follow these steps:
