@@ -50,7 +50,7 @@ The publication of a Message API is separate from its runtime state on the gatew
 
 The console confirms with **Message API updated**.
 
-Without permission to change the Message APIs of the environment, the **Publication** section doesn't appear.
+Without permission to change the Message APIs of the environment, or when the Gravitee Kubernetes Operator manages the Message API, the **Publication** section doesn't appear. See [Manage general settings](manage-general-settings.md#kubernetes-managed-message-apis).
 
 Once the Message API is deprecated, the **Publication** section disappears, and the console offers no way to undo the deprecation.
 

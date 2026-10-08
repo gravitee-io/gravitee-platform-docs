@@ -1,12 +1,12 @@
 ---
 hidden: false
 noIndex: false
-description: Rename a Message API in Event Stream Management, set its description, labels, categories, and images, export or import its definition, and delete it. Follow the steps on its Settings page.
+description: Rename a Message API in Event Stream Management, set its description, labels, categories, and images, export, import, or duplicate it, detach it from Kubernetes, and delete it. Follow the steps on its Settings page.
 ---
 
 # Manage general settings
 
-The **Settings** page of a Message API holds its name, version, description, labels, categories, and images. It also exports and imports the Message API's definition, and deletes the Message API.
+The **Settings** page of a Message API holds its name, version, description, labels, categories, and images. It also exports and imports the Message API's definition, duplicates the Message API, detaches it from the Gravitee Kubernetes Operator, and deletes it.
 
 ## Open the settings
 
@@ -15,7 +15,7 @@ The **Settings** page of a Message API holds its name, version, description, lab
 3. Click the name of the Message API.
 4. In the **General** group of the Message API sidebar, click **Settings**.
 
-Without permission to change the Message APIs of the environment, the fields and images are read-only, and the **Import**, **Duplicate**, and **Promote** buttons are hidden. **Export** needs permission to read the API definition. The **Message API events** card shows only the actions that your role allows.
+Without permission to change the Message APIs of the environment, the fields and images are read-only, and the **Import**, **Duplicate**, and **Promote** buttons are hidden. When the Gravitee Kubernetes Operator manages the Message API, the fields and images are read-only too, and **Import** and **Duplicate** are hidden, but **Promote** stays. See [Kubernetes-managed Message APIs](#kubernetes-managed-message-apis). **Export** needs permission to read the API definition. The **Message API events** card shows only the actions that your role allows.
 
 ## Edit the general information
 
@@ -94,12 +94,14 @@ The console confirms with **Message API definition imported**.
 
 ## Duplicate the Message API
 
-1. Click **Duplicate**.
-2. In the **Duplicate Message API** dialog, enter the **Name** and the **Version** of the copy. **Name** is pre-filled with the name of the original followed by `(copy)`.
-3. Enter a **Host prefix**. The field is required, even though a Message API doesn't use a listener host. The dialog is shared with Kafka Services.
-4. Click **Duplicate**.
+Duplicating creates a new Message API with the same definition, plans, flows, properties, resources, members, and metadata.
 
-The copy keeps the context path of the original, so the Management API refuses it because the path is already in use. See [Limitations and considerations](limitations-and-considerations.md).
+1. Click **Duplicate**.
+2. In the **Duplicate Message API** dialog, enter the **Name** and the **Version** of the copy. **Name** is pre-filled with the name of the original followed by `(copy)`, and **Version** with the version of the original.
+3. When the Message API has an entrypoint that listens over HTTP, enter the **Context path** of the copy, for example `/orders-copy`. A context path is unique in the environment, so the copy can't reuse the path of the original, which the dialog shows under the field. The path follows the rules of the **Entrypoints** page, and the dialog checks that it's available. See [Configure entrypoints](configure-entrypoints.md#set-the-context-paths). A Message API whose only entrypoint is **Webhook** doesn't ask for a context path.
+4. Click **Duplicate**. The button stays disabled while a field is empty or invalid.
+
+The console confirms with **Message API duplicated** and opens the **Overview** of the copy. The copy is stopped and not yet deployed, and its plans keep the status they have on the original. Start it when it's ready. See [Start, stop, and deploy a Message API](start-stop-and-deploy-a-message-api.md).
 
 **Promote** opens a dialog that explains that promotion to another environment goes through Gravitee Cloud. It doesn't promote the Message API.
 
@@ -121,7 +123,32 @@ Deleting a Message API can't be undone.
 
 The console confirms with **Message API deleted** and returns to the **Message APIs** list.
 
-The **Delete** action of the Message API's row in the **Message APIs** list opens the same confirmation. Unlike the **Delete this Message API** tile, the row action is offered while the Message API is started or published. Stop and unpublish the Message API first, as in steps 1 and 2.
+The **Delete** action of the Message API's row in the **Message APIs** list opens the same confirmation. Like the tile, it's disabled while the Message API is started or published, and reads **Stop and unpublish it first**.
+
+## Kubernetes-managed Message APIs
+
+A Message API that the Gravitee Kubernetes Operator manages is defined by its custom resource. The console makes most of it read-only, so that your changes don't drift from the resource:
+
+* Read-only: the general settings, the entrypoints, endpoints, failover, flows, response templates, resources, properties, CORS, reporter settings, and sharding tags, the plans, the members, and the metadata.
+* Hidden: **Start**, **Stop**, **Delete this Message API**, **Import**, **Duplicate**, and the **Publication** section.
+* Still available: **Deploy**, rollback from the deployment history, **Promote**, **Export**, the subscriptions, the notifications, the alerts, the broadcasts, the API Score, and the webhook logs settings of the **Webhooks** page.
+
+A subscription that the operator itself manages stays read-only. See [Manage subscriptions](manage-subscriptions.md).
+
+### Detach a Message API from Kubernetes
+
+Detaching a Message API from its automation source makes it editable again in the console. You need permission to change the Message API's definition.
+
+{% hint style="warning" %}
+When the Message API is attached to the Gravitee Kubernetes Operator again, the operator overwrites every change made while it was detached.
+{% endhint %}
+
+1. On the **Settings** page, scroll to the **Message API events** card.
+2. Click **Detach the Message API**. The tile appears only on a Message API that the Gravitee Kubernetes Operator manages.
+3. In the **Detach API** dialog, under **Type <name> to confirm**, type the name of the Message API.
+4. Click **Yes, detach it**.
+
+The console confirms with **The API has been detached from its automation source.**
 
 ## Verification
 

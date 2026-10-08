@@ -20,7 +20,7 @@ The audit logs of a Message API record changes made to it, such as updates to it
 3. Click the name of the Message API.
 4. In the **Monitoring** group of the Message API sidebar, click **Audit Logs**.
 
-While the Message API has no audit event, the page explains why audit logs are worth tracking instead of showing a list. Once events exist, that explanation opens from the ⓘ button next to the **Audit Logs** title.
+While the Message API has no audit event, the page explains why audit logs are worth tracking instead of showing a list, and its **Documentation** button opens the Event Stream Management documentation of audit logs in a new tab. Once events exist, that explanation opens from the ⓘ button next to the **Audit Logs** title.
 
 The list shows the **Date**, **User**, **Event**, and **Target** of each change. To see the change itself, click the view icon in the **Patch** column. The row expands to show the JSON patch.
 

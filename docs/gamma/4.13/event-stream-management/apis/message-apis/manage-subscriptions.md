@@ -1,12 +1,12 @@
 ---
 hidden: false
 noIndex: false
-description: Review, create, approve, pause, transfer, and close the subscriptions of a Message API in Event Stream Management, and manage their metadata and API keys. Follow the steps to handle consumer access.
+description: Review, create, approve, pause, transfer, and close the subscriptions of a Message API in Event Stream Management, and manage their metadata, API keys, and push delivery settings. Follow the steps to handle consumer access.
 ---
 
 # Manage subscriptions
 
-A subscription binds one application to one plan of a Message API. The **Subscriptions** page lists the subscriptions of a Message API, and each subscription opens on a detail page with its lifecycle actions, its metadata, and, for API key plans, its API keys.
+A subscription binds one application to one plan of a Message API. The **Subscriptions** page lists the subscriptions of a Message API, and each subscription opens on a detail page with its lifecycle actions, its metadata, for API key plans, its API keys, and, for Push plans, its delivery configuration.
 
 ## Open the subscriptions
 
@@ -36,13 +36,12 @@ To download the subscriptions that match the filters, click **Export CSV**. The 
 3. In **Application**, type at least two characters of the application's name, then select the application.
 4. In **Plan**, select a published plan. Keyless plans aren't offered, because consumers don't subscribe to them.
 5. Optional: For an API key plan, enter a key in **Custom API key (optional)**. Left empty, the key is generated. The field appears for every API key plan, whatever the custom API key setting of the environment.
-6. Click **Create subscription**.
+6. For a Push plan, set where the gateway pushes the messages. See [Set the push delivery of a subscription](#set-the-push-delivery-of-a-subscription).
+7. Click **Create subscription**.
 
 A JWT or OAuth2 plan needs an application that has a client ID. The panel shows a reminder when you select one.
 
 If you close the panel with unsaved edits, the **Discard unsaved changes?** dialog asks you to confirm. Click **Keep editing** to go back to the panel, or **Discard** to close it.
-
-The **Create subscription** panel lists Push plans, but it can't create a subscription to one. It doesn't collect the webhook settings, and the Management API refuses a Push plan subscription without them.
 
 The console accepts the new subscription at once, whatever the subscription validation of the plan. The validation applies to the subscriptions that consumers request from the Developer Portal.
 
@@ -85,7 +84,7 @@ Without permission to change the Message API's subscriptions, the detail page of
 
 ## Manage the metadata of a subscription
 
-The **Metadata** card of the subscription's detail page lists the key-value pairs of the subscription, with the **Key**, **Value**, and **Actions** columns. Consumers fill them in through the subscription form of the Developer Portal. Policies read an entry at runtime with the expression `{#subscription.metadata['key']}`. To copy the expression of an entry, click the copy icon of its row.
+The **Metadata** card of the subscription's detail page lists the key-value pairs of the subscription, with the **Key**, **Value**, and **Actions** columns. Consumers fill them in, for example, through the subscription form of the Developer Portal. Policies read an entry at runtime with the expression `{#subscription.metadata['key']}`. To copy the expression of an entry, click the copy icon of its row.
 
 You can change the metadata of a pending, accepted, resumed, or paused subscription when you have permission to change the Message API's subscriptions. A subscription managed by the Gravitee Kubernetes Operator stays read-only.
 
@@ -95,9 +94,21 @@ You can change the metadata of a pending, accepted, resumed, or paused subscript
 
 A key holds up to 100 letters, digits, dashes, or underscores, and must be unique on the subscription. A value is required. The Management API removes anything between angle brackets from a value before storing it, and the dialog warns you when a value contains some.
 
-When the Message API uses a subscription form, the card reminds you that the values you edit here aren't validated against the form. Past 25 entries, a badge warns that a consumer who submits the subscription form again would be refused. The card doesn't block more entries.
+When the Message API uses a subscription form, the card shows **This API has a subscription form**. The answers of the consumers who subscribe from the Developer Portal are validated against the form, but the values you edit here aren't. Following the form is still safer: a value that the form would refuse gets the consumer rejected the next time they update their subscription. Past 25 entries, a badge warns that a consumer who submits the subscription form again would be refused. The card doesn't block more entries.
 
 A subscription to a JWT or OAuth2 plan also shows a **Credentials** card. It explains that the plan authenticates with the client credentials of the application, not with keys issued on this page.
+
+## Set the push delivery of a subscription
+
+A subscription to a Push plan tells the gateway where to push the messages, for example to a webhook callback URL.
+
+When you create the subscription, the **Create subscription** panel asks for the following fields once you select a Push plan:
+
+* **Entrypoint**. Required. The subscription entrypoint that delivers the messages, for example **Webhook**. The list holds the subscription entrypoints of the Message API.
+* **Channel**. Optional. The channel of the subscription.
+* `<entrypoint> configuration`. The settings of the entrypoint for this subscriber, built from the entrypoint, for example the callback URL, its authentication, and the retry settings of **Webhook**. With retries on failure, the initial delay can't exceed the maximum delay between attempts: **Initial retry delay should be less than maximum delay between attempts.**
+
+The detail page of a Push subscription shows the **Consumer subscription configuration** card, with the **Entrypoint**, the **Channel**, and the **Callback URL**. To change them, click **Edit**, change the fields, then click **Save**. The entrypoint can't change. **Edit** appears when you have permission to change the Message API's subscriptions, while the subscription isn't closed, and when the Gravitee Kubernetes Operator doesn't manage it.
 
 ## Manage the API keys of a subscription
 

@@ -20,7 +20,7 @@ The Policy Studio of a Message API holds its flows. A flow selects part of the t
 
 <figure><img src="../../.gitbook/assets/gamma-esm-message-api-policy-studio.png" alt="The Policy Studio of a Message API, with the Plan Flows and Common Flows lists on the left and the Initial Connection and Event Messages tabs of the selected flow"><figcaption><p>The Policy Studio of a Message API</p></figcaption></figure>
 
-Without permission to change the Message API's definition, the Policy Studio is read-only.
+Without permission to change the Message API's definition, or when the Gravitee Kubernetes Operator manages the Message API, the Policy Studio is read-only. See [Manage general settings](manage-general-settings.md#kubernetes-managed-message-apis).
 
 ## Choose where a flow applies
 

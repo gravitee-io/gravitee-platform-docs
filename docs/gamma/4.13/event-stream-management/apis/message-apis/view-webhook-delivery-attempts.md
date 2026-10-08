@@ -13,7 +13,7 @@ When a Message API has a **Webhook** entrypoint, the gateway pushes messages to 
 * A Message API with a **Webhook** entrypoint. Without one, the **Webhooks** item doesn't appear in the Message API sidebar. See [Configure entrypoints](configure-entrypoints.md).
 * Permission to read the logs of the Message API. Without it, the **Webhooks** item doesn't appear in the Message API sidebar.
 * Reporting enabled on the Message API. On the **Reporter Settings** page, **Enable analytics** must be selected. See [Configure reporter settings](configure-reporter-settings.md).
-* Callback metrics enabled on the **Webhook** entrypoint. On the **Entrypoints** page, in the configuration of the **Webhook** entrypoint, under **Callback reporting settings**, select **Enable callback metrics**, then save and deploy the Message API. Without callback metrics, the gateway records no delivery attempt.
+* Webhook logs turned on. See [Turn on webhook logs](#turn-on-webhook-logs). Without them, the gateway records no delivery attempt.
 
 ## Open the delivery attempts
 
@@ -25,11 +25,26 @@ When a Message API has a **Webhook** entrypoint, the gateway pushes messages to 
 The **Webhooks** card lists the delivery attempts, newest first, with the following columns:
 
 * **Timestamp**. When the attempt happened.
-* **Application**. The ID of the subscribing application.
+* **Application**. The name of the subscribing application, or its ID when the console can't resolve the name.
 * **Callback URL**. The URL that the gateway called.
 * **Status**. The HTTP status code that the callback URL returned. `0` means that the call got no response.
 
+While the attempts aren't recorded, the card shows **Delivery attempts are not recorded**, with the setting to turn on: **Enable callback metrics** of the **Webhook** entrypoint, with a link to **Entrypoints**, or the runtime reporting of the Message API, with a link to **Reporter Settings**.
+
 Message sampling applies to delivery attempts too, so the list can hold fewer attempts than the messages that the gateway pushed. Messages in error are always recorded. See [Configure reporter settings](configure-reporter-settings.md).
+
+## Turn on webhook logs
+
+The **Settings** button of the **Webhooks** card opens the **Webhook logs reporting settings** dialog. The button appears when you have permission to change the Message API's definition, also on a Message API that the Gravitee Kubernetes Operator manages.
+
+1. Click **Settings**.
+2. Select **Enable webhook logs**. Logging needs extra storage and can affect the performance of the Message API, so select only what you need.
+3. Under **Content data**, select what each attempt records: **Request body**, **Request headers**, **Response body**, or **Response headers**. Clearing **Enable webhook logs** clears them too.
+4. Click **Save**.
+
+The dialog also shows the **Message sampling** of the Message API, with a link to **Reporter Settings**, where you change it. The sampling applies to every message of the Message API, not only to webhook messages.
+
+The dialog sets the same option as **Enable callback metrics** under **Callback reporting settings** in the configuration of the **Webhook** entrypoint. The console confirms with **API updated**. The change reaches the gateway at the next deployment. See [Start, stop, and deploy a Message API](start-stop-and-deploy-a-message-api.md).
 
 ## Filter the delivery attempts
 
@@ -39,17 +54,21 @@ Narrow the list with the following filters:
 * **Status**. Enter a status code, for example `500`.
 * **Callback URL**. Enter a callback URL, or part of one.
 
-When no attempt matches, the list shows **No delivery attempts**. Clear a filter to widen the search.
+When the list is empty, it shows one of the following:
+
+* **No delivery attempts recorded**, while the attempts aren't recorded. Turn on the settings that the card names.
+* **No delivery attempts**, while a filter is set. Clear a filter to widen the search.
+* **No delivery attempts yet**, until the gateway calls the callback URL of a subscriber.
 
 ## Inspect a delivery attempt
 
 Click the application of an attempt. The **Delivery attempt details** panel opens with the following details:
 
-* The **Application**, the **Callback URL**, and the **Timestamp** of the attempt.
+* The **Application**, by name, the **Callback URL**, and the **Timestamp** of the attempt.
 * Under **Request**, the **Method**, **Headers**, and **Body** of the call to the callback URL.
 * Under **Response**, the **Status**, **Headers**, and **Body** that the callback URL returned.
 
-The headers and the bodies appear only when the callback reporting settings of the **Webhook** entrypoint include them. Under **Callback reporting settings**, select them under **Request** and under **Response**. Otherwise, the panel shows `—` for them.
+The headers and the bodies appear only when the webhook logs include them, under **Content data** in the **Webhook logs reporting settings** dialog. Otherwise, the panel shows `—` for them.
 
 ## Verification
 
