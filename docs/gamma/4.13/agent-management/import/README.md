@@ -12,6 +12,7 @@ The **Catalog** group of the Agent Management sidebar holds the **Credentials**,
 * [**Add an AI model**](add-an-ai-model.md). Add an AI model to the Catalog so authorization policies, observability, and cost attribution can reference it.
 * [**Add an MCP Registry**](add-an-mcp-registry.md). Importing MCP servers in bulk from an external registry is planned for a future release.
 * [**Register an MCP server**](register-an-mcp-server.md). Register an MCP server to add it to the Catalog with its tools, resources, and prompts.
+* [**Register MCP servers with the Automation API**](register-mcp-servers-with-the-automation-api.md). Declare MCP servers as JSON and apply them from a pipeline, with their tools, prompts, and resources discovered on apply.
 * [**Import prompts**](import-prompts.md). Prompts are reusable, parameterized templates discovered from registered MCP servers and cataloged for governance.
 * [**Add MCP resources**](add-mcp-resources.md). MCP resources are read-only data items agents use as context, discovered from registered MCP servers.
 * [**Create API tools**](create-api-tools.md). Expose REST APIs governed in API Management as agent-accessible tools in the Catalog.
