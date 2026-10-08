@@ -69,7 +69,7 @@ To remove a template, click the delete icon of its row. In the **Delete this res
 
 To drop the changes you haven't saved, click **Discard** in the save bar. If you leave the page with unsaved changes, the **Leave without saving?** dialog asks you to confirm.
 
-Without permission to change the response templates of the Message API, the page is read-only.
+Without permission to change the response templates of the Message API, or when the Gravitee Kubernetes Operator manages the Message API, the page is read-only. See [Manage general settings](manage-general-settings.md#kubernetes-managed-message-apis).
 
 ## Verification
 

@@ -21,7 +21,7 @@ Select message content, verbose tracing, and OTel logs for an investigation, the
 3. Click the name of the Message API.
 4. In the **Operations** group of the Message API sidebar, click **Reporter Settings**.
 
-Without permission to change the Message API's definition, the page is read-only.
+Without permission to change the Message API's definition, or when the Gravitee Kubernetes Operator manages the Message API, the page is read-only. See [Manage general settings](manage-general-settings.md#kubernetes-managed-message-apis).
 
 ## Enable runtime logs
 

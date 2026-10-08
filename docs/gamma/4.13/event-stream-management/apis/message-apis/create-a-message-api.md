@@ -61,7 +61,7 @@ Each selected entrypoint shows its settings below the cards:
 * **Quality of service**, when the entrypoint declares quality-of-service levels. **Automatic** is selected by default when the entrypoint offers it.
 * The entrypoint's own configuration form. An entrypoint with nothing to configure shows **No additional configuration required.**
 
-When at least one selected entrypoint listens over HTTP, the step also shows **Context path**. Of the entrypoints that Gravitee ships for Message APIs, only **Webhook** doesn't listen over HTTP. Enter the path that clients call, starting with `/`. The path can't overlap the context path of another API in the environment, unless that API listens on a virtual host. Two paths overlap when they're identical, or when one extends the other by whole path segments. For example, `/orders` and `/orders/eu` overlap, but `/orders` and `/orders-eu` don't.
+When at least one selected entrypoint listens over HTTP, the step also shows **Context path**. Of the entrypoints that Gravitee ships for Message APIs, only **Webhook** doesn't listen over HTTP. Enter the path that clients call. The path starts with `/`, holds only letters, digits, `/`, `.`, `-`, and `_`, without two slashes in a row, and has more than three characters. Otherwise, the field shows **Context path is not valid.** or **Context path has to be more than 3 characters long.**, and **Next: Endpoints** stays disabled. The path can't overlap the context path of another API in the environment, unless that API listens on a virtual host. Two paths overlap when they're identical, or when one extends the other by whole path segments. For example, `/orders` and `/orders/eu` overlap, but `/orders` and `/orders-eu` don't.
 
 ### Endpoints
 
@@ -71,6 +71,8 @@ Each selected endpoint shows two configuration forms, both built from the connec
 
 * **Connection**. The settings that the endpoint group shares.
 * **Endpoint settings**. The settings of the endpoint itself.
+
+For **Kafka**, **Connection** shows only the producer settings, the consumer settings, or both, depending on the entrypoints you selected. An entrypoint that receives messages from clients, such as **HTTP POST**, needs a producer. An entrypoint that delivers messages to clients, such as **HTTP GET**, **Server-Sent Events**, or **Webhook**, needs a consumer. When you go back and change the entrypoints, the settings that they no longer need are dropped.
 
 Each endpoint that you select becomes its own endpoint group, named `Default <connector> group`, that holds one endpoint named `Default <connector>`.
 

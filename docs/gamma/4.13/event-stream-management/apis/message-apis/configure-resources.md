@@ -25,7 +25,7 @@ Resources are plugin instances, such as caches or OAuth2 providers, that the pol
 
 The console adds the resource, enabled, and confirms with **Message API updated**. The resource reaches the gateway at the next deployment, and until then the Message API shows **Out of sync**. See [Start, stop, and deploy a Message API](start-stop-and-deploy-a-message-api.md).
 
-Without permission to change the Message API's definition, the page is read-only.
+Without permission to change the Message API's definition, or when the Gravitee Kubernetes Operator manages the Message API, the page is read-only. See [Manage general settings](manage-general-settings.md#kubernetes-managed-message-apis).
 
 ## Manage the resources
 

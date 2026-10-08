@@ -17,9 +17,9 @@ A plan decides how consumers access a Message API. They connect with no credenti
 
 <figure><img src="../../.gitbook/assets/gamma-esm-message-api-plans.png" alt="The Plans page of a Message API, with the Staging, Published, Deprecated, and Closed status cards above a table of plans with the Name, Security type, Status, and Validation columns"><figcaption><p>The Plans page of a Message API</p></figcaption></figure>
 
-The status cards, **Staging**, **Published**, **Deprecated**, and **Closed**, show how many plans have each status. Click a card to list its plans. The page opens on **Staging**.
+The status cards, **Staging**, **Published**, **Deprecated**, and **Closed**, show how many plans have each status. Click a card to list its plans. The page opens on **Published**. After you create or edit a plan, it opens on the status of that plan.
 
-Without permission to change the Message API's plans, the page is read-only.
+Without permission to change the Message API's plans, or when the Gravitee Kubernetes Operator manages the Message API, the page is read-only. See [Manage general settings](manage-general-settings.md#kubernetes-managed-message-apis).
 
 ## Plan types
 
@@ -63,9 +63,7 @@ The security type of a plan is set when you create it, and it can't change later
 ## Create a plan
 
 1. Open the plans of the Message API.
-2. Create the plan:
-    * When the Message API has no plan yet, the page shows **No plans yet**. Click **Create plan**. The form opens for a Keyless plan, and its type can't change.
-    * Otherwise, click **Create plan**, then select the type of plan. The menu lists **Push (webhook)** when the Message API has a subscription entrypoint such as **Webhook**.
+2. Click **Create plan**, then select the type of plan. The menu lists **Push (webhook)** when the Message API has a subscription entrypoint such as **Webhook**. When the Message API has no plan yet, the page shows **No plans yet**, with the same **Create plan** menu.
 3. Complete the plan form:
 
 <table>
@@ -100,14 +98,24 @@ The security type of a plan is set when you create it, and it can't change later
             <td><strong>Description</strong></td>
             <td>Optional. What the plan offers.</td>
         </tr>
+        <tr>
+            <td><strong>Characteristics</strong></td>
+            <td>Optional. Short labels shown on the plan in the Developer Portal. Type a characteristic, then press Enter.</td>
+        </tr>
+        <tr>
+            <td><strong>Consumer must provide a comment when subscribing to the plan (Classic Portal only)</strong></td>
+            <td>Optional. Asks consumers for a comment when they subscribe from the Classic Portal. Once it's selected, <strong>Custom message to display to consumer</strong> sets the prompt, up to 64 characters.</td>
+        </tr>
+        <tr>
+            <td><strong>Sharding tags</strong></td>
+            <td>Optional. Deploys the plan only on the gateways that carry the selected tags. Only the tags that the Message API carries and that you're allowed to use can be selected. When the organization has no sharding tag, the field says <strong>No sharding tags are configured for this organization.</strong> See <a href="start-stop-and-deploy-a-message-api.md#choose-the-gateways-that-load-the-message-api">Choose the gateways that load the Message API</a>.</td>
+        </tr>
     </tbody>
 </table>
 
 4. Click **Create plan**.
 
-The console confirms with **Plan created**, and the plan appears under **Staging**.
-
-The first plan that you create from the **Plans** page is always a Keyless plan. The other types, **Push (webhook)** included, appear in the **Create plan** menu once the Message API has a plan, whatever its status. To start a Message API with a Push plan only, add it in the **Security** step of the creation wizard. See [Create a Message API](create-a-message-api.md).
+The console confirms with **Plan created**, and the page opens on **Staging**, where the new plan appears.
 
 ## Publish, deprecate, or close a plan
 
@@ -148,7 +156,7 @@ The **Plans** page has no delete action. To retire a plan, deprecate it so that 
 
 ## Edit or reorder plans
 
-* To edit a plan, click its name, or select **Edit** in its actions menu. The name, the security configuration, the subscription validation, and the description can change. The console confirms with **Plan updated**.
+* To edit a plan, click its name, or select **Edit** in its actions menu. The name, the security configuration, the subscription validation, the description, the characteristics, the comment settings, and the sharding tags can change. The console confirms with **Plan updated**.
 * To reorder the plans, click the up or down arrow of a row. The arrows are available on every status card and move the plan within the plans of that status.
 
 ## Verification

@@ -64,7 +64,7 @@ Editing an **Inherited** entry overrides the global value for this Message API o
 Only **Local** entries can be deleted.
 
 1. Click the delete icon of the entry.
-2. In the confirmation dialog, which warns that you can't undo the deletion, click **Delete**.
+2. In the **Delete metadata <name>?** dialog, which warns that you can't undo the deletion, click **Delete**.
 
 The console confirms with **Metadata deleted**.
 

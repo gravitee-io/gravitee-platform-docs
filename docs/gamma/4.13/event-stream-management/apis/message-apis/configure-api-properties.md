@@ -17,7 +17,7 @@ API properties are key-value pairs that the policies of a Message API read at ru
 
 The page counts the total, encrypted, and dynamic properties, and lists them with their key, their value, and a badge for their characteristic, for example **Dynamic** or **Encrypted**. An encrypted value shows as dots.
 
-Without permission to change the Message API's definition, the page is read-only.
+Without permission to change the Message API's definition, or when the Gravitee Kubernetes Operator manages the Message API, the page is read-only. See [Manage general settings](manage-general-settings.md#kubernetes-managed-message-apis).
 
 ## Add a property
 
