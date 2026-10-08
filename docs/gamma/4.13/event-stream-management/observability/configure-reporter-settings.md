@@ -52,7 +52,7 @@ The **Settings** card holds two checkboxes, and the **OpenTelemetry** card holds
 The tracing options cascade: with **Aggregated metrics** cleared, **OpenTelemetry tracing** and **Verbose tracing** can't be selected, and saving turns both off.
 
 {% hint style="warning" %}
-Clearing **Aggregated metrics** silences the runtime alerts on topic traffic, operations, policy rejections, and authentication, because those alerts are built from the aggregated counters. Alerts on connections are unaffected. The Kafka Service's **Alerts** page warns that analytics are disabled.
+Clearing **Aggregated metrics** silences the runtime alerts on topic traffic, operations, policy rejections, and authentication, because those alerts are built from the aggregated counters. Alerts on connections are unaffected. The Kafka Service's **Alerts** page shows the **Aggregated metrics are off, so most rules here will not work** warning, which tells you to turn on **Aggregated metrics** in **Reporter Settings**.
 {% endhint %}
 
 The gateway reads these settings when it deploys the Kafka Service. After you save, click **Deploy** for the change to reach the gateway.
@@ -62,7 +62,7 @@ The gateway reads these settings when it deploys the Kafka Service. After you sa
 Under **Connection events**, three checkboxes choose which events write a record:
 
 * **Connected**. A record when a client opens a connection: who connected, with which plan and credential.
-* **Disconnected**. A record when a connection closes normally, with how long it lasted and how many requests it served. It roughly doubles the records a healthy Kafka Service writes.
+* **Disconnected**. A record when a connection closes normally, with how long it lasted and how many requests it served. It isn't written for a connection that ends in an error. It roughly doubles the records a healthy Kafka Service writes.
 * **Errors**. A record when a connection fails, with the status **Connection error**, **Session error**, or **Internal error**. A connection that survives an error and later fails writes one record for each.
 
 A Kafka Service whose events were never chosen reports **Connected** and **Errors**, and the checkboxes show that selection. **Disconnected** is off until you select it.
@@ -75,7 +75,7 @@ Keep **Errors** selected when you select **Disconnected**. Without **Errors**, a
 
 ### What a Kafka Service shows on its Overview page
 
-The Kafka Service's **Overview** page shows **Connection metrics are disabled** until both **Aggregated metrics** and **Connection events** are selected. Connection records depend on **Connection events** alone, so the logs can list a Kafka Service while the warning shows.
+The Kafka Service's **Overview** page shows **Connection events are disabled** while **Connection events** is cleared. The warning says that the logs stay empty for the Kafka Service, and links to **Reporter Settings**.
 
 ## Configure a Message API
 
@@ -87,6 +87,8 @@ The **Enable analytics** checkbox in the header of the **Settings** card turns r
 * The **OpenTelemetry** card turns on tracing, verbose tracing, and OTel logs, with span redaction rules.
 
 For each option and its limits, see [Configure reporter settings for a Message API](../apis/message-apis/configure-reporter-settings.md).
+
+The logs of webhook deliveries are set apart, on the webhook entrypoint. On the Message API's **Webhooks** page, **Settings** opens the **Webhook logs reporting settings** dialog, with **Enable webhook logs** and the request and response bodies and headers. The dialog also shows the API's message sampling, which you edit in **Reporter Settings**. See [View webhook delivery attempts](../apis/message-apis/view-webhook-delivery-attempts.md).
 
 ## What each setting unlocks
 

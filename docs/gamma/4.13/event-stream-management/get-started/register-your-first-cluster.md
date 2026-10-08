@@ -38,7 +38,7 @@ The console opens the cluster creation wizard, with the steps **Identity**, **Co
 
 Select **Next: Configuration**.
 
-## Step 3: Configuration: add your first connection
+## Step 3: Add your first connection
 
 The Configuration step is a form that the Management API serves. A cluster needs at least one connection.
 
