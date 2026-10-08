@@ -10,7 +10,7 @@ When the environment uses the API review workflow, a reviewer accepts a Kafka Se
 
 ## Publication and visibility
 
-The publication of a Kafka Service is separate from its runtime state on the gateway. The Kafka Service pages show its publication but don't change it: the **Details** section of the **Settings** page shows the **Visibility** and the **Lifecycle** of the Kafka Service, read-only. See [Manage general settings](manage-general-settings.md).
+The publication of a Kafka Service is separate from its runtime state on the gateway. The **Details** section of the **Settings** page shows the **Visibility** and the **Lifecycle** of the Kafka Service. The Kafka Service pages don't publish or deprecate a Kafka Service, and don't change its visibility. They only unpublish a published Kafka Service, from the **Publication** card of the **Settings** page. See [Unpublish the Kafka Service](manage-general-settings.md#unpublish-the-kafka-service).
 
 ## Read the review state
 
@@ -58,7 +58,7 @@ The banner above the pages says what the state means for you:
     </tbody>
 </table>
 
-While the Kafka Service is a draft, under review, or rejected, the **Start** and **Stop** actions disappear from the page header and from the **Settings** page.
+While the Kafka Service is a draft, under review, or rejected, the **Start** and **Stop** actions disappear from the page header and from the **Settings** page, and so does the **Unpublish** action of the **Settings** page.
 
 ## Submit a Kafka Service for review
 

@@ -11,7 +11,7 @@ The API Score rates the quality of a Kafka Service against the scoring rules of 
 ## Prerequisites
 
 * API Score turned on for the environment. Otherwise, the **API Score** item doesn't appear in the Kafka Service sidebar.
-* To run an evaluation, permission to change the Kafka Service's definition.
+* To run an evaluation, permission to change the Kafka Service's definition. The evaluation also runs on a Kafka Service managed by the Gravitee Kubernetes Operator.
 
 ## Run an evaluation
 

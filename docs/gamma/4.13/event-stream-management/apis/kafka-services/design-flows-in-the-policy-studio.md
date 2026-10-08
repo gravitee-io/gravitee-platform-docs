@@ -20,6 +20,8 @@ Unlike a Message API flow, a Kafka Service flow has no channel, operation, or co
 3. Click the name of the Kafka Service.
 4. In the **Design** group of the Kafka Service sidebar, click **Policy Studio**.
 
+Without permission to change the definition of the Kafka Service, or on a Kafka Service managed by the Gravitee Kubernetes Operator, the Policy Studio is read-only. See [Detach a Kubernetes-managed Kafka Service](manage-general-settings.md#detach-a-kubernetes-managed-kafka-service).
+
 ## Choose where a flow applies
 
 The flows list on the left has two sections:

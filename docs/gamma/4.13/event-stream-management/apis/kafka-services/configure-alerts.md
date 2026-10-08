@@ -61,7 +61,7 @@ The Event Gateway builds most Kafka alert events from the metrics it collects fo
     </tbody>
 </table>
 
-When analytics are off, the **Alerts** page and the alert form show **Analytics are disabled, so most rules here will not work**. The rules of the other categories can still be saved, but threshold, rate, and aggregation rules stay silent, and rules that alert when no event is received fire continuously. The warning links to **Reporter Settings**.
+When analytics are off, the **Alerts** page and the alert form show **Aggregated metrics are off, so most rules here will not work**. The warning names the topic traffic, operations, policy rejections, and authentication rules, and says that the connection rules are unaffected. The rules of the other categories can still be saved, but threshold, rate, and aggregation rules stay silent, and rules that alert when no event is received fire continuously. The warning links to **Reporter Settings**.
 
 ## Create an alert
 
@@ -146,4 +146,4 @@ To verify an alert, follow these steps:
 
 1. Open **Alerts** for the Kafka Service.
 2. Check that the alert is listed with the rule and the severity you chose, and that its **Enabled** switch is on.
-3. Unless the alert uses a **Connection** rule, check that the page doesn't show **Analytics are disabled, so most rules here will not work**.
+3. Unless the alert uses a **Connection** rule, check that the page doesn't show **Aggregated metrics are off, so most rules here will not work**.

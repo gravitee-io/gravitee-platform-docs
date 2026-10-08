@@ -5,7 +5,7 @@ description: Put the connections of your registered clusters behind a single end
 ---
 # Create your first Virtual Cluster
 
-This quickstart walks you through creating a Virtual Cluster from the connection of a registered cluster, and deploying it so a Kafka Service can bind to it. A Virtual Cluster puts one or more cluster connections, called backends, behind a single endpoint. With two or more backends, it forms a Kafka Mesh: clients reach the topics of every backend through one connection.
+This quickstart walks you through creating a Virtual Cluster from the connection of a registered cluster, and deploying it so a Kafka Service can bind to it. A Virtual Cluster puts one or more cluster connections, called backends, behind a single endpoint. The gateway runs every Virtual Cluster as a Kafka Mesh. With two or more backends, clients reach the topics of every backend through one connection.
 
 {% hint style="info" %}
 For a complete reference on all Virtual Cluster options, see [Establish a Virtual Cluster](../kafka-infrastructure/virtual-clusters/establish-a-virtual-cluster.md).
@@ -54,7 +54,7 @@ The **Composition** step lists the connections of your deployed clusters. When n
 2. In the **Connection** list, select one of its connections.
 3. Select **Add backend**.
 
-One backend is enough. To form a Kafka Mesh, repeat these steps for a second connection: the **Kafka Mesh** badge appears once the Virtual Cluster has two backends. A connection that is already a backend of this Virtual Cluster can't be picked again.
+One backend is enough. To reach the topics of a second cluster through the same endpoint, repeat these steps for a second connection: the **Kafka Mesh** badge appears once the Virtual Cluster has two backends. A connection that is already a backend of this Virtual Cluster can't be picked again.
 
 Select **Next: Review**.
 

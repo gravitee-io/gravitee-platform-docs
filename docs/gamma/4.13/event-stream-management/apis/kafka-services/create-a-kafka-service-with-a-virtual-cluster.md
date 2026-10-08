@@ -66,7 +66,7 @@ The console confirms with **Kafka Service created** and opens the **Overview** p
 
 ## When the Virtual Cluster isn't deployed
 
-A Kafka Service can't start while its Virtual Cluster isn't deployed. When you open such a Kafka Service, a **Virtual Cluster not deployed** banner names the Virtual Cluster and links to it, and the **Start** button of the page header is disabled. Deploy the Virtual Cluster, then start the Kafka Service.
+A Kafka Service can't start while its Virtual Cluster isn't deployed. When you open such a Kafka Service, a **Virtual Cluster not deployed** banner names the Virtual Cluster and links to it, and the **Start** button of the page header, the **Start Kafka Service** tile of the **Settings** page, and the **Start** action of its row in the **Kafka Services** list are disabled. Deploy the Virtual Cluster, then start the Kafka Service.
 
 ## Verification
 

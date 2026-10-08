@@ -10,17 +10,12 @@ When you operate several Kafka Services with a consistent configuration, duplica
 
 ## What the copy includes
 
-The duplicated Kafka Service reuses the following configuration of the source:
+The Management API copies the source on the server, from an export of its definition. The copy includes the following items of the source:
 
-* The description, the visibility, the tags, and the groups.
-* The listener, with the host prefix replaced by the value that you enter.
-* The endpoint groups and their endpoints, so the copy reaches the same cluster, Virtual Cluster, or brokers.
+* The definition: the description, the listener, the endpoint groups and their endpoints, the flows, the resources, the properties, and the reporter settings. The copy reaches the same cluster, Virtual Cluster, or brokers as the source.
+* The plans, the documentation pages, the members, the metadata, and the groups.
 
-The copy doesn't include the labels, categories, plans, flows, resources, properties, metadata, members, or reporter settings of the source. The new Kafka Service is created stopped.
-
-{% hint style="info" %}
-The copy has no plan, so clients can't connect to it until you create and publish one. See [Manage plans](manage-plans.md).
-{% endhint %}
+Only the name, the version, and the listener host prefix change, to the values that you enter. The copy doesn't keep the primary owner of the source.
 
 ## Duplicate the Kafka Service
 
@@ -49,7 +44,7 @@ The copy has no plan, so clients can't connect to it until you create and publis
         </tr>
         <tr>
             <td><strong>Host prefix</strong></td>
-            <td>Required. Empty when the dialog opens. The same format rules as at creation apply: lowercase letters, digits, hyphens, and underscores, with dots to separate labels, a first label of at most 49 characters, and at most 241 characters in all. Enter a prefix that no other API in the environment uses. The host prefix of the source, shown under the field, is already in use.</td>
+            <td>Required. Empty when the dialog opens. The same format rules as at creation apply: lowercase letters, digits, hyphens, and underscores, with dots to separate labels, a first label of at most 49 characters, and at most 241 characters in all. Enter a prefix that no other API in the environment uses. The help text under the field shows the listener host of the source, which the copy can't reuse.</td>
         </tr>
     </tbody>
 </table>
@@ -58,19 +53,21 @@ The copy has no plan, so clients can't connect to it until you create and publis
 
 The console confirms with **Kafka Service duplicated** and opens the **Overview** page of the new Kafka Service.
 
-The dialog checks the format of the host prefix while you type, but not whether another API uses it. When the host prefix is in use, the Management API refuses the copy, and the dialog shows the reason. Enter another prefix, then click **Duplicate** again.
+While you type, the dialog checks the format of the host prefix, then whether another API uses it: it shows **Checking availability…**, then **This host is already in use.** when the prefix is taken. **Duplicate** stays disabled until the host prefix is valid and free. When the Management API refuses the copy, the dialog shows the reason.
+
+The **Duplicate** button doesn't appear on a Kafka Service managed by the Gravitee Kubernetes Operator. See [Detach a Kubernetes-managed Kafka Service](manage-general-settings.md#detach-a-kubernetes-managed-kafka-service).
 
 ## Verification
 
 To verify the copy, follow these steps:
 
 1. Open the **Kafka Services** list, and check that the new Kafka Service is listed with its own listener host.
-2. Open the new Kafka Service, and check its **Entrypoint** and **Endpoints** pages.
+2. Open the new Kafka Service, and check its **Entrypoint**, **Endpoints**, and **Plans** pages.
 
 ## Next steps
 
 After duplicating the Kafka Service, prepare the copy to serve traffic:
 
-* Create and publish a plan. See [Manage plans](manage-plans.md).
+* Check the plans of the copy. See [Manage plans](manage-plans.md).
 * Review the endpoint binding on the **Endpoints** page if the copy targets other Kafka infrastructure. See [Configure endpoints](configure-endpoints.md).
 * Start the Kafka Service from its **Settings** page when it's ready to accept connections. See [Manage general settings](manage-general-settings.md).

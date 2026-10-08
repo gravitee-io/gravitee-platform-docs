@@ -15,7 +15,7 @@ A plan decides how Kafka clients access a Kafka Service: with no credentials, wi
 3. Click the name of the Kafka Service.
 4. In the **Consumers** group of the Kafka Service sidebar, click **Plans**.
 
-The status cards, **Staging**, **Published**, **Deprecated**, and **Closed**, show how many plans have each status. Click a card to list its plans. The page opens on **Staging**. The table shows the **Name**, **Security type**, **Status**, and **Validation** of each plan.
+The status cards, **Staging**, **Published**, **Deprecated**, and **Closed**, show how many plans have each status. Click a card to list its plans. The page opens on **Published**. After you create a plan, it returns to **Staging**. After you edit a plan, it returns to the status of that plan. The table shows the **Name**, **Security type**, **Status**, and **Validation** of each plan.
 
 Without permission to change the Kafka Service's plans, the page is read-only.
 
@@ -70,8 +70,8 @@ A deprecated plan still counts as live. These rules apply when you publish a pla
 
 1. Open the plans of the Kafka Service.
 2. Create the plan:
-    * When the Kafka Service has no plan, the page shows **No plans yet**. Click **Create plan**. The form opens for a Keyless plan.
-    * Otherwise, click **Create plan**, then select **Keyless**, **API key**, **OAuth2**, **JWT**, or **mTLS**.
+    * Click **Create plan**, then select **Keyless**, **API key**, **OAuth2**, **JWT**, or **mTLS**.
+    * When the Kafka Service has no plan, the page shows **No plans yet**, with the same **Create plan** menu.
 3. Complete the plan form:
 
 <table>
@@ -101,6 +101,22 @@ A deprecated plan still counts as live. These rules apply when you publish a pla
         <tr>
             <td><strong>Description</strong></td>
             <td>Optional. What the plan offers.</td>
+        </tr>
+        <tr>
+            <td><strong>Characteristics</strong></td>
+            <td>Optional. Type a characteristic, then press Enter. The characteristics are shown on the plan in the Developer Portal.</td>
+        </tr>
+        <tr>
+            <td><strong>Consumer must provide a comment when subscribing to the plan (Classic Portal only)</strong></td>
+            <td>Optional. When selected, consumers who subscribe from the Classic Portal must enter a comment.</td>
+        </tr>
+        <tr>
+            <td><strong>Custom message to display to consumer</strong></td>
+            <td>Optional. Available only when the comment is required. Up to 64 characters: a longer message shows <strong>The comment message has to be less than 64 characters long.</strong> and blocks the form.</td>
+        </tr>
+        <tr>
+            <td><strong>Sharding tags</strong></td>
+            <td>Optional. Deploys the plan only on the gateways that carry the selected tags. You can select only a tag that the Kafka Service carries on its <strong>Sharding Tags</strong> page and that your user may use. When the organization has no tag, the form shows <strong>No sharding tags are configured for this organization.</strong> See <a href="manage-deployments.md#choose-the-gateways-that-load-the-kafka-service">Choose the gateways that load the Kafka Service</a>.</td>
         </tr>
     </tbody>
 </table>
@@ -163,7 +179,7 @@ If the closures succeed but the publication fails, the dialog stays open as **Pu
 
 ## Edit or reorder plans
 
-* To edit a plan, click its name, or select **Edit** in its actions menu. The name, the security configuration, the subscription validation, and the description can change. Click **Save changes**. The console confirms with **Plan updated**.
+* To edit a plan, click its name, or select **Edit** in its actions menu. Every field of the form can change, except the security type. Click **Save changes**. The console confirms with **Plan updated**.
 * To reorder the plans, click the up or down arrow of a row. The arrows move the plan within the plans of the selected status.
 
 ## Verification
