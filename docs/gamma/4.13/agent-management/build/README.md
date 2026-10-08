@@ -15,5 +15,6 @@ The **Secure** group of the Agent Management sidebar holds the **AI Workspaces**
 * [**Manage subscriptions**](../publish/manage-subscriptions.md). Consumers subscribe to the published plans of a Gamma LLM, MCP, or A2A Proxy.
 * [**Broadcast messages to proxy consumers**](broadcast-messages-to-proxy-consumers.md). Send a one-way announcement to the consumers of a Gamma LLM, MCP, or A2A Proxy.
 * [**Configure properties for your proxies**](configure-properties-for-your-proxies.md). API properties are key and value pairs Gamma policies read at runtime through the Expression Language.
+* [**Promote your proxies to another environment**](promote-your-proxies-to-another-environment.md). Send a copy of an LLM, MCP, or A2A Proxy to another environment through Gravitee Cloud, and accept or reject the request there.
 * [**Manage metadata for your proxies**](manage-metadata-for-your-proxies.md). Manage the metadata of an LLM, MCP, or A2A Proxy from its Metadata page.
 * [**Configure resources for your proxies**](configure-resources-for-your-proxies.md). Create and manage the resources that the policies of an LLM, MCP, or A2A Proxy reference at runtime.
