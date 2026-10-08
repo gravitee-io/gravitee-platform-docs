@@ -29,6 +29,8 @@ The logs open in a new tab, filtered to that API over the last 24 hours.
 
 The **Common**, **Kafka**, and **Message** buttons above the table, next to **View**, choose which columns it shows. It opens on **Common**. Click **Kafka** to show each row's status, failure origin, client ID, and duration. A **Connected** row has no duration, because it's written when the connection opens. Click **Message** to show the entrypoint, the HTTP status, the request URI, and the gateway response time.
 
+**View** also lets you add the **Connection ID** column, which is hidden by default. The gateway writes this ID on its own log lines for the connection, so you can use it to search the gateway logs.
+
 A Kafka row's status is **Connected**, **Disconnected**, **Connection error**, **Session error**, or **Internal error**. Which of these a Kafka Service writes follows its connection events in **Reporter Settings**: by default **Connected** and the three errors, and **Disconnected** only once you select it. See [Configure reporter settings](configure-reporter-settings.md#choose-which-connection-events-are-reported).
 
 **Failure Origin** says where the connection broke.
@@ -70,18 +72,18 @@ First widen the time range, which opens on the last 5 minutes and hides anything
 
 An API also records nothing until reporting is on, and its **Overview** page shows a warning until then. The warning links to the API's **Reporter Settings**, where you turn reporting on. See [Configure reporter settings](configure-reporter-settings.md).
 
-* A Kafka Service shows **Connection metrics are disabled** until both **Aggregated metrics** and **Connection events** are selected. Its connections reach this list as soon as **Connection events** is selected.
+* A Kafka Service shows **Connection events are disabled** while **Connection events** is cleared.
 * A Message API shows **Runtime reporting is disabled** until **Enable analytics** is selected on its **Settings** card. That checkbox alone is what puts its connections in this list.
 * A Message API that reports, and whose logging options were set without both a **Logging mode** and a **Logging phase**, shows **Message content is not recorded** instead. Its connections are listed here, and each row opens with an empty **Messages** section. A Message API whose logging options were never set shows no warning.
 
-<figure><img src="../../.gitbook/assets/esm-observability-metrics-disabled.png" alt="The Overview page of a Kafka Service showing the Connection metrics are disabled warning, which links to Reporter Settings"><figcaption><p>A Kafka Service that reports nothing says so on its own page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/esm-observability-metrics-disabled.png" alt="The Overview page of a Kafka Service showing the Connection events are disabled warning, which links to Reporter Settings"><figcaption><p>A Kafka Service that reports nothing says so on its own page</p></figcaption></figure>
 
 ## Verification
 
 To verify logs are working as expected, follow these steps:
 
 1. Open a Kafka Service.
-2. Confirm its **Overview** page doesn't show **Connection metrics are disabled**.
+2. Confirm its **Overview** page doesn't show **Connection events are disabled**.
 3. Connect a Kafka client to the Kafka Service.
 4. Open **Logs**.
 5. Set the time range to cover the connection.

@@ -47,7 +47,7 @@ A connection counts as failed when its status is **Connection error**, **Session
         </tr>
         <tr>
             <td><strong>Error</strong></td>
-            <td>The error key, the component that failed, the connection duration, and the error message. Shown for a failed connection only.</td>
+            <td>The error key, the <strong>Connection ID</strong>, the component that failed, the connection duration, and the error message. The gateway writes the Connection ID on its own log lines, so you can copy it to search the gateway logs. Shown for a failed connection only.</td>
         </tr>
         <tr>
             <td><strong>This connection</strong></td>
@@ -198,7 +198,7 @@ These are usually transient, and they resolve without intervention.
         <tr>
             <td><code>UNKNOWN_SERVER_ERROR</code></td>
             <td>An unexpected server error occurred.</td>
-            <td>Inspect the gateway logs around this connection's transaction id.</td>
+            <td>Search the gateway logs for this <strong>Connection ID</strong>, logged as <code>connectionId</code>, around this time.</td>
         </tr>
     </tbody>
 </table>

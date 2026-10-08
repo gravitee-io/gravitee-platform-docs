@@ -19,13 +19,13 @@ A Virtual Cluster moves through three states:
 | **Deployed** | The gateway routes requests to the backends and merges their responses. |
 | **Pending changes** | The configuration was saved after the last deployment. The gateway keeps running the previously deployed configuration until you select **Deploy changes**. |
 
-The lifecycle actions are above every page of the Virtual Cluster, and in the row menu of the **Virtual Clusters** list: **Deploy** from **Undeployed**, **Deploy changes** and **Undeploy** from **Pending changes**, and **Undeploy** from **Deployed**. **Undeploy** asks for confirmation in the **Undeploy Cluster?** dialog. See [Manage a Virtual Cluster](manage-a-virtual-cluster.md).
+The lifecycle actions are above every page of the Virtual Cluster, and in the row menu of the **Virtual Clusters** list: **Deploy** from **Undeployed**, **Deploy changes** and **Undeploy** from **Pending changes**, and **Undeploy** from **Deployed**. **Undeploy** asks for confirmation in the **Undeploy Virtual Cluster?** dialog. See [Manage a Virtual Cluster](manage-a-virtual-cluster.md).
 
 The Management API enforces the following rules between a Virtual Cluster and the Kafka Services bound to it:
 
 * **A Virtual Cluster needs a backend to deploy.** Deploying a Virtual Cluster with no backend is refused. The console disables **Deploy** and explains **A Virtual Cluster needs at least one backend before it can be deployed.**
 * **A Kafka Service starts only on a live Virtual Cluster.** A Kafka Service bound to a Virtual Cluster can be started or deployed only while the Virtual Cluster is **Deployed** or has **Pending changes**.
-* **A Virtual Cluster with a started Kafka Service can't be undeployed.** Stop every Kafka Service bound to it first. The **Undeploy Cluster?** dialog lists the started Kafka Services that block the undeployment.
+* **A Virtual Cluster with a started Kafka Service can't be undeployed.** Stop every Kafka Service bound to it first. The **Undeploy Virtual Cluster?** dialog lists the started Kafka Services that block the undeployment.
 * **Removing every backend doesn't undeploy the Virtual Cluster.** Saving a deployed Virtual Cluster with no backend moves it to **Pending changes**. The gateway keeps serving the previously deployed backends, and the Virtual Cluster can't be deployed again until it has a backend.
 * **Changes to a backend Cluster reach the Virtual Cluster when you deploy them.** When you deploy changes to a Cluster used as a backend, the gateway rebuilds the Virtual Clusters that use it.
 

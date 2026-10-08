@@ -37,7 +37,7 @@ To narrow the list, use the following controls:
 
 When nothing matches, the list names the search and the filters, and **Clear filters** resets both.
 
-The row menu (**⋯**) of each Cluster offers **Open**, and the lifecycle actions that your environment role allows: **Deploy** or **Deploy changes**, **Undeploy**, and **Delete**.
+The row menu (**⋯**) of each Cluster offers **Open**, and the lifecycle actions that your environment role allows: **Deploy** or **Deploy changes**, **Undeploy**, and **Delete**. **Delete** is available only once the Cluster is undeployed: until then, it's disabled and reads **Undeploy it first**.
 
 The ⓘ button next to the **Clusters** title opens the **Why register a Cluster?** explainer. Select the button again, or dismiss the panel, to close it.
 
@@ -47,7 +47,7 @@ A Cluster is in one of three states:
 
 | Status | Meaning | Lifecycle actions |
 | --- | --- | --- |
-| **Undeployed** | The gateway doesn't know the Cluster. Kafka Services and Virtual Clusters can't use it. A new Cluster starts in this state. | **Deploy** |
+| **Undeployed** | The gateway doesn't know the Cluster. Kafka Services and Virtual Clusters can't use it. A new Cluster starts in this state. | **Deploy**, and **Delete** |
 | **Deployed** | The gateway runs the saved configuration of the Cluster. | **Undeploy** |
 | **Pending changes** | The Cluster was edited after its last deployment. The gateway keeps running the previously deployed configuration until you deploy the changes. | **Deploy changes**, **Undeploy** |
 
@@ -70,7 +70,7 @@ When you deploy changes to a Cluster that backs Virtual Clusters, the gateway re
 2. Select **Undeploy**.
 3. In the **Undeploy Cluster?** dialog, select **Undeploy Cluster**.
 
-The console confirms with **Cluster undeployed**, and the status changes to **Undeployed**. The dialog warns that traffic to the Cluster stops until you deploy it again. If the undeployment fails, the dialog shows **Undeploy failed** with the reason and stays open.
+The console confirms with **Cluster undeployed**, and the status changes to **Undeployed**. The dialog warns that traffic to the Cluster stops until you deploy it again. Unlike the dialog of a Virtual Cluster, it doesn't list Kafka Services. If the undeployment fails, the dialog shows **Undeploy failed** with the reason and stays open.
 
 ## Read the overview
 
@@ -85,9 +85,9 @@ A registered Cluster has the **Multi-connection** type.
 3. Change the **Name** or the **Description**. The name is required.
 4. At the bottom of the page, select **Save changes**, or **Discard** to restore the saved values.
 
-The console confirms with **Cluster updated**. The **Settings** page also shows, read-only, the **Cross ID**, the **Type**, the **Lifecycle state**, the **Version**, the **Groups**, and the **Created at** and **Updated at** dates.
+The console confirms with **Cluster updated**. The **Settings** page also shows, read-only, the **Cross ID**, the **Type**, the **Lifecycle state**, the **Version**, the **Groups**, and the **Created at** and **Updated at** dates. The **Groups** row shows the names of the groups, or the ID of a group that the environment no longer lists.
 
-Without the `CLUSTER` **Update** permission of your environment role, the name and the description are read-only too.
+Without the `CLUSTER` **Update** permission of your environment role, or without the **Definition** update permission of your role on the Cluster, the name and the description are read-only too. See [Manage cluster permissions](manage-cluster-permissions.md).
 
 ## Edit the connections
 
@@ -99,9 +99,9 @@ Without the `CLUSTER` **Update** permission of your environment role, the name a
 
 The save bar appears only while the page holds an unsaved change. When a value is invalid, **Save changes** shows the field errors and doesn't save.
 
-The Management API saves the connections only when your role on the Cluster includes the **Configuration** update permission. See [Manage cluster permissions](manage-cluster-permissions.md).
+You can edit the connections only with the `CLUSTER` **Update** permission of your environment role and the **Configuration** update permission of your role on the Cluster. See [Manage cluster permissions](manage-cluster-permissions.md). Otherwise, the **Configuration** card reads **Your role can't change this configuration.** and shows the connections read-only, as a table with their **Name**, **Cross ID**, **Bootstrap servers**, and **Security protocol**. The Management API returns the credentials of the connections only to users whose role on the Cluster can update its configuration.
 
-Without the `CLUSTER` **Update** permission of your environment role, the page shows the connections read-only, as a table with their **Name**, **Cross ID**, **Bootstrap servers**, and **Security protocol**. The Management API returns the credentials of the connections only to users whose role on the Cluster can update its configuration.
+A role without the **Configuration** read permission on the Cluster, such as the built-in **User** role, gets no configuration from the Management API. For that role, the page reads **No connections configured.**, and the **Clusters** list and the **Overview** page count 0 connections.
 
 {% hint style="warning" %}
 Kafka Services and Virtual Clusters reference a connection by its cross ID. Before you remove a connection or change its cross ID, check the **Used by Kafka Services** page of the Cluster, and the **Configuration** page of your Virtual Clusters.
@@ -114,14 +114,14 @@ Kafka Services and Virtual Clusters reference a connection by its cross ID. Befo
 
 The page lists the Kafka Services whose endpoint references the Cluster, with their **Name**, **Version**, **State**, and **Binding**. Select a name to open the Kafka Service. When no Kafka Service references the Cluster, the page reads **No Kafka Services reference this Cluster yet.**
 
-The list covers the Kafka Services bound to the Cluster directly, with the **Managed Cluster** binding mode. A Kafka Service that reaches the Cluster through a Virtual Cluster is listed on the Virtual Cluster's own **Used by Kafka Services** page. The console builds the list in the browser from the first 100 Kafka Services of the environment.
+The list covers the Kafka Services bound to the Cluster directly, with the **Managed Cluster** binding mode. A Kafka Service that reaches the Cluster through a Virtual Cluster is listed on the Virtual Cluster's own **Used by Kafka Services** page. The console builds the list in the browser from every Kafka Service of the environment.
 
 ## Delete a cluster
 
 Deleting a Cluster removes its registration from Gamma. The Kafka cluster itself isn't affected.
 
-1. Undeploy the Cluster. The Management API refuses to delete a Cluster that is **Deployed** or has **Pending changes**. See [Undeploy a cluster](#undeploy-a-cluster).
-2. Select **Delete cluster** above the Cluster's pages. Alternatively, select **Delete** in the row menu of the **Clusters** list.
+1. Undeploy the Cluster. The Management API refuses to delete a Cluster that is **Deployed** or has **Pending changes**, so the console disables **Delete Cluster** until then, with the tooltip **Undeploy this Cluster before deleting it.** See [Undeploy a cluster](#undeploy-a-cluster).
+2. Select **Delete Cluster** above the Cluster's pages. Alternatively, select **Delete** in the row menu of the **Clusters** list.
 3. In the **Delete Cluster \<name\>?** dialog, type the name of the Cluster.
 4. Select **Delete Cluster**.
 

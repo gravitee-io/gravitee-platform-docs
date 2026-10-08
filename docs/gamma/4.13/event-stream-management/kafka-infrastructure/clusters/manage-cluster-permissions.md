@@ -29,9 +29,11 @@ A Cluster carries the following roles:
 | --- | --- |
 | **Primary Owner** | The creator of the Cluster holds this role. Only a transfer moves it to another user, and the primary owner can't be removed. |
 | **Owner** | Every action on the Cluster: read and update its definition and its configuration, delete it, and manage its members. |
-| **User** | Read the definition and the members of the Cluster. The connection configuration isn't included. |
+| **User** | Read the definition and the members of the Cluster. The connection configuration isn't included, so on the **Configuration** page a User sees no connection or backend. |
 
-These roles decide what the Management API lets a user do to one Cluster. The `CLUSTER` permissions of the user's environment role still decide which pages and actions the console offers at all, such as **Create Cluster**, the lifecycle actions, and **Delete cluster**.
+These roles decide what the Management API lets a user do to one Cluster. The `CLUSTER` permissions of the user's environment role still decide which pages and actions the console offers at all, such as **Create Cluster**, the lifecycle actions, and **Delete Cluster**.
+
+The console also checks the role on the Cluster before it offers an edit: the **Settings** page is editable only with the **Definition** update permission, and the **Configuration** page only with the **Configuration** update permission. See [Manage clusters](manage-a-cluster.md#edit-the-settings).
 
 ## Add members
 
