@@ -16,6 +16,8 @@ A Kafka Service opens on its **Overview** page. The page holds the state of the 
 
 The **Overview** page opens. To come back to it from another page of the Kafka Service, click **Overview** in the **General** group of the Kafka Service sidebar.
 
+<figure><img src="../../.gitbook/assets/gamma-esm-kafka-service-overview.png" alt="The Overview page of a Kafka Service, with the State, Deployment, and Backend binding cards, the Checklist card at 3 of 5, and the Bootstrap server and Backend cards"><figcaption><p>The <strong>Overview</strong> page of a Kafka Service.</p></figcaption></figure>
+
 ## Read the status cards
 
 Three cards at the top of the page show:

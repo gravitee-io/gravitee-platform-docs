@@ -8,7 +8,7 @@ description: Open a failed Kafka connection from the logs to see what broke, whe
 
 Open a failed Kafka connection from the logs to see what broke, where it broke, and, for an error the gateway recognizes, what to do next.
 
-<figure><img src="../../.gitbook/assets/esm-observability-log-detail.png" alt="A failed Kafka connection opened from the logs, showing the Connection error status, a Gateway ↔ Broker badge, and a message saying what went wrong and what to do next, above the Client → Gateway, Gateway → Broker, Error, Kafka Service activity, and Raw record sections"><figcaption><p>A failed connection opens on what went wrong, before the raw fields</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/esm-observability-log-detail.png" alt="A failed Kafka connection opened from the logs, showing the Connection error status, a Client ↔ Gateway badge, and a message saying what went wrong and what to do next, above the Client → Gateway, Gateway → Broker, Error, Kafka Service activity, and Raw record sections"><figcaption><p>A failed connection opens on what went wrong, before the raw fields</p></figcaption></figure>
 
 ## Open a connection
 

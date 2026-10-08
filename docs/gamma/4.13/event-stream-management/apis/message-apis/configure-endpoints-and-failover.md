@@ -15,7 +15,7 @@ The endpoints of a Message API are the backends that it produces to and consumes
 3. Click the name of the Message API.
 4. In the **Design** group of the Message API sidebar, click **Endpoints**.
 
-<figure><img src="../../.gitbook/assets/gamma-esm-message-api-endpoints.png" alt="The Endpoints page of a Message API, with the Default Kafka group, its connector, load balancing, and Default badges, and the table of its endpoints"><figcaption><p>The Endpoints page of a Message API</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-esm-message-api-endpoints.png" alt="The Endpoints page of a Message API, with its default Kafka group, its connector, load balancing, and Default badges, and the table of its endpoints"><figcaption><p>The Endpoints page of a Message API</p></figcaption></figure>
 
 The **Endpoints** card lists the endpoint groups. Each group shows its name, its connector, its load balancing algorithm, and a table of its endpoints with their **Name**, **Weight**, and, when set, **Tenants**. The endpoints of a Kafka group also show their **Bootstrap servers**.
 
@@ -99,6 +99,8 @@ An endpoint has the following fields:
 </table>
 
 ## Configure failover
+
+<figure><img src="../../.gitbook/assets/gamma-esm-message-api-failover.png" alt="The Failover page of a Message API with a Kafka endpoint, with Enable failover cleared, the note that failover is not supported for Kafka endpoints, and the Max retries, Force next endpoint on failure, and Failure condition fields"><figcaption><p>The failover settings of a Message API</p></figcaption></figure>
 
 1. In the **Design** group of the Message API sidebar, click **Failover**.
 2. Select **Enable failover**. The other fields become editable.

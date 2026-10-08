@@ -131,6 +131,8 @@ A plan that conflicts with a plan published at creation shows **Cannot be publis
 
 To remove a plan from the list, click its delete icon.
 
+<figure><img src="../../.gitbook/assets/gamma-esm-kafka-service-create-security.png" alt="The Security step of the Kafka Service wizard, with the Keyless plan added on the first visit and published, and the Plan type list open on API key, OAuth2, JWT, and mTLS"><figcaption><p>The <strong>Security</strong> step adds a Keyless plan on your first visit</p></figcaption></figure>
+
 ### Review
 
 The **Review & create** step lists the **Name**, **Version**, **Description**, **Listener**, **Binding mode**, **Binding**, and **Plans** of the Kafka Service. Each plan shows the status it gets at creation, **Published** or **Staging**.
@@ -144,6 +146,8 @@ The console creates the Kafka Service, creates its plans, then starts it or subm
 Without **Deploy now**, the Kafka Service is created stopped.
 
 When the Kafka Service is created but a later step fails, for example a plan or the start, the console shows **Kafka Service created, but not fully set up**, followed by the reason, and opens the Kafka Service. Finish the step from its pages. If the creation itself fails, the wizard shows **Create failed** with the reason, and nothing is created.
+
+<figure><img src="../../.gitbook/assets/gamma-esm-kafka-service-create-review.png" alt="The Review &amp; create step of the Kafka Service wizard, with the name, version, listener, binding, and plans of the Kafka Service, and the Deploy now checkbox cleared"><figcaption><p>The <strong>Review &amp; create</strong> step</p></figcaption></figure>
 
 ## Import a Kafka Service
 

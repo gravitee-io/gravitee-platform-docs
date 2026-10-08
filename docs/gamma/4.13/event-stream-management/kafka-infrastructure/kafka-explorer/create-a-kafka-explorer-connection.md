@@ -34,7 +34,7 @@ A Virtual Cluster can't be a **Cluster** target.
 2. In the **Kafka Infrastructure** group, select **Explorer**.
 3. On the **Kafka Explorer** page, select **Create Connection**.
 
-    <figure><img src="../../.gitbook/assets/gamma-esm-kafka-explorer-connections.png" alt="The Kafka Explorer page listing two connections with their Target badges and the Create Connection button"><figcaption><p>The Kafka Explorer page lists the connections that you can see, with a <strong>Target</strong> badge on each row.</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-esm-kafka-explorer-connections.png" alt="The Kafka Explorer page listing the connections with their Target badges and the Create Connection button"><figcaption><p>The Kafka Explorer page lists the connections that you can see, with a <strong>Target</strong> badge on each row.</p></figcaption></figure>
 
 4. In the **Target type** step, select **Cluster**, **Kafka Service**, or **Direct Broker**.
 

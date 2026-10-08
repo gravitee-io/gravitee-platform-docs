@@ -79,6 +79,8 @@ The Security step lists the plans that the Kafka Service gets at creation. On yo
 Keyless plans are intended for testing and internal use. For production Kafka Services, publish a plan with an API key, OAuth2, JWT, or mTLS security type from the Kafka Service's **Plans** page. A Kafka Service can't keep a Keyless plan live next to a secured plan, so publishing the secured plan opens a **Close current plan and publish?** dialog that closes the Keyless plan.
 {% endhint %}
 
+<figure><img src="../.gitbook/assets/gamma-esm-kafka-service-create-security.png" alt="The Security step of the Kafka Service wizard, with the Keyless plan added on the first visit and published, and the Plan type list open on API key, OAuth2, JWT, and mTLS"><figcaption><p>The <strong>Security</strong> step adds a Keyless plan on your first visit</p></figcaption></figure>
+
 ### Review
 
 1. Review the name, version, listener, binding, and plans.

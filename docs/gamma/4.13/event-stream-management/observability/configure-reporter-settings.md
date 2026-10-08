@@ -49,6 +49,8 @@ The **Settings** card holds two checkboxes, and the **OpenTelemetry** card holds
     </tbody>
 </table>
 
+<figure><img src="../.gitbook/assets/esm-observability-kafka-reporter-settings.png" alt="The Reporter Settings page of a Kafka Service, with Aggregated metrics and Connection events selected, the Connected, Disconnected, and Errors events ticked, and the OpenTelemetry card"><figcaption><p>The reporter settings of a Kafka Service</p></figcaption></figure>
+
 The tracing options cascade: with **Aggregated metrics** cleared, **OpenTelemetry tracing** and **Verbose tracing** can't be selected, and saving turns both off.
 
 {% hint style="warning" %}

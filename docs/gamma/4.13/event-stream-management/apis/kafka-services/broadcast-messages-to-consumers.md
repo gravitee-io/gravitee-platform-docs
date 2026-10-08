@@ -63,6 +63,8 @@ A broadcast sends a one-off message about a Kafka Service to the people who cons
 
 The message goes out at once, without a confirmation step. The page doesn't keep a history of broadcasts. Once the message is sent, the **Title**, **Message**, **URL**, and **HTTP headers** fields clear. When a required field is missing, the form shows the error under the field, for example **Title is required.** or **Recipient scope is required.**, and sends nothing. When the delivery fails, the page shows **Send failed** with the reason.
 
+<figure><img src="../../.gitbook/assets/gamma-esm-kafka-service-broadcasts-http.png" alt="The Broadcasts page of a Kafka Service with the HTTP POST channel, showing the URL, an HTTP header, the Use system proxy checkbox, and the Message field"><figcaption><p>A broadcast sent to a URL</p></figcaption></figure>
+
 ## Verification
 
 To verify that the broadcast was sent, follow these steps:
