@@ -163,3 +163,9 @@ developer-portal/new-developer-portal/configure-authentication/configure-authent
 # Inline Authentication Provider 3.0.0: EL and secrets in usernames and passwords, 4.13 docs only (APIM-14078)
 prepare-a-production-environment/sensitive-data-management/plugin-support.md
 .gitbook/assets/inline-auth-provider-el-credentials.png
+# SAP Business Technology Platform federation provider page and its captures (APIM 4.13.0, AIAM-727)
+govern-apis/federation/3rd-party-providers/sap-api-management.md
+govern-apis/federation/3rd-party-providers/README.md
+.gitbook/assets/federation-sap-api-management-choose-provider.png
+.gitbook/assets/federation-sap-api-management-integration-overview.png
+.gitbook/assets/federation-sap-api-management-plans.png
