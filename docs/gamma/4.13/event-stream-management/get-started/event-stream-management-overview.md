@@ -21,7 +21,7 @@ The Event Stream Management sidebar groups these capabilities by object:
   * **Message APIs**. Expose an event stream over HTTP, so a client publishes and subscribes without speaking the Kafka protocol. A Message API pairs HTTP entrypoints, such as HTTP POST, HTTP GET, SSE, or a webhook, with a broker endpoint on the other side, and carries the same plans, subscriptions, and policies as a Kafka Service. See [Message APIs](../apis/message-apis/README.md).
 * **Kafka Infrastructure**. The Kafka estate that the environment can reach:
   * **Clusters**. Register existing Kafka clusters with Gamma, each with one or more named connections, so Kafka Services and Virtual Clusters can be built on them. See [Register your Kafka clusters](../kafka-infrastructure/clusters/register-your-kafka-clusters.md).
-  * **Virtual Clusters**. Compose the connections of one or more registered clusters behind a single endpoint. Two or more backends form a Kafka Mesh. See [Virtual Clusters](../kafka-infrastructure/virtual-clusters/README.md).
+  * **Virtual Clusters**. Compose the connections of one or more registered clusters behind a single endpoint. The gateway runs every Virtual Cluster as a Kafka Mesh. See [Virtual Clusters](../kafka-infrastructure/virtual-clusters/README.md).
   * **Explorer**. Read the live brokers, topics, consumer groups, and messages of a registered cluster, a Kafka Service, or a broker address through saved connections. See [Kafka Explorer](../kafka-infrastructure/kafka-explorer/README.md).
 * **Observability**. Dashboards, logs, and traces for your Kafka Services and Message APIs. See [Observability](../observability/README.md).
 

@@ -64,7 +64,7 @@ Editing an **Inherited** entry overrides the global value for this Kafka Service
 Only **Local** entries can be deleted.
 
 1. Click the delete icon of the entry.
-2. In the **Delete metadata** confirmation, click **Delete**.
+2. In the **Delete metadata `<name>`?** dialog, click **Delete**.
 
 The console confirms with **Metadata deleted**.
 

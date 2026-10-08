@@ -113,7 +113,7 @@ To remove an entry, click its delete icon, then click **Delete metadata** in the
 Consider the following before you edit metadata:
 
 * The server removes anything between angle brackets from a value. The dialog warns you when a value contains some.
-* When a subscription form governs the Kafka Service, the card says so. Values edited on this card aren't validated against that form.
+* When a subscription form governs the Kafka Service, the card shows **This API has a subscription form**, with the name of the form. Values edited on this card aren't validated against that form, but follow it anyway: a value that the form refuses gets the consumer rejected at their next subscription update.
 * Past 25 entries, the card shows a warning badge, because a consumer who submits the portal subscription form again would be refused. The card itself doesn't enforce the limit.
 
 ## Verification

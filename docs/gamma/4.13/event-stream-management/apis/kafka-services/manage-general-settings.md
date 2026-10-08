@@ -1,12 +1,12 @@
 ---
 hidden: false
 noIndex: false
-description: Rename a Kafka Service in Event Stream Management, set its description, labels, categories, and images, export, import, or duplicate its definition, start or stop it, and delete it. Follow the steps on its Settings page.
+description: Rename a Kafka Service in Event Stream Management, set its description, labels, categories, and images, export, import, or duplicate its definition, start, stop, unpublish, detach, or delete it. Follow the steps on its Settings page.
 ---
 
 # Manage general settings
 
-The **Settings** page of a Kafka Service holds its name, version, description, labels, categories, and images. It also exports, imports, and duplicates the definition of the Kafka Service, and its **Kafka Service events** card starts, stops, deploys, and deletes the Kafka Service.
+The **Settings** page of a Kafka Service holds its name, version, description, labels, categories, and images. It also exports, imports, and duplicates the definition of the Kafka Service. Its **Kafka Service events** card starts, stops, deploys, detaches, and deletes the Kafka Service, and its **Publication** card unpublishes a published Kafka Service.
 
 ## Open the settings
 
@@ -16,6 +16,8 @@ The **Settings** page of a Kafka Service holds its name, version, description, l
 4. In the **General** group of the Kafka Service sidebar, click **Settings**.
 
 Without permission to change the Kafka Service, the fields and the images are read-only, and the **Import**, **Duplicate**, and **Promote** buttons are hidden. **Export** needs permission to read the API definition. The **Kafka Service events** card shows only the actions that your role allows.
+
+A Kafka Service managed by the Gravitee Kubernetes Operator is read-only, whatever your role. See [Detach a Kubernetes-managed Kafka Service](#detach-a-kubernetes-managed-kafka-service).
 
 ## Edit the general information
 
@@ -67,7 +69,7 @@ The **Images** section holds the **Picture** and the **Background** of the Kafka
 
 An image change applies at once, without **Save changes**.
 
-The **Details** section below the images shows the **Owner**, the **Created** and **Updated** dates, the **Visibility**, the **Lifecycle**, and the **Status** of the Kafka Service. When the environment uses the API review workflow, it also shows the **Review** state. The visibility and the lifecycle are read-only on the Kafka Service pages. See [Review a Kafka Service](publish-and-review-a-kafka-service.md).
+The **Details** section below the images shows the **Owner**, the **Created** and **Updated** dates, the **Visibility**, the **Lifecycle**, and the **Status** of the Kafka Service. When the environment uses the API review workflow, it also shows the **Review** state. The visibility is read-only on the Kafka Service pages. The only lifecycle change they offer is **Unpublish**. See [Unpublish the Kafka Service](#unpublish-the-kafka-service) and [Review a Kafka Service](publish-and-review-a-kafka-service.md).
 
 ## Export the definition
 
@@ -124,12 +126,48 @@ The **Kafka Service events** card changes the runtime state of the Kafka Service
         </tr>
         <tr>
             <td><strong>Deploy changes</strong></td>
-            <td>Appears while the Kafka Service is <strong>Out of sync</strong>. Pushes the saved configuration to the connected gateways. The console confirms with <strong>Deployment triggered</strong>.</td>
+            <td>Appears while the Kafka Service is <strong>Out of sync</strong>. Opens the <strong>Deploy your API</strong> dialog, where you can type an optional <strong>Deployment label</strong> of up to 32 characters. Click <strong>Deploy</strong> to push the saved configuration to the connected gateways. The console confirms with <strong>Deployment triggered</strong>.</td>
+        </tr>
+        <tr>
+            <td><strong>Detach the Kafka Service</strong></td>
+            <td>Appears only for a Kafka Service managed by the Gravitee Kubernetes Operator. See <a href="#detach-a-kubernetes-managed-kafka-service">Detach a Kubernetes-managed Kafka Service</a>.</td>
         </tr>
     </tbody>
 </table>
 
-The page header offers the same actions as **Start**, **Stop**, and **Deploy** buttons. When the environment uses the API review workflow, the start and stop actions disappear until a reviewer accepts the Kafka Service. A Kafka Service bound to a Virtual Cluster that isn't deployed can't start.
+The page header offers the same actions as **Start**, **Stop**, and **Deploy** buttons. When the environment uses the API review workflow, the start and stop actions disappear until a reviewer accepts the Kafka Service. A Kafka Service bound to a Virtual Cluster that isn't deployed can't start: the **Start Kafka Service** tile is disabled and reads **This Kafka Service is bound to a Virtual Cluster that is not deployed. Deploy it before starting the service.**
+
+## Unpublish the Kafka Service
+
+A Kafka Service published to the Developer Portal can't be deleted. When the Kafka Service is published, the **Settings** page shows a **Publication** card with an **Unpublish** button.
+
+1. On the **Publication** card, click **Unpublish**.
+2. In the **Unpublish?** dialog, click **Unpublish**.
+
+The console confirms with **Kafka Service updated**, and the Kafka Service leaves the Developer Portal. When the change fails, the card shows the reason.
+
+The **Publication** card appears only when you have permission to change the Kafka Service. When the environment uses the API review workflow, it stays hidden while a review is pending or rejected. The Kafka Service pages don't publish or deprecate a Kafka Service, and don't change its visibility.
+
+## Detach a Kubernetes-managed Kafka Service
+
+A Kafka Service created by the Gravitee Kubernetes Operator is read-only in Event Stream Management, as it is in the APIM Console. No banner announces it, but:
+
+* **Settings**, **User Permissions**, **Metadata**, **Entrypoint**, **Policy Studio**, **Endpoints**, **Resources**, **API Properties**, **Plans**, **Sharding Tags**, and **Reporter Settings** are read-only.
+* The **Start**, **Stop**, **Import**, **Duplicate**, **Unpublish**, and **Delete** actions disappear from the Kafka Service pages.
+* **Deploy**, **Promote**, the rollback of a deployment, the API Score evaluation, **Subscriptions**, **Broadcasts**, **Notifications**, and **Alerts** stay available.
+
+To edit the Kafka Service in Event Stream Management, detach it from the Kubernetes Operator:
+
+1. On the **Settings** page, scroll to the **Kafka Service events** card.
+2. Click **Detach the Kafka Service**. The tile appears only when you have permission to change the definition of the Kafka Service.
+3. In the **Detach API** dialog, under **Type <name> to confirm**, type the name of the Kafka Service.
+4. Click **Yes, detach it**.
+
+The console confirms with **The API has been detached from its automation source.**, and the Kafka Service becomes editable. When the detach fails, the dialog shows the reason.
+
+{% hint style="warning" %}
+Any change you make while the Kafka Service is detached is lost when the Kubernetes Operator attaches it again.
+{% endhint %}
 
 ## Delete the Kafka Service
 
@@ -140,15 +178,16 @@ Deleting a Kafka Service can't be undone.
 {% endhint %}
 
 1. Stop the Kafka Service. A started Kafka Service can't be deleted.
-2. On the **Settings** page, scroll to the **Kafka Service events** card.
-3. Click **Delete this Kafka Service**. The tile stays disabled while the Kafka Service is started or published. It appears only when you have permission to delete the Kafka Service.
-4. In the **Delete Kafka Service?** dialog, under **Type <name> to confirm**, type the name of the Kafka Service. You can select and copy the name from the prompt.
-5. Keep **Also close and delete its plans (required if the Kafka Service has active plans)** checked.
-6. Click **Delete Kafka Service**.
+2. If the Kafka Service is published, unpublish it. See [Unpublish the Kafka Service](#unpublish-the-kafka-service).
+3. On the **Settings** page, scroll to the **Kafka Service events** card.
+4. Click **Delete this Kafka Service**. While the Kafka Service is started or published, the tile is disabled and reads **A running or published Kafka Service cannot be deleted.** It appears only when you have permission to delete the Kafka Service.
+5. In the **Delete Kafka Service?** dialog, under **Type <name> to confirm**, type the name of the Kafka Service. You can select and copy the name from the prompt.
+6. Keep **Also close and delete its plans (required if the Kafka Service has active plans)** checked.
+7. Click **Delete Kafka Service**.
 
 The console confirms with **Kafka Service deleted** and returns to the **Kafka Services** list. When the deletion fails, the dialog shows **Delete failed** with the reason.
 
-The **Delete** action of the Kafka Service's row in the **Kafka Services** list opens the same confirmation.
+The **Delete** action of the Kafka Service's row in the **Kafka Services** list opens the same confirmation. While the Kafka Service is started or published, that action is disabled and reads **Stop and unpublish it first**.
 
 ## Verification
 

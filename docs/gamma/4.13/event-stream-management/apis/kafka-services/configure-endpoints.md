@@ -28,7 +28,7 @@ The **Endpoints** card lists the endpoint groups. Each group shows its name, its
 
 Without permission to change the Kafka Service, the list is read-only.
 
-Every change on this page is saved as soon as you confirm it, and the console confirms with **Kafka Service updated**. When a save fails, the list shows **Save failed** with the reason. A change reaches the gateway at the next deployment, and until then the Kafka Service shows **Out of sync**. To deploy, click **Deploy** in the page header.
+Every change on this page is saved as soon as you confirm it, and the console confirms with **Kafka Service updated**. When a save fails, the console shows **The endpoints could not be saved.**, followed by the reason, or by **Try again.** when the Management API gives none. A change reaches the gateway at the next deployment, and until then the Kafka Service shows **Out of sync**. To deploy, click **Deploy** in the page header.
 
 ## Add an endpoint group
 

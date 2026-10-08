@@ -6,7 +6,7 @@ description: Track the setup of a Kafka Service in Event Stream Management from 
 
 # Follow the setup checklist
 
-A Kafka Service opens on its **Overview** page. The page holds the state of the Kafka Service, a setup checklist, and the connection details that Kafka clients and operators need. A banner warns when the Kafka Service reports no connection metrics.
+A Kafka Service opens on its **Overview** page. The page holds the state of the Kafka Service, a setup checklist, and the connection details that Kafka clients and operators need. A banner warns when the Connection events of the Kafka Service are off.
 
 ## Open the overview
 
@@ -82,11 +82,11 @@ Two cards under the checklist give the addresses of the Kafka Service:
 
 Each value has a copy button.
 
-## Fix the metrics banner
+## Fix the Connection events banner
 
-When the Kafka Service doesn't report connection metrics, the **Connection metrics are disabled** banner at the top of the page says that **Logs** in Observability stays empty for this Kafka Service. It appears unless both **Aggregated metrics** and **Connection events** are selected on the **Reporter Settings** page of the Kafka Service.
+When the Kafka Service doesn't report connection events, the **Connection events are disabled** banner at the top of the page says that **Logs** in Observability stays empty for this Kafka Service. It appears only when **Connection events** isn't selected on the **Reporter Settings** page of the Kafka Service.
 
-To clear the banner, click the **Reporter Settings** link of the banner, select **Aggregated metrics** and **Connection events**, then save. See [Configure reporter settings](../../observability/configure-reporter-settings.md).
+To clear the banner, click the **Reporter Settings** link of the banner, select **Connection events**, then save. See [Configure reporter settings](../../observability/configure-reporter-settings.md).
 
 ## Verification
 
