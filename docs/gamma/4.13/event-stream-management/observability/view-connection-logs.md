@@ -8,7 +8,7 @@ description: List what the gateway recorded for your Kafka Services and Message 
 
 The **Logs** page lists the connections and requests the gateway recorded for your Kafka Services and Message APIs, newest first. A Kafka row is one event of a client connection: its opening, a failure, or its clean close, so one connection can take several rows. A Message API row is one request that opened a stream. Your HTTP proxies, LLM proxies, and other APIs never appear here.
 
-<figure><img src="../../.gitbook/assets/esm-observability-logs.png" alt="The Logs page of Observability, with a connection chart above a table showing the Timestamp, Error Key, API, API Type, Application, and Plan columns of Common"><figcaption><p>The Logs page lists connections and requests across the environment</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/esm-observability-logs.png" alt="The Logs page of Observability, with a connection chart above a table showing the Timestamp, Error Key, API, API Type, Application, and Plan columns of Common"><figcaption><p>The Logs page lists connections and requests across the environment</p></figcaption></figure>
 
 ## Open the logs
 
@@ -76,7 +76,7 @@ An API also records nothing until reporting is on, and its **Overview** page sho
 * A Message API shows **Runtime reporting is disabled** until **Enable analytics** is selected on its **Settings** card. That checkbox alone is what puts its connections in this list.
 * A Message API that reports, and whose logging options were set without both a **Logging mode** and a **Logging phase**, shows **Message content is not recorded** instead. Its connections are listed here, and each row opens with an empty **Messages** section. A Message API whose logging options were never set shows no warning.
 
-<figure><img src="../../.gitbook/assets/esm-observability-metrics-disabled.png" alt="The Overview page of a Kafka Service showing the Connection events are disabled warning, which links to Reporter Settings"><figcaption><p>A Kafka Service that reports nothing says so on its own page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/esm-observability-metrics-disabled.png" alt="The Overview page of a Kafka Service showing the Connection events are disabled warning, which links to Reporter Settings"><figcaption><p>A Kafka Service that reports nothing says so on its own page</p></figcaption></figure>
 
 ## Verification
 

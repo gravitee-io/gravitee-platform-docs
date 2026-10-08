@@ -71,6 +71,8 @@ When no Cluster is deployed, the step shows **No deployed Clusters**. Deploy a C
 
 Select **Next: Review**.
 
+<figure><img src="../../.gitbook/assets/gamma-esm-virtual-cluster-composition.png" alt="The Composition step of the Virtual Cluster wizard started from the Kafka Mesh template, with two backends added and the Kafka Mesh badge"><figcaption><p>Two backends composed into one Virtual Cluster</p></figcaption></figure>
+
 ### Step 3: Review
 
 1. Review the Virtual Cluster details and the composed backends.

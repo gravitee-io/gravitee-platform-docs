@@ -63,6 +63,8 @@ The Event Gateway builds most Kafka alert events from the metrics it collects fo
 
 When analytics are off, the **Alerts** page and the alert form show **Aggregated metrics are off, so most rules here will not work**. The warning names the topic traffic, operations, policy rejections, and authentication rules, and says that the connection rules are unaffected. The rules of the other categories can still be saved, but threshold, rate, and aggregation rules stay silent, and rules that alert when no event is received fire continuously. The warning links to **Reporter Settings**.
 
+<figure><img src="../../.gitbook/assets/gamma-esm-kafka-service-alerts-analytics-off.png" alt="The Alerts page of a Kafka Service, with the Aggregated metrics are off, so most rules here will not work warning above the available alert rules"><figcaption><p>The <strong>Alerts</strong> page warns when Aggregated metrics are off</p></figcaption></figure>
+
 ## Create an alert
 
 1. Click **Add alert**.

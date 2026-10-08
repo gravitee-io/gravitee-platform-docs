@@ -22,6 +22,8 @@ Unlike a Message API flow, a Kafka Service flow has no channel, operation, or co
 
 Without permission to change the definition of the Kafka Service, or on a Kafka Service managed by the Gravitee Kubernetes Operator, the Policy Studio is read-only. See [Detach a Kubernetes-managed Kafka Service](manage-general-settings.md#detach-a-kubernetes-managed-kafka-service).
 
+<figure><img src="../../.gitbook/assets/gamma-esm-kafka-service-policy-studio.png" alt="The Policy Studio of a Kafka Service with no flow yet, with the Plan flows and Common flows lists and the path of a request through the Connect and Interact policies"><figcaption><p>The Policy Studio of a Kafka Service</p></figcaption></figure>
+
 ## Choose where a flow applies
 
 The flows list on the left has two sections:
