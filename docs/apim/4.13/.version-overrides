@@ -191,3 +191,6 @@ kafka-gateway/virtual-cluster-broker-addressing.md
 create-and-configure-apis/apply-policies/policy-reference/oauth2-token-exchange.md
 create-and-configure-apis/apply-policies/policy-reference/README.md
 create-and-configure-apis/apply-policies/policy-reference/oauth2/generic-oauth2-authorization-server.md
+# Kafka endpoint producer idempotence and acks (APIM 4.13.0 feature, APIM-13285): endpoint 6.2.0 ships in 4.13 only, 4.12 pins 6.1.6
+create-and-configure-apis/configure-v4-apis/endpoints/kafka.md
+.gitbook/assets/kafka-endpoint-producer-idempotence-acks.png
