@@ -59,6 +59,8 @@ The list offers the endpoints and the endpoint groups of every group except the 
 
 While **Enable dead letter queue** is selected, **Save entrypoint** stays disabled until you select an endpoint or a group.
 
+<figure><img src="../../.gitbook/assets/gamma-esm-message-api-webhook-dlq.png" alt="The configuration of a Webhook entrypoint, with Enable dead letter queue selected and the dead-letter-queue endpoint group chosen as the dead letter queue endpoint"><figcaption><p>A Webhook entrypoint with a dead letter queue</p></figcaption></figure>
+
 ## Delete an entrypoint
 
 1. In the **Entrypoint types** table, click the delete icon of the entrypoint.

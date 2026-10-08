@@ -59,7 +59,7 @@ The following table describes the logs table:
 
 To view connection log details, click the eye icon on any row in the connection logs table. The URL pattern is `.../v4/runtime-logs-native/<requestId>?from=...&to=...&<filters>`. This is direct-linkable. The page has a back link and the following stacked cards:
 
-<figure><img src="../../.gitbook/assets/apim-native-connection-log-detail.png" alt="Connection log detail page showing Connection, Client, and Server information cards for a connected session"><figcaption><p>Connection log detail for a successful connection</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apim-native-connection-log-detail.png" alt="Connection log detail page for a Disconnected entry, with the Connection card and the Client card showing the client ID, client library, client library version, and security type"><figcaption><p>Connection log detail for a connection that closed normally</p></figcaption></figure>
 
 The following table describes the Connection card:
 
