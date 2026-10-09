@@ -19,13 +19,13 @@ The following providers are available when you add a provider to a proxy:
 * **Anthropic**. The Anthropic Messages API, for Claude models.
 * **Gemini**. Google's Gemini API.
 * **Bedrock**. The AWS Bedrock Converse API.
-* **Vertex AI**. Google Cloud's Gemini Enterprise Agent Platform, for both Gemini and Anthropic Claude models.
+* **Gemini Enterprise Agent Platform**. Google Cloud's platform, for both Gemini and Anthropic Claude models.
 
 ## Supported endpoints
 
 Consumers reach these paths under the proxy's context path. The OpenAI paths carry no `/v1` segment, and the Anthropic path does. For the full explanation, see [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md).
 
-| Endpoint            | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Anthropic | Vertex AI (Google) | Vertex AI (Anthropic) |
+| Endpoint            | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Anthropic | Gemini Enterprise Agent Platform (Google) | Gemini Enterprise Agent Platform (Anthropic) |
 | ------------------- | ------ | ------- | ------ | ----------------- | --------- | ------------------ | --------------------- |
 | `/chat/completions` | ✅      | ✅       | ✅      | ✅                 | ✅         | ✅                  | ✅                     |
 | `/responses`        | ✅      | ✅       | ✅      | ✅                 | ✅         | ✅                  | ✅                     |
@@ -45,7 +45,7 @@ The following legend applies to both matrices:
 
 The following table shows which request parameters each provider supports:
 
-| Feature                | Parameter                 | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Anthropic | Vertex AI (Google) | Vertex AI (Anthropic) | Notes                                    |
+| Feature                | Parameter                 | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Anthropic | Gemini Enterprise Agent Platform (Google) | Gemini Enterprise Agent Platform (Anthropic) | Notes                                    |
 | ---------------------- | ------------------------- | ------ | ------- | ------ | ----------------- | --------- | ------------------ | --------------------- | ---------------------------------------- |
 | **Messages**           | `messages` / `input`      | ✅      | ✅       | ✅      | ✅                 | ✅         | ✅                  | ✅                     |                                          |
 | **Max tokens**         | `max_completion_tokens`   | ✅      | ✅       | ✅      | ✅                 | ✅         | ✅                  | ✅                     | Primary token limit parameter            |
@@ -71,7 +71,7 @@ The following table shows which request parameters each provider supports:
 
 The following table shows which embeddings parameters each provider supports:
 
-| Feature             | Parameter         | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Anthropic | Vertex AI (Google) | Vertex AI (Anthropic) | Notes                                |
+| Feature             | Parameter         | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Anthropic | Gemini Enterprise Agent Platform (Google) | Gemini Enterprise Agent Platform (Anthropic) | Notes                                |
 | ------------------- | ----------------- | ------ | ------- | ------ | ----------------- | --------- | ------------------ | --------------------- | ------------------------------------ |
 | **Input**           | `input`           | ✅      | ⚠️      | ✅      | ✅                 | ❌         | ✅                  | ❌                     | Bedrock takes a string only, not arrays. Gemini takes a string or an array |
 | **Model**           | `model`           | ✅      | ✅       | ✅      | ✅                 | ❌         | ✅                  | ❌                     | Mapped to provider model identifiers |
@@ -131,19 +131,19 @@ The following table maps Anthropic's finish reasons to their OpenAI equivalents:
 
 Anthropic doesn't support embeddings. The `/embeddings` endpoint returns a not-implemented response.
 
-### Vertex AI
+### Gemini Enterprise Agent Platform
 
-Vertex AI is a composite provider. It routes each request to a publisher based on the `publisher` setting, and each publisher reuses the matching Gravitee mapper with Gemini Enterprise Agent Platform path rewriting on top.
+Gemini Enterprise Agent Platform is a composite provider. It routes each request to a publisher based on the `publisher` setting, and each publisher reuses the matching Gravitee mapper with Gemini Enterprise Agent Platform path rewriting on top.
 
 Configure it with the following settings:
 
-* `projectId`. The Google Cloud project ID. Required.
-* `location`. The GCP region, defaulting to `global`. Set it to a region where your model is available, because the default doesn't apply to all models.
-* `publisher`. Use `google` for Gemini models, which is the default, or `anthropic` for Claude models.
+* `projectId`. The Google Cloud project ID. Required when you type the provider into the proxy. A provider from the Catalog that holds an API key can leave it empty, and the proxy then calls Gemini in express mode on the global host.
+* `location`. The GCP region, defaulting to `global`. Set it to a region where your model is available, because the default doesn't apply to all models. Not used in express mode.
+* `publisher`. Use `google` for Gemini models, which is the default, or `anthropic` for Claude models. The `anthropic` publisher always needs a `projectId`: without one, the request returns `502 Bad Gateway` with the key `ENDPOINT_CONFIGURATION_ERROR`.
 
-Authenticate with a GCP service account key in JSON format. The proxy fetches an access token before each request. If authentication fails, the request returns `502 Bad Gateway` with the key `GCP_AUTHENTICATION_ERROR`.
+Authenticate with a GCP service account key in JSON format, or, for a provider from the Catalog, with an API key sent in the `x-goog-api-key` header. The service account key is read on each request and exchanged for an access token, so a key rotated in the Catalog's vault applies without a redeploy. A key whose token endpoint isn't Google's is refused. If authentication fails, the request returns `502 Bad Gateway` with the key `GCP_AUTHENTICATION_ERROR`, and until the key reaches the gateway, the message reads `The service account credential is not available`.
 
-With the `google` publisher, the Gemini path `/models/{model}:{action}` becomes `/v1/projects/{projectId}/locations/{location}/publishers/google/models/{model}:{action}`, and query strings such as `?alt=sse` are preserved through the rewrite.
+With the `google` publisher, the Gemini path `/models/{model}:{action}` becomes `/v1/projects/{projectId}/locations/{location}/publishers/google/models/{model}:{action}`, or `/v1/publishers/google/models/{model}:{action}` in express mode, and query strings such as `?alt=sse` are preserved through the rewrite.
 
 With the `anthropic` publisher, embeddings and `seed` aren't supported, and `context_management` and `output_config` are removed from the request.
 
@@ -166,7 +166,8 @@ Invalid or incompatible parameters return explicit errors. The proxy returns an 
 * An invalid dimension value for Bedrock embeddings.
 * An unsupported encoding format.
 * An invalid endpoint path or HTTP method.
-* A GCP service account authentication failure on Vertex AI, which returns `502 Bad Gateway` with `GCP_AUTHENTICATION_ERROR`.
+* A GCP service account authentication failure on Gemini Enterprise Agent Platform, which returns `502 Bad Gateway` with `GCP_AUTHENTICATION_ERROR`.
+* A Gemini Enterprise Agent Platform request to the `anthropic` publisher without a project ID, which returns `502 Bad Gateway` with `ENDPOINT_CONFIGURATION_ERROR`.
 
 ## Token usage and tracing
 
