@@ -42,11 +42,12 @@ Gravitee Kafka APIs support **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, o
 In addition to [Kafka's](https://kafka.apache.org/documentation/#security_overview) standard mechanisms, Gravitee supports:
 
 * **NONE**: A stub mechanism that falls back to `PLAINTEXT` protocol.
+* **AWS\_MSK\_IAM**: IAM authentication to Amazon MSK, configured with JAAS login context parameters.
 * **OAUTHBEARER\_TOKEN**: A mechanism that defines a fixed token or a dynamic token from [Gravitee Expression Language](../../../gravitee-expression-language.md).
 * **DELEGATE\_TO\_BROKER**: Authentication is delegated to the Kafka broker.
 
 {% hint style="warning" %}
-When using `DELEGATE_TO_BROKER`, the supported mechanisms available to the client are `PLAIN` and `AWS_IAM_MSK`. The `AWS_MSK_IAM` mechanism requires you to host the Kafka Gateway on AWS. Otherwise, authentication fails.
+When using `DELEGATE_TO_BROKER`, the supported mechanisms available to the client are `PLAIN` and `AWS_MSK_IAM`. The `AWS_MSK_IAM` mechanism requires you to host the Kafka Gateway on AWS. Otherwise, authentication fails.
 {% endhint %}
 
 ## Prerequisites
@@ -103,7 +104,7 @@ Gravitee assigns each Kafka API endpoint group the default name **Default Broker
     <figure><img src="../../../.gitbook/assets/supported-endpoint-security-protocol.png" alt="The endpoint group Configuration tab with the security protocol dropdown open on PLAINTEXT, SASL_PLAINTEXT, SASL_SSL, and SSL."><figcaption></figcaption></figure>
 
 * **PLAINTEXT:** No further security configuration is necessary.
-* **SASL\_PLAINTEXT:** Choose NONE, GSSAPI, OAUTHBEARER, OAUTHBEARER\_TOKEN, PLAIN, SCRAM-SHA-256, SCRAM-SHA-512, or DELEGATE\_TO\_BROKER.
+* **SASL\_PLAINTEXT:** Choose NONE, AWS\_MSK\_IAM, GSSAPI, OAUTHBEARER, OAUTHBEARER\_TOKEN, PLAIN, SCRAM-SHA-256, SCRAM-SHA-512, or DELEGATE\_TO\_BROKER.
   * **NONE:** No additional security configuration required.
   * **AWS\_MSK\_IAM:** Enter the JAAS login context parameters.
   * **GSSAPI:** Enter the JAAS login context parameters.
@@ -119,8 +120,8 @@ Gravitee assigns each Kafka API endpoint group the default name **Default Broker
   * **JKS with path:** Enter the truststore file path and password.
   * **PKCS#12 / PFX with content:** Enter binary content as base64 and the truststore password.
   * **PKCS#12 / PFX with path:** Enter the truststore file path and password.
-  * **PEM with content:** Enter binary content as base64 and the truststore password.
-  * **PEM with path:** Enter the truststore file path and password and the keystore type.
+  * **PEM with content:** Enter binary content as base64. No truststore password is needed: PEM doesn't support one.
+  * **PEM with path:** Enter the truststore file path. No truststore password is needed: PEM doesn't support one.
 * **SASL\_SSL:** Configure both SASL authentication and SSL encryption, choose a **SASL** mechanism from the options listed under **SASL\_PLAINTEXT**, and then configure **SSL** settings as described in the **SSL** section.
 
 ## Edit the endpoint

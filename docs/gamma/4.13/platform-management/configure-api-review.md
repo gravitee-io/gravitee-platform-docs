@@ -44,7 +44,7 @@ To turn on API Review, complete the following steps:
 1. Turn on **Enable API Review**.
 2. Click **Save changes**.
 
-With the switch on, an HTTP Proxy, Message, or Kafka API must be reviewed before it can be started or published. Its author asks for the review from the API, and a reviewer accepts or rejects it from the banner on the API. An API that exists when you turn the switch on isn't sent for review by itself, and one that is already running keeps running. A stopped API can't be started until a reviewer accepts it, so its author has to ask for a review first. For the whole workflow of an API proxy, see [Review an API proxy](../api-management/build/configure-your-api-proxy/review-an-api-proxy.md). For a Message API, see [Publish and review a Message API](../event-stream-management/build/message-apis/publish-and-review-a-message-api.md).
+With the switch on, an HTTP Proxy, Message, or Kafka API must be reviewed before it can be started or published. Its author asks for the review from the API, and a reviewer accepts or rejects it from the banner on the API. An API that exists when you turn the switch on isn't sent for review by itself, and one that is already running keeps running. A stopped API can't be started until a reviewer accepts it, so its author has to ask for a review first. For the whole workflow of an API proxy, see [Review an API proxy](../api-management/build/configure-your-api-proxy/review-an-api-proxy.md). For a Message API, see [Publish and review a Message API](../event-stream-management/apis/message-apis/publish-and-review-a-message-api.md).
 
 Turn the switch off to remove the review banners and the review tasks, and to let authors start and publish their APIs again without a reviewer.
 

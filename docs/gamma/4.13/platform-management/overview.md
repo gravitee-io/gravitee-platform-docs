@@ -88,9 +88,9 @@ The following table pairs each governance outcome with the feature that achieves
 | Outcome | Feature |
 | --- | --- |
 | A REST, GraphQL, gRPC, or WebSocket API reaches its consumers behind a security plan, a policy chain, and analytics. | [Create an API proxy](../api-management/build/create-an-api-proxy.md) |
-| A Kafka cluster is consumed as a governed service rather than a set of bootstrap addresses handed out by hand. | [Create a Kafka service with a registered cluster](../event-stream-management/build/create-a-kafka-service-with-a-registered-cluster.md) |
+| A Kafka cluster is consumed as a governed service rather than a set of bootstrap addresses handed out by hand. | [Create a Kafka Service with a registered cluster](../event-stream-management/apis/kafka-services/create-a-kafka-service-with-a-registered-cluster.md) |
 | Provider credentials for LLM traffic are held once on the AI Gateway instead of being copied into every team's configuration. | [Create an LLM Proxy](../agent-management/build/create-an-llm-proxy.md) |
-| A Kafka cluster is shared by several teams without exposing any of them to the topics of the others. | [Establish a Virtual Cluster](../event-stream-management/build/establish-a-virtual-cluster.md) |
+| Several Kafka clusters reach clients as one Kafka cluster behind a single endpoint. | [Establish a Virtual Cluster](../event-stream-management/kafka-infrastructure/virtual-clusters/establish-a-virtual-cluster.md) |
 | An API estate running on another gateway moves to Gravitee without a rewrite of every proxy. | [Plan a gateway migration](../api-management/migrate/plan-a-gateway-migration.md) |
 
 ### Secure and publish consumer access
@@ -166,6 +166,6 @@ If you are new to Gravitee Gamma, complete the following steps:
 1. [**Install Gamma**](install/README.md). Deploy the platform with Docker or Kubernetes, self-hosted or hybrid.
 2. [**Create your first API**](../api-management/get-started/create-your-first-api.md). Create an API proxy and enforce a security plan in under five minutes.
 3. [**Create your first MCP server**](../agent-management/get-started/create-your-first-mcp-server.md). Put an MCP Proxy in front of an upstream MCP server, and verify tool invocations.
-4. [**Create your first Kafka service**](../event-stream-management/get-started/create-your-first-kafka-service.md). Register a Kafka cluster and create a governed Kafka service.
+4. [**Create your first Kafka Service**](../event-stream-management/get-started/create-your-first-kafka-service.md). Register a Kafka cluster and create a governed Kafka service.
 
 For what the current release adds across every module, see [Release Notes](gamma-release-notes.md).

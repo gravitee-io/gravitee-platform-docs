@@ -6,9 +6,11 @@ description: Open the prebuilt health and traffic dashboards for your Kafka Serv
 
 # View observability dashboards
 
-Event Stream Management ships four dashboards: a health dashboard and a traffic dashboard for Kafka Services, and the same pair for Message APIs. Open a health dashboard to see what's failing and where, or a traffic dashboard to see volumes.
+Event Stream Management ships four dashboards: **Kafka Service — Health**, **Kafka Service — Traffic**, **Message API — Health**, and **Message API — Traffic**. Open a health dashboard to see what's failing and where, or a traffic dashboard to see volumes.
 
-<figure><img src="../../.gitbook/assets/esm-observability-dashboards.png" alt="The Dashboards page of Observability, listing a custom dashboard above the Health and Traffic templates for Kafka Services and for Message APIs"><figcaption><p>The Dashboards page lists the four templates and any custom dashboard saved in the environment</p></figcaption></figure>
+What a Kafka Service dashboard shows depends on what the Kafka Service reports. Traffic and operation charts need **Aggregated metrics**, and the failed-connection charts need **Connection events**. See [Configure reporter settings](configure-reporter-settings.md).
+
+<figure><img src="../.gitbook/assets/esm-observability-dashboards.png" alt="The Dashboards page of Observability, listing a custom dashboard above the Health and Traffic templates for Kafka Services and for Message APIs"><figcaption><p>The Dashboards page lists the four templates and any custom dashboard saved in the environment</p></figcaption></figure>
 
 ## Open a dashboard
 
@@ -22,7 +24,7 @@ To open the health dashboard of one API, follow these steps:
 1. Open the API from **Kafka Services** or **Message APIs**.
 2. In the API's sidebar, under **Observability**, click **Dashboard**.
 
-The dashboard opens in a new tab, filtered to that API over the last 24 hours.
+The health dashboard of the API's family, **Kafka Service — Health** or **Message API — Health**, opens in a new tab, filtered to that API over the last 24 hours.
 
 ## Narrow a dashboard
 
@@ -38,6 +40,6 @@ The four templates don't link back to the logs behind them. To see those rows, o
 
 To verify dashboards are working as expected, follow these steps:
 
-1. Open the traffic dashboard for Kafka Services.
+1. Open **Kafka Service — Traffic**.
 2. Set the time range to a period when a client was producing or consuming.
 3. Confirm the charts show data.

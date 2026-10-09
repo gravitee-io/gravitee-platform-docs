@@ -56,7 +56,7 @@ If you have restrictions on the domain names you can use for APIs, you can overr
 kafka:
   enabled: true
 
-  routingMode: host # default is host. Only host is supported for now.
+  routingMode: host # default is host. Supported values: host, port.
   # Routing Host Mode
   routingHostMode:
     brokerPrefix: "broker-" # default is broker-
@@ -99,7 +99,7 @@ If you have restrictions on the domain names you can use for APIs, you can overr
 kafka:
   enabled: true
 
-  routingMode: host # default is host. Only host is supported for now.
+  routingMode: host # default is host. Supported values: host, port.
   # Routing Host Mode
   routingHostMode:
     brokerPrefix: "broker-" # default is broker-
@@ -380,13 +380,13 @@ The following example provides a template for how to produce and consume message
 
 ## Appendix: Full Gateway Configuration
 
-The following is the full server configuration for the Kafka Gateway.
+The following is the full server configuration for the Kafka Gateway. For the Virtual Cluster broker domain pattern, see [Virtual Cluster broker addressing](virtual-cluster-broker-addressing.md).
 
 ```yaml
 kafka:
   enabled: false
 
-  routingMode: host # default is host. Only host is supported for now.
+  routingMode: host # default is host. Supported values: host, port.
   # Routing Host Mode
   routingHostMode:
     brokerPrefix: broker-          # default is broker-
@@ -418,11 +418,11 @@ kafka:
     #                   to that same hostname, leaving the other domains unroutable. The gateway logs a
     #                   warning when it detects it. `{defaultDomain}` is still accepted as a deprecated
     #                   alias of `{domain}`.
-    # The built-in defaults, used when both patterns are left unset, are "{apiHost}.{defaultDomain}" and
+    # The built-in defaults, used for whichever pattern is left unset, are "{apiHost}.{defaultDomain}" and
     # "{brokerPrefix}{brokerId}{domainSeparator}{apiHost}.{defaultDomain}".
 
     # It can be overridden to fit your DNS configuration.
-    # Doing so requires BOTH patterns to be set, as well as 'defaultPort'. Please note that 'brokerPrefix' and 'domainSeparator' are substituted only if the patterns reference them as {brokerPrefix} / {domainSeparator}, hence optional.
+    # Each pattern falls back to its own default independently, so you can override only one of them, and 'defaultPort' defaults to 9092. Please note that 'brokerPrefix' and 'domainSeparator' are substituted only if the patterns reference them as {brokerPrefix} / {domainSeparator}, hence optional.
     # Example:
     #   defaultPort: 9092
     #   bootstrapDomainPattern: "bootstrap-{apiHost}.{domain}"
@@ -433,6 +433,44 @@ kafka:
     #      myapi-broker0.mycompany.org        myapi-broker0.mycompany.com
     #      myapi-broker1.mycompany.org        myapi-broker1.mycompany.com
     #      ...
+
+    # Broker domain pattern applied only to APIs backed by a Kafka Virtual Cluster. Optional:
+    # when unset, Virtual Cluster APIs use 'brokerDomainPattern' like every other API.
+    # The pattern must contain {brokerId}, or both {clusterIndex} and {realBrokerId}. Otherwise, the
+    # Virtual Cluster API fails to deploy. The same rule applies to 'brokerDomainPattern' when a
+    # Virtual Cluster API falls back to it. See Virtual Cluster broker addressing for details.
+    # virtualClusterBrokerDomainPattern: "broker{realBrokerId}-c{clusterIndex}-{apiHost}.{domain}"
+
+  # Kafka probe
+  probe:
+    # tcp (default): the probe only checks that the Kafka port accepts a TCP connection.
+    # kafka: the probe uses a Kafka client to connect to one of the Kafka APIs deployed on this Gateway.
+    protocol: tcp
+    # With the kafka protocol, provide the Kafka client properties used to connect.
+    #properties:
+    #  bootstrap.servers: bootstrap-myapi.mycompany.org:9092
+    #  sasl.mechanism: PLAIN
+    #  security.protocol: SASL_SSL
+    #  sasl.jaas.config: >-
+    #      org.apache.kafka.common.security.plain.PlainLoginModule required
+    #      username="username"
+    #      password="********";
+
+  # SASL mechanisms accepted on API Key plans. Default is PLAIN, SCRAM-SHA-256, SCRAM-SHA-512.
+  api-key:
+    securityMechanisms: PLAIN, SCRAM-SHA-256, SCRAM-SHA-512
+
+  instances: 0             # Event-loop instances. Default is 0, which uses the Vert.x default (twice the number of CPU cores)
+  requestTimeout: 35000    # Default is 35000 ms
+
+  # Kafka metrics
+  metrics:
+    dimensions:
+      # Maximum number of metric dimension combinations (for example API, plan, application, topic) kept in memory.
+      # Default is 100000. Above the cap, the least recently used combinations are evicted: their pending
+      # counters are reported, up to 100 combinations per second, and dropped beyond that. The Gateway logs
+      # a "Kafka metric dimension cap reached" warning, at most once per minute. A value of 0 or less is ignored.
+      max: 100000
 
   # SSL configuration
   #ssl:

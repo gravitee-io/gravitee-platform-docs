@@ -38,7 +38,7 @@ This policy can be applied on the Publish and Subscribe phase.
 
 | Plugin version | APIM version    |
 | -------------- | --------------- |
-| 1.0.x          | 4.8.x or higher |
+| 1.x            | 4.8.x or higher |
 
 ## Configuration options <a href="#user-content-configuration" id="user-content-configuration"></a>
 

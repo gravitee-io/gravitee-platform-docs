@@ -28,7 +28,7 @@ The toggle is enabled only when the parent analytics module is enabled. Disablin
 
 To view the logs list, navigate to a Native Kafka API, and then select **Logs**. A **Configure Reporting** button in the page header deep-links to **Deployment** and the **Reporter Settings** tab for fast access to the connection metrics toggle. The page contains the following regions:
 
-* **Summary Widget**. Four cards show counts over the currently selected timeframe. These cards are Connected, Disconnected, Failed, and Unknown. The widget is hidden when connection metrics reporting is disabled. An inline info banner explains that reporting is disabled and data may be stale. Cards show `—` until you select a timeframe, and then they show the live count. On a fetch error, the affected card displays a **Retry** button. This button re-runs the summary query without disturbing the following table.
+* **Summary Widget**. Five cards show counts over the currently selected timeframe. These cards are Connected, Disconnected, Interrupted, Failed, and Unknown. The Disconnected card counts only connections of APIs that report the Disconnected event. For more information, see [Which events are reported](native-api-connection-logs-concepts-and-architecture.md#which-events-are-reported). The widget is hidden when connection metrics reporting is disabled. An inline info banner explains that reporting is disabled and data may be stale. Cards show `—` until you select a timeframe, and then they show the live count. On a fetch error, the affected card displays a **Retry** button. This button re-runs the summary query without disturbing the following table.
 * **Filter Row**. The filter state is mirrored to the URL query string for shareable links. Refreshing the page rehydrates the filter values.
 * **Logs Table**. The table is cleared if a filter request fails. The global HTTP error snackbar surfaces the failure. You are never left looking at the previous result set under a new filter. When no data matches the filter, an empty state displays: "No data to display. More data may be available. Try widening your timeframe or adjusting your filters."
 
@@ -39,18 +39,18 @@ The following table describes the filter row:
 | **Period** | Predefined ranges and Custom. | Custom requires you to explicitly click **Apply** to fire. This avoids triggering on every date-picker keystroke. |
 | **Applications** | Server-paginated search-and-select. | Resolves *Application* names using the existing *Applications* endpoint. |
 | **Plans** | *Plan* picker scoped to this API. | Lists all *Plans* on the API. |
-| **Connection Status** | Multi-select. | Connected, Disconnected, Failed, or Unknown. |
+| **Connection Status** | Multi-select. | Connected, Disconnected, Interrupted, Failed, or Unknown. |
 
 The following table describes the logs table:
 
 | Column | Source | Notes |
 |:-------|:-------|:------|
-| **Timestamp** | `timestamp`. | Connection lifecycle event time. This is formatted `dd/MM/yyyy HH:mm:ss.SSS`. |
+| **Timestamp** | `timestamp`. | Connection lifecycle event time. This is formatted `dd/MM/yyyy HH:mm:ss.SSS`. Each row is one lifecycle event, so a connection can appear on several rows. |
 | **Application** | Resolved name from `applicationId`. | Renders empty when the *Application* is deleted or the resolution call fails. |
 | **Plan** | Resolved name from `planId`. | This has the same fallback behavior as *Application*. |
 | **Client Identifier** | `clientIdentifier`. | This is the free-form identifier the client provided. |
 | **Connection Status** | `connectionStatus`. | Rendered as a colored pill. |
-| **Duration** | `connectionDurationMs`. | Formatted with the standard duration pipe. This is empty when not reported. |
+| **Duration** | `connectionDurationMs`. | Formatted with the standard duration pipe. This is empty on Connected rows, which don't carry a duration. |
 | Unlabeled | — | Per-row eye icon (`gio:eye-empty`). Clicking it opens the detail page for that connection. This preserves the current filter state using query params. |
 
 <figure><img src="../../.gitbook/assets/apim-native-connection-logs-list.png" alt="Native Kafka API connection logs list showing timestamp, application, plan, client identifier, connection status pills, and duration columns"><figcaption><p>Connection logs list with status indicators</p></figcaption></figure>
@@ -59,7 +59,7 @@ The following table describes the logs table:
 
 To view connection log details, click the eye icon on any row in the connection logs table. The URL pattern is `.../v4/runtime-logs-native/<requestId>?from=...&to=...&<filters>`. This is direct-linkable. The page has a back link and the following stacked cards:
 
-<figure><img src="../../.gitbook/assets/apim-native-connection-log-detail.png" alt="Connection log detail page showing Connection, Client, and Server information cards for a connected session"><figcaption><p>Connection log detail for a successful connection</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apim-native-connection-log-detail.png" alt="Connection log detail page for a Disconnected entry, with the Connection card and the Client card showing the client ID, client library, client library version, and security type"><figcaption><p>Connection log detail for a connection that closed normally</p></figcaption></figure>
 
 The following table describes the Connection card:
 
@@ -67,8 +67,8 @@ The following table describes the Connection card:
 |:------|:-------|
 | **Timestamp** | `timestamp`. This is formatted `yyyy-MM-dd HH:mm:ss.SSS`. |
 | **API ID** | `apiId`. |
-| **Transaction ID** | `transactionId`. |
-| **Request ID** | `requestId`. |
+| **Transaction ID** | `transactionId`. The connection ID, shared by all the log entries of the connection. |
+| **Request ID** | `requestId`. Unique to this log entry. |
 | **Status** | Connection status pill. This uses the same labels as the logs list page. |
 | **Duration** | `connectionDurationMs`. This is formatted and displays `—` when null. |
 
@@ -81,6 +81,10 @@ The following table describes the Client card:
 | **Subscription ID** | `subscriptionId`. |
 | **Client Identifier** | `clientIdentifier`. |
 | **Client ID** | `clientId`. |
+| **Client Library** | `clientSoftwareName`. The client library name that the client advertises during the handshake. Clients that don't advertise it are reported as `unknown`. |
+| **Client Library Version** | `clientSoftwareVersion`. The version of the client library, reported the same way. |
+| **Security Type** | `securityType`. The security type of the plan the client authenticated with. Set only for API Key, OAuth2, and JWT plans. |
+| **Security Token** | `securityToken`. The client ID of the OAuth2 or JWT subscription. Empty for API Key plans: the API key itself is never reported. |
 | **Remote Address** | `remoteAddress`. |
 
 The following table describes the Server card:
@@ -93,7 +97,7 @@ The following table describes the Server card:
 | **Host** | `host`. |
 | **Broker ID** | `brokerId`. |
 
-The following table describes the Error card. This is visible only when `connectionStatus` is Disconnected, Failed, or Unknown:
+The following table describes the Error card. This is visible only when `connectionStatus` is Interrupted, Failed, or Unknown:
 
 | Field | Source |
 |:------|:-------|

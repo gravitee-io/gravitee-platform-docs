@@ -14,6 +14,8 @@ One of the most important problems the MCP Proxy solves is securing third-party 
 
 The MCP Proxy currently supports injecting static credentials into the request headers.
 
+In an MCP Studio, a source can also use OAuth. For more information, see [Use OAuth for an MCP Studio source](#use-oauth-for-an-mcp-studio-source).
+
 ## Configure Upstream Authentication
 
 1. In the Gravitee console, navigate to **MCP Proxies**, and then open your MCP Proxy.
@@ -27,6 +29,24 @@ The MCP Proxy currently supports injecting static credentials into the request h
     * **Basic auth**. Enter the **Username** and **Password / token**. The Gateway injects them as `Authorization: Basic <base64>`.
     * **Custom secret**. Select an **Injection location** of **Authorization header**, **x-api-key header**, or **Custom header**. If you select **Custom header**, enter the **Header name**. Enter the secret in the **Credential** field.
 5. Click **Save changes**.
+
+## Use OAuth for an MCP Studio source
+
+In an MCP Studio, a source can use the **OAuth · Pre-registered Client** auth method. Access to the source is then authorized through your OAuth provider, and the Gateway calls the source with the token that it receives.
+
+1. In your OAuth provider, register the Gateway callback URL as a redirect URI of your OAuth app:
+
+    ```
+    https://<gateway-host>/<context-path>/.auth/callback
+    ```
+
+    `https://<gateway-host>` is the address that your MCP clients use to reach the Gateway, and `<context-path>` is the **Context path** of the MCP Studio.
+2. When you create the MCP Studio, in the **Connect** step, open the **Auth method** list of the source, and then select **OAuth · Pre-registered Client**.
+3. Enter the **Authorize URL** and **Token URL** of your OAuth provider, and the **Client ID** and **Client secret** of your OAuth app. Optionally, enter the **Scopes** to request.
+
+    <figure><img src="../../.gitbook/assets/gamma-aim-mcp-studio-upstream-oauth.png" alt="The Upstream auth section of the Connect step, with a source set to OAuth · Pre-registered Client and its Authorize URL, Token URL, Client ID, Client secret, and Scopes filled in"><figcaption></figcaption></figure>
+
+Until access is authorized, a call to a tool from the source returns a link to authorize it. To confirm the redirect URI that the Gateway sends, open that link, and then read the `redirect_uri` parameter in the address of your OAuth provider's page.
 
 ## Next steps
 

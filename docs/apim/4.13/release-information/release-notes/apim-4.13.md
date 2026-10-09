@@ -42,6 +42,8 @@ documentation.gravitee.io links for other versions.
 * Identity provider claims travel into dynamic client registration requests: list the claims to persist on the identity provider, map them to registration request fields on the client registration provider, and the registration provider receives tenant or user context for each application it registers.
 * A Kafka Topic Mapping entry that sets only one of `client` and `broker` becomes a rule that applies to any topic, with the `#topic` expression variable bound to the name being resolved, so one entry can prefix or strip a prefix across every topic.
 * The FIPS images move to a JDK 25 base, where `jks` and `pkcs12` keystores no longer load, so a FIPS deployment converts the Gateway's listener stores to `pem`, or to `bcfks` where a store is read from a file, before upgrading.
+* SAP Business Technology Platform joins the federation providers: an agent ingests the API proxies of SAP API Management with their OpenAPI specification and documentation, turns the subscribable SAP products into plans, and creates approved Gravitee subscriptions in the SAP Developer Hub.
+* Native Kafka connection logs record each lifecycle event of a connection as its own entry, can report clean closes as **Disconnected**, and show the client library and credential of each connection.
 
 ## Breaking Changes and deprecations
 
@@ -56,6 +58,10 @@ The plan endpoints of the legacy Management API v1 no longer accept V4, Federate
 #### **Kafka Topic Mapping policy: Invalid mapping entries now stop an API from deploying**
 
 The Kafka Topic Mapping policy now checks its mapping entries when the API is deployed, where 4.12 and earlier checked nothing. An API that deploys today can fail to deploy after the upgrade. Four kinds of entry are refused. An entry that sets neither `client` nor `broker`. An entry whose plain name Kafka wouldn't accept as a topic name. An entry that references `#topic` in both fields. And two entries whose plain `broker` values are equal, or whose plain `client` values are equal. The last is the likeliest to appear in a configuration that works today. Review every Kafka Topic Mapping policy against those four cases before upgrading. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Native Kafka connection logs: One log entry per connection event**
+
+A native Kafka connection now writes one log entry per lifecycle event: one when it opens, one when it fails, and, if the API selects it, one when it closes cleanly. In 4.12, the entries of a connection shared the same request ID, so the Elasticsearch reporter kept only the last one. The request ID is now unique to each entry, and the transaction ID, which is the connection ID, ties the entries of a connection together. Review any dashboard or query that counts connection log entries, or that looks up an entry by request ID. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 #### **Subscription forms apply only to the APIs they're assigned to**
 
@@ -144,10 +150,28 @@ Version 3.0.0 of the Inline Authentication Provider resource evaluates the usern
 
 #### **Kafka Gateway: Broker addressing for Virtual Clusters**
 
-* A Virtual Cluster rewrites broker IDs so they stay unique across its backends, which means the hostnames clients resolve are not the ones a single-backend deployment used. `gateway.kafka.routingHostMode.virtualClusterBrokerDomainPattern` sets the broker domain pattern for Kafka APIs backed by a Virtual Cluster only, so adopting one no longer moves the DNS records and certificate SANs of every other Kafka API on the same Gateway. It is optional: left unset, Virtual Clusters keep following `brokerDomainPattern`, and both defaults are unchanged.
+* This feature is also available since APIM 4.12.19.
+* A Virtual Cluster rewrites broker IDs so they stay unique across its backends, which means the hostnames clients resolve are not the ones a single-backend deployment used. `kafka.routingHostMode.virtualClusterBrokerDomainPattern` in `gravitee.yml` (`gateway.kafka.routingHostMode.virtualClusterBrokerDomainPattern` in the Helm chart) sets the broker domain pattern for Kafka APIs backed by a Virtual Cluster only, so adopting one no longer moves the DNS records and certificate SANs of every other Kafka API on the same Gateway. It is optional: left unset, Virtual Clusters keep following `brokerDomainPattern`, and both defaults are unchanged.
 * Two placeholders come with it, usable in either pattern: `{realBrokerId}`, the broker ID as configured on the backend, and `{clusterIndex}`, the backend's zero-based position in the Virtual Cluster. Together they let a hostname keep your own broker numbering instead of the rewritten IDs. A Virtual Cluster pattern must still tell the backends apart — through `{brokerId}`, which encodes the backend, or through `{clusterIndex}` alongside `{realBrokerId}` — and the Gateway now refuses to deploy a pattern that cannot, rather than routing to the wrong backend silently.
 * A client connecting on a broker hostname the Virtual Cluster never advertised — a DNS record left over from a single-backend deployment, most often — is now served as a bootstrap connection, so it receives the merged metadata and re-targets itself at the correct broker. Previously the connection was closed without a response and the client waited out its own timeout, which typically surfaced as producing failing while bootstrap and topic listing worked. The Gateway logs a warning naming what it could not place, so the stale DNS record stays visible rather than being papered over.
 * For more information, see [Virtual Cluster Broker Addressing](../../kafka-gateway/virtual-cluster-broker-addressing.md).
+
+#### **Kafka Gateway: Connection events in native Kafka connection logs**
+
+* A connection that closes cleanly can now be reported with the new **Disconnected** status. The entry carries the connection duration and never an error.
+* The `analytics.connectionEvents` field of a native Kafka API selects the reported events among `CONNECTED`, `DISCONNECTED`, and `ERROR`. When the field is absent or empty, the Gateway reports `CONNECTED` and `ERROR`, as before. `DISCONNECTED` is opt-in for every API. The APIM Console has no setting for this field: set it through the Management API.
+* Each lifecycle event is its own log entry. Entries of one connection share the transaction ID, and each entry has its own request ID.
+* Disconnected and error entries carry the number of Kafka requests the connection served, in total (`long_native-kafka_request-count`) and per Kafka request type (`long_native-kafka_requests_<REQUEST_TYPE>`). The APIM Console doesn't display them.
+* In the APIM Console, the `SESSION_ERROR` status is now labeled **Interrupted**, and **Disconnected** now stands for the new `DISCONNECTED` status. The **Logs** page shows five summary cards: Connected, Disconnected, Interrupted, Failed, and Unknown.
+* The connection log detail page shows the **Client library** and **Client library version** that the client advertises, the **Security type** of the plan, and the **Security token**, which is the client ID for OAuth2 and JWT plans.
+* For more information, see [Configure and View Native Kafka API Connection Logs](../../analyze-and-monitor-apis/logging/configuring-and-viewing-native-api-connection-logs.md).
+
+#### **Kafka Gateway: Error metrics and metric dimension cap**
+
+* New Prometheus counters, labeled with the Kafka error name: `kafka_upstream_produce_topic_records_failed_total` and `kafka_upstream_produce_topic_record_bytes_failed_total` count the produced records and bytes the broker rejected, and `kafka_<direction>_fetch_errors_total` and `kafka_<direction>_fetch_partition_errors_total` count failed fetch responses and partition-level fetch errors. `kafka_upstream_produce_topic_records_total` still counts every record sent to the broker.
+* `kafka.metrics.dimensions.max` caps the number of metric dimension combinations the Gateway keeps in memory. The default is `100000`. Above the cap, the least recently used combinations are evicted and the Gateway logs a warning.
+* The `kafka_active_connections` gauge reports the active client connections per plan, application, and client identity. It's disabled by default. This gauge is also available since APIM 4.12.19.
+* For more information, see [Expose Metrics to Prometheus](../../kafka-gateway/expose-metrics-to-prometheus.md).
 
 #### **External sources for New Developer Portal pages**
 
@@ -177,6 +201,15 @@ Version 3.0.0 of the Inline Authentication Provider resource evaluates the usern
 * Rules resolve the same way in `ALIAS` mode. A topic a broker-to-client rule renames is listed under both names, each with its own topic ID.
 * An entry that sets neither field, or references `#topic` in both, is rejected when the policy is created, and the message names the entry by its position in the list.
 * For more information, see [Kafka Topic Mapping](../../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md).
+
+#### **SAP Business Technology Platform federation**
+
+* Federate the APIs of SAP API Management on SAP Business Technology Platform. Create an integration with the **SAP Business Technology Platform** provider in the APIM Console, and run its agent with a service key for the SAP API portal and one for the SAP Developer Hub.
+* Each API proxy of the API portal becomes a federated API, with its OpenAPI specification and a page of its SAP documentation. Each version of an SAP API is a federated API of its own.
+* Each product that the Developer Hub marks as subscribable becomes a plan on every API it contains: an OAuth2 plan for a product of External OAuth APIs, and an API Key plan for the others.
+* An approved subscription to an API Key plan creates an SAP application for the Gravitee application in the Developer Hub, and the consumer receives the SAP application key as the API key. Closing a subscription removes only its own access in SAP.
+* The agent requires the Developer Hub to approve subscriptions automatically. When SAP waits for its own approval, the agent rejects the Gravitee subscription.
+* For more information, see [SAP Business Technology Platform](../../govern-apis/federation/3rd-party-providers/sap-api-management.md).
 
 ## Improvements
 
