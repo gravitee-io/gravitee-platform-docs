@@ -12,7 +12,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds AI Workspaces, which give a team governed access to chosen models with per-member budgets, spend tracking, and routing. LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. Agent Management also adds custom dashboards and shadow AI agents from Edge Management, and runs on a JDBC management repository.
+Agent Management adds AI Workspaces, which give a team governed access to chosen models with per-member budgets, spend tracking, and routing. LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
 
 #### AI Workspaces
 
@@ -164,6 +164,13 @@ Agent Management adds AI Workspaces, which give a team governed access to chosen
 * The **Dashboards** page of Agent Management builds dashboards alongside the templates Gravitee ships. **New dashboard** opens an empty draft, and **Duplicate as custom dashboard** turns a read-only template into an editable copy.
 * The editor arranges widgets on a 12-column grid by dragging and resizing them, and edits the dashboard title and description in place.
 * See [Build a custom dashboard](../agent-management/observe/dashboards/build-a-custom-dashboard.md).
+
+#### Workflow tools
+
+* The **Tools** page of the Catalog adds workflow tools. A workflow tool chains operations from your APIs in API Management into one MCP tool that the gateway runs as an Arazzo workflow.
+* Build the workflow on a canvas from the operations of your APIs, or import an Arazzo 1.0 or 1.1 document. Then publish the tool to the Catalog and add it to an MCP Studio.
+* Each step calls the backend of its API directly, with the credentials set for that API on the workflow tool.
+* See [Create workflow tools](../agent-management/import/create-workflow-tools.md).
 
 #### Shadow AI agents discovered from Edge Management
 

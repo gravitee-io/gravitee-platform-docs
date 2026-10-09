@@ -908,3 +908,5 @@ Streamable
 Globbing
 Gemini
 evaluable
+Arazzo
+Goto
