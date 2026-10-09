@@ -1,5 +1,67 @@
 # AM 4.13
 
+## Highlights
+
+#### [Deprecation Notice] Removal of MongoDB chart as Helm dependency
+
+The MongoDB chart will be removed from the gravitee chart dependencies in 4.14.
+
+#### Repositories configuration
+
+The Management API now configures only to the management repository. It no longer sets up the gateway and oauth2 repositories, and the default management gravitee.yml no longer has the repositories.gateway, repositories.oauth2 sections. If those keys are still in your Management API config, they are ignored. 
+Those repositories.gateway, repositories.oauth2 sections were not used since AM 4.7 but due to legacy code their were required to be present.
+Now that the legacy code has been removed, the configuraiton has been cleaned up.
+
+#### Trusted domains: one place to manage external trust
+
+Trusted domains are now the only place where a security domain declares which outside authorities it trusts. The same trusted domain covers both uses:
+
+* Token exchange (RFC 8693): a trusted domain can declare an issuer, which is matched against the iss claim of subject and actor tokens. Scope mappings and user binding move onto that trusted domain. Trusted issuers are no longer stored in the domain’s token-exchange settings.
+* SPIFFE (JWT-SVID client assertions): the SPIFFE trust domain is now its own field (spiffeTrustDomain), so the trusted domain’s name is free text and can be renamed. One trusted domain can serve both uses with the same keys. Keys can come from a JWKS URL, an inline JWK set or a PEM certificate.
+* Cross App Access can also be configured on a trusted domain. When you create, update or delete a trusted domain, the gateway picks up the change without restarting the domain.
+
+At Management API startup, an upgrader turns each trusted issuer stored in a domain’s token-exchange settings into a trusted domain. SPIFFE trust domains from 4.12 are copied into the new storage. Nothing needs to be done by hand.
+
+The `tokenExchangeSettings.trustedIssuers` field in domain settings remains active and data are mirrored on the new data structure so a change made through one shows up in the others.
+The trusted-issuer list is still written into the domain settings, and rebuilt at each startup. That keeps existing automation working and lets you roll back to 4.12 without losing trusted issuers.
+
+The deprecated APIs will be removed in a later version.
+
+Keys for all trusted domains, token-exchange issuers included, are now fetched the same way SPIFFE bundles were: with SSRF checks, a timeout, a response-size limit and a cache.
+By default, a JWKS URL that uses plain http or points to a private IP address is refused. This applies both when the trusted domain is saved and when the gateway fetches keys.
+These limits now live in the domain settings under oidc.keyRetrievalSettings. In the console: Domain settings › Trusted domains › Key retrieval.
+Values set in 4.12 on the SPIFFE settings are moved there automatically. The old SPIFFE fields are still accepted but deprecated.
+
+#### Liquibase
+
+In 4.13 a failed Liquibase migration stops the node from starting. 
+
+## Breaking Changes
+
+#### **Removal of Application-Level Password Policy**
+
+The application-level password policy (deprecated since version 4.4.0) has be officially removed.
+
+Action Required: If you are currently using this feature, you must transition to one of the following configurations before upgrading to AM 4.13 or higher:
+
+ * Define password policies and link them directly to your Identity Providers.
+ * Implement a default password policy at the Domain level.
+
+#### **AuthenticationFlowContextService has a new package**
+
+The interface moved from io.gravitee.am.service.AuthenticationFlowContextService to io.gravitee.am.gateway.handler.common.service.AuthenticationFlowContextService. Custom plugins that import it need to change the import and be rebuilt.
+
+#### **ExtensionGrantProvider interface has evolved**
+
+The interface io.gravitee.am.extensiongrant.api.AuthenticationFlowContextService has evolved. 
+Custom plugins that import it need to be adapted and be rebuilt.
+
+#### **Automation API rejects a data plane change on an existing security domain**
+
+A domain `PUT` to the Automation API that names a different `dataPlaneId` for an existing security domain is now rejected with `400` and the message `Once domain is created, [dataPlaneId] cannot be changed.` Before 4.13, the request succeeded and the new value was ignored.
+
+Action Required: Before you upgrade AM, set `dataPlaneId` in each security domain definition to the data plane the security domain already uses.
+
 ## New Features
 
 #### **Organization licenses on Gravitee-managed deployments**
@@ -56,3 +118,32 @@
 * Data planes registered through the Management API internal API are reached with the `id:` prefix, and an update by `id:` doesn't add them to the Automation API list.
 * A domain `PUT` that updates a security domain no longer requires `dataPlaneId`, and one that names a different data plane is rejected with `400`. See [Breaking Changes for Access Management](../../getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md).
 * The `ORGANIZATION_OWNER`, `ORGANIZATION_PRIMARY_OWNER`, `ENVIRONMENT_OWNER`, and `ENVIRONMENT_PRIMARY_OWNER` roles, which listed and read data planes before, now also register, update, and delete them. See [Automation API](../../guides/automation-api.md#manage-data-planes).
+
+#### **Data planes provisioned at runtime**
+
+* A data plane can be added while the Management API runs, by posting its definition to the `/_node/dataplanes` endpoint of the Management API internal API. Every Management API node loads it without a restart, and loads it again after one. Its `id` can't be `default` or an identifier already declared in `gravitee.yml`, and the response never returns the credentials.
+* A provisioned data plane is offered in the **Data Plane** list when a security domain is created in its environment. Before the first domain is created on it, the Management API checks that the store answers with the settings it was provisioned with, and rejects the domain when it doesn't. The data planes declared in `gravitee.yml` aren't checked. The new `dataPlaneVerification` properties control the check.
+* `GET /_node/dataplanes` lists the provisioned data planes and `DELETE /_node/dataplanes/{id}` removes one, once no security domain uses it. The new `DATA_PLANE_CREATED`, `DATA_PLANE_UPDATED`, and `DATA_PLANE_DELETED` audit events record every change.
+* A security domain created without a `dataPlaneId` is assigned to `default` when `default` is the only data plane the node declares and none has been provisioned for the environment. AM Console shows the identifier beside each data plane name.
+* Deleting a security domain now purges everything it holds in its data plane, including users, groups, WebAuthn credentials, devices, login attempts, password history, consents, UMA resources, and user activity, and the deletion still completes when the data plane can't be reached. See [Configure Multiple Data Planes](../../getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md#provision-a-data-plane-at-runtime).
+
+#### **Identity provider storage on the system cluster**
+
+* The new `repositories.system-cluster-restricted` property in the Management API `gravitee.yml` lets the platform own where a MongoDB identity provider created with **Use System Cluster** stores its users: the database is the one the node serving the provider reads, and the collection is named after the provider. Under this rule, those settings and the **Use System Cluster** toggle of every MongoDB identity provider can't be changed after creation. Gravitee-managed deployments always apply it.
+* The default identity provider created with a security domain now relies on the system cluster instead of carrying its own copy of the management connection settings, and reuses the security domain's data plane when `repositories.system-cluster` is `gateway`. The new `domains.identities.default.useSystemCluster` property turns that off on a self-hosted installation. See [MongoDB](../../guides/identity-providers/database-identity-providers/mongodb.md#store-users-on-the-system-cluster) and [Repositories & Data Plane](../../getting-started/configuration/configure-repositories.md#system-cluster).
+
+
+{% hint style="info" %}
+Known limitation: default identity provider and mixed-version deployments
+
+A default identity provider created by Gravitee AM 4.13 or later cannot be used by gateways running a version earlier than 4.13 when `repositories.system-cluster` is `gateway`. This affects multi data plane deployments where `repositories.system-cluster` is set to gateway.
+
+From 4.13, the Management API stores the management database name in the default identity provider's configuration. Gateways before 4.13 read database settings based on the management scope settings, so they look for the users in the wrong database. Gateways from 4.13 replace it at runtime with the database of the data plane, so they are not affected.
+
+Default identity providers created before 4.13 are not affected.
+
+During a rolling upgrade, upgrade all gateways to 4.13 or later before creating new domains, or do not rely on the default identity provider of domains created in the meantime.
+
+The property `repositories.system-cluster` has to be consistent between Management API and Gateway configuration.
+
+{% endhint %}
