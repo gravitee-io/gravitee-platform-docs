@@ -294,6 +294,8 @@
           * [Apply policies to specific MCP methods](agent-management/build/configure-your-mcp/apply-policies-to-mcp-methods.md)
           * [Apply policies to individual tool invocations](agent-management/build/configure-your-mcp/apply-policies-to-tool-invocations.md)
           * [Layered governance for MCP tools](agent-management/build/configure-your-mcp/govern-mcp-tool-access.md)
+      * [Consumers](agent-management/build/mcp-proxies/consumers/README.md)
+        * [Manage MCP Proxy plans](agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md)
       * [Gateway](agent-management/build/mcp-proxies/gateway/README.md)
         * [Configure logging and tracing](agent-management/build/configure-your-mcp/configure-logging-and-tracing.md)
       * [Operations](agent-management/build/mcp-proxies/operations/README.md)

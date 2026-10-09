@@ -38,7 +38,7 @@ The console opens the MCP Proxy creation wizard. Select **Proxy mode**, enter a 
 
 ### Configure security
 
-The next step defines how consumers authenticate when calling tools through this MCP Proxy. The wizard offers four authentication methods: **Gravitee as Authorization Server**, **External Authorization Server**, **API Key**, and **Passthrough**.
+The next step defines how consumers authenticate when calling tools through this MCP Proxy. The wizard offers six authentication methods: **Gravitee as Authorization Server**, **External Authorization Server**, **JWT**, **mTLS**, **API Key**, and **Passthrough**.
 
 For this quickstart, select **API Key** to get running quickly without configuring an identity provider. The console flags API Key as **Not recommended**, since API keys don't carry user identity and can't be scoped as granularly as OAuth. For production deployments, use **Gravitee as Authorization Server** instead.
 

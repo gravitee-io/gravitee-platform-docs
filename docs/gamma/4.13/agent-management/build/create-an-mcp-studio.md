@@ -34,10 +34,10 @@ Studio doesn't directly ingest APIs or Kafka topics. Instead, REST APIs are firs
 ## Create a Composite MCP Server
 
 1. From the Gamma console sidebar, select **Agent Management**.
-2. Navigate to **Build**.
-3. Select **Create MCP Proxy**, then choose the **Studio mode** to launch the MCP Studio wizard.
+2. Under **Secure**, select **MCP Proxies**.
+3. Click **+ Create MCP proxy**, select **Create from scratch**, and then select **Studio mode**.
 4. **Define**: Provide a Name, Description, and a Context path for the Composite MCP Server.
-5. **Secure**: Configure security for clients connecting to the server (Gravitee AM, External Authorization, or API Key). You can also enable Fine-Grained Authorization (FGA) here.
+5. **Secure**: Select **Gravitee as Authorization Server**, **External Authorization Server**, **JWT**, **mTLS**, or **API Key** to set how clients authenticate. For the **JWT** settings, see [Configure a JWT plan](configure-your-mcp/manage-mcp-proxy-plans.md#configure-a-jwt-plan). To enable Fine-Grained Authorization (FGA), select **Gravitee as Authorization Server**, and then turn on **Enable FGA**.
 6. **Compose**: Select the tools, resources, and prompts from the Catalog palette to include in the server. You can assign aliases to tools to avoid naming collisions.
 7. **Connect**: Configure upstream authentication for any required source servers that the selected tools depend on.
 8. **Review**: Review the assembled Composite MCP Server configuration and select **Create**.

@@ -6,14 +6,14 @@ description: Consumers subscribe to the published plans of a Gamma LLM, MCP, or 
 
 # Manage subscriptions
 
-Consumers access your LLM Proxies, MCP Proxies, and A2A Proxies by subscribing to the published plans of the proxy. Each proxy detail view includes a **Consumers** page under **Consumer Access** that lists the subscriptions of the proxy, creates new ones, and manages each one through its lifecycle.
+Consumers access your LLM Proxies, MCP Proxies, and A2A Proxies by subscribing to the published plans of the proxy. On an MCP Proxy, Keyless and OAuth2 plans, and JWT plans that list an authorization server, don't need a subscription. See [Manage MCP Proxy plans](../build/configure-your-mcp/manage-mcp-proxy-plans.md). Each proxy detail view includes a **Consumers** page that lists the subscriptions of the proxy, creates new ones, and manages each one through its lifecycle.
 
 ## Open the Consumers page
 
 1. From the Gamma console sidebar, select **Agent Management**.
 2. Under **Secure**, select **LLM Proxies**, **MCP Proxies**, or **A2A Proxies**.
 3. Select the proxy.
-4. Under **Consumer Access**, select **Consumers**.
+4. Under **Consumers**, select **Subscriptions**.
 
 <figure><img src="../.gitbook/assets/gamma-aim-consumers.png" alt="The Consumers page of an A2A Proxy with the Total, Accepted, and Pending tiles, the Status, Plan, and API Key filters, and the subscription table listing an accepted and a pending subscription"><figcaption><p>The Consumers page</p></figcaption></figure>
 
@@ -75,7 +75,7 @@ To subscribe an application on behalf of a consumer, follow these steps:
 3. In **Subscription Plan**, select a plan. The list offers the published plans of the proxy, except Keyless plans. When the proxy has no published plan other than Keyless plans, the list reads **No subscribable plans**, and the panel states that subscriptions aren't required.
 4. Check the **Subscription Summary**, and then click **Create subscription**.
 
-A subscription to a JWT or OAuth2 plan requires the application to have a client ID. Without one, the panel shows the error message, and the subscription isn't created. An application can hold one JWT or OAuth2 subscription per proxy, so subscribe a second application to add another. An application can also hold only one pending or accepted subscription to the same plan.
+A subscription to a JWT or OAuth2 plan requires the application to have a client ID. Without one, the panel shows the error message, and the subscription isn't created. An application can hold one JWT or OAuth2 subscription per proxy, so subscribe a second application to add another. To let one application hold several, turn on **Allow multi JWT/OAuth2 subscriptions per application** on the **Plans** page of the proxy. An application can also hold only one pending or accepted subscription to the same plan.
 
 ## Approve, reject, or close a subscription
 
