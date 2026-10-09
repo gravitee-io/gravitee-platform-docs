@@ -13,7 +13,7 @@ Authorization Management provides fine-grained, catalog-aware access control acr
 Authorization Management connects the following three things:
 
 1. **Entities.** The things you want to protect, such as APIs, MCP tools, and AI models. Entities are registered in the Catalog or created directly in Authorization Management.
-2. **Principals.** The identities making requests, such as users, groups, service accounts, and agent identities. Principals can be synced from Gravitee Access Management (AM), imported from a file, or created locally. During an AM sync, progress is shown through live toast notifications, and the principal list updates dynamically without a page refresh.
+2. **Principals.** The identities making requests, such as users, groups, service accounts, and agent identities. Principals can be synced from Gravitee Access Management (AM) or from a [SCIM directory](../directories/sync-principals-from-a-scim-directory.md), imported from a file, or created locally. During an AM sync, progress is shown through live toast notifications, and the principal list updates dynamically without a page refresh.
 3. **Policies.** Rules that grant or deny access. Each policy declares an effect of either `permit` or `forbid`, plus a principal, an action, a resource, and optional conditions.
 
 When a request arrives at the API Gateway or AI Gateway, the Policy Decision Point (PDP) evaluates all applicable policies. The PDP returns a permit or deny decision at microsecond latency with no network hop.
