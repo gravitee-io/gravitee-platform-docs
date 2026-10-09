@@ -45,6 +45,8 @@ For an API Product, the search matches the API Product name. When typo-tolerant 
 
 In list view, a **Category** column shows the categories each API and API Product belongs to. The column is hidden on mobile screens.
 
+Click an API card, or its row in list view, to open the documentation of the API. In the navigation tree, that API is expanded and the other branches are collapsed.
+
 ## Display API Products in the catalog
 
 An API Product appears in the catalog once its navigation item is published. For more information about publishing an API Product, see [#api-product](customize-the-navigation.md#api-product "mention").
@@ -55,7 +57,7 @@ In card view, an API Product card carries the **API PRODUCT** badge, the descrip
 
 The card lists only the APIs of the API Product that the consumer can see in the portal. An API nested under an API Product in the navigation doesn't get a catalog entry of its own. An API that's also listed in another folder of the navigation keeps its own entry.
 
-Click the card, or the row in list view, to open the documentation of the API Product. For more information about subscribing to an API Product, see [#subscribe-to-an-api-product](manage-subscriptions.md#subscribe-to-an-api-product "mention").
+Click the card, or the row in list view, to open the documentation of the API Product. In the navigation tree, that API Product is expanded and the other branches are collapsed. For more information about subscribing to an API Product, see [#subscribe-to-an-api-product](manage-subscriptions.md#subscribe-to-an-api-product "mention").
 
 ## Filter the catalog by category
 

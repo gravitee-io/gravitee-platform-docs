@@ -5,6 +5,16 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.14.4 (October 7, 2026) <a href="#id-3.14.4" id="id-3.14.4"></a>
+
+#### Upgrade to Envoy 1.38.4
+
+Ambassador Edge Stack is now built on Envoy v1.38.4. This resolves an Envoy crash (`SIGSEGV`) on startup when an `EnvoyFilter` of `filterType: wasm` is configured: Envoy 1.37 bundled V8 13.8, in which a V8 data structure was shared between isolates and raced during wasm VM creation on Envoy worker threads; Envoy 1.38.4 bundles V8 14.6, where that structure is per-isolate. This update also resolves multiple CVEs, including CVE-2026-73553, CVE-2026-50572, CVE-2026-73548, CVE-2026-73513, and more. For more information, see [Envoy Proxy 1.38.4 Release Notes](https://www.envoyproxy.io/docs/envoy/v1.38.4/version_history/version_history).
+
+#### `EnvoyFilter` wasm filters now honour `vmID`, `allowPrecompiledWASM` and `customConfig`
+
+Previously, an `EnvoyFilter` with `filterType: wasm` silently used the value of `rootID` as the Envoy `vm_config.vm_id`, read `allowPrecompiledWASM` under the wrong key so it was always treated as `false`, and never rendered `customConfig` into the filter configuration. All three fields are now passed through to Envoy as documented.
+
 ### Version 3.14.3 (September 28, 2026) <a href="#id-3.14.3" id="id-3.14.3"></a>
 
 #### AuthService `status_on_error` now defaults to `504`

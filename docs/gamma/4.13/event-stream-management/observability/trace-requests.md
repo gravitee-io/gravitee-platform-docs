@@ -8,7 +8,7 @@ description: Follow one Kafka Service or Message API through the gateway span by
 
 The **Tracing** page follows one API's requests through the gateway. Where the logs tell you what happened to a connection, a trace shows the steps the gateway took inside it.
 
-<figure><img src="../../.gitbook/assets/esm-observability-tracing.png" alt="The Tracing page of Observability with one Kafka Service selected, above a table of Start Time, Status, Service, Operation, and Duration columns"><figcaption><p>Tracing follows one API at a time</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/esm-observability-tracing.png" alt="The Tracing page of Observability with one Kafka Service selected, above a table of Start Time, Status, Service, Operation, and Duration columns"><figcaption><p>Tracing follows one API at a time</p></figcaption></figure>
 
 ## Before you begin
 
@@ -16,8 +16,9 @@ Tracing is off until you turn it on for the API, and the change takes effect onl
 
 1. Open the API from **Kafka Services** or **Message APIs**.
 2. In the API's sidebar, under **Operations**, click **Reporter Settings**.
-3. Turn **OpenTelemetry tracing** on. It needs the API's reporting on first.
-4. Click **Deploy**.
+3. Select **OpenTelemetry tracing**. On a Kafka Service it needs **Aggregated metrics**, and on a Message API it needs **Enable analytics**.
+4. Click **Save changes**.
+5. Click **Deploy**.
 
 An API that traces nothing lists no traces here, whatever time range you set. See [Configure reporter settings](configure-reporter-settings.md).
 
@@ -28,7 +29,7 @@ The spans also have to reach Gamma, which is a platform pipeline rather than an 
 1. From the Gamma console sidebar, select **Event Stream Management**.
 2. Open **Observability**.
 3. Click **Tracing**.
-4. In **Select an API**, pick the API.
+4. In the **API** selector, pick the API.
 
 Nothing loads until you pick an API. The list offers the started Kafka Services and Message APIs of the environment.
 
@@ -52,7 +53,7 @@ Each row is one trace. Click it to open the trace beside the list, with two view
 * **Timeline** places the spans as a waterfall, each sized by how long it took. This is where a slow step stands out.
 * **Lineage** shows the same spans as a graph of what called what.
 
-On a Kafka Service, a trace is one client connection: a connection span at the root, then one span per Kafka protocol request under it, such as `API_VERSIONS`, `SASL_HANDSHAKE`, `METADATA`, `PRODUCE`, and `FETCH`. A trace with only the root span means the gateway isn't emitting the per-request ones.
+On a Kafka Service, a trace is one client connection. The **Kafka connection** span sits at the root. Under it, an **Authentication** span covers the client's authentication, a **Broker connect** span covers the gateway's connection to the broker, and one span per Kafka protocol request is named after the request, such as `METADATA`, `PRODUCE`, or `FETCH`. The gateway configuration can limit which Kafka requests get a span, so a trace with no request spans can come from that setting.
 
 ## Read a span
 
@@ -89,14 +90,14 @@ Click any span, in either view, to open its panel.
     </tbody>
 </table>
 
-Each section shows its count, and a section with nothing to show is left out. **Verbose tracing** in **Reporter Settings** adds the detailed span events. It multiplies what a trace stores, so turn it on for an investigation rather than leaving it on.
+Every section but **Overview** shows its count, and a section with nothing to show is left out. **Verbose tracing** in **Reporter Settings** adds the detailed span events. It multiplies what a trace stores, so turn it on for an investigation rather than leaving it on.
 
 ## Verification
 
 To verify tracing is working as expected, follow these steps:
 
 1. Open **Tracing**.
-2. In **Select an API**, pick a started Kafka Service that a client is using, with **OpenTelemetry tracing** on in its **Reporter Settings**.
+2. In the **API** selector, pick a started Kafka Service that a client is using, with **OpenTelemetry tracing** selected in its **Reporter Settings**.
 3. Set the time range to cover recent traffic.
 4. Confirm traces are listed.
 5. Click a trace.

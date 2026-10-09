@@ -17,6 +17,8 @@ A Message API row opens on the request that opened the stream, what the gateway 
 3. Click **Logs**.
 4. Click a row whose **API Type** reads **Message API**.
 
+<figure><img src="../.gitbook/assets/esm-observability-message-api-request.png" alt="The log panel of a Message API request, with the Overview, Connection Logs, and Messages sections"><figcaption><p>A Message API request opened from the logs</p></figcaption></figure>
+
 ## Read the sections
 
 <table>
@@ -29,7 +31,7 @@ A Message API row opens on the request that opened the stream, what the gateway 
     <tbody>
         <tr>
             <td><strong>Overview</strong></td>
-            <td>The API, its type, the entrypoint, the plan, the application, and the transaction, request, and client ids.</td>
+            <td>The API type, the plan, the application, and the transaction, request, and client ids. The panel doesn't show the API name or the entrypoint, so read them on the row in the list.</td>
         </tr>
         <tr>
             <td><strong>Connection Logs</strong></td>
@@ -63,13 +65,17 @@ Which legs appear follows [Reporter Settings](configure-reporter-settings.md): t
 
 ## Read the messages
 
-**Messages** lists one card per message, a page at a time. **Load more** fetches the next page.
+**Messages** lists one card per message, 10 at a time. **Load N more** fetches the next ones, up to 10.
 
 Each card carries the time, the operation, either **PUBLISH** or **SUBSCRIBE**, and the correlation id when there is one, then the payload as the entrypoint saw it and as the endpoint saw it, each labelled with the connector that handled it.
 
 ## Why a section is empty
 
-The connection is listed as soon as the switch on the API's **Settings** card is on. The bodies, headers, and messages need a **Logging mode**, a **Logging phase**, and the matching **Content data** options on top of it. Until then the row opens with **Connection Logs** and **Messages** empty, and the API's **Overview** page shows **Message content is not recorded**.
+The connection is listed as soon as **Enable analytics** is selected on the API's **Settings** card. The bodies, headers, and messages need a **Logging mode**, a **Logging phase**, and the matching **Content data** options on top of it. Until then the row opens with **Connection Logs** reading **No connection log details captured**, and **Messages** saying no message was recorded for this connection.
+
+An empty **Messages** section doesn't always mean capture is off. On a subscription, the client often connects before anything is published, so nothing crosses the connection while it's open.
+
+Once logging options are set without both a mode and a phase, the API's **Overview** page shows **Message content is not recorded**. An API whose logging options were never set shows no warning.
 
 Message capture also follows the API's sampling strategy, so a busy stream stores a fraction of its messages by design.
 

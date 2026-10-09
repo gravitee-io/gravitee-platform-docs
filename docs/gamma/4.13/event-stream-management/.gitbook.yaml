@@ -4,5 +4,44 @@ structure:
   readme: get-started/README.md
   summary: SUMMARY.md
 redirects:
- import: manage/README.md
- import/register-your-kafka-clusters: import/register-your-kafka-clusters.md
+ import: kafka-infrastructure/README.md
+ import/register-your-kafka-clusters: kafka-infrastructure/clusters/register-your-kafka-clusters.md
+ build: apis/README.md
+ build/create-a-kafka-service-with-a-registered-cluster: apis/kafka-services/create-a-kafka-service-with-a-registered-cluster.md
+ build/create-a-kafka-service-with-a-virtual-cluster: apis/kafka-services/create-a-kafka-service-with-a-virtual-cluster.md
+ build/duplicate-a-kafka-service: apis/kafka-services/duplicate-a-kafka-service.md
+ build/establish-a-virtual-cluster: kafka-infrastructure/virtual-clusters/establish-a-virtual-cluster.md
+ build/kafka-virtual-cluster-runtime-behavior-reference: kafka-infrastructure/virtual-clusters/kafka-virtual-cluster-runtime-behavior-reference.md
+ build/kafka-virtual-clusters-overview: kafka-infrastructure/virtual-clusters/kafka-virtual-clusters-overview.md
+ build/message-apis: apis/message-apis/README.md
+ build/message-apis/broadcast-messages-to-consumers: apis/message-apis/broadcast-messages-to-consumers.md
+ build/message-apis/configure-alerts: apis/message-apis/configure-alerts.md
+ build/message-apis/configure-api-metadata: apis/message-apis/configure-api-metadata.md
+ build/message-apis/configure-api-properties: apis/message-apis/configure-api-properties.md
+ build/message-apis/configure-cors: apis/message-apis/configure-cors.md
+ build/message-apis/configure-endpoints-and-failover: apis/message-apis/configure-endpoints-and-failover.md
+ build/message-apis/configure-entrypoints: apis/message-apis/configure-entrypoints.md
+ build/message-apis/configure-notifications: apis/message-apis/configure-notifications.md
+ build/message-apis/configure-reporter-settings: apis/message-apis/configure-reporter-settings.md
+ build/message-apis/configure-resources: apis/message-apis/configure-resources.md
+ build/message-apis/configure-response-templates: apis/message-apis/configure-response-templates.md
+ build/message-apis/create-a-message-api: apis/message-apis/create-a-message-api.md
+ build/message-apis/design-flows-in-the-policy-studio: apis/message-apis/design-flows-in-the-policy-studio.md
+ build/message-apis/follow-the-setup-checklist: apis/message-apis/follow-the-setup-checklist.md
+ build/message-apis/limitations-and-considerations: apis/message-apis/limitations-and-considerations.md
+ build/message-apis/manage-general-settings: apis/message-apis/manage-general-settings.md
+ build/message-apis/manage-plans: apis/message-apis/manage-plans.md
+ build/message-apis/manage-subscriptions: apis/message-apis/manage-subscriptions.md
+ build/message-apis/manage-user-permissions: apis/message-apis/manage-user-permissions.md
+ build/message-apis/publish-and-review-a-message-api: apis/message-apis/publish-and-review-a-message-api.md
+ build/message-apis/review-audit-logs: apis/message-apis/review-audit-logs.md
+ build/message-apis/review-the-api-score: apis/message-apis/review-the-api-score.md
+ build/message-apis/start-stop-and-deploy-a-message-api: apis/message-apis/start-stop-and-deploy-a-message-api.md
+ manage: kafka-infrastructure/README.md
+ manage/kafka-explorer: kafka-infrastructure/kafka-explorer/README.md
+ manage/kafka-explorer/browse-and-tail-topic-messages: kafka-infrastructure/kafka-explorer/browse-and-tail-topic-messages.md
+ manage/kafka-explorer/create-a-kafka-explorer-connection: kafka-infrastructure/kafka-explorer/create-a-kafka-explorer-connection.md
+ manage/kafka-explorer/explore-brokers-topics-and-consumer-groups: kafka-infrastructure/kafka-explorer/explore-brokers-topics-and-consumer-groups.md
+ manage/kafka-explorer/limitations-and-considerations: kafka-infrastructure/kafka-explorer/limitations-and-considerations.md
+ manage/kafka-explorer/manage-kafka-explorer-connections: kafka-infrastructure/kafka-explorer/manage-kafka-explorer-connections.md
+ manage/register-your-kafka-clusters: kafka-infrastructure/clusters/register-your-kafka-clusters.md

@@ -61,7 +61,7 @@ Of the following configuration settings, only entering a host/port pair is requi
 1. Define the comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster.
 2. Select **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, or **SSL** from the drop-down menu to define your Kafka-specific authentication flow:
    * **PLAINTEXT:** No further security config necessary.
-   * **SASL\_PLAINTEXT:** Choose NONE, GSSAPI, OAUTHBEARER, OAUTHBEARER\_TOKEN, PLAIN, SCRAM-SHA-256, SCRAM-SHA-512, or DELEGATE\_TO\_BROKER
+   * **SASL\_PLAINTEXT:** Choose NONE, AWS\_MSK\_IAM, GSSAPI, OAUTHBEARER, OAUTHBEARER\_TOKEN, PLAIN, SCRAM-SHA-256, SCRAM-SHA-512, or DELEGATE\_TO\_BROKER
      * **NONE:** No additional security configuration required.
      * **AWS\_MSK\_IAM:** Enter the JAAS login context parameters.
      * **GSSAPI:** Enter the JAAS login context parameters.
@@ -72,7 +72,7 @@ Of the following configuration settings, only entering a host/port pair is requi
      * **SCRAM-SHA-512:** Enter the username and password to connect to the broker.
      *   **DELEGATE\_TO\_BROKER:** No additional security configuration required.
 
-         <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>When using <code>DELEGATE_TO_BROKER</code>, the supported mechanisms available to the client are <code>PLAIN</code> and <code>AWS_IAM_MSK</code>. The <code>AWS_MSK_IAM</code> mechanism requires you to host the Kafka Gateway on AWS. Otherwise, authentication fails.</p></div>
+         <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>When using <code>DELEGATE_TO_BROKER</code>, the supported mechanisms available to the client are <code>PLAIN</code> and <code>AWS_MSK_IAM</code>. The <code>AWS_MSK_IAM</code> mechanism requires you to host the Kafka Gateway on AWS. Otherwise, authentication fails.</p></div>
    *   **SSL:** Choose whether to enable host name verification, then use the drop-down menu to configure a truststore type
 
        * **None**
@@ -80,8 +80,8 @@ Of the following configuration settings, only entering a host/port pair is requi
        * **JKS with path:** Enter the truststore file path and password.
        * **PKCS#12 / PFX with content:** Enter binary content as base64 and the truststore password.
        * **PKCS#12 / PFX with path:** Enter the truststore file path and password.
-       * **PEM with content:** Enter binary content as base64 and the truststore password.
-       * **PEM with path:** Enter the truststore file path and password.
+       * **PEM with content:** Enter binary content as base64. No truststore password is needed: PEM doesn't support one.
+       * **PEM with path:** Enter the truststore file path. No truststore password is needed: PEM doesn't support one.
 
        and a keystore type
 
@@ -122,7 +122,7 @@ Kafka APIs can't have published plans with conflicting authentication. In order 
 
 The Gravitee plans supported by Kafka APIs are summarized below, in increasing order of security
 
-<table><thead><tr><th width="201">Plan</th><th>Description</th></tr></thead><tbody><tr><td>Keyless (public)</td><td>When configured, this plan does not add security. It is considered an "open" plan.</td></tr><tr><td>API Key</td><td>The gateway only accepts connections from clients that pass an API key corresponding to a valid subscription to the proxy in the client properties. The API key is used as the password, and the md5 hash of the API key is used as the username, as part of the SASL/SSL with SASL PLAIN authentication method.</td></tr><tr><td>JWT</td><td>The gateway only accepts connections from clients that pass a valid JWT with a client ID claim corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication, where the JWT is used as the OAuth token.</td></tr><tr><td>OAuth2</td><td>The gateway only accepts connections from clients that pass a valid OAuth token with a client ID corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication.</td></tr></tbody></table>
+<table><thead><tr><th width="201">Plan</th><th>Description</th></tr></thead><tbody><tr><td>Keyless (public)</td><td>When configured, this plan does not add security. It is considered an "open" plan.</td></tr><tr><td>API Key</td><td>The gateway only accepts connections from clients that pass an API key corresponding to a valid subscription to the proxy in the client properties. The API key is used as the password, and the md5 hash of the API key is used as the username, as part of the SASL/SSL authentication method, with the SASL PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512 mechanism.</td></tr><tr><td>JWT</td><td>The gateway only accepts connections from clients that pass a valid JWT with a client ID claim corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication, where the JWT is used as the OAuth token.</td></tr><tr><td>OAuth2</td><td>The gateway only accepts connections from clients that pass a valid OAuth token with a client ID corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication.</td></tr></tbody></table>
 
 {% hint style="info" %}
 To learn more about how plans function in Gravitee, refer to the [plans](../../secure-and-expose-apis/plans/README.md) documentation. For mTLS plan configuration with Kafka APIs, see [mTLS plans](configure-kafka-apis/mtls-plans.md).

@@ -199,7 +199,7 @@ This code snippet of a v4 API definition shows how to implement the example abov
   "api": {
     ...
   },
-  "plans: [    
+  "plans": [
     {
       "flows": [
         {
@@ -222,7 +222,7 @@ This code snippet of a v4 API definition shows how to implement the example abov
         }
       ]
     }
-  }
+  ]
 }
 ```
 {% endtab %}
@@ -270,7 +270,7 @@ This shows how to implement the example above in a v4 API definition:
   "api": {
     ...
   },
-  "plans: [
+  "plans": [
     {
       "flows": [
         {
@@ -322,7 +322,7 @@ This shows how to implement the example above in a v4 API definition:
   "api": {
     ...
   },
-  "plans: [
+  "plans": [
     {
       "flows": [
         {
@@ -344,8 +344,8 @@ This shows how to implement the example above in a v4 API definition:
         }
       ]
     }
-  }
-} 
+  ]
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -387,7 +387,7 @@ This shows how to implement the example above in a v4 API definition:
   "api": {
     ...
   },
-  "plans: [    
+  "plans": [
     {
       "flows": [
         {
@@ -410,17 +410,25 @@ This shows how to implement the example above in a v4 API definition:
               "enabled": true,
               "policy": "kafka-acl",
               "configuration": {
-                "authorizedTopics": [
-                  "internal.orders.processing.12345"
-                ],
-                "authorizationType": "READ"
+                "authorizations": [
+                  {
+                    "resources": [
+                      {
+                        "type": "TOPIC",
+                        "resourcePatternType": "LITERAL",
+                        "resourcePattern": "internal.orders.processing.12345",
+                        "operations": ["TOPIC_READ", "TOPIC_DESCRIBE"]
+                      }
+                    ]
+                  }
+                ]
               }
             }
           ]
         }
       ]
     }
-  }
+  ]
 }
 ```
 {% endtab %}
@@ -434,8 +442,8 @@ In this scenario, the ACL policy must be able to handle wildcard rules for group
 
 With this configuration:
 
-* ACL ensures users can access only `internal.orders.*` topics.
-* Topic mapping exposes the `internal.orders.global` broker topic to external consumers as `orders`.
+* The ACL policy runs first, so it checks the client-side topic names. It grants read and write access only to topics whose client-side name matches the `orders*` expression.
+* Topic mapping then exposes the `internal.orders.global` broker topic to external consumers as `orders`.
 
 {% tabs %}
 {% tab title="Using the APIM Console" %}
@@ -462,7 +470,7 @@ This shows how to implement the example above in a v4 API definition:
   "api": {
     ...
   },
-  "plans: [    
+  "plans": [
     {
       "flows": [
         {
@@ -472,10 +480,18 @@ This shows how to implement the example above in a v4 API definition:
               "enabled": true,
               "policy": "kafka-acl",
               "configuration": {
-                "authorizedTopics": [
-                  "internal.orders.*"
-                ],
-                "authorizationType": "READ_WRITE"
+                "authorizations": [
+                  {
+                    "resources": [
+                      {
+                        "type": "TOPIC",
+                        "resourcePatternType": "EXPRESSION",
+                        "resourcePattern": "orders*",
+                        "operations": ["TOPIC_READ", "TOPIC_WRITE", "TOPIC_DESCRIBE"]
+                      }
+                    ]
+                  }
+                ]
               }
             },
             {
@@ -495,7 +511,7 @@ This shows how to implement the example above in a v4 API definition:
         }
       ]
     }
-  }
+  ]
 }
 ```
 {% endtab %}

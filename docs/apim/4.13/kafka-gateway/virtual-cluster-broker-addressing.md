@@ -66,14 +66,15 @@ kafka:
 
   routingMode: host
   routingHostMode:
-    defaultDomain: "mycompany.org"
+    domains:
+      - mycompany.org
 
     # Plain Kafka APIs: unchanged. broker 3 stays broker3-myapi.mycompany.org
-    brokerDomainPattern: "broker{brokerId}-{apiHost}.{defaultDomain}"
+    brokerDomainPattern: "broker{brokerId}-{apiHost}.{domain}"
 
     # Virtual Cluster APIs only: broker 3 of the second backend becomes
     # broker3-c1-mymesh.mycompany.org
-    virtualClusterBrokerDomainPattern: "broker{realBrokerId}-c{clusterIndex}-{apiHost}.{defaultDomain}"
+    virtualClusterBrokerDomainPattern: "broker{realBrokerId}-c{clusterIndex}-{apiHost}.{domain}"
 ```
 
 Brokers then keep the numbers your operators know, and the backend gets its own label. The placeholders can appear in any order in the pattern.
@@ -81,14 +82,14 @@ Brokers then keep the numbers your operators know, and the backend gets its own 
 `virtualClusterBrokerDomainPattern` is optional. Left unset, Virtual Clusters follow `brokerDomainPattern` like every other API, and their hostnames carry the rewritten IDs described above.
 
 {% hint style="info" %}
-A Virtual Cluster hostname **must** distinguish the backends, either through `{brokerId}` (which encodes the backend) or through `{clusterIndex}`. A pattern built only from `{realBrokerId}` would send broker 3 of the first backend and broker 3 of the second to the same hostname, and the Gateway could no longer tell them apart.
+A Virtual Cluster hostname **must** identify both the backend and the broker, either through `{brokerId}` (which encodes the backend) or through `{clusterIndex}` together with `{realBrokerId}`. A pattern built only from `{realBrokerId}` would send broker 3 of the first backend and broker 3 of the second to the same hostname. A pattern built only from `{clusterIndex}` leaves no broker ID to resolve. Any other pattern makes the Virtual Cluster API fail to deploy, with an error starting with `'kafka.routingHostMode.virtualClusterBrokerDomainPattern' must identify both the backend and the broker`. The rule also applies to `brokerDomainPattern` when a Virtual Cluster API falls back to it.
 {% endhint %}
 
 {% hint style="warning" %}
 Both settings are Gateway-wide, so `virtualClusterBrokerDomainPattern` applies to **every** Virtual Cluster API on that Gateway. Changing it after Virtual Clusters are in production moves their DNS entries and certificate SANs.
 {% endhint %}
 
-This override does not apply to Gateways using access points, where the broker domain comes from the access point rather than from configuration.
+This override does not apply to Gateways using access points, where the broker domain comes from the access point rather than from configuration. On such a Gateway, the pattern is ignored and the Gateway logs a warning.
 
 ## Clients reaching an unadvertised broker hostname
 

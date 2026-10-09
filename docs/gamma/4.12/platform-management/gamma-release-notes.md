@@ -4,6 +4,8 @@ description: Everything in the first Gravitee Gamma release, across Agent, API, 
 
 # Release Notes
 
+Each Gamma version follows the support period of the API Management version it ships with. For release and end-of-life dates, see [Support Model](https://documentation.gravitee.io/apim/release-information/support-model).
+
 ## Release Date: June 26, 2026
 
 ## Highlights

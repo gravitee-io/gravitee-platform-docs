@@ -61,6 +61,12 @@ An entry left with a blank `client` therefore changes from inert to a client-to-
 
 The policy's configuration schema required both fields before 4.13.0. An affected entry is therefore one whose field was set to an empty string rather than omitted. Before you upgrade, review every Kafka Topic Mapping policy for an entry with a blank `client` or `broker`. Remove the entry, or set both fields, to keep the behavior you have today. For what a single-field entry now does, see [Kafka Topic Mapping](../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md).
 
+**Native Kafka connection logs: One log entry per connection event**
+
+From 4.13.0, a native Kafka connection writes one log entry per lifecycle event: one when it opens, one when it fails, and, if the API selects the Disconnected event, one when it closes cleanly. In 4.12 and earlier, every entry of a connection carried the connection ID as its request ID, and the Elasticsearch reporter uses the request ID as the document ID, so a later entry replaced the earlier one and each connection kept a single entry.
+
+The request ID is now unique to each entry, in the form `<connection-id>:<sequence>:<status>`. The transaction ID is the connection ID and ties the entries of a connection together. Before you upgrade, review any dashboard or query that counts connection log entries as connections, or that looks up an entry by connection ID through the request ID. For more information, see [Native Kafka API Connection Logs: Concepts and Architecture](../analyze-and-monitor-apis/logging/native-api-connection-logs-concepts-and-architecture.md).
+
 **The Gateway resolves the request path before it routes**
 
 From 4.13.0, the `http.pathHandling` Gateway setting defaults to `NORMALIZE`. In 4.12 and earlier the default was `RAW`. A deployment that upgrades without changing its configuration resolves request paths before it resolves the listener context path, and therefore before it enforces any plan.
@@ -112,6 +118,14 @@ Before you upgrade, convert the Gateway's listener keystores and truststores to 
 * The Redis stores for rate limiting and distributed sync load `pem` only.
 
 The ordinary images aren't affected. For the full list of formats and how each behaves, see [FIPS images](../self-hosted-installation-guides/docker/fips-images.md).
+
+**Inline Authentication Provider resource 3.0.0: Usernames and passwords are read as Expression Language**
+
+Version 3.0.0 of the Inline Authentication Provider resource evaluates the username and password of each user as Gravitee Expression Language when the API is deployed. Earlier versions didn't evaluate either value. The plugin isn't included in the default APIM distribution, so the change applies when you deploy version 3.0.0.
+
+A literal value that contains `{#`, `{T`, or `{(` followed by a closing `}` is therefore read as an expression, not as the text it holds. Spaces after the `{` don't change this. A `{#` with no closing `}` makes the evaluation fail. If the evaluation fails, or returns no value or an empty value, the resource rejects every user, not only the user that holds the value. When the evaluation fails, the value appears in the Gateway logs as typed.
+
+Before you deploy version 3.0.0, check every Inline Authentication Provider resource for a username or password that contains a `{`, and change it. For more information, see [Inline Authentication Provider](../create-and-configure-apis/apply-policies/resources.md#inline-authentication-provider).
 
 #### 4.12.0
 

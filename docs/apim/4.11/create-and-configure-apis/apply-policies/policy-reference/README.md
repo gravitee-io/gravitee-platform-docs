@@ -88,6 +88,8 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [Transform Headers](transform-headers.md)
 * [Transform Query Parameters](transform-query-parameters.md)
 * [URL Rewriting](url-rewriting.md)
+* [Webhook Signature Generator](webhook-signature-generator.md)
+* [Webhook Signature Validator](webhook-signature-validator.md)
 * [WS Security Authentication](ws-security-authentication.md)\*
 * [WS Security Sign](ws-security-sign.md)\*
 * [XML to JSON Transformation](xml-to-json.md)

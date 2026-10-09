@@ -13,6 +13,8 @@ This guide explains how to use the APIM Console to create an application.
 
 {% hint style="info" %}
 Before a consumer can create an application, an admin must define the types of applications that API consumers are allowed to create.
+
+The **SPA**, **Web**, **Native**, and **Backend to backend** types, and their **Additional Client Metadata (optional)** field, are available only when Dynamic Client Registration is enabled. By default, it's disabled, and only the **Simple** type is available. For more information, see [Configure DCR](../../how-to-guides/use-case-tutorials/configure-dcr.md).
 {% endhint %}
 
 ## Create an application
@@ -36,26 +38,26 @@ Before a consumer can create an application, an admin must define the types of a
 
     * (Required) Select the allowed grant types you require for security. Available selections are **Authorization Code** and **Implicit**.
     * (Required) Enter the URIs to which the authorization server will send OAuth responses.
-    * Enter additional client metadata as key-value pairs.
+    * In **Additional Client Metadata (optional)**, enter client metadata as key-value pairs.
     * Enter the client certificate for PEM. This is required to subscribe to certain mTLS plans.
 
     **Web**
 
     * (Required) Select the allowed grant types you require for security. **Authorization Code** is mandatory. **Refresh Token** and **Implicit (Hybrid)** are optional.
     * (Required) Enter the URIs to which the authorization server will send OAuth responses.
-    * Enter additional client metadata as key-value pairs.
+    * In **Additional Client Metadata (optional)**, enter client metadata as key-value pairs.
     * Enter the client certificate for PEM. This is required to subscribe to certain mTLS plans.
 
     **Native**
 
     * (Required) Select the allowed grant types you require for security. **Authorization Code** is mandatory. **Refresh Token**, **Resource Owner Password**, and **Implicit (Hybrid)** are optional.
     * (Required) Enter the URIs to which the authorization server will send OAuth responses.
-    * Enter additional client metadata as key-value pairs.
+    * In **Additional Client Metadata (optional)**, enter client metadata as key-value pairs.
     * Enter the client certificate for PEM. This is required to subscribe to certain mTLS plans.
 
     **Backend to backend**
 
     * (Required) Select the allowed grant types you require for security. **Client Credentials** is required and the only option.
-    * Enter additional client metadata as key-value pairs.
+    * In **Additional Client Metadata (optional)**, enter client metadata as key-value pairs.
     * Enter the client certificate for PEM. This is required to subscribe to certain mTLS plans.
 7. Click **Create**.
