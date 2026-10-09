@@ -762,7 +762,7 @@ multicast
 accessor
 iterable
 enqueued
-passthrough
+[Pp]assthrough
 passcodes
 overridable
 multimodal
