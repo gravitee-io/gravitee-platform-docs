@@ -245,6 +245,7 @@
   * [Import prompts](agent-management/import/import-prompts.md)
   * [Add MCP resources](agent-management/import/add-mcp-resources.md)
   * [Create API tools](agent-management/import/create-api-tools.md)
+  * [Create workflow tools](agent-management/import/create-workflow-tools.md)
   * [Add a knowledge source](agent-management/import/add-knowledge-source.md)
   * [Upload skills](agent-management/import/upload-skills.md)
   * [Create an agent identity](agent-management/build/create-an-agent-identity.md)
