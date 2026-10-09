@@ -11,7 +11,7 @@ After creating an Agent-to-Agent (A2A) Proxy, you can configure its behavior, ma
 The Gamma console provides a visual builder to apply policies and manage flows on your A2A Proxy.
 
 * **[Add policies to your A2A Proxy](add-policies-to-a2a-proxy.md)**. Learn how to use the Policy Studio to attach security, transformation, and logic policies to your A2A communications.
-* **[Manage A2A Proxy plans](manage-a2a-proxy-plans.md)**. Create, publish, and close the plans that control how consumers authenticate to the proxy.
+* **[Manage A2A Proxy plans](manage-a2a-proxy-plans.md)**. Create, edit, publish, deprecate, and close the plans that control how consumers authenticate to the proxy.
 * **[Configure logging and tracing](configure-logging-and-tracing.md)**. Control the reported request and response data, and enable OpenTelemetry tracing.
 
 ## A2A Proxy navigation
@@ -29,9 +29,9 @@ When you open an A2A Proxy from the list, the sidebar offers the following group
   * **Endpoint**. Configure the target URL of the upstream agent and the upstream authentication.
   * **Policy Studio**. Design your flows and apply policies to agent-to-agent communication. See [Add policies to your A2A Proxy](add-policies-to-a2a-proxy.md).
   * **Resources**. Manage the resources that the policies and the OAuth2 plans of the proxy reference by name. See [Configure resources for your proxies](../configure-resources-for-your-proxies.md).
-* **Consumer Access**:
-  * **Plans**. Create, publish, and close the plans that control how consumers authenticate. See [Manage A2A Proxy plans](manage-a2a-proxy-plans.md).
-  * **Consumers**. Create, approve, reject, and close the subscriptions to the plans. See [Manage subscriptions](../../publish/manage-subscriptions.md).
+* **Consumers**:
+  * **Plans**. Create, edit, publish, deprecate, and close the plans that control how consumers authenticate. See [Manage A2A Proxy plans](manage-a2a-proxy-plans.md).
+  * **Subscriptions**. Create, approve, reject, and close the subscriptions to the plans. See [Manage subscriptions](../../publish/manage-subscriptions.md).
   * **Broadcasts**. Send a one-way announcement to the consumers of the proxy. See [Broadcast messages to proxy consumers](../broadcast-messages-to-proxy-consumers.md).
 * **Monitoring**:
   * **Audit Logs**. Review the audit trail of the proxy. See [Review audit logs](../../observe/review-audit-logs.md).

@@ -1,27 +1,27 @@
 ---
 hidden: false
 noIndex: false
-description: Create, publish, and close the plans that control how consumers authenticate to an A2A Proxy. Follow the steps to manage plans from the Gamma console.
+description: Create, edit, publish, deprecate, and close the plans that control how consumers authenticate to an A2A Proxy. Follow the steps to manage plans from the Gamma console.
 ---
 
 # Manage A2A Proxy plans
 
-Each A2A Proxy detail view includes a **Plans** page under **Consumer Access**. Plans define the access policies and security requirements that consumers of the proxy must satisfy. A consumer subscribes to a published plan, and the gateway authenticates each call against that plan.
+Each A2A Proxy detail view includes a **Plans** page under **Consumers**. Plans define the access policies and security requirements that consumers of the proxy must satisfy. A consumer subscribes to a published plan, and the gateway authenticates each call against that plan.
 
-The A2A Proxy wizard creates and publishes a default plan when you create the proxy. Use the **Plans** page to add plans of other security types, to publish them, and to close them.
+The A2A Proxy wizard creates and publishes a default plan when you create the proxy. Use the **Plans** page to add plans, and to edit, publish, deprecate, or close them.
 
 ## Open the Plans page
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **A2A Proxies**.
 3. Select your A2A Proxy.
-4. Under **Consumer Access**, select **Plans**.
+4. Under **Consumers**, select **Plans**.
 
-<figure><img src="../../.gitbook/assets/gamma-a2a-proxy-plans.png" alt="The Plans page of an A2A Proxy with the Staging, Published, Deprecated, and Closed status cards and the table of staging plans, with Plans selected under Consumer Access in the proxy sidebar"><figcaption><p>The Plans page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-a2a-proxy-plans.png" alt="The Plans page of an A2A Proxy with the Staging, Published, Deprecated, and Closed status cards, the Published card selected, and Plans selected under Consumers in the proxy sidebar"><figcaption><p>The Plans page</p></figcaption></figure>
 
 ## Read the plan list
 
-Four cards, **Staging**, **Published**, **Deprecated**, and **Closed**, show how many plans are in each status. Select a card to list the plans in that status. The **Staging** card is selected when you open the page.
+Four cards, **Staging**, **Published**, **Deprecated**, and **Closed**, show how many plans are in each status. Select a card to list the plans in that status. When you open the page, the **Published** card is selected, or the first card that holds a plan when no plan is published.
 
 The table lists one row per plan, with the following columns:
 
@@ -32,7 +32,7 @@ The table lists one row per plan, with the following columns:
 | **Created**  | The creation date of the plan.                                                                                                               |
 | **Status**   | **Staging**, **Published**, **Deprecated**, or **Closed**.                                                                                   |
 
-Each row of a plan that isn't closed ends with an actions menu. The menu offers **Publish** for a staging plan, and **Close** for a staging, published, or deprecated plan. The table shows 10 plans per page by default.
+Each row of a plan that isn't closed ends with an actions menu. The menu offers **Edit** for any plan that isn't closed, **Publish** for a staging plan, **Deprecate** for a published plan, and **Close** for a staging, published, or deprecated plan. The table shows 10 plans per page by default. On the **Published** card, drag a plan by its handle to change the order of the published plans.
 
 Plans created outside Gamma, for example in the API Management console, are listed too when they use one of the five security types. Plans that use any other security type, and push plans, aren't listed.
 
@@ -42,19 +42,20 @@ A plan moves through the following statuses:
 
 * **Staging**. Every plan starts in staging when you create it, and stays there until you publish it. Consumers can't subscribe to a staging plan.
 * **Published**. Consumers can subscribe to the plan.
-* **Deprecated**. Consumers can't subscribe to the plan anymore. The **Plans** page can't deprecate a plan, but a plan deprecated in the API Management console is listed under the **Deprecated** card.
-* **Closed**. Every subscription on the plan is terminated, and the plan can't be reopened.
+* **Deprecated**. The plan isn't available on the Developer Portal anymore, and consumers can't subscribe to it. Existing subscriptions are maintained.
+* **Closed**. Every subscription on the plan is terminated, and the plan can't be reopened or edited.
 
 ## Create a plan
 
 To create a plan, follow these steps:
 
 1. Click **Create plan**, and then select a security type: **Keyless**, **API Key**, **JWT**, **OAuth2**, or **mTLS**. The **Create plan** page opens.
-2. In the **General** step, enter a **Name**. The name is shown to consumers subscribing to the proxy. Click **Next**.
-3. In the **Configure** step, complete the settings of the security type, and then click **Next**. A **Keyless** plan has no **Configure** step.
-4. In the **Review** step, check the plan settings, and then click **Create plan**.
+2. In the **General** step, enter a **Name** of up to 50 characters. The name is shown to consumers subscribing to the proxy. To approve subscription requests without a manual review, turn on **Auto validate subscription**. Click **Next**.
+3. In the **Configure** step, complete the settings of the security type, and then click **Next**. A **Keyless** plan has no **Configure** step. To choose between several plans of the same type, open **Additional selection rule**, and then enter an expression in **Selection rule**.
+4. Optional: In the **Restrictions** step, turn on **Rate limiting**, **Quota**, or both, and then set the limits. You set restrictions only when you create a plan. Click **Next**.
+5. In the **Review** step, check the plan settings, and then click **Create plan**.
 
-The plan is created in staging and appears in the table. Plans created on the **Plans** page use manual validation, so a subscription request waits for your approval.
+The plan is created in staging, and the **Staging** card opens. A subscription request waits for your approval unless you turned on **Auto validate subscription**.
 
 ### Configure an API Key plan
 
@@ -94,6 +95,10 @@ The name must match a resource that is declared and enabled on the proxy, both w
 
 An mTLS plan has no settings of its own. Clients present an X.509 certificate during the TLS handshake. Configure the trusted certificate authorities and the certificate validation rules in the gateway-level TLS settings.
 
+## Edit a plan
+
+To edit a plan that isn't closed, click its name, or open its actions menu and click **Edit**. Change the settings, and then click **Save changes**. The **Edit plan** page has no **Restrictions** step, and the security type of a plan can't be changed. To use another type, create a new plan.
+
 ## Publish a plan
 
 To publish a plan, open the actions menu of a staging plan, and then click **Publish**. A message confirms **Published** followed by the plan name, and the plan moves to the **Published** card.
@@ -103,6 +108,15 @@ Publishing is refused in the following cases, and the message shows the reason:
 * The plan isn't in staging.
 * The plan is an OAuth2 plan that names a resource the proxy doesn't declare.
 * The plan is a Keyless plan, and the proxy already has a published or deprecated Keyless plan.
+
+## Deprecate a plan
+
+To deprecate a plan, follow these steps:
+
+1. Open the actions menu of a published plan, and then click **Deprecate**.
+2. In the **Deprecate plan?** dialog, click **Deprecate plan**.
+
+A message confirms **Deprecated** followed by the plan name, and the plan moves to the **Deprecated** card.
 
 ## Close a plan
 
@@ -115,14 +129,14 @@ A message confirms **Closed** followed by the plan name, and the plan moves to t
 
 ## Deploy the change
 
-Publishing or closing a plan marks the proxy out of sync. Creating a plan doesn't. The proxy shows the **This API is out of sync** banner until you deploy it. Click **Deploy** on the banner, optionally enter a **Deployment label**, and then click **Deploy** in the **Deploy your API** dialog.
+Publishing or closing a plan marks the proxy out of sync. Creating, renaming, or deprecating a plan doesn't. The proxy shows the **This API is out of sync** banner until you deploy it. Click **Deploy** on the banner, optionally enter a **Deployment label**, and then click **Deploy** in the **Deploy your API** dialog.
 
 ## Verification
 
 To verify a plan is available to consumers, follow these steps:
 
 1. Create a plan of any type except Keyless, publish it, and then deploy the proxy.
-2. Under **Consumer Access**, select **Consumers**, and then click **Create subscription**.
+2. Under **Consumers**, select **Subscriptions**, and then click **Create subscription**.
 3. Open the **Subscription Plan** list. The plan is listed. For the steps to complete the subscription, see [Manage subscriptions](../../publish/manage-subscriptions.md).
 
 The gateway applies a deployment within a few seconds. If a call still uses the previous plans right after you deploy, wait a moment and try again.

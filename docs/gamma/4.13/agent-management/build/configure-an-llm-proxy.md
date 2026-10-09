@@ -15,7 +15,7 @@ The LLM Proxy detail view groups its pages as follows.
 * **General**: **Overview**, **Configuration**, **API Properties**, **Metadata**, and **CORS**. The **Overview** page shows a **Connection** card with the gateway URLs of the proxy.
 * **Security**: **User Permissions**.
 * **Design**: **Models**, **Entrypoints**, **Endpoints** with its **Failover** page, **Policy Studio**, and **Resources**.
-* **Consumer Access**: **Plans**, **Consumers**, and **Broadcasts**.
+* **Consumers**: **Plans**, **Subscriptions**, and **Broadcasts**.
 * **Monitoring**: **Audit Logs**, **Reporter Settings**, and **Notifications**.
 * **Observability**: **Dashboard**, **Logs**, and **Tracing**, each shown when its deep link is available.
 * **Operations**: **Deployment**, with its **Configuration** and **History** pages.
@@ -113,23 +113,19 @@ Security plans control how consumers authenticate when they send prompts through
 
 To add a security plan, complete the following steps:
 
-1. On the LLM Proxy detail page, under **Consumer Access**, open **Plans**.
-2. Click **Add plan**.
-3. Complete the **General**, **Security**, **Configure**, and **Review** steps of the **Create Plan** wizard.
+1. On the LLM Proxy detail page, under **Consumers**, select **Plans**.
+2. Click **Create plan**, and then select a security type: **Keyless**, **API Key**, **JWT**, **OAuth2**, or **mTLS**.
+3. Complete the **General**, **Configure**, **Restrictions**, and **Review** steps, and then click **Create plan**. A **Keyless** plan has no **Configure** step.
+4. Open the actions menu of the new plan, and then click **Publish**. A plan that you add to an existing LLM Proxy starts in staging, and consumers can't subscribe to it until it's published.
+5. Click **Deploy** on the **This API is out of sync** banner, and then click **Deploy** in the **Deploy your API** dialog.
 
-The LLM Proxy supports the same comprehensive plan types as API proxies. The **Security** step presents the following plan types in this order:
-
-* **Keyless** (`KEY_LESS`)
-* **API Key** (`API_KEY`)
-* **JWT** (`JWT`)
-* **OAuth 2.0** (`OAUTH2`)
-* **mTLS** (`MTLS`)
+The actions menu of a plan also offers **Edit** for a plan that isn't closed, **Deprecate** for a published plan, and **Close**. Closing a plan terminates every subscription on it and can't be undone. You set restrictions only when you create a plan, and the security type of a plan can't be changed.
 
 See [Secure your API proxy](../../api-management/build/secure-your-api-proxy.md) for detailed plan type descriptions.
 
 ## Broadcasts
 
-To send a one-way announcement to the consumers of the LLM Proxy, under **Consumer Access**, select **Broadcasts**. For the steps to compose and send one, see [Broadcast messages to proxy consumers](broadcast-messages-to-proxy-consumers.md).
+To send a one-way announcement to the consumers of the LLM Proxy, under **Consumers**, select **Broadcasts**. For the steps to compose and send one, see [Broadcast messages to proxy consumers](broadcast-messages-to-proxy-consumers.md).
 
 ## Cost visibility
 

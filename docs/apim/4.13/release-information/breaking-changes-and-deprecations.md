@@ -107,6 +107,10 @@ From 4.13.0, an LLM Proxy reads images, audio, video, and files in requests sent
 
 To forward a content type, set its option to `ALLOW` in the entrypoint configuration of the LLM Proxy, and redeploy the API. `REJECT` refuses a request that carries the content, with an HTTP `400` error and the code `modality_blocked`.
 
+**A plan added to an existing LLM Proxy starts in staging**
+
+From 4.13.0, a plan that you add on the **Plans** page of an LLM Proxy starts in staging, like the plans of MCP Proxies and A2A Proxies. Consumers can't subscribe to it until you publish it from the actions menu of the plan, and it takes effect once you deploy the proxy. In 4.12, a plan added to an existing LLM Proxy was published right away. The plans that the LLM Proxy creation wizard creates are still published.
+
 **FIPS images: JKS and PKCS12 keystores no longer load**
 
 From 4.13.0, the FIPS image variants are built on a JDK 25 FIPS base image. The 4.12 FIPS images used JDK 21. On the JDK 25 base, BouncyCastle FIPS in approved-only mode provides no PKCS12 keystore and answers JKS read-only, so neither format loads. A FIPS deployment that upgrades from 4.12 while keeping a `jks` or `pkcs12` keystore or truststore on the Gateway fails to start its TLS listeners.

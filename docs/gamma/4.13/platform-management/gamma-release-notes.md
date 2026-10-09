@@ -73,6 +73,14 @@ Agent Management adds AI Workspaces, which give a team governed access to chosen
 * The export holds every matching subscription, not only the current page of the table.
 * See [Manage subscriptions](../agent-management/publish/manage-subscriptions.md).
 
+#### Plan editing and plan flows for LLM, MCP, and A2A Proxies
+
+* The actions menu of a plan on the **Plans** page of each LLM Proxy, MCP Proxy, and A2A Proxy offers **Edit** and **Deprecate**, and LLM Proxy plans also gain **Publish** and **Close**. The security type of a plan can't be changed.
+* A plan added from the **Plans** page of an LLM Proxy starts in staging. Publish it before consumers can subscribe.
+* The **Plans** page of each MCP Proxy and MCP Studio creates **mTLS** plans, and its **OAuth2** plans validate tokens with an OAuth2 resource declared on the proxy.
+* The **Policy Studio** of each MCP Proxy and MCP Studio adds **Plan Flows**, whose policies run only on the calls that one plan secures.
+* See [Apply policies to specific plans](../agent-management/build/configure-your-mcp/apply-policies-to-plans.md), [Manage A2A Proxy plans](../agent-management/build/configure-your-a2a-proxy/manage-a2a-proxy-plans.md), and [Configure an LLM Proxy](../agent-management/build/configure-an-llm-proxy.md#security).
+
 #### Entrypoint configuration and navigation for LLM Proxies
 
 * Each LLM Proxy detail view adds an **Entrypoints** page under **Design**. Add or remove context paths, switch the proxy to virtual hosts, and edit the options of the LLM Proxy entrypoint plugin after creation.
