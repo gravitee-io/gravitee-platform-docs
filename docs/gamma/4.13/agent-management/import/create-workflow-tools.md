@@ -12,13 +12,15 @@ The examples on this page build **Flight brief**, a workflow tool that finds a f
 
 ## Before you begin
 
-* At least one HTTP API in API Management with OpenAPI documentation, in the same environment. The builder lists only these APIs, and the documentation doesn't need to be published.
+* At least one HTTP API in API Management with OpenAPI documentation, in the same environment. The builder lists only these APIs, and only those you have access to. The documentation doesn't need to be published.
 * A backend for each API, reachable from the gateway. Each step calls the API's backend directly.
 * The credentials each backend expects, if any.
 
 ## How a workflow tool calls your APIs
 
-Each step calls the backend of its API directly, not the API's entrypoint on the gateway. The plans and policies of the API don't apply to these calls, and the API doesn't need to be started. The credentials a call carries are the ones the workflow tool sets for that API.
+Each step calls the backend of its API directly, not the API's entrypoint on the gateway. The plans and policies of the API don't apply to these calls, and the API doesn't need to be started. When an API has several endpoints, its steps call the first one.
+
+Credentials follow the backend address, not the API. APIs that share a backend address share its credentials, and publishing fails when you give them different ones.
 
 ## Create a workflow tool
 
@@ -31,12 +33,12 @@ Each step calls the backend of its API directly, not the API's entrypoint on the
 7. Click **Next**.
 8. Select the APIs the workflow calls.
 9. Click **Next**.
-10. Select the operations the workflow uses. **Select all** selects every operation of an API.
+10. Select the operations the workflow uses.
 11. Click **Next**.
 12. For each API, select an **Auth method** and fill in the fields it shows:
-    * **No upstream auth**: the calls carry no credentials. Each API starts with this method.
+    * **No upstream auth**: the calls carry no credentials of their own. Each API starts with this method.
     * **Static credentials**: select a **Credential type**. **API key** sends the key in the header you name, `x-api-key` by default. **Bearer token** sends a bearer token, and **Basic auth** sends a username and a password.
-    * **OAuth2 · Client credentials**: enter the **Token URL**, **Client ID**, and **Client secret**. The gateway gets a token from the token URL, caches it, and sends it as a bearer token.
+    * **OAuth2 · Client credentials**: enter the **Token URL**, **Client ID**, and **Client secret**, and optionally an audience and scopes. The gateway gets a token from the token URL, caches it, and sends it as a bearer token.
 13. Click **Continue to builder**.
 
 The workflow tool and its credentials are saved the first time you click **Save as draft** or **Review & publish** on the canvas. Leaving the canvas before then discards both. Each credential appears in **Credentials**, named after the tool and the API, for example **Flight brief · Weather API**.
@@ -71,9 +73,11 @@ Select a step to set how it succeeds and what follows it:
 * **Failure actions**: **Retry** runs the step again after a wait in seconds, up to the **Retry limit**, and optionally runs a **Recovery step (optional)** first. If you leave the wait and the **Retry limit** empty, the gateway waits 1 second and retries up to 3 times. **End workflow** stops the workflow with an error.
 * **Parallel dependencies**: the step runs only after the selected steps complete.
 
-In conditions, use values such as `$statusCode`, `$response.body#/path`, `$inputs.<name>`, and `$steps.<stepId>.outputs.<name>`. The **Configuration** panel lists the inputs and step outputs available to the selected step.
+A failed step doesn't stop the workflow unless one of its **Failure actions** ends it. Without one, and once a step's retries run out, the next step runs and the agent gets an error result.
 
-The toolbar shows how many blocking issues the canvas has, and the message under the canvas describes them. **Reset canvas** removes every step, connection, and workflow output at once, without asking you to confirm.
+In conditions, use values such as `$statusCode`, `$response.body#/path`, `$inputs.<name>`, and `$steps.<stepId>.outputs.<name>`. The **Configuration** panel lists the workflow inputs and the outputs of every step.
+
+**Reset canvas** removes every step, connection, and workflow output at once, without asking you to confirm.
 
 ## Publish the workflow tool
 
@@ -96,9 +100,9 @@ In the **Compose** step of the MCP Studio wizard, select the tool under **Workfl
 To open a workflow tool, click its name in **Tools**. Click **Edit** to open the **Workflow builder**.
 
 * **APIs** lists the APIs the workflow calls. Click **Add API** to add one, **Edit** to change its operations, display name, or authentication, or **Remove** to remove it. Each change is saved when you confirm it, and removing an API also removes the steps that use it.
-* Secrets are never shown again. To keep a stored credential, leave the authentication untouched. Changing any of its fields replaces the whole credential, so enter the secret again.
-* Once the tool is published, the builder has no **Save as draft**. Changes on the canvas are saved when you click **Republish** on the review page.
-* After you republish, save each MCP Studio that includes the tool. Until then, those Studios keep running the previous version. The message after **Republish** names the Studios to save.
+* The editor never shows a stored secret. To keep a stored credential, leave the authentication untouched. Changing any of its fields replaces the whole credential, so enter the secret again.
+* Once the tool is published, the builder has no **Save as draft**. **Republish** on the review page saves your canvas changes, even when validation then fails. So does **Save canvas too**, offered when you change an API while the canvas has unsaved changes.
+* Saving an MCP Studio sends the gateway the tool's latest saved steps and credentials, published or not. After you republish, or change a credential here or in **Credentials**, save each MCP Studio that includes the tool. Until then, those Studios keep running the previous version. The message after **Republish** names the Studios to save.
 
 ## Import an Arazzo specification
 
@@ -130,6 +134,8 @@ Removing a tool that an MCP Studio includes fails with **This tool is referenced
 * **Retry limit** accepts 1 to 10, and the wait before a retry accepts 0 to 3,600 seconds.
 * Validation fails when branches, recovery steps, and parallel dependencies form a loop, or when a branch goes to its own step.
 * The gateway doesn't follow a redirect from a backend. A step that gets one fails unless its success criteria accept the redirect status.
+* Each call to a backend times out after 30 seconds.
+* If an API is deleted or loses its OpenAPI documentation, publishing the tool and saving an MCP Studio that includes it fail.
 
 ## Verification
 
