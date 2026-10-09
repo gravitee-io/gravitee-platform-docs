@@ -16,6 +16,8 @@ This feature is under active development and may not be available in all environ
 
 PDP gateways report authorization decision metrics to the Gravitee control plane. This telemetry powers the Authorization Management dashboard and the KPI tiles on the Quick Start page.
 
+Gateways also record each authorization decision as a decision record. These records back the Decisions screen, where you can see what was allowed, what was denied, and what the gateway actually enforced.
+
 ## Data collected
 
 The Quick Start page surfaces four KPI tiles, suggesting the following data is collected:
@@ -53,6 +55,8 @@ The Dashboard page provides per-category analytics cards:
 {% hint style="info" %}
 The Agent and Users and Groups dashboard cards are marked "Coming soon" in the current release. Analytics for these categories will be available in a future update.
 {% endhint %}
+
+The authorization overview dashboard opens on a relative time range of the last 7 days. It includes widgets for health and latency, decisions over time, decision mix, coverage gaps, caller mix, decisions by PDP, and decisions by protected API. Breakdown widgets show the top five values.
 
 ## How analytics flow
 
