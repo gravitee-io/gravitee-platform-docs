@@ -14,6 +14,8 @@ One of the most important problems the MCP Proxy solves is securing third-party 
 
 The MCP Proxy currently supports injecting static credentials into the request headers.
 
+To call the upstream server with a token that its own authorization server issues in exchange for the consumer's token, see [Exchange tokens for upstream MCP servers](exchange-tokens-for-upstream-mcp-servers.md).
+
 In an MCP Studio, a source can also use OAuth. For more information, see [Use OAuth for an MCP Studio source](#use-oauth-for-an-mcp-studio-source).
 
 ## Configure Upstream Authentication
