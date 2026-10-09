@@ -169,3 +169,6 @@ govern-apis/federation/3rd-party-providers/README.md
 .gitbook/assets/federation-sap-api-management-choose-provider.png
 .gitbook/assets/federation-sap-api-management-integration-overview.png
 .gitbook/assets/federation-sap-api-management-plans.png
+# Kafka endpoint producer idempotence and acks (APIM 4.13.0 feature, APIM-13285): endpoint 6.2.0 ships in 4.13 only, 4.12 pins 6.1.6
+create-and-configure-apis/configure-v4-apis/endpoints/kafka.md
+.gitbook/assets/kafka-endpoint-producer-idempotence-acks.png

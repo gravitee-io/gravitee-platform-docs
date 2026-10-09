@@ -262,3 +262,12 @@ Version 3.0.0 of the Inline Authentication Provider resource evaluates the usern
 * The navigation tree of the portal now starts with its folders, APIs, and API Products collapsed, except the ones that lead to the page it opens. Previously, every branch started expanded.
 * When a consumer opens an API or API Product from the catalog, the tree expands that API or API Product and keeps the other branches collapsed.
 * For more information, see [Manage Portal Navigation and APIs](../../developer-portal/new-developer-portal/customize-the-navigation.md#developer-portal-view).
+
+#### **Kafka endpoint: Producer idempotence and acknowledgements**
+
+* The producer settings of the Kafka endpoint gain **Enable idempotence (enable.idempotence)**, on by default. Turn it off to publish to a Kafka-compatible broker that doesn't support idempotent producers. Turning it off also turns off the protection against the duplicates that producer retries cause.
+* With idempotence off, **Acknowledgements (acks)** sets how many replicas acknowledge a record before the send succeeds: `all`, `1`, or `0`. Kafka requires `all` for an idempotent producer, so the APIM Console shows the field only once idempotence is off.
+* Existing APIs keep their behavior. The defaults, idempotence on and `acks` set to `all`, give the same producer configuration as the Kafka client's own defaults.
+* A request whose policy overrides set `acks` to `1` or `0` while idempotence is on fails with the error key `FAILURE_CONFIGURATION_INVALID`.
+* The change ships in Kafka endpoint 6.2.0, which APIM bundles from 4.13.0.
+* For more information, see [Kafka](../../create-and-configure-apis/configure-v4-apis/endpoints/kafka.md#producer-and-consumer-settings).
