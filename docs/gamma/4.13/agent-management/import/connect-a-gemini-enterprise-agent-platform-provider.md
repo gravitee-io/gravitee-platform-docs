@@ -14,7 +14,7 @@ The models the provider imports appear in the **AI Models** list and can be adde
 
 Make sure you have the following:
 
-* A Google Cloud project with the platform's API enabled. When it isn't, the connection test says so, names the project, and links to the page that enables it when Google reports one.
+* A Google Cloud project with the **Vertex AI API** enabled. When it isn't, the connection test says so, names the project, and links to the page that enables it when Google reports one.
 * A credential. A service account key file in JSON format, for a service account allowed to call models on the project, reaches both Gemini and Claude models. An API key reaches Gemini models only.
 * For Claude models, the model enabled in Model Garden for the project, and a region that serves Claude models.
 * The right to add entries to the Catalog. The **Add provider** button appears only when your role has it.
@@ -25,7 +25,7 @@ The credential type decides which models the provider can serve and whether a **
 
 | Credential type     | Models                                                                       | Project ID                                                                                                                                                                |
 | ------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Service account** | Gemini models with the **Google (Gemini)** publisher, and Claude models with the **Anthropic (Claude)** publisher. | Required. The wizard asks for it as soon as you pick a service account.                                                                                                   |
+| **Service account** | Gemini models with the **Google (Gemini)** publisher, and Claude models with the **Anthropic (Claude)** publisher. | Required. If it's empty, the wizard flags it when you test the connection or continue.                                                                                    |
 | **API key**         | Gemini models only. With the **Anthropic (Claude)** publisher, an API key can't be selected.                      | Optional. Without a **Project ID**, the provider calls Google in express mode on the global host, and the **Region** isn't used. Google doesn't list models to an API key, so you add them from the registry or by hand. |
 
 ## Add the provider
@@ -72,12 +72,12 @@ A failed test marks the field to fix and tells you what to check:
 * **The key is rejected.** Check that an API key is current, not revoked, and allowed to call the API, or that a service account key hasn't been deleted or disabled and the service account still exists.
 * **The API isn't enabled on the project.** Enable it in the Google Cloud console, then try again. If the key is a Google AI Studio key, use the **Google Gemini** provider instead.
 * **The project isn't found, or the credential can't see it.** Check the **Project ID**.
-* **The credential can't use the platform on the project.** Grant the credential a role that allows it, check the **Project ID**, and for Claude models, enable the model in Model Garden for the project.
+* **The credential can't use the platform on the project.** Grant the credential the **Vertex AI User** role (`roles/aiplatform.user`), check the **Project ID**, and for Claude models, enable the model in Model Garden for the project.
 * **The region isn't available.** Check the **Region**, or use `global`.
 * **The model the test calls isn't available in that region.** For Gemini models, check the **Project ID** and use a region that serves them. For Claude models, enable the model in Model Garden and use a region that serves Claude models, such as `us-east5` or `europe-west1`. In express mode, check that the API key may use express mode, or enter the **Project ID** it belongs to.
-* **The service account key can't be used.** Replace it with the key file Google issued. A key that names a token endpoint other than Google's is refused.
+* **The service account key can't be used.** Replace it with the key file Google issued. A key that names a token endpoint other than Google's is refused when you save the credential.
 * **Google is rate-limiting the project.** Try again shortly, or raise the project's quota.
-* **Google can't be reached.** Check that your installation can reach `*.googleapis.com` through any proxy or firewall, and try again later if Google is failing.
+* **Google can't be reached.** Check that the management API can reach `*.googleapis.com` through any proxy or firewall, as the gateway must for proxy traffic, and try again later if Google is failing.
 
 ## Manage the provider
 
@@ -86,7 +86,7 @@ After the provider is saved, you manage it from its page:
 * **Models**. **Re-scan** asks Google again for the publisher's models and is offered for a service account only, because Google lists models to a service account and not to an API key. **Add from registry**, **Add manually**, and **Import all** add models, and each model you add is called before it's saved. Google lists its whole catalog for a publisher rather than what your project serves, which is why each model is checked.
 * **Edit**. Changing the connection or the credential re-tests the connection and checks each model before saving. While LLM Proxies use the provider, its credential can't be changed: remove the provider from those proxies first. A model an LLM Proxy serves can't be removed either.
 * **Credential rotation**. The provider only references the credential, so rotating the secret in the vault applies to the provider and to the LLM Proxies that use it, with no re-save and no redeploy.
-* **Connection changes**. A change to the connection redeploys the LLM Proxies that use the provider when they're in sync with the gateway, and marks the others out of sync.
+* **Connection changes**. A change to the connection redeploys the LLM Proxies that use the provider when they're in sync with the gateway. A proxy that's already out of sync keeps the change with its other undeployed changes, and it goes live with the proxy's next deploy.
 
 ## Use the models in LLM Proxies and AI Workspaces
 
@@ -96,7 +96,7 @@ To add them to an LLM Proxy or an AI Workspace, open the **Add models from provi
 
 <figure><img src="../.gitbook/assets/gamma-aim-gemini-platform-add-from-providers.png" alt="The Add models from providers panel of the LLM Proxy wizard, listing the Claude on Google Cloud and Google Cloud models providers with their Gemini Enterprise Agent Platform and publisher badges, and their models with task type and pricing"><figcaption><p>The Add models from providers panel</p></figcaption></figure>
 
-The proxy sends requests to the project, region, and publisher of the provider. With a service account, the key is read on each request, so a rotated key applies without a redeploy. With an API key and no **Project ID**, requests use express mode. If your installation doesn't sync credentials to the gateway, the panel says so under the provider, and its models can't be added. For the request formats, the parameters each publisher supports, and the errors a proxy returns, see [LLM Proxy provider support](../build/llm-proxy-provider-support.md#gemini-enterprise-agent-platform).
+The proxy sends requests to the project, region, and publisher of the provider. With a service account, the key is read on each request, so a rotated key applies without a redeploy. With an API key and no **Project ID**, requests use express mode. If your installation doesn't sync credentials to the gateway, the panel says so under the provider, and its models can't be added. The sync is the management API setting `modules.aim.credentials.gateway.enabled`, on by default. Whatever the setting, an LLM Proxy built on a provider needs every gateway on 4.13 or later. For the request formats, the parameters each publisher supports, and the errors a proxy returns, see [LLM Proxy provider support](../build/llm-proxy-provider-support.md#gemini-enterprise-agent-platform).
 
 ## Verification
 

@@ -19,7 +19,7 @@ The following providers are available when you add a provider to a proxy:
 * **Anthropic**. The Anthropic Messages API, for Claude models.
 * **Gemini**. Google's Gemini API.
 * **Bedrock**. The AWS Bedrock Converse API.
-* **Gemini Enterprise Agent Platform**. Google Cloud's platform, for both Gemini and Anthropic Claude models.
+* **Vertex AI**. Google Cloud's Gemini Enterprise Agent Platform, for both Gemini and Anthropic Claude models. The Catalog names this provider **Gemini Enterprise Agent Platform**.
 
 ## Supported endpoints
 
