@@ -285,3 +285,9 @@ Version 3.0.0 of the Inline Authentication Provider resource evaluates the usern
 * The navigation tree of the portal now starts with its folders, APIs, and API Products collapsed, except the ones that lead to the page it opens. Previously, every branch started expanded.
 * When a consumer opens an API or API Product from the catalog, the tree expands that API or API Product and keeps the other branches collapsed.
 * For more information, see [Manage Portal Navigation and APIs](../../developer-portal/new-developer-portal/customize-the-navigation.md#developer-portal-view).
+
+#### **Secondary endpoints for v4 HTTP proxy APIs in the Console**
+
+* The **General** tab of an endpoint of a v4 HTTP proxy API gains a **Secondary endpoint** checkbox. A secondary endpoint stays out of load balancing until health checks mark every primary endpoint of its group as down. Requests then go to the secondary endpoints.
+* The **Options** column of the endpoint list shows **Secondary** for each secondary endpoint.
+* For more information, see [Secondary endpoints](../../create-and-configure-apis/configure-v4-apis/load-balancing-and-failover.md#secondary-endpoints).

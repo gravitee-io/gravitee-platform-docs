@@ -33,6 +33,28 @@ To configure load balancing:
 7. Optional: Set the weight of each endpoint when using a weighted algorithm.
 8. Save and redeploy the API.
 
+### Secondary endpoints
+
+A secondary endpoint is held in reserve. Load balancing skips it while at least one primary endpoint of its endpoint group is available. An endpoint that isn't marked as secondary is a primary endpoint.
+
+When health checks have marked every primary endpoint of the group as down, requests go to the secondary endpoints, spread across them by the group's load balancing algorithm. When a primary endpoint is back up, new requests go to the primary endpoints again.
+
+{% hint style="warning" %}
+Primary endpoints leave load balancing when a health check marks them as down. Without a health check on the primary endpoints, load balancing doesn't send requests to a secondary endpoint while its group has a primary endpoint. To configure health checks, see [Health-checks](health-checks.md).
+{% endhint %}
+
+To mark an endpoint as secondary:
+
+1. Log in to your APIM Management Console.
+2. Select **APIs** from the left nav.
+3. Select your API from the list.
+4. Select **Endpoints** from the inner left nav.
+5. Click the pencil icon of the endpoint you want to mark. To add an endpoint instead, click **Add endpoint** in its endpoint group.
+6. On the **General** tab, select the checkbox in the **Secondary endpoint** section.
+
+    <figure><img src="../../.gitbook/assets/v4-endpoint-secondary-checkbox.png" alt="The General tab of an endpoint, with the Configure tenants section and the Secondary endpoint section, whose checkbox is selected."><figcaption><p>The Secondary endpoint checkbox on the General tab of an endpoint</p></figcaption></figure>
+7. Save the endpoint and redeploy the API.
+
 ## Failover
 
 Failover protects a v4 HTTP proxy API when its backend endpoints become slow or unavailable. v4 failover uses a circuit breaker: when the number of slow calls or connection failures reaches the configured threshold, the circuit breaker enters the open state and stops sending requests to the backend. While the circuit breaker is open, the API responds with `502 Bad Gateway`. Failover is configured at the API level.
@@ -67,3 +89,7 @@ To verify load balancing and failover are working as expected, follow these step
 2. Send requests to the API and confirm responses are distributed across the endpoints of the endpoint group according to the selected algorithm.
 3. To verify failover, make the backend endpoints slow or unavailable, then send requests until the failure threshold is reached.
 4. Confirm the API responds with `502 Bad Gateway` while the circuit breaker is open.
+5. To verify a secondary endpoint, confirm that the endpoint list of its group shows **Secondary** in the **Options** column.
+
+    <figure><img src="../../.gitbook/assets/v4-endpoints-secondary-badge.png" alt="The Endpoints tab of an API, with an endpoint group whose second endpoint shows Secondary and Health Check in the Options column."><figcaption><p>A secondary endpoint in the endpoint list</p></figcaption></figure>
+6. Make every primary endpoint of the group unavailable. Once health checks mark them as down, send requests to the API and confirm the secondary endpoint handles them.
