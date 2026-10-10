@@ -16,6 +16,8 @@ To open the page, follow these steps:
 
 Changing any setting reveals the **Discard** and **Save changes** buttons.
 
+A TCP Proxy API has no **CORS** item in its sidebar. Opening the page by its URL reads **CORS settings are not available for TCP Proxy APIs**.
+
 <!-- TODO: Screenshot of the CORS page -->
 
 <figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-cors-page.png" alt=""><figcaption><p>The CORS page</p></figcaption></figure>

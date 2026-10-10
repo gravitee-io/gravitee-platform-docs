@@ -10,7 +10,7 @@ After creating an API proxy, attach one or more security plans to control how co
 
 ## Plan types
 
-The Gamma console supports five plan types. Attach multiple plans to a single API proxy when needed. The Gateway evaluates them in order and uses the first plan that matches the consumer's credentials.
+The Gamma console supports five plan types. Attach multiple plans to a single API proxy when needed. The Gateway evaluates them in order and uses the first plan that matches the consumer's credentials. A TCP Proxy API accepts Keyless plans only.
 
 ### Keyless
 
@@ -62,7 +62,7 @@ Consumers present a client TLS certificate during the TLS handshake. The Gateway
 
 <figure><img src="../.gitbook/assets/gamma-api-plans.png" alt="Plans management page with lifecycle cards"><figcaption><p>The Plans page shows plan lifecycle cards (Staging, Published, Deprecated, Closed) and a table listing each plan's name, security type, status, and validation mode.</p></figcaption></figure>
 
-Plans are managed from the **Plans** tab of the API proxy sidebar, in the **Consumer Access** group.
+Plans are managed from the **Plans** page of the API proxy sidebar, in the **Consumers** group.
 
 1. Click **API Proxies** in the module sidebar.
 2. Select your API proxy.
@@ -77,14 +77,19 @@ Plans are managed from the **Plans** tab of the API proxy sidebar, in the **Cons
 | **mTLS**    |             ✓             |              ✓             |
 | **Keyless** |             ✓             |              -             |
 
+On a TCP Proxy API, the dropdown offers **Keyless** only.
+
+<figure><img src="../.gitbook/assets/gamma-api-plans-tcp-create.png" alt="The Plans page of a TCP Proxy API with the Create plan dropdown open and Keyless as its only entry"><figcaption><p>The <strong>Create plan</strong> dropdown of a TCP Proxy API.</p></figcaption></figure>
+
 5. Complete the plan creation wizard. The wizard steps vary depending on the plan type and context:
 
-| Context                                   | Plan type   | Wizard steps                                    |
-| ----------------------------------------- | ----------- | ----------------------------------------------- |
-| API proxy + API Key, JWT, OAuth2, or mTLS | non-Keyless | **General**, **Security**, then **Restrictions** |
-| API proxy + Keyless                       | Keyless     | **General**, then **Restrictions**              |
-| API product + API Key, JWT, or mTLS       | non-Keyless | **General**, then **Security**                  |
-| API product + Keyless                     | Keyless     | **General** only                                |
+| Context                                        | Plan type   | Wizard steps                                    |
+| ---------------------------------------------- | ----------- | ----------------------------------------------- |
+| HTTP Proxy API + API Key, JWT, OAuth2, or mTLS | non-Keyless | **General**, **Security**, then **Restrictions** |
+| HTTP Proxy API + Keyless                       | Keyless     | **General**, then **Restrictions**              |
+| TCP Proxy API + Keyless                        | Keyless     | **General** only                                |
+| API product + API Key, JWT, or mTLS            | non-Keyless | **General**, then **Security**                  |
+| API product + Keyless                          | Keyless     | **General** only                                |
 
 ### Step 1: General
 
@@ -133,9 +138,9 @@ For APIs with multiple plans of the same security type, define an additional sel
 {#context.attributes['jwt'].claims['iss'] == 'my-issuer'}
 ```
 
-### Step 3: Restrictions (API proxy plans only)
+### Step 3: Restrictions (HTTP Proxy API plans only)
 
-Configure rate limits, quotas, and resource access rules for the plan.
+Configure rate limits, quotas, and resource access rules for the plan. The step isn't offered on a TCP Proxy API, when you create a plan or when you edit one.
 
 **Rate Limiting:**
 

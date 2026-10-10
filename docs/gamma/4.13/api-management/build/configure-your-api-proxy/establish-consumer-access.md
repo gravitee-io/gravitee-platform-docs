@@ -47,6 +47,8 @@ An **application** represents an external consumer—a frontend, a microservice,
 
 A **subscription** binds an application to a specific **plan** on your API proxy or API product. When a consumer calls an API protected by an API Key, JWT, OAuth2, or mTLS plan, they must hold an active subscription before the Gateway accepts their credentials.
 
+A TCP Proxy API has no **Subscriptions** item in its sidebar. Opening the page by its URL reads **Subscriptions are not available for TCP Proxy APIs**.
+
 Before you create a subscription, ensure the following:
 
 * At least one plan exists on the target API and is in **Published** status. Plans in **Staging** are not available for subscription.

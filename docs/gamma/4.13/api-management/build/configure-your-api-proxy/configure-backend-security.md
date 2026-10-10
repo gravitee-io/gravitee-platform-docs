@@ -1,118 +1,138 @@
 ---
 hidden: false
 noIndex: false
-description: Endpoint groups define where the API Gateway routes requests, with load balancing, timeouts, and TLS. Follow the steps to create a group and add endpoints.
+description: Endpoint groups define where the API Gateway routes requests, with load balancing, timeouts, and TLS, for HTTP Proxy and TCP Proxy APIs. Follow the steps to edit a group and add endpoints.
 ---
 
 # Configure endpoints
 
-Endpoints define where the API Gateway routes requests after authentication. Each endpoint group points to one or more backend services and controls how the Gateway connects to them: load balancing, timeouts, SSL/TLS, proxy settings, and custom headers.
+Endpoints define where the API Gateway routes traffic after authentication. Each endpoint group points to one or more backend services and controls how the Gateway connects to them. An HTTP Proxy API's groups hold HTTP targets with their connection, proxy, SSL, and header settings. A TCP Proxy API's group holds a TCP target with its connection, proxy, and SSL settings.
 
 ## Endpoint groups
 
 <figure><img src="../../.gitbook/assets/gamma-api-endpoints.png" alt="Endpoint groups configuration page"><figcaption><p>The Endpoints page shows all configured endpoint groups, their load-balancing type, and individual backend entries.</p></figcaption></figure>
 
-An endpoint group is a logical container for one or more backend endpoints that share common connection settings. Every API proxy has at least one default endpoint group created during the API creation wizard.
+An endpoint group is a logical container for one or more backend endpoints that share common connection settings. Every API proxy has at least one endpoint group created by the creation wizard, and the first group listed is the default group of the API. The group card carries the type of the group, **HTTP Proxy** or **TCP Proxy**, and its load-balancing algorithm.
 
 ### Create an endpoint group
 
 1. Click **API Proxies** in the module sidebar.
 2. Select your API proxy.
 3. Click **Endpoints** in the API proxy sidebar.
-4. Click **Endpoints** in the expanded menu.
-5. Click **Add endpoint group**.
-6. Complete the wizard. For HTTP proxy APIs, a **Health-check** step follows the **General** and **Configuration** steps, with the same fields as the [endpoint health-check step](#step-3-health-check).
+4. Click **Add endpoint group**.
+5. Complete the wizard. The **General** and **Configuration** steps apply to every group. For HTTP Proxy APIs, a **Health-check** step follows, with the same fields as the [endpoint health-check step](#step-3-health-check).
+
+**Add endpoint group** creates an HTTP proxy group. On a TCP Proxy API, click **Edit** on the **TCP Proxy** group the wizard created instead of adding a group.
 
 #### Step 1: General
 
-| Field             | Description                                                             | Default     |
-| ----------------- | ----------------------------------------------------------------------- | ----------- |
-| **Name**          | A unique name for the endpoint group. Must not contain colons.          | (required)  |
-| **Load balancer** | The algorithm used to distribute traffic across endpoints in the group. | Round robin |
+| Field                        | Description                                                                                                                                                                  | Default       |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| **Name**                     | A name that is unique across all endpoint groups and endpoints of the API. Colons aren't allowed. An empty name reads **Name is required.**, a colon reads **Name must not contain colons.**, and a name in use reads **Name must be unique.** | (required)    |
+| **Load balancing algorithm** | The algorithm used to distribute traffic across the endpoints of the group: **RANDOM**, **ROUND_ROBIN**, **WEIGHTED_RANDOM**, or **WEIGHTED_ROUND_ROBIN**.                 | `ROUND_ROBIN` |
 
-**Load balancer types:**
+The algorithms work as follows:
 
-| Type                     | Description                                                           |
-| ------------------------ | --------------------------------------------------------------------- |
-| **Round robin**          | Distributes requests evenly across endpoints in order.                |
-| **Random**               | Selects a random endpoint for each request.                           |
-| **Weighted round robin** | Distributes requests proportionally based on each endpoint's weight.  |
-| **Weighted random**      | Selects endpoints at random, weighted by each endpoint's weight value. |
+| Algorithm                | Description                                                                               |
+| ------------------------ | ----------------------------------------------------------------------------------------- |
+| **ROUND_ROBIN**          | Sends each request to the next endpoint in order.                                          |
+| **RANDOM**               | Picks an endpoint at random for each request.                                             |
+| **WEIGHTED_ROUND_ROBIN** | Cycles through the endpoints in order, giving each one a share of requests equal to its weight. |
+| **WEIGHTED_RANDOM**      | Picks an endpoint at random, with a probability proportional to its weight.               |
+
+The group card shows the algorithm as **Round robin**, **Random**, **Weighted round robin**, or **Weighted random**. Click **Validate general information** to go to the **Configuration** step.
 
 #### Step 2: Configuration
 
-The configuration step provides shared settings that apply to all endpoints in the group by default. Individual endpoints can override these settings.
+The fields of this step follow the type of the group. When you add a group, the step starts with the target settings of the group's first endpoint, under a notice that the endpoints of the group inherit its configuration. The shared settings below apply to every endpoint of the group unless an endpoint overrides them.
 
-**HTTP settings:**
+**HTTP proxy groups**
 
-| Field                          | Description                                                                    | Default  |
-| ------------------------------ | ------------------------------------------------------------------------------ | -------- |
-| **Connect timeout**            | Maximum time (ms) to wait for a connection to the upstream service.            | 5000     |
-| **Read timeout**               | Maximum time (ms) to wait for a response from the upstream service.            | 10000    |
-| **Idle timeout**               | Time (ms) before an idle connection is closed.                                 | 60000    |
-| **Keep-alive timeout**         | Time (ms) to keep a persistent connection alive.                               | 30000    |
-| **Max concurrent connections** | Maximum number of concurrent connections to the upstream service.              | 100      |
-| **Keep-alive**                 | Reuse TCP connections across multiple requests.                                | On       |
-| `Pipelining`                   | Send multiple requests over a single connection without waiting for responses. | Off      |
-| **Follow redirects**           | Automatically follow HTTP 3xx redirects from the upstream.                     | Off      |
-| **Use compression**            | Enable response compression from the gateway.                                  | On       |
-| **Propagate Accept-Encoding**  | Forward the client's `Accept-Encoding` header to the upstream.                 | Off      |
-| **Propagate Host header**      | Forward the client's `Host` header to the upstream.                            | Off      |
-| **HTTP version**               | The HTTP protocol version to use for upstream connections.                     | HTTP/1.1 |
+**Security configuration** selects **HTTP 1.1** or **HTTP 2**, then lists the connection settings:
 
-**Proxy settings:**
+| Field                                      | Default | Notes                                                                                                                         |
+| ------------------------------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **Enable keep-alive**                      | On      | Reuses a persistent connection for several requests. Ignored for HTTP/2, which always keeps connections alive.                 |
+| **Keep-alive timeout (ms)**                | 30000   | Maximum time a connection stays unused in the pool before it's evicted.                                                       |
+| **Connection timeout**                     | 3000    | Time in milliseconds to connect to the target.                                                                                 |
+| **Enable HTTP pipelining**                 | Off     | Writes requests to a connection without waiting for the previous responses. Ignored for HTTP/2.                                |
+| **Read timeout (ms)**                      | 10000   | Maximum time given to the backend to complete the request, response included.                                                 |
+| **Enable compression (`gzip`, `deflate`)** | On      |                                                                                                                               |
+| **Propagate client Accept-Encoding header** | Off     | Can only be propagated when compression is disabled.                                                                          |
+| **Propagate client Host header**           | Off     |                                                                                                                               |
+| **Idle timeout (ms)**                      | 0       | Maximum time a connection stays active with no data sent or received. Zero means no timeout.                                  |
+| **Follow HTTP redirects**                  | Off     |                                                                                                                               |
+| **Max Concurrent Connections**             | 20      | Maximum pool size for connections.                                                                                            |
+| **Max wait queue size**                    | -1      |                                                                                                                               |
+| **Max connection lifetime (ms)**           | 0       |                                                                                                                               |
 
-Configure an HTTP or SOCKS proxy between the Gateway and the upstream service.
+With **HTTP 2**, the following fields are added:
 
-| Field                | Description                                 | Default |
-| -------------------- | ------------------------------------------- | ------- |
-| **Use system proxy** | Use the system-configured proxy settings.   | Off     |
-| **Proxy type**       | `HTTP` or `SOCKS`.                          | HTTP    |
-| **Host**             | Proxy hostname (for example, `proxy.example.com`). | (empty) |
-| **Port**             | Proxy port (for example, `3128`).                  | (empty) |
-| **Username**         | Proxy authentication username (optional).   | (empty) |
-| **Password**         | Proxy authentication password (optional).   | (empty) |
+* **Allow h2c Clear Text Upgrade**, off by default.
+* **Max concurrent stream for an HTTP/2 connection**, 25 by default.
+* **Connection Window Size for an HTTP/2 connection**, 1048576 by default.
+* **Stream initial window size for each HTTP/2 stream**, 262144 by default.
+* **Max frame size for HTTP/2 stream data frame**, 16384 by default.
 
-**SSL / TLS settings:**
+**HTTP Headers** lists the headers the Gateway adds or overrides on every request to the backend, with **KEY** and **VALUE** columns. Values support Expression Language and secrets.
 
-| Field                      | Description                                                                                           | Default |
-| -------------------------- | ----------------------------------------------------------------------------------------------------- | ------- |
-| **Hostname verifier**      | Verify that the upstream server's certificate hostname matches the request hostname.                  | On      |
-| **Trust all certificates** | Accept any upstream certificate without validation. Not recommended for production.                   | Off     |
-| **Client authentication**  | Whether the Gateway presents a client certificate to the upstream. `NONE`, `OPTIONAL`, or `REQUIRED`. | None    |
+**TCP proxy groups**
 
-**HTTP headers:**
+<figure><img src="../../.gitbook/assets/gamma-api-endpoint-group-tcp-configuration.png" alt="The Configuration step of the TCP Proxy group, with the TCP Client Options fields"><figcaption><p>The <strong>Configuration</strong> step of a TCP Proxy group.</p></figcaption></figure>
 
-Add headers that the Gateway always sends to the upstream endpoint. Each header is a name/value pair. Use this to pass static authentication tokens, correlation headers, or service mesh metadata.
+**TCP Client Options** lists the connection settings:
 
-5. Select **Save endpoint group** to create the group.
+| Field                      | Default | Notes                                                                                                        |
+| -------------------------- | ------- | ------------------------------------------------------------------------------------------------------------ |
+| **Connection timeout**     | 3000    | Time in milliseconds to connect to the target.                                                                |
+| **Reconnect attempts**     | 3       | Number of connection attempts to the target. 0 means no retry.                                               |
+| **Reconnect interval**     | 1000    | Time in milliseconds between connection attempts.                                                            |
+| **Idle timeout (ms)**      | 0       | Maximum time a TCP connection stays active with no data sent or received. Zero means no timeout.             |
+| **Read idle timeout (ms)** | 0       | Closes the connection when no data is received within the timeout.                                          |
+| **Write idle timeout (ms)** | 0      | Closes the connection when no data is sent within the timeout.                                              |
+
+**Proxy Options and SSL Options**
+
+Both group types end with the same two sections:
+
+* **Proxy Options** chooses **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**. The last choice takes a **Proxy Type**, a **Proxy host**, a **Proxy port**, and an optional **Proxy username** and **Proxy password**. An HTTP proxy group offers the **HTTP**, **SOCKS4**, and **SOCKS5** types and defaults to **HTTP**. A TCP proxy group offers **SOCKS4** and **SOCKS5** and defaults to **SOCKS5**.
+* **SSL Options** holds the **Verify Host** switch (on by default), the **Trust all** switch (off by default, and the Gateway then trusts any certificate the backend presents), and the **Truststore** and **Key store** choices. Each store is **None**, **JKS with path**, **JKS with content**, **PKCS#12 / PFX with path**, **PKCS#12 / PFX with content**, **PEM with path**, or **PEM with content**, with the password, path, content, alias, and key password fields the choice needs.
+
+Click **Save endpoint group** to save the group.
 
 ## Individual endpoints
 
-Each endpoint within a group represents a single backend service URL. Endpoints inherit the group's shared configuration by default, but can override any setting individually.
+Each endpoint within a group is one backend target. Endpoints inherit the group's shared configuration by default, and can override it.
 
 ### Add an endpoint to a group
 
 1. On the **Endpoints** page, locate the target endpoint group.
-2. Select **Add endpoint**.
+2. Click **Add endpoint**.
 3. Complete the endpoint form:
 
 #### Step 1: General
 
-| Field          | Description                                                                                  | Default    |
-| -------------- | -------------------------------------------------------------------------------------------- | ---------- |
-| **Name**       | A unique name within the group. Must not contain colons.                                     | (required) |
-| **Target URL** | The upstream service URL (for example, `https://backend.example.com`). Must not contain whitespace. | (required) |
-| **Weight**     | Relative weight for weighted load balancers. Must be at least 1.                             | 1          |
-| **Tenants**    | Restrict this endpoint to requests from specific gateway tenants.                            | None       |
+| Field                  | Description                                                                                                                                                                                                             | Default    |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **Endpoint name**      | A name that is unique in the group. Colons aren't allowed. An empty name reads **Name is required.**, a colon reads **Name must not contain colons.**, and a name in use reads **This name is already used by another endpoint in this group.** | (required) |
+| **Weight**             | Used by the weighted load balancers. Must be at least 1, or the field reads **Weight must be at least 1.**                                                                                                               | 1          |
+| **Tenants**            | Restrict this endpoint to requests from specific gateway tenants.                                                                                                                                                       | None       |
+| **Secondary endpoint** | HTTP Proxy APIs only. A secondary endpoint is left out of the load-balancer pool and only takes requests while the health check marks every primary endpoint as down.                                                     | Off        |
+
+The target fields follow the type of the endpoint:
+
+* An HTTP proxy endpoint takes a **Target url**, which is required and can't contain whitespace. It supports Expression Language and secrets.
+* A TCP proxy endpoint takes the **Target server** fields: **Host** (the backend hostname or IP address), **Port** (a port from 1 to 65535), and the **Is target secured** switch, which connects to the backend over SSL and is off by default.
+
+<figure><img src="../../.gitbook/assets/gamma-api-endpoint-form-tcp.png" alt="The General step of the endpoint form of a TCP Proxy group, with the Endpoint name, Weight, Tenants, and Target server fields"><figcaption><p>The endpoint form of a TCP Proxy group.</p></figcaption></figure>
 
 #### Step 2: Configuration
 
-By default, endpoints inherit the group's shared configuration. Toggle **Inherit configuration** off to override HTTP, proxy, SSL, or header settings for this specific endpoint.
+**Inherit configuration from the endpoint group** is on by default. Turn it off to set, for this endpoint alone, the same fields as the group's **Configuration** step.
 
 #### Step 3: Health-check
 
-The health-check service monitors the availability and health of your endpoints. The same step appears in the endpoint group wizard, and an individual endpoint either inherits the group configuration or overrides it.
+The health-check step is offered on HTTP Proxy APIs only. The health-check service monitors the availability and health of your endpoints. The same step appears in the endpoint group wizard, and an individual endpoint either inherits the group configuration or overrides it.
 
 | Field                       | Description                                                                                                          |
 | --------------------------- | -------------------------------------------------------------------------------------------------------------------- |
@@ -128,7 +148,19 @@ The health-check service monitors the availability and health of your endpoints.
 
 The results appear on the Health Check Dashboard. See [Monitor endpoint health](../../observe/monitor-endpoint-health.md).
 
-4. Select **Add endpoint** (or **Save endpoint** when editing) to save.
+4. Click **Add endpoint** (or **Save endpoint** when editing) to save.
+
+The endpoint table of an HTTP proxy group shows each target under **Target URL**. The table of a TCP proxy group shows the host and port under **Target**. The last endpoint of a group and the last group of an API can't be deleted.
+
+## Verification
+
+To verify the endpoints of a TCP Proxy API are configured as expected, follow these steps:
+
+1. Open the **Endpoints** page. The group card carries the **TCP Proxy** badge, and the **Target** column shows the backend host and port.
+2. When the **This API is out of sync** banner shows, click **Deploy API**.
+3. Open the **Overview** page. **Upstream Service** shows the same host and port.
+
+<figure><img src="../../.gitbook/assets/gamma-api-endpoints-tcp.png" alt="The Endpoints page of a TCP Proxy API, with the TCP Proxy group and the backend host and port in the Target column"><figcaption><p>The Endpoints page of a TCP Proxy API.</p></figcaption></figure>
 
 ## Next steps
 
