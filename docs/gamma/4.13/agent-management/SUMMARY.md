@@ -22,6 +22,7 @@
   * [Import prompts](import/import-prompts.md)
   * [Add MCP resources](import/add-mcp-resources.md)
   * [Create API tools](import/create-api-tools.md)
+  * [Create workflow tools](import/create-workflow-tools.md)
   * [Add a knowledge source](import/add-knowledge-source.md)
   * [Upload skills](import/upload-skills.md)
   * [Create an agent identity](build/create-an-agent-identity.md)
