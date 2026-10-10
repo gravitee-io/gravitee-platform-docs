@@ -79,6 +79,10 @@ The 4.13 FIPS images run on JDK 25, where `jks` and `pkcs12` stores don't load. 
 
 Version 3.0.0 of the Inline Authentication Provider resource evaluates the username and password of each user as Gravitee Expression Language when the API is deployed. A literal value that contains `{#`, `{T`, or `{(` followed by `}` is now read as an expression, not as the text it holds. Spaces after the `{` don't change this, and a `{#` with no closing `}` makes the evaluation fail. Before you deploy version 3.0.0, check every Inline Authentication Provider resource for usernames and passwords that contain a `{`. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
+#### **Latency policy: The response phase now adds latency**
+
+The Latency policy now runs in the response phase of v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. In 4.12.21 and earlier, a Latency policy in a response phase had no effect. The **Policy Studio** of a v2 API and the **Platform flows** on the organization's **Policies** page already let you add it there. After the upgrade, such a policy delays the responses that its flow handles by its configured time. Before you upgrade, check the response phase of every flow in the **Policy Studio** of your v2 APIs and in the **Platform flows**. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
 ## New Features
 
 #### **Branded Senders for Notification Emails**
@@ -285,3 +289,12 @@ Version 3.0.0 of the Inline Authentication Provider resource evaluates the usern
 * The navigation tree of the portal now starts with its folders, APIs, and API Products collapsed, except the ones that lead to the page it opens. Previously, every branch started expanded.
 * When a consumer opens an API or API Product from the catalog, the tree expands that API or API Product and keeps the other branches collapsed.
 * For more information, see [Manage Portal Navigation and APIs](../../developer-portal/new-developer-portal/customize-the-navigation.md#developer-portal-view).
+
+#### **Latency policy: Response phase and Expression Language**
+
+* The Latency policy now runs in the response phase of v2 APIs, v4 HTTP proxy APIs, and v4 message APIs, where it delays the response.
+* The new `dynamicTime` option takes a Gravitee Expression Language expression that returns the time to wait, in the unit set by `timeUnit`, for example `{#request.headers['X-Latency'][0]}`. When it's set, the policy ignores `time`. In the publish and subscribe phases of a message API, the expression is evaluated for each message.
+* If the expression fails, returns no value, or returns a number lower than 0, the policy raises the `LATENCY_INVALID_TIME` error key. In the request and response phases, the request fails with HTTP `500`. In the publish and subscribe phases, the error interrupts the message flow instead.
+* The policy doesn't cap the time that the expression returns. If the expression reads a value that the client sends, make sure the value is controlled and bounded.
+* The change ships in Latency policy 3.1.0, which APIM bundles from 4.12.22 and 4.13.0 onward.
+* For more information, see [Latency](../../create-and-configure-apis/apply-policies/policy-reference/latency.md) and [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
