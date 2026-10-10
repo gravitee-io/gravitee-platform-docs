@@ -14,7 +14,25 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 ### 4.13.0
 
-**Automation API rejects a data plane change on an existing security domain**
+#### **Removal of Application-Level Password Policy**
+
+The application-level password policy (deprecated since version 4.4.0) has be officially removed.
+
+Action Required: If you are currently using this feature, you must transition to one of the following configurations before upgrading to AM 4.13 or higher:
+
+ * Define password policies and link them directly to your Identity Providers.
+ * Implement a default password policy at the Domain level.
+
+#### **AuthenticationFlowContextService has a new package**
+
+The interface moved from io.gravitee.am.service.AuthenticationFlowContextService to io.gravitee.am.gateway.handler.common.service.AuthenticationFlowContextService. Custom plugins that import it need to change the import and be rebuilt.
+
+#### **ExtensionGrantProvider interface has evolved**
+
+The interface io.gravitee.am.extensiongrant.api.AuthenticationFlowContextService has evolved. 
+Custom plugins that import it need to be adapted and be rebuilt.
+
+#### **Automation API rejects a data plane change on an existing security domain**
 
 A domain `PUT` to the Automation API that names a different `dataPlaneId` for an existing security domain is now rejected with `400` and the message `Once domain is created, [dataPlaneId] cannot be changed.` Before 4.13, the request succeeded and the new value was ignored.
 
