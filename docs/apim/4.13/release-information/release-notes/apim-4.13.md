@@ -300,3 +300,9 @@ Version 3.0.0 of the Inline Authentication Provider resource evaluates the usern
 * Existing APIs keep their behavior. The defaults, idempotence on and `acks` set to `all`, give the same producer configuration as the Kafka client's own defaults.
 * The change ships in Kafka endpoint 6.2.0, which APIM bundles from 4.13.0.
 * For more information, see [Kafka](../../create-and-configure-apis/configure-v4-apis/endpoints/kafka.md#producer-and-consumer-settings).
+
+#### **Secondary endpoints for v4 HTTP proxy APIs in the Console**
+
+* The **General** tab of an endpoint of a v4 HTTP proxy API gains a **Secondary endpoint** checkbox. A secondary endpoint stays out of load balancing until health checks mark every primary endpoint of its group as down. Requests then go to the secondary endpoints.
+* The **Options** column of the endpoint list shows **Secondary** for each secondary endpoint.
+* For more information, see [Secondary endpoints](../../create-and-configure-apis/configure-v4-apis/load-balancing-and-failover.md#secondary-endpoints).
