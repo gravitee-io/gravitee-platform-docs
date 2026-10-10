@@ -15,6 +15,14 @@ Here are the breaking changes for versions 4.X of Gravitee and versions 3.X of G
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+#### 4.12.22
+
+**Latency policy: The response phase now adds latency**
+
+From 4.12.22, the Latency policy runs in the response phase of v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. In 4.12.21 and earlier, a Latency policy in a response phase had no effect. The **Policy Studio** of a v2 API and the **Platform flows** on the organization's **Policies** page already let you add it there.
+
+After the upgrade, such a policy delays the responses that its flow handles by its configured time. Before you upgrade, check the response phase of every flow in the **Policy Studio** of your v2 APIs and in the **Platform flows**. Remove any Latency policy that you don't want to take effect. For more information, see [Latency](../create-and-configure-apis/apply-policies/policy-reference/latency.md).
+
 #### 4.12.19
 
 **The Gateway no longer advertises its truststore during the TLS handshake**
