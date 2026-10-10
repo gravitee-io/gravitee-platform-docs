@@ -250,7 +250,7 @@ The Gamma console links to the settings of the New Developer Portal, which open 
 
 ### Edge Management
 
-Edge Management replaces the single configuration page and its flat lists of DNS domains and routes. A guided setup creates the configuration, and a page per concern edits it. Interception is configured per intercepted agent, and each route names the target API that receives its traffic. The console checks that API against the requirements of the route before you deploy. The analytics pages gain their content, and a Devices page shows the fleet.
+Edge Management replaces the single configuration page and its flat lists of DNS domains and routes. A guided setup creates the configuration, and a page per concern edits it. Interception is configured per intercepted agent, and each route names the target API that receives its traffic. The console checks that API against the requirements of the route before you deploy. The analytics pages gain their content, and a Devices page shows the fleet. Edge Management also runs on a JDBC management repository.
 
 #### Guided setup and one page per concern
 
@@ -270,6 +270,12 @@ Edge Management replaces the single configuration page and its flat lists of DNS
 * **Proxied Traffic** lists the intercepted requests that reached the gateway, with the device, the tool, the provider, the model, and the token counts.
 * **Devices** lists the devices that run the daemon, with their status, their daemon version, and their heartbeats.
 * See [Monitor detected shadow AI](../edge-management/observe/monitor-shadow-ai-traffic.md), [Monitor proxied traffic](../edge-management/observe/monitor-proxied-traffic.md), and [Monitor your devices](../edge-management/observe/monitor-devices.md).
+
+#### Edge Management on a JDBC management repository
+
+* Edge Management now runs on MongoDB or on a JDBC management repository. It keeps its configuration in the APIM management database and follows whichever of the two the platform runs on, so a JDBC installation doesn't need MongoDB for Edge Management.
+* On JDBC, Edge Management creates and updates its own table when the Management API starts. An installation that turns automatic migrations off applies them itself. See [Apply schema migrations manually](https://documentation.gravitee.io/apim/prepare-a-production-environment/repositories/apply-schema-migrations-manually).
+* Edge Management doesn't copy its configuration between the two databases. An installation that moves from MongoDB to JDBC leaves its existing Edge Management configuration in MongoDB.
 
 ### Event Stream Management
 
