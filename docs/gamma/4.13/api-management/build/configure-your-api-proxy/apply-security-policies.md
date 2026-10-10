@@ -17,6 +17,8 @@ Policies execute in a chain at two phases of the request lifecycle:
 
 Each policy in the chain can inspect, transform, or reject the request or response. If a policy rejects a request, subsequent policies in the chain are not executed.
 
+A TCP Proxy API forwards raw traffic and runs no policy flows. Its sidebar has no **Policy Studio** item, and opening the page by its URL reads **Policy Studio is not available for TCP Proxy APIs**.
+
 ## Authorization Management integration
 
 

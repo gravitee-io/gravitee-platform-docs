@@ -187,7 +187,7 @@ Agent Management adds AI Workspaces, which give a team governed access to chosen
 
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, a Response Templates page, and an API Score page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer, and an API proxy can be promoted to another environment through Gravitee Cloud. An API proxy can also be sent for review, and then waits for a reviewer before it starts.
+API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, a Response Templates page, and an API Score page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer, and an API proxy can be promoted to another environment through Gravitee Cloud. An API proxy can also be sent for review, and then waits for a reviewer before it starts. The from-scratch wizard also creates TCP Proxy APIs, which the detail pages then show without the HTTP-only screens.
 
 #### Import an API proxy
 
@@ -237,6 +237,18 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * While **Enable API Review** is on for the environment, an API proxy can't be started or published until a reviewer accepts it. A banner at the top of the API proxy's pages tracks the review.
 * Authors ask for a review from the **API Events** card of the **Settings** page, or with the **Ask for a review** toggle in the last step of the creation wizard.
 * See [Review an API proxy](../api-management/build/configure-your-api-proxy/review-an-api-proxy.md).
+
+#### TCP Proxy APIs
+
+* The **API Details** step of the **Start from scratch** wizard adds **HTTP Proxy** and **TCP Proxy** cards under **Select API Type**. **HTTP Proxy** stays selected by default, and a card reads **Not available** when your platform doesn't provide that proxy type.
+* For a TCP Proxy API, the **Configure Proxy** step collects one or more hostnames under **Gateway hosts**, checked for the hostname format, for duplicates, and against the hosts the other APIs of the environment listen on, plus the backend **Host** and **Port** and a **Secured (TLS)** switch under **Backend target**.
+* The **Secure** step creates one Keyless plan named **Default Keyless (UNSECURED)**, and the **Review & Deploy** step labels the API **TCP Proxy**.
+* The **API Proxies** list shows **TCP Proxy** in the **API Type** column and filters on it, and the badge under the API's name in its sidebar reads **TCP Proxy**.
+* The **Entrypoints** page of a TCP Proxy API edits its hosts in the **Entrypoint hosts** card, with the same checks as the wizard, and the **Exposed entrypoints** card lists each host with the environment's **Default TCP port**.
+* The **Endpoints** page shows the **TCP Proxy** group with the backend host and port in its **Target** column. The form of a TCP endpoint takes the **Target server** fields **Host**, **Port**, and **Is target secured**, and the **Configuration** step of the group holds **TCP Client Options**, **Proxy Options**, and **SSL Options**.
+* On a TCP Proxy API, **Create plan** offers **Keyless** only and the plan form has no **Restrictions** step. The sidebar leaves out **Policy Studio**, **Failover**, **Response Templates**, **CORS**, **Subscriptions**, **Health Check Dashboard**, and the **Observability** group, and each of those pages reads that it isn't available for TCP Proxy APIs.
+* The endpoint group and endpoint forms of HTTP Proxy APIs also take their fields from the endpoint type: the **Load balancing algorithm** lists **RANDOM**, **ROUND_ROBIN**, **WEIGHTED_RANDOM**, and **WEIGHTED_ROUND_ROBIN**, the **HTTP Headers** table has **KEY** and **VALUE** columns, and the endpoint's name field is labeled **Endpoint name**.
+* See [Create an API proxy](../api-management/build/create-an-api-proxy.md), [Configure entrypoints](../api-management/build/configure-your-api-proxy/configure-entrypoints.md), [Configure endpoints](../api-management/build/configure-your-api-proxy/configure-backend-security.md), and [Secure your API proxy](../api-management/build/secure-your-api-proxy.md).
 
 ### Developer Portals
 

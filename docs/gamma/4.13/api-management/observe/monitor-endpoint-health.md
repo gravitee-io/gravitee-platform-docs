@@ -9,6 +9,7 @@ The Endpoint Health Check Dashboard provides real-time visibility into the avail
 
 ## Prerequisites
 
+* The API is an HTTP Proxy API. A TCP Proxy API has no health checks and no **Health Check Dashboard** item in its sidebar.
 * Health checks are configured and enabled on the API's endpoint groups or endpoints. See the health-check step in [Configure endpoints](../build/configure-your-api-proxy/configure-backend-security.md#step-3-health-check).
 
 ## View the health check dashboard
