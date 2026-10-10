@@ -374,6 +374,12 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Send a one-way message to the members of the selected environment from the **Broadcasts** page under **APIs & Assets** in the **Environment** section. Choose the **Portal Notifications**, **Email**, or **POST HTTP Message** channel.
 * See [Broadcast messages to environment members](broadcast-messages-to-environment-members.md).
 
+#### Browser tabs named after the page
+
+* Once you're signed in, each Gamma console tab is titled after the page it shows, with the most specific name first and **Gravitee Gamma** last, as in **Applications · Platform Management · Gravitee Gamma**. An application's tab starts with the application's name.
+* **Home** and **Tasks & Approvals** are titled with their own name and **Gravitee Gamma** only, as in **Tasks & Approvals · Gravitee Gamma**.
+* The title changes as you move between pages, and goes back to **Gravitee Gamma** when you sign out.
+
 #### Configure API logging
 
 * The **API Logging** page of the **Environment** section caps how long APIs log full payloads, with **Max Duration (in ms)**. Its values belong to the organization and apply to every environment.
