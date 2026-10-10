@@ -62,6 +62,10 @@ Turn the local login form back on before you deactivate or delete the last activ
 
 Activation on this page applies to the console. Whether a provider is offered on a Developer Portal is a separate, per-environment activation that this page doesn't manage.
 
+{% hint style="warning" %}
+Your installation can hide the identity provider's ID token from console sign-ins. When it does, a sign-in through a provider whose **Scopes** include `openid` brings the user back to the **Sign in** page. The session starts anyway, so the console opens signed in the next time its address is opened. See [Keep identity provider tokens out of the browser](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/manage-organizations-and-environments/authentication#keep-identity-provider-tokens-out-of-the-browser).
+{% endhint %}
+
 ## Show or hide the local login form
 
 The **Show login form on management console** toggle at the top of the page controls the username and password form. It's on by default.

@@ -243,6 +243,16 @@ Version 3.0.0 of the Inline Authentication Provider resource evaluates the usern
 * Through the Management API, the setting is the `tokenEndpointAuthMethod` key of the provider's `configuration` object. It can't be declared under `security.providers` in `gravitee.yml`.
 * For more information, see [Choose how APIM authenticates to the identity provider](../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md#choose-how-apim-authenticates-to-the-identity-provider).
 
+#### **Settings that keep identity provider tokens out of the browser**
+
+* Four new settings decide whether the sign-in response sends the identity provider's access token and ID token to the browser. `console.authentication.expose.accessToken` and `console.authentication.expose.idToken` cover sign-in to the APIM Console and the Gamma console. `portal.authentication.expose.accessToken` and `portal.authentication.expose.idToken` cover sign-in to the Developer Portal.
+* Each setting defaults to `true`, so the sign-in response and browser storage stay as they were until you turn one off. Set them in `gravitee.yml`, through environment variables, or with Helm values under `api.authentication`.
+* A hidden token stays in the sign-in response as an empty value, and roles and groups mapping still reads it. With the access token hidden, the APIM Console, the Gamma console, and the Developer Portal keep no access token in browser storage.
+* With the ID token hidden, the sign-out request that the APIM Console or the Developer Portal sends to the identity provider's logout endpoint carries the provider's **Client Id** and no ID token.
+* Keep `console.authentication.expose.idToken` at `true` while users sign in to the APIM Console or the Gamma console through a provider whose **Scopes** include `openid`. With it off, both consoles show their sign-in page again after the provider sends the user back.
+* The Portal API OpenAPI specification marks the `access_token` and `id_token` fields of the sign-in response as deprecated.
+* For more information, see [Keep identity provider tokens out of the browser](../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md#keep-identity-provider-tokens-out-of-the-browser).
+
 #### **AI Model Text Embedding resource: Expression Language and secrets in the API key and header values**
 
 * The `apiKey` of the OpenAI provider and the value of each HTTP provider header now take Gravitee Expression Language, including `{#secrets.get('...')}` secret references, so a credential no longer sits in the API definition as plain text.

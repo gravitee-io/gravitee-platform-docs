@@ -112,6 +112,63 @@ Each entry under `activations` takes one of two forms:
 
 The in-memory, LDAP, and `gravitee` providers aren't rewritten this way. Changes you make in the Console to a provider declared in `gravitee.yml` don't survive a restart.
 
+## Keep identity provider tokens out of the browser
+
+When a user signs in through an identity provider that returns an ID token, APIM sends the provider's access token and ID token to the browser with its sign-in response. The APIM Console, the Gamma console, and the Developer Portal then keep both tokens in browser storage. For a provider that returns no ID token, APIM sends neither token to the browser, whatever the following settings say.
+
+Four settings hide these tokens from the sign-in response, one per token for the consoles and one per token for the Developer Portal:
+
+| Setting | Token | Sign-in |
+| --- | --- | --- |
+| `console.authentication.expose.accessToken` | Access token | APIM Console and Gamma console |
+| `console.authentication.expose.idToken` | ID token | APIM Console and Gamma console |
+| `portal.authentication.expose.accessToken` | Access token | Classic Developer Portal and New Developer Portal |
+| `portal.authentication.expose.idToken` | ID token | Classic Developer Portal and New Developer Portal |
+
+Each setting defaults to `true`, which keeps the token in the response. Only `true` keeps the token, and letter case doesn't matter. Any other value hides it.
+
+The settings apply to the whole installation, and they don't appear on any settings page. The following `gravitee.yml` excerpt hides the access token from both sign-ins, and the ID token from the Developer Portal sign-in only:
+
+```yaml
+console:
+  authentication:
+    expose:
+      accessToken: false
+
+portal:
+  authentication:
+    expose:
+      accessToken: false
+      idToken: false
+```
+
+The same settings as environment variables:
+
+```bash
+gravitee_console_authentication_expose_accessToken=false
+gravitee_portal_authentication_expose_accessToken=false
+gravitee_portal_authentication_expose_idToken=false
+```
+
+With the APIM Helm chart, set them under `api.authentication` in your `values.yaml` file:
+
+```yaml
+api:
+  authentication:
+    console:
+      exposeAccessToken: false
+    portal:
+      exposeAccessToken: false
+      exposeIdToken: false
+```
+
+A hidden token stays in the sign-in response as a field with an empty value. A custom portal built on the Portal API reads that empty value too. [Roles and groups mapping](roles-and-groups-mapping.md) still reads both tokens. Hiding a token has the following effect on sign-in and sign-out:
+
+* **Access token**: sign-in works as before. The APIM Console, the Gamma console, and the Developer Portal keep no access token in browser storage.
+* **ID token, Developer Portal**: sign-in works as before.
+* **ID token, APIM Console and Gamma console**: a sign-in through a provider whose **Scopes** include `openid` doesn't take the user into the console. The APIM Console returns the user to its **Sign In** page, signed out. The Gamma console shows its **Sign in** page again, but the session has started, so the user is signed in when they next open the Gamma console's address. Keep `console.authentication.expose.idToken` at `true` while users sign in to either console through such a provider.
+* **ID token, sign-out**: when a user signs out of the APIM Console or the Developer Portal and the provider has a logout endpoint, the request to the provider carries the provider's **Client Id** and no ID token. Check how your provider handles such a request.
+
 ## Choose how APIM authenticates to the identity provider
 
 For an OpenID Connect or Gravitee AM identity provider, the **Client Authentication Method** setting in the provider's **Configuration** section decides how APIM sends its client ID and client secret to the provider. APIM authenticates to the provider's token endpoint during a login, and to its token introspection endpoint during a token exchange. The setting has three values:
