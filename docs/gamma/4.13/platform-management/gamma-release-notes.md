@@ -238,6 +238,12 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * Authors ask for a review from the **API Events** card of the **Settings** page, or with the **Ask for a review** toggle in the last step of the creation wizard.
 * See [Review an API proxy](../api-management/build/configure-your-api-proxy/review-an-api-proxy.md).
 
+#### Secondary endpoints for API proxies
+
+* The **General** step of the endpoint form of an HTTP Proxy API gains a **Secondary endpoint** switch. A secondary endpoint stays out of load balancing until health checks mark every primary endpoint of its group as down. Requests then go to the secondary endpoints.
+* The **Endpoints** page shows a **Secondary** badge in the row of each secondary endpoint.
+* See [Configure endpoints](../api-management/build/configure-your-api-proxy/configure-backend-security.md#secondary-endpoints).
+
 ### Developer Portals
 
 The Gamma console links to the settings of the New Developer Portal, which open in a separate tab.

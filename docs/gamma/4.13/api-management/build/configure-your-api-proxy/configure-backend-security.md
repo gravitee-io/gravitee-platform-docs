@@ -105,6 +105,7 @@ Each endpoint within a group represents a single backend service URL. Endpoints 
 | **Target URL** | The upstream service URL (for example, `https://backend.example.com`). Must not contain whitespace. | (required) |
 | **Weight**     | Relative weight for weighted load balancers. Must be at least 1.                             | 1          |
 | **Tenants**    | Restrict this endpoint to requests from specific gateway tenants.                            | None       |
+| **Secondary endpoint** | HTTP proxy APIs only. Keeps the endpoint out of load balancing while a primary endpoint of the group is available. See [Secondary endpoints](#secondary-endpoints). | Off |
 
 #### Step 2: Configuration
 
@@ -129,6 +130,20 @@ The health-check service monitors the availability and health of your endpoints.
 The results appear on the Health Check Dashboard. See [Monitor endpoint health](../../observe/monitor-endpoint-health.md).
 
 4. Select **Add endpoint** (or **Save endpoint** when editing) to save.
+
+### Secondary endpoints
+
+A secondary endpoint is held in reserve. Load balancing skips it while at least one primary endpoint of its endpoint group is available. An endpoint that isn't marked as secondary is a primary endpoint.
+
+When health checks have marked every primary endpoint of the group as down, requests go to the secondary endpoints, spread across them by the group's load balancing algorithm. When a primary endpoint is back up, new requests go to the primary endpoints again.
+
+To mark an endpoint as secondary, turn on **Secondary endpoint** in the **General** step of the endpoint form. The switch appears on HTTP proxy APIs, and the **Endpoints** page shows a **Secondary** badge in the row of each secondary endpoint.
+
+<figure><img src="../../.gitbook/assets/gamma-api-endpoint-secondary.png" alt="The Edit endpoint page of an HTTP Proxy API on its General step, with the Secondary endpoint switch turned on below the Tenants field."><figcaption><p>The Secondary endpoint switch in the General step of the endpoint form</p></figcaption></figure>
+
+{% hint style="warning" %}
+Primary endpoints leave load balancing when a health check marks them as down. Without a health check on the primary endpoints, load balancing doesn't send requests to a secondary endpoint while its group has a primary endpoint. See [Step 3: Health-check](#step-3-health-check).
+{% endhint %}
 
 ## Next steps
 
