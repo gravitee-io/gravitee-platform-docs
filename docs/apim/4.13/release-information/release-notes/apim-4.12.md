@@ -288,3 +288,11 @@ Automation API is not enabled by default. On premise Helm Charts users must enab
 * The Developer Portal now adapts API access information for federated APIs based on plan security type. Because federated APIs are hosted by the third-party provider and not proxied through the Gravitee gateway, the portal hides inapplicable connection details.
 * For keyless federated APIs, the API access card is hidden entirely since there are no Gravitee-managed endpoints or credentials to display.
 * For API key federated APIs, the API access card displays only the provider-provisioned API keys section, hiding the base URL and curl command sections.
+
+#### **Latency policy: Response phase and Expression Language**
+
+* From APIM 4.12.22, the [Latency](../../create-and-configure-apis/apply-policies/policy-reference/latency.md) policy runs in the response phase of v2 APIs, v4 HTTP proxy APIs, and v4 message APIs, where it delays the response.
+* From APIM 4.12.22, the new `dynamicTime` option takes a Gravitee Expression Language expression that returns the time to wait, in the unit set by `timeUnit`, for example `{#request.headers['X-Latency'][0]}`. When it's set, the policy ignores `time`. In the publish and subscribe phases of a message API, the expression is evaluated for each message.
+* If the expression fails, returns no value, or returns a number lower than 0, the policy raises the `LATENCY_INVALID_TIME` error key. In the request and response phases, the request fails with HTTP `500`. In the publish and subscribe phases, the error interrupts the message flow instead.
+* The policy doesn't cap the time that the expression returns. If the expression reads a value that the client sends, make sure the value is controlled and bounded.
+* A Latency policy that was already in a response phase, where it had no effect, now delays the response. This includes the **Platform flows** on the organization's **Policies** page. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
