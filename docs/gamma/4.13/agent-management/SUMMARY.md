@@ -72,6 +72,8 @@
           * [Apply policies to specific MCP methods](build/configure-your-mcp/apply-policies-to-mcp-methods.md)
           * [Apply policies to individual tool invocations](build/configure-your-mcp/apply-policies-to-tool-invocations.md)
           * [Layered governance for MCP tools](build/configure-your-mcp/govern-mcp-tool-access.md)
+      * [Consumers](build/mcp-proxies/consumers/README.md)
+        * [Manage MCP Proxy plans](build/configure-your-mcp/manage-mcp-proxy-plans.md)
       * [Gateway](build/mcp-proxies/gateway/README.md)
         * [Configure logging and tracing](build/configure-your-mcp/configure-logging-and-tracing.md)
       * [Operations](build/mcp-proxies/operations/README.md)

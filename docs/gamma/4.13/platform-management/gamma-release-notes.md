@@ -12,7 +12,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds AI Workspaces, which give a team governed access to chosen models with per-member budgets, spend tracking, and routing. LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. Agent Management also adds custom dashboards and shadow AI agents from Edge Management, and runs on a JDBC management repository.
+Agent Management adds AI Workspaces, which give a team governed access to chosen models with per-member budgets, spend tracking, and routing. LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT plans. Agent Management also adds custom dashboards and shadow AI agents from Edge Management, and runs on a JDBC management repository.
 
 #### Gemini Enterprise Agent Platform provider
 
@@ -50,7 +50,7 @@ Agent Management adds AI Workspaces, which give a team governed access to chosen
 
 #### Broadcasts for LLM, MCP, and A2A Proxies
 
-* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Broadcasts** page under **Consumer Access** that sends a one-way announcement to the consumers of the proxy.
+* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Broadcasts** page under **Consumers** that sends a one-way announcement to the consumers of the proxy.
 * Choose the **Portal Notifications**, **Email**, or **POST HTTP Message** channel.
 * See [Broadcast messages to proxy consumers](../agent-management/build/broadcast-messages-to-proxy-consumers.md).
 
@@ -70,10 +70,17 @@ Agent Management adds AI Workspaces, which give a team governed access to chosen
 
 #### Plans and subscriptions for A2A Proxies
 
-* The A2A Proxy detail view adds a **Consumer Access** group with a **Plans** page and a **Consumers** page.
+* The A2A Proxy detail view adds a **Consumers** group with **Plans** and **Subscriptions**.
 * The **Plans** page lists the plans of the proxy by status, **Staging**, **Published**, **Deprecated**, or **Closed**, and creates plans of the five security types: **Keyless**, **API Key**, **JWT**, **OAuth2**, and **mTLS**.
 * The **Consumers** page lists the subscriptions of the proxy, creates a subscription for an application, and approves, rejects, or closes each one.
 * See [Manage A2A Proxy plans](../agent-management/build/configure-your-a2a-proxy/manage-a2a-proxy-plans.md) and [Manage subscriptions](../agent-management/publish/manage-subscriptions.md).
+
+#### JWT plans for MCP Proxies
+
+* The **Secure** step of the MCP Proxy and MCP Studio creation wizards adds a **JWT** method, and the **Create plan** menu of the **Plans** page adds **JWT**.
+* A JWT plan validates tokens signed by an issuer that you already run. Its **Advanced settings** list the **Authorization servers** that MCP clients discover from the proxy, and check scopes with **Check required scopes**.
+* With an authorization server listed, consumers call the proxy without a subscription.
+* See [Manage MCP Proxy plans](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md).
 
 #### Subscription export for LLM, MCP, and A2A Proxies
 
