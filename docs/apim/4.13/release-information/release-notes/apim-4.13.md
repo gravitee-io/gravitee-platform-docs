@@ -211,6 +211,13 @@ Version 3.0.0 of the Inline Authentication Provider resource evaluates the usern
 * The agent requires the Developer Hub to approve subscriptions automatically. When SAP waits for its own approval, the agent rejects the Gravitee subscription.
 * For more information, see [SAP Business Technology Platform](../../govern-apis/federation/3rd-party-providers/sap-api-management.md).
 
+#### **OAuth 2.0 Token Exchange policy**
+
+* The OAuth 2.0 Token Exchange policy implements RFC 8693. It exchanges the incoming token, usually the consumer's access token, for a token that a trusted authorization server issues, and writes that token to the `Authorization` header before the request reaches the backend.
+* The policy reaches the authorization server through an OAuth2 resource of the API, or through a token endpoint and client credentials set on the policy. The Gravitee.io AM Authorization Server resource and the OAuth2 / OpenID Connect Provider resource support the exchange. The OAuth2 / OpenID Connect Provider resource gains a `tokenExchangeEndpoint` option for it.
+* The policy applies to the request phase of v4 HTTP proxy APIs, v4 message APIs, and MCP proxies, and requires an Enterprise Edition license.
+* For more information, see [OAuth 2.0 Token Exchange](../../create-and-configure-apis/apply-policies/policy-reference/oauth2-token-exchange.md).
+
 ## Improvements
 
 #### **Datadog Reporter: Consumer and error tags on the request count metric**

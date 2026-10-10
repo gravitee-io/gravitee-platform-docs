@@ -187,3 +187,7 @@ kafka-gateway/plans.md
 kafka-gateway/virtual-cluster-broker-addressing.md
 .gitbook/assets/apim-native-connection-log-detail.png
 .gitbook/assets/apim-native-connection-logs-list.png
+# OAuth 2.0 Token Exchange policy (APIM 4.13.0, AIAM-113)
+create-and-configure-apis/apply-policies/policy-reference/oauth2-token-exchange.md
+create-and-configure-apis/apply-policies/policy-reference/README.md
+create-and-configure-apis/apply-policies/policy-reference/oauth2/generic-oauth2-authorization-server.md

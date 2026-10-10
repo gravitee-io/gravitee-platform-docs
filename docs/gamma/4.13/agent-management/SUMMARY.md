@@ -72,6 +72,7 @@
           * [Apply policies to specific MCP methods](build/configure-your-mcp/apply-policies-to-mcp-methods.md)
           * [Apply policies to individual tool invocations](build/configure-your-mcp/apply-policies-to-tool-invocations.md)
           * [Layered governance for MCP tools](build/configure-your-mcp/govern-mcp-tool-access.md)
+        * [Exchange tokens for upstream MCP servers](build/configure-your-mcp/exchange-tokens-for-upstream-mcp-servers.md)
       * [Gateway](build/mcp-proxies/gateway/README.md)
         * [Configure logging and tracing](build/configure-your-mcp/configure-logging-and-tracing.md)
       * [Operations](build/mcp-proxies/operations/README.md)

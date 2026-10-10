@@ -281,6 +281,7 @@
       * [Mock](create-and-configure-apis/apply-policies/policy-reference/mock.md)
       * [mTLS](create-and-configure-apis/apply-policies/policy-reference/mtls.md)
       * [OAS Validation](create-and-configure-apis/apply-policies/policy-reference/oas-validation.md)
+      * [OAuth 2.0 Token Exchange](create-and-configure-apis/apply-policies/policy-reference/oauth2-token-exchange.md)
       * [OAuth2](create-and-configure-apis/apply-policies/policy-reference/oauth2/README.md)
         * [Generic OAuth2 Authorization Server](create-and-configure-apis/apply-policies/policy-reference/oauth2/generic-oauth2-authorization-server.md)
         * [Gravitee.io AM Authorization Server](create-and-configure-apis/apply-policies/policy-reference/oauth2/gravitee.io-am-authorization-server.md)

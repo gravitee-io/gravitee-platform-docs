@@ -124,6 +124,12 @@ Agent Management adds AI Workspaces, which give a team governed access to chosen
 * The policy runs in the request phase and acts only on requests whose conversation carries tool output. It passes every other request through unchanged, so no condition is needed.
 * See [Add the AI Token Compression policy](../agent-management/build/add-the-ai-token-compression-policy.md).
 
+#### OAuth 2.0 Token Exchange for MCP Proxies
+
+* The **OAuth 2.0 Token Exchange** policy exchanges the token that a consumer sends to an MCP Proxy for a token that the upstream MCP server accepts. The MCP server receives the issued token in the `Authorization` header, in place of the consumer's token.
+* The policy reaches the authorization server through an OAuth2 resource of the proxy, or through a token endpoint and client credentials set on the policy. An **OAuth2 / OpenID Connect Provider** resource exchanges tokens once its **Token exchange endpoint** is set.
+* See [Exchange tokens for upstream MCP servers](../agent-management/build/configure-your-mcp/exchange-tokens-for-upstream-mcp-servers.md).
+
 #### Owner and sharding tags in the LLM Proxies list
 
 * The **LLM Proxies** list adds an **Owner** column, showing the primary owner of each proxy, and a **Sharding Tags** column, showing the first tag alphabetically with a **more** badge that lists the remaining tags on hover.
