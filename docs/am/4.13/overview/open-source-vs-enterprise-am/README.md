@@ -32,6 +32,8 @@ The features below are included in the default enterprise Access Management dist
 * SAML v2
 * Geo IP
 * Account Linking
+* Cross App Access extension grant
+* PEP AuthZEN policy
 
 ## Enterprise plugins <a href="#enterprise-policy-pack" id="enterprise-policy-pack"></a>
 
