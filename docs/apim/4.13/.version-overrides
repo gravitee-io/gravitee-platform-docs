@@ -187,3 +187,14 @@ kafka-gateway/plans.md
 kafka-gateway/virtual-cluster-broker-addressing.md
 .gitbook/assets/apim-native-connection-log-detail.png
 .gitbook/assets/apim-native-connection-logs-list.png
+# OAuth 2.0 Token Exchange policy (APIM 4.13.0, AIAM-113)
+create-and-configure-apis/apply-policies/policy-reference/oauth2-token-exchange.md
+create-and-configure-apis/apply-policies/policy-reference/README.md
+create-and-configure-apis/apply-policies/policy-reference/oauth2/generic-oauth2-authorization-server.md
+# Kafka endpoint producer idempotence and acks (APIM 4.13.0 feature, APIM-13285): endpoint 6.2.0 ships in 4.13 only, 4.12 pins 6.1.6
+create-and-configure-apis/configure-v4-apis/endpoints/kafka.md
+.gitbook/assets/kafka-endpoint-producer-idempotence-acks.png
+create-and-configure-apis/configure-v4-apis/load-balancing-and-failover.md
+create-and-configure-apis/configure-v4-apis/endpoints/README.md
+.gitbook/assets/v4-endpoint-secondary-checkbox.png
+.gitbook/assets/v4-endpoints-secondary-badge.png

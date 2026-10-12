@@ -211,6 +211,13 @@ Version 3.0.0 of the Inline Authentication Provider resource evaluates the usern
 * The agent requires the Developer Hub to approve subscriptions automatically. When SAP waits for its own approval, the agent rejects the Gravitee subscription.
 * For more information, see [SAP Business Technology Platform](../../govern-apis/federation/3rd-party-providers/sap-api-management.md).
 
+#### **OAuth 2.0 Token Exchange policy**
+
+* The OAuth 2.0 Token Exchange policy implements RFC 8693. It exchanges the incoming token, usually the consumer's access token, for a token that a trusted authorization server issues, and writes that token to the `Authorization` header before the request reaches the backend.
+* The policy reaches the authorization server through an OAuth2 resource of the API, or through a token endpoint and client credentials set on the policy. The Gravitee.io AM Authorization Server resource and the OAuth2 / OpenID Connect Provider resource support the exchange. The OAuth2 / OpenID Connect Provider resource gains a `tokenExchangeEndpoint` option for it.
+* The policy applies to the request phase of v4 HTTP proxy APIs, v4 message APIs, and MCP proxies, and requires an Enterprise Edition license.
+* For more information, see [OAuth 2.0 Token Exchange](../../create-and-configure-apis/apply-policies/policy-reference/oauth2-token-exchange.md).
+
 ## Improvements
 
 #### **Datadog Reporter: Consumer and error tags on the request count metric**
@@ -285,3 +292,17 @@ Version 3.0.0 of the Inline Authentication Provider resource evaluates the usern
 * The navigation tree of the portal now starts with its folders, APIs, and API Products collapsed, except the ones that lead to the page it opens. Previously, every branch started expanded.
 * When a consumer opens an API or API Product from the catalog, the tree expands that API or API Product and keeps the other branches collapsed.
 * For more information, see [Manage Portal Navigation and APIs](../../developer-portal/new-developer-portal/customize-the-navigation.md#developer-portal-view).
+
+#### **Kafka endpoint: Producer idempotence and acknowledgements**
+
+* The producer settings of the Kafka endpoint gain **Enable idempotence (enable.idempotence)**, on by default. Turn it off to publish to a Kafka-compatible broker that doesn't support idempotent producers. With it off, a retry can write a record twice or out of order.
+* **Acknowledgements (acks)** appears once idempotence is off, and sets how many replicas acknowledge a record before the send succeeds: `all`, `1`, or `0`.
+* Existing APIs keep their behavior. The defaults, idempotence on and `acks` set to `all`, give the same producer configuration as the Kafka client's own defaults.
+* The change ships in Kafka endpoint 6.2.0, which APIM bundles from 4.13.0.
+* For more information, see [Kafka](../../create-and-configure-apis/configure-v4-apis/endpoints/kafka.md#producer-and-consumer-settings).
+
+#### **Secondary endpoints for v4 HTTP proxy APIs in the Console**
+
+* The **General** tab of an endpoint of a v4 HTTP proxy API gains a **Secondary endpoint** checkbox. A secondary endpoint stays out of load balancing until health checks mark every primary endpoint of its group as down. Requests then go to the secondary endpoints.
+* The **Options** column of the endpoint list shows **Secondary** for each secondary endpoint.
+* For more information, see [Secondary endpoints](../../create-and-configure-apis/configure-v4-apis/load-balancing-and-failover.md#secondary-endpoints).
