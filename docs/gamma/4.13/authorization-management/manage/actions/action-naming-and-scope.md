@@ -69,5 +69,5 @@ Action names are case-sensitive in GAPL. The Entity ID is always lowercase, and 
 
 ## Next steps
 
-* [Schema generation](../schemas/schema-generation.md) — See how actions relate to the schema's `appliesTo` declarations
+* [Schema documents](../schemas/schema-generation.md). See how actions relate to the schema's `appliesTo` declarations
 * [Create, update, and delete policies](../../configure/create-update-delete-policies.md) — Use actions in policy statements

@@ -1,84 +1,74 @@
 ---
 hidden: false
 noIndex: false
-description: The schema is the contract your policies are written against, declaring entity types, relationships, and actions. Learn how it is generated and read.
+description: A schema document declares entity types, relationships, and actions for one PDP gateway. Learn which gateways receive it and where documents meet.
 ---
 
-# Schema generation
+# Schema documents
 
-The schema is the contract your policies are written against — it declares the entity types, their relationships, and the actions the policy engine can reason about.
+A schema declares the entity types, their relationships, and the actions that a PDP reasons about. It's the contract your policies are written against. Authorization Management keeps the schema as documents, and each document is assigned to one PDP gateway, or to none.
 
-## What the schema defines
+## What a document declares
 
-The schema is a GAPL document (`schema.gapl`) that declares:
+A schema document is written in GAPL and declares the following:
 
-1. **Entity types** — The kinds of principals and resources in your authorization world (for example, `User`, `MCPServer`, `MCPTool`)
-2. **Attributes** — Typed properties on each entity type (for example, `department: String`)
-3. **Relationships** — Parent-child hierarchies via `memberOfTypes` (for example, `MCPTool` is a member of `MCPServer`)
-4. **Actions** — The verbs policies can grant or forbid, with `appliesTo` declarations that specify which principal types and resource types each action governs
+* **Entity types**, each with typed attributes between braces, such as `department: String`. An attribute whose name ends with `?` is optional.
+* **Relationships**. `in [...]` lists the parent types of an entity, such as `entity User in [Team]`.
+* **Actions**. `appliesTo` lists the principal types and the resource types that each action connects, plus an optional `context` record of request-time data.
+* **Namespaces**, which group declarations. A type from another namespace is written with `::`, such as `Sales::Order`.
 
-## The Schema page
+Attribute types include `String`, `Long`, `Bool`, `decimal`, `datetime`, `duration`, `ipaddr`, `Set<T>`, inline records, and entity types, such as `team: Team`.
 
-From the Authorization Management sidebar, select **Policy Structure → Schema**. The Schema page has two views:
+The following document declares a `User` that belongs to a `Team`, an `Order` in the `Sales` namespace, and two actions that a `User` performs on an `Order`:
 
-### Code tab (`schema.gapl`)
+```text
+// Principals
+entity Team {};
 
-Shows the raw GAPL schema text in a Monaco editor. In read-only mode, you can inspect the full schema definition. Click **Edit** to modify.
+entity User in [Team] {
+  department: String
+};
 
-### Entities tab
+// Resources
+namespace Sales {
+  entity Order {
+    region: String
+  };
+};
 
-Shows a visual breakdown of all entity types defined in the schema, organized by category:
+action "read" appliesTo {
+  principal: [User],
+  resource: [Sales::Order]
+};
 
-| Category | Icon | Entity types |
-|----------|------|-------------|
-| **Principals** | Users | User, Group, ServiceAccount, AgentIdentity |
-| **MCP** | Server | MCPServer, MCPTool, MCPPrompt, MCPResource |
-| **APIs** | Globe | API, Endpoint, DataField |
-| **Agents** | Bot | Agent, AgentSkill, AgentTool, AgentMemory, AgentKnowledge |
-| **AI Models** | Brain | Model |
-| **Events** | Radio | EventStream, Topic, SchemaField |
-| **Resources** | Shield | Resource (generic) |
-| **Custom** | Boxes | Application, Asset, and user-defined types |
+action "refund" appliesTo { principal: [User], resource: [Sales::Order] };
+```
 
-Each entity card shows:
-- The entity type name
-- Parent membership badges (for example, `in [MCPServer]`)
-- Attribute badges with name and type (for example, `department: String`)
+For more examples, with snippets to copy, click **Guide** on the **Schema** page.
 
-## KPI tiles
+## Which gateways receive a document
 
-The Schema page displays four summary tiles:
+The **PDP gateway** of a document decides which gateways receive it. A gateway here is a Gravitee Gateway running the PDP plugin:
 
-| Tile | Description |
-|------|-------------|
-| **Entities** | Total number of entity types defined in the schema |
-| **Actions** | Total number of actions defined |
-| **Principal kinds** | Number of entity types classified as principals |
-| **Resource kinds** | Number of entity types classified as resources |
+* A document assigned to a PDP gateway goes to the gateways that host that PDP gateway, each time you save it.
+* The **Bootstrap PDP** is the built-in engine that every gateway runs. A document assigned to it goes to every gateway that serves your environment.
+* A document set to **Unassigned** is stored, and no gateway receives it.
 
-## Outline panel
+A PDP gateway holds one document. When you delete a PDP gateway, the document assigned to it becomes **Unassigned**. When you delete a document, the gateways that held it stop using it.
 
-A sidebar outline groups entity types by category. Click any entity name to jump to its card in the Entities tab. Categories can be collapsed or expanded.
+## Where documents meet
 
-## Schema and entity creation
+Two documents meet when they end up in the same engine on some gateways, where they're composed into one schema. Documents meet in the following cases:
 
-When a schema is published, it affects entity creation:
+* Their PDP gateways belong to the same environment, share a **Target PDP ID**, and differ by sharding tag. On a gateway, those PDP gateways run in one engine.
+* They belong to different environments, and both use the built-in engine: the **Bootstrap PDP**, or a PDP gateway registered without a **Target PDP ID**. The built-in engine is the only one that environments share. The **Schema** page names the other environment's document as a document of another environment.
 
-- The **Type** dropdown in the Add Principal and Add Resource dialogs shows schema-defined types instead of the default presets
-- The schema's `appliesTo.principalTypes` and `appliesTo.resourceTypes` declarations determine which types appear in each dialog
+Where two documents meet, a save is refused if it makes them declare a shared type or action differently. The **Where documents meet** section of the **Schema** page lists each pair of saved documents that meet, and the gateways where they're composed.
 
-{% hint style="info" %}
-If no schema is defined, the console shows an empty state: "No schema defined yet. Once a `schema.gapl` is published for this environment, its entity types and actions will appear here."
-{% endhint %}
+<figure><img src="../../.gitbook/assets/gamma-authz-schema-where-documents-meet.png" alt="The Where documents meet section with one pair, Orders on Orders (orders) and Orders EU on Orders EU (orders@eu), composed into one PDP on gateways without a sharding tag, with a notice that entityType Order is ambiguous there because it's declared in Archive::Order and Sales::Order"><figcaption><p>Two documents whose PDP gateways share the Target PDP ID <code>orders</code> meet on gateways without a sharding tag.</p></figcaption></figure>
 
-## Creating a schema
+For the errors and warnings that a save reports, see [Validate schema changes](validate-schema-changes.md).
 
-1. On the Schema page, click **Create schema**
-2. Write your GAPL schema in the Monaco editor
-3. The editor validates the schema in real time using the backend's validation endpoint
-4. Click **Save** to publish
+## Schemas from earlier versions
 
-## Next steps
-
-* [Edit your schema](edit-your-schema.md) — Modify an existing schema
-* [Validate schema changes](validate-schema-changes.md) — Understand the validation pipeline
+An environment that had a schema before 4.13 finds it as a document named **Default schema**, set to **Unassigned**. To send it to the gateways, assign it to a PDP gateway. For the steps, see [Create and edit schema documents](edit-your-schema.md).

@@ -289,6 +289,18 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * The endpoint group and endpoint forms of HTTP Proxy APIs also take their fields from the endpoint type: the **Load balancing algorithm** lists **RANDOM**, **ROUND_ROBIN**, **WEIGHTED_RANDOM**, and **WEIGHTED_ROUND_ROBIN**, the **HTTP Headers** table has **KEY** and **VALUE** columns, and the endpoint's name field is labeled **Endpoint name**.
 * See [Create an API proxy](../api-management/build/create-an-api-proxy.md), [Configure entrypoints](../api-management/build/configure-your-api-proxy/configure-entrypoints.md), [Configure endpoints](../api-management/build/configure-your-api-proxy/configure-backend-security.md), and [Secure your API proxy](../api-management/build/secure-your-api-proxy.md).
 
+### Authorization Management
+
+Authorization Management keeps the schema as documents, and sends each document to the gateways that host the PDP gateway it's assigned to.
+
+#### Schema documents
+
+* The **Schemas** item of the **Policy Structure** group opens the schema documents. Each document declares entity types, relationships, and actions in GAPL, and is assigned to one PDP gateway, to the **Bootstrap PDP**, or to none.
+* A PDP gateway holds one document. Each save of a document sends it to the gateways that host its PDP gateway. An unassigned document reaches no gateway.
+* Documents on PDP gateways of one environment that share a **Target PDP ID** meet on some gateways, and so do documents of different environments on the built-in engine. Where two documents meet, a save is refused if it makes them declare a shared type or action differently. **Where documents meet** lists each pair and the gateways where it's composed.
+* An environment's schema from before 4.13 becomes a document named **Default schema**, set to **Unassigned**.
+* See [Schema documents](../authorization-management/manage/schemas/schema-generation.md).
+
 ### Developer Portals
 
 The Gamma console links to the settings of the New Developer Portal, which open in a separate tab.
