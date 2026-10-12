@@ -44,6 +44,7 @@ documentation.gravitee.io links for other versions.
 * The FIPS images move to a JDK 25 base, where `jks` and `pkcs12` keystores no longer load, so a FIPS deployment converts the Gateway's listener stores to `pem`, or to `bcfks` where a store is read from a file, before upgrading.
 * SAP Business Technology Platform joins the federation providers: an agent ingests the API proxies of SAP API Management with their OpenAPI specification and documentation, turns the subscribable SAP products into plans, and creates approved Gravitee subscriptions in the SAP Developer Hub.
 * Native Kafka connection logs record each lifecycle event of a connection as its own entry, can report clean closes as **Disconnected**, and show the client library and credential of each connection.
+* The XML Validation policy reads its XSD schema, and the schemas it imports, from a schema registry through the new HTTP Schema Registry resource, and a request that fails validation gets a JSON list of up to 20 violations with their position in the payload.
 
 ## Breaking Changes and deprecations
 
@@ -82,6 +83,10 @@ Version 3.0.0 of the Inline Authentication Provider resource evaluates the usern
 #### **Latency policy: The response phase now adds latency**
 
 The Latency policy now runs in the response phase of v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. In 4.12.21 and earlier, a Latency policy in a response phase had no effect. The **Policy Studio** of a v2 API and the **Platform flows** on the organization's **Policies** page already let you add it there. After the upgrade, such a policy delays the responses that its flow handles by its configured time. Before you upgrade, check the response phase of every flow in the **Policy Studio** of your v2 APIs and in the **Platform flows**. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **XML Validation policy: Failed validations return a list of violations**
+
+APIM 4.13 bundles version 2.x of the XML Validation policy, which changes the response to a request that fails validation. On v4 HTTP proxy APIs and on v2 APIs in emulation mode, the response body is a JSON object with a `message` field and a `violations` array. The error key is `XML_VALIDATION_FAILED`. `message` holds **Http error message**, or `XML validation failed` when that field is empty. In 4.12, the message was `Bad Request` when the field was empty, and a request that accepted JSON got a body with `message` and `http_status_code` fields. Before you upgrade, check the API consumers that read these responses. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 ## New Features
 
@@ -221,6 +226,14 @@ The Latency policy now runs in the response phase of v2 APIs, v4 HTTP proxy APIs
 * The policy reaches the authorization server through an OAuth2 resource of the API, or through a token endpoint and client credentials set on the policy. The Gravitee.io AM Authorization Server resource and the OAuth2 / OpenID Connect Provider resource support the exchange. The OAuth2 / OpenID Connect Provider resource gains a `tokenExchangeEndpoint` option for it.
 * The policy applies to the request phase of v4 HTTP proxy APIs, v4 message APIs, and MCP proxies, and requires an Enterprise Edition license.
 * For more information, see [OAuth 2.0 Token Exchange](../../create-and-configure-apis/apply-policies/policy-reference/oauth2-token-exchange.md).
+
+#### **XML Validation policy: XSD schemas from a schema registry**
+
+* The XML Validation policy reads its XSD schema from the policy configuration or from a schema registry. Set **Schema source** to **Schema registry**, then set the HTTP Schema Registry resource, the **Group ID**, the **Artifact ID**, and the **Version** of the root schema.
+* The new HTTP Schema Registry resource fetches the root schema and the schemas it references over the registry's REST API, and caches them. It connects without authentication, with basic authentication, or with an OIDC client credentials flow.
+* With **Byte cache TTL (ms)** set on the resource, a **Version** such as `branch=latest` picks up new registry content when the cached entry expires, without redeploying the API. If the registry becomes unavailable, the policy keeps validating against the last schema it compiled.
+* The schema registry source applies to v4 HTTP proxy APIs.
+* A request that fails validation gets a JSON response with up to 20 violations, each with its line, column, and element. For more information, see [XML Validation](../../create-and-configure-apis/apply-policies/policy-reference/xml-validation.md) and [HTTP Schema Registry](../../create-and-configure-apis/apply-policies/resources.md#http-schema-registry).
 
 ## Improvements
 
