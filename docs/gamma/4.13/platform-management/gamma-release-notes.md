@@ -198,6 +198,11 @@ Agent Management adds AI Workspaces, which give a team governed access to chosen
 * On JDBC, Agent Management creates and updates its own tables when the Management API starts. An installation that turns automatic migrations off applies them itself. See [Apply schema migrations manually](https://documentation.gravitee.io/apim/prepare-a-production-environment/repositories/apply-schema-migrations-manually).
 * Agent Management doesn't copy its data between the two databases. An installation that moves from MongoDB to JDBC leaves its existing Agent Management data in MongoDB.
 
+#### MCP servers and MCP Proxies as Kubernetes resources
+
+* The Gravitee Kubernetes Operator registers MCP servers in the Catalog with `CatalogMcpServer` resources, and declares MCP Proxies with `McpProxy` resources.
+* A `CatalogMcpServer` lists the tools, prompts, and resources discovered on the server in its status. An `McpProxy` exposes either one MCP server or, as an MCP Studio, tools picked from `CatalogMcpServer` resources.
+
 ### API Management
 
 API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, a Response Templates page, and an API Score page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer, and an API proxy can be promoted to another environment through Gravitee Cloud. An API proxy can also be sent for review, and then waits for a reviewer before it starts.
