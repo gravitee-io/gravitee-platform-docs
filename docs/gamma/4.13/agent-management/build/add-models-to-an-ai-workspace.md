@@ -21,7 +21,7 @@ To add models to an AI Workspace, complete the following steps:
 1. From the Gamma console sidebar, select **Agent Management**.
 2. Under **Secure**, select **AI Workspaces**.
 3. Select the workspace.
-4. Under **General**, select **Components**.
+4. Under **Design**, select **Components**.
 
     <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-components-empty.png" alt="The Components page of a workspace with no models yet, showing the Models, LLM Proxies, MCP Proxies, and Agents cards and the Add models from catalog button"><figcaption><p>The Components page before the first model is added</p></figcaption></figure>
 

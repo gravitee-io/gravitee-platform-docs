@@ -27,7 +27,8 @@ Agent Management adds AI Workspaces, which give a team governed access to chosen
 * The **Secure** group of the Agent Management sidebar adds an **AI Workspaces** section that gives a team governed access to a chosen set of AI models. Each workspace holds the models its members can call, the budgets they're metered against, and the members themselves.
 * A budget caps the dollars each member assigned to it may spend per hour, day, week, or month, charged at each model's real per-request cost, and optionally caps the requests each member sends per second, minute, hour, or day. A member who exhausts the budget is refused with `429`.
 * Adding a user creates or reuses an application for them, subscribes it to the budget you pick, and issues an API key on that subscription.
-* See [AI Workspaces](../agent-management/build/ai-workspaces/README.md).
+* The **Design** group of each AI Workspace holds the **Components** page, where you add models to the workspace.
+* See [AI Workspaces](../agent-management/build/ai-workspaces/README.md) and [Add models to an AI workspace](../agent-management/build/add-models-to-an-ai-workspace.md).
 
 #### Spend tracking for AI Workspaces
 
