@@ -70,6 +70,7 @@ The Advanced version of the webhook plugin offers improved QoS. In the Console, 
 | 4.x            | 4.6 to 4.8   |
 | 5.x            | 4.9.x        |
 | 6.x            | 4.10.x       |
+| 7.x            | 4.11.x       |
 
 #### HTTP options <a href="#user-content-http-options" id="user-content-http-options"></a>
 
@@ -110,3 +111,39 @@ When you create a subscription, you can provide security information. These are 
 * Basic
 * Token (JWT)
 * OAuth2
+
+#### Dynamic callback path
+
+{% hint style="info" %}
+The dynamic callback path is available from APIM 4.11.10.
+{% endhint %}
+
+By default, every message of a subscription is pushed to the same **Callback URL**. To route each message to a different path, set the optional **Dynamic callback path** on the subscription. The gateway evaluates it for each message and appends the result to the callback URL.
+
+The dynamic callback path supports [Gravitee Expression Language](../../../gravitee-expression-language.md) with the message context, so the path can be built from the message content, headers, or attributes. For example:
+
+| Dynamic callback path | Message | Resulting call |
+| --------------------- | ------- | -------------- |
+| `/process-{#message.attributes['id']}` | Attribute `id` = `42` | `https://myapp.example.com/webhooks/process-42` |
+| `/orders/{#message.headers['order-id'][0]}` | Header `order-id` = `A-17` | `https://myapp.example.com/webhooks/orders/A-17` |
+| `/process/{#jsonPath(#message.content, '$.id')}` | Content `{"id": "123"}` | `https://myapp.example.com/webhooks/process/123` |
+
+When you create the subscription through the Management API, set `callbackUrlPath` next to `callbackUrl` in the subscription configuration:
+
+```json
+{
+  "configuration": {
+    "entrypointId": "webhook",
+    "callbackUrl": "https://myapp.example.com/webhooks",
+    "callbackUrlPath": "/process-{#message.attributes['id']}"
+  }
+}
+```
+
+The dynamic callback path follows these rules:
+
+* Only the path changes. The scheme, host, and port of the callback URL stay the same for every message.
+* Path segments are joined with a single `/`, whether or not the callback URL ends with `/` or the evaluated path starts with `/`.
+* A query string on the callback URL is kept and placed after the appended path. If the evaluated path has its own query string, both are merged. For example, `https://myapp.example.com/webhooks?token=abc` with `/process-42?retry=1` calls `https://myapp.example.com/webhooks/process-42?token=abc&retry=1`.
+* If the expression evaluates to an empty value, the message is sent to the callback URL unchanged.
+* If the expression fails to evaluate, the message is not sent to the webhook. It is sent to the Dead Letter Queue when one is configured.
