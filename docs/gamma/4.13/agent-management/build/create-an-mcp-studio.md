@@ -22,6 +22,7 @@ Studio provides a palette of building blocks drawn from the Catalog:
 | ------------------------ | --------------------------------------------------------------------------------------------------- |
 | **MCP tools**            | From any connected upstream MCP server                                                              |
 | **API tools**            | From REST APIs in API Management (see [Create API tools](../import/create-api-tools.md))               |
+| **Workflow tools**       | From workflow tools published to the Catalog (see [Create workflow tools](../import/create-workflow-tools.md)) |
 | **Kafka API tools**      | From Kafka APIs in Event Stream Management        |
 | **Skill resources**      | Skill folders exposed via FastMCP (see [Upload skills](../import/upload-skills.md))                    |
 | **Repository resources** | Markdown, JSON, and structured docs from Git (see [Add MCP resources](../import/add-mcp-resources.md)) |

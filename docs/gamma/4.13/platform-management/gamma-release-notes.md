@@ -12,7 +12,15 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds AI Workspaces, which give a team governed access to chosen models with per-member budgets, spend tracking, and routing. LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. Agent Management also adds custom dashboards and shadow AI agents from Edge Management, and runs on a JDBC management repository.
+Agent Management adds AI Workspaces, which give a team governed access to chosen models with per-member budgets, spend tracking, and routing. LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
+
+#### Gemini Enterprise Agent Platform provider
+
+* The **Providers** page of the Catalog adds **Gemini Enterprise Agent Platform** as a provider. A provider is addressed by a **Project ID**, a **Region**, `global` by default, and a **Publisher**, **Google (Gemini)** or **Anthropic (Claude)**, rather than a URL.
+* A service account key reaches Gemini and Claude models and requires a **Project ID**. An API key reaches Gemini models only, and without a **Project ID** it calls Google in express mode on the global host.
+* The connection test and the save check the credential, the project, the region, the publisher, and every selected model against Google, and name what to fix. With a service account, the models Google lists for the publisher are offered for import, and **Add from registry** prices Gemini and Claude models from Google's public list.
+* The models of these providers carry a **Gemini Enterprise Agent Platform** badge and a publisher badge in the **AI Models** list and in the **Add models from providers** panel. An LLM Proxy or an AI Workspace uses them by reference, and a service account key rotated in the vault applies to the gateway without a redeploy.
+* See [Connect a Gemini Enterprise Agent Platform provider](../agent-management/import/connect-a-gemini-enterprise-agent-platform-provider.md).
 
 #### AI Workspaces
 
@@ -124,6 +132,12 @@ Agent Management adds AI Workspaces, which give a team governed access to chosen
 * The policy runs in the request phase and acts only on requests whose conversation carries tool output. It passes every other request through unchanged, so no condition is needed.
 * See [Add the AI Token Compression policy](../agent-management/build/add-the-ai-token-compression-policy.md).
 
+#### OAuth 2.0 Token Exchange for MCP Proxies
+
+* The **OAuth 2.0 Token Exchange** policy exchanges the token that a consumer sends to an MCP Proxy for a token that the upstream MCP server accepts. The MCP server receives the issued token in the `Authorization` header, in place of the consumer's token.
+* The policy reaches the authorization server through an OAuth2 resource of the proxy, or through a token endpoint and client credentials set on the policy. An **OAuth2 / OpenID Connect Provider** resource exchanges tokens once its **Token exchange endpoint** is set.
+* See [Exchange tokens for upstream MCP servers](../agent-management/build/configure-your-mcp/exchange-tokens-for-upstream-mcp-servers.md).
+
 #### Owner and sharding tags in the LLM Proxies list
 
 * The **LLM Proxies** list adds an **Owner** column, showing the primary owner of each proxy, and a **Sharding Tags** column, showing the first tag alphabetically with a **more** badge that lists the remaining tags on hover.
@@ -173,6 +187,13 @@ Agent Management adds AI Workspaces, which give a team governed access to chosen
 * The editor arranges widgets on a 12-column grid by dragging and resizing them, and edits the dashboard title and description in place.
 * See [Build a custom dashboard](../agent-management/observe/dashboards/build-a-custom-dashboard.md).
 
+#### Workflow tools
+
+* The **Tools** page of the Catalog adds workflow tools. A workflow tool chains operations from your APIs in API Management into one MCP tool that the gateway runs as an Arazzo workflow.
+* Build the workflow on a canvas from the operations of your APIs, or import an Arazzo 1.0 or 1.1 document. Then publish the tool to the Catalog and add it to an MCP Studio.
+* Each step calls its API's backend directly, with the credentials the workflow tool sets for that backend.
+* See [Create workflow tools](../agent-management/import/create-workflow-tools.md).
+
 #### Shadow AI agents discovered from Edge Management
 
 * The Catalog imports the AI provider domains Edge Management detects, so unsanctioned AI usage sits in the **Agents** list beside the agents you govern. Each entry is one intercepted domain, under a source named **Shadow AI** that the first synchronization pass creates in each environment, even when nothing has been detected.
@@ -184,6 +205,11 @@ Agent Management adds AI Workspaces, which give a team governed access to chosen
 * Agent Management now runs on MongoDB or on a JDBC management repository. It keeps its data in the APIM management database and follows whichever of the two the platform runs on, so a JDBC installation doesn't need MongoDB for Agent Management.
 * On JDBC, Agent Management creates and updates its own tables when the Management API starts. An installation that turns automatic migrations off applies them itself. See [Apply schema migrations manually](https://documentation.gravitee.io/apim/prepare-a-production-environment/repositories/apply-schema-migrations-manually).
 * Agent Management doesn't copy its data between the two databases. An installation that moves from MongoDB to JDBC leaves its existing Agent Management data in MongoDB.
+
+#### MCP servers and MCP Proxies as Kubernetes resources
+
+* The Gravitee Kubernetes Operator registers MCP servers in the Catalog with `CatalogMcpServer` resources, and declares MCP Proxies with `McpProxy` resources.
+* A `CatalogMcpServer` lists the tools, prompts, and resources discovered on the server in its status. An `McpProxy` exposes either one MCP server or, as an MCP Studio, tools picked from `CatalogMcpServer` resources.
 
 ### API Management
 
@@ -238,6 +264,12 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * Authors ask for a review from the **API Events** card of the **Settings** page, or with the **Ask for a review** toggle in the last step of the creation wizard.
 * See [Review an API proxy](../api-management/build/configure-your-api-proxy/review-an-api-proxy.md).
 
+#### Secondary endpoints for API proxies
+
+* The **General** step of the endpoint form of an HTTP Proxy API gains a **Secondary endpoint** switch. A secondary endpoint stays out of load balancing until health checks mark every primary endpoint of its group as down. Requests then go to the secondary endpoints.
+* The **Endpoints** page shows a **Secondary** badge in the row of each secondary endpoint.
+* See [Configure endpoints](../api-management/build/configure-your-api-proxy/configure-backend-security.md#secondary-endpoints).
+
 ### Developer Portals
 
 The Gamma console links to the settings of the New Developer Portal, which open in a separate tab.
@@ -250,7 +282,7 @@ The Gamma console links to the settings of the New Developer Portal, which open 
 
 ### Edge Management
 
-Edge Management replaces the single configuration page and its flat lists of DNS domains and routes. A guided setup creates the configuration, and a page per concern edits it. Interception is configured per intercepted agent, and each route names the target API that receives its traffic. The console checks that API against the requirements of the route before you deploy. The analytics pages gain their content, and a Devices page shows the fleet.
+Edge Management replaces the single configuration page and its flat lists of DNS domains and routes. A guided setup creates the configuration, and a page per concern edits it. Interception is configured per intercepted agent, and each route names the target API that receives its traffic. The console checks that API against the requirements of the route before you deploy. The analytics pages gain their content, and a Devices page shows the fleet. Edge Management also runs on a JDBC management repository.
 
 #### Guided setup and one page per concern
 
@@ -270,6 +302,12 @@ Edge Management replaces the single configuration page and its flat lists of DNS
 * **Proxied Traffic** lists the intercepted requests that reached the gateway, with the device, the tool, the provider, the model, and the token counts.
 * **Devices** lists the devices that run the daemon, with their status, their daemon version, and their heartbeats.
 * See [Monitor detected shadow AI](../edge-management/observe/monitor-shadow-ai-traffic.md), [Monitor proxied traffic](../edge-management/observe/monitor-proxied-traffic.md), and [Monitor your devices](../edge-management/observe/monitor-devices.md).
+
+#### Edge Management on a JDBC management repository
+
+* Edge Management now runs on MongoDB or on a JDBC management repository. It keeps its configuration in the APIM management database and follows whichever of the two the platform runs on, so a JDBC installation doesn't need MongoDB for Edge Management.
+* On JDBC, Edge Management creates and updates its own table when the Management API starts. An installation that turns automatic migrations off applies them itself. See [Apply schema migrations manually](https://documentation.gravitee.io/apim/prepare-a-production-environment/repositories/apply-schema-migrations-manually).
+* Edge Management doesn't copy its configuration between the two databases. An installation that moves from MongoDB to JDBC leaves its existing Edge Management configuration in MongoDB.
 
 ### Event Stream Management
 
@@ -373,6 +411,12 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 
 * Send a one-way message to the members of the selected environment from the **Broadcasts** page under **APIs & Assets** in the **Environment** section. Choose the **Portal Notifications**, **Email**, or **POST HTTP Message** channel.
 * See [Broadcast messages to environment members](broadcast-messages-to-environment-members.md).
+
+#### Browser tabs named after the page
+
+* Once you're signed in, each Gamma console tab is titled after the page it shows, with the most specific name first and **Gravitee Gamma** last, as in **Applications · Platform Management · Gravitee Gamma**. An application's tab starts with the application's name.
+* **Home** and **Tasks & Approvals** are titled with their own name and **Gravitee Gamma** only, as in **Tasks & Approvals · Gravitee Gamma**.
+* The title changes as you move between pages, and goes back to **Gravitee Gamma** when you sign out.
 
 #### Configure API logging
 

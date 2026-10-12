@@ -47,6 +47,10 @@ Use the arrow keys to select a value for the weight.
 **4. Allow in API Products**
 
 Toggle **Allow in API Products** to enable this API to be included in API Products. This option is only available for V4 HTTP Proxy APIs and cannot be changed once the API is added to an API Product. The toggle is unavailable for read-only APIs (for example, Kubernetes-managed APIs).
+
+**5. Mark the endpoint as secondary**
+
+Select the checkbox in the **Secondary endpoint** section to keep the endpoint out of load balancing until health checks mark every primary endpoint of the group as down. For more information, see [Secondary endpoints](../load-balancing-and-failover.md#secondary-endpoints).
 {% endtab %}
 
 {% tab title="Configuration" %}
@@ -61,7 +65,7 @@ Toggle to ON for the endpoint to inherit its configuration settings from the end
    * If enabled, you'll need to define a numeric timeout value in the **Connect timeout** text field by either entering a numerical value or using the arrow keys.
 3. Choose to either enable or disable HTTP pipelining by toggling **Enable HTTP pipelining** ON or OFF.
    * If enabled, you'll need to define a numeric timeout value in the **Read timeout** text field by either entering a numerical value or using the arrow keys.
-4. Choose to either enable or disable compression by toggling **Enable compression (gzip, deflate)** ON or OFF.
+4. Choose to either enable or disable compression by toggling `Enable compression (gzip, deflate)` ON or OFF.
 5. **Idle timeout:** Define, in milliseconds, the maximum time a connection will stay in the pool without being used by entering a numeric value or using the arrow keys in the text field. Once the specified time has elapsed, the unused connection will be closed, freeing the associated resources.
 6. Choose whether to follow HTTP redirects by toggling **Follow HTTP redirects** ON or OFF.
 7. Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.

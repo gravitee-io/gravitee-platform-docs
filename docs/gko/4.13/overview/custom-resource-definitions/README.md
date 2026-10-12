@@ -22,6 +22,8 @@ The Gravitee Kubernetes Operator (GKO) comes with several custom resource defini
 * [`Portal`](./#custom-resource-definitions) — declares a next-gen Developer Portal instance with navigation hierarchy
 * [`PortalListing`](./#custom-resource-definitions) — publishes APIs to specific locations in a portal's navigation
 * [`Documentation`](./#custom-resource-definitions) — creates portal-scoped or API-scoped documentation pages (Gravitee Markdown, OpenAPI, or AsyncAPI)
+* [`CatalogMcpServer`](catalogmcpserver.md) registers an MCP server in the Catalog of Agent Management
+* [`McpProxy`](mcpproxy.md) declares an Agent Management MCP proxy, its plans, and its policy flows
 
 {% hint style="info" %}
 Sample CRDs are available in the GKO GitHub [repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/4.8.x/examples).
