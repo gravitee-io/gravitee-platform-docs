@@ -40,6 +40,8 @@ The first wizard step (**API Details**) collects the basic identity of your API.
 | **Version**     | `1.0`                             | Required. Free-text version label.                       |
 | **Description** | `A sample API proxy for testing.` | Optional.                                                |
 
+Leave **HTTP Proxy** selected under **Select API Type**. To create a TCP Proxy API instead, see [Create an API proxy](../build/create-an-api-proxy.md#select-api-type).
+
 Select **Next** to proceed.
 
 ## Step 3: Configure the proxy entrypoint
