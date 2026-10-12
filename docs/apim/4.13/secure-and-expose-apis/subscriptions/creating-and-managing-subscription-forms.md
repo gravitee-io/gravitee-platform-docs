@@ -9,7 +9,7 @@ An environment holds a list of subscription forms. Each form applies only to the
 ## Prerequisites
 
 - The New Developer Portal is enabled for the environment. The **Portal Settings** entry of the Console sidebar appears only when it is.
-- Your role in the Environment scope has the `METADATA` permission with the rights you need: **Read** to view subscription forms, **Create** to add one, **Update** to edit, assign APIs to, show, or hide one, and **Delete** to delete one. **Create** and **Delete** are needed from 4.13, so a custom role might need them added.
+- Your role in the Environment scope has the `METADATA` permission with the rights you need: **Read** to view subscription forms, **Create** to add one, **Update** to edit, assign APIs to, show, or hide one, and **Delete** to delete one. **Create** and **Delete** are needed from 4.13, so a custom role might need them added. Without **Update**, the **Name** and content fields are read-only and the **Visible** toggles are disabled.
 
 ## Create a subscription form
 
@@ -22,7 +22,7 @@ An environment holds a list of subscription forms. Each form applies only to the
     <figure><img src="../../.gitbook/assets/subscription-forms-catalog.png" alt="Subscription Forms list with three forms and the Partner onboarding form open in the editor"><figcaption><p>The Subscription Forms list and the form editor</p></figcaption></figure>
 
 3. Click **Add**. The editor opens with a starter form that you can edit or replace.
-4. Enter a **Name**. The name is required, can't exceed 255 characters, and must be unique in the environment. Names that differ only in letter case count as the same name.
+4. Enter a **Name**. The name is required, can't exceed 255 characters, and must be unique in the environment. Names that differ only in letter case count as the same name, and leading and trailing spaces are removed.
 5. Write the form content in Gravitee Markdown (GMD). The preview next to the editor shows the rendered form. To hide or show the preview, click **Toggle preview**.
 6. Click **Assign APIs**, and then select the APIs this form applies to. You can search the list. An API that's already assigned to another form can't be selected, and hovering over its checkbox shows which form it's assigned to. An assigned API that the list doesn't show you, for example an API outside the APIs you can access, stays assigned, and the dialog shows how many assigned APIs aren't listed.
 
@@ -38,6 +38,8 @@ A form can have up to 25 fields. Saving is blocked while the editor reports a co
 - **Missing EL fallback** (`missingElFallback`): an EL expression in `options` must include a fallback list after the `}:` separator.
 - **Invalid EL syntax** (`invalidElSyntax`): an expression in `options` must start with `{#`.
 
+Configuration warnings don't block saving. Form content that contains unsafe HTML or scripts is rejected.
+
 If you leave the page or select another form with unsaved changes, the Console asks you to confirm before it discards them.
 
 {% hint style="info" %}
@@ -46,7 +48,7 @@ Subscription forms aren't displayed for Keyless plans. The form only appears whe
 
 ## Manage subscription forms
 
-The following procedures cover the changes you make to an existing form. Select the form in the **Subscription Forms** list to open it in the editor.
+The following procedures cover the changes you make to an existing form. Select the form in the **Subscription Forms** list to open it in the editor. To find a form, use the **Search** field of the list, which matches the form name and ignores letter case.
 
 ### Edit a form or its APIs
 
@@ -72,6 +74,14 @@ The APIs the form was assigned to have no subscription form afterward. Deleting 
 ### Deleting an API
 
 When an API is deleted, it's removed from the form it was assigned to.
+
+### Review subscription forms after an upgrade
+
+If you upgraded from a release where the environment had a single form applied to all of its APIs, that form appears in the list as **Global Default Form**.
+
+1. In the **Subscription Forms** list, select **Global Default Form**.
+2. Change the **Name** as needed.
+3. Click **Save**.
 
 ## Subscribing from the Classic Developer Portal
 

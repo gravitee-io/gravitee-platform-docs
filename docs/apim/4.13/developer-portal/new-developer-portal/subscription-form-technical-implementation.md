@@ -10,6 +10,8 @@ description: Retrieve a Developer Portal 4.13 subscription form with resolved dy
 
 Retrieves the subscription form assigned to a specific API, with resolved dynamic options. Returns 404 when no form is assigned to the API or when the assigned form is hidden. The Portal API response includes `gmdContent` and optionally `resolvedOptions` — it doesn't expose the form `id` or `enabled` flag to consumers.
 
+When the endpoint returns 404, the subscription flow skips the form step.
+
 **Response fields:**
 
 | Field | Type | Required | Description |
