@@ -12,7 +12,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds AI Workspaces, which give a team governed access to chosen models with per-member budgets, spend tracking, and routing. LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
+Agent Management adds AI Workspaces, which give a team governed access to chosen models with per-member budgets, spend tracking, and routing. LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
 
 #### Gemini Enterprise Agent Platform provider
 
@@ -50,7 +50,7 @@ Agent Management adds AI Workspaces, which give a team governed access to chosen
 
 #### Broadcasts for LLM, MCP, and A2A Proxies
 
-* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Broadcasts** page under **Consumer Access** that sends a one-way announcement to the consumers of the proxy.
+* Each LLM Proxy, MCP Proxy, and A2A Proxy detail view adds a **Broadcasts** page under **Consumers** that sends a one-way announcement to the consumers of the proxy.
 * Choose the **Portal Notifications**, **Email**, or **POST HTTP Message** channel.
 * See [Broadcast messages to proxy consumers](../agent-management/build/broadcast-messages-to-proxy-consumers.md).
 
@@ -70,16 +70,31 @@ Agent Management adds AI Workspaces, which give a team governed access to chosen
 
 #### Plans and subscriptions for A2A Proxies
 
-* The A2A Proxy detail view adds a **Consumer Access** group with a **Plans** page and a **Consumers** page.
+* The A2A Proxy detail view adds a **Consumers** group with **Plans** and **Subscriptions**.
 * The **Plans** page lists the plans of the proxy by status, **Staging**, **Published**, **Deprecated**, or **Closed**, and creates plans of the five security types: **Keyless**, **API Key**, **JWT**, **OAuth2**, and **mTLS**.
 * The **Consumers** page lists the subscriptions of the proxy, creates a subscription for an application, and approves, rejects, or closes each one.
 * See [Manage A2A Proxy plans](../agent-management/build/configure-your-a2a-proxy/manage-a2a-proxy-plans.md) and [Manage subscriptions](../agent-management/publish/manage-subscriptions.md).
+
+#### JWT plans for MCP Proxies
+
+* The **Secure** step of the MCP Proxy and MCP Studio creation wizards adds a **JWT** method, and the **Create plan** menu of the **Plans** page adds **JWT**.
+* A JWT plan validates tokens signed by an issuer that you already run. Its **Advanced settings** list the **Authorization servers** that MCP clients discover from the proxy, and check scopes with **Check required scopes**.
+* With an authorization server listed, consumers call the proxy without a subscription.
+* See [Manage MCP Proxy plans](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md).
 
 #### Subscription export for LLM, MCP, and A2A Proxies
 
 * The **Consumers** page of each LLM Proxy, MCP Proxy, and A2A Proxy adds an **Export CSV** button that downloads the subscriptions matching the current **Status**, **Plan**, and **API Key** filters as a CSV file.
 * The export holds every matching subscription, not only the current page of the table.
 * See [Manage subscriptions](../agent-management/publish/manage-subscriptions.md).
+
+#### Plan editing and plan flows for LLM, MCP, and A2A Proxies
+
+* The actions menu of a plan on the **Plans** page of each LLM Proxy, MCP Proxy, and A2A Proxy offers **Edit** and **Deprecate**, and LLM Proxy plans also gain **Publish** and **Close**. The security type of a plan can't be changed.
+* A plan added from the **Plans** page of an LLM Proxy starts in staging. Publish it before consumers can subscribe.
+* The **Plans** page of each MCP Proxy and MCP Studio creates **mTLS** plans, and its **OAuth2** plans validate tokens with an OAuth2 resource declared on the proxy.
+* The **Policy Studio** of each MCP Proxy and MCP Studio adds **Plan Flows**, whose policies run only on the calls that one plan secures.
+* See [Apply policies to specific plans](../agent-management/build/configure-your-mcp/apply-policies-to-plans.md), [Manage A2A Proxy plans](../agent-management/build/configure-your-a2a-proxy/manage-a2a-proxy-plans.md), and [Configure an LLM Proxy](../agent-management/build/configure-an-llm-proxy.md#security).
 
 #### Entrypoint configuration and navigation for LLM Proxies
 
@@ -286,7 +301,7 @@ The Gamma console links to the settings of the New Developer Portal, which open 
 
 ### Edge Management
 
-Edge Management replaces the single configuration page and its flat lists of DNS domains and routes. A guided setup creates the configuration, and a page per concern edits it. Interception is configured per intercepted agent, and each route names the target API that receives its traffic. The console checks that API against the requirements of the route before you deploy. The analytics pages gain their content, and a Devices page shows the fleet.
+Edge Management replaces the single configuration page and its flat lists of DNS domains and routes. A guided setup creates the configuration, and a page per concern edits it. Interception is configured per intercepted agent, and each route names the target API that receives its traffic. The console checks that API against the requirements of the route before you deploy. The analytics pages gain their content, and a Devices page shows the fleet. Edge Management also runs on a JDBC management repository.
 
 #### Guided setup and one page per concern
 
@@ -306,6 +321,12 @@ Edge Management replaces the single configuration page and its flat lists of DNS
 * **Proxied Traffic** lists the intercepted requests that reached the gateway, with the device, the tool, the provider, the model, and the token counts.
 * **Devices** lists the devices that run the daemon, with their status, their daemon version, and their heartbeats.
 * See [Monitor detected shadow AI](../edge-management/observe/monitor-shadow-ai-traffic.md), [Monitor proxied traffic](../edge-management/observe/monitor-proxied-traffic.md), and [Monitor your devices](../edge-management/observe/monitor-devices.md).
+
+#### Edge Management on a JDBC management repository
+
+* Edge Management now runs on MongoDB or on a JDBC management repository. It keeps its configuration in the APIM management database and follows whichever of the two the platform runs on, so a JDBC installation doesn't need MongoDB for Edge Management.
+* On JDBC, Edge Management creates and updates its own table when the Management API starts. An installation that turns automatic migrations off applies them itself. See [Apply schema migrations manually](https://documentation.gravitee.io/apim/prepare-a-production-environment/repositories/apply-schema-migrations-manually).
+* Edge Management doesn't copy its configuration between the two databases. An installation that moves from MongoDB to JDBC leaves its existing Edge Management configuration in MongoDB.
 
 ### Event Stream Management
 
@@ -409,6 +430,12 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 
 * Send a one-way message to the members of the selected environment from the **Broadcasts** page under **APIs & Assets** in the **Environment** section. Choose the **Portal Notifications**, **Email**, or **POST HTTP Message** channel.
 * See [Broadcast messages to environment members](broadcast-messages-to-environment-members.md).
+
+#### Browser tabs named after the page
+
+* Once you're signed in, each Gamma console tab is titled after the page it shows, with the most specific name first and **Gravitee Gamma** last, as in **Applications · Platform Management · Gravitee Gamma**. An application's tab starts with the application's name.
+* **Home** and **Tasks & Approvals** are titled with their own name and **Gravitee Gamma** only, as in **Tasks & Approvals · Gravitee Gamma**.
+* The title changes as you move between pages, and goes back to **Gravitee Gamma** when you sign out.
 
 #### Configure API logging
 

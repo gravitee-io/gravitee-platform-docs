@@ -107,6 +107,10 @@ From 4.13.0, an LLM Proxy reads images, audio, video, and files in requests sent
 
 To forward a content type, set its option to `ALLOW` in the entrypoint configuration of the LLM Proxy, and redeploy the API. `REJECT` refuses a request that carries the content, with an HTTP `400` error and the code `modality_blocked`.
 
+**A plan added to an existing LLM Proxy starts in staging**
+
+From 4.13.0, a plan that you add on the **Plans** page of an LLM Proxy starts in staging, like the plans of MCP Proxies and A2A Proxies. Consumers can't subscribe to it until you publish it from the actions menu of the plan, and it takes effect once you deploy the proxy. In 4.12, a plan added to an existing LLM Proxy was published right away. The plans that the LLM Proxy creation wizard creates are still published.
+
 **FIPS images: JKS and PKCS12 keystores no longer load**
 
 From 4.13.0, the FIPS image variants are built on a JDK 25 FIPS base image. The 4.12 FIPS images used JDK 21. On the JDK 25 base, BouncyCastle FIPS in approved-only mode provides no PKCS12 keystore and answers JKS read-only, so neither format loads. A FIPS deployment that upgrades from 4.12 while keeping a `jks` or `pkcs12` keystore or truststore on the Gateway fails to start its TLS listeners.
@@ -126,6 +130,12 @@ Version 3.0.0 of the Inline Authentication Provider resource evaluates the usern
 A literal value that contains `{#`, `{T`, or `{(` followed by a closing `}` is therefore read as an expression, not as the text it holds. Spaces after the `{` don't change this. A `{#` with no closing `}` makes the evaluation fail. If the evaluation fails, or returns no value or an empty value, the resource rejects every user, not only the user that holds the value. When the evaluation fails, the value appears in the Gateway logs as typed.
 
 Before you deploy version 3.0.0, check every Inline Authentication Provider resource for a username or password that contains a `{`, and change it. For more information, see [Inline Authentication Provider](../create-and-configure-apis/apply-policies/resources.md#inline-authentication-provider).
+
+**Latency policy: The response phase now adds latency**
+
+From 4.12.22 and 4.13.0, the Latency policy runs in the response phase of v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. In 4.12.21 and earlier, a Latency policy in a response phase had no effect. The **Policy Studio** of a v2 API and the **Platform flows** on the organization's **Policies** page already let you add it there.
+
+After the upgrade, such a policy delays the responses that its flow handles by its configured time. Before you upgrade, check the response phase of every flow in the **Policy Studio** of your v2 APIs and in the **Platform flows**. Remove any Latency policy that you don't want to take effect. For more information, see [Latency](../create-and-configure-apis/apply-policies/policy-reference/latency.md).
 
 #### 4.12.0
 

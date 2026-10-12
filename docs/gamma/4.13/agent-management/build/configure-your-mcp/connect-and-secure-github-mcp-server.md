@@ -144,13 +144,13 @@ Authorization policies can only distinguish callers if the Gateway knows who eac
 
 To require authentication for the GitHub MCP server, complete the following steps:
 
-1. On an existing server, open the MCP Server, navigate to the **Consumer access** section, and then select **Plans**.
+1. On an existing server, open the MCP Server, navigate to the **Consumers** section, and then select **Plans**.
 
 {% hint style="warning" %}
 Do not select **Keyless** or **API Key** on a server you intend to govern per caller. Neither resolves a user identity, so every fine-grained authorization policy evaluates against the same subject.
 {% endhint %}
 
-2. Select **+ Create plan**, and then select **OAuth2**. The other options are **Keyless**, which enforces no authentication, and **API Key**.
+2. Select **Create plan**, and then select **OAuth2**. The other options are **Keyless**, which enforces no authentication, **API Key**, **JWT**, and **mTLS**.
 3. Configure and publish the plan, and then deploy the server.
 
    ![The Plans page of the Composite MCP Server, showing one published plan with OAuth2 security](<../../.gitbook/assets/gamma-mcp-github-plan-oauth2.png>)
