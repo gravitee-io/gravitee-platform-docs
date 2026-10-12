@@ -24,6 +24,7 @@ Gamma supports two categories of integrations for model discovery:
 | **Mistral**                    | Model provider | API Key or Bearer Token.                                                                    |
 | **Cohere**                     | Model provider | API Key or Bearer Token.                                                                    |
 | **Microsoft Azure AI Foundry** | Federation     | Azure credentials (Subscription ID, Resource Group, Account Name, and Azure Bearer Token).  |
+| **Gemini Enterprise Agent Platform** | Model provider | Service account key or API key, with a Google Cloud project ID, region, and publisher. See [Connect a Gemini Enterprise Agent Platform provider](connect-a-gemini-enterprise-agent-platform-provider.md). |
 
 ## Connect an integration
 
