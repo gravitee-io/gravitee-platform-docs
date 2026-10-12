@@ -12,7 +12,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds AI Workspaces, which give a team governed access to chosen models with per-member budgets, spend tracking, and routing. LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
+Agent Management adds AI Workspaces, which give a team governed access to chosen models with per-member budgets, spend tracking, and routing. LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans. AI models gain cache read and cache write prices, which LLM Proxies apply to cached prompt tokens. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
 
 #### Gemini Enterprise Agent Platform provider
 
@@ -158,9 +158,17 @@ Agent Management adds AI Workspaces, which give a team governed access to chosen
 
 #### Negotiated pricing for AI models
 
-* Record the price you negotiated with the provider on a cataloged model, in the **Input price ({currency} per 1M tokens)** and **Output price ({currency} per 1M tokens)** fields of the model edit form. The negotiated price replaces the suggested price wherever the price is shown and wherever cost is computed.
+* Record the price you negotiated with the provider on a cataloged model, in the **Input / 1M tokens** and **Output / 1M tokens** fields of the **Edit model** page. The negotiated price replaces the suggested price wherever the price is shown and wherever cost is computed.
 * Refreshing the catalog updates the provider-derived fields and keeps your negotiated price. Republish any LLM Proxy that consumes a repriced model so cost tracking picks up the negotiated rate.
 * See [Add an AI model](../agent-management/import/add-an-ai-model.md).
+
+#### Prompt cache pricing for AI models and LLM Proxies
+
+* The price of a cataloged model gains two optional fields, **Cache read / 1M tokens** and **Cache write / 1M tokens**, for the prompt tokens the provider serves from its cache and the prompt tokens a request writes into it. Models added manually to a provider take the same two prices, and each model of an inline provider on an LLM Proxy takes two prompt cache prices.
+* An LLM Proxy bills the cache reads and cache writes of a prompt at those prices. A cache price left empty is unknown, not free. When the provider reports cache reads or cache writes that have no price, they're billed at the input price, and the request carries a `COST_CACHE_RATE_NOT_FOUND` warning.
+* Each request records its cache reads and cache writes, and what each one cost, when the provider reports them. They're part of the sent tokens and the sent cost, not additions to them.
+* For models served by the **Anthropic** and **Bedrock** providers, the sent token count now covers the whole prompt, cache reads and cache writes included. A **Token Rate Limit** policy therefore counts more tokens for the same cached traffic than in 4.12.
+* See [Price the prompt cache](../agent-management/import/add-an-ai-model.md#price-the-prompt-cache) and [Monitor your LLM proxy](../agent-management/observe/monitor-your-llm-proxy.md).
 
 #### Export, import, and duplicate for LLM Proxies
 

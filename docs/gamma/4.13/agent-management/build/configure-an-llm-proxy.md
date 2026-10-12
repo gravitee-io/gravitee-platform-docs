@@ -26,7 +26,7 @@ The page formerly named **LLM Studio** is now **Policy Studio**. A link to the f
 
 The **Models** page lists the providers of the LLM Proxy with their models, and changes them after creation. To open it, under **Design**, select **Models**.
 
-Each provider is a collapsible card. Its header shows the provider name, the provider format, the number of models, and **From catalog** when the provider comes from the catalog. Expanded, an inline provider lists its models with their **Query name**, **Aliases**, and **Pricing**, and a catalog provider also shows the **Model** and **Slug** of each one. When the provider hides real model names, the query name is dimmed, because consumers reach the model only through its aliases.
+Each provider is a collapsible card. Its header shows the provider name, the provider format, the number of models, and **From catalog** when the provider comes from the catalog. Expanded, an inline provider lists its models with their **Query name**, **Aliases**, and **Pricing**, and a catalog provider also shows the **Model** and **Slug** of each one. For an inline provider and a catalog provider, **Pricing** adds the cache read and cache write prices of a model that has them. When the provider hides real model names, the query name is dimmed, because consumers reach the model only through its aliases.
 
 To change the providers, complete the following steps:
 

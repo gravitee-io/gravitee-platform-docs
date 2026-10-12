@@ -83,6 +83,10 @@ Version 3.0.0 of the Inline Authentication Provider resource evaluates the usern
 
 The Latency policy now runs in the response phase of v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. In 4.12.21 and earlier, a Latency policy in a response phase had no effect. The **Policy Studio** of a v2 API and the **Platform flows** on the organization's **Policies** page already let you add it there. After the upgrade, such a policy delays the responses that its flow handles by its configured time. Before you upgrade, check the response phase of every flow in the **Policy Studio** of your v2 APIs and in the **Platform flows**. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
+#### **LLM proxy: Sent tokens include the prompt cache for Anthropic and Bedrock**
+
+On an LLM proxy API, three values now count the whole prompt for models served by the Anthropic and Bedrock providers: the `long_llm-proxy_tokens-sent` metric, the `llmproxy.usage.sent.token` context attribute, and the `X-LLM-Proxy-Tokens-Sent` response header. The whole prompt includes the tokens read from or written to the provider's prompt cache. In 4.12, they used the input count that these two providers report, which leaves those tokens out. A Token Rate Limit policy therefore counts more tokens for the same cached traffic. The sent cost also prices the cache reads and cache writes, at the model's cache prices when they're set and at the input price otherwise. Before you upgrade, review the Token Rate Limit policies on LLM proxy APIs that serve Anthropic or Bedrock models. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
 ## New Features
 
 #### **Branded Senders for Notification Emails**
@@ -319,3 +323,10 @@ The Latency policy now runs in the response phase of v2 APIs, v4 HTTP proxy APIs
 * The policy doesn't cap the time that the expression returns. If the expression reads a value that the client sends, make sure the value is controlled and bounded.
 * The change ships in Latency policy 3.1.0, which APIM bundles from 4.12.22 and 4.13.0 onward.
 * For more information, see [Latency](../../create-and-configure-apis/apply-policies/policy-reference/latency.md) and [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **LLM proxy: Prompt cache token counts and prices**
+
+* Each model of an LLM proxy endpoint takes two optional prices, **Price per million tokens (input) served from the provider's prompt cache ($)** and **Price per million tokens (input) written into the provider's prompt cache ($)**. A price of `0` means free. An unset cache price bills the cache reads or cache writes at the input price, and the request carries a `COST_CACHE_RATE_NOT_FOUND` warning when the provider reports them.
+* The Gateway reports `long_llm-proxy_tokens-cached`, `long_llm-proxy_tokens-cache-write`, `double_llm-proxy_cached-cost`, and `double_llm-proxy_cache-write-cost` when the provider reports the counts, and sets the matching `llmproxy.usage.*` context attributes for policies such as Assign Metrics. They're part of `tokens-sent` and `sent-cost`, not additions to them.
+* The GenAI span of a request carries the `gen_ai.usage.cache_read.input_tokens` and `gen_ai.usage.cache_creation.input_tokens` OpenTelemetry attributes when the provider reports the counts.
+* For more information, see [Reporters](../../analyze-and-monitor-apis/reporters/README.md) and [Assign Metrics](../../create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md#metrics-on-llm-proxy-apis).

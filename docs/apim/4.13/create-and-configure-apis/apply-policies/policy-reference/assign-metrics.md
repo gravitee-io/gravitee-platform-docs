@@ -48,7 +48,7 @@ The following context attributes are available to a response-phase metric on an 
     <tbody>
         <tr>
             <td><code>llmproxy.usage.sent.token</code></td>
-            <td>Input token count read from the LLM response</td>
+            <td>Input token count read from the LLM response, including the tokens read from or written to the provider's prompt cache</td>
         </tr>
         <tr>
             <td><code>llmproxy.usage.received.token</code></td>
@@ -61,6 +61,22 @@ The following context attributes are available to a response-phase metric on an 
         <tr>
             <td><code>llmproxy.usage.received.cost</code></td>
             <td>Cost of the output tokens, set only when the endpoint resolves a price for the model</td>
+        </tr>
+        <tr>
+            <td><code>llmproxy.usage.cached.token</code></td>
+            <td>Input tokens the provider served from its prompt cache, set only when the LLM response reports the count. Part of <code>llmproxy.usage.sent.token</code></td>
+        </tr>
+        <tr>
+            <td><code>llmproxy.usage.cache-write.token</code></td>
+            <td>Input tokens written into the provider's prompt cache, set only when the LLM response reports the count. Part of <code>llmproxy.usage.sent.token</code></td>
+        </tr>
+        <tr>
+            <td><code>llmproxy.usage.cached.cost</code></td>
+            <td>Cost of the input tokens served from the prompt cache, set only when the endpoint resolves a price for the model and the LLM response reports the count. Part of <code>llmproxy.usage.sent.cost</code></td>
+        </tr>
+        <tr>
+            <td><code>llmproxy.usage.cache-write.cost</code></td>
+            <td>Cost of the input tokens written into the prompt cache, set only when the endpoint resolves a price for the model and the LLM response reports the count. Part of <code>llmproxy.usage.sent.cost</code></td>
         </tr>
         <tr>
             <td><code>llmproxy.usage.price.unavailable</code></td>

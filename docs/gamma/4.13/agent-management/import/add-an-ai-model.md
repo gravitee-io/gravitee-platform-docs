@@ -21,7 +21,7 @@ Each AI model in the Catalog records the following metadata:
 | **Family**             | The model family.                                                             |
 | **Context window**     | The maximum token context length supported by this model.                     |
 | **Capabilities**       | Supported interaction types (e.g., `chat`, `embeddings`).                     |
-| **Pricing**            | Input and output cost per 1M tokens, used for cost attribution.               |
+| **Pricing**            | Input and output cost per 1M tokens, and optionally the cost per 1M tokens of a cache read and a cache write, used for cost attribution. |
 
 ## Import models
 
@@ -48,11 +48,29 @@ You can adjust the display name and description of an imported model:
    _Note: The Provider, Query name, Family, Context window, Capabilities, and Pricing are derived from the model source and cannot be changed._
 4. Select **Save**.
 
-You can also record a price you negotiated with the provider, which replaces the suggested price wherever the price is shown and wherever cost is computed. In the model edit form, enter the negotiated rate in the **Input price ({currency} per 1M tokens)** field, enter the negotiated rate in the **Output price ({currency} per 1M tokens)** field, then select **Save changes**. `{currency}` is the currency of the suggested price and defaults to `USD` when the provider doesn't suggest one. Set both prices, or clear both, and enter a price of `0` or more. Entering `0` in both fields is valid, because a free model is still a priced model.
+You can also record a price you negotiated with the provider, which replaces the suggested price wherever the price is shown and wherever cost is computed. On the model's page, select **Edit**. In **Edit model**, enter the negotiated rate in the **Input / 1M tokens** field and in the **Output / 1M tokens** field, then select **Save changes**. When the provider suggests a price, **Currency** is set to the currency of that price and can't be changed. Otherwise, select `USD`, `EUR`, or `GBP`, with `USD` selected by default. Set both prices, or clear both, and enter a price of `0` or more. Entering `0` in both fields is valid, because a free model is still a priced model.
 
-To go back to the price suggested by the provider, enter that price in both fields again and select **Save changes**.
+To go back to the price suggested by the provider, select **Drop the negotiated rate** when **Edit model** shows it. Otherwise, clear every price field and select **Save changes**.
 
 A model with a negotiated price shows a `Custom` badge next to its price, together with the suggested rate and the date and author of the last change. The negotiated price appears in the **Price / 1M** column of the AI Models list, on the model detail page, and on the models page of an LLM Proxy, and it's used for cost estimates in the AI workspace detail view. Refreshing the catalog updates the provider-derived fields and keeps your display name, description, and negotiated price.
+
+### Price the prompt cache
+
+A model's price can also cover the part of a prompt that the provider reads from or writes into its prompt cache. Enter those prices in **Edit model**, beside the input and output prices:
+
+* **Cache read / 1M tokens**: the price of the prompt tokens that the provider serves from its cache.
+* **Cache write / 1M tokens**: the price of the prompt tokens that a request writes into the provider's cache.
+
+Both fields are optional. A cache price is saved only with an input and an output price. When both of those are empty, the cache field shows **Set the input and output prices to price the cache**. Enter `0` when the provider doesn't charge for a cache read or a cache write. An empty field means the price is unknown, not free:
+
+* When the provider reports cache reads for a model with no **Cache read / 1M tokens**, the LLM Proxy bills them at the input price and adds a `COST_CACHE_RATE_NOT_FOUND` warning to the request.
+* When the provider reports cache writes for a model with no **Cache write / 1M tokens**, the LLM Proxy bills them at the input price and adds the same warning.
+
+<figure><img src="../.gitbook/assets/gamma-aim-model-cache-prices.png" alt="The Pricing section of Edit model with Input / 1M tokens, Output / 1M tokens, Cache read / 1M tokens, Cache write / 1M tokens, and Currency filled in"><figcaption><p>The Pricing section of Edit model</p></figcaption></figure>
+
+The model's page shows the cache prices that are set, either after its price or in a **Cache price** row. On the **Models** page of an LLM Proxy, the **Pricing** column shows them for the models of an inline provider and of a catalog provider. The **Price / 1M** column of the AI Models list shows the input and output prices only. A model you add manually to a provider takes the same two prices, in USD per 1M tokens. Enter them in the **Cache read price** and **Cache write price** fields of the **Add models manually** sheet.
+
+An LLM Proxy picks up a new or changed cache price once it's republished.
 
 ## Next steps
 
