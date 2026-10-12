@@ -15,3 +15,7 @@ guides/gateway-api/multi-domain-tls.md
 getting-started/installation/install-with-helm.md
 overview/admission-validation.md
 overview/drift-detection.md
+# MCP servers and MCP proxies custom resources (GKO 4.13.0 feature, AIAM-122)
+overview/custom-resource-definitions/README.md
+overview/custom-resource-definitions/catalogmcpserver.md
+overview/custom-resource-definitions/mcpproxy.md
