@@ -114,7 +114,7 @@ A reader without permission to see templates at all gets the page title and **Yo
 
 ## Where response templates aren't offered
 
-On a TCP Proxy API, the **Response Templates** item stays in the **Design** group but is disabled, with the tooltip **Coming soon for V4 APIs**. Opening the page by its URL reads **Response Templates are not available for TCP Proxy APIs**. A TCP Proxy API forwards raw traffic, so it has no HTTP response to override.
+On a TCP Proxy API, the **Response Templates** item isn't in the sidebar. Opening the page by its URL reads **Response Templates are not available for TCP Proxy APIs**. The line under it reads **TCP Proxy APIs forward raw traffic and do not support HTTP response template overrides.**
 
 On an MCP or LLM Proxy API, the item isn't in the sidebar at all. The page reads **Response Templates are not available for MCP and LLM Proxy APIs**.
 
