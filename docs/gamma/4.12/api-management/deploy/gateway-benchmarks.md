@@ -286,7 +286,7 @@ Each figure comes from a single run, so small differences between releases fall 
             <td>Keyless</td>
             <td align="right">16,700</td>
             <td align="right">4.64</td>
-            <td align="right">5.68</td>
+            <td align="right">5.88</td>
             <td align="right">9.21</td>
             <td align="right">76</td>
         </tr>
