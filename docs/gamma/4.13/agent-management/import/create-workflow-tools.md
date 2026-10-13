@@ -41,7 +41,7 @@ Credentials follow the backend address, not the API. APIs that share a backend a
     * **OAuth2 · Client credentials**: enter the **Token URL**, **Client ID**, and **Client secret**, and optionally an audience and scopes. The gateway gets a token from the token URL, caches it, and sends it as a bearer token.
 13. Click **Continue to builder**.
 
-The workflow tool and its credentials are saved the first time you click **Save as draft** or **Review & publish** on the canvas. Leaving the canvas before then discards both. Each credential appears in **Credentials**, named after the tool and the API, for example **Flight brief · Weather API**.
+The workflow tool and its credentials are saved the first time you click **Save as draft** or **Review & publish** on the canvas. Leaving the canvas before then discards both.
 
 ## Build the workflow
 
@@ -102,7 +102,7 @@ To open a workflow tool, click its name in **Tools**. Click **Edit** to open the
 * **APIs** lists the APIs the workflow calls. Click **Add API** to add one, **Edit** to change its operations, display name, or authentication, or **Remove** to remove it. Each change is saved when you confirm it, and removing an API also removes the steps that use it.
 * The editor never shows a stored secret. To keep a stored credential, leave the authentication untouched. Changing any of its fields replaces the whole credential, so enter the secret again.
 * Once the tool is published, the builder has no **Save as draft**. **Republish** on the review page saves your canvas changes, even when validation then fails. So does **Save canvas too**, offered when you change an API while the canvas has unsaved changes.
-* Saving an MCP Studio sends the gateway the tool's latest saved steps and credentials, published or not. After you republish, or change a credential here or in **Credentials**, save each MCP Studio that includes the tool. Until then, those Studios keep running the previous version. The message after **Republish** names the Studios to save.
+* Saving an MCP Studio sends the gateway the tool's latest saved steps and credentials, published or not. After you republish, or change a credential here, save each MCP Studio that includes the tool. Until then, those Studios keep running the previous version. The message after **Republish** names the Studios to save.
 
 ## Import an Arazzo specification
 
@@ -126,7 +126,7 @@ The tool is saved as a draft and opens on its **Overview** page. Keep these poin
 2. Click **Remove**.
 3. Click **Remove tool**.
 
-Removing a tool that an MCP Studio includes fails with **This tool is referenced by one or more MCP proxies and cannot be deleted.** Remove the tool from the Studio first. The credentials created for the tool stay in **Credentials**.
+Removing a tool that an MCP Studio includes fails with **This tool is referenced by one or more MCP proxies and cannot be deleted.** Remove the tool from the Studio first.
 
 ## Limits
 

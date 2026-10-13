@@ -77,7 +77,6 @@ The following table lists each cost and usage outcome alongside the feature that
 | Outcome | Feature |
 | --- | --- |
 | Every LLM call records the provider, the model that answered, the tokens in and out, and the cost priced from the model's configured rate. | [Monitor your LLM proxy](../agent-management/observe/monitor-your-llm-proxy.md) |
-| A team spends against a budget that caps dollars per period, and every member holds a separate API key. | [AI Workspaces](../agent-management/build/ai-workspaces/README.md) |
 | Token spend is capped per consumer over a rolling period, counting the tokens the provider bills you for rather than the number of calls. | [Add the Token Rate Limit policy](../agent-management/build/add-the-token-rate-limit-policy.md) |
 | AI traffic on managed devices that bypasses the gateway entirely becomes visible. | [Monitor detected shadow AI](../edge-management/observe/monitor-shadow-ai-traffic.md) |
 
