@@ -10,7 +10,8 @@ metaLinks:
 <!--INSERT_BELOW-->
 ## v1.0.3
 
-
+### Bug Fixes
+* fix(apiv4): reject a console notification without events at plan time
 
 
 ## v1.0.2
