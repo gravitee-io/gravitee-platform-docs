@@ -198,3 +198,8 @@ create-and-configure-apis/configure-v4-apis/load-balancing-and-failover.md
 create-and-configure-apis/configure-v4-apis/endpoints/README.md
 .gitbook/assets/v4-endpoint-secondary-checkbox.png
 .gitbook/assets/v4-endpoints-secondary-badge.png
+# AI Workspaces in the New Developer Portal (APIM 4.13.0 feature, PORTAL-147)
+developer-portal/new-developer-portal/show-ai-workspaces-in-the-developer-portal.md
+.gitbook/assets/portal-settings-enable-ai-workspaces.png
+.gitbook/assets/portal-my-workspace-list.png
+.gitbook/assets/portal-ai-workspace-details.png
