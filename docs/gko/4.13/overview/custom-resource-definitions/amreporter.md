@@ -76,7 +76,7 @@ spec:
 List the reporters of a namespace:
 
 ```sh
-kubectl get amreporters -n banking
+kubectl get amreporters -n production
 ```
 
 Next to each resource, the output shows the name and type AM stored, the domain the reporter belongs to, and whether it's on.
