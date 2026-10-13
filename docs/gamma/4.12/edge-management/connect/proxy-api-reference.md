@@ -8,7 +8,7 @@ description: The LLM Proxy and HTTP proxy APIs that receive the traffic an Edge 
  
 The Edge Daemon forwards the traffic it intercepts to APIs deployed on the AI Gateway. These proxy APIs are standard APIM v4 APIs and must be created manually in APIM—Edge Management doesn't create them. Saving an Edge Management configuration deploys only the daemon configuration; it does not deploy the proxy APIs.
  
-For the Claude Code use case, two proxy APIs are required. The daemon's [routes](configure-edge-management.md#proxy) point at them by context path.
+For the Claude Code use case, two proxy APIs are required. The daemon's [routes](configure-edge-management.md#configure-the-proxy) point at them by context path.
  
 {% hint style="warning" %}
 Both APIs must expose a **Keyless plan**. The connection between the daemon and the gateway isn't authenticated, as noted in the [Edge Management overview](../get-started/edge-management-overview.md), so a secured plan rejects the daemon's requests. Expose these APIs on trusted networks only.
@@ -46,5 +46,5 @@ Both APIs are standard APIM v4 APIs and support:
 * **Logging**, to inspect requests and responses. Request and response content is included when the logging mode is configured for it.
 * Usage tracking under **API Traffic** metrics.
 {% hint style="info" %}
-The context path of each API must match the **API path** set in the corresponding Edge Management route. See [Configure Edge Management](configure-edge-management.md#proxy).
+The context path of each API must match the **API path** set in the corresponding Edge Management route. See [Configure Edge Management](configure-edge-management.md#configure-the-proxy).
 {% endhint %}
