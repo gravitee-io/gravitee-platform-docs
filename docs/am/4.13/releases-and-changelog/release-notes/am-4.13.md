@@ -120,6 +120,13 @@ Action Required: Before you upgrade AM, set `dataPlaneId` in each security domai
 * A domain `PUT` that updates a security domain no longer requires `dataPlaneId`, and one that names a different data plane is rejected with `400`. See [Breaking Changes for Access Management](../../getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md).
 * The `ORGANIZATION_OWNER`, `ORGANIZATION_PRIMARY_OWNER`, `ENVIRONMENT_OWNER`, and `ENVIRONMENT_PRIMARY_OWNER` roles, which listed and read data planes before, now also register, update, and delete them. See [Automation API](../../guides/automation-api.md#manage-data-planes).
 
+#### **Terraform provider for AM**
+
+* The new AM Terraform provider manages security domains, identity providers, certificates, reporters, and data planes from Terraform configuration files, through the Automation API. Each resource also has a data source that reads an existing resource without managing it.
+* The provider is an alpha release that works with AM 4.13.0. Its version numbers don't follow AM's.
+* AM returns sensitive plugin settings as `********`, and the provider treats them as equal to the values you configure, so a plan stays clean and the Terraform state keeps your values.
+* AM rejects a change to the type of an identity provider, a certificate, or a reporter, or to whether it's a system resource, instead of letting Terraform replace it. See [Manage AM with Terraform](../../guides/manage-am-with-terraform.md).
+
 #### **Data planes provisioned at runtime**
 
 * A data plane can be added while the Management API runs, by posting its definition to the `/_node/dataplanes` endpoint of the Management API internal API. Every Management API node loads it without a restart, and loads it again after one. Its `id` can't be `default` or an identifier already declared in `gravitee.yml`, and the response never returns the credentials.
