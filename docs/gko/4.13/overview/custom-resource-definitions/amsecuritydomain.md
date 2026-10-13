@@ -27,7 +27,7 @@ apiVersion: gravitee.io/v1alpha1
 kind: AMSecurityDomain
 metadata:
   name: banking
-  namespace: banking
+  namespace: production
 spec:
   contextRef:
     name: am-ctx
