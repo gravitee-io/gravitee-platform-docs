@@ -9,7 +9,7 @@ metaLinks:
 
 ## Overview
 
-The `xml-validation` policy validates XML against an XSD schema. This policy uses `javax.xml`. The schema is set in the policy or read from a schema registry through an [HTTP Schema Registry](../resources.md#http-schema-registry) resource. A request whose body doesn't match the schema fails with a `400` error, described in [Errors](#errors). Injects processing report messages into request metrics for analytics.
+The `xml-validation` policy validates XML against an XSD schema. This policy uses `javax.xml`. The schema is set in the policy or read from a schema registry through an [HTTP Schema Registry](../resources.md#http-schema-registry) resource. A request whose body doesn't match the schema fails with a `400` error, described in [Errors](#errors). It also injects processing report messages into request metrics for analytics.
 
 ## Examples
 
@@ -94,7 +94,9 @@ When the request body doesn't match the schema, the request fails with `400` and
 }
 ```
 
-The response has the `application/json` content type when the request's `Accept` header allows JSON, and `text/plain` otherwise. This response applies to v4 HTTP proxy APIs and to v2 APIs in [emulation mode](../../gravitee-api-definitions/execution-engine.md#v2-gateway-api-emulation-mode). With emulation mode disabled, a v2 API responds with **Http error message**, or a text summary of the violations when that field is empty, and the error key `XML_INVALID_PAYLOAD`.
+The response has the `application/json` content type when the request's `Accept` header includes `application/json` or `*/*`, and `text/plain` otherwise. The body is the JSON object above in both cases. This response applies to v4 HTTP proxy APIs and to v2 APIs in [emulation mode](../../gravitee-api-definitions/execution-engine.md#v2-gateway-api-emulation-mode).
+
+With emulation mode disabled, a v2 API responds with **Http error message**, or a text summary of the violations when that field is empty, and the error key `XML_INVALID_PAYLOAD`. When the request's `Accept` header includes `application/json` or `*/*`, the body is a JSON object with that message in `message` and the status code in `http_status_code`, and the content type is `application/json`. Otherwise, the body is the message alone, and the content type is `text/plain`.
 
 With **Schema source** set to **Schema registry**, the following errors occur when the policy can't read or compile the schema. The response body is a JSON object whose `message` holds the message in the table:
 
@@ -103,5 +105,5 @@ With **Schema source** set to **Schema registry**, the following errors occur wh
 The `500` and `503` errors occur only until the policy compiles a schema for the first time. After that, when fetching the schema again fails, the policy keeps validating against the last schema it compiled. Use these error keys in [response templates](../../../analyze-and-monitor-apis/gateway-error-key-reference.md#use-error-keys-in-response-templates) to change the responses.
 
 {% hint style="warning" %}
-Saving an API doesn't check an inline schema. On v4 HTTP proxy APIs and on v2 APIs in emulation mode, if **XSD schema** doesn't hold a valid XSD, the policy isn't applied: requests reach the backend without validation, and the Gateway logs an error. After you deploy an API with an inline schema, send a request that doesn't match the schema and check that it's rejected.
+Saving an API doesn't check an inline schema. On v4 HTTP proxy APIs and on v2 APIs in emulation mode, if **XSD schema** doesn't hold a valid XSD, or holds an `xs:import` or `xs:include` whose `schemaLocation` is an `http`, `https`, or `file` URL, the policy isn't applied: requests reach the backend without validation, and the Gateway logs an error. After you deploy an API with an inline schema, send a request that doesn't match the schema and check that it's rejected.
 {% endhint %}
