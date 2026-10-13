@@ -16,7 +16,7 @@ Within Gamma, API Management provides a dedicated console for creating API proxi
 
 A backend service can be published without a gateway. It's the second service, and the second consumer, that create the problems API Management solves:
 
-* **Security is reimplemented per service.** Each team writes its own key check, its own token validation, and its own rate limiter, so the same control exists in as many versions as there are services and drifts between the copies.
+* **Every service implements its own security.** Each team writes its own key check, its own token validation, and its own rate limiter, so the same control exists in as many versions as there are services and drifts between the copies.
 * **Access is granted out of band.** A team that needs an API receives a URL and a credential over chat. Nothing approves the request, nothing revokes it, and nothing records who holds what.
 * **The backend's shape reaches the consumer.** Hostnames, ports, and protocols leak into client configuration, so moving or splitting a service breaks every caller.
 * **Traffic is invisible until it fails.** Without a common enforcement point, there's no one place that answers which consumer called what, how often, and with what errors.
@@ -31,7 +31,7 @@ API Management provides the following key capabilities:
 * **Security plans.** Attach one or more plans to decide who can call the API and how they authenticate. A plan carries its own rate limits and quotas, so tiers are expressed as plans rather than as separate APIs. See [Secure your API proxy](../build/secure-your-api-proxy.md).
 * **Policy enforcement.** Apply policies to the request and response phases of a flow, scoped by path, method, or condition, and reuse a chain across many APIs instead of rebuilding it. See [Apply security policies](../build/configure-your-api-proxy/apply-security-policies.md) and [Reuse policies with shared policy groups](../build/shared-policy-groups.md).
 * **Consumer access.** Manage the subscriptions that tie an application to a plan, so access is approved, paused, and revoked per consumer rather than per credential. See [Establish consumer access](../build/configure-your-api-proxy/establish-consumer-access.md).
-* **Observability.** Track request volume, latency, and error rates for a deployed proxy, inspect individual transactions, and read the audit trail of who changed what. See [Dashboard and metrics](../observe/api-dashboard.md).
+* **Observability.** Track request volume, latency, and error rates for a deployed proxy, inspect individual transactions, and read the audit trail of who changed what. See [Monitor API usage](../observe/monitor-api-usage.md).
 
 ## The building blocks
 
@@ -69,7 +69,7 @@ The **Create API Proxy** page offers three routes to the same object, and they d
 | Route | What it gives you |
 | --- | --- |
 | **Start from scratch** | The full four-step wizard: details, entrypoints, security, and review. Nothing is preset, so you choose the plan type and its configuration explicitly. |
-| **Quick-start templates** | A preset with the security and plan already filled in. You supply a name and an upstream URL, and adjust anything else on the review step. |
+| **Quick-start templates** | A preset with the security plan type already filled in. You supply the API name, version, context path, target URL, and plan name, and adjust anything else on the review step. |
 | **Import** | An existing definition, read from a file or fetched from a URL. |
 
 The quick-start templates cover the four common REST patterns: **REST API with API Key**, **REST API with JWT**, **REST API with OAuth 2.0**, and **REST API with Keyless plan**.
@@ -79,7 +79,7 @@ Import accepts three formats:
 | Format | What it's for |
 | --- | --- |
 | **Gravitee definition** | A proxy exported from another Gravitee environment, recreated as-is. |
-| **OpenAPI specification** | A spec that becomes a proxy, optionally with its documentation attached and an OpenAPI validation policy added to the flow. |
+| **OpenAPI specification** | A specification that becomes a proxy, optionally with its documentation attached and an OpenAPI validation policy added to the flow. |
 | **WSDL** | A SOAP service description, optionally with a REST-to-SOAP policy added so consumers call it as REST. |
 
 Whichever route you take, entrypoints are configured as either a context path on the shared gateway hostname or a set of virtual hosts, each with its own host and path. See [Configure entrypoints](../build/configure-your-api-proxy/configure-entrypoints.md).
@@ -98,7 +98,7 @@ A plan decides how a client authenticates and how its subscription is approved. 
 
 An API Product carries plans of its own, and its range is narrower: **API Key**, **JWT**, and **mTLS**. A Keyless or OAuth2 plan can be created on a proxy but not on a product.
 
-Each plan also sets its own rate limits and quotas, which is what makes tiered access a matter of publishing a second plan rather than a second API. Subscription validation is either automatic or manual, and a Keyless plan is always automatic because there's nothing to approve.
+An API proxy plan also sets its own rate limits and quotas, which is what makes tiered access a matter of publishing a second plan rather than a second API. An API Product plan has no rate limits or quotas. Subscription validation is either automatic or manual, and a Keyless plan is always automatic because there's nothing to approve.
 
 ## Plan and subscription lifecycle
 
@@ -131,9 +131,10 @@ Each of the following tables pairs an outcome with the feature that delivers it.
 | Outcome | Feature |
 | --- | --- |
 | An existing HTTP service is reachable through a governed endpoint that authenticates callers and applies policy, rather than through a hostname handed out by hand. | [Create an API proxy](../build/create-an-api-proxy.md) |
-| An OpenAPI specification becomes a working proxy, with request validation enforced against the same spec. | [Create an API proxy](../build/create-an-api-proxy.md) |
+| An OpenAPI specification becomes an API proxy, with an OpenAPI validation policy checking requests against the same specification. | [Create an API proxy](../build/create-an-api-proxy.md) |
 | A SOAP service is consumed as REST, without a change to the service itself. | [Create an API proxy](../build/create-an-api-proxy.md) |
-| One proxy fronts several backend instances, with load balancing across them and failover when one stops answering. | [Configure failover](../build/configure-your-api-proxy/configure-failover.md) |
+| One proxy fronts several backend instances, with requests load-balanced across them. | [Configure endpoints](../build/configure-your-api-proxy/configure-backend-security.md) |
+| Failed requests are retried, and a circuit breaker stops traffic to a backend that keeps failing. | [Configure failover](../build/configure-your-api-proxy/configure-failover.md) |
 
 ### Secure and publish consumer access
 
@@ -143,7 +144,7 @@ Each of the following tables pairs an outcome with the feature that delivers it.
 | A subscription ties one application to one plan, so access is approved, paused, and revoked per consumer. | [Establish consumer access](../build/configure-your-api-proxy/establish-consumer-access.md) |
 | Free and paid tiers of the same API differ only by the plan a consumer is on, rather than by which API they call. | [Secure your API proxy](../build/secure-your-api-proxy.md) |
 | Several APIs are published together as one product, with a shared plan and a single subscription. | [Create API Products](../build/api-products.md) |
-| A change that affects consumers reaches them in the console rather than over chat. | [Broadcast messages to consumers](../build/configure-your-api-proxy/broadcast-messages-to-consumers.md) |
+| A change that affects consumers reaches them as a portal notification, an email, or an HTTP POST message rather than over chat. | [Broadcast messages to consumers](../build/configure-your-api-proxy/broadcast-messages-to-consumers.md) |
 
 ### Apply policy without touching the backend
 
@@ -152,22 +153,22 @@ Each of the following tables pairs an outcome with the feature that delivers it.
 | A policy chain runs on the request and response phases of a flow, scoped to a path, a method, or a condition. | [Apply security policies](../build/configure-your-api-proxy/apply-security-policies.md) |
 | A chain written once is reused across the flows of many APIs, and updated in one place. | [Reuse policies with shared policy groups](../build/shared-policy-groups.md) |
 | Which flow wins when several match a request is decided by an explicit rule rather than by ordering. | [Control how policy flows are matched to requests](../build/configure-your-api-proxy/configure-flow-execution.md) |
-| A policy reads configuration values that change per environment, without the policy itself changing. | [Configure API properties](../build/configure-your-api-proxy/configure-api-properties.md) |
+| Policies read per-API values, such as timeouts, feature flags, and secrets, so a value changes without the policy changing. | [Configure API properties](../build/configure-your-api-proxy/configure-api-properties.md) |
 | Browser clients on another origin can call the API, under rules you set rather than the backend's. | [Configure CORS](../build/configure-your-api-proxy/configure-cors.md) |
 
 ### Move an estate onto Gravitee
 
 | Outcome | Feature |
 | --- | --- |
-| An API estate running on another gateway moves to Gravitee without a rewrite of every proxy. | [Plan a gateway migration](../migrate/plan-a-gateway-migration.md) |
-| The constructs of the source gateway are mapped to their Gravitee equivalents before any of them are rebuilt. | [Source gateway reference](../migrate/source-gateway-reference.md) |
-| A migration runs in stages, with both gateways serving traffic until the last route has moved. | [Migrate an API estate to Gravitee](../migrate/migrate-an-api-estate-to-gravitee.md) |
+| An API estate running on another gateway moves to Gravitee using a mapping derived from one API its owning team has signed off, rather than a mapping table written in advance. | [Plan a gateway migration](../migrate/plan-a-gateway-migration.md) |
+| The Management API paths, Expression Language syntax, and credential export for each source gateway are in one lookup reference. | [Source gateway reference](../migrate/source-gateway-reference.md) |
+| Generated APIs stay in draft until requests replayed through both gateways against the same upstream behave the same. | [Migrate an API estate to Gravitee](../migrate/migrate-an-api-estate-to-gravitee.md) |
 
 ### See what the traffic is doing
 
 | Outcome | Feature |
 | --- | --- |
-| Request volume, latency, and error rates for a deployed proxy are visible without instrumenting the backend. | [Dashboard and metrics](../observe/api-dashboard.md) |
+| Request volume, latency, and error rates for a deployed proxy are visible without instrumenting the backend. | [Monitor API usage](../observe/monitor-api-usage.md) |
 | Which applications call an API, how often, and with what errors is answered per consumer. | [Monitor API usage](../observe/monitor-api-usage.md) |
 | Whether the backends behind an API are answering is checked continuously rather than discovered from a support ticket. | [Monitor endpoint health](../observe/monitor-endpoint-health.md) |
 | A single transaction is inspected, including what it carried and how the gateway handled it. | [View API logs](../observe/view-api-logs.md) |
@@ -175,7 +176,7 @@ Each of the following tables pairs an outcome with the feature that delivers it.
 
 ## How API Management fits into Gamma
 
-Gamma unifies its product lines under one platform: API Management, Event Stream Management, Agent Management, and Authorization Management. They share the following foundations:
+The Gamma console presents six application modules: API Management, Event Stream Management, Agent Management, Authorization Management, Edge Management, and Platform Management. Platform Management covers installation, environment settings, and the assets that APIs share. The modules share the following foundations:
 
 * **A common Catalog.** This catalog holds APIs, events, tools, agents, MCP servers, and models.
 * **A common authorization engine.** [Authorization Management](../../authorization-management/get-started/authorization-management-overview.md) defines fine-grained policies against those cataloged assets, and an API proxy enforces them alongside its own plans and policy chains.
@@ -189,7 +190,7 @@ For the platform as a whole, and for the modules API Management sits beside, see
 
 If you're new to API Management, work through the following in order:
 
-1. [**Create your first API**](create-your-first-api.md). Publish a proxy in front of a backend and enforce a security plan, in under five minutes.
+1. [**Create your first API**](create-your-first-api.md). Publish a proxy in front of a backend with a Keyless plan, in under five minutes.
 2. [**Secure your API proxy**](../build/secure-your-api-proxy.md). Add the plans that decide who reaches it and how they authenticate.
 3. [**Establish consumer access**](../build/configure-your-api-proxy/establish-consumer-access.md). Subscribe an application and issue it a credential.
 
