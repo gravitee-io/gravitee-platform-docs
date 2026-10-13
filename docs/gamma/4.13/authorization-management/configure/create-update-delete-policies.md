@@ -140,7 +140,7 @@ A `DEPLOYED` policy never returns to `DRAFT`. Undeploy writes `DISABLED` instead
 The menu at the end of each row of a policy list offers **Edit**, **Deploy to PDP** or **Undeploy**, **Clone**, and **Delete**, depending on your permissions:
 
 * **Deploy to PDP** deploys a draft or disabled policy, and **Undeploy** disables a deployed one.
-* **Clone** saves a copy of the policy as a draft, named like the policy with `(copy)` at the end. The copy keeps the GAPL and the target gateways of the policy, and isn't enforced until you deploy it.
+* **Clone** saves a copy of the policy as a draft, named like the policy with `(copy)` at the end. The copy keeps the GAPL, the description, and the target gateways of the policy, and isn't enforced until you deploy it. To clone the policy again, rename the first copy.
 
 To test a policy before you deploy it, see [Simulate policy decisions](../test/simulate-policy-decisions.md).
 
