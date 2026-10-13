@@ -18,7 +18,14 @@ The passwords can come from a Kubernetes Secret through a template, which GKO re
 
 With `system: true`, the resource gives the domain the default certificate that AM builds from its own configuration. Only `domainRef` and `system` are needed then. The `name`, `type`, and `configuration` fields are ignored, with a warning when they're set, and the status shows the name and type AM gave the certificate. A domain has at most one system certificate. The `system` flag can't change once the resource is created.
 
-Before the resource is stored, GKO asks AM to validate it without saving it, unless the domain isn't in AM yet. An error reported by AM rejects the resource, a warning is returned with it, and an AM that can't be reached rejects it. See [Admission validation](../admission-validation.md) and [Drift detection](../drift-detection.md).
+When you apply the resource, GKO checks it with AM before Kubernetes accepts it. AM validates the resource in a dry run, without creating or changing anything in AM:
+
+- If AM reports an error, Kubernetes rejects the resource.
+- If AM reports a warning, Kubernetes accepts the resource and shows you the warning.
+- If AM cannot be reached, Kubernetes rejects the resource.
+
+GKO skips this check when the parent AMSecurityDomain has not been created in AM yet. Kubernetes accepts the resource with a warning, and GKO creates the resource in AM once the domain exists.
+See [Admission validation](../admission-validation.md) and [Drift detection](../drift-detection.md).
 
 Deleting the resource deletes the certificate in AM. GKO refuses the deletion while an `AMSecurityDomain` of the same namespace names the certificate in `spec.certificateSettings.fallbackCertificate`: the error gives the number of domains and a `kubectl` command that lists them. A domain that's being deleted doesn't count. AM refuses to delete a certificate that an application, an identity provider, or a protected resource still uses: the resource then stays, and its `Accepted` condition carries the message from AM. A certificate already deleted in AM, or deleted with its domain, doesn't block the deletion.
 
