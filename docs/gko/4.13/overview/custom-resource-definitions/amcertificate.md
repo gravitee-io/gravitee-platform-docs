@@ -39,7 +39,7 @@ apiVersion: gravitee.io/v1alpha1
 kind: AMCertificate
 metadata:
   name: signing
-  namespace: banking
+  namespace: production
 spec:
   domainRef:
     name: banking
