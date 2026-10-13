@@ -40,7 +40,7 @@ Liquibase has to be enabled if you are using RDMS. `repositories.<scope>.jdbc.li
 
 `console.ui.url` and `console.api.url` are now always written. When left empty they are built as `https://<first ingress host><path>`. Set them explicitly if you use plain http or the first host is not the right one.
 
-On JDBC, Gateway has to run the oauth2 and gateway database migrations. Make sure liquibase is active.
+On JDBC, Gateway has to run the `oauth2` and `gateway` database migrations. Make sure Liquibase is active.
 
 ### Upgrade Order
 

@@ -25,11 +25,11 @@ Action Required: If you are currently using this feature, you must transition to
 
 #### **AuthenticationFlowContextService has a new package**
 
-The interface moved from io.gravitee.am.service.AuthenticationFlowContextService to io.gravitee.am.gateway.handler.common.service.AuthenticationFlowContextService. Custom plugins that import it need to change the import and be rebuilt.
+The interface moved from `io.gravitee.am.service.AuthenticationFlowContextService` to `io.gravitee.am.gateway.handler.common.service.AuthenticationFlowContextService`. Custom plugins that import it need to change the import and be rebuilt.
 
 #### **ExtensionGrantProvider interface has evolved**
 
-The interface io.gravitee.am.extensiongrant.api.AuthenticationFlowContextService has evolved. 
+The interface `io.gravitee.am.extensiongrant.api.AuthenticationFlowContextService` has evolved.
 Custom plugins that import it need to be adapted and be rebuilt.
 
 #### **Automation API rejects a data plane change on an existing security domain**
