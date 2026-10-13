@@ -42,7 +42,7 @@ apiVersion: gravitee.io/v1alpha1
 kind: AMIdentityProvider
 metadata:
   name: inline-users
-  namespace: banking
+  namespace: production
 spec:
   domainRef:
     name: banking
