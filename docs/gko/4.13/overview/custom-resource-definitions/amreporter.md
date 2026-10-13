@@ -34,7 +34,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: banking-audit
-  namespace: banking
+  namespace: production
 stringData:
   password: <password>
 ---
