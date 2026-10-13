@@ -54,6 +54,8 @@ Drift detection applies to the following resources:
 | `PortalListing`     | Supported                                                         |
 | `PortalTheme`       | Supported                                                         |
 | `Documentation`     | Supported                                                         |
+| `McpProxy`          | Supported                                                         |
+| `CatalogMcpServer`  | Supported                                                         |
 | `AMSecurityDomain`  | Supported                                                         |
 | `AMIdentityProvider` | Supported                                                        |
 | `AMCertificate`     | Supported                                                         |
@@ -65,23 +67,43 @@ For the Access Management resources, a resource that Access Management hasn't ac
 
 Drift detection doesn't apply to other resources, such as an `ApiDefinition` (v2 API), a `ManagementContext`, an `AMContext`, or an `ApiResource`. These resources, and subscriptions to a v2 API, ignore the annotation.
 
+### Changes that are never reported
+
+A change made in APIM or Access Management to the following fields is never reported:
+
+| Resource | Fields |
+| --- | --- |
+| `ApiV4Definition` | `spec.definitionVersion`, `spec.definitionContext`, and the `definitionVersion` of each plan |
+| `Group` | `spec.notifyMembers` |
+| `Portal` | `spec.navigation`, which is deprecated |
+| `McpProxy` | The credentials of the upstream authentication: `apiKey.apiKey`, `bearer.token`, `basic.password`, and `oauth2.clientSecret`, under `spec.proxy.upstreamAuth` and under the `auth` of each `spec.studio.upstreamAuth` entry. The `oauth2Generic.clientSecret` of each `spec.identityProviders` entry |
+| `CatalogMcpServer` | `spec.connection.auth.header.value` and `spec.connection.auth.oauth2.clientSecret` |
+| `AMSecurityDomain` | `spec.dataPlaneId` when your resource doesn't set it. An algorithm that Access Management adds to `spec.oidc.workloadIdentitySettings.defaultAllowedAlgorithms` |
+| `AMIdentityProvider` and `AMCertificate` | `spec.name`, `spec.type`, and `spec.configuration` when `spec.system` is `true` |
+| `AMReporter` | `spec.name`, `spec.type`, `spec.configuration`, `spec.attributeMappings`, and `spec.attributeMappingEventTypes` when `spec.system` is `true` |
+
 ## Turn on drift detection
 
 Turn drift detection on for every supported resource with a Helm value, or for a single resource with an annotation.
 
 ### Turn it on for every resource
 
-Set `manager.driftDetection.enabled` to `true` in your Helm values:
+Set `manager.driftDetection.enabled` to `true` in your Helm values. The three `policy` values are the defaults, and [Choose what happens when drift is found](#choose-what-happens-when-drift-is-found) describes them:
 
 {% code title="values.yaml" %}
 ```yaml
 manager:
   driftDetection:
     enabled: true
+    policy: deny
+    onRemoteMissing:
+      policy: deny
+    onFetchFailure:
+      policy: deny
 ```
 {% endcode %}
 
-The chart passes the value to the operator as the `DRIFT_DETECTION_ENABLED` environment variable. Drift detection is on only when that variable is set to `true`.
+The chart passes `manager.driftDetection.enabled` to the operator as the `DRIFT_DETECTION_ENABLED` environment variable. Drift detection is on only when that variable is set to `true`.
 
 ### Turn it on or off for a single resource
 

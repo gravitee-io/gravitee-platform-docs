@@ -20,9 +20,9 @@ When you apply the resource, GKO checks it with AM before Kubernetes accepts it.
 
 - If AM reports an error, Kubernetes rejects the resource.
 - If AM reports a warning, Kubernetes accepts the resource and shows you the warning.
-- If AM cannot be reached, Kubernetes rejects the resource.
+- If AM can't be reached, Kubernetes rejects the resource.
 
-GKO skips this check when the parent AMSecurityDomain has not been created in AM yet. Kubernetes accepts the resource with a warning, and GKO creates the resource in AM once the domain exists.
+GKO skips this check when the parent AMSecurityDomain hasn't been created in AM yet. Kubernetes accepts the resource with a warning, and GKO creates the resource in AM once the domain exists.
 See [Admission validation](../admission-validation.md) and [Drift detection](../drift-detection.md).
 
 Deleting the resource deletes the identity provider in AM. An identity provider already deleted in AM, or deleted with its domain, doesn't block the deletion. AM refuses to delete an identity provider that an application still uses: the resource then stays, and its `Accepted` condition carries the message from AM.

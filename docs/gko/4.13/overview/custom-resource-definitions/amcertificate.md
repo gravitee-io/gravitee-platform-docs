@@ -8,7 +8,7 @@ The `AMCertificate` custom resource declares a certificate of a security domain 
 
 ## Overview
 
-The `domainRef` is required, can't change, and must name an `AMSecurityDomain` in the same namespace as the certificate. In AM, the key of the certificate is the namespace and the name of the resource joined with a hyphen (e.g. `production-system-cert`). The rules of a domain key apply: lowercase letters, digits, and hyphens, up to 255 characters. A domain names the certificate by that key in `spec.certificateSettings.fallbackCertificate`.
+The `domainRef` is required, can't change, and must name an `AMSecurityDomain` in the same namespace as the certificate. In AM, the key of the certificate is the namespace and the name of the resource joined with a hyphen (for example, `production-system-cert`). The rules of a domain key apply: lowercase letters, digits, and hyphens, up to 255 characters. A domain names the certificate by that key in `spec.certificateSettings.fallbackCertificate`.
 
 You can apply the certificate before its domain. It's stored with a warning, its `ResolvedRefs` condition stays `False` until AM has created the domain, and GKO then creates the certificate. The domain owns the certificate: deleting the `AMSecurityDomain` deletes the certificate in AM and removes the `AMCertificate` resource.
 
@@ -22,9 +22,9 @@ When you apply the resource, GKO checks it with AM before Kubernetes accepts it.
 
 - If AM reports an error, Kubernetes rejects the resource.
 - If AM reports a warning, Kubernetes accepts the resource and shows you the warning.
-- If AM cannot be reached, Kubernetes rejects the resource.
+- If AM can't be reached, Kubernetes rejects the resource.
 
-GKO skips this check when the parent AMSecurityDomain has not been created in AM yet. Kubernetes accepts the resource with a warning, and GKO creates the resource in AM once the domain exists.
+GKO skips this check when the parent AMSecurityDomain hasn't been created in AM yet. Kubernetes accepts the resource with a warning, and GKO creates the resource in AM once the domain exists.
 See [Admission validation](../admission-validation.md) and [Drift detection](../drift-detection.md).
 
 Deleting the resource deletes the certificate in AM. GKO refuses the deletion while an `AMSecurityDomain` of the same namespace names the certificate in `spec.certificateSettings.fallbackCertificate`: the error gives the number of domains and a `kubectl` command that lists them. A domain that's being deleted doesn't count. AM refuses to delete a certificate that an application, an identity provider, or a protected resource still uses: the resource then stays, and its `Accepted` condition carries the message from AM. A certificate already deleted in AM, or deleted with its domain, doesn't block the deletion.
