@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: An AI Workspace gives a team governed access to chosen AI models with its own budget. Follow the steps to set a Gamma workspace up.
 ---
 

@@ -143,7 +143,7 @@
     * [Create a service account](configure-and-manage-the-platform/manage-organizations-and-environments/create-a-service-account.md)
     * [Applications](configure-and-manage-the-platform/manage-organizations-and-environments/applications.md)
     * [APIM Console](configure-and-manage-the-platform/manage-organizations-and-environments/apim-console.md)
-    * [Developer Portal](configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md)
+    * [Access the Developer Portal](configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md)
     * [SMTP Configuration](configure-and-manage-the-platform/manage-organizations-and-environments/smtp-configuration.md)
     * [CORS Configuration](configure-and-manage-the-platform/manage-organizations-and-environments/cors-configuration.md)
     * [Configuring Portal and Console deployments](configure-and-manage-the-platform/manage-organizations-and-environments/configuring-portal-and-console-deployments.md)

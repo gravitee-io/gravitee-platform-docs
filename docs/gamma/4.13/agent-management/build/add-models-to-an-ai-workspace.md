@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Add catalog models to an AI Workspace and control which models its members can call. The first model you add provisions the Default LLM Proxy of the workspace.
 ---
 
