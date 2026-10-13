@@ -42,7 +42,7 @@ apiVersion: gravitee.io/v1alpha1
 kind: AMReporter
 metadata:
   name: audit-kafka
-  namespace: banking
+  namespace: production
 spec:
   domainRef:
     name: banking
