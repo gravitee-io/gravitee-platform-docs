@@ -29,7 +29,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: banking-signing
-  namespace: banking
+  namespace: production
 stringData:
   keystore.b64: <base64 PKCS#12 file>
   storepass: <password>
