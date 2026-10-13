@@ -5,6 +5,45 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.22 - October 13, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Manage groups removes the primary-owner group from the API [#11891](https://github.com/gravitee-io/issues/issues/11891)
+* Separate permission setting for group name and group details [#11920](https://github.com/gravitee-io/issues/issues/11920)
+
+**Portal**
+
+* Google Analytics issue [#11794](https://github.com/gravitee-io/issues/issues/11794)
+
+**Other**
+
+* OpenAPI Validation policy UI bug [#10817](https://github.com/gravitee-io/issues/issues/10817)
+* Re: Réponse tronquée [#11799](https://github.com/gravitee-io/issues/issues/11799)
+* V4 API import without plan validation stores a null plan and breaks the API list [#11922](https://github.com/gravitee-io/issues/issues/11922)
+* Redoc Bug re-occurance  [#11925](https://github.com/gravitee-io/issues/issues/11925)
+* V2 HTTP connector keeps its pool slot when the connection is canceled before the upstream request exists [#11941](https://github.com/gravitee-io/issues/issues/11941)
+* Legacy (V2) gateway engine does not cancel the upstream connection when the client disconnects [#11942](https://github.com/gravitee-io/issues/issues/11942)
+* Observing nullpointer errors and the gateways got restarted and traffic stopped [#11946](https://github.com/gravitee-io/issues/issues/11946)
+* LLM proxy Policy Studio: the flow execution mode is empty and "Best match" cannot be saved
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Management API returns 400 for the whole request when any unrelated cookie contains non-ASCII characters, breaking Console and Developer Portal bootstrap [#11893](https://github.com/gravitee-io/issues/issues/11893)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.21 - October 5, 2026
 <details>
 
