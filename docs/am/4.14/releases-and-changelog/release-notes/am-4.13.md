@@ -8,11 +8,11 @@ The MongoDB chart will be removed from the gravitee chart dependencies in 4.14.
 
 #### Repositories configuration
 
-The Management API now configures only to the management repository. It no longer sets up the gateway and oauth2 repositories, and the default management gravitee.yml no longer has the repositories.gateway, repositories.oauth2 sections. If those keys are still in your Management API config, they are ignored. 
-Those repositories.gateway, repositories.oauth2 sections were not used since AM 4.7 but due to legacy code their were required to be present.
+The Management API now configures only to the management repository. It no longer sets up the `gateway` and `oauth2` repositories, and the default management `gravitee.yml` no longer has the `repositories.gateway`, `repositories.oauth2` sections. If those keys are still in your Management API config, they are ignored.
+Those `repositories.gateway`, `repositories.oauth2` sections were not used since AM 4.7 but due to legacy code their were required to be present.
 Now that the legacy code has been removed, the configuraiton has been cleaned up.
 
-#### Trusted domains: one place to manage external trust
+#### Trusted domains: One place to manage external trust
 
 Trusted domains are now the only place where a security domain declares which outside authorities it trusts. The same trusted domain covers both uses:
 
@@ -34,7 +34,7 @@ Values set in 4.12 on the SPIFFE settings are moved there automatically. The old
 
 #### Liquibase
 
-In 4.13 a failed Liquibase migration stops the node from starting. 
+In 4.13 a failed Liquibase migration stops the node from starting.
 
 ## Breaking Changes
 
@@ -49,11 +49,11 @@ Action Required: If you are currently using this feature, you must transition to
 
 #### **AuthenticationFlowContextService has a new package**
 
-The interface moved from io.gravitee.am.service.AuthenticationFlowContextService to io.gravitee.am.gateway.handler.common.service.AuthenticationFlowContextService. Custom plugins that import it need to change the import and be rebuilt.
+The interface moved from `io.gravitee.am.service.AuthenticationFlowContextService` to `io.gravitee.am.gateway.handler.common.service.AuthenticationFlowContextService`. Custom plugins that import it need to change the import and be rebuilt.
 
 #### **ExtensionGrantProvider interface has evolved**
 
-The interface io.gravitee.am.extensiongrant.api.AuthenticationFlowContextService has evolved. 
+The interface `io.gravitee.am.extensiongrant.api.AuthenticationFlowContextService` has evolved.
 Custom plugins that import it need to be adapted and be rebuilt.
 
 #### **Automation API rejects a data plane change on an existing security domain**
