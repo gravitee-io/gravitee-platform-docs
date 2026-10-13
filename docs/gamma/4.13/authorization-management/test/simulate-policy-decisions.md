@@ -60,7 +60,7 @@ Each decision follows these rules:
 
 * A call is permitted when a permit policy matches it and no forbid policy applies. A forbid policy that applies wins over every permit policy.
 * A call that no permit policy matches is forbidden.
-* A policy for a group applies to every member of the group, including the members of the groups nested in it. Nesting stops at a deactivated group. A policy that names an MCP server applies to each of its tools.
+* A policy with `principal in` a group applies to every member of the group, including the members of the groups nested in it. Nesting stops at a deactivated group, but a policy for the deactivated group still applies to its direct members. A policy with `resource in` an MCP server applies to each of its tools. With `==`, a policy applies to that exact entity only.
 * A policy whose `when` or `unless` condition doesn't hold for the request is left out.
 
 ### Uncertain decisions
