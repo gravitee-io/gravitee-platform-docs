@@ -305,6 +305,8 @@ Authorization Management imports principals from SCIM 2.0 directories. A directo
 * A directory larger than its sync limit fails the sync before anything is written.
 * The **Entities** section of a directory lists the principals it imported, and activates, deactivates, or deletes them in bulk. **Purge** deletes the directory's users, groups, or both, while the directory is disabled.
 * **All sync activity** lists the syncs of every directory. Each report lists the principals the sync handled, and the records it skipped with the reason.
+* The `ENVIRONMENT_AUTHZ_SCIM_CONNECTION` permission governs a directory, and `ENVIRONMENT_AUTHZ_SCIM_SYNC` governs starting a sync and reading its reports. Without read access to syncs, the pages of a directory leave out the outcome and the date of its syncs.
+* The audit trail of the environment records the creation, update, secret replacement, capability read, and deletion of a directory, and each sync or purge a user starts, finishes, or cancels. A sync on its schedule leaves no event.
 * See [Sync principals from a SCIM directory](../authorization-management/directories/sync-principals-from-a-scim-directory.md) and [Review SCIM sync runs](../authorization-management/directories/review-scim-sync-runs.md).
 
 ### Developer Portals
