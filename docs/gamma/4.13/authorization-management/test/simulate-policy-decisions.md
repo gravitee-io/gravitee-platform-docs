@@ -99,8 +99,8 @@ If the check fails, the page shows **Engine unavailable, showing the client esti
 
 A simulation has the following limits:
 
-* It tests calls to MCP tools only.
-* It doesn't take the **Target gateways** of a policy into account. Every policy the run uses counts, whichever gateways it targets.
+* It tests calls to MCP tools only, and reads MCP policies only. Policies of other types still apply when you verify against the engine, and at runtime.
+* It doesn't take the **Target gateways** of policies or entities into account. Every policy the run uses counts, whichever gateways it targets. A gateway uses only the policies and entities targeted to its PDP, so if the principal or its groups aren't targeted to the same PDP as the policy, the gateway forbids the call.
 
 ## Next steps
 
