@@ -8,7 +8,7 @@ description: The Policy Simulator shows which principals your MCP policies permi
 
 The **Policy Simulator** decides, for each principal and each MCP tool you pick, whether the environment's MCP policies permit the call. It reads the policies as they're stored, so you can test a policy before you deploy it. Nothing is deployed, and no gateway is involved.
 
-Your browser makes these decisions. **Verify against engine** then checks each one with the authorization engine, whose decision is authoritative.
+Your browser makes these decisions. **Verify against engine** then checks each one with the authorization engine, using the policies and entities stored for the environment. A gateway can still decide differently. For more information, see [What a simulation doesn't cover](#what-a-simulation-doesnt-cover).
 
 ## Prerequisites
 
