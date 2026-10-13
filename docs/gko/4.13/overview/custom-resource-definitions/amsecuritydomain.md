@@ -108,7 +108,7 @@ For every field, see the [API reference](../../reference/api-reference.md).
 List the domains of a namespace:
 
 ```sh
-kubectl get amsecuritydomains -n banking
+kubectl get amsecuritydomains -n production
 ```
 
 The output shows the name, the path, and whether each domain is enabled. Open a domain with `-o yaml` to read its `status`: `key` holds the key of the domain in AM, and the `Accepted` condition is `True` once AM has created it.
