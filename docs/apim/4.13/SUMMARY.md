@@ -148,7 +148,7 @@
     * [Applications](configure-and-manage-the-platform/manage-organizations-and-environments/applications.md)
     * [Inject identity provider claims into DCR requests](configure-and-manage-the-platform/manage-organizations-and-environments/inject-identity-provider-claims-into-dcr-requests.md)
     * [APIM Console](configure-and-manage-the-platform/manage-organizations-and-environments/apim-console.md)
-    * [Developer Portal](configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md)
+    * [Access the Developer Portal](configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md)
     * [SMTP Configuration](configure-and-manage-the-platform/manage-organizations-and-environments/smtp-configuration.md)
     * [Branded Senders](configure-and-manage-the-platform/manage-organizations-and-environments/branded-senders.md)
     * [CORS Configuration](configure-and-manage-the-platform/manage-organizations-and-environments/cors-configuration.md)
