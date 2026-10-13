@@ -8,6 +8,8 @@ description: Every SCIM directory sync leaves a report of what it imported, chan
 
 Every sync of a SCIM directory, started by hand or by its schedule, leaves a report. **All sync activity** lists the syncs of every directory in the environment, newest first. The **Sync History** section of a directory lists its own syncs. By default, each directory keeps the reports of its last 50 syncs, and deleting a directory deletes its reports.
 
+To read a report, you need the `ENVIRONMENT_AUTHZ_SCIM_SYNC[READ]` permission. To cancel a running sync, you need `ENVIRONMENT_AUTHZ_SCIM_SYNC[UPDATE]`. For the permissions of every other action, see [Permissions](sync-principals-from-a-scim-directory.md#permissions).
+
 ## Open a sync report
 
 To open the report of a sync, complete the following steps:
