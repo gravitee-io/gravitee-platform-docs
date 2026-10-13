@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Cap what each member of an AI Workspace spends per period, and optionally cap how fast they send requests. Create, edit, and delete the budgets of a workspace.
 ---
 

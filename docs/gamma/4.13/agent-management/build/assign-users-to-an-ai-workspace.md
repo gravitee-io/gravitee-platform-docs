@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Add users to an AI Workspace so each one gets their own API key, change the budget a member is metered against, and review what each member has spent.
 ---
 
