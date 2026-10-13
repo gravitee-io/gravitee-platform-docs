@@ -16,7 +16,14 @@ AM creates no default reporter for a domain that GKO creates. To get the reporte
 
 The `type` names an AM reporter plugin, such as `reporter-am-file` or `reporter-am-kafka`, and `configuration` holds the settings of that plugin as a free-form object. For the plugins and their settings, see [Reporters](https://documentation.gravitee.io/am/getting-started/configuration/configure-reporters) in the Access Management documentation. The `type` can't change once the resource is created. A value in `configuration` can come from a Kubernetes Secret through a template. See [Templating](../../guides/templating.md). AM returns the sensitive values of the configuration masked, as `********`, and GKO treats a masked value as unchanged when it compares the resource with AM.
 
-Before the resource is stored, GKO asks AM to validate it without saving it, unless the domain isn't in AM yet. An error reported by AM rejects the resource, a warning is returned with it, and an AM that can't be reached rejects it. See [Admission validation](../admission-validation.md) and [Drift detection](../drift-detection.md).
+When you apply the resource, GKO checks it with AM before Kubernetes accepts it. AM validates the resource in a dry run, without creating or changing anything in AM:
+
+- If AM reports an error, Kubernetes rejects the resource.
+- If AM reports a warning, Kubernetes accepts the resource and shows you the warning.
+- If AM cannot be reached, Kubernetes rejects the resource.
+
+GKO skips this check when the parent AMSecurityDomain has not been created in AM yet. Kubernetes accepts the resource with a warning, and GKO creates the resource in AM once the domain exists.
+See [Admission validation](../admission-validation.md) and [Drift detection](../drift-detection.md).
 
 Deleting the resource deletes the reporter in AM. A reporter already deleted in AM, or deleted with its domain, doesn't block the deletion.
 
