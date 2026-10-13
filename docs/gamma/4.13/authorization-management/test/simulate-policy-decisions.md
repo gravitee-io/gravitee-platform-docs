@@ -35,7 +35,7 @@ To run a simulation, complete the following steps:
 
 **Run simulation** is available once at least one MCP server, one tool, and one principal are selected. A disabled policy is never part of a simulation, and neither is a deactivated principal, MCP server, or tool.
 
-The results show the request as it was when you ran it. After you change the request, click **Run simulation** again.
+The results show the request as it was when you ran it. After you change the request, click **Run simulation** again. The page loads policies and entities when it opens. If they change after that, click the refresh icon before you run the simulation.
 
 ## Add a request context
 
