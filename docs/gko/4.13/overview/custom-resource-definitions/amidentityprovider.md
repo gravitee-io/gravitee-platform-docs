@@ -16,7 +16,14 @@ The `type` names an AM identity provider plugin, such as `inline-am-idp`, and `c
 
 With `system: true`, the resource gives the domain the default identity provider that AM builds from its own configuration. Only `domainRef` and `system` are needed then. The `name`, `type`, and `configuration` fields are ignored, with a warning when they're set, and the status shows the name and type AM gave the identity provider. A domain has at most one system identity provider. The `system` flag can't change once the resource is created.
 
-Before the resource is stored, GKO asks AM to validate it without saving it, unless the domain isn't in AM yet. An error reported by AM rejects the resource, a warning is returned with it, and an AM that can't be reached rejects it. See [Admission validation](../admission-validation.md) and [Drift detection](../drift-detection.md).
+When you apply the resource, GKO checks it with AM before Kubernetes accepts it. AM validates the resource in a dry run, without creating or changing anything in AM:
+
+- If AM reports an error, Kubernetes rejects the resource.
+- If AM reports a warning, Kubernetes accepts the resource and shows you the warning.
+- If AM cannot be reached, Kubernetes rejects the resource.
+
+GKO skips this check when the parent AMSecurityDomain has not been created in AM yet. Kubernetes accepts the resource with a warning, and GKO creates the resource in AM once the domain exists.
+See [Admission validation](../admission-validation.md) and [Drift detection](../drift-detection.md).
 
 Deleting the resource deletes the identity provider in AM. An identity provider already deleted in AM, or deleted with its domain, doesn't block the deletion. AM refuses to delete an identity provider that an application still uses: the resource then stays, and its `Accepted` condition carries the message from AM.
 
