@@ -79,7 +79,7 @@ To see why a call is permitted or forbidden, click its cell in the matrix or its
 * **Also matched**: the permit policies that matched besides the one under **Granted by**. When a forbid policy decides, it lists the same permit policies as **Overridden by the forbid**.
 * **Condition could not be evaluated**: the policies left out because the browser couldn't evaluate their condition.
 * **Excluded by their condition**: the policies left out because their condition didn't hold.
-* **Principal attributes**: the groups the principal is a member of, and its attributes.
+* **Principal attributes**: the groups the principal is a direct member of, and its attributes.
 
 The panel shows the names of principals in place of their IDs. To see the IDs, turn on **Show raw IDs**.
 
