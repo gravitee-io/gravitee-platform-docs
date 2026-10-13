@@ -12,36 +12,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds AI Workspaces, which give a team governed access to chosen models with per-member budgets, spend tracking, and routing. LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
-
-#### Gemini Enterprise Agent Platform provider
-
-* The **Providers** page of the Catalog adds **Gemini Enterprise Agent Platform** as a provider. A provider is addressed by a **Project ID**, a **Region**, `global` by default, and a **Publisher**, **Google (Gemini)** or **Anthropic (Claude)**, rather than a URL.
-* A service account key reaches Gemini and Claude models and requires a **Project ID**. An API key reaches Gemini models only, and without a **Project ID** it calls Google in express mode on the global host.
-* The connection test and the save check the credential, the project, the region, the publisher, and every selected model against Google, and name what to fix. With a service account, the models Google lists for the publisher are offered for import, and **Add from registry** prices Gemini and Claude models from Google's public list.
-* The models of these providers carry a **Gemini Enterprise Agent Platform** badge and a publisher badge in the **AI Models** list and in the **Add models from providers** panel. An LLM Proxy or an AI Workspace uses them by reference, and a service account key rotated in the vault applies to the gateway without a redeploy.
-* See [Connect a Gemini Enterprise Agent Platform provider](../agent-management/import/connect-a-gemini-enterprise-agent-platform-provider.md).
-
-#### AI Workspaces
-
-* The **Secure** group of the Agent Management sidebar adds an **AI Workspaces** section that gives a team governed access to a chosen set of AI models. Each workspace holds the models its members can call, the budgets they're metered against, and the members themselves.
-* A budget caps the dollars each member assigned to it may spend per hour, day, week, or month, charged at each model's real per-request cost, and optionally caps the requests each member sends per second, minute, hour, or day. A member who exhausts the budget is refused with `429`.
-* Adding a user creates or reuses an application for them, subscribes it to the budget you pick, and issues an API key on that subscription.
-* The **Design** group of each AI Workspace holds the **Components** page, where you add models to the workspace.
-* See [AI Workspaces](../agent-management/build/ai-workspaces/README.md) and [Add models to an AI workspace](../agent-management/build/add-models-to-an-ai-workspace.md).
-
-#### Spend tracking for AI Workspaces
-
-* The **Observability** group of each AI Workspace adds a **Spend** page that ranks the users, budgets, and models of the workspace by spend over a time range.
-* **Export CSV** downloads the ranked users and models as one file named with the workspace ID and the dates of the time range.
-* The AI Workspace Overview dashboard template charts requests, error rate, response time, tokens, and cost, with top-five breakdowns by model and by user.
-* See [Track AI workspace spend](../agent-management/build/track-ai-workspace-spend.md) and [Monitor your AI workspaces](../agent-management/observe/monitor-your-ai-workspaces.md).
-
-#### Router and AI Routing for AI Workspaces
-
-* The **Router** page of each AI Workspace chains the policies every call of the workspace runs, whatever budget the member is on. Saving writes the router to every budget, and deploying the workspace applies it.
-* The **AI Routing** policy picks the model that serves a request from the share of the member's budget already spent. Each band covers the share up to its limit and lists the models it routes to, and the last band catches everything left. The model it picks replaces the model the request names.
-* See [Configure AI workspace routing](../agent-management/build/configure-ai-workspace-routing.md).
+LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -292,7 +263,7 @@ API Management gains a file-based path for building and updating API proxies. Ea
 
 ### Authorization Management
 
-Authorization Management imports principals from SCIM 2.0 directories. A directory reads the users and groups of an identity provider when you sync it or on its schedule. Every sync leaves a report of what it imported, changed, and left out.
+Authorization Management imports principals from SCIM 2.0 directories. A directory reads the users and groups of an identity provider when you sync it or on its schedule. Every sync leaves a report of what it imported, changed, and left out. A new **Testing** group adds the **Policy Simulator** and the **Access Explorer**, which test MCP policies before you deploy them.
 
 #### SCIM directories
 
@@ -309,6 +280,15 @@ Authorization Management imports principals from SCIM 2.0 directories. A directo
 * The `ENVIRONMENT_AUTHZ_SCIM_CONNECTION` permission governs a directory, and `ENVIRONMENT_AUTHZ_SCIM_SYNC` governs starting a sync and reading its reports. Without read access to syncs, the pages of a directory leave out the outcome and the date of its syncs.
 * The audit trail of the environment records the creation, update, secret replacement, capability read, and deletion of a directory, and each sync or purge a user starts, finishes, or cancels. A sync on its schedule leaves no event.
 * See [Sync principals from a SCIM directory](../authorization-management/directories/sync-principals-from-a-scim-directory.md) and [Review SCIM sync runs](../authorization-management/directories/review-scim-sync-runs.md).
+
+#### Policy Simulator and Access Explorer
+
+* The Authorization Management sidebar adds a **Testing** group, with **Policy Simulator** and **Access Explorer**.
+* The **Policy Simulator** decides, for each principal and each MCP tool you pick, whether the MCP policies of the environment permit the call. It takes an optional acting agent, a request context for policy conditions, and draft policies. The results show as a matrix or a list, and each decision opens with the policies behind it.
+* The **Access Explorer** lists the MCP tools that one principal is permitted to call, grouped by MCP server.
+* Both pages decide in your browser from the stored policies, so nothing needs to be deployed. **Verify against engine** checks each decision with the authorization engine, using the policies and entities stored for the environment.
+* The menu on each row of a policy list adds **Deploy to PDP**, **Undeploy**, and **Clone**. **Clone** saves a copy of the policy as a draft.
+* See [Simulate policy decisions](../authorization-management/test/simulate-policy-decisions.md) and [Explore a principal's access](../authorization-management/test/explore-a-principals-access.md).
 
 ### Developer Portals
 
