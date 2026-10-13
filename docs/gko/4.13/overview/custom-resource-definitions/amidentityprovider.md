@@ -27,7 +27,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: idp-users
-  namespace: banking
+  namespace: production
 stringData:
   admin-password: <password>
 ---
