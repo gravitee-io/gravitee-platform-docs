@@ -6,7 +6,7 @@ description: The Access Explorer lists the MCP tools that one principal is permi
 
 # Explore a principal's access
 
-The **Access Explorer** lists the MCP tools that one principal is permitted to call, across the MCP servers of the environment. Deactivated principals, MCP servers, and tools aren't included. It decides each tool the same way as the Policy Simulator, from the policies as they're stored, so nothing needs to be deployed. **Verify against engine** checks the decisions with the authorization engine, whose decision is authoritative.
+The **Access Explorer** lists the MCP tools that one principal is permitted to call, across the MCP servers of the environment. Deactivated principals, MCP servers, and tools aren't included. It decides each tool the same way as the Policy Simulator, from the policies as they're stored, so nothing needs to be deployed. **Verify against engine** checks the decisions with the authorization engine, using the policies and entities stored for the environment. A gateway can still decide differently. For more information, see [What a simulation doesn't cover](simulate-policy-decisions.md#what-a-simulation-doesnt-cover).
 
 ## Prerequisites
 
