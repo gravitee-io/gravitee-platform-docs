@@ -30,7 +30,7 @@ Authorization Management separates the decision from the enforcement. The **Gamm
 Authorization Management provides the following key capabilities:
 
 * **Fine-grained policies across every traffic type.** One policy language covers MCP servers and their tools, AI providers and models, APIs down to the endpoint and data field, and A2A agents. See [Create, update, and delete policies](../configure/create-update-delete-policies.md).
-* **A shared entity model.** Principals and resources are held once and reused by every policy. Resources are imported from the Catalog so their identifiers match what the gateway actually routes, and principals are synced from Gravitee Access Management, imported from a file, or created by hand. See [Import resources from Catalog](../manage/resources/import-resources-from-catalog.md) and [Sync principals from Access Management](../manage/principals/sync-principals-from-access-management.md).
+* **A shared entity model.** Principals and resources are held once and reused by every policy. Resources are imported from the Catalog so their identifiers match what the gateway actually routes, and principals are synced from Gravitee Access Management or a SCIM directory, imported from a file, or created by hand. See [Import resources from Catalog](../manage/resources/import-resources-from-catalog.md), [Sync principals from Access Management](../manage/principals/sync-principals-from-access-management.md), and [Sync principals from a SCIM directory](../directories/sync-principals-from-a-scim-directory.md).
 * **In-gateway evaluation.** A deployed policy is compiled into an immutable snapshot inside each targeted gateway, and evaluated there. Nothing calls back to the control plane to decide a request. See [Authorization policy synchronization](../authz-gateway-sync.md).
 * **Enforcement beyond the gateway.** The same engine is exposed over [AuthZEN 1.0](https://openid.net/specs/authorization-api-1_0.html) for enforcement points that aren't Gravitee proxies, including batch evaluation and subject, resource, and action search. See [Configure the Gravitee Gateway as a runtime](../evaluate/configure-gravitee-gateway-as-runtime.md).
 
@@ -90,9 +90,9 @@ At runtime, the pieces meet in the gateway:
 1. A request reaches a proxy that carries the Authorization PEP policy in its flow. The policy builds a subject, action, and resource triple from the request.
 2. It asks the PDP running in the same gateway process. There's no network hop, so the decision doesn't move the request's latency budget.
 3. The PDP evaluates the triple against its committed snapshot and answers `PERMIT` or a denial.
-4. On `PERMIT`, the request continues to the upstream. On a denial, or when no policy matches, the proxy fails the request with the deny status you configured, which is `403` by default. When the PDP doesn't answer within the policy's evaluation timeout, the proxy fails the request with `503`.
+4. On `PERMIT`, the request continues to the upstream. On a denial, or when no policy matches, the proxy fails the request with the deny status you configured, which is `403` by default. When the PDP doesn't answer within the policy's evaluation timeout, or hasn't loaded a snapshot yet, the proxy fails the request with `503`.
 
-By default, enforcement fails closed. A gateway that has no snapshot yet, a PDP that doesn't answer in time, and a request that matches no permit statement all end with the request rejected. For what flows from the console to the gateway and how long it takes to take effect, see [Authorization policy synchronization](../authz-gateway-sync.md).
+By default, enforcement fails closed. A gateway that has no snapshot yet, a PDP that doesn't answer in time, and a request that matches no permit statement all end with the request rejected. The authorization policy's cold-start setting can instead retry before denying, or permit requests until the first snapshot arrives. For what flows from the console to the gateway and how long it takes to take effect, see [Authorization policy synchronization](../authz-gateway-sync.md).
 
 ## Where each task lives in the console
 
@@ -103,9 +103,12 @@ The Authorization Management sidebar groups its pages by what you do with them:
 | **General** | **Quick Start** | Counts of MCP, agent, and AI model policies and of principals, a setup walkthrough, and a diagram of how a decision is reached. |
 | **Policy Structure** | **Entities** | The principals and resources policies refer to, on two tabs, with their attributes, relationships, and source. |
 | **Policy Structure** | **Actions** | The verbs policies may authorize, and the entity IDs they're referenced by. |
-| **Policy Structure** | **Schema** | The entity types, containment rules, and action definitions everything else is written against. |
+| **Policy Structure** | **Schemas** | The entity types, containment rules, and action definitions everything else is written against. |
+| **Directories** | **SCIM Directories**, **All sync activity** | The SCIM directories principals are synced from, and the history of their sync runs. |
 | **Policy Management** | **MCPs**, **AI Models**, **APIs**, **A2A Agents**, **Custom Policies** | One page per policy category, each with its own policy list, counters, search, and status filter. |
+| **Testing** | **Policy Simulator**, **Access Explorer** | Tools that test MCP policies before you deploy them. The simulator compares principals across a server's tools, and the explorer shows everything one principal is permitted to do. |
 | **PDP Gateways** | **PDP Gateways** | The registered decision engines, the tag each is bound to, and the AuthZEN endpoints published for them. |
+| **Observability** | **Dashboards**, **Decisions** | Dashboards and logs of the authorization decisions the gateways have made. |
 
 ## Policy categories
 
