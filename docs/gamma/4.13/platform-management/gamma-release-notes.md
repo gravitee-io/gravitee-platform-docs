@@ -286,7 +286,7 @@ Authorization Management imports principals from SCIM 2.0 directories. A directo
 * The Authorization Management sidebar adds a **Testing** group, with **Policy Simulator** and **Access Explorer**.
 * The **Policy Simulator** decides, for each principal and each MCP tool you pick, whether the MCP policies of the environment permit the call. It takes an optional acting agent, a request context for policy conditions, and draft policies. The results show as a matrix or a list, and each decision opens with the policies behind it.
 * The **Access Explorer** lists the MCP tools that one principal is permitted to call, grouped by MCP server.
-* Both pages decide in your browser from the stored policies, so nothing needs to be deployed. **Verify against engine** checks each decision with the authorization engine, whose decision is authoritative.
+* Both pages decide in your browser from the stored policies, so nothing needs to be deployed. **Verify against engine** checks each decision with the authorization engine, using the policies and entities stored for the environment.
 * The menu on each row of a policy list adds **Deploy to PDP**, **Undeploy**, and **Clone**. **Clone** saves a copy of the policy as a draft.
 * See [Simulate policy decisions](../authorization-management/test/simulate-policy-decisions.md) and [Explore a principal's access](../authorization-management/test/explore-a-principals-access.md).
 
