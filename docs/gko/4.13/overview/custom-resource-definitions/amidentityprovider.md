@@ -85,7 +85,7 @@ spec:
 List the identity providers of a namespace:
 
 ```sh
-kubectl get amidentityproviders -n banking
+kubectl get amidentityproviders -n production
 ```
 
 Next to each resource, the output shows the name and type AM stored and the domain the identity provider belongs to.
