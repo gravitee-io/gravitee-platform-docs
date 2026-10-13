@@ -196,6 +196,46 @@ To delete a directory, complete the following steps:
 
 Deleting a directory removes it, its stored secret, and its sync history. The principals it imported stay, marked inactive, and deleting the directory doesn't revoke anyone's access. A directory isn't deleted while one of its syncs is running. Its slug stays taken while its principals exist, so a new directory takes the slug only after you delete them. To free the slug when you delete the directory, [purge its principals](#purge-the-principals-of-a-directory) first.
 
+## Permissions
+
+The following table lists the permission each action requires:
+
+| Action | Required permission |
+|--------|-------------------|
+| Open **SCIM Directories** and a directory | `ENVIRONMENT_AUTHZ_SCIM_CONNECTION[READ]` |
+| Add a directory, including **Check URL** and **Test connection** | `ENVIRONMENT_AUTHZ_SCIM_CONNECTION[CREATE]` and `ENVIRONMENT_AUTHZ_SCIM_CONNECTION[UPDATE]` |
+| Edit a directory, and click **Read again** | `ENVIRONMENT_AUTHZ_SCIM_CONNECTION[UPDATE]` |
+| Delete a directory | `ENVIRONMENT_AUTHZ_SCIM_CONNECTION[DELETE]` |
+| Click **Sync now**, **Full resync**, or **Cancel** | `ENVIRONMENT_AUTHZ_SCIM_SYNC[UPDATE]` |
+| Open **All sync activity**, **Sync History**, and a sync report | `ENVIRONMENT_AUTHZ_SCIM_SYNC[READ]` |
+| Open the **Entities** section of a directory | `ENVIRONMENT_AUTHZ_ENTITIES[READ]` |
+| **Activate** or **Deactivate** principals | `ENVIRONMENT_AUTHZ_ENTITIES[UPDATE]` |
+| **Delete** principals, or **Purge** a directory | `ENVIRONMENT_AUTHZ_ENTITIES[DELETE]` |
+
+**Purge** also needs `ENVIRONMENT_AUTHZ_SCIM_SYNC[READ]`, because a purge opens its report.
+
+Without `ENVIRONMENT_AUTHZ_SCIM_SYNC[READ]`, **All sync activity** and the **Sync History** section don't appear. The **SCIM Directories** list and the **Overview** of a directory leave out the outcome and the date of its syncs.
+
+## Audit trail
+
+Gravitee records the changes you make to a directory, and the syncs you start, in the audit trail of the environment. To read it, see [Review organization and environment audit logs](../../platform-management/review-audit-logs.md). The **Target** of an event holds the ID of the directory or of the sync run.
+
+The following table lists the events:
+
+| Change | Event |
+|--------|-------|
+| Create a directory | `SCIM_CONNECTION_CREATED` |
+| Save changes to a directory | `SCIM_CONNECTION_UPDATED` |
+| Replace the secret of a directory | `SCIM_CONNECTION_TOKEN_ROTATED` |
+| **Test connection** or **Read again** | `SCIM_CONNECTION_CAPABILITIES_REFRESHED` |
+| Delete a directory | `SCIM_CONNECTION_DELETED` |
+| Start a sync | `SCIM_SYNC_STARTED` |
+| A sync ends | `SCIM_SYNC_SUCCEEDED`, `SCIM_SYNC_FAILED`, `SCIM_SYNC_TIMED_OUT`, or `SCIM_SYNC_CANCELED` |
+| Cancel a running sync | `SCIM_SYNC_CANCEL_REQUESTED` |
+| A purge | The same events, with `SCIM_PURGE` in place of `SCIM_SYNC` |
+
+The update event carries the directory before and after the change, and every event that carries a directory shows its secret as `[REDACTED]`. A sync that runs on its schedule leaves no event, because no user started it. Its report in **All sync activity** is its record.
+
 ## Verification
 
 To verify the directory imports its principals as expected, follow these steps:
