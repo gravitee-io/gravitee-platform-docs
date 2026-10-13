@@ -374,6 +374,7 @@
     * [Manage API Keys in the Developer Portal](developer-portal/new-developer-portal/manage-api-keys-in-the-developer-portal.md)
     * [Manage Subscriptions](developer-portal/new-developer-portal/manage-subscriptions.md)
     * [Configure Webhook Subscriptions](developer-portal/new-developer-portal/configure-webhook-subscriptions.md)
+    * [Show AI Workspaces in the Developer Portal](developer-portal/new-developer-portal/show-ai-workspaces-in-the-developer-portal.md)
     * [Configure Authentication](developer-portal/new-developer-portal/configure-authentication/README.md)
       * [Configure Authentication with Login and Password](developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-login-and-password.md)
       * [Configure Authentication with SSO](developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-sso.md)

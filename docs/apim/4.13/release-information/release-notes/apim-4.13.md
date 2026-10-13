@@ -222,6 +222,13 @@ The Latency policy now runs in the response phase of v2 APIs, v4 HTTP proxy APIs
 * The policy applies to the request phase of v4 HTTP proxy APIs, v4 message APIs, and MCP proxies, and requires an Enterprise Edition license.
 * For more information, see [OAuth 2.0 Token Exchange](../../create-and-configure-apis/apply-policies/policy-reference/oauth2-token-exchange.md).
 
+#### **AI Workspaces in the New Developer Portal**
+
+* With **Enable AI Workspaces** turned on in the **Portal capabilities** of the Portal Settings, the New Developer Portal shows **My Workspace**, which lists the AI Workspaces that the logged-in user is a member of. The setting is off by default and requires an Enterprise license.
+* The details of an AI Workspace show the allocated budget, the tokens, requests, and spend of the last 30 days, the endpoint path, a request snippet for the selected model and client, the user's API key, and the models with their input and output prices.
+* A user becomes a member when an administrator adds them to an AI Workspace in Agent Management.
+* For more information, see [Show AI Workspaces in the Developer Portal](../../developer-portal/new-developer-portal/show-ai-workspaces-in-the-developer-portal.md).
+
 ## Improvements
 
 #### **Datadog Reporter: Consumer and error tags on the request count metric**
