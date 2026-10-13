@@ -31,7 +31,7 @@ metadata:
 spec:
   contextRef:
     name: am-ctx
-    namespace: gravitee
+    namespace: production
   name: Banking
   path: /banking
   description: Customer-facing banking applications
