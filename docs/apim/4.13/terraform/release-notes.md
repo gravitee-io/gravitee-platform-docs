@@ -87,7 +87,7 @@ terraform plan
 
 | Provider version | APIM version | Capability |
 | --- | --- | --- |
-| **1.1.x** | 4.9.x – 4.12.x | **Compatible**: existing configurations continue to work, except a `console_notification` without events. These APIM versions don't support the MCP resources or the new group settings |
+| **1.1.x** | 4.9.x – 4.13.x | **Compatible**: existing configurations continue to work, except a `console_notification` without events. These APIM versions don't support the MCP resources or the new group settings |
 
 ### Breaking changes
 
