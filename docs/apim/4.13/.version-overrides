@@ -201,3 +201,5 @@ create-and-configure-apis/configure-v4-apis/endpoints/README.md
 .gitbook/assets/v4-endpoints-secondary-badge.png
 # XML Validation policy schema registry source (APIM 4.13.0 feature, APIM-14690)
 create-and-configure-apis/apply-policies/policy-reference/xml-validation.md
+# Identity provider token settings on the Management API page (APIM 4.13.0 feature, APIM-14822)
+configure-and-manage-the-platform/management-api/README.md
