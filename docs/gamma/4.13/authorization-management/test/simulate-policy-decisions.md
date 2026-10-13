@@ -89,7 +89,7 @@ The panel shows the names of principals in place of their IDs. To see the IDs, t
 
 To check the decisions of a run, click **Verify against engine**. The authorization engine decides every cell of the run with the policies stored for the environment, with the same choice of draft policies as the run. The engine weighs all the environment's policies, while the browser weighs only its MCP policies.
 
-When the engine has answered, the bar reads, for example, **15/15 verified · engine agrees**, or counts the cells where the engine disagrees. In the matrix, a cell where the engine disagrees is outlined in red and carries a red dot. In the list, its row names the engine's decision. In the panel of a decision, **Engine verification** shows the **Client estimate** beside the **Engine (authoritative)** decision.
+When the engine has answered, the bar reads, for example, **15/15 verified · engine agrees**, or counts the cells where the engine disagrees. A cell that the engine can't decide counts neither as verified nor as a disagreement, so the bar can read **0/1 verified · engine agrees**. In the matrix, a cell where the engine disagrees is outlined in red and carries a red dot. In the list, its row names the engine's decision. In the panel of a decision, **Engine verification** shows the **Client estimate** beside the **Engine (authoritative)** decision.
 
 When a policy can't be evaluated and no other policy decides the call, the engine gives no decision. The panel then shows the engine's decision as **Not evaluated**, with the reason under **Engine errors**. For example, a condition that reads a context value you didn't add can't be evaluated.
 
