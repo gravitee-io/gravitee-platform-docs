@@ -27,3 +27,5 @@ overview/custom-resource-definitions/amsecuritydomain.md
 overview/custom-resource-definitions/amidentityprovider.md
 overview/custom-resource-definitions/amcertificate.md
 overview/custom-resource-definitions/amreporter.md
+# API reference links point at the 4.13.x branch and its CRD folder (#2644 review)
+reference/api-reference.md
