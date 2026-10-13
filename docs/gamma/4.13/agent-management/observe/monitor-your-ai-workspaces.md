@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Read the requests, errors, latency, tokens, and cost of an AI Workspace by model and by user on the AI Workspace Overview dashboard.
 ---
 
