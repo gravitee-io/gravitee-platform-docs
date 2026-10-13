@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Route each AI Workspace request to a model chosen by how much of the member's budget is spent, and chain the policies every call of the workspace runs.
 ---
 
