@@ -54,7 +54,7 @@ spec:
     use: [sig]
 ```
 
-A domain of the `banking` namespace uses this certificate as its fallback with `fallbackCertificate: banking-signing`.
+A domain of the `banking` namespace uses this certificate as its fallback with `fallbackCertificate: production-signing`.
 
 ## Key fields
 
