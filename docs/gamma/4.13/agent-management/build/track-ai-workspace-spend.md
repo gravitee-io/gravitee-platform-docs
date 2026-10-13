@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Rank the users, budgets, and models of an AI Workspace by spend, drill into one user's models, and export the user and model rankings as a CSV file.
 ---
 

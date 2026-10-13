@@ -6,9 +6,8 @@ description: The Secure group of the Agent Management sidebar holds the proxies 
 
 # Secure
 
-The **Secure** group of the Agent Management sidebar holds the **AI Workspaces**, **LLM Proxies**, **MCP Proxies**, and **A2A Proxies** pages.
+The **Secure** group of the Agent Management sidebar holds the **LLM Proxies**, **MCP Proxies**, and **A2A Proxies** pages.
 
-* [**AI Workspaces**](ai-workspaces/README.md). An AI Workspace gives a team governed access to chosen AI models with its own budget.
 * [**LLM Proxies**](llm-proxies/README.md). Create, design, and publish an LLM Proxy that routes model traffic through the AI Gateway.
 * [**MCP Proxies**](mcp-proxies/README.md). Create and govern an MCP Proxy that fronts an upstream MCP server with authentication, policies, and observability.
 * [**A2A Proxies**](a2a-proxies/README.md). Expose an upstream agent behind the AI Gateway with an A2A Proxy, then configure and secure it.
