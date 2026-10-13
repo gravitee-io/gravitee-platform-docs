@@ -14,6 +14,7 @@ Before you add a directory, make sure of the following:
 
 * You have the base URL of the identity provider's SCIM 2.0 API, and a credential that reads its users and groups.
 * Gravitee reaches the directory over the network. By default, Gravitee refuses a directory or an OAuth2 token endpoint at a local or private network address, and says so when you check the URL or test the connection.
+* The `ENVIRONMENT_AUTHZ_SCIM_CONNECTION[CREATE]` and `ENVIRONMENT_AUTHZ_SCIM_CONNECTION[UPDATE]` permissions. **Check URL** and **Test connection** need the update permission. For the permission each other action requires, see [Permissions](#permissions).
 
 ## Add a directory
 
