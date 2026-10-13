@@ -6,7 +6,7 @@ description: Drift detection checks an update to a Gravitee Kubernetes Operator 
 
 ## Overview
 
-A resource that the Gravitee Kubernetes Operator (GKO) manages can still be changed in APIM by something other than GKO. For example, another automation tool or a script can change it through the Automation API. The resource in your cluster and its state in APIM then no longer match. The next time GKO applies the resource, it sends the whole resource to APIM, and the change made in APIM is replaced.
+A resource that the Gravitee Kubernetes Operator (GKO) manages can still be changed in APIM by something other than GKO. For example, another automation tool or a script can change it through the Automation API. The resource in your cluster and its state in APIM then no longer match. The next time GKO applies the resource, it sends the whole resource to APIM, and the change made in APIM is replaced. The same applies to the resources GKO manages in Access Management, which are checked against Access Management.
 
 Drift detection catches this before it happens. It's a check in the GKO validating admission webhook. When you update a resource, GKO reads the resource's current state from APIM and compares it with your resource. When APIM was changed outside GKO, GKO reports the drift. A policy then decides whether the update is rejected, accepted with a warning, or accepted with an entry in the operator logs.
 
@@ -32,7 +32,7 @@ GKO compares your resource in the form it sends to APIM, not the YAML you wrote.
 
 Drift detection has the following requirements:
 
-* The resource is synchronized with APIM through a `ManagementContext`. A subscription, a documentation page, a portal link, or a portal listing uses the `ManagementContext` of the resource it belongs to. An `ApiV4Definition` without a `contextRef` isn't checked.
+* The resource is synchronized with APIM through a `ManagementContext`. A subscription, a documentation page, a portal link, or a portal listing uses the `ManagementContext` of the resource it belongs to. An `ApiV4Definition` without a `contextRef` isn't checked. An Access Management resource is checked through the `AMContext` of its security domain.
 * The admission webhooks are enabled. GKO doesn't start when `manager.driftDetection.enabled` is `true` and the webhooks are disabled. With the webhooks disabled, the annotation has no effect, because no admission check runs.
 
 Each checked update adds a call to APIM during admission. The call uses the same HTTP client timeout as the dry-run call, and runs within the same webhook timeout. See [Admission timeouts](admission-validation.md#admission-timeouts).
@@ -54,10 +54,16 @@ Drift detection applies to the following resources:
 | `PortalListing`     | Supported                                                         |
 | `PortalTheme`       | Supported                                                         |
 | `Documentation`     | Supported                                                         |
+| `AMSecurityDomain`  | Supported                                                         |
+| `AMIdentityProvider` | Supported                                                        |
+| `AMCertificate`     | Supported                                                         |
+| `AMReporter`        | Supported                                                         |
 
 On a `Portal`, the deprecated `spec.navigation` field isn't compared, so a change made to it in APIM isn't reported. The `spec.structure.topNavbar` field that replaces it is compared.
 
-Drift detection doesn't apply to other resources, such as an `ApiDefinition` (v2 API), a `ManagementContext`, or an `ApiResource`. These resources, and subscriptions to a v2 API, ignore the annotation.
+For the Access Management resources, a resource that Access Management hasn't accepted yet isn't compared. Neither is an `AMIdentityProvider`, `AMCertificate`, or `AMReporter` whose security domain isn't created in Access Management yet. A value that Access Management returns masked, such as a password in `configuration`, counts as unchanged when your resource holds a value for it. Lists that Access Management stores without an order, such as the `tags` of a domain and the origins, methods, and headers of its CORS settings, are compared whatever their order.
+
+Drift detection doesn't apply to other resources, such as an `ApiDefinition` (v2 API), a `ManagementContext`, an `AMContext`, or an `ApiResource`. These resources, and subscriptions to a v2 API, ignore the annotation.
 
 ## Turn on drift detection
 

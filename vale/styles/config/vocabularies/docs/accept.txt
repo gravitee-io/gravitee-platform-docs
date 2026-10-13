@@ -403,6 +403,11 @@ ApiDefinition
 SharedPolicyGroup
 ApiResource
 ApiVersion
+AMContext
+AMSecurityDomain
+AMIdentityProvider
+AMCertificate
+AMReporter
 UUID
 [Ss]yslog
 [Hh][Rr][Ii][Dd]s?

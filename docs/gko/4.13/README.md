@@ -10,7 +10,7 @@ The Gravitee Kubernetes Operator (GKO) is a [Kubernetes Operator](https://kubern
 
 GKO allows APIs and other resources to be treated "as-code" so you can implement GitOps workflows to manage your API platform with higher levels of automation, reliability, and collaboration.
 
-GKO is designed to be used in combination with the Gravitee API Management Console, Developer Portal, and Gateway. APIs and applications are examples of resources that GKO can manage and synchronize with the rest of the Gravitee platform.
+GKO is designed to be used in combination with the Gravitee API Management Console, Developer Portal, and Gateway. APIs and applications are examples of resources that GKO can manage and synchronize with the rest of the Gravitee platform. GKO also manages Gravitee Access Management security domains, with their identity providers, certificates, and reporters.
 
 Resources that are managed by GKO can be synchronized with the API Management control plane but will be displayed as read-only. This is to enforce the fact that the source of truth for these resources is coming from the operator, and not from the GUI.
 
