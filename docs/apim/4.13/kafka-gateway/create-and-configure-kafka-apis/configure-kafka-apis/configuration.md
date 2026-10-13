@@ -2,7 +2,7 @@
 description: The Configuration section manages high-level settings for a Kafka API in API Management 4.13. Learn what you can customize.
 ---
 
-# Configuration
+# Configure native Kafka API settings
 
 ## Overview
 
