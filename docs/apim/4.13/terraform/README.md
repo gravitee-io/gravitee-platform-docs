@@ -33,7 +33,7 @@ You need to:
 
 | Provider version | APIM version                                                                 | Terraform/OpenTofu qualified versions | Support     |
 | ---------------- | ---------------------------------------------------------------------------- | ------------------------------------- | ----------- |
-| 1.1.x            | <p>4.13.x / 4.12.x<br><sub><em>(4.11.x and below without the portal resources)</em></sub></p> | 1.9+ latest / latest                  | Gravitee    |
+| 1.1.x            | <p>4.12.x and below<br><sub><em>(without the MCP resources and the new group settings)</em></sub></p> | 1.9+ latest / latest                  | Gravitee    |
 | 1.0.x            | <p>4.12.x<br><sub><em>(4.11.x and below without new features)</em></sub></p> | 1.9+ latest / latest                  | Gravitee    |
 | 0.5.x            | <p>4.11.x<br><sub><em>(4.10.x / 4.9.x without new features)</em></sub></p>   | 1.9 + latest / latest                 | Best effort |
 | 0.4.x            | 4.10.x / 4.9.x                                                               | 1.10 to latest / latest               | Best effort |
