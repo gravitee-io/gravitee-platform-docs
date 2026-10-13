@@ -25,7 +25,7 @@ Every runtime in an enterprise already has some notion of access control, and th
 
 ## What Authorization Management does
 
-Authorization Management separates the decision from the enforcement. The **Gamma console** is where you model entities, author policies, and register the gateways that will enforce them. The **Policy Decision Point (PDP)** is the engine that reaches the verdict, and it runs inside the gateway rather than beside it, so a decision costs no network call.
+Authorization Management separates the decision from the enforcement. The **Gamma console** is where you model entities, author policies, and register the gateways that will enforce them. The **Policy Decision Point (PDP)** is the engine that reaches the verdict. On a Gravitee gateway, the PDP runs in the same process as the proxies, so the authorization policy in a proxy's flow gets its decision without a network call.
 
 Authorization Management provides the following key capabilities:
 
@@ -42,7 +42,7 @@ Five objects carry the whole model, and each one builds on the one before it:
 | --- | --- | --- |
 | **Schema** | The declaration of your authorization world: the entity types that exist, which types may contain which others, and the actions the engine reasons about. Everything else is written against it. | [Manage schemas](../manage/schemas/README.md) |
 | **Entity** | A concrete principal or resource, with a canonical entity ID, typed attributes, and links to its parents. A `User` and a `Group` are principals; an `MCPServer`, a `Model`, and an `API` are resources. | [Manage principals](../manage/principals/README.md) |
-| **Action** | The verb a policy authorizes, such as `call_tool`, `invoke`, or `read`. A policy can only grant or forbid an action that's defined here, and every action carries the reserved `action.` prefix in its entity ID. | [Manage actions](../manage/actions/README.md) |
+| **Action** | The verb a policy authorizes, such as `invoke` or `read`. A policy can only grant or forbid an action that's defined here, and every action carries the reserved `action.` prefix in its entity ID. | [Manage actions](../manage/actions/README.md) |
 | **Policy** | One or more `permit` and `forbid` statements over principals, actions, and resources, with optional conditions. A policy is a draft until you deploy it. | [Create, update, and delete policies](../configure/create-update-delete-policies.md) |
 | **PDP gateway** | A registration that tells Authorization Management which decision engine a policy is aimed at, optionally bound to a sharding tag, and optionally publishing an AuthZEN endpoint. | [Configure the Gravitee Gateway as a runtime](../evaluate/configure-gravitee-gateway-as-runtime.md) |
 
@@ -54,17 +54,19 @@ Policies are written in Gravitee Authorization Policy Language (GAPL). A stateme
 
 ```
 permit (
-  principal == User::"alice",
-  action == Action::"call_tool",
-  resource == MCPServer::"github-server"
+  principal in Group::"engineering",
+  action == Action::"invoke",
+  resource in MCPServer::"demo-hr-mcp"
 );
 ```
+
+`==` matches one entity exactly. `in` also matches the entity's descendants, so this statement covers every member of the `engineering` group and every tool, prompt, and resource on the `demo-hr-mcp` server.
 
 A statement can carry a `when` block of conditions that must hold at request time, so one statement covers what would otherwise need many:
 
 ```
 permit (
-  principal == Group::"platform-engineers",
+  principal in Group::"platform-engineers",
   action == Action::"invoke",
   resource == Model::"gpt-4o"
 )
@@ -76,10 +78,10 @@ when {
 `forbid` wins. Anything a forbid statement matches is denied even when a permit statement matches it too, so forbid is how you carve out an exception rather than rewrite the grant.
 
 {% hint style="info" %}
-GAPL will look familiar if you know Cedar, but it isn't Cedar. The parser rejects keywords GAPL doesn't implement, including `unless`, and reports them as diagnostics in the editor.
+GAPL will look familiar if you know Cedar, but it isn't Cedar. Cedar features such as `unless` clauses aren't available in the visual editor.
 {% endhint %}
 
-The editor offers a **Visual** mode that builds statements from chip pickers and compiles them to GAPL for you, and a **Code** mode with syntax highlighting. GAPL that the visual editor can't represent stays editable in Code mode, and the **Visual** toggle is disabled with an explanation rather than silently rewriting your policy.
+The editor offers a **Visual** mode that builds statements from chip pickers and compiles them to GAPL for you, and a **Code** mode with syntax highlighting. GAPL that the visual editor can't represent stays editable in Code mode, and the **Visual** toggle is disabled with an explanation. The editor doesn't rewrite your GAPL to fit the visual editor.
 
 ## How a request is decided
 
@@ -88,9 +90,9 @@ At runtime, the pieces meet in the gateway:
 1. A request reaches a proxy that carries the Authorization PEP policy in its flow. The policy builds a subject, action, and resource triple from the request.
 2. It asks the PDP running in the same gateway process. There's no network hop, so the decision doesn't move the request's latency budget.
 3. The PDP evaluates the triple against its committed snapshot and answers `PERMIT` or a denial.
-4. On `PERMIT`, the request continues to the upstream. On a denial, or when no policy matches, the proxy fails the request with the deny status you configured.
+4. On `PERMIT`, the request continues to the upstream. On a denial, or when no policy matches, the proxy fails the request with the deny status you configured, which is `403` by default. When the PDP doesn't answer within the policy's evaluation timeout, the proxy fails the request with `503`.
 
-Enforcement fails closed. A gateway that has no snapshot yet, a PDP that doesn't answer in time, and a request that matches no permit statement all end the same way: denied. For what flows from the console to the gateway and how long it takes to take effect, see [Authorization policy synchronization](../authz-gateway-sync.md).
+By default, enforcement fails closed. A gateway that has no snapshot yet, a PDP that doesn't answer in time, and a request that matches no permit statement all end with the request rejected. For what flows from the console to the gateway and how long it takes to take effect, see [Authorization policy synchronization](../authz-gateway-sync.md).
 
 ## Where each task lives in the console
 
@@ -128,7 +130,7 @@ Each category offers pre-built condition snippets in the editor, as chips you in
 | **MCP** | `context.device.trusted == true` | [MCP policy examples](../configure/mcp-policy-examples.md) |
 | **AI Model** | `context.usage.tokens_per_day(principal) < 50000` | [AI policy example](../configure/ai-policy-example.md) |
 | **API** | `context.auth.scopes.contains("orders:read")` | [API policy examples](../configure/api-policy-examples.md) |
-| **A2A** | `context.source.ip.in_cidr("10.0.0.0/8")` | [Create, update, and delete policies](../configure/create-update-delete-policies.md) |
+| **A2A** | `context.source.ip.in_cidr("10.0.0.0/8")` | The same snippets as MCP. See [MCP policy examples](../configure/mcp-policy-examples.md). |
 | **Custom** | `context.auth.mfa == true` | [Custom policies overview](../configure/custom-policies/custom-policies-overview.md) |
 
 Conditions test attributes on the principal, the resource, or the request context, so the values they read have to exist. An attribute a policy tests is declared in the schema and filled in on the entity.
@@ -143,7 +145,7 @@ A policy has one of the following statuses:
 | **Deployed** | Published to the PDP gateways it targets, and enforced by them. |
 | **Disabled** | Previously deployed and since undeployed. The policy is kept, and the gateways drop it. |
 
-Deploying and undeploying both reach the gateway through the same synchronization path, so neither takes effect the instant you click. The console reports the state you asked for rather than a per-gateway acknowledgment.
+Deploying and undeploying both reach the gateway through the same synchronization path, so neither takes effect the instant you select it. The console reports the state you asked for rather than a per-gateway acknowledgment.
 
 ## Use cases for Authorization Management
 
@@ -155,7 +157,7 @@ Each of the following tables pairs an outcome with the feature that delivers it.
 | --- | --- |
 | An agent reaches only the MCP tools its identity permits, and a call that matches no permit is denied rather than allowed by omission. | [MCP policy examples](../configure/mcp-policy-examples.md) |
 | A tool that's safe to read with and costly to write with is governed by two statements against one server, instead of two servers. | [Create, update, and delete policies](../configure/create-update-delete-policies.md) |
-| Which principals may invoke a given A2A agent is decided centrally rather than by the agent itself. | [Create your first policy](create-your-first-policy.md) |
+| Which principals may invoke a given A2A agent is decided centrally rather than by the agent itself. | [Create, update, and delete policies](../configure/create-update-delete-policies.md) |
 | An agent identity carries attributes, such as a tier or an owner, that conditions can test at request time. | [Add attributes to principals](../manage/principals/add-attributes-to-principals.md) |
 
 ### Control AI model access and spend
@@ -179,7 +181,7 @@ Each of the following tables pairs an outcome with the feature that delivers it.
 
 | Outcome | Feature |
 | --- | --- |
-| Every gateway reaches the same verdict locally, so authorization adds no network hop. | [Configure the Gravitee Gateway as a runtime](../evaluate/configure-gravitee-gateway-as-runtime.md) |
+| Every gateway reaches the same verdict locally, so a proxy's authorization check adds no network hop. | [Configure the Gravitee Gateway as a runtime](../evaluate/configure-gravitee-gateway-as-runtime.md) |
 | A policy is scoped to the gateways of one region or one shard, rather than published everywhere. | [Configure the Gravitee Gateway as a runtime](../evaluate/configure-gravitee-gateway-as-runtime.md) |
 | An enforcement point that isn't a Gravitee proxy asks the same engine over a standard AuthZEN API. | [Configure the Gravitee Gateway as a runtime](../evaluate/configure-gravitee-gateway-as-runtime.md) |
 | A change made in the console is picked up by running gateways without a redeployment of the proxies. | [Policy syncs](../evaluate/policy-syncs.md) |
@@ -192,13 +194,13 @@ Gamma unifies its product lines under one platform: API Management, Event Stream
 * **A common authorization engine.** Authorization Management is that engine, and every other module writes its fine-grained access control here rather than inventing its own.
 * **Common enforcement points.** The AI Gateway, API Gateway, and Event Gateway evaluate the same policies at the wire level.
 
-Authorization Management is the only module that doesn't put traffic on the wire. It supplies the decision the others enforce. [Agent Management](../../agent-management/overview/README.md) contributes the MCP servers, models, and agents you import as resources, and its MCP and LLM proxies are where those policies bite. [API Management](../../api-management/get-started/api-management-overview.md) contributes the APIs, and its proxies enforce policy alongside their own plans and policy chains. [Event Stream Management](../../event-stream-management/get-started/event-stream-management-overview.md) contributes Kafka streams to the same Catalog.
+Authorization Management doesn't carry traffic of its own. It supplies the decision the traffic-carrying modules enforce. [Agent Management](../../agent-management/overview/README.md) contributes the MCP servers, models, and agents you import as resources, and its MCP and LLM proxies are where those policies bite. [API Management](../../api-management/get-started/api-management-overview.md) contributes the APIs, and its proxies enforce policy alongside their own plans and policy chains. [Event Stream Management](../../event-stream-management/get-started/event-stream-management-overview.md) contributes Kafka streams to the same Catalog.
 
 For the platform as a whole, and for the modules Authorization Management sits beside, see the [Gamma overview](../../platform-management/overview.md).
 
 ## Next steps
 
-If you're new to Authorization Management, work through the following quickstarts in order:
+If you're new to Authorization Management, work through the following guides in order:
 
 1. [**Create your first user**](create-your-first-user.md). Put a principal in place for policies to refer to.
 2. [**Import your first resource from the AI Catalog**](import-your-first-resource-from-agent-catalog.md). Bring in a target whose ID matches what the gateway routes.
