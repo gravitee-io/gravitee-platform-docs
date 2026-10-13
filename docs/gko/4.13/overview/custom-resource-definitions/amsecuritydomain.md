@@ -14,7 +14,14 @@ In AM, the key of the domain is the namespace and the name of the resource joine
 
 A domain that GKO creates starts empty. AM doesn't give it the default certificate, identity provider, and reporter that a domain created in the console gets. Declare them with [`AMCertificate`](amcertificate.md), [`AMIdentityProvider`](amidentityprovider.md), and [`AMReporter`](amreporter.md) resources. With `system: true`, each of them gives the domain the default that AM builds from its own configuration.
 
-Before the resource is stored, GKO asks AM to validate it without saving it. An error reported by AM rejects the resource, a warning is returned with it, and an AM that can't be reached rejects it. On an update, GKO can also compare the resource with the domain's current state in AM. See [Admission validation](../admission-validation.md) and [Drift detection](../drift-detection.md).
+When you apply the resource, GKO checks it with AM before Kubernetes accepts it. AM validates the resource in a dry run, without creating or changing anything in AM:
+
+- If AM reports an error, Kubernetes rejects the resource.
+- If AM reports a warning, Kubernetes accepts the resource and shows you the warning.
+- If AM cannot be reached, Kubernetes rejects the resource.
+
+GKO skips this check when the parent AMSecurityDomain has not been created in AM yet. Kubernetes accepts the resource with a warning, and GKO creates the resource in AM once the domain exists.
+See [Admission validation](../admission-validation.md) and [Drift detection](../drift-detection.md).
 
 Deleting the resource deletes the domain in AM, with its identity providers, certificates, and reporters. The `AMIdentityProvider`, `AMCertificate`, and `AMReporter` resources that reference the domain are removed with it. A domain already deleted in AM doesn't block the deletion of the resource.
 
