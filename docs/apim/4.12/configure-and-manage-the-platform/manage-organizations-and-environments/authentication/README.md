@@ -112,6 +112,23 @@ Each entry under `activations` takes one of two forms:
 
 The in-memory, LDAP, and `gravitee` providers aren't rewritten this way. Changes you make in the Console to a provider declared in `gravitee.yml` don't survive a restart.
 
+## Keep identity provider tokens out of the browser
+
+When a user signs in through an identity provider that returns an ID token, APIM sends the provider's access token and ID token to the browser. The APIM Console, the Gamma console, and the Developer Portal (classic and new) then keep both tokens in browser storage. For a provider that returns no ID token, APIM sends neither token to the browser.
+
+From APIM 4.12.22, your installation decides whether each token reaches the browser. The APIM Console and the Gamma console share one setting per token, and the Developer Portal (classic and new) has its own. By default, neither token is hidden. The settings apply to the whole installation, not to one organization or environment, and no console page changes them. To change them, see [Identity provider tokens in the browser](../../management-api/README.md#identity-provider-tokens-in-the-browser).
+
+[Roles and groups mapping](roles-and-groups-mapping.md) still reads both tokens. Hiding a token has the following effect on sign-in and sign-out:
+
+* **Access token**: sign-in works as before. The APIM Console, the Gamma console, and the Developer Portal (classic and new) keep no access token in browser storage.
+* **ID token, Developer Portal (classic and new)**: sign-in works as before.
+* **ID token, APIM Console and Gamma console**: a sign-in through a provider whose **Scopes** include `openid` doesn't take the user into the console. The APIM Console returns the user to its **Sign In** page, signed out. The Gamma console shows its **Sign in** page again, but the session has started, so the user is signed in when they next open the Gamma console's address.
+* **ID token, sign-out**: when a user signs out of the APIM Console or the Developer Portal (classic and new) and the provider has a logout endpoint, the request to the provider carries the provider's **Client Id** and no ID token. Check how your provider handles such a request.
+
+{% hint style="warning" %}
+**Known limitation in APIM 4.12:** hiding the ID token from the consoles stops users from signing in to the APIM Console and the Gamma console through a provider whose **Scopes** include `openid`. Keep the ID token visible to the consoles while users sign in through such a provider.
+{% endhint %}
+
 Provider-specific setup, including the password policy applied to locally managed accounts:
 
 <table data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="authentication-providers.md">authentication-providers.md</a></td><td></td><td><a href="authentication-providers.md">authentication-providers.md</a></td></tr><tr><td><a href="password-policy.md">password-policy.md</a></td><td></td><td><a href="password-policy.md">password-policy.md</a></td></tr><tr><td><a href="gravitee-access-management.md">gravitee-access-management.md</a></td><td></td><td><a href="gravitee-access-management.md">gravitee-access-management.md</a></td></tr><tr><td><a href="social-providers.md">social-providers.md</a></td><td></td><td><a href="social-providers.md">social-providers.md</a></td></tr><tr><td><a href="openid-connect.md">openid-connect.md</a></td><td></td><td><a href="openid-connect.md">openid-connect.md</a></td></tr><tr><td><a href="microsoft-entra-id.md">microsoft-entra-id.md</a></td><td></td><td><a href="https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/Fc1ETPs5seXizrv8ozOs/~/changes/74/getting-started/configuration/authentication/page-1">https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/Fc1ETPs5seXizrv8ozOs/~/changes/74/getting-started/configuration/authentication/page-1</a></td></tr></tbody></table>

@@ -263,7 +263,7 @@ API Management gains a file-based path for building and updating API proxies. Ea
 
 ### Authorization Management
 
-Authorization Management imports principals from SCIM 2.0 directories. A directory reads the users and groups of an identity provider when you sync it or on its schedule. Every sync leaves a report of what it imported, changed, and left out.
+Authorization Management imports principals from SCIM 2.0 directories. A directory reads the users and groups of an identity provider when you sync it or on its schedule. Every sync leaves a report of what it imported, changed, and left out. A new **Testing** group adds the **Policy Simulator** and the **Access Explorer**, which test MCP policies before you deploy them.
 
 #### SCIM directories
 
@@ -280,6 +280,15 @@ Authorization Management imports principals from SCIM 2.0 directories. A directo
 * The `ENVIRONMENT_AUTHZ_SCIM_CONNECTION` permission governs a directory, and `ENVIRONMENT_AUTHZ_SCIM_SYNC` governs starting a sync and reading its reports. Without read access to syncs, the pages of a directory leave out the outcome and the date of its syncs.
 * The audit trail of the environment records the creation, update, secret replacement, capability read, and deletion of a directory, and each sync or purge a user starts, finishes, or cancels. A sync on its schedule leaves no event.
 * See [Sync principals from a SCIM directory](../authorization-management/directories/sync-principals-from-a-scim-directory.md) and [Review SCIM sync runs](../authorization-management/directories/review-scim-sync-runs.md).
+
+#### Policy Simulator and Access Explorer
+
+* The Authorization Management sidebar adds a **Testing** group, with **Policy Simulator** and **Access Explorer**.
+* The **Policy Simulator** decides, for each principal and each MCP tool you pick, whether the MCP policies of the environment permit the call. It takes an optional acting agent, a request context for policy conditions, and draft policies. The results show as a matrix or a list, and each decision opens with the policies behind it.
+* The **Access Explorer** lists the MCP tools that one principal is permitted to call, grouped by MCP server.
+* Both pages decide in your browser from the stored policies, so nothing needs to be deployed. **Verify against engine** checks each decision with the authorization engine, using the policies and entities stored for the environment.
+* The menu on each row of a policy list adds **Deploy to PDP**, **Undeploy**, and **Clone**. **Clone** saves a copy of the policy as a draft.
+* See [Simulate policy decisions](../authorization-management/test/simulate-policy-decisions.md) and [Explore a principal's access](../authorization-management/test/explore-a-principals-access.md).
 
 ### Developer Portals
 

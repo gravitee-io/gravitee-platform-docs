@@ -296,3 +296,13 @@ Automation API is not enabled by default. On premise Helm Charts users must enab
 * If the expression fails, returns no value, or returns a number lower than 0, the policy raises the `LATENCY_INVALID_TIME` error key. In the request and response phases, the request fails with HTTP `500`. In the publish and subscribe phases, the error interrupts the message flow instead.
 * The policy doesn't cap the time that the expression returns. If the expression reads a value that the client sends, make sure the value is controlled and bounded.
 * A Latency policy that was already in a response phase, where it had no effect, now delays the response. This includes the **Platform flows** on the organization's **Policies** page. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Settings that keep identity provider tokens out of the browser**
+
+* From APIM 4.12.22, four new settings decide whether the identity provider's access token and ID token reach the browser when a user signs in. The APIM Console and the Gamma console share one setting per token, and the Developer Portal (classic and new) has its own. The settings apply to the whole installation.
+* By default, neither token is hidden, so sign-in and browser storage stay as they were.
+* Roles and groups mapping still reads a hidden token. With the access token hidden, the APIM Console, the Gamma console, and the Developer Portal (classic and new) keep no access token in browser storage.
+* For API consumers: a hidden token stays in the sign-in response of `/auth/oauth2/{idp}`, with an empty string (`""`) as its value. The response keeps its shape, so a custom portal that reads it keeps working.
+* With the ID token hidden, the sign-out request that the APIM Console or the Developer Portal (classic and new) sends to the identity provider's logout endpoint carries the provider's **Client Id** and no ID token.
+* Known limitation in APIM 4.12: hiding the ID token from the consoles stops users from signing in to the APIM Console and the Gamma console through a provider whose **Scopes** include `openid`. Both consoles show their sign-in page again after the provider sends the user back. Keep the ID token visible to the consoles while users sign in through such a provider.
+* For more information, see [Keep identity provider tokens out of the browser](../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md#keep-identity-provider-tokens-out-of-the-browser).
