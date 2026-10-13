@@ -34,7 +34,7 @@ To create your first MCP server, complete the following steps:
 2. Under **Secure**, select **MCP Proxies**.
 3. Select **+ Create MCP proxy**.
 
-The console opens the MCP Proxy creation wizard. Select **Proxy mode**, enter a name like "My First MCP Server" and a context path, and then select **Next**.
+On the **Create an MCP proxy** page, select **Create from scratch** to open the MCP Proxy creation wizard. Select **Proxy mode**, enter a name like "My First MCP Server" and a context path, and then select **Next**.
 
 ### Configure security
 

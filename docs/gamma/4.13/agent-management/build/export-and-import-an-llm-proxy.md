@@ -25,23 +25,15 @@ The **Export** action downloads the LLM Proxy definition. To export a proxy, com
 1. From the Gamma console sidebar, select **Agent Management**.
 2. Under **Secure**, select **LLM Proxies**.
 3. Select the LLM Proxy that you want to export.
-4. Under **General**, select **Configuration**.
+4. Under **General**, select **Settings**.
 5. Select **Export**.
 
-    <figure><img src="../.gitbook/assets/gamma-llm-proxy-export-sheet.png" alt="The Export LLM proxy panel with the Gravitee API definition format selected"><figcaption><p>The Export LLM proxy panel with the Gravitee API definition format selected</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-llm-proxy-export-sheet.png" alt="The Export LLM proxy panel with the credentials notice and the Groups, Members, Pages, Plans, and Metadata checkboxes selected"><figcaption><p>The Export LLM proxy panel</p></figcaption></figure>
 
-6. In the **Export LLM proxy** panel, select the format:
+6. In the **Export LLM proxy** panel, clear any of the **Include additional data** checkboxes you want to leave out of the file. **Groups**, **Members**, **Pages**, **Plans**, and **Metadata** are all selected by default, and each cleared checkbox drops that data from the export.
+7. Select **Export**.
 
-    | Format                        | Result                                                                                                                                           |
-    | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-    | **Gravitee API definition**   | Downloads a JSON file named `<name>-<version>.json`. This is the format the import actions on this page accept.                                    |
-    | **CRD API Definition**        | Downloads a YAML file named `<name>-<version>-crd.yml` for the Gravitee Kubernetes Operator. The panel links to the Gravitee Kubernetes Operator documentation. |
-    | **Terraform HCL resource**    | Links to the Gravitee Terraform provider tutorial. The panel doesn't produce a file for this format, so it shows no **Export** button.               |
-
-7. For **Gravitee API definition**, clear any of the **Include additional data** checkboxes you want to leave out of the file. **Groups**, **Members**, **Pages**, **Plans**, and **Metadata** are all selected by default, and each cleared checkbox drops that data from the export.
-8. Select **Export**.
-
-The browser downloads the file. Whitespace and other non-word characters in the file name are replaced with hyphens.
+The browser downloads a JSON file named `<name>-<version>.json`, which is the format the import actions on this page accept. Whitespace and other non-word characters in the file name are replaced with hyphens.
 
 {% hint style="warning" %}
 When you clear the **Plans** checkbox, the file can update an existing LLM Proxy but can't create one. A create by import needs the plans, because it publishes them, and refuses a file that carries none rather than creating a proxy that no plan protects. Keep **Plans** selected when you plan to recreate the proxy elsewhere.
@@ -110,10 +102,10 @@ To move a proxy that uses catalog providers into another environment, register t
 
 ## Update an LLM Proxy by importing a definition
 
-The **Import** action on the **Configuration** page replaces an existing proxy's configuration from a definition. To update a proxy, complete the following steps:
+The **Import** action on the **Settings** page replaces an existing proxy's configuration from a definition. To update a proxy, complete the following steps:
 
 1. Open the LLM Proxy that you want to update.
-2. Under **General**, select **Configuration**.
+2. Under **General**, select **Settings**.
 3. Select **Import**.
 
     <figure><img src="../.gitbook/assets/gamma-llm-proxy-import-update.png" alt="The Import LLM proxy definition panel with the Local file source selected"><figcaption><p>The Import LLM proxy definition panel with the Local file source selected</p></figcaption></figure>
