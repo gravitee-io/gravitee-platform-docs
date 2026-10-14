@@ -47,7 +47,7 @@ By default, the subject token of an ID-JAG request must be an ID token. Turn on 
 
 ### Register the resource authorization server
 
-Create a trusted domain with the **Cross App Access** usage. Its **Issuer URL** is the issuer identifier of the resource authorization server. AM puts it in the `aud` claim of every ID-JAG it issues toward that server, and the requesting application sends it as the `audience` parameter. The trusted domain also lists the resource servers behind that authorization server. It maps your domain scopes to the scope names that the authorization server knows. See [Configure Cross App Access](../../manage-spiffe-trust-domains.md#configure-cross-app-access).
+Create a trusted domain with the **Cross App Access** usage. Its **Issuer URL** is the issuer identifier of the resource authorization server. AM puts it in the `aud` claim of every ID-JAG it issues toward that server, and the requesting application sends it as the `audience` parameter. The trusted domain also lists the resource servers behind that authorization server. It maps your domain scopes to the scope names that the authorization server knows. See [Configure Cross App Access](../../manage-trusted-domains.md#configure-cross-app-access).
 
 ### Configure the application
 
@@ -74,8 +74,6 @@ On the **Tokens & User Profile** tab:
 
 * Under **Tokens TTL (seconds)**, the **ID-JAG** field sets the lifetime of an ID-JAG. By default, an ID-JAG is valid for 300 seconds, and it never outlives the subject token it was exchanged for.
 * A custom claim with the **ID_JAG** token type is added to every ID-JAG the application receives. AM ignores custom claims named `iss`, `aud`, `client_id`, `jti`, `exp`, `iat`, or `cnf`.
-
-An MCP server can request ID-JAGs too. In its **OAuth 2.0 / OIDC** settings, the **Grant Flows** tab carries the same **Cross App Access** section. The **Tokens** tab carries the **ID-JAG** lifetime under **Tokens TTL (seconds)** and the **ID_JAG** custom claims.
 
 ### Request an ID-JAG
 
@@ -141,7 +139,7 @@ When the token exchange request carries a valid `DPoP` proof header, AM binds th
 
 ## Redeem ID-JAGs
 
-To redeem ID-JAGs, the security domain trusts the identity provider that issues them, runs the Cross App Access extension grant, and protects the target resource with an MCP server.
+To redeem ID-JAGs, the security domain trusts the identity provider that issues them, runs the Cross App Access extension grant, and protects the target resource.
 
 ### Prerequisites
 

@@ -162,9 +162,3 @@ To verify the trusted domain is set up as expected, follow these steps:
 
 - A JWKS URL that resolves to a private, loopback, or link-local IP address is refused unless **Allow JWKS URLs resolving to private IP addresses** is on in the **Key retrieval** tab.
 - An unsecured HTTP JWKS URL is refused unless **Allow unsecured HTTP JWKS URLs** is on in the **Key retrieval** tab.
-- The SPIRE local-stack overlay (`docker-compose.spire.yml`) is for development only. Production deployments must use a production-grade SPIRE deployment with TLS-secured OIDC discovery.
-
-## Related Changes
-
-- The **Agents** section appears as a new top-level navigation entry in the management console, separate from the **Applications** list.
-- The Applications list now excludes agent applications by default.

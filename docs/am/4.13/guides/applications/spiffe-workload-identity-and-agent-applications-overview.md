@@ -44,7 +44,7 @@ A SPIFFE trust boundary is a trusted domain with the **SPIFFE** usage, which hol
 - **Refresh interval (seconds)**: How often AM fetches the keys of a JWKS URL again
 - **Signing algorithms**: Signing algorithms accepted for JWT-SVIDs, overriding the default of the **SPIFFE Settings**
 
-Trusted domains are scoped to an AM security domain and managed on the **Trusted Domains** page or through the Management API. See [Manage Trusted Domains](../manage-spiffe-trust-domains.md).
+Trusted domains are scoped to an AM security domain and managed on the **Trusted Domains** page or through the Management API. See [Manage Trusted Domains](../manage-trusted-domains.md).
 
 ### CIMD (Client Identity Metadata Document)
 

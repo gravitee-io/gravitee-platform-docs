@@ -55,7 +55,7 @@
 
 ## Guides
 
-* [Manage Trusted Domains](guides/manage-spiffe-trust-domains.md)
+* [Manage Trusted Domains](guides/manage-trusted-domains.md)
 * [OAuth 2.0 Token Exchange](guides/oauth-2.0-token-exchange-concepts/README.md)
   * [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-configuration-reference.md)
   * [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md)

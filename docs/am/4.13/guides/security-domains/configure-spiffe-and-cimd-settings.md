@@ -12,7 +12,7 @@ Configure SPIFFE JWT-SVID authentication at the domain level:
 
 1. Click **Settings**.
 2. In the **Workload Identity** section, click **SPIFFE Settings**.
-3. Turn on **Enable SPIFFE** to allow clients in this domain to authenticate using the `spiffe_jwt` token-endpoint method. The security domain also needs at least one trusted domain with the **SPIFFE** usage. See [Manage Trusted Domains](../manage-spiffe-trust-domains.md).
+3. Turn on **Enable SPIFFE** to allow clients in this domain to authenticate using the `spiffe_jwt` token-endpoint method. The security domain also needs at least one trusted domain with the **SPIFFE** usage. See [Manage Trusted Domains](../manage-trusted-domains.md).
 4. Under **JWT-SVID validation**, set the maximum SVID lifetime, the clock skew tolerance, and the **Default allowed signing algorithms**.
 5. Click **SAVE**.
 
@@ -43,7 +43,7 @@ Content-Type: application/json
 | `clockSkewSeconds` | Allowed clock skew for JWT validation | `30` |
 | `maxJwtLifetimeSeconds` | Maximum allowed JWT lifetime | `300` |
 
-From AM 4.13, the JWKS fetch limits and the SSRF toggles apply to every trusted domain of the security domain, whichever usage it serves. You set them on the **Key retrieval** tab of the **Trusted Domains** page. See [Limit how keys are fetched](../manage-spiffe-trust-domains.md#limit-how-keys-are-fetched). AM still accepts `allowPrivateIpAddress`, `allowUnsecuredHttpUri`, `fetchTimeoutMs`, `maxResponseSizeKb`, `cacheTtlSeconds`, and `cacheMaxEntries` in `oidc.workloadIdentitySettings`. It moves them to the key retrieval settings of the domain.
+From AM 4.13, the JWKS fetch limits and the SSRF toggles apply to every trusted domain of the security domain, whichever usage it serves. You set them on the **Key retrieval** tab of the **Trusted Domains** page. See [Limit how keys are fetched](../manage-trusted-domains.md#limit-how-keys-are-fetched). AM still accepts `allowPrivateIpAddress`, `allowUnsecuredHttpUri`, `fetchTimeoutMs`, `maxResponseSizeKb`, `cacheTtlSeconds`, and `cacheMaxEntries` in `oidc.workloadIdentitySettings`. It moves them to the key retrieval settings of the domain.
 
 ## CIMD Settings
 

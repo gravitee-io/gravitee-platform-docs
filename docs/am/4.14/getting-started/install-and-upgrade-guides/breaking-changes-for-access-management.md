@@ -48,7 +48,7 @@ Action Required: Before you upgrade AM, make sure that every client sends the `s
 
 AM now fetches the keys of a trusted issuer under the key retrieval settings of the security domain. It refuses a JWKS URL that uses `http://`, or whose host resolves to a private, loopback, or link-local address. Token exchanges that present a token of that issuer then fail. Before 4.13, AM fetched such URLs.
 
-Action Required: Before you upgrade AM, move the JWKS endpoint of each trusted issuer to an `https://` URL on a public address. Otherwise, after the upgrade, turn on **Allow unsecured HTTP JWKS URLs** or **Allow JWKS URLs resolving to private IP addresses** on the **Key retrieval** tab of the **Trusted Domains** page. See [Manage Trusted Domains](../../guides/manage-spiffe-trust-domains.md#limit-how-keys-are-fetched).
+Action Required: Before you upgrade AM, move the JWKS endpoint of each trusted issuer to an `https://` URL on a public address. Otherwise, after the upgrade, turn on **Allow unsecured HTTP JWKS URLs** or **Allow JWKS URLs resolving to private IP addresses** on the **Key retrieval** tab of the **Trusted Domains** page. See [Manage Trusted Domains](../../guides/manage-trusted-domains.md#limit-how-keys-are-fetched).
 
 ### 4.12.0
 

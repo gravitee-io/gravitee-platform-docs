@@ -64,4 +64,4 @@ The Scope Handling setting can be overridden for individual Applications or MCP 
 
 ## Trusted Issuers
 
-External issuers whose JWTs are accepted as subject or actor tokens are trusted domains with the **Token exchange** usage. You manage them on the **Trusted Domains** page, in the **Security** section of the security domain settings. Each one declares the issuer URL matched against the `iss` claim, the key material that verifies the signature, and the scope mappings and user binding rules applied to the exchanged token. See [Configure token exchange](../manage-spiffe-trust-domains.md#configure-token-exchange).
+External issuers whose JWTs are accepted as subject or actor tokens are trusted domains with the **Token exchange** usage. You manage them on the **Trusted Domains** page, in the **Security** section of the security domain settings. Each one declares the issuer URL matched against the `iss` claim, the key material that verifies the signature, and the scope mappings and user binding rules applied to the exchanged token. See [Configure token exchange](../manage-trusted-domains.md#configure-token-exchange).
