@@ -16,6 +16,8 @@ This feature is under active development and may not be available in all environ
 
 PDP gateways report authorization decision metrics to the Gravitee control plane. This telemetry powers the Authorization Management dashboard and the KPI tiles on the Quick Start page.
 
+Decision data requires the Elasticsearch or OpenSearch reporter to be enabled on the gateway. Decision records are written to the `gravitee-decisions-*` data streams, which take their own index lifecycle policy, and that policy is unset by default. To set one, open the gateway `gravitee.yml` and set `reporters.elasticsearch.lifecycle.policies.decisions` to the name of an existing index lifecycle policy. If you previously set `reporters.elasticsearch.lifecycle.policies.authz_decisions`, rename that key to `decisions`, because the old key isn't read.
+
 ## Data collected
 
 The Quick Start page surfaces four KPI tiles, suggesting the following data is collected:
