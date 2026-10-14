@@ -37,7 +37,7 @@ PREFIX matching enables per-instance identity: a blueprint application with subj
 
 ### Trust Domains
 
-A trust domain represents a SPIFFE trust boundary. From AM 4.13, a trust domain is a trusted domain with the **SPIFFE** usage, which holds:
+A SPIFFE trust boundary is a trusted domain with the **SPIFFE** usage, which holds:
 
 - **SPIFFE trust domain**: Matched against the `sub` of a JWT-SVID, without the `spiffe://` scheme
 - **Key source**: **JWKS URL**, **JWK Set** (inline keys), or **PEM Certificate**
