@@ -52,7 +52,7 @@ You can also record a price you negotiated with the provider, which replaces the
 
 To go back to the price suggested by the provider, select **Drop the negotiated rate** when **Edit model** shows it. Otherwise, clear every price field and select **Save changes**.
 
-A model with a negotiated price shows a `Custom` badge next to its price, together with the suggested rate and the date and author of the last change. The negotiated price appears in the **Price / 1M** column of the AI Models list, on the model detail page, and on the models page of an LLM Proxy, and it's used for cost estimates in the AI workspace detail view. Refreshing the catalog updates the provider-derived fields and keeps your display name, description, and negotiated price.
+A model with a negotiated price shows a `Custom` badge next to its price, together with the suggested rate and the date and author of the last change. The negotiated price appears in the **Price / 1M** column of the AI Models list, on the model detail page, and on the models page of an LLM Proxy. Refreshing the catalog updates the provider-derived fields and keeps your display name, description, and negotiated price.
 
 ### Price the prompt cache
 

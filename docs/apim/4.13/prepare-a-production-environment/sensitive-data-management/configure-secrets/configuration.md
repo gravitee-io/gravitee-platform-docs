@@ -5,7 +5,7 @@ metaLinks:
     - configuration.md
 ---
 
-# Configuration
+# Configure secrets in configuration files
 
 ## Overview
 

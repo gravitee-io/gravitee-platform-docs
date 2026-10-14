@@ -145,6 +145,22 @@ The `double_llm-proxy_sent-cost` metric and the `llmproxy.usage.sent.cost` conte
 
 Before you upgrade, review the Token Rate Limit policies and the dashboards that read sent tokens on LLM proxy APIs that serve Anthropic or Bedrock models. To price cached tokens at the provider's rates, set the cache prices of each model. For more information, see [Assign Metrics](../create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md#metrics-on-llm-proxy-apis) and [Reporters](../analyze-and-monitor-apis/reporters/README.md).
 
+**XML Validation policy: Failed validations return a list of violations**
+
+APIM 4.13 bundles version 2.x of the XML Validation policy, which changes the response to a request that fails validation.
+
+On v4 HTTP proxy APIs and on v2 APIs in emulation mode, the response body is a JSON object with a `message` field and a `violations` array that lists each problem. The error key is `XML_VALIDATION_FAILED`. `message` holds **Http error message**, or `XML validation failed` when that field is empty. In 4.12, the message was `Bad Request` when the field was empty, and a request that accepted JSON got a body with `message` and `http_status_code` fields. Other requests got the message alone, and now get the JSON object, still with the `text/plain` content type.
+
+On v2 APIs with emulation mode disabled, an empty **Http error message** now returns a text summary of the violations instead of `Bad Request`, and the error key is `XML_INVALID_PAYLOAD`.
+
+Before you upgrade, check the API consumers that read these responses. For more information, see [XML Validation](../create-and-configure-apis/apply-policies/policy-reference/xml-validation.md#errors).
+
+**XML Validation policy: Requests that declare a `DOCTYPE` and schema downloads are blocked**
+
+The XML Validation policy that APIM 4.13 bundles rejects a request body that declares a `DOCTYPE`, with the same `400` response as a body that doesn't match the schema. It also no longer downloads a schema that an `xs:import` or `xs:include` names with an `http`, `https`, or `file` URL in its `schemaLocation`. An inline schema that does this doesn't compile, so the policy isn't applied, and requests reach the backend without validation. In 4.12, the policy accepted a `DOCTYPE` and downloaded the schemas at those URLs.
+
+Before you upgrade, check for API consumers that send a `DOCTYPE`, and for inline schemas that import or include a schema by URL. For more information, see [XML Validation](../create-and-configure-apis/apply-policies/policy-reference/xml-validation.md#errors).
+
 #### 4.12.0
 
 **JSON Validation policy: response error keys corrected**

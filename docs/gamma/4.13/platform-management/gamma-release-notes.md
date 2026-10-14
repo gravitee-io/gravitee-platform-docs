@@ -12,35 +12,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds AI Workspaces, which give a team governed access to chosen models with per-member budgets, spend tracking, and routing. LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans. AI models gain cache read and cache write prices, which LLM Proxies apply to cached prompt tokens. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
-
-#### Gemini Enterprise Agent Platform provider
-
-* The **Providers** page of the Catalog adds **Gemini Enterprise Agent Platform** as a provider. A provider is addressed by a **Project ID**, a **Region**, `global` by default, and a **Publisher**, **Google (Gemini)** or **Anthropic (Claude)**, rather than a URL.
-* A service account key reaches Gemini and Claude models and requires a **Project ID**. An API key reaches Gemini models only, and without a **Project ID** it calls Google in express mode on the global host.
-* The connection test and the save check the credential, the project, the region, the publisher, and every selected model against Google, and name what to fix. With a service account, the models Google lists for the publisher are offered for import, and **Add from registry** prices Gemini and Claude models from Google's public list.
-* The models of these providers carry a **Gemini Enterprise Agent Platform** badge and a publisher badge in the **AI Models** list and in the **Add models from providers** panel. An LLM Proxy or an AI Workspace uses them by reference, and a service account key rotated in the vault applies to the gateway without a redeploy.
-* See [Connect a Gemini Enterprise Agent Platform provider](../agent-management/import/connect-a-gemini-enterprise-agent-platform-provider.md).
-
-#### AI Workspaces
-
-* The **Secure** group of the Agent Management sidebar adds an **AI Workspaces** section that gives a team governed access to a chosen set of AI models. Each workspace holds the models its members can call, the budgets they're metered against, and the members themselves.
-* A budget caps the dollars each member assigned to it may spend per hour, day, week, or month, charged at each model's real per-request cost, and optionally caps the requests each member sends per second, minute, hour, or day. A member who exhausts the budget is refused with `429`.
-* Adding a user creates or reuses an application for them, subscribes it to the budget you pick, and issues an API key on that subscription.
-* See [AI Workspaces](../agent-management/build/ai-workspaces/README.md).
-
-#### Spend tracking for AI Workspaces
-
-* The **Observability** group of each AI Workspace adds a **Spend** page that ranks the users, budgets, and models of the workspace by spend over a time range.
-* **Export CSV** downloads the ranked users and models as one file named with the workspace ID and the dates of the time range.
-* The AI Workspace Overview dashboard template charts requests, error rate, response time, tokens, and cost, with top-five breakdowns by model and by user.
-* See [Track AI workspace spend](../agent-management/build/track-ai-workspace-spend.md) and [Monitor your AI workspaces](../agent-management/observe/monitor-your-ai-workspaces.md).
-
-#### Router and AI Routing for AI Workspaces
-
-* The **Router** page of each AI Workspace chains the policies every call of the workspace runs, whatever budget the member is on. Saving writes the router to every budget, and deploying the workspace applies it.
-* The **AI Routing** policy picks the model that serves a request from the share of the member's budget already spent. Each band covers the share up to its limit and lists the models it routes to, and the last band catches everything left. The model it picks replaces the model the request names.
-* See [Configure AI workspace routing](../agent-management/build/configure-ai-workspace-routing.md).
+LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans. AI models gain cache read and cache write prices, which LLM Proxies apply to cached prompt tokens. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -172,16 +144,24 @@ Agent Management adds AI Workspaces, which give a team governed access to chosen
 
 #### Export, import, and duplicate for LLM Proxies
 
-* The **Configuration** page of each LLM Proxy adds three actions. **Export** downloads the proxy as a Gravitee API definition or a Kubernetes CRD, and links to the Terraform tutorial. **Import** replaces the proxy from a Gravitee definition. **Duplicate** copies the proxy under a new context path and version.
+* The **Settings** page of each LLM Proxy adds three actions. **Export** downloads the proxy as a Gravitee API definition. **Import** replaces the proxy from a Gravitee definition. **Duplicate** copies the proxy under a new context path and version.
 * The **Create LLM proxy** button now opens a page offering **Create from scratch** and **Import**. Both import routes accept a local file or a remote URL, and only the Gravitee definition format.
 * See [Export and import an LLM Proxy](../agent-management/build/export-and-import-an-llm-proxy.md) and [Duplicate an LLM Proxy](../agent-management/build/duplicate-an-llm-proxy.md).
 
 #### Export, import, and duplicate for A2A Proxies
 
-* The **Configuration** page of each A2A Proxy adds three actions. **Export** downloads the proxy as a Gravitee API definition or a Kubernetes CRD, and links to the Terraform tutorial. **Import** replaces the proxy from a Gravitee definition. **Duplicate** copies the proxy under a new context path and version.
+* The **Settings** page of each A2A Proxy adds three actions. **Export** downloads the proxy as a Gravitee API definition. **Import** replaces the proxy from a Gravitee definition. **Duplicate** copies the proxy under a new context path and version.
 * The **Create A2A proxy** button now opens a page offering **Create from scratch** and **Import**. Both import routes accept a local file or a remote URL, and only the Gravitee definition format.
-* A create by import leaves the proxy stopped, for you to start from its **Configuration** page.
+* A create by import leaves the proxy stopped, for you to start from its **Settings** page.
 * See [Export and import an A2A Proxy](../agent-management/build/export-and-import-an-a2a-proxy.md) and [Duplicate an A2A Proxy](../agent-management/build/duplicate-an-a2a-proxy.md).
+
+#### Export, import, and duplicate for MCP Proxies
+
+* The **Settings** page of each MCP Proxy and MCP Studio adds three actions. **Export** downloads it as a Gravitee API definition. **Import** replaces it from a Gravitee definition. **Duplicate** copies it under a new context path and version.
+* The **+ Create MCP proxy** button now opens a page offering **Create from scratch** and **Import**. The mode in the file decides whether the import creates an MCP Proxy or an MCP Studio, and the proxy is created stopped.
+* An MCP Studio's export names its tools, prompts, and resources by their names in the catalog, and the import looks for the same names in the catalog of the environment you import into.
+* A create by import recreates **Keyless**, **API Key**, and **OAuth2** plans, and refuses a file that carries a plan of another type, such as **JWT**.
+* See [Export and import an MCP Proxy](../agent-management/build/export-and-import-an-mcp-proxy.md) and [Duplicate an MCP Proxy](../agent-management/build/duplicate-an-mcp-proxy.md).
 
 #### Promote LLM, MCP, and A2A Proxies
 
@@ -297,6 +277,35 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * The endpoint group and endpoint forms of HTTP Proxy APIs also take their fields from the endpoint type: the **Load balancing algorithm** lists **RANDOM**, **ROUND_ROBIN**, **WEIGHTED_RANDOM**, and **WEIGHTED_ROUND_ROBIN**, the **HTTP Headers** table has **KEY** and **VALUE** columns, and the endpoint's name field is labeled **Endpoint name**.
 * See [Create an API proxy](../api-management/build/create-an-api-proxy.md), [Configure entrypoints](../api-management/build/configure-your-api-proxy/configure-entrypoints.md), [Configure endpoints](../api-management/build/configure-your-api-proxy/configure-backend-security.md), and [Secure your API proxy](../api-management/build/secure-your-api-proxy.md).
 
+### Authorization Management
+
+Authorization Management imports principals from SCIM 2.0 directories. A directory reads the users and groups of an identity provider when you sync it or on its schedule. Every sync leaves a report of what it imported, changed, and left out. A new **Testing** group adds the **Policy Simulator** and the **Access Explorer**, which test MCP policies before you deploy them.
+
+#### SCIM directories
+
+* The Authorization Management sidebar adds a **Directories** group, with **SCIM Directories** and **All sync activity**.
+* **Add directory** connects a SCIM 2.0 directory in four steps: **Overview**, **Authentication**, **Settings**, and **Review**. **Check URL** reads the authentication scheme the directory advertises, and **Test connection** checks that the directory answers and accepts the credential before you continue.
+* A directory authenticates with **OAuth2** client credentials, a **Bearer token**, **Basic** authentication, or a **Custom header**. Gravitee stores the secret encrypted.
+* A sync imports the users and groups its scope covers as principals with the source `scim.<slug>`. When the scope includes groups, each principal gets the groups that list it as a member as its parents. An entity that another source already owns is left as it is.
+* A sync runs from **Sync now** or **Full resync**, or on a cron schedule read in UTC. Once a sync has succeeded, later syncs usually read only the users that changed and every group in their scope. **Full resync** reads the whole directory, and so does a sync when the last full one is more than a day old, by default.
+* A user the directory marks inactive is deactivated. While **Deactivate principals absent from a sync** is on, so is a principal the directory no longer returns. Only a full sync deactivates an absent user. Deactivating a principal doesn't revoke a policy that permits it by its entity ID.
+* **Attributes** chooses what a sync writes on each principal. Clear a built-in attribute to leave it off, or click **Map an attribute** to write another SCIM attribute, including one from an extension.
+* A directory larger than its sync limit fails the sync before anything is written.
+* The **Entities** section of a directory lists the principals it imported, and activates, deactivates, or deletes them in bulk. **Purge** deletes the directory's users, groups, or both, while the directory is disabled.
+* **All sync activity** lists the syncs of every directory. Each report lists the principals the sync handled, and the records it skipped with the reason.
+* The `ENVIRONMENT_AUTHZ_SCIM_CONNECTION` permission governs a directory, and `ENVIRONMENT_AUTHZ_SCIM_SYNC` governs starting a sync and reading its reports. Without read access to syncs, the pages of a directory leave out the outcome and the date of its syncs.
+* The audit trail of the environment records the creation, update, secret replacement, capability read, and deletion of a directory, and each sync or purge a user starts, finishes, or cancels. A sync on its schedule leaves no event.
+* See [Sync principals from a SCIM directory](../authorization-management/directories/sync-principals-from-a-scim-directory.md) and [Review SCIM sync runs](../authorization-management/directories/review-scim-sync-runs.md).
+
+#### Policy Simulator and Access Explorer
+
+* The Authorization Management sidebar adds a **Testing** group, with **Policy Simulator** and **Access Explorer**.
+* The **Policy Simulator** decides, for each principal and each MCP tool you pick, whether the MCP policies of the environment permit the call. It takes an optional acting agent, a request context for policy conditions, and draft policies. The results show as a matrix or a list, and each decision opens with the policies behind it.
+* The **Access Explorer** lists the MCP tools that one principal is permitted to call, grouped by MCP server.
+* Both pages decide in your browser from the stored policies, so nothing needs to be deployed. **Verify against engine** checks each decision with the authorization engine, using the policies and entities stored for the environment.
+* The menu on each row of a policy list adds **Deploy to PDP**, **Undeploy**, and **Clone**. **Clone** saves a copy of the policy as a draft.
+* See [Simulate policy decisions](../authorization-management/test/simulate-policy-decisions.md) and [Explore a principal's access](../authorization-management/test/explore-a-principals-access.md).
+
 ### Developer Portals
 
 The Gamma console links to the settings of the New Developer Portal, which open in a separate tab.
@@ -309,26 +318,7 @@ The Gamma console links to the settings of the New Developer Portal, which open 
 
 ### Edge Management
 
-Edge Management replaces the single configuration page and its flat lists of DNS domains and routes. A guided setup creates the configuration, and a page per concern edits it. Interception is configured per intercepted agent, and each route names the target API that receives its traffic. The console checks that API against the requirements of the route before you deploy. The analytics pages gain their content, and a Devices page shows the fleet. Edge Management also runs on a JDBC management repository.
-
-#### Guided setup and one page per concern
-
-* A new environment starts on a **Quick Start** page that opens a four-step guided setup: **Gateway**, **Intercepted agents**, **Shadow AI**, and **Deploy**. Nothing is deployed until the last step, which publishes an Edge API for the environment with a keyless plan.
-* Once the environment is configured, the sidebar groups the pages into **General** with **Overview**, **Configuration** with **Gateway**, **Interception**, **Shadow AI**, and **Daemon deployment**, and **Analytics** with **Detected Shadow AI**, **Proxied Traffic**, and **Devices**.
-* See [Set up Edge Management](../edge-management/connect/set-up-edge-management.md).
-
-#### Interception per agent
-
-* The **Interception** page configures interception per intercepted agent. An agent owns the domains it calls and the routes under those domains, and each route names the target API that receives it. **Claude Code** is a preset with a fixed domain, decoder format, vendor, and route. **Custom agent** lets you declare everything yourself.
-* A configuration that still carries the legacy DNS domains and routes shows them read-only under **Legacy interception** and can't be saved until they're cleared with **Clear all**. Intercepted agents require Edge Daemon 2.0.0 or later.
-* See [Configure interception](../edge-management/connect/configure-edge-management.md) and [Target API reference](../edge-management/connect/proxy-api-reference.md).
-
-#### Analytics and devices
-
-* **Detected Shadow AI** lists the direct connections of the devices to the watched provider domains, with the device, the provider, the process, and the number of detections.
-* **Proxied Traffic** lists the intercepted requests that reached the gateway, with the device, the tool, the provider, the model, and the token counts.
-* **Devices** lists the devices that run the daemon, with their status, their daemon version, and their heartbeats.
-* See [Monitor detected shadow AI](../edge-management/observe/monitor-shadow-ai-traffic.md), [Monitor proxied traffic](../edge-management/observe/monitor-proxied-traffic.md), and [Monitor your devices](../edge-management/observe/monitor-devices.md).
+Edge Management can now run on a JDBC management repository.
 
 #### Edge Management on a JDBC management repository
 

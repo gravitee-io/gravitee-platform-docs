@@ -53,7 +53,7 @@ When the organization has no provider yet, the card shows the **No identity prov
 The console sign-in page is assembled from this page's settings each time it loads:
 
 * When the local login form is on, the sign-in page shows the **Username** and **Password** fields and the **Sign in** button.
-* A provider appears as a **Sign in with** button carrying its name when its status is **Activated** and its **Allow portal authentication to use this identity provider** setting is on. Buttons are listed in alphabetical order of name. When the form and at least one button are shown, an **or** separator sits between them.
+* A provider appears as a button carrying its name when its status is **Activated** and its **Allow portal authentication to use this identity provider** setting is on. Buttons are listed in alphabetical order of name. When the form and at least one button are shown, an **or** separator sits between them.
 * When the form is off and no provider qualifies, the sign-in page reports **Sign-in unavailable** with the message "No login method available. Please contact your administrator."
 
 {% hint style="warning" %}
@@ -61,6 +61,10 @@ Turn the local login form back on before you deactivate or delete the last activ
 {% endhint %}
 
 Activation on this page applies to the console. Whether a provider is offered on a Developer Portal is a separate, per-environment activation that this page doesn't manage.
+
+{% hint style="warning" %}
+**Known limitation in 4.13:** your installation can hide the identity provider's ID token from console sign-ins. When it does, a sign-in through a provider whose **Scopes** include `openid` brings the user back to the **Sign in** page. The session starts anyway, so the console opens signed in the next time its address is opened. Keep the ID token visible to the consoles while users sign in through such a provider. See [Keep identity provider tokens out of the browser](https://documentation.gravitee.io/apim/4.13/configure-and-manage-the-platform/manage-organizations-and-environments/authentication#keep-identity-provider-tokens-out-of-the-browser).
+{% endhint %}
 
 ## Show or hide the local login form
 
@@ -221,7 +225,7 @@ To verify that console authentication is working as expected, follow these steps
 6. Confirm that the page reports **Identity provider successfully saved!** and opens the provider's edit page.
 7. Select **Back to Authentication**.
 8. Confirm that the provider appears in the **Identity Providers** table with the status **Activated**.
-9. Open the console sign-in page in a private browser window, and confirm that it shows a **Sign in with** button carrying the provider's name.
+9. Open the console sign-in page in a private browser window, and confirm that it shows a button carrying the provider's name.
 
 <!-- TODO: Screenshot of the Identity Providers table showing the new provider with the Activated status -->
 <figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-authentication-activated.png" alt=""><figcaption><p>The new provider listed with the <strong>Activated</strong> status</p></figcaption></figure>

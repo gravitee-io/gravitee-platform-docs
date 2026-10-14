@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Connect the Catalog to the Gemini and Claude models of a Google Cloud project with a service account or an API key, and use them in LLM Proxies and AI Workspaces.
 ---
 

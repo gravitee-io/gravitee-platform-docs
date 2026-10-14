@@ -90,7 +90,22 @@ The order in which Access Management decides which connection configuration to u
 
 {% hint style="info" %}
 Datasource and **use cluster system** are usable only if MongoDB is defined a backend.
+The property `repositories.system-cluster` and the datasource settings have to be consistent between Management API and Gateway configuration.
 {% endhint %}
+
+### Store users on the system cluster
+
+When **Use System Cluster** is enabled, the provider connects through a connection AM already holds for the platform instead of the connection settings on the form. Which connection that is depends on the `system-cluster` setting described in [Repositories & Data Plane](../../../getting-started/configuration/configure-repositories.md#system-cluster).
+
+Your installation can also own where those users are stored. On a Gravitee-managed deployment, it always does. On a self-hosted installation, it does once the platform operator has turned that option on. In that case:
+
+* When a provider is created with **Use System Cluster** enabled and no **Data source ID**, AM chooses its database and its collection. **The database used to run query** is set to the database the node that serves the provider reads, and **The collection used to run query** to a collection named after the provider. At creation, both fields carry the hint `The platform sets this value when "use system cluster" is selected.`, and the values entered in them are replaced when the provider is saved.
+* Once the provider is saved, **Use System Cluster**, the database, and the collection can't be changed. AM Console shows them read-only, with `Once saved, this option cannot be changed.` under the toggle, and the Management API rejects an update that changes them with `Identity provider storage settings cannot be changed`.
+* The **Use System Cluster** toggle of every MongoDB identity provider is locked after creation, whichever way it was set.
+* A provider that names a **Data source ID** keeps the database of its data source and isn't affected.
+* When the platform configuration moves the system cluster to another database, AM updates the database of every provider it owns the next time the Management API starts.
+
+The default identity provider created with each security domain uses the system cluster. See [Default identity provider](../../../getting-started/configuration/configure-am-api/README.md#default-identity-provider) to turn that off.
 
 ## Test the connection
 

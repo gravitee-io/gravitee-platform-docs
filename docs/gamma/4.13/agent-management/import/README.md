@@ -6,7 +6,7 @@ description: The Catalog group of the Agent Management sidebar holds the models,
 
 # Catalog
 
-The **Catalog** group of the Agent Management sidebar holds the **Credentials**, **Providers**, **AI Models**, **MCP Servers**, **Prompts**, **MCP Resources**, **Tools**, **Knowledge & Data**, **Skills**, **Agents**, and **Agent Identity** pages.
+The **Catalog** group of the Agent Management sidebar holds the **AI Models**, **MCP Servers**, **Prompts**, **MCP Resources**, **Tools**, **Knowledge & Data**, **Skills**, **Agents**, and **Agent Identity** pages.
 
 * [**Integrations**](integrations/README.md). Integrations bring models and agents from outside Gamma into the Catalog.
 * [**Add an AI model**](add-an-ai-model.md). Add an AI model to the Catalog so authorization policies, observability, and cost attribution can reference it.

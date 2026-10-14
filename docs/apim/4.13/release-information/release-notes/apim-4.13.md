@@ -44,6 +44,7 @@ documentation.gravitee.io links for other versions.
 * The FIPS images move to a JDK 25 base, where `jks` and `pkcs12` keystores no longer load, so a FIPS deployment converts the Gateway's listener stores to `pem`, or to `bcfks` where a store is read from a file, before upgrading.
 * SAP Business Technology Platform joins the federation providers: an agent ingests the API proxies of SAP API Management with their OpenAPI specification and documentation, turns the subscribable SAP products into plans, and creates approved Gravitee subscriptions in the SAP Developer Hub.
 * Native Kafka connection logs record each lifecycle event of a connection as its own entry, can report clean closes as **Disconnected**, and show the client library and credential of each connection.
+* The XML Validation policy reads its XSD schema, and the schemas it imports, from a schema registry through the new HTTP Schema Registry resource, and a request that fails validation gets a JSON list of up to 20 violations with their position in the payload.
 
 ## Breaking Changes and deprecations
 
@@ -86,6 +87,14 @@ The Latency policy now runs in the response phase of v2 APIs, v4 HTTP proxy APIs
 #### **LLM proxy: Sent tokens include the prompt cache for Anthropic and Bedrock**
 
 On an LLM proxy API, three values now count the whole prompt for models served by the Anthropic and Bedrock providers: the `long_llm-proxy_tokens-sent` metric, the `llmproxy.usage.sent.token` context attribute, and the `X-LLM-Proxy-Tokens-Sent` response header. The whole prompt includes the tokens read from or written to the provider's prompt cache. In 4.12, they used the input count that these two providers report, which leaves those tokens out. A Token Rate Limit policy therefore counts more tokens for the same cached traffic. The sent cost also prices the cache reads and cache writes, at the model's cache prices when they're set and at the input price otherwise. Before you upgrade, review the Token Rate Limit policies on LLM proxy APIs that serve Anthropic or Bedrock models. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **XML Validation policy: Failed validations return a list of violations**
+
+APIM 4.13 bundles version 2.x of the XML Validation policy, which changes the response to a request that fails validation. On v4 HTTP proxy APIs and on v2 APIs in emulation mode, the response body is a JSON object with a `message` field and a `violations` array. The error key is `XML_VALIDATION_FAILED`. `message` holds **Http error message**, or `XML validation failed` when that field is empty. In 4.12, the message was `Bad Request` when the field was empty, and a request that accepted JSON got a body with `message` and `http_status_code` fields. Other requests got the message alone, and now get the JSON object, still with the `text/plain` content type. On v2 APIs with emulation mode disabled, an empty **Http error message** now returns a text summary of the violations instead of `Bad Request`, and the error key is `XML_INVALID_PAYLOAD`. Before you upgrade, check the API consumers that read these responses. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **XML Validation policy: Requests that declare a `DOCTYPE` and schema downloads are blocked**
+
+The XML Validation policy that APIM 4.13 bundles rejects a request body that declares a `DOCTYPE`, with the same `400` response as a body that doesn't match the schema. It also no longer downloads a schema that an `xs:import` or `xs:include` names with an `http`, `https`, or `file` URL, so an inline schema that does this doesn't compile, and the policy isn't applied. In 4.12, the policy accepted a `DOCTYPE` and downloaded those schemas. Before you upgrade, check for API consumers that send a `DOCTYPE`, and for inline schemas that import or include a schema by URL. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 ## New Features
 
@@ -226,6 +235,14 @@ On an LLM proxy API, three values now count the whole prompt for models served b
 * The policy applies to the request phase of v4 HTTP proxy APIs, v4 message APIs, and MCP proxies, and requires an Enterprise Edition license.
 * For more information, see [OAuth 2.0 Token Exchange](../../create-and-configure-apis/apply-policies/policy-reference/oauth2-token-exchange.md).
 
+#### **XML Validation policy: XSD schemas from a schema registry**
+
+* The XML Validation policy reads its XSD schema from the policy configuration or from a schema registry. Set **Schema source** to **Schema registry**, then set the HTTP Schema Registry resource, the **Group ID**, the **Artifact ID**, and the **Version** of the root schema.
+* The new HTTP Schema Registry resource fetches the root schema and the schemas it references over the registry's REST API, and caches them. It connects without authentication, with basic authentication, or with an OIDC client credentials flow.
+* With **Byte cache TTL (ms)** set on the resource, a **Version** such as `branch=latest` picks up new registry content when the cached entry expires, without redeploying the API. If the registry becomes unavailable, the policy keeps validating against the last schema it compiled.
+* The schema registry source applies to v4 HTTP proxy APIs.
+* A request that fails validation gets a JSON response with up to 20 violations, each with its line, column, and element. For more information, see [XML Validation](../../create-and-configure-apis/apply-policies/policy-reference/xml-validation.md) and [HTTP Schema Registry](../../create-and-configure-apis/apply-policies/resources.md#http-schema-registry).
+
 ## Improvements
 
 #### **Datadog Reporter: Consumer and error tags on the request count metric**
@@ -257,6 +274,16 @@ On an LLM proxy API, three values now count the whole prompt for models served b
 * Only the provider's error code is passed on. The token exchange no longer relays the provider's raw response body to the caller.
 * Through the Management API, the setting is the `tokenEndpointAuthMethod` key of the provider's `configuration` object. It can't be declared under `security.providers` in `gravitee.yml`.
 * For more information, see [Choose how APIM authenticates to the identity provider](../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md#choose-how-apim-authenticates-to-the-identity-provider).
+
+#### **Settings that keep identity provider tokens out of the browser**
+
+* Four new settings decide whether the identity provider's access token and ID token reach the browser when a user signs in. The APIM Console and the Gamma console share one setting per token, and the Developer Portal (classic and new) has its own. The settings apply to the whole installation.
+* By default, neither token is hidden, so sign-in and browser storage stay as they were.
+* Roles and groups mapping still reads a hidden token. With the access token hidden, the APIM Console, the Gamma console, and the Developer Portal (classic and new) keep no access token in browser storage.
+* For API consumers: a hidden token stays in the sign-in response of `/auth/oauth2/{idp}`, with an empty string (`""`) as its value. The response keeps its shape, so a custom portal that reads it keeps working.
+* With the ID token hidden, the sign-out request that the APIM Console or the Developer Portal (classic and new) sends to the identity provider's logout endpoint carries the provider's **Client Id** and no ID token.
+* Known limitation in APIM 4.13: hiding the ID token from the consoles stops users from signing in to the APIM Console and the Gamma console through a provider whose **Scopes** include `openid`. Both consoles show their sign-in page again after the provider sends the user back. Keep the ID token visible to the consoles while users sign in through such a provider.
+* For more information, see [Keep identity provider tokens out of the browser](../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md#keep-identity-provider-tokens-out-of-the-browser).
 
 #### **AI Model Text Embedding resource: Expression Language and secrets in the API key and header values**
 
