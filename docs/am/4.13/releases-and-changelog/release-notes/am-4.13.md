@@ -9,8 +9,7 @@ The MongoDB chart will be removed from the gravitee chart dependencies in 4.14.
 #### Repositories configuration
 
 The Management API now configures only to the management repository. It no longer sets up the `gateway` and `oauth2` repositories, and the default management `gravitee.yml` no longer has the `repositories.gateway`, `repositories.oauth2` sections. If those keys are still in your Management API config, they are ignored.
-Those `repositories.gateway`, `repositories.oauth2` sections were not used since AM 4.7 but due to legacy code their were required to be present.
-Now that the legacy code has been removed, the configuraiton has been cleaned up.
+These `repositories.gateway`, `repositories.oauth2` sections, which were unused since AM 4.7 but were required to be present, can now be cleaned up.
 
 #### Trusted domains: One place to manage external trust
 
