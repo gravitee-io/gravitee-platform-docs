@@ -186,6 +186,20 @@ The following table lists the permission each policy action requires:
 | Deploy or undeploy | `ENVIRONMENT_AUTHZ_PDP[UPDATE]` |
 | Delete policy | `ENVIRONMENT_AUTHZ_POLICIES[DELETE]` |
 
+## Audit trail
+
+Gravitee records the changes you make to a policy in the audit trail of the environment. To read it, see [Review organization and environment audit logs](../../platform-management/review-audit-logs.md). The **Target** of an event holds the ID of the policy. An event carries the policy before and after the change, with its text and the PDP gateways it targets.
+
+| Change | Event |
+|--------|-------|
+| Create a policy, or clone one | `POLICY_CREATED` |
+| Save changes to a policy | `POLICY_UPDATED` |
+| Deploy a policy | `POLICY_DEPLOYED` |
+| Undeploy a policy | `POLICY_DISABLED` |
+| Delete a policy | `POLICY_DELETED` |
+
+Deploying or undeploying a policy from the editor saves it first, so two events are recorded: `POLICY_UPDATED`, then `POLICY_DEPLOYED` or `POLICY_DISABLED`. **Create and Deploy policy** records `POLICY_CREATED`, then `POLICY_DEPLOYED`. Deploying or undeploying from the list records the deploy or undeploy event alone.
+
 ## Next steps
 
 * [MCP policy examples](mcp-policy-examples.md). Real-world MCP policy patterns.

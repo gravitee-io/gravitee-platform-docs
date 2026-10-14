@@ -45,3 +45,6 @@
   * [Policy syncs](evaluate/policy-syncs.md)
   * [Analytics sent to the control plane](evaluate/analytics-sent-to-control-plane.md)
   * [Authorization policy synchronization](authz-gateway-sync.md)
+* [Observe](observe/README.md)
+  * [Monitor authorization decisions](observe/monitor-authorization-decisions.md)
+  * [Review authorization decisions](observe/review-authorization-decisions.md)

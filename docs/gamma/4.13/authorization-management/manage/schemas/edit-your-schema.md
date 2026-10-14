@@ -64,6 +64,16 @@ To delete a schema document, complete the following steps:
 
 The gateways that held the document stop using it. The deletion is permanent.
 
+## Audit trail
+
+Gravitee records the changes you make to a schema document in the audit trail of the environment. To read it, see [Review organization and environment audit logs](../../../platform-management/review-audit-logs.md). The **Target** of an event holds the ID of the document.
+
+| Change | Event |
+|--------|-------|
+| Create a document | `SCHEMA_CREATED` |
+| Save changes to a document | `SCHEMA_UPDATED` |
+| Delete a document | `SCHEMA_DELETED` |
+
 ## Verification
 
 To verify that a schema document is saved and assigned, follow these steps:
