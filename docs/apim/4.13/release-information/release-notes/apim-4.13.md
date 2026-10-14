@@ -45,6 +45,7 @@ documentation.gravitee.io links for other versions.
 * SAP Business Technology Platform joins the federation providers: an agent ingests the API proxies of SAP API Management with their OpenAPI specification and documentation, turns the subscribable SAP products into plans, and creates approved Gravitee subscriptions in the SAP Developer Hub.
 * Native Kafka connection logs record each lifecycle event of a connection as its own entry, can report clean closes as **Disconnected**, and show the client library and credential of each connection.
 * The XML Validation policy reads its XSD schema, and the schemas it imports, from a schema registry through the new HTTP Schema Registry resource, and a request that fails validation gets a JSON list of up to 20 violations with their position in the payload.
+* Dictionary properties can be encrypted: APIM stores the value encrypted and masks it in the APIM Console and the Management API, and the Gateway decrypts it at deployment so Expression Language resolves the original value.
 
 ## Breaking Changes and deprecations
 
@@ -242,6 +243,14 @@ The XML Validation policy that APIM 4.13 bundles rejects a request body that dec
 * With **Byte cache TTL (ms)** set on the resource, a **Version** such as `branch=latest` picks up new registry content when the cached entry expires, without redeploying the API. If the registry becomes unavailable, the policy keeps validating against the last schema it compiled.
 * The schema registry source applies to v4 HTTP proxy APIs.
 * A request that fails validation gets a JSON response with up to 20 violations, each with its line, column, and element. For more information, see [XML Validation](../../create-and-configure-apis/apply-policies/policy-reference/xml-validation.md) and [HTTP Schema Registry](../../create-and-configure-apis/apply-policies/resources.md#http-schema-registry).
+
+#### **Encrypted dictionary properties**
+
+* Encrypt the value of a dictionary property. APIM stores the value encrypted, and the APIM Console and the Management API show `••••••••••••` in its place. A dictionary can hold encrypted and unencrypted properties side by side.
+* In the APIM Console, turn on **Encrypt** when you add a property, or click the lock icon of an existing property. A dynamic dictionary can also encrypt every value it fetches, with **Encrypt fetched values** in its **Encryption** section.
+* The Gateway decrypts the values when the dictionary is deployed, so `{#dictionaries['<dictionary-id>']['<property-key>']}` resolves to the original value. Dictionary properties use the same secret as encrypted API properties, `api.properties.encryption.secret`, which must match on the Management API and the Gateway.
+* Encryption can't be undone. An encrypted property of a dynamic dictionary stays encrypted when a refresh fetches a new value, and audit entries don't record encrypted values.
+* In an Automation API manifest, declare encrypted properties of a manual dictionary under `encryptedProperties`, and set `encryptOnFetch` for a dynamic dictionary. For more information, see [Dictionaries](../../configure-and-manage-the-platform/gravitee-gateway/dictionaries.md#encrypt-dictionary-properties).
 
 ## Improvements
 
