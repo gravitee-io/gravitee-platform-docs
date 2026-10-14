@@ -26,7 +26,7 @@ Some internal interface have been moved or evolved, if you managed to create cus
 #### Management API gravitee.yml
 
 Remove the `repositories.gateway`, `repositories.oauth2` and `ratelimit` blocks. The Management API now handles only the management scope.
-Set `console.ui.url correctly`, the Console now uses it as the redirect after login, instead of a hard-coded `localhost:4200`.
+Set `console.ui.url` correctly, the Console now uses it as the redirect after login, instead of a hard-coded `localhost:4200`.
 
 `domains.identities.default.useSystemCluster` (default true): behaviour change. A new domain’s default identity provider is now bound to the system cluster instead of copying the management MongoDB URI. Set it to false to keep the 4.12 behaviour. Existing identity providers are not affected.
 
