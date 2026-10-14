@@ -125,22 +125,28 @@ The dynamic callback path supports [Gravitee Expression Language](../../../gravi
 | `/orders/{#message.headers['order-id'][0]}` | Header `order-id` = `A-17` | `https://myapp.example.com/webhooks/orders/A-17` |
 | `/process/{#jsonPath(#message.content, '$.id')}` | Content `{"id": "123"}` | `https://myapp.example.com/webhooks/process/123` |
 
-When you create the subscription through the Management API, set `callbackUrlPath` next to `callbackUrl` in the subscription configuration:
+When you create the subscription through the Management API v2, set `callbackUrlPath` next to `callbackUrl` in `consumerConfiguration.entrypointConfiguration`:
 
 ```json
 {
-  "configuration": {
+  "consumerConfiguration": {
     "entrypointId": "webhook",
-    "callbackUrl": "https://myapp.example.com/webhooks",
-    "callbackUrlPath": "/process-{#message.attributes['id']}"
+    "entrypointConfiguration": {
+      "callbackUrl": "https://myapp.example.com/webhooks",
+      "callbackUrlPath": "/process-{#message.attributes['id']}"
+    }
   }
 }
 ```
 
 The dynamic callback path follows these rules:
 
-* Only the path changes. The scheme, host, and port of the callback URL stay the same for every message.
+* Only the path changes. The scheme, host, and port of the callback URL stay the same for every message. The expression cannot change the host: if it evaluates to a full URL, such as `http://other-host:1234/x`, that URL is appended as a path.
 * Path segments are joined with a single `/`, whether or not the callback URL ends with `/` or the evaluated path starts with `/`.
 * A query string on the callback URL is kept and placed after the appended path. If the evaluated path has its own query string, both are merged. For example, `https://myapp.example.com/webhooks?token=abc` with `/process-42?retry=1` calls `https://myapp.example.com/webhooks/process-42?token=abc&retry=1`.
-* If the expression evaluates to an empty value, the message is sent to the callback URL unchanged.
-* If the expression fails to evaluate, the message is not sent to the webhook. It is sent to the Dead Letter Queue when one is configured.
+* If the expression evaluates to null or an empty string, the message is sent to the callback URL unchanged.
+* If the expression fails to evaluate, the message is not sent to the webhook. It is sent to the Dead Letter Queue when one is configured. Without a Dead Letter Queue, the subscription stops consuming messages.
+
+{% hint style="info" %}
+When you use an expression in the dynamic callback path, configure a [Dead Letter Queue](#dead-letter-queue) so that a message whose expression fails does not stop the subscription.
+{% endhint %}
