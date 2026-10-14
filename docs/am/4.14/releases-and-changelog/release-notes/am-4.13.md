@@ -98,6 +98,18 @@ The `io.gravitee.am.extensiongrant.api.ExtensionGrantProvider` interface has evo
 * The new **DPoP-bound access tokens** application setting and the new **Require DPoP for all clients** security domain setting make the proof mandatory at the token endpoint. The security domain settings also carry an allowlist of proof signing algorithms, which the OpenID discovery document advertises as `dpop_signing_alg_values_supported`.
 * New `handlers.oauth2.dpop` properties in the AM Gateway `gravitee.yml` control the validity window of a proof and the replay cache. See [Demonstrating Proof of Possession (DPoP)](../../guides/auth-protocols/oauth-2.0/demonstrating-proof-of-possession-dpop.md) for the configuration and the client contract.
 
+#### **Cross App Access with ID-JAG**
+
+* A security domain can issue identity assertion JWT authorization grants (ID-JAGs) through OAuth 2.0 token exchange, so that an application a user signed in to gets an access token from another application's authorization server without a second sign-in. The new **ID-JAG (Cross App Access)** requested token type, the **Cross App Access** section of the application and MCP server settings, and the **ID-JAG** lifetime and **ID_JAG** custom claims of the token settings control the issuance.
+* A trusted domain with the **Cross App Access** usage describes the other application's authorization server: its issuer URL, the resource servers behind it, an `aud_sub` expression, and the scope names it knows.
+* A security domain can also redeem ID-JAGs, for its MCP servers, from an identity provider it trusts through an **OpenID** identity provider. The new **Cross App Access** extension grant handles the `urn:ietf:params:oauth:grant-type:jwt-bearer` grant type for ID-JAGs. It's an Enterprise Edition plugin bundled with the Enterprise Edition distribution.
+* A DPoP proof sent with the token exchange binds the ID-JAG to the proof key, and AM requires a proof of the same key when it redeems a bound ID-JAG. See [Cross App Access](../../guides/auth-protocols/oauth-2.0/cross-app-access.md).
+
+#### **PEP AuthZEN policy**
+
+* The new PEP AuthZEN policy asks an external AuthZEN policy decision point whether AM may issue a token. In the TOKEN flow, it sends the subject, the resource, the action, and the context of the request to the decision point, and AM issues the token only when the decision point permits it.
+* The policy can authenticate to the decision point with an access token of a client of the security domain, and AM records each decision in the audit event of the token request. The policy is an Enterprise Edition plugin bundled with the Enterprise Edition distribution. See [PEP AuthZEN Policy](../../guides/flows/policies/pep-authzen-policy.md).
+
 #### **Reporter attribute mapping**
 
 * File, Kafka, and TCP reporters export extra fields alongside each audit record they write. Each mapping pairs an expression, evaluated against the audit context when the event is reported, with the name that value takes in the exported payload. A reporter carries up to 20 mappings.
