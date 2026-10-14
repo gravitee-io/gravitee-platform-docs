@@ -60,7 +60,8 @@ A PDP gateway holds one document. When you delete a PDP gateway, the document as
 
 Two documents meet when they end up in the same engine on some gateways, where they're composed into one schema. Documents meet in the following cases:
 
-* Their PDP gateways belong to the same environment, share a **Target PDP ID**, and differ by sharding tag. On a gateway, those PDP gateways run in one engine.
+* Their PDP gateways belong to the same environment, share a **Target PDP ID**, and differ by sharding tag. On a gateway that hosts both, such as a gateway without a sharding tag, those PDP gateways run in one engine.
+* They belong to the same environment, one is assigned to the **Bootstrap PDP**, and the other to a PDP gateway registered without a **Target PDP ID** and with a sharding tag. Both use the built-in engine, so they meet on gateways with that tag and on gateways without a sharding tag.
 * They belong to different environments, and both use the built-in engine: the **Bootstrap PDP**, or a PDP gateway registered without a **Target PDP ID**. The built-in engine is the only one that environments share. The **Schema** page names the other environment's document as a document of another environment.
 
 Where two documents meet, a save is refused if it makes them declare a shared type or action differently. The **Where documents meet** section of the **Schema** page lists each pair of saved documents that meet, and the gateways where they're composed.

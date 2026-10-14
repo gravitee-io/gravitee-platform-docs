@@ -12,8 +12,18 @@ A schema document declares entity types, relationships, and actions for the PDP 
 
 Before you create a document, make sure of the following:
 
-* The PDP gateway you assign the document to is registered under **PDP Gateways**. For the steps, see [Configure the Gravitee Gateway as a runtime](../../evaluate/configure-gravitee-gateway-as-runtime.md). The **Bootstrap PDP** is always offered, with no registration.
-* Your role in the environment allows you to manage schemas. Without permission to read them, the sidebar doesn't show **Schemas**. Without permission to create, update, or delete them, **New document**, editing, or **Delete** isn't available.
+* The PDP gateway you assign the document to is registered under **PDP Gateways**. For the steps, see [Configure the Gravitee Gateway as a runtime](../../evaluate/configure-gravitee-gateway-as-runtime.md). The **Bootstrap PDP** is always offered, with no registration. A PDP gateway registered with neither a **Target PDP ID** nor a sharding tag runs the built-in engine, so **PDP gateway** lists it as the **Bootstrap PDP**.
+* Your role in the environment has the permissions listed in the following table.
+
+| Action | Required permission |
+|--------|-------------------|
+| See **Schemas** and read documents | `ENVIRONMENT_AUTHZ_SCHEMA[READ]` |
+| Create a document with **New document** | `ENVIRONMENT_AUTHZ_SCHEMA[CREATE]` |
+| Edit and save a document | `ENVIRONMENT_AUTHZ_SCHEMA[UPDATE]` |
+| Delete a document | `ENVIRONMENT_AUTHZ_SCHEMA[DELETE]` |
+| List PDP gateways in **PDP gateway** | `ENVIRONMENT_AUTHORIZATION[READ]` |
+
+Without `ENVIRONMENT_AUTHORIZATION[READ]`, **PDP gateway** offers only **Unassigned** and the **Bootstrap PDP**.
 
 ## Create a schema document
 
@@ -37,6 +47,12 @@ To edit a schema document, complete the following steps:
 1. On the **Schema** page, select the document in the list.
 2. Change its **Name**, its **PDP gateway**, or its **Schema text**.
 3. Click **Save**.
+
+## What the page shows for a document
+
+Four tiles count what the selected document declares: **Entities**, **Actions**, **Principal kinds**, and **Resource kinds**. The **Outline** lists its entity types, grouped by namespace, and its actions. Click a name to jump to its declaration in **Schema text**.
+
+The tiles and the **Outline** describe the saved version of the document. While **Schema text** has unsaved changes, the **Outline** says **Showing the saved version. Save to refresh.**
 
 ## Delete a schema document
 
