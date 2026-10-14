@@ -84,6 +84,10 @@ Version 3.0.0 of the Inline Authentication Provider resource evaluates the usern
 
 The Latency policy now runs in the response phase of v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. In 4.12.21 and earlier, a Latency policy in a response phase had no effect. The **Policy Studio** of a v2 API and the **Platform flows** on the organization's **Policies** page already let you add it there. After the upgrade, such a policy delays the responses that its flow handles by its configured time. Before you upgrade, check the response phase of every flow in the **Policy Studio** of your v2 APIs and in the **Platform flows**. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
+#### **LLM proxy: Sent tokens include the prompt cache for Anthropic and Bedrock**
+
+On an LLM proxy API, three values now count the whole prompt for models served by the Anthropic and Bedrock providers: the `long_llm-proxy_tokens-sent` metric, the `llmproxy.usage.sent.token` context attribute, and the `X-LLM-Proxy-Tokens-Sent` response header. The whole prompt includes the tokens read from or written to the provider's prompt cache. In 4.12, they used the input count that these two providers report, which leaves those tokens out. A Token Rate Limit policy therefore counts more tokens for the same cached traffic. The sent cost also prices the cache reads and cache writes, at the model's cache prices when they're set and at the input price otherwise. Before you upgrade, review the Token Rate Limit policies on LLM proxy APIs that serve Anthropic or Bedrock models. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
 #### **XML Validation policy: Failed validations return a list of violations**
 
 APIM 4.13 bundles version 2.x of the XML Validation policy, which changes the response to a request that fails validation. On v4 HTTP proxy APIs and on v2 APIs in emulation mode, the response body is a JSON object with a `message` field and a `violations` array. The error key is `XML_VALIDATION_FAILED`. `message` holds **Http error message**, or `XML validation failed` when that field is empty. In 4.12, the message was `Bad Request` when the field was empty, and a request that accepted JSON got a body with `message` and `http_status_code` fields. Other requests got the message alone, and now get the JSON object, still with the `text/plain` content type. On v2 APIs with emulation mode disabled, an empty **Http error message** now returns a text summary of the violations instead of `Bad Request`, and the error key is `XML_INVALID_PAYLOAD`. Before you upgrade, check the API consumers that read these responses. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
@@ -271,6 +275,16 @@ The XML Validation policy that APIM 4.13 bundles rejects a request body that dec
 * Through the Management API, the setting is the `tokenEndpointAuthMethod` key of the provider's `configuration` object. It can't be declared under `security.providers` in `gravitee.yml`.
 * For more information, see [Choose how APIM authenticates to the identity provider](../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md#choose-how-apim-authenticates-to-the-identity-provider).
 
+#### **Settings that keep identity provider tokens out of the browser**
+
+* Four new settings decide whether the identity provider's access token and ID token reach the browser when a user signs in. The APIM Console and the Gamma console share one setting per token, and the Developer Portal (classic and new) has its own. The settings apply to the whole installation.
+* By default, neither token is hidden, so sign-in and browser storage stay as they were.
+* Roles and groups mapping still reads a hidden token. With the access token hidden, the APIM Console, the Gamma console, and the Developer Portal (classic and new) keep no access token in browser storage.
+* For API consumers: a hidden token stays in the sign-in response of `/auth/oauth2/{idp}`, with an empty string (`""`) as its value. The response keeps its shape, so a custom portal that reads it keeps working.
+* With the ID token hidden, the sign-out request that the APIM Console or the Developer Portal (classic and new) sends to the identity provider's logout endpoint carries the provider's **Client Id** and no ID token.
+* Known limitation in APIM 4.13: hiding the ID token from the consoles stops users from signing in to the APIM Console and the Gamma console through a provider whose **Scopes** include `openid`. Both consoles show their sign-in page again after the provider sends the user back. Keep the ID token visible to the consoles while users sign in through such a provider.
+* For more information, see [Keep identity provider tokens out of the browser](../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md#keep-identity-provider-tokens-out-of-the-browser).
+
 #### **AI Model Text Embedding resource: Expression Language and secrets in the API key and header values**
 
 * The `apiKey` of the OpenAI provider and the value of each HTTP provider header now take Gravitee Expression Language, including `{#secrets.get('...')}` secret references, so a credential no longer sits in the API definition as plain text.
@@ -336,3 +350,10 @@ The XML Validation policy that APIM 4.13 bundles rejects a request body that dec
 * The policy doesn't cap the time that the expression returns. If the expression reads a value that the client sends, make sure the value is controlled and bounded.
 * The change ships in Latency policy 3.1.0, which APIM bundles from 4.12.22 and 4.13.0 onward.
 * For more information, see [Latency](../../create-and-configure-apis/apply-policies/policy-reference/latency.md) and [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **LLM proxy: Prompt cache token counts and prices**
+
+* Each model of an LLM proxy endpoint takes two optional prices, **Price per million tokens (input) served from the provider's prompt cache ($)** and **Price per million tokens (input) written into the provider's prompt cache ($)**. A price of `0` means free. An unset cache price bills the cache reads or cache writes at the input price, and the request carries a `COST_CACHE_RATE_NOT_FOUND` warning when the provider reports them.
+* The Gateway reports `long_llm-proxy_tokens-cached`, `long_llm-proxy_tokens-cache-write`, `double_llm-proxy_cached-cost`, and `double_llm-proxy_cache-write-cost` when the provider reports the counts, and sets the matching `llmproxy.usage.*` context attributes for policies such as Assign Metrics. They're part of `tokens-sent` and `sent-cost`, not additions to them.
+* The GenAI span of a request carries the `gen_ai.usage.cache_read.input_tokens` and `gen_ai.usage.cache_creation.input_tokens` OpenTelemetry attributes when the provider reports the counts.
+* For more information, see [Reporters](../../analyze-and-monitor-apis/reporters/README.md) and [Assign Metrics](../../create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md#metrics-on-llm-proxy-apis).

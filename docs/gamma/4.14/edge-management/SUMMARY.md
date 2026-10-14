@@ -1,0 +1,17 @@
+# Table of contents
+
+* [Get started](get-started/README.md)
+  * [Edge Management overview](get-started/edge-management-overview.md)
+  * [Installation guides](https://documentation.gravitee.io/platform-management/install)
+  * [Release Notes](https://documentation.gravitee.io/platform-management/gamma-release-notes)
+* [Connect](connect/README.md)
+  * [Set up Edge Management](connect/set-up-edge-management.md)
+  * [Configure interception](connect/configure-edge-management.md)
+  * [Target API reference](connect/proxy-api-reference.md)
+  * [Configure Edge Ingress](connect/configure-edge-ingress.md)
+  * [Configure Kandji to deploy the Edge Daemon](connect/configure-kandji-daemon.md)
+  * [Connect Claude Code to the Edge Daemon](connect-claude-code-to-daemon.md)
+* [Observe](observe/README.md)
+  * [Monitor detected shadow AI](observe/monitor-shadow-ai-traffic.md)
+  * [Monitor proxied traffic](observe/monitor-proxied-traffic.md)
+  * [Monitor your devices](observe/monitor-devices.md)

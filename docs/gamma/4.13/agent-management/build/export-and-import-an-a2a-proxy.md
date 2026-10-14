@@ -19,33 +19,25 @@ Both import directions read the file before they write anything, and show you wh
 Before you begin, confirm that you have the following:
 
 * An A2A Proxy. For more information, see [Expose your agent with the A2A Proxy](expose-agent-with-a2a-proxy.md).
-* Permission to read the API definition of the proxy. The **Export** action isn't shown on the **Configuration** page without it.
-* Permission to update the API definition of the proxy, to import a definition onto an existing proxy. The **Import** action isn't shown on the **Configuration** page without it.
+* Permission to read the API definition of the proxy. The **Export** action isn't shown on the **Settings** page without it.
+* Permission to update the API definition of the proxy, to import a definition onto an existing proxy. The **Import** action isn't shown on the **Settings** page without it.
 
 ## Export an A2A Proxy
 
 The **Export** action downloads the A2A Proxy definition. To export a proxy, complete the following steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. From the console sidebar, select **Agent Management**.
 2. Under **Secure**, select **A2A Proxies**.
 3. Select the A2A Proxy that you want to export.
-4. Under **General**, select **Configuration**.
+4. Under **General**, select **Settings**.
 5. Select **Export**.
 
-    <figure><img src="../.gitbook/assets/gamma-a2a-proxy-export-sheet.png" alt="The Export A2A proxy panel with the Gravitee API definition format selected"><figcaption><p>The Export A2A proxy panel with the Gravitee API definition format selected</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-a2a-proxy-export-sheet.png" alt="The Export A2A proxy panel with the credentials notice and the Groups, Members, Pages, Plans, and Metadata checkboxes selected"><figcaption><p>The Export A2A proxy panel</p></figcaption></figure>
 
-6. In the **Export A2A proxy** panel, select the format:
+6. In the **Export A2A proxy** panel, clear any of the **Include additional data** checkboxes you want to leave out of the file. **Groups**, **Members**, **Pages**, **Plans**, and **Metadata** are all selected by default, and each cleared checkbox drops that data from the export.
+7. Select **Export**.
 
-    | Format                      | Result                                                                                                                                                          |
-    | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | **Gravitee API definition** | Downloads a JSON file named `<name>-<version>.json`. This is the format the import actions on this page accept.                                                    |
-    | **CRD API Definition**      | Downloads a YAML file named `<name>-<version>-crd.yml` for the Gravitee Kubernetes Operator. The panel links to the Gravitee Kubernetes Operator documentation.     |
-    | **Terraform HCL resource**  | Links to the Gravitee Terraform provider tutorial. The panel doesn't produce a file for this format, so it shows no **Export** button.                              |
-
-7. For **Gravitee API definition**, clear any of the **Include additional data** checkboxes you want to leave out of the file. **Groups**, **Members**, **Pages**, **Plans**, and **Metadata** are all selected by default, and each cleared checkbox drops that data from the export.
-8. Select **Export**.
-
-The browser downloads the file. Whitespace and other non-word characters in the file name are replaced with hyphens.
+The browser downloads a JSON file named `<name>-<version>.json`, which is the format the import actions on this page accept. Whitespace and other non-word characters in the file name are replaced with hyphens.
 
 {% hint style="warning" %}
 The panel warns that the export carries the proxy's upstream credentials and any OAuth2 client secret in clear. A credential entered as a literal value is written into the file as that value. Treat an export that carries literal credentials as a secret, and prefer Expression Language references to secret-manager entries for proxies whose definitions you share.
@@ -59,7 +51,7 @@ When you clear the **Plans** checkbox, the file can update an existing A2A Proxy
 
 The create flow offers an import route beside the wizard. To create a proxy from a definition, complete the following steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. From the console sidebar, select **Agent Management**.
 2. Under **Secure**, select **A2A Proxies**.
 3. Select **Create A2A proxy**.
 4. On the **Create an A2A proxy** page, select **Import**.
@@ -105,7 +97,7 @@ The import feeds the wizard's own write path, so it rebuilds what an A2A Proxy m
 
 The rest of a Gravitee definition has no A2A Proxy counterpart in Gamma and isn't re-created. That leaves behind API-level flows and properties, further listener paths, CORS, path mappings, and health checks. It also leaves behind other resources, tags, categories, groups, metadata, pages, and members. To bring such a file over whole, import it in the APIM Console instead.
 
-The proxy is created stopped. Start it from its **Configuration** page with **Start A2A proxy** once you've checked what arrived.
+The proxy is created stopped. Start it from its **Settings** page with **Start A2A proxy** once you've checked what arrived.
 
 {% hint style="info" %}
 An export carries the identifier of the proxy it came from, and the create reuses it rather than minting a new one. So a file imports as it is into another environment, and a create in the environment it came from is refused until you remove the identifier from the file. What has to be free either way is the context path.
@@ -145,10 +137,10 @@ The import reads the file before it writes anything, and reports what's wrong in
 
 ## Update an A2A Proxy by importing a definition
 
-The **Import** action on the **Configuration** page replaces an existing proxy's configuration from a definition. To update a proxy, complete the following steps:
+The **Import** action on the **Settings** page replaces an existing proxy's configuration from a definition. To update a proxy, complete the following steps:
 
 1. Open the A2A Proxy that you want to update.
-2. Under **General**, select **Configuration**.
+2. Under **General**, select **Settings**.
 3. Select **Import**.
 
     <figure><img src="../.gitbook/assets/gamma-a2a-proxy-import-update.png" alt="The Import A2A proxy definition panel with the Local file source selected"><figcaption><p>The Import A2A proxy definition panel with the Local file source selected</p></figcaption></figure>
@@ -195,8 +187,8 @@ To verify that a proxy survives the round trip, complete the following steps:
 2. To import the file back into the same environment, delete the `id` field of the `api` object in the downloaded file, and change the context path. A create is refused while either one belongs to a proxy the environment already holds. An import into a different environment needs neither change.
 3. Create a second proxy by importing the edited file, and check the **Review** step against the values you expect.
 4. Under **Design**, select **Endpoint** on both proxies, and then compare the target of the upstream agent. The copy carries the same target.
-5. Under **Consumer Access**, select **Plans** on the copy. The plans the file carried are present.
-6. Under **General**, select **Configuration** on the copy, and then select **Start A2A proxy**. Deploy the copy from the out-of-sync banner, and then fetch its agent card on its own context path as described in [Expose your agent with the A2A Proxy](expose-agent-with-a2a-proxy.md). The gateway routes the request.
+5. Under **Consumers**, select **Plans** on the copy. The plans the file carried are present.
+6. Under **General**, select **Settings** on the copy, and then select **Start A2A proxy**. Deploy the copy from the out-of-sync banner, and then fetch its agent card on its own context path as described in [Expose your agent with the A2A Proxy](expose-agent-with-a2a-proxy.md). The gateway routes the request.
 
 ## Next steps
 
