@@ -42,7 +42,7 @@ To create an MCP proxy, complete the following steps:
 
 ### Open the MCP Proxy wizard
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. From the console sidebar, select **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**.
 3. Select **+ Create MCP proxy**.
 4. On the **Create an MCP proxy** page, select **Create from scratch**. To create the proxy from an exported definition instead, select **Import**, and see [Export and import an MCP Proxy](export-and-import-an-mcp-proxy.md).

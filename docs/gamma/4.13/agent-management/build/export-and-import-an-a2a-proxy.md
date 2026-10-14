@@ -26,7 +26,7 @@ Before you begin, confirm that you have the following:
 
 The **Export** action downloads the A2A Proxy definition. To export a proxy, complete the following steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. From the console sidebar, select **Agent Management**.
 2. Under **Secure**, select **A2A Proxies**.
 3. Select the A2A Proxy that you want to export.
 4. Under **General**, select **Settings**.
@@ -51,7 +51,7 @@ When you clear the **Plans** checkbox, the file can update an existing A2A Proxy
 
 The create flow offers an import route beside the wizard. To create a proxy from a definition, complete the following steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. From the console sidebar, select **Agent Management**.
 2. Under **Secure**, select **A2A Proxies**.
 3. Select **Create A2A proxy**.
 4. On the **Create an A2A proxy** page, select **Import**.

@@ -23,7 +23,7 @@ Before you begin, confirm that you have the following:
 
 To duplicate an MCP Proxy, complete the following steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. From the console sidebar, select **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**.
 3. Select the MCP Proxy that you want to copy.
 4. Under **General**, select **Settings**.

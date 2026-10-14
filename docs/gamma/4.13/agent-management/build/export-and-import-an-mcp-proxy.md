@@ -25,7 +25,7 @@ Before you begin, confirm that you have the following:
 
 The **Export** action downloads the MCP Proxy definition. To export a proxy, complete the following steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. From the console sidebar, select **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**.
 3. Select the MCP Proxy that you want to export.
 4. Under **General**, select **Settings**.
@@ -52,7 +52,7 @@ The panel warns that the export carries the proxy's upstream credentials and any
 
 The **Create an MCP proxy** page offers **Import** beside the wizard. To create a proxy or a studio from a definition, complete the following steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. From the console sidebar, select **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**.
 3. Select **+ Create MCP proxy**.
 4. On the **Create an MCP proxy** page, select **Import**.

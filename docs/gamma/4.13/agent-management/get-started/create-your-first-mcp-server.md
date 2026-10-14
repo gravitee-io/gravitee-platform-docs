@@ -30,7 +30,7 @@ To create your first MCP server, complete the following steps:
 
 ### Open the MCP Proxy wizard
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. From the console sidebar, select **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**.
 3. Select **+ Create MCP proxy**.
 

@@ -22,7 +22,7 @@ Before you begin, confirm that you have the following:
 
 To duplicate an LLM Proxy, complete the following steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. From the console sidebar, select **Agent Management**.
 2. Under **Secure**, select **LLM Proxies**.
 3. Select the LLM Proxy that you want to copy.
 4. Under **General**, select **Settings**.
