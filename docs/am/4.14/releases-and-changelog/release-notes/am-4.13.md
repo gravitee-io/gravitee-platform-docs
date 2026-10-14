@@ -53,6 +53,16 @@ A domain `PUT` to the Automation API that names a different `dataPlaneId` for an
 
 Action Required: Before you upgrade AM, set `dataPlaneId` in each security domain definition to the data plane the security domain already uses.
 
+## Custom plugins
+
+#### **AuthenticationFlowContextService has a new package**
+
+The interface moved from `io.gravitee.am.service.AuthenticationFlowContextService` to `io.gravitee.am.gateway.handler.common.service.AuthenticationFlowContextService`. Custom plugins that import it need to change the import and be rebuilt.
+
+#### **ExtensionGrantProvider interface has evolved**
+
+The `io.gravitee.am.extensiongrant.api.ExtensionGrantProvider` interface has evolved. Custom plugins that implement it need to be adapted and rebuilt.
+
 ## New Features
 
 #### **Organization licenses on Gravitee-managed deployments**

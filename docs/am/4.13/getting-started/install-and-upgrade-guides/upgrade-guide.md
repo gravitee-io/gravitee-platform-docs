@@ -19,7 +19,7 @@ description: Upgrading Access Management 4.13 creates application table indexes 
 
 Find applications that define their own password policy if any. This feature is removed 4.13. Recreate them as domain or identity-provider password policies to make sure that a password policy will be applied.
 
-Some internal interface have been moved or evolved, if you managed to create custom policies make sure that you are not using AuthenticationFlowContextService or ExtensionGrantProvider interfaces. If you are using them you may have to adapt and rebuilt your plugin.
+Custom plugins that use `AuthenticationFlowContextService` or `ExtensionGrantProvider` need to be adapted and rebuilt. `AuthenticationFlowContextService` moved from `io.gravitee.am.service.AuthenticationFlowContextService` to `io.gravitee.am.gateway.handler.common.service.AuthenticationFlowContextService`. The `io.gravitee.am.extensiongrant.api.ExtensionGrantProvider` interface has evolved.
 
 ### Configuration to adapt
 
