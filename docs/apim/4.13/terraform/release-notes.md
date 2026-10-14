@@ -11,42 +11,57 @@ metaLinks:
 
 **Terraform Registry:** [gravitee-io/apim](https://registry.terraform.io/providers/gravitee-io/apim/1.1.0)
 
-Version **1.1.0** adds Next-Gen Developer Portal support to the Gravitee APIM Terraform provider. Portals, portal listings, documentation pages, and API navigation trees are now managed as Terraform resources, matching the `Portal`, `PortalListing`, and `Documentation` custom resources of the Gravitee Kubernetes Operator (GKO).
+Version **1.1.0** adds MCP resources and new group settings to the Gravitee APIM Terraform provider.
 
 ### Highlights
 
-- **Four new managed resources** for the Next-Gen Developer Portal: `apim_portal`, `apim_portal_listing`, `apim_documentation_portal`, and `apim_documentation_api`. Each resource has a matching data source.
-- **New `portal_navigation` attribute** on `apim_apiv4` (resource and data source) declares the API's internal documentation navigation tree.
-- **The portal resources require APIM 4.12 or later.** The Automation API on APIM 4.11 and below doesn't expose the portal endpoints.
-- **Bug fix:** empty `response_templates` header maps on `apim_apiv4` no longer cause perpetual plan diffs.
+- **Two new managed resources** for MCP: `apim_catalog_mcp_server` and `apim_mcp_proxy`. Each resource has a matching data source.
+- **New group settings:** `default_member_roles` and `ignore_members` on `apim_group`, and `ignore_groups` on `apim_apiv4` and `apim_application`.
+- **APIM 4.12 and earlier don't support the MCP resources or the new group settings.**
+- **Stricter validation:** `console_notification` on `apim_apiv4` now needs at least one event. See the breaking changes below.
+- **Bug fixes:** an omitted `override_access` on `apim_apiv4` keeps the value APIM stores, the header values of a dynamic dictionary's HTTP provider are now sensitive, and a Gravitee Cloud token (`cloud_auth`) is checked against the `environment_id` and `organization_id` of every resource, not only the provider's.
 
 ### New resources
 
 | Resource | Description | Reference (Terraform Registry) |
 | --- | --- | --- |
-| `apim_portal` | A Next-Gen Developer Portal instance with its top-level navigation hierarchy | [apim_portal](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/portal) |
-| `apim_portal_listing` | Publishes APIs to locations in a portal's navigation | [apim_portal_listing](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/portal_listing) |
-| `apim_documentation_portal` | A portal-scoped documentation page | [apim_documentation_portal](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/documentation_portal) |
-| `apim_documentation_api` | An API-scoped documentation page | [apim_documentation_api](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/documentation_api) |
+| `apim_catalog_mcp_server` | An MCP server registered in the catalog. Its tools, prompts, and resources come back as read-only attributes | [apim_catalog_mcp_server](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/catalog_mcp_server) |
+| `apim_mcp_proxy` | An MCP proxy. In `PROXY` mode it fronts one MCP server, and in `STUDIO` mode it exposes tools picked from MCP servers in the catalog | [apim_mcp_proxy](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/mcp_proxy) |
 
-The documentation `type` attribute accepts `GRAVITEE_MARKDOWN`, `OPENAPI`, or `ASYNCAPI`.
+Guides: [MCP proxy and studio](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/guides/docgen_mcp-studio) · [Group with default member roles](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/guides/docgen_group-default-roles)
 
-Navigation entries on `apim_portal` accept a `path` and an optional `display_name`, and the order of entries in the list is preserved. The `order` attribute exists only on the `portal_navigation` entries of `apim_apiv4`.
-
-Guides: [Next-gen Portal](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/guides/docgen_portal-next-gen) · [API Portal Navigation](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/guides/docgen_v4api-portal-navigation)
-
-Repository mirrors: `examples/use-cases/portal-next-gen/`, `examples/use-cases/v4api-portal-navigation/`.
+Repository mirrors: `examples/use-cases/mcp-studio/`, `examples/use-cases/group-default-roles/`.
 
 ### New and changed fields (by resource)
 
-#### `apim_apiv4` / `apim_apiv4` (data source)
+#### `apim_group` / `apim_group` (data source)
 
 | Attribute path | Type | Notes |
 | --- | --- | --- |
-| `portal_navigation` | list(object) | The API's internal documentation navigation tree for the Next-Gen Developer Portal |
-| `portal_navigation.path` | string | Slash-separated path, required per entry |
-| `portal_navigation.display_name` | string | Optional label for the path node |
-| `portal_navigation.order` | number | Optional display order relative to siblings at the same level |
+| `default_member_roles` | object | The role a member gets on joining the group, per scope, including members mapped from an identity provider. When omitted, the group's default roles in APIM stay as they are. When declared, it's the whole set: a scope left out loses its default role |
+| `default_member_roles.api` | string | Default role on APIs |
+| `default_member_roles.application` | string | Default role on applications |
+| `default_member_roles.api_product` | string | Default role on API Products |
+| `ignore_members` | bool | Resource only. When `true`, `members` isn't applied, so no member is added or removed. Use it for a group whose members an identity provider maps |
+
+#### `apim_apiv4` and `apim_application`
+
+| Attribute path | Type | Notes |
+| --- | --- | --- |
+| `ignore_groups` | bool | When `true`, `groups` isn't applied, and the API or application keeps the groups it has in APIM, such as groups set in the Console |
+
+#### `apim_apiv4`
+
+| Attribute path | Type | Notes |
+| --- | --- | --- |
+| `console_notification.events` | list(string) | Now required, with at least one event. To turn console notifications off, set `console_notification = null` |
+| `listeners.http.paths.override_access` | bool | No default. When omitted, it keeps the value APIM stores instead of planning `false` |
+
+#### `apim_dictionary`
+
+| Attribute path | Type | Notes |
+| --- | --- | --- |
+| `dynamic.provider.http.headers.value` | string | Now sensitive, so Terraform hides it in plan output |
 
 ### Upgrade
 
@@ -72,16 +87,14 @@ terraform plan
 
 | Provider version | APIM version | Capability |
 | --- | --- | --- |
-| **1.1.x** | **4.13.x / 4.12.x** | **Full**: all provider attributes, including the portal resources, are supported against the Automation API |
-| **1.1.x** | 4.9.x – 4.11.x | **Compatible**: existing configurations continue to work. The Automation API doesn't expose the portal endpoints on these versions |
+| **1.1.x** | 4.13.x | **Full**: supports the MCP resources and the new group settings. The MCP resources need a license that includes them. Existing configurations continue to work, except a `console_notification` without events |
+| **1.1.x** | 4.9.x – 4.12.x | **Compatible**: existing configurations continue to work, except a `console_notification` without events. These APIM versions don't support the MCP resources or the new group settings |
 
 ### Breaking changes
 
-Version 1.1.0 is additive. No resource schema attributes are removed or renamed.
+`console_notification.events` on `apim_apiv4` is now required and needs at least one event. A configuration that declares `console_notification` without events fails at plan time. To turn console notifications off, set `console_notification = null`.
 
-### Known limitations
-
-* APIM supports one Next-Gen Developer Portal per environment. Create one `apim_portal` resource per environment.
+No resource schema attributes are removed or renamed.
 
 ## 1.0.0
 

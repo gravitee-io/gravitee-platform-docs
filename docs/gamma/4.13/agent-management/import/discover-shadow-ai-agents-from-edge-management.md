@@ -12,7 +12,7 @@ A shadow AI agent is a domain and nothing more. Nobody registered it, no platfor
 
 ## Before you start
 
-* Configure shadow AI monitoring in Edge Management, and deploy it to the devices to watch. Edge Management reports only the provider domains you list there. See [Set up Edge Management](../../edge-management/connect/set-up-edge-management.md#choose-the-domains-to-watch-for-shadow-ai).
+* Configure shadow AI monitoring in Edge Management, and deploy it to the devices to watch. Edge Management reports only the provider domains you list there. See [Configure Edge Management](../../edge-management/connect/configure-edge-management.md#configure-shadow-ai-monitoring).
 * Shadow AI detection doesn't run on Windows devices. A Windows fleet reports nothing, which can be mistaken for a fleet with no shadow AI use.
 * Make sure your enterprise license includes the `agent-management` pack and hasn't expired. The synchronization checks the license before every pass and imports nothing without it.
 * Keep the synchronization on. It runs in the Management API out of the box, on the two schedules described in the next section. With both passes turned off, detected domains never reach the Catalog.
@@ -130,6 +130,6 @@ Each table lists up to 100 rows, heaviest first. When nothing reached the domain
 
 ## Next steps
 
-* [Monitor detected shadow AI](../../edge-management/observe/monitor-shadow-ai-traffic.md). Read the fleet-wide shadow AI view in Edge Management.
-* [Set up Edge Management](../../edge-management/connect/set-up-edge-management.md). Change the domains to watch and how often a daemon reports what it saw.
+* [Monitor your shadow AI traffic](../../edge-management/observe/monitor-shadow-ai-traffic.md). Read the fleet-wide shadow AI view in Edge Management.
+* [Configure Edge Management](../../edge-management/connect/configure-edge-management.md). Change the domains to watch and how often a daemon reports what it saw.
 * [Register an agent](import-an-agent.md). Bring a sanctioned agent into the Catalog from the agent card it publishes.
