@@ -12,13 +12,12 @@ After you create an LLM Proxy, configure guardrails, PII filtering, rate limitin
 
 The LLM Proxy detail view groups its pages as follows.
 
-* **General**: **Overview**, **Configuration**, **API Properties**, **Metadata**, and **CORS**. The **Overview** page shows a **Connection** card with the gateway URLs of the proxy.
-* **Security**: **User Permissions**.
-* **Design**: **Models**, **Entrypoints**, **Endpoints** with its **Failover** page, **Policy Studio**, and **Resources**.
+* **General**: **Overview**, **Settings**, **User Permissions**, and **Metadata**. The **Overview** page shows a **Connection** card with the gateway URLs of the proxy.
+* **Design**: **Entrypoints**, **Policy Studio**, **Models**, **Failover**, **Resources**, **API Properties**, and **CORS**.
 * **Consumers**: **Plans**, **Subscriptions**, and **Broadcasts**.
-* **Monitoring**: **Audit Logs**, **Reporter Settings**, and **Notifications**.
+* **Monitoring**: **Notifications** and **Audit Logs**.
 * **Observability**: **Dashboard**, **Logs**, and **Tracing**, each shown when its deep link is available.
-* **Operations**: **Deployment**, with its **Configuration** and **History** pages.
+* **Operations**: **Sharding Tags**, **Deployment History**, and **Reporter Settings**.
 
 The page formerly named **LLM Studio** is now **Policy Studio**. A link to the former page redirects to it.
 
@@ -68,11 +67,11 @@ Policies read the key/value properties of the LLM Proxy at runtime through the E
 
 ## Picture
 
-The picture identifies the LLM Proxy at the start of its row in the **LLM Proxies** list. Until you add one, the list and the **Configuration** page show a generated pattern based on the proxy's name.
+The picture identifies the LLM Proxy at the start of its row in the **LLM Proxies** list. Until you add one, the list and the **Settings** page show a generated pattern based on the proxy's name.
 
 To add or change the picture, complete the following steps:
 
-1. On the LLM Proxy detail page, under **General**, select **Configuration**.
+1. On the LLM Proxy detail page, under **General**, select **Settings**.
 2. Under **API Picture**, click the picture, and then select an image file. You can also drag an image file onto the picture.
 3. Click **Save changes**.
 
@@ -93,13 +92,14 @@ The **Failover** page retries a call on another provider of the proxy when one i
 
 ## Export, import, and duplicate
 
-The **Configuration** page carries the following three actions that work on the proxy as a whole:
+The **Settings** page carries the following actions that work on the proxy as a whole:
 
-* **Export** downloads the proxy as a Gravitee API definition, a Kubernetes CRD, or a link to the Terraform tutorial.
+* **Export** downloads the proxy as a Gravitee API definition.
 * **Import** replaces this proxy's configuration from a Gravitee definition, supplied as a file or a remote URL. The proxy keeps its plans and its identity.
 * **Duplicate** creates a copy of the proxy under a new context path and version.
+* **Promote** sends a copy of the proxy to another environment through Gravitee Cloud.
 
-For the steps, see [Export and import an LLM Proxy](export-and-import-an-llm-proxy.md) and [Duplicate an LLM Proxy](duplicate-an-llm-proxy.md).
+For the steps, see [Export and import an LLM Proxy](export-and-import-an-llm-proxy.md), [Duplicate an LLM Proxy](duplicate-an-llm-proxy.md), and [Promote your proxies to another environment](promote-your-proxies-to-another-environment.md).
 
 ## Structured output
 

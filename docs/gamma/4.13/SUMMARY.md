@@ -288,6 +288,8 @@
     * [Accepted request formats](agent-management/build/accepted-request-formats.md)
   * [MCP Proxies](agent-management/build/mcp-proxies/README.md)
     * [Create an MCP proxy](agent-management/build/create-an-mcp-proxy.md)
+    * [Export and import an MCP Proxy](agent-management/build/export-and-import-an-mcp-proxy.md)
+    * [Duplicate an MCP Proxy](agent-management/build/duplicate-an-mcp-proxy.md)
     * [Configure your MCP proxy](agent-management/build/configure-your-mcp/README.md)
       * [General](agent-management/build/mcp-proxies/general/README.md)
         * [Configure MCP Proxy notifications](agent-management/build/configure-mcp-proxy-notifications.md)

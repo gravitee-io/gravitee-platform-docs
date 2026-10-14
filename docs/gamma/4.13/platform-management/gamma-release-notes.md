@@ -136,16 +136,24 @@ LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property imp
 
 #### Export, import, and duplicate for LLM Proxies
 
-* The **Configuration** page of each LLM Proxy adds three actions. **Export** downloads the proxy as a Gravitee API definition or a Kubernetes CRD, and links to the Terraform tutorial. **Import** replaces the proxy from a Gravitee definition. **Duplicate** copies the proxy under a new context path and version.
+* The **Settings** page of each LLM Proxy adds three actions. **Export** downloads the proxy as a Gravitee API definition. **Import** replaces the proxy from a Gravitee definition. **Duplicate** copies the proxy under a new context path and version.
 * The **Create LLM proxy** button now opens a page offering **Create from scratch** and **Import**. Both import routes accept a local file or a remote URL, and only the Gravitee definition format.
 * See [Export and import an LLM Proxy](../agent-management/build/export-and-import-an-llm-proxy.md) and [Duplicate an LLM Proxy](../agent-management/build/duplicate-an-llm-proxy.md).
 
 #### Export, import, and duplicate for A2A Proxies
 
-* The **Configuration** page of each A2A Proxy adds three actions. **Export** downloads the proxy as a Gravitee API definition or a Kubernetes CRD, and links to the Terraform tutorial. **Import** replaces the proxy from a Gravitee definition. **Duplicate** copies the proxy under a new context path and version.
+* The **Settings** page of each A2A Proxy adds three actions. **Export** downloads the proxy as a Gravitee API definition. **Import** replaces the proxy from a Gravitee definition. **Duplicate** copies the proxy under a new context path and version.
 * The **Create A2A proxy** button now opens a page offering **Create from scratch** and **Import**. Both import routes accept a local file or a remote URL, and only the Gravitee definition format.
-* A create by import leaves the proxy stopped, for you to start from its **Configuration** page.
+* A create by import leaves the proxy stopped, for you to start from its **Settings** page.
 * See [Export and import an A2A Proxy](../agent-management/build/export-and-import-an-a2a-proxy.md) and [Duplicate an A2A Proxy](../agent-management/build/duplicate-an-a2a-proxy.md).
+
+#### Export, import, and duplicate for MCP Proxies
+
+* The **Settings** page of each MCP Proxy and MCP Studio adds three actions. **Export** downloads it as a Gravitee API definition. **Import** replaces it from a Gravitee definition. **Duplicate** copies it under a new context path and version.
+* The **+ Create MCP proxy** button now opens a page offering **Create from scratch** and **Import**. The mode in the file decides whether the import creates an MCP Proxy or an MCP Studio, and the proxy is created stopped.
+* An MCP Studio's export names its tools, prompts, and resources by their names in the catalog, and the import looks for the same names in the catalog of the environment you import into.
+* A create by import recreates **Keyless**, **API Key**, and **OAuth2** plans, and refuses a file that carries a plan of another type, such as **JWT**.
+* See [Export and import an MCP Proxy](../agent-management/build/export-and-import-an-mcp-proxy.md) and [Duplicate an MCP Proxy](../agent-management/build/duplicate-an-mcp-proxy.md).
 
 #### Promote LLM, MCP, and A2A Proxies
 
