@@ -20,7 +20,7 @@ Before you begin, confirm that you have the following:
 
 * A self-hosted or hybrid Gamma installation. For more information, see [Self-hosted installation guides](../../platform-management/install/self-hosted-installation-guides/README.md) and [Hybrid installation guides](../../platform-management/install/hybrid-installation-guides/README.md).
 * A deployed LLM Proxy. For more information, see [Create an LLM Proxy](create-an-llm-proxy.md).
-* A price on every model the proxy serves. Set **Price per million tokens (input) sent to LLM ($)** and **Price per million tokens (output) received from LLM ($)** on each model in the LLM Proxy endpoint configuration. A model with no price publishes no cost, and **Missing price policy** decides what happens to it.
+* A price on every model the proxy serves. Set **Price per million tokens (input) sent to LLM ($)** and **Price per million tokens (output) received from LLM ($)** on each model in the LLM Proxy endpoint configuration. A model with no price publishes no cost, and **Missing price policy** decides what happens to it. The cost of a prompt includes its cache reads and cache writes, at the model's cache prices when they're set and at the input price otherwise.
 
 ## Add the policy
 

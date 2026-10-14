@@ -12,13 +12,12 @@ After you create an LLM Proxy, configure guardrails, PII filtering, rate limitin
 
 The LLM Proxy detail view groups its pages as follows.
 
-* **General**: **Overview**, **Configuration**, **API Properties**, **Metadata**, and **CORS**. The **Overview** page shows a **Connection** card with the gateway URLs of the proxy.
-* **Security**: **User Permissions**.
-* **Design**: **Models**, **Entrypoints**, **Endpoints** with its **Failover** page, **Policy Studio**, and **Resources**.
-* **Consumer Access**: **Plans**, **Consumers**, and **Broadcasts**.
-* **Monitoring**: **Audit Logs**, **Reporter Settings**, and **Notifications**.
+* **General**: **Overview**, **Settings**, **User Permissions**, and **Metadata**. The **Overview** page shows a **Connection** card with the gateway URLs of the proxy.
+* **Design**: **Entrypoints**, **Policy Studio**, **Models**, **Failover**, **Resources**, **API Properties**, and **CORS**.
+* **Consumers**: **Plans**, **Subscriptions**, and **Broadcasts**.
+* **Monitoring**: **Notifications** and **Audit Logs**.
 * **Observability**: **Dashboard**, **Logs**, and **Tracing**, each shown when its deep link is available.
-* **Operations**: **Deployment**, with its **Configuration** and **History** pages.
+* **Operations**: **Sharding Tags**, **Deployment History**, and **Reporter Settings**.
 
 The page formerly named **LLM Studio** is now **Policy Studio**. A link to the former page redirects to it.
 
@@ -26,7 +25,7 @@ The page formerly named **LLM Studio** is now **Policy Studio**. A link to the f
 
 The **Models** page lists the providers of the LLM Proxy with their models, and changes them after creation. To open it, under **Design**, select **Models**.
 
-Each provider is a collapsible card. Its header shows the provider name, the provider format, the number of models, and **From catalog** when the provider comes from the catalog. Expanded, an inline provider lists its models with their **Query name**, **Aliases**, and **Pricing**, and a catalog provider also shows the **Model** and **Slug** of each one. When the provider hides real model names, the query name is dimmed, because consumers reach the model only through its aliases.
+Each provider is a collapsible card. Its header shows the provider name, the provider format, the number of models, and **From catalog** when the provider comes from the catalog. Expanded, an inline provider lists its models with their **Query name**, **Aliases**, and **Pricing**, and a catalog provider also shows the **Model** and **Slug** of each one. For an inline provider and a catalog provider, **Pricing** adds the cache read and cache write prices of a model that has them. When the provider hides real model names, the query name is dimmed, because consumers reach the model only through its aliases.
 
 To change the providers, complete the following steps:
 
@@ -68,11 +67,11 @@ Policies read the key/value properties of the LLM Proxy at runtime through the E
 
 ## Picture
 
-The picture identifies the LLM Proxy at the start of its row in the **LLM Proxies** list. Until you add one, the list and the **Configuration** page show a generated pattern based on the proxy's name.
+The picture identifies the LLM Proxy at the start of its row in the **LLM Proxies** list. Until you add one, the list and the **Settings** page show a generated pattern based on the proxy's name.
 
 To add or change the picture, complete the following steps:
 
-1. On the LLM Proxy detail page, under **General**, select **Configuration**.
+1. On the LLM Proxy detail page, under **General**, select **Settings**.
 2. Under **API Picture**, click the picture, and then select an image file. You can also drag an image file onto the picture.
 3. Click **Save changes**.
 
@@ -93,13 +92,14 @@ The **Failover** page retries a call on another provider of the proxy when one i
 
 ## Export, import, and duplicate
 
-The **Configuration** page carries the following three actions that work on the proxy as a whole:
+The **Settings** page carries the following actions that work on the proxy as a whole:
 
-* **Export** downloads the proxy as a Gravitee API definition, a Kubernetes CRD, or a link to the Terraform tutorial.
+* **Export** downloads the proxy as a Gravitee API definition.
 * **Import** replaces this proxy's configuration from a Gravitee definition, supplied as a file or a remote URL. The proxy keeps its plans and its identity.
 * **Duplicate** creates a copy of the proxy under a new context path and version.
+* **Promote** sends a copy of the proxy to another environment through Gravitee Cloud.
 
-For the steps, see [Export and import an LLM Proxy](export-and-import-an-llm-proxy.md) and [Duplicate an LLM Proxy](duplicate-an-llm-proxy.md).
+For the steps, see [Export and import an LLM Proxy](export-and-import-an-llm-proxy.md), [Duplicate an LLM Proxy](duplicate-an-llm-proxy.md), and [Promote your proxies to another environment](promote-your-proxies-to-another-environment.md).
 
 ## Structured output
 
@@ -113,23 +113,19 @@ Security plans control how consumers authenticate when they send prompts through
 
 To add a security plan, complete the following steps:
 
-1. On the LLM Proxy detail page, under **Consumer Access**, open **Plans**.
-2. Click **Add plan**.
-3. Complete the **General**, **Security**, **Configure**, and **Review** steps of the **Create Plan** wizard.
+1. On the LLM Proxy detail page, under **Consumers**, select **Plans**.
+2. Click **Create plan**, and then select a security type: **Keyless**, **API Key**, **JWT**, **OAuth2**, or **mTLS**.
+3. Complete the **General**, **Configure**, **Restrictions**, and **Review** steps, and then click **Create plan**. A **Keyless** plan has no **Configure** step.
+4. Open the actions menu of the new plan, and then click **Publish**. A plan that you add to an existing LLM Proxy starts in staging, and consumers can't subscribe to it until it's published.
+5. Click **Deploy** on the **This API is out of sync** banner, and then click **Deploy** in the **Deploy your API** dialog.
 
-The LLM Proxy supports the same comprehensive plan types as API proxies. The **Security** step presents the following plan types in this order:
-
-* **Keyless** (`KEY_LESS`)
-* **API Key** (`API_KEY`)
-* **JWT** (`JWT`)
-* **OAuth 2.0** (`OAUTH2`)
-* **mTLS** (`MTLS`)
+The actions menu of a plan also offers **Edit** for a plan that isn't closed, **Deprecate** for a published plan, and **Close**. Closing a plan terminates every subscription on it and can't be undone. You set restrictions only when you create a plan, and the security type of a plan can't be changed.
 
 See [Secure your API proxy](../../api-management/build/secure-your-api-proxy.md) for detailed plan type descriptions.
 
 ## Broadcasts
 
-To send a one-way announcement to the consumers of the LLM Proxy, under **Consumer Access**, select **Broadcasts**. For the steps to compose and send one, see [Broadcast messages to proxy consumers](broadcast-messages-to-proxy-consumers.md).
+To send a one-way announcement to the consumers of the LLM Proxy, under **Consumers**, select **Broadcasts**. For the steps to compose and send one, see [Broadcast messages to proxy consumers](broadcast-messages-to-proxy-consumers.md).
 
 ## Cost visibility
 

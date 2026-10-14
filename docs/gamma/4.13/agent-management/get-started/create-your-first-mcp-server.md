@@ -30,15 +30,15 @@ To create your first MCP server, complete the following steps:
 
 ### Open the MCP Proxy wizard
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. From the console sidebar, select **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**.
 3. Select **+ Create MCP proxy**.
 
-The console opens the MCP Proxy creation wizard. Select **Proxy mode**, enter a name like "My First MCP Server" and a context path, and then select **Next**.
+On the **Create an MCP proxy** page, select **Create from scratch** to open the MCP Proxy creation wizard. Select **Proxy mode**, enter a name like "My First MCP Server" and a context path, and then select **Next**.
 
 ### Configure security
 
-The next step defines how consumers authenticate when calling tools through this MCP Proxy. The wizard offers four authentication methods: **Gravitee as Authorization Server**, **External Authorization Server**, **API Key**, and **Passthrough**.
+The next step defines how consumers authenticate when calling tools through this MCP Proxy. The wizard offers six authentication methods: **Gravitee as Authorization Server**, **External Authorization Server**, **JWT**, **mTLS**, **API Key**, and `Passthrough`.
 
 For this quickstart, select **API Key** to get running quickly without configuring an identity provider. The console flags API Key as **Not recommended**, since API keys don't carry user identity and can't be scoped as granularly as OAuth. For production deployments, use **Gravitee as Authorization Server** instead.
 

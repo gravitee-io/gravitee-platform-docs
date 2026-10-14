@@ -15,3 +15,10 @@ guides/gateway-api/multi-domain-tls.md
 getting-started/installation/install-with-helm.md
 overview/admission-validation.md
 overview/drift-detection.md
+# MCP servers and MCP proxies custom resources (GKO 4.13.0 feature, AIAM-122)
+overview/custom-resource-definitions/README.md
+overview/custom-resource-definitions/catalogmcpserver.md
+overview/custom-resource-definitions/mcpproxy.md
+# Group default member roles and the ignore-members and ignore-groups annotations (GKO 4.13.0 feature, APIM-14548)
+overview/custom-resource-definitions/group.md
+guides/manage-api-groups-and-members.md

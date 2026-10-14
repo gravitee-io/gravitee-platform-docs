@@ -14,11 +14,41 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 ### 4.13.0
 
-**Automation API rejects a data plane change on an existing security domain**
+#### **Removal of Application-Level Password Policy**
+
+The application-level password policy (deprecated since version 4.4.0) has be officially removed.
+
+Action Required: If you are currently using this feature, you must transition to one of the following configurations before upgrading to AM 4.13 or higher:
+
+ * Define password policies and link them directly to your Identity Providers.
+ * Implement a default password policy at the Domain level.
+
+#### **AuthenticationFlowContextService has a new package**
+
+The interface moved from `io.gravitee.am.service.AuthenticationFlowContextService` to `io.gravitee.am.gateway.handler.common.service.AuthenticationFlowContextService`. Custom plugins that import it need to change the import and be rebuilt.
+
+#### **ExtensionGrantProvider interface has evolved**
+
+The interface `io.gravitee.am.extensiongrant.api.AuthenticationFlowContextService` has evolved.
+Custom plugins that import it need to be adapted and be rebuilt.
+
+#### **Automation API rejects a data plane change on an existing security domain**
 
 A domain `PUT` to the Automation API that names a different `dataPlaneId` for an existing security domain is now rejected with `400` and the message `Once domain is created, [dataPlaneId] cannot be changed.` Before 4.13, the request succeeded and the new value was ignored.
 
 Action Required: Before you upgrade AM, set `dataPlaneId` in each security domain definition to the data plane the security domain already uses.
+
+#### **Token exchange checks the type of the tokens the security domain issued**
+
+A token exchange now fails when it presents a token issued by the security domain as `subject_token` or `actor_token` with a token type the token doesn't have. For example, an access token declared as an ID token fails, and so does an ID token declared as an access token. The request is rejected with `400`, `invalid_request`, and the message `The presented token is not of type <declared type>`. Before 4.13, the token was accepted.
+
+Action Required: Before you upgrade AM, make sure that every client sends the `subject_token_type` and the `actor_token_type` of the tokens it exchanges.
+
+#### **Trusted issuers no longer fetch keys from unsecured or private JWKS URLs**
+
+AM now fetches the keys of a trusted issuer under the key retrieval settings of the security domain. It refuses a JWKS URL that uses `http://`, or whose host resolves to a private, loopback, or link-local address. Token exchanges that present a token of that issuer then fail. Before 4.13, AM fetched such URLs.
+
+Action Required: Before you upgrade AM, move the JWKS endpoint of each trusted issuer to an `https://` URL on a public address. Otherwise, after the upgrade, turn on **Allow unsecured HTTP JWKS URLs** or **Allow JWKS URLs resolving to private IP addresses** on the **Key retrieval** tab of the **Trusted Domains** page. See [Manage Trusted Domains](../../guides/manage-trusted-domains.md#limit-how-keys-are-fetched).
 
 ### 4.12.0
 

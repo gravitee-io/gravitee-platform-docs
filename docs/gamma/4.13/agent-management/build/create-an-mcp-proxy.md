@@ -42,9 +42,10 @@ To create an MCP proxy, complete the following steps:
 
 ### Open the MCP Proxy wizard
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. From the console sidebar, select **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**.
 3. Select **+ Create MCP proxy**.
+4. On the **Create an MCP proxy** page, select **Create from scratch**. To create the proxy from an exported definition instead, select **Import**, and see [Export and import an MCP Proxy](export-and-import-an-mcp-proxy.md).
 
 ### Define your proxy
 
@@ -60,8 +61,14 @@ Choose how clients authenticate to the proxy entrypoint. The wizard offers the f
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
 | **Gravitee as Authorization Server** | Uses Gravitee Identity & Access Management to secure access, handling OAuth token issuance. Recommended.     |
 | **External Authorization Server**    | Use an external identity provider, such as Auth0, Keycloak, or PingFederate, as your authorization server.   |
+| **JWT**                              | Validate signed tokens from an issuer you already run. See [Configure a JWT plan](configure-your-mcp/manage-mcp-proxy-plans.md#configure-a-jwt-plan). |
+| **mTLS**                             | Authenticate clients by the X.509 certificate they present in the TLS handshake, matched against the certificate registered on the subscribing application. |
 | **API Key**                          | Use a shared key for server access when user-level identity is not available.                               |
-| **Passthrough**                      | Gravitee passes all requests through without enforcing any authentication.                                  |
+| `Passthrough`                        | Gravitee passes all requests through without enforcing any authentication.                                  |
+
+The wizard creates a plan for the method you choose, and publishes it whether you select **Create only** or **Create & deploy**. To add or change plans later, see [Manage MCP Proxy plans](configure-your-mcp/manage-mcp-proxy-plans.md).
+
+<figure><img src="../.gitbook/assets/gamma-aim-mcp-proxy-secure-jwt.png" alt="The JWT method selected in the Secure step, with RS256 (RSA + SHA-256), JWKS URL, and the Advanced settings section open on Authorization servers, Check required scopes, Required scopes, and Strict mode"><figcaption><p>The JWT method in the Secure step</p></figcaption></figure>
 
 ### Connect to the upstream MCP server
 

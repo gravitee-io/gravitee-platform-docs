@@ -21,6 +21,8 @@
   * [Portal](overview/custom-resource-definitions/portal.md)
   * [PortalListing](overview/custom-resource-definitions/portallisting.md)
   * [Documentation](overview/custom-resource-definitions/documentation.md)
+  * [CatalogMcpServer](overview/custom-resource-definitions/catalogmcpserver.md)
+  * [McpProxy](overview/custom-resource-definitions/mcpproxy.md)
 * [Admission validation](overview/admission-validation.md)
 * [Drift detection](overview/drift-detection.md)
 * [Example Architecture](overview/example-architecture.md)

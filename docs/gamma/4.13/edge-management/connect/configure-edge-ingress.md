@@ -105,5 +105,5 @@ helm upgrade <release-name> graviteeio/apim -f values.yaml
 Once the Ingress is live, use that host as the **Reactor URL** of the Edge Management configuration, so the daemons installed on your devices reach it.
 
 {% hint style="warning" %}
-The **Reactor URL** is locked once the Edge Management configuration is created, and the daemons already installed hold it in their own configuration. Decide the host before you run the setup. See [Set up Edge Management](set-up-edge-management.md).
+The **Reactor URL** is locked once the Edge Management configuration is created, and the daemons already installed hold it in their own configuration. Decide the host before you create the configuration. See [Configure Edge Management](configure-edge-management.md).
 {% endhint %}

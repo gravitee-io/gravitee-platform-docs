@@ -27,7 +27,7 @@ To deploy the Edge Daemon using Kandji, complete the following steps:
 1. [Open the Daemon Deployment section](configure-kandji-daemon.md#open-the-daemon-deployment-section)
 2. [Select the architecture](configure-kandji-daemon.md#select-the-architecture)
 3. [Create the Kandji Custom App](configure-kandji-daemon.md#create-the-kandji-custom-app)
-4. [Verify deployment](configure-kandji-daemon.md#verify-deployment)
+4. [Verify deployment](configure-kandji-daemon.md#verify-your-deployment)
 
 ## Open the Daemon Deployment section
 
@@ -76,7 +76,7 @@ The configuration page also exposes collapsible **Diagnostic commands** and **Un
 
 ## Verify your deployment
 
-As your devices receive and start the daemon, they send heartbeats to the Edge Reactor and appear in the Edge Management dashboards. To verify your deplyoment, complete the following step:
+As your devices receive and start the daemon, they send heartbeats to the Edge Reactor and appear in the Edge Management dashboards. To verify your deployment, complete the following step:
 
 * Open the **Devices** view to confirm that your devices report as active.
 
@@ -85,7 +85,7 @@ As your devices receive and start the daemon, they send heartbeats to the Edge R
 Once devices are reporting, the Gamma console provides the following dashboards:
 
 * **Devices.** Registered devices, active/inactive status, daemon version, heartbeat counts.
-* **Proxied traffic.** For more information about proxied traffic dashbaords, see [Monitor your proxied traffic](../observe/monitor-proxied-traffic.md).
+* **Proxied traffic.** For more information about proxied traffic dashboards, see [Monitor your proxied traffic](../observe/monitor-proxied-traffic.md).
 * **Shadow AI.** For more information about Shadow AI dashboards, see [Monitor your shadow AI traffic](../observe/monitor-shadow-ai-traffic.md).
 
 ## Next steps

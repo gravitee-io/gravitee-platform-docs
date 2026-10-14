@@ -1,5 +1,68 @@
 # AM 4.13
 
+## Highlights
+
+#### [Deprecation Notice] Removal of MongoDB chart as Helm dependency
+
+The MongoDB chart will be removed from the gravitee chart dependencies in 4.14.
+
+#### Repositories configuration
+
+The Management API now configures only to the management repository. It no longer sets up the `gateway` and `oauth2` repositories, and the default management `gravitee.yml` no longer has the `repositories.gateway`, `repositories.oauth2` sections. If those keys are still in your Management API config, they are ignored.
+Those `repositories.gateway`, `repositories.oauth2` sections were not used since AM 4.7 but due to legacy code their were required to be present.
+Now that the legacy code has been removed, the configuraiton has been cleaned up.
+
+#### Trusted domains: One place to manage external trust
+
+Trusted domains are now the only place where a security domain declares which outside authorities it trusts. The same trusted domain covers both uses:
+
+* Token exchange (RFC 8693): a trusted domain can declare an issuer, which is matched against the iss claim of subject and actor tokens. Scope mappings and user binding move onto that trusted domain. Trusted issuers are no longer stored in the domain’s token-exchange settings.
+* SPIFFE (JWT-SVID client assertions): the SPIFFE trust domain is now its own field (spiffeTrustDomain), so the trusted domain’s name is free text and can be renamed. One trusted domain can serve both uses with the same keys. Keys can come from a JWKS URL, an inline JWK set or a PEM certificate.
+* Cross App Access can also be configured on a trusted domain. When you create, update or delete a trusted domain, the gateway picks up the change without restarting the domain.
+
+At Management API startup, an upgrader turns each trusted issuer stored in a domain’s token-exchange settings into a trusted domain. SPIFFE trust domains from 4.12 are copied into the new storage. Nothing needs to be done by hand.
+
+The `tokenExchangeSettings.trustedIssuers` field in domain settings remains active and data are mirrored on the new data structure so a change made through one shows up in the others.
+The trusted-issuer list is still written into the domain settings, and rebuilt at each startup. That keeps existing automation working and lets you roll back to 4.12 without losing trusted issuers.
+
+The deprecated APIs will be removed in a later version.
+
+Keys for all trusted domains, token-exchange issuers included, are now fetched the same way SPIFFE bundles were: with SSRF checks, a timeout, a response-size limit and a cache.
+By default, a JWKS URL that uses plain http or points to a private IP address is refused. This applies both when the trusted domain is saved and when the gateway fetches keys.
+These limits now live in the domain settings under oidc.keyRetrievalSettings. In the console: Domain settings › Trusted domains › Key retrieval.
+Values set in 4.12 on the SPIFFE settings are moved there automatically. The old SPIFFE fields are still accepted but deprecated.
+
+#### Liquibase
+
+In 4.13 a failed Liquibase migration stops the node from starting.
+
+## Breaking Changes
+
+#### **Removal of Application-Level Password Policy**
+
+The application-level password policy (deprecated since version 4.4.0) has be officially removed.
+
+Action Required: If you are currently using this feature, you must transition to one of the following configurations before upgrading to AM 4.13 or higher:
+
+ * Define password policies and link them directly to your Identity Providers.
+ * Implement a default password policy at the Domain level.
+
+#### **AuthenticationFlowContextService has a new package**
+
+The interface moved from `io.gravitee.am.service.AuthenticationFlowContextService` to `io.gravitee.am.gateway.handler.common.service.AuthenticationFlowContextService`. Custom plugins that import it need to change the import and be rebuilt.
+
+#### **ExtensionGrantProvider interface has evolved**
+
+The interface `io.gravitee.am.extensiongrant.api.AuthenticationFlowContextService` has evolved.
+Custom plugins that import it need to be adapted and be rebuilt.
+
+#### **Automation API rejects a data plane change on an existing security domain**
+
+A domain `PUT` to the Automation API that names a different `dataPlaneId` for an existing security domain is now rejected with `400` and the message `Once domain is created, [dataPlaneId] cannot be changed.` Before 4.13, the request succeeded and the new value was ignored.
+
+Action Required: Before you upgrade AM, set `dataPlaneId` in each security domain definition to the data plane the security domain already uses.
+
+
 ## New Features
 
 #### **Organization licenses on Gravitee-managed deployments**
@@ -34,6 +97,18 @@
 * The AM Gateway endpoints that accept an access token, such as the UserInfo endpoint, the dynamic client registration endpoints, the UMA 2.0 protection API, and the SCIM 2.0 endpoints, reject a DPoP-bound token that's presented without a valid proof or with the `Bearer` scheme. Tokens issued without a proof keep working as bearer tokens.
 * The new **DPoP-bound access tokens** application setting and the new **Require DPoP for all clients** security domain setting make the proof mandatory at the token endpoint. The security domain settings also carry an allowlist of proof signing algorithms, which the OpenID discovery document advertises as `dpop_signing_alg_values_supported`.
 * New `handlers.oauth2.dpop` properties in the AM Gateway `gravitee.yml` control the validity window of a proof and the replay cache. See [Demonstrating Proof of Possession (DPoP)](../../guides/auth-protocols/oauth-2.0/demonstrating-proof-of-possession-dpop.md) for the configuration and the client contract.
+
+#### **Cross App Access with ID-JAG**
+
+* A security domain can issue identity assertion JWT authorization grants (ID-JAGs) through OAuth 2.0 token exchange, so that an application a user signed in to gets an access token from another application's authorization server without a second sign-in. The new **ID-JAG (Cross App Access)** requested token type, the **Cross App Access** section of the application and MCP server settings, and the **ID-JAG** lifetime and **ID_JAG** custom claims of the token settings control the issuance.
+* A trusted domain with the **Cross App Access** usage describes the other application's authorization server: its issuer URL, the resource servers behind it, an `aud_sub` expression, and the scope names it knows.
+* A security domain can also redeem ID-JAGs, for its MCP servers, from an identity provider it trusts through an **OpenID** identity provider. The new **Cross App Access** extension grant handles the `urn:ietf:params:oauth:grant-type:jwt-bearer` grant type for ID-JAGs. It's an Enterprise Edition plugin bundled with the Enterprise Edition distribution.
+* A DPoP proof sent with the token exchange binds the ID-JAG to the proof key, and AM requires a proof of the same key when it redeems a bound ID-JAG. See [Cross App Access](../../guides/auth-protocols/oauth-2.0/cross-app-access.md).
+
+#### **PEP AuthZEN policy**
+
+* The new PEP AuthZEN policy asks an external AuthZEN policy decision point whether AM may issue a token. In the TOKEN flow, it sends the subject, the resource, the action, and the context of the request to the decision point, and AM issues the token only when the decision point permits it.
+* The policy can authenticate to the decision point with an access token of a client of the security domain, and AM records each decision in the audit event of the token request. The policy is an Enterprise Edition plugin bundled with the Enterprise Edition distribution. See [PEP AuthZEN Policy](../../guides/flows/policies/pep-authzen-policy.md).
 
 #### **Reporter attribute mapping**
 
@@ -81,4 +156,7 @@ From 4.13, the Management API stores the management database name in the default
 Default identity providers created before 4.13 are not affected.
 
 During a rolling upgrade, upgrade all gateways to 4.13 or later before creating new domains, or do not rely on the default identity provider of domains created in the meantime.
+
+The property `repositories.system-cluster` has to be consistent between Management API and Gateway configuration.
+
 {% endhint %}

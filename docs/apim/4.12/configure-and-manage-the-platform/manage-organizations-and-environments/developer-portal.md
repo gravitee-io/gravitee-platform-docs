@@ -5,7 +5,7 @@ metaLinks:
     - developer-portal.md
 ---
 
-# Developer Portal
+# Access the Developer Portal
 
 ## Overview
 

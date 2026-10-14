@@ -13,6 +13,8 @@ This page describes the new features and breaking changes introduced in GKO 4.13
 * A Gateway serves several domains on the same port, each with its own TLS certificate, using Server Name Indication (SNI).
 * HTTPRoute resources support method matching, host rewrite, backend request header modification, and H2C backends.
 * Drift detection checks an update to a resource against the resource's current state in APIM, so a change made in APIM isn't replaced without notice.
+* `CatalogMcpServer` and `McpProxy` resources register MCP servers in the Agent Management Catalog and declare MCP proxies.
+* A `Group` resource sets the default roles of new members, and two annotations leave group members, and the groups of APIs and applications, to APIM.
 
 {% hint style="info" %}
 The Gateway API updates listed on this page are also available in GKO 4.12 starting with version 4.12.11.
@@ -28,7 +30,7 @@ In earlier releases, GKO ignored the `spec.infrastructure.parametersRef` field o
 
 ## New features
 
-The following features extend the Kubernetes Gateway API support in GKO, and add drift detection for the resources that GKO manages in APIM.
+The following features extend the Kubernetes Gateway API support in GKO, and add drift detection for the resources that GKO manages in APIM. GKO also adds resources for Agent Management MCP servers and MCP proxies. Groups gain default roles for new members, and annotations leave group members and the groups of APIs and applications to APIM.
 
 #### Gateway API v1.6.1
 
@@ -59,3 +61,15 @@ Labels and annotations set under `spec.infrastructure` of a `Gateway` resource p
 When you update a resource, GKO can compare it with the resource's current state in APIM, and report the fields that were changed in APIM outside GKO. A policy decides whether the update is rejected, accepted with a warning, or accepted with an entry in the operator logs. Drift detection is disabled by default. Turn it on for every resource with the `manager.driftDetection.enabled` Helm value, or for a single resource with the `gravitee.io/drift-detection` annotation. For details, see [Drift detection](../../overview/drift-detection.md).
 
 Drift detection doesn't cover the deprecated `spec.navigation` field of a `Portal` resource, so a change made to that field in APIM isn't reported. The `spec.structure.topNavbar` field that replaces it is covered.
+
+#### MCP servers and MCP proxies
+
+The `CatalogMcpServer` resource registers an MCP server in the Catalog of Agent Management, and its status lists the tools, prompts, and resources Gravitee discovers. The `McpProxy` resource declares an MCP proxy with its plans, identity providers, and policy flows, either in front of one MCP server or as a Studio that picks tools from `CatalogMcpServer` resources. Both resources require APIM 4.13 with Agent Management. For details, see [CatalogMcpServer](../../overview/custom-resource-definitions/catalogmcpserver.md) and [McpProxy](../../overview/custom-resource-definitions/mcpproxy.md).
+
+#### Default roles for group members
+
+The `defaultMemberRoles` field of a `Group` resource sets the role that a user receives on APIs, applications, and API Products when they join the group, including users who log in through an identity provider that maps them to the group. When the field is omitted, APIM keeps the group's default roles as they are. The field requires APIM 4.14.0 or later. For details, see [Group](../../overview/custom-resource-definitions/group.md#set-default-roles-for-new-members).
+
+#### Members and groups left to APIM
+
+The `gravitee.io/ignore-members` annotation on a `Group` resource stops GKO from adding or removing the group's members, so users who join the group in APIM stay in it. The `gravitee.io/ignore-groups` annotation on an `ApiV4Definition` or `Application` resource keeps the groups that the API or application has in APIM. Both annotations require APIM 4.14.0 or later. Starting with APIM 4.14.0, an update of a `Group` resource also keeps the group settings that only the Console manages. For details, see [Group](../../overview/custom-resource-definitions/group.md#leave-the-members-to-apim) and [Manage API and application groups and members](../../guides/manage-api-groups-and-members.md#leave-the-groups-to-apim).

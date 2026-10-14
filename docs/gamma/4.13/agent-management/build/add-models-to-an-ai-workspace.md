@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Add catalog models to an AI Workspace and control which models its members can call. The first model you add provisions the Default LLM Proxy of the workspace.
 ---
 
@@ -21,9 +21,9 @@ To add models to an AI Workspace, complete the following steps:
 1. From the Gamma console sidebar, select **Agent Management**.
 2. Under **Secure**, select **AI Workspaces**.
 3. Select the workspace.
-4. Under **General**, select **Components**.
+4. Under **Design**, select **Components**.
 
-    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-components-empty.png" alt="The Components page of a workspace with no models yet, showing the Models, LLM Proxies, MCP Proxies, and Agents cards and the Add models from catalog button"><figcaption><p>The Components page before the first model is added</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-components-empty.png" alt="The Components page of a workspace with no models yet, selected under Design in the workspace menu, with the Add models from catalog and Add models from providers buttons"><figcaption><p>The Components page before the first model is added</p></figcaption></figure>
 
 5. Select **Add models from catalog**.
 6. Select the models to add. Each row carries the model name, its provider, and the query name callers send. Search by any of the three to narrow the list.
@@ -84,4 +84,4 @@ To verify the models are available to the workspace, follow these steps:
 4. Call the `/models` path of the entrypoint URL with that key, and confirm the response lists the models you added.
 5. Call the `/chat/completions` path with a model the workspace doesn't hold, and confirm the gateway returns `400` with the `model_not_found` code.
 
-    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-components-models.png" alt="The Components page of a workspace listing four models grouped under the OpenAI and Anthropic providers, with the Aliases column showing the alias fast on GPT-4o mini"><figcaption><p>Models grouped by provider on the Components page</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-components-models.png" alt="The Components page of a workspace listing four models grouped under the OpenAI and Anthropic providers, with the Aliases column showing the alias fast on GPT-5.4 mini"><figcaption><p>Models grouped by provider on the Components page</p></figcaption></figure>

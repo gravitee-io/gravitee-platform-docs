@@ -1,6 +1,6 @@
 ---
-hidden: false
-noIndex: false
+hidden: true
+noIndex: true
 description: Create an AI Workspace so a team can consume a governed set of AI models. Name the workspace and set the default budget its members start on.
 ---
 

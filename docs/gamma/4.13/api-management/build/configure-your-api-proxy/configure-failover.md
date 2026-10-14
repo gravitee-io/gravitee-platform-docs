@@ -17,6 +17,8 @@ To open the page, follow these steps:
 
 When the API proxy is managed by the Kubernetes operator, the settings are read-only.
 
+A TCP Proxy API has no **Failover** item in its sidebar. Opening the page by its URL reads **Failover settings are not available for TCP Proxy APIs**.
+
 <!-- TODO: Screenshot of the Failover page -->
 
 <figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-api-failover-page.png" alt=""><figcaption><p>The Failover page</p></figcaption></figure>
