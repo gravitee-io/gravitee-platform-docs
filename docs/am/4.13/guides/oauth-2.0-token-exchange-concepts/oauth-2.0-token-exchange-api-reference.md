@@ -22,6 +22,7 @@ The client must authenticate on the token endpoint (e.g., using HTTP Basic authe
 | `requested_token_type` | No          | Desired output token type (defaults to Access Token)                                                                       |
 | `scope`                | No          | Space-delimited scopes to request (must be subset of allowed scopes)                                                       |
 | `resource`             | No          | URI of the target resource server (affects scope resolution per [RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707)) |
+| `audience`             | Conditional | Required when `requested_token_type` is the ID-JAG token type: the **Issuer URL** of a trusted domain with the **Cross App Access** usage. See [Cross App Access](../auth-protocols/oauth-2.0/cross-app-access.md#request-an-id-jag) |
 
 ### Token Type URNs
 
@@ -31,6 +32,7 @@ The client must authenticate on the token endpoint (e.g., using HTTP Basic authe
 | Refresh Token | `urn:ietf:params:oauth:token-type:refresh_token` |
 | ID Token      | `urn:ietf:params:oauth:token-type:id_token`      |
 | JWT           | `urn:ietf:params:oauth:token-type:jwt`           |
+| ID-JAG        | `urn:ietf:params:oauth:token-type:id-jag`        |
 
 ### Response Fields
 
@@ -38,9 +40,9 @@ The client must authenticate on the token endpoint (e.g., using HTTP Basic authe
 | ------------------- | --------------------------------------------------------------- |
 | `access_token`      | The issued security token (also used for ID tokens)             |
 | `issued_token_type` | URN of the issued token type                                    |
-| `token_type`        | `Bearer` for access tokens, `N_A` for ID tokens                 |
+| `token_type`        | `Bearer` for access tokens, `N_A` for ID tokens and ID-JAGs     |
 | `expires_in`        | Token lifetime in seconds (bounded by subject token expiration) |
-| `scope`             | Granted scopes (present for access tokens only)                 |
+| `scope`             | Granted scopes (present for access tokens and ID-JAGs)          |
 
 {% hint style="warning" %}
 Token Exchange never returns a `refresh_token` or a separate `id_token` field. When an ID token is requested, it is returned in the `access_token` field.
@@ -71,6 +73,20 @@ Token Exchange never returns a `refresh_token` or a separate `id_token` field. W
 
 The `token_type` is `"N_A"` and no `scope` is included in the response.
 
+### Response (ID-JAG)
+
+```json
+{
+  "access_token": "eyJraWQiOi...",
+  "token_type": "N_A",
+  "expires_in": 300,
+  "issued_token_type": "urn:ietf:params:oauth:token-type:id-jag",
+  "scope": "events.read"
+}
+```
+
+The ID-JAG is returned in the `access_token` field. The `token_type` is `"N_A"`, and the `scope` lists the granted scopes under the names the trusted domain maps them to. See [Cross App Access](../auth-protocols/oauth-2.0/cross-app-access.md#request-an-id-jag).
+
 ### Access Token JWT Claims (Delegation)
 
 When delegation is used, the issued access token includes an `act` claim identifying the actor. For details on the `act` claim structure, chained delegation, and `actor_act`, see [Delegation](../using-oauth-2.0-token-exchange.md#delegation).
@@ -91,6 +107,9 @@ All errors are returned as HTTP 400 with a JSON body containing `error` and `err
 | `invalid_request` | Actor token must contain a `sub` claim                                  |
 | `invalid_request` | Impersonation is not allowed for this domain                            |
 | `invalid_scope`   | Requested scope is not a subset of allowed scopes                       |
+| `invalid_request` | A token issued by the security domain is presented as `subject_token` or `actor_token` with a token type it doesn't have |
+
+For the errors of an ID-JAG request, see [Cross App Access](../auth-protocols/oauth-2.0/cross-app-access.md#when-an-id-jag-is-issued).
 
 ## Audit Trail
 
@@ -104,5 +123,7 @@ Every token exchange operation is recorded as an audit event, regardless of outc
 | `SUBJECT_TOKEN_TYPE`   | The URN of the subject token type                            |
 | `ACTOR_TOKEN`          | The `jti` of the actor token (delegation only)               |
 | `ACTOR_TOKEN_TYPE`     | The URN of the actor token type (delegation only)            |
+| `AUDIENCE`             | The audience of the issued ID-JAG, or the `audience` parameter of the request |
+| `RESOURCE`             | The resource of the issued ID-JAG, or the `resource` parameters of the request |
 
 These parameters allow administrators to trace exactly which tokens were involved in each exchange and whether the exchange was an impersonation or delegation scenario.

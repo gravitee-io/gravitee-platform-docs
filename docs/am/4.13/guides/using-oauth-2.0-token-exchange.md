@@ -315,4 +315,4 @@ The token's lifetime is bounded by the original subject token, and scopes are na
 - Subject token must be a valid JWT issued by the domain or a trusted issuer
 - Actor token (if provided) must be a valid JWT issued by the domain or a trusted issuer
 - Client must have `client_credentials` or equivalent authentication configured
-- For trusted issuers: JWKS endpoint must be accessible or PEM certificate must be valid
+- For trusted issuers: the key material of the trusted domain must resolve. Its JWKS URL must be reachable and allowed by the **Key retrieval** settings, or its JWK set or PEM certificate must be valid. See [Manage Trusted Domains](manage-spiffe-trust-domains.md)

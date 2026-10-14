@@ -38,6 +38,18 @@ A domain `PUT` to the Automation API that names a different `dataPlaneId` for an
 
 Action Required: Before you upgrade AM, set `dataPlaneId` in each security domain definition to the data plane the security domain already uses.
 
+#### **Token exchange checks the type of the tokens the security domain issued**
+
+A token exchange now fails when it presents a token issued by the security domain as `subject_token` or `actor_token` with a token type the token doesn't have. For example, an access token declared as an ID token fails, and so does an ID token declared as an access token. The request is rejected with `400`, `invalid_request`, and the message `The presented token is not of type <declared type>`. Before 4.13, the token was accepted.
+
+Action Required: Before you upgrade AM, make sure that every client sends the `subject_token_type` and the `actor_token_type` of the tokens it exchanges.
+
+#### **Trusted issuers no longer fetch keys from unsecured or private JWKS URLs**
+
+AM now fetches the keys of a trusted issuer under the key retrieval settings of the security domain. It refuses a JWKS URL that uses `http://`, or whose host resolves to a private, loopback, or link-local address. Token exchanges that present a token of that issuer then fail. Before 4.13, AM fetched such URLs.
+
+Action Required: Before you upgrade AM, move the JWKS endpoint of each trusted issuer to an `https://` URL on a public address. Otherwise, after the upgrade, turn on **Allow unsecured HTTP JWKS URLs** or **Allow JWKS URLs resolving to private IP addresses** on the **Key retrieval** tab of the **Trusted Domains** page. See [Manage Trusted Domains](../../guides/manage-trusted-domains.md#limit-how-keys-are-fetched).
+
 ### 4.12.0
 
 **Java 25 runtime requirement**

@@ -10,11 +10,13 @@ SPIFFE and CIMD are configured **per security domain**, not via `gravitee.yml` o
 
 Configure SPIFFE JWT-SVID authentication at the domain level:
 
-1. Navigate to **Settings > Security** in the domain sidebar.
-2. Scroll to the **SPIFFE Workload Identity** section.
-3. Toggle **Enable SPIFFE** to allow clients in this domain to authenticate using the `spiffe_jwt` token-endpoint method.
+1. Click **Settings**.
+2. In the **Workload Identity** section, click **SPIFFE Settings**.
+3. Turn on **Enable SPIFFE** to allow clients in this domain to authenticate using the `spiffe_jwt` token-endpoint method. The security domain also needs at least one trusted domain with the **SPIFFE** usage. See [Manage Trusted Domains](../manage-trusted-domains.md).
+4. Under **JWT-SVID validation**, set the maximum SVID lifetime, the clock skew tolerance, and the **Default allowed signing algorithms**.
+5. Click **SAVE**.
 
-    <figure><img src="../../.gitbook/assets/am-spiffe-settings-overview.png" alt="SPIFFE Workload Identity settings page with Enable SPIFFE toggle and explanatory text"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/am-spiffe-workload-identity-settings.png" alt="The SPIFFE Workload Identity settings with SPIFFE enabled, a Trusted Domains button, and the JWT-SVID validation settings."><figcaption></figcaption></figure>
 
 These settings live under `oidc.workloadIdentitySettings` on the domain. To set them via the management API, send a domain update:
 
@@ -26,15 +28,9 @@ Content-Type: application/json
   "oidc": {
     "workloadIdentitySettings": {
       "enabled": true,
-      "allowPrivateIpAddress": false,
-      "allowUnsecuredHttpUri": false,
       "defaultAllowedAlgorithms": ["RS256", "ES256"],
       "clockSkewSeconds": 30,
-      "maxJwtLifetimeSeconds": 300,
-      "fetchTimeoutMs": 10000,
-      "maxResponseSizeKb": 512,
-      "cacheTtlSeconds": 3600,
-      "cacheMaxEntries": 100
+      "maxJwtLifetimeSeconds": 300
     }
   }
 }
@@ -43,15 +39,11 @@ Content-Type: application/json
 | Field | Description | Example |
 |:------|:------------|:--------|
 | `enabled` | Enables SPIFFE JWT-SVID authentication for the domain | `true` |
-| `allowPrivateIpAddress` | Whether SPIFFE JWKS URLs may resolve to private IP addresses | `false` |
-| `allowUnsecuredHttpUri` | Whether unsecured HTTP JWKS URLs are permitted | `false` |
 | `defaultAllowedAlgorithms` | Default signing algorithms accepted for SPIFFE JWTs | `["RS256", "ES256"]` |
 | `clockSkewSeconds` | Allowed clock skew for JWT validation | `30` |
 | `maxJwtLifetimeSeconds` | Maximum allowed JWT lifetime | `300` |
-| `fetchTimeoutMs` | HTTP timeout for fetching JWKS | `10000` |
-| `maxResponseSizeKb` | Maximum JWKS response size | `512` |
-| `cacheTtlSeconds` | TTL for cached JWKS entries | `3600` |
-| `cacheMaxEntries` | Maximum number of cached JWKS entries | `100` |
+
+From AM 4.13, the JWKS fetch limits and the SSRF toggles apply to every trusted domain of the security domain, whichever usage it serves. You set them on the **Key retrieval** tab of the **Trusted Domains** page. See [Limit how keys are fetched](../manage-trusted-domains.md#limit-how-keys-are-fetched). AM still accepts `allowPrivateIpAddress`, `allowUnsecuredHttpUri`, `fetchTimeoutMs`, `maxResponseSizeKb`, `cacheTtlSeconds`, and `cacheMaxEntries` in `oidc.workloadIdentitySettings`. It moves them to the key retrieval settings of the domain.
 
 ## CIMD Settings
 
