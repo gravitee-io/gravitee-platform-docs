@@ -170,5 +170,5 @@ For a security domain, leave out `domain_key`. For a data plane, leave out `doma
 The provider has the following limitations:
 
 * `am_data_plane` can't manage the `default` data plane or a data plane declared in the configuration of your installation. AM rejects it with `'<id>' is reserved for a data plane declared in the gravitee.yml`. To create a security domain on one of these data planes, set its identifier in `data_plane_id`.
-* To leave the gateway URL of a data plane unset, leave out `gateway_url`. AM stores an empty value as unset, so an apply with `gateway_url = ""` fails.
+* To leave the gateway URL of a data plane unset, leave out `gateway_url`. AM stores an empty value as unset.
 * When the Management API runs on several nodes, a node that hasn't loaded a new data plane yet rejects a security domain created on it with `An error occurred while trying to create a domain. Data Plane [<id>] is not loaded on this node.` This can happen when the data plane and the security domain are created in the same apply. Run `terraform apply` again.
