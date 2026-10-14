@@ -5,6 +5,8 @@
 # the Lint Version Overrides check flags divergent 4.13 edits that need one.
 SUMMARY.md
 .gitbook.yaml
+# Tombstones: these pages live in 4.12 and are linked from SUMMARY.
+# Keep the entries so version sync does not copy the files back.
 releases-and-changelog/release-notes/am-4.12.md
 releases-and-changelog/changelog/am-4.12.x.md
 getting-started/configuration/configure-repositories.md
