@@ -65,14 +65,6 @@ Check the Management API logs:
 * WARN lines for trusted issuers that were not migrated (name too long or already taken).
 * customised consent pages: they still work, but scopes can now be selected one by one; mark scopes required where needed
 
-### Rollback
-
-The schema stays readable by 4.12 , but some data written in 4.13 is lost to it:
-
-* new trusted domains (SPIFFE only)
-
-If you created custom claims for the new IDJag token at application level, rollback can only be done on the latest 4.12, 4.11,  4.10 or 4.9.
-
 ## 4.12 Upgrade guide
 
 ### Application table indexes
