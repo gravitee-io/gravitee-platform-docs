@@ -22,10 +22,10 @@ Before you begin, confirm that you have the following:
 
 To duplicate an LLM Proxy, complete the following steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. From the console sidebar, select **Agent Management**.
 2. Under **Secure**, select **LLM Proxies**.
 3. Select the LLM Proxy that you want to copy.
-4. Under **General**, select **Configuration**.
+4. Under **General**, select **Settings**.
 5. Select **Duplicate**.
 
     <figure><img src="../.gitbook/assets/gamma-llm-proxy-duplicate-sheet.png" alt="The Duplicate LLM proxy panel with the Context path and Version fields and the include checkboxes"><figcaption><p>The Duplicate LLM proxy panel with the Context path and Version fields and the include checkboxes</p></figcaption></figure>
@@ -40,9 +40,9 @@ To duplicate an LLM Proxy, complete the following steps:
 7. Under **Include additional data**, clear any of the **Groups**, **Members**, **Pages**, and **Plans** checkboxes you want to leave out of the copy. All four are selected by default.
 8. Select **Duplicate**.
 
-The console creates the copy and opens its **Configuration** page.
+The console creates the copy and opens its **Settings** page.
 
-The copy takes the source proxy's name. Give it a distinct name from its **Configuration** page when you want to tell the two apart in the **LLM Proxies** list.
+The copy takes the source proxy's name. Give it a distinct name on its **Settings** page when you want to tell the two apart in the **LLM Proxies** list.
 
 ## Context path availability
 
@@ -64,10 +64,10 @@ To verify the copy, complete the following steps:
 
 1. Under **Secure**, select **LLM Proxies**. The list holds a second proxy with the source proxy's name.
 2. Open the copy, and then under **Design**, select **Models**. The providers and models match the source proxy.
-3. Under **Consumer Access**, select **Plans**. The plans are present when you left the **Plans** checkbox selected, and absent when you cleared it.
-4. Deploy the copy from the out-of-sync banner, and then send it a prompt on its own context path as described in [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md). The gateway routes the request.
+3. Under **Consumers**, select **Plans**. The plans are present when you left the **Plans** checkbox selected, and absent when you cleared it.
+4. Under **General**, select **Settings**, and then select **Start LLM proxy**. Deploy the copy from the out-of-sync banner, and then send it a prompt on its own context path as described in [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md). The gateway routes the request.
 
-    <figure><img src="../.gitbook/assets/gamma-llm-proxy-duplicate-result.png" alt="The Configuration page of the duplicated LLM Proxy"><figcaption><p>The Configuration page of the duplicated LLM Proxy</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-llm-proxy-duplicate-result.png" alt="The Settings page of the duplicated LLM Proxy, stopped and out of sync, with its Export, Import, Duplicate, and Promote actions"><figcaption><p>The Settings page of the duplicated LLM Proxy</p></figcaption></figure>
 
 ## Next steps
 
