@@ -279,7 +279,7 @@ API Management gains a file-based path for building and updating API proxies. Ea
 
 ### Authorization Management
 
-Authorization Management imports principals from SCIM 2.0 directories. A directory reads the users and groups of an identity provider when you sync it or on its schedule. Every sync leaves a report of what it imported, changed, and left out. A new **Testing** group adds the **Policy Simulator** and the **Access Explorer**, which test MCP policies before you deploy them. Authorization Management keeps the schema as documents, and sends each document to the gateways that host the PDP gateway it's assigned to.
+Authorization Management imports principals from SCIM 2.0 directories. A directory reads the users and groups of an identity provider when you sync it or on its schedule. Every sync leaves a report of what it imported, changed, and left out. A new **Testing** group adds the **Policy Simulator** and the **Access Explorer**, which test MCP policies before you deploy them. Authorization Management keeps the schema as documents, and sends each document to the gateways that host the PDP gateway it's assigned to. A new **Observability** group shows every authorization decision your gateways make, with an overview dashboard, and the audit trail records the changes to policies, entities, PDP gateways, and schema documents.
 
 #### SCIM directories
 
@@ -313,6 +313,15 @@ Authorization Management imports principals from SCIM 2.0 directories. A directo
 * Documents on PDP gateways of one environment that share a **Target PDP ID** meet on some gateways, and so do documents of different environments on the built-in engine. Where two documents meet, a save is refused if it makes them declare a shared type or action differently. **Where documents meet** lists each pair and the gateways where it's composed.
 * An environment's schema from before 4.13 becomes a document named **Default schema**, set to **Unassigned**.
 * See [Schema documents](../authorization-management/manage/schemas/schema-generation.md).
+
+#### Observability
+
+* The Authorization Management sidebar adds an **Observability** group. **Decisions** lists each authorization decision with its subject, action, resource, reason, matched policies, PDP, and the component that asked: the Authorization PEP policy, the AuthZEN endpoint, or the AuthZEN policy.
+* The **Authorization — Overview** dashboard template counts decisions, permits, forbids, failures, searches, and evaluation times, and ranks what's denied most and what no policy matches. **Duplicate as custom dashboard** copies it into a dashboard you edit.
+* The `@id` and `@reason` annotations of a policy statement name the matched policy and set the reason that a decision reports.
+* Gateways write decisions to the `gravitee-decisions-*` data streams through their Elasticsearch reporter.
+* The audit trail of the environment records the changes to policies, entities, PDP gateways, and schema documents.
+* See [Review authorization decisions](../authorization-management/observe/review-authorization-decisions.md), [Monitor authorization with dashboards](../authorization-management/observe/monitor-authorization-with-dashboards.md), and [Audit authorization changes](../authorization-management/observe/audit-authorization-changes.md).
 
 ### Developer Portals
 

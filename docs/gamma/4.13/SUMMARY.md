@@ -392,8 +392,12 @@
   * [Configure the Gravitee Gateway as a runtime](authorization-management/evaluate/configure-gravitee-gateway-as-runtime.md)
   * [Configure a sidecar as runtime](authorization-management/evaluate/configure-sidecar-as-runtime.md)
   * [Policy syncs](authorization-management/evaluate/policy-syncs.md)
-  * [Analytics sent to the control plane](authorization-management/evaluate/analytics-sent-to-control-plane.md)
   * [Authorization policy synchronization](authorization-management/authz-gateway-sync.md)
+* [Observability](authorization-management/observe/README.md)
+  * [Review authorization decisions](authorization-management/observe/review-authorization-decisions.md)
+  * [Monitor authorization with dashboards](authorization-management/observe/monitor-authorization-with-dashboards.md)
+  * [Audit authorization changes](authorization-management/observe/audit-authorization-changes.md)
+  * [Decision reporting](authorization-management/observe/decision-reporting.md)
 
 ## Edge Management
 
