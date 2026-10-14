@@ -141,7 +141,7 @@ When the token exchange request carries a valid `DPoP` proof header, AM binds th
 
 ## Redeem ID-JAGs
 
-To redeem ID-JAGs, the security domain trusts the identity provider that issues them, runs the Cross App Access extension grant, and protects the target resource with an MCP server.
+To redeem ID-JAGs, the security domain trusts the identity provider that issues them, runs the Cross App Access extension grant, and protects the target resource.
 
 ### Prerequisites
 
