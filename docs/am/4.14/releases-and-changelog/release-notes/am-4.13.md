@@ -47,20 +47,21 @@ Action Required: If you are currently using this feature, you must transition to
  * Define password policies and link them directly to your Identity Providers.
  * Implement a default password policy at the Domain level.
 
+#### **Automation API rejects a data plane change on an existing security domain**
+
+A domain `PUT` to the Automation API that names a different `dataPlaneId` for an existing security domain is now rejected with `400` and the message `Once domain is created, [dataPlaneId] cannot be changed.` Before 4.13, the request succeeded and the new value was ignored.
+
+Action Required: Before you upgrade AM, set `dataPlaneId` in each security domain definition to the data plane the security domain already uses.
+
+## Custom plugins
+
 #### **AuthenticationFlowContextService has a new package**
 
 The interface moved from `io.gravitee.am.service.AuthenticationFlowContextService` to `io.gravitee.am.gateway.handler.common.service.AuthenticationFlowContextService`. Custom plugins that import it need to change the import and be rebuilt.
 
 #### **ExtensionGrantProvider interface has evolved**
 
-The interface `io.gravitee.am.extensiongrant.api.AuthenticationFlowContextService` has evolved.
-Custom plugins that import it need to be adapted and be rebuilt.
-
-#### **Automation API rejects a data plane change on an existing security domain**
-
-A domain `PUT` to the Automation API that names a different `dataPlaneId` for an existing security domain is now rejected with `400` and the message `Once domain is created, [dataPlaneId] cannot be changed.` Before 4.13, the request succeeded and the new value was ignored.
-
-Action Required: Before you upgrade AM, set `dataPlaneId` in each security domain definition to the data plane the security domain already uses.
+The `io.gravitee.am.extensiongrant.api.ExtensionGrantProvider` interface has evolved. Custom plugins that implement it need to be adapted and rebuilt.
 
 ## New Features
 
