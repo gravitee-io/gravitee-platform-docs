@@ -75,5 +75,5 @@ Resources are classified into categories for the schema outline and UI color cod
 
 ## Next steps
 
-* [Schema generation](../schemas/schema-generation.md) — See how relationships are reflected in the schema
-* [Create, update, and delete policies](../../configure/create-update-delete-policies.md) — Write policies using containment
+* [Schema documents](../schemas/schema-generation.md). See how relationships are reflected in the schema
+* [Create, update, and delete policies](../../configure/create-update-delete-policies.md). Write policies using containment
