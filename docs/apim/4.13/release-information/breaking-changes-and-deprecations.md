@@ -137,6 +137,14 @@ From 4.12.22 and 4.13.0, the Latency policy runs in the response phase of v2 API
 
 After the upgrade, such a policy delays the responses that its flow handles by its configured time. Before you upgrade, check the response phase of every flow in the **Policy Studio** of your v2 APIs and in the **Platform flows**. Remove any Latency policy that you don't want to take effect. For more information, see [Latency](../create-and-configure-apis/apply-policies/policy-reference/latency.md).
 
+**LLM proxy: Sent tokens include the prompt cache for Anthropic and Bedrock**
+
+On an LLM proxy API, three values now count the whole prompt for models served by the Anthropic and Bedrock providers: the `long_llm-proxy_tokens-sent` metric, the `llmproxy.usage.sent.token` context attribute, and the `X-LLM-Proxy-Tokens-Sent` response header. The whole prompt includes the tokens read from or written to the provider's prompt cache. In 4.12, they used the input count that these two providers report, which leaves those tokens out. For the same traffic, a prompt that uses the provider's cache therefore counts more sent tokens than before, and a Token Rate Limit policy counts more tokens against its limit.
+
+The `double_llm-proxy_sent-cost` metric and the `llmproxy.usage.sent.cost` context attribute now price the cache reads and cache writes at the model's cache prices, and at the input price when the model has no cache price. For the Anthropic and Bedrock providers, the sent cost therefore includes the cache reads and cache writes that 4.12 left out, and a Cost Rate Limit policy counts that cost too.
+
+Before you upgrade, review the Token Rate Limit policies and the dashboards that read sent tokens on LLM proxy APIs that serve Anthropic or Bedrock models. To price cached tokens at the provider's rates, set the cache prices of each model. For more information, see [Assign Metrics](../create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md#metrics-on-llm-proxy-apis) and [Reporters](../analyze-and-monitor-apis/reporters/README.md).
+
 **XML Validation policy: Failed validations return a list of violations**
 
 APIM 4.13 bundles version 2.x of the XML Validation policy, which changes the response to a request that fails validation.
