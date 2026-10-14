@@ -2,7 +2,7 @@
 description: Endpoints define the protocol and settings a Kafka API uses to reach its backend in API Management 4.12. Learn how to configure them.
 ---
 
-# Endpoints
+# Configure native Kafka API endpoints
 
 ## Overview
 

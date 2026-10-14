@@ -507,7 +507,7 @@
       * [Console UI changes for multi-tenant Kafka endpoints](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/console_ui_changes_for_multi-tenant_kafka_endpoints.md)
       * [Enable OpenTelemetry Tracing for a Kafka API](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/enable-opentelemetry-tracing-for-a-kafka-api.md)
       * [Entrypoints](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/entrypoints.md)
-      * [Endpoints](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md)
+      * [Configure native Kafka API endpoints](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md)
       * [mTLS plans for Kafka native APIs](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/mtls-plans.md)
       * [Policies](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies.md)
       * [Consumers](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/consumers.md)
