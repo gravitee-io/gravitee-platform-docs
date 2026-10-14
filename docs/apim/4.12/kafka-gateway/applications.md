@@ -5,7 +5,7 @@ metaLinks:
     - applications.md
 ---
 
-# Applications
+# Create an application for Kafka APIs
 
 ## Overview
 
