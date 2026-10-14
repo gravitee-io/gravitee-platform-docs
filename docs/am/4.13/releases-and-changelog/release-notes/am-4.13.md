@@ -22,6 +22,12 @@ Trusted domains are now the only place where a security domain declares which ou
 
 At Management API startup, an upgrader turns each trusted issuer stored in a domain’s token-exchange settings into a trusted domain. SPIFFE trust domains from 4.12 are copied into the new storage. Nothing needs to be done by hand.
 
+{% hint style="warning" %}
+Known limitation: trusted issuers longer than 512 characters
+
+A trusted domain's issuer is limited to 512 characters, so the upgrader skips a 4.12 trusted issuer that's longer. The issuer isn't kept, and a token exchange request with a subject or actor token from that issuer is rejected. The Management API logs a warning that names the skipped issuer and its security domain.
+{% endhint %}
+
 The `tokenExchangeSettings.trustedIssuers` field in domain settings remains active and data are mirrored on the new data structure so a change made through one shows up in the others.
 The trusted-issuer list is still written into the domain settings, and rebuilt at each startup. That keeps existing automation working and lets you roll back to 4.12 without losing trusted issuers.
 
