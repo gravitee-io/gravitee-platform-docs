@@ -128,3 +128,4 @@ The Login screen for your New Developer Portal shows only SSO login.
 ## Next steps
 
 * [enforce-user-authentication.md](enforce-user-authentication.md "mention")
+* [Keep identity provider tokens out of the browser](../../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md#keep-identity-provider-tokens-out-of-the-browser)

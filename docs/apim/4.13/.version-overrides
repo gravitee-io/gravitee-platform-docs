@@ -9,6 +9,7 @@ release-information/release-notes/apim-4.12.md
 release-information/changelog/apim-4.12.x.md
 terraform/changelog.md
 terraform/release-notes.md
+terraform/README.md
 configure-and-manage-the-platform/manage-organizations-and-environments/branded-senders.md
 gravitee-expression-language.md
 release-information/release-notes/apim-4.13.md
@@ -198,3 +199,10 @@ create-and-configure-apis/configure-v4-apis/load-balancing-and-failover.md
 create-and-configure-apis/configure-v4-apis/endpoints/README.md
 .gitbook/assets/v4-endpoint-secondary-checkbox.png
 .gitbook/assets/v4-endpoints-secondary-badge.png
+# LLM proxy prompt cache metering (APIM 4.13.0 feature, AIAM-141): LLM proxy 5.0.0-alpha.14 ships in 4.13 only, 4.12 pins 3.3.x
+analyze-and-monitor-apis/reporters/README.md
+create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md
+# XML Validation policy schema registry source (APIM 4.13.0 feature, APIM-14690)
+create-and-configure-apis/apply-policies/policy-reference/xml-validation.md
+# Identity provider token settings on the Management API page (APIM 4.13.0 feature, APIM-14822)
+configure-and-manage-the-platform/management-api/README.md

@@ -147,13 +147,17 @@ When a v4 API uses an LLM-Proxy endpoint, the following additional metrics are r
 | -------------------------------- | ------- | -------------------------------------------------------------------------------------------- |
 | `keyword_llm-proxy_provider`     | keyword | The endpoint group name (provider) used for the request (for example, `openai`, `anthropic`) |
 | `keyword_llm-proxy_model`        | keyword | The model name used for the request (for example, `gpt-4`, `claude-3`)                       |
-| `long_llm-proxy_tokens-sent`     | long    | Number of input tokens sent to the LLM                                                       |
+| `long_llm-proxy_tokens-sent`     | long    | Number of input tokens sent to the LLM, including the tokens read from or written to the provider's prompt cache |
 | `long_llm-proxy_tokens-received` | long    | Number of output tokens received from the LLM                                                |
-| `double_llm-proxy_sent-cost`     | double  | Cost of input tokens, based on model pricing configuration                                   |
+| `long_llm-proxy_tokens-cached`   | long    | Number of input tokens the provider served from its prompt cache. Part of `tokens-sent`, and reported only when the provider reports the count |
+| `long_llm-proxy_tokens-cache-write` | long | Number of input tokens written into the provider's prompt cache. Part of `tokens-sent`, and reported only when the provider reports the count |
+| `double_llm-proxy_sent-cost`     | double  | Cost of input tokens, based on model pricing configuration. Cached and written tokens are priced at the model's cache prices, or at the input price when those aren't set |
 | `double_llm-proxy_received-cost` | double  | Cost of output tokens, based on model pricing configuration                                  |
+| `double_llm-proxy_cached-cost`   | double  | Cost of the input tokens served from the prompt cache. Part of `sent-cost`                   |
+| `double_llm-proxy_cache-write-cost` | double | Cost of the input tokens written into the prompt cache. Part of `sent-cost`                 |
 
 {% hint style="info" %}
-The Gateway also computes two derived metrics for analytics dashboards: **total token count** (`tokens-sent + tokens-received`) and **total token cost** (`sent-cost + received-cost`). These are calculated at query time and do not appear as separate reported fields.
+The Gateway also computes two derived metrics for analytics dashboards: **total token count** (`tokens-sent + tokens-received`) and **total token cost** (`sent-cost + received-cost`). These are calculated at query time and don't appear as separate reported fields. The cache metrics are already part of `tokens-sent` and `sent-cost`, so don't add them to either total.
 {% endhint %}
 
 When a v4 API uses an MCP-Proxy endpoint, the following additional metrics are reported alongside the standard v4 metrics. These metrics are stored under `additional-metrics` and use typed prefixes (`keyword_`, `long_`) to indicate the field type in the reporting system.

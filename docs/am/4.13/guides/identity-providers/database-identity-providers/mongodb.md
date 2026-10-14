@@ -90,6 +90,7 @@ The order in which Access Management decides which connection configuration to u
 
 {% hint style="info" %}
 Datasource and **use cluster system** are usable only if MongoDB is defined a backend.
+The property `repositories.system-cluster` and the datasource settings have to be consistent between Management API and Gateway configuration.
 {% endhint %}
 
 ### Store users on the system cluster
