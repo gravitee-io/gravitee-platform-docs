@@ -15,7 +15,7 @@ The **Integrations** page of the **Environment** section lists the integrations 
 * Federation turned on for your installation, and a license that includes it and hasn't expired. Until both are in place, the **Integrations** item doesn't appear in the sidebar, and its pages send you to the **Applications** page, or to the first page of the sidebar when you can't open **Applications**. For more information, see [Federation](https://documentation.gravitee.io/apim/govern-apis/federation) in the API Management documentation.
 * A role that can read the environment's integrations. Without it, the **Integrations** item doesn't appear either.
 
-Which integrations you see depends on your role. An administrator sees every integration of the environment. Anyone else sees the integrations they're a member of, directly or through a group.
+Which integrations you see depends on your role. Someone with the organization's administrator role sees every integration of the environment. Anyone else sees the integrations they're a member of, directly or through a group.
 
 ## Open Integrations
 
@@ -28,7 +28,7 @@ To open **Integrations**, complete the following steps:
 
     <figure><img src=".gitbook/assets/gamma-platform-integrations.png" alt="The Integrations page, selected under APIs & Assets in the Environment section, listing four Docbot integrations with their provider and a Disconnected status, and the Create integration button."><figcaption><p>The Integrations page lists the integrations of the environment with their provider and the status of their agent.</p></figcaption></figure>
 
-Each row shows the integration's provider and whether its agent is **Connected** or **Disconnected**. The A2A integrations of the environment are listed too, with **A2A Protocol** as their provider and no status, but you can't open or create them from this page. Until the environment has an integration, the page reads **No integrations yet**.
+Each row shows the integration's provider and whether its agent is **Connected** or **Disconnected**. The A2A integrations of the environment are listed too, with **A2A Protocol** as their provider and no status, but you can't open or create them from this page. Until you can see an integration, the page reads **No integrations yet**.
 
 ## Create an integration
 
@@ -42,7 +42,7 @@ To create an integration, complete the following steps:
 3. Enter a **Name** of up to 50 characters and, optionally, a **Description** of up to 250 characters. To pick another provider, click **Change**.
 4. Click **Create integration**.
 
-The integration's **Overview** opens, and the message **Integration \<name> created successfully** confirms the creation. If the creation fails, the message **Failed to create integration.** appears. The form keeps your values.
+The integration's **Overview** opens, and the message **Integration \<name> created successfully** confirms the creation. If the creation fails, a message says why, and the form keeps your values.
 
 Under **API gateways**, the providers are **Apigee**, **AWS API Gateway**, **Azure API Management**, **Edge Stack**, **IBM API Connect**, **MuleSoft**, and **SAP Business Technology Platform**. Under **Event brokers**, they're **Confluent Platform** and **Solace**.
 
@@ -70,11 +70,11 @@ To discover and ingest APIs, complete the following steps:
 2. Under **APIs to ingest**, keep or clear **New** and **Update**. Each one shows how many APIs it holds, and one that holds none is unavailable. The list follows your choice.
 3. Click **Ingest**. The **Overview** reopens, and the message **API ingestion is in progress. Come back shortly to see discovered APIs.** confirms the start.
 
-Ingestion runs in the background. While it runs, the **APIs** card reads that APIs are being ingested and refreshes on its own, and **Discover** is unavailable. If the ingestion can't start, the message **Ingestion failed. Please check your settings and try again.** appears instead.
+Ingestion runs in the background. While it runs, the **APIs** card reads that APIs are being ingested and refreshes on its own, and **Discover** is unavailable. If the ingestion can't start, a message says why instead. When the provider has no API to ingest, the message still says that the ingestion is in progress, and the **APIs** card stays as it was.
 
 When the provider returns only part of its APIs, the **Discover** page warns **Only a partial list of APIs was returned by the provider. Proceeding will ingest all discoverable APIs.** In that case, **Ingest** ingests every API the provider can discover, whatever you selected.
 
-An **Update** overwrites the name, description, and version of the federated API, and what it imported from the provider. It refreshes the API's plans and the documentation pages that came from the provider. A plan the provider no longer offers is deleted, and its subscriptions are closed first. Pages written in Gravitee, and the API's groups, categories, labels, visibility, and lifecycle state keep their values.
+An **Update** overwrites the name, description, and version of the federated API, and what it imported from the provider. It refreshes the API's plans and the documentation pages that came from the provider, and removes the provider pages that the provider no longer returns. A plan the provider no longer offers is deleted with its subscriptions. Markdown and AsciiDoc pages written in Gravitee keep their content, but an OpenAPI or AsyncAPI page with the same name as a provider file is overwritten. The API's groups, categories, labels, visibility, and lifecycle state keep their values.
 
 ## Open a federated API
 
@@ -98,7 +98,7 @@ The form appears when your role can update the integration. A save doesn't chang
 
 The **Danger zone** of the **General** tab holds both deletions, and appears when your role can delete the integration.
 
-**Delete federated APIs** deletes the APIs ingested from the integration, with their plans, subscriptions, documentation, and metadata. The tile appears when your role can also delete APIs in the environment, and **Delete APIs** is available while the integration has federated APIs. A published API is kept. After you confirm, the message **Federated APIs have been deleted.** reports how many APIs were deleted, how many weren't, and how many failed.
+**Delete federated APIs** deletes the APIs ingested from the integration, with their plans, subscriptions, documentation, and metadata. It appears when your role can also delete APIs in the environment, and **Delete APIs** is available while the integration has federated APIs. A published API is kept. After you confirm, the message **Federated APIs have been deleted.** reports how many APIs were deleted, how many weren't, and how many failed.
 
 **Delete integration** is available once the integration has no federated APIs left. The dialog asks you to type the integration's name, and **Delete permanently** removes the integration with its members. The message **Integration successfully deleted!** confirms it, and the **Integrations** page reopens.
 
@@ -106,7 +106,7 @@ The **Danger zone** of the **General** tab holds both deletions, and appears whe
 
 The **User Permissions** tab of **Configuration** lists who can work with the integration. It appears when your role can read the integration's members.
 
-* **Direct Members** lists each member with their integration role. The **Primary Owner** is the person who created the integration, and can't be edited or removed here.
+* **Direct Members** lists each member with their integration role. The **Primary Owner** is the person who created the integration, or one of their groups when the environment's primary owner mode requires a group, and can't be edited or removed here. See [Configure primary owner mode](configure-primary-owner-mode.md).
 * **Group Inherited Members** lists, for each group attached to the integration, the members of the group with their integration role. When you can't view a group's members, the group reads **You do not have the appropriate permissions to view members of this group.**
 
 Each of the following actions appears when your role allows it:
