@@ -61,6 +61,8 @@ getting-started/configuration/configure-am-api/README.md
 guides/identity-providers/database-identity-providers/mongodb.md
 # AM 4.13 upgrade guide (4.13.0 upgrade section, PR #2626)
 getting-started/install-and-upgrade-guides/upgrade-guide.md
+# AM Terraform provider (AM 4.13.0 feature, AM-7790)
+guides/manage-am-with-terraform.md
 # Cross App Access, trusted domains, and the PEP AuthZEN policy (AM 4.13.0 feature, AM-7345)
 guides/manage-trusted-domains.md
 guides/auth-protocols/oauth-2.0/cross-app-access.md

@@ -14,6 +14,7 @@ This page describes the new features and breaking changes introduced in GKO 4.13
 * HTTPRoute resources support method matching, host rewrite, backend request header modification, and H2C backends.
 * Drift detection checks an update to a resource against the resource's current state in APIM, so a change made in APIM isn't replaced without notice.
 * `CatalogMcpServer` and `McpProxy` resources register MCP servers in the Agent Management Catalog and declare MCP proxies.
+* `AMContext`, `AMSecurityDomain`, `AMIdentityProvider`, `AMCertificate`, and `AMReporter` resources manage Access Management security domains, with their identity providers, certificates, and reporters, from Kubernetes.
 * A `Group` resource sets the default roles of new members, and two annotations leave group members, and the groups of APIs and applications, to APIM.
 
 {% hint style="info" %}
@@ -30,7 +31,7 @@ In earlier releases, GKO ignored the `spec.infrastructure.parametersRef` field o
 
 ## New features
 
-The following features extend the Kubernetes Gateway API support in GKO, and add drift detection for the resources that GKO manages in APIM. GKO also adds resources for Agent Management MCP servers and MCP proxies. Groups gain default roles for new members, and annotations leave group members and the groups of APIs and applications to APIM.
+The following features extend the Kubernetes Gateway API support in GKO, and add drift detection for the resources that GKO manages in APIM. GKO also adds resources for Agent Management MCP servers and MCP proxies, and for Access Management security domains. Groups gain default roles for new members, and annotations leave group members and the groups of APIs and applications to APIM.
 
 #### Gateway API v1.6.1
 
@@ -65,6 +66,10 @@ Drift detection doesn't cover the deprecated `spec.navigation` field of a `Porta
 #### MCP servers and MCP proxies
 
 The `CatalogMcpServer` resource registers an MCP server in the Catalog of Agent Management, and its status lists the tools, prompts, and resources Gravitee discovers. The `McpProxy` resource declares an MCP proxy with its plans, identity providers, and policy flows, either in front of one MCP server or as a Studio that picks tools from `CatalogMcpServer` resources. Both resources require APIM 4.13 with Agent Management. For details, see [CatalogMcpServer](../../overview/custom-resource-definitions/catalogmcpserver.md) and [McpProxy](../../overview/custom-resource-definitions/mcpproxy.md).
+
+#### Access Management security domains
+
+The `AMContext` resource connects GKO to an Access Management organization and environment, through the Automation API and a bearer token. The `AMSecurityDomain` resource declares a security domain, and the `AMIdentityProvider`, `AMCertificate`, and `AMReporter` resources declare an identity provider, a certificate, and a reporter of that domain. GKO validates each resource against Access Management before it's stored, and drift detection covers the four domain resources. A domain created this way starts without a default identity provider, certificate, or reporter: declare them with `system: true` to get the defaults Access Management builds. These resources require Access Management 4.13 with the Automation API turned on. For details, see [AMContext](../../overview/custom-resource-definitions/amcontext.md) and [AMSecurityDomain](../../overview/custom-resource-definitions/amsecuritydomain.md).
 
 #### Default roles for group members
 
