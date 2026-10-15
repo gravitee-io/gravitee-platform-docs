@@ -41,6 +41,12 @@ AM now fetches the keys of a trusted issuer under the key retrieval settings of 
 
 Action Required: Before you upgrade AM, move the JWKS endpoint of each trusted issuer to an `https://` URL on a public address. Otherwise, after the upgrade, turn on **Allow unsecured HTTP JWKS URLs** or **Allow JWKS URLs resolving to private IP addresses** on the **Key retrieval** tab of the **Trusted Domains** page. See [Manage Trusted Domains](../../guides/manage-trusted-domains.md#limit-how-keys-are-fetched).
 
+#### **MongoDB subchart is deprecated**
+
+From 4.13.0, the `mongodb-replicaset` subchart of the AM Helm chart is deprecated, and AM 4.15.0 removes it. It runs a `bitnamilegacy` image that no longer receives security updates. The subchart is disabled by default, and a deployment that uses an external MongoDB isn't affected.
+
+If you enable the subchart, move your data to a MongoDB instance deployed outside the chart before you upgrade to 4.15.0. Point `mongo.*` at the new instance, and then set `mongodb-replicaset.enabled` to `false`. For more information, see [Deploy in Kubernetes](deploy-in-kubernetes.md).
+
 ### 4.12.0
 
 **Java 25 runtime requirement**
