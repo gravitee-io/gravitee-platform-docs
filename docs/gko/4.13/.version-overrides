@@ -19,6 +19,16 @@ overview/drift-detection.md
 overview/custom-resource-definitions/README.md
 overview/custom-resource-definitions/catalogmcpserver.md
 overview/custom-resource-definitions/mcpproxy.md
+# Access Management custom resources (GKO 4.13.0 feature, AM-7191)
+README.md
+overview/compatibility-and-limitations.md
+overview/custom-resource-definitions/amcontext.md
+overview/custom-resource-definitions/amsecuritydomain.md
+overview/custom-resource-definitions/amidentityprovider.md
+overview/custom-resource-definitions/amcertificate.md
+overview/custom-resource-definitions/amreporter.md
+# API reference links point at the 4.13.x branch and its CRD folder (#2644 review)
+reference/api-reference.md
 # Group default member roles and the ignore-members and ignore-groups annotations (GKO 4.13.0 feature, APIM-14548)
 overview/custom-resource-definitions/group.md
 guides/manage-api-groups-and-members.md
