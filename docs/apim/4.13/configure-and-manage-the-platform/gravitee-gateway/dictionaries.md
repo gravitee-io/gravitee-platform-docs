@@ -146,8 +146,6 @@ Dictionary properties are encrypted with the same secret as encrypted API proper
 8. Click **Save properties**.
 9. Click **Deploy**.
 
-<!-- TODO: replace dictionaries-screenshot-2.png with a capture of the New property dialog that shows the Encrypt toggle -->
-
 ### Encrypt an existing property
 
 You can encrypt an existing property in a manual dictionary or a dynamic dictionary.
