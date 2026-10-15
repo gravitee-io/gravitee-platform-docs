@@ -66,7 +66,7 @@ The gateways that held the document stop using it. The deletion is permanent.
 
 ## Audit trail
 
-Gravitee records the changes you make to a schema document in the audit trail of the environment. To read it, see [Review organization and environment audit logs](../../../platform-management/review-audit-logs.md). The **Target** of an event holds the ID of the document.
+Gravitee records the changes you make to a schema document in the audit trail of the environment. To read it, see [Review organization and environment audit logs](../../../platform-management/review-audit-logs.md). The **Target** of an event holds the ID of the document. The event type and type filters of the **Audit** page don't offer these events, so narrow the trail with the time filter instead.
 
 | Change | Event |
 |--------|-------|
