@@ -4,7 +4,7 @@ noIndex: false
 description: What your gateways record for each authorization decision, and where you read those records in Authorization Management.
 ---
 
-# Analytics sent to the control plane
+# Decision records
 
 Your gateways record each authorization decision they're asked for, with the rest of their analytics. The **Dashboards** and **Decisions** pages of Authorization Management read those records.
 
