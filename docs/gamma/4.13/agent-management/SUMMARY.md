@@ -65,6 +65,8 @@
     * [Accepted request formats](build/accepted-request-formats.md)
   * [MCP Proxies](build/mcp-proxies/README.md)
     * [Create an MCP proxy](build/create-an-mcp-proxy.md)
+    * [Export and import an MCP Proxy](build/export-and-import-an-mcp-proxy.md)
+    * [Duplicate an MCP Proxy](build/duplicate-an-mcp-proxy.md)
     * [Configure your MCP proxy](build/configure-your-mcp/README.md)
       * [General](build/mcp-proxies/general/README.md)
         * [Configure MCP Proxy notifications](build/configure-mcp-proxy-notifications.md)

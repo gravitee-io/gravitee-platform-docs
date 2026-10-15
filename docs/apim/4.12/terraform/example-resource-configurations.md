@@ -30,14 +30,8 @@ The Gravitee Terraform provider supports the following Gravitee resource types:
 * Subscription
 * Group
 * Dictionary
-* Next-Gen Developer Portal
-* Portal listing
-* Portal documentation page
-* API documentation page
 
 Terraform can create, update, or delete these resources as part of its workflow.
-
-For the Next-Gen Developer Portal resources, see [Portal automation](../developer-portal/new-developer-portal/customize-the-navigation/portal-automation/README.md).
 
 {% hint style="info" %}
 Guides and examples can be found in the [Gravitee "apim" Terraform Registry documentation](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs).

@@ -28,6 +28,7 @@ The following is the list of policies that can be used in AM:
 * **IPFiltering:** Allows or blocks access based on the user's IP address.
 * **Latency:** Introduces artificial delay into a flow.
 * **MFA Challenge (EE):** Enforces users to confirm their identity by using another factor. [Functions that use Gravitee Expression Language](../../am-expression-language.md#functions) can pull information from user profiles. MFA flows let you use multiple MFA for authentication.
+* **PEP AuthZEN (EE):** Asks an external AuthZEN policy decision point whether AM may issue a token. Use this policy in the TOKEN flow. See [PEP AuthZEN Policy](pep-authzen-policy.md).
 * **Rate Limit:** Configures the number of requests allowed over a limited period of time (seconds, minutes).
 * **Send Email:** Sends an email as part of the flow (e.g., for notifications, verifications).
 * **Validate Request:** Validates incoming HTTP requests according to defined criteria (e.g., required fields, values).
