@@ -1,5 +1,5 @@
 ---
-description: Dictionaries let platform administrators manage values across API Management 4.13 APIs, beyond per-API properties. Learn how they work.
+description: Dictionaries let platform administrators manage values across API Management 4.13 APIs, beyond per-API properties, and encrypt sensitive values. Learn how they work.
 ---
 
 # Dictionaries
@@ -10,8 +10,8 @@ While API publishers can create properties for their own APIs, dictionaries prov
 
 Dictionary properties are based on key-value pairs. You can create two types of dictionaries: manual and dynamic.
 
-{% hint style="warning" %}
-APIM doesn't support encrypting dictionary property values. Dictionaries don't have an encryption option, in contrast to API properties. For sensitive values that are scoped to a single API, use encrypted API properties instead of a dictionary. For more information, see [Property Encryption](../../prepare-a-production-environment/production-best-practices/general-recommendations/property-encryption.md).
+{% hint style="info" %}
+You can encrypt the value of a dictionary property that holds a sensitive value. A dictionary can hold encrypted and unencrypted properties side by side. For more information, see [Encrypt dictionary properties](dictionaries.md#encrypt-dictionary-properties).
 {% endhint %}
 
 Dictionaries need to be deployed to the API Gateway before you can use them. You can see the date and time the dictionary was last deployed in the dictionary list:
@@ -117,3 +117,114 @@ When you select **Start**, the properties are added to the list according to the
 <img src="../../.gitbook/assets/configure-dict-dynamic-property-list.png" alt="The Properties list of a dictionary, showing the key and value pairs fetched from the provider across several pages." data-size="original">
 
 </details>
+
+## Encrypt dictionary properties
+
+When you encrypt a dictionary property, APIM stores its value encrypted. The APIM Console and the Management API don't show the value again. They show `••••••••••••` in its place.
+
+The Gateway decrypts the value when the dictionary is deployed. An expression such as `{#dictionaries['<dictionary-id>']['<property-key>']}` resolves to the original value, so you reference an encrypted property the same way as an unencrypted one.
+
+The **Characteristic** column of the **Properties** table shows the state of each property:
+
+* **Encrypted on save**: the property is marked for encryption. APIM encrypts its value when you save the properties.
+* **Encrypted**: the value is stored encrypted.
+* **Unencrypted**: the value is stored as plain text.
+
+{% hint style="warning" %}
+Dictionary properties are encrypted with the same secret as encrypted API properties, `api.properties.encryption.secret`. Set the same custom secret on the Management API and the Gateway. The Gateway can fail to decrypt a value, for example when its secret differs from the one the Management API used. In that case, the Gateway logs an error and the expression resolves to the encrypted value. For more information, see [Property Encryption](../../prepare-a-production-environment/production-best-practices/general-recommendations/property-encryption.md).
+{% endhint %}
+
+### Add an encrypted property to a manual dictionary
+
+1. Open **Settings**.
+2. Click **Dictionaries**.
+3. Click the manual dictionary that you want to update.
+4. Click the <img src="../../.gitbook/assets/Screen Shot 2023-06-28 at 10.22.56 AM.png" alt="A round dark blue button with a white plus sign, used to add a new item." data-size="line"> icon.
+5. In the **New property** dialog, enter a **Name** and a **Value**.
+6. Turn on **Encrypt**.
+7. Click **Add**. The property shows the **Encrypted on save** badge.
+8. Click **Save properties**.
+9. Click **Deploy**.
+
+### Encrypt an existing property
+
+You can encrypt an existing property in a manual dictionary or a dynamic dictionary.
+
+1. Open **Settings**.
+2. Click **Dictionaries**.
+3. Click the dictionary that you want to update.
+4. In the **Properties** table, click the lock icon of the property. The property shows the **Encrypted on save** badge. To cancel before you save, click the clear icon of the property.
+5. Click **Save properties**.
+6. For a manual dictionary, click **Deploy**.
+
+### Replace the value of an encrypted property
+
+You can't edit the value of an encrypted property in place. In a manual dictionary, replace it with a new value:
+
+1. Open **Settings**.
+2. Click **Dictionaries**.
+3. Click the manual dictionary that you want to update.
+4. In the **Properties** table, click the replace icon of the property.
+5. In the **Edit property** dialog, enter the new **Value**.
+6. Click **Save**.
+7. Click **Save properties**.
+8. Click **Deploy**.
+
+The new value is encrypted when you save the properties.
+
+### Encrypt the fetched values of a dynamic dictionary
+
+A dynamic dictionary can encrypt every value that it fetches from its provider.
+
+1. Open **Settings**.
+2. Click **Dictionaries**.
+3. Click the dynamic dictionary that you want to update.
+4. In the **Encryption** section, select **Encrypt fetched values**.
+5. Click **Update**.
+
+Existing plain text values are encrypted the next time they're fetched. Values that are already encrypted aren't changed. If you clear **Encrypt fetched values**, APIM doesn't decrypt the values that are already stored.
+
+### Encrypted property behavior
+
+* **Encryption can't be undone.** APIM doesn't decrypt a stored value. To store a manual dictionary property as plain text again, delete the property, click **Save properties**, and then add the property again without **Encrypt**.
+* **Encrypted properties of a dynamic dictionary stay encrypted.** When a refresh fetches a new value for an encrypted property, APIM encrypts the new value. This applies whether **Encrypt fetched values** is selected or cleared.
+* **Audit entries don't contain encrypted values.** When a change involves an encrypted property, the audit entry doesn't record the property's value.
+
+### Declare encrypted properties with the Automation API
+
+In a manual dictionary manifest for the Automation API, declare encrypted properties under `manual.encryptedProperties`, and unencrypted properties under `manual.properties`. For example:
+
+```json
+{
+  "hrid": "mixed-dict",
+  "name": "Mixed Dictionary",
+  "description": "A dictionary with one plain and one encrypted property",
+  "type": "MANUAL",
+  "deployed": false,
+  "manual": {
+    "properties": {
+      "url": "https://backend"
+    },
+    "encryptedProperties": {
+      "apiKey": {
+        "value": "my secret API key"
+      }
+    }
+  }
+}
+```
+
+* Each entry of `encryptedProperties` takes the plain text `value` to encrypt on save.
+* The Automation API never returns the values of encrypted properties. A client that compares a `GET` response with its manifest doesn't see a difference on those values.
+* A key can't appear in both `properties` and `encryptedProperties`.
+* Moving a key from `encryptedProperties` to `properties` doesn't decrypt it. The property stays encrypted, and its new value is encrypted on save.
+* For a dynamic dictionary, set `dynamic.encryption.encryptOnFetch` to `true` to encrypt every fetched value. The default is `false`.
+
+## Verification
+
+To verify that a dictionary property is encrypted, follow these steps:
+
+1. Open **Settings**.
+2. Click **Dictionaries**.
+3. Click the dictionary.
+4. In the **Properties** table, find the property. Its value shows `••••••••••••` and its **Characteristic** column shows the **Encrypted** badge.

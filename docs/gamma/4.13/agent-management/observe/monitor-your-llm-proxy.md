@@ -20,25 +20,35 @@ Each metered request writes a set of additional metrics onto the request record.
 | `keyword_llm-proxy_model`         | Keyword | Any metered response, whether it carried a usage block or not      | The model named in the response body, falling back to the model the caller requested.                          |
 | `long_llm-proxy_tokens-sent`      | Long    | The response body carried an input token count                     | The whole prompt, including any cache-read and cache-write tokens.                                             |
 | `long_llm-proxy_tokens-received`  | Long    | The response body carried an output token count                    | The output tokens the model produced.                                                                          |
-| `double_llm-proxy_sent-cost`      | Double  | The model is declared on the endpoint **and** both prices are set  | Cost of the input tokens.                                                                                      |
+| `long_llm-proxy_tokens-cached`    | Long    | The provider reported a cache read count, `0` included             | The prompt tokens the provider served from its cache. Part of `tokens-sent`.                                   |
+| `long_llm-proxy_tokens-cache-write` | Long  | The provider reported a cache write count, `0` included            | The prompt tokens the request wrote into the provider's cache. Part of `tokens-sent`.                          |
+| `double_llm-proxy_sent-cost`      | Double  | The model is declared on the endpoint **and** both prices are set  | Cost of the whole prompt, with the cache reads and cache writes at their own prices.                           |
 | `double_llm-proxy_received-cost`  | Double  | Same as above                                                      | Cost of the output tokens.                                                                                     |
+| `double_llm-proxy_cached-cost`    | Double  | The sent cost is published **and** the provider reported a cache read count | Cost of the cache reads. Part of `sent-cost`.                                                          |
+| `double_llm-proxy_cache-write-cost` | Double | The sent cost is published **and** the provider reported a cache write count | Cost of the cache writes. Part of `sent-cost`.                                                        |
 
 Note the following two points before you read any number on the dashboard:
 
 * **The model is the response model, not the request model.** A caller that asks for `gpt-5.6-sol` may be answered by `gpt-5.6-sol-20260712`, and it is the second name that is recorded. This is what you want for cost attribution, because that is the name the price is attached to, but it means the model breakdown will not always match the model names your consumers think they are calling.
-* **`tokens-sent` is the whole prompt.** Cache reads and cache writes are already inside it. Do not add a cached-token figure on top of it.
+* **`tokens-sent` is the whole prompt.** Cache reads and cache writes are already inside it, and their costs are already inside `sent-cost`. Don't add `tokens-cached`, `tokens-cache-write`, or their costs on top of either one.
+
+A cache metric is missing when the provider reported no count for it, and reads `0` when the provider reported a count of zero. No widget of the **LLM — Overview** dashboard charts the four cache metrics, and **Total Tokens** and **Total Cost** already include them.
 
 ### Where cost comes from
 
-Cost is not reported by the provider. The gateway computes it from the token counts and the input and output prices recorded on the model:
+Cost is not reported by the provider. The gateway computes it from the token counts and the prices recorded on the model:
 
 ```
 cost = tokens × price / 1,000,000
 ```
 
+The sent cost prices each part of the prompt at its own rate. Cache reads take the cache read price, cache writes take the cache write price, and the rest of the prompt takes the input price. The received cost prices the output tokens at the output price.
+
 Prices are configured per million tokens on the AI model in the Catalog, and a negotiated price you record there replaces the provider's suggested price wherever cost is computed. See [Add an AI model](../import/add-an-ai-model.md).
 
 Both prices must be set for cost to be published. A price of `0` is valid and means free. An absent price means *unknown*, which is not the same thing, and no cost is recorded for that call.
+
+The cache read and cache write prices are optional. When the provider reports cache reads and the model has no cache read price, the cache reads are billed at the input price. When the provider reports cache writes and the model has no cache write price, the cache writes are billed at the input price. Either case adds a `COST_CACHE_RATE_NOT_FOUND` warning to the request.
 
 ## Open the LLM Overview dashboard
 
@@ -131,6 +141,8 @@ Both are also available in the log viewer, so a filter you settle on here transf
 **A model shows requests, but no tokens and no cost.** The response carried no usage block, so there was nothing to meter. The gateway raises a `KEY_WARN_NO_TOKENS_TRACKING` warning on the request when this happens. It is normal for error responses and for providers or response formats that omit usage, and it is worth investigating if it appears on successful calls.
 
 **Cost is missing for a model that is priced in the Catalog.** The gateway can only price a model that is declared on the LLM Proxy endpoint. If a caller overrides the model at runtime to one the endpoint does not declare, the response is proxied but the cost is not computed, and the gateway raises a `COST_CALCULATION_MODEL_NOT_FOUND` warning. Declare the model on the endpoint, or restrict which models callers may request. See [Override the model at runtime](../build/override-the-model-at-runtime.md).
+
+**A request carries a `COST_CACHE_RATE_NOT_FOUND` warning.** The provider reported cache reads or cache writes for a model with no price for them, so they were billed at the input price. Set **Cache read / 1M tokens** or **Cache write / 1M tokens** on the model in the Catalog under **AI Models**. Use `0` when the provider doesn't charge for it, and then republish the LLM Proxy. See [Price the prompt cache](../import/add-an-ai-model.md#price-the-prompt-cache).
 
 **The dashboard is empty.** Confirm the proxy is deployed and has received traffic inside the selected time range, then widen the time range. If the environment-wide dashboard has data but the per-proxy view does not, the **API** filter is pinned to a proxy with no traffic.
 

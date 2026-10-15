@@ -29,3 +29,6 @@ overview/custom-resource-definitions/amcertificate.md
 overview/custom-resource-definitions/amreporter.md
 # API reference links point at the 4.13.x branch and its CRD folder (#2644 review)
 reference/api-reference.md
+# Group default member roles and the ignore-members and ignore-groups annotations (GKO 4.13.0 feature, APIM-14548)
+overview/custom-resource-definitions/group.md
+guides/manage-api-groups-and-members.md

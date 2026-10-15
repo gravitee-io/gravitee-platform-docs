@@ -15,6 +15,7 @@ This page describes the new features and breaking changes introduced in GKO 4.13
 * Drift detection checks an update to a resource against the resource's current state in APIM, so a change made in APIM isn't replaced without notice.
 * `CatalogMcpServer` and `McpProxy` resources register MCP servers in the Agent Management Catalog and declare MCP proxies.
 * `AMContext`, `AMSecurityDomain`, `AMIdentityProvider`, `AMCertificate`, and `AMReporter` resources manage Access Management security domains, with their identity providers, certificates, and reporters, from Kubernetes.
+* A `Group` resource sets the default roles of new members, and two annotations leave group members, and the groups of APIs and applications, to APIM.
 
 {% hint style="info" %}
 The Gateway API updates listed on this page are also available in GKO 4.12 starting with version 4.12.11.
@@ -30,7 +31,7 @@ In earlier releases, GKO ignored the `spec.infrastructure.parametersRef` field o
 
 ## New features
 
-The following features extend the Kubernetes Gateway API support in GKO, and add drift detection for the resources that GKO manages in APIM. GKO also adds resources for Agent Management MCP servers and MCP proxies, and for Access Management security domains.
+The following features extend the Kubernetes Gateway API support in GKO, and add drift detection for the resources that GKO manages in APIM. GKO also adds resources for Agent Management MCP servers and MCP proxies, and for Access Management security domains. Groups gain default roles for new members, and annotations leave group members and the groups of APIs and applications to APIM.
 
 #### Gateway API v1.6.1
 
@@ -69,3 +70,11 @@ The `CatalogMcpServer` resource registers an MCP server in the Catalog of Agent 
 #### Access Management security domains
 
 The `AMContext` resource connects GKO to an Access Management organization and environment, through the Automation API and a bearer token. The `AMSecurityDomain` resource declares a security domain, and the `AMIdentityProvider`, `AMCertificate`, and `AMReporter` resources declare an identity provider, a certificate, and a reporter of that domain. GKO validates each resource against Access Management before it's stored, and drift detection covers the four domain resources. A domain created this way starts without a default identity provider, certificate, or reporter: declare them with `system: true` to get the defaults Access Management builds. These resources require Access Management 4.13 with the Automation API turned on. For details, see [AMContext](../../overview/custom-resource-definitions/amcontext.md) and [AMSecurityDomain](../../overview/custom-resource-definitions/amsecuritydomain.md).
+
+#### Default roles for group members
+
+The `defaultMemberRoles` field of a `Group` resource sets the role that a user receives on APIs, applications, and API Products when they join the group, including users who log in through an identity provider that maps them to the group. When the field is omitted, APIM keeps the group's default roles as they are. The field requires APIM 4.14.0 or later. For details, see [Group](../../overview/custom-resource-definitions/group.md#set-default-roles-for-new-members).
+
+#### Members and groups left to APIM
+
+The `gravitee.io/ignore-members` annotation on a `Group` resource stops GKO from adding or removing the group's members, so users who join the group in APIM stay in it. The `gravitee.io/ignore-groups` annotation on an `ApiV4Definition` or `Application` resource keeps the groups that the API or application has in APIM. Both annotations require APIM 4.14.0 or later. Starting with APIM 4.14.0, an update of a `Group` resource also keeps the group settings that only the Console manages. For details, see [Group](../../overview/custom-resource-definitions/group.md#leave-the-members-to-apim) and [Manage API and application groups and members](../../guides/manage-api-groups-and-members.md#leave-the-groups-to-apim).

@@ -30,6 +30,12 @@ A field that neither version of your resource sets isn't reported, even when API
 
 GKO compares your resource in the form it sends to APIM, not the YAML you wrote. Values that your resource takes from templates are compared after GKO resolves them in the version you're applying. Identifiers that APIM generates aren't compared. Most other fields must match exactly. For some fields, GKO ignores differences that don't change the meaning. For example, it accepts a date written in another time zone, or an empty list compared with a list that isn't set. Lists such as endpoint groups are compared item by item and in order, so reordering their items in APIM counts as drift.
 
+GKO doesn't compare the fields that a resource leaves to APIM:
+
+* The default roles of a `Group` that doesn't declare `defaultMemberRoles`. When the field is declared, the default roles are compared.
+* The members of a `Group` with the `gravitee.io/ignore-members: "true"` annotation.
+* The groups of an `ApiV4Definition` or an `Application` with the `gravitee.io/ignore-groups: "true"` annotation.
+
 Drift detection has the following requirements:
 
 * The resource is synchronized with APIM through a `ManagementContext`. A subscription, a documentation page, a portal link, or a portal listing uses the `ManagementContext` of the resource it belongs to. An `ApiV4Definition` without a `contextRef` isn't checked. An Access Management resource is checked through the `AMContext` of its security domain.

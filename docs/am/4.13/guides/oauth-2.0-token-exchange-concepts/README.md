@@ -21,4 +21,4 @@ Gravitee Access Management supports two Token Exchange paradigms:
 * The `client_id` claim in the issued token identifies the requesting client.
 * When an ID token is requested, it is returned in the `access_token` response field with the `token_type` set to `"N_A"`.
 
-This implementation allows administrators to configure trusted external JWT issuers, scope handling modes, and user binding rules. It is designed for API platform administrators managing cross-domain authentication and developers integrating token-based workflows.
+This implementation allows administrators to configure scope handling modes and to trust external JWT issuers through [trusted domains](../manage-trusted-domains.md), with their scope mappings and user binding rules. A security domain can also issue ID-JAGs through token exchange for [Cross App Access](../auth-protocols/oauth-2.0/cross-app-access.md). It's designed for API platform administrators managing cross-domain authentication and developers integrating token-based workflows.
