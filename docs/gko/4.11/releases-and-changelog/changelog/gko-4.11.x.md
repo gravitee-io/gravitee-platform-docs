@@ -4,6 +4,18 @@ description: Every patch release in the Gravitee Kubernetes Operator 4.11 series
 
 # GKO 4.11.x
 
+## Gravitee Kubernetes Operator 4.11.30 - October 15, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Subscription admission webhook compares ManagementContext names instead of resolved environment, blocking valid cross-context subscriptions [#11647](https://github.com/gravitee-io/issues/issues/11647)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.11.29 - October 6, 2026
 
 There is nothing new in version 4.11.29.
