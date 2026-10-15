@@ -279,7 +279,7 @@ API Management gains a file-based path for building and updating API proxies. Ea
 
 #### Federated APIs in API Proxies
 
-* The **API Proxies** list includes the federated APIs ingested from integrations once Federation is turned on and licensed, with **Federated API** in the **API Type** column, the provider in the **Origin** column, and a **Federated API** option in the **API Type** filter. The API Management card of the home page counts them too.
+* The **API Proxies** list includes the federated APIs ingested from integrations once Federation is turned on and the installation has a valid Enterprise Edition license, with **Federated API** in the **API Type** column, the provider in the **Origin** column, and a **Federated API** option in the **API Type** filter. The API Management card of the home page counts them too.
 * A federated API opens on its **Settings** page, whose **Details** panel links to the source integration under **From integration**. Its sidebar keeps only **Settings**, **User Permissions**, **Metadata**, and **API Score** under **General**, the **Consumers** group, and **Audit Logs** under **Monitoring**.
 * See [Manage general settings](../api-management/build/configure-your-api-proxy/manage-general-settings.md#federated-apis) and [Manage integrations](manage-integrations.md).
 
@@ -584,7 +584,7 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Connect Gravitee to a third-party API gateway or event broker from the **Integrations** page under **APIs & Assets** in the **Environment** section. Pick one of nine providers, name the integration, and run its federation agent with the **Integration ID** that the **Overview** shows.
 * Once the agent is **Connected**, **Discover** lists the APIs of the provider as **New** or **Update**, and **Ingest** creates or refreshes the federated APIs in the background.
 * Edit the integration's name and description, delete its federated APIs or the integration itself, and manage its members and groups from the **Configuration** page.
-* The page appears once Federation is turned on and licensed for the installation, for people whose role can read the environment's integrations.
+* The page appears once Federation is turned on and the installation has a valid Enterprise Edition license, for people whose role can read the environment's integrations.
 * See [Manage integrations](manage-integrations.md).
 
 #### Manage platform policies

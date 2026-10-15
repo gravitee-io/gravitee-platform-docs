@@ -12,7 +12,7 @@ The **Integrations** page of the **Environment** section lists the integrations 
 
 ## Prerequisites
 
-* Federation turned on for your installation, and a license that includes it and hasn't expired. Until both are in place, the **Integrations** item doesn't appear in the sidebar, and its pages send you to the **Applications** page, or to the first page of the sidebar when you can't open **Applications**. For more information, see [Federation](https://documentation.gravitee.io/apim/govern-apis/federation) in the API Management documentation.
+* Federation turned on for your installation, and an Enterprise Edition license that hasn't expired. Until both are in place, the **Integrations** item doesn't appear in the sidebar, and its pages send you to the **Applications** page, or to the first page of the sidebar when you can't open **Applications**. For how to turn Federation on, see [Federation](https://documentation.gravitee.io/apim/govern-apis/federation) in the API Management documentation.
 * A role that can read the environment's integrations. Without it, the **Integrations** item doesn't appear either.
 
 Which integrations you see depends on your role. Someone with the organization's administrator role sees every integration of the environment. Anyone else sees the integrations they're a member of, directly or through a group.
