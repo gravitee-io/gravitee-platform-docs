@@ -55,7 +55,7 @@
 
 ## Guides
 
-* [Manage SPIFFE Trust Domains](guides/manage-spiffe-trust-domains.md)
+* [Manage Trusted Domains](guides/manage-trusted-domains.md)
 * [OAuth 2.0 Token Exchange](guides/oauth-2.0-token-exchange-concepts/README.md)
   * [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-configuration-reference.md)
   * [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md)
@@ -68,6 +68,7 @@
     * [Best Practices](guides/auth-protocols/oauth-2.0/best-practices.md)
     * [Refresh Tokens](guides/auth-protocols/oauth-2.0/refresh-tokens.md)
     * [Extension Grants](guides/auth-protocols/oauth-2.0/extension-grants.md)
+    * [Cross App Access](guides/auth-protocols/oauth-2.0/cross-app-access.md)
     * [Dynamic Redirect URI Parameters](guides/auth-protocols/oauth-2.0/dynamic-redirect-uri-parameters.md)
     * [CIMD](guides/auth-protocols/oauth-2.0/cimd.md)
   * [OpenID Connect](guides/auth-protocols/openid-connect.md)
@@ -170,6 +171,7 @@
   * [Notification Channels](guides/alerts/notification-channels.md)
 * [Flows](guides/flows/README.md)
   * [Policies](guides/flows/policies/README.md)
+    * [PEP AuthZEN Policy](guides/flows/policies/pep-authzen-policy.md)
     * [Rate Limit Policy](guides/flows/policies/rate-limit-policy.md)
 * [Administration](guides/administration.md)
 * [Entrypoints](guides/entrypoints.md)
@@ -189,7 +191,7 @@
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
   * [AM 4.13](releases-and-changelog/release-notes/am-4.13.md)
-  * [AM 4.12](releases-and-changelog/release-notes/am-4.12.md)
+  * [AM 4.12](https://documentation.gravitee.io/am/4.12/releases-and-changelog/release-notes/am-4.12)
   * [AM 4.11](https://app.gitbook.com/s/O4b17m2YAjS2X1XTCh88/releases-and-changelog/release-notes/am-4.11)
   * [AM 4.10](https://documentation.gravitee.io/am/releases-and-changelog/release-notes/am-4.10)
   * [AM 4.9](https://documentation.gravitee.io/am/4.9/releases-and-changelog/release-notes/am-4.9)
@@ -203,7 +205,7 @@
   * [AM 4.1](https://documentation.gravitee.io/am/4.1/releases-and-changelog/release-notes/am-4.1)
   * [AM 4.0](https://documentation.gravitee.io/am/4.0/releases-and-changelog/release-notes/am-4.0)
 * [Changelog](releases-and-changelog/changelog/README.md)
-  * [AM 4.12.x](releases-and-changelog/changelog/am-4.12.x.md)
+  * [AM 4.12.x](https://documentation.gravitee.io/am/4.12/releases-and-changelog/changelog/am-4.12.x)
   * [AM 4.11.x](https://app.gitbook.com/s/O4b17m2YAjS2X1XTCh88/releases-and-changelog/changelog/am-4.11.x)
   * [AM 4.10.x](https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/releases-and-changelog/changelog/am-4.10.x)
   * [AM 4.9.x](https://documentation.gravitee.io/am/4.9/releases-and-changelog/changelog/am-4.9.x)

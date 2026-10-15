@@ -9,8 +9,7 @@ The MongoDB chart will be removed from the gravitee chart dependencies in 4.14.
 #### Repositories configuration
 
 The Management API now configures only to the management repository. It no longer sets up the `gateway` and `oauth2` repositories, and the default management `gravitee.yml` no longer has the `repositories.gateway`, `repositories.oauth2` sections. If those keys are still in your Management API config, they are ignored.
-Those `repositories.gateway`, `repositories.oauth2` sections were not used since AM 4.7 but due to legacy code their were required to be present.
-Now that the legacy code has been removed, the configuraiton has been cleaned up.
+These `repositories.gateway`, `repositories.oauth2` sections, which were unused since AM 4.7 but were required to be present, can now be cleaned up.
 
 #### Trusted domains: One place to manage external trust
 
@@ -47,21 +46,21 @@ Action Required: If you are currently using this feature, you must transition to
  * Define password policies and link them directly to your Identity Providers.
  * Implement a default password policy at the Domain level.
 
-#### **AuthenticationFlowContextService has a new package**
-
-The interface moved from `io.gravitee.am.service.AuthenticationFlowContextService` to `io.gravitee.am.gateway.handler.common.service.AuthenticationFlowContextService`. Custom plugins that import it need to change the import and be rebuilt.
-
-#### **ExtensionGrantProvider interface has evolved**
-
-The interface `io.gravitee.am.extensiongrant.api.AuthenticationFlowContextService` has evolved.
-Custom plugins that import it need to be adapted and be rebuilt.
-
 #### **Automation API rejects a data plane change on an existing security domain**
 
 A domain `PUT` to the Automation API that names a different `dataPlaneId` for an existing security domain is now rejected with `400` and the message `Once domain is created, [dataPlaneId] cannot be changed.` Before 4.13, the request succeeded and the new value was ignored.
 
 Action Required: Before you upgrade AM, set `dataPlaneId` in each security domain definition to the data plane the security domain already uses.
 
+## Custom plugins
+
+#### **AuthenticationFlowContextService has a new package**
+
+The interface moved from `io.gravitee.am.service.AuthenticationFlowContextService` to `io.gravitee.am.gateway.handler.common.service.AuthenticationFlowContextService`. Custom plugins that import it need to change the import and be rebuilt.
+
+#### **ExtensionGrantProvider interface has evolved**
+
+The `io.gravitee.am.extensiongrant.api.ExtensionGrantProvider` interface has evolved. Custom plugins that implement it need to be adapted and rebuilt.
 
 ## New Features
 
@@ -97,6 +96,18 @@ Action Required: Before you upgrade AM, set `dataPlaneId` in each security domai
 * The AM Gateway endpoints that accept an access token, such as the UserInfo endpoint, the dynamic client registration endpoints, the UMA 2.0 protection API, and the SCIM 2.0 endpoints, reject a DPoP-bound token that's presented without a valid proof or with the `Bearer` scheme. Tokens issued without a proof keep working as bearer tokens.
 * The new **DPoP-bound access tokens** application setting and the new **Require DPoP for all clients** security domain setting make the proof mandatory at the token endpoint. The security domain settings also carry an allowlist of proof signing algorithms, which the OpenID discovery document advertises as `dpop_signing_alg_values_supported`.
 * New `handlers.oauth2.dpop` properties in the AM Gateway `gravitee.yml` control the validity window of a proof and the replay cache. See [Demonstrating Proof of Possession (DPoP)](../../guides/auth-protocols/oauth-2.0/demonstrating-proof-of-possession-dpop.md) for the configuration and the client contract.
+
+#### **Cross App Access with ID-JAG**
+
+* A security domain can issue identity assertion JWT authorization grants (ID-JAGs) through OAuth 2.0 token exchange, so that an application a user signed in to gets an access token from another application's authorization server without a second sign-in. The new **ID-JAG (Cross App Access)** requested token type, the **Cross App Access** section of the application and MCP server settings, and the **ID-JAG** lifetime and **ID_JAG** custom claims of the token settings control the issuance.
+* A trusted domain with the **Cross App Access** usage describes the other application's authorization server: its issuer URL, the resource servers behind it, an `aud_sub` expression, and the scope names it knows.
+* A security domain can also redeem ID-JAGs, for its MCP servers, from an identity provider it trusts through an **OpenID** identity provider. The new **Cross App Access** extension grant handles the `urn:ietf:params:oauth:grant-type:jwt-bearer` grant type for ID-JAGs. It's an Enterprise Edition plugin bundled with the Enterprise Edition distribution.
+* A DPoP proof sent with the token exchange binds the ID-JAG to the proof key, and AM requires a proof of the same key when it redeems a bound ID-JAG. See [Cross App Access](../../guides/auth-protocols/oauth-2.0/cross-app-access.md).
+
+#### **PEP AuthZEN policy**
+
+* The new PEP AuthZEN policy asks an external AuthZEN policy decision point whether AM may issue a token. In the TOKEN flow, it sends the subject, the resource, the action, and the context of the request to the decision point, and AM issues the token only when the decision point permits it.
+* The policy can authenticate to the decision point with an access token of a client of the security domain, and AM records each decision in the audit event of the token request. The policy is an Enterprise Edition plugin bundled with the Enterprise Edition distribution. See [PEP AuthZEN Policy](../../guides/flows/policies/pep-authzen-policy.md).
 
 #### **Reporter attribute mapping**
 

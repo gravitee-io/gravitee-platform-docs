@@ -5,6 +5,8 @@
 # the Lint Version Overrides check flags divergent 4.13 edits that need one.
 SUMMARY.md
 .gitbook.yaml
+# Tombstones: these pages live in 4.12 and are linked from SUMMARY.
+# Keep the entries so version sync does not copy the files back.
 releases-and-changelog/release-notes/am-4.12.md
 releases-and-changelog/changelog/am-4.12.x.md
 getting-started/configuration/configure-repositories.md
@@ -61,3 +63,24 @@ guides/identity-providers/database-identity-providers/mongodb.md
 getting-started/install-and-upgrade-guides/upgrade-guide.md
 # AM Terraform provider (AM 4.13.0 feature, AM-7790)
 guides/manage-am-with-terraform.md
+# Cross App Access, trusted domains, and the PEP AuthZEN policy (AM 4.13.0 feature, AM-7345)
+guides/manage-trusted-domains.md
+guides/auth-protocols/oauth-2.0/cross-app-access.md
+guides/auth-protocols/oauth-2.0/extension-grants.md
+guides/flows/policies/pep-authzen-policy.md
+guides/flows/policies/README.md
+guides/oauth-2.0-token-exchange-concepts/README.md
+guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-configuration-reference.md
+guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md
+guides/using-oauth-2.0-token-exchange.md
+guides/security-domains/configure-spiffe-and-cimd-settings.md
+guides/applications/spiffe-workload-identity-and-agent-applications-overview.md
+.gitbook/assets/am-trusted-domain-usage.png
+.gitbook/assets/am-trusted-domain-cross-app-access.png
+.gitbook/assets/am-trusted-domains-key-retrieval.png
+.gitbook/assets/am-trusted-domains-list.png
+.gitbook/assets/am-token-exchange-cross-app-access.png
+.gitbook/assets/am-application-cross-app-access.png
+.gitbook/assets/am-extension-grant-cross-app-access.png
+.gitbook/assets/am-pep-authzen-policy-token-flow.png
+.gitbook/assets/am-spiffe-workload-identity-settings.png

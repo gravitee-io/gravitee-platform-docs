@@ -279,7 +279,7 @@ API Management gains a file-based path for building and updating API proxies. Ea
 
 ### Authorization Management
 
-Authorization Management imports principals from SCIM 2.0 directories. A directory reads the users and groups of an identity provider when you sync it or on its schedule. Every sync leaves a report of what it imported, changed, and left out. A new **Testing** group adds the **Policy Simulator** and the **Access Explorer**, which test MCP policies before you deploy them.
+Authorization Management imports principals from SCIM 2.0 directories. A directory reads the users and groups of an identity provider when you sync it or on its schedule. Every sync leaves a report of what it imported, changed, and left out. A new **Testing** group adds the **Policy Simulator** and the **Access Explorer**, which test MCP policies before you deploy them. Authorization Management keeps the schema as documents, and sends each document to the gateways that host the PDP gateway it's assigned to.
 
 #### SCIM directories
 
@@ -305,6 +305,14 @@ Authorization Management imports principals from SCIM 2.0 directories. A directo
 * Both pages decide in your browser from the stored policies, so nothing needs to be deployed. **Verify against engine** checks each decision with the authorization engine, using the policies and entities stored for the environment.
 * The menu on each row of a policy list adds **Deploy to PDP**, **Undeploy**, and **Clone**. **Clone** saves a copy of the policy as a draft.
 * See [Simulate policy decisions](../authorization-management/test/simulate-policy-decisions.md) and [Explore a principal's access](../authorization-management/test/explore-a-principals-access.md).
+
+#### Schema documents
+
+* The **Schemas** item of the **Policy Structure** group opens the schema documents. Each document declares entity types, relationships, and actions in GAPL, and is assigned to one PDP gateway, to the **Bootstrap PDP**, or to none.
+* A PDP gateway holds one document. Each save of a document sends it to the gateways that host its PDP gateway. An unassigned document reaches no gateway.
+* Documents on PDP gateways of one environment that share a **Target PDP ID** meet on some gateways, and so do documents of different environments on the built-in engine. Where two documents meet, a save is refused if it makes them declare a shared type or action differently. **Where documents meet** lists each pair and the gateways where it's composed.
+* An environment's schema from before 4.13 becomes a document named **Default schema**, set to **Unassigned**.
+* See [Schema documents](../authorization-management/manage/schemas/schema-generation.md).
 
 ### Developer Portals
 

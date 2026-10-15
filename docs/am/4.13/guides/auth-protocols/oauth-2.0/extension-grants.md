@@ -148,3 +148,7 @@ As we can see, we now have an AM-managed access token:
 }
 
 ```
+
+## Cross App Access
+
+The **Cross App Access** extension grant redeems an identity assertion JWT authorization grant (ID-JAG) for an access token. It uses the same `urn:ietf:params:oauth:grant-type:jwt-bearer` grant type as JWT Bearer. AM sends an assertion whose `typ` header is `oauth-id-jag+jwt` to the Cross App Access extension grant, and any other assertion to JWT Bearer. An application can therefore use both. The Cross App Access extension grant is an Enterprise Edition plugin. See [Cross App Access](cross-app-access.md).
