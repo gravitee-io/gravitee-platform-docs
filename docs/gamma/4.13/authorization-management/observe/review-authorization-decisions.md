@@ -24,7 +24,7 @@ A few columns need a word of explanation:
 
 * **Decision** reads **Permit**, **Forbid**, or **Not applicable**. It reads **Not ready** when the PDP gateway hadn't loaded its policies yet, and **Error** when the evaluation failed for another reason.
 * **Reason** is cut after 60 characters. Hover over the cell to read the reasons in full. When a failed decision carries no reason, the cell shows the error type instead.
-* **Engine generation** is the generation of the policy set the PDP gateway evaluated. A decision that failed or wasn't evaluated shows **default** under **PDP** and `0` under **Engine generation**.
+* **Engine generation** is the generation of the policy set the PDP gateway evaluated. **default** under **PDP** is the default engine of the gateway. A decision that failed or wasn't evaluated also shows **default** under **PDP**, with `0` under **Engine generation**.
 * `Eval time` reads **—** for a decision the PDP never evaluated.
 
 Three columns are hidden by default. Select **View**, and then select the columns to show:
