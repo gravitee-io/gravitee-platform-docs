@@ -41,7 +41,7 @@ To see the decisions behind a figure, open **Decisions** for the same time range
 
 ## Build your own dashboard
 
-The **Authorization — Overview** dashboard is a template, so you can't edit it in place. To change it, select the **⋮** menu at the top right of the dashboard, and then select **Duplicate as custom dashboard**. The copy opens for editing. To start from an empty dashboard, select **New dashboard** on the **Dashboards** page. Both actions need the right to create dashboards in the environment. Without it, the action fails and an error message appears.
+The **Authorization — Overview** dashboard is a template, so you can't edit it in place. To change it, select the **⋮** menu at the top right of the dashboard, and then select **Duplicate as custom dashboard**. The copy opens for editing. The widget editor doesn't list the decision metrics, such as `AUTHZ_DECISIONS` or `AUTHZ_FORBIDS`, so to change what a widget counts, select **JSON** and change the `metric` of the widget. To start from an empty dashboard, select **New dashboard** on the **Dashboards** page, and add decision widgets in the **JSON** view too. Both actions need the right to create dashboards in the environment. Without it, the action fails and an error message appears.
 
 ## Verification
 
