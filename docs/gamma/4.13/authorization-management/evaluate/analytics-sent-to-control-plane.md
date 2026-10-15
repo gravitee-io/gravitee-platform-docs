@@ -32,7 +32,7 @@ Each record holds at least the following information:
 
 ## What has to be in place
 
-Decision records are stored with the gateway's other analytics in Elasticsearch, and the pages read them from there. An installation that stores no analytics in Elasticsearch shows empty **Dashboards** and **Decisions** pages. Gateways record decisions by default.
+The Elasticsearch reporter of the gateway writes decision records to the `gravitee-decisions-*` data streams, and the pages read them from there. An installation that stores no analytics in Elasticsearch shows empty **Dashboards** and **Decisions** pages. Gateways record decisions by default. To apply an index lifecycle policy to the decision data streams, set its name under `reporters.elasticsearch.lifecycle.policies.decisions` in `gravitee.yml`. With the Helm chart, set `es.lifecycle.enabled` to `true` and `es.lifecycle.policies.decisions` to the name of the policy.
 
 The pages show the decisions requested on the APIs you can read. When you can't read any API, both pages are empty.
 
