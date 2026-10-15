@@ -27,7 +27,7 @@ Each record holds at least the following information:
 * The decision, and what the caller enforced.
 * The principal, the action, and the resource.
 * The policies that matched, with their revision, and the reasons the PDP gave.
-* The PDP gateway that evaluated the decision, the generation of the policy set it evaluated, and how long the evaluation took. A decision that failed or wasn't evaluated records **default** as the PDP gateway and `0` as the generation.
+* The PDP gateway that evaluated the decision, the generation of the policy set it evaluated, and how long the evaluation took. A decision evaluated by the default engine of the gateway records **default** as the PDP gateway. A decision that failed or wasn't evaluated also records **default**, with `0` as the generation.
 * The API the decision was requested on, with its plan and application when there's one, and the ID of the request.
 
 ## What has to be in place
