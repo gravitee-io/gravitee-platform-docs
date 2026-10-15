@@ -28,9 +28,11 @@ To open **Integrations**, complete the following steps:
 
     <figure><img src=".gitbook/assets/gamma-platform-integrations.png" alt="The Integrations page, selected under APIs & Assets in the Environment section, listing four Docbot integrations with their provider and a Disconnected status, and the Create integration button."><figcaption><p>The Integrations page lists the integrations of the environment with their provider and the status of their agent.</p></figcaption></figure>
 
-Each row shows the integration's provider and whether its agent is **Connected** or **Disconnected**. The A2A integrations of the environment are listed too, with **A2A Protocol** as their provider and no status, but you can't open or create them from this page. Until you can see an integration, the page reads **No integrations yet**.
+Each row shows the integration's provider and whether its agent is **Connected** or **Disconnected**. The A2A integrations of the environment are listed too, with **A2A Protocol** as their provider and no status, but you can't open or create them from this page. When no integration is visible to you, the page reads **No integrations yet**.
 
 ## Create an integration
+
+Under **API gateways**, the providers are **Apigee**, **AWS API Gateway**, **Azure API Management**, **Edge Stack**, **IBM API Connect**, **MuleSoft**, and **SAP Business Technology Platform**. Under **Event brokers**, they're **Confluent Platform** and **Solace**.
 
 To create an integration, complete the following steps:
 
@@ -43,8 +45,6 @@ To create an integration, complete the following steps:
 4. Click **Create integration**.
 
 The integration's **Overview** opens, and the message **Integration \<name> created successfully** confirms the creation. If the creation fails, a message says why, and the form keeps your values.
-
-Under **API gateways**, the providers are **Apigee**, **AWS API Gateway**, **Azure API Management**, **Edge Stack**, **IBM API Connect**, **MuleSoft**, and **SAP Business Technology Platform**. Under **Event brokers**, they're **Confluent Platform** and **Solace**.
 
 A new integration shows **Disconnected** until its federation agent connects. The agent needs the **Integration ID** shown on the **Overview**, and the credentials of the provider. For more information, see [The federation agent](https://documentation.gravitee.io/apim/govern-apis/federation/integrations#the-federation-agent) in the API Management documentation.
 
