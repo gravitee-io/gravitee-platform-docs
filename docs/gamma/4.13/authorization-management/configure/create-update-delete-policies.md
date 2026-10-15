@@ -188,7 +188,7 @@ The following table lists the permission each policy action requires:
 
 ## Audit trail
 
-Gravitee records the changes you make to a policy in the audit trail of the environment. To read it, see [Review organization and environment audit logs](../../platform-management/review-audit-logs.md). The **Target** of an event holds the ID of the policy. An event carries the policy before and after the change, with its text and the PDP gateways it targets.
+Gravitee records the changes you make to a policy in the audit trail of the environment. To read it, see [Review organization and environment audit logs](../../platform-management/review-audit-logs.md). The **Target** of an event holds the ID of the policy. An event carries the policy before and after the change, with its text and the PDP gateways it targets. The event type and type filters of the **Audit** page don't offer these events, so narrow the trail with the time filter instead.
 
 | Change | Event |
 |--------|-------|
