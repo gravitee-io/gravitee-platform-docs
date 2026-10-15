@@ -176,6 +176,7 @@
 * [Administration](guides/administration.md)
 * [Entrypoints](guides/entrypoints.md)
 * [Automation API](guides/automation-api.md)
+* [Manage AM with Terraform](guides/manage-am-with-terraform.md)
 * [AM Expression Language](guides/am-expression-language.md)
 * [Developer Contributions](guides/developer-contributions.md)
   * [Using OAuth 2.0 Token Exchange](guides/using-oauth-2.0-token-exchange.md)
