@@ -62,7 +62,7 @@ Besides **API** and **Request ID**, the following filters apply to decisions:
 
 ## Open a decision
 
-Select a row to open the decision in a side panel. The panel holds the following sections, one open at a time, starting with **Decision**:
+Select a row to open the decision in a side panel. The panel needs the `API_LOG[READ]` permission on the API the decision was requested on. Without it, the panel reads **Log not found**. The panel holds the following sections, one open at a time, starting with **Decision**:
 
 * **Decision**: the **Outcome**, **Enforced**, **Verdict**, **Indeterminate cause**, **Error type**, **Subject**, **Action**, **Resource**, **Caller**, **PDP**, **Engine generation**, `Eval time`, and **Request ID** of the decision. A decision from a batch request also shows **Batch**, for example `2 of 3 (shared request)`.
 * **Reasons**: every reason the PDP gave, numbered. The section is shown only when the decision carries a reason.
