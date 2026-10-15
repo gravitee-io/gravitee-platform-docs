@@ -23,7 +23,7 @@ The page opens on **Last 5 minutes** with **Live** on, so the list refreshes eve
 A few columns need a word of explanation:
 
 * **Decision** reads **Permit**, **Forbid**, or **Not applicable**. It reads **Not ready** when the PDP gateway hadn't loaded its policies yet, and **Error** when the evaluation failed for another reason.
-* **Reason** is cut after 60 characters. Hover over the cell to read the reasons in full. When a failed decision carries no reason, the cell shows the error type instead.
+* **Reason** is cut after 60 characters. Hover over the cell to read the reasons in full. When a failed decision carries no reason, the cell shows the error type instead. By default, a reason names the policy and the statement that decided, counted from `#0`, such as `Permitted by policy 'Orders read#0'`. To report your own text, annotate the statement in the policy with `@reason("…")`. To rename the statement under **Matched policies**, annotate it with `@id("…")`.
 * **Engine generation** is the generation of the policy set the PDP gateway evaluated. **default** under **PDP** is the default engine of the gateway. A decision that failed or wasn't evaluated also shows **default** under **PDP**, with `0` under **Engine generation**.
 * `Eval time` reads **—** for a decision the PDP never evaluated.
 
