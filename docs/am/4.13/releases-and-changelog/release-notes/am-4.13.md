@@ -9,8 +9,7 @@ The MongoDB chart will be removed from the gravitee chart dependencies in 4.14.
 #### Repositories configuration
 
 The Management API now configures only to the management repository. It no longer sets up the `gateway` and `oauth2` repositories, and the default management `gravitee.yml` no longer has the `repositories.gateway`, `repositories.oauth2` sections. If those keys are still in your Management API config, they are ignored.
-Those `repositories.gateway`, `repositories.oauth2` sections were not used since AM 4.7 but due to legacy code their were required to be present.
-Now that the legacy code has been removed, the configuraiton has been cleaned up.
+These `repositories.gateway`, `repositories.oauth2` sections, which were unused since AM 4.7 but were required to be present, can now be cleaned up.
 
 #### Trusted domains: One place to manage external trust
 
@@ -47,21 +46,21 @@ Action Required: If you are currently using this feature, you must transition to
  * Define password policies and link them directly to your Identity Providers.
  * Implement a default password policy at the Domain level.
 
-#### **AuthenticationFlowContextService has a new package**
-
-The interface moved from `io.gravitee.am.service.AuthenticationFlowContextService` to `io.gravitee.am.gateway.handler.common.service.AuthenticationFlowContextService`. Custom plugins that import it need to change the import and be rebuilt.
-
-#### **ExtensionGrantProvider interface has evolved**
-
-The interface `io.gravitee.am.extensiongrant.api.AuthenticationFlowContextService` has evolved.
-Custom plugins that import it need to be adapted and be rebuilt.
-
 #### **Automation API rejects a data plane change on an existing security domain**
 
 A domain `PUT` to the Automation API that names a different `dataPlaneId` for an existing security domain is now rejected with `400` and the message `Once domain is created, [dataPlaneId] cannot be changed.` Before 4.13, the request succeeded and the new value was ignored.
 
 Action Required: Before you upgrade AM, set `dataPlaneId` in each security domain definition to the data plane the security domain already uses.
 
+## Custom plugins
+
+#### **AuthenticationFlowContextService has a new package**
+
+The interface moved from `io.gravitee.am.service.AuthenticationFlowContextService` to `io.gravitee.am.gateway.handler.common.service.AuthenticationFlowContextService`. Custom plugins that import it need to change the import and be rebuilt.
+
+#### **ExtensionGrantProvider interface has evolved**
+
+The `io.gravitee.am.extensiongrant.api.ExtensionGrantProvider` interface has evolved. Custom plugins that implement it need to be adapted and rebuilt.
 
 ## New Features
 
