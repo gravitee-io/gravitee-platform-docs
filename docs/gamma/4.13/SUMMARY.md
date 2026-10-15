@@ -394,6 +394,9 @@
   * [Policy syncs](authorization-management/evaluate/policy-syncs.md)
   * [Analytics sent to the control plane](authorization-management/evaluate/analytics-sent-to-control-plane.md)
   * [Authorization policy synchronization](authorization-management/authz-gateway-sync.md)
+* [Observe](authorization-management/observe/README.md)
+  * [Monitor authorization decisions](authorization-management/observe/monitor-authorization-decisions.md)
+  * [Review authorization decisions](authorization-management/observe/review-authorization-decisions.md)
 
 ## Edge Management
 

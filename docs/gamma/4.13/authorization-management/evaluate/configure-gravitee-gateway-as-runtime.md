@@ -77,6 +77,15 @@ Deleting a PDP gateway removes the engine from the specified gateway. Policies a
 | **Regional** | `eu` | `eu-prod` | Dedicated engine on EU-tagged gateways only |
 | **Multi-tenant** | `tenant-a` | `tenant-a-pdp` | Isolated engine per tenant |
 
+## Audit trail
+
+Gravitee records the registration and deletion of a PDP gateway in the audit trail of the environment. To read it, see [Review organization and environment audit logs](../../platform-management/review-audit-logs.md). The **Target** of an event holds the internal ID of the PDP gateway, not its **Target PDP ID**. The event type and type filters of the **Audit** page don't offer these events, so narrow the trail with the time filter instead.
+
+| Change | Event |
+|--------|-------|
+| Register a gateway | `PDP_CREATED` |
+| Delete a gateway | `PDP_DELETED` |
+
 ## Next steps
 
 * [Configure a sidecar as runtime](configure-sidecar-as-runtime.md) — Non-gateway deployment pattern
