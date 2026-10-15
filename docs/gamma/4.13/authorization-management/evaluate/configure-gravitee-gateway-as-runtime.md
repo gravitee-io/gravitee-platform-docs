@@ -79,7 +79,7 @@ Deleting a PDP gateway removes the engine from the specified gateway. Policies a
 
 ## Audit trail
 
-Gravitee records the registration and deletion of a PDP gateway in the audit trail of the environment. To read it, see [Review organization and environment audit logs](../../platform-management/review-audit-logs.md). The **Target** of an event holds the internal ID of the PDP gateway, not its **Target PDP ID**.
+Gravitee records the registration and deletion of a PDP gateway in the audit trail of the environment. To read it, see [Review organization and environment audit logs](../../platform-management/review-audit-logs.md). The **Target** of an event holds the internal ID of the PDP gateway, not its **Target PDP ID**. The event type and type filters of the **Audit** page don't offer these events, so narrow the trail with the time filter instead.
 
 | Change | Event |
 |--------|-------|
