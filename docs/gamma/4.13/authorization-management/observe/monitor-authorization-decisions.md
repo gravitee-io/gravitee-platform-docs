@@ -49,7 +49,7 @@ To verify that the dashboard reports your decisions, follow these steps:
 
 1. Send an evaluation request to an AuthZEN endpoint of a PDP gateway, or call an API that the PEP policy protects.
 2. Open the **Authorization — Overview** dashboard.
-3. Select the time range at the top right.
+3. Select the time range at the top right. The dashboard counts the decisions up to the start of the current minute, so a request from the current minute appears once the next minute starts.
 4. Under **Last**, select **15 minutes**.
 
     The **Decisions** count of the **Key Metrics** row includes the request, and **Decisions by PDP** lists the PDP gateway that evaluated it.
