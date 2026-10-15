@@ -21,4 +21,6 @@ api:
          secret: <32 byte length secret>
 ```
 
+The same secret encrypts the values of encrypted dictionary properties. For more information, see [Dictionaries](../../../configure-and-manage-the-platform/gravitee-gateway/dictionaries.md#encrypt-dictionary-properties).
+
 You can find additional details about property encryption in [Properties](../../../create-and-configure-apis/apply-policies/v4-api-policy-studio.md#api-properties).
