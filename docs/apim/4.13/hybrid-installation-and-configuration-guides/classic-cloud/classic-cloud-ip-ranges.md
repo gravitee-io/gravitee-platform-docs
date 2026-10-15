@@ -53,16 +53,25 @@ The preceding IP ranges are published by Cloudflare. Cloudflare maintains the au
 
 ## Outgoing IP ranges
 
-Traffic that leaves your environment, for example calls from your Gateways to your backend services, originates from the following IP ranges. Allow these ranges as sources in the firewall rules that protect your backend services.
+Traffic that leaves your environment, for example calls from your Gateways to your backend services, originates from the following IP ranges. Allow the ranges for your environment's region as sources in the firewall rules that protect your backend services.
+
+{% hint style="info" %}
+If you don't know which region hosts your environment, allow the ranges for both regions.
+{% endhint %}
+
+### West Europe
+
+```text
+48.222.129.24/29
+2603:1020:203:2d::8/125
+```
+
+### West US
 
 ```text
 48.221.57.80/29
-48.222.129.24/29
-2603:1020:203:2d::8/125
 2603:1030:c04:24::8/125
 ```
-
-The preceding IP ranges cover environments hosted in both the West Europe and West US regions.
 
 ## Ports
 
