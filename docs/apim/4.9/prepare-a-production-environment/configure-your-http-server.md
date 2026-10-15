@@ -35,6 +35,57 @@ http:
       password: secret
 ```
 
+## Request header size limit
+
+The `maxHeaderSize` setting caps the combined size of all headers on a request, in bytes. The default is `8192` (8 KB). The limit applies to both HTTP/1.1 and HTTP/2 requests.
+
+When a request's headers exceed the limit, the Gateway rejects it with HTTP status `431 Request Header Fields Too Large` and an empty response body. The Gateway rejects the request before it reaches an API, so the request doesn't appear in API logs or analytics.
+
+Clients most likely to exceed the default are those that send long authorization tokens, large cookies, or many custom headers on every request. To accept larger headers, raise `maxHeaderSize` and restart the Gateway. The following examples set the limit to 32 KB:
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  maxHeaderSize: 32768
+```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_maxHeaderSize=32768
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  http:
+    maxHeaderSize: 32768
+```
+{% endtab %}
+{% endtabs %}
+
+If you use multiple servers, set `maxHeaderSize` on each entry of the `servers` list. For more information, see [Multi-server support](configure-your-http-server.md#multi-server-support).
+
+### Troubleshoot `431` responses
+
+If API consumers receive `431` responses with an empty body and the requests are missing from API analytics, complete the following steps:
+
+1. Confirm that the Gateway returns the `431`. Send a request with a header larger than the current limit, for example a 9 KB header against the default limit:
+
+    ```bash
+    curl -s -o /dev/null -w "%{http_code}\n" \
+      -H "X-Pad: $(head -c 9000 /dev/zero | tr '\0' 'a')" \
+      https://<gateway-host>/<context-path>
+    ```
+
+    A `431` response confirms that the request headers exceed `maxHeaderSize`.
+2. Raise `maxHeaderSize` above the largest header size your API consumers send, and then restart the Gateway.
+3. Run the same request again. The response is no longer `431`.
+
+If requests with large headers still fail after you raise the limit, check any load balancer or ingress controller in front of the Gateway. These components apply their own header size limits and can reject the request before it reaches the Gateway, often with status `400`. Raise that limit as well.
+
 ## **Enable HTTPS support**
 
 You can use the gravitee.yaml file to configure HTTPS support. However, you first need to enable secure mode in `gravitee.yml` and provide a keystore. You can generate a keystore if you don't have one, or use the file path or Kubernetes location.
