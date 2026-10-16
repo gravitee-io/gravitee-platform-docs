@@ -44,7 +44,7 @@ For more information about setting up single sign-on, see [Configure Single Sign
 
 When your email address is linked to more than one Gravitee Cloud account, the **Select an account** page opens after you sign in. To open an account, complete the following steps:
 
-1. Optional: To find the account, enter part of its name or ID in **Search accounts**, or click **Cloud** or **Self-Hosted** to list only that type of account.
+1. Optional: To find the account, enter part of its name in **Search accounts**, or click **Cloud** or **Self-Hosted** to list only that type of account.
 2.  Click the account.
 
     <figure><img src="../.gitbook/assets/cloud-select-an-account-list.png" alt="The Select an account list with the Search accounts field, the All, Cloud, and Self-Hosted filters, and three accounts that show their region and their Cloud or Self-Hosted type."><figcaption><p>Accounts linked to your email address</p></figcaption></figure>
