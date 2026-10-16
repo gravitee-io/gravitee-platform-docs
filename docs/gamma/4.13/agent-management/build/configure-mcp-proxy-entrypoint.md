@@ -20,7 +20,7 @@ To open the page, follow these steps:
 1. From the Gamma console sidebar, select **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**.
 3. Select your MCP Proxy or MCP Studio.
-4. Under **Design**, click **Entrypoint**.
+4. Under **Design**, select **Entrypoint**.
 
 <figure><img src="../.gitbook/assets/gamma-aim-mcp-proxy-entrypoint.png" alt="The Entrypoint page of an MCP Proxy, with the context path /docbot-mcp in the Entrypoint context path card and its URL in the Exposed entrypoints card"><figcaption><p>The Entrypoint page</p></figcaption></figure>
 
@@ -65,7 +65,7 @@ An MCP Proxy managed by the Kubernetes operator is read-only on this page, which
 To verify the context path is working as expected, follow these steps:
 
 1. Change the context path, click **Save changes**, and then deploy the proxy.
-2. Under **Design**, click **Entrypoint**. The **Exposed entrypoints** card shows the URL with the new path, and the **This API is out of sync** banner is gone.
+2. Under **Design**, select **Entrypoint**. The **Exposed entrypoints** card shows the URL with the new path, and the **This API is out of sync** banner is gone.
 3. Connect an MCP client to that URL. The proxy answers on the new path.
 
 ## Next steps

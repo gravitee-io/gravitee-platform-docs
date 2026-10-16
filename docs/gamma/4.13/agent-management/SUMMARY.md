@@ -84,6 +84,7 @@
         * [Manage MCP Proxy plans](build/configure-your-mcp/manage-mcp-proxy-plans.md)
       * [Monitor](build/mcp-proxies/monitoring/README.md)
         * [Configure MCP Proxy notifications](build/configure-mcp-proxy-notifications.md)
+      * [Observe](build/mcp-proxies/observability/README.md)
       * [Operate](build/mcp-proxies/operations/README.md)
         * [Configure MCP Proxy deployment](build/configure-mcp-proxy-deployment.md)
         * [Review MCP Proxy deployment history](build/review-mcp-proxy-deployment-history.md)
