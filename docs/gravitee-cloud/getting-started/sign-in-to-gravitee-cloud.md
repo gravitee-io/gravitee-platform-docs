@@ -73,7 +73,7 @@ When someone invites you to a Gravitee Cloud account, you receive an email that 
 1. If you're new to Gravitee Cloud, click **Register** in the invitation email. The sign-up form opens with your email address filled in and locked. Complete the form, and then confirm your email address.
 2. In the invitation email, click **Sign in**, and then sign in. You join the account when you sign in.
 
-If the account has single sign-on turned on for the domain of your email address, the invitation email has a **Sign in with SSO** button instead. Click it, enter your work email address on the **Company SSO** page, and then sign in on your company's sign-in page.
+If the account has single sign-on turned on for the domain of your email address, the invitation email has a **Sign in with SSO** button instead. Click it, click **Continue** on the **Company SSO** page, and then sign in on your company's sign-in page.
 
 ## Verification
 
