@@ -4,6 +4,22 @@ description: Every patch release in the Gravitee Kubernetes Operator 4.12 series
 
 # GKO 4.12.x
 
+## Gravitee Kubernetes Operator 4.12.22 - October 15, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Subscription admission webhook compares ManagementContext names instead of resolved environment, blocking valid cross-context subscriptions [#11647](https://github.com/gravitee-io/issues/issues/11647)
+
+  **Others**
+
+  * GKO 4.12: 64-character label validation blocks ApiV4Definition [#11838](https://github.com/gravitee-io/issues/issues/11838)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.12.21 - October 6, 2026
     
 <details>

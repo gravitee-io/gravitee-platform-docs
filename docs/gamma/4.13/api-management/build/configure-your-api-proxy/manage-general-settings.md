@@ -116,6 +116,19 @@ To delete the API, follow these steps:
 Deletion is permanent. The dialog deletes the API along with all plans, subscriptions, and analytics data, and the action can't be undone.
 {% endhint %}
 
+## Federated APIs
+
+A federated API was ingested from an integration and runs on the provider's gateway, not on Gravitee's. Its **Settings** page differs from an API proxy's in the following ways:
+
+* The **Details** panel adds **From integration**, which links to the integration's **Overview** in Platform Management.
+* The **Export**, **Import**, **Duplicate**, and **Promote** buttons and the **Allow in API Products** switch aren't shown.
+* **API Events** keeps **Publish the API**, **Unpublish the API**, **Make Public**, and **Make Private**. It has no **Ask for a review**, **Start API**, **Stop API**, or **Deprecate** action.
+* **Delete this API** is available while the API isn't published.
+
+<figure><img src="../../.gitbook/assets/gamma-api-settings-federated.png" alt="The Settings page of the Docbot Orders federated API, with the identity fields, the Details panel linking to the Docbot AWS gateway integration under From integration, and the API Events card with Publish the API, Make Public, and Delete this API."><figcaption><p>The Settings page of a federated API</p></figcaption></figure>
+
+For how a federated API is created, see [Manage integrations](../../../platform-management/manage-integrations.md).
+
 ## Verification
 
 To verify your changes on the **Settings** page, follow these steps:

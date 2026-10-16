@@ -35,7 +35,7 @@ For APIs managed by GKO, you will not be able to add or modify groups or members
 
 ## Leave the groups to APIM
 
-To let APIM keep the groups of an API or an application, set the `gravitee.io/ignore-groups` annotation to `"true"` on its `ApiV4Definition` or `Application` resource. The annotation requires APIM 4.14.0 or later, and APIM 4.13 ignores it. It has no effect on an `ApiDefinition` resource.
+To let APIM keep the groups of an API or an application, set the `gravitee.io/ignore-groups` annotation to `"true"` on its `ApiV4Definition` or `Application` resource. The annotation requires APIM 4.13.0 or later. It has no effect on an `ApiDefinition` resource.
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -67,4 +67,4 @@ In the Gravitee API Management Console, there are environment-level settings tha
 
 Starting from 4.7.4, this feature has been made available for APIs and applications managed by the Kubernetes Operator as well.
 
-However, the operator handles resources declaratively. If you disable automatic associations in the management UI, groups added to APIs or applications by this feature are removed whenever the Kubernetes resource is updated. To avoid this issue, add the group to the resource before performing the update. With APIM 4.14.0 or later, you can instead set the `gravitee.io/ignore-groups` annotation on an `ApiV4Definition` or `Application` resource, so that it keeps its groups. For more information, see [Leave the groups to APIM](#leave-the-groups-to-apim).
+However, the operator handles resources declaratively. If you disable automatic associations in the management UI, groups added to APIs or applications by this feature are removed whenever the Kubernetes resource is updated. To avoid this issue, add the group to the resource before performing the update. With APIM 4.13.0 or later, you can instead set the `gravitee.io/ignore-groups` annotation on an `ApiV4Definition` or `Application` resource, so that it keeps its groups. For more information, see [Leave the groups to APIM](#leave-the-groups-to-apim).

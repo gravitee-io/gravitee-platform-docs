@@ -12,7 +12,7 @@ The Gamma console features a redesigned homepage dashboard that provides a high-
 
 The dashboard surfaces live metrics across different Gamma modules. For the API Management module, you can view:
 
-* **API Count** — The total number of APIs you have deployed.
+* **API Count** — The HTTP Proxy, TCP Proxy, and federated APIs of the environment, the same APIs the **API Proxies** list shows. Federated APIs count once Federation is turned on and the installation has a valid Enterprise Edition license.
 * **Agent Count** — The number of connected AI agents.
 * **Application Count** — The number of registered consumer applications.
 * **Policy Count** — The number of deployed authorization policies.
