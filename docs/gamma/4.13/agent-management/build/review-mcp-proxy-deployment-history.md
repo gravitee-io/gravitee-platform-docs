@@ -10,9 +10,10 @@ The **Deployment History** page lists all deployments of this MCP Proxy, newest 
 
 To open the page, follow these steps:
 
-1.  Click **MCP Proxies** in the module sidebar.
-2.  Select your MCP Proxy.
-3.  Under **Operations**, click **Deployment History**.
+1.  From the Gamma console sidebar, select **Agent Management**.
+2.  Under **Secure**, select **MCP Proxies**.
+3.  Select your MCP Proxy.
+4.  Under **Operations**, select **Deployment History**.
 
     <figure><img src="../.gitbook/assets/gamma-mcp-proxy-deployment-history.png" alt="The Deployment History page for MCP Proxy, listing deployments with Version, Date, User and Label columns and a live badge on the newest version"><figcaption><p>The Deployment History page</p></figcaption></figure>
 

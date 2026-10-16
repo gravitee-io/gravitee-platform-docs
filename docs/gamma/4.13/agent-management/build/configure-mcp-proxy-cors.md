@@ -20,7 +20,7 @@ To open the page, follow these steps:
 1. From the Gamma console sidebar, select **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**.
 3. Select your MCP Proxy or MCP Studio.
-4. Under **Design**, click **CORS**.
+4. Under **Design**, select **CORS**.
 
 <figure><img src="../.gitbook/assets/gamma-aim-mcp-proxy-cors.png" alt="The CORS page of an MCP Proxy with Enable CORS on, one allowed origin, the POST and GET methods, the Content-Type, Mcp-Session-Id, and MCP-Protocol-Version allowed headers, Mcp-Session-Id as an exposed header, and the save bar"><figcaption><p>The CORS page with unsaved changes</p></figcaption></figure>
 
