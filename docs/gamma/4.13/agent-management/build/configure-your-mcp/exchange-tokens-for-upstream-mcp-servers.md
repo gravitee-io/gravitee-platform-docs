@@ -40,9 +40,9 @@ For an **External Authorization Server** plan, the creation wizard declares an *
 
 To exchange tokens through an **OAuth2 / OpenID Connect Provider** resource, set its token exchange endpoint first:
 
-1. In the Gamma console, open **Agent Management**.
-2. In the sidebar, under **Secure**, click **MCP Proxies**, and then click your MCP Proxy.
-3. Under **Design**, click **Resources**.
+1. From the Gamma console sidebar, select **Agent Management**.
+2. Under **Secure**, select **MCP Proxies**, and then select your MCP Proxy.
+3. Under **Design**, select **Resources**.
 4. Open the actions menu of the resource, and then click **Edit**.
 5. In **Token exchange endpoint**, enter the path of the authorization server's token endpoint, for example `/oauth/token`. The path is resolved against **Authorization server URL**.
 
@@ -51,7 +51,7 @@ To exchange tokens through an **OAuth2 / OpenID Connect Provider** resource, set
 
 Then add the policy to a common flow, so that it runs on every MCP request:
 
-1. Under **Design**, click **Policy Studio**.
+1. Under **Design**, select **Policy Studio**.
 2. Next to **Common flows**, click **+**.
 3. In **Flow name**, enter a name, and then click **Create**.
 4. In **Request Phase**, click **Add policy**, and then click **OAuth 2.0 Token Exchange**.

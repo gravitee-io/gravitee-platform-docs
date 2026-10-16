@@ -6,7 +6,7 @@ description: Create and manage the resources that the policies of an LLM, MCP, o
 
 # Configure resources for your proxies
 
-Each LLM Proxy, MCP Proxy, and A2A Proxy detail view includes a **Resources** page that manages the resources of the proxy. A resource holds shared configuration, such as a cache, an OAuth provider, or a guardrail detector. Policies reference the resource by name at runtime instead of embedding their own copy of the connection details.
+Each LLM Proxy, MCP Proxy, and A2A Proxy detail view includes a **Resources** page that manages the resources of the proxy. A resource holds shared configuration, such as a cache, an OAuth provider, or a guardrail detector. Policies reference the resource by name at runtime instead of embedding their own copy of the connection details. In the **Policy Studio** of the proxy, a policy field that takes a resource lists the resources of the proxy whose type the policy accepts.
 
 For the AI resource types that the AI policies call, and how the AI Gateway loads their models, see [AI resources](ai-resources.md).
 
@@ -15,7 +15,7 @@ For the AI resource types that the AI policies call, and how the AI Gateway load
 1. From the Gamma console sidebar, select **Agent Management**.
 2. Under **Secure**, select **LLM Proxies**, **MCP Proxies**, or **A2A Proxies**.
 3. Select the proxy you want to configure.
-4. Under **Design** for an LLM Proxy, or under **General** for an MCP Proxy or an A2A Proxy, select **Resources**.
+4. Under **Design**, select **Resources**.
 
 <figure><img src="../.gitbook/assets/gamma-aim-proxy-resources.png" alt="The Resources table with an AI model and a cache resource, both Enabled."><figcaption><p>The Resources page</p></figcaption></figure>
 

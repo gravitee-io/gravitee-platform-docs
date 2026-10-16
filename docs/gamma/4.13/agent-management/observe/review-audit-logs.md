@@ -15,7 +15,7 @@ Each LLM Proxy, MCP Proxy, and A2A Proxy detail view includes an **Audit Logs** 
 3. Select the proxy you want to inspect.
 4. Under **Monitoring**, select **Audit Logs**.
 
-<figure><img src="../.gitbook/assets/gamma-aim-audit-logs.png" alt="Each entry gives the date, actor, event, and target, for changes like API and plan updates."><figcaption><p>The Audit Logs page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-audit-logs.png" alt="The Audit Logs page of an MCP Proxy, listing API_UPDATED entries with their date, actor, event, and target under the Event filter and the date range picker"><figcaption><p>The Audit Logs page</p></figcaption></figure>
 
 Until the first audit event is recorded for the proxy, the page shows an introduction to audit logs instead of the table.
 
@@ -34,18 +34,18 @@ The table shows 10 entries per page by default and supports page sizes of 25, 50
 
 ## Filter the trail
 
-1. To show a single event type, select it in the event type filter. The filter defaults to **All events**.
+1. To show some event types only, open the **Event** filter and select them. The search field at the top of the list narrows the event types.
 
-    <figure><img src="../.gitbook/assets/gamma-aim-audit-logs-event-filter.png" alt="The open filter scrolling through individual event types such as API review and rollback."><figcaption><p>The event type filter</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-aim-audit-logs-event-filter.png" alt="The Event filter open on its search field and the list of event types, such as APIKEY_CREATED and API_CREATED"><figcaption><p>The Event filter</p></figcaption></figure>
 
-2. To bound the trail in time, select a start and end date in the **Date range** picker. The end date is inclusive.
-3. To clear the active filters, click **Reset**. The **Reset** button appears only while a filter is active.
+2. To bound the trail in time, select a start and end date in the date range picker, which reads **Pick a date** until you choose them. The end date is inclusive.
+3. To clear the active filters, click **Clear filters**. The **Clear filters** button appears only while a filter is active.
 
 Changing a filter returns the table to the first page.
 
 ## View the change as a JSON Patch
 
-When an audit entry carries the JSON Patch of the change, a **View patch** button appears at the end of its row. Click it to open the **JSON Patch** panel, which shows the patch that the audited change applied.
+When an audit entry carries the JSON Patch of the change, a **View patch** button appears at the end of its row. Click it to open the **Audit Entry** panel, which shows the patch that the audited change applied.
 
 ## Verification
 
@@ -55,6 +55,4 @@ To verify the audit trail is working as expected, follow these steps:
 2. Under **Monitoring**, select **Audit Logs**.
 3. The trail lists a new entry for the change, with your user as the **Actor**.
 
-<!-- TODO: Screenshot of the audit trail showing the new entry after a configuration change -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-audit-logs-verification.png" alt=""><figcaption><p>The new audit entry</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-audit-logs-verification.png" alt="The two newest entries of the audit trail of an MCP Proxy, each an API_UPDATED event by the admin user"><figcaption><p>The new audit entry</p></figcaption></figure>
