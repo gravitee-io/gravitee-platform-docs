@@ -253,6 +253,14 @@ Always assign unique key values where you can. Reuse of an API key value across 
 For APIs secured with **JWT** or **OAuth2** plans, credentials are managed through the application's security settings—the client ID and client secret—rather than through subscription-level API keys. For **Keyless** plans, no credential management is needed.
 {% endhint %}
 
+## Federated APIs
+
+The **Subscriptions** page of a federated API, an API ingested from an integration, differs from an API proxy's in the following ways:
+
+* A new subscription can't carry a custom API key, and the **Shared API Key** mode isn't offered.
+* The approval dialog has no start or end dates and no custom API key.
+* An accepted subscription has no **Transfer**, **Change end date**, or **Pause** action, and its API keys can't be renewed, revoked, or given an expiry date from this page.
+
 ## Next steps
 
 * [Apply security policies](apply-security-policies.md). Add fine-grained policies that run on top of your security plans.
