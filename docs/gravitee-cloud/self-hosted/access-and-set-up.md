@@ -6,7 +6,7 @@ description: Register for the Gravitee Cloud self-hosted profile, then navigate 
 
 ## Access Gravitee Cloud
 
-To get started with Gravitee Cloud self-hosted profile, go to [Cloud by Gravitee](https://cockpit.gravitee.io/), and click the **Register** button. Set up your account as Self-hosted deployment.
+To get started with Gravitee Cloud self-hosted profile, go to [Cloud by Gravitee](https://cockpit.gravitee.io/), and click **Sign up**. Set up your account as Self-hosted deployment.
 
 ## Navigating Gravitee Cloud
 
@@ -27,4 +27,4 @@ You can click your organization name in the left-hand menu to access an interact
 
 ![Gravitee Cloud self-hosted topology](../.gitbook/assets/cockpit-dashboard.png)
 
-Click the settings icon ![cockpit settings icon](../.gitbook/assets/cockpit-settings-icon.png) of any entity in the map to update its settings.
+Click the settings icon ![settings icon](../.gitbook/assets/cockpit-settings-icon.png) of any entity in the map to update its settings.
