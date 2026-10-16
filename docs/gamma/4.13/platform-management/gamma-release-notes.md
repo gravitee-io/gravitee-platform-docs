@@ -12,7 +12,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permissions, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans. AI models gain cache read and cache write prices, which LLM Proxies apply to cached prompt tokens. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
+LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permissions, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans, and MCP Proxies, MCP Studios, and catalog MCP servers choose their MCP specification versions, including the stateless 2026-07-28 version. AI models gain cache read and cache write prices, which LLM Proxies apply to cached prompt tokens. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -170,6 +170,14 @@ LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permiss
 * An MCP Studio's export names its tools, prompts, and resources by their names in the catalog, and the import looks for the same names in the catalog of the environment you import into.
 * A create by import recreates **Keyless**, **API Key**, and **OAuth2** plans, and refuses a file that carries a plan of another type, such as **JWT**.
 * See [Export and import an MCP Proxy](../agent-management/build/export-and-import-an-mcp-proxy.md) and [Duplicate an MCP Proxy](../agent-management/build/duplicate-an-mcp-proxy.md).
+
+#### MCP specification versions for MCP Proxies, MCP Studios, and catalog MCP servers
+
+* The **Connect** step of the MCP Proxy and MCP Studio wizards adds an **MCP specification versions** card. Select the versions clients may connect with, **2026-07-28** or **2025-11-25**, and, for an MCP Proxy, the versions the gateway uses with the upstream server. The **Entrypoint** and **Endpoint** pages of the detail view change them after creation.
+* An MCP Studio serves clients on the 2026-07-28 version without a session, and refuses a request on a version it doesn't accept with the error **Unsupported protocol version**, which lists the versions it accepts.
+* An MCP Proxy records its versions and forwards the version a client asks for to the upstream server, which answers with the version it uses.
+* The **Configure** page of a catalog MCP server adds an **MCP specification versions** card. Saving it updates every MCP Studio that uses the server, and deploys again the Studios that were in sync.
+* See [Configure MCP specification versions](../agent-management/build/configure-your-mcp/configure-mcp-specification-versions.md).
 
 #### Promote LLM, MCP, and A2A Proxies
 

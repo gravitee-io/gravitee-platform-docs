@@ -295,6 +295,7 @@
       * [General](agent-management/build/mcp-proxies/general/README.md)
         * [Configure MCP Proxy notifications](agent-management/build/configure-mcp-proxy-notifications.md)
       * [Design](agent-management/build/mcp-proxies/design/README.md)
+        * [Configure MCP specification versions](agent-management/build/configure-your-mcp/configure-mcp-specification-versions.md)
         * [Add policies to your MCP server](agent-management/build/configure-your-mcp/add-policies-to-mcp-server.md)
           * [Apply policies to specific plans](agent-management/build/configure-your-mcp/apply-policies-to-plans.md)
           * [Apply policies to specific MCP methods](agent-management/build/configure-your-mcp/apply-policies-to-mcp-methods.md)
