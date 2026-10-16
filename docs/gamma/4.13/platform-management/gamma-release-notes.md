@@ -12,7 +12,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans. AI models gain cache read and cache write prices, which LLM Proxies apply to cached prompt tokens. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
+LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permissions, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans. AI models gain cache read and cache write prices, which LLM Proxies apply to cached prompt tokens. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -32,6 +32,14 @@ LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property imp
 * The row menu offers **Override** on an entry the proxy only inherits, and **Edit** on one it owns.
 * Metadata isn't part of the proxy definition, so a change takes effect without a deployment.
 * See [Manage metadata for your proxies](../agent-management/build/manage-metadata-for-your-proxies.md).
+
+#### User permissions for LLM, MCP, and A2A Proxies
+
+* LLM, MCP, and A2A Proxies add a **User Permissions** page under **General** that controls who holds a role on the proxy.
+* Add members and give each one a role, associate groups whose members keep the API role they have in the group, and transfer the primary ownership to another person.
+* Turn off **Notify members when they are added to the API** to add people without an email.
+* A change on the page takes effect without a deployment.
+* See [Manage user permissions for your proxies](../agent-management/build/manage-user-permissions-for-your-proxies.md).
 
 #### Import and dynamic properties for LLM, MCP, and A2A Proxies
 
