@@ -44,7 +44,7 @@ An MCP Proxy records the versions you select and doesn't negotiate the version i
 5. To change the versions used with the upstream server, under **Design**, select **Endpoint**. In the **MCP specification versions** card, select the versions under **The gateway talks to the upstream server with**, and then click **Save versions**.
 6. Click **Deploy** in the **This API is out of sync** banner.
 
-The message **MCP versions saved. Deploy to apply them to the gateway.** confirms each save. **Reset** returns the card to the saved versions.
+The message **MCP versions saved. Deploy to apply them to the gateway.** confirms each save. **Reset** returns the card to the saved versions. When the proxy is managed by the Kubernetes operator, or you don't have the right to change it, the card is read-only and the page says why.
 
 <figure><img src="../../.gitbook/assets/gamma-aim-mcp-proxy-entrypoint-versions.png" alt="The MCP specification versions card of the Entrypoint page, with 2026-07-28 and 2025-11-25 selected under Clients may connect with, and the Reset and Save versions buttons"><figcaption><p>The Entrypoint page of an MCP Proxy that accepts both versions</p></figcaption></figure>
 
@@ -52,7 +52,7 @@ The message **MCP versions saved. Deploy to apply them to the gateway.** confirm
 
 ## Set the versions of an MCP Studio
 
-An MCP Studio answers its clients itself. A client on a session-based version opens a session with the version it asks for, when the Studio accepts that version. Otherwise, the session opens with the newest session-based version the Studio accepts. A client on 2026-07-28 sends each request on its own, without a session. A request on a version the Studio doesn't accept is refused with the error **Unsupported protocol version**, code `-32022`, which lists the versions the Studio accepts. A client on a session-based version that sends a request without a session is refused with the error `Missing or invalid Mcp-Session-Id`.
+An MCP Studio answers its clients itself. A client on a session-based version opens a session with the version it asks for, when the Studio accepts that version. Otherwise, the session opens with the newest session-based version the Studio accepts. A client on 2026-07-28 sends each request on its own, without a session. A request on a version the Studio doesn't accept is refused with the error **Unsupported protocol version**, code `-32022`, which lists the versions the Studio accepts. A client on a session-based version that sends a request without a session is refused with the error `Missing or invalid Mcp-Session-Id`. When the Studio accepts only 2026-07-28, a session-based client can't open a session. Its handshake is refused with the error **Unsupported protocol version**, which lists the versions the Studio accepts.
 
 Each source of the Studio uses the versions set on its catalog MCP server, so on the Studio you select only the versions clients may connect with.
 
@@ -73,7 +73,7 @@ Each source of the Studio uses the versions set on its catalog MCP server, so on
 4. In the **MCP specification versions** card, select the versions under **Clients may connect with**, and then click **Save versions**.
 5. Click **Deploy** in the **This API is out of sync** banner.
 
-The **Source MCP versions** card lists the versions each source uses. Change them on the catalog MCP server.
+The **Source MCP versions** card lists the versions each source uses. Change them on the catalog MCP server. As on an MCP Proxy, the card is read-only when the Studio is managed by the Kubernetes operator or you don't have the right to change it.
 
 <figure><img src="../../.gitbook/assets/gamma-aim-mcp-studio-entrypoint-versions.png" alt="The MCP specification versions card of the Entrypoint page of an MCP Studio, with four versions selected under Clients may connect with, and the Source MCP versions card listing one source with 2025-11-25"><figcaption><p>The Entrypoint page of an MCP Studio</p></figcaption></figure>
 
@@ -86,6 +86,8 @@ A catalog MCP server starts with the version it reported when you verified its U
 3. Click **Configure**.
 4. In the **MCP specification versions** card, under **The gateway talks to this server with**, select the versions the server supports.
 5. Click **Save**.
+
+The versions decide how the gateway connects to the server for the MCP Studios that use it. With session-based versions only, the gateway opens a session with the server. With 2026-07-28 only, it sends each request on its own. With both, it first tries the way the newest selected version uses, and then the other.
 
 When you save, every MCP Studio that uses the server takes the new versions. A Studio that was in sync is deployed again. A Studio with changes that aren't deployed yet is updated but not deployed, and its owners are notified. The message that confirms the save says how many Studios were redeployed, how many need a manual deploy, and how many couldn't be updated. Re-syncing the server keeps the versions you selected.
 
