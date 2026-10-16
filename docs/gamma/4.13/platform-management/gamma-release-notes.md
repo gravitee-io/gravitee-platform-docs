@@ -12,7 +12,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permissions, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans, and MCP Proxies, MCP Studios, and catalog MCP servers choose their MCP specification versions, including the stateless 2026-07-28 version. AI models gain cache read and cache write prices, which LLM Proxies apply to cached prompt tokens. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
+LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permissions, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans, Entrypoint and CORS pages, and advanced endpoint settings. MCP Proxies, MCP Studios, and catalog MCP servers choose their MCP specification versions, including the stateless 2026-07-28 version. AI models gain cache read and cache write prices, which LLM Proxies apply to cached prompt tokens. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -124,6 +124,15 @@ LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permiss
 * The **OAuth 2.0 Token Exchange** policy exchanges the token that a consumer sends to an MCP Proxy for a token that the upstream MCP server accepts. The MCP server receives the issued token in the `Authorization` header, in place of the consumer's token.
 * The policy reaches the authorization server through an OAuth2 resource of the proxy, or through a token endpoint and client credentials set on the policy. An **OAuth2 / OpenID Connect Provider** resource exchanges tokens once its **Token exchange endpoint** is set.
 * See [Exchange tokens for upstream MCP servers](../agent-management/build/configure-your-mcp/exchange-tokens-for-upstream-mcp-servers.md).
+
+#### Entrypoint, endpoint, and CORS settings for MCP Proxies
+
+* The detail view of an MCP Proxy is regrouped into **General**, **Design**, **Consumers**, **Monitoring**, **Observability**, and **Operations**. **Notifications** moves to **Monitoring**, **Reporter Settings** moves to **Operations**, and the deployment pages become **Sharding Tags** and **Deployment History**.
+* A new **Entrypoint** page under **Design** changes the context path of an MCP Proxy or MCP Studio, and shows the URL that MCP clients call. On an MCP Proxy or MCP Studio created with **Gravitee as Authorization Server**, saving a new path also moves the MCP server of the proxy in Gravitee Access Management.
+* The **Endpoint** page of an MCP Proxy moves under **Design** and gains **Advanced settings**: the HTTP configuration, a proxy, SSL/TLS, and the HTTP headers that the gateway sends to the upstream MCP server.
+* A new **CORS** page under **Design** lets MCP clients that run in a browser call an MCP Proxy or MCP Studio from another origin. It suggests the `Mcp-Session-Id`, `MCP-Protocol-Version`, and `WWW-Authenticate` headers. Its **Access-Control-Allow-Private-Network** switch is new on the **CORS** page of LLM Proxies too.
+* The **Configure** page of an MCP server in the Catalog gains **Advanced settings**. Saving them updates every MCP Studio that uses the server: a Studio in sync with the gateway is deployed again, and a Studio with changes that aren't deployed yet takes them with its next deploy.
+* See [Configure the MCP Proxy entrypoint](../agent-management/build/configure-mcp-proxy-entrypoint.md), [Configure the MCP Proxy endpoint](../agent-management/build/configure-mcp-proxy-endpoint.md), [Configure MCP Proxy CORS](../agent-management/build/configure-mcp-proxy-cors.md), and [Change the connection settings of a registered server](../agent-management/import/register-an-mcp-server.md#change-the-connection-settings-of-a-registered-server).
 
 #### Owner and sharding tags in the LLM Proxies list
 

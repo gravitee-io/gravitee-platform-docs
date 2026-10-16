@@ -12,8 +12,7 @@ To open the page, follow these steps:
 
 1.  Click **MCP Proxies** in the module sidebar.
 2.  Select your MCP Proxy.
-3.  Under **Operations**, click **Deployment**.
-4.  Click **History**.
+3.  Under **Operations**, click **Deployment History**.
 
     <figure><img src="../.gitbook/assets/gamma-mcp-proxy-deployment-history.png" alt="The Deployment History page for MCP Proxy, listing deployments with Version, Date, User and Label columns and a live badge on the newest version"><figcaption><p>The Deployment History page</p></figcaption></figure>
 
@@ -35,25 +34,27 @@ Until you make a selection, the toolbar reads **Select two rows to compare versi
 
 To compare an earlier version against the live one in a single step, click **Compare with live** in that row's actions menu.
 
-The diff dialog shows the differences between the two definitions, with **Side-by-side** and **Line-by-line** view modes. The panes are labeled **Before** and **After**, and **Before** holds the first of the two versions you selected.
+The diff dialog shows the differences between the two definitions, with **Side-by-side** and **Line-by-line** view modes. The panes are labeled **Before** and **After**, and **Before** holds the older of the two versions, whatever order you selected them in.
 
 ## Roll back to an earlier version
 
 To roll back, follow these steps:
 
 1. Open the target version, either by selecting two versions to open the diff view or by clicking **View definition** on a single version.
-2.  Click **Rollback**, which names the target version.
-3. Confirm in the rollback dialog, which names the target version.
+2.  Click the button that names the target version, such as **Rollback to v4**.
+3. In the dialog that names the target version, such as **Rollback to v4?**, click **Confirm rollback**.
 
-The rollback restores the MCP Proxy's API definition and its plans to the selected version.
+The rollback restores the MCP Proxy's API definition and its plans to the selected version, and closes the plans that version didn't have, which ends their subscriptions. The page then returns to the overview of the proxy and confirms with **Rolled back**.
 
 {% hint style="warning" %}
-The rollback doesn't deploy the MCP Proxy. The restored definition is saved, and the MCP Proxy is left with undeployed changes until you deploy it. The confirmation dialog describes the action as redeploying to the gateway, but no deployment takes place. The action can't be undone.
+The rollback doesn't deploy the MCP Proxy. The restored definition is saved, and the MCP Proxy is left with undeployed changes until you deploy it. The action can't be undone.
 {% endhint %}
+
+The live version is offered as a rollback target only while the MCP Proxy has changes that aren't deployed, and rolling back to it discards them.
 
 If the rollback fails, a card stays on screen reading **Rollback failed**, followed by the reason.
 
-The rollback controls are hidden unless you have the **API_DEFINITION** permission with the **UPDATE** access level.
+The rollback controls are hidden without permission to update the API definition of the proxy.
 
 ## Verification
 
