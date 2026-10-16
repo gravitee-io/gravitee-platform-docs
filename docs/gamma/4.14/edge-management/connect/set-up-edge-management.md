@@ -102,8 +102,7 @@ Watching a domain for shadow AI and intercepting it are independent. Shadow AI d
 
 This step decides how the Edge Daemons of the environment identify themselves to the Edge Reactor. Nothing here is required. By default, the **Keyless** plan is published, so the daemons reach their configuration without presenting anything, and the **mTLS** plan is created unpublished.
 
-<!-- TODO: Screenshot of Step 4 of the guided setup -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-edge-setup-authentication.png" alt="Step 4 of the guided setup, Authentication, with the Keyless card and the mTLS card with its Certificate (PEM) field"><figcaption><p>Step 4 of the guided setup.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-setup-authentication.png" alt="Step 4 of the guided setup, Authentication, with the Keyless card and the mTLS card with its Certificate (PEM) field"><figcaption><p>Step 4 of the guided setup.</p></figcaption></figure>
 
 1. Optional: To use mTLS from the start, paste the certificate of your fleet in **Certificate (PEM)**, or click **Load from a file**, and turn on **mTLS plan published**.
 2. Optional: To serve only the daemons that present that certificate, turn off **Keyless plan published**.
