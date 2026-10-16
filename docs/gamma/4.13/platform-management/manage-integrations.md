@@ -70,7 +70,7 @@ To discover and ingest APIs, complete the following steps:
 2. Under **APIs to ingest**, keep or clear **New** and **Update**. Each one shows how many APIs it holds, and one that holds none is unavailable. The list follows your choice.
 3. Click **Ingest**. The **Overview** reopens, and the message **API ingestion is in progress. Come back shortly to see discovered APIs.** confirms the start.
 
-Ingestion runs in the background. While it runs, the **APIs** card reads that APIs are being ingested and refreshes on its own, and **Discover** is unavailable. If the ingestion can't start, a message says why instead. When the provider has no API to ingest, the message still says that the ingestion is in progress, and the **APIs** card stays as it was.
+Ingestion runs in the background. While it runs, the **APIs** card reads that APIs are being ingested and refreshes on its own, and **Discover** is unavailable. If the ingestion can't start, a message says why instead. When the provider has no API to ingest, the message reads **Ingestion complete! Your integration is now updated.**, and the **APIs** card stays as it was.
 
 When the provider returns only part of its APIs, the **Discover** page warns **Only a partial list of APIs was returned by the provider. Proceeding will ingest all discoverable APIs.** In that case, **Ingest** ingests every API the provider can discover, whatever you selected.
 

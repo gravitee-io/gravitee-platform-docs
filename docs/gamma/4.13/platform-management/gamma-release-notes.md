@@ -280,7 +280,7 @@ API Management gains a file-based path for building and updating API proxies. Ea
 #### Federated APIs in API Proxies
 
 * The **API Proxies** list includes the federated APIs ingested from integrations once Federation is turned on and the installation has a valid Enterprise Edition license, with **Federated API** in the **API Type** column, the provider in the **Origin** column, and a **Federated API** option in the **API Type** filter. The API Management card of the home page counts them too.
-* A federated API opens on its **Settings** page, whose **Details** panel links to the source integration under **From integration**. Its sidebar keeps only **Settings**, **User Permissions**, **Metadata**, and **API Score** under **General**, the **Consumers** group, and **Audit Logs** under **Monitoring**.
+* A federated API opens on its **Settings** page, whose **Details** panel links to the source integration under **From integration**. Its sidebar keeps only **Settings**, **User Permissions**, **Metadata**, **Documentation**, and **API Score** under **General**, the **Consumers** group, and **Audit Logs** under **Monitoring**.
 * See [Manage general settings](../api-management/build/configure-your-api-proxy/manage-general-settings.md#federated-apis) and [Manage integrations](manage-integrations.md).
 
 ### Authorization Management
