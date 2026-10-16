@@ -71,6 +71,7 @@
       * [General](build/mcp-proxies/general/README.md)
         * [Configure MCP Proxy notifications](build/configure-mcp-proxy-notifications.md)
       * [Design](build/mcp-proxies/design/README.md)
+        * [Configure MCP specification versions](build/configure-your-mcp/configure-mcp-specification-versions.md)
         * [Add policies to your MCP server](build/configure-your-mcp/add-policies-to-mcp-server.md)
           * [Apply policies to specific plans](build/configure-your-mcp/apply-policies-to-plans.md)
           * [Apply policies to specific MCP methods](build/configure-your-mcp/apply-policies-to-mcp-methods.md)
