@@ -1,11 +1,9 @@
 ---
 hidden: false
 noIndex: false
-description: Manage the general settings of an MCP Proxy, including its endpoint, its upstream authentication, and its notifications. Choose the setting you want to change.
+description: The General group of an MCP Proxy holds its Overview, Settings, User Permissions, and Metadata pages. Find the guide for the page you need.
 ---
 
 # General
 
-The General group of an MCP Proxy holds its settings, its endpoint, and its notifications.
-
-* [**Configure MCP Proxy notifications**](../../configure-mcp-proxy-notifications.md). Choose which API events send notifications for an MCP Proxy and where they are delivered.
+The **General** group of an MCP Proxy holds its **Overview**, **Settings**, **User Permissions**, and **Metadata** pages, and the shared [Manage metadata for your proxies](../../manage-metadata-for-your-proxies.md) guide covers the **Metadata** page.
