@@ -112,8 +112,7 @@ To secure a route, complete the following steps:
 3. Click **Choose an application**, and select the application subscribed to the plan. When a single application is subscribed, it's selected for you.
 4. Click **Done**, and save the configuration. See [Save and deploy](#save-and-deploy).
 
-<!-- TODO: Screenshot of A route secured by an OAuth2 plan -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-edge-route-oauth2-plan.png" alt="A route of the Claude Code form with its gateway API, its OAuth2 plan, its subscribed application, and the Forward the agent's own key to the provider and Allow the scopes the daemon requests notes"><figcaption><p>A route secured by an OAuth2 plan.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-route-oauth2-plan.png" alt="A route of the Claude Code form with its gateway API, its OAuth2 plan, its subscribed application, and the Forward the agent's own key to the provider and Allow the scopes the daemon requests notes"><figcaption><p>A route secured by an OAuth2 plan.</p></figcaption></figure>
 
 The daemons read the authorization server from the plan's OAuth2 resource, and the client from the application, each time they fetch their configuration.
 
