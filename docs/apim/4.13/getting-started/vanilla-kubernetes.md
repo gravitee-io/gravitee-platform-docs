@@ -84,6 +84,10 @@ Kubernetes namespaces provide logical isolation and organization within a cluste
 
 ### Install MongoDB
 
+{% hint style="warning" %}
+The `mongodb` and `elasticsearch` subcharts are deprecated from APIM 4.13.0, and APIM 4.15.0 removes them. For more information, see [Breaking Changes and Deprecations](../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 To support API definitions and configuration, you must install MongoDB into your Kubernetes cluster. For more information about installing MongoDB, see the [official chart documentation](https://artifacthub.io/packages/helm/bitnami/mongodb)
 
 1.  Install MongoDB with Helm using the following command:
