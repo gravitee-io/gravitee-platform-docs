@@ -59,3 +59,4 @@ Until access is authorized, a call to a tool from the source returns a link to a
 * [Manage metadata for your proxies](../manage-metadata-for-your-proxies.md). Add the metadata entries that describe the MCP Proxy, and override the entries it inherits from its environment.
 * [Layered governance for MCP tools](govern-mcp-tool-access.md). Combine authorization, rate limits, and response redaction on one server.
 * [Configure logging and tracing](configure-logging-and-tracing.md). Control the reported request and response data, and enable OpenTelemetry tracing.
+* [Manage user permissions for your proxies](../manage-user-permissions-for-your-proxies.md). Add members to the MCP Proxy, manage its groups, and transfer its ownership.

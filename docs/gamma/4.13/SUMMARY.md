@@ -335,6 +335,7 @@
   * [Broadcast messages to proxy consumers](agent-management/build/broadcast-messages-to-proxy-consumers.md)
   * [Configure properties for your proxies](agent-management/build/configure-properties-for-your-proxies.md)
   * [Promote your proxies to another environment](agent-management/build/promote-your-proxies-to-another-environment.md)
+  * [Manage user permissions for your proxies](agent-management/build/manage-user-permissions-for-your-proxies.md)
   * [Manage metadata for your proxies](agent-management/build/manage-metadata-for-your-proxies.md)
   * [Configure resources for your proxies](agent-management/build/configure-resources-for-your-proxies.md)
 * [Observe](agent-management/observe/README.md)
