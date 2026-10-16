@@ -307,6 +307,7 @@
         * [Manage MCP Proxy plans](agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md)
       * [Monitor](agent-management/build/mcp-proxies/monitoring/README.md)
         * [Configure MCP Proxy notifications](agent-management/build/configure-mcp-proxy-notifications.md)
+      * [Observe](agent-management/build/mcp-proxies/observability/README.md)
       * [Operate](agent-management/build/mcp-proxies/operations/README.md)
         * [Configure MCP Proxy deployment](agent-management/build/configure-mcp-proxy-deployment.md)
         * [Review MCP Proxy deployment history](agent-management/build/review-mcp-proxy-deployment-history.md)

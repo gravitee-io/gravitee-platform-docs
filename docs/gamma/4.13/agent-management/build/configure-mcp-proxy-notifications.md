@@ -10,9 +10,10 @@ The **Notifications** page controls which API events send notifications and wher
 
 To open the page, follow these steps:
 
-1. Click **MCP Proxies** in the module sidebar.
-2. Select your MCP Proxy.
-3. Click **Notifications** in the MCP Proxy sidebar.
+1. From the Gamma console sidebar, select **Agent Management**.
+2. Under **Secure**, select **MCP Proxies**.
+3. Select your MCP Proxy.
+4. Under **Monitoring**, select **Notifications**.
 
 <figure><img src="../.gitbook/assets/gamma-mcp-proxy-notifications.png" alt="The Notifications page of an MCP Proxy, with the Console notifiers, Email notifiers, and Webhook notifiers counts above the Configured notifications table, which lists the Portal notification, two email notifications, and a webhook notification"><figcaption><p>The Notifications page</p></figcaption></figure>
 

@@ -20,7 +20,7 @@ To open the page, follow these steps:
 1. From the Gamma console sidebar, select **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**.
 3. Select your MCP Proxy.
-4. Under **Design**, click **Endpoint**.
+4. Under **Design**, select **Endpoint**.
 
 <figure><img src="../.gitbook/assets/gamma-aim-mcp-proxy-endpoint.png" alt="The Endpoint page of an MCP Proxy, with the Server URL of the upstream MCP server, No upstream auth selected, and the Advanced settings section"><figcaption><p>The Endpoint page</p></figcaption></figure>
 
@@ -63,7 +63,7 @@ An MCP Proxy managed by the Kubernetes operator is read-only on this page, which
 To verify the endpoint is working as expected, follow these steps:
 
 1. Under **HTTP headers**, add a header, click **Save changes**, and then deploy the proxy.
-2. Under **Operations**, click **Deployment History**. The newest version carries the **live** badge.
+2. Under **Operations**, select **Deployment History**. The newest version carries the **live** badge.
 3. Send a request from an MCP client to the proxy. The upstream MCP server receives the header with the call.
 
 ## Next steps

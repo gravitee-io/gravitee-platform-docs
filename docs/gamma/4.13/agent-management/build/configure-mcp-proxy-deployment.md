@@ -10,9 +10,10 @@ The **Sharding Tags** page controls where this MCP Proxy is deployed on the gate
 
 To open the page, follow these steps:
 
-1.  Click **MCP Proxies** in the module sidebar.
-2.  Select your MCP Proxy.
-3.  Under **Operations**, click **Sharding Tags**.
+1.  From the Gamma console sidebar, select **Agent Management**.
+2.  Under **Secure**, select **MCP Proxies**.
+3.  Select your MCP Proxy.
+4.  Under **Operations**, select **Sharding Tags**.
 
     <figure><img src="../.gitbook/assets/gamma-mcp-proxy-deployment-configuration.png" alt="The Sharding Tags page of an MCP Proxy, with the internal tag in the Configured Sharding Tags box"><figcaption><p>The Sharding Tags page</p></figcaption></figure>
 
