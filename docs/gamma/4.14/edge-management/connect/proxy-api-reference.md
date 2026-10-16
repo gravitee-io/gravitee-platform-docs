@@ -28,6 +28,10 @@ The following requirements apply to the `/v1/messages` route of the **Claude Cod
 | The API should have no changes waiting to be deployed.                            | Recommendation |
 | The route must forward to a path the API exposes.                                 | Blocking       |
 | The path the route forwards to should already be deployed.                        | Recommendation |
+| The route should be secured by a plan that identifies who is calling.             | Recommendation |
+| The plan should not pass the caller's token on to the AI provider.                | Recommendation |
+| The route's plan and application should give the daemons an authorization server and a client to authenticate with. | Recommendation |
+| The gateway's 401 reaches the daemon unchanged.                                   | Recommendation |
 
 A blocking requirement that isn't met means that the route reports **Will not intercept**: the daemon forwards the traffic, and the API doesn't serve it. A recommendation that isn't met means that the route reports **Check**: the route works, and something is worth looking at.
 
@@ -43,6 +47,15 @@ Requirements are only checked for the routes that the module describes. A route 
 An API published on a virtual host can't be a target, and its path isn't offered by the picker. See [Choose the target API of a route](configure-edge-management.md#choose-the-target-api-of-a-route).
 {% endhint %}
 
+### Requirements of a route secured by a plan
+
+The last four requirements concern the plan chosen on the route. The last three of them only apply to a route secured by an OAuth2 plan. See [Secure a route with an OAuth2 plan](configure-edge-management.md#secure-a-route-with-an-oauth2-plan).
+
+* **A plan that identifies who is calling** is an OAuth2 plan. A route with no plan, or with a keyless plan, doesn't meet this requirement.
+* **The plan doesn't pass the caller's token on** when it doesn't forward the `Authorization` header to the target endpoints. By default, an OAuth2 plan forwards it, and the Gravitee token then reaches the AI provider.
+* **The daemons get an authorization server and a client** when the plan names an OAuth2 resource that the deployed API declares and enables, and when the application chosen on the route holds an accepted subscription to the plan, within its validity period.
+* **The gateway's 401 reaches the daemon unchanged** when no response template of the API replaces it. A template for `GATEWAY_PLAN_UNRESOLVABLE` replaces the body of the 401. A template for `OAUTH2_MISSING_ACCESS_TOKEN`, `OAUTH2_MISSING_HEADER`, `OAUTH2_INVALID_ACCESS_TOKEN`, `OAUTH2_INSUFFICIENT_SCOPE`, or `OAUTH2_INVALID_SERVER_RESPONSE` replaces it when it answers with another status, or sets its own `WWW-Authenticate` header. A `DEFAULT` template counts for each of these keys that has no template of its own. A replaced 401 sends developers the raw response instead of the sign-in prompt.
+
 ## What Edge Management creates for you
 
 When you create the target API of the **Claude Code** route from the picker, Edge Management builds an LLM Proxy API that satisfies every blocking requirement above:
@@ -51,7 +64,7 @@ When you create the target API of the **Claude Code** route from the picker, Edg
 | ----------------------- | --------------------------------------------------------------- |
 | API type                | LLM Proxy                                                       |
 | Entrypoint              | `llm-proxy`, with usage enforcement enabled                     |
-| Endpoint                | `llm-proxy`, targeting the `ANTHROPIC` provider at `https://api.anthropic.com`, with no authentication |
+| Endpoint                | `llm-proxy`, targeting the `ANTHROPIC` provider at `https://api.anthropic.com`, with API key authentication on the `Authorization` header. See [Forward the agent's own key to the provider](configure-edge-management.md#forward-the-agents-own-key-to-the-provider). |
 | Context path            | The one you entered                                             |
 | Plan                    | **Keyless**, published, with automatic validation               |
 | Model list              | `claude-sonnet-4-5`                                             |
@@ -61,7 +74,7 @@ When you create the target API of the **Claude Code** route from the picker, Edg
 
 Two of those settings are permissive by design, so that interception works the moment the API is deployed, and both are yours to tighten:
 
-* **The keyless plan.** The connection between the daemon and the gateway isn't authenticated, so a secured plan would reject the requests of the daemon. Expose these APIs on trusted networks only.
+* **The keyless plan.** It accepts every caller anonymously, so the gateway can't tell who is calling. Once the API is deployed, the route reports **Check**, not **Ready**. To identify each developer, add an OAuth2 plan to the API and choose it on the route. See [Secure a route with an OAuth2 plan](configure-edge-management.md#secure-a-route-with-an-oauth2-plan). Until then, expose the API on trusted networks only.
 * **Model governance.** The API accepts any model, because guessing a narrower list would break the agent on the next model it picks.
 
 The API is created stopped and undeployed, and the route reports **Will not intercept** until you start and deploy it from its own page. The description of the API states this on the API itself.
