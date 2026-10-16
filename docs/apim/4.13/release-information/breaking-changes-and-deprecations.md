@@ -161,6 +161,19 @@ The XML Validation policy that APIM 4.13 bundles rejects a request body that dec
 
 Before you upgrade, check for API consumers that send a `DOCTYPE`, and for inline schemas that import or include a schema by URL. For more information, see [XML Validation](../create-and-configure-apis/apply-policies/policy-reference/xml-validation.md#errors).
 
+**Encrypted API properties: The Management API v2 masks values and checks encryption**
+
+From 4.13.0, the Management API v2 returns `••••••••••••` in place of the value of an encrypted API property when it returns an API, for v2 and v4 APIs. In 4.12, it returned the encrypted value. When you update an API, send `••••••••••••` back to keep the stored value, or send a new plain text value with `encryptable` set to `true` to replace it. Responses that return the stored API definition, such as `GET /apis/{apiId}/deployments/current` and the API events, still hold the encrypted value, as does the API export.
+
+When you save an API, APIM refuses `••••••••••••` sent as the value of a property that has no encrypted value stored. The response is HTTP `400` with the error key `api.property.maskedValue`. When you save a v4 API, APIM also refuses the following with HTTP `400`:
+
+* An encrypted property sent back as plain text, with `encrypted` and `encryptable` set to `false`. The error key is `api.property.encryptedToPlain`.
+* A new value for an encrypted property, marked as encrypted, that the installation's secret can't decrypt, for example an encrypted value exported from an installation that uses another secret. The error key is `api.property.notCiphertext`. In 4.12, the value was accepted.
+
+When the secret can't encrypt a value, saving an encrypted property of a v4 API fails with HTTP `500`. In 4.12, the property was saved with its plain text value.
+
+Before you upgrade, review the scripts that read API properties from the Management API v2, and the scripts that update APIs with encrypted values from another installation. For more information, see [Encrypt dynamic properties](../create-and-configure-apis/apply-policies/v4-api-policy-studio.md#encrypt-dynamic-properties) and [Property Encryption](../prepare-a-production-environment/production-best-practices/general-recommendations/property-encryption.md).
+
 #### 4.12.0
 
 **JSON Validation policy: response error keys corrected**
