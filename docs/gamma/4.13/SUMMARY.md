@@ -49,6 +49,7 @@
   * [APIs & Assets](platform-management/environment/apis-and-assets/README.md)
     * [Manage applications](platform-management/manage-applications.md)
     * [Manage API Score](platform-management/manage-api-score.md)
+    * [Manage integrations](platform-management/manage-integrations.md)
     * [Manage environment metadata](platform-management/manage-environment-metadata.md)
     * [Manage dictionaries](platform-management/manage-dictionaries.md)
     * [Manage user fields](platform-management/manage-user-fields.md)
