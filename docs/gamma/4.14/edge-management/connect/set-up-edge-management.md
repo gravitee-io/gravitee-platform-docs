@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Create the Edge Management configuration of an environment through the four-step guided setup. Follow the steps to enter the gateway addresses and deploy.
+description: Create the Edge Management configuration of an environment through the five-step guided setup. Follow the steps to enter the gateway addresses and deploy.
 ---
 
 # Set up Edge Management
@@ -13,7 +13,7 @@ Edge Management is configured per environment, and the configuration is created 
 <!-- TODO: Screenshot of The Quick Start page of an environment that has no configuration yet -->
 <figure><img src="../.gitbook/assets/PLACEHOLDER-edge-quick-start-welcome.png" alt="The Quick Start page of an environment with no Edge Management configuration, showing the Welcome to Edge Management heading, the traffic diagram, and the Set up Edge Management button"><figcaption><p>The Quick Start page of an environment that has no configuration yet.</p></figcaption></figure>
 
-The setup has four steps: **Gateway**, **Intercepted agents**, **Shadow AI**, and **Deploy**. Nothing is deployed until the last step, you can move back and forth with **Back** and **Next**, and leaving the page drops what you entered.
+The setup has five steps: **Gateway**, **Agents**, **Shadow AI**, **Authentication**, and **Deploy**. Nothing is deployed until the last step, you can move back and forth with **Back** and **Next**, and leaving the page drops what you entered.
 
 After the setup, each part of the configuration is edited on its own page and saved on its own, so a change to one part never re-sends another.
 
@@ -28,7 +28,8 @@ To set up Edge Management, complete the following steps:
 1. [Enter the gateway addresses](#enter-the-gateway-addresses)
 2. [Choose the agents to intercept](#choose-the-agents-to-intercept)
 3. [Choose the domains to watch for shadow AI](#choose-the-domains-to-watch-for-shadow-ai)
-4. [Review and deploy](#review-and-deploy)
+4. [Choose how the daemons authenticate](#choose-how-the-daemons-authenticate)
+5. [Review and deploy](#review-and-deploy)
 
 ## Enter the gateway addresses
 
@@ -64,7 +65,7 @@ Once the configuration exists, the **Gateway** page shows the two addresses and 
 An intercepted agent is an AI coding tool whose traffic the daemon captures: the domains it calls, the routes under those domains, and for each route the target API on the gateway that receives the traffic.
 
 <!-- TODO: Screenshot of Step 2 of the guided setup -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-edge-setup-wizard.png" alt="Step 2 of the guided setup, Intercepted agents, with the Claude Code, Codex, and Custom agent cards"><figcaption><p>Step 2 of the guided setup.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/PLACEHOLDER-edge-setup-wizard.png" alt="Step 2 of the guided setup, Agents, with the Claude Code, Codex, and Custom agent cards"><figcaption><p>Step 2 of the guided setup.</p></figcaption></figure>
 
 1. Click **Set up** on the **Claude Code** card, or on the **Custom agent** card for any other tool. The **Codex** card is listed as coming soon and can't be configured.
 2. Map each route to its target API, or create the target API from the picker. Everything this form offers is described in [Configure interception](configure-edge-management.md), which is also where you come back to change it later.
@@ -97,14 +98,28 @@ Detections show up on the **Detected Shadow AI** page. You can leave this step e
 Watching a domain for shadow AI and intercepting it are independent. Shadow AI detection tells you that a device reached a provider directly. It doesn't route anything, and it doesn't require the provider to be one of your intercepted agents.
 {% endhint %}
 
+## Choose how the daemons authenticate
+
+This step decides how the Edge Daemons of the environment identify themselves to the Edge Reactor. Nothing here is required. By default, the **Keyless** plan is published, so the daemons reach their configuration without presenting anything, and the **mTLS** plan is created unpublished.
+
+<figure><img src="../.gitbook/assets/edge-setup-authentication.png" alt="Step 4 of the guided setup, Authentication, with the Keyless card and the mTLS card with its Certificate (PEM) field"><figcaption><p>Step 4 of the guided setup.</p></figcaption></figure>
+
+1. Optional: To use mTLS from the start, paste the certificate of your fleet in **Certificate (PEM)**, or click **Load from a file**, and turn on **mTLS plan published**.
+2. Optional: To serve only the daemons that present that certificate, turn off **Keyless plan published**.
+3. Click **Next**.
+
+The certificate is checked as you enter it, and a certificate that's refused holds **Next** until you fix it or clear the field. If the certificate or the plans are refused when the configuration is created, the configuration is still created and deployed, and the page says so. Finish from the **Daemon authentication** page.
+
+For everything this step offers, see [Configure daemon authentication](configure-daemon-authentication.md).
+
 ## Review and deploy
 
 The last step lists what will be created.
 
-<!-- TODO: Screenshot of Step 4 of the guided setup -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-edge-setup-review.png" alt="Step 4 of the guided setup, Deploy, summarizing the gateway addresses, the intercepted agents, and the shadow AI domains before Create & Deploy"><figcaption><p>Step 4 of the guided setup.</p></figcaption></figure>
+<!-- TODO: Screenshot of Step 5 of the guided setup -->
+<figure><img src="../.gitbook/assets/PLACEHOLDER-edge-setup-review.png" alt="Step 5 of the guided setup, Deploy, summarizing the gateway addresses, the intercepted agents, the shadow AI domains, and the daemon authentication before Create & Deploy"><figcaption><p>Step 5 of the guided setup.</p></figcaption></figure>
 
-1. Check the gateway addresses, the intercepted agents, and the shadow AI domains.
+1. Check the gateway addresses, the intercepted agents, the shadow AI domains, and the daemon authentication.
 2. Click **Create & Deploy**. This publishes an Edge API for the environment, with a keyless plan, and deploys it to the gateway.
 
 If an agent's target API can't serve its route yet, a dialog names the agent, the route, and the reason before you commit. It's a warning, not a refusal: click **Create & Deploy anyway** to create the configuration and fix the API afterward, or **Back to configuration** to change the route first. See [Understand the route verdicts](configure-edge-management.md#understand-the-route-verdicts).

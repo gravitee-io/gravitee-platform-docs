@@ -32,6 +32,10 @@ Because interception works per domain, the daemon sees every request that Claude
 A Claude Code session that was already open when the daemon was installed isn't intercepted. Start a new session after the installation.
 {% endhint %}
 
+## Sign in on a route secured by OAuth2
+
+When the route of the agent is secured by an OAuth2 plan, each developer signs in with your identity provider. When the gateway answers with a 401, the daemon gives the developer a sign-in prompt instead of the raw response. See [Secure a route with an OAuth2 plan](connect/configure-edge-management.md#secure-a-route-with-an-oauth2-plan).
+
 ## Verify the connection
 
 1. Open Claude Code on the device and send a prompt.
@@ -46,6 +50,8 @@ If nothing appears, use the following table:
 | The device is **Active**, but no traffic appears                         | Claude Code isn't configured as an intercepted agent, or its route has no target API. See [Configure interception](connect/configure-edge-management.md).                                                            |
 | The agent reports **Will not intercept** on the **Overview** page        | The target API can't serve the route. Most often, it hasn't been started and deployed. See [Understand the route verdicts](connect/configure-edge-management.md#understand-the-route-verdicts).                       |
 | The traffic shows up under **Detected Shadow AI** instead                | The daemon runs and saw a direct connection to Anthropic, so it didn't intercept the request. Check that Claude Code is configured as an intercepted agent, and that the session was started after the installation. |
+| The developer gets the raw 401 response instead of a sign-in prompt      | A response template of the target API replaces the gateway's 401. See [Requirements of a route secured by a plan](connect/proxy-api-reference.md#requirements-of-a-route-secured-by-a-plan).                           |
+| The sign-in fails with `invalid_scope`                                   | The identity provider doesn't let the client of the application request `openid`, `offline_access`, or the scopes of the plan. See [Allow the scopes the daemon requests](connect/configure-edge-management.md#allow-the-scopes-the-daemon-requests). |
 
 ## Next steps
 
