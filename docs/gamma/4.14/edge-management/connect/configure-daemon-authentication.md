@@ -17,8 +17,7 @@ The certificates come from your own PKI, and Gravitee never sees a private key. 
 
 Daemon authentication covers the calls that a daemon makes to the Edge Reactor. The traffic that a daemon intercepts goes to the target API of its route, which applies its own plans. See [Secure a route with an OAuth2 plan](configure-edge-management.md#secure-a-route-with-an-oauth2-plan).
 
-<!-- TODO: Screenshot of The Daemon authentication page with the Keyless and mTLS cards -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-edge-daemon-authentication.png" alt="The Daemon authentication page with the Keyless card, the mTLS card with one enrolled certificate, and the Save & Deploy and Reset buttons"><figcaption><p>The Daemon authentication page.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-daemon-authentication.png" alt="The Daemon authentication page with the Keyless card, the mTLS card with one enrolled certificate, and the Save & Deploy and Reset buttons"><figcaption><p>The Daemon authentication page.</p></figcaption></figure>
 
 ## Before you start
 
@@ -100,8 +99,7 @@ To verify that daemon authentication is working as expected, follow these steps:
 3. In the **mTLS** card, check that **Fleet subscription** reads **accepted**.
 4. Click **Devices**, and check that your devices report as **Active**.
 
-<!-- TODO: Screenshot of The mTLS card with an accepted fleet subscription -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-edge-daemon-authentication-mtls-accepted.png" alt="The mTLS card of the Daemon authentication page, with mTLS plan published turned on, Fleet subscription reading accepted, and one active certificate"><figcaption><p>The mTLS card with an accepted fleet subscription.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-daemon-authentication-mtls-accepted.png" alt="The mTLS card of the Daemon authentication page, with mTLS plan published turned on, Fleet subscription reading accepted, and one active certificate"><figcaption><p>The mTLS card with an accepted fleet subscription.</p></figcaption></figure>
 
 ## Next steps
 
