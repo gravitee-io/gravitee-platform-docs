@@ -46,6 +46,7 @@ documentation.gravitee.io links for other versions.
 * Native Kafka connection logs record each lifecycle event of a connection as its own entry, can report clean closes as **Disconnected**, and show the client library and credential of each connection.
 * The XML Validation policy reads its XSD schema, and the schemas it imports, from a schema registry through the new HTTP Schema Registry resource, and a request that fails validation gets a JSON list of up to 20 violations with their position in the payload.
 * Dictionary properties can be encrypted: APIM stores the value encrypted and masks it in the APIM Console and the Management API, and the Gateway decrypts it at deployment so Expression Language resolves the original value.
+* Dynamic API properties now support encryption, one property at a time or for every fetched value: APIM stores the value encrypted and masks it in the APIM Console and in the Management API v2, and Expression Language resolves the original value once the API is deployed.
 
 ## Breaking Changes and deprecations
 
@@ -96,6 +97,10 @@ APIM 4.13 bundles version 2.x of the XML Validation policy, which changes the re
 #### **XML Validation policy: Requests that declare a `DOCTYPE` and schema downloads are blocked**
 
 The XML Validation policy that APIM 4.13 bundles rejects a request body that declares a `DOCTYPE`, with the same `400` response as a body that doesn't match the schema. It also no longer downloads a schema that an `xs:import` or `xs:include` names with an `http`, `https`, or `file` URL, so an inline schema that does this doesn't compile, and the policy isn't applied. When **Schema source** is **Schema registry**, a schema that names such a URL fails to compile. Requests fail with `500` and the error key `XML_VALIDATION_SCHEMA_COMPILE_FAILED`, and don't reach the backend. In 4.12, the policy accepted a `DOCTYPE` and downloaded those schemas. Before you upgrade, check for API consumers that send a `DOCTYPE`, and for inline schemas that import or include a schema by URL. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Encrypted API properties: The Management API v2 masks values and checks encryption**
+
+The Management API v2 now returns `••••••••••••` in place of the value of an encrypted API property when it returns an API, for v2 and v4 APIs. In 4.12, it returned the encrypted value. When you update an API, send `••••••••••••` back to keep the stored value. Saving an API refuses `••••••••••••` for a property without an encrypted value. Saving a v4 API also refuses an encrypted property sent back as plain text, and a new value for an encrypted property that the installation's secret can't decrypt. These checks return HTTP `400`. When the secret can't encrypt a value, saving an encrypted property of a v4 API fails with HTTP `500` instead of storing its plain text value. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 ## New Features
 
@@ -251,6 +256,14 @@ The XML Validation policy that APIM 4.13 bundles rejects a request body that dec
 * The Gateway decrypts the values when the dictionary is deployed, so `{#dictionaries['<dictionary-id>']['<property-key>']}` resolves to the original value. Dictionary properties use the same secret as encrypted API properties, `api.properties.encryption.secret`, which must match on the Management API and the Gateway.
 * Encryption can't be undone. An encrypted property of a dynamic dictionary stays encrypted when a refresh fetches a new value, and audit entries don't record encrypted values.
 * In an Automation API manifest, declare encrypted properties of a manual dictionary under `encryptedProperties`, and set `encryptOnFetch` for a dynamic dictionary. For more information, see [Dictionaries](../../configure-and-manage-the-platform/gravitee-gateway/dictionaries.md#encrypt-dictionary-properties).
+
+#### **Encrypted dynamic API properties**
+
+* Encrypt the value of a dynamic API property. APIM stores the value encrypted, and the APIM Console shows `••••••••••••` in its place, as does the Management API v2 when it returns the API. Encrypted and unencrypted properties sit side by side in the same API.
+* In the APIM Console, click the lock icon of a dynamic property in the **Properties** tab, or turn on **Encrypt on fetch** in the **Encryption** section of the dynamic properties settings to encrypt every fetched value. In an API definition, the setting is `encryptOnFetch` under `encryption` in the configuration of the HTTP dynamic properties service.
+* The Gateway decrypts the values when the API is deployed, so `{#api.properties['<key>']}` resolves to the original value. Encrypted properties use the existing secret, `api.properties.encryption.secret`. Set the same value on the Management API and the Gateway.
+* An encrypted property can't be made plain again. An encrypted dynamic property stays encrypted when a fetch returns a new value. A property whose key is missing from a fetch is removed, and comes back as plain text unless **Encrypt on fetch** is on.
+* Audit entries show a `<sha256:…>` value in place of encrypted values. Deploying an API that holds an encrypted property records an `API_ENCRYPTED_PROPERTIES_ACCESSED` entry, and the automatic redeployment after a fetch records `API_ENCRYPTED_PROPERTIES_REFRESHED`. For more information, see [Encrypt dynamic properties](../../create-and-configure-apis/apply-policies/v4-api-policy-studio.md#encrypt-dynamic-properties).
 
 ## Improvements
 

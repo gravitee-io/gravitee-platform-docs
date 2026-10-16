@@ -206,3 +206,10 @@ create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md
 create-and-configure-apis/apply-policies/policy-reference/xml-validation.md
 # Identity provider token settings on the Management API page (APIM 4.13.0 feature, APIM-14822)
 configure-and-manage-the-platform/management-api/README.md
+# Encrypted dynamic API properties (APIM 4.13.0 feature, EXT-168)
+create-and-configure-apis/apply-policies/v4-api-policy-studio.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuration.md
+prepare-a-production-environment/production-best-practices/general-recommendations/property-encryption.md
+.gitbook/assets/apim-api-properties-encrypt-dynamic-property.png
+.gitbook/assets/apim-api-dynamic-properties-encrypt-on-fetch.png
+.gitbook/assets/apim-api-audit-logs-encrypted-properties.png
