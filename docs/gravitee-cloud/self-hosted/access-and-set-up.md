@@ -6,7 +6,7 @@ description: Register for the Gravitee Cloud self-hosted profile, then navigate 
 
 ## Access Gravitee Cloud
 
-To get started with Gravitee Cloud self-hosted profile, go to [Cloud by Gravitee](https://cockpit.gravitee.io/), and click **Sign up**. Set up your account as Self-hosted deployment.
+To get started with Gravitee Cloud self-hosted profile, go to [Cloud by Gravitee](https://cloud.gravitee.io), and click **Sign up**. Set up your account as Self-hosted deployment.
 
 ## Navigating Gravitee Cloud
 
