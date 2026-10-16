@@ -358,6 +358,14 @@ Here is the deprecated functionality for 4.X versions of Gravitee and 3.X versio
 
 Here is the deprecated functionality from 4.X of Gravitee
 
+#### 4.13.0
+
+**MongoDB and Elasticsearch subcharts are deprecated**
+
+From 4.13.0, the `mongodb` and `elasticsearch` subcharts of the APIM Helm chart are deprecated, and APIM 4.15.0 removes them. They run `bitnamilegacy` images that no longer receive security updates. Both subcharts are disabled by default, and a deployment that uses an external MongoDB or Elasticsearch isn't affected.
+
+If you enable either subchart, move your data to a MongoDB or Elasticsearch instance deployed outside the chart before you upgrade to 4.15.0. Point `mongo.*` or `es.*` at the new instance, and then set `mongodb.enabled` or `elasticsearch.enabled` to `false`. For more information, see the installation guide for [Vanilla Kubernetes](../self-hosted-installation-guides/kubernetes/vanilla-kubernetes/README.md), [AWS EKS](../self-hosted-installation-guides/kubernetes/aws-eks.md), [Azure AKS](../self-hosted-installation-guides/kubernetes/azure-aks.md), or [OpenShift](../self-hosted-installation-guides/kubernetes/openshift.md).
+
 #### 4.4.0
 
 **gateway.management.http.username deprecation**
