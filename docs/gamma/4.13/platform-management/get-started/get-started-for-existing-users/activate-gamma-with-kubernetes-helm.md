@@ -19,6 +19,10 @@ If you already run Gravitee API Management with the Helm chart, you turn Gamma o
 
 Add the following to your existing `values.yaml`, then run `helm upgrade`.
 
+{% hint style="warning" %}
+If your `values.yaml` enables the `mongodb` or `elasticsearch` subchart, those subcharts are deprecated from APIM 4.13.0, and APIM 4.15.0 removes them. For more information, see [Breaking Changes and Deprecations](https://documentation.gravitee.io/apim/release-information/breaking-changes-and-deprecations).
+{% endhint %}
+
 1. Use the Gamma build. Set the image tags for `api`, `gateway`, `ui`, and `portal` to `4.12`.
 2. Turn on Gamma:
 
