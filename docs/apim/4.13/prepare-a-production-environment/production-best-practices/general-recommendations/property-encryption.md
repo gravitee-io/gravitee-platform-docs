@@ -23,4 +23,6 @@ api:
 
 The same secret encrypts the values of encrypted dictionary properties. For more information, see [Dictionaries](../../../configure-and-manage-the-platform/gravitee-gateway/dictionaries.md#encrypt-dictionary-properties).
 
+Encrypted dynamic API properties use the same secret. If the secret can't encrypt a value, for example because its length isn't valid, saving an encrypted property of a v4 API fails, and APIM doesn't store the value in plain text. When a fetch of dynamic properties can't encrypt a value, APIM keeps the stored value, or leaves out a new property, and logs an error. For more information, see [Encrypt dynamic properties](../../../create-and-configure-apis/apply-policies/v4-api-policy-studio.md#encrypt-dynamic-properties).
+
 You can find additional details about property encryption in [Properties](../../../create-and-configure-apis/apply-policies/v4-api-policy-studio.md#api-properties).
