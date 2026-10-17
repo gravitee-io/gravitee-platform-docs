@@ -4,6 +4,9 @@ description: Documentation about apim 4.8.x in the context of APIs.
 
 # APIM 4.8.x
  
+## Gravitee API Management 4.8.33 - October 14, 2026
+
+ 
 ## Gravitee API Management 4.8.32 - July 1, 2026
 <details>
 
