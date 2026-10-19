@@ -108,43 +108,20 @@ The gateway requires an ingress controller to handle external traffic.
 
 ### Install Redis
 
-To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information, see [Bitnami package for Redis®](https://artifacthub.io/packages/helm/bitnami/redis).
+To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information, see [CloudPirates Redis Helm chart](https://artifacthub.io/packages/helm/cloudpirates-redis/redis).
+
+{% hint style="warning" %}
+This Redis installation is an example for development and testing. It runs a single Redis instance without TLS. Don't use it in production.
+{% endhint %}
 
 1.  Install Redis with Helm using the following command, which also creates a new `gravitee-apim` namespace:
 
     ```bash
-    helm install gravitee-apim-redis oci://registry-1.docker.io/bitnamicharts/redis \
-      --version 19.6.4 \
+    helm install gravitee-apim-redis oci://registry-1.docker.io/cloudpirates/redis \
       --create-namespace \
-      --namespace gravitee-apim \
-      --set image.repository=bitnamilegacy/redis
+      --namespace gravitee-apim
     ```
-2.  Extract the Redis hostname from the command output and save it for future use. The following sample output lists `gravitee-apim-redis-master.gravitee-apim.svc.cluster.local` as the Redis hostname:
-
-    ```sh
-    Pulled: registry-1.docker.io/bitnamicharts/redis:19.6.4
-    Digest: sha256:[hash_will_vary]
-    NAME: gravitee-apim-redis
-    LAST DEPLOYED: DDD MMM DD HH:MM:SS YYYY
-    NAMESPACE: gravitee-apim
-    STATUS: deployed
-    REVISION: 1
-    TEST SUITE: None
-    NOTES:
-    CHART NAME: redis
-    CHART VERSION: 19.6.4
-    APP VERSION: 7.2.5
-
-    ** Please be patient while the chart is being deployed **
-
-    Redis can be accessed on the following DNS names from within your cluster:
-
-        gravitee-apim-redis-master.gravitee-apim.svc.cluster.local for read/write operations (port 6379)
-        gravitee-apim-redis-replicas.gravitee-apim.svc.cluster.local for read-only operations (port 6379)
-
-    To get your password run:
-        export REDIS_PASSWORD=$(kubectl get secret --namespace gravitee-apim gravitee-apim-redis -o jsonpath="{.data.redis-password}" | base64 -d)
-    ```
+2.  Save the Redis hostname, `gravitee-apim-redis.gravitee-apim.svc.cluster.local`, for future use.
 3.  Use the following command to output the Redis password. Save this password for future use.
 
     ```bash
@@ -160,11 +137,8 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     The command generates the following output:
 
     ```bash
-        NAME                          READY   STATUS    RESTARTS   AGE
-        gravitee-apim-redis-master-0  1/1     Running   0          2m
-        gravitee-apim-redis-replicas-0 1/1    Running   0          2m
-        gravitee-apim-redis-replicas-1 1/1    Running   0          2m
-        gravitee-apim-redis-replicas-2 1/1    Running   0          2m
+    NAME                    READY   STATUS    RESTARTS   AGE
+    gravitee-apim-redis-0   1/1     Running   0          2m
     ```
 
 ### Prepare `values.yaml` for Helm
@@ -302,9 +276,9 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
         ratelimit:
             #redis setup for the rate limit database
             redis:
-                host: "<redis host>"
+                host: "<redis_hostname>"
                 port: 6379
-                password: "<redis password>"
+                password: "<redis_password>"
                 ssl: false
             
     ratelimit:
@@ -313,7 +287,7 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
 2. Make the following modifications to your `values.yaml` file:
    * Replace `<cloud_token>` with your Cloud Token.
    * Replace `<license_key>` with your License Key.
-   * Replace `<redis_hostname>` with your extracted Redis hostname.
+   * Replace `<redis_hostname>` with your Redis hostname.
    * Replace `<redis_password>` with your extracted Redis password.
    * Replace `<hosts>` with the host information you entered in the Gravitee\
      Cloud Gateway setup.
