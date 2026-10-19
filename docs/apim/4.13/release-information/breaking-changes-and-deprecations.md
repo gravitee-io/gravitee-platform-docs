@@ -170,6 +170,8 @@ When you save an API, APIM refuses `••••••••••••` sent a
 * An encrypted property sent back as plain text, with `encrypted` and `encryptable` set to `false`. The error key is `api.property.encryptedToPlain`.
 * A new value for an encrypted property, marked as encrypted, that the installation's secret can't decrypt, for example an encrypted value exported from an installation that uses another secret. The error key is `api.property.notCiphertext`. In 4.12, the value was accepted.
 
+APIM doesn't check whether it can decrypt a new value for a property that has no encrypted value stored yet, so make sure encrypted values you import were encrypted with this installation's secret.
+
 When the secret can't encrypt a value, saving an encrypted property of a v4 API fails with HTTP `500`. In 4.12, the property was saved with its plain text value.
 
 Before you upgrade, review the scripts that read API properties from the Management API v2, and the scripts that update APIs with encrypted values from another installation. For more information, see [Encrypt dynamic properties](../create-and-configure-apis/apply-policies/v4-api-policy-studio.md#encrypt-dynamic-properties) and [Property Encryption](../prepare-a-production-environment/production-best-practices/general-recommendations/property-encryption.md).
