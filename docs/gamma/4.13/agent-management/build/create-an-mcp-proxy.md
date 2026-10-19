@@ -79,9 +79,11 @@ Enter the **Server URL** of the upstream MCP endpoint, and then choose how the G
 | **Static credential** | Inject a static credential—API key, Bearer token, Basic auth, or Custom secret—into a request header on every call. |
 | **No upstream auth**  | Call the upstream without injecting credentials.                                                         |
 
+In the **MCP specification versions** card, under **Clients may connect with**, select the versions MCP clients can use to reach the proxy. Under **The gateway talks to the upstream server with**, select the versions the upstream MCP server supports. Both start with **2025-11-25** selected. See [Configure MCP specification versions](configure-your-mcp/configure-mcp-specification-versions.md).
+
 ### Review and create
 
-Review the MCP Proxy configuration, including security and upstream authentication. Then select **Create only** to register the proxy without deploying it, or **Create & deploy** to register and deploy it in one step.
+Review the MCP Proxy configuration, including security, upstream authentication, and the **Client MCP versions** and **Upstream MCP versions**. Then select **Create only** to register the proxy without deploying it, or **Create & deploy** to register and deploy it in one step.
 
 **Create only** leaves the proxy stopped and out of sync. Select **Deploy** on the proxy overview to push it to the AI Gateway. Once the proxy is deployed, every tool invocation through it is subject to the configured authentication, policies, and observability.
 
@@ -96,5 +98,6 @@ Once the MCP Proxy is created, you can do the following:
 ## Next steps
 
 * [Configure your MCP proxy](configure-your-mcp/README.md). Configure upstream authentication and other advanced settings.
+* [Configure MCP specification versions](configure-your-mcp/configure-mcp-specification-versions.md). Choose the versions clients may connect with, and the versions the gateway uses with the upstream server.
 * [Add policies to your MCP server](configure-your-mcp/add-policies-to-mcp-server.md). Apply fine-grained authorization.
 * [Create an MCP Studio](create-an-mcp-studio.md). Compose tools from this server with tools from other sources.

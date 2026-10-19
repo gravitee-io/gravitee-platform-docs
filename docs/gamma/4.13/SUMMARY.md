@@ -49,6 +49,7 @@
   * [APIs & Assets](platform-management/environment/apis-and-assets/README.md)
     * [Manage applications](platform-management/manage-applications.md)
     * [Manage API Score](platform-management/manage-api-score.md)
+    * [Manage integrations](platform-management/manage-integrations.md)
     * [Manage environment metadata](platform-management/manage-environment-metadata.md)
     * [Manage dictionaries](platform-management/manage-dictionaries.md)
     * [Manage user fields](platform-management/manage-user-fields.md)
@@ -294,6 +295,7 @@
       * [General](agent-management/build/mcp-proxies/general/README.md)
         * [Configure MCP Proxy notifications](agent-management/build/configure-mcp-proxy-notifications.md)
       * [Design](agent-management/build/mcp-proxies/design/README.md)
+        * [Configure MCP specification versions](agent-management/build/configure-your-mcp/configure-mcp-specification-versions.md)
         * [Add policies to your MCP server](agent-management/build/configure-your-mcp/add-policies-to-mcp-server.md)
           * [Apply policies to specific plans](agent-management/build/configure-your-mcp/apply-policies-to-plans.md)
           * [Apply policies to specific MCP methods](agent-management/build/configure-your-mcp/apply-policies-to-mcp-methods.md)
@@ -334,6 +336,7 @@
   * [Broadcast messages to proxy consumers](agent-management/build/broadcast-messages-to-proxy-consumers.md)
   * [Configure properties for your proxies](agent-management/build/configure-properties-for-your-proxies.md)
   * [Promote your proxies to another environment](agent-management/build/promote-your-proxies-to-another-environment.md)
+  * [Manage user permissions for your proxies](agent-management/build/manage-user-permissions-for-your-proxies.md)
   * [Manage metadata for your proxies](agent-management/build/manage-metadata-for-your-proxies.md)
   * [Configure resources for your proxies](agent-management/build/configure-resources-for-your-proxies.md)
 * [Observe](agent-management/observe/README.md)
@@ -394,6 +397,9 @@
   * [Policy syncs](authorization-management/evaluate/policy-syncs.md)
   * [Analytics sent to the control plane](authorization-management/evaluate/analytics-sent-to-control-plane.md)
   * [Authorization policy synchronization](authorization-management/authz-gateway-sync.md)
+* [Observe](authorization-management/observe/README.md)
+  * [Monitor authorization decisions](authorization-management/observe/monitor-authorization-decisions.md)
+  * [Review authorization decisions](authorization-management/observe/review-authorization-decisions.md)
 
 ## Edge Management
 

@@ -11,7 +11,7 @@ The Gravitee Kubernetes Operator (GKO) registers two webhooks with the Kubernete
 Validation runs in the following two stages:
 
 1. **Local validation.** GKO checks the resource on its own, without contacting APIM. This covers structural and semantic rules. Examples include flow and endpoint group definitions, broker port ranges on Native Kafka API plans, references to other custom resources, and API context path conflicts in the namespace or cluster.
-2. **Dry-run validation against APIM.** If the resource references a `ManagementContext`, GKO asks APIM to validate the resource as well, before it enters the cluster.
+2. **Dry-run validation against APIM.** If the resource references a `ManagementContext`, GKO asks APIM to validate the resource as well, before it enters the cluster. A resource that reaches Access Management through an `AMContext` is validated against the Access Management Automation API the same way.
 
 When drift detection is enabled, an update to a resource that references a `ManagementContext` is also compared with the resource's current state in APIM. This check is disabled by default. See [drift-detection.md](drift-detection.md "mention").
 
@@ -50,6 +50,12 @@ GKO calls each of the following endpoints with `PUT` and `?dryRun=true`, relativ
 | `Portal`            | `/organizations/{orgId}/environments/{envId}/portals`                                                                     |
 | `PortalListing`     | `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/listings`                                               |
 | `Documentation`     | `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/documentations` or `.../portals/{portalHrid}/documentations`   |
+| `AMSecurityDomain`  | `/organizations/{orgId}/environments/{envId}/domains`, on the Access Management Automation API                             |
+| `AMIdentityProvider` | `/organizations/{orgId}/environments/{envId}/domains/{domainKey}/identities`, on the Access Management Automation API     |
+| `AMCertificate`     | `/organizations/{orgId}/environments/{envId}/domains/{domainKey}/certificates`, on the Access Management Automation API    |
+| `AMReporter`        | `/organizations/{orgId}/environments/{envId}/domains/{domainKey}/reporters`, on the Access Management Automation API       |
+
+The Access Management calls go through the `AMContext` of the security domain. An `AMIdentityProvider`, `AMCertificate`, or `AMReporter` whose security domain doesn't exist, or isn't created in Access Management yet, is admitted with a warning and without a dry-run call. An `AMContext` itself is checked with a call to Access Management when you apply it: an Access Management that can't be reached gives a warning, and any error answer rejects it.
 
 {% hint style="warning" %}
 `ApiDefinition`, the v2 API resource, is the exception. It is validated against the Management API rather than the Automation API, using the same `dryRun` parameter:
@@ -68,8 +74,9 @@ The base path GKO uses depends on how the `ManagementContext` is configured:
 | Self-hosted APIM                    | `/automation`            |
 | Gravitee Cloud, where `spec.cloud` is set | `/apim/automation`  |
 | Any target where `spec.path` is set | The value of `spec.path` |
+| Access Management, through an `AMContext` | `/automation`, or the value of the context's `spec.path` |
 
-Set `spec.path` when you reverse proxy APIM behind a URL rewrite. See [managementcontext.md](custom-resource-definitions/managementcontext.md "mention").
+Set `spec.path` when you reverse proxy APIM or Access Management behind a URL rewrite. See [managementcontext.md](custom-resource-definitions/managementcontext.md "mention") and [amcontext.md](custom-resource-definitions/amcontext.md "mention").
 
 ## The round trip
 
@@ -215,11 +222,11 @@ Only the calls to APIM are bound to these budgets: the dry run, and the read of 
 
 ## When the dry-run call is skipped
 
-The dry-run call only happens when the resource references a `ManagementContext`. Resources that are not synced to an APIM Control Plane are validated locally only. Examples include a v4 API with no `contextRef`, and a v2 API with `local: true`. This includes [db-less-mode.md](../guides/db-less-mode.md "mention") deployments, where there is no Control Plane to call.
+The dry-run call only happens when the resource references a `ManagementContext`, or reaches Access Management through an `AMContext`. Resources that are not synced to an APIM Control Plane are validated locally only. Examples include a v4 API with no `contextRef`, and a v2 API with `local: true`. This includes [db-less-mode.md](../guides/db-less-mode.md "mention") deployments, where there is no Control Plane to call.
 
 ## What this means in practice
 
-* **APIM must be reachable when you apply a resource, not just when GKO reconciles it.** Both webhooks are registered with `failurePolicy: Fail`, and a failed dry-run call is treated as a severe error. If APIM is down, unreachable, or the `ManagementContext` credentials are invalid, `kubectl apply` on a context-bound resource is rejected rather than queued.
+* **APIM must be reachable when you apply a resource, not just when GKO reconciles it.** Both webhooks are registered with `failurePolicy: Fail`, and a failed dry-run call is treated as a severe error. If APIM is down, unreachable, or the `ManagementContext` credentials are invalid, `kubectl apply` on a context-bound resource is rejected rather than queued. The same applies to Access Management for an `AMSecurityDomain`, and for an `AMIdentityProvider`, `AMCertificate`, or `AMReporter` whose domain is created in Access Management.
 * **The credentials in the `ManagementContext` need write permissions.** Nothing is written, but the dry run calls the same create and update endpoint as a real apply. See [define-an-apim-service-account-for-gko.md](../guides/define-an-apim-service-account-for-gko.md "mention").
 * **Each resource you apply costs a round trip to APIM.** On bulk applies, this is one call per context-bound resource. When drift detection is enabled, each update to a context-bound resource also reads the resource's current state from APIM.
 * **The calls appear in APIM's logs.** They look like ordinary Automation API requests, and the `dryRun=true` query parameter is what distinguishes them from a real apply.

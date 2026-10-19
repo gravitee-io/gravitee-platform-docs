@@ -179,6 +179,10 @@ If neither `mongo.uri` or `mongo.servers` are provided, you have to define the f
 
 #### **Mongo ReplicaSet**
 
+{% hint style="warning" %}
+The `mongodb-replicaset` subchart is deprecated from AM 4.13.0, and AM 4.15.0 removes it. For more information, see [Breaking Changes for Access Management](breaking-changes-for-access-management.md).
+{% endhint %}
+
 | Parameter                    | Description                           | Default |
 | ---------------------------- | ------------------------------------- | ------- |
 | `mongodb-replicaset.enabled` | Enable deployment of Mongo replicaset | `false` |
@@ -603,6 +607,10 @@ oauth2:
   type: mongodb
 ```
 {% endcode %}
+
+{% hint style="warning" %}
+The `mongodb-replicaset` subchart is deprecated from AM 4.13.0, and AM 4.15.0 removes it. For more information, see [Breaking Changes for Access Management](breaking-changes-for-access-management.md).
+{% endhint %}
 
 If you want to deploy a MongoDB ReplicaSet using the Helm Chart dependency, you simply have to enable it. The **dbhost** has to be defined using the name of the helm installation (in this example **am**) followed by **-mongodb-replicaset**.
 

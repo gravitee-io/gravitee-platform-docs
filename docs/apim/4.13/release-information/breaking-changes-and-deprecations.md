@@ -151,13 +151,13 @@ APIM 4.13 bundles version 2.x of the XML Validation policy, which changes the re
 
 On v4 HTTP proxy APIs and on v2 APIs in emulation mode, the response body is a JSON object with a `message` field and a `violations` array that lists each problem. The error key is `XML_VALIDATION_FAILED`. `message` holds **Http error message**, or `XML validation failed` when that field is empty. In 4.12, the message was `Bad Request` when the field was empty, and a request that accepted JSON got a body with `message` and `http_status_code` fields. Other requests got the message alone, and now get the JSON object, still with the `text/plain` content type.
 
-On v2 APIs with emulation mode disabled, an empty **Http error message** now returns a text summary of the violations instead of `Bad Request`, and the error key is `XML_INVALID_PAYLOAD`.
+On v2 APIs with emulation mode disabled, an empty **Http error message** now returns a text summary of the violations instead of `Bad Request`, and the error key is `XML_INVALID_PAYLOAD`. When the request's `Accept` header includes `application/json` or `*/*`, the body is a JSON object with the message in `message` and the status code in `http_status_code`, and the content type is `application/json`. Otherwise, the body is the message alone, and the content type is `text/plain`.
 
 Before you upgrade, check the API consumers that read these responses. For more information, see [XML Validation](../create-and-configure-apis/apply-policies/policy-reference/xml-validation.md#errors).
 
 **XML Validation policy: Requests that declare a `DOCTYPE` and schema downloads are blocked**
 
-The XML Validation policy that APIM 4.13 bundles rejects a request body that declares a `DOCTYPE`, with the same `400` response as a body that doesn't match the schema. It also no longer downloads a schema that an `xs:import` or `xs:include` names with an `http`, `https`, or `file` URL in its `schemaLocation`. An inline schema that does this doesn't compile, so the policy isn't applied, and requests reach the backend without validation. In 4.12, the policy accepted a `DOCTYPE` and downloaded the schemas at those URLs.
+The XML Validation policy that APIM 4.13 bundles rejects a request body that declares a `DOCTYPE`, with the same `400` response as a body that doesn't match the schema. It also no longer downloads a schema that an `xs:import` or `xs:include` names with an `http`, `https`, or `file` URL in its `schemaLocation`. An inline schema that does this doesn't compile, so the policy isn't applied, and requests reach the backend without validation. When **Schema source** is **Schema registry**, a schema that names such a URL fails to compile. Requests fail with `500` and the error key `XML_VALIDATION_SCHEMA_COMPILE_FAILED`, and don't reach the backend. In 4.12, the policy accepted a `DOCTYPE` and downloaded the schemas at those URLs.
 
 Before you upgrade, check for API consumers that send a `DOCTYPE`, and for inline schemas that import or include a schema by URL. For more information, see [XML Validation](../create-and-configure-apis/apply-policies/policy-reference/xml-validation.md#errors).
 
@@ -357,6 +357,14 @@ Here is the deprecated functionality for 4.X versions of Gravitee and 3.X versio
 ### Deprecated functionality 4.X
 
 Here is the deprecated functionality from 4.X of Gravitee
+
+#### 4.13.0
+
+**MongoDB and Elasticsearch subcharts are deprecated**
+
+From 4.13.0, the `mongodb` and `elasticsearch` subcharts of the APIM Helm chart are deprecated, and APIM 4.15.0 removes them. They run `bitnamilegacy` images that no longer receive security updates. Both subcharts are disabled by default, and a deployment that uses an external MongoDB or Elasticsearch isn't affected.
+
+If you enable either subchart, move your data to a MongoDB or Elasticsearch instance deployed outside the chart before you upgrade to 4.15.0. Point `mongo.*` or `es.*` at the new instance, and then set `mongodb.enabled` or `elasticsearch.enabled` to `false`. For more information, see the installation guide for [Vanilla Kubernetes](../self-hosted-installation-guides/kubernetes/vanilla-kubernetes/README.md), [AWS EKS](../self-hosted-installation-guides/kubernetes/aws-eks.md), [Azure AKS](../self-hosted-installation-guides/kubernetes/azure-aks.md), or [OpenShift](../self-hosted-installation-guides/kubernetes/openshift.md).
 
 #### 4.4.0
 

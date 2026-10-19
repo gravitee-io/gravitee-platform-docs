@@ -12,7 +12,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans. AI models gain cache read and cache write prices, which LLM Proxies apply to cached prompt tokens. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
+LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permissions, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans, and MCP Proxies, MCP Studios, and catalog MCP servers choose their MCP specification versions, including the stateless 2026-07-28 version. AI models gain cache read and cache write prices, which LLM Proxies apply to cached prompt tokens. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -32,6 +32,14 @@ LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property imp
 * The row menu offers **Override** on an entry the proxy only inherits, and **Edit** on one it owns.
 * Metadata isn't part of the proxy definition, so a change takes effect without a deployment.
 * See [Manage metadata for your proxies](../agent-management/build/manage-metadata-for-your-proxies.md).
+
+#### User permissions for LLM, MCP, and A2A Proxies
+
+* LLM, MCP, and A2A Proxies add a **User Permissions** page under **General** that controls who holds a role on the proxy.
+* Add members and give each one a role, associate groups whose members keep the API role they have in the group, and transfer the primary ownership to another person.
+* Turn off **Notify members when they are added to the API** to add people without an email.
+* A change on the page takes effect without a deployment.
+* See [Manage user permissions for your proxies](../agent-management/build/manage-user-permissions-for-your-proxies.md).
 
 #### Import and dynamic properties for LLM, MCP, and A2A Proxies
 
@@ -163,6 +171,14 @@ LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, property imp
 * A create by import recreates **Keyless**, **API Key**, and **OAuth2** plans, and refuses a file that carries a plan of another type, such as **JWT**.
 * See [Export and import an MCP Proxy](../agent-management/build/export-and-import-an-mcp-proxy.md) and [Duplicate an MCP Proxy](../agent-management/build/duplicate-an-mcp-proxy.md).
 
+#### MCP specification versions for MCP Proxies, MCP Studios, and catalog MCP servers
+
+* The **Connect** step of the MCP Proxy and MCP Studio wizards adds an **MCP specification versions** card. Select the versions clients may connect with, **2026-07-28** or **2025-11-25**, and, for an MCP Proxy, the versions the gateway uses with the upstream server. The **Entrypoint** and **Endpoint** pages of the detail view change them after creation.
+* An MCP Studio serves clients on the 2026-07-28 version without a session, and refuses a request on a version it doesn't accept with the error **Unsupported protocol version**, which lists the versions it accepts.
+* An MCP Proxy records its versions and forwards the version a client asks for to the upstream server, which answers with the version it uses.
+* The **Configure** page of a catalog MCP server adds an **MCP specification versions** card. Saving it updates every MCP Studio that uses the server, and deploys again the Studios that were in sync.
+* See [Configure MCP specification versions](../agent-management/build/configure-your-mcp/configure-mcp-specification-versions.md).
+
 #### Promote LLM, MCP, and A2A Proxies
 
 * **Promote** on the **Settings** page of an LLM, MCP, or A2A Proxy sends a copy of it to another environment through Gravitee Cloud. It's available once the installation is registered with Gravitee Cloud and accepted there.
@@ -277,9 +293,15 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * The endpoint group and endpoint forms of HTTP Proxy APIs also take their fields from the endpoint type: the **Load balancing algorithm** lists **RANDOM**, **ROUND_ROBIN**, **WEIGHTED_RANDOM**, and **WEIGHTED_ROUND_ROBIN**, the **HTTP Headers** table has **KEY** and **VALUE** columns, and the endpoint's name field is labeled **Endpoint name**.
 * See [Create an API proxy](../api-management/build/create-an-api-proxy.md), [Configure entrypoints](../api-management/build/configure-your-api-proxy/configure-entrypoints.md), [Configure endpoints](../api-management/build/configure-your-api-proxy/configure-backend-security.md), and [Secure your API proxy](../api-management/build/secure-your-api-proxy.md).
 
+#### Federated APIs in API Proxies
+
+* The **API Proxies** list includes the federated APIs ingested from integrations once Federation is turned on and the installation has a valid Enterprise Edition license, with **Federated API** in the **API Type** column, the provider in the **Origin** column, and a **Federated API** option in the **API Type** filter. The API Management card of the home page counts them too.
+* A federated API opens on its **Settings** page, whose **Details** panel links to the source integration under **From integration**. Its sidebar keeps only **Settings**, **User Permissions**, **Metadata**, **Documentation**, and **API Score** under **General**, the **Consumers** group, and **Audit Logs** under **Monitoring**.
+* See [Manage general settings](../api-management/build/configure-your-api-proxy/manage-general-settings.md#federated-apis) and [Manage integrations](manage-integrations.md).
+
 ### Authorization Management
 
-Authorization Management imports principals from SCIM 2.0 directories. A directory reads the users and groups of an identity provider when you sync it or on its schedule. Every sync leaves a report of what it imported, changed, and left out. A new **Testing** group adds the **Policy Simulator** and the **Access Explorer**, which test MCP policies before you deploy them. Authorization Management keeps the schema as documents, and sends each document to the gateways that host the PDP gateway it's assigned to.
+Authorization Management imports principals from SCIM 2.0 directories. A directory reads the users and groups of an identity provider when you sync it or on its schedule. Every sync leaves a report of what it imported, changed, and left out. A new **Testing** group adds the **Policy Simulator** and the **Access Explorer**, which test MCP policies before you deploy them. Authorization Management keeps the schema as documents, and sends each document to the gateways that host the PDP gateway it's assigned to. A new **Observability** group adds the **Dashboards** and **Decisions** pages, which show the decisions your PDP gateways took and why.
 
 #### SCIM directories
 
@@ -313,6 +335,15 @@ Authorization Management imports principals from SCIM 2.0 directories. A directo
 * Documents on PDP gateways of one environment that share a **Target PDP ID** meet on some gateways, and so do documents of different environments on the built-in engine. Where two documents meet, a save is refused if it makes them declare a shared type or action differently. **Where documents meet** lists each pair and the gateways where it's composed.
 * An environment's schema from before 4.13 becomes a document named **Default schema**, set to **Unassigned**.
 * See [Schema documents](../authorization-management/manage/schemas/schema-generation.md).
+
+#### Dashboards and Decisions
+
+* The Authorization Management sidebar adds an **Observability** group, with **Dashboards** and **Decisions**.
+* The **Authorization — Overview** dashboard counts the decisions, permits, forbids, failed decisions, and searches of a time range, charts the decisions over time, and lists the actions, principals, and resources with the most forbids, the actions no deployed policy matched, the most frequent reasons, and the decisions per caller, PDP gateway, and API. Duplicate it as a custom dashboard, or start a new one.
+* The **Decisions** page lists each decision with its subject, action, resource, reason, PDP gateway, caller, and evaluation time, and filters on all but the evaluation time. Open a decision to read its reasons and the policies that matched, with their revision.
+* A decision is recorded by what asked for it: the PEP policy, an AuthZEN endpoint of a PDP gateway, or the AuthZEN policy. Each record names the PDP gateway that evaluated the decision and the generation of the policy set it evaluated, when the evaluation happened.
+* The audit trail of the environment records the registration and deletion of a PDP gateway and the creation, update, and deletion of a schema document, and a policy event now carries the policy's text and the PDP gateways it targets.
+* See [Monitor authorization decisions](../authorization-management/observe/monitor-authorization-decisions.md), [Review authorization decisions](../authorization-management/observe/review-authorization-decisions.md), and [Analytics sent to the control plane](../authorization-management/evaluate/analytics-sent-to-control-plane.md).
 
 ### Developer Portals
 
@@ -563,6 +594,14 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Create, edit, search, and delete the groups of the selected environment from the **Groups** page of the **Team** section, and set the default API, API Product, and application roles their members hold, with a lock on each that keeps a group administrator from changing it.
 * Attach a group to every existing API, API Product, or application of the environment in one action, or have the new ones join it automatically.
 * See [Manage groups](manage-groups.md).
+
+#### Manage integrations
+
+* Connect Gravitee to a third-party API gateway or event broker from the **Integrations** page under **APIs & Assets** in the **Environment** section. Pick one of nine providers, name the integration, and run its federation agent with the **Integration ID** that the **Overview** shows.
+* Once the agent is **Connected**, **Discover** lists the APIs of the provider as **New** or **Update**, and **Ingest** creates or refreshes the federated APIs in the background.
+* Edit the integration's name and description, delete its federated APIs or the integration itself, and manage its members and groups from the **Configuration** page.
+* The page appears once Federation is turned on and the installation has a valid Enterprise Edition license, for people whose role can read the environment's integrations.
+* See [Manage integrations](manage-integrations.md).
 
 #### Manage platform policies
 

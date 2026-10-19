@@ -6,7 +6,7 @@ description: Drift detection checks an update to a Gravitee Kubernetes Operator 
 
 ## Overview
 
-A resource that the Gravitee Kubernetes Operator (GKO) manages can still be changed in APIM by something other than GKO. For example, another automation tool or a script can change it through the Automation API. The resource in your cluster and its state in APIM then no longer match. The next time GKO applies the resource, it sends the whole resource to APIM, and the change made in APIM is replaced.
+A resource that the Gravitee Kubernetes Operator (GKO) manages can still be changed in APIM by something other than GKO. For example, another automation tool or a script can change it through the Automation API. The resource in your cluster and its state in APIM then no longer match. The next time GKO applies the resource, it sends the whole resource to APIM, and the change made in APIM is replaced. The same applies to the resources GKO manages in Access Management, which are checked against Access Management.
 
 Drift detection catches this before it happens. It's a check in the GKO validating admission webhook. When you update a resource, GKO reads the resource's current state from APIM and compares it with your resource. When APIM was changed outside GKO, GKO reports the drift. A policy then decides whether the update is rejected, accepted with a warning, or accepted with an entry in the operator logs.
 
@@ -38,7 +38,7 @@ GKO doesn't compare the fields that a resource leaves to APIM:
 
 Drift detection has the following requirements:
 
-* The resource is synchronized with APIM through a `ManagementContext`. A subscription, a documentation page, a portal link, or a portal listing uses the `ManagementContext` of the resource it belongs to. An `ApiV4Definition` without a `contextRef` isn't checked.
+* The resource is synchronized with APIM through a `ManagementContext`. A subscription, a documentation page, a portal link, or a portal listing uses the `ManagementContext` of the resource it belongs to. An `ApiV4Definition` without a `contextRef` isn't checked. An Access Management resource is checked through the `AMContext` of its security domain.
 * The admission webhooks are enabled. GKO doesn't start when `manager.driftDetection.enabled` is `true` and the webhooks are disabled. With the webhooks disabled, the annotation has no effect, because no admission check runs.
 
 Each checked update adds a call to APIM during admission. The call uses the same HTTP client timeout as the dry-run call, and runs within the same webhook timeout. See [Admission timeouts](admission-validation.md#admission-timeouts).
@@ -60,10 +60,33 @@ Drift detection applies to the following resources:
 | `PortalListing`     | Supported                                                         |
 | `PortalTheme`       | Supported                                                         |
 | `Documentation`     | Supported                                                         |
+| `McpProxy`          | Supported                                                         |
+| `CatalogMcpServer`  | Supported                                                         |
+| `AMSecurityDomain`  | Supported                                                         |
+| `AMIdentityProvider` | Supported                                                        |
+| `AMCertificate`     | Supported                                                         |
+| `AMReporter`        | Supported                                                         |
 
 On a `Portal`, the deprecated `spec.navigation` field isn't compared, so a change made to it in APIM isn't reported. The `spec.structure.topNavbar` field that replaces it is compared.
 
-Drift detection doesn't apply to other resources, such as an `ApiDefinition` (v2 API), a `ManagementContext`, or an `ApiResource`. These resources, and subscriptions to a v2 API, ignore the annotation.
+For the Access Management resources, a resource that Access Management hasn't accepted yet isn't compared. Neither is an `AMIdentityProvider`, `AMCertificate`, or `AMReporter` whose security domain isn't created in Access Management yet. A value that Access Management returns masked, such as a password in `configuration`, counts as unchanged when your resource holds a value for it. Lists that Access Management stores without an order, such as the `tags` of a domain and the origins, methods, and headers of its CORS settings, are compared whatever their order.
+
+Drift detection doesn't apply to other resources, such as an `ApiDefinition` (v2 API), a `ManagementContext`, an `AMContext`, or an `ApiResource`. These resources, and subscriptions to a v2 API, ignore the annotation.
+
+### Changes that are never reported
+
+A change made in APIM or Access Management to the following fields is never reported:
+
+| Resource | Fields |
+| --- | --- |
+| `ApiV4Definition` | `spec.definitionVersion`, `spec.definitionContext`, and the `definitionVersion` of each plan |
+| `Group` | `spec.notifyMembers` |
+| `Portal` | `spec.navigation`, which is deprecated |
+| `McpProxy` | The credentials of the upstream authentication: `apiKey.apiKey`, `bearer.token`, `basic.password`, and `oauth2.clientSecret`, under `spec.proxy.upstreamAuth` and under the `auth` of each `spec.studio.upstreamAuth` entry. The `oauth2Generic.clientSecret` of each `spec.identityProviders` entry |
+| `CatalogMcpServer` | `spec.connection.auth.header.value` and `spec.connection.auth.oauth2.clientSecret` |
+| `AMSecurityDomain` | `spec.dataPlaneId` when your resource doesn't set it. An algorithm that Access Management adds to `spec.oidc.workloadIdentitySettings.defaultAllowedAlgorithms` |
+| `AMIdentityProvider` and `AMCertificate` | `spec.name`, `spec.type`, and `spec.configuration` when `spec.system` is `true` |
+| `AMReporter` | `spec.name`, `spec.type`, `spec.configuration`, `spec.attributeMappings`, and `spec.attributeMappingEventTypes` when `spec.system` is `true` |
 
 ## Turn on drift detection
 
@@ -71,17 +94,22 @@ Turn drift detection on for every supported resource with a Helm value, or for a
 
 ### Turn it on for every resource
 
-Set `manager.driftDetection.enabled` to `true` in your Helm values:
+Set `manager.driftDetection.enabled` to `true` in your Helm values. The three `policy` values are the defaults, and [Choose what happens when drift is found](#choose-what-happens-when-drift-is-found) describes them:
 
 {% code title="values.yaml" %}
 ```yaml
 manager:
   driftDetection:
     enabled: true
+    policy: deny
+    onRemoteMissing:
+      policy: deny
+    onFetchFailure:
+      policy: deny
 ```
 {% endcode %}
 
-The chart passes the value to the operator as the `DRIFT_DETECTION_ENABLED` environment variable. Drift detection is on only when that variable is set to `true`.
+The chart passes `manager.driftDetection.enabled` to the operator as the `DRIFT_DETECTION_ENABLED` environment variable. Drift detection is on only when that variable is set to `true`.
 
 ### Turn it on or off for a single resource
 

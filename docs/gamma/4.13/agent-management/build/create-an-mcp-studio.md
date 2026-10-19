@@ -40,7 +40,7 @@ Studio doesn't directly ingest APIs or Kafka topics. Instead, REST APIs are firs
 4. **Define**: Provide a Name, Description, and a Context path for the Composite MCP Server.
 5. **Secure**: Select **Gravitee as Authorization Server**, **External Authorization Server**, **JWT**, **mTLS**, or **API Key** to set how clients authenticate. For the **JWT** settings, see [Configure a JWT plan](configure-your-mcp/manage-mcp-proxy-plans.md#configure-a-jwt-plan). To enable Fine-Grained Authorization (FGA), select **Gravitee as Authorization Server**, and then turn on **Enable FGA**.
 6. **Compose**: Select the tools, resources, and prompts from the Catalog palette to include in the server. You can assign aliases to tools to avoid naming collisions.
-7. **Connect**: Configure upstream authentication for any required source servers that the selected tools depend on.
+7. **Connect**: Under **Clients may connect with**, select the MCP specification versions clients can use to reach the Studio, and then configure upstream authentication for any required source servers that the selected tools depend on. Each source keeps the versions set on its catalog MCP server. See [Configure MCP specification versions](configure-your-mcp/configure-mcp-specification-versions.md).
 8. **Review**: Review the assembled Composite MCP Server configuration and select **Create**.
 
 The Composite MCP Server is registered in the Catalog with `type=Composite` and assigned a transport endpoint that agents can connect to.

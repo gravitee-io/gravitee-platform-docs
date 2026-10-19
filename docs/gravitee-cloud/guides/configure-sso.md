@@ -22,9 +22,9 @@ Single Sign On allows you to set up an identity trust federation with your organ
 
 Once the end user chooses to sign in to Cockpit with SSO, they will be asked to provide their organization email. This email is used to redirect the user to your chosen authentication method to either sign in or bypass sign in via SSO if the user is already authenticated.
 
-<figure><img src="../.gitbook/assets/guides-configure-sso-2-1-1-1-1-1-1.png" alt="The Sign in dialog offering Google, GitHub, and email sign-in above a Sign in with your company SSO link." width="375"><figcaption><p>Single Sign On users should select "Sign in with your company SSO"</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/cloud-sign-in-page.png" alt="The Gravitee Cloud sign-in page with the Company SSO button under Or sign in with, next to the Google and Github buttons." width="375"><figcaption><p>Single Sign On users click Company SSO</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/guides-configure-sso-3-1-1-1-1-1-1.png" alt="The Single Sign On screen asking for an organization email address, with a Continue button." width="375"><figcaption><p>User email redirects to your organization's IdP</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/cloud-company-sso-page.png" alt="The Company SSO page asking for a work email address, with a Continue button." width="375"><figcaption><p>User email redirects to your organization's IdP</p></figcaption></figure>
 
 ## How to configure
 
