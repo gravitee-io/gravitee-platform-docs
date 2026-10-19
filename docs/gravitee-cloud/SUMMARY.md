@@ -7,6 +7,7 @@
 ## Getting started
 
 * [Getting started with Gravitee Cloud](getting-started/getting-started-with-gravitee-cloud.md)
+* [Sign in to Gravitee Cloud](getting-started/sign-in-to-gravitee-cloud.md)
 * [Upgrading your trial to a customer account](getting-started/upgrading-your-trial-to-a-customer-account.md)
 
 ## Guides
