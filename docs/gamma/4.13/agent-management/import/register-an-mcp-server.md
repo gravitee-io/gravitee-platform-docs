@@ -55,6 +55,8 @@ The MCP server appears in the Catalog with its metadata:
 | **Resource count**    | Number of resources discovered on this server.                                            |
 | **Last sync**         | Timestamp of the most recent catalog refresh.                                             |
 
+The **Overview** card of the server's detail page shows the versions the gateway uses with it as **MCP versions used by the gateway**. It shows the version the server reported as **Discovered protocol version**. To change the versions, click **Configure**. See [Configure MCP specification versions](../build/configure-your-mcp/configure-mcp-specification-versions.md).
+
 ## Next steps
 
 * **Create an MCP Proxy** — Put a governance layer in front of this server. See [Create an MCP proxy](../build/create-an-mcp-proxy.md).

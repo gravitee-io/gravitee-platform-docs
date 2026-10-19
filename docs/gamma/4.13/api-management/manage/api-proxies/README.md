@@ -6,7 +6,7 @@ description: Create an API proxy, then configure it from the groups of its own s
 
 # API Proxies
 
-An API proxy has its own sidebar. Its groups are **General**, **Design**, **Consumers**, **Monitoring**, **Operations**, and **Observability**. A TCP Proxy API's sidebar leaves out **Policy Studio**, **Failover**, **Response Templates**, **CORS**, **Subscriptions**, **Health Check Dashboard**, and the **Observability** group.
+An API proxy has its own sidebar. Its groups are **General**, **Design**, **Consumers**, **Monitoring**, **Operations**, and **Observability**. A TCP Proxy API's sidebar leaves out **Policy Studio**, **Failover**, **Response Templates**, **CORS**, **Subscriptions**, **Health Check Dashboard**, and the **Observability** group. A federated API's sidebar keeps only **Settings**, **User Permissions**, **Metadata**, **Documentation**, and **API Score** under **General**, the **Consumers** group, and **Audit Logs** under **Monitoring**.
 
 * [**Create an API proxy**](../../build/create-an-api-proxy.md). Create an API proxy in the Gamma console with the from-scratch wizard or a quick-start template.
 * [**Import an API proxy**](../../build/import-an-api-proxy.md). Create or replace an API proxy by importing a Gravitee definition, an OpenAPI specification, or a WSDL document.

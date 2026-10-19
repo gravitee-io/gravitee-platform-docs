@@ -8,6 +8,8 @@ description: The Access Management 4.13 Automation API manages resources declara
 
 The Automation API provides a machine-oriented HTTP interface for managing Access Management resources declaratively. It enables infrastructure-as-code workflows by exposing domain, identity provider, certificate, reporter, and data plane resources through a stable, versioned OpenAPI specification served at the configured entrypoint. The API is designed for CI/CD pipelines, Terraform providers, and other automation tools that require idempotent, key-based resource management.
 
+To manage these resources from Terraform configuration files, see [Manage AM with Terraform](manage-am-with-terraform.md).
+
 ## Key concepts
 
 ### Automation API vs Management REST API

@@ -1,78 +1,42 @@
 ---
 hidden: false
 noIndex: false
-description: The observability data that Policy Decision Point gateways send back to the Gravitee control plane. Learn what is collected and where it appears.
+description: What your gateways record for each authorization decision, and where you read those records in Authorization Management.
 ---
 
-# Analytics sent to the control plane
+# Decision records
 
-Understand the observability data that PDP gateways send back to the Gravitee control plane.
+Your gateways record each authorization decision they're asked for, with the rest of their analytics. The **Dashboards** and **Decisions** pages of Authorization Management read those records.
 
-{% hint style="warning" %}
-This feature is under active development and may not be available in all environments at this time.
-{% endhint %}
+## What records a decision
 
-## Overview
+A decision is recorded by what asked for it, not by the PDP gateway that evaluated it:
 
-PDP gateways report authorization decision metrics to the Gravitee control plane. This telemetry powers the Authorization Management dashboard and the KPI tiles on the Quick Start page.
+* The **PEP policy** records one decision for each evaluation it requests on an API's traffic.
+* An **AuthZEN endpoint** of a PDP gateway records one decision for each evaluation request, and one for each item of a batch request that it returns.
+* The **AuthZEN policy** records one decision for each evaluation request, and one for each item of a batch request that it returns. When a batch stops at its first permit or its first deny, the items after that one aren't recorded, even if they were already evaluated.
 
-## Data collected
+Search requests record no decision. The **Authorization — Overview** dashboard counts them under **Searches**.
 
-The Quick Start page surfaces four KPI tiles, suggesting the following data is collected:
+The **Caller kind** column of the **Decisions** page shows what asked for each decision.
 
-| Metric | Source |
-|--------|--------|
-| **Policies** | Count of policies by status (Draft, Deployed, Disabled) |
-| **Entities** | Count of principal and resource entities |
-| **Decision count** | Number of permit/deny evaluations per time window |
-| **Evaluation latency** | P50/P95/P99 latency of policy evaluation |
+## What a decision record holds
 
-## Quick Start KPI tiles
+Each record holds at least the following information:
 
-The Quick Start page displays four KPI tiles populated by the `useQuickStartCounts` hook, which queries the backend for:
+* The decision, and what the caller enforced.
+* The principal, the action, and the resource.
+* The policies that matched, with their revision, and the reasons the PDP gave.
+* The PDP gateway that evaluated the decision, the generation of the policy set it evaluated, and how long the evaluation took. A decision evaluated by the default engine of the gateway records **default** as the PDP gateway. A decision that failed or wasn't evaluated also records **default**, with `0` as the generation.
+* The API the decision was requested on, with its plan and application when there's one, and the ID of the request.
 
-| Tile | Backend field |
-|------|--------------|
-| **MCP Servers** | Count of MCPServer entities |
-| **AI Models** | Count of Model entities |
-| **APIs** | Count of API entities |
-| **Policies** | Count of all policies |
+## What has to be in place
 
-## Dashboard pages
+The Elasticsearch reporter of the gateway writes decision records to the `gravitee-decisions-*` data streams, and the pages read them from there. An installation that stores no analytics in Elasticsearch shows empty **Dashboards** and **Decisions** pages. Gateways record decisions by default. To apply an index lifecycle policy to the decision data streams, set its name under `reporters.elasticsearch.lifecycle.policies.decisions` in `gravitee.yml`. With the Helm chart, set `es.lifecycle.enabled` to `true` and `es.lifecycle.policies.decisions` to the name of the policy.
 
-The Dashboard page provides per-category analytics cards:
+The pages show the decisions requested on the APIs you can read. When you can't read any API, both pages are empty.
 
-| Category | Status |
-|----------|--------|
-| **APIs** | Active |
-| **MCP Servers** | Active |
-| **AI Models** | Active |
-| **Agents** | Coming soon |
-| **Users and Groups** | Coming soon |
+## Read the decisions
 
-{% hint style="info" %}
-The Agent and Users and Groups dashboard cards are marked "Coming soon" in the current release. Analytics for these categories will be available in a future update.
-{% endhint %}
-
-## How analytics flow
-
-```
-PDP Gateway
-    │
-    │ Metrics (evaluation decisions, latency, counts)
-    ▼
-Control Plane
-    │
-    │ Aggregated analytics
-    ▼
-Console Dashboard
-    │
-    │ KPI tiles, charts
-    ▼
-Authorization Management UI
-```
-
-## Next steps
-
-* [Configure the Gravitee Gateway as a runtime](configure-gravitee-gateway-as-runtime.md) — Register PDP gateways
-* [Policy syncs](policy-syncs.md) — How policies reach the gateway
+* [Monitor authorization decisions](../observe/monitor-authorization-decisions.md). The **Authorization — Overview** dashboard.
+* [Review authorization decisions](../observe/review-authorization-decisions.md). The decisions one by one, with their reasons and matched policies.

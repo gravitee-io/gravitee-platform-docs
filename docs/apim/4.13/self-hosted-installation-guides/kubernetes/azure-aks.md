@@ -119,6 +119,10 @@ This guide requires MongoDB and Elasticsearch to be installed for the complete A
 
 ### Install MongoDB
 
+{% hint style="warning" %}
+The `mongodb` and `elasticsearch` subcharts are deprecated from APIM 4.13.0, and APIM 4.15.0 removes them. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 {% hint style="info" %}
 You can use other databases to store configuration management data (see [JDBC repositories](../../prepare-a-production-environment/repositories/README.md)).
 {% endhint %}

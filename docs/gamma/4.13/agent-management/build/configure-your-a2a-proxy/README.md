@@ -21,10 +21,9 @@ When you open an A2A Proxy from the list, the sidebar offers the following group
 * **General**:
   * **Overview**. View the owner, version, context path, and dates of the proxy, and copy its gateway URL and upstream agent URL.
   * **Configuration**. Manage the general settings and the lifecycle of the proxy, and export, import, or duplicate it. See [Export and import an A2A Proxy](../export-and-import-an-a2a-proxy.md) and [Duplicate an A2A Proxy](../duplicate-an-a2a-proxy.md).
+  * **User Permissions**. Add members, manage groups, and transfer the ownership of the proxy. See [Manage user permissions for your proxies](../manage-user-permissions-for-your-proxies.md).
   * **API Properties**. Manage the key/value properties that policies read at runtime, import them in bulk, or sync them from an HTTP endpoint. See [Configure properties for your proxies](../configure-properties-for-your-proxies.md).
   * **Metadata**. Manage the metadata entries that describe the proxy, and override the entries it inherits from its environment. See [Manage metadata for your proxies](../manage-metadata-for-your-proxies.md).
-* **Security**:
-  * **User Permissions**. Manage who can view and manage the proxy.
 * **Design**:
   * **Endpoint**. Configure the target URL of the upstream agent and the upstream authentication.
   * **Policy Studio**. Design your flows and apply policies to agent-to-agent communication. See [Add policies to your A2A Proxy](add-policies-to-a2a-proxy.md).
