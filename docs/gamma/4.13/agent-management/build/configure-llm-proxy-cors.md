@@ -20,7 +20,7 @@ To open the page, follow these steps:
 1. From the Gamma console sidebar, select **Agent Management**.
 2. Under **Secure**, select **LLM Proxies**.
 3. Select your LLM Proxy.
-4. Under **General**, click **CORS**.
+4. Under **Design**, click **CORS**.
 
 <figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-cors.png" alt="The CORS page of an LLM Proxy with the Enable CORS switch on, an allowed origin, and the allowed methods and headers"><figcaption><p>The CORS page</p></figcaption></figure>
 
@@ -51,10 +51,11 @@ Adding `*` as an allowed origin shows the **Allowing all origins** alert, becaus
 
 ## Adjust the advanced settings
 
-The **Advanced settings** card covers credentials, the preflight cache duration, and policy execution.
+The **Advanced settings** card covers credentials, policy execution, private network access, and the preflight cache duration.
 
 * **Access-Control-Allow-Credentials**. Lets browsers send cookies and HTTP authentication with cross-origin requests. When the switch is on, the gateway adds `Access-Control-Allow-Credentials: true` to the responses. The switch isn't compatible with `*` as the allowed origin.
 * **Run policies on preflight**. By default, the gateway answers a preflight `OPTIONS` request as soon as the CORS checks pass, without running the flows of the proxy. Turn the switch on to run the policies of the flows on preflight requests too. The preflight request is still answered by the gateway and never reaches a model provider, and the security chain of the plans is skipped for preflight requests whether the switch is on or off.
+* **Access-Control-Allow-Private-Network**. Lets a page served from a public site call the proxy when the proxy runs on a private network. When the switch is on, the gateway answers a preflight request that carries `Access-Control-Request-Private-Network: true` with `Access-Control-Allow-Private-Network: true`.
 * **Max age (seconds)**. How long the browser may cache the preflight response. The default, `-1`, sends no `Access-Control-Max-Age` header. The field accepts values from `-1` to `2147483647`, and a value above `600` shows the **Long preflight cache** warning.
 
 <figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-cors-advanced.png" alt="The Advanced settings card with the Access-Control-Allow-Credentials and Run policies on preflight switches and the Max age field"><figcaption><p>The Advanced settings card</p></figcaption></figure>
