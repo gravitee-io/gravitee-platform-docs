@@ -225,7 +225,7 @@ The XML Validation policy that APIM 4.13 bundles rejects a request body that dec
 * Federate the APIs of SAP API Management on SAP Business Technology Platform. Create an integration with the **SAP Business Technology Platform** provider in the APIM Console, and run its agent with a service key for the SAP API portal and one for the SAP Developer Hub.
 * Each API proxy of the API portal becomes a federated API, with its OpenAPI specification and a page of its SAP documentation. Each version of an SAP API is a federated API of its own.
 * Each product that the Developer Hub marks as subscribable becomes a plan on every API it contains: an OAuth2 plan for a product of External OAuth APIs, and an API Key plan for the others.
-* An approved subscription to an API Key plan creates an SAP application for the Gravitee application in the Developer Hub, and the consumer receives the SAP application key as the API key. Closing a subscription removes only its own access in SAP.
+* An approved subscription to an API Key plan creates an SAP application for that subscription in the Developer Hub, and the consumer receives the SAP application key as the API key. Closing a subscription deletes its SAP application, which removes only its own access in SAP.
 * The agent requires the Developer Hub to approve subscriptions automatically. When SAP waits for its own approval, the agent rejects the Gravitee subscription.
 * For more information, see [SAP Business Technology Platform](../../govern-apis/federation/3rd-party-providers/sap-api-management.md).
 
