@@ -32,8 +32,6 @@ Once resources are created, the empty states resolve to display your live resour
 
 The **Developer Portals** card opens the Developer Portal settings in a new tab. For more information, see [Open the Developer Portal settings](../../platform-management/open-the-developer-portal-settings.md).
 
-## Unified filter catalog
+## Filters on the Logs and Dashboards pages
 
-Across the Gamma console's observability views (such as the API analytics dashboard and the API log viewer), you can dynamically narrow your data using the unified filter catalog. This catalog provides a consistent set of available filters—such as filtering by time range, subscription plan, consumer application, response status code, or specific error keywords.
-
-Filters are synchronized across widgets on a page; applying a filter to a specific chart or data table updates the entire view to match. The filter dimensions and values are fetched dynamically from the underlying `GET /observability/filters` API to ensure that only relevant values present in the system are offered as filter options.
+The **Logs** and **Dashboards** pages of a module filter on the properties of its recorded requests, such as **API**, **Plan**, **Application**, and **Status Code**. Some properties apply to logs only, such as **Request URI**. See [View API logs](view-api-logs.md#filter-the-logs).
