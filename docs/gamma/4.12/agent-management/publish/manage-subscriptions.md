@@ -1,7 +1,7 @@
 ---
-hidden: false
-noIndex: false
-description: A subscription binds one application to one plan on a Gamma LLM or MCP Proxy. Follow the steps to create, approve, and close subscriptions.
+description: >-
+  A subscription binds one application to one plan on a Gamma LLM or MCP Proxy.
+  Follow the steps to create, approve, and close subscriptions.
 ---
 
 # Manage subscriptions
@@ -41,13 +41,10 @@ You can open access to a consumer directly, without waiting for the consumer to 
 
 Where the new subscription lands depends on the plan:
 
-| Plan validation | Result |
-| --------------- | ------ |
-| Manual | The subscription is created in **Pending** status and waits for your decision. Plans you create on an LLM Proxy always use manual validation. |
-| Automatic | The subscription is accepted as soon as it's created, and an API Key plan issues its key in the same step. On an MCP Proxy plan, **Auto validate subscription** sets this. It's off by default, and it's forced on for a keyless plan. |
-
-<!-- TODO: Screenshot of the Consumers page on an LLM Proxy, showing the subscriptions table and the Create subscription button -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-412-aim-consumers.png" alt=""><figcaption><p>The Consumers page lists the applications subscribed to this proxy's plans.</p></figcaption></figure>
+| Plan validation | Result                                                                                                                                                                                                                                 |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Manual          | The subscription is created in **Pending** status and waits for your decision. Plans you create on an LLM Proxy always use manual validation.                                                                                          |
+| Automatic       | The subscription is accepted as soon as it's created, and an API Key plan issues its key in the same step. On an MCP Proxy plan, **Auto validate subscription** sets this. It's off by default, and it's forced on for a keyless plan. |
 
 ## Approve or reject a request
 
@@ -65,24 +62,21 @@ The console sends no start date, end date, or custom key value with the approval
 
 Open a subscription from the **Consumers** page to read its **Credentials** card. What the card holds depends on the plan's security type.
 
-| Plan type | Available on | Credentials card |
-| --------- | ------------ | ---------------- |
-| **API Key** | LLM Proxy, MCP Proxy | How the consumer sends the key, plus each key value with a copy control. A revoked key is badged **Revoked**. While the subscription holds no key, the card states that the key is generated when the subscription is accepted. |
-| **JWT** | LLM Proxy | The client ID the subscription was created with. |
-| **OAuth 2.0** | LLM Proxy | The client ID the subscription was created with. |
-| **OAuth 2.0 (Gravitee AM)** | MCP Proxy | A pointer to the subscribing application, where the credentials for the Gravitee Access Management integration are held. |
-| **mTLS** | LLM Proxy | The client certificate the subscription was created with. |
+| Plan type                   | Available on         | Credentials card                                                                                                                                                                                                                |
+| --------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **API Key**                 | LLM Proxy, MCP Proxy | How the consumer sends the key, plus each key value with a copy control. A revoked key is badged **Revoked**. While the subscription holds no key, the card states that the key is generated when the subscription is accepted. |
+| **JWT**                     | LLM Proxy            | The client ID the subscription was created with.                                                                                                                                                                                |
+| **OAuth 2.0**               | LLM Proxy            | The client ID the subscription was created with.                                                                                                                                                                                |
+| **OAuth 2.0 (Gravitee AM)** | MCP Proxy            | A pointer to the subscribing application, where the credentials for the Gravitee Access Management integration are held.                                                                                                        |
+| **mTLS**                    | LLM Proxy            | The client certificate the subscription was created with.                                                                                                                                                                       |
 
 For an API Key plan, the card also states where the AI Gateway reads the key, which follows the delivery mode chosen on the plan:
 
-| Delivery mode | What the consumer sends |
-| ------------- | ----------------------- |
-| **Authorization: Bearer** | `Authorization: Bearer <api-key>`. The AI Gateway reads the key from that header only. |
-| **Custom header** | The header named on the plan. The AI Gateway falls back to the `api-key` query parameter when that header is absent. |
-| **Query parameter** | The `api-key` query parameter. The AI Gateway reads the key from that parameter only. |
-
-<!-- TODO: Screenshot of a subscription detail page showing the Subscription details card and the Credentials card with an issued API key -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-412-aim-subscription-credentials.png" alt=""><figcaption><p>The Credentials card holds the key or client identity issued to the consumer.</p></figcaption></figure>
+| Delivery mode             | What the consumer sends                                                                                              |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **Authorization: Bearer** | `Authorization: Bearer <api-key>`. The AI Gateway reads the key from that header only.                               |
+| **Custom header**         | The header named on the plan. The AI Gateway falls back to the `api-key` query parameter when that header is absent. |
+| **Query parameter**       | The `api-key` query parameter. The AI Gateway reads the key from that parameter only.                                |
 
 ## Close a subscription
 

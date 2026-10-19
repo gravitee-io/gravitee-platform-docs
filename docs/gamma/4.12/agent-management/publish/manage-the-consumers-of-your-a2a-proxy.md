@@ -1,5 +1,8 @@
 ---
-description: The Consumers page of an A2A Proxy lists the applications subscribed to its plans. Follow the steps to create a subscription, approve a request, read the credentials, pause, transfer, or close a subscription, and manage its API keys.
+description: >-
+  The Consumers page of an A2A Proxy lists the applications subscribed to its
+  plans. Follow the steps to create a subscription, approve a request, read the
+  credentials, pause, transfer, or close a subsc
 ---
 
 # Manage the consumers of your A2A Proxy
@@ -51,7 +54,7 @@ The subscription's page carries two cards.
 * For a **JWT** or **OAuth 2.0** plan, the **Client ID** the subscription was created with.
 * For an **mTLS** plan, the **Client certificate** the subscription was created with.
 
-<figure><img src="../.gitbook/assets/gamma-aim-a2a-subscription-detail.png" alt="A subscription's page on an A2A Proxy: the Subscription details card with its ID, plan, status, and dates, the Credentials card reading Sent as with Authorization: Bearer, and the top of the API keys card with its Renew button"><figcaption><p>A subscription's page with its credentials</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-a2a-subscription-detail.png" alt="A subscription&#x27;s page on an A2A Proxy: the Subscription details card with its ID, plan, status, and dates, the Credentials card reading Sent as with Authorization: Bearer, and the top of the API keys card with its Renew button"><figcaption><p>A subscription's page with its credentials</p></figcaption></figure>
 
 ## Manage the API keys
 

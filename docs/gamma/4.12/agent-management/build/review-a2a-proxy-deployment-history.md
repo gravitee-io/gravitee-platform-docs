@@ -1,7 +1,7 @@
 ---
-hidden: false
-noIndex: false
-description: The Deployment History page lists every deployment of a Gamma A2A Proxy, newest first. Follow the steps to compare versions and roll back.
+description: >-
+  The Deployment History page lists every deployment of a Gamma A2A Proxy,
+  newest first. Follow the steps to compare versions and roll back.
 ---
 
 # Review A2A Proxy deployment history
@@ -10,12 +10,12 @@ The **Deployment History** page lists all deployments of this A2A Proxy, newest 
 
 To open the page, follow these steps:
 
-1.  Click **A2A Proxies** in the module sidebar.
-2.  Select your A2A Proxy.
-3.  Under **Operations**, click **Deployment**.
+1. Click **A2A Proxies** in the module sidebar.
+2. Select your A2A Proxy.
+3. Under **Operations**, click **Deployment**.
 4.  Click **History**.
 
-    <figure><img src="../.gitbook/assets/gamma-a2a-proxy-deployment-history.png" alt="The Deployment History page for A2A Proxy, listing deployments with Version, Date, User and Label columns and a live badge on the newest version"><figcaption><p>The Deployment History page</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-a2a-proxy-deployment-history (1).png" alt="The Deployment History page for A2A Proxy, listing deployments with Version, Date, User and Label columns and a live badge on the newest version"><figcaption><p>The Deployment History page</p></figcaption></figure>
 
 The table lists each deployment's **Version**, **Date**, **User**, and **Label** columns. The most recent deployment carries the **live** badge. The label is the optional deployment label entered when the A2A Proxy was deployed. Before the first deployment, the page reads **No deployments yet**, with the description **Deployment records will appear here after the first publish.**
 
@@ -49,7 +49,7 @@ The rollback restores the A2A Proxy's API definition to the selected version.
 
 If the rollback fails, a card stays on screen reading **Rollback failed**, followed by the reason.
 
-The rollback controls are hidden unless you have the **API_DEFINITION** permission with the **UPDATE** access level.
+The rollback controls are hidden unless you have the **API\_DEFINITION** permission with the **UPDATE** access level.
 
 ## Verification
 

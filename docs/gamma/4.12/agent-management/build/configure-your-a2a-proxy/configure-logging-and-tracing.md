@@ -1,7 +1,8 @@
 ---
-hidden: false
-noIndex: false
-description: Control which request and response data an A2A Proxy reports to logs and analytics, and turn on OpenTelemetry tracing. Follow the steps to configure it.
+description: >-
+  Control which request and response data an A2A Proxy reports to logs and
+  analytics, and turn on OpenTelemetry tracing. Follow the steps to configure
+  it.
 ---
 
 # Configure logging and tracing
@@ -18,7 +19,7 @@ When you change any setting, the **Discard** and **Save changes** buttons appear
 
 After you save, a confirmation notification appears and both buttons disappear until you edit the form again.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-a2a-proxy-reporter-settings.png" alt="The Reporter Settings page for an A2A Proxy, showing the Settings card with the analytics switch on and the logging mode and logging phase groups"><figcaption><p>The Reporter Settings page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-a2a-proxy-reporter-settings (1).png" alt="The Reporter Settings page for an A2A Proxy, showing the Settings card with the analytics switch on and the logging mode and logging phase groups"><figcaption><p>The Reporter Settings page</p></figcaption></figure>
 
 {% hint style="warning" %}
 Detailed logging increases storage and can affect gateway performance. Use payload logging and verbose tracing only when needed.
@@ -35,7 +36,7 @@ The card groups the logging settings as follows:
 | **Logging mode**       | **Entrypoint**, **Endpoint** | Which connection leg to include in reported events: client to gateway, or gateway to upstream. |
 | **Logging phase**      | **Request**, **Response**    | Which lifecycle phases to capture.                                                             |
 | **Content data**       | **Headers**, **Payload**     | Optional inclusion of headers and bodies in log payloads.                                      |
-| **Display conditions** | **Request phase condition**  | An optional Expression Language filter for the request phase. Leave empty to log all requests.  |
+| **Display conditions** | **Request phase condition**  | An optional Expression Language filter for the request phase. Leave empty to log all requests. |
 
 The phase, content, and condition settings stay disabled until at least one logging mode, **Entrypoint** or **Endpoint**, is enabled.
 
@@ -49,7 +50,7 @@ The **OpenTelemetry** card configures distributed tracing and OpenTelemetry log 
 * **Verbose**. Adds detailed span events with headers, context attributes, and policy execution details. Requires **Trace enabled**. Enable only for deep debugging, because it increases trace size significantly, and disable it after debugging is complete.
 * **OTel Logs**. Emit request and response payloads as OpenTelemetry log records correlated to the active trace, which enables log-to-trace linking in Grafana and other OpenTelemetry-compatible backends. Requires **Trace enabled**.
 
-<figure><img src="../../.gitbook/assets/gamma-aim-a2a-otel-card.png" alt="The OpenTelemetry card on an A2A Proxy's Reporter Settings page, with the Trace enabled, Verbose, and OTel Logs switches"><figcaption><p>The <strong>OpenTelemetry</strong> card of an A2A Proxy. <strong>Verbose</strong> and <strong>OTel Logs</strong> are unavailable until <strong>Trace enabled</strong> is on.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-a2a-otel-card.png" alt="The OpenTelemetry card on an A2A Proxy&#x27;s Reporter Settings page, with the Trace enabled, Verbose, and OTel Logs switches"><figcaption><p>The <strong>OpenTelemetry</strong> card of an A2A Proxy. <strong>Verbose</strong> and <strong>OTel Logs</strong> are unavailable until <strong>Trace enabled</strong> is on.</p></figcaption></figure>
 
 ### What an A2A trace contains
 
@@ -61,14 +62,14 @@ The span is named after the JSON-RPC method of the call, such as `message/send`.
 
 The span carries the following attributes:
 
-| Attribute | Value |
-| --- | --- |
-| `rpc.system.name` | Always `jsonrpc`. |
-| `gen_ai.operation.name` | Always `invoke_agent`. |
-| `rpc.method` | The JSON-RPC method of the call. Absent when the request carries none. |
-| `jsonrpc.request.id` | The JSON-RPC request id. Absent when the request carries none. |
-| `server.address` | The upstream agent's host, without scheme, port, or path. |
-| `server.port` | The upstream agent's port, filled in from the scheme when the target leaves it implicit. |
+| Attribute               | Value                                                                                    |
+| ----------------------- | ---------------------------------------------------------------------------------------- |
+| `rpc.system.name`       | Always `jsonrpc`.                                                                        |
+| `gen_ai.operation.name` | Always `invoke_agent`.                                                                   |
+| `rpc.method`            | The JSON-RPC method of the call. Absent when the request carries none.                   |
+| `jsonrpc.request.id`    | The JSON-RPC request id. Absent when the request carries none.                           |
+| `server.address`        | The upstream agent's host, without scheme, port, or path.                                |
+| `server.port`           | The upstream agent's port, filled in from the scheme when the target leaves it implicit. |
 
 <figure><img src="../../.gitbook/assets/gamma-aim-a2a-span-attributes.png" alt="The attributes of an A2A span: server.address, gen_ai.operation.name, rpc.method, server.port, rpc.system.name, and jsonrpc.request.id"><figcaption><p>The attributes of an A2A span.</p></figcaption></figure>
 

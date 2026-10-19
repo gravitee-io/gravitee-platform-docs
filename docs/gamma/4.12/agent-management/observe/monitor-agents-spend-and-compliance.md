@@ -1,5 +1,8 @@
 ---
-description: The Overview page is the Agent Management landing page. Read what its Agents, Spend through the gateway, and Compliance sections report across the environment.
+description: >-
+  The Overview page is the Agent Management landing page. Read what its Agents,
+  Spend through the gateway, and Compliance sections report across the
+  environment.
 ---
 
 # Monitor agents, spend, and compliance on the Overview page
@@ -12,9 +15,6 @@ This is a different surface from the **Overview** page of a single proxy, which 
 
 1. From the Gamma console sidebar, select **Agent Management**. The module opens on **Overview**.
 2. To return to it from anywhere in the module, find the **General** group in the sidebar and select **Overview**.
-
-<!-- TODO: Screenshot of the Agent Management Overview page showing the Agents, Spend through the gateway, and Compliance sections -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-overview-page.png" alt=""><figcaption><p>The <strong>Overview</strong> page, with the <strong>Agents</strong>, <strong>Spend through the gateway</strong>, and <strong>Compliance</strong> sections.</p></figcaption></figure>
 
 The line beside the page title reports when the figures were last updated. Select **Refresh** to read them again.
 

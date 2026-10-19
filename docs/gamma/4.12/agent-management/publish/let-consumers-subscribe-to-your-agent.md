@@ -1,5 +1,8 @@
 ---
-description: Consumers reach your agent by subscribing an application to a plan on its A2A Proxy. Follow the steps to create and publish a plan in the Gamma console, show your terms in the Developer Portal, and approve the requests.
+description: >-
+  Consumers reach your agent by subscribing an application to a plan on its A2A
+  Proxy. Follow the steps to create and publish a plan in the Gamma console,
+  show your terms in the Developer Portal, and ap
 ---
 
 # Let consumers subscribe to your agent
@@ -19,10 +22,6 @@ A consumer gets access to an agent by subscribing an application to a plan of th
 9. On the **Plans** page, open the plan's actions menu and click **Publish**. Consumers can subscribe to a published plan only.
 
 To withdraw a plan, click **Close** in its actions menu. The **Close plan?** dialog warns that **Consumers lose access immediately**.
-
-<!-- TODO: Screenshot of an A2A Proxy's Plans page with a published plan and the actions menu open -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-a2a-proxy-plans.png" alt=""><figcaption><p>The Plans page of an A2A Proxy</p></figcaption></figure>
 
 ## Show your terms to the consumer
 

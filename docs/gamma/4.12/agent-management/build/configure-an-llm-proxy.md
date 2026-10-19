@@ -1,7 +1,7 @@
 ---
-hidden: false
-noIndex: false
-description: Configure guardrails, PII filtering, rate limiting, security plans, and structured output on an LLM Proxy. Follow the steps to add each policy.
+description: >-
+  Configure guardrails, PII filtering, rate limiting, security plans, and
+  structured output on an LLM Proxy. Follow the steps to add each policy.
 ---
 
 # Configure an LLM Proxy
@@ -27,7 +27,7 @@ Saving replaces the providers of the proxy without deploying them. The **This de
 
 When the aliases declared by two providers differ, the page shows **Model aliases differ across providers** with the aliases of each provider. An alias routes, and fails over, only across the providers that declare it, so align the aliases for cross-provider failover. The warning doesn't block saving.
 
-<figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-models-page.png" alt="The Models page of an LLM Proxy with one inline provider expanded to its model table and the save bar showing unsaved changes"><figcaption><p>The Models page of an LLM Proxy, with a provider expanded and unsaved changes</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-models-page (1).png" alt="The Models page of an LLM Proxy with one inline provider expanded to its model table and the save bar showing unsaved changes"><figcaption><p>The Models page of an LLM Proxy, with a provider expanded and unsaved changes</p></figcaption></figure>
 
 ## Guardrails, PII filtering, and rate limiting
 

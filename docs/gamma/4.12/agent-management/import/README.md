@@ -1,7 +1,7 @@
 ---
-hidden: false
-noIndex: false
-description: The Catalog group of the Agent Management sidebar holds the models, servers, tools, prompts, resources, skills, agents, and identities your agents use.
+description: >-
+  The Catalog group of the Agent Management sidebar holds the models, servers,
+  tools, prompts, resources, skills, agents, and identities your agents use.
 ---
 
 # Catalog
@@ -16,24 +16,24 @@ The **Catalog** group of the Agent Management sidebar holds the **AI Models**, *
 * [**Create API tools**](create-api-tools.md). Expose REST APIs governed in API Management as agent-accessible tools in the Catalog.
 * [**Add a knowledge source**](add-knowledge-source.md). Add a knowledge source so agents can read documentation and reference material as context.
 * [**Upload skills**](upload-skills.md). Upload a skill package so agents can consume it as an MCP resource and you can govern it.
-* [**Integrations**](integrations/README.md). Integrations bring models and agents from outside Gamma into the Catalog.
+* [**Integrations**](integrations/). Integrations bring models and agents from outside Gamma into the Catalog.
 * [**Create an agent identity**](../build/create-an-agent-identity.md). Register an agent as an OAuth client in Gravitee Access Management with a persona that fits how it runs.
 * [**Re-sync catalog assets**](re-sync-catalog-assets.md). Refresh imported AI models and MCP servers against the source they came from, and read what changed.
 
-<figure><img src="../.gitbook/assets/gamma-aim-dashboard.png" alt="Agent Management Import catalog showing eight entity type cards"><figcaption><p>The Import section of the Agent Management dashboard. Each card links to a Catalog entity type. The full set of import operations is listed under Import operations.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-dashboard (1).png" alt="Agent Management Import catalog showing eight entity type cards"><figcaption><p>The Import section of the Agent Management dashboard. Each card links to a Catalog entity type. The full set of import operations is listed under Import operations.</p></figcaption></figure>
 
 ## Catalog entity types
 
-| Entity type | Sources |
-| --- | --- |
-| **AI Models** | Synced from a connected provider integration, synced from Azure AI Foundry, or registered manually. |
-| **MCP Servers** | Registered from a Streamable HTTP endpoint, or authored in MCP Studio. Type: **Native** (upstream) or **Composite**. |
-| **Prompts** | Reusable, parameterized templates with declared arguments. |
-| **MCP Resources** | Server resources discovered from registered MCP servers, and repository resources from Git. |
-| **Tools** | **MCP Tools** from connected MCP servers, **API Tools** built from REST APIs in API Management, and **Kafka API Tools** from Event Stream Management. |
-| **Knowledge & Data** | Document sources registered for agent consumption, inline or fetched from a remote URL. |
-| **Skills** | Uploaded as `.zip` skill packages, exposed to agents as MCP resources using the FastMCP Skills-as-Resources pattern. |
-| **Agents** | Registered from the A2A agent card an agent publishes, or discovered as shadow AI agents from the domains Edge Management detects. |
+| Entity type          | Sources                                                                                                                                               |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **AI Models**        | Synced from a connected provider integration, synced from Azure AI Foundry, or registered manually.                                                   |
+| **MCP Servers**      | Registered from a Streamable HTTP endpoint, or authored in MCP Studio. Type: **Native** (upstream) or **Composite**.                                  |
+| **Prompts**          | Reusable, parameterized templates with declared arguments.                                                                                            |
+| **MCP Resources**    | Server resources discovered from registered MCP servers, and repository resources from Git.                                                           |
+| **Tools**            | **MCP Tools** from connected MCP servers, **API Tools** built from REST APIs in API Management, and **Kafka API Tools** from Event Stream Management. |
+| **Knowledge & Data** | Document sources registered for agent consumption, inline or fetched from a remote URL.                                                               |
+| **Skills**           | Uploaded as `.zip` skill packages, exposed to agents as MCP resources using the FastMCP Skills-as-Resources pattern.                                  |
+| **Agents**           | Registered from the A2A agent card an agent publishes, or discovered as shadow AI agents from the domains Edge Management detects.                    |
 
 ## Import operations
 

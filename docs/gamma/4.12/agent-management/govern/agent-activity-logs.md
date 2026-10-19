@@ -1,5 +1,8 @@
 ---
-description: Read the record of one request an agent handled, with the calls it made through the AI Gateway and every decision a rule, a Guardian, or a person took on it. Learn where the record lives and what it carries.
+description: >-
+  Read the record of one request an agent handled, with the calls it made
+  through the AI Gateway and every decision a rule, a Guardian, or a person took
+  on it. Learn where the record lives and what it c
 ---
 
 # Agent activity
@@ -20,7 +23,7 @@ The list needs an A2A Proxy that fronts the agent. Without one it reads **This a
 
 The list follows the time range picker at the top of the page and lists requests 25 at a time, newest first, grouped by UTC day with times in UTC. **Load older activity** at the bottom of the list fetches the next 25 and disappears once the time range is exhausted. While a page loads, the button reads **Loading older activity…**, and a fetch that fails reads **Could not load older activity. Try again.**
 
-<figure><img src="../.gitbook/assets/gamma-aim-activity-record.png" alt="The Requests list of an agent with one request expanded to its step, The agent received a request, and the technical details panel open beside it with the request's outcome, its Asked by row reading Not recorded, its conversation and request IDs, and its one gateway record"><figcaption><p>A request in the Requests list, expanded, with its technical details panel</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-activity-record.png" alt="The Requests list of an agent with one request expanded to its step, The agent received a request, and the technical details panel open beside it with the request&#x27;s outcome, its Asked by row reading Not recorded, its conversation and request IDs, and its one gateway record"><figcaption><p>A request in the Requests list, expanded, with its technical details panel</p></figcaption></figure>
 
 ## How a record is assembled
 
@@ -35,32 +38,7 @@ An authorization permit that carries no reason is treated as routine. It isn't l
 
 Each row opens with an outcome badge. The outcome is derived from the decisions the request carries, in this order:
 
-<table>
-    <thead>
-        <tr>
-            <th width="220">Outcome</th>
-            <th>When the record reads it</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Waiting for sign-off</strong></td>
-            <td>A human decision was asked for and nobody has taken it yet. The row offers <strong>Review sign-off</strong>, which opens the held call in the HITL inbox.</td>
-        </tr>
-        <tr>
-            <td><strong>Stopped</strong></td>
-            <td>A decision denied the call, or the gateway enforced a denial.</td>
-        </tr>
-        <tr>
-            <td><strong>Done with changes</strong></td>
-            <td>A person approved a held call, or a Guardian rewrote what was screened.</td>
-        </tr>
-        <tr>
-            <td><strong>Done</strong></td>
-            <td>Everything was permitted and nobody stepped in.</td>
-        </tr>
-    </tbody>
-</table>
+<table><thead><tr><th width="220">Outcome</th><th>When the record reads it</th></tr></thead><tbody><tr><td><strong>Waiting for sign-off</strong></td><td>A human decision was asked for and nobody has taken it yet. The row offers <strong>Review sign-off</strong>, which opens the held call in the HITL inbox.</td></tr><tr><td><strong>Stopped</strong></td><td>A decision denied the call, or the gateway enforced a denial.</td></tr><tr><td><strong>Done with changes</strong></td><td>A person approved a held call, or a Guardian rewrote what was screened.</td></tr><tr><td><strong>Done</strong></td><td>Everything was permitted and nobody stepped in.</td></tr></tbody></table>
 
 The **Outcome** filter also lists **Handed to a person**, **Expired**, and **Didn't finish**. The feed derives none of them in this build, so those filters match no row.
 
@@ -76,32 +54,7 @@ Expand a row to read the request as a sequence of steps, each with its UTC time:
 
 **View technical details** opens the record's panel. Its title is the outcome and its subtitle names what the agent called. The panel has four sections:
 
-<table>
-    <thead>
-        <tr>
-            <th width="220">Section</th>
-            <th>What it carries</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Request</strong></td>
-            <td><strong>Asked by</strong>, <strong>Outcome</strong>, the <strong>Conversation ID</strong> when the calls carried one, and the <strong>Request ID</strong> of the first call, each identifier with a copy control.</td>
-        </tr>
-        <tr>
-            <td><strong>Decisions</strong></td>
-            <td>One card per decision, shown only when the request carries a decision that isn't routine. The card is badged <strong>Policy</strong>, <strong>Guardian</strong>, or <strong>Sign-off</strong>, and carries the decision's outcome, <code>ALLOW</code>, <code>DENY</code>, <code>TRANSFORM</code>, <code>INDETERMINATE</code>, or <code>PENDING</code>, its UTC time, the decider, and the reason in quotes. A human decision carries an <strong>Open decision record</strong> link, which opens the held call in the HITL inbox while it's pending and in the decision history once it's taken.</td>
-        </tr>
-        <tr>
-            <td><strong>Correlated tool call</strong></td>
-            <td>The last tool call of the request, when there is one: the <strong>Tool</strong>, the <strong>Resource</strong> it addressed, and the <strong>Request</strong> ID of the call.</td>
-        </tr>
-        <tr>
-            <td><strong>Trace</strong></td>
-            <td>One line per call, with the count of gateway records the request left, calls and decisions together. Each line carries the UTC time, an <strong>A2A</strong>, <strong>LLM</strong>, or <strong>MCP</strong> badge, the call's label, and its HTTP status, then the <strong>Tool</strong>, <strong>Provider</strong>, or <strong>Resource</strong> the call named and its <strong>Request</strong> ID.</td>
-        </tr>
-    </tbody>
-</table>
+<table><thead><tr><th width="220">Section</th><th>What it carries</th></tr></thead><tbody><tr><td><strong>Request</strong></td><td><strong>Asked by</strong>, <strong>Outcome</strong>, the <strong>Conversation ID</strong> when the calls carried one, and the <strong>Request ID</strong> of the first call, each identifier with a copy control.</td></tr><tr><td><strong>Decisions</strong></td><td>One card per decision, shown only when the request carries a decision that isn't routine. The card is badged <strong>Policy</strong>, <strong>Guardian</strong>, or <strong>Sign-off</strong>, and carries the decision's outcome, <code>ALLOW</code>, <code>DENY</code>, <code>TRANSFORM</code>, <code>INDETERMINATE</code>, or <code>PENDING</code>, its UTC time, the decider, and the reason in quotes. A human decision carries an <strong>Open decision record</strong> link, which opens the held call in the HITL inbox while it's pending and in the decision history once it's taken.</td></tr><tr><td><strong>Correlated tool call</strong></td><td>The last tool call of the request, when there is one: the <strong>Tool</strong>, the <strong>Resource</strong> it addressed, and the <strong>Request</strong> ID of the call.</td></tr><tr><td><strong>Trace</strong></td><td>One line per call, with the count of gateway records the request left, calls and decisions together. Each line carries the UTC time, an <strong>A2A</strong>, <strong>LLM</strong>, or <strong>MCP</strong> badge, the call's label, and its HTTP status, then the <strong>Tool</strong>, <strong>Provider</strong>, or <strong>Resource</strong> the call named and its <strong>Request</strong> ID.</td></tr></tbody></table>
 
 The call labels are what the gateway recorded: **Inbound:** followed by the path, **LLM call:** followed by the model, and **MCP tool:** followed by the tool. A call the gateway couldn't name reads **Inbound request**, **LLM call**, or **MCP tool call**.
 
