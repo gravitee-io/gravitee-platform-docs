@@ -6,6 +6,20 @@ description: New features in each Gravitee Cloud release, listed newest first by
 
 This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:
 
+## October 2026
+
+<details>
+
+<summary>14th October</summary>
+
+**New sign-in experience**
+
+The Gravitee Cloud sign-in, sign-up, Company SSO, and password reset pages have a new design. When your email address is linked to more than one account, you now choose the account to open on the **Select an account** page. Search your accounts there, or filter them by type.
+
+For more information about signing in, see [Sign in to Gravitee Cloud](../getting-started/sign-in-to-gravitee-cloud.md).
+
+</details>
+
 ## September 2026
 
 <details>

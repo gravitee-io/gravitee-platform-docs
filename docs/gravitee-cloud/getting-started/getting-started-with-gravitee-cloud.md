@@ -6,11 +6,11 @@ description: Set up a Gravitee Cloud account, create an organization, and deploy
 
 To get started with Gravitee Cloud, complete the following steps
 
-**Step 1** - Navigate to [Gravitee Cloud](https://cockpit.gravitee.io/?createUser=true), and then sign up with a new user or sign up using your Google or GitHub account.
+**Step 1** - Go to [Gravitee Cloud](https://cloud.gravitee.io), and then click **Sign up**. Fill in the **Create your account** form, select the checkbox to agree to the Terms of Service and Privacy Policy, and then click **Register**. To sign up with your Google or GitHub account instead, click its button under **Or register with**.
 
-<figure><img src="../.gitbook/assets/cloud-getting-started-trial.png" alt="The Gravitee Cloud sign-up page, with a Register for free form offering Google, GitHub, or email registration."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/cloud-sign-up-page.png" alt="The Create your account form with the First Name, Last Name, Work Email, Password, and Confirm Password fields, the Terms of Service and Privacy Policy checkbox, the Register button, and the Google, Github, and Company SSO buttons under Or register with."><figcaption></figcaption></figure>
 
-**Step 2** - Check your inbox for the verification email sent by Gravitee Cloud, then click the link in the email to confirm your email address. Registration can't continue until your email address is verified.
+**Step 2** - If you signed up with the form, check your inbox for the confirmation email, and then click the link in it to confirm your email address. Confirm your email address before you sign in, and then [sign in to Gravitee Cloud](sign-in-to-gravitee-cloud.md).
 
 {% hint style="warning" %}
 If the email doesn't arrive within a few minutes, check your spam folder.

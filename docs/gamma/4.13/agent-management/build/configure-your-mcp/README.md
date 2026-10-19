@@ -21,7 +21,7 @@ In an MCP Studio, a source can also use OAuth. For more information, see [Use OA
 ## Configure Upstream Authentication
 
 1. In the Gravitee console, navigate to **MCP Proxies**, and then open your MCP Proxy.
-2. In the menu under **General**, select **Endpoint**. This page contains the **Upstream authentication** section.
+2. Under **Design**, select **Endpoint**. This page contains the **Upstream authentication** section.
 3. Select one of the following authentication methods:
     * **Static credential**. Inject a static credential into a request header on every call.
     * **No upstream auth**. Call the upstream without injecting credentials.
@@ -52,6 +52,7 @@ Until access is authorized, a call to a tool from the source returns a link to a
 
 ## Next steps
 
+* [Configure MCP specification versions](configure-mcp-specification-versions.md). Choose the versions clients may connect with, and the versions the gateway uses with the upstream server.
 * [Add policies to your MCP server](add-policies-to-mcp-server.md). Apply fine-grained authorization at the tool level.
 * [Configure resources for your proxies](../configure-resources-for-your-proxies.md). Manage the resources that the policies of the MCP Proxy reference at runtime.
 * [Broadcast messages to proxy consumers](../broadcast-messages-to-proxy-consumers.md). Send a one-way announcement to the consumers of the MCP Proxy.
@@ -59,3 +60,4 @@ Until access is authorized, a call to a tool from the source returns a link to a
 * [Manage metadata for your proxies](../manage-metadata-for-your-proxies.md). Add the metadata entries that describe the MCP Proxy, and override the entries it inherits from its environment.
 * [Layered governance for MCP tools](govern-mcp-tool-access.md). Combine authorization, rate limits, and response redaction on one server.
 * [Configure logging and tracing](configure-logging-and-tracing.md). Control the reported request and response data, and enable OpenTelemetry tracing.
+* [Manage user permissions for your proxies](../manage-user-permissions-for-your-proxies.md). Add members to the MCP Proxy, manage its groups, and transfer its ownership.

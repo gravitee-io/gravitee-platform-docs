@@ -41,7 +41,7 @@ The rule for validation and defaults are the same as already in place for API an
 
 ## Set default roles for new members
 
-The `defaultMemberRoles` field sets the role that a user receives when they join the group, for each kind of resource the group gives access to. This includes users who log in through an identity provider that maps them to the group. The field requires APIM 4.14.0 or later, and APIM 4.13 ignores it.
+The `defaultMemberRoles` field sets the role that a user receives when they join the group, for each kind of resource the group gives access to. This includes users who log in through an identity provider that maps them to the group. The field requires APIM 4.13.0 or later.
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -82,7 +82,7 @@ For more information about how GKO returns errors and warnings, see [Admission v
 
 ## Leave the members to APIM
 
-To let APIM manage the members of a group, set the `gravitee.io/ignore-members` annotation to `"true"`. GKO then doesn't add or remove members. Users who join the group in APIM stay in it, such as users who log in through an identity provider that maps them to the group. The annotation requires APIM 4.14.0 or later. APIM 4.13 ignores it, so GKO still removes the members that `members` doesn't list.
+To let APIM manage the members of a group, set the `gravitee.io/ignore-members` annotation to `"true"`. GKO then doesn't add or remove members. Users who join the group in APIM stay in it, such as users who log in through an identity provider that maps them to the group. The annotation requires APIM 4.13.0 or later.
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -111,13 +111,11 @@ To manage the members from the manifest again, remove the annotation or set it t
 
 ## Group settings managed in the Console
 
-Starting with APIM 4.14.0, an update from GKO applies the `name`, `notifyMembers`, `defaultMemberRoles`, and `members` of a group, and the following settings keep the values set in the Console:
+Starting with APIM 4.13.0, an update from GKO applies the `name`, `notifyMembers`, `defaultMemberRoles`, and `members` of a group, and the following settings keep the values set in the Console:
 
 * **Allow Group Admin to change default API role**, **Allow Group Admin to change default API Products role**, and **Allow Group Admin to change default application role**
 * **Automatically add group to new APIs**, **Automatically add group to new API Products**, and **Automatically add group to new applications**
 * **Max Number Of Members**, **Allow adding members via user search**, and **Allow sending invitations to users via email**
-
-With APIM 4.13, each update from GKO resets these settings.
 
 ## Referencing a group from an ApiDefinition
 
