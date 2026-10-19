@@ -26,7 +26,7 @@ Before you install the SAP Business Technology Platform agent, complete the foll
     | SAP API       | Service and plan                                             | Role                  | What the agent does with it                                                                 |
     | ------------- | ------------------------------------------------------------ | --------------------- | ------------------------------------------------------------------------------------------- |
     | API portal    | API Management, API portal, plan `apiportal-apiaccess`       | `APIPortal.Guest`     | Reads the API proxies, products, specifications, and documentation. It never changes them  |
-    | Developer Hub | API Management, Developer Hub, plan `devportal-apiaccess`    | `AuthGroup.API.Admin` | Reads which products are subscribable, and creates the applications and product subscriptions of Gravitee subscriptions |
+    | Developer Hub | API Management, Developer Hub, plan `devportal-apiaccess`    | `AuthGroup.API.Admin` | Reads which products are subscribable, and creates and deletes an application for each Gravitee subscription |
 
     Copy the `url`, `tokenUrl`, `clientId`, and `clientSecret` of each service key.
 * Choose a developer registered in the SAP Developer Hub to own the applications that Gravitee creates. Gravitee recommends a technical developer dedicated to Gravitee rather than a person's account. At startup, the agent looks this developer up through the API portal, and the integration fails to start when the developer isn't found.
@@ -67,7 +67,7 @@ The agent's configuration holds the two SAP service keys and the developer. Run 
     ```yaml
     services:
       integration-agent:
-        image: ${APIM_REGISTRY:-graviteeio}/federation-agent-sap-api-management:${AGENT_VERSION:-latest}
+        image: ${APIM_REGISTRY:-graviteeio}/federation-agent-sap-api-management:${AGENT_VERSION}
         restart: always
         environment:
           - gravitee_integration_connector_ws_endpoints_0=${WS_ENDPOINTS}
@@ -99,8 +99,8 @@ The agent's configuration holds the two SAP service keys and the developer. Run 
     # ID of the APIM integration you created for this agent
     INTEGRATION_ID=<your-integration-id>
 
-    # Optionally, a specific version of the agent. The default is latest
-    # AGENT_VERSION=<agent-version>
+    # Version of the agent image: your APIM version
+    AGENT_VERSION=<apim-version>
 
     ## SAP PARAMETERS ##
 
@@ -123,12 +123,13 @@ The agent's configuration holds the two SAP service keys and the developer. Run 
     * Replace `<integration-controller-url>` with the URL of the APIM integration controller. By default, the controller listens on port `8072` of the Management API.
     * Replace `<your-token>` with the APIM token that you want the agent to use.
     * Replace `<your-integration-id>` with the ID of the APIM integration.
+    * Replace `<apim-version>` with your APIM version, for example `4.13.0`. The agent image is tagged with APIM versions and has no `latest` tag.
     * Replace the `<api-portal-...>` values with the `url`, `tokenUrl`, `clientId`, and `clientSecret` of the API portal service key.
     * Replace the `<developer-hub-...>` values with the `url`, `tokenUrl`, `clientId`, and `clientSecret` of the Developer Hub service key.
     * Replace `<developer-id>` with the ID of the registered Developer Hub developer.
 
     Keep the token and the SAP values in single quotes. SAP client secrets usually contain `$`, which Docker Compose expands in unquoted and double-quoted values. A truncated secret makes the integration fail at startup with a `401` `invalid_client` error, and APIM shows the integration as disconnected. Alternatively, write each `$` as `$$`.
-3.  Pull the latest Docker image with the following command:
+3.  Pull the Docker image with the following command:
 
     ```bash
     docker compose pull
@@ -250,17 +251,17 @@ SAP consumers subscribe to products. Each product that the Developer Hub marks a
 
 ## How subscriptions work in SAP
 
-Once a subscription to an API Key plan is approved in Gravitee, the agent creates it in the SAP Developer Hub:
+Once a subscription to an API Key plan is approved in Gravitee, the agent creates an SAP application for it in the SAP Developer Hub:
 
-* The Gravitee application gets one SAP application with the same ID, the application's name as its title, and the configured developer as its owner. All the subscriptions of the Gravitee application share the key of its SAP application.
-* The subscription adds the plan's SAP product to that application.
+* The application's ID is the Gravitee subscription ID, its title is `<Gravitee application name> - <product> (<start of the subscription ID>)`, and the configured developer owns it.
+* The application is created subscribed to the plan's SAP product, so its key opens that product only. Each subscription has its own SAP application and key, including two subscriptions of the same Gravitee application.
 * The agent returns the SAP application key as the API key once SAP has approved and deployed the application and the product subscription is active.
 
-A subscription to an OAuth2 plan registers the client ID of the Gravitee application on an SAP application of its own, one for each Gravitee application and identity provider. The consumer gets no SAP key, because tokens come from the identity provider. A Gravitee application without a client ID can't subscribe to these plans, and its other subscriptions to the same provider's products use the same client ID.
+A subscription to an OAuth2 plan registers the client ID of the Gravitee application as the key of the subscription's SAP application. The consumer gets no SAP key, because tokens come from the identity provider. A Gravitee application without a client ID can't subscribe to these plans. If SAP refuses a second application with the same client ID, the subscription is rejected with that reason.
 
-When SAP can't create the subscription, the agent rejects the Gravitee subscription and removes what it created in SAP. The rejection gives the reason, such as a missing Developer Hub role, SAP refusing the product, an approval SAP waits for, or a timeout. The agent retries SAP throttling, server errors, and timeouts within `subscriptionTimeout`.
+When SAP can't create the subscription, the agent rejects the Gravitee subscription and deletes the SAP application it created. The rejection gives the reason, such as a missing Developer Hub role, SAP refusing the product, an approval SAP waits for, or a timeout. The agent retries SAP throttling, server errors, and timeouts within `subscriptionTimeout`.
 
-Closing a subscription removes only its own access. The SAP product subscription ends unless another Gravitee subscription of the same application uses that product, and the SAP application is deleted once it has no subscription left. Closing a subscription twice, or closing one already removed in SAP, succeeds. When SAP refuses the change or can't be reached, closing fails with the reason, and APIM keeps the subscription open. Close it again once the problem is fixed.
+Closing a subscription deletes its SAP application, which removes its access and no other. Closing a subscription twice, or closing one already removed in SAP, succeeds. When SAP refuses the deletion or can't be reached, closing fails with the reason, and APIM keeps the subscription open. Close it again once the problem is fixed.
 
 ## Limitations
 
