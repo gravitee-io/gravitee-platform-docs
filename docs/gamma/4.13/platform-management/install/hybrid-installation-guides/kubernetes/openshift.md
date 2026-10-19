@@ -48,17 +48,19 @@ oc new-project gravitee-gamma
 
 ### Install Redis
 
-Redis is the rate-limit store for the data plane. Install it with Helm. For more information, see the [Bitnami package for Redis](https://artifacthub.io/packages/helm/bitnami/redis).
+Redis is the rate-limit store for the data plane. Install it with Helm. For more information, see the [CloudPirates Redis Helm chart](https://artifacthub.io/packages/helm/cloudpirates-redis/redis).
+
+{% hint style="warning" %}
+This Redis installation is an example for development and testing. It runs a single Redis instance without TLS. Don't use it in production.
+{% endhint %}
 
 1. Install Redis using the following command:
 
    ```bash
-   helm install gravitee-gamma-redis oci://registry-1.docker.io/bitnamicharts/redis \
-     --version 19.6.4 \
-     --namespace gravitee-gamma \
-     --set image.repository=bitnamilegacy/redis
+   helm install gravitee-gamma-redis oci://registry-1.docker.io/cloudpirates/redis \
+     --namespace gravitee-gamma
    ```
-2. From the command output, save the Redis hostname (`gravitee-gamma-redis-master.gravitee-gamma.svc.cluster.local`).
+2. Save the Redis hostname (`gravitee-gamma-redis.gravitee-gamma.svc.cluster.local`).
 3. Output the Redis password and save it for the next step:
 
    ```bash
