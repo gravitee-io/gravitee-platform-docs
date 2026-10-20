@@ -12,7 +12,7 @@ For version 3.18.0 and above: 12-month support model for all minor versions
 
 As of version 3.18.0 (released on 7th July 2022), released versions of the Gravitee platform adhere to a new support model.
 
-We now provide 12 months of support for each minor version. A minor version is considered a quarterly release version with a second-digit increment in the version cadence and no third digit, e.g., 3.18.
+We now provide 12 months of support for each minor version. A minor version is considered a release version with a second-digit increment in the version cadence and no third digit, e.g., 3.18.
 
 A third digit increment in the version cadence indicates a maintenance version, e.g., 3.18.1. Maintenance versions will be supported for the duration of their "parent" minor version support. For example, 3.18.1 will be supported until the deprecation of 3.18 support.
 
