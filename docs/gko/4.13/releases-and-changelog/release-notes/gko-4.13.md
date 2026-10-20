@@ -5,7 +5,7 @@ description: Highlights, breaking changes, and new features in the Gravitee Kube
 
 # GKO 4.13
 
-This page describes the new features and breaking changes introduced in GKO 4.13.
+This page describes the new features, breaking changes, and deprecations introduced in GKO 4.13.
 
 ## Highlights
 
@@ -28,6 +28,12 @@ This release changes how the Gateway API controller handles one existing field.
 ### Gateway infrastructure parameters are rejected
 
 In earlier releases, GKO ignored the `spec.infrastructure.parametersRef` field of a `Gateway` resource. A Gateway that sets `spec.infrastructure.parametersRef` is now rejected: its `Accepted` condition is set to `False`, with a message reporting that the parameters reference isn't supported. Use the `GatewayClassParameters` resource to configure Gravitee-specific settings instead.
+
+## Deprecations
+
+### The `ApiDefinition` resource is deprecated
+
+The `ApiDefinition` resource is deprecated, along with the v2 APIs that it manages, and the October 2027 release removes both. Resources that you create with `ApiDefinition` continue to work until then. Migrate them to the [`ApiV4Definition`](../../overview/custom-resource-definitions/apiv4definition.md) resource. For more information, see [Breaking Changes and Deprecations](https://documentation.gravitee.io/apim/4.13/release-information/breaking-changes-and-deprecations).
 
 ## New features
 
