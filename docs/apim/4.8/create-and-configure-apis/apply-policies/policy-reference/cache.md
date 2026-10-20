@@ -2,7 +2,7 @@
 description: The Cache policy stores upstream responses in API Management 4.8 so repeat calls skip the backend. Learn how to configure the cache.
 ---
 
-# Cache
+# Cache policy
 
 ## Overview
 

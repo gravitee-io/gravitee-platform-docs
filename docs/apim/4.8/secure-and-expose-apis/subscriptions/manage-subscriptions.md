@@ -2,7 +2,7 @@
 description: Find and manage an application's subscriptions from the API Management 4.8 Console. Follow the steps to review and change them.
 ---
 
-# Manage Subscriptions
+# Manage application subscriptions
 
 ## Subscription management
 

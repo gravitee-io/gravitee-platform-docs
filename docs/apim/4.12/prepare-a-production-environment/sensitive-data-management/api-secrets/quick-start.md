@@ -5,7 +5,7 @@ metaLinks:
     - quick-start.md
 ---
 
-# Quick Start
+# API secrets quick start
 
 {% hint style="info" %}
 This quick start uses configuration examples for HashiCorp Vault and Gravitee APIM Gateway. For other secret managers, use cases, and a complete reference, see [configuration.md](configuration.md "mention").

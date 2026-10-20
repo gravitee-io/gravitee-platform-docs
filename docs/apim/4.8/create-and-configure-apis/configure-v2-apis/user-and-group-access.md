@@ -2,7 +2,7 @@
 description: Configure user and group access to your v2 API Management 4.8 APIs. Follow the steps to add members and set their permissions.
 ---
 
-# User and Group Access
+# Manage v2 API members and groups
 
 ## Overview
 

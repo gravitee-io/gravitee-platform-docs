@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/classic-developer-portal/layout-and-theme
 ---
 
-# Layout and Theme
+# Customize the Classic Developer Portal
 
 ## Overview
 

@@ -5,7 +5,7 @@ metaLinks:
     - manage-subscriptions.md
 ---
 
-# Manage Subscriptions
+# Manage application subscriptions
 
 ## Subscription management
 

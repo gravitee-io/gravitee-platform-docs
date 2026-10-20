@@ -347,14 +347,14 @@
 * [Classic Developer Portal](developer-portal/classic-developer-portal/README.md)
   * [Configuration File](developer-portal/classic-developer-portal/configuration-file.md)
   * [Portal Settings](developer-portal/classic-developer-portal/settings.md)
-  * [Layout and Theme](developer-portal/classic-developer-portal/layout-and-theme.md)
+  * [Customize the Classic Developer Portal](developer-portal/classic-developer-portal/layout-and-theme.md)
   * [Manage Users](developer-portal/classic-developer-portal/manage-users.md)
   * [Webhook Subscriptions](developer-portal/classic-developer-portal/webhook-subscriptions.md)
   * [Create an Application](developer-portal/classic-developer-portal/create-an-application.md)
   * [API Documentation](developer-portal/classic-developer-portal/api-documentation.md)
 * [New Developer Portal](developer-portal/new-developer-portal/README.md)
   * [Configure the New Portal](developer-portal/new-developer-portal/configure-the-new-portal.md)
-  * [Layout and Theme](developer-portal/new-developer-portal/layout-and-theme.md)
+  * [Style the New Developer Portal](developer-portal/new-developer-portal/layout-and-theme.md)
   * [Application Logs](developer-portal/new-developer-portal/application-logs.md)
 
 ## Community

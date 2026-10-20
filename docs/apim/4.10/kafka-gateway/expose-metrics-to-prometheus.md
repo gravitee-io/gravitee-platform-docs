@@ -5,7 +5,7 @@ metaLinks:
   - expose-metrics-to-prometheus.md
 ---
 
-# Expose Metrics to Prometheus
+# Expose Kafka metrics to Prometheus
 
 ## Overview
 

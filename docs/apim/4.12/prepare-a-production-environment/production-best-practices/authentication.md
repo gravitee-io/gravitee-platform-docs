@@ -2,7 +2,7 @@
 description: Authenticate API Management 4.12 users against an LDAP server or another provider in production. Learn the options available.
 ---
 
-# Authentication
+# Authentication best practices
 
 ## Identity providers
 

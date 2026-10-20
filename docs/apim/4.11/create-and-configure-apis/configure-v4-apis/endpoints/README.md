@@ -5,7 +5,7 @@ metaLinks:
     - ./
 ---
 
-# Endpoints
+# v4 API endpoints
 
 ## Overview
 
