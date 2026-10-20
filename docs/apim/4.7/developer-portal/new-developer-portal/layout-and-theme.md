@@ -2,7 +2,7 @@
 description: API documentation explaining layout and theme.
 ---
 
-# Layout and Theme
+# Style the New Developer Portal
 
 ## Category layout
 

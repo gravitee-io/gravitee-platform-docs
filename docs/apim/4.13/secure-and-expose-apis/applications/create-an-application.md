@@ -5,7 +5,7 @@ metaLinks:
     - create-an-application.md
 ---
 
-# Create an Application
+# Create an application in the Console
 
 ## Overview
 

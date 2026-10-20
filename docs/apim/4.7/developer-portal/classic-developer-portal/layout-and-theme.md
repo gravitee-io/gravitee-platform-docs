@@ -2,7 +2,7 @@
 description: An overview about layout and theme.
 ---
 
-# Layout and Theme
+# Customize the Classic Developer Portal
 
 ## Overview
 

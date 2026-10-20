@@ -5,7 +5,7 @@ metaLinks:
     - cache.md
 ---
 
-# Cache
+# Cache policy
 
 ## Overview
 

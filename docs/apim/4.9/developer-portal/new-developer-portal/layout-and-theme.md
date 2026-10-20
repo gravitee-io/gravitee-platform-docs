@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/new-developer-portal/layout-and-theme
 ---
 
-# Layout and Theme
+# Style the New Developer Portal
 
 ## Update the Category layout
 

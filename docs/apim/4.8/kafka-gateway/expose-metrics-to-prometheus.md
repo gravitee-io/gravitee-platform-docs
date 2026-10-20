@@ -2,7 +2,7 @@
 description: Expose the API Management 4.8 Gateway internal API metrics to Prometheus. Follow the steps and verify the metrics arrive.
 ---
 
-# Expose metrics to Prometheus
+# Expose Kafka metrics to Prometheus
 
 ## Overview
 
