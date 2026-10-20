@@ -71,7 +71,7 @@ The request ID is now unique to each entry, in the form `<connection-id>:<sequen
 
 From 4.13.0, the `http.pathHandling` Gateway setting defaults to `NORMALIZE`. In 4.12 and earlier the default was `RAW`. A deployment that upgrades without changing its configuration resolves request paths before it resolves the listener context path, and therefore before it enforces any plan.
 
-A request carrying dot segments is now routed on the resolved path, so it can reach a different API than it did before, and it's enforced by that API's plan. `/alpha/api/../../beta/api/echo` is read as a call to `beta` and answers `401` without a credential, where it previously matched `alpha` and reached beta's backend unauthenticated. Percent-encoded unreserved characters are also decoded, so `%41` reaches the backend as `A`, duplicate slashes are merged, and a malformed percent sequence is answered with `400`. Encoded slashes are never decoded.
+A request carrying dot segments is now routed on the resolved path, so it can reach a different API than it did before, and it's enforced by that API's plan. `/alpha/api/../../beta/api/echo` is read as a call to `beta` and answers `401` without a credential, where it previously matched `alpha` and reached beta's backend unauthenticated. Percent-encoded unreserved characters are also decoded, so `%41` reaches the backend as `A`, duplicate slashes are merged, and a malformed `%` sequence is answered with `400`. Encoded slashes are never decoded.
 
 Set `http.pathHandling: RAW` to restore the previous behavior, which also restores a known authorization bypass. Set `http.pathHandling: REJECT` to close the exposure without changing any routing decision: a non-canonical path is answered with `400` and nothing is rewritten. For the upgrade checklist and the limits of each mode, see [Request Path Handling](../configure-and-manage-the-platform/gravitee-gateway/request-path-handling/README.md).
 
@@ -81,7 +81,7 @@ From 4.13.0, the Gateway sends an empty list of acceptable certificate authoriti
 
 This closes an information disclosure. With an mTLS plan, the Gateway loads each subscribed application's client certificate into an in-memory truststore. Those certificates are end-entity leaves, not certificate authorities, and the Gateway advertised them to every client of the listener, including callers of the listener's other APIs who present no certificate at all. Anyone opening a TLS connection could read the distinguished names of the client identities the Gateway accepts.
 
-Client certificate validation is unchanged. The full truststore still validates incoming certificates, so mTLS plan matching and subscription behavior are unaffected. An empty list means "no constraint", so clients continue to present their certificate.
+Client certificate validation is unchanged. The full truststore still validates incoming certificates, so mTLS plan matching and subscription behavior are unaffected. An empty list means "no constraint," so clients continue to present their certificate.
 
 The change affects only clients that relied on the advertised list to choose which certificate to present. A client holding several client certificates, typically a Java client with more than one key entry in its keystore, may now present the wrong one and be rejected. If that applies to you, set `ssl.sendClientCertificateAuthorities` to `true` on the affected listener to send the configured truststore again:
 
@@ -175,6 +175,16 @@ APIM doesn't check whether it can decrypt a new value for a property that has no
 When the secret can't encrypt a value, saving an encrypted property of a v4 API fails with HTTP `500`. In 4.12, the property was saved with its plain text value.
 
 Before you upgrade, review the scripts that read API properties from the Management API v2, and the scripts that update APIs with encrypted values from another installation. For more information, see [Encrypt dynamic properties](../create-and-configure-apis/apply-policies/v4-api-policy-studio.md#encrypt-dynamic-properties) and [Property Encryption](../prepare-a-production-environment/production-best-practices/general-recommendations/property-encryption.md).
+
+**Gateways connected to Gravitee Cloud: V2 APIs aren't traced by default, and deprecated tracing settings are overridden**
+
+From 4.13.0, `services.opentelemetry.tracing.v2.enabled` defaults to `false` on a Gateway that connects to Gravitee Cloud with a Cloud Token. On other Gateways, it still defaults to `true`. In 4.12, a Gateway with OpenTelemetry turned on traced its v2 APIs by default.
+
+A Hybrid Gateway that uses its own OpenTelemetry configuration without this setting therefore stops tracing its v2 APIs after the upgrade. A Gravitee Hosted Gateway linked to an OpenTelemetry reporter in Gravitee Cloud isn't affected, because the reporter's **Include v2 APIs** switch sets the value.
+
+A Gateway that connects to Gravitee Cloud with a Cloud Token now sends its traces and payload logs to Gravitee Cloud unless it has a `services.opentelemetry` setting. The deprecated `services.tracing` settings don't count. A Hybrid Gateway that still uses them sends its traces to Gravitee Cloud after the upgrade, instead of to its own collector.
+
+Before you upgrade a Hybrid Gateway that traces v2 APIs, set `services.opentelemetry.tracing.v2.enabled` to `true` on it. Move any `services.tracing` settings to `services.opentelemetry`. For more information, see [Tracing for v2 APIs](../analyze-and-monitor-apis/opentelemetry.md#tracing-for-v2-apis).
 
 #### 4.12.0
 

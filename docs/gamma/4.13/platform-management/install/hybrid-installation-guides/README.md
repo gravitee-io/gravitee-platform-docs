@@ -9,6 +9,8 @@ description: In a hybrid Gamma deployment, Gravitee hosts the control plane and 
 
 In a hybrid Gamma deployment, Gravitee hosts and manages the control plane in Gravitee Cloud, and you run the data plane (the API Gateway) in your own infrastructure. The Gateway connects to your Gravitee Cloud control plane with a Cloud Token and a License Key, and enforces policies close to your backend services.
 
+An APIM 4.13 Gateway also sends traces and payload logs to Gravitee Cloud for the APIs that have them turned on, and the **Tracing** pages show them. For what it sends and how to turn it off, see [Gateways connected to Gravitee Cloud](../../configure-opentelemetry-tracing-and-logs.md#gateways-connected-to-gravitee-cloud).
+
 ## Deployment methods
 
 You can deploy a hybrid Gamma Gateway with Docker or Kubernetes.
