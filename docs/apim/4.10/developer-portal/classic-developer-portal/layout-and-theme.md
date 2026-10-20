@@ -5,7 +5,7 @@ metaLinks:
     - layout-and-theme.md
 ---
 
-# Layout and Theme
+# Customize the Classic Developer Portal
 
 ## Overview
 

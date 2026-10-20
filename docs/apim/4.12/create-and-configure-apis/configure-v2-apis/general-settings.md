@@ -5,7 +5,7 @@ metaLinks:
     - general-settings.md
 ---
 
-# General Settings
+# v2 API general settings
 
 ## Overview
 

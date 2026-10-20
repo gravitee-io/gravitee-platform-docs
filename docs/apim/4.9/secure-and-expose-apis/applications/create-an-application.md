@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/secure-and-expose-apis/applications/create-an-application
 ---
 
-# Create an Application
+# Create an application in the Console
 
 ## Overview
 

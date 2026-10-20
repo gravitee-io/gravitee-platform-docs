@@ -5,7 +5,7 @@ metaLinks:
     - api-key.md
 ---
 
-# API Key
+# API Key policy
 
 ## Overview
 
