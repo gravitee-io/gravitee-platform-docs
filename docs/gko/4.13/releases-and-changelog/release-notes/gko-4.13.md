@@ -33,7 +33,7 @@ In earlier releases, GKO ignored the `spec.infrastructure.parametersRef` field o
 
 ### The `ApiDefinition` resource is deprecated
 
-The `ApiDefinition` resource is deprecated, along with the v2 APIs that it manages, and the October 2027 release removes both. Resources that you create with `ApiDefinition` continue to work until then. Migrate them to the [`ApiV4Definition`](../../overview/custom-resource-definitions/apiv4definition.md) resource. For more information, see [Breaking Changes and Deprecations](https://documentation.gravitee.io/apim/4.13/release-information/breaking-changes-and-deprecations).
+The `ApiDefinition` resource is deprecated, along with the v2 APIs that it manages, and the October 2027 release will remove both. Resources that you create with `ApiDefinition` continue to work until then. Migrate them to the [`ApiV4Definition`](../../overview/custom-resource-definitions/apiv4definition.md) resource. For more information, see [Breaking Changes and Deprecations](https://documentation.gravitee.io/apim/4.13/release-information/breaking-changes-and-deprecations).
 
 ## New features
 
