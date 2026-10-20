@@ -375,6 +375,10 @@ Here is the deprecated functionality from 4.X of Gravitee
 
 #### 4.13.0
 
+**v2 APIs are deprecated**
+
+From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [Migrate APIs](../create-and-configure-apis/create-apis/migrate-apis.md).
+
 **MongoDB and Elasticsearch subcharts are deprecated**
 
 From 4.13.0, the `mongodb` and `elasticsearch` subcharts of the APIM Helm chart are deprecated, and APIM 4.15.0 removes them. They run `bitnamilegacy` images that no longer receive security updates. Both subcharts are disabled by default, and a deployment that uses an external MongoDB or Elasticsearch isn't affected.

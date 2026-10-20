@@ -8,6 +8,10 @@ metaLinks:
 # v2 API Policy Studio
 
 {% hint style="warning" %}
+v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
+{% hint style="warning" %}
 **Legacy version**
 
 The v2 Policy Studio can only be used to design flows for APIs using the v2 API definition and does not support applying policies at the message level or for pub/sub use cases. Instead, please refer to the [v4 Policy Studio](v4-api-policy-studio.md) documentation.

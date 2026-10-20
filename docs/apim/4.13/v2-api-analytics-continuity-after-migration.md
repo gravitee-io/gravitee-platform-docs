@@ -4,6 +4,10 @@ description: Historical analytics survive when you migrate an API Management 4.1
 
 # Maintain analytics continuity after migrating v2 APIs to v4
 
+{% hint style="warning" %}
+v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 ## Overview
 
 When you migrate an HTTP proxy API from v2 to v4, historical analytics data is no longer lost. After migration, the API's pre-migration (v2) and post-migration (v4) data appear together, so you keep visibility into traffic from before the migration.

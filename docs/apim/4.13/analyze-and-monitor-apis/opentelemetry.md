@@ -377,6 +377,10 @@ The Gateway reads the W3C `traceparent` header from incoming requests, validates
 
 ### Tracing for v2 APIs
 
+{% hint style="warning" %}
+v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 V2 APIs don't have a per-API tracing toggle. When OpenTelemetry is enabled on the Gateway, v2 APIs are traced according to the `services.opentelemetry.tracing.v2.enabled` setting, which defaults to `true`.
 
 ## Span Attribute Redaction

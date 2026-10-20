@@ -7,6 +7,10 @@ metaLinks:
 
 # v2 and v4 API Comparison
 
+{% hint style="warning" %}
+v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 ## Overview
 
 When you create Gravitee APIs, v2 APIs and v4 APIs differ in functionality and supported features.

@@ -142,6 +142,10 @@ Runtime Logs provide detailed error information for individual API requests. To 
 
 ### View Execution Transparency Analytics in V2 APIs
 
+{% hint style="warning" %}
+v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 V2 APIs display execution transparency directly in the logs without requiring additional configuration. To view execution transparency for your V2 API, complete the following steps:
 
 1.  Navigate to your API Management Console.
