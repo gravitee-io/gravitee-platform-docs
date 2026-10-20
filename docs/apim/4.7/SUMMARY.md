@@ -180,7 +180,7 @@
   * [Consumers](kafka-gateway/configure-kafka-apis/consumers.md)
   * [Documentation](kafka-gateway/configure-kafka-apis/documentation.md)
   * [Deployment](kafka-gateway/configure-kafka-apis/deployment.md)
-* [Plans](kafka-gateway/plans.md)
+* [Native Kafka API plans](kafka-gateway/plans.md)
 * [Applications](kafka-gateway/applications.md)
 * [Subscriptions](kafka-gateway/subscriptions.md)
 * [Other ways Gravitee supports Kafka](kafka-gateway/other-ways-gravitee-supports-kafka.md)

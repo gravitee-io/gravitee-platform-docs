@@ -2,7 +2,7 @@
 description: An OAuth 2.0 plan gives client applications secure, delegated access to an API Management 4.8 API. Learn how the standard works.
 ---
 
-# OAuth2
+# OAuth2 plan
 
 ## Overview
 

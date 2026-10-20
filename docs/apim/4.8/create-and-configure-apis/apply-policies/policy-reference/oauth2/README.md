@@ -2,7 +2,7 @@
 description: The OAuth2 policy checks access token validity through introspection in API Management 4.8. Learn how to configure the policy.
 ---
 
-# OAuth2
+# OAuth2 policy
 
 ## Overview
 

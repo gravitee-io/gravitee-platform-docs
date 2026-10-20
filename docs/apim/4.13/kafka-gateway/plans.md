@@ -5,7 +5,7 @@ metaLinks:
     - plans.md
 ---
 
-# Plans
+# Native Kafka API plans
 
 ## Overview
 

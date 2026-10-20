@@ -2,7 +2,7 @@
 description: API-scoped documentation pages attach guides and reference to a single API in the Developer Portal 4.12. Learn how they work.
 ---
 
-# API documentation
+# Automate API-scoped documentation
 
 ## Create API documentation
 

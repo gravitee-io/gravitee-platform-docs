@@ -165,7 +165,7 @@
   * [Consumers](kafka-gateway/configure-kafka-apis/consumers.md)
   * [Documentation](kafka-gateway/configure-kafka-apis/documentation.md)
   * [Deployment](kafka-gateway/configure-kafka-apis/deployment.md)
-* [Plans](kafka-gateway/plans.md)
+* [Native Kafka API plans](kafka-gateway/plans.md)
 * [Policies](kafka-gateway/policies/README.md)
   * [Kafka ACL](kafka-gateway/policies/kafka-acl.md)
   * [Kafka Topic Mapping](kafka-gateway/policies/kafka-topic-mapping.md)

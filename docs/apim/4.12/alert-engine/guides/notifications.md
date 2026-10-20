@@ -2,7 +2,7 @@
 description: Choose the channel Alert Engine notifies you through when an alert fires in API Management 4.12. Compare the providers available.
 ---
 
-# Notifications
+# Alert Engine notifications
 
 ## Introduction
 

@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/sensitive-data-management/api-secrets/configuration
 ---
 
-# Configuration
+# Configure API-level secrets
 
 ## Overview
 

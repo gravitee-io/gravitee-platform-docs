@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/oauth2
 ---
 
-# OAuth2
+# OAuth2 policy
 
 ## Overview
 

@@ -2,7 +2,7 @@
 description: Entrypoints define the protocol and settings consumers use to reach a Kafka API in API Management 4.8. Learn how to configure them.
 ---
 
-# Entrypoints
+# Configure native Kafka API entrypoints
 
 ## Overview
 

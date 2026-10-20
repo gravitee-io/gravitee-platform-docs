@@ -5,7 +5,7 @@ metaLinks:
     - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/plugins/deployment
 ---
 
-# Deployment
+# Deploy plugins
 
 ## Overview
 
