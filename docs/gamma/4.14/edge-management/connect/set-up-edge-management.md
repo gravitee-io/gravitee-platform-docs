@@ -104,8 +104,12 @@ This step decides how the Edge Daemons of the environment identify themselves to
 
 <figure><img src="../.gitbook/assets/edge-setup-authentication.png" alt="Step 4 of the guided setup, Authentication, with the Keyless card and the mTLS card with its Certificate (PEM) field"><figcaption><p>Step 4 of the guided setup.</p></figcaption></figure>
 
+{% hint style="warning" %}
+**Closing the keyless plan here refuses every daemon until their certificates reach the Edge Reactor.** By default, the Edge Reactor listener asks the daemons for no certificate, so the mTLS plan matches none of them. Secure the listener first, and install the daemons with the certificate. See [Secure the Edge Reactor listener](secure-the-edge-reactor-listener.md) and [Configure daemon authentication](configure-daemon-authentication.md#publish-the-mtls-plan).
+{% endhint %}
+
 1. Optional: To use mTLS from the start, paste the certificate of your fleet in **Certificate (PEM)**, or click **Load from a file**, and turn on **mTLS plan published**.
-2. Optional: To serve only the daemons that present that certificate, turn off **Keyless plan published**.
+2. Optional: To serve only the daemons that present that certificate, turn off **Keyless plan published**. The setup publishes the mTLS plan first, and closes the keyless plan in a second save, once the fleet subscription exists.
 3. Click **Next**.
 
 The certificate is checked as you enter it, and a certificate that's refused holds **Next** until you fix it or clear the field. If the certificate or the plans are refused when the configuration is created, the configuration is still created and deployed, and the page says so. Finish from the **Daemon authentication** page.
@@ -120,7 +124,7 @@ The last step lists what will be created.
 <figure><img src="../.gitbook/assets/PLACEHOLDER-edge-setup-review.png" alt="Step 5 of the guided setup, Deploy, summarizing the gateway addresses, the intercepted agents, the shadow AI domains, and the daemon authentication before Create & Deploy"><figcaption><p>Step 5 of the guided setup.</p></figcaption></figure>
 
 1. Check the gateway addresses, the intercepted agents, the shadow AI domains, and the daemon authentication.
-2. Click **Create & Deploy**. This publishes an Edge API for the environment, with a keyless plan, and deploys it to the gateway.
+2. Click **Create & Deploy**. This publishes an Edge API for the environment and deploys it to the gateway. The API carries the **Keyless** and **mTLS** plans, published as you chose in the **Authentication** step.
 
 If an agent's target API can't serve its route yet, a dialog names the agent, the route, and the reason before you commit. It's a warning, not a refusal: click **Create & Deploy anyway** to create the configuration and fix the API afterward, or **Back to configuration** to change the route first. See [Understand the route verdicts](configure-edge-management.md#understand-the-route-verdicts).
 

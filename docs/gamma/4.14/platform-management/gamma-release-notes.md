@@ -20,7 +20,7 @@ Edge Management secures the calls of the Edge Daemons with Gravitee plans. The d
 * The **Keyless** plan serves daemons that present no certificate, and it's published by default. The **mTLS** plan serves daemons that present one of the certificates enrolled on the page, issued by your own PKI. Gravitee never sees a private key.
 * Closing the keyless plan makes authentication mandatory. It closes once the mTLS plan is published, a certificate is active, and the fleet subscription is accepted.
 * The Edge Reactor listener runs over TLS and asks the daemons for a client certificate once you configure it to. By default, it stays plain HTTP. See [Secure the Edge Reactor listener](../edge-management/connect/secure-the-edge-reactor-listener.md).
-* An environment configured before 4.14 has no fleet application yet. The next **Save & Deploy** from any configuration page of Edge Management creates it, along with the **mTLS** plan. Until you close it, the keyless plan keeps serving the daemons.
+* An environment configured before 4.14 has no fleet application yet. The next **Save & Deploy** from any configuration page of Edge Management creates it, along with the **Keyless** and **mTLS** plans if either is missing. Until you close it, the keyless plan keeps serving the daemons.
 * See [Configure daemon authentication](../edge-management/connect/configure-daemon-authentication.md).
 
 #### OAuth2 plans on intercepted routes

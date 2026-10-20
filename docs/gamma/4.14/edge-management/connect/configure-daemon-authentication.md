@@ -57,6 +57,14 @@ Publishing the plan subscribes the daemon fleet to it, and **Fleet subscription*
 
 The daemons present the certificate from your PKI, and Gravitee never sees its private key. Getting the certificate and its key onto your devices happens outside Gravitee, for example with your MDM.
 
+Install each daemon with the following flags of its installation script:
+
+* `--client-cert`: The certificate that the daemon presents, the one you enrolled.
+* `--client-key`: The private key of that certificate.
+* `--reactor-ca`: The certificate authority that signed the certificate of the Edge Reactor listener, so that the daemon trusts the listener. Pass it only when a private certificate authority signs that certificate. For a self-signed certificate, pass the certificate itself.
+
+Once the mTLS plan is published, the Kandji script of the **Daemon deployment** page passes `--client-cert` and `--client-key`, with `--reactor-ca` commented out on its last line. See [Configure Kandji to deploy the Edge Daemon](configure-kandji-daemon.md#create-the-kandji-custom-app).
+
 ## Close the keyless plan
 
 Closing the keyless plan refuses every daemon that presents no certificate. Leave it published for as long as any daemon still needs it.

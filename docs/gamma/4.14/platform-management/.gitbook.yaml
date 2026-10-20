@@ -1,0 +1,5 @@
+root: ./
+
+structure:
+  readme: gamma-release-notes.md
+  summary: SUMMARY.md

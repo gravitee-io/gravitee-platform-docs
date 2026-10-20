@@ -12,6 +12,8 @@ The Edge Reactor listens on its own port on the gateway, `18093` by default, sep
 
 The mTLS plan of daemon authentication only matches a daemon whose certificate reaches the Edge Reactor. Run the listener over TLS and ask the daemons for a certificate, or, when TLS ends at a proxy in front of the gateway, have that proxy forward the certificate. See [Configure daemon authentication](configure-daemon-authentication.md).
 
+Once the listener runs over TLS, the daemons reach it at an `https://` **Reactor URL**, and each daemon must trust the listener's certificate. When a private certificate authority signs that certificate, or when it's self-signed, install the daemons with `--reactor-ca`. See [Configure daemon authentication](configure-daemon-authentication.md#publish-the-mtls-plan).
+
 The listener reads its settings from the `edge` block of the gateway's `gravitee.yml`, or from `gateway.edge` in the Helm chart.
 
 ## Configure the listener in gravitee.yml
@@ -23,7 +25,7 @@ edge:
   port: 18093
   secured: true
   ssl:
-    clientAuth: request
+    clientAuth: request # for development and test. In production, use required.
     keystore:
       type: pem
       certificates:
@@ -61,7 +63,7 @@ gateway:
     port: 18093
     secured: true
     ssl:
-      clientAuth: request
+      clientAuth: request # for development and test. In production, use required.
       keystore:
         type: pem
         certificates:
