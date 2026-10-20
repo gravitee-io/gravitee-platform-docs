@@ -56,7 +56,7 @@ The preceding IP ranges are published by Cloudflare. Cloudflare maintains the au
 Traffic that leaves your environment, for example calls from your Gateways to your backend services, originates from the following IP ranges. Allow the ranges for your environment's region as sources in the firewall rules that protect your backend services.
 
 {% hint style="info" %}
-If you don't know which region hosts your environment, allow the ranges for both regions.
+If you don't know which region hosts your environment, allow the ranges for all regions.
 {% endhint %}
 
 ### West Europe
@@ -71,6 +71,13 @@ If you don't know which region hosts your environment, allow the ranges for both
 ```text
 48.221.57.80/29
 2603:1030:c04:24::8/125
+```
+
+### France
+
+```text
+4.211.72.176/29
+2603:1020:800:1b::/125
 ```
 
 ## Ports
