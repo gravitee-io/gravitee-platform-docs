@@ -8,6 +8,39 @@ description: The Gamma Trace Explorer reads from an OpenTelemetry pipeline you r
 
 The Trace Explorer reads trace and log data from an OpenTelemetry pipeline that you run alongside Gravitee. Turning on tracing for an individual proxy doesn't populate it on its own. The Gateway has to export the data. An OpenTelemetry Collector has to receive it and write it to Elasticsearch. The Management API has to read from the same Elasticsearch indices. Every one of those settings is off by default, so a stock installation shows an empty Trace Explorer.
 
+An APIM 4.13 Gateway that connects to Gravitee Cloud with a Cloud Token doesn't need this pipeline. For more information, see [Gateways connected to Gravitee Cloud](#gateways-connected-to-gravitee-cloud).
+
+## Gateways connected to Gravitee Cloud
+
+An APIM 4.13 Gateway that connects to Gravitee Cloud with a Cloud Token sends its traces and payload logs to Gravitee Cloud without any OpenTelemetry configuration. This applies to Gravitee Hosted Gateways and to Hybrid Gateways. The **Tracing** pages of the Gamma console then show the traces, with no Collector, Elasticsearch, or Management API settings to add.
+
+The Gateway sends traces for the APIs that have tracing turned on in their **Reporter Settings**, and payload logs for the APIs that also have OpenTelemetry logs turned on there. Payload logs carry request and response bodies to Gravitee Cloud. To keep the traces and stop the payload logs, set `reporters.otel.enabled` to `false` on a Hybrid Gateway. For an API proxy, see [Configure logging and tracing](../api-management/build/configure-your-api-proxy/configure-logging-and-tracing.md).
+
+The Gateway sends to Gravitee Cloud only while it has no `services.opentelemetry` setting. Once any `services.opentelemetry` setting is present, the Gateway uses your configuration instead, and its traces don't reach the **Tracing** pages. The deprecated `services.tracing` settings don't count, so a Gateway that still uses them sends its traces to Gravitee Cloud. To keep sending to your own collector, move them to `services.opentelemetry`. A Gravitee Hosted Gateway linked to an OpenTelemetry reporter in Gravitee Cloud also sends to your collector instead. For more information, see [Create an OpenTelemetry reporter](https://documentation.gravitee.io/gravitee-cloud/guides/configure-custom-reporters/create-an-opentelemetry-reporter).
+
+The Gateway doesn't send this data through the proxy it uses for Gravitee Cloud.
+
+To keep a Hybrid Gateway's traces and payload logs out of Gravitee Cloud, set `services.opentelemetry.enabled` to `false` on the Gateway.
+
+For Docker Compose, add the setting to the environment of the Gateway service:
+
+```yaml
+gio-gamma-hybrid-gateway:
+  environment:
+    - gravitee_services_opentelemetry_enabled=false
+```
+
+For the Helm chart, add it to your `values.yaml`:
+
+```yaml
+gateway:
+  services:
+    opentelemetry:
+      enabled: false
+```
+
+V2 APIs aren't traced to Gravitee Cloud. A Gateway that connects to Gravitee Cloud and uses your own OpenTelemetry configuration traces V2 APIs only when you set `services.opentelemetry.tracing.v2.enabled` to `true`.
+
 ## How trace data reaches the Trace Explorer
 
 Four components take part in the pipeline:
