@@ -46,12 +46,12 @@ To deploy the Edge Daemon with Kandji, complete the following steps:
 The page generates the matching **Download URL** of the daemon package. Here is an example for Apple Silicon:
 
 ```text
-https://download.gravitee.io/graviteeio-ai/gravitee-gamma-edge-daemon/gravitee-gamma-edge-daemon-1.0.0-darwin-arm64.zip
+https://download.gravitee.io/graviteeio-ai/gravitee-gamma-edge-daemon/gravitee-gamma-edge-daemon-2.0.0-darwin-arm64.zip
 ```
 
 ## Create the Kandji Custom App
 
-Under **Kandji Custom App**, the page generates a post-install script prefilled with the Gateway URL and the Reactor URL of the environment. It looks like the following example:
+Under **Kandji Custom App**, the page generates a post-install script prefilled with the Gateway URL and the Reactor URL of the environment. Once the mTLS plan is published, the script also passes the certificate of your fleet and its private key. It looks like the following example:
 
 ```bash
 #!/bin/bash
@@ -59,16 +59,20 @@ set -euo pipefail
 
 "/tmp/install.sh" \
   --gateway-url 'https://gateway.example.com' \
-  --reactor-url 'https://edge-reactor.example.com:18093'
+  --reactor-url 'https://edge-reactor.example.com:18093' \
+  --client-cert '/tmp/client.crt' \
+  --client-key '/tmp/client.key' \
+  # --reactor-ca '/tmp/reactor-ca.crt'   # only if the reactor certificate is signed by a private CA
 ```
 
 To deploy the script, complete the following steps:
 
 1. In the Kandji admin console, create a new **Custom App**.
 2. Configure the app to extract the daemon package to `/tmp`.
-3. Paste the generated script as the post-install script.
-4. Enable **Restart after successful install** so that the environment variables set by the installer take effect immediately.
-5. Assign the Custom App to the appropriate device blueprints. Kandji then distributes and installs the Edge Daemon on all assigned devices.
+3. If the mTLS plan is published, add the certificate of your fleet and its private key to the Custom App zip, next to `install.sh`, as `client.crt` and `client.key`. If your daemons need `--reactor-ca`, add that certificate as `reactor-ca.crt` too, and uncomment the last line of the script. See [Configure daemon authentication](configure-daemon-authentication.md#publish-the-mtls-plan).
+4. Paste the generated script as the post-install script.
+5. Enable **Restart after successful install** so that the environment variables set by the installer take effect immediately.
+6. Assign the Custom App to the appropriate device blueprints. Kandji then distributes and installs the Edge Daemon on all assigned devices.
 
 {% hint style="info" %}
 The page also carries collapsible **Diagnostic commands** and **Uninstall** sections, with the commands to check that the daemon runs, to follow its logs, to stop and start it, and to remove it from a device.
