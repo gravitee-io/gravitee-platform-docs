@@ -7,6 +7,10 @@ metaLinks:
 
 # Service Discovery
 
+{% hint style="warning" %}
+v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 ## Overview
 
 Gravitee service discovery for HashiCorp Consul allows you to bind the backend endpoints of your API to a service dynamically managed by HashiCorp Consul so that API requests are always routed to the proper, healthy backend service. By integrating the Gateway with HashiCorp Consul, dynamic load-balancer configuration changes are pulled directly from Consul’s service discovery registry.

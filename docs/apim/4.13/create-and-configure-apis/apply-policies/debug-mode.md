@@ -17,6 +17,10 @@ Debug mode is an Enterprise-only capability. For more information about Gravitee
 Debug mode is supported by v2 APIs and v4 proxy APIs. You cannot use debug mode with v4 message, TCP, or Native APIs.
 {% endhint %}
 
+{% hint style="warning" %}
+v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 Debug mode is a diagnostic tool for v2 and v4 proxy APIs. It provides insights and troubleshooting capabilities so you can complete the following actions:
 
 * Trace specific requests end-to-end.
