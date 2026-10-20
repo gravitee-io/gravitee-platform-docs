@@ -73,7 +73,7 @@ If you don't know which region hosts your environment, allow the ranges for all 
 2603:1030:c04:24::8/125
 ```
 
-### France Central
+### France
 
 ```text
 4.211.72.176/29
