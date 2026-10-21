@@ -486,7 +486,7 @@ Event Stream Management regroups its sidebar by object and opens on a new Overvi
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment also turns API Score on or off, and can require a review before an API is started or published.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment also turns API Score on or off, and can require a review before an API is started or published. APIM 4.13 Gateways connected to Gravitee Cloud send their traces and payload logs to Gravitee Cloud for the **Tracing** pages.
 
 #### Broadcast messages to environment members
 
@@ -699,6 +699,13 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Concurrent edits are caught with `ETag` and `If-Match`.
 * Creating or updating a dashboard rejects a dashboard filter that the environment's filter catalog doesn't offer for dashboards, an operator or a value that the filter doesn't accept, and a filter name used twice, each with its own error code.
 * See [Save observability dashboards with the Gamma API](save-observability-dashboards.md).
+
+#### Traces and payload logs from Gateways connected to Gravitee Cloud
+
+* An APIM 4.13 Gateway that connects to Gravitee Cloud with a Cloud Token sends its traces and payload logs to Gravitee Cloud with no OpenTelemetry configuration, and the **Tracing** pages show them. This applies to Gravitee Hosted Gateways and to Hybrid Gateways.
+* The Gateway sends traces for the v4 HTTP proxy APIs that have tracing turned on in their **Reporter Settings**, and payload logs for the ones that also have OpenTelemetry logs turned on.
+* A Gateway with its own OpenTelemetry configuration uses it instead and doesn't send to Gravitee Cloud. This includes a Gravitee Hosted Gateway linked to an OpenTelemetry reporter. A Gateway that still uses the deprecated tracing settings sends to Gravitee Cloud. To keep a Hybrid Gateway's traces and payload logs out of Gravitee Cloud, turn OpenTelemetry off on the Gateway.
+* See [Configure OpenTelemetry tracing and logs](configure-opentelemetry-tracing-and-logs.md#gateways-connected-to-gravitee-cloud).
 
 ## Release Date: June 26, 2026
 

@@ -19,6 +19,10 @@ The reporter doesn't send metrics. To export metrics, use a [TCP reporter](creat
 The reporter alone doesn't produce data. Each v4 API needs OpenTelemetry turned on in its own reporter settings in APIM. For more information, see [OpenTelemetry](https://documentation.gravitee.io/apim/analyze-and-monitor-apis/opentelemetry) and [Enable and use OpenTelemetry logs for APIs](https://documentation.gravitee.io/apim/analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis).
 {% endhint %}
 
+{% hint style="info" %}
+A Gravitee Hosted Gateway linked to an OpenTelemetry reporter sends its traces, and its logs when they're turned on, to your collector only. They don't appear on the **Tracing** pages of the Gamma console. For more information, see [Gateways connected to Gravitee Cloud](https://documentation.gravitee.io/platform-management/system-and-security/configure-opentelemetry-tracing-and-logs#gateways-connected-to-gravitee-cloud).
+{% endhint %}
+
 ## Prerequisites
 
 Before creating an OpenTelemetry reporter, ensure you meet the following requirements:
