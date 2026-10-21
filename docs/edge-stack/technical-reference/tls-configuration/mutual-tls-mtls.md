@@ -50,6 +50,8 @@ spec:
 
 Now, when Ambassador Edge Stack proxies a request to `upstream-service`, it will provide the certificates in the `upstream-certs` secret for authentication when encrypting traffic.
 
+To also validate the certificate that the upstream service presents, see [Validate the upstream server certificate](tls-origination.md#validate-the-upstream-server-certificate).
+
 ### Service mesh
 
 As you can imagine, when you have many services in your cluster all authenticating with each other, managing all of those certificates can become a very big challenge.

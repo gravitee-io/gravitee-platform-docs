@@ -5,6 +5,22 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.15.0 <a href="#id-3.15.0" id="id-3.15.0"></a>
+
+#### Upstream server certificate validation
+
+A `TLSContext` with `upstream: true` validates the certificate that the upstream service presents against a certificate authority (CA) that you trust, with no client certificate needed. With `verify_server_hostname: true`, it also checks that the certificate matches the expected hostname. If a check fails, the client gets a `503` response. The new `system_root_certs` field trusts the system CA bundle in the Ambassador Edge Stack container, and the new `AMBASSADOR_SYSTEM_ROOT_CERTS_FILE` environment variable sets the path of that bundle. When a `TLSContext` can't do the validation it asks for, for example because its CA can't be loaded, Ambassador Edge Stack now logs the error as a warning. For more information, see [TLS Origination](technical-reference/tls-configuration/tls-origination.md#validate-the-upstream-server-certificate).
+
+#### A missing or invalid `TLSContext` now blocks the upstream connection
+
+Previously, when the `tls` field of a `Mapping` named a `TLSContext` that didn't exist or had a configuration error, Ambassador Edge Stack connected to the upstream service without it. It used TLS without the settings of the `TLSContext` when the `service` started with `https://`, and plaintext otherwise. With the default Kubernetes Service Resolver, Ambassador Edge Stack now doesn't connect to the upstream service until the `TLSContext` exists and is valid. Requests to the `Mapping` get a `503` response, and Ambassador Edge Stack logs a warning.
+
+This includes a `TLSContext` with no certificate and no CA, such as one that only sets `sni` or `min_tls_version`, because Ambassador Edge Stack treats it as invalid.
+
+The `tls` field of a `TCPMapping`, an `AuthService`, and a `RateLimitService` now blocks the connection in the same way. For an `AuthService`, requests then get its `status_on_error` response, unless `failure_mode_allow` is `true`. For a `RateLimitService`, requests then go through without rate limiting, unless `failure_mode_deny` is `true`.
+
+To find affected resources before you upgrade, search the Ambassador Edge Stack logs for `Originate-TLS context`.
+
 ### Version 3.14.4 (October 7, 2026) <a href="#id-3.14.4" id="id-3.14.4"></a>
 
 #### Upgrade to Envoy 1.38.4

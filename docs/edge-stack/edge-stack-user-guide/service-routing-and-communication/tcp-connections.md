@@ -83,6 +83,8 @@ If originating TLS, but `TCPMapping.spec.tls` is not set, then Ambassador Edge S
 
 If `TCPMapping.spec.tls` is set, then Ambassador Edge Stack looks for a [`TLSContext` resource](../../technical-reference/tls-configuration/tls-overview.md) with that name (the `TLSContext` may be found in _any_ namespace).
 
+With the default Kubernetes Service Resolver, Ambassador Edge Stack doesn't connect to the upstream service until a valid `TLSContext` with that name exists. This applies to Ambassador Edge Stack 3.15.0 and later.
+
 ### `TCPMapping` and TLS
 
 The `TCPMapping.spec.host` attribute determines whether Ambassador Edge Stack will _terminate_ TLS when a client connects to Ambassador Edge Stack. The `TCPMapping.spec.service` and `TCPMapping.spec.tls` attributes work together to determine whether Ambassador Edge Stack will _originate_ TLS when connecting to an upstream. The two are _totally_ independent. See the sections on [TLS termination](tcp-connections.md#tls-termination) and [TLS origination](tcp-connections.md#tls-origination), respectively.
