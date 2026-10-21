@@ -15,7 +15,7 @@ A PDP gateway is a registered runtime that executes policy decisions. Each gatew
 - Is identified by a **Target PDP ID** that policies are routed to
 - Can be scoped to a **sharding tag** for multi-region or multi-tenant deployments
 - Has a **status** (`PENDING` or `PUBLISHED`) indicating whether the engine is provisioned
-- Exposes one or more **AuthZEN endpoints** for standards-compliant access evaluation
+- Can expose an [AuthZEN endpoint](ask-for-a-decision/authzen-endpoint.md) for standards-compliant access evaluation
 
 ## Prerequisites
 
