@@ -2,7 +2,7 @@
 description: Configuration and setup guide for authentication.
 ---
 
-# Authentication
+# Authentication best practices
 
 ## Identity providers
 

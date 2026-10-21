@@ -3,7 +3,7 @@ description: This page provides the technical details of the Cache policy
 hidden: true
 ---
 
-# Cache
+# Cache policy
 
 ## Overview
 

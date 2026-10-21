@@ -2,7 +2,7 @@
 description: An overview about notifications.
 ---
 
-# Notifications
+# Configure notifications for your APIs
 
 ## Overview
 

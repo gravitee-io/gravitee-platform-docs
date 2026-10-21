@@ -2,7 +2,7 @@
 description: An overview about applications.
 ---
 
-# Applications
+# Configure application registration
 
 ## Overview
 

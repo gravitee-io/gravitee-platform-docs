@@ -2,7 +2,7 @@
 description: An overview about policies.
 ---
 
-# Policies
+# Configure native Kafka API policies
 
 ## Overview
 

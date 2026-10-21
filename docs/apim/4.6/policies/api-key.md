@@ -3,7 +3,7 @@ description: This page provides the technical details of the API Key policy
 hidden: true
 ---
 
-# API Key
+# API Key policy
 
 ## Overview
 
