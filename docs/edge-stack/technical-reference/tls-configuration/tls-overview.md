@@ -270,6 +270,33 @@ spec:
   #
   # sni: None
 
+  # 'upstream' marks a TLSContext for TLS origination. It's required for
+  # 'verify_server_hostname' and 'system_root_certs', and for 'ca_secret' or
+  # 'cacert_chain_file' without a client certificate. It can't be combined
+  # with a non-empty 'hosts' list, and a Host can't use a TLSContext that
+  # sets it.
+  # type: boolean
+  #
+  # upstream: false
+
+  # 'verify_server_hostname' checks that the upstream server's certificate
+  # matches the expected hostname: 'sni' if set, otherwise the Mapping's
+  # 'host_rewrite', otherwise the host in the Mapping's 'service'. It requires
+  # 'upstream: true' and a CA to trust, such as 'ca_secret',
+  # 'cacert_chain_file', or 'system_root_certs'.
+  # type: boolean
+  #
+  # verify_server_hostname: false
+
+  # 'system_root_certs' trusts the system CA bundle in the Ambassador Edge
+  # Stack container to validate the upstream server's certificate. It requires
+  # 'upstream: true' and can't be combined with 'ca_secret',
+  # 'cacert_chain_file', or 'crl_secret'. Requires Ambassador Edge Stack
+  # 3.15.0 or later.
+  # type: boolean
+  #
+  # system_root_certs: false
+
   # 'secret' defines a Kubernetes Secret that contains the TLS certificate we
   # use for origination or termination. If not specified, Ambassador Edge Stack will look
   # at the value of cert_chain_file and private_key_file.
@@ -278,7 +305,8 @@ spec:
   # secret: None
 
   # 'ca_secret' defines a Kubernetes Secret that contains the TLS certificate we
-  # use for verifying incoming TLS client certificates.
+  # use for verifying incoming TLS client certificates or, for TLS
+  # origination, the upstream server's certificate.
   # type: string
   #
   # ca_secret: None

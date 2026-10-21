@@ -34,6 +34,7 @@ Use the following variables for the environment of your Ambassador Edge Stack co
 | [`AMBASSADOR_RECONFIG_MAX_DELAY`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_reconfig_max_delay)                         | `1`                                                            | Integer                                                                                                       |
 | [`AMBASSADOR_SINGLE_NAMESPACE`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_single_namespace)                             | Empty                                                          | Boolean; non-empty=true, empty=false                                                                          |
 | [`AMBASSADOR_SNAPSHOT_COUNT`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_snapshot_count)                                 | `4`                                                            | Integer                                                                                                       |
+| [`AMBASSADOR_SYSTEM_ROOT_CERTS_FILE`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_system_root_certs_file)                 | `/etc/ssl/certs/ca-certificates.crt`                           | String (file path)                                                                                            |
 | [`AMBASSADOR_VERIFY_SSL_FALSE`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_verify_ssl_false)                             | `false`                                                        | Boolean; `true`=true, any other value=false                                                                   |
 | [`DISABLE_CA_MANAGEMENT`](ambassador-edge-stack-environment-variables-and-ports.md#disable_ca_management)                                         | Not Set                                                        | any value, checks for existence, **Only used by APIExt server**.                                              |
 | [`DISABLE_CRD_MANAGEMENT`](ambassador-edge-stack-environment-variables-and-ports.md#disable_crd_management)                                       | Not Set                                                        | any value, checks for existence, **Only used by APIExt server**.                                              |
@@ -246,6 +247,12 @@ More information: [#namespaces](advanced-deployment-configuration.md#namespaces 
 ### `AMBASSADOR_SNAPSHOT_COUNT`
 
 The number of snapshots that Ambassador Edge Stack should save.
+
+### `AMBASSADOR_SYSTEM_ROOT_CERTS_FILE`
+
+The path of the CA bundle that a `TLSContext` with `system_root_certs: true` trusts. The default is `/etc/ssl/certs/ca-certificates.crt`. If no file exists at the path, Ambassador Edge Stack rejects every `TLSContext` that sets `system_root_certs: true`. Requires Ambassador Edge Stack 3.15.0 or later.
+
+More information: [#trust-the-system-ca-bundle](../../technical-reference/tls-configuration/tls-origination.md#trust-the-system-ca-bundle "mention")
 
 ### `AMBASSADOR_VERIFY_SSL_FALSE`
 

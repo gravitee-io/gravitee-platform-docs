@@ -76,6 +76,8 @@ You can tell Ambassador Edge Stack to use TLS to talk to your service by using a
 
 If `tls` is present with a value that is not `true`, the value is assumed to be the name of a defined TLS context, which will determine the certificate presented to the upstream service.
 
+In Ambassador Edge Stack 3.15.0 and later, with the default Kubernetes Service Resolver, Ambassador Edge Stack doesn't connect to the rate limit service until a valid `TLSContext` with that name exists.
+
 ## Example
 
 The [Emissary-ingress Rate Limiting Tutorial](../../rate-limiting-tutorial.md) has a simple rate limiting example.
