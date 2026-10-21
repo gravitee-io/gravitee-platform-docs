@@ -240,7 +240,7 @@ LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permiss
 
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, a Response Templates page, and an API Score page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer, and an API proxy can be promoted to another environment through Gravitee Cloud. An API proxy can also be sent for review, and then waits for a reviewer before it starts. The from-scratch wizard also creates TCP Proxy APIs, which the detail pages then show without the HTTP-only screens. The filters of the **Logs** page also gain **starts with** for **Request URI**, a list of entrypoints, and **Between** ranges.
+API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, a Documentation page, a Response Templates page, and an API Score page. The API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer, and an API proxy can be promoted to another environment through Gravitee Cloud. An API proxy can also be sent for review, and then waits for a reviewer before it starts. The from-scratch wizard also creates TCP Proxy APIs, which the detail pages then show without the HTTP-only screens. The filters of the **Logs** page also gain **starts with** for **Request URI**, a list of entrypoints, and **Between** ranges.
 
 #### Import an API proxy
 
@@ -314,6 +314,13 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * The **API Proxies** list includes the federated APIs ingested from integrations once Federation is turned on and the installation has a valid Enterprise Edition license, with **Federated API** in the **API Type** column, the provider in the **Origin** column, and a **Federated API** option in the **API Type** filter. The API Management card of the home page counts them too.
 * A federated API opens on its **Settings** page, whose **Details** panel links to the source integration under **From integration**. Its sidebar keeps only **Settings**, **User Permissions**, **Metadata**, **Documentation**, and **API Score** under **General**, the **Consumers** group, and **Audit Logs** under **Monitoring**.
 * See [Manage general settings](../api-management/build/configure-your-api-proxy/manage-general-settings.md#federated-apis) and [Manage integrations](manage-integrations.md).
+
+#### API documentation for API proxies
+
+* The **General** group of the API proxy sidebar adds a **Documentation** page that holds the pages, folders, and links describing the API in the developer portal. Write a page in the editor, import it from a `.md`, `.yaml`, `.yml`, or `.json` file, or fetch it from an external source such as a GitHub, GitLab, Git, Bitbucket, or HTTP fetcher, and import a whole repository folder.
+* **Publish** lists the API in a section of the portal's top navigation and publishes its documentation with it. **Unpublish** hides the API and its documentation without deleting anything. Once the API is published, each item can be published or unpublished on its own.
+* The documentation belongs to the API. It appears under the API's entry on the **Navigation** page of the Portal Settings too, where a portal designer places the API, and it stays with the API when the entry is hidden or removed.
+* See [Manage API documentation](../api-management/build/configure-your-api-proxy/manage-api-documentation.md).
 
 #### Filters on the Logs page
 

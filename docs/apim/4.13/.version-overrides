@@ -213,3 +213,7 @@ prepare-a-production-environment/production-best-practices/general-recommendatio
 .gitbook/assets/apim-api-properties-encrypt-dynamic-property.png
 .gitbook/assets/apim-api-dynamic-properties-encrypt-on-fetch.png
 .gitbook/assets/apim-api-audit-logs-encrypted-properties.png
+
+# API documentation belongs to the API, 4.13 only (PORTAL-203)
+developer-portal/new-developer-portal/customize-the-navigation/portal-automation/api-documentation.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-navigation-cascade-operations.md
