@@ -5,7 +5,7 @@ metaLinks:
     - deployment.md
 ---
 
-# Deployment
+# Deploy plugins
 
 ## Overview
 

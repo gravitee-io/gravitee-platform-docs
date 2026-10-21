@@ -2,7 +2,7 @@
 description: A keyless plan allows public access to an API Management 4.8 API with no authentication. Learn what it offers and when to use it.
 ---
 
-# Keyless
+# Keyless plan
 
 ## Overview
 

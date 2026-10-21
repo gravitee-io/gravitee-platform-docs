@@ -2,7 +2,7 @@
 description: The Deployment section manages sharding tags and tracks changes to a Kafka API in API Management 4.8. Learn what it records.
 ---
 
-# Deployment
+# Manage native Kafka API deployment
 
 ## Overview
 

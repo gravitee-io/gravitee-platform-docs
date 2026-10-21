@@ -5,7 +5,7 @@ metaLinks:
     - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/plans
 ---
 
-# Plans
+# Native Kafka API plans
 
 ## Overview
 

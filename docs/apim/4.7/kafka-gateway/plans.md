@@ -2,7 +2,7 @@
 description: An overview about plans.
 ---
 
-# Plans
+# Native Kafka API plans
 
 ## Overview
 

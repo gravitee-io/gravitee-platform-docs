@@ -2,7 +2,7 @@
 description: Install the Alert Engine integration for Access Management alongside API Management 4.11. Follow the steps, or skip them on Enterprise images.
 ---
 
-# Installation
+# Link Access Management to Alert Engine
 
 {% hint style="info" %}
 **Skip installation if...**

@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v4-apis/documentation
 ---
 
-# Documentation
+# Add v4 API documentation
 
 {% hint style="warning" %}
 As of Gravitee 4.3, the APIM Documentation feature is only available for v4 APIs.

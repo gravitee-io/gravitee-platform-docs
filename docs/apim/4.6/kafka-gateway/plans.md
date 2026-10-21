@@ -2,7 +2,7 @@
 description: Configuration guide for plans.
 ---
 
-# Plans
+# Native Kafka API plans
 
 ## Introduction
 
