@@ -2,7 +2,7 @@
 description: This page describes the Keyless authentication type
 ---
 
-# Keyless
+# Keyless plan
 
 ## Introduction
 

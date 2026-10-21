@@ -2,7 +2,7 @@
 description: This page provides the technical details of the Cache policy
 ---
 
-# Cache
+# Cache policy
 
 ## Overview
 

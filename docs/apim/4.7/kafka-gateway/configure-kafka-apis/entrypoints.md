@@ -2,7 +2,7 @@
 description: An overview about entrypoints.
 ---
 
-# Entrypoints
+# Configure native Kafka API entrypoints
 
 ## Overview
 

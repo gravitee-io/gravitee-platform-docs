@@ -2,7 +2,7 @@
 description: This page describes the OAuth2 authentication type
 ---
 
-# OAuth2
+# OAuth2 plan
 
 ## Introduction
 

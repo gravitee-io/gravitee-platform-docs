@@ -2,7 +2,7 @@
 description: An overview about mtls.
 ---
 
-# mTLS
+# mTLS plan
 
 ## Overview
 

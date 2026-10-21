@@ -2,7 +2,7 @@
 description: This article describes how to create documentation for v2 APIs
 ---
 
-# Documentation
+# Add v2 API documentation
 
 ## Introduction
 

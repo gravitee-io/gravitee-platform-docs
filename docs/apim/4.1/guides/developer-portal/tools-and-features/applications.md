@@ -2,7 +2,7 @@
 description: This page describes how to create and edit an application
 ---
 
-# Applications
+# Manage Developer Portal applications
 
 ## Overview
 

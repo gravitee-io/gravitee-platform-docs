@@ -2,7 +2,7 @@
 description: An overview about overview.
 ---
 
-# Overview
+# Kafka Gateway overview
 
 The Gravitee Kafka Gateway applies Gravitee's API management capabilities directly to native Kafka to address security, cost, and scalability issues that exist in traditional Kafka deployments. Specifically, the Kafka Gateway gives you the ability to:
 
