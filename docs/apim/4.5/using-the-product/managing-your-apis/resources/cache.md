@@ -2,7 +2,7 @@
 description: Configuration and usage guide for cache.
 ---
 
-# Cache
+# Cache resources
 
 {% tabs %}
 {% tab title="Cache" %}

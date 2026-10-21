@@ -4,7 +4,7 @@ description: >-
   settings
 ---
 
-# General Info Settings
+# v4 API general settings
 
 ## Introduction
 
