@@ -2,7 +2,7 @@
 description: Entrypoints define how consumers reach a v4 API Management 4.8 API, for proxy or message APIs. Compare the entrypoint types.
 ---
 
-# Entrypoints
+# v4 API entrypoints
 
 ## Overview
 

@@ -5,7 +5,7 @@ metaLinks:
     - integrations.md
 ---
 
-# Integrations
+# Manage federation integrations
 
 ## Overview
 

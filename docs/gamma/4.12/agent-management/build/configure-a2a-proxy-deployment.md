@@ -1,7 +1,7 @@
 ---
-hidden: false
-noIndex: false
-description: Choose which gateway instances load an A2A Proxy by assigning sharding tags. Follow the steps on the Deployment Configuration page.
+description: >-
+  Choose which gateway instances load an A2A Proxy by assigning sharding tags.
+  Follow the steps on the Deployment Configuration page.
 ---
 
 # Configure A2A Proxy deployment
@@ -10,12 +10,12 @@ The **Deployment Configuration** page controls where this A2A Proxy is deployed 
 
 To open the page, follow these steps:
 
-1.  Click **A2A Proxies** in the module sidebar.
-2.  Select your A2A Proxy.
-3.  Under **Operations**, click **Deployment**.
+1. Click **A2A Proxies** in the module sidebar.
+2. Select your A2A Proxy.
+3. Under **Operations**, click **Deployment**.
 4.  Click **Configuration**.
 
-    <figure><img src="../.gitbook/assets/gamma-a2a-proxy-deployment-configuration.png" alt="The Deployment Configuration page for A2A Proxy, showing the Sharding tags card with one tag selected as a chip and the tag list open"><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/gamma-a2a-proxy-deployment-configuration (1).png" alt="The Deployment Configuration page for A2A Proxy, showing the Sharding tags card with one tag selected as a chip and the tag list open"><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
 
 ## Assign sharding tags
 
@@ -34,7 +34,7 @@ An assigned tag that no longer appears in the organization list is still shown a
 
 If the tags can't be loaded, the card reads **Failed to load sharding tags. Please try again.**
 
-To change sharding tags, you need the **API_DEFINITION** permission with the **UPDATE** access level. Without it, the tag list is disabled, the chips lose their remove control, and the card reads **You do not have permission to change sharding tags for this API.**
+To change sharding tags, you need the **API\_DEFINITION** permission with the **UPDATE** access level. Without it, the tag list is disabled, the chips lose their remove control, and the card reads **You do not have permission to change sharding tags for this API.**
 
 {% hint style="info" %}
 When the A2A Proxy is managed by the Gravitee Kubernetes Operator (GKO), the card shows **This API is managed by the Kubernetes operator. Sharding tags can only be changed from its source definition.**

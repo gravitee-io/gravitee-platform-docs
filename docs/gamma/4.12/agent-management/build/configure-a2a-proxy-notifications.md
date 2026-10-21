@@ -1,7 +1,7 @@
 ---
-hidden: false
-noIndex: false
-description: Choose which API events send notifications for an A2A Proxy and where they are delivered. Follow the steps to add, edit, or delete a notification.
+description: >-
+  Choose which API events send notifications for an A2A Proxy and where they are
+  delivered. Follow the steps to add, edit, or delete a notification.
 ---
 
 # Configure A2A Proxy notifications
@@ -14,7 +14,7 @@ To open the page, follow these steps:
 2. Select your A2A Proxy.
 3. Click **Notifications** in the A2A Proxy sidebar.
 
-<figure><img src="../.gitbook/assets/gamma-a2a-proxy-notifications.png" alt="The Notifications page for A2A Proxy, listing the Portal notification and an email notification with their Notifier, Subscribed events and Groups columns"><figcaption><p>The Notifications page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-a2a-proxy-notifications (1).png" alt="The Notifications page for A2A Proxy, listing the Portal notification and an email notification with their Notifier, Subscribed events and Groups columns"><figcaption><p>The Notifications page</p></figcaption></figure>
 
 The table lists each notification's **Name**, **Notifier**, **Subscribed events**, and **Groups** columns. An **Actions** column is added when you can edit or delete a notification.
 
@@ -22,7 +22,7 @@ Every A2A Proxy starts with a **Portal notification**, shown with the **Portal**
 
 When nothing is configured, the table reads **No notifications are configured.** If the list can't be loaded, the page shows **Could not load notifications**, followed by the reason.
 
-To create, edit, or delete notifications, you need the **API_NOTIFICATION** permission with the **CREATE**, **UPDATE**, or **DELETE** access level. The **Add notification** button appears only with the create permission, and the **Actions** menu offers only the entries your permissions allow. The **Portal notification** can be edited, but it can't be deleted.
+To create, edit, or delete notifications, you need the **API\_NOTIFICATION** permission with the **CREATE**, **UPDATE**, or **DELETE** access level. The **Add notification** button appears only with the create permission, and the **Actions** menu offers only the entries your permissions allow. The **Portal notification** can be edited, but it can't be deleted.
 
 ## Add a notification
 

@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/integrations
 ---
 
-# Integrations
+# Manage federation integrations
 
 ## Overview
 

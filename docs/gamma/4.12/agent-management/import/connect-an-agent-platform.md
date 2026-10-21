@@ -1,5 +1,8 @@
 ---
-description: Connect an Azure AI Foundry project or a Gemini Enterprise Agent Platform project as an integration, then sync its agents into the Catalog. Follow the steps to connect a platform, sync its agents, and remove the integration.
+description: >-
+  Connect an Azure AI Foundry project or a Gemini Enterprise Agent Platform
+  project as an integration, then sync its agents into the Catalog. Follow the
+  steps to connect a platform, sync its agents, and
 ---
 
 # Connect an agent platform
@@ -30,63 +33,13 @@ An **Integration connected** notification appears and the list opens again. A te
 
 ### Azure AI Foundry fields
 
-<table>
-    <thead>
-        <tr>
-            <th width="220">Field</th>
-            <th>What to enter</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Parent resource</strong></td>
-            <td>The Foundry account, as shown under <strong>Project details</strong> in the Foundry portal.</td>
-        </tr>
-        <tr>
-            <td><strong>Resource group</strong></td>
-            <td>The account's resource group.</td>
-        </tr>
-        <tr>
-            <td><strong>Subscription ID</strong></td>
-            <td>The account's Azure subscription.</td>
-        </tr>
-        <tr>
-            <td><strong>Project endpoint</strong></td>
-            <td>The address the Foundry portal offers to copy under <strong>Project details</strong>, which ends with <code>/api/projects/</code> and the project's name. The project it names is the one whose agents are imported. An address that doesn't name a project is refused with <strong>The address of a project ends with /api/projects/ and its name.</strong></td>
-        </tr>
-        <tr>
-            <td><strong>Credential</strong></td>
-            <td>The OAuth 2.0 credential the syncs sign in with. Only OAuth 2.0 credentials for agent providers are listed.</td>
-        </tr>
-    </tbody>
-</table>
+<table><thead><tr><th width="220">Field</th><th>What to enter</th></tr></thead><tbody><tr><td><strong>Parent resource</strong></td><td>The Foundry account, as shown under <strong>Project details</strong> in the Foundry portal.</td></tr><tr><td><strong>Resource group</strong></td><td>The account's resource group.</td></tr><tr><td><strong>Subscription ID</strong></td><td>The account's Azure subscription.</td></tr><tr><td><strong>Project endpoint</strong></td><td>The address the Foundry portal offers to copy under <strong>Project details</strong>, which ends with <code>/api/projects/</code> and the project's name. The project it names is the one whose agents are imported. An address that doesn't name a project is refused with <strong>The address of a project ends with /api/projects/ and its name.</strong></td></tr><tr><td><strong>Credential</strong></td><td>The OAuth 2.0 credential the syncs sign in with. Only OAuth 2.0 credentials for agent providers are listed.</td></tr></tbody></table>
 
 An account that's already connected as an integration is reused rather than duplicated, and a second integration can't import the same project from the same account.
 
 ### Gemini Enterprise Agent Platform fields
 
-<table>
-    <thead>
-        <tr>
-            <th width="220">Field</th>
-            <th>What to enter</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Project ID</strong></td>
-            <td>The Google Cloud project ID.</td>
-        </tr>
-        <tr>
-            <td><strong>Credential</strong></td>
-            <td>The service account credential the reads sign in with. Only service account credentials for agent providers are listed.</td>
-        </tr>
-        <tr>
-            <td><strong>Regions to import from</strong></td>
-            <td>Shown once the connection test answered, listing the regions the project reports. Pick the ones you use. Left empty, every region the project reports is imported from, and each region adds one request per sync.</td>
-        </tr>
-    </tbody>
-</table>
+<table><thead><tr><th width="220">Field</th><th>What to enter</th></tr></thead><tbody><tr><td><strong>Project ID</strong></td><td>The Google Cloud project ID.</td></tr><tr><td><strong>Credential</strong></td><td>The service account credential the reads sign in with. Only service account credentials for agent providers are listed.</td></tr><tr><td><strong>Regions to import from</strong></td><td>Shown once the connection test answered, listing the regions the project reports. Pick the ones you use. Left empty, every region the project reports is imported from, and each region adds one request per sync.</td></tr></tbody></table>
 
 No region is asked for before the test. The provider places an agent in one region without being told, and the region each agent lives in is read back when it's imported.
 
@@ -94,9 +47,9 @@ No region is asked for before the test. The provider places an agent in one regi
 
 1. On the **Integrations** page, click the integration's name.
 2. In the **Agents** card, click **Sync agents**.
-3. In the **Sync agents from &lt;project&gt;?** dialog, read what the sync does, and then click **Sync now**.
+3. In the **Sync agents from \<project>?** dialog, read what the sync does, and then click **Sync now**.
 
-The card reads **Syncing agents from &lt;project&gt;…** while the provider is read and the catalog rewritten, which can take a while on a large project. When it's done, the card reads **Last sync just now: &lt;n&gt; imported, &lt;n&gt; updated, &lt;n&gt; removed.** and an **Agents synced** notification appears. A sync that fails reads **Could not sync agents** with the provider's reason, and the button reads **Retry**. A sync runs only when you trigger it, and the card can't say when the previous one ran.
+The card reads **Syncing agents from \<project>…** while the provider is read and the catalog rewritten, which can take a while on a large project. When it's done, the card reads **Last sync just now: \<n> imported, \<n> updated, \<n> removed.** and an **Agents synced** notification appears. A sync that fails reads **Could not sync agents** with the provider's reason, and the button reads **Retry**. A sync runs only when you trigger it, and the card can't say when the previous one ran.
 
 <figure><img src="../.gitbook/assets/gamma-aim-integration-agents-card.png" alt="The Agents card of an integration after a sync: the Sync agents button, the sync status line, and the imported agents with their State, Publication, Protocols, Model, and Imported columns"><figcaption><p>The Agents card of an integration after a sync</p></figcaption></figure>
 
@@ -132,7 +85,7 @@ When the credential an integration signs in with was removed from **Credentials*
 2. In the **Remove this integration?** dialog, read the consequence: everything imported through the integration, agents and models included, is removed from the Catalog with it, and the removal can't be undone.
 3. Click **Remove integration**.
 
-A **Removed &lt;name&gt;** notification appears.
+A **Removed \<name>** notification appears.
 
 ## Next steps
 

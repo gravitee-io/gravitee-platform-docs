@@ -9,7 +9,7 @@ description: What Edge Management does, how the Edge Daemon captures the AI traf
 Edge Management puts the Gravitee gateway between the AI coding agents that run on your managed devices and the AI providers they call. An Edge Daemon installed on each device intercepts the agents you choose and forwards their traffic to a target API on the gateway, where your policies, quotas, and analytics apply. The same daemon reports the AI providers that a device reaches directly, without the gateway.
 
 {% hint style="warning" %}
-**Edge Management is a preview feature, and it isn't production-ready.** It's under active development, and authenticated, TLS-secured connections between a daemon and the gateway aren't available yet. The Edge Reactor listener is plain HTTP, and the Edge API that Edge Management publishes for an environment uses a keyless plan. That traffic is neither encrypted by the reactor nor authenticated. Don't expose these endpoints over networks you don't trust. Restrict them to a private network, a VPN, or an IP-allowlisted corporate network.
+**Edge Management is a preview feature, and it isn't production-ready.** It's under active development. By default, the Edge Reactor listener is plain HTTP, and the Edge API that Edge Management publishes for an environment serves the daemons through a keyless plan. That traffic is then neither encrypted by the reactor nor authenticated. Until you secure it, don't expose these endpoints over networks you don't trust. Restrict them to a private network, a VPN, or an IP-allowlisted corporate network. See [Secure the Edge Reactor listener](../connect/secure-the-edge-reactor-listener.md) and [Configure daemon authentication](../connect/configure-daemon-authentication.md).
 {% endhint %}
 
 ## How the traffic flows
@@ -37,9 +37,11 @@ Interception is configured per intercepted agent. An agent owns the domains it c
 * **Custom agent** lets you declare the domains, the decoder format, the vendor, and the routes yourself.
 * **Codex** is listed as coming soon and can't be configured yet.
 
-A target API is a standard API on your gateway. Pick one you already have, or let Edge Management create one from the picker. See [Target API reference](../connect/proxy-api-reference.md).
+A target API is a standard API on your gateway. Pick one you already have, or let Edge Management create one from the picker. See [Target API reference](../connect/proxy-api-reference.md). To identify the developers behind a route, secure the route with an OAuth2 plan of its target API. Each developer then signs in with your identity provider. See [Secure a route with an OAuth2 plan](../connect/configure-edge-management.md#secure-a-route-with-an-oauth2-plan).
 
 Shadow AI detection has its own configuration: a list of provider domains to watch. Watching a domain and intercepting it are independent. A detection tells you that a device reached a provider directly, and nothing is routed.
+
+Daemon authentication decides how the daemons identify themselves to the Edge Reactor: through a keyless plan, through an mTLS plan that matches the certificates of your fleet, or through both. See [Configure daemon authentication](../connect/configure-daemon-authentication.md).
 
 ## Where things live in the console
 
@@ -48,7 +50,7 @@ Edge Management is a module of the Gamma console. Its pages are grouped by what 
 | Group             | Pages                                                                                                                                                                                                                                                                       |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **General**       | **Quick Start** while the environment has no configuration, then **Overview**: a dashboard with the Edge API status, the active daemons, the recent shadow AI detections, the recent device activity, and an **Interception readiness** card that shows the verdict of each configured agent. |
-| **Configuration** | **Gateway**, **Interception**, **Shadow AI**, and **Daemon deployment**.                                                                                                                                                                                                    |
+| **Configuration** | **Gateway**, **Interception**, **Shadow AI**, **Daemon authentication**, and **Daemon deployment**.                                                                                                                                                                         |
 | **Analytics**     | **Detected Shadow AI**, **Proxied Traffic**, and **Devices**.                                                                                                                                                                                                              |
 
 Until the environment has a configuration, the sidebar offers only **Quick Start**. See [Set up Edge Management](../connect/set-up-edge-management.md).
@@ -63,7 +65,7 @@ The daemon connects to two endpoints on the gateway side. Both must be reachable
 | Connection      | Purpose                                                                                                                                                                                                                                                           |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Gateway URL** | Where the daemon sends the traffic it intercepts. The Edge API published for the environment and the target APIs are served from there.                                                                                                                          |
-| **Reactor URL** | Where the daemon fetches its configuration, sends its heartbeat, and reports its metrics and its shadow AI detections. The Edge Reactor listens on its own port, `18093` by default. Set `edge.server.port` in the gateway configuration to change it. |
+| **Reactor URL** | Where the daemon fetches its configuration, sends its heartbeat, and reports its metrics and its shadow AI detections. The Edge Reactor listens on its own port, `18093` by default. To change the port or secure the listener, see [Secure the Edge Reactor listener](../connect/secure-the-edge-reactor-listener.md). |
 
 The Edge Reactor listener is separate from the gateway's main HTTP port, so it must be exposed explicitly. On Kubernetes, see [Configure Edge Ingress](../connect/configure-edge-ingress.md).
 

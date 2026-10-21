@@ -1,7 +1,7 @@
 ---
-hidden: false
-noIndex: false
-description: Enable cross-origin access for a Gamma LLM Proxy so the gateway adds the Access-Control headers. Follow the steps to set origins and methods.
+description: >-
+  Enable cross-origin access for a Gamma LLM Proxy so the gateway adds the
+  Access-Control headers. Follow the steps to set origins and methods.
 ---
 
 # Configure LLM Proxy CORS
@@ -22,10 +22,6 @@ To open the page, follow these steps:
 3. Select your LLM Proxy.
 4. Under **General**, click **CORS**.
 
-<!-- TODO: Screenshot of the CORS page of an LLM Proxy on a Gamma 4.12.18 stack, with CORS enabled and one allowed origin -->
-
-<figure><img src="../.gitbook/assets/PLACEHOLDER-gamma-aim-llm-proxy-cors-4-12.png" alt=""><figcaption><p>The CORS page</p></figcaption></figure>
-
 ## Enable CORS
 
 Turn on the **Enable CORS** switch. The other settings on the page stay disabled until CORS is enabled.
@@ -34,12 +30,12 @@ Turn on the **Enable CORS** switch. The other settings on the page stay disabled
 
 The **Origins, methods and headers** card carries four list fields. Type a value and press Enter or a comma to add it, and click the cross on a value to remove it. The buttons under a field add a common value with one click. Use `*` to allow any value.
 
-| Field                             | Description                                                                                                                                                                                                                                                       |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Access-Control-Allow-Origin**   | Origins allowed to call this proxy, such as `https://app.example.com`. Scheme, domain, and port must all match. A value that contains `(`, `[`, or `*` is also evaluated as a regular expression.                                                             |
-| **Access-Control-Allow-Methods**  | HTTP methods allowed in cross-origin requests. The buttons offer `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `HEAD`, and `OPTIONS`.                                                                                                                                  |
-| **Access-Control-Allow-Headers**  | Headers the caller may send in the actual request. The buttons offer `Accept`, `Authorization`, `Content-Type`, `Origin`, `X-API-Key`, and `X-Requested-With`.                                                                                                     |
-| **Access-Control-Expose-Headers** | Response headers the browser may surface to JavaScript. The buttons offer `Content-Length`, `Content-Range`, `X-Request-Id`, and the `X-LLM-Proxy-*` headers that the LLM Proxy entrypoint adds to its responses.                                                 |
+| Field                             | Description                                                                                                                                                                                                       |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Access-Control-Allow-Origin**   | Origins allowed to call this proxy, such as `https://app.example.com`. Scheme, domain, and port must all match. A value that contains `(`, `[`, or `*` is also evaluated as a regular expression.                 |
+| **Access-Control-Allow-Methods**  | HTTP methods allowed in cross-origin requests. The buttons offer `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `HEAD`, and `OPTIONS`.                                                                                  |
+| **Access-Control-Allow-Headers**  | Headers the caller may send in the actual request. The buttons offer `Accept`, `Authorization`, `Content-Type`, `Origin`, `X-API-Key`, and `X-Requested-With`.                                                    |
+| **Access-Control-Expose-Headers** | Response headers the browser may surface to JavaScript. The buttons offer `Content-Length`, `Content-Range`, `X-Request-Id`, and the `X-LLM-Proxy-*` headers that the LLM Proxy entrypoint adds to its responses. |
 
 Header names are saved in lowercase, so `Content-Type` reads back as `content-type` after you save. Enter methods in uppercase: the gateway compares the method of a preflight request with the saved values exactly.
 
@@ -70,7 +66,7 @@ Saving updates the API definition but doesn't deploy it. The **This deployable i
 To verify that the gateway applies the settings, follow these steps:
 
 1. Enable CORS, add the origin `https://app.example.com`, add the `POST` method, and add the `Content-Type` header. Click **Save changes**, and then click **Deploy** in the **This deployable is out of sync.** banner.
-2. Send a preflight request to a URL of the proxy:
+2.  Send a preflight request to a URL of the proxy:
 
     ```bash
     curl -i -X OPTIONS <proxy-url> \

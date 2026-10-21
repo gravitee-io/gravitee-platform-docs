@@ -1,7 +1,7 @@
 ---
-hidden: false
-noIndex: false
-description: Create an LLM Proxy that routes traffic to upstream model providers through the AI Gateway. Follow the steps in the wizard to configure and deploy it.
+description: >-
+  Create an LLM Proxy that routes traffic to upstream model providers through
+  the AI Gateway. Follow the steps in the wizard to configure and deploy it.
 ---
 
 # Create an LLM Proxy
@@ -16,11 +16,11 @@ For a simplified quickstart, see [Create your first LLM Proxy](../get-started/cr
 
 To create an LLM Proxy, complete the following steps:
 
-1. [Open the LLM Proxy wizard](#open-the-llm-proxy-wizard)
-2. [Configure the models](#configure-the-models)
-3. [Set the context path](#set-the-context-path)
-4. [Select a consumer plan](#select-a-consumer-plan)
-5. [Review and create](#review-and-create)
+1. [Open the LLM Proxy wizard](create-an-llm-proxy.md#open-the-llm-proxy-wizard)
+2. [Configure the models](create-an-llm-proxy.md#configure-the-models)
+3. [Set the context path](create-an-llm-proxy.md#set-the-context-path)
+4. [Select a consumer plan](create-an-llm-proxy.md#select-a-consumer-plan)
+5. [Review and create](create-an-llm-proxy.md#review-and-create)
 
 ### Open the LLM Proxy wizard
 
@@ -40,14 +40,14 @@ Then add at least one provider with at least one model. You can add a provider i
 
 To add a provider inline, select **Add provider**. On the **New provider** card, enter a **Provider name** that no other inline provider of the proxy uses, and then complete the fields of the plugin. With the plugin version bundled in Gamma 4.12.17 and later, the card carries the following fields.
 
-| Field                  | Description |
-| ---------------------- | ----------- |
-| **Provider**           | The API format of the upstream provider: **OpenAI**, **OpenAI compatible**, **Gemini**, **Bedrock**, **Anthropic**, or **Gemini Enterprise Agent Platform**. **OpenAI** is preselected. |
-| **Provider URL**       | The URL the proxy calls, without whitespace. The field accepts Expression Language and secret references. |
-| **Models**             | The models the provider serves, at least one. Select **Add** to add an entry, and enter the **Model** name. Optionally, add an **Entity ID**, the catalog entity ID of the model used for fine-grained authorization. Add the **Price per million tokens (input) sent to LLM ($)** and the **Price per million tokens (output) received from LLM ($)**. Add one or more **Aliases of this model**, and a **Parameters Override (JSON)**. Model names are unique within the provider, an alias can't contain `:`, and a price is greater than `0`. |
-| **ModelGovernance**    | Select the **Alias** or the **Unregistered models** variant. Both carry **Prefix needs**. The options are **Models and aliases require the prefix**, the default, **Only aliases require the prefix**, **Only models require the prefix**, and **Models and aliases do not require a prefix**. **Alias** adds the **Only use alias** switch, which hides the real model names so that consumers use the aliases only. **Unregistered models** adds **Globbing to accept unregistered models**, a required pattern such as `*` for any model, `gpt*`, or `(opus\|haiku\|sonnet)*`. |
-| **Authentication**     | **API Key**, **Bearer**, **Service account (GCP)**, or **None**. **API Key** takes the **Header name containing the API Key**, `x-api-key` by default, and the **API Key**. **Bearer** takes the **Bearer** token. **Service account (GCP)** takes the **Service Account Key (JSON)** in a code editor. The key and token fields accept Expression Language and secret references. |
-| **Gemini Enterprise Agent Platform Settings** | Shown for the **Gemini Enterprise Agent Platform** provider only: the **GCP Project ID**, the **GCP Region**, `global` by default, and the **Publisher**, **Google (Gemini)** or **Anthropic (Claude)**. |
+| Field                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Provider**                                  | The API format of the upstream provider: **OpenAI**, **OpenAI compatible**, **Gemini**, **Bedrock**, **Anthropic**, or **Gemini Enterprise Agent Platform**. **OpenAI** is preselected.                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Provider URL**                              | The URL the proxy calls, without whitespace. The field accepts Expression Language and secret references.                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| **Models**                                    | The models the provider serves, at least one. Select **Add** to add an entry, and enter the **Model** name. Optionally, add an **Entity ID**, the catalog entity ID of the model used for fine-grained authorization. Add the **Price per million tokens (input) sent to LLM ($)** and the **Price per million tokens (output) received from LLM ($)**. Add one or more **Aliases of this model**, and a **Parameters Override (JSON)**. Model names are unique within the provider, an alias can't contain `:`, and a price is greater than `0`.                                 |
+| **ModelGovernance**                           | Select the **Alias** or the **Unregistered models** variant. Both carry **Prefix needs**. The options are **Models and aliases require the prefix**, the default, **Only aliases require the prefix**, **Only models require the prefix**, and **Models and aliases do not require a prefix**. **Alias** adds the **Only use alias** switch, which hides the real model names so that consumers use the aliases only. **Unregistered models** adds **Globbing to accept unregistered models**, a required pattern such as `*` for any model, `gpt*`, or `(opus\|haiku\|sonnet)*`. |
+| **Authentication**                            | **API Key**, **Bearer**, **Service account (GCP)**, or **None**. **API Key** takes the **Header name containing the API Key**, `x-api-key` by default, and the **API Key**. **Bearer** takes the **Bearer** token. **Service account (GCP)** takes the **Service Account Key (JSON)** in a code editor. The key and token fields accept Expression Language and secret references.                                                                                                                                                                                                |
+| **Gemini Enterprise Agent Platform Settings** | Shown for the **Gemini Enterprise Agent Platform** provider only: the **GCP Project ID**, the **GCP Region**, `global` by default, and the **Publisher**, **Google (Gemini)** or **Anthropic (Claude)**.                                                                                                                                                                                                                                                                                                                                                                          |
 
 The card checks each field against the plugin schema as you type. **Add provider** at the bottom of the card stays disabled until the name and every field are valid. Select it to add the provider, or **Cancel** to drop the card. The added provider is listed with its models, and its bin icon removes it.
 
@@ -61,7 +61,7 @@ The card doesn't check how the **Gemini Enterprise Agent Platform** provider and
 The console reports the failure when you select **Create only** or **Create & deploy** on the **Review & create** step, and it keeps you on the step with the message. The same three combinations fail on **Save changes** when you edit a provider later on the **Models** page.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-new-provider.png" alt="The New provider card of the Models step with the Provider name, Provider, Provider URL, Models, ModelGovernance, and Authentication fields filled for an Anthropic provider"><figcaption><p>The New provider card of the Models step</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-new-provider (1).png" alt="The New provider card of the Models step with the Provider name, Provider, Provider URL, Models, ModelGovernance, and Authentication fields filled for an Anthropic provider"><figcaption><p>The New provider card of the Models step</p></figcaption></figure>
 
 {% hint style="info" %}
 The console keeps the API key, bearer token, or service account key as you enter it. The value is shown again when you edit the provider on the **Models** page of the proxy. For the API key and the bearer token, enter a secret reference in the field instead to keep the secret out of the proxy configuration.
@@ -86,8 +86,8 @@ You can configure multiple providers and models on a single LLM Proxy, and chang
 
 On the **Entrypoint** step, define the public path that consumers call:
 
-| Field            | Required | Description                                                                                                 |
-| ---------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
+| Field            | Required | Description                                                                                                      |
+| ---------------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
 | **Context path** | Yes      | The path prefix appended to the AI Gateway URL that consumers use to send prompts, for example, `/my-llm-proxy`. |
 
 You can also toggle **Track tokens during stream mode** and **Inject token usage headers** to control how token usage is reported.
@@ -96,13 +96,13 @@ You can also toggle **Track tokens during stream mode** and **Inject token usage
 
 On the **Plans** step, select **Add plan** to choose how consumers authenticate when sending prompts through this LLM Proxy. The LLM Proxy supports the standard Gravitee API plan types:
 
-| Plan type   | Description                                                                                       |
-| ----------- | ------------------------------------------------------------------------------------------------- |
-| **Keyless** | `KEY_LESS`. No consumer authentication. Any client can send prompts without credentials.                      |
-| **API Key** | `API_KEY`. Consumers include an API key. Enables per-consumer tracking, rate limiting, and cost attribution. |
-| **JWT**     | `JWT`. Validates JSON Web Tokens locally without a network hop to the IdP. |
-| **OAuth 2.0** | `OAUTH2`. Validates OAuth2 access tokens from an identity provider. |
-| **mTLS**    | `MTLS`. Validates the consumer's mutual TLS certificate. |
+| Plan type     | Description                                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Keyless**   | `KEY_LESS`. No consumer authentication. Any client can send prompts without credentials.                     |
+| **API Key**   | `API_KEY`. Consumers include an API key. Enables per-consumer tracking, rate limiting, and cost attribution. |
+| **JWT**       | `JWT`. Validates JSON Web Tokens locally without a network hop to the IdP.                                   |
+| **OAuth 2.0** | `OAUTH2`. Validates OAuth2 access tokens from an identity provider.                                          |
+| **mTLS**      | `MTLS`. Validates the consumer's mutual TLS certificate.                                                     |
 
 {% hint style="warning" %}
 Keyless plans provide no consumer identification. You cannot track usage per consumer, enforce per-consumer rate limits, or attribute costs. Use keyless only for internal testing.

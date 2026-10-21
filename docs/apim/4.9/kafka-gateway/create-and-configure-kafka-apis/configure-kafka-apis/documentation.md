@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/documentation
 ---
 
-# Documentation
+# Create native Kafka API documentation
 
 ## Overview
 

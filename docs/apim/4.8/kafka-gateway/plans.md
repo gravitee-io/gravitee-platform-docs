@@ -2,7 +2,7 @@
 description: A plan is the service and access layer over a Kafka API in API Management 4.8, setting limits and validation. Learn the options.
 ---
 
-# Plans
+# Native Kafka API plans
 
 ## Overview
 

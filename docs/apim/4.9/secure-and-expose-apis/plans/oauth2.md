@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/secure-and-expose-apis/plans/oauth2
 ---
 
-# OAuth2
+# OAuth2 plan
 
 ## Overview
 

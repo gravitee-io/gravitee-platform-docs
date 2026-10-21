@@ -7,6 +7,9 @@ structure:
 redirects:
  agent-management/build/llm-proxies/configure-an-llm-proxy/configure-llm-proxy-cors: agent-management/build/configure-llm-proxy-cors.md
  agent-management/build/llm-proxies/override-the-model-at-runtime: agent-management/build/override-the-model-at-runtime.md
+ agent-management/build/mcp-proxies/configure-your-mcp/gateway: agent-management/build/mcp-proxies/operations/README.md
+ agent-management/build/mcp-proxies/configure-your-mcp/gateway/configure-logging-and-tracing: agent-management/build/configure-your-mcp/configure-logging-and-tracing.md
+ agent-management/build/mcp-proxies/configure-your-mcp/general/configure-mcp-proxy-notifications: agent-management/build/configure-mcp-proxy-notifications.md
  agent-management/edge-daemon: edge-management/get-started/README.md
  agent-management/edge-daemon/connect-claude-code-to-daemon: edge-management/connect/README.md
  agent-management/import/create-event-tools: agent-management/import/README.md

@@ -5,7 +5,7 @@ metaLinks:
     - entrypoints.md
 ---
 
-# Entrypoints
+# Configure native Kafka API entrypoints
 
 ## Overview
 

@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v2-apis/user-and-group-access
 ---
 
-# User and Group Access
+# Manage v2 API members and groups
 
 ## Overview
 

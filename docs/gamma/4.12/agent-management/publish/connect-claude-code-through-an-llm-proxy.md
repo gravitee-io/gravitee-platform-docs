@@ -1,7 +1,7 @@
 ---
-hidden: false
-noIndex: false
-description: Configure Claude Code to reach Anthropic through an LLM Proxy while users keep their own OAuth login. Follow the steps to set up the plan and headers.
+description: >-
+  Configure Claude Code to reach Anthropic through an LLM Proxy while users keep
+  their own OAuth login. Follow the steps to set up the plan and headers.
 ---
 
 # Connect Claude Code through an LLM Proxy
@@ -25,35 +25,34 @@ The LLM Proxy provider must be configured with **No authentication**. Do not con
 
 ## Prerequisites
 
-* Access to the Gamma console. For more information, see [AI management overview](../overview/README.md).
-* A deployed AI Gateway. For more information, see [Self-hosted installation guides](../../platform-management/install/self-hosted-installation-guides/README.md) and [Hybrid installation guides](../../platform-management/install/hybrid-installation-guides/README.md).
+* Access to the Gamma console. For more information, see [AI management overview](../get-started/).
+* A deployed AI Gateway. For more information, see [Self-hosted installation guides](../../platform-management/install/self-hosted-installation-guides/) and [Hybrid installation guides](../../platform-management/install/hybrid-installation-guides/).
 * A Claude Code user who can authenticate with `/login`.
 * Permission to create a plan and a subscription on the LLM Proxy. For more information, see [Manage subscriptions](manage-subscriptions.md).
 
 ## Connect Claude Code to an LLM Proxy
 
-1. [Configure the LLM Proxy](#configure-the-llm-proxy)
-2. [Configure model governance](#configure-model-governance)
-3. [Create a plan and subscription](#create-a-plan-and-subscription)
-4. [Configure Claude Code](#configure-claude-code)
+1. [Configure the LLM Proxy](connect-claude-code-through-an-llm-proxy.md#configure-the-llm-proxy)
+2. [Configure model governance](connect-claude-code-through-an-llm-proxy.md#configure-model-governance)
+3. [Create a plan and subscription](connect-claude-code-through-an-llm-proxy.md#create-a-plan-and-subscription)
+4. [Configure Claude Code](connect-claude-code-through-an-llm-proxy.md#configure-claude-code)
 
 ### Configure the LLM Proxy
 
 1. Create an LLM Proxy. For more information, see [Create an LLM Proxy](../build/create-an-llm-proxy.md).
-2. On the **Models** step, select **Add provider**, configure the provider with the following values, and then select **Add provider** at the bottom of the card:
+2.  On the **Models** step, select **Add provider**, configure the provider with the following values, and then select **Add provider** at the bottom of the card:
 
-   | Field | Value |
-   | --- | --- |
-   | Provider name | `Anthropic` |
-   | Provider | `Anthropic` |
-   | Provider URL | `https://api.anthropic.com` |
-   | Authentication | `None` |
+    | Field          | Value                       |
+    | -------------- | --------------------------- |
+    | Provider name  | `Anthropic`                 |
+    | Provider       | `Anthropic`                 |
+    | Provider URL   | `https://api.anthropic.com` |
+    | Authentication | `None`                      |
+3.  Set the context path. Here is an example context path:
 
-3. Set the context path. Here is an example context path:
-
-   ```text
-   /claude-code
-   ```
+    ```
+    /claude-code
+    ```
 
 {% hint style="warning" %}
 Don't add `/v1` to the provider URL. The LLM Proxy appends `/v1/messages` when it forwards the request to Anthropic, so a target URL that already ends in `/v1` produces `/v1/v1/messages` and the request fails.
@@ -65,33 +64,30 @@ Claude Code sends Anthropic model IDs without a provider prefix, so the LLM Prox
 
 To edit governance on an existing LLM Proxy, open the LLM Proxy detail page. Under **Design**, select **Models**, and then select the edit icon of the provider. When you're done, select **Done**, click **Save changes**, and deploy the proxy.
 
-1. Set **Prefix needs** to the following:
+1.  Set **Prefix needs** to the following:
 
-   ```text
-   Models and aliases do not require a prefix
-   ```
-
+    ```
+    Models and aliases do not require a prefix
+    ```
 2. Choose one of the following model access options. The two options are mutually exclusive: the **Alias** variant accepts only registered models and can hide their real names behind aliases, and the **Unregistered models** variant accepts any model matching a glob.
+   *   **For broad access:** Select the **Unregistered models** variant, and then set **Globbing to accept unregistered models**. Here is an example glob:
 
-   * **For broad access:** Select the **Unregistered models** variant, and then set **Globbing to accept unregistered models**. Here is an example glob:
+       ```
+       claude-*
+       ```
 
-     ```text
-     claude-*
-     ```
+       or, for all model IDs:
 
-     or, for all model IDs:
+       ```
+       *
+       ```
+   *   **For a strict allowlist:** Select the **Alias** variant, and then add each model explicitly. Here is an example of adding each model:
 
-     ```text
-     *
-     ```
-
-   * **For a strict allowlist:** Select the **Alias** variant, and then add each model explicitly. Here is an example of adding each model:
-
-     ```text
-     claude-sonnet-4-6
-     claude-opus-4-8
-     claude-haiku-4-5-20251001
-     ```
+       ```
+       claude-sonnet-4-6
+       claude-opus-4-8
+       claude-haiku-4-5-20251001
+       ```
 
 {% hint style="info" %}
 A provider requires at least one model even when globbing is enabled. Add a seed model such as `claude-sonnet-4-6`.
@@ -102,11 +98,11 @@ Don't enable **Only use alias** for this flow. Claude Code sends real Anthropic 
 ### Create a plan and subscription
 
 1. On the LLM Proxy detail page, navigate to **Consumer Access** > **Plans**, and then add an **API Key** plan.
-2. In the plan's API key configuration, select **Custom header**, and then set the header name to the following:
+2.  In the plan's API key configuration, select **Custom header**, and then set the header name to the following:
 
-   ```text
-   X-Gravitee-Api-Key
-   ```
+    ```
+    X-Gravitee-Api-Key
+    ```
 
 {% hint style="warning" %}
 The plan wizard selects **Authorization: Bearer** by default and labels it as recommended. That mode does not work for this flow. Claude Code already uses `Authorization: Bearer` for its Claude OAuth token, so the AI Gateway would try to resolve the OAuth token as a Gravitee API key and reject the request with `GATEWAY_PLAN_UNRESOLVABLE` or `401 Unauthorized`. Select **Custom header** instead.
@@ -117,22 +113,20 @@ The plan wizard selects **Authorization: Bearer** by default and labels it as re
 5. Select the user's application and the API Key plan.
 6. If the plan requires validation, accept the subscription. For more information, see [Manage subscriptions](manage-subscriptions.md).
 7. Provide the user with the following information:
-
    * The AI Gateway base URL and the LLM Proxy context path.
    * The subscription API key.
-   * The custom header definition. Here is an example custom header definition:
+   *   The custom header definition. Here is an example custom header definition:
 
-     ```text
-     X-Gravitee-Api-Key: <subscription-api-key>
-     ```
-
+       ```
+       X-Gravitee-Api-Key: <subscription-api-key>
+       ```
 8. After changing provider, model, or plan configuration, redeploy the LLM Proxy. Select **Deploy** from the **Out of sync** banner, or navigate to **Operations** > **Deployment**.
 
 ### Configure Claude Code
 
 1. Authenticate Claude Code using the following login:
 
-```text
+```
 /login
 ```
 
@@ -174,21 +168,21 @@ Set `ENABLE_TOOL_SEARCH` to `true` to turn tool search back on. The AI Gateway p
 
 ## Verify the connection
 
-1. Send a simple prompt from Claude Code. Here is an example prompt:
+1.  Send a simple prompt from Claude Code. Here is an example prompt:
 
-   ```text
-   Reply with exactly: proxy-ok
-   ```
+    ```
+    Reply with exactly: proxy-ok
+    ```
 
 Claude Code makes the following `POST` call:
 
-```text
+```
 POST /v1/messages
 ```
 
 The call passes through the AI Gateway with the following headers:
 
-```text
+```
 X-Gravitee-Api-Key: <subscription-api-key>
 Authorization: Bearer <Claude OAuth token>
 ```
@@ -249,7 +243,7 @@ Check that:
 
 ### LLM Proxy provider
 
-```text
+```
 Provider: Anthropic
 Provider URL: https://api.anthropic.com
 Authentication: None
@@ -260,7 +254,7 @@ Only use alias: disabled
 
 ### API Key plan
 
-```text
+```
 API key location: Custom header
 Header name: X-Gravitee-Api-Key
 Propagate to upstream: disabled

@@ -17,16 +17,14 @@ This installation guide is for only development and quick start purposes. Do not
 
 Redis can be used by Gravitee for both caching and rate-limiting.
 
-1.  To install Redis, use packages available from [Bitnami Helm charts](https://artifacthub.io/packages/helm/bitnami/redis). The following example uses a standalone configuration:
+{% hint style="warning" %}
+This Redis installation is an example for development and testing. It runs a single Redis instance without TLS. Don't use it in production.
+{% endhint %}
+
+1.  To install Redis, use the [CloudPirates Redis Helm chart](https://artifacthub.io/packages/helm/cloudpirates-redis/redis). The following example uses a standalone configuration:
 
     ```sh
-    helm repo add bitnami https://charts.bitnami.com/bitnami
-
-    helm repo update
-
-    helm install redis-apim bitnami/redis \
-      --version 19.6.4 \
-      --set image.repository=bitnamilegacy/redis \
+    helm install redis-apim oci://registry-1.docker.io/cloudpirates/redis \
       --set auth.password=p@ssw0rd
     ```
 2.  Configure your Gravitee Gateway to use Redis by using the following example `values.yaml` configuration:

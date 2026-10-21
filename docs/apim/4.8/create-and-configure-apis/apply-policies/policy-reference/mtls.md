@@ -2,7 +2,7 @@
 description: The mTLS policy verifies that a client certificate is present on an API Management 4.8 request. Learn how to configure the policy.
 ---
 
-# mTLS
+# mTLS policy
 
 ### Phase <a href="#user-content-phase" id="user-content-phase"></a>
 

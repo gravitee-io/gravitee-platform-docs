@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v2-apis/documentation
 ---
 
-# Documentation
+# Add v2 API documentation
 
 ## Overview
 

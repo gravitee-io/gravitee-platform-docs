@@ -2,7 +2,7 @@
 description: Select the fonts and set the layout and theme of the New Developer Portal 4.12. Follow the steps to change how the portal appears.
 ---
 
-# Layout and Theme
+# Style the New Developer Portal
 
 
 ## Fonts

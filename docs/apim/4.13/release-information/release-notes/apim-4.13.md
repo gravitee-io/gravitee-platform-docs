@@ -46,6 +46,8 @@ documentation.gravitee.io links for other versions.
 * Native Kafka connection logs record each lifecycle event of a connection as its own entry, can report clean closes as **Disconnected**, and show the client library and credential of each connection.
 * The XML Validation policy reads its XSD schema, and the schemas it imports, from a schema registry through the new HTTP Schema Registry resource, and a request that fails validation gets a JSON list of up to 20 violations with their position in the payload.
 * Dictionary properties can be encrypted: APIM stores the value encrypted and masks it in the APIM Console and the Management API, and the Gateway decrypts it at deployment so Expression Language resolves the original value.
+* Dynamic API properties now support encryption, one property at a time or for every fetched value: APIM stores the value encrypted and masks it in the APIM Console and in the Management API v2, and Expression Language resolves the original value once the API is deployed.
+* A Gateway that connects to Gravitee Cloud with a Cloud Token sends its traces and payload logs to Gravitee Cloud with no OpenTelemetry configuration, and the Gamma console shows them on its **Tracing** pages.
 
 ## Breaking Changes and deprecations
 
@@ -96,6 +98,14 @@ APIM 4.13 bundles version 2.x of the XML Validation policy, which changes the re
 #### **XML Validation policy: Requests that declare a `DOCTYPE` and schema downloads are blocked**
 
 The XML Validation policy that APIM 4.13 bundles rejects a request body that declares a `DOCTYPE`, with the same `400` response as a body that doesn't match the schema. It also no longer downloads a schema that an `xs:import` or `xs:include` names with an `http`, `https`, or `file` URL, so an inline schema that does this doesn't compile, and the policy isn't applied. When **Schema source** is **Schema registry**, a schema that names such a URL fails to compile. Requests fail with `500` and the error key `XML_VALIDATION_SCHEMA_COMPILE_FAILED`, and don't reach the backend. In 4.12, the policy accepted a `DOCTYPE` and downloaded those schemas. Before you upgrade, check for API consumers that send a `DOCTYPE`, and for inline schemas that import or include a schema by URL. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Encrypted API properties: The Management API v2 masks values and checks encryption**
+
+The Management API v2 now returns `••••••••••••` in place of the value of an encrypted API property when it returns an API, for v2 and v4 APIs. In 4.12, it returned the encrypted value. When you update an API, send `••••••••••••` back to keep the stored value. Saving an API refuses `••••••••••••` for a property without an encrypted value. Saving a v4 API also refuses an encrypted property sent back as plain text, and a new value for an encrypted property that the installation's secret can't decrypt. These checks return HTTP `400`. When the secret can't encrypt a value, saving an encrypted property of a v4 API fails with HTTP `500` instead of storing its plain text value. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Gateways connected to Gravitee Cloud: Tracing of v2 APIs is off by default, and deprecated tracing settings are overridden**
+
+On a Gateway that connects to Gravitee Cloud with a Cloud Token, `services.opentelemetry.tracing.v2.enabled` now defaults to `false`. A Hybrid Gateway that uses its own OpenTelemetry configuration without this setting therefore stops tracing its v2 APIs after the upgrade. In 4.12, a Gateway with OpenTelemetry turned on traced its v2 APIs by default. A Hybrid Gateway that still uses the deprecated `services.tracing` settings now sends its traces to Gravitee Cloud instead of its own collector. Before you upgrade a Hybrid Gateway that traces v2 APIs, set `services.opentelemetry.tracing.v2.enabled` to `true`, and move any `services.tracing` settings to `services.opentelemetry`. Setting `services.opentelemetry.tracing.v2.enabled` is itself a `services.opentelemetry` setting: on a Gateway without its own OpenTelemetry configuration, it stops the Gateway from sending to Gravitee Cloud and doesn't turn OpenTelemetry on. Set it only on a Gateway that already exports to your own collector. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 ## New Features
 
@@ -225,7 +235,7 @@ The XML Validation policy that APIM 4.13 bundles rejects a request body that dec
 * Federate the APIs of SAP API Management on SAP Business Technology Platform. Create an integration with the **SAP Business Technology Platform** provider in the APIM Console, and run its agent with a service key for the SAP API portal and one for the SAP Developer Hub.
 * Each API proxy of the API portal becomes a federated API, with its OpenAPI specification and a page of its SAP documentation. Each version of an SAP API is a federated API of its own.
 * Each product that the Developer Hub marks as subscribable becomes a plan on every API it contains: an OAuth2 plan for a product of External OAuth APIs, and an API Key plan for the others.
-* An approved subscription to an API Key plan creates an SAP application for the Gravitee application in the Developer Hub, and the consumer receives the SAP application key as the API key. Closing a subscription removes only its own access in SAP.
+* An approved subscription to an API Key plan creates an SAP application for that subscription in the Developer Hub, and the consumer receives the SAP application key as the API key. Closing a subscription deletes its SAP application, which removes only its own access in SAP.
 * The agent requires the Developer Hub to approve subscriptions automatically. When SAP waits for its own approval, the agent rejects the Gravitee subscription.
 * For more information, see [SAP Business Technology Platform](../../govern-apis/federation/3rd-party-providers/sap-api-management.md).
 
@@ -251,6 +261,21 @@ The XML Validation policy that APIM 4.13 bundles rejects a request body that dec
 * The Gateway decrypts the values when the dictionary is deployed, so `{#dictionaries['<dictionary-id>']['<property-key>']}` resolves to the original value. Dictionary properties use the same secret as encrypted API properties, `api.properties.encryption.secret`, which must match on the Management API and the Gateway.
 * Encryption can't be undone. An encrypted property of a dynamic dictionary stays encrypted when a refresh fetches a new value, and audit entries don't record encrypted values.
 * In an Automation API manifest, declare encrypted properties of a manual dictionary under `encryptedProperties`, and set `encryptOnFetch` for a dynamic dictionary. For more information, see [Dictionaries](../../configure-and-manage-the-platform/gravitee-gateway/dictionaries.md#encrypt-dictionary-properties).
+
+#### **Encrypted dynamic API properties**
+
+* Encrypt the value of a dynamic API property. APIM stores the value encrypted, and the APIM Console shows `••••••••••••` in its place, as does the Management API v2 when it returns the API. Encrypted and unencrypted properties sit side by side in the same API.
+* In the APIM Console, click the lock icon of a dynamic property in the **Properties** tab, or turn on **Encrypt on fetch** in the **Encryption** section of the dynamic properties settings to encrypt every fetched value. In an API definition, the setting is `encryptOnFetch` under `encryption` in the configuration of the HTTP dynamic properties service.
+* The Gateway decrypts the values when the API is deployed, so `{#api.properties['<key>']}` resolves to the original value. Encrypted properties use the existing secret, `api.properties.encryption.secret`. Set the same value on the Management API and the Gateway.
+* An encrypted property can't be made plain again. An encrypted dynamic property stays encrypted when a fetch returns a new value. A property whose key is missing from a fetch is removed, and comes back as plain text unless **Encrypt on fetch** is on.
+* Audit entries show a `<sha256:…>` value in place of encrypted values. Deploying an API that holds an encrypted property records an `API_ENCRYPTED_PROPERTIES_ACCESSED` entry, and the automatic redeployment after a fetch records `API_ENCRYPTED_PROPERTIES_REFRESHED`. For more information, see [Encrypt dynamic properties](../../create-and-configure-apis/apply-policies/v4-api-policy-studio.md#encrypt-dynamic-properties).
+
+#### **Traces and payload logs from Gateways connected to Gravitee Cloud**
+
+* A Gateway that connects to Gravitee Cloud with a Cloud Token sends its traces and payload logs to Gravitee Cloud with no OpenTelemetry configuration. This applies to Gravitee Hosted Gateways and to Hybrid Gateways, and the Gamma console shows the traces on its **Tracing** pages.
+* The Gateway sends traces for the v4 HTTP proxy APIs that have tracing turned on, and payload logs for the ones that also have OpenTelemetry logs turned on. It doesn't trace v2 APIs.
+* A Gateway with any `services.opentelemetry` setting keeps its own configuration and doesn't send to Gravitee Cloud. To keep a Hybrid Gateway's traces and payload logs out of Gravitee Cloud, set `services.opentelemetry.enabled` to `false`.
+* For more information, see [Gateways connected to Gravitee Cloud](https://documentation.gravitee.io/platform-management/system-and-security/configure-opentelemetry-tracing-and-logs#gateways-connected-to-gravitee-cloud).
 
 ## Improvements
 

@@ -2,7 +2,7 @@
 description: Add documentation to a v4 API from the API Management 4.8 Console so consumers know how to use it. Follow the steps to add pages and folders.
 ---
 
-# Documentation
+# Add v4 API documentation
 
 {% hint style="warning" %}
 As of Gravitee 4.3, the APIM Documentation feature is only available for v4 APIs.

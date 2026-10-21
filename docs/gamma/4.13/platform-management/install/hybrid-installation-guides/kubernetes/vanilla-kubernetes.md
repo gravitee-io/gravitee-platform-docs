@@ -40,26 +40,21 @@ To install the Gateway, complete the following steps:
 
 ### Install Redis
 
-Redis is the rate-limit store for the data plane. Install it into the cluster with Helm. For more information, see the [Bitnami package for Redis](https://artifacthub.io/packages/helm/bitnami/redis).
+Redis is the rate-limit store for the data plane. Install it into the cluster with Helm. For more information, see the [CloudPirates Redis Helm chart](https://artifacthub.io/packages/helm/cloudpirates-redis/redis).
+
+{% hint style="warning" %}
+This Redis installation is an example for development and testing. It runs a single Redis instance without TLS. Don't use it in production.
+{% endhint %}
 
 1. Install Redis with Helm using the following command, which also creates the `gravitee-gamma` namespace:
 
    ```bash
-   helm install gravitee-gamma-redis oci://registry-1.docker.io/bitnamicharts/redis \
-     --version 19.6.4 \
+   helm install gravitee-gamma-redis oci://registry-1.docker.io/cloudpirates/redis \
      --create-namespace \
-     --namespace gravitee-gamma \
-     --set image.repository=bitnamilegacy/redis
+     --namespace gravitee-gamma
    ```
 
-2. From the command output, save the Redis hostname. The following sample output lists `gravitee-gamma-redis-master.gravitee-gamma.svc.cluster.local` as the Redis hostname:
-
-   ```sh
-   Redis can be accessed on the following DNS names from within your cluster:
-
-       gravitee-gamma-redis-master.gravitee-gamma.svc.cluster.local for read/write operations (port 6379)
-       gravitee-gamma-redis-replicas.gravitee-gamma.svc.cluster.local for read-only operations (port 6379)
-   ```
+2. Save the Redis hostname, `gravitee-gamma-redis.gravitee-gamma.svc.cluster.local`, for the next step.
 
 3. Output the Redis password and save it for the next step:
 
@@ -69,7 +64,7 @@ Redis is the rate-limit store for the data plane. Install it into the cluster wi
 
 #### Verification
 
-* Confirm the Redis pods report `Running` using the following command:
+* Confirm the Redis pod reports `Running` using the following command:
 
   ```bash
   kubectl get pods -n gravitee-gamma -l app.kubernetes.io/instance=gravitee-gamma-redis

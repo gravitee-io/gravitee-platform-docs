@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/sensitive-data-management/configure-secrets/configuration
 ---
 
-# Configuration
+# Configure secrets in configuration files
 
 ## Overview
 

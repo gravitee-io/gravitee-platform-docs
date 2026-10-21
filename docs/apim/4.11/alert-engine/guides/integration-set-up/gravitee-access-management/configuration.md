@@ -2,7 +2,7 @@
 description: Access Management ships an Alert Engine integration used alongside API Management 4.11. Follow the steps to configure it.
 ---
 
-# Configuration
+# Enable Alert Engine in Access Management
 
 ## Introduction
 

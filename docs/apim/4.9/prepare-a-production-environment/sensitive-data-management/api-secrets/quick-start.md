@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/sensitive-data-management/api-secrets/quick-start
 ---
 
-# Quick Start
+# API secrets quick start
 
 {% hint style="info" %}
 This quick start uses configuration examples for HashiCorp Vault and Gravitee APIM Gateway. For other secret managers, use cases, and a complete reference, see [configuration.md](configuration.md "mention").

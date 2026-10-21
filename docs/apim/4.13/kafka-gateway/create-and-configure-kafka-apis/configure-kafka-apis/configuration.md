@@ -105,7 +105,7 @@ To encrypt a hardcoded API property value:
              secret: vvLJ4Q8Khvv9tm2tIPdkGEdmgKUruAL6
      to provide the best security available.
     ```
-2.  Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value.
+2.  Enable the **Encrypt** toggle when adding a property via **Add property**, and then click **Add**. Once the property is saved, the APIM Console shows `••••••••••••` in place of its value, and you can't view, edit, or copy the value. To replace it, click the **Renew encrypted value** icon of the property, enter the new value, and then click **Save**.
 
     <div align="left"><figure><img src="../../../.gitbook/assets/api properties_add.png" alt="The New property dialog with empty Key and Value fields and the Encrypt toggle switched off." width="375"><figcaption></figcaption></figure></div>
 
@@ -124,10 +124,13 @@ To configure dynamic properties:
     * **Request Headers:** The HTTP headers to add to the request fetching properties
     * **Request body:** The HTTP body content to add to the request fetching properties
     * (Optional) **Transformation (JOLT specification):** If the HTTP service doesn’t return the expected output, edit the JOLT transformation accordingly
+    * (Optional) **Encrypt on fetch:** In the **Encryption** section, encrypt every fetched value.
     * Toggle **Use system proxy** ON to use the system proxy configured in APIM installation
 2. Click **Save**
 
 After the first call, the resultant property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.
+
+To encrypt the values of dynamic properties, one property at a time or every fetched value, see [Encrypt dynamic properties](../../../create-and-configure-apis/apply-policies/v4-api-policy-studio.md#encrypt-dynamic-properties). For how encrypted properties behave, see [Encrypted property behavior](../../../create-and-configure-apis/apply-policies/v4-api-policy-studio.md#encrypted-property-behavior).
 
 {% hint style="info" %}
 Key-value pairs can also be maintained using a dictionary, e.g., if this information is stored independently of the API creation process or applies to multiple APIs.

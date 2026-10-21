@@ -1,5 +1,8 @@
 ---
-description: Activate the built-in EU AI Act framework, read the verdict it computes for every agent, close the gaps it lists on an agent, and export the evidence for an auditor. Follow the steps to activate the framework and remediate an agent.
+description: >-
+  Activate the built-in EU AI Act framework, read the verdict it computes for
+  every agent, close the gaps it lists on an agent, and export the evidence for
+  an auditor. Follow the steps to activate the f
 ---
 
 # Score agent compliance with the EU AI Act framework
@@ -12,92 +15,7 @@ The framework measures and doesn't enforce. A control is met by a fact recorded 
 
 Each control is answered from one place. The controls answered from the agent's record are recorded on the agent's **Compliance** page. The controls answered from the proxies are read by the platform, as long as it has something to read. Without an application, without a gateway-mediated call in the last 24 hours, or without an LLM Proxy, those controls read **Not assessed** instead. The controls answered elsewhere can't be read by the platform yet. A control that reads **Not assessed** doesn't count against the score until someone marks it as done, whichever place it's answered from.
 
-<table>
-    <thead>
-        <tr>
-            <th width="230">Control</th>
-            <th>What meets it</th>
-            <th width="180">Answered from</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Risk classification</strong></td>
-            <td>The agent is rated on its Overview page. See <a href="rate-an-agents-risk-level.md">Rate an agent's risk level</a>.</td>
-            <td>The agent's record</td>
-        </tr>
-        <tr>
-            <td><strong>Intended purpose</strong></td>
-            <td>A statement of at least 20 characters.</td>
-            <td>The agent's record</td>
-        </tr>
-        <tr>
-            <td><strong>Provider and version</strong></td>
-            <td>A value of at least 3 characters.</td>
-            <td>The agent's record</td>
-        </tr>
-        <tr>
-            <td><strong>Accountable human</strong></td>
-            <td>A person picked from the environment's users.</td>
-            <td>The agent's record</td>
-        </tr>
-        <tr>
-            <td><strong>Human oversight measure</strong></td>
-            <td>One of the three measures the field offers.</td>
-            <td>The agent's record</td>
-        </tr>
-        <tr>
-            <td><strong>Known limitations</strong></td>
-            <td>A statement of at least 20 characters.</td>
-            <td>The agent's record</td>
-        </tr>
-        <tr>
-            <td><strong>Risk assessment</strong></td>
-            <td>A value of at least 5 characters.</td>
-            <td>The agent's record</td>
-        </tr>
-        <tr>
-            <td><strong>Event logging</strong></td>
-            <td>The agent's traffic went through a Gravitee proxy in the last 24 hours.</td>
-            <td>The Gateway</td>
-        </tr>
-        <tr>
-            <td><strong>Prompt injection screening</strong></td>
-            <td>The <code>ai-prompt-guard-rails</code> policy is on every LLM Proxy the agent depends on.</td>
-            <td>The LLM Proxies</td>
-        </tr>
-        <tr>
-            <td><strong>Personal data protection</strong></td>
-            <td>The <code>pii-filtering</code> policy is on every LLM Proxy the agent depends on.</td>
-            <td>The LLM Proxies</td>
-        </tr>
-        <tr>
-            <td><strong>Guardian on the model's traffic</strong></td>
-            <td>The <code>ai-guardian</code> policy is on every LLM Proxy the agent depends on.</td>
-            <td>The LLM Proxies</td>
-        </tr>
-        <tr>
-            <td><strong>Transparency disclosure</strong></td>
-            <td>Marked as done by a person.</td>
-            <td>The A2A Proxies, not read yet</td>
-        </tr>
-        <tr>
-            <td><strong>Tool inventory</strong></td>
-            <td>Marked as done by a person.</td>
-            <td>The tool inventory, not read yet</td>
-        </tr>
-        <tr>
-            <td><strong>Authenticated identity</strong></td>
-            <td>Marked as done by a person.</td>
-            <td>The agent identity, not read yet</td>
-        </tr>
-        <tr>
-            <td><strong>Authorization rule</strong></td>
-            <td>Marked as done by a person.</td>
-            <td>The authorization service, not read yet</td>
-        </tr>
-    </tbody>
-</table>
+<table><thead><tr><th width="230">Control</th><th>What meets it</th><th width="180">Answered from</th></tr></thead><tbody><tr><td><strong>Risk classification</strong></td><td>The agent is rated on its Overview page. See <a href="rate-an-agents-risk-level.md">Rate an agent's risk level</a>.</td><td>The agent's record</td></tr><tr><td><strong>Intended purpose</strong></td><td>A statement of at least 20 characters.</td><td>The agent's record</td></tr><tr><td><strong>Provider and version</strong></td><td>A value of at least 3 characters.</td><td>The agent's record</td></tr><tr><td><strong>Accountable human</strong></td><td>A person picked from the environment's users.</td><td>The agent's record</td></tr><tr><td><strong>Human oversight measure</strong></td><td>One of the three measures the field offers.</td><td>The agent's record</td></tr><tr><td><strong>Known limitations</strong></td><td>A statement of at least 20 characters.</td><td>The agent's record</td></tr><tr><td><strong>Risk assessment</strong></td><td>A value of at least 5 characters.</td><td>The agent's record</td></tr><tr><td><strong>Event logging</strong></td><td>The agent's traffic went through a Gravitee proxy in the last 24 hours.</td><td>The Gateway</td></tr><tr><td><strong>Prompt injection screening</strong></td><td>The <code>ai-prompt-guard-rails</code> policy is on every LLM Proxy the agent depends on.</td><td>The LLM Proxies</td></tr><tr><td><strong>Personal data protection</strong></td><td>The <code>pii-filtering</code> policy is on every LLM Proxy the agent depends on.</td><td>The LLM Proxies</td></tr><tr><td><strong>Guardian on the model's traffic</strong></td><td>The <code>ai-guardian</code> policy is on every LLM Proxy the agent depends on.</td><td>The LLM Proxies</td></tr><tr><td><strong>Transparency disclosure</strong></td><td>Marked as done by a person.</td><td>The A2A Proxies, not read yet</td></tr><tr><td><strong>Tool inventory</strong></td><td>Marked as done by a person.</td><td>The tool inventory, not read yet</td></tr><tr><td><strong>Authenticated identity</strong></td><td>Marked as done by a person.</td><td>The agent identity, not read yet</td></tr><tr><td><strong>Authorization rule</strong></td><td>Marked as done by a person.</td><td>The authorization service, not read yet</td></tr></tbody></table>
 
 The proxies an agent depends on are the ones its lineage links to it through its application. An agent with no proxy has nothing for the proxy-read controls to check.
 
@@ -139,12 +57,12 @@ The framework's page reads as follows:
 3. Click **EU AI Act**.
 4. Under **Close the gaps · record here**, fill in each open fact in its field and click **Save**. Recording the fact is the control.
 5. Under **Close the gaps · done elsewhere**, act on each open control:
-   * A control read from the proxies reads **Missing on &lt;n&gt; of &lt;m&gt; proxies**. Click **Open policy studio** to add the policy on the proxy, and the control is met on the next read.
-   * A control the platform can't read reads **Enforced at &lt;surface&gt;, which Gravitee cannot check yet, so it does not count against the score.** This is also where a proxy-read control lands while the agent has nothing for the platform to read. Click the link to reach the surface, and once it's done, click **Mark as done**. The control turns **Recorded**.
+   * A control read from the proxies reads **Missing on \<n> of \<m> proxies**. Click **Open policy studio** to add the policy on the proxy, and the control is met on the next read.
+   * A control the platform can't read reads **Enforced at \<surface>, which Gravitee cannot check yet, so it does not count against the score.** This is also where a proxy-read control lands while the agent has nothing for the platform to read. Click the link to reach the surface, and once it's done, click **Mark as done**. The control turns **Recorded**.
 
 The page also carries a **Classification** tile with an **Open Overview** link, because the rating is set on the agent's Overview page, and a **Compliance owner** tile with a **Name** or **Change** action to name the person accountable for the agent's compliance. **Show table** opens the full list of controls with where each one is **Enforced at** and its **Answer**.
 
-<figure><img src="../.gitbook/assets/gamma-aim-agent-compliance-eu-ai-act.png" alt="An agent's Compliance page for the EU AI Act framework: the EU AI Act tile with its result, the Classification tile with its Open Overview link, the Compliance owner tile with its Name action, and the Close the gaps · record here card"><figcaption><p>An agent's Compliance page for the EU AI Act framework</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-agent-compliance-eu-ai-act.png" alt="An agent&#x27;s Compliance page for the EU AI Act framework: the EU AI Act tile with its result, the Classification tile with its Open Overview link, the Compliance owner tile with its Name action, and the Close the gaps · record here card"><figcaption><p>An agent's Compliance page for the EU AI Act framework</p></figcaption></figure>
 
 ## Export the evidence for an auditor
 

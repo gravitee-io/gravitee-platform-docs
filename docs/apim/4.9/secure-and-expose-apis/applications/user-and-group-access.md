@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/secure-and-expose-apis/applications/user-and-group-access
 ---
 
-# User and Group Access
+# Manage application members and groups
 
 ## Overview
 

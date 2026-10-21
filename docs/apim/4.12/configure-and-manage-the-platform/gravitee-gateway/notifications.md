@@ -5,7 +5,7 @@ metaLinks:
     - notifications.md
 ---
 
-# Notifications
+# Configure notifications for your APIs
 
 ## Overview
 

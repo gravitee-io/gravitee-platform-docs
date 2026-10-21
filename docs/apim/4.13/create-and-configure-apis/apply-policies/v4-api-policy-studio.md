@@ -178,7 +178,7 @@ To encrypt a static API property value:
              secret: vvLJ4Q8Khvv9tm2tIPdkGEdmgKUruAL6
      to provide the best security available.
     ```
-2.  Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value.
+2.  Enable the **Encrypt** toggle when adding a property via **Add property**, and then click **Add**. Once the property is saved, the APIM Console shows `••••••••••••` in place of its value, and you can't view, edit, or copy the value. To replace it, click the **Renew encrypted value** icon of the property, enter the new value, and then click **Save**.
 
     <div align="left"><figure><img src="../../.gitbook/assets/0 ps7.png" alt="The New property dialog, with a key and value entered and the Encrypt toggle switched on." width="375"><figcaption></figcaption></figure></div>
 
@@ -202,6 +202,7 @@ To configure dynamic properties:
     * **Request Headers:** The HTTP headers to add to the request fetching properties
     * **Request body:** The HTTP body content to add to the request fetching properties
     * (Optional) **Transformation (JOLT specification):** If the HTTP service doesn't return the expected output, edit the JOLT transformation accordingly
+    * (Optional) **Encrypt on fetch:** In the **Encryption** section, encrypt every fetched value. For more information, see [Encrypt dynamic properties](#encrypt-dynamic-properties).
     * Toggle **Use system proxy** ON to use the system proxy configured in your APIM installation
 7. Click **Save**
 
@@ -210,6 +211,52 @@ After the first call, the resultant property is added to the list of global prop
 {% hint style="info" %}
 Key-value pairs can also be maintained using a dictionary, e.g., if this information is stored independently of the API creation process or applies to multiple APIs.
 {% endhint %}
+
+#### Encrypt dynamic properties
+
+Encrypt the values of dynamic properties one property at a time, or encrypt every fetched value. APIM stores each value encrypted. When the API is deployed, `{#api.properties['<key>']}` resolves to the original value, so policies read an encrypted property like any other. Encrypted and unencrypted properties sit side by side in the same API.
+
+To encrypt one dynamic property, complete the following steps:
+
+1. In the **Properties** tab, click **Encrypt value**, the lock icon of the property. The property shows **Encrypted On Save**.
+2. Click **Save**.
+3. In the **This API is out of sync.** banner, click **Deploy API**, and then click **Deploy**.
+
+<figure><img src="../../.gitbook/assets/apim-api-properties-encrypt-dynamic-property.png" alt="The Properties tab listing two encrypted dynamic properties, a dynamic property marked Encrypted On Save, an encrypted static property, and an unencrypted static property, above the unsaved changes bar"><figcaption><p>A dynamic property marked for encryption, before you save</p></figcaption></figure>
+
+To encrypt every fetched value, complete the following steps:
+
+1. In the **Properties** tab, click **Manage dynamically**.
+2. In the **Encryption** section, turn on **Encrypt on fetch**. The section is available while **Enabled** is on.
+3. Click **Save**.
+4. In the **This API is out of sync.** banner, click **Deploy API**, and then click **Deploy**.
+
+<figure><img src="../../.gitbook/assets/apim-api-dynamic-properties-encrypt-on-fetch.png" alt="The API dynamic properties page with Encrypt on fetch turned on in the Encryption section, above the unsaved changes bar"><figcaption><p>The Encryption section of the dynamic properties settings</p></figcaption></figure>
+
+After the API is deployed, the next fetch encrypts every value that isn't encrypted yet. Turning off **Encrypt on fetch** doesn't decrypt the values that are already stored.
+
+#### Encrypted property behavior
+
+Note the following points about encrypted properties:
+
+* **An encrypted property can't be made plain again.** The APIM Console offers no way to do it, and the Management API refuses it. To store a plain value under the same key, remove the property, click **Save**, and then add the property again without **Encrypt**. A removed dynamic property comes back unencrypted at the next fetch, unless **Encrypt on fetch** is on.
+* **Encrypted values are hidden.** The APIM Console shows `••••••••••••` in place of the value. You can't edit the key or the value of an encrypted property, or copy its value. Reading the API through the Management API v2 returns `••••••••••••` too. The API export and the deployment history hold the encrypted value.
+* **An encrypted dynamic property stays encrypted when its value changes.** When a fetch returns a new value, APIM encrypts it, whether **Encrypt on fetch** is on or off.
+* **A dynamic property whose key is missing from a fetch loses its encryption.** APIM removes the property. If the key comes back, APIM stores its value as plain text, unless **Encrypt on fetch** is on.
+* **Encrypting a property takes effect when you deploy the API.** Until then, the deployed API holds the earlier plain text value. The deployment history keeps the plain text value of earlier deployments.
+* **A value that can't be decrypted at deployment resolves to the encrypted value.** This happens, for example, when the Gateway's secret differs from the Management API's. The Gateway logs an error that names the property. For more information, see [Property Encryption](../../prepare-a-production-environment/production-best-practices/general-recommendations/property-encryption.md).
+* **Audit entries don't contain encrypted values.** An audit entry shows a `<sha256:…>` value in place of an encrypted value. Entries written while a property was still plain text keep its plain text value.
+* **Deployments are audited.** Deploying an API that holds an encrypted property records an `API_ENCRYPTED_PROPERTIES_ACCESSED` entry with the user who deployed it. When a fetch changes the properties of an API without undeployed changes, APIM redeploys the API and records `API_ENCRYPTED_PROPERTIES_REFRESHED`. When the API has undeployed changes, the fetched values wait for your next deployment.
+
+#### Verify encrypted dynamic properties
+
+To verify encrypted dynamic properties are working as expected, follow these steps:
+
+1. In the **Properties** tab, check that the property shows **Encrypted** and **Dynamic**, with `••••••••••••` in place of its value.
+2. Call the API through the Gateway, and check that a policy that reads `{#api.properties['<key>']}` receives the original value.
+3. Optional: In the **Audit Logs** tab, check that an `API_ENCRYPTED_PROPERTIES_ACCESSED` entry records the deployment.
+
+<figure><img src="../../.gitbook/assets/apim-api-audit-logs-encrypted-properties.png" alt="The Audit Logs tab of an API listing an API_ENCRYPTED_PROPERTIES_REFRESHED entry by the http-dynamic-properties-management-api-service user and an API_ENCRYPTED_PROPERTIES_ACCESSED entry by the user who deployed the API"><figcaption><p>The audit entries for an API that holds encrypted properties</p></figcaption></figure>
 
 ## Resources
 
