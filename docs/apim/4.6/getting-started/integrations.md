@@ -4,7 +4,7 @@ description: >-
   ecosystem
 ---
 
-# Integrations
+# Enterprise tool integrations
 
 ## Overview
 

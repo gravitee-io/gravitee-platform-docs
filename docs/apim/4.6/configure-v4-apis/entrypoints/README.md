@@ -2,7 +2,7 @@
 description: An overview about entrypoints.
 ---
 
-# Entrypoints
+# v4 API entrypoints
 
 ## Overview
 

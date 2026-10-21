@@ -5,7 +5,7 @@ metaLinks:
     https://documentation.gravitee.io/apim/configure-and-manage-the-platform/gravitee-gateway/notifications
 ---
 
-# Notifications
+# Configure application notifications
 
 The **Notification settings** section allows you to configure your own Developer Portal notifications using Portal, Email or Webhook notifiers.
 
