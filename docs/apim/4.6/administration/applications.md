@@ -2,7 +2,7 @@
 description: Configuration guide for applications.
 ---
 
-# Applications
+# Configure application registration
 
 ## Introduction
 

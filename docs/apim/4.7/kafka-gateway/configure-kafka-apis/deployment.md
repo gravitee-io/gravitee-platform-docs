@@ -2,7 +2,7 @@
 description: An overview about deployment.
 ---
 
-# Deployment
+# Manage native Kafka API deployment
 
 ## Overview
 

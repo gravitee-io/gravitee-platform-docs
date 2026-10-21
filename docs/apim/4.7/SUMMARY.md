@@ -27,9 +27,9 @@
 
 ## Getting started
 
-* [Integrations](getting-started/integrations.md)
+* [Enterprise tool integrations](getting-started/integrations.md)
 * [Plugins](getting-started/plugins/README.md)
-  * [Deployment](getting-started/plugins/deployment.md)
+  * [Deploy plugins](getting-started/plugins/deployment.md)
   * [Customization](getting-started/plugins/customization.md)
 * [Gravitee Expression Language](getting-started/gravitee-expression-language.md)
 * [Use Case Tutorials](getting-started/use-case-tutorials/README.md)
@@ -63,7 +63,7 @@
 * [Production Best Practices](install-and-upgrade/production-best-practices/README.md)
   * [Internal APIs](install-and-upgrade/production-best-practices/internal-apis.md)
   * [Deployments](install-and-upgrade/production-best-practices/deployments.md)
-  * [Authentication](install-and-upgrade/production-best-practices/authentication.md)
+  * [Authentication best practices](install-and-upgrade/production-best-practices/authentication.md)
   * [Protections](install-and-upgrade/production-best-practices/protections.md)
   * [General Recommendations](install-and-upgrade/production-best-practices/settings/README.md)
     * [Default APIM Settings](install-and-upgrade/production-best-practices/settings/default-apim-settings.md)
@@ -84,7 +84,7 @@
 * [Hybrid Install with Kubernetes](hybrid-deployment/hybrid-install-with-kubernetes.md)
 * [Hybrid Install with .ZIP](hybrid-deployment/hybrid-install-with-.zip.md)
 * [SaaS Alert Engine](hybrid-deployment/saas-alert-engine.md)
-* [Redis](hybrid-deployment/redis.md)
+* [Install Redis for hybrid deployments](hybrid-deployment/redis.md)
 * [Logstash](hybrid-deployment/logstash.md)
 * [Fluentd](hybrid-deployment/fluentd.md)
 
@@ -101,7 +101,7 @@
   * [MongoDB](configure-apim/repositories/mongodb.md)
   * [ElasticSearch](configure-apim/repositories/elasticsearch.md)
   * [JDBC](configure-apim/repositories/jdbc.md)
-  * [Redis](configure-apim/repositories/redis.md)
+  * [Redis repository](configure-apim/repositories/redis.md)
 * [Sensitive Data Management](configure-apim/sensitive-data-management/README.md)
   * [Secret Provider Plugins Configuration](configure-apim/sensitive-data-management/secret-provider-plugins-configuration.md)
   * [Configuration-Level Secrets](configure-apim/sensitive-data-management/configuration-level-secrets.md)
@@ -117,7 +117,7 @@
   * [Microsoft Entra ID](administration/authentication/azure-entra-id.md)
   * [Roles and Groups Mapping](administration/authentication/roles-and-groups-mapping.md)
 * [User Management](administration/user-management.md)
-* [Applications](administration/applications.md)
+* [Configure application registration](administration/applications.md)
 
 ## Create APIs
 
@@ -131,17 +131,17 @@
 
 ## Configure v4 APIs
 
-* [General Settings](configure-v4-apis/general-settings.md)
-* [Entrypoints](configure-v4-apis/entrypoints/README.md)
+* [v4 API general settings](configure-v4-apis/general-settings.md)
+* [v4 API entrypoints](configure-v4-apis/entrypoints/README.md)
   * [HTTP GET](configure-v4-apis/entrypoints/http-get.md)
   * [HTTP POST](configure-v4-apis/entrypoints/http-post.md)
   * [Server-sent Events](configure-v4-apis/entrypoints/server-sent-events.md)
   * [Webhook](configure-v4-apis/entrypoints/webhook.md)
   * [WebSocket](configure-v4-apis/entrypoints/websocket.md)
-* [Endpoints](configure-v4-apis/endpoints/README.md)
+* [v4 API endpoints](configure-v4-apis/endpoints/README.md)
   * [Azure Service Bus](configure-v4-apis/endpoints/azure-service-bus.md)
   * [Kafka](configure-v4-apis/endpoints/kafka.md)
-  * [Mock](configure-v4-apis/endpoints/mock.md)
+  * [Mock endpoint](configure-v4-apis/endpoints/mock.md)
   * [MQTT5](configure-v4-apis/endpoints/mqtt5.md)
   * [Solace](configure-v4-apis/endpoints/solace.md)
   * [RabbitMQ](configure-v4-apis/endpoints/rabbitmq.md)
@@ -151,35 +151,35 @@
 * [CORS](configure-v4-apis/cors.md)
 * [Health-checks](configure-v4-apis/health-checks.md)
 * [API-Level Secrets](configure-v4-apis/api-level-secrets.md)
-* [Documentation](configure-v4-apis/documentation.md)
+* [Add v4 API documentation](configure-v4-apis/documentation.md)
 * [Audit Logs](configure-v4-apis/audit-logs.md)
 * [Version History](configure-v4-apis/version-history.md)
 
 ## Configure v2 APIs
 
-* [General Settings](configure-v2-apis/general-settings.md)
+* [v2 API general settings](configure-v2-apis/general-settings.md)
 * [Proxy Settings](configure-v2-apis/proxy-settings.md)
 * [Load-balancing, Failover, and Health-checks](configure-v2-apis/load-balancing-failover-and-health-checks.md)
 * [Service Discovery](configure-v2-apis/service-discovery.md)
-* [User and Group Access](configure-v2-apis/user-and-group-access.md)
-* [Documentation](configure-v2-apis/documentation.md)
+* [Manage v2 API members and groups](configure-v2-apis/user-and-group-access.md)
+* [Add v2 API documentation](configure-v2-apis/documentation.md)
 
 ## Kafka Gateway
 
-* [Overview](kafka-gateway/overview.md)
+* [Kafka Gateway overview](kafka-gateway/overview.md)
 * [Configure the Kafka Gateway and Client](kafka-gateway/configure-the-kafka-gateway-and-client.md)
 * [Create Kafka APIs](kafka-gateway/create-kafka-apis.md)
 * [Configure Kafka APIs](kafka-gateway/configure-kafka-apis/README.md)
   * [Configuration](kafka-gateway/configure-kafka-apis/configuration.md)
-  * [Entrypoints](kafka-gateway/configure-kafka-apis/entrypoints.md)
-  * [Endpoints](kafka-gateway/configure-kafka-apis/endpoints.md)
+  * [Configure native Kafka API entrypoints](kafka-gateway/configure-kafka-apis/entrypoints.md)
+  * [Configure native Kafka API endpoints](kafka-gateway/configure-kafka-apis/endpoints.md)
   * [Policies](kafka-gateway/configure-kafka-apis/policies/README.md)
     * [Kafka ACL](kafka-gateway/configure-kafka-apis/policies/kafka-acl.md)
     * [Kafka Topic Mapping](kafka-gateway/configure-kafka-apis/policies/kafka-topic-mapping.md)
     * [Kafka Quota](kafka-gateway/configure-kafka-apis/policies/kafka-quota.md)
   * [Consumers](kafka-gateway/configure-kafka-apis/consumers.md)
-  * [Documentation](kafka-gateway/configure-kafka-apis/documentation.md)
-  * [Deployment](kafka-gateway/configure-kafka-apis/deployment.md)
+  * [Create native Kafka API documentation](kafka-gateway/configure-kafka-apis/documentation.md)
+  * [Manage native Kafka API deployment](kafka-gateway/configure-kafka-apis/deployment.md)
 * [Native Kafka API plans](kafka-gateway/plans.md)
 * [Applications](kafka-gateway/applications.md)
 * [Subscriptions](kafka-gateway/subscriptions.md)
@@ -188,7 +188,7 @@
 ## Governance
 
 * [Federation](governance/federation/README.md)
-  * [Integrations](governance/federation/integrations.md)
+  * [Manage federation integrations](governance/federation/integrations.md)
   * [Discovery](governance/federation/discovery.md)
   * [Federated APIs](governance/federation/federated-apis.md)
   * [Federation Agent Service Account](governance/federation/federation-agent-service-account.md)
@@ -229,13 +229,13 @@
 * [CloudEvents](policies/cloudevents.md)
 * [WS Security Sign](policies/ws-security-sign.md)
 * [XSLT](policies/xslt.md)
-* [API Key](policies/api-key.md)
+* [API Key policy](policies/api-key.md)
 * [Assign Attributes](policies/assign-attributes.md)
 * [Assign Content](policies/assign-content.md)
 * [Assign Metrics](policies/assign-metrics-1.md)
 * [AWS Lambda](policies/aws-lambda.md)
 * [Basic Authentication](policies/basic-authentication.md)
-* [Cache](policies/cache.md)
+* [Cache policy](policies/cache.md)
 * [Circuit Breaker](policies/circuit-breaker.md)
 * [Cloud Events](policies/cloud-events.md)
 * [Custom Query Parameters Parser](policies/custom-query-parameters-parser.md)
@@ -259,14 +259,14 @@
 * [JSON Validation](policies/json-validation.md)
 * [JWS Validator](policies/jws-validator.md)
 * [JWT Validator](policies/jwt-validator.md)
-* [Keyless](policies/keyless.md)
+* [Keyless policy](policies/keyless.md)
 * [Latency](policies/latency.md)
 * [Maven Archetype](policies/maven-archetype.md)
 * [Message Filtering](policies/message-filtering.md)
 * [Metrics Reporter](policies/metrics-reporter.md)
-* [Mock](policies/mock.md)
-* [mTLS](policies/mtls.md)
-* [OAuth2](policies/oauth2/README.md)
+* [Mock policy](policies/mock.md)
+* [mTLS policy](policies/mtls.md)
+* [OAuth2 policy](policies/oauth2/README.md)
   * [Generic OAuth2 Authorization Server](policies/oauth2/generic-oauth2-authorization-server.md)
   * [Gravitee.io AM Authorization Server](policies/oauth2/gravitee.io-am-authorization-server.md)
 * [OpenID Connect UserInfo](policies/openid-connect-userinfo.md)
@@ -295,20 +295,20 @@
 
 ## Expose APIs
 
-* [Overview](expose-apis/overview.md)
+* [API exposure overview](expose-apis/overview.md)
 * [Plans](expose-apis/plans/README.md)
-  * [Keyless](expose-apis/plans/keyless.md)
-  * [API Key](expose-apis/plans/api-key.md)
-  * [OAuth2](expose-apis/plans/oauth2.md)
+  * [Keyless plan](expose-apis/plans/keyless.md)
+  * [API Key plan](expose-apis/plans/api-key.md)
+  * [OAuth2 plan](expose-apis/plans/oauth2.md)
   * [JWT](expose-apis/plans/jwt.md)
   * [Push](expose-apis/plans/push.md)
-  * [mTLS](expose-apis/plans/mtls.md)
+  * [mTLS plan](expose-apis/plans/mtls.md)
 * [Applications](expose-apis/applications/README.md)
   * [Global Settings](expose-apis/applications/global-settings.md)
   * [User and Group Access](expose-apis/applications/user-and-group-access.md)
   * [Metadata](expose-apis/applications/metadata.md)
-  * [Subscriptions](expose-apis/applications/subscriptions.md)
-  * [Notifications](expose-apis/applications/notifications.md)
+  * [Manage application subscriptions](expose-apis/applications/subscriptions.md)
+  * [Configure application notifications](expose-apis/applications/notifications.md)
 * [Subscriptions](expose-apis/subscriptions.md)
 
 ## API Analytics
@@ -330,7 +330,7 @@
   * [File Reporter](gravitee-gateway/reporters/file-reporter.md)
   * [TCP Reporter](gravitee-gateway/reporters/tcp-reporter.md)
   * [Datadog Reporter](gravitee-gateway/reporters/datadog-reporter.md)
-* [Notifications](gravitee-gateway/notifications.md)
+* [Configure notifications for your APIs](gravitee-gateway/notifications.md)
 * [Alerts](gravitee-gateway/alerts.md)
 
 ## Management API
@@ -343,7 +343,7 @@
 
 ## Developer Portal
 
-* [Overview](developer-portal/overview.md)
+* [Developer Portal overview](developer-portal/overview.md)
 * [Classic Developer Portal](developer-portal/classic-developer-portal/README.md)
   * [Configuration File](developer-portal/classic-developer-portal/configuration-file.md)
   * [Portal Settings](developer-portal/classic-developer-portal/settings.md)

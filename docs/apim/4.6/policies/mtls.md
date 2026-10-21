@@ -3,7 +3,7 @@ description: Guide on policies and management for ---.
 hidden: true
 ---
 
-# mTLS
+# mTLS policy
 
 ### Phase <a href="#user-content-phase" id="user-content-phase"></a>
 

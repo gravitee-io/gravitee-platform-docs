@@ -2,7 +2,7 @@
 description: An overview about internal api.
 ---
 
-# Internal API
+# Management API internal endpoints
 
 ## Overview
 

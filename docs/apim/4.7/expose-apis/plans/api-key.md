@@ -2,7 +2,7 @@
 description: An overview about api key.
 ---
 
-# API Key
+# API Key plan
 
 ## Overview
 

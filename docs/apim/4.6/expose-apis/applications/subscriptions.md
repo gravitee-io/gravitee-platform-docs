@@ -2,7 +2,7 @@
 description: An overview about subscriptions.
 ---
 
-# Subscriptions
+# Manage application subscriptions
 
 ## Overview
 
