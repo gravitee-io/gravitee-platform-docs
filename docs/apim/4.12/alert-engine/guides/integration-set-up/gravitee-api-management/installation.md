@@ -2,7 +2,7 @@
 description: Install the Alert Engine integration for API Management 4.12. Follow the steps, or skip them if you run Enterprise Docker images.
 ---
 
-# Installation
+# Install the Alert Engine connector
 
 {% hint style="info" %}
 **Skip installation if...**

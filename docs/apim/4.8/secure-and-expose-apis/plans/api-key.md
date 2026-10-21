@@ -2,7 +2,7 @@
 description: The API Key plan verifies keys during request processing so only approved applications reach your API Management 4.8 API. Learn how.
 ---
 
-# API Key
+# API Key plan
 
 ## Overview
 

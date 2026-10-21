@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/secure-and-expose-apis/subscriptions/manage-subscriptions
 ---
 
-# Manage Subscriptions
+# Manage application subscriptions
 
 ## Subscription management
 

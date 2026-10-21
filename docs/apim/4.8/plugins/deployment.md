@@ -2,7 +2,7 @@
 description: Deploy an API Management 4.8 plugin by copying its archive into the plugins directory. Learn how plugins are discovered and then loaded.
 ---
 
-# Deployment
+# Deploy plugins
 
 ## Overview
 

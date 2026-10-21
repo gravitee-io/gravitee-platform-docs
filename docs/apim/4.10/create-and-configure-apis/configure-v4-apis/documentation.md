@@ -5,7 +5,7 @@ metaLinks:
     - documentation.md
 ---
 
-# Documentation
+# Add v4 API documentation
 
 {% hint style="warning" %}
 As of Gravitee 4.3, the APIM Documentation feature is only available for v4 APIs.

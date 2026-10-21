@@ -2,7 +2,7 @@
 description: Set up alerts and notifications based on events the API Management 4.8 Gateway recognizes. Learn what you can be notified about.
 ---
 
-# Notifications
+# Configure notifications for your APIs
 
 ## Overview
 

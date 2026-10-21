@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/secure-and-expose-apis/plans/api-key
 ---
 
-# API Key
+# API Key plan
 
 ## Overview
 

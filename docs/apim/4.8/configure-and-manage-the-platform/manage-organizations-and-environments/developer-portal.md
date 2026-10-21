@@ -2,7 +2,7 @@
 description: The Developer Portal gives API consumers a simplified interface onto your API Management 4.8 APIs. Learn how to configure it.
 ---
 
-# Developer Portal
+# Access the Developer Portal
 
 ## Overview
 

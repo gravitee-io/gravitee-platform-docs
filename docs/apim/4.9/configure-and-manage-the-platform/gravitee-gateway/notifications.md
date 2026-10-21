@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/gravitee-gateway/notifications
 ---
 
-# Notifications
+# Configure notifications for your APIs
 
 ## Overview
 

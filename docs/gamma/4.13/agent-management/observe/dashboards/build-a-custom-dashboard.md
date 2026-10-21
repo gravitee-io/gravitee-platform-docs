@@ -142,7 +142,7 @@ The **Display** tab holds the options that change how the widget is drawn rather
 
 #### Add widget filters on the Filters tab
 
-The **Filters** tab holds the **Widget filters**, applied only to this widget, on top of the dashboard filters.
+The **Filters** tab holds the **Widget filters**, applied only to this widget, on top of the dashboard filters. A widget filter and a dashboard filter both apply, even on the same property, so the widget shows only what matches both.
 
 1. Click **Add filter**.
 2. Under **Filter by**, select the property.
@@ -150,7 +150,7 @@ The **Filters** tab holds the **Widget filters**, applied only to this widget, o
 4. Under **Filter value**, pick one or more values, or type one.
 5. Click **Apply**.
 
-The chip appears in the **Filters** row and the tab label shows the number of widget filters. A widget filter needs a value. Click a chip to change it, hover it and click the cross to remove it, or click the **Clear all filters** icon to remove them all. The properties, operators, and values are the ones described in [Choose the property, operator, and value](#choose-the-property-operator-and-value).
+The chip appears in the **Filters** row and the tab label shows the number of widget filters. A widget filter needs a value. Numeric properties also offer **Between** here, with a **Min** and a **Max**, and the tab label counts the range as one filter. Click a chip to change it, hover it and click the cross to remove it, or click the **Clear all filters** icon to remove them all. The properties, operators, and values are the ones described in [Choose the property, operator, and value](#choose-the-property-operator-and-value).
 
 ## Add dashboard filters
 
@@ -281,7 +281,11 @@ Every problem found is listed at once under **Invalid dashboard document**, rath
 * The title is missing or blank.
 * A time range is neither a relative range with a known period nor an absolute range whose `from` is earlier than its `to`.
 * A filter names an operator other than `eq`, `in`, `lte`, `gte`, or `contains`.
-* Two filters in the same list name the same field. One condition per field.
+* Two dashboard filters name the same field. A widget's filters may name a field twice only as one `gte` and one `lte`.
+* A widget's `gte` on a field is above its `lte` on the same field.
+* A filter names a field dashboards can't filter on, such as a field that applies to Logs only. The message names the filter and what would happen, such as every widget failing to load.
+* A filter's `editable` is present and isn't `true` or `false`.
+* The tiles of a **KPI row** use more than 10 different sets of filters.
 * A widget's type isn't one of the six visualization types.
 * A widget's `x`, `y`, `cols`, and `rows` aren't whole numbers that fit the 12-column grid.
 * Two widgets share an identifier. A widget with no identifier is given one.
@@ -320,7 +324,13 @@ The dashboard is deleted permanently. Templates have no **Delete** action.
 
 **The editor warns that dashboard filters can't be queried.** The analytics API accepts the `eq`, `in`, `lte`, `gte`, and `contains` operators only, and the widgets affected by another operator stay empty. Change the operator from the widget's **Filters** tab or from the **JSON** tab.
 
-**The editor warns that a widget ignores a locked dashboard filter.** A widget filter is applied after the dashboard filters, so on a shared field the widget's value is the one queried, whatever the locked chip shows the reader. The warning names the widget, its value, and the locked value. Either change the widget's filter or clear the lock on the dashboard chip. A widget that repeats the same value isn't flagged.
+**The editor warns that widgets will be empty under the dashboard filters.** A widget's own filters apply on top of the dashboard's, so a widget value that can never match a locked dashboard value leaves the widget empty. The warning names each widget, its value, and the locked value. Change the widget's filter, or turn on **Allow viewers to change value** on the dashboard filter and clear its value.
+
+**The editor warns that filters don't work on a dashboard.** A filter on a field dashboards can't filter on, such as a field that applies to Logs only, breaks the widgets it applies to or does nothing. The warning lists each such filter. Remove them in the builder or on the **JSON** tab before you save.
+
+**The editor warns that metric groups have too many tile filters.** A **KPI row** whose tiles use more than 10 different sets of filters fails to load. Split its tiles across several widgets on the **JSON** tab.
+
+**A save fails.** The editor shows **Could not save the dashboard**, followed by the reason the environment refused it, such as an operator a filter doesn't offer or a value it doesn't accept. Correct or remove that filter, then save again.
 
 **The authoring actions aren't there.** A request was refused for your account, so the console withdrew them. Ask for access to the environment's dashboards, then reopen the section.
 

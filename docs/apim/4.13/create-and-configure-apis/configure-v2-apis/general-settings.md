@@ -5,7 +5,7 @@ metaLinks:
     - general-settings.md
 ---
 
-# General Settings
+# v2 API general settings
 
 {% hint style="warning" %}
 v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md).

@@ -5,7 +5,7 @@ metaLinks:
     - configuration.md
 ---
 
-# Configuration
+# Configure API-level secrets
 
 ## Overview
 

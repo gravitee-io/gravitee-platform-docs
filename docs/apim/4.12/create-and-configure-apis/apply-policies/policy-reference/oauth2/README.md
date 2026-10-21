@@ -5,7 +5,7 @@ metaLinks:
     - ./
 ---
 
-# OAuth2
+# OAuth2 policy
 
 ## Overview
 

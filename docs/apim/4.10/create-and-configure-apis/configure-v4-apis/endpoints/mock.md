@@ -5,7 +5,7 @@ metaLinks:
     - mock.md
 ---
 
-# Mock
+# Mock endpoint
 
 ## Configuration
 

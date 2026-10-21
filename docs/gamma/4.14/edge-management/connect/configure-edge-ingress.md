@@ -17,7 +17,7 @@ Exposing it takes three settings in your `values.yaml`, each of which gates the 
 3. `gateway.services.edge.ingress.enabled` creates the Ingress that routes external traffic to that port.
 
 {% hint style="warning" %}
-The Edge Reactor listener is plain HTTP, and the connection between a daemon and the gateway isn't authenticated. Don't expose it to the public internet. Restrict it to a private network, a VPN, or an IP-allowlisted corporate network.
+By default, the Edge Reactor listener is plain HTTP, and the connection between a daemon and the gateway isn't authenticated. Until you secure it, don't expose it to the public internet. Restrict it to a private network, a VPN, or an IP-allowlisted corporate network. See [Secure the Edge Reactor listener](secure-the-edge-reactor-listener.md).
 {% endhint %}
 
 ## Enable the Edge Reactor listener
@@ -92,7 +92,7 @@ The following table describes each field:
 | `pathType`         | The Kubernetes path-matching type. The default is `Prefix`.                                                                         |
 | `hosts`            | The hosts the rule answers for. One rule is created per host.                                                                       |
 | `annotations`      | Annotations to add to the Ingress resource.                                                                                          |
-| `tls`              | The TLS blocks of the Ingress resource. This terminates TLS at the ingress. The listener behind it is still plain HTTP.             |
+| `tls`              | The TLS blocks of the Ingress resource. This terminates TLS at the ingress, so a daemon's client certificate stops there. See [Terminate TLS in front of the gateway](secure-the-edge-reactor-listener.md#terminate-tls-in-front-of-the-gateway). |
 
 ## Apply the change
 

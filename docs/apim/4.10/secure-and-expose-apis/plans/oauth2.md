@@ -5,7 +5,7 @@ metaLinks:
     - oauth2.md
 ---
 
-# OAuth2
+# OAuth2 plan
 
 ## Overview
 
