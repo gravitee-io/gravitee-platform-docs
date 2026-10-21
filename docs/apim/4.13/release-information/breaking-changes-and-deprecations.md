@@ -176,7 +176,7 @@ When the secret can't encrypt a value, saving an encrypted property of a v4 API 
 
 Before you upgrade, review the scripts that read API properties from the Management API v2, and the scripts that update APIs with encrypted values from another installation. For more information, see [Encrypt dynamic properties](../create-and-configure-apis/apply-policies/v4-api-policy-studio.md#encrypt-dynamic-properties) and [Property Encryption](../prepare-a-production-environment/production-best-practices/general-recommendations/property-encryption.md).
 
-**Gateways connected to Gravitee Cloud: V2 APIs aren't traced by default, and deprecated tracing settings are overridden**
+**Gateways connected to Gravitee Cloud: Tracing of v2 APIs is off by default, and deprecated tracing settings are overridden**
 
 From 4.13.0, `services.opentelemetry.tracing.v2.enabled` defaults to `false` on a Gateway that connects to Gravitee Cloud with a Cloud Token. On other Gateways, it still defaults to `true`. In 4.12, a Gateway with OpenTelemetry turned on traced its v2 APIs by default.
 
@@ -184,7 +184,7 @@ A Hybrid Gateway that uses its own OpenTelemetry configuration without this sett
 
 A Gateway that connects to Gravitee Cloud with a Cloud Token now sends its traces and payload logs to Gravitee Cloud unless it has a `services.opentelemetry` setting. The deprecated `services.tracing` settings don't count. A Hybrid Gateway that still uses them sends its traces to Gravitee Cloud after the upgrade, instead of to its own collector.
 
-Before you upgrade a Hybrid Gateway that traces v2 APIs, set `services.opentelemetry.tracing.v2.enabled` to `true` on it. Move any `services.tracing` settings to `services.opentelemetry`. For more information, see [Tracing for v2 APIs](../analyze-and-monitor-apis/opentelemetry.md#tracing-for-v2-apis).
+Before you upgrade a Hybrid Gateway that traces v2 APIs, set `services.opentelemetry.tracing.v2.enabled` to `true` on it. Setting `services.opentelemetry.tracing.v2.enabled` is itself a `services.opentelemetry` setting: on a Gateway without its own OpenTelemetry configuration, it stops the Gateway from sending to Gravitee Cloud and doesn't turn OpenTelemetry on. Set it only on a Gateway that already exports to your own collector. Move any `services.tracing` settings to `services.opentelemetry`. For more information, see [Tracing for v2 APIs](../analyze-and-monitor-apis/opentelemetry.md#tracing-for-v2-apis).
 
 #### 4.12.0
 

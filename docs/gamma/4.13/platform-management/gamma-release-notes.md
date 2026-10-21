@@ -703,7 +703,7 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 #### Traces and payload logs from Gateways connected to Gravitee Cloud
 
 * An APIM 4.13 Gateway that connects to Gravitee Cloud with a Cloud Token sends its traces and payload logs to Gravitee Cloud with no OpenTelemetry configuration, and the **Tracing** pages show them. This applies to Gravitee Hosted Gateways and to Hybrid Gateways.
-* The Gateway sends traces for the APIs that have tracing turned on in their **Reporter Settings**, and payload logs for the ones that also have OpenTelemetry logs turned on.
+* The Gateway sends traces for the v4 HTTP proxy APIs that have tracing turned on in their **Reporter Settings**, and payload logs for the ones that also have OpenTelemetry logs turned on.
 * A Gateway with its own OpenTelemetry configuration uses it instead and doesn't send to Gravitee Cloud. This includes a Gravitee Hosted Gateway linked to an OpenTelemetry reporter. A Gateway that still uses the deprecated tracing settings sends to Gravitee Cloud. To keep a Hybrid Gateway's traces and payload logs out of Gravitee Cloud, turn OpenTelemetry off on the Gateway.
 * See [Configure OpenTelemetry tracing and logs](configure-opentelemetry-tracing-and-logs.md#gateways-connected-to-gravitee-cloud).
 
