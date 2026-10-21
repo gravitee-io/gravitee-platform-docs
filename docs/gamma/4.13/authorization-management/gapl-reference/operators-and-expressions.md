@@ -38,7 +38,7 @@ Operators of order 5 don't chain: `a < b < c` is a syntax error. Write `a < b &&
 
 ## Equality
 
-`==` and `!=` accept values of any type. Values of different types are never equal, without an error: `1 == "1"` is `false`.
+`==` and `!=` accept values of any type. Values of different types are never equal, and comparing them isn't an error: `1 == "1"` is `false`.
 
 | Type | Two values are equal when |
 |------|---------------------------|
@@ -55,7 +55,7 @@ Operators of order 5 don't chain: `a < b < c` is a syntax error. Write `a < b &&
 
 `<`, `<=`, `>`, and `>=` compare two `Long` values, two `datetime` values, or two `duration` values. Any other pair is an error, including two strings and two decimals. To compare decimals, use the [decimal methods](extension-functions.md#decimal).
 
-```
+```text
 resource.level >= 3
 datetime(context.requestedAt) < datetime("2027-01-01")
 duration(resource.retention) <= duration("30d")
@@ -65,7 +65,7 @@ duration(resource.retention) <= duration("30d")
 
 `+`, `-`, and `*` take two `Long` values and give a `Long`. Unary `-` negates a `Long`. A result outside the `Long` range is an error. GAPL has no division.
 
-```
+```text
 principal.failedLogins + 1 < 5
 ```
 
@@ -75,7 +75,7 @@ principal.failedLogins + 1 < 5
 
 `&&` and `||` stop as soon as the left side decides the result. The right side of `false && ...` and of `true || ...` isn't evaluated, so it can't cause an error. This is how you read an attribute only when it's present:
 
-```
+```text
 context has mfa && context.mfa
 ```
 
@@ -83,7 +83,7 @@ context has mfa && context.mfa
 
 `a in b` is `true` when the entity `a` is the entity `b`, or a descendant of it through parents. `b` can also be a set of entities, and then `a in b` is `true` when it's `true` for any of them:
 
-```
+```text
 principal in Group::"finance"
 principal in resource.editors
 resource in [Folder::"shared", Folder::"public"]
@@ -97,7 +97,7 @@ To test whether a set holds a value, use [`contains`](#set-methods), not `in`.
 
 `e has name` is `true` when the record or entity `e` has the field or attribute `name`. For a name that isn't an identifier or is a GAPL keyword, write it as a string:
 
-```
+```text
 principal has department
 context has "x-tenant"
 ```
@@ -108,7 +108,7 @@ On an entity that doesn't exist on the gateway, `has` is `false`. Reading a fiel
 
 `s like "pattern"` matches the whole string `s` against a pattern, where `*` stands for any sequence of characters, including none. Write `\*` for a literal asterisk:
 
-```
+```text
 context.path like "/api/*/orders"
 resource.name like "draft-*"
 context.label like "a\*b"
@@ -120,7 +120,7 @@ The pattern must be a string literal. `s` must be a `String`. The match is case-
 
 `e is Type` is `true` when the entity `e` has exactly that type. Namespaced types are written in full. `e is Type in f` adds the condition `e in f`:
 
-```
+```text
 resource is Invoice
 resource is Sales::Order
 principal is User in Group::"finance"
@@ -141,9 +141,9 @@ Reading a field or an attribute that isn't there, or an attribute of an entity t
 | `s.containsAny(t)` | `true` when `s` holds at least one value of the set `t` |
 | `s.isEmpty()` | `true` when `s` holds no value |
 
-The receiver `s`, and `t`, must be sets. Values are compared with the rules of [equality](#equality).
+Both `s` and `t` must be sets. Values are compared with the rules of [equality](#equality).
 
-```
+```text
 principal.roles.contains("auditor")
 principal.roles.containsAny(["admin", "owner"])
 !resource.labels.isEmpty()
@@ -153,12 +153,12 @@ principal.roles.containsAny(["admin", "owner"])
 
 `if c then a else b` evaluates `a` when `c` is `true`, and `b` when it's `false`. Only the chosen branch is evaluated. `c` must be a `Bool`:
 
-```
+```text
 if resource has classification then resource.classification != "secret" else true
 ```
 
 `if` has the lowest precedence. Inside `&&`, `||`, or a comparison, put it between parentheses:
 
-```
+```text
 principal.active && (if context has n then context.n > 3 else false)
 ```

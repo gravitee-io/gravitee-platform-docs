@@ -46,7 +46,7 @@ Any other character after `\` is a syntax error. A string can't span lines: writ
 
 An entity reference is a type and an ID joined by `::`, such as `User::"alice"`. A reference is a value: it can be compared with `==`, passed to `in`, and its attributes are read with `.`:
 
-```
+```text
 resource.owner == principal
 principal in resource.editors
 User::"alice".department == "finance"
@@ -58,7 +58,7 @@ Reading an attribute of a referenced entity requires the entity to exist on the 
 
 A set literal lists values between square brackets, separated by commas. A trailing comma is allowed, and `[]` is the empty set. A set can mix types, and duplicates are dropped:
 
-```
+```text
 ["admin", "auditor"]
 [User::"alice", User::"bob"]
 ```
@@ -69,7 +69,7 @@ Two sets are equal when they hold the same values, in any order. For the set met
 
 A record literal lists fields between braces. A field name is an identifier, or a string when it contains other characters:
 
-```
+```text
 { method: "GET", "x-tenant": "acme" }
 ```
 

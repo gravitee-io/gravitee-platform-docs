@@ -12,6 +12,8 @@ You can add it to the flows of HTTP proxy, MCP proxy, LLM proxy, and A2A proxy A
 
 ## What happens to a request
 
+The following table describes what the policy does with a request for each outcome:
+
 | Decision | What the policy does |
 |----------|----------------------|
 | **Permit** | The request continues through the flow |
@@ -36,6 +38,8 @@ The policy turns each gateway request into the request your policies evaluate:
 A property replaces a stored attribute with the same name, for that request only. When the principal or the resource doesn't exist as an entity, its properties still make it an entity with those attributes and no parents.
 
 ### Keys the gateway sets in context
+
+The gateway sets the following keys in `context`:
 
 | Key | Value | Present |
 |-----|-------|---------|
@@ -69,6 +73,8 @@ A row named `requestId` replaces the request ID. A row named `caller`, `environm
 A row of **Action properties (EL-mapped)** with the name of a context key replaces that key, including the keys the gateway sets, such as `caller`.
 
 ## Configuration
+
+The following table lists the configuration fields of the policy:
 
 | Field | Default | Description |
 |-------|---------|-------------|

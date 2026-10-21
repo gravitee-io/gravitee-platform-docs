@@ -13,7 +13,7 @@ A policy holds one or more statements. Each statement ends with a semicolon and 
 3. A [scope](#scope) between parentheses, which constrains the principal, the action, and the resource.
 4. Optional [conditions](#conditions), `when { ... }` and `unless { ... }`.
 
-```
+```text
 @id("alice-reads-reports")
 permit (
   principal == User::"alice",
@@ -25,7 +25,7 @@ when { resource.status == "published" };
 
 Spaces and line breaks between parts don't matter. A policy can hold any number of statements:
 
-```
+```text
 permit (principal in Group::"support", action == Action::"read", resource is Ticket);
 forbid (principal, action == Action::"delete", resource is Ticket) unless { principal in Group::"admins" };
 ```
@@ -34,7 +34,7 @@ forbid (principal, action == Action::"delete", resource is Ticket) unless { prin
 
 A line comment starts with `//` and runs to the end of the line. A block comment starts with `/*` and ends with `*/`.
 
-```
+```text
 // Support staff read tickets
 permit (principal in Group::"support", action == Action::"read", resource is Ticket); /* no condition */
 ```
@@ -93,7 +93,7 @@ Entity types and actions can belong to a namespace declared in a schema document
 
 Write a namespaced principal or resource type in full in the policy:
 
-```
+```text
 permit (principal, action == Action::"refund", resource is Sales::Order);
 permit (principal, action == Action::"refund", resource == Sales::Order::"o-1042");
 ```
@@ -104,7 +104,7 @@ The type that the request carries must match the type in the policy exactly. A r
 
 An action declared inside a namespace has the type `<namespace>::Action`, such as `Sales::Action::"refund"`:
 
-```
+```text
 permit (principal, action == Sales::Action::"refund", resource is Sales::Order);
 ```
 
@@ -127,7 +127,7 @@ A condition is a Boolean expression between braces:
 
 A statement can have several conditions, in any order. It matches only when its scope matches, every `when` is `true`, and every `unless` is `false`:
 
-```
+```text
 permit (principal, action == Action::"approve", resource is Invoice)
 when { resource.amount <= 1000 }
 when { principal.department == resource.department }
@@ -140,7 +140,7 @@ For what you can write inside a condition, see [Operators and expressions](opera
 
 An annotation is a name that starts with `@`, followed by an optional string value between parentheses. Annotations come before the effect, one or more per statement:
 
-```
+```text
 @id("contractors-no-delete")
 @reason("Contractors can't delete records")
 forbid (principal in Group::"contractors", action == Action::"delete", resource);
@@ -167,7 +167,7 @@ In MCP policies, the **ID** field under the policy name holds the `@id` of the f
 
 A statement refers to an entity by its type and its ID, joined by `::`. The ID is a string between double quotes:
 
-```
+```text
 User::"alice"
 MCPTool::"search"
 Sales::Order::"o-1042"

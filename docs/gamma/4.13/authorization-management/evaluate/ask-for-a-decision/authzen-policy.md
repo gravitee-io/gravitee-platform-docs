@@ -34,6 +34,8 @@ In a batch, an evaluation that fails gets its own `false` entry and the batch an
 
 ## Configuration
 
+The following table lists the configuration fields of the policy:
+
 | Field | Default | Description |
 |-------|---------|-------------|
 | **Endpoint type** | `EVALUATION` | The kind of request this instance answers |

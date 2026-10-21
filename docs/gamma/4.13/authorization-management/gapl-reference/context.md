@@ -8,7 +8,7 @@ description: The context variable of GAPL, how to read it safely, and how the JS
 
 `context` is a record of request-time data, such as the API that was called or a value from a header. A policy reads it like any record:
 
-```
+```text
 context.caller == "pep"
 context has tenant && context.tenant == "acme"
 ```
@@ -17,7 +17,7 @@ A key that isn't there is an error when you read it, and the statement is skippe
 
 ## What context holds
 
-What `context` holds depends on who asks for the decision. Each way to ask sets some keys itself, such as `caller`, and lets you add your own. For the keys of each one, see:
+What `context` holds depends on who asks for the decision. Each way to ask sets some keys itself, such as `caller`, and lets you add your own. For the keys of each one, see the following pages:
 
 * [Authorization PEP policy](../evaluate/ask-for-a-decision/authorization-pep-policy.md#keys-the-gateway-sets-in-context)
 * [AuthZEN endpoint](../evaluate/ask-for-a-decision/authzen-endpoint.md#evaluate-a-request)
@@ -27,7 +27,7 @@ Properties sent with the action of a request are added to `context` too, and rep
 
 ## How JSON values become GAPL values
 
-Request data becomes GAPL values as follows. The same rules apply to `context`, to properties, and to entity attributes:
+Request data becomes GAPL values by the same rules in `context`, in properties, and in entity attributes. The following table lists how each JSON value becomes a GAPL value:
 
 | JSON value | GAPL value |
 |-----------|-----------|
@@ -43,6 +43,6 @@ Request data becomes GAPL values as follows. The same rules apply to `context`, 
 
 To pass an IP address, a decimal, a date, or a duration, send it as a string and convert it in the policy with [`ip`](extension-functions.md#ip), [`decimal`](extension-functions.md#decimal), [`datetime`](extension-functions.md#datetime), or [`duration`](extension-functions.md#duration):
 
-```
+```text
 ip(context.clientIp).isInRange(ip("10.0.0.0/8"))
 ```

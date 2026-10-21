@@ -6,7 +6,7 @@ description: Create the AuthZEN endpoint of a PDP gateway, and call it to evalua
 
 # AuthZEN endpoint
 
-An AuthZEN endpoint exposes the engine of a PDP gateway as an AuthZEN 1.0 API, on a path of your gateways. Applications and agents call it to ask for a decision, the way they call any HTTP API. Each PDP gateway can have one endpoint.
+An AuthZEN endpoint exposes the engine of a PDP gateway as an AuthZEN 1.0 API, at a path on your gateways. Applications and agents call it to ask for a decision, the way they call any HTTP API. Each PDP gateway can have one endpoint.
 
 {% hint style="warning" %}
 The endpoint has a keyless plan: any client that can reach your gateways can call it, including its search routes. To put the AuthZEN routes behind a plan and security of your choice, use the [AuthZEN PDP policy](authzen-policy.md) on an API of your own.
@@ -47,7 +47,7 @@ For an endpoint on `/orders/`, the gateway serves the following routes:
 | `POST` | `/orders/access/v1/search/resource` | List the resources a subject is permitted an action on |
 | `POST` | `/orders/access/v1/search/action` | List the actions a subject is permitted on a resource |
 | `GET` | `/orders/.well-known/authzen-configuration` | The AuthZEN metadata of the endpoint |
-| `GET` | `/.well-known/authzen-configuration/orders/` | The same metadata, at the discovery location of AuthZEN. Served only when no other API in the environment uses an overlapping path. The **Endpoints** tab shows whether it is |
+| `GET` | `/.well-known/authzen-configuration/orders/` | The same metadata, at the discovery location of AuthZEN. Served only when no other API in the environment uses an overlapping path. The **Endpoints** tab shows whether it is served |
 
 ## Evaluate a request
 
@@ -131,13 +131,13 @@ The response lists one result for each evaluation, in the same order:
 
 | Value | Behavior |
 |-------|----------|
-| `execute_all` | Evaluates every request. The default |
+| `execute_all` | Evaluates every request. This is the default |
 | `deny_on_first_deny` | Stops at the first `false` |
 | `permit_on_first_permit` | Stops at the first `true` |
 
 Each evaluation of a batch also gets `batchId`, `batchIndex`, and `batchSize` in `context`. A batch without `evaluations` is evaluated as one request.
 
-An evaluation that is invalid, or that can't be evaluated, doesn't fail the batch. The answer is still `200`, and the entry of that evaluation has `decision: false` and a `context.reason` such as `invalid_request`, with a `message`, or `pdp_unavailable`.
+An evaluation that is invalid, or that can't be evaluated, doesn't fail the batch. The response is still `200`, and the entry of that evaluation has `decision: false` and a `context.reason` such as `invalid_request`, with a `message`, or `pdp_unavailable`.
 
 ## Search
 
@@ -171,7 +171,7 @@ For example, a resource search:
 
 An action search returns names, such as `{ "name": "read" }`. A subject or resource search returns only entities that exist on the gateway. An action search returns the permitted actions among those a schema declares for the subject and resource types, and those that exist as `Action` entities.
 
-To get the next page, send the same request with `page.token` set to the `next_token` of the previous answer. A token works only with the request it came from, and any other change gives `400`. A page can hold fewer results than `page.limit` even when more follow, so stop only when `next_token` is empty. `page.limit` is `100` by default, and at most `1000`. For how the schema shapes action search, see [What the gateway does with a schema](../../gapl-reference/schema-language.md#what-the-gateway-does-with-a-schema).
+To get the next page, send the same request with `page.token` set to the `next_token` of the previous response. A token works only with the request it came from, and any other change gives `400`. A page can hold fewer results than `page.limit` even when more follow, so stop only when `next_token` is empty. `page.limit` is `100` by default, and at most `1000`. For how the schema shapes action search, see [What the gateway does with a schema](../../gapl-reference/schema-language.md#what-the-gateway-does-with-a-schema).
 
 ## Errors
 
@@ -181,4 +181,4 @@ To get the next page, send the same request with `page.token` set to the `next_t
 | `404` | The route doesn't exist under the endpoint |
 | `503` | The gateway hasn't loaded its policies yet, or the engine doesn't answer or fails |
 
-An error answer has the form `{ "error": { "status": 400, "message": "..." } }`.
+An error response has the form `{ "error": { "status": 400, "message": "..." } }`.

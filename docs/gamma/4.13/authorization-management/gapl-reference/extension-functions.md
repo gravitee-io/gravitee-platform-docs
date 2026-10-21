@@ -17,7 +17,7 @@ Four functions build values that GAPL has no literal for. Each takes a string an
 
 The argument can be any expression that gives a string, such as an attribute or a context field:
 
-```
+```text
 ip(context.clientIp).isInRange(ip(resource.allowedNetwork))
 ```
 
@@ -38,15 +38,17 @@ A string that doesn't match the format of its function is an error, and so is a 
 
 An IPv4 address has four decimal parts from `0` to `255`, without leading zeros: `ip("010.0.0.1")` is an error. The prefix length is `0` to `32` for IPv4 and `0` to `128` for IPv6, also without leading zeros. An IPv6 address that embeds an IPv4 address, such as `::ffff:10.0.0.1`, isn't accepted. Host names aren't accepted.
 
+An IP value has the following methods:
+
 | Method | Returns | Result |
 |--------|---------|--------|
-| `a.isInRange(r)` | `Bool` | `true` when the address `a`, or every address of the range `a`, lies in the range `r`. An IPv4 value is never in an IPv6 range, and the reverse |
+| `a.isInRange(r)` | `Bool` | `true` when the address `a`, or every address of the range `a`, lies in the range `r`. An IPv4 value is never in an IPv6 range, and an IPv6 value is never in an IPv4 range |
 | `a.isIpv4()` | `Bool` | `true` for an IPv4 address or range |
 | `a.isIpv6()` | `Bool` | `true` for an IPv6 address or range |
 | `a.isLoopback()` | `Bool` | `true` when `a` lies in `127.0.0.0/8` or is `::1` |
 | `a.isMulticast()` | `Bool` | `true` when `a` lies in `224.0.0.0/4` or `ff00::/8` |
 
-```
+```text
 ip(principal.lastIp).isInRange(ip("10.0.0.0/8"))
 !ip(context.clientIp).isLoopback()
 ```
@@ -57,6 +59,8 @@ ip(principal.lastIp).isInRange(ip("10.0.0.0/8"))
 
 Decimals compare with methods, not with `<` or `>`. `==` and `!=` work as for any value.
 
+A decimal has the following methods:
+
 | Method | Returns | Result |
 |--------|---------|--------|
 | `a.lessThan(b)` | `Bool` | `true` when `a < b` |
@@ -64,7 +68,7 @@ Decimals compare with methods, not with `<` or `>`. `==` and `!=` work as for an
 | `a.greaterThan(b)` | `Bool` | `true` when `a > b` |
 | `a.greaterThanOrEqual(b)` | `Bool` | `true` when `a >= b` |
 
-```
+```text
 decimal(resource.riskScore).lessThan(decimal("0.7"))
 ```
 
@@ -78,9 +82,18 @@ decimal(resource.riskScore).lessThan(decimal("0.7"))
 | A date and a time in UTC | `datetime("2026-06-30T17:00:00Z")` |
 | A date and a time with an offset | `datetime("2026-06-30T19:00:00+02:00")`, `datetime("2026-06-30T19:00:00+0200")` |
 
-The time is `hh:mm`, optionally followed by `:ss`, and then by `.` and exactly three digits of milliseconds, such as `17:00:00.250`. A time must be followed by `Z` or by an offset. The separator between the date and the time is `T`. The following strings are errors: `2026-06-30T17:00:00` (no zone), `2026-06-30 17:00:00Z` (space), `2026-06-30T17:00:00.123456Z` (six fractional digits), and `2026-06-30T17:00:00z` (lowercase `z`).
+The time is `hh:mm`, optionally followed by `:ss`, and then by `.` and exactly three digits of milliseconds, such as `17:00:00.250`. A time must be followed by `Z` or by an offset. The separator between the date and the time is `T`. The following strings are errors:
+
+| String | Reason |
+|--------|--------|
+| `2026-06-30T17:00:00` | No zone |
+| `2026-06-30 17:00:00Z` | A space |
+| `2026-06-30T17:00:00.123456Z` | Six fractional digits |
+| `2026-06-30T17:00:00z` | A lowercase `z` |
 
 Datetimes compare with `<`, `<=`, `>`, `>=`, `==`, and `!=`, by the instant they stand for.
+
+A datetime has the following methods:
 
 | Method | Returns | Result |
 |--------|---------|--------|
@@ -91,7 +104,7 @@ Datetimes compare with `<`, `<=`, `>`, `>=`, `==`, and `!=`, by the instant they
 
 `toDate()` and `toTime()` always work in UTC, whatever the offset of the string: `datetime("2026-06-30T10:00:00+02:00").toTime()` is `duration("8h")`. Write time windows in UTC:
 
-```
+```text
 datetime(context.requestTime).toTime() >= duration("7h") && datetime(context.requestTime).toTime() < duration("15h")
 datetime(resource.expiresAt) > datetime(context.requestTime)
 datetime(context.requestTime).durationSince(datetime(principal.passwordChangedAt)) < duration("90d")
@@ -109,9 +122,19 @@ datetime(context.requestTime).durationSince(datetime(principal.passwordChangedAt
 | `<n>s` | Seconds |
 | `<n>ms` | Milliseconds |
 
-For example: `duration("90s")`, `duration("1h30m")`, `duration("2d12h")`, `duration("-15m")`, `duration("500ms")`. Each `<n>` is a whole number. The following strings are errors: `1.5h` (fraction), `1h 30m` (space), `30m1h` (wrong order), `30ns` and `10us` (units that don't exist), and `PT1H` (ISO 8601 notation).
+For example: `duration("90s")`, `duration("1h30m")`, `duration("2d12h")`, `duration("-15m")`, `duration("500ms")`. Each `<n>` is a whole number. The following strings are errors:
+
+| String | Reason |
+|--------|--------|
+| `1.5h` | A fraction |
+| `1h 30m` | A space |
+| `30m1h` | The wrong order |
+| `30ns`, `10us` | Units that don't exist |
+| `PT1H` | ISO 8601 notation |
 
 Durations compare with `<`, `<=`, `>`, `>=`, `==`, and `!=`.
+
+A duration has the following methods:
 
 | Method | Returns | Result |
 |--------|---------|--------|

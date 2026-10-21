@@ -6,14 +6,14 @@ description: Reference for the Gravitee Authorization Policy Language (GAPL), th
 
 # GAPL reference
 
-Gravitee Authorization Policy Language (GAPL) is the language of Authorization Management. You write GAPL in two places:
+Gravitee Authorization Policy Language (GAPL) is the language of Authorization Management. You write GAPL in the following two places:
 
 * In the **Code** view of the policy editor, where each policy holds one or more `permit` and `forbid` statements.
 * In the **Schema text** of a schema document, where you declare entity types, actions, and their relationships.
 
 The following policy lets members of the `engineering` group read the documents of their own department, unless a document is archived:
 
-```
+```text
 @id("engineering-reads-docs")
 @reason("Engineers can read the documents of their department")
 permit (
@@ -26,6 +26,8 @@ unless { resource has archived && resource.archived };
 ```
 
 ## Pages in this section
+
+This section contains the following pages:
 
 * [**Policy statements**](policy-statements.md). The structure of a statement: its effect, its scope, its conditions, and its annotations.
 * [**Values and types**](values-and-types.md). Literals, entity references, sets, records, and how console attribute types appear in GAPL.

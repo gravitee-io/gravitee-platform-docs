@@ -47,19 +47,19 @@ A skipped `forbid` denies nothing. When a `forbid` reads data that can be missin
 
 The following statement is skipped for every request without an `mfa` key, so those requests aren't denied:
 
-```
+```text
 forbid (principal, action == Action::"delete", resource)
 unless { context.mfa };
 ```
 
 Read the key only when it's there, so that a missing key gives `false` and the `forbid` applies:
 
-```
+```text
 forbid (principal, action == Action::"delete", resource)
 unless { context has mfa && context.mfa };
 ```
 
-The same applies to attributes: guard them with `has`, such as `resource has classification && resource.classification == "public"`.
+The same applies to attributes: guard them with `has`, for example `resource has classification && resource.classification == "public"`.
 
 ## Check a statement before you deploy it
 

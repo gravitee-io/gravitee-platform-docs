@@ -8,7 +8,7 @@ description: The syntax of GAPL schema documents, covering entity types, attribu
 
 The **Schema text** of a schema document declares the entity types, the actions, and the relationships that your policies are written against. A document is a sequence of declarations, each ending with `;`:
 
-```
+```text
 entity Team;
 
 entity User in [Team] {
@@ -33,7 +33,7 @@ Comments use `//` for the rest of a line and `/* ... */` for a block, as in poli
 
 An entity type is declared with `entity`, a name, and an optional list of attributes between braces:
 
-```
+```text
 entity Group;
 entity User { email: String, active: Bool };
 entity Device = { platform: String };
@@ -45,7 +45,7 @@ The `=` before the braces is optional. Several types with the same attributes ca
 
 Each attribute is a name, `:`, and a [type](#attribute-types). A `?` after the name makes the attribute optional. Attributes are separated by commas, and a trailing comma is allowed:
 
-```
+```text
 entity User {
   email: String,
   department?: String,
@@ -57,7 +57,7 @@ entity User {
 
 `in [...]` lists the entity types that an entity of this type can have as parents, such as the teams a user belongs to. The parents themselves are set on each entity, and the `in` operator of policies follows them:
 
-```
+```text
 entity Team;
 entity Department;
 entity User in [Team, Department];
@@ -67,13 +67,15 @@ entity User in [Team, Department];
 
 `enum [...]` lists every ID of an entity type. Each value appears once:
 
-```
+```text
 entity Region enum ["eu", "us", "apac"];
 ```
 
 Policies refer to these entities like any other, such as `Region::"eu"`.
 
 ## Attribute types
+
+The following table lists the types that an attribute can have:
 
 | Type | Values |
 |------|--------|
@@ -95,7 +97,7 @@ The names are case-sensitive. GAPL has no `Int`, `Integer`, or `Boolean` type: u
 
 `type` gives a name to a type, so that several declarations can share it:
 
-```
+```text
 type Address = { street: String, city: String, zip?: String };
 
 entity Customer { billing: Address, shipping?: Address };
@@ -107,7 +109,7 @@ A common type can use a common type declared later in the document. Two common t
 
 An action is declared with `action` and one or more names. A name is a string, or an identifier when it has only letters, digits, and `_`:
 
-```
+```text
 action "read";
 action approve;
 action "list", "export";
@@ -115,7 +117,7 @@ action "list", "export";
 
 `appliesTo` says which principal types and resource types the action connects, and which data its requests carry in `context`. Each entry is optional, but `appliesTo` needs at least one:
 
-```
+```text
 action "transfer" appliesTo {
   principal: [User, ServiceAccount],
   resource: [Account],
@@ -129,7 +131,7 @@ An action can be declared only once in a namespace.
 
 An action declared with `in [...]` is a member of the actions listed there. A group is itself an action, declared in the same document:
 
-```
+```text
 action "manage";
 action "read", "update", "delete" in ["manage"] appliesTo {
   principal: [User],
@@ -139,7 +141,7 @@ action "read", "update", "delete" in ["manage"] appliesTo {
 
 In a policy, `action in Action::"manage"` then matches `manage`, `read`, `update`, and `delete`:
 
-```
+```text
 permit (principal in Group::"admins", action in Action::"manage", resource is Document);
 ```
 
@@ -151,7 +153,7 @@ Action groups apply on the gateways that receive the schema document. On a gatew
 
 `namespace` groups declarations under a name. Inside the braces, declarations end with `;`. The `;` after the closing brace is optional:
 
-```
+```text
 namespace Sales {
   entity Order { region: String };
   action "refund" appliesTo { principal: [User], resource: [Order] };
@@ -169,7 +171,7 @@ Inside a namespace, a name without `::` refers to the declaration of that namesp
 The gateways that receive a schema document use it for the following:
 
 * **Action groups**. `action in ...` follows the groups the document declares.
-* **Action search**. The `search/action` route of an AuthZEN endpoint returns the actions that your policies permit for the principal and resource of the request, among the declared actions whose `appliesTo` covers their types and the actions that exist as `Action` entities. An action without a `principal` or a `resource` entry in `appliesTo` covers every type.
+* **Action search**. The `search/action` route of an AuthZEN endpoint returns the actions that your policies permit for the principal and resource of the request. It chooses them from the declared actions whose `appliesTo` covers their types, and from the actions that exist as `Action` entities. An action without a `principal` or a `resource` entry in `appliesTo` covers every type.
 
 A schema doesn't validate requests or policies. A request with a type, an action, or an attribute that the schema doesn't declare is still evaluated, and a policy that uses undeclared names saves and deploys.
 
