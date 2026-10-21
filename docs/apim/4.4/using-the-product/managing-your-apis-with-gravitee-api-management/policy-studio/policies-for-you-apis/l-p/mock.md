@@ -2,7 +2,7 @@
 description: This page provides the technical details of the Mock policy
 ---
 
-# Mock
+# Mock policy
 
 ## Overview
 

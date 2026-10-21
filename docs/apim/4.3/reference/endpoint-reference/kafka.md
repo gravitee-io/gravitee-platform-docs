@@ -2,7 +2,7 @@
 description: This page contains the technical details of the Kafka endpoint plugin
 ---
 
-# Kafka
+# Kafka endpoint reference
 
 {% hint style="warning" %}
 **This feature requires** [**Gravitee's Enterprise Edition**](../../overview/gravitee-apim-enterprise-edition/README.md)**.**

@@ -2,7 +2,7 @@
 description: An overview about mqtt5.
 ---
 
-# MQTT5
+# Configure the MQTT5 endpoint
 
 ## Overview
 
