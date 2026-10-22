@@ -75,7 +75,7 @@ ratelimit:
 gateway:
   image:
     repository: graviteeio/apim-gateway
-    tag: 4.1
+    tag: 4.13
     pullPolicy: Always
   services:
     sync:

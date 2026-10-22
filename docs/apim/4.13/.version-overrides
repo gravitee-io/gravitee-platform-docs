@@ -5,6 +5,8 @@
 # the Lint Version Overrides check flags divergent 4.13 edits that need one.
 SUMMARY.md
 .gitbook.yaml
+# The chart pinning example names the 4.13 chart
+self-hosted-installation-guides/kubernetes/README.md
 release-information/release-notes/apim-4.12.md
 release-information/changelog/apim-4.12.x.md
 terraform/changelog.md

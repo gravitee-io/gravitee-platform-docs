@@ -8,7 +8,7 @@ description: Activate Gamma on an existing Kubernetes deployment of Gravitee wit
 Gravitee Gamma is Gravitee's next-generation unified control plane. It brings API Management, Event Management, Agent Management, Authorization Management, and Platform Management together in a single console, so you manage your APIs, Kafka streams, AI agents and MCP servers, and authorization policies from one place.
 
 {% hint style="warning" %}
-Gamma ships in 4.12. Activating Gamma moves your deployment to that build. Use this for development and quick-start purposes only. For best practices for production environments, contact your Technical Account Manager.
+Gamma ships in 4.13. Activating Gamma moves your deployment to that build. Use this for development and quick-start purposes only. For best practices for production environments, contact your Technical Account Manager.
 {% endhint %}
 
 ## Overview
@@ -23,7 +23,7 @@ Add the following to your existing `values.yaml`, then run `helm upgrade`.
 If your `values.yaml` enables the `mongodb` or `elasticsearch` subchart, those subcharts are deprecated from APIM 4.13.0, and APIM 4.15.0 removes them. For more information, see [Breaking Changes and Deprecations](https://documentation.gravitee.io/apim/release-information/breaking-changes-and-deprecations).
 {% endhint %}
 
-1. Use the Gamma build. Set the image tags for `api`, `gateway`, `ui`, and `portal` to `4.12`.
+1. Use the Gamma build. Set the image tags for `api`, `gateway`, `ui`, and `portal` to `4.13`.
 2. Turn on Gamma:
 
    ```yaml
@@ -53,7 +53,7 @@ If your `values.yaml` enables the `mongodb` or `elasticsearch` subchart, those s
      enabled: true
      image:
        repository: graviteeio/gamma-ui
-       tag: "4.12"
+       tag: "4.13"
      app:
        gammaBaseURL: "<your host>/gamma"
      env:
@@ -64,7 +64,7 @@ If your `values.yaml` enables the `mongodb` or `elasticsearch` subchart, those s
 
    ```bash
    helm upgrade <release-name> graviteeio/apim \
-     --version 4.12.0 --devel \
+     --version 4.13.0 --devel \
      --namespace <namespace> \
      -f values.yaml
    ```
