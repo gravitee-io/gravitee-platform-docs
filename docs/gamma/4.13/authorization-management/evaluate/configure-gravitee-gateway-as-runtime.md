@@ -41,7 +41,7 @@ Click **Register PDP gateway**. A dialog opens with the following fields:
 
 ### 3. Set up an AuthZEN endpoint (optional)
 
-If you check **Create AuthZEN endpoint**, an **Endpoint path** field appears. The path auto-derives from the Target PDP ID (for example, Target PDP ID `eu-prod` → path `/eu-prod/`). You can override the path manually.
+If you check **Create AuthZEN endpoint**, an **Endpoint path** field appears. The path is filled in from the Target PDP ID and the sharding tag (for example, Target PDP ID `eu-prod` with no tag gives `/eu-prod/`, and with the tag `eu` gives `/eu-prod-eu/`). You can override the path manually.
 
 ### 4. Register
 
