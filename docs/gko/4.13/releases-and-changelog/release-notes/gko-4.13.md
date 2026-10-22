@@ -5,7 +5,7 @@ description: Highlights, breaking changes, and new features in the Gravitee Kube
 
 # GKO 4.13
 
-This page describes the new features and breaking changes introduced in GKO 4.13.
+This page describes the new features, breaking changes, and deprecations introduced in GKO 4.13.
 
 ## Highlights
 
@@ -40,6 +40,12 @@ Before you upgrade, move each Portal resource from `spec.navigation` to `spec.st
 From APIM 4.13.0, the Automation API and the Management API imports that GKO uses check the update permission when a resource already exists in APIM, not only the create permission. A service account that holds only the create permission now gets `403` when GKO applies a change to an existing API, application, group, shared policy group, dictionary, portal resource, documentation page, or subscription. Changing the members of an API or application also requires the member update permission.
 
 Before you upgrade APIM, review the permissions of the service account that GKO uses.
+
+## Deprecations
+
+### The `ApiDefinition` resource is deprecated
+
+The `ApiDefinition` resource is deprecated, along with the v2 APIs that it manages, and the October 2027 release will remove both. Resources that you create with `ApiDefinition` continue to work until then. Migrate them to the [`ApiV4Definition`](../../overview/custom-resource-definitions/apiv4definition.md) resource. For more information, see [Breaking Changes and Deprecations](https://documentation.gravitee.io/apim/4.13/release-information/breaking-changes-and-deprecations).
 
 ## New features
 
