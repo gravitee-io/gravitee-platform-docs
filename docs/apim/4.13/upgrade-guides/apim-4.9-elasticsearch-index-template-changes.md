@@ -16,6 +16,10 @@ APIM 4.9 enables new analytics capabilities via the following Elasticsearch inde
 
 ## **Template updates for v2 and v4 APIs**
 
+{% hint style="warning" %}
+v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 Elasticsearch index template mappings have been updated to support execution transparency analytics. These changes apply to both v2 API metrics and v4 API metrics for Elasticsearch 7.x and 8.x.
 
 {% hint style="warning" %}
