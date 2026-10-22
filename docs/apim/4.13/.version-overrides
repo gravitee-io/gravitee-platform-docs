@@ -15,6 +15,31 @@ gravitee-expression-language.md
 release-information/release-notes/apim-4.13.md
 create-and-configure-apis/apply-policies/policy-reference/generate-jwt.md
 release-information/breaking-changes-and-deprecations.md
+# Install pages and examples use the 4.13 images and chart
+self-hosted-installation-guides/kubernetes/README.md
+self-hosted-installation-guides/docker/docker-cli.md
+self-hosted-installation-guides/docker/docker-compose.md
+self-hosted-installation-guides/kubernetes/aws-eks.md
+self-hosted-installation-guides/kubernetes/azure-aks.md
+self-hosted-installation-guides/kubernetes/vanilla-kubernetes/README.md
+getting-started/vanilla-kubernetes.md
+self-hosted-installation-guides/kubernetes/vanilla-kubernetes/deploy-apim-with-kubernetes-manifest.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/README.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-compose.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-cli.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/link-to-a-hybrid-gateway.md
+kafka-gateway/configure-and-deploy-kafka-console.md
+introduction/enterprise-edition-licensing.md
+how-to-guides/use-case-tutorials/monitor-apim-with-prometheus-and-grafana.md
+govern-apis/federation/3rd-party-providers/apigee-x.md
+govern-apis/federation/3rd-party-providers/aws-api-gateway/README.md
+govern-apis/federation/3rd-party-providers/azure-api-management.md
+govern-apis/federation/3rd-party-providers/confluent-platform.md
+govern-apis/federation/3rd-party-providers/ibm-api-connect.md
+govern-apis/federation/3rd-party-providers/mulesoft-anypoint.md
+govern-apis/federation/3rd-party-providers/solace.md
+# Classic Cloud Bridge and Gateway compatibility tables include 4.13
+hybrid-installation-and-configuration-guides/classic-cloud/README.md
 # Datadog request count tags (APIM 4.13.0 feature, APIM-14012)
 analyze-and-monitor-apis/reporters/datadog-reporter.md
 # Management API v1 plan endpoints reject V4, Federated, and Federated Agent APIs (APIM 4.13.0, APIM-14587)
@@ -213,3 +238,38 @@ prepare-a-production-environment/production-best-practices/general-recommendatio
 .gitbook/assets/apim-api-properties-encrypt-dynamic-property.png
 .gitbook/assets/apim-api-dynamic-properties-encrypt-on-fetch.png
 .gitbook/assets/apim-api-audit-logs-encrypted-properties.png
+# V2 API deprecation notice, 4.13 only
+analyze-and-monitor-apis/dashboards/v2-api-analytics-dashboards.md
+analyze-and-monitor-apis/execution-transparency-analytics.md
+create-and-configure-apis/README.md
+create-and-configure-apis/apply-policies/debug-mode.md
+create-and-configure-apis/apply-policies/v2-api-policy-studio.md
+create-and-configure-apis/configure-v2-apis/README.md
+create-and-configure-apis/configure-v2-apis/documentation.md
+create-and-configure-apis/configure-v2-apis/general-settings.md
+create-and-configure-apis/configure-v2-apis/load-balancing-failover-and-health-checks.md
+create-and-configure-apis/configure-v2-apis/proxy-settings.md
+create-and-configure-apis/configure-v2-apis/service-discovery.md
+create-and-configure-apis/configure-v2-apis/user-and-group-access.md
+create-and-configure-apis/create-apis/README.md
+create-and-configure-apis/create-apis/migrate-apis.md
+create-and-configure-apis/create-apis/v2-api-creation-wizard.md
+create-and-configure-apis/gravitee-api-definitions/README.md
+create-and-configure-apis/gravitee-api-definitions/execution-engine.md
+create-and-configure-apis/gravitee-api-definitions/v2-and-v4-api-comparison.md
+upgrade-guides/apim-4.9-elasticsearch-index-template-changes.md
+upgrade-guides/migrate-v1-apis-to-v2.md
+v2-api-analytics-continuity-after-migration.md
+
+# Image variants name the Java release: 4.13 runs on Java 25, 4.12 on Java 21 (DOC-1953)
+self-hosted-installation-guides/docker/README.md
+
+# API documentation belongs to the API, 4.13 only (PORTAL-203)
+developer-portal/new-developer-portal/customize-the-navigation/portal-automation/api-documentation.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-navigation-cascade-operations.md
+
+# Support model page moved to Platform Management, removed from 4.12 and 4.13 (#2705)
+release-information/support-model.md
+# Service account permissions for each Terraform resource (APIM 4.13.0 Automation API checks, GKO-3415)
+terraform/define-an-apim-service-account-for-terraform.md
+configure-and-manage-the-platform/manage-organizations-and-environments/create-a-service-account.md

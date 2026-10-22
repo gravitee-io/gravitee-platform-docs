@@ -7,6 +7,8 @@
   * [Create your first Virtual Cluster](get-started/create-your-first-virtual-cluster.md)
   * [Installation guides](https://documentation.gravitee.io/platform-management/install)
   * [Release Notes](https://documentation.gravitee.io/platform-management/gamma-release-notes)
+  * [Breaking Changes and Deprecations](https://documentation.gravitee.io/platform-management/gamma-release-notes/gamma-breaking-changes)
+  * [Support model](https://documentation.gravitee.io/platform-management/support-model)
 * [General](general/README.md)
   * [Use the Overview page](general/use-the-overview-page.md)
 * [APIs](apis/README.md)

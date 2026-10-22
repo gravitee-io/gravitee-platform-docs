@@ -1,2 +1,2 @@
-# Azure Service Bus
+# Azure Service Bus endpoint reference
 

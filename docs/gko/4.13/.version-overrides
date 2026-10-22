@@ -15,6 +15,10 @@ guides/gateway-api/multi-domain-tls.md
 getting-started/installation/install-with-helm.md
 overview/admission-validation.md
 overview/drift-detection.md
+# Gateway image tags name the 4.13 release
+guides/db-less-mode.md
+overview/custom-resource-definitions/gatewayclassparameters.md
+guides/gateway-api/dns-with-external-dns.md
 # MCP servers and MCP proxies custom resources (GKO 4.13.0 feature, AIAM-122)
 overview/custom-resource-definitions/README.md
 overview/custom-resource-definitions/catalogmcpserver.md
@@ -32,3 +36,7 @@ reference/api-reference.md
 # Group default member roles and the ignore-members and ignore-groups annotations (GKO 4.13.0 feature, APIM-14548)
 overview/custom-resource-definitions/group.md
 guides/manage-api-groups-and-members.md
+# ApiDefinition and v2 API deprecation notice (from GKO 4.13.0)
+overview/custom-resource-definitions/apidefinition.md
+# Service account permissions for each resource (APIM 4.13.0 Automation API checks, GKO-3415)
+guides/define-an-apim-service-account-for-gko.md

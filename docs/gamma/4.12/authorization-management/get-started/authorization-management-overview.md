@@ -6,7 +6,7 @@ description: Authorization Management enforces fine-grained, catalog-aware acces
 
 # Authorization Management overview
 
-Authorization Management provides fine-grained, catalog-aware access control across all Gamma traffic types: APIs, MCP servers, AI models, agents, and custom resources. Policies are written in Gravitee Authorization Policy Language (GAPL), a subset of the Cedar policy language, and enforced at the wire level by Gamma's gateways.
+Authorization Management provides fine-grained, catalog-aware access control across all Gamma traffic types: APIs, MCP servers, AI models, agents, and custom resources. Policies are written in Gravitee Authorization Policy Language (GAPL) and enforced at the wire level by Gamma's gateways.
 
 ## How it works
 
@@ -20,7 +20,7 @@ When a request arrives at the API Gateway or AI Gateway, the Policy Decision Poi
 
 ## Policy language: GAPL
 
-GAPL uses Cedar syntax. A policy looks like:
+A GAPL policy looks like:
 
 ```
 permit (
@@ -33,7 +33,7 @@ permit (
 Policies support optional `when` conditions for time-of-day restrictions, IP range checks, token budgets, and custom attribute matching.
 
 {% hint style="info" %}
-GAPL supports a subset of the Cedar policy language optimized for the Gamma visual editor. Cedar features like `unless` clauses are not available in the GAPL editor.
+GAPL is optimized for the Gamma visual editor. Clauses like `unless` are not available in the GAPL editor.
 {% endhint %}
 
 ## Policy categories

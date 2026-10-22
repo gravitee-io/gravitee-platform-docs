@@ -15,8 +15,8 @@ Every entity in Authorization Management carries an `attributes` map — a set o
 ```
 permit (
   principal == User::"alice",
-  action == Action::"invoke",
-  resource == MCPTool::"search"
+  action == Action::"demo-hr-mcp.search",
+  resource == MCPTool::"demo-hr-mcp.search"
 )
 when {
   principal.department == "engineering"
@@ -25,18 +25,7 @@ when {
 
 ## Attribute types
 
-The Attribute Editor supports four types:
-
-| Type | Input | GAPL reference | Example |
-|------|-------|----------------|---------|
-| **String** | Free text | `principal.key == "value"` | `department = "engineering"` |
-| **Number** | Numeric value | `principal.key < 100` | `clearance_level = 5` |
-| **Boolean** | Toggle switch | `principal.key == true` | `mfa_enabled = true` |
-| **Set** | Comma-separated values | `principal.key.contains("value")` | `scopes = read,write,admin` |
-
-{% hint style="info" %}
-All attribute values are stored as text on the wire. The policy engine coerces them based on the declared type. The editor shows a hint for each type: "Stored as text; reference with `principal.<key>` in policies."
-{% endhint %}
+The Attribute Editor offers twelve types: **String**, **Integer**, **Boolean**, **Set&lt;String&gt;**, **Decimal**, **Timestamp**, **Duration**, **IP**, **CIDR**, **Enum**, **EntityRef**, and **Set&lt;EntityRef&gt;**. For the GAPL value each type becomes and an example condition for each, see [Console attribute types in GAPL](../../gapl-reference/values-and-types.md#console-attribute-types-in-gapl).
 
 ## Adding attributes during creation
 

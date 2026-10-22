@@ -15,8 +15,8 @@ Resource attributes are referenced in policy `when` conditions using the `resour
 ```
 permit (
   principal == User::"alice",
-  action == Action::"invoke",
-  resource == MCPServer::"demo-hr-mcp"
+  action == Action::"demo-hr-mcp.search",
+  resource == MCPTool::"demo-hr-mcp.search"
 )
 when {
   resource.sensitivity != "restricted"
@@ -25,14 +25,7 @@ when {
 
 ## Attribute types
 
-The Attribute Editor supports four types:
-
-| Type | Input | GAPL reference |
-|------|-------|----------------|
-| **String** | Free text | `resource.key == "value"` |
-| **Number** | Numeric value | `resource.key < 100` |
-| **Boolean** | Toggle switch | `resource.key == true` |
-| **Set** | Comma-separated values | `resource.key.contains("value")` |
+The Attribute Editor offers twelve types: **String**, **Integer**, **Boolean**, **Set&lt;String&gt;**, **Decimal**, **Timestamp**, **Duration**, **IP**, **CIDR**, **Enum**, **EntityRef**, and **Set&lt;EntityRef&gt;**. For the GAPL value each type becomes and an example condition for each, see [Console attribute types in GAPL](../../gapl-reference/values-and-types.md#console-attribute-types-in-gapl).
 
 ## Adding attributes
 
@@ -63,7 +56,7 @@ When creating a resource via **Add Resource**, scroll to the **Attributes** sect
 | `sensitivity` | String | `"high"`, `"low"` | `resource.sensitivity == "high"` |
 | `owner` | String | `"team-data"` | `resource.owner == principal.team` |
 | `cost_tier` | String | `"premium"` | `resource.cost_tier != "premium"` |
-| `max_tokens` | Number | `50000` | `resource.max_tokens > context.usage.tokens_today` |
+| `max_tokens` | Integer | `50000` | `resource.max_tokens > context.usage.tokens_today` |
 | `public` | Boolean | `true` | `resource.public == true` |
 
 ## Next steps

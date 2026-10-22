@@ -240,6 +240,8 @@ JAAS
 JCE
 javax
 OpenJDK
+Adoptium
+Chainguard
 FreeMarker
 Vert\.x
 

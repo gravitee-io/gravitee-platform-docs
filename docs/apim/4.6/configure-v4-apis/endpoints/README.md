@@ -5,7 +5,7 @@ metaLinks:
     https://documentation.gravitee.io/apim/4.11/create-and-configure-apis/configure-v4-apis/endpoints
 ---
 
-# Endpoints
+# v4 API endpoints
 
 ## Overview
 

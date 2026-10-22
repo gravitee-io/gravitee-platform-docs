@@ -1,0 +1,31 @@
+---
+description: The Kafka Quota policy enforces limits on the data Kafka clients exchange through API Management 4.13. Learn how to configure quotas.
+metaLinks:
+  alternates:
+    - kafka-quota.md
+---
+
+# Kafka Quota
+
+## Overview <a href="#user-content-description" id="user-content-description"></a>
+
+The Gravitee Kafka Policy Quota is a policy designed to enforce quotas on Kafka messages. It sets a byte-rate threshold for producers and consumers:
+
+* In the Publish phase, it limits the amount of data a producer can send to Kafka per second.
+* In the Subscribe phase, it limits the amount of data a consumer can fetch from Kafka per second.
+
+The limit applies to each quota key. By default, the key is the plan and subscription pair, followed by the value of `key` when you set one. When `useKeyOnly` is enabled, the key is the value of `key` alone. All the connections that share a key on a Gateway instance count against the same limit. Each Gateway instance keeps its own count, so with several Gateway instances, a client can reach the limit on each of them.
+
+When a client goes over the limit, the Gateway pauses the connection and sets a throttle time in the Kafka response, as a Kafka broker does for its own quotas.
+
+<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-155.png" alt="The Kafka quota policy configuration, with an empty key, use key only switched off, and a static limit of five bytes, beside the policy documentation."><figcaption><p>Kafka Quota Policy UI</p></figcaption></figure>
+
+## Phases <a href="#user-content-phases" id="user-content-phases"></a>
+
+This policy can be applied in the Publish and/or Subscribe phase.
+
+## Configuration <a href="#user-content-configuration" id="user-content-configuration"></a>
+
+You can configure the policy with the following options:
+
+<table><thead><tr><th width="231">Property</th><th>Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>key</td><td>No</td><td>Key to identify a consumer against whom the quota will be applied. Leave it empty to use the default behavior (plan/subscription pair). Supports EL.</td><td>String</td><td></td></tr><tr><td>useKeyOnly</td><td>No</td><td>Only uses the custom key to identify the consumer, regardless of the subscription and plan.</td><td>Boolean</td><td>false</td></tr><tr><td>limit.value</td><td>No</td><td>Static value defining the limit of data passed through the proxy (this limit is used if the value > 0).</td><td>Integer</td><td>0</td></tr><tr><td>limit.dynamicValue</td><td>No</td><td>Dynamic value defining the limit of data passed through the proxy (this limit is used if the value > 0). The dynamic value is based on EL expressions.</td><td>String</td><td></td></tr><tr><td>limit.unit</td><td>No</td><td>Defines the unit of the limit.</td><td>String</td><td>Bytes</td></tr></tbody></table>

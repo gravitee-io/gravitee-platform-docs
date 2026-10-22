@@ -24,7 +24,7 @@ Curation is the control that comes before all of them. A tool you never compose 
 
 To govern tool access by identity, enable Fine-Grained Authorization on a Composite MCP Server. The gateway then adds the GAPL Authorization PEP to the server's flow. On every tool call, the gateway resolves the caller and the tool into an authorization request, and then asks the in-gateway Policy Decision Point for a decision.
 
-Policies are written in Gravitee Authorization Policy Language, a subset of the Cedar policy language. The caller becomes the subject, and the tool becomes the resource:
+Policies are written in Gravitee Authorization Policy Language (GAPL). The caller becomes the subject, and the tool becomes the resource:
 
 ```
 permit (

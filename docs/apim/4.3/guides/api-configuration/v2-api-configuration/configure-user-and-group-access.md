@@ -2,7 +2,7 @@
 description: This article describes how to configure user and group access to your APIs
 ---
 
-# User and Group Access
+# Manage v2 API members and groups
 
 ## Introduction
 

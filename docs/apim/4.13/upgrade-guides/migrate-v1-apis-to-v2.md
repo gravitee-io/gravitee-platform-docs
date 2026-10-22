@@ -4,6 +4,10 @@ description: Migrate a v1 API to a v2 definition in place with API Management 4.
 
 # Migrate v1 APIs to v2
 
+{% hint style="warning" %}
+v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 APIM versions 3.20 through 4.11.x include tooling that migrates a v1 API to a v2 definition in place. APIM 4.12.0 and later versions don't include this tooling, so migrate your v1 APIs while your installation runs version 4.11.x or earlier. For more information about how each APIM version handles v1 APIs, see [Support for v1 APIs](../release-information/support-for-v1-apis.md).
 
 {% hint style="warning" %}

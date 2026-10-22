@@ -1,0 +1,65 @@
+---
+description: Self-hosted architecture means you host every API Management 4.13 component on your own infrastructure. Browse the installation guides.
+metaLinks:
+  alternates:
+    - ./
+---
+
+# Self-Hosted Installation Guides
+
+## Overview
+
+{% hint style="info" %}
+**Gravitee Cloud is recommended for new installations to reduce deployment complexity.**\
+Let Gravitee run the control plane and database for you. With Gravitee Cloud, you only need to run the data planes. To register for a Gravitee Cloud account, go to the [Gravitee Cloud registration page](https://cloud.gravitee.io/).
+{% endhint %}
+
+Self-hosted architecture refers a scheme where all Gravitee API Management components are hosted by the user on-prem and/or in a private cloud. Gravitee Cloud and API Designer are optional Gravitee-managed components that can be connected to a self-hosted API Management installation.
+
+## Deployment methods
+
+Gravitee APIM can be installed using the following technology stacks and deployment methods.
+
+### Docker
+
+* [docker-compose.md](docker/docker-compose.md "mention")
+* [docker-cli.md](docker/docker-cli.md "mention")
+
+### Kubernetes
+
+* [kubernetes](kubernetes/ "mention")
+* [AWS EKS](kubernetes/aws-eks.md)
+* [Azure AKS](kubernetes/azure-aks.md)
+* [OpenShift](kubernetes/openshift.md)
+* GCP GKE
+
+### Linux
+
+The RPM packages are for RPM-based distributions. On other distributions, such as Debian or Ubuntu, install from the `.zip` distribution. To see which operating system each Docker image is built on, see [Image variants](docker/README.md#image-variants).
+
+* [rpm](rpm/ "mention")
+* [.zip.md](.zip.md "mention")
+
+### Windows
+
+* [.zip.md](.zip.md "mention")
+
+## Architecture
+
+The following diagrams illustrate the component management and design of a self-hosted architecture.
+
+### Self-hosted component management
+
+<figure><img src="../.gitbook/assets/GraviteeAPIM-SelfHosted-Architecture-1.png" alt="A composable architecture diagram, showing a customer-managed control plane of the Management API, Management Console, Developer Portal, and config and analytics databases, and a customer-managed data plane of the API Gateway and its rate limit and cache storage."><figcaption></figcaption></figure>
+
+Self-hosted component management means that the customer hosts and manages every Control Plane and Data Plane.
+
+To support a multi-environment configuration, the self-hosted Control Plane must be connected to Gravitee Cloud.
+
+### Self-hosted architecture diagram (example)
+
+<figure><img src="../.gitbook/assets/GraviteeAPIM-SelfHosted-Architecture-2.png" alt="A self-hosted architecture diagram, with a customer-hosted data plane split across a DMZ and internal network on the left, and a customer-hosted control plane of the analytics and config databases, Management API, API Management Console, and Developer Portal on the right."><figcaption></figcaption></figure>
+
+In a typical self-hosted architecture, the customer manages both the Data Plane and the Control Plane. The Management Control Plane consists of API Management, and optionally Gravitee Alert Engine and Gravitee Access Management.
+
+The API Gateways communicate directly with the self-hosted Management API to synchronize API configurations, and, optionally, publish metrics and logs data.

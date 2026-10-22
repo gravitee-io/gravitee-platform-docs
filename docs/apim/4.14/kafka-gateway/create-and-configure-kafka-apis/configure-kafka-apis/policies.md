@@ -1,0 +1,84 @@
+---
+description: Policies are customizable rules the Gateway runs during a Kafka API transaction in API Management 4.13. Learn how they change behaviour.
+metaLinks:
+  alternates:
+    - policies.md
+---
+
+# Policies
+
+## Overview
+
+Gravitee policies are customizable rules or logic the Gateway executes during an API transaction. They modify the behavior of the request or response handled by the APIM Gateway to fulfill business rules during request/response processing. Policies are used to secure APIs, transform data, route traffic, restrict access, customize performance, or monitor transactions.
+
+Gravitee supports the following Kafka policies, which can be applied to Kafka APIs.
+
+<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-acl.md">Kafka ACL</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/avro-to-json.md">Avro to JSON</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-governance-rules-policies.md">Kafka Governance Rules</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-message-encryption-decryption-policy-reference.md">Kafka Message Encryption and Decryption</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-message-filtering.md">Kafka Message Filtering</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-offloading.md">Kafka Offloading</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md">Kafka Quota</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md">Kafka Topic Mapping</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-transform-key.md">Kafka Transform Key</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/native-ip-filtering.md">Native IP Filtering</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/protobuf-to-json.md">Protobuf to JSON</a></td><td></td><td></td></tr></tbody></table>
+
+{% hint style="info" %}
+The [Kafka governance rules policies](../../../create-and-configure-apis/apply-policies/policy-reference/kafka-governance-rules-policies.md) (Produce Rules, Fetch Rules, Create Topic Rules, Alter Topic Rules) require an Enterprise Edition license with the `apim-native-kafka-policy-rules` feature.
+{% endhint %}
+
+## Policy phases
+
+The request and response of a Kafka API transaction are broken up into the following phases:
+
+* **Connect:** Policies are executed after plan selection and authentication on the Gateway, but before the client connects to the upstream broker.
+* **Interact:** Policies with a global scope, for example topic mapping, are executed on all interactions between the client and the Gateway.
+* **Publish:** Specific policies acting at the message level are applied to each produced record.
+* **Subscribe:** Specific policies acting at the message level are applied to each fetched record.
+
+Which Kafka policies can be applied to each phase is summarized below:
+
+<table><thead><tr><th>Policy</th><th data-type="checkbox">Connect</th><th data-type="checkbox">Interact</th><th data-type="checkbox">Publish</th><th data-type="checkbox">Subscribe</th></tr></thead><tbody><tr><td>Avro to JSON</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Kafka ACL</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Alter Topic Rules</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Create Topic Rules</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Fetch Rules</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Message Encryption and Decryption</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Kafka Message Filtering</td><td>false</td><td>false</td><td>false</td><td>true</td></tr><tr><td>Kafka Namespace</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Offloading</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Kafka Produce Rules</td><td>false</td><td>false</td><td>true</td><td>false</td></tr><tr><td>Kafka Quota</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Kafka Topic Mapping</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Transform Key</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Native IP Filtering</td><td>true</td><td>false</td><td>false</td><td>false</td></tr><tr><td>Protobuf to JSON</td><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
+
+Kafka policies can be applied to these phases in policy chains of arbitrary length.
+
+## Policy failures
+
+A policy that interrupts a Kafka API transaction returns a Kafka protocol error code to the client. The Kafka protocol carries that error code alone and has no field for the error key or message the policy sets, so the client receives the code without the detail behind it. A processing error that no policy handles returns `UNKNOWN_SERVER_ERROR`.
+
+Read the Gateway log to identify which policy interrupted the transaction and why.
+
+## Gravitee Policy Studio
+
+The **Policies** section takes you to the Gravitee Policy Studio.
+
+<figure><img src="../../../.gitbook/assets/A 11 policy 1.png" alt="The Policies page of a native Kafka API, listing a default keyless flow and a Common group, with no flows yet selected."><figcaption></figcaption></figure>
+
+You can use the Policy Studio to create and manage flows. Flows are policy enforcement sequences that protect or transform how APIs are consumed. They control where, and under what conditions, one or more policies act on an API transaction.
+
+Policies are scoped to different API consumers through flows. You can create a flow for an existing plan that applies to only the subscribers of that plan, or a Common flow that applies to all users of the API. For a native Kafka API, only one Common flow is allowed, and only one flow is allowed per plan.
+
+Policies are added to flows to enforce security, reliability, and proper data transfer. Policies can be added to the different request/response phases of a Kafka API transaction in policy chains of arbitrary length.
+
+## Create a policy
+
+1. Click the **+** next to a plan's name to create a flow for that individual plan, or next to **Common** to create a Common flow.
+2. Give your flow a name.
+3.  Click **Create**.
+
+    <figure><img src="../../../.gitbook/assets/A 11 policy 0.png" alt="The Create a new flow dialog for a native API, with a flow name entered and a note that only one flow is allowed."><figcaption></figcaption></figure>
+4.  In the Flow details panel, select the **Global** header to add a policy to the **Interact** phase of the Kafka API transaction.
+
+    <figure><img src="../../../.gitbook/assets/A 11 policy 2.png" alt="The Policies page with a new flow selected, showing the Connect phase marked coming soon and an empty Interact phase between the client and the broker."><figcaption></figcaption></figure>
+
+    Choose either the Kafka ACL or [Kafka Topic Mapping](../../../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md) policy.
+
+    <figure><img src="../../../.gitbook/assets/A 11 policy 3.png" alt="The Policies for Interact phase dialog, offering the Kafka ACL and Kafka Topic Mapping policies."><figcaption></figcaption></figure>
+
+    Fill out the policy configuration details and click **Add policy**.
+
+    <figure><img src="../../../.gitbook/assets/AAA policy.png" alt="The Policies page with a Kafka Topic Mapping policy added to the Interact phase of the selected flow."><figcaption></figcaption></figure>
+5.  In the Flow details panel, select the **Event messages** header to add a policy to the **Publish** and/or **Subscribe** phase of the Kafka API transaction.
+
+    <figure><img src="../../../.gitbook/assets/A 11 policy 4.png" alt="The Event messages tab of a flow, showing empty Publish and Subscribe phases between the client and the broker."><figcaption></figcaption></figure>
+
+    Select the [Kafka Quota](../../../create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md) policy.
+
+    <figure><img src="../../../.gitbook/assets/A 11 policy 5.png" alt="The Policies for Publish phase dialog, offering the Kafka Quota policy."><figcaption></figcaption></figure>
+
+    Fill out the policy configuration details and click **Add policy**.
+
+    <figure><img src="../../../.gitbook/assets/AAB policy.png" alt="The Event messages tab with a Kafka Quota policy added to the Publish phase of the selected flow."><figcaption></figcaption></figure>
+6. Click **Save** and redeploy your API for changes to take effect.

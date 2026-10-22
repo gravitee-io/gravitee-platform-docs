@@ -2,7 +2,7 @@
 description: An overview about Authentication.
 ---
 
-# Authentication
+# Authentication best practices
 
 ## Overview
 

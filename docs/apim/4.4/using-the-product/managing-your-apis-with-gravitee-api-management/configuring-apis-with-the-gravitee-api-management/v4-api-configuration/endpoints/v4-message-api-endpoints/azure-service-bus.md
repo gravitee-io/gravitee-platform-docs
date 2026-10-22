@@ -2,7 +2,7 @@
 description: An overview about Azure Service Bus.
 ---
 
-# Azure Service Bus
+# Configure the Azure Service Bus endpoint
 
 ## Overview
 

@@ -3,7 +3,7 @@ description: This page provides the technical details of the Mock policy
 hidden: true
 ---
 
-# Mock
+# Mock policy
 
 ## Overview
 

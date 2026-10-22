@@ -6,7 +6,7 @@ description: Authorization Management enforces fine-grained, catalog-aware acces
 
 # Authorization Management overview
 
-Authorization Management provides fine-grained, catalog-aware access control across all Gamma traffic types: APIs, MCP servers, AI models, agents, and custom resources. Policies are written in Gravitee Authorization Policy Language (GAPL), a subset of the Cedar policy language, and enforced at the wire level by Gamma's gateways.
+Authorization Management provides fine-grained, catalog-aware access control across all Gamma traffic types: APIs, MCP servers, AI models, agents, and custom resources. Policies are written in Gravitee Authorization Policy Language (GAPL) and enforced at the wire level by Gamma's gateways.
 
 ## How it works
 
@@ -20,20 +20,20 @@ When a request arrives at the API Gateway or AI Gateway, the Policy Decision Poi
 
 ## Policy language: GAPL
 
-GAPL uses Cedar syntax. A policy looks like:
+A GAPL policy looks like:
 
 ```
 permit (
   principal == User::"alice",
-  action == Action::"invoke",
-  resource == MCPTool::"github-create-issue"
+  action == Action::"github.create-issue",
+  resource == MCPTool::"github.create-issue"
 );
 ```
 
-Policies support optional `when` conditions for time-of-day restrictions, IP range checks, token budgets, and custom attribute matching.
+Policies support optional `when` conditions for time-of-day restrictions, IP range checks, and custom attribute matching.
 
 {% hint style="info" %}
-GAPL supports a subset of the Cedar policy language optimized for the Gamma visual editor. Cedar features like `unless` clauses are not available in the GAPL editor.
+A statement can have `when` and `unless` conditions, and you can write both in the **Code** view of the policy editor. See [Policy statements](../gapl-reference/policy-statements.md#conditions).
 {% endhint %}
 
 ## Policy categories
@@ -60,7 +60,6 @@ The following conditions are available for MCP policies:
 | ---------------------- | -------------------------------------------------- |
 | **Business hours**     | `context.time.hour >= 9 && context.time.hour < 17` |
 | **Trusted device**     | `context.device.trusted == true`                   |
-| **Corporate IP range** | `context.source.ip.in_cidr("10.0.0.0/8")`          |
 
 ### AI Model conditions
 
@@ -68,10 +67,7 @@ The following conditions are available for AI Model policies:
 
 | Condition            | GAPL snippet                                      |
 | -------------------- | ------------------------------------------------- |
-| **Token budget**     | `context.usage.tokens_per_day(principal) < 50000` |
-| **Cost ceiling**     | `context.usage.cost_per_day(principal) < 100`     |
 | **PII filter on**    | `context.guardrails.pii == true`                  |
-| **Model size small** | `resource.size in ["small", "medium"]`            |
 
 ### API conditions
 
@@ -79,9 +75,7 @@ The following conditions are available for API policies:
 
 | Condition              | GAPL snippet                                          |
 | ---------------------- | ----------------------------------------------------- |
-| **Corporate IP range** | `context.source.ip.in_cidr("10.0.0.0/8")`             |
 | **Scope present**      | `context.auth.scopes.contains("orders:read")`         |
-| **Rate < 100/min**     | `context.rate.per_minute(principal) < 100`            |
 | **Tenant match**       | `context.request.header.x_tenant == principal.tenant` |
 
 ### A2A conditions
@@ -92,7 +86,6 @@ The following conditions are available for A2A policies:
 | ---------------------- | -------------------------------------------------- |
 | **Business hours**     | `context.time.hour >= 9 && context.time.hour < 17` |
 | **Trusted device**     | `context.device.trusted == true`                   |
-| **Corporate IP range** | `context.source.ip.in_cidr("10.0.0.0/8")`          |
 
 ### Custom conditions
 
@@ -100,7 +93,6 @@ The following conditions are available for custom policies:
 
 | Condition              | GAPL snippet                                       |
 | ---------------------- | -------------------------------------------------- |
-| **Corporate IP range** | `context.source.ip.in_cidr("10.0.0.0/8")`          |
 | **MFA required**       | `context.auth.mfa == true`                         |
 | **Business hours**     | `context.time.hour >= 9 && context.time.hour < 17` |
 | **Owner only**         | `resource.owner == principal`                      |

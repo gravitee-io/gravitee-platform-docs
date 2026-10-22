@@ -1,0 +1,310 @@
+---
+description: The v4 Policy Studio designs flows for APIs using the v4 API Management 4.13 definition. Follow the example to create a flow and add a policy.
+metaLinks:
+  alternates:
+    - v4-api-policy-studio.md
+---
+
+# v4 API Policy Studio
+
+{% hint style="info" %}
+**Product limitations**
+
+The v4 Policy Studio can only be used to design flows for APIs using the v4 API definition. It supports applying policies at the message level or for pub/sub use cases. The v4 Policy Studio does not currently support Gravitee Debug mode.
+{% endhint %}
+
+## Overview
+
+Gravitee defines a flow as the method to control where, and under what conditions, policies act on an API transaction. The v4 Policy Studio lets you perform the following actions:
+
+* Create and manage all flows associated with your Gateway API
+* Modify settings related to flow execution
+* Define key-value pairs at the API level
+* Configure global resources to support your flows
+
+Flows are created when policies are added to the Request, Response, Publish, Subscribe, and/or Entrypoint Connect phases of an existing v4 API. A single API supports multiple flows, which can be applied to different phases and target either subscribers of an individual plan or all users of the API.
+
+Policies are added to flows to enforce security, reliability, and proper data transfer. Examples of policies include traffic shaping, authentication/authorization, rate limiting, and dynamic routing.
+
+<details>
+
+<summary>Phases</summary>
+
+The entrypoint(s) of a flow determine its phases. The phase a policy is added to dictates when the policy is applied and how the Gateway enforces it.
+
+**Phases**
+
+* **Entrypoint Connect:** A policy is applied when the client connects to the entrypoint, before authentication and message processing. Policies in this phase can interrupt connections before downstream processing occurs.
+* **Request:** A policy is applied when the connection is established. It is enforced at the time of the request and before a client is given access to the API.
+* **Response:** A policy is applied to the response from the initial connection. It is enforced after the request is allowed, but before the response is returned to the client.
+* **Publish:** A policy is applied to messages sent to the endpoint. It is enforced when messages are published and before a client is given access to the API.
+* **Subscribe:** A policy is applied to messages received by the entrypoint. It is enforced after messages are subscribed to, but before the response is returned to the client.
+
+</details>
+
+## Example: Create a flow and add a policy
+
+The following example uses a v4 HTTP proxy API to demonstrate how to create a flow and add a policy.
+
+{% hint style="info" %}
+The flow and policy configuration options you are presented with differ based on API type and entrypoint/endpoint selections.
+{% endhint %}
+
+1. Log in to your APIM Console
+2. Select **APIs** from the navigation
+3. Select the API for which to design a flow
+4. Select **Policies** from the inner menu
+5.  To create a flow, you have the following options:
+
+    * To create a flow for a single existing plan, click the + icon next to that plan.
+    * To create a flow that applies to all plans, click the + icon next to **All plans**.
+
+    <figure><img src="../../.gitbook/assets/0 ps1.png" alt="The Policies page of a proxy API, with no flows defined under the default keyless plan or All plans."><figcaption></figcaption></figure>
+6.  Configure the flow using the **Create a new flow** module with the options shown below
+
+    <div align="left"><figure><img src="../../.gitbook/assets/0 ps2.png" alt="The Create a new flow dialog, with a flow name entered, the equals path operator, an empty path, and all methods selected." width="375"><figcaption></figcaption></figure></div>
+
+    * **Flow name:** Give your flow a descriptive name. Otherwise, a name will be automatically generated using the channel and operation.
+    * **Path operator:** Apply this flow to requests with a path that **Equals** or **Starts with** the specified **Path**.
+    * **Path:** Define the path to use in conjunction with the **Path operator** to determine if this flow should be applied.
+      *   You can use colon-prefixed path parameters instead of regex for variable segments:
+
+          *   Flow 1 (default on controller root):
+
+              ```
+              pathOperator: STARTS_WITH
+              path: /test
+              ```
+          *   Flow 2 (specific resource):
+
+              <pre><code>pathOperator: EQUALS
+              path: /test/:uuid
+              <strong>-or-
+              </strong>pathOperator: EQUALS
+              path: /test/:uuid/customer/orders/
+              </code></pre>
+
+          This lets one flow match `/test/**` and another match specifically a single-segment `/test/{UUID}` without needing regex. Path parameters are resolved once at the start of request processing and made available to all flows, as long as they are declared consistently (no conflicting positions for the same parameter name across overlapping paths).
+    * Choose one or more of the following **Methods for your flow**: ALL, CONNECT, DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT, TRACE, OTHER.
+    * **Condition:** Use [Gravitee's Expression Language (EL)](../../gravitee-expression-language.md) to define specific conditions that trigger flow execution.
+7. Click **Create** in the modal, and then **Save** on the **Policies** page.
+8.  To add a policy to your flow, click the **+** icon for the phase where the policy should be enforced.
+
+    <figure><img src="../../.gitbook/assets/0 ps3.png" alt="The Policies page with a new flow selected, showing the add-policy buttons in both the request and response phases highlighted."><figcaption></figcaption></figure>
+9. Select from the pre-populated policies that are valid for your specific entrypoints and endpoints.
+10. In the policy configuration modal, enter the information appropriate to and required by the policy.
+11. Click **Add policy**. The policy appears in the phase it was added to. For example, the following screenshot shows the API Key policy added to the Request phase of a v4 HTTP proxy API.
+
+    <figure><img src="../../.gitbook/assets/0 ps4.png" alt="The Policies page with an API Key policy added to the request phase of the selected flow and highlighted."><figcaption></figcaption></figure>
+12. Click **Save** on the **Policies** page, then redeploy your API to the Gateway for the changes to take effect.
+
+{% hint style="info" %}
+To edit a policy, click on the three vertical dots on its icon in the flow diagram.
+{% endhint %}
+
+## Policy Studio navigation tips
+
+The Policy Studio is designed to help you easily distinguish between plans and flows. You can use the search field in the **Flows** panel to surface plans or flows that have names or paths that meet your search criteria. You can also search for a policy based on its name or description.
+
+### Plans vs flows
+
+Individual plans are identified by the **Plan:** prefix, as shown in the following example. Each plan can contain one or more flows, where each flow appears as a box under the plan name. You have the option to name your flows and/or their respective paths. Flow names appear above path names, which are prefixed with "/".
+
+<figure><img src="../../.gitbook/assets/0 ps9 (1).png" alt="The Policies page with flows grouped by plan, annotated to show which label is the plan name, which is the path, and which is the flow name."><figcaption></figcaption></figure>
+
+### Find plans and flows
+
+The single search box in the **Flows** panel can be used to find all plans and flows that meet your search criteria. A search query displays the following results:
+
+*   **All of the flows of every plan whose name matches the search text.** In the following example, the search text "JWT" surfaces all of the flows that belong to the plan named **JWT**.
+
+    <figure><img src="../../.gitbook/assets/00 ps2.png" alt="The Policies page with the flow search filtered to a plan name, showing the two flows belonging to that plan."><figcaption></figcaption></figure>
+*   **All of the flows with a path that matches the search text.** In the following example, the search text "foo" surfaces every flow whose path name includes **foo**.
+
+    <figure><img src="../../.gitbook/assets/00 ps1.png" alt="The Policies page with the flow search filtered to a path fragment, showing the matching flows under two plans."><figcaption></figcaption></figure>
+*   **All of the flows with names that match the search text.** In the following example, the search text "flow" surfaces a flow called **Named flow**.
+
+    <div align="left"><figure><img src="../../.gitbook/assets/00 ps3.png" alt="The Policies page with the flow search filtered to a flow name, showing one matching flow with its tooltip displayed." width="375"><figcaption></figcaption></figure></div>
+
+### Find a policy
+
+When you click a phase's **+** icon to add a policy to your flow, you can use the search field in the policy selection pop-up to find a policy. The search results surface all policies that include your search text in the policy name or description.
+
+<figure><img src="../../.gitbook/assets/00 ps4.png" alt="The Policies for Request phase dialog with an enforcement search, offering API Key, HTTP Signature, and SSL Enforcement policies."><figcaption></figcaption></figure>
+
+## Configure flow mode
+
+To configure the flow mode, click the gear icon in the **Flows** panel to open the **Flow execution** module:
+
+<div align="left"><figure><img src="../../.gitbook/assets/0 ps5.png" alt="The Flow execution dialog, explaining default and best match flow selection, with the mode set to Default and Fail on flow mismatch switched off." width="375"><figcaption></figcaption></figure></div>
+
+* **Default flow mode:** Use the drop-down menu to select **Default** or **Best Match**
+* Enable **Fail on flow mismatch** to generate an error when there is no match between the request and any defined flow
+
+## API properties
+
+Properties are read only during the Gateway's execution of an API transaction. They can be accessed from within flows using Gravitee's Expression Language (EL) and the `#api.properties` statement.
+
+### Add static properties
+
+To configure API properties:
+
+1. Log in to your APIM Console
+2. Selecting **APIs** from the left nav
+3. Select the API for which to design a flow
+4. Select **Configuration** from the inner left nav
+5.  Select the **Properties** tab
+
+    <figure><img src="../../.gitbook/assets/0 ps6.png" alt="The Properties tab of an API&#x27;s Configuration page, empty, with Import, Manage dynamically, and Add property buttons."><figcaption></figcaption></figure>
+6. To add static properties, either:
+   * Click **Add property** and enter property definitions one at a time as a key-value pair
+   * Click **Import** and enter property definitions as a list in `<key>=<value>` format
+
+#### Encryption
+
+{% hint style="warning" %}
+Encrypted values can be used by API policies, but encrypted data should be used with care. APIM Gateway will automatically decrypt these values.
+{% endhint %}
+
+To encrypt a static API property value:
+
+1.  Reset the default secret key in `gravitee.yml`. The secret must be 32 bytes in length.
+
+    ```yaml
+    # Encrypt API properties using this secret:
+    api:
+      properties:
+        encryption:
+             secret: vvLJ4Q8Khvv9tm2tIPdkGEdmgKUruAL6
+     to provide the best security available.
+    ```
+2.  Enable the **Encrypt** toggle when adding a property via **Add property**, and then click **Add**. Once the property is saved, the APIM Console shows `••••••••••••` in place of its value, and you can't view, edit, or copy the value. To replace it, click the **Renew encrypted value** icon of the property, enter the new value, and then click **Save**.
+
+    <div align="left"><figure><img src="../../.gitbook/assets/0 ps7.png" alt="The New property dialog, with a key and value entered and the Encrypt toggle switched on." width="375"><figcaption></figcaption></figure></div>
+
+### **Dynamic properties**
+
+To configure dynamic properties:
+
+1. Log in to your APIM Console
+2. Selecting **APIs** from the left nav
+3. Select the API for which to design a flow
+4. Select **Configuration** from the inner left nav
+5. Select the **Properties** tab
+6.  Click the **Manage dynamically** button and define the configuration
+
+    <figure><img src="../../.gitbook/assets/0 ps8.png" alt="The API dynamic properties page, disabled, with the schedule set to every thirty seconds, the GET method, an empty URL, and a default JOLT transformation."><figcaption></figcaption></figure>
+
+    * Toggle **Enabled** to ON
+    * **Schedule:** A cron expression to schedule the health check
+    * **HTTP Method:** The HTTP method that invokes the endpoint
+    * **URL:** The target from which to fetch dynamic properties
+    * **Request Headers:** The HTTP headers to add to the request fetching properties
+    * **Request body:** The HTTP body content to add to the request fetching properties
+    * (Optional) **Transformation (JOLT specification):** If the HTTP service doesn't return the expected output, edit the JOLT transformation accordingly
+    * (Optional) **Encrypt on fetch:** In the **Encryption** section, encrypt every fetched value. For more information, see [Encrypt dynamic properties](#encrypt-dynamic-properties).
+    * Toggle **Use system proxy** ON to use the system proxy configured in your APIM installation
+7. Click **Save**
+
+After the first call, the resultant property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.
+
+{% hint style="info" %}
+Key-value pairs can also be maintained using a dictionary, e.g., if this information is stored independently of the API creation process or applies to multiple APIs.
+{% endhint %}
+
+#### Encrypt dynamic properties
+
+Encrypt the values of dynamic properties one property at a time, or encrypt every fetched value. APIM stores each value encrypted. When the API is deployed, `{#api.properties['<key>']}` resolves to the original value, so policies read an encrypted property like any other. Encrypted and unencrypted properties sit side by side in the same API.
+
+To encrypt one dynamic property, complete the following steps:
+
+1. In the **Properties** tab, click **Encrypt value**, the lock icon of the property. The property shows **Encrypted On Save**.
+2. Click **Save**.
+3. In the **This API is out of sync.** banner, click **Deploy API**, and then click **Deploy**.
+
+<figure><img src="../../.gitbook/assets/apim-api-properties-encrypt-dynamic-property.png" alt="The Properties tab listing two encrypted dynamic properties, a dynamic property marked Encrypted On Save, an encrypted static property, and an unencrypted static property, above the unsaved changes bar"><figcaption><p>A dynamic property marked for encryption, before you save</p></figcaption></figure>
+
+To encrypt every fetched value, complete the following steps:
+
+1. In the **Properties** tab, click **Manage dynamically**.
+2. In the **Encryption** section, turn on **Encrypt on fetch**. The section is available while **Enabled** is on.
+3. Click **Save**.
+4. In the **This API is out of sync.** banner, click **Deploy API**, and then click **Deploy**.
+
+<figure><img src="../../.gitbook/assets/apim-api-dynamic-properties-encrypt-on-fetch.png" alt="The API dynamic properties page with Encrypt on fetch turned on in the Encryption section, above the unsaved changes bar"><figcaption><p>The Encryption section of the dynamic properties settings</p></figcaption></figure>
+
+After the API is deployed, the next fetch encrypts every value that isn't encrypted yet. Turning off **Encrypt on fetch** doesn't decrypt the values that are already stored.
+
+#### Encrypted property behavior
+
+Note the following points about encrypted properties:
+
+* **An encrypted property can't be made plain again.** The APIM Console offers no way to do it, and the Management API refuses it. To store a plain value under the same key, remove the property, click **Save**, and then add the property again without **Encrypt**. A removed dynamic property comes back unencrypted at the next fetch, unless **Encrypt on fetch** is on.
+* **Encrypted values are hidden.** The APIM Console shows `••••••••••••` in place of the value. You can't edit the key or the value of an encrypted property, or copy its value. Reading the API through the Management API v2 returns `••••••••••••` too. The API export and the deployment history hold the encrypted value.
+* **An encrypted dynamic property stays encrypted when its value changes.** When a fetch returns a new value, APIM encrypts it, whether **Encrypt on fetch** is on or off.
+* **A dynamic property whose key is missing from a fetch loses its encryption.** APIM removes the property. If the key comes back, APIM stores its value as plain text, unless **Encrypt on fetch** is on.
+* **Encrypting a property takes effect when you deploy the API.** Until then, the deployed API holds the earlier plain text value. The deployment history keeps the plain text value of earlier deployments.
+* **A value that can't be decrypted at deployment resolves to the encrypted value.** This happens, for example, when the Gateway's secret differs from the Management API's. The Gateway logs an error that names the property. For more information, see [Property Encryption](../../prepare-a-production-environment/production-best-practices/general-recommendations/property-encryption.md).
+* **Audit entries don't contain encrypted values.** An audit entry shows a `<sha256:…>` value in place of an encrypted value. Entries written while a property was still plain text keep its plain text value.
+* **Deployments are audited.** Deploying an API that holds an encrypted property records an `API_ENCRYPTED_PROPERTIES_ACCESSED` entry with the user who deployed it. When a fetch changes the properties of an API without undeployed changes, APIM redeploys the API and records `API_ENCRYPTED_PROPERTIES_REFRESHED`. When the API has undeployed changes, the fetched values wait for your next deployment.
+
+#### Verify encrypted dynamic properties
+
+To verify encrypted dynamic properties are working as expected, follow these steps:
+
+1. In the **Properties** tab, check that the property shows **Encrypted** and **Dynamic**, with `••••••••••••` in place of its value.
+2. Call the API through the Gateway, and check that a policy that reads `{#api.properties['<key>']}` receives the original value.
+3. Optional: In the **Audit Logs** tab, check that an `API_ENCRYPTED_PROPERTIES_ACCESSED` entry records the deployment.
+
+<figure><img src="../../.gitbook/assets/apim-api-audit-logs-encrypted-properties.png" alt="The Audit Logs tab of an API listing an API_ENCRYPTED_PROPERTIES_REFRESHED entry by the http-dynamic-properties-management-api-service user and an API_ENCRYPTED_PROPERTIES_ACCESSED entry by the user who deployed the API"><figcaption><p>The audit entries for an API that holds encrypted properties</p></figcaption></figure>
+
+## Resources
+
+Some policies support the addition of [resources](resources.md), which can be used for actions such as authentication and schema registry validation. After you create resources, you will be able to reference them when designing policies. Policies that support resources include:
+
+<table data-header-hidden><thead><tr><th width="242"></th><th></th></tr></thead><tbody><tr><td>Basic Authentication</td><td>Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory</td></tr><tr><td>Cache</td><td>Specify a cache resource via the Cache or Cache Redis resources</td></tr><tr><td>HTTP Signature<br>Generate HTTP Signature</td><td>Specify your HTTP Authentication Provider resource</td></tr><tr><td>OAuth2</td><td>Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource</td></tr><tr><td>OpenID Connect UserInfo</td><td>Specify a Keycloak Adapter resource to use Keycloak as your OpenID Connect resource</td></tr><tr><td>AVRO to JSON<br>AVRO to Protobuf<br>Protobuf to JSON</td><td>Specify your Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry</td></tr></tbody></table>
+
+{% hint style="info" %}
+Global resources are available to all flows associated with the Gateway API, but are not available to other Gateway APIs.
+{% endhint %}
+
+## Examples
+
+<details>
+
+<summary>Example 1: Dynamic routing</summary>
+
+Configure a v4 proxy API to query the stock levels of shop databases, then dynamically reroute any API call containing a shop ID to its associated URL:
+
+1.  Define a list of properties for the shops, where `<key>` is the unique shop ID and `<value>` is the shop URL
+
+    <figure><img src="../../.gitbook/assets/example1_properties list.png" alt="The API properties page listing three unencrypted key and value pairs, each with a lock icon to encrypt it and a cross to remove it."><figcaption></figcaption></figure>
+2.  Configure a dynamic routing policy that builds new URLs dynamically through property matching via the `#api.properties` statement:
+
+    <div align="left"><figure><img src="../../.gitbook/assets/example1_properties rule.png" alt="The Policies for Request phase dialog configuring dynamic routing, with a wildcard match expression and a redirect target built from an API property and a request header." width="375"><figcaption></figcaption></figure></div>
+
+If the ID in the request header matches the key of one of the properties, it is replaced with the URL. The dynamic routing policy then reroutes the API call to the URL.
+
+</details>
+
+<details>
+
+<summary>Example 2: Monetization via latency</summary>
+
+To monetize data delivery, consider a v4 message API that sends an alert whenever inventory is added to an online store. Tier 1 customers pay for item availability alerts in true real-time, while Tier 2 customers are notified for free, but in less than real-time.
+
+1.  Add a keyless flow to the Default Keyless Plan
+
+    <figure><img src="../../.gitbook/assets/example2_keyless flow.png" alt="The Flows panel with a custom flow selected, and flow details showing its entrypoints, publish and subscribe operations, and channel operator."><figcaption></figcaption></figure>
+2.  Apply a latency policy to the Default Keyless Plan
+
+    <div align="left"><figure><img src="../../.gitbook/assets/example2_latency.png" alt="The Policies for Publish phase dialog configuring a latency policy, with a description and a time duration of 1800 seconds." width="375"><figcaption></figcaption></figure></div>
+3. Select **Consumers** from the inner left nav
+4.  Under the **Plans** tab, click **+ Add new plan**
+
+    <figure><img src="../../.gitbook/assets/example2_add plan.png" alt="The Plans tab of an API&#x27;s Consumers page, with the PUBLISHED filter selected and a keyless plan and a push plan both published."><figcaption></figcaption></figure>
+5. Select **API Key** from the drop-down menu and configure an API Key plan
+
+Tier 2 customers can use our API for free, but new merchandise alerts are delayed by 30 minutes. Tier 1 customers who purchase the API Key plan are given unlimited access to real-time data.
+
+</details>

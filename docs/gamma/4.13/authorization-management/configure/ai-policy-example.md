@@ -1,12 +1,12 @@
 ---
 hidden: false
 noIndex: false
-description: Control which teams reach which AI models with policy examples for token budgets, cost ceilings, and guardrails. Adapt an example to your own models.
+description: Control which teams reach which AI models with policy examples for team access, guardrails, and model size. Adapt an example to your own models.
 ---
 
 # AI policy example
 
-Practical examples of authorization policies for AI providers and models, including token budget controls and cost ceilings.
+Practical examples of authorization policies for AI providers and models, including guardrails and model size restrictions.
 
 ## AI Model policy structure
 
@@ -30,43 +30,7 @@ permit (
 );
 ```
 
-## Example 2: Enforce a daily token budget
-
-```
-// Policy: token-budget-50k
-// Target: gpt-4o
-
-permit (
-  principal,
-  action == Action::"invoke",
-  resource == Model::"gpt-4o"
-)
-when {
-  context.usage.tokens_per_day(principal) < 50000
-};
-```
-
-This policy permits model access only while the principal stays under 50,000 tokens per day.
-
-## Example 3: Cost ceiling per principal
-
-```
-// Policy: cost-ceiling-100
-// Target: gpt-4o
-
-forbid (
-  principal,
-  action == Action::"invoke",
-  resource == Model::"gpt-4o"
-)
-when {
-  context.usage.cost_per_day(principal) >= 100
-};
-```
-
-This policy denies access once the principal's daily cost reaches $100.
-
-## Example 4: Require PII guardrails
+## Example 2: Require PII guardrails
 
 ```
 // Policy: require-pii-filter
@@ -84,7 +48,7 @@ when {
 
 Access is only permitted when the PII filter guardrail is enabled for the request.
 
-## Example 5: Restrict large models to senior engineers
+## Example 3: Restrict large models to senior engineers
 
 ```
 // Policy: large-models-senior-only
@@ -96,7 +60,7 @@ forbid (
   resource == Model::"gpt-4o"
 )
 when {
-  resource.size in ["large", "xlarge"] &&
+  ["large", "xlarge"].contains(resource.size) &&
   principal.level < 5
 };
 ```
@@ -105,10 +69,7 @@ when {
 
 | Condition | GAPL |
 |-----------|------|
-| **Token budget** | `context.usage.tokens_per_day(principal) < 50000` |
-| **Cost ceiling** | `context.usage.cost_per_day(principal) < 100` |
 | **PII filter on** | `context.guardrails.pii == true` |
-| **Model size small** | `resource.size in ["small", "medium"]` |
 
 ## Combining with MCP policies
 

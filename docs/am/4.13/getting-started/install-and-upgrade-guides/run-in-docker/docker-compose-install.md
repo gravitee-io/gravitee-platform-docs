@@ -51,7 +51,7 @@ You can find below a docker-compose configuration snippet that mounts two volume
 
 ```sh
   management:
-    image: graviteeio/am-management-api:latest
+    image: graviteeio/am-management-api:4.13
     container_name: gio_am_management
     volumes:
       - /path/to/plugins-dir:/opt/graviteeio-am-management-api/plugins-ee
@@ -61,7 +61,7 @@ You can find below a docker-compose configuration snippet that mounts two volume
       - GRAVITEE_PLUGINS_PATH_1=/opt/graviteeio-am-management-api/plugins-ee
 
   gateway:
-    image: graviteeio/am-gateway:3.18.0
+    image: graviteeio/am-gateway:4.13
     container_name: gio_am_gateway
     restart: always
     volumes:
@@ -87,7 +87,7 @@ When all components are started, you can run a quick test by checking these URLs
 If you want to run a different version of AM or change the default port, you can run `docker-compose` as follows:
 
 ```sh
-GIO_AM_VERSION=3 NGINX_PORT=18000 docker-compose up
+GIO_AM_VERSION=4.13 NGINX_PORT=18000 docker-compose up
 ```
 
 ## Run AM with a single command

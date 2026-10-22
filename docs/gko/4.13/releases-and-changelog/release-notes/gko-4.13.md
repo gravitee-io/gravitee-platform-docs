@@ -5,7 +5,7 @@ description: Highlights, breaking changes, and new features in the Gravitee Kube
 
 # GKO 4.13
 
-This page describes the new features and breaking changes introduced in GKO 4.13.
+This page describes the new features, breaking changes, and deprecations introduced in GKO 4.13.
 
 ## Highlights
 
@@ -23,11 +23,29 @@ The Gateway API updates listed on this page are also available in GKO 4.12 start
 
 ## Breaking changes
 
-This release changes how the Gateway API controller handles one existing field.
+This release changes how GKO handles three existing configurations.
 
 ### Gateway infrastructure parameters are rejected
 
 In earlier releases, GKO ignored the `spec.infrastructure.parametersRef` field of a `Gateway` resource. A Gateway that sets `spec.infrastructure.parametersRef` is now rejected: its `Accepted` condition is set to `False`, with a message reporting that the parameters reference isn't supported. Use the `GatewayClassParameters` resource to configure Gravitee-specific settings instead.
+
+### `spec.navigation` of the Portal resource is deprecated
+
+`spec.navigation` of the `Portal` resource is deprecated. Use `spec.structure.topNavbar` instead. A resource that sets `spec.navigation` is accepted with the warning `spec.navigation is deprecated, use spec.structure.topNavbar instead`, and a resource that sets both is rejected with `navigation and structure cannot be used at the same time`. Drift detection compares `spec.structure` and ignores `spec.navigation`, so a resource that uses only `spec.navigation` can be reported as drifted.
+
+Before you upgrade, move each Portal resource from `spec.navigation` to `spec.structure.topNavbar`. For more information, see [Drift detection](../../overview/drift-detection.md).
+
+### Updating an existing resource requires the update permission in APIM
+
+From APIM 4.13.0, the Automation API and the Management API imports that GKO uses check the update permission when a resource already exists in APIM, not only the create permission. A service account that holds only the create permission now gets `403` when GKO applies a change to an existing API, application, group, shared policy group, dictionary, portal resource, documentation page, or subscription. Changing the members of an API or application also requires the member update permission.
+
+Before you upgrade APIM, review the permissions of the service account that GKO uses.
+
+## Deprecations
+
+### The `ApiDefinition` resource is deprecated
+
+The `ApiDefinition` resource is deprecated, along with the v2 APIs that it manages, and the October 2027 release will remove both. Resources that you create with `ApiDefinition` continue to work until then. Migrate them to the [`ApiV4Definition`](../../overview/custom-resource-definitions/apiv4definition.md) resource. For more information, see [Breaking Changes and Deprecations](https://documentation.gravitee.io/apim/4.13/release-information/breaking-changes-and-deprecations).
 
 ## New features
 
