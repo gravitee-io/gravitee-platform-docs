@@ -245,3 +245,6 @@ developer-portal/new-developer-portal/customize-the-navigation/portal-navigation
 
 # Support model page moved to Platform Management, removed from 4.12 and 4.13 (#2705)
 release-information/support-model.md
+# Service account permissions for each Terraform resource (APIM 4.13.0 Automation API checks, GKO-3415)
+terraform/define-an-apim-service-account-for-terraform.md
+configure-and-manage-the-platform/manage-organizations-and-environments/create-a-service-account.md
