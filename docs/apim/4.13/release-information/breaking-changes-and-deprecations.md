@@ -281,47 +281,31 @@ Before you upgrade, check that every Rate Limit, Quota, and Spike Arrest policy 
 
 An MCP Proxy answers a `GET` request whose `Accept` header contains `text/event-stream` with `405`, the error key `MCP_PROXY_METHOD_NOT_ALLOWED`, and a JSON-RPC error that asks the client to send its requests with `POST`. Previously, the request reached the upstream server, and a keyless plan could answer it with a misleading `401`. Paths that start with `/.well-known` or `/.auth/` aren't affected. This also applies from 4.12.13.
 
-**New Developer Portal: API documentation moves to the API on upgrade**
+{% hint style="info" %}
+**New Developer Portal upgrade notes**
 
-From 4.13.0, the documentation of an API in the New Developer Portal belongs to the API. On the first Management API startup after the upgrade, the pages and folders created in the portal editor under an API's listing move to the API, with everything they contain. The Developer Portal still shows them under the API's listing.
+The following changes to the New Developer Portal aren't breaking changes, but they can change what you see or how your automation behaves after the upgrade.
 
-Each moved item keeps the most restrictive published state and visibility of the folders above it, so no one sees more than before. If the API already has an item at the same URL, the moved item's URL gets a `-2` suffix, or `-3` and so on. Items under a listing inside an API Product, items managed by the Automation API, and items under the listing of a deleted API stay where they are.
-
-Before you upgrade, note any links to these pages. After the upgrade, check the URLs of the moved items. For more information, see [Customize the navigation](../developer-portal/new-developer-portal/customize-the-navigation.md).
-
-**New Developer Portal: An "APIs" folder is added to the top navigation bar**
+**An "APIs" folder is added to the top navigation bar**
 
 On the first Management API startup after the upgrade, every environment gets a published, public folder named `APIs` at the end of the New Developer Portal's top navigation bar. It isn't added when a top-level folder named `APIs` already exists. The folder is added once, so if you delete it, it doesn't come back.
 
 **Automation API: A hand-made folder blocks an apply at the same path**
 
-From 4.13.0, a folder created for an API in the Console or the portal editor belongs to the API. When an Automation API apply declares a `portalNavigation` path that such a folder already occupies, the apply, and its dry run, fails with `400` and the message `Navigation path [<path>] is already occupied by content not managed by the Automation API`. This includes the folders that the documentation move above hands to the API.
+From 4.13.0, a folder created for an API in the Console or the portal editor belongs to the API. When an Automation API apply declares a `portalNavigation` path that such a folder already occupies, the apply, and its dry run, fails with `400` and the message `Navigation path [<path>] is already occupied by content not managed by the Automation API`.
 
 Before you upgrade, compare the `portalNavigation` paths of your Automation API configurations, Kubernetes resources, and Terraform configurations with the folders of each API. Rename or remove a conflicting folder to let the apply succeed. For more information, see [API documentation](../developer-portal/new-developer-portal/customize-the-navigation/portal-automation/api-documentation.md).
 
-**New Developer Portal: Portal capability and application membership settings move to Portal Settings**
+**Portal capability and application membership settings move to Portal Settings**
 
 From 4.13.0, the **Portal capabilities** and **Application membership** settings of the New Developer Portal are in **Settings** under **Portal Settings**, and no longer in the Console's **Settings**. **Portal Settings** appears in the Console menu when the New Developer Portal is enabled. **Enable the New Developer Portal** stays in the Console's **Settings**. For more information, see [Configure New Developer Portal settings](../developer-portal/new-developer-portal/configure-new-developer-portal-settings.md).
 
-**New Developer Portal: A private folder can't hold public items**
+**A private folder can't hold public items**
 
 From 4.13.0, the navigation of the New Developer Portal doesn't let a public item sit under a private folder. An Automation API apply that declares a public item under a private folder fails with `400` and the message `Parent item with id <id> must be PUBLIC to create a public child item.` In the Console and Gravitee Gamma, making a folder private also makes everything inside it private, and an item under a private folder can't be made public.
 
 Before you upgrade, check the visibility of the folders and items your Automation API configurations declare. For more information, see [Customize the navigation](../developer-portal/new-developer-portal/customize-the-navigation.md).
-
-**Developer Portal: The reset page URL of a password reset is validated**
-
-From 4.13.0, the `reset_page_url` sent with a password reset request must match `portal.whitelist`, or, when `portal.whitelist` isn't set, the portal URL of the environment. When it doesn't match, the reset email uses the default link instead, and the Management API logs a warning. A custom reset page on another host is therefore no longer used.
-
-Before you upgrade, add the host of any custom reset page to `portal.whitelist`.
-
-**Bitbucket fetcher: App passwords are no longer used**
-
-From 4.13.0, the Bitbucket fetcher no longer uses Bitbucket app passwords. Its configuration keys are unchanged.
-
-**Management API v2: The theme endpoint no longer answers `GET`**
-
-`GET /environments/{envId}/ui/themes/{themeId}` of the Management API v2 returned a debug response without checking permissions. From 4.13.0, it returns `405`. Update any client that calls it.
+{% endhint %}
 
 **Automation API and resource imports: Updating an object requires the update permission**
 
