@@ -27,24 +27,24 @@ Click **Add Principal**. A slide-out panel opens with the title **Add Principal*
 
 Select a principal type from the **Type** dropdown. The presets are:
 
-| Preset | Canonical prefix | Use case |
-|--------|----------------|----------|
-| **User** | `user` | Individual human identity |
-| **Group** | `group` | Collection of users that share access |
-| **Service Account** | `serviceaccount` | Machine or application identity |
-| **Agent Identity** | `agent-identity` | AI agent acting on behalf of a user |
+| Preset | Engine type | Use case |
+|--------|-------------|----------|
+| **User** | `User` | Individual human identity |
+| **Group** | `Group` | Collection of users that share access |
+| **Service Account** | `ServiceAccount` | Machine or application identity |
+| **Agent Identity** | `AgentIdentity` | AI agent acting on behalf of a user |
 
-If your schema defines additional principal types, those appear in the dropdown instead of the presets. You can also select **Other (custom prefix)** to create a principal with a custom type prefix.
+If your schema defines additional principal types, those appear in the dropdown instead of the presets. You can also select **Other (custom type)** to create a principal of a type the presets don't cover.
 
 {% hint style="info" %}
-When you select **Other (custom prefix)**, a prefix field appears. The prefix must start with a letter and contain only lowercase letters, digits, or dashes. If you enter a prefix that matches a preset type, the console warns you to select it from the dropdown instead.
+When you select **Other (custom type)**, a **Custom type** field appears. The policy engine uses the value as the type exactly as you enter it, for example `Webhook` or `HR::Team`. If you enter a type that the dropdown already offers, the console warns you to select it from the dropdown instead.
 {% endhint %}
 
-### 4. Enter a display name and slug
+### 4. Enter a display name and Entity ID
 
-Enter a **Display name** (required). The **Slug** auto-derives from the display name using NFD normalization: lowercase, non-alphanumeric characters replaced with dashes. You can override the slug manually; once edited, it no longer follows the display name.
+Enter a **Display name** (required). The **Entity ID** fills in from the display name: lowercase, with accents removed and every other character replaced with a dash. Change it to the ID that requests carry for this principal, such as the subject of the user's token. Once you edit it, it no longer follows the display name.
 
-The **Entity ID** preview shows the composed identifier: `<prefix>.<slug>`. This is the canonical identifier the policy engine uses in GAPL statements (for example, `user.alice`).
+The Entity ID carries no type prefix: the type is stored separately. The hint under the field shows how the policy engine sees the principal, for example `User::"alice"`. An Entity ID holds at most 255 characters, isn't `.` or `..`, and holds no whitespace, control or formatting character, double quote, backslash, `/`, `%`, `;`, `?`, or `#`.
 
 {% hint style="warning" %}
 The Entity ID is immutable after creation. If an entity with the same ID already exists, the console rejects the creation with an error: `An entity with ID "<id>" already exists.`
@@ -70,7 +70,7 @@ After creation, the Principals table displays:
 | Column | Description |
 |--------|-------------|
 | **Type** | The entity type badge (for example, `User`) |
-| **Entity ID** | The canonical identifier (for example, `user.alice`). Click the copy icon to copy it to your clipboard |
+| **Entity ID** | The identifier the policy engine uses with the type (for example, `alice` for `User::"alice"`). Click the copy icon to copy it to your clipboard |
 | **Name** | The display name |
 | **Relationships** | Parent/child counts (for example, "in 1" for a user in one group, or "contains 3 User" for a group) |
 | **Policies** | Number of policies targeting this entity |

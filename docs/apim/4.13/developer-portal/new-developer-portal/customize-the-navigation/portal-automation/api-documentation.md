@@ -12,6 +12,8 @@ API-scoped documentation pages provide API-specific guides and reference materia
 Only v4 APIs support API-scoped documentation. The `portalNavigation` field has no effect on the classic portal and does not apply to v2 APIs.
 {% endhint %}
 
+A folder created by hand for the same API at a path that the configuration declares blocks the apply. It makes no difference whether the folder was created in the Gamma console or under the API's item in the portal navigation editor. The apply fails with `Navigation path [/guides] is already occupied by content not managed by the Automation API`, and nothing changes. Rename or delete the manually created folder, and then apply again.
+
 ### Using the Automation API
 
 1. Send a `PUT` request to `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/documentations` with the documentation specification.
