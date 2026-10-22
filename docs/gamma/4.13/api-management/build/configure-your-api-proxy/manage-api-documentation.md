@@ -44,7 +44,7 @@ The page is created unpublished and opens in the editor.
 
 ## Edit a page
 
-Click the title of a page to open it. The editor shows the content on the left and a preview on the right, and the preview follows what you type. An OpenAPI page previews in Swagger UI, or in Redoc when the page is configured for it. Click **Save changes** to save the content. Closing or reloading the browser tab with unsaved changes asks you to confirm first. Moving to another page of the console doesn't.
+Click the title of a page to open it. The editor shows the content on the left and a preview on the right, and the preview follows what you type. An OpenAPI page previews in the viewer it's configured for: Redoc by default, or Swagger UI. Click **Save changes** to save the content. Closing or reloading the browser tab with unsaved changes asks you to confirm first. Moving to another page of the console doesn't.
 
 <figure><img src="../../.gitbook/assets/gamma-api-documentation-editor.png" alt="The editor of a Gravitee Markdown page, with the page title, its Published and Public badges, the Edit details and Save changes buttons, the Markdown on the left, and the rendered preview on the right."><figcaption><p>The editor shows the content and its preview side by side.</p></figcaption></figure>
 
