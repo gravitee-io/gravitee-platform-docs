@@ -4,7 +4,7 @@ description: >-
   Developer Portal
 ---
 
-# Settings
+# Configure Developer Portal settings
 
 ## Configure settings
 

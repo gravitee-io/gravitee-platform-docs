@@ -235,3 +235,10 @@ create-and-configure-apis/gravitee-api-definitions/v2-and-v4-api-comparison.md
 upgrade-guides/apim-4.9-elasticsearch-index-template-changes.md
 upgrade-guides/migrate-v1-apis-to-v2.md
 v2-api-analytics-continuity-after-migration.md
+
+# Image variants name the Java release: 4.13 runs on Java 25, 4.12 on Java 21 (DOC-1953)
+self-hosted-installation-guides/docker/README.md
+
+# API documentation belongs to the API, 4.13 only (PORTAL-203)
+developer-portal/new-developer-portal/customize-the-navigation/portal-automation/api-documentation.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-navigation-cascade-operations.md

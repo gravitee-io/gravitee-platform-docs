@@ -41,6 +41,10 @@ Gravitee follows OpenTelemetry naming conventions:
 * `services.tracing.otel` is deprecated.
 {% endhint %}
 
+{% hint style="info" %}
+A Gateway that connects to Gravitee Cloud with a Cloud Token sends its traces and payload logs to Gravitee Cloud without this configuration. Setting any `services.opentelemetry` option replaces that with your own configuration. The deprecated `services.tracing` options don't, so a Gateway that still uses them sends its traces to Gravitee Cloud. For more information, see [Gateways connected to Gravitee Cloud](https://documentation.gravitee.io/platform-management/system-and-security/configure-opentelemetry-tracing-and-logs#gateways-connected-to-gravitee-cloud).
+{% endhint %}
+
 To enable OpenTelemetry for your Gateway, follow the steps for your installation type:
 
 {% tabs %}
@@ -381,7 +385,7 @@ The Gateway reads the W3C `traceparent` header from incoming requests, validates
 v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../release-information/breaking-changes-and-deprecations.md).
 {% endhint %}
 
-V2 APIs don't have a per-API tracing toggle. When OpenTelemetry is enabled on the Gateway, v2 APIs are traced according to the `services.opentelemetry.tracing.v2.enabled` setting, which defaults to `true`.
+There's no per-API tracing toggle for v2 APIs. When OpenTelemetry is enabled on the Gateway, v2 APIs are traced according to the `services.opentelemetry.tracing.v2.enabled` setting. It defaults to `true`, or to `false` on a Gateway that connects to Gravitee Cloud with a Cloud Token. Setting `services.opentelemetry.tracing.v2.enabled` is itself a `services.opentelemetry` setting: on a Gateway without its own OpenTelemetry configuration, it stops the Gateway from sending to Gravitee Cloud and doesn't turn OpenTelemetry on. Set it only on a Gateway that already exports to your own collector.
 
 ## Span Attribute Redaction
 

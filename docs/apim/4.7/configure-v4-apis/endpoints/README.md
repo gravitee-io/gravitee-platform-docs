@@ -2,7 +2,7 @@
 description: An overview about endpoints.
 ---
 
-# Endpoints
+# v4 API endpoints
 
 ## Overview
 

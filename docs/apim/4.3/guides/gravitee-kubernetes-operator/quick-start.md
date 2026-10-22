@@ -2,7 +2,7 @@
 description: An overview about Quickstart Guide.
 ---
 
-# Quickstart Guide
+# Deploy and test the Kubernetes Operator
 
 ## Overview
 

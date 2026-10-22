@@ -2,7 +2,7 @@
 description: Overview of OpenID Connect.
 ---
 
-# OpenID Connect
+# Add an OpenID Connect identity provider
 
 ## Overview <a href="#overview" id="overview"></a>
 

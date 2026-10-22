@@ -2,7 +2,7 @@
 description: Configuration guide for integrations.
 ---
 
-# Integrations
+# Manage federation integrations
 
 ## Introduction
 

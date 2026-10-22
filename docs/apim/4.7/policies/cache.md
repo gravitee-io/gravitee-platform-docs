@@ -3,7 +3,7 @@ description: An overview about ---.
 hidden: true
 ---
 
-# Cache
+# Cache policy
 
 ## Overview
 

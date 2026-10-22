@@ -39,6 +39,7 @@ documentation.gravitee.io links for other versions.
 * The New Developer Portal catalog gains categories, so you group APIs in the APIM Console and consumers filter the catalog to one category and share that view by URL.
 * API Products reach the New Developer Portal: publish an API Product in the portal navigation with its APIs and documentation, and consumers discover it in the catalog, subscribe to it, and manage the subscription that covers every API it includes.
 * New Developer Portal navigation pages fetch their content from external sources such as GitHub, GitLab, or an HTTP URL, on demand or on an auto-fetch schedule, and a repository import mirrors a whole documentation tree into a read-only folder.
+* The pages, folders, and links of an API in the New Developer Portal belong to the API. API owners manage them on the **Documentation** page of the API proxy in the Gamma console, and portal designers place the API in the navigation. Every environment gets an **APIs** section to publish into.
 * Identity provider claims travel into dynamic client registration requests: list the claims to persist on the identity provider, map them to registration request fields on the client registration provider, and the registration provider receives tenant or user context for each application it registers.
 * A Kafka Topic Mapping entry that sets only one of `client` and `broker` becomes a rule that applies to any topic, with the `#topic` expression variable bound to the name being resolved, so one entry can prefix or strip a prefix across every topic.
 * The FIPS images move to a JDK 25 base, where `jks` and `pkcs12` keystores no longer load, so a FIPS deployment converts the Gateway's listener stores to `pem`, or to `bcfks` where a store is read from a file, before upgrading.
@@ -47,6 +48,7 @@ documentation.gravitee.io links for other versions.
 * The XML Validation policy reads its XSD schema, and the schemas it imports, from a schema registry through the new HTTP Schema Registry resource, and a request that fails validation gets a JSON list of up to 20 violations with their position in the payload.
 * Dictionary properties can be encrypted: APIM stores the value encrypted and masks it in the APIM Console and the Management API, and the Gateway decrypts it at deployment so Expression Language resolves the original value.
 * Dynamic API properties now support encryption, one property at a time or for every fetched value: APIM stores the value encrypted and masks it in the APIM Console and in the Management API v2, and Expression Language resolves the original value once the API is deployed.
+* A Gateway that connects to Gravitee Cloud with a Cloud Token sends its traces and payload logs to Gravitee Cloud with no OpenTelemetry configuration, and the Gamma console shows them on its **Tracing** pages.
 
 ## Breaking Changes and deprecations
 
@@ -69,6 +71,10 @@ A native Kafka connection now writes one log entry per lifecycle event: one when
 #### **Subscription forms apply only to the APIs they're assigned to**
 
 An environment now holds several subscription forms, and each form applies only to the APIs assigned to it. On the first Management API startup after the upgrade, the existing form of each environment is named **Global Default Form**. If it was visible, it's assigned to every API of the environment. If it was hidden, it's assigned to no API. An API created after the upgrade has no subscription form until you assign it to one, where previously the environment's form applied to every API. New environments start with no subscription form. The Management API v2 `GET /subscription-forms` endpoint now returns a list of forms, and `PUT /subscription-forms/{subscriptionFormId}` requires `name`, `gmdContent`, and `apiIds`. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **New Developer Portal: API documentation moves to the API at upgrade**
+
+In the New Developer Portal, the pages, folders, and links of an API now belong to the API, not to its navigation item. On the first Management API startup after the upgrade, the documentation stored under API items in earlier versions is moved to its API, once, in place. Items under an API item inside an API Product stay where they are, and so do items managed by the Automation API and items under a deleted API's item. A moved item becomes unpublished or private when its API item or a folder that contains it was. A moved item whose URL segment is already used by the API gets another one, so its portal URL changes. Once moved, the documentation permission on the API is enough to edit or delete these items from the Gamma console. Every environment also gets a published **APIs** folder in the top navigation of its portal. Take a backup before you upgrade, because the move can't be rolled back. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 #### **Kafka Topic Mapping policy: A blank mapping field now defines a rule**
 
@@ -96,11 +102,15 @@ APIM 4.13 bundles version 2.x of the XML Validation policy, which changes the re
 
 #### **XML Validation policy: Requests that declare a `DOCTYPE` and schema downloads are blocked**
 
-The XML Validation policy that APIM 4.13 bundles rejects a request body that declares a `DOCTYPE`, with the same `400` response as a body that doesn't match the schema. It also no longer downloads a schema that an `xs:import` or `xs:include` names with an `http`, `https`, or `file` URL, so an inline schema that does this doesn't compile, and the policy isn't applied. When **Schema source** is **Schema registry**, a schema that names such a URL fails to compile. Requests fail with `500` and the error key `XML_VALIDATION_SCHEMA_COMPILE_FAILED`, and don't reach the backend. In 4.12, the policy accepted a `DOCTYPE` and downloaded those schemas. Before you upgrade, check for API consumers that send a `DOCTYPE`, and for inline schemas that import or include a schema by URL. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+The XML Validation policy that APIM 4.13 bundles rejects a request body that declares a `DOCTYPE`, with the same `400` response as a body that doesn't match the schema. It also no longer downloads a schema that an `xs:import` or `xs:include` names with an `http`, `https`, or `file` URL. A schema that names such a URL fails to compile, whether **Schema source** is **Inline XSD** or **Schema registry**. Requests fail with `500` and the error key `XML_VALIDATION_SCHEMA_COMPILE_FAILED`, and don't reach the backend. The message is `Unable to compile the XSD schema`. In 4.12, the policy accepted a `DOCTYPE` and downloaded those schemas. Before you upgrade, check for API consumers that send a `DOCTYPE`, and for inline schemas that import or include a schema by URL. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 #### **Encrypted API properties: The Management API v2 masks values and checks encryption**
 
 The Management API v2 now returns `••••••••••••` in place of the value of an encrypted API property when it returns an API, for v2 and v4 APIs. In 4.12, it returned the encrypted value. When you update an API, send `••••••••••••` back to keep the stored value. Saving an API refuses `••••••••••••` for a property without an encrypted value. Saving a v4 API also refuses an encrypted property sent back as plain text, and a new value for an encrypted property that the installation's secret can't decrypt. These checks return HTTP `400`. When the secret can't encrypt a value, saving an encrypted property of a v4 API fails with HTTP `500` instead of storing its plain text value. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Gateways connected to Gravitee Cloud: Tracing of v2 APIs is off by default, and deprecated tracing settings are overridden**
+
+On a Gateway that connects to Gravitee Cloud with a Cloud Token, `services.opentelemetry.tracing.v2.enabled` now defaults to `false`. A Hybrid Gateway that uses its own OpenTelemetry configuration without this setting therefore stops tracing its v2 APIs after the upgrade. In 4.12, a Gateway with OpenTelemetry turned on traced its v2 APIs by default. A Hybrid Gateway that still uses the deprecated `services.tracing` settings now sends its traces to Gravitee Cloud instead of its own collector. Before you upgrade a Hybrid Gateway that traces v2 APIs, set `services.opentelemetry.tracing.v2.enabled` to `true`, and move any `services.tracing` settings to `services.opentelemetry`. Setting `services.opentelemetry.tracing.v2.enabled` is itself a `services.opentelemetry` setting: on a Gateway without its own OpenTelemetry configuration, it stops the Gateway from sending to Gravitee Cloud and doesn't turn OpenTelemetry on. Set it only on a Gateway that already exports to your own collector. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 ## New Features
 
@@ -206,6 +216,15 @@ The Management API v2 now returns `••••••••••••` in plac
 * The fetch and import operations are exposed by Management API v2 as `POST /portal-navigation-items/{navId}/_fetch` and `POST /portal-navigation-items/_import`, and both require the `ENVIRONMENT_DOCUMENTATION[UPDATE]` permission.
 * For more information, see [Import content from external sources](../../developer-portal/new-developer-portal/customize-the-navigation/import-content-from-external-sources.md).
 
+#### **API documentation that belongs to the API in the New Developer Portal**
+
+* The pages, folders, and links added under an API item of the **Navigation items** screen now belong to the API, unless the API item sits inside an API Product. They appear under the API item, and they stay when the API item is deleted or unpublished. The API owner manages them on the **Documentation** page of the API proxy in the Gamma console. A folder imported from a repository under an API item belongs to the API too.
+* When you move an item onto an API item, or into one of its folders, the item and everything inside it pass to that API. When you move the item to a portal folder, it passes back to the portal. The move is refused when the item or anything inside it is managed by the Automation API, or when the move places an API or API Product item inside an API's documentation.
+* Every environment now has a published **APIs** folder at the top level of the portal navigation, the section that the Gamma console publishes an API into. A new environment gets it between **Guides** and **Docs**. An existing environment without an **APIs** folder gets one at the end of its top navigation the first time the Management API starts after the upgrade.
+* When you delete an API, its documentation and the content of its pages are now deleted with it.
+* Management API v2 adds the API-scoped documentation operations under `/apis/{apiId}/portal-navigation-items`. They list, create, read, update, delete, fetch, and import the API's items, and they create the API's Overview page. They also read and save the content and the viewer configuration of a page, list the sections the API can be published into, and publish or unpublish the API. They require the documentation permission of the API rather than the environment's.
+* For more information, see [Manage Portal Navigation and APIs](../../developer-portal/new-developer-portal/customize-the-navigation.md#api) and [Manage API documentation](https://documentation.gravitee.io/api-management/manage/api-proxies/general/manage-api-documentation).
+
 #### **Identity provider claims in dynamic client registration requests**
 
 * Propagate tenant or user context from an identity provider to a client registration provider. At each login through a Gravitee AM, OpenID Connect, Google, or GitHub identity provider, APIM stores the claims listed in the provider's new **Persisted Claims** section on the user, reading each claim from the ID token first, then the access token, then the user info response.
@@ -264,6 +283,13 @@ The Management API v2 now returns `••••••••••••` in plac
 * The Gateway decrypts the values when the API is deployed, so `{#api.properties['<key>']}` resolves to the original value. Encrypted properties use the existing secret, `api.properties.encryption.secret`. Set the same value on the Management API and the Gateway.
 * An encrypted property can't be made plain again. An encrypted dynamic property stays encrypted when a fetch returns a new value. A property whose key is missing from a fetch is removed, and comes back as plain text unless **Encrypt on fetch** is on.
 * Audit entries show a `<sha256:…>` value in place of encrypted values. Deploying an API that holds an encrypted property records an `API_ENCRYPTED_PROPERTIES_ACCESSED` entry, and the automatic redeployment after a fetch records `API_ENCRYPTED_PROPERTIES_REFRESHED`. For more information, see [Encrypt dynamic properties](../../create-and-configure-apis/apply-policies/v4-api-policy-studio.md#encrypt-dynamic-properties).
+
+#### **Traces and payload logs from Gateways connected to Gravitee Cloud**
+
+* A Gateway that connects to Gravitee Cloud with a Cloud Token sends its traces and payload logs to Gravitee Cloud with no OpenTelemetry configuration. This applies to Gravitee Hosted Gateways and to Hybrid Gateways, and the Gamma console shows the traces on its **Tracing** pages.
+* The Gateway sends traces for the v4 HTTP proxy APIs that have tracing turned on, and payload logs for the ones that also have OpenTelemetry logs turned on. It doesn't trace v2 APIs.
+* A Gateway with any `services.opentelemetry` setting keeps its own configuration and doesn't send to Gravitee Cloud. To keep a Hybrid Gateway's traces and payload logs out of Gravitee Cloud, set `services.opentelemetry.enabled` to `false`.
+* For more information, see [Gateways connected to Gravitee Cloud](https://documentation.gravitee.io/platform-management/system-and-security/configure-opentelemetry-tracing-and-logs#gateways-connected-to-gravitee-cloud).
 
 ## Improvements
 

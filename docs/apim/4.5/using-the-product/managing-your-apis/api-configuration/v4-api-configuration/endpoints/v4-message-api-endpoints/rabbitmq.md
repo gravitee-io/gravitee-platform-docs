@@ -2,7 +2,7 @@
 description: An overview about rabbitmq.
 ---
 
-# RabbitMQ
+# Configure the RabbitMQ endpoint
 
 ## Overview
 
