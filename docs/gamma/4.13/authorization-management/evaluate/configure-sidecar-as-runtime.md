@@ -1,85 +1,74 @@
 ---
 hidden: false
 noIndex: false
-description: Deploy the Policy Decision Point as a sidecar beside your application for latency-sensitive or air-gapped environments. Follow the steps to deploy it.
+description: Run a Gravitee Gateway beside your application as a sidecar, so the application asks for authorization decisions over localhost. Follow the steps to set one up.
 ---
 
 # Configure a sidecar as runtime
 
-Deploy the Policy Decision Point (PDP) as a sidecar alongside your application for latency-sensitive or air-gapped environments.
+A sidecar is a Gravitee Gateway that you deploy next to your application, for example in the same Kubernetes pod, so that the application asks for decisions over `localhost`. It's the same gateway as your other gateways: the PDP is part of the gateway bundle, and the sidecar gets its policies and entities through the same synchronization.
 
-{% hint style="warning" %}
-Sidecar deployment is an advanced pattern. For most environments, the Gravitee Gateway PDP is the recommended runtime. See [Configure the Gravitee Gateway as a runtime](configure-gravitee-gateway-as-runtime.md).
+{% hint style="info" %}
+For most environments, the gateways you already run are enough. See [Configure the Gravitee Gateway as a runtime](configure-gravitee-gateway-as-runtime.md). A sidecar is one more gateway to run and upgrade for each application.
 {% endhint %}
 
-## Overview
+## How it works
 
-A sidecar PDP runs as a co-located process alongside your application. Instead of evaluating policies at the gateway, the sidecar evaluates them locally with sub-millisecond latency and no network hop.
+The sidecar gets a sharding tag of its own, and a PDP gateway registered with that tag gives it its own decision engine:
 
-## Architecture
+1. The sidecar gateway runs with its own sharding tag, for example `checkout-pod`.
+2. A PDP gateway registered with the same sharding tag runs on the sidecar, with an AuthZEN endpoint.
+3. Policies and entities that target this PDP gateway reach the sidecar.
+4. The application sends AuthZEN requests to the endpoint on `localhost`.
 
-```
-┌────────────────────────────────┐
-│        Application Pod         │
-│  ┌──────────┐  ┌────────────┐  │
-│  │  Your    │  │  PDP       │  │
-│  │  App     │──│  Sidecar   │  │
-│  │          │  │            │  │
-│  └──────────┘  └─────┬──────┘  │
-│                      │         │
-└──────────────────────┼─────────┘
-                       │ Sync
-              ┌────────┴──────────┐
-              │  Gravitee Control │
-              │  Plane            │
-              └───────────────────┘
-```
+{% hint style="warning" %}
+A sharding tag doesn't keep the PDP gateway on the sidecar only. A gateway with no sharding tag gets every PDP gateway, so if your other gateways have no sharding tag, they also get the sidecar's policies and answer its AuthZEN endpoint. A gateway with a different sharding tag doesn't. To keep the sidecar's policies on the sidecar only, either:
+
+* Give your other gateways sharding tags too.
+* Disable Gamma on the gateways that have no sharding tag (`gamma.enabled: false`). Such a gateway gets no authorization policies at all, not even those of the default engine, so the Authorization PEP policy and the AuthZEN endpoints on it never permit a request.
+{% endhint %}
 
 ## Prerequisites
 
-* The PDP sidecar image deployed in your cluster
-* Network connectivity from the sidecar to the Gravitee control plane for policy sync
-* A registered PDP gateway in Authorization Management
+* A Gravitee Gateway that reaches the same management repository or bridge as your other gateways, with Gamma enabled (`gamma.enabled: true`). A gateway with Gamma disabled answers the AuthZEN endpoint with `503` and `pdp_unavailable`.
 
 ## Steps
 
-### 1. Register a PDP gateway
+### 1. Deploy the sidecar gateway
 
-In the Gravitee console, navigate to **Authorization Management → PDP Gateways** and click **Register PDP gateway**. Set the **Target PDP ID** to an identifier for this sidecar (for example, `sidecar-checkout`).
+Deploy a Gravitee Gateway next to your application, and give it a sharding tag of its own, for example `checkout-pod`, with `tags` in `gravitee.yml` or the `gravitee_tags` environment variable.
 
-### 2. Create an AuthZEN endpoint
+### 2. Register a PDP gateway for the sidecar
 
-In the registration dialog, check **Create AuthZEN endpoint** and set the path (for example, `/sidecar-checkout/`).
+In Authorization Management, go to **PDP Gateways**, and then click **Register PDP gateway**:
 
-### 3. Deploy the sidecar
+1. Enter a **Name**, for example `Checkout sidecar`.
+2. In **Target PDP ID**, enter an identifier, for example `checkout`.
+3. In **Sharding tag**, enter the sidecar's tag, `checkout-pod`.
+4. Select **Create AuthZEN endpoint**. The **Endpoint path** fills in as `/<Target PDP ID>-<sharding tag>/`, for example `/checkout-checkout-pod/`. You can change it.
+5. Click **Register**.
 
-Deploy the PDP sidecar container alongside your application. Configure it with:
+The PDP gateway is targeted as `<Target PDP ID>@<sharding tag>`, here `checkout@checkout-pod`.
 
-| Configuration | Value |
-|--------------|-------|
-| **Control plane URL** | Your Gravitee control plane address |
-| **Environment ID** | The environment the policies are published to |
-| **Target PDP ID** | The identifier from step 1 (for example, `sidecar-checkout`) |
+### 3. Target policies and entities at the PDP gateway
 
-### 4. Verify policy sync
+Select the PDP gateway in the **Target gateways** of each policy the sidecar evaluates, or attach the policies from the PDP gateway's **Policies** tab. The policies tab also lists the entities these policies use, with **Attach all**. A policy or an entity with no target reaches only the default engine, so attach the entities the sidecar needs, such as the users and groups the policies name.
 
-Once deployed, the sidecar polls the control plane for policy updates. The PDP gateway status in the console transitions from `PENDING` to `PUBLISHED` when the sidecar connects.
+### 4. Point your application to the sidecar
 
-### 5. Integrate with your application
+Send AuthZEN requests from the application to the endpoint on the sidecar, for example:
 
-Point your application's authorization checks to the sidecar's local endpoint (typically `http://localhost:<port>/access/v1/evaluation`).
+```
+POST http://localhost:8082/checkout-checkout-pod/access/v1/evaluation
+```
 
-## When to use sidecar vs. gateway
+For the request and the answer, see [AuthZEN endpoint](ask-for-a-decision/authzen-endpoint.md).
 
-| Factor | Gateway PDP | Sidecar PDP |
-|--------|------------|-------------|
-| **Latency** | Network hop to gateway | Sub-millisecond (local) |
-| **Deployment** | Centralized | Per-application |
-| **Maintenance** | Single upgrade point | Each sidecar must be upgraded |
-| **Network dependency** | Inline | Control plane only |
-| **Best for** | Most environments | Latency-critical or air-gapped |
+### 5. Verify
+
+Send a request that a policy covers. The answer names the policy that decided, and the **Decisions** page lists the decision.
 
 ## Next steps
 
-* [Policy syncs](policy-syncs.md) — How the sidecar receives policy updates
-* [Authorization policy synchronization](../authz-gateway-sync.md) — Sync protocol details
+* [Policy syncs](policy-syncs.md). How policies and entities reach a gateway
+* [Authorization policy synchronization](../authz-gateway-sync.md). Sync protocol details
