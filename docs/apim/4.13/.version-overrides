@@ -271,3 +271,6 @@ release-information/support-model.md
 # Service account permissions for each Terraform resource (APIM 4.13.0 Automation API checks, GKO-3415)
 terraform/define-an-apim-service-account-for-terraform.md
 configure-and-manage-the-platform/manage-organizations-and-environments/create-a-service-account.md
+# API display name captures differ by release: 4.13 Console and portal build (APIM-14473)
+.gitbook/assets/devportal-edit-api-display-name.png
+.gitbook/assets/devportal-api-display-name-navigation.png
