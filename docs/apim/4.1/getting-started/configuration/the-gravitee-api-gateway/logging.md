@@ -2,7 +2,7 @@
 description: An overview about Logging.
 ---
 
-# Logging
+# Configure Gateway logging
 
 ## Overview
 

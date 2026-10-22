@@ -2,7 +2,7 @@
 description: Authenticate Access Management 4.8 users with any provider implementing the OpenID Connect specification. Follow the steps to set up the connection.
 ---
 
-# OpenID Connect
+# Add an OpenID Connect identity provider
 
 ## Overview <a href="#overview" id="overview"></a>
 

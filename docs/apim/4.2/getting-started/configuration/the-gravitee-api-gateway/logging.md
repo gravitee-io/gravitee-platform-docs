@@ -5,7 +5,7 @@ metaLinks:
     https://documentation.gravitee.io/apim/analyze-and-monitor-apis/logging/configure-gateway-level-logs
 ---
 
-# Logging
+# Configure Gateway logging
 
 ## Overview
 

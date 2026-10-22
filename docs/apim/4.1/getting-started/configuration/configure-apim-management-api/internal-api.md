@@ -4,7 +4,7 @@ description: >-
   properties, and the gravitee.yaml file
 ---
 
-# General Configuration
+# Configure Management API settings
 
 ## Introduction
 

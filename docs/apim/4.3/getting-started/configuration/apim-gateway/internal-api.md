@@ -2,7 +2,7 @@
 description: Learn how to configure the internal Gateway API
 ---
 
-# Internal API
+# Gateway internal API
 
 ## Introduction
 
