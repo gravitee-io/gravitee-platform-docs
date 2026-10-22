@@ -69,13 +69,14 @@ After creation, the Principals table displays:
 
 | Column | Description |
 |--------|-------------|
+| **Name** | The display name |
 | **Type** | The entity type badge (for example, `User`) |
 | **Entity ID** | The identifier the policy engine uses with the type (for example, `alice` for `User::"alice"`). Click the copy icon to copy it to your clipboard |
-| **Name** | The display name |
 | **Relationships** | Parent/child counts (for example, "in 1" for a user in one group, or "contains 3 User" for a group) |
-| **Policies** | Number of policies targeting this entity |
+| **Policies** | The names of the policies that name this entity |
 | **Target gateways** | Gateway scope labels |
-| **Source** | Where the principal came from: **Local**, **AM**, or **APIM** |
+| **Source** | Where the principal came from, such as **Local**, **AM**, or the `scim.<slug>` source of a SCIM directory |
+| **Status** | **Active** or **Inactive** |
 
 ## Next steps
 

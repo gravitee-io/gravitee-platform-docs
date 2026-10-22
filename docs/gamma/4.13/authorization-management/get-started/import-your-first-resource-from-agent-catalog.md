@@ -11,7 +11,7 @@ This guide walks you through importing a resource from the AI Catalog into Autho
 ## Prerequisites
 
 * At least one item published in the AI Catalog (an MCP server, AI model, or agent)
-* The Agent Identity Module (AIM) must be installed. If it is not available, the **Import from Context Catalog** option is disabled with the hint: "The Agent Identity module must be installed to import from the AI Catalog."
+* The Agent Identity Module (AIM) must be installed. If it is not available, the **Import from AI Catalog** option is disabled with the hint: "The Agent Identity module must be installed to import from the AI Catalog."
 * The `ENVIRONMENT_AUTHZ_ENTITY[CREATE]` permission
 
 ## Steps
@@ -22,7 +22,7 @@ From the Authorization Management sidebar, select **Policy Structure → Entitie
 
 ### 2. Open the import dialog
 
-Click the **Import** dropdown and select **Import from Context Catalog**. A slide-out panel titled **Import from AI Catalog** opens.
+Click the **Import** dropdown and select **Import from AI Catalog**. A slide-out panel titled **Import from AI Catalog** opens.
 
 ### 3. Browse catalog entries
 

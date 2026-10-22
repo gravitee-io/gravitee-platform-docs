@@ -34,7 +34,7 @@ From the Authorization Management sidebar, select **Policy Structure → Entitie
 
 ### 2. Open the import dialog
 
-Click the **Import** dropdown → **Import from Context Catalog**.
+Click the **Import** dropdown → **Import from AI Catalog**.
 
 ### 3. Browse and select
 
