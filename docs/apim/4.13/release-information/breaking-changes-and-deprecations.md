@@ -36,6 +36,18 @@ The Management API v2 endpoints change as follows:
 
 Before you upgrade, update any script that reads the environment's form from `GET /subscription-forms` or updates it with `PUT`. After the upgrade, assign each new API to a form. For more information, see [Creating and managing subscription forms](../secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms.md).
 
+**New Developer Portal: API documentation moves to the API at upgrade**
+
+From 4.13.0, the pages, folders, and links of an API in the New Developer Portal belong to the API, not to its navigation item. On the first Management API startup after the upgrade, the documentation stored under API items in earlier versions is moved to its API. The move runs once, changes the items in place, and has the following effects:
+
+* Everything stored under an API item that isn't inside an API Product moves to the API, at any depth. This includes the starter **Overview** pages and the items synced from a source. Items under an API item inside an API Product, and items under a deleted API's item, stay where they are. So does any top-level item under an API item that contains an item managed by the Automation API, with everything inside it. The Management API log says why.
+* A moved item becomes unpublished when its API item or a folder that contains it was unpublished, and private when one of them was private. Nothing becomes more visible than before.
+* When the URL segment of a moved item is already used by an item the API owns, the moved item gets another segment, so its portal URL changes. The log records each rename.
+* Once moved, these items can be edited, deleted, published, and unpublished by any user with the documentation permissions on the API, without environment documentation permissions. A user with the Update documentation permission on an API can also publish the API into a top-level section of the portal navigation. If a portal designer had added the API elsewhere and hidden it, the publish action moves that entry to the chosen section.
+* A folder created by hand for an API at a path that an Automation API or GKO configuration declares, such as `/guides`, now blocks the apply. The apply fails with `Navigation path [/guides] is already occupied by content not managed by the Automation API`. Rename or delete the folder, and then apply again.
+
+Every environment also gets a published **APIs** folder at the top level of the portal navigation. An existing environment without one gets it at the end of its top navigation on the same startup, so its portal shows a new **APIs** entry. Take a backup before you upgrade, because the move can't be rolled back. For more information, see [Manage Portal Navigation and APIs](../developer-portal/new-developer-portal/customize-the-navigation.md#api).
+
 **Kafka Topic Mapping policy: invalid mapping entries now stop an API from deploying**
 
 From 4.13.0, the Kafka Topic Mapping policy checks its mapping entries when the API is deployed. In 4.12 and earlier it checked nothing, so a configuration the policy can't act on deployed and then behaved unpredictably at runtime. An API that deploys today can therefore fail to deploy after the upgrade.
