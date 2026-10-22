@@ -4,7 +4,7 @@ description: What the Gamma 4.13 release adds across API Management, Event Strea
 
 # Release Notes
 
-Each Gamma version follows the support period of the API Management version it ships with. For release and end-of-life dates, see [Support Model](https://documentation.gravitee.io/apim/release-information/support-model).
+For release and end-of-life dates, see [Support Model](https://documentation.gravitee.io/apim/release-information/support-model).
 
 ## Release Date: October 22, 2026
 
