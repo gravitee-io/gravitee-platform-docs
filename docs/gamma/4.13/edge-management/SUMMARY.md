@@ -5,6 +5,7 @@
   * [Installation guides](https://documentation.gravitee.io/platform-management/install)
   * [Release Notes](https://documentation.gravitee.io/platform-management/gamma-release-notes)
   * [Breaking Changes and Deprecations](https://documentation.gravitee.io/platform-management/gamma-release-notes/gamma-breaking-changes)
+  * [Support model](https://documentation.gravitee.io/platform-management/support-model)
 * [Connect](connect/README.md)
   * [Proxy API reference](connect/proxy-api-reference.md)
   * [Configure Edge Management](connect/configure-edge-management.md)

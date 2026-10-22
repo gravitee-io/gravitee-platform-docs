@@ -244,3 +244,6 @@ self-hosted-installation-guides/docker/README.md
 # API documentation belongs to the API, 4.13 only (PORTAL-203)
 developer-portal/new-developer-portal/customize-the-navigation/portal-automation/api-documentation.md
 developer-portal/new-developer-portal/customize-the-navigation/portal-navigation-cascade-operations.md
+
+# Support model page moved to Platform Management, removed from 4.12 and 4.13 (#2705)
+release-information/support-model.md

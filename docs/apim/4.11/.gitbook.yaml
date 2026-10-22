@@ -829,6 +829,7 @@ redirects:
  release-information/release-notes/apim-4.12: release-information/release-notes/apim-4.11.md
  release-information/release-notes/apim-4.8: release-information/release-notes/apim-4.11.md
  release-information/release-notes/apim-4.9: release-information/release-notes/apim-4.11.md
+ release-information/support-model/support-for-v1-apis: release-information/support-for-v1-apis.md
  releases-and-changelog/changelog: release-information/changelog/README.md
  releases-and-changelog/changelog/apim-4.0.x: release-information/changelog/apim-4.11.x.md
  releases-and-changelog/changelog/apim-4.1.x: release-information/changelog/apim-4.11.x.md
