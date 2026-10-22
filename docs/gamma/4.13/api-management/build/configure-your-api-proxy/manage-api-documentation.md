@@ -24,6 +24,16 @@ Each item carries a **Status** badge that reads **Published** or **Unpublished**
 
 **Add documentation** appears when your role lets you create and update the API's documentation. The row menu offers the actions your role grants, and a right-click on a row opens the same menu.
 
+The actions depend on the API documentation permissions of your role:
+
+| Action | Permission |
+|---|---|
+| See the **Documentation** item and its pages | Read |
+| **Add documentation** | Create and Update |
+| **Create Overview page** | Create |
+| Edit an item, **Configure**, **Fetch now**, publish or unpublish an item, **Publish** and **Unpublish** the API | Update |
+| Delete an item | Delete |
+
 ## Add a page
 
 To add a page, follow these steps:
