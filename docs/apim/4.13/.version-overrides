@@ -38,6 +38,8 @@ govern-apis/federation/3rd-party-providers/confluent-platform.md
 govern-apis/federation/3rd-party-providers/ibm-api-connect.md
 govern-apis/federation/3rd-party-providers/mulesoft-anypoint.md
 govern-apis/federation/3rd-party-providers/solace.md
+# Classic Cloud Bridge and Gateway compatibility tables include 4.13
+hybrid-installation-and-configuration-guides/classic-cloud/README.md
 # Datadog request count tags (APIM 4.13.0 feature, APIM-14012)
 analyze-and-monitor-apis/reporters/datadog-reporter.md
 # Management API v1 plan endpoints reject V4, Federated, and Federated Agent APIs (APIM 4.13.0, APIM-14587)
