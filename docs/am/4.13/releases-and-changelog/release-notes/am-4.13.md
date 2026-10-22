@@ -2,11 +2,11 @@
 
 ## Highlights
 
-#### [Deprecation Notice] Removal of MongoDB chart as Helm dependency
+#### **Deprecation notice: Removal of MongoDB chart as Helm dependency**
 
 The MongoDB chart will be removed from the gravitee chart dependencies in 4.14.
 
-#### [Deprecation Notice] Removal of Authorization Engine (OpenFGA & AuthZen)
+#### **Deprecation notice: Removal of Authorization Engine (OpenFGA & AuthZen)**
 
 The OpenFGA Authorization Engine and AuthZEN interface have been introduced in 4.10 in tech preview. [Gravitee Authorization Management](https://documentation.gravitee.io/authorization-management) becomes the official way to manage authorization on the Gravitee platform in 4.13. OpenFGA integration and AuthZEN endpoints in Access Management will be removed in 4.15.
 
