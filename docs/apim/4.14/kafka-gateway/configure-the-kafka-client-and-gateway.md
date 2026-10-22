@@ -1,0 +1,493 @@
+---
+description: Configure the Kafka Gateway and a Kafka client so API Management 4.13 can proxy your Kafka cluster. Follow the steps for both sides.
+metaLinks:
+  alternates:
+    - configure-the-kafka-client-and-gateway.md
+---
+
+# Configure the Kafka Client & Gateway
+
+## Overview
+
+To use Gravitee to proxy a Kafka cluster, configure the Gravitee Kafka Gateway and a Kafka client.
+
+## Configure the Kafka Gateway
+
+{% hint style="info" %}
+Running the Kafka Gateway requires an Enterprise license with the Kafka Gateway feature included. This does not come by default with a Universe license; it must be purchased separately from Gravitee.
+{% endhint %}
+
+To run the Kafka Gateway, enable the Gateway server in `gravitee.yml`. The full example of the configuration is defined [below](configure-the-kafka-client-and-gateway.md#appendix-full-gateway-configuration). The baseline required configuration is:
+
+```yaml
+kafka:
+  enabled: true
+
+  routingMode: host # default is host. Supported values: host, port. For port-based routing, see [Port allocation for port-based routing](configure-the-kafka-client-and-gateway.md#port-allocation-for-port-based-routing).
+  # Routing Host Mode
+  routingHostMode:
+    brokerPrefix: "broker-" # default is broker-
+    domainSeparator: "-" # Used to separate broker's name from api & domain. Default is '-'
+
+    # The domains where the Kafka APIs are exposed. ex: `myapi` is exposed as `myapi.mycompany.org`.
+    # Each domain should be set according to a public wildcard DNS/Certificate.
+    domains:
+      - mycompany.org
+    defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
+```
+
+### Bootstrap server domain
+
+* The Gateway runs multiple APIs on different **domains**. The Kafka client connects to the API using the bootstrap server `{apiHost}.{domain}:{defaultPort}`, where `{apiHost}` is host prefix defined for each API and `{domain}` is one of the configured `domains`.
+
+<figure><img src="../.gitbook/assets/kafka-gateway-configure-the-kafka-client-17-1.png" alt="A diagram of a Kafka client connecting over SSL to a gateway server, where an API resolver uses SNI to route the connection to the matching API." width="555"><figcaption><p>The Kafka client routes to the correct API through the gateway using SNI routing.</p></figcaption></figure>
+
+* To route to the correct API, the Gateway uses [SNI routing](https://en.wikipedia.org/wiki/Server_Name_Indication), which is part of the TLS protocol. Consequently, all client connections **must** happen over TLS, with at least `security.protocol=SSL` set in the Kafka client configuration.
+* The client **must** trust the certificate provided by the Gateway. To handle the variable host in the proxy bootstrap server URL, you likely need to request a wildcard SAN to use as the certificate presented by the Gateway.
+* With the default configuration, you need a wildcard DNS entry so that you don't need a new DNS entry for every API. In this example, the DNS and wildcard certificate are for `*.mycompany.org`.
+
+<details>
+
+<summary>What if I have restrictions on the domains I can use?</summary>
+
+If you have restrictions on the domain names you can use for APIs, you can override the default hostname by updating the Gateway configuration. For example, instead of `{apiHost}.{domain}` as the hostname, you can set the pattern to `my-bootstrap-{apiHost}.{domain}` by configuring the variables below:
+
+```yaml
+kafka:
+  enabled: true
+
+  routingMode: host # default is host. Supported values: host, port.
+  # Routing Host Mode
+  routingHostMode:
+    brokerPrefix: "broker-" # default is broker-
+    domainSeparator: "-" # Used to separate broker's name from api & domain. Default is '-'
+
+    # The domains where the Kafka APIs are exposed. ex: `myapi` is exposed as `myapi.mycompany.org`.
+    # Each domain should be set according to a public wildcard DNS/Certificate.
+    domains:
+      - mycompany.org
+    defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
+
+    # Customize the host domain.
+    # {apiHost} is a placeholder that will be replaced at runtime, when the API is deployed, by the API Host Prefix.
+    bootstrapDomainPattern: "my-bootstrap-{apiHost}.{domain}"
+```
+
+Then, for two APIs, the client will connect to, for example, `my-bootstrap-api1.mycompany.org:9092` and `my-bootstrap-api2.mycompany.org:9092`, as opposed to the default of `api1.mycompany.org:9092` and `api2.mycompany.org:9092`.
+
+</details>
+
+### Broker mapping
+
+After the Kafka client connects to the API, the Gateway (acting as the bootstrap server) returns the list of brokers in the upstream cluster.
+
+<figure><img src="../.gitbook/assets/kafka-gw-configure-the-kafka-client-151.png" alt="A diagram of a Kafka client connecting over SSL to a gateway server, where an API resolver uses SNI to route the connection to the matching API and on to the brokers." width="563"><figcaption><p>The proxy obtains the list of brokers from the upstream cluster.</p></figcaption></figure>
+
+To properly provide the client with the list of brokers and the associated metadata about topics and partitions on those brokers, the Gateway creates a one-to-one mapping between the brokers in the upstream cluster and the brokers seen by the client.
+
+<figure><img src="../.gitbook/assets/kafka-gateway-configure-the-kafka-client-153-1.png" alt="A diagram of a Kafka client connecting over SSL to a gateway server, showing the per-API broker names the client is given after the API resolver matches it." width="563"><figcaption><p>The gateway returns the list of brokers back to the client, rewritten to use the gateway hostname.</p></figcaption></figure>
+
+The mapping combines the `brokerPrefix` and `domainSeparator` variables and the configured domain, along with the API host prefix. The Kafka client must be able to route to `{brokerPrefix}{brokerId}{domainSeparator}{apiHost}.{domain}`, for as many brokers as there are in the Kafka cluster, on each configured domain. Again, a wildcard DNS entry is the preferred way to do this.
+
+<details>
+
+<summary>What if I have restrictions on the domains I can use?</summary>
+
+If you have restrictions on the domain names you can use for APIs, you can override the broker domain pattern, as described in [What if I have restrictions on the domains I can use?](configure-the-kafka-client-and-gateway.md#what-if-i-have-restrictions-on-the-domains-i-can-use). The configuration will then be as follows (with `brokerDomainPattern` being the relevant option):
+
+```yaml
+kafka:
+  enabled: true
+
+  routingMode: host # default is host. Supported values: host, port.
+  # Routing Host Mode
+  routingHostMode:
+    brokerPrefix: "broker-" # default is broker-
+    domainSeparator: "-" # Used to separate broker's name from api & domain. Default is '-'
+
+    # The domains where the Kafka APIs are exposed. ex: `myapi` is exposed as `myapi.mycompany.org`.
+    # Each domain should be set according to a public wildcard DNS/Certificate.
+    domains:
+      - mycompany.org
+    defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
+
+    # Customize the host domain.
+    # {apiHost} is a placeholder that will be replaced at runtime, when the API is deployed, by the API Host Prefix.
+    # {brokerId} is a placeholder that stand for the broker id
+    bootstrapDomainPattern: "my-bootstrap-{apiHost}.{domain}"
+    brokerDomainPattern: "{apiHost}-broker-{brokerId}-test.{domain}"
+```
+
+With this, if there are three brokers in the upstream cluster, the client must be able to route to `api1-broker-0-test.mycompany.org`, `api1-broker-1-test.mycompany.org`, and `api1-broker-2-test.mycompany.org`, along with `my-bootstrap-api1.mycompany.org` — and to the same four hostnames on every other configured domain.
+
+</details>
+
+<details>
+
+<summary>What if I don't have a valid DNS entry?</summary>
+
+If you do not have a valid DNS entry for your Gateway because, for example, you're running the Gateway on `localhost`, then you may need to update your `/etc/hosts` file.
+
+If you are running the Gateway locally in Docker, with `kafka.local` as the only entry of `domains`, you can update your `/etc/hosts` file with the following entries:
+
+```
+127.0.0.1    localhost kafka.local api1.kafka.local
+::1          localhost broker-0-api1.kafka.local broker-1-api1.kafka.local broker-2-api1.kafka.local
+127.0.0.1    localhost broker-0-api1.kafka.local broker-1-api1.kafka.local broker-2-api1.kafka.local
+```
+
+To add more APIs, you will need to add another API host to the first line and two more entries for each API to the IPs `::1` and `127.0.0.1`. With two APIs, this becomes:
+
+```
+127.0.0.1    localhost kafka.local api1.kafka.local api2.kafka.local
+::1          localhost broker-0-api1.kafka.local broker-1-api1.kafka.local broker-2-api1.kafka.local
+127.0.0.1    localhost broker-0-api1.kafka.local broker-1-api1.kafka.local broker-2-api1.kafka.local
+::1          localhost broker-0-api2.kafka.local broker-1-api2.kafka.local broker-2-api2.kafka.local
+127.0.0.1    localhost broker-0-api2.kafka.local broker-1-api2.kafka.local broker-2-api2.kafka.local
+```
+
+</details>
+
+### Expose APIs on several domains
+
+A single Gateway can expose its Kafka APIs on more than one domain — a public one and an internal one, or one per tenant. List them under `domains`:
+
+```yaml
+kafka:
+  enabled: true
+
+  routingMode: host
+  # Routing Host Mode
+  routingHostMode:
+    brokerPrefix: "broker-"
+    domainSeparator: "-"
+
+    # Each domain should be set according to a public wildcard DNS/Certificate.
+    domains:
+      - mycompany.org
+      - mycompany.com
+    defaultPort: 9092
+```
+
+Every API is then reachable on each domain: `api1.mycompany.org:9092` **and** `api1.mycompany.com:9092`, with the matching broker hostnames `broker-0-api1.mycompany.org`, `broker-0-api1.mycompany.com`, and so on.
+
+Each domain needs its own wildcard DNS entry, and the Gateway must be able to present a certificate matching it — either one certificate per domain or a single certificate carrying all of them as SANs. Routing is done on SNI, so the name the client asks for is the name that has to be served.
+
+At deployment, the Gateway logs the domains it resolved and the hostnames each one produces. These are the values to compare against your DNS records and certificates when routing does not behave as expected:
+
+```
+Routing host mode for api my-api resolves 2 domain(s): [mycompany.org, mycompany.com]
+Routing host mode for api my-api: bootstrap 'api1.mycompany.org', brokers 'broker-{brokerId}-api1.mycompany.org'
+Routing host mode for api my-api: bootstrap 'api1.mycompany.com', brokers 'broker-{brokerId}-api1.mycompany.com'
+```
+
+{% hint style="info" %}
+`domains` replaces `defaultDomain`, which is deprecated. `defaultDomain` still works for a single domain, but it is **ignored as soon as `domains` is set**, and the Gateway logs a warning saying so. Configure one or the other, never both.
+{% endhint %}
+
+#### Use `{domain}` in custom patterns
+
+`bootstrapDomainPattern` and `brokerDomainPattern` are evaluated **once per configured domain**. The `{domain}` placeholder stands for the domain being evaluated, so a custom pattern keeps working across all of them:
+
+```yaml
+    bootstrapDomainPattern: "bootstrap-{apiHost}.{domain}"
+    brokerDomainPattern: "{apiHost}-broker{brokerId}.{domain}"
+```
+
+With the two domains above, this yields:
+
+```
+bootstrap-api1.mycompany.org      bootstrap-api1.mycompany.com
+api1-broker0.mycompany.org        api1-broker0.mycompany.com
+api1-broker1.mycompany.org        api1-broker1.mycompany.com
+```
+
+{% hint style="warning" %}
+Writing a domain literally in a pattern instead of using `{domain}` makes **every** configured domain resolve to that same hostname, leaving the others unroutable. The Gateway detects this and warns at deployment:
+
+```
+Routing host mode for api my-api: the 2 configured domains produce only 1 distinct hostname(s),
+so some domains will not be routable. Use the '{domain}' placeholder in
+'kafka.routingHostMode.bootstrapDomainPattern' and 'kafka.routingHostMode.brokerDomainPattern'
+instead of hardcoding a domain.
+```
+
+Both patterns are checked independently, so hardcoding the domain in `brokerDomainPattern` alone is caught too.
+{% endhint %}
+
+`{defaultDomain}` is still accepted as an alias of `{domain}`.
+
+### Port allocation for port-based routing
+
+When using port-based routing, each plan requires three port values:
+
+* **Bootstrap port**: The entry point clients use to connect (range: 1024–65535).
+* **Broker range start**: The beginning of the contiguous port range allocated for backend Kafka brokers (range: 1024–65535).
+* **Broker range end**: The end of the contiguous port range allocated for backend Kafka brokers (range: 1024–65535).
+
+The broker range must not overlap with the bootstrap port or with port allocations from other plans in the same environment.
+
+### Port conflict detection
+
+The Gateway enforces four conflict rules within each environment to prevent port allocation conflicts:
+
+* Broker ranges from different plans cannot overlap.
+* A plan's bootstrap port cannot fall within another plan's broker range.
+* A plan's broker range cannot contain another plan's bootstrap port.
+* Bootstrap ports must be unique across all plans.
+
+Conflict detection runs before plan creation or update and blocks operations that would violate these rules.
+
+### Configure mTLS authentication
+
+{% hint style="info" %}
+All Kafka plans already use TLS for transport encryption by default. The configuration below is **only** required when using an mTLS plan, which adds client certificate authentication on top of standard TLS.
+{% endhint %}
+
+To require client certificate authentication for Native Kafka APIs, add the following SSL properties to `gravitee.yml`. This is an infrastructure-level configuration that applies globally to all Native Kafka APIs deployed on the gateway:
+
+| Property                        | Description                                                              | Example                          |
+| ------------------------------- | ------------------------------------------------------------------------ | -------------------------------- |
+| `kafka.ssl.clientAuth`          | Require client certificate authentication                                | `required`                       |
+| `kafka.ssl.truststore.type`     | Gateway truststore type for verifying client certificates                | `jks`                            |
+| `kafka.ssl.truststore.password` | Gateway truststore password                                              | `gravitee`                       |
+| `kafka.ssl.truststore.path`     | Path to gateway truststore containing CA that signed client certificates | `/path/to/server.truststore.jks` |
+| `kafka.ssl.keystore.type`       | Gateway keystore type                                                    | `jks`                            |
+| `kafka.ssl.keystore.password`   | Gateway keystore password                                                | `gravitee`                       |
+| `kafka.ssl.keystore.path`       | Path to gateway keystore                                                 | `/path/to/server.keystore.jks`   |
+
+The gateway truststore must contain the CA certificate that signed the client certificates. The gateway keystore contains the gateway's identity certificate.
+
+To reject connections from clients whose certificates have been revoked, add a `kafka.ssl.crl` block to `gravitee.yml`. The CRL options mirror the HTTP server's CRL options — see [Reject revoked client certificates with a CRL](../prepare-a-production-environment/configure-your-http-server.md#reject-revoked-client-certificates-with-a-crl) for the full reference and behavior.
+
+```yaml
+kafka:
+  ssl:
+    crl:
+      path: /path/to/crl
+      watch: true
+```
+
+### Define the default entrypoint configuration
+
+By default, clients talk to Kafka APIs by setting the bootstrap server as `{apiHost}.{domain}:{defaultPort}`. This is set in `gravitee.yml`, but for convenience, when developing APIs in the UI, you can set the default values appended to the hostname. You can also leave this value blank and respecify the full hostname in the API.
+
+To configure the APIM Console to use the Kafka domain and port values for your Organization:
+
+1. Log in to your Management Console.
+2. Select **Organization**.
+3. Select **Entrypoints & Sharding Tags**.
+4.  In the **Entrypoint Configuration** section, confirm that the **Default Kafka domain** and **Default Kafka port** values match those of your Kafka API.
+
+    <figure><img src="../.gitbook/assets/00 kafka.png" alt="The Entrypoints and Sharding Tags page, with the default Kafka domain and port fields highlighted below the default entrypoint and TCP port."><figcaption></figcaption></figure>
+
+    This value is then displayed on the entrypoint page of your APIs.
+
+    <figure><img src="../.gitbook/assets/00 kafka 1.png" alt="The Entrypoints tab of a Kafka API, with a host prefix entered and the resulting domain and port highlighted beside it."><figcaption></figcaption></figure>
+
+## Configure the Kafka client
+
+To use the Kafka Gateway, you use a regular Kafka client. There are many implementations of the Kafka client, and you can use any client that supports the full Kafka protocol.
+
+{% hint style="info" %}
+As of the 4.6.0 release, the Kafka Gateway requires the Kafka client to be version 3.0 or above.
+{% endhint %}
+
+The default client to talk to Kafka is packaged within the Kafka binary and is based on Java. The prerequisite for using this client is a JRE. See the [Java documentation](https://www.java.com/en/) for more information on how to install a JRE.
+
+1. Download Kafka. Gravitee Kafka Gateway is compatible with the source code or either binary download of each supported Kafka release. For more information about downloading Kafka, go to [Kafka's download page](https://kafka.apache.org/downloads).
+2. Store the downloaded file structure in a secure place. The root folder is your working directory when calling your Kafka API.
+
+The client is now ready to use. To produce and consume messages, create a `.properties` file in the root folder, as described in the [Example](#example) section.
+
+{% hint style="info" %}
+At this point, you can begin creating and deploying APIs to the Gravitee Kafka Gateway.
+{% endhint %}
+
+### Configure Kafka clients for mTLS authentication
+
+When using an mTLS plan, Kafka clients must present a client certificate during the TLS handshake in addition to the standard TLS configuration. Add the following SSL properties to the client's `.properties` file:
+
+| Property                | Description                                        | Example                        |
+| ----------------------- | -------------------------------------------------- | ------------------------------ |
+| `ssl.keystore.location` | Path to client keystore containing the certificate | `/path/to/client.keystore.jks` |
+| `ssl.keystore.type`     | Client keystore type                               | `JKS`                          |
+| `ssl.keystore.password` | Client keystore password                           | `gravitee`                     |
+
+## Produce and consume messages
+
+You can use the Kafka Gateway and client to call your [Kafka API](create-and-configure-kafka-apis/create-kafka-apis.md) and, as a primary use case, produce or consume messages. You can also proxy requests to create and manage topics, update partitions, and manage consumer groups.
+
+### Prerequisites
+
+The following prerequisites must be met before you can produce and consume Kafka messages:
+
+* You must have an active subscription to a published API [plan](../secure-and-expose-apis/plans/README.md) belonging to your Gravitee Kafka API.
+* If you are subscribing to an OAuth2 or JWT plan, your application must reference the same client ID that you use for authorization.
+
+{% hint style="info" %}
+When using [Gravitee Access Management (AM)](https://documentation.gravitee.io/am) as the authorization server, the client ID is generated when you create a Gravitee AM Authorization Server resource. To access this resource, you must also create an application in Gravitee Access Management.
+{% endhint %}
+
+For plan, application, subscription, and resource information, see the following:
+
+* For information on how to create and manage plans, see [Plans](plans.md).
+* To learn how to create an application for a Gravitee plan, see [Applications](applications.md).
+* For more information on how subscriptions work in Gravitee, see [Subscriptions](subscriptions.md).
+* To learn how to create a resource, see [Resources](../create-and-configure-apis/apply-policies/resources.md).
+
+### Plan security mutual exclusion
+
+Native Kafka APIs enforce strict separation between plan security types. You can't mix Keyless, mTLS, and authentication plans such as OAuth2, JWT, and API Key in published state. When you publish a plan of one type, all published plans of conflicting types are automatically closed. Multiple plans of the same security type can coexist. For example, two mTLS plans can coexist.
+
+The following table summarizes plan type coexistence rules:
+
+| Plan Type            | Can Coexist With           | Conflicts With                |
+| -------------------- | -------------------------- | ----------------------------- |
+| Keyless              | Other Keyless plans        | mTLS, API Key, OAuth2, JWT    |
+| mTLS                 | Other mTLS plans           | Keyless, API Key, OAuth2, JWT |
+| API Key, OAuth2, JWT | Other authentication plans | Keyless, mTLS                 |
+
+{% hint style="info" %}
+If you need to support multiple security types simultaneously, create separate APIs for each security model.
+{% endhint %}
+
+### Certificate-based subscription resolution
+
+The gateway extracts the client certificate from the TLS session, computes its MD5 hash, and uses the hash as a security token to look up the subscription. The subscription must be registered in the gateway's trust store manager.
+
+On successful validation, the gateway populates the connection context with the following attributes for metrics and analytics:
+
+* `planId`
+* `applicationId`
+* `subscriptionId`
+
+### Example
+
+The following example provides a template for how to produce and consume messages using the Kafka Gateway, Kafka client, and the prerequisites mentioned above.
+
+1. In the top-level folder of your Kafka download, create an empty `.properties` file named `connect.properties`.
+2. Go to the Developer Portal and find your API.
+3. After selecting your API, click the **My Subscriptions** tab.
+4.  Copy the script in the **Review Kafka Properties** section, and then paste it into your `connect.properties` file.
+
+    <div align="left"><figure><img src="../.gitbook/assets/1 pc 2.png" alt="A connect.properties file for calling the API, with the security protocol set to SASL_SSL, the OAUTHBEARER mechanism, and placeholder token endpoint, client, and truststore values." width="563"><figcaption></figcaption></figure></div>
+5.  Copy either the produce or consume commands from the **Calling the API** section.
+
+    <div align="left"><figure><img src="../.gitbook/assets/00 kafka 2.png" alt="The Producer tab of the calling instructions, showing a kafka-console-producer command with a bootstrap server, topic, and producer config file." width="563"><figcaption></figcaption></figure></div>
+6. In a terminal, change your working directory to the top-level folder of your Kafka download.
+7. Paste the commands you copied, and then execute them to produce or consume messages.
+
+## Appendix: Full Gateway Configuration
+
+The following is the full server configuration for the Kafka Gateway. For the Virtual Cluster broker domain pattern, see [Virtual Cluster broker addressing](virtual-cluster-broker-addressing.md).
+
+```yaml
+kafka:
+  enabled: false
+
+  routingMode: host # default is host. Supported values: host, port.
+  # Routing Host Mode
+  routingHostMode:
+    brokerPrefix: broker-          # default is broker-
+    domainSeparator: "-"           # Used to separate broker's name from api & domain. Default is '-'
+
+    # The domains where the Kafka APIs are exposed. ex: `myapi` will be exposed as `myapi.mycompany.org` and `myapi.mycompany.com`
+    # Each domain should be set according to a public wildcard DNS/Certificate.
+    domains:
+      - mycompany.org
+      - mycompany.com
+
+    # For a single domain, `defaultDomain` is still accepted but deprecated. It is ignored -- with a
+    # warning -- as soon as `domains` is set, so enable one or the other, never both:
+    #   defaultDomain: mycompany.org
+
+    defaultPort:   9092            # Default public port for Kafka APIs. Default is 9092
+
+    # With the upper default configuration, the Gravitee Kafka gateway yields bootstrap and broker domains to be as follows:
+    bootstrapDomainPattern: "{apiHost}.{domain}"
+    brokerDomainPattern: "broker-{brokerId}-{apiHost}.{domain}"
+    # Where:
+    # {apiHost}         is a placeholder that will be replaced when the API is deployed, by the API Host Prefix.
+    # {brokerId}        is a placeholder that stands for the broker id
+    # {brokerPrefix}    is a placeholder for the 'brokerPrefix' property above
+    # {domainSeparator} is a placeholder for the 'domainSeparator' property above
+    # {domain}          is a placeholder for the domain being evaluated: the patterns are applied once per
+    #                   entry of `domains`, or once to `defaultDomain` when `domains` is not set.
+    #                   Writing a domain literally here instead of using {domain} makes every entry resolve
+    #                   to that same hostname, leaving the other domains unroutable. The gateway logs a
+    #                   warning when it detects it. `{defaultDomain}` is still accepted as a deprecated
+    #                   alias of `{domain}`.
+    # The built-in defaults, used for whichever pattern is left unset, are "{apiHost}.{defaultDomain}" and
+    # "{brokerPrefix}{brokerId}{domainSeparator}{apiHost}.{defaultDomain}".
+
+    # It can be overridden to fit your DNS configuration.
+    # Each pattern falls back to its own default independently, so you can override only one of them, and 'defaultPort' defaults to 9092. Please note that 'brokerPrefix' and 'domainSeparator' are substituted only if the patterns reference them as {brokerPrefix} / {domainSeparator}, hence optional.
+    # Example:
+    #   defaultPort: 9092
+    #   bootstrapDomainPattern: "bootstrap-{apiHost}.{domain}"
+    #   brokerDomainPattern: "{apiHost}-broker{brokerId}.{domain}"
+    #
+    #   With the two domains above, this configuration yields domains that must target the Gravitee Kafka gateway:
+    #      bootstrap-myapi.mycompany.org      bootstrap-myapi.mycompany.com
+    #      myapi-broker0.mycompany.org        myapi-broker0.mycompany.com
+    #      myapi-broker1.mycompany.org        myapi-broker1.mycompany.com
+    #      ...
+
+    # Broker domain pattern applied only to APIs backed by a Kafka Virtual Cluster. Optional:
+    # when unset, Virtual Cluster APIs use 'brokerDomainPattern' like every other API.
+    # The pattern must contain {brokerId}, or both {clusterIndex} and {realBrokerId}. Otherwise, the
+    # Virtual Cluster API fails to deploy. The same rule applies to 'brokerDomainPattern' when a
+    # Virtual Cluster API falls back to it. See Virtual Cluster broker addressing for details.
+    # virtualClusterBrokerDomainPattern: "broker{realBrokerId}-c{clusterIndex}-{apiHost}.{domain}"
+
+  # Kafka probe
+  probe:
+    # tcp (default): the probe only checks that the Kafka port accepts a TCP connection.
+    # kafka: the probe uses a Kafka client to connect to one of the Kafka APIs deployed on this Gateway.
+    protocol: tcp
+    # With the kafka protocol, provide the Kafka client properties used to connect.
+    #properties:
+    #  bootstrap.servers: bootstrap-myapi.mycompany.org:9092
+    #  sasl.mechanism: PLAIN
+    #  security.protocol: SASL_SSL
+    #  sasl.jaas.config: >-
+    #      org.apache.kafka.common.security.plain.PlainLoginModule required
+    #      username="username"
+    #      password="********";
+
+  # SASL mechanisms accepted on API Key plans. Default is PLAIN, SCRAM-SHA-256, SCRAM-SHA-512.
+  api-key:
+    securityMechanisms: PLAIN, SCRAM-SHA-256, SCRAM-SHA-512
+
+  instances: 0             # Event-loop instances. Default is 0, which uses the Vert.x default (twice the number of CPU cores)
+  requestTimeout: 35000    # Default is 35000 ms
+
+  # Kafka metrics
+  metrics:
+    dimensions:
+      # Maximum number of metric dimension combinations (for example API, plan, application, topic) kept in memory.
+      # Default is 100000. Above the cap, the least recently used combinations are evicted: their pending
+      # counters are reported, up to 100 combinations per second, and dropped beyond that. The Gateway logs
+      # a "Kafka metric dimension cap reached" warning, at most once per minute. A value of 0 or less is ignored.
+      max: 100000
+
+  # SSL configuration
+  #ssl:
+  #  keystore:
+       # Supports JKS, PEM, PKCS12, BCFKS
+  #    type: JKS
+  #    path: /opt/graviteeio-gateway/ssl/server.keystore.jks
+  #    password: secret
+       # or
+  #    type: PEM
+  #    secret: secret://kubernetes/my-certificate
+  #    watch: true
+  #  openssl: true
+  #  # mTLS configuration
+  #  clientAuth: required
+  #  truststore:
+  #    type: jks
+  #    password: gravitee
+  #    path: /path/to/server.truststore.jks
+```

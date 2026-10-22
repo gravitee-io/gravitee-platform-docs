@@ -1,0 +1,929 @@
+---
+description: Configure the API Management 4.13 Gateway HTTP server properties. Follow the steps in the tab that matches your deployment.
+metaLinks:
+  alternates:
+    - configure-your-http-server.md
+---
+
+# Configure your HTTP Server
+
+## Default HTTP server configuration
+
+Configure the Gateway HTTP server by setting the following properties. Use the tab that matches your deployment method.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+Update the following section of the `gravitee.yaml` file:
+
+```yaml
+http:
+  port: 8082
+  host: 0.0.0.0
+  idleTimeout: 0
+  tcpKeepAlive: true
+  compressionSupported: false
+  maxHeaderSize: 8192
+  maxChunkSize: 8192
+  maxInitialLineLength: 4096
+  instances: 0
+  requestTimeout: 30000
+  requestTimeoutGraceDelay: 30
+  secured: false
+  alpn: false
+  ssl:
+    clientAuth: none # Supports none, request, required
+    keystore:
+      path: ${gravitee.home}/security/keystore.jks
+      password: secret
+    truststore:
+      path: ${gravitee.home}/security/truststore.jks
+      password: secret
+```
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Gateway service:
+
+```bash
+gravitee_http_port=8082
+gravitee_http_host=0.0.0.0
+gravitee_http_idleTimeout=0
+gravitee_http_tcpKeepAlive=true
+gravitee_http_compressionSupported=false
+gravitee_http_maxHeaderSize=8192
+gravitee_http_maxChunkSize=8192
+gravitee_http_maxInitialLineLength=4096
+gravitee_http_instances=0
+gravitee_http_requestTimeout=30000
+gravitee_http_requestTimeoutGraceDelay=30
+gravitee_http_secured=false
+gravitee_http_alpn=false
+gravitee_http_ssl_clientAuth=none
+gravitee_http_ssl_keystore_path=/opt/graviteeio-gateway/security/keystore.jks
+gravitee_http_ssl_keystore_password=secret
+gravitee_http_ssl_truststore_path=/opt/graviteeio-gateway/security/truststore.jks
+gravitee_http_ssl_truststore_password=secret
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Update the `gateway:` section of your `values.yaml` file. The APIM Helm chart renders these values into the Gateway `gravitee.yml` at install time:
+
+```yaml
+gateway:
+  service:
+    internalPort: 8082
+  http:
+    requestTimeout: 30000
+    requestTimeoutGraceDelay: 30
+    maxHeaderSize: 8192
+    maxChunkSize: 8192
+    maxInitialLineLength: 4096
+    maxFormAttributeSize: 2048
+    alpn: "true"
+  ssl:
+    enabled: false
+    clientAuth: none # Supports none, request, required
+    keystore:
+      type: jks
+      path: ${gravitee.home}/security/keystore.jks
+      password: secret
+    truststore:
+      type: jks
+      path: ${gravitee.home}/security/truststore.jks
+      password: secret
+  websocket: false
+```
+
+{% hint style="info" %}
+In single-server mode the Helm chart fixes `host` to `0.0.0.0` and doesn't expose `idleTimeout`, `tcpKeepAlive`, `compressionSupported`, or `instances`. To override any of those fields, switch to the `gateway.servers[]` array described in [Multi-server support.](configure-your-http-server.md#multi-server-support)
+{% endhint %}
+{% endtab %}
+{% endtabs %}
+
+The `http` block also carries `pathHandling`, which decides how the Gateway treats the request path before it resolves the listener context path, and therefore before it enforces any plan. For the available modes and the default on this version, see [Request Path Handling](../configure-and-manage-the-platform/gravitee-gateway/request-path-handling/README.md).
+
+## Request timeout behavior
+
+The `requestTimeout` setting caps the total time the Gateway spends processing a request, including the time the backend takes to respond and the time response policies take to execute. The value is in milliseconds. When the setting is absent, the Gateway applies a default of `30000` ms and logs a warning at startup. A value of `0` or less disables the timeout.
+
+When the timeout fires, the API consumer receives HTTP status `504` with the error key `REQUEST_TIMEOUT`. Responses that consistently fail at exactly 30 seconds usually indicate that this default is in effect.
+
+The `requestTimeoutGraceDelay` setting, also in milliseconds with a default of `30`, guarantees a minimum execution window for the response phase. When a request has already consumed most of its `requestTimeout` budget, the Gateway still grants at least `requestTimeoutGraceDelay` milliseconds to the platform and response flows.
+
+### Timeout scopes
+
+Request timeouts can't be configured per plan. A plan doesn't carry any timeout setting. Timeouts are configured at two other scopes:
+
+* Gateway level: the `http.requestTimeout` setting applies to every request that the Gateway handles.
+* Endpoint level: connection timeouts, such as the connect timeout, read timeout, and idle timeout, are configured on the HTTP client of each endpoint or endpoint group of an API.
+
+API-level timeouts don't override the Gateway request timeout. For more information, see [Execution Engine](../create-and-configure-apis/gravitee-api-definitions/execution-engine.md#timeout-management).
+
+To apply different timeout behavior to different consumers, expose the backend through separate APIs with different endpoint timeout configurations.
+
+### Response statuses for connection failures
+
+The status the API consumer receives indicates where a connection problem occurred:
+
+* `502`: the Gateway couldn't establish or keep a usable connection to the backend. This status covers refused connections, DNS resolution failures, unreachable hosts, TLS handshake failures, and connections reset or closed by the backend.
+* `504`: a timeout fired. This status covers the Gateway-level `requestTimeout` and the connect and read timeouts configured on the API's endpoint.
+* `499`: the API consumer closed the connection before the Gateway finished writing the response. These entries don't indicate a backend fault.
+
+Each status is accompanied by an error key in the Gateway logs and analytics. For the full list of connection-related error keys, see [Execution Transparency error keys](../analyze-and-monitor-apis/execution-transparency-analytics.md#connectivity-and-timeout-error-keys).
+
+## Idle timeout behavior
+
+The `idleTimeout` setting closes a client connection that has carried no traffic for the configured duration. Unlike every other timeout on this page, **the value is expressed in seconds**. The default of `0` disables it, so the Gateway never closes an idle client connection on its own.
+
+The timer covers the connection as a whole, including the period while a request is in flight and the Gateway is waiting for the backend to respond. No bytes travel on the client connection during that wait, so a request that takes longer than `idleTimeout` is closed while it's still progressing normally. The API consumer then receives no response at all: no status, no error key, and no response template runs. With `idleTimeout` set to `25` and a backend that answers in 30 seconds, the connection closes after 25 seconds and the consumer sees only a closed connection.
+
+Set `idleTimeout` above the longest wait an endpoint can impose, which is its `connectTimeout` plus its `readTimeout`. With the endpoint defaults of `5000` ms and `10000` ms, any value above `15` is clear of that ceiling.
+
+Setting it below the idle limit of whatever fronts the Gateway is worth considering. A load balancer that drops idle flows without notifying either side leaves the Gateway holding sockets for connections that no longer exist; closing them first keeps that decision with the Gateway.
+
+{% hint style="info" %}
+In single-server mode the Helm chart doesn't expose this field. Set it with the `gravitee_http_idleTimeout` environment variable, or switch to the `gateway.servers[]` array described in [Multi-server support](configure-your-http-server.md#multi-server-support).
+{% endhint %}
+
+## Chunked transfer encoding behavior
+
+No Gateway, API, or policy configuration option forces or disables chunked transfer encoding. The Gateway determines the framing of proxied requests and responses automatically, based on the `Content-Length` and `Transfer-Encoding` headers of the message, and adjusts these headers where required to keep the framing valid.
+
+To influence the framing of a proxied message, add or remove the `Content-Length` and `Transfer-Encoding` headers with the Transform Headers policy. The Gateway still normalizes the final framing, so header changes don't guarantee a specific transfer encoding on the wire. For more information, see [Transform Headers](../create-and-configure-apis/apply-policies/policy-reference/transform-headers.md).
+
+## Request header size limit
+
+The `maxHeaderSize` setting caps the combined size of all headers on a request, in bytes. The default is `8192` (8 KB). The limit applies to both HTTP/1.1 and HTTP/2 requests.
+
+When a request's headers exceed the limit, the Gateway rejects it with HTTP status `431 Request Header Fields Too Large` and an empty response body. The Gateway rejects the request before it reaches an API, so the request doesn't appear in API logs or analytics.
+
+Clients most likely to exceed the default are those that send long authorization tokens, large cookies, or many custom headers on every request. To accept larger headers, raise `maxHeaderSize` and restart the Gateway. The following examples set the limit to 32 KB:
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  maxHeaderSize: 32768
+```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_maxHeaderSize=32768
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  http:
+    maxHeaderSize: 32768
+```
+{% endtab %}
+{% endtabs %}
+
+If you use multiple servers, set `maxHeaderSize` on each entry of the `servers` list. For more information, see [Multi-server support](configure-your-http-server.md#multi-server-support).
+
+### Troubleshoot `431` responses
+
+If API consumers receive `431` responses with an empty body and the requests are missing from API analytics, complete the following steps:
+
+1. Confirm that the Gateway returns the `431`. Send a request with a header larger than the current limit, for example a 9 KB header against the default limit:
+
+    ```bash
+    curl -s -o /dev/null -w "%{http_code}\n" \
+      -H "X-Pad: $(head -c 9000 /dev/zero | tr '\0' 'a')" \
+      https://<gateway-host>/<context-path>
+    ```
+
+    A `431` response confirms that the request headers exceed `maxHeaderSize`.
+2. Raise `maxHeaderSize` above the largest header size your API consumers send, and then restart the Gateway.
+3. Run the same request again. The response is no longer `431`.
+
+If requests with large headers still fail after you raise the limit, check any load balancer or ingress controller in front of the Gateway. These components apply their own header size limits and can reject the request before it reaches the Gateway, often with status `400`. Raise that limit as well.
+
+## Enable HTTPS support
+
+To enable HTTPS, turn on secure mode and provide a keystore. Generate a keystore if you don't already have one, or reference an existing file path or Kubernetes location.
+
+## Generate a keystore
+
+Generate a keystore with `keytool`:
+
+```sh
+keytool -genkey \
+  -alias test \
+  -keyalg RSA \
+  -keystore server-keystore.jks \
+  -keysize 2048 \
+  -validity 360 \
+  -dname CN=localhost \
+  -keypass secret \
+  -storepass secret
+```
+
+### Reference a keystore file
+
+Point the Gateway at the keystore that contains the certificate and private key. Supported keystore types are `jks`, `pem`, `pkcs12`, `bcfks`, and `self-signed`. For PEM keystores, use the `certificates` array form instead of `path`. The `bcfks` type is the BouncyCastle FIPS keystore. It's read from a file `path` only, and it loads only when a BouncyCastle provider is registered in the JVM, which is the case on the [FIPS images](../self-hosted-installation-guides/docker/fips-images.md). On an image without one, the keystore fails to load with `Keystore type BCFKS needs a registered BouncyCastle provider, and this JVM has none.`
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  # ... skipped for simplicity
+  secured: true
+  ssl:
+    clientAuth: none # Supports none, request, required
+    tlsProtocols: TLSv1.2, TLSv1.3
+    tlsCiphers: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+    keystore:
+      type: jks # Supports jks, pem, pkcs12, bcfks, self-signed
+      path: /path/to/keystore.jks
+      password: adminadmin
+      watch: true # Reloads the keystore on filesystem changes. Default true.
+      defaultAlias: # Optional. Target a specific key pair when the keystore contains more than one.
+    truststore:
+      type: jks # Supports jks, pem, pkcs12, bcfks, pem-folder
+      path:
+      password:
+      watch: true # Reloads the truststore on filesystem changes. Default true.
+```
+
+For a PEM keystore, use the `certificates` array instead of `path`:
+
+```yaml
+http:
+  secured: true
+  ssl:
+    keystore:
+      type: pem
+      certificates:
+        - cert: /path/to/mycompany.org.pem
+          key: /path/to/mycompany.org.key
+        - cert: /path/to/mycompany.com.pem
+          key: /path/to/mycompany.com.key
+      watch: true
+```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_secured=true
+gravitee_http_ssl_clientAuth=none
+gravitee_http_ssl_tlsProtocols=TLSv1.2,TLSv1.3
+gravitee_http_ssl_keystore_type=jks
+gravitee_http_ssl_keystore_path=/path/to/keystore.jks
+gravitee_http_ssl_keystore_password=adminadmin
+gravitee_http_ssl_keystore_watch=true
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  ssl:
+    enabled: true
+    clientAuth: none # Supports none, request, required
+    keystore:
+      type: jks # Supports jks, pem, pkcs12, bcfks, self-signed
+      path: /path/to/keystore.jks
+      password: adminadmin
+      watch: true
+    truststore:
+      type: jks # Supports jks, pem, pkcs12, bcfks, pem-folder
+```
+
+For a PEM keystore, use the `certificates` array instead of `path`:
+
+```yaml
+gateway:
+  ssl:
+    enabled: true
+    keystore:
+      type: pem
+      certificates:
+        - cert: /path/to/mycompany.org.pem
+          key: /path/to/mycompany.org.key
+```
+
+The single-server `gateway.ssl.*` block and each `gateway.servers[]` entry render the same TLS settings: `keystore.{type,path,certificates,password,kubernetes,watch,secret}`, `truststore.{type,path,password}`, `clientAuth`, `sendClientCertificateAuthorities`, `crl.{path,watch}`, and `sni`. The chart doesn't render `tlsProtocols`, `tlsCiphers`, `defaultAlias`, `openssl`, or a truststore `watch` for the HTTP listeners in either form.
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+**Automatic watching**
+
+As of Gravitee APIM v3.13.0, the keystore file is automatically watched for any modifications and reloaded without having to restart the Gateway server.
+{% endhint %}
+
+### Load a keystore from a Kubernetes secret or configmap
+
+Load the keystore directly from a Kubernetes secret or configmap by specifying the location. Two forms are available:
+
+* `ssl.keystore.secret: secret://kubernetes/<secret-name>` is the preferred form. It uses the Gravitee secret-provider plugin system, which also supports other providers such as HashiCorp Vault and AWS Secrets Manager.
+* `ssl.keystore.kubernetes: /<namespace>/<type>/<name>/<key>` is the legacy form, kept for backward compatibility.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  # ... skipped for simplicity
+  secured: true
+  ssl:
+    clientAuth: none # Supports none, request, required
+    keystore:
+      type: pkcs12
+      kubernetes: /my-namespace/secrets/my-secret/keystore
+      password: adminadmin
+```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_secured=true
+gravitee_http_ssl_clientAuth=none
+gravitee_http_ssl_keystore_type=pkcs12
+gravitee_http_ssl_keystore_kubernetes=/my-namespace/secrets/my-secret/keystore
+gravitee_http_ssl_keystore_password=adminadmin
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  ssl:
+    enabled: true
+    clientAuth: none # Supports none, request, required
+    keystore:
+      type: pkcs12
+      kubernetes: /my-namespace/secrets/my-secret/keystore
+      password: adminadmin
+```
+{% endtab %}
+{% endtabs %}
+
+The expected `http.ssl.keystore.kubernetes` value is structured as `/{namespace}/{type}/{name}/{key}`:
+
+* `namespace`: the name of the targeted Kubernetes namespace
+* `type`: either `secrets` or `configmaps`, depending on the Kubernetes resource type
+* `name`: the name of the secret or configmap to retrieve
+* `key`: the name of the key holding the value to retrieve. The `key` is optional when using a standard `kubernetes.io/tls` secret (note: it only supports PEM cert & key). The `key` is mandatory for any `Opaque` secret or configmap (note: they only support JKS & PKC12 keystore type).
+
+The keystore (or PEM cert & key) stored in the Kubernetes secret or configmap is automatically watched for any modifications and reloaded without restarting the Gateway server.
+
+### Enable SNI and the OpenSSL engine
+
+Enable Server Name Indication (SNI) when a single Gateway listener serves multiple certificates. SNI lets the Gateway select the correct certificate at TLS handshake time based on the hostname the client requested. Enable `openssl` to route TLS through the OpenSSL engine instead of the default JDK SSL engine.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  secured: true
+  ssl:
+    sni: true
+    openssl: true
+```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_secured=true
+gravitee_http_ssl_sni=true
+gravitee_http_ssl_openssl=true
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+The chart renders `sni` for the HTTP listeners but not `openssl`, in the single-server `gateway.ssl.*` form or the `gateway.servers[]` array.
+
+```yaml
+gateway:
+  ssl:
+    enabled: true
+    sni: true
+```
+{% endtab %}
+{% endtabs %}
+
+### HTTPS configuration reference
+
+The following fields configure HTTPS on the Gateway HTTP server. Set them under `http:` in `gravitee.yml`, or under `gateway.ssl.*` in Helm `values.yaml` when the field is exposed by the chart's single-server form.
+
+<table>
+    <thead>
+        <tr>
+            <th width="240">Property</th>
+            <th>Description</th>
+            <th width="140">Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>http.secured</code></td>
+            <td>Enables HTTPS on the Gateway HTTP server.</td>
+            <td><code>false</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.clientAuth</code></td>
+            <td>Client certificate authentication mode. Accepts <code>none</code>, <code>request</code>, or <code>required</code>.</td>
+            <td><code>none</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.sendClientCertificateAuthorities</code></td>
+            <td>When <code>true</code>, the Gateway sends the configured truststore as the list of acceptable certificate authorities in the TLS <code>CertificateRequest</code>. Certificates registered at runtime by mTLS plan subscriptions are never sent. See <a href="configure-your-http-server.md#control-which-certificate-authorities-the-gateway-advertises">Control which certificate authorities the Gateway advertises</a>.</td>
+            <td><code>false</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.clientAuthHeader.name</code></td>
+            <td>Header name to extract the client certificate from. Use this when NGINX or another load balancer terminates TLS in front of the Gateway.</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.tlsProtocols</code></td>
+            <td>Comma-separated allow list of TLS protocol versions.</td>
+            <td><code>TLSv1.2, TLSv1.3</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.tlsCiphers</code></td>
+            <td>Comma-separated allow list of TLS cipher suites.</td>
+            <td>See <code>gravitee.yml</code> template</td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.type</code></td>
+            <td>Keystore type. Accepts <code>jks</code>, <code>pem</code>, <code>pkcs12</code>, <code>bcfks</code>, or <code>self-signed</code>.</td>
+            <td><code>jks</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.path</code></td>
+            <td>Filesystem path to the keystore. Required for <code>bcfks</code>, and for <code>jks</code> and <code>pkcs12</code> unless the store comes from <code>kubernetes</code> or <code>secret</code>.</td>
+            <td><code>${gravitee.home}/security/keystore.jks</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.password</code></td>
+            <td>Keystore password.</td>
+            <td><code>secret</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.certificates</code></td>
+            <td>Array of <code>cert</code> and <code>key</code> file pairs. Required when <code>type</code> is <code>pem</code>.</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.watch</code></td>
+            <td>When <code>true</code>, the Gateway watches the keystore file and reloads on changes without restarting.</td>
+            <td><code>true</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.defaultAlias</code></td>
+            <td>Target alias to select a specific key pair when the keystore contains more than one.</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.kubernetes</code></td>
+            <td>Legacy Kubernetes secret or configmap location, in the form <code>/&#x3C;namespace>/&#x3C;type>/&#x3C;name>/&#x3C;key></code>.</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.secret</code></td>
+            <td>Preferred secret-provider reference, in the form <code>secret://kubernetes/&#x3C;secret-name></code>. Supports Kubernetes, HashiCorp Vault, AWS Secrets Manager, and other configured providers.</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.truststore.type</code></td>
+            <td>Truststore type. Accepts <code>jks</code>, <code>pem</code>, <code>pkcs12</code>, <code>bcfks</code>, or <code>pem-folder</code>. The <code>pem-folder</code> type watches a folder for added, updated, or removed PEM files.</td>
+            <td><code>jks</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.truststore.path</code></td>
+            <td>Filesystem path to the truststore.</td>
+            <td><code>${gravitee.home}/security/truststore.jks</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.truststore.password</code></td>
+            <td>Truststore password.</td>
+            <td><code>secret</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.truststore.watch</code></td>
+            <td>When <code>true</code>, the Gateway watches the truststore file or folder and reloads on changes.</td>
+            <td><code>true</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.sni</code></td>
+            <td>Enables Server Name Indication. Set to <code>true</code> when a single Gateway listener serves multiple certificates.</td>
+            <td><code>false</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.openssl</code></td>
+            <td>Routes TLS through the OpenSSL engine instead of the default JDK SSL engine.</td>
+            <td><code>false</code></td>
+        </tr>
+    </tbody>
+</table>
+
+For CRL configuration, see the [CRL configuration reference](#crl-configuration-reference) below.
+
+## Enable HTTP/2 support
+
+First, enable HTTPS as described above. Then turn on `alpn`.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  alpn: true
+  ...
+```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_alpn=true
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  http:
+    alpn: "true"
+```
+{% endtab %}
+{% endtabs %}
+
+Consume your API with both HTTP/1 and HTTP/2 protocols:
+
+```sh
+curl -k -v --http2 https://localhost:8082/my_api
+```
+
+### Tune HTTP/2 flow-control windows
+
+An HTTP/2 flow-control window bounds how many bytes a client may send before waiting for the Gateway to acknowledge them. Upload throughput is capped by `window size / round-trip time`. The 65535-byte protocol default therefore throttles large request bodies as soon as there is real network latency, while HTTP/1.1 is unaffected. Raise both windows to lift that ceiling.
+
+{% hint style="warning" %}
+Set both, or neither. If you raise `streamWindowSize` alone, it has no observable effect. The initial settings the Gateway sends apply to streams only, never to the connection. The connection window therefore stays at 65535 bytes and remains the bottleneck for the whole connection. Keep `connectionWindowSize` greater than or equal to `streamWindowSize`.
+{% endhint %}
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  alpn: true
+  http2:
+    connectionWindowSize: 20971520
+    streamWindowSize: 20971520
+```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_http2_connectionWindowSize=20971520
+gravitee_http_http2_streamWindowSize=20971520
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  http:
+    http2:
+      connectionWindowSize: 20971520
+      streamWindowSize: 20971520
+```
+
+With `gateway.servers`, the chart renders the HTTP server options from that list and ignores the rest of `gateway.http`. Set the windows on each server that needs them:
+
+```yaml
+gateway:
+  servers:
+    - type: http
+      port: 8082
+      http2:
+        connectionWindowSize: 20971520
+        streamWindowSize: 20971520
+```
+{% endtab %}
+{% endtabs %}
+
+Size both windows against the number of concurrent connections you expect, not against a single upload. The Gateway accepts up to `connectionWindowSize` bytes in flight per connection and `streamWindowSize` bytes per concurrent request, with no upper bound enforced.
+
+Both options default to `-1`, which keeps the 65535-byte protocol default. If you leave them unset, nothing changes.
+
+## Enable WebSocket support
+
+Turn on WebSocket support for the Gateway.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  websocket:
+    enabled: true
+```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_websocket_enabled=true
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  websocket: true
+```
+{% endtab %}
+{% endtabs %}
+
+Consume your API via both WS and WSS protocols:
+
+```sh
+curl ws://localhost:8082/my_websocket
+```
+
+## Enable certificate-based client authentication
+
+Configure a truststore and set `clientAuth` to the desired mode.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  ssl:
+    clientAuth: none # Supports none, request, required
+    truststore:
+      path: /path/to/truststore.jks
+      password: adminadmin
+```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_ssl_clientAuth=none
+gravitee_http_ssl_truststore_path=/path/to/truststore.jks
+gravitee_http_ssl_truststore_password=adminadmin
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  ssl:
+    enabled: true
+    clientAuth: none # Supports none, request, required
+    truststore:
+      type: jks
+      path: /path/to/truststore.jks
+      password: adminadmin
+```
+{% endtab %}
+{% endtabs %}
+
+Available modes for `clientAuth`:
+
+* `none`: Client authentication is disabled (replacement of the `false` value)
+* `request`: Client authentication isn't required but can be if using the SSL enforcement policy
+* `required`: Client authentication is required (replacement of the `true` value)
+
+
+
+## Control which certificate authorities the Gateway advertises
+
+When `clientAuth` is `request` or `required`, the Gateway asks the client for a certificate with a TLS `CertificateRequest`. That message carries a list of acceptable certificate authorities, which a client can use to decide which of its certificates to present.
+
+Starting with Gravitee APIM 4.13, the Gateway sends an **empty** list. Earlier versions sent every certificate in the truststore, which disclosed the accepted client identities to every client of the listener, including callers that present no certificate at all. This matters most with [mTLS plans](../secure-and-expose-apis/plans/mtls.md), where the truststore holds each subscribed application's client certificate.
+
+An empty list means "no constraint": clients continue to present their certificate, and validation is unchanged. Enable the option only if your clients rely on the advertised list to pick a certificate.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  ssl:
+    clientAuth: required
+    sendClientCertificateAuthorities: true
+    truststore:
+      path: /path/to/truststore.jks
+      password: adminadmin
+```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_ssl_clientAuth=required
+gravitee_http_ssl_sendClientCertificateAuthorities=true
+gravitee_http_ssl_truststore_path=/path/to/truststore.jks
+gravitee_http_ssl_truststore_password=adminadmin
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  ssl:
+    enabled: true
+    clientAuth: required
+    sendClientCertificateAuthorities: true
+    truststore:
+      type: jks
+      path: /path/to/truststore.jks
+      password: adminadmin
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="warning" %}
+Don't enable this on a listener that serves mTLS plans. A non-empty list is a constraint, not a hint: a client whose certificate issuer is absent from the list withholds its certificate entirely. Subscription certificates are self-signed leaves that are never issued by an authority of the configured truststore, so enabling this cuts off every mTLS subscription on that listener.
+{% endhint %}
+
+### Advertised authorities behavior
+
+* **Unset or `false`**: the Gateway sends an empty list. Clients aren't told which authorities are accepted, and every client certificate is still validated against the full truststore.
+* **`true`**: the Gateway sends the certificates of the **configured** truststore only, the one declared under `ssl.truststore`.
+* **Runtime certificates are never sent**: client certificates registered at runtime, such as those loaded from mTLS plan subscriptions, stay out of the advertised list whatever the setting. They remain fully trusted for validation.
+* **Reloads follow the truststore**: when the configured truststore is reloaded, the advertised list is rebuilt from its new contents.
+* **Requires a client certificate request**: the list is only ever sent when `clientAuth` is `request` or `required`. With `none`, the Gateway sends no `CertificateRequest` at all.
+
+### Apply advertised authorities to other Gateway servers
+
+The `ssl.sendClientCertificateAuthorities` field is available under every server prefix. Set it on the top-level TCP server, on the Kafka Gateway server, on the Edge Reactor server, and on each entry of the `servers[]` array by adding it under the corresponding prefix.
+
+{% code title="gravitee.yaml" %}
+```yaml
+tcp:
+  ssl:
+    sendClientCertificateAuthorities: true
+
+kafka:
+  ssl:
+    sendClientCertificateAuthorities: true
+
+edge:
+  ssl:
+    sendClientCertificateAuthorities: true
+
+servers:
+  - id: "http_secured"
+    type: http
+    ssl:
+      sendClientCertificateAuthorities: true
+```
+{% endcode %}
+
+{% hint style="info" %}
+The Edge Reactor server is the usual place to enable this. Its truststore holds the certificate authority of the Edge fleet rather than enrolled leaf certificates, and no subscription certificate is ever registered on it, so an enrolled agent holding several certificates can use the advertised list to pick the right one.
+{% endhint %}
+
+## Reject revoked client certificates with a CRL
+
+Starting with Gravitee APIM 4.10, the Gateway can reject mTLS connections from clients whose certificates appear on a Certificate Revocation List (CRL). When CRL checking is enabled, the Gateway evaluates each client certificate against the loaded CRLs during the TLS handshake. If the certificate is revoked, the handshake fails and the request doesn't reach plan evaluation. This applies to every mTLS flow, including [mTLS plans.](../secure-and-expose-apis/plans/mtls.md)
+
+Point the Gateway at a single CRL file or at a folder that contains multiple CRL files. The Gateway accepts X.509 CRLs in DER or PEM format.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  ssl:
+    crl:
+      path: /path/to/crl        # File or folder of CRL files
+      watch: true               # Hot-reload on filesystem changes
+```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_ssl_crl_path=/path/to/crl
+gravitee_http_ssl_crl_watch=true
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  ssl:
+    crl:
+      path: /path/to/crl
+      watch: true
+```
+{% endtab %}
+{% endtabs %}
+
+### CRL configuration reference
+
+<table><thead><tr><th width="220">Property</th><th>Description</th><th width="110">Default</th><th data-type="checkbox">Required</th></tr></thead><tbody><tr><td><code>http.ssl.crl.path</code></td><td>Path to a single CRL file or to a folder that contains one or more CRL files. Accepted formats: DER and PEM. When unset, CRL checking is disabled.</td><td>-</td><td>false</td></tr><tr><td><code>http.ssl.crl.watch</code></td><td>When <code>true</code>, the Gateway watches the CRL path and reloads CRLs on create, modify, and delete events. When <code>false</code>, CRLs are loaded once at Gateway startup.</td><td><code>true</code></td><td>false</td></tr></tbody></table>
+
+### CRL loading behavior
+
+* **Path unset**: CRL checking is disabled. The Gateway doesn't evaluate client certificates against any CRL.
+* **Path points to a file**: the Gateway loads the file as an X.509 CRL. If the file can't be parsed, the Gateway logs the failure and proceeds with an empty CRL set.
+* **Path points to a folder**: the Gateway loads every regular file inside the folder as an X.509 CRL and combines them into a single revocation set.
+* **Path must exist at startup**: the Gateway doesn't start if the path doesn't resolve to an existing file or folder. Create the path before starting the Gateway.
+* **Hot reload with `watch: true`**: the Gateway registers a filesystem watcher on the CRL path (or its parent directory when the path points to a single file) and reloads CRLs when a file is created, modified, or deleted.
+* **Startup-only with `watch: false`**: CRLs are loaded once at Gateway startup. Restart the Gateway to pick up changes.
+* **Revoked certificate rejection**: when a client presents a revoked certificate, the Gateway throws a `CertificateException` that identifies the serial number and subject, and the TLS handshake fails.
+
+{% hint style="info" %}
+CRL checking runs at the server-level TLS handshake, before the Gateway evaluates plans. Subscription certificates registered by mTLS plans go through the same trust manager, so revoked certificates are rejected before subscription matching.
+{% endhint %}
+
+### Apply CRL checking to other Gateway servers
+
+The `ssl.crl` block is available under every server prefix. Enable CRL checking on the top-level TCP server, on the Kafka Gateway server, and on each entry of the `servers[]` array by adding the same block under the corresponding prefix.
+
+{% code title="gravitee.yaml" %}
+```yaml
+tcp:
+  ssl:
+    crl:
+      path: /path/to/crl
+      watch: true
+
+kafka:
+  ssl:
+    crl:
+      path: /path/to/crl
+      watch: true
+
+servers:
+  - id: "http_secured"
+    type: http
+    ssl:
+      crl:
+        path: /path/to/crl
+        watch: true
+```
+{% endcode %}
+
+## Multi-server support
+
+The Gravitee APIM Gateway supports a multi-server architecture that lets one Gateway expose multiple protocols. For example, the Gateway can proxy both HTTP and HTTPS by running two servers on different ports simultaneously.
+
+To enable this, replace the root-level `http` property with the root-level `servers` array. Each entry requires:
+
+* An `id` property to identify and compare servers
+* A `type` property (currently only `http` is supported)
+
+{% hint style="info" %}
+Gravitee still fully supports configurations that use `http` as the root-level property.
+{% endhint %}
+
+The rest of the configuration schema is unchanged. The following example configures one Gateway to support both HTTP and HTTPS.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+# Gateway servers
+servers:
+  - id: "http"
+    type: http
+    port: 8092
+  - id: "http_secured"
+    type: http
+    port: 8443
+    secured: true
+    alpn: true
+    ssl:
+      keystore:
+        type: jks
+        path: ${gravitee.home}/security/keystore.jks
+      sni: true
+      openssl: true
+```
+{% endtab %}
+
+{% tab title=".env" %}
+Docker Compose can't express the `servers[]` array through flat environment variables. Mount a custom `gravitee.yml` into the Gateway container instead:
+
+```yaml
+services:
+  gateway:
+    image: graviteeio/apim-gateway:latest
+    volumes:
+      - ./gravitee.yml:/opt/graviteeio-gateway/config/gravitee.yml
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  servers:
+    - type: http
+      port: 8092
+    - type: http
+      port: 8443
+      secured: true
+      alpn: true
+      ssl:
+        keystore:
+          type: jks
+          path: ${gravitee.home}/security/keystore.jks
+        sni: true
+        openssl: true
+```
+{% endtab %}
+{% endtabs %}

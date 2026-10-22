@@ -1,0 +1,123 @@
+---
+description: Migrate existing v2 APIs to v4 with the API Management 4.13 Migration feature. Follow the prerequisites and steps to migrate them.
+---
+
+# Migrate APIs
+
+{% hint style="warning" %}
+v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
+## Migrate v2 APIs to V4 APIs
+
+This guide explains how to migrate your existing V2 APIs to V4 APIs using the Migration feature. V4 APIs provide long-term support and access to the latest features.
+
+### Important Notes
+
+{% hint style="info" %}
+**Analytics Data**
+
+* Analytics continuity is now supported when you migrate an API from v2 to v4. The API's pre-migration v2 data remains visible in its per-API analytics dashboard and connection logs. See [Maintain analytics continuity after migrating v2 APIs to v4](../../v2-api-analytics-continuity-after-migration.md) for details.
+
+**Rollback Option**
+
+* Migration is reversible. If the migrated API does not work as expected, you can always roll back to the previous V2 API.
+{% endhint %}
+
+### Prerequisites
+
+Before you migrate your API, ensure that you complete the following actions:
+
+* You must have access to Gravitee API Management Console.
+* You have an existing V2 API that you want to migrate to V4.
+
+### Initiate the Migration
+
+To initiate the migration, complete the following steps:
+
+1.  Go to API in the APIM management console
+
+    <figure><img src="../../.gitbook/assets/api-apim-mangement-console.png" alt="The APIs list filtered by a search term, with APIs highlighted in the left navigation and two matching Kafka APIs listed."><figcaption></figcaption></figure>
+2.  Click on **Info** in the APIM management console
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-18 at 14.29.30.png" alt="The Info page of a V2 API, with Info and Plans highlighted in the API menu, showing the name, version, description, and a Migrate to v4 button."><figcaption></figcaption></figure>
+3.  Click the **Migrate to V4** button.
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-18 at 14.30.13.png" alt="The Info page of a V2 API with the Migrate to v4 button highlighted below the export, import, duplicate, and promote actions."><figcaption></figcaption></figure>
+
+### Review the Compatibility Check Results
+
+The system automatically runs a migration compatibility check to verify compatibility. The check displays one of these results:
+
+*   **Not Migratable:** The API cannot be migrated, migration blocked: Incompatible elements detected.
+
+    * This occurs when the "Emulate V4 Engine" toggle is not enabled in your API settings.
+    * A message explains the reason and suggests what to fix.
+
+    <figure><img src="../../.gitbook/assets/migrate-api-to-v4-error-message.png" alt="The Migrate API to v4 dialog reporting that migration is blocked, listing the incompatible element that must be removed first."><figcaption></figcaption></figure>
+*   **Partially Migratable:** The API can be migrated, but some settings may not be fully supported or are not recommended.
+
+    * This occurs when the "Emulate V4 Engine" toggle is enabled but the API has not been deployed.
+    * You can choose to fix these first or continue with the migration.
+
+    <figure><img src="../../.gitbook/assets/migrate-api-v4-warning-message.png" alt="The Migrate API to v4 dialog reporting that migration is allowed with warnings, listing the setting that needs attention, with Cancel and Continue buttons."><figcaption></figcaption></figure>
+* **Fully Migratable:** The API is fully compatible with V4. You can proceed directly.
+  * This occurs when the "Emulate V4 Engine" toggle is enabled, saved, and the API has been deployed.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 at 17.26.29.png" alt="The Migrate API to v4 dialog reporting that migration is ready and the API can be migrated safely, with Cancel and Continue buttons."><figcaption></figcaption></figure>
+
+### (Optional) Fix Migration Issues
+
+If the compatibility check identifies problems, resolve the problems before proceeding with the following steps:
+
+1. Address the issues listed in the compatibility check results
+2. Re-run the compatibility check to confirm the fixes
+
+### Perform the Migration
+
+Once validation passes, convert your API with the following steps:
+
+1.  Review the migration summary and confirm you are ready to migrate your API to V4.
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 19.14.33.png" alt="The Migrate API to v4 dialog reporting migration ready, shown over the Info page of a V2 API."><figcaption></figcaption></figure>
+2.  Click the **Continue** button. A pop-up box appears showing you details about what you should be aware of before migrating to API V4.
+
+3.  Confirm the migration details in the pop-up, and then click **Start Migration** in the confirmation dialog.
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 19.13.15 (1).png" alt="The Migrate API to v4 dialog at the confirmation step, warning that analytics history will not be preserved, with the acknowledgement ticked and the Start Migration button highlighted."><figcaption></figcaption></figure>
+4. Wait for the conversion process to complete. The migration process takes a few minutes.
+5. Verify migration completion. When the process is complete, a "Migration Successful" message appears.
+6.  Your V2 API is now converted to a V4 API
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 19.21.01.png" alt="The Configuration page of a migrated V4 API, showing its name, version, and description with Import and Promote greyed out and a Danger Zone below."><figcaption></figcaption></figure>
+
+### Debug and Test the Migrated API
+
+1.  Click on **Debug Mode** to access the debugging interface for your migrated V4 API.
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 19.23.28 (1).png" alt="The Debug page of a migrated API with Debug highlighted in the API menu and the HTTP method dropdown open on GET, DELETE, PATCH, POST, PUT, OPTIONS, and TRACE."><figcaption></figcaption></figure>
+2. Test your API thoroughly using debug mode to:
+   * Check endpoints, policies, and configuration
+   * Identify, diagnose, and fix any issues in functionality, performance, or integration
+   * Inspect requests, responses, logs, and error messages
+3. Verify proper functionality to ensure the API behaves as expected before deployment to production.
+4. Once the API testing is complete, deploy your V4 API.
+
+## Verification
+
+After completing your API migration, follow these verification steps to ensure everything transferred correctly:
+
+1.  Navigate back to the API Management Interface, and then locate your migrated API in the API list.
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 19.56.10.png" alt="The APIs list filtered by a search term, showing two migrated V4 HTTP proxy APIs with their status and context paths."><figcaption></figcaption></figure>
+2.  Verify the API version update, and then check that your API is now listed as a V4 API in the management interface.
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 19.56.10 (2).png" alt="The APIs list with the API Type column highlighted, showing both rows as V4 HTTP Proxy Gravitee."><figcaption></figcaption></figure>
+3. **Confirm Configuration Transfer:**
+   * Click on your migrated API to open its details
+   *   Navigate through the different configuration sections (General Settings, Policies, etc.)
+
+       <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 20.01.42.png" alt="The Policies page of a migrated API with Policies highlighted in the API menu, showing one catch-all flow under the plan and empty request and response phases."><figcaption></figcaption></figure>
+   *   Verify that all configuration settings have been properly transferred from V2 to V4
+
+       <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 20.02.44.png" alt="The Configuration page of a migrated V4 API, showing the name, version, description, owner, and timestamps above a Danger Zone."><figcaption></figcaption></figure>

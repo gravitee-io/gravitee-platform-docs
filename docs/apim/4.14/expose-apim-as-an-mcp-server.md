@@ -1,0 +1,131 @@
+---
+description: Install the API Management 4.13 MCP Server so AI clients can call your platform. Follow the steps to install it and create a service account token.
+metaLinks:
+  alternates:
+    - expose-apim-as-an-mcp-server.md
+---
+
+# Expose APIM as an MCP Server
+
+## Overview
+
+This article explains how to install and use the Gravitee API Management (APIM) Model Context Protocol (MCP) Server. With this MCP server, you can interact with Gravitee APIM using natural language AI assistants and other MCP-compatible clients.
+
+The MCP Server is generated from the API v2 OpenAPI specification. It exposes its functionality as a set of tools for an LLM to use.
+
+For more information about how the MCP server is configured, go to [gravitee-apim-mcp server.](https://github.com/gravitee-io/gravitee-apim-mcp-server)
+
+## Prerequisites
+
+* Node.js v18+
+* Npm
+* A Gravitee APIM instance. You can install Gravitee APIM using any of the following methods:
+  * Self-hosted installation. For more information about self-hosted installations, see [self-hosted-installation-guides](self-hosted-installation-guides/ "mention").
+  * Cloud deployment. To sign up for a Cloud version of APIM, see [Cloud](https://cockpit.gravitee.io/).
+
+## Install the MCP Server
+
+To install the APIM MCP Server, complete the following steps:
+
+1. [#install-the-mcp-server](expose-apim-as-an-mcp-server.md#install-the-mcp-server "mention")
+2. [#create-a-service-account-and-generate-a-token](expose-apim-as-an-mcp-server.md#create-a-service-account-and-generate-a-token "mention")
+3. [#install-the-mcp-server-in-your-mcp-client](expose-apim-as-an-mcp-server.md#install-the-mcp-server-in-your-mcp-client "mention")
+
+### Create a service account and generate a token
+
+1. Sign in to your APIM Console.
+2.  From the **Dashboard**, click **Organization**.
+
+    <figure><img src=".gitbook/assets/4-9-expose-apim-as-an-mcp-server-333-1.png" alt="The console dashboard with Organization highlighted at the foot of the left navigation, showing empty summary and top API panels."><figcaption></figcaption></figure>
+3.  From the **Organization** menu, click **Users**.
+
+    <figure><img src=".gitbook/assets/4-9-expose-apim-as-an-mcp-server-334-1.png" alt="The organization Users page with Users highlighted in the left navigation, listing a single administrator."><figcaption></figcaption></figure>
+4.  Click **Add user**.
+
+    <figure><img src=".gitbook/assets/4-9-expose-apim-as-an-mcp-server-335-1.png" alt="The organization Users page with the Add user button highlighted above the user table."><figcaption></figcaption></figure>
+5.  In the **Pre-register a user** screen, create the service account. To create a service account, complete the following sub-steps:
+
+    1. Select **Service Account**.
+    2. In the **Service Name** field, enter a name for the Service Account. For example, mcp-server-user.
+    3. (Optional) Enter the email address associated with the service account.
+    4. Click **Create**.
+
+    <figure><img src=".gitbook/assets/4-9-expose-apim-as-an-mcp-server-336-1.png" alt="The Pre-register a user page with Service Account selected and a service account name entered."><figcaption></figcaption></figure>
+6.  In the **Users** screen, click the service account that you created.
+
+    <figure><img src=".gitbook/assets/4-9-expose-apim-as-an-mcp-server-338-1.png" alt="The organization Users page, listing an administrator and a service account, with the service account row highlighted."><figcaption></figcaption></figure>
+7.  In the **User details** screen, assign the service account permissions. The AI assistant's capabilities are determined by the permissions you set for the service account.
+
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>For information about the permissions that you need to set for a specific action, see <a data-mention href="management-api-reference.md">management-api-reference.md</a>.</p></div>
+
+    <figure><img src=".gitbook/assets/4-9-expose-apim-as-an-mcp-server-12-1-1.png" alt="A Gravitee Cloud overview showing development, production, and test environment cards, with the product and version badge on each one highlighted."><figcaption></figcaption></figure>
+8.  In the **You have unsaved changes** pop-up window, click **Save**.
+
+    <figure><img src=".gitbook/assets/4-9-expose-apim-as-an-mcp-server-340-1-1.png" alt="The detail page of a service account, showing its source, organization role, and creation date, with the environment roles set and an unsaved changes bar offering Save."><figcaption></figcaption></figure>
+9.  Navigate to the **Tokens** section, and then click **+ Generate a personal token**.
+
+    <figure><img src=".gitbook/assets/4-9-expose-apim-as-an-mcp-server-323-1.png" alt="The detail page of a service account scrolled to the Tokens panel, with the Generate a personal token button highlighted above empty API, application, and token lists."><figcaption></figcaption></figure>
+10. In the **Generate a token** pop-up window, enter a name for your token. For example, mcp-server-token.
+11. Click **Generate**.
+
+    <figure><img src=".gitbook/assets/4-9-expose-apim-as-an-mcp-server-324-1.png" alt="The Generate a token dialog, with a token name entered, over the empty token list."><figcaption></figcaption></figure>
+12. Copy the token, and then store it somewhere safe.
+13. Click **Close**.
+
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>You cannot view your token after you click <strong>Close.</strong></p></div>
+
+    <figure><img src=".gitbook/assets/C8A38BA2-E033-4F88-AB72-4DB7CBAA9323_1_201_a.jpeg" alt="The Generate a token dialog after generation, warning that the token can only be copied now, with the token and a usage curl example both obscured."><figcaption></figcaption></figure>
+
+{% hint style="warning" %}
+You cannot view your token after you click **Close.**
+{% endhint %}
+
+### Clone and build the MCP Server
+
+*   Clone and build the MCP server using the following commands:
+
+    ```
+    # Clone the repository
+    git clone https://github.com/gravitee-io/gravitee-apim-mcp-server.git
+    cd gravitee-apim-mcp-server
+
+    # Install dependencies
+    npm install
+
+    # Build the project
+    npm run build
+
+    # The server executable is now available at ./bin/mcp-server.js
+    ```
+
+### Install the MCP Server in your MCP Client
+
+{% hint style="info" %}
+For more information about installing the MCP Server in specific MCP Clients, go to[ gravitee-apim-mcp server.](https://github.com/gravitee-io/gravitee-apim-mcp-server)
+{% endhint %}
+
+*   To add the MCP Server in your MCP Client, you must use the `--bearer-auth` and `--server-url` arguments. Here is the following configuration that you can use to add the MCP Server to your MCP Client.
+
+    ```json
+    {
+      "mcpServers": {
+        "GraviteeApim": {
+          "command": "node",
+          "args": [
+            "/absolute/path/to/gravitee-apim-mcp-server/bin/mcp-server.js",
+            "start",
+            "--bearer-auth",
+            "YOUR_BEARER_TOKEN",
+            "--server-url",
+            "https://your-management-api-url/management/v2"
+          ]
+        }
+      }
+    }
+    ```
+
+    * Replace `</absolute/path/to/gravitee-apim-mcp-server/bin/mcp-server.js>` with the absolute path to the location of your `mcp-server.js` file.
+    * Replace `<YOUR_BEARER_TOKEN>` with the token that you created in the [#create-a-service-account-and-generate-a-token](expose-apim-as-an-mcp-server.md#create-a-service-account-and-generate-a-token "mention") section.
+    * Replace `<https://your-management-api-url/management/v2>` with the server URL for your installation:
+      * Self-hosted URL: The server URL is the base URL of your Management API. For example, `http://localhost:8083/management/v2`.
+      * Cloud: The server URL is your organization-specific API URL. For example, `https://<your-org>.<region>.api.gravitee.io/management/v2`.
