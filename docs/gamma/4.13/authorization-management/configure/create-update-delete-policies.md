@@ -204,5 +204,5 @@ Deploying or undeploying a policy from the editor saves it first, so two events 
 
 * [MCP policy examples](mcp-policy-examples.md). Real-world MCP policy patterns.
 * [API policy examples](api-policy-examples.md). API access control patterns.
-* [AI policy example](ai-policy-example.md). Token budget and cost ceiling policies.
+* [AI policy example](ai-policy-example.md). Model access and guardrail policies.
 * [Custom policies overview](custom-policies/custom-policies-overview.md). Policies for non-routed resources.
