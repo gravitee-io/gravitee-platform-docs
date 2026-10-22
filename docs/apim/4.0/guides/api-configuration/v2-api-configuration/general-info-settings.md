@@ -4,7 +4,7 @@ description: >-
   settings
 ---
 
-# General Info Settings
+# v2 API general settings
 
 {% hint style="info" %}
 **v4 vs v2 API configuration**

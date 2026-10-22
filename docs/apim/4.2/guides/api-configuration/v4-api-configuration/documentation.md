@@ -2,7 +2,7 @@
 description: An overview about Documentation.
 ---
 
-# Documentation
+# Add v4 API documentation
 
 {% hint style="warning" %}
 As of Gravitee 4.2, the APIM Documentation feature is only available for v4 APIs.

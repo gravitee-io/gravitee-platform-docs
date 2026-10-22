@@ -4,7 +4,7 @@ description: >-
   Gravitee
 ---
 
-# Documentation
+# Add v2 API documentation
 
 {% @arcade/embed url="https://app.arcade.software/share/2NtJYq9KSReDKxJPQD2q" flowId="2NtJYq9KSReDKxJPQD2q" %}
 

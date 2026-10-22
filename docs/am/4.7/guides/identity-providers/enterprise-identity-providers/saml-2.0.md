@@ -2,7 +2,7 @@
 description: Overview of SAML.
 ---
 
-# SAML 2.0
+# Add a SAML 2.0 identity provider
 
 ## Overview
 

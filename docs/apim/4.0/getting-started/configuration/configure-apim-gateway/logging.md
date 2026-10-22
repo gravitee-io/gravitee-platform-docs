@@ -2,7 +2,7 @@
 description: Tutorial on Logging.
 ---
 
-# Logging
+# Configure Gateway logging
 
 ## Introduction
 
