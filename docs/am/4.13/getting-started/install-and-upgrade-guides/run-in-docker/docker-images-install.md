@@ -41,7 +41,7 @@ docker run  \
         --publish 8092:8092  \
         --name am-sgateway  \
         --detach  \
-        graviteeio/am-gateway:latest
+        graviteeio/am-gateway:4.13
 ```
 
 #### **Configure the container**
@@ -56,7 +56,7 @@ docker run  \
         --name am-gateway  \
         --env GRAVITEE_MANAGEMENT_MONGODB_URI=mongodb://username:password@mongohost:27017/dbname
         --detach  \
-        graviteeio/am-gateway:latest
+        graviteeio/am-gateway:4.13
 ```
 
 #### **Configure EE feature**
@@ -75,7 +75,7 @@ docker run  \
         -v license.key:/opt/graviteeio-gateway/license
         -v plugins-dir-ee:/opt/graviteeio-gateway/plugins-ee
         --detach  \
-        graviteeio/am-gateway:latest
+        graviteeio/am-gateway:4.13
 ```
 
 ### graviteeio/am-management-api
@@ -89,7 +89,7 @@ docker run \
           --publish 8093:8093 \
           --name am-management-api \
           --detach  \
-          graviteeio/am-management-api:latest
+          graviteeio/am-management-api:4.13
 ```
 
 #### **Configure the container**
@@ -104,7 +104,7 @@ docker run \
           --name am-management-api \
           --env GRAVITEE_MANAGEMENT_MONGODB_URI=mongodb://username:password@mongohost:27017/dbname
           --detach  \
-          graviteeio/am-management-api:latest
+          graviteeio/am-management-api:4.13
 ```
 
 #### **Configure EE feature**
@@ -123,7 +123,7 @@ docker run  \
         -v license.key:/opt/graviteeio-am-management-api/license
         -v plugins-dir-ee:/opt/graviteeio-am-management-api/plugins-ee
         --detach  \
-        graviteeio/am-management-api:latest
+        graviteeio/am-management-api:4.13
 ```
 
 ### graviteeio/am-management-ui
@@ -138,5 +138,5 @@ docker run \
         --env MGMT_API_URL=http://localhost:8093/management/ \
         --name am-management-ui \
         --detach  \
-        graviteeio/am-management-ui:latest
+        graviteeio/am-management-ui:4.13
 ```

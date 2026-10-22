@@ -15,6 +15,29 @@ gravitee-expression-language.md
 release-information/release-notes/apim-4.13.md
 create-and-configure-apis/apply-policies/policy-reference/generate-jwt.md
 release-information/breaking-changes-and-deprecations.md
+# Install pages and examples use the 4.13 images and chart
+self-hosted-installation-guides/kubernetes/README.md
+self-hosted-installation-guides/docker/docker-cli.md
+self-hosted-installation-guides/docker/docker-compose.md
+self-hosted-installation-guides/kubernetes/aws-eks.md
+self-hosted-installation-guides/kubernetes/azure-aks.md
+self-hosted-installation-guides/kubernetes/vanilla-kubernetes/README.md
+getting-started/vanilla-kubernetes.md
+self-hosted-installation-guides/kubernetes/vanilla-kubernetes/deploy-apim-with-kubernetes-manifest.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/README.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-compose.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-cli.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/link-to-a-hybrid-gateway.md
+kafka-gateway/configure-and-deploy-kafka-console.md
+introduction/enterprise-edition-licensing.md
+how-to-guides/use-case-tutorials/monitor-apim-with-prometheus-and-grafana.md
+govern-apis/federation/3rd-party-providers/apigee-x.md
+govern-apis/federation/3rd-party-providers/aws-api-gateway/README.md
+govern-apis/federation/3rd-party-providers/azure-api-management.md
+govern-apis/federation/3rd-party-providers/confluent-platform.md
+govern-apis/federation/3rd-party-providers/ibm-api-connect.md
+govern-apis/federation/3rd-party-providers/mulesoft-anypoint.md
+govern-apis/federation/3rd-party-providers/solace.md
 # Datadog request count tags (APIM 4.13.0 feature, APIM-14012)
 analyze-and-monitor-apis/reporters/datadog-reporter.md
 # Management API v1 plan endpoints reject V4, Federated, and Federated Agent APIs (APIM 4.13.0, APIM-14587)

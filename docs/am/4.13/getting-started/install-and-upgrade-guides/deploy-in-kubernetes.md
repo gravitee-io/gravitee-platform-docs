@@ -979,7 +979,7 @@ api:
       domain: .yourdomain.com
       secure: true
   image:
-    tag: 3.18.0
+    tag: "4.13"
   autoscaling:
     enabled: false
   replicaCount: 1
@@ -1033,7 +1033,7 @@ gateway:
       domain: .yourdomain.com
       secure: true
   image:
-    tag: 3.18.0
+    tag: "4.13"
   autoscaling:
     enabled: false
   replicaCount: 1
@@ -1070,7 +1070,7 @@ gateway:
 
 ui:
   image:
-    tag: 3.18.0
+    tag: "4.13"
   autoscaling:
     enabled: false
   replicaCount: 1
