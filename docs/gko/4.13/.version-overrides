@@ -32,3 +32,5 @@ reference/api-reference.md
 # Group default member roles and the ignore-members and ignore-groups annotations (GKO 4.13.0 feature, APIM-14548)
 overview/custom-resource-definitions/group.md
 guides/manage-api-groups-and-members.md
+# ApiDefinition and v2 API deprecation notice (from GKO 4.13.0)
+overview/custom-resource-definitions/apidefinition.md
