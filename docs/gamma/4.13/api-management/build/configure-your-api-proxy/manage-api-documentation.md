@@ -119,7 +119,7 @@ Once the API is published, open an item's row menu, click **Publish** or **Unpub
 
 ## Delete an item
 
-Open the item's row menu, click **Delete**, and then click **Delete** in the confirmation. A folder is deleted with everything inside it, and the dialog gives the count. The item disappears from every portal that lists the API. An item inside an imported folder can't be deleted on its own. Deleting the API deletes its documentation.
+Open the item's row menu, click **Delete**, and then click **Delete** in the confirmation. A folder is deleted with everything inside it, and the dialog gives the count. The item disappears from the developer portal. An item inside an imported folder can't be deleted on its own. Deleting the API deletes its documentation.
 
 ## Verification
 
