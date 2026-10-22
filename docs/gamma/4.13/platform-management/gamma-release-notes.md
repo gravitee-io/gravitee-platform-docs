@@ -4,11 +4,21 @@ description: What the Gamma 4.13 release adds across API Management, Event Strea
 
 # Release Notes
 
-Each Gamma version follows the support period of the API Management version it ships with. For release and end-of-life dates, see [Support Model](https://documentation.gravitee.io/apim/release-information/support-model).
+For release and end-of-life dates, see [Support Model](https://documentation.gravitee.io/apim/release-information/support-model).
 
-## 4.13 new features
+## Release Date: October 22, 2026
 
-The 4.13 release adds the following capabilities.
+## Highlights
+
+* **Agent Management**: Cap LLM spend with the **Cost Rate Limit** policy, cut token use with **AI Token Compression**, and fail over between providers. LLM Proxies now read images, audio, video, and files, MCP Proxies support the stateless 2026-07-28 MCP specification, and workflow tools chain your APIs into a single MCP tool.
+* **API Management**: Create TCP Proxy APIs, import API proxies from OpenAPI, WSDL, or Gravitee definitions, and promote API proxies between environments through Gravitee Cloud, with an optional review before they go live.
+* **Authorization Management**: Sync users and groups from SCIM 2.0 directories, test MCP policies with the **Policy Simulator** and **Access Explorer** before you deploy them, and see every decision your PDP gateways take, and why.
+* **Developer Portals**: Open the New Developer Portal settings straight from the Gamma console.
+* **Edge Management**: Run on a JDBC management repository, with no MongoDB required.
+* **Event Stream Management**: Connect clients to Kafka, MQTT 5.x, Solace, and RabbitMQ with Message APIs, browse live brokers, topics, and messages with the Kafka Explorer, and trace Kafka traffic from new dashboards, logs, and tracing pages.
+* **Platform Management**: Run your organization and environments from the Gamma console, including users, roles, console sign-in, alerts, and SMTP. Gateways connected to Gravitee Cloud send traces and payload logs to Gravitee Cloud with no OpenTelemetry setup.
+
+## New features
 
 ### Agent Management
 
