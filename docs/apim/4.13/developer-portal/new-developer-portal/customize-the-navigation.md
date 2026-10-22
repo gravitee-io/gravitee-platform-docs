@@ -35,10 +35,10 @@ By default, some pages are already created for you with content. These pages are
 
 * A folder named Guides, which contains a Getting Started page.
 * A folder Core concepts, which contains a page that describes making your first API call and a page that describes authentication.
-* A folder named APIs, empty. It's the section that an API is published into from the Gamma console.
+* An empty folder named APIs. It's the section that the Gamma console publishes an API into.
 * A link to Docs that brings you to the Gravitee documentation.
 
-An environment that has no APIs folder gets one, at the end of its top navigation, the first time the Management API starts. Renaming or deleting the folder later doesn't bring it back.
+An environment that has no APIs folder gets one, at the end of its top navigation, the first time the Management API starts. If you rename or delete the folder later, the Management API doesn't re-create it.
 
 #### Console view
 
@@ -211,9 +211,9 @@ However, there are some limitations of APIs compared to folders:
 
 **Documentation that belongs to the API**
 
-A page, folder, or link that you add under an API item belongs to the API rather than to the portal, unless the API item sits inside an API Product. The same applies to a folder that you import from a repository under the API item. The item appears under the API item and on the **Documentation** page of the API proxy in the Gamma console. It stays when the API item is deleted or unpublished. An API owner can add the same items from the Gamma console, and they appear here under the API item.
+A page, folder, or link that you add under an API item belongs to the API rather than to the portal, unless the API item sits inside an API Product. The same applies to a folder that you import from a repository under the API item. The item appears under the API item and on the **Documentation** page of the API proxy in the Gamma console. It stays when the API item is deleted or unpublished. An API owner can add the same items from the Gamma console, and they appear under the API item in the portal navigation.
 
-Moving an item onto an API item, or into one of its folders, hands the item and everything inside it to that API. Moving it to a portal folder hands it back to the portal. The move is refused when the item, or something inside it, is managed by the Automation API, or when an API or API Product item would end up inside an API's documentation.
+When you move an item onto an API item, or into one of its folders, the item and everything inside it pass to that API. When you move the item to a portal folder, it passes back to the portal. The move is refused when the item, or something inside it, is managed by the Automation API, or when the move places an API or API Product item inside an API's documentation.
 
 An API item inside an API Product shows only the items added under it there, never the API's own documentation.
 

@@ -317,9 +317,9 @@ API Management gains a file-based path for building and updating API proxies. Ea
 
 #### API documentation for API proxies
 
-* The **General** group of the API proxy sidebar adds a **Documentation** page that holds the pages, folders, and links describing the API in the developer portal. Write a page in the editor, import it from a `.md`, `.yaml`, `.yml`, or `.json` file, or fetch it from an external source such as a GitHub, GitLab, Git, Bitbucket, or HTTP fetcher, and import a whole repository folder.
+* The **General** group of the API proxy sidebar adds a **Documentation** page that holds the pages, folders, and links describing the API in the developer portal. Write a page in the editor, or import it from a `.md`, `.yaml`, `.yml`, or `.json` file. You can also fetch a page from an external source such as a GitHub, GitLab, Git, Bitbucket, or HTTP fetcher, and import a whole repository folder.
 * **Publish** lists the API in a section of the portal's top navigation and publishes its documentation with it. **Unpublish** hides the API and its documentation without deleting anything. Once the API is published, each item can be published or unpublished on its own.
-* The documentation belongs to the API. It appears under the API's entry on the **Navigation** page of the Portal Settings too, where a portal designer places the API, and it stays with the API when the entry is hidden or removed.
+* The documentation belongs to the API. It appears under the API's entry on the **Navigation** page of the Portal Settings too, where a portal designer places the API. It stays with the API when the entry is hidden or removed.
 * See [Manage API documentation](../api-management/build/configure-your-api-proxy/manage-api-documentation.md).
 
 #### Filters on the Logs page
