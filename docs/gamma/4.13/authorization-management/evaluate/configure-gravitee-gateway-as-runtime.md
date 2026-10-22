@@ -14,7 +14,7 @@ A PDP gateway is a registered runtime that executes policy decisions. Each gatew
 
 - Is identified by a **Target PDP ID** that policies are routed to
 - Can be scoped to a **sharding tag** for multi-region or multi-tenant deployments
-- Has a **status** (`PENDING` or `PUBLISHED`) indicating whether the engine is provisioned
+- Has a **status**, which is `PUBLISHED` from the moment it's registered
 - Can expose an [AuthZEN endpoint](ask-for-a-decision/authzen-endpoint.md) for standards-compliant access evaluation
 
 ## Prerequisites
@@ -45,7 +45,7 @@ If you check **Create AuthZEN endpoint**, an **Endpoint path** field appears. Th
 
 ### 4. Register
 
-Click **Register**. The gateway appears in the table with status `PENDING`. Once the engine provisions, the status transitions to `PUBLISHED`.
+Click **Register**. The PDP gateway appears in the list with the status `PUBLISHED` straight away. The status records the registration only. It doesn't show whether a gateway runs the engine: a PDP gateway whose sharding tag no gateway carries is `PUBLISHED` too.
 
 ## PDP Gateways table
 
@@ -54,7 +54,7 @@ Click **Register**. The gateway appears in the table with status `PENDING`. Once
 | **Name** | Gateway display name |
 | **Target PDP ID** | The engine identifier (monospace badge) |
 | **Tag** | Optional sharding tag |
-| **Status** | `PENDING` (provisioning) or `PUBLISHED` (active) |
+| **Status** | `PUBLISHED` once registered. It doesn't show whether a gateway runs the engine |
 | **AuthZEN endpoint** | The endpoint URL for this gateway |
 | **Actions** | Endpoint details and delete options |
 
