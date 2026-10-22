@@ -8,7 +8,7 @@ description: Activate Gamma on an existing Docker Compose installation of Gravit
 Gravitee Gamma is Gravitee's next-generation unified control plane. It brings API Management, Event Management, Agent Management, Authorization Management, and Platform Management together in a single console, so you manage your APIs, Kafka streams, AI agents and MCP servers, and authorization policies from one place.
 
 {% hint style="warning" %}
-Gamma ships in 4.12. Activating Gamma moves your stack to that build. Use this for development and quick-start purposes only. For best practices for production environments, contact your Technical Account Manager.
+Gamma ships in 4.13. Activating Gamma moves your stack to that build. Use this for development and quick-start purposes only. For best practices for production environments, contact your Technical Account Manager.
 {% endhint %}
 
 ## Overview
@@ -17,7 +17,7 @@ If you already run Gravitee API Management with Docker Compose, you turn Gamma o
 
 ## Activate Gamma
 
-1. Use the Gamma build. Set the image tags for the Management API, Gateway, APIM Console, and Developer Portal to `4.12`.
+1. Use the Gamma build. Set the image tags for the Management API, Gateway, APIM Console, and Developer Portal to `4.13`.
 2. Enable Gamma on the Management API. Add the following environment variables to the Management API service. Adjust the CORS origin to the URL where you serve the Gamma console:
 
    ```yaml
@@ -37,7 +37,7 @@ If you already run Gravitee API Management with Docker Compose, you turn Gamma o
 
    ```yaml
    gamma-console:
-     image: graviteeio/gamma-ui:4.12
+     image: graviteeio/gamma-ui:4.13
      ports:
        - "8086:8080"
      environment:

@@ -23,7 +23,7 @@ The chart doesn't set an upper Kubernetes version bound, and it doesn't impose v
 
 ## Pin the chart and image versions
 
-The APIM Helm chart and the APIM product share the same version number. Since chart 4.2.0, the chart version and its `appVersion` are identical, so chart `4.12.x` deploys the APIM `4.12.x` component images.
+The APIM Helm chart and the APIM product share the same version number. Since chart 4.2.0, the chart version and its `appVersion` are identical, so chart `4.13.x` deploys the APIM `4.13.x` component images.
 
 When you don't set an image tag, the chart derives each component's tag from its `appVersion`: the Gateway and the Management API images default to the `<version>-debian` tag, and the Console and the Developer Portal images default to the `<version>` tag. Pinning the chart version therefore pins the component versions.
 
@@ -34,7 +34,7 @@ helm repo add graviteeio https://helm.gravitee.io
 helm upgrade --install graviteeio-apim graviteeio/apim \
   --namespace gravitee-apim \
   -f values.yaml \
-  --version 4.12.8
+  --version 4.13.0
 ```
 
 Optional: pin each component's image tag explicitly with the `gateway.image.tag`, `api.image.tag`, `ui.image.tag`, and `portal.image.tag` values for an extra layer of auditability in GitOps workflows. Keep any explicit image tag aligned with the chart version.

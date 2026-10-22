@@ -107,7 +107,7 @@ The Helm values deploy the Gateway only. They set `openshift.enabled: true`, set
      image:
        # We recommend running the same Gateway version as your Gamma control plane, shown in Gravitee Cloud.
        repository: graviteeio/apim-gateway
-       tag: "4.12"
+       tag: "4.13"
        pullPolicy: IfNotPresent
      autoscaling:
        enabled: false

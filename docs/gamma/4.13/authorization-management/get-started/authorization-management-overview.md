@@ -33,7 +33,7 @@ permit (
 Policies support optional `when` conditions for time-of-day restrictions, IP range checks, and custom attribute matching.
 
 {% hint style="info" %}
-GAPL supports a subset of the Cedar policy language optimized for the Gamma visual editor. Cedar features like `unless` clauses are not available in the GAPL editor.
+A statement can have `when` and `unless` conditions, and you can write both in the **Code** view of the policy editor. See [Policy statements](../gapl-reference/policy-statements.md#conditions).
 {% endhint %}
 
 ## Policy categories

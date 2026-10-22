@@ -40,7 +40,7 @@ This section explains how to run the Gravitee API Management Data Plane (Gateway
 
     services:
       gio-apim-hybrid-gateway:
-        image: graviteeio/apim-gateway:${APIM_VERSION:-latest}
+        image: graviteeio/apim-gateway:${APIM_VERSION:-4.13}
         container_name: gio_apim_hybrid_gateway
         hostname: apim-gateway
         ports:
@@ -79,7 +79,7 @@ This section explains how to run the Gravitee API Management Data Plane (Gateway
 
     ```bash
     # The Gateway version must match the Control Plane version to ensure compatibility.
-    APIM_VERSION=4.11
+    APIM_VERSION=4.13
 
     # Use a Redis version that is supported by Gravitee.
     # See the list of supported Redis versions: https://documentation.gravitee.io/apim/configure-apim/repositories/redis#supported-databases

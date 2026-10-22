@@ -15,6 +15,10 @@ guides/gateway-api/multi-domain-tls.md
 getting-started/installation/install-with-helm.md
 overview/admission-validation.md
 overview/drift-detection.md
+# Gateway image tags name the 4.13 release
+guides/db-less-mode.md
+overview/custom-resource-definitions/gatewayclassparameters.md
+guides/gateway-api/dns-with-external-dns.md
 # MCP servers and MCP proxies custom resources (GKO 4.13.0 feature, AIAM-122)
 overview/custom-resource-definitions/README.md
 overview/custom-resource-definitions/catalogmcpserver.md

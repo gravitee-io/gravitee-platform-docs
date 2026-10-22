@@ -449,7 +449,7 @@ The Gateway component handles all API traffic, applying policies, transformation
         spec:
           containers:
           - name: gravitee-gateway
-            image: graviteeio/apim-gateway:latest
+            image: graviteeio/apim-gateway:4.13
             ports:
             - containerPort: 8082
             env:
@@ -547,7 +547,7 @@ The Management API serves as the central control plane for Gravitee APIM, handli
         spec:
           containers:
           - name: gravitee-management-api
-            image: graviteeio/apim-management-api:latest
+            image: graviteeio/apim-management-api:4.13
             ports:
             - containerPort: 8083
               name: http
@@ -660,7 +660,7 @@ The Management Console provides the administrative interface to manage APIs, app
         spec:
           containers:
           - name: gravitee-management-ui
-            image: graviteeio/apim-management-ui:latest
+            image: graviteeio/apim-management-ui:4.13
             ports:
             - containerPort: 8080
               name: http
@@ -742,7 +742,7 @@ The Developer Portal provides API consumers with documentation, testing tools, a
         spec:
           containers:
           - name: gravitee-portal-ui
-            image: graviteeio/apim-portal-ui:latest
+            image: graviteeio/apim-portal-ui:4.13
             ports:
             - containerPort: 8080
               name: http
@@ -1108,7 +1108,7 @@ spec:
     spec:
       containers:
       - name: gravitee-management-api
-        image: graviteeio/apim-management-api:latest
+        image: graviteeio/apim-management-api:4.13
         ports:
         - containerPort: 8083
           name: http

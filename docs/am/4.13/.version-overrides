@@ -5,6 +5,11 @@
 # the Lint Version Overrides check flags divergent 4.13 edits that need one.
 SUMMARY.md
 .gitbook.yaml
+# Install pages use the 4.13 images
+getting-started/install-and-upgrade-guides/run-in-docker/docker-compose-install.md
+getting-started/install-and-upgrade-guides/run-in-docker/docker-images-install.md
+guides/auth-protocols/saml-2.0.md
+getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md
 # Tombstones: these pages live in 4.12 and are linked from SUMMARY.
 # Keep the entries so version sync does not copy the files back.
 releases-and-changelog/release-notes/am-4.12.md

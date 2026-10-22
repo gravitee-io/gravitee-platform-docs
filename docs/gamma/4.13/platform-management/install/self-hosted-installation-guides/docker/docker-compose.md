@@ -67,7 +67,7 @@ To run Gamma, complete the following steps:
         networks: [gamma]
 
       gateway:
-        image: graviteeio/apim-gateway:4.12
+        image: graviteeio/apim-gateway:4.13
         container_name: gamma_gateway
         restart: unless-stopped
         depends_on: [mongodb, elasticsearch]
@@ -82,7 +82,7 @@ To run Gamma, complete the following steps:
         networks: [gamma]
 
       management_api:
-        image: graviteeio/apim-management-api:4.12
+        image: graviteeio/apim-management-api:4.13
         container_name: gamma_management_api
         restart: unless-stopped
         depends_on: [mongodb, elasticsearch]
@@ -118,7 +118,7 @@ To run Gamma, complete the following steps:
         networks: [gamma]
 
       management_ui:
-        image: graviteeio/apim-management-ui:4.12
+        image: graviteeio/apim-management-ui:4.13
         container_name: gamma_apim_console
         restart: unless-stopped
         depends_on: [management_api]
@@ -129,7 +129,7 @@ To run Gamma, complete the following steps:
         networks: [gamma]
 
       portal_ui:
-        image: graviteeio/apim-portal-ui:4.12
+        image: graviteeio/apim-portal-ui:4.13
         container_name: gamma_portal
         restart: unless-stopped
         depends_on: [management_api]
@@ -140,7 +140,7 @@ To run Gamma, complete the following steps:
         networks: [gamma]
 
       gamma_console:
-        image: graviteeio/gamma-ui:4.12
+        image: graviteeio/gamma-ui:4.13
         container_name: gamma_console
         restart: unless-stopped
         depends_on: [management_api]
