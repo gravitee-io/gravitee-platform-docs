@@ -46,9 +46,9 @@ Both policies and entities support **scope targets** — an array of PDP gateway
 
 | Scope targets value | Behavior |
 |-------------------|----------|
-| `["*"]` | Synced to all gateways |
-| `["eu-prod", "us-prod"]` | Synced only to gateways with matching Target PDP IDs |
-| `[]` (empty) | Synced to all gateways (same as `*`) |
+| `["*"]` | Every registered PDP, and the default engine of every gateway |
+| `["eu-prod", "us-prod"]` | Only the PDPs with matching Target PDP IDs |
+| `[]` (empty) | The default engine of every gateway only. A named PDP doesn't get the item: target it, or use `*` |
 
 ## Monitoring sync status
 
