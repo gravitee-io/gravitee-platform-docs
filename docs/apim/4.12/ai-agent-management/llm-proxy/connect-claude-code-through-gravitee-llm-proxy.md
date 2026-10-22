@@ -128,7 +128,8 @@ Do not enable **Only use alias**. Claude Code sends real Anthropic model IDs, an
 {
   "env": {
     "ANTHROPIC_BASE_URL": "https://<gateway-host>/<api-context-path>",
-    "ANTHROPIC_CUSTOM_HEADERS": "X-Gravitee-Api-Key: <subscription-api-key>"
+    "ANTHROPIC_CUSTOM_HEADERS": "X-Gravitee-Api-Key: <subscription-api-key>",
+    "ENABLE_TOOL_SEARCH": "true"
   }
 }
 ```
@@ -139,13 +140,20 @@ Here is an example configuration:
 {
   "env": {
     "ANTHROPIC_BASE_URL": "https://apim.example.com/claude-code",
-    "ANTHROPIC_CUSTOM_HEADERS": "X-Gravitee-Api-Key: 00000000-0000-0000-0000-000000000000"
+    "ANTHROPIC_CUSTOM_HEADERS": "X-Gravitee-Api-Key: 00000000-0000-0000-0000-000000000000",
+    "ENABLE_TOOL_SEARCH": "true"
   }
 }
 ```
 
 {% hint style="warning" %}
 Do not set `ANTHROPIC_API_KEY` or `ANTHROPIC_AUTH_TOKEN` for this flow. Those variables change Claude Code authentication behavior and bypass the intended `/login` OAuth flow.
+{% endhint %}
+
+{% hint style="info" %}
+Claude Code turns off tool search when `ANTHROPIC_BASE_URL` does not point to an Anthropic host, as is the case with an LLM Proxy. Without tool search, Claude Code sends the definitions of all configured MCP tools with every request instead of loading them on demand, which uses much more of the context window.
+
+Set `ENABLE_TOOL_SEARCH` to `true` to turn tool search back on. The Gravitee Gateway passes tool search requests through to Anthropic, and Claude Code loads tool definitions on demand as it does when it connects directly to Anthropic.
 {% endhint %}
 
 3. After updating the settings file, restart Claude Code to reload the environment.
@@ -213,6 +221,15 @@ If the request reaches Anthropic but fails authentication:
 
 Claude Code may need to be restarted after settings changes. Confirm that `ANTHROPIC_BASE_URL` is present in the active Claude Code environment and points to the Gravitee API context path.
 
+### Claude Code sessions start with a large context
+
+A new Claude Code session through the LLM Proxy uses far more input tokens than the same session connected directly to Anthropic, and the context window fills quickly. This happens because Claude Code turns off tool search when it connects through an LLM Proxy, so it sends every MCP tool definition with each request.
+
+Check that:
+
+* `ENABLE_TOOL_SEARCH` is set to `true` in the `env` block of `~/.claude/settings.json`, or in the shell environment that starts Claude Code.
+* Claude Code was restarted after you set the variable.
+
 ## Reference configuration
 
 ### Gravitee LLM provider
@@ -231,7 +248,8 @@ Unregistered model globbing: claude-* or *
 {
   "env": {
     "ANTHROPIC_BASE_URL": "https://<gateway-host>/<api-context-path>",
-    "ANTHROPIC_CUSTOM_HEADERS": "X-Gravitee-Api-Key: <subscription-api-key>"
+    "ANTHROPIC_CUSTOM_HEADERS": "X-Gravitee-Api-Key: <subscription-api-key>",
+    "ENABLE_TOOL_SEARCH": "true"
   }
 }
 ```

@@ -102,6 +102,7 @@
       * [Review an API proxy](api-management/build/configure-your-api-proxy/review-an-api-proxy.md)
       * [Manage user permissions](api-management/build/configure-your-api-proxy/manage-user-permissions.md)
       * [Configure API metadata](api-management/build/configure-your-api-proxy/configure-api-metadata.md)
+      * [Manage API documentation](api-management/build/configure-your-api-proxy/manage-api-documentation.md)
       * [Review the API Score](api-management/build/configure-your-api-proxy/review-the-api-score.md)
     * [Design](api-management/manage/api-proxies/design/README.md)
       * [Configure entrypoints](api-management/build/configure-your-api-proxy/configure-entrypoints.md)

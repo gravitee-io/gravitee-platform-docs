@@ -65,6 +65,10 @@ All policies will also support the new reactive execution engine, but not all po
 
 ## v2 Gateway API emulation mode
 
+{% hint style="warning" %}
+v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 {% hint style="info" %}
 By default, emulation mode is not enabled for v2 APIs because it may cause unexpected changes in behavior. Please review this guide in its entirety before enabling emulation mode.
 {% endhint %}

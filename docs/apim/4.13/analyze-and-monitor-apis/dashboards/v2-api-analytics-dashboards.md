@@ -4,6 +4,10 @@ description: The v2 API analytics dashboard shows performance and traffic patter
 
 # V2 API analytics dashboards
 
+{% hint style="warning" %}
+v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 ## Overview
 
 The V2 API analytics dashboard provides you with clear visibility into the API performance and traffic patterns for all of your V2 APIs at the environment level. It displays real-time analytics with configurable dashboard tabs and an API Events log.

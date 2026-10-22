@@ -61,8 +61,8 @@ Each policy contains one or more statements. Each statement is built from the fo
 |------|--------------|-------------|
 | **Effect** | Toggle between `permit` and `forbid` | `permit (…)` or `forbid (…)` |
 | **Principal** | Chip picker from the **Principals** tab of the **Entities** page | `principal == User::"alice"` |
-| **Action** | Chip picker from the **Actions** page | `action == Action::"invoke"` |
-| **Resource** | Chip picker scoped by resource group | `resource == MCPTool::"search"` |
+| **Action** | Chip picker from the **Actions** page | `action == Action::"GET"` |
+| **Resource** | Chip picker scoped by resource group | `resource == API::"orders"` |
 | **Agents** | Chip picker of imported agent identities | `context.agent == AgentIdentity::"planner"` |
 | **Condition** | Condition block with snippet insertion | `when { context.time.hour >= 9 }` |
 
@@ -89,8 +89,8 @@ A GAPL principal or resource scope binds a single entity, so the **Principal** a
 ```
 permit (
   principal == User::"alice",
-  action in [Action::"invoke", Action::"read"],
-  resource == MCPTool::"search"
+  action in [Action::"GET", Action::"POST"],
+  resource == API::"orders"
 );
 ```
 
@@ -100,7 +100,7 @@ On a statement card, expand the **Condition** section, which is marked **Optiona
 
 ### Set target gateways
 
-The **Target gateways** picker scopes the policy to specific PDP gateways. Select **\* (all gateways)** to cover every gateway, or pick individual targets from registered PDP gateways.
+The **Target gateways** picker scopes the policy to specific PDP gateways. Select **\* (every registered PDP)** to cover every PDP, or pick individual targets from registered PDP gateways. Left empty, the policy runs only in the default engine of every gateway, not in a named PDP.
 
 ### Save or deploy
 
@@ -204,5 +204,5 @@ Deploying or undeploying a policy from the editor saves it first, so two events 
 
 * [MCP policy examples](mcp-policy-examples.md). Real-world MCP policy patterns.
 * [API policy examples](api-policy-examples.md). API access control patterns.
-* [AI policy example](ai-policy-example.md). Token budget and cost ceiling policies.
+* [AI policy example](ai-policy-example.md). Model access and guardrail policies.
 * [Custom policies overview](custom-policies/custom-policies-overview.md). Policies for non-routed resources.

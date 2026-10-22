@@ -7,6 +7,10 @@ metaLinks:
 
 # Load-balancing, Failover, & Health-checks
 
+{% hint style="warning" %}
+v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 ## Overview
 
 APIM offers three main backend services for managing your APIs that are built into the Gravitee platform:

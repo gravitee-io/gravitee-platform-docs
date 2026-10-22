@@ -2,7 +2,7 @@
 description: The administrator's guide to the Developer Portal
 ---
 
-# Configuration
+# Developer Portal configuration
 
 ## Introduction
 

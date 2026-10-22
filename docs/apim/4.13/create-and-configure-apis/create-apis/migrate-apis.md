@@ -4,6 +4,10 @@ description: Migrate existing v2 APIs to v4 with the API Management 4.13 Migrati
 
 # Migrate APIs
 
+{% hint style="warning" %}
+v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 ## Migrate v2 APIs to V4 APIs
 
 This guide explains how to migrate your existing V2 APIs to V4 APIs using the Migration feature. V4 APIs provide long-term support and access to the latest features.

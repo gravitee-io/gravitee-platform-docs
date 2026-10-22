@@ -2,7 +2,7 @@
 description: The Access Management 4.9 Gateway exposes an internal API for monitoring and technical information. Follow the steps to configure the endpoints.
 ---
 
-# Internal API
+# Gateway internal API
 
 ## Overview
 

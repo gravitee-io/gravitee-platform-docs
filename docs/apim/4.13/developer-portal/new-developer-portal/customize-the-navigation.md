@@ -35,7 +35,10 @@ By default, some pages are already created for you with content. These pages are
 
 * A folder named Guides, which contains a Getting Started page.
 * A folder Core concepts, which contains a page that describes making your first API call and a page that describes authentication.
+* An empty folder named APIs. It's the section that the Gamma console publishes an API into.
 * A link to Docs that brings you to the Gravitee documentation.
+
+An environment that has no APIs folder gets one, at the end of its top navigation, the first time the Management API starts. If you rename or delete the folder later, the Management API doesn't re-create it.
 
 #### Console view
 
@@ -206,6 +209,14 @@ However, there are some limitations of APIs compared to folders:
 * APIs cannot contain other APIs and that on any level of the hierarchy, for example API -> Folder -> API chain is not allowed.
 * APIs also cannot be at the top level of the navigation structure, they have to be inside a folder.
 
+**Documentation that belongs to the API**
+
+A page, folder, or link that you add under an API item belongs to the API rather than to the portal, unless the API item sits inside an API Product. The same applies to a folder that you import from a repository under the API item. The item appears under the API item and on the **Documentation** page of the API proxy in the Gamma console. It stays when the API item is deleted or unpublished. An API owner can add the same items from the Gamma console, and they appear under the API item in the portal navigation.
+
+When you move an item onto an API item, or into one of its folders, the item and everything inside it pass to that API. When you move the item to a portal folder, it passes back to the portal. The move is refused when the item, or something inside it, is managed by the Automation API, or when the move places an API or API Product item inside an API's documentation.
+
+An API item inside an API Product shows only the items added under it there, never the API's own documentation.
+
 **Add an API**
 
 1.  Open the context menu of a folder in which you want to add your API by clicking the **ellipses**, and then click **Add API**.<br>
@@ -236,7 +247,7 @@ The content of the Overview page depends on the API type:
 * For most API types, the Overview page presents the API information alongside guidance on subscribing to a plan, exploring the documentation, and integrating with the API.
 * For MCP Proxy APIs, the Overview page presents Model Context Protocol (MCP) guidance and embeds a one-click installer that helps consumers add the MCP server to AI clients like Cursor, VS Code, and Claude Desktop.
 
-Gravitee creates the Overview page only when the API doesn't already have a page, so existing pages aren't overwritten. The page is created unpublished. To make it visible in the New Developer Portal, publish it like any other page. You can also edit the Overview page to tailor it for your consumers. For template details, see [API Overview Page Templates](api-overview-page-templates.md). For `<gmd-install-mcp>` attributes, manual authoring, and troubleshooting, see [MCP Server Installation Widget for Portal Pages](../../mcp-server-installation-widget-for-portal-pages.md).
+Gravitee creates the Overview page only when the API has no page and no link yet, in its own documentation or under one of its items. Existing pages aren't overwritten. The page is created unpublished. To make it visible in the New Developer Portal, publish it like any other page. You can also edit the Overview page to tailor it for your consumers. For template details, see [API Overview Page Templates](api-overview-page-templates.md). For `<gmd-install-mcp>` attributes, manual authoring, and troubleshooting, see [MCP Server Installation Widget for Portal Pages](../../mcp-server-installation-widget-for-portal-pages.md).
 
 **Add a page to an API**
 

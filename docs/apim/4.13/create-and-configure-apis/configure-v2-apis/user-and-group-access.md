@@ -7,6 +7,10 @@ metaLinks:
 
 # Manage v2 API members and groups
 
+{% hint style="warning" %}
+v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 ## Overview
 
 This article describes how to configure user and group access to your APIs.

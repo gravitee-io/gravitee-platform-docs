@@ -2,7 +2,7 @@
 description: This article walks through how to configure user and group access to your APIs
 ---
 
-# Configure User and Group Access
+# Manage v2 API members and groups
 
 {% @arcade/embed url="https://app.arcade.software/share/T68J1lMLPo7xwHhsqucb" flowId="T68J1lMLPo7xwHhsqucb" %}
 
