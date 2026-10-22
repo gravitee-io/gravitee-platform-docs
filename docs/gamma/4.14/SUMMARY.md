@@ -3,6 +3,7 @@
 ## Platform Management
 
 * [Release Notes](platform-management/gamma-release-notes.md)
+* [Support model](https://documentation.gravitee.io/platform-management/support-model)
 
 ## Edge Management
 

@@ -17,7 +17,7 @@ redirects:
   platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing: apim/4.12/readme/enterprise-edition-licensing.md
   platform-overview/gravitee-platform/release-types-and-support-model: apim/4.12/release-information/release-types.md
   platform-overview/gravitee-platform/release-schedule: apim/4.12/release-information/release-schedule.md
-  platform-overview/gravitee-platform/support-model: apim/4.12/release-information/support-model.md
+  platform-overview/gravitee-platform/support-model: gamma/4.12/platform-management/support-model.md
   platform-overview/gravitee-platform/support-model/support-for-v1-apis: apim/4.12/release-information/support-for-v1-apis.md
   platform-overview/before-you-begin/api-fundamentals: apim/4.12/readme/api-fundamentals/README.md
   platform-overview/before-you-begin/api-fundamentals/api-basics: apim/4.12/readme/api-fundamentals/api-basics.md

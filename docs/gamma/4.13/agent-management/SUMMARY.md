@@ -11,6 +11,7 @@
   * [Installation guides](https://documentation.gravitee.io/platform-management/install)
   * [Release Notes](https://documentation.gravitee.io/platform-management/gamma-release-notes)
   * [Breaking Changes and Deprecations](https://documentation.gravitee.io/platform-management/gamma-release-notes/gamma-breaking-changes)
+  * [Support model](https://documentation.gravitee.io/platform-management/support-model)
 * [Catalog](import/README.md)
   * [Integrations](import/integrations/README.md)
     * [Connect integrations](import/connect-integrations.md)
