@@ -91,7 +91,6 @@ when {
 |-----------|------|
 | **Business hours** | `context.time.hour >= 9 && context.time.hour < 17` |
 | **Trusted device** | `context.device.trusted == true` |
-| **Corporate IP range** | `context.source.ip.in_cidr("10.0.0.0/8")` |
 
 ## Tips
 
@@ -104,5 +103,5 @@ when {
 ## Next steps
 
 * [API policy examples](api-policy-examples.md) — API access control patterns
-* [AI policy example](ai-policy-example.md) — Token budget and cost policies
+* [AI policy example](ai-policy-example.md) — Model access and guardrail policies
 * [Create, update, and delete policies](create-update-delete-policies.md) — Full editor reference
