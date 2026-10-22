@@ -5,6 +5,9 @@
 # the Lint Version Overrides check flags divergent 4.13 edits that need one.
 SUMMARY.md
 .gitbook.yaml
+# Gateway image tags name the 4.13 release
+guides/db-less-mode.md
+overview/custom-resource-definitions/gatewayclassparameters.md
 releases-and-changelog/release-notes/gko-4.12.md
 releases-and-changelog/changelog/gko-4.12.x.md
 releases-and-changelog/release-notes/gko-4.13.md

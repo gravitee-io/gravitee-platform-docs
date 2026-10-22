@@ -347,7 +347,7 @@ The Helm values consolidate every console and the API on `gamma.localhost`, poin
       replicaCount: 1
       image:
         repository: graviteeio/apim-management-api
-        tag: "4.12"
+        tag: "4.13"
         pullPolicy: Always
 
       env:
@@ -435,7 +435,7 @@ The Helm values consolidate every console and the API on `gamma.localhost`, poin
       replicaCount: 1
       image:
         repository: graviteeio/apim-gateway
-        tag: "4.12"
+        tag: "4.13"
         pullPolicy: Always
 
       service:
@@ -474,7 +474,7 @@ The Helm values consolidate every console and the API on `gamma.localhost`, poin
       replicaCount: 1
       image:
         repository: graviteeio/apim-management-ui
-        tag: "4.12"
+        tag: "4.13"
         pullPolicy: Always
 
       service:
@@ -507,7 +507,7 @@ The Helm values consolidate every console and the API on `gamma.localhost`, poin
       replicaCount: 1
       image:
         repository: graviteeio/apim-portal-ui
-        tag: "4.12"
+        tag: "4.13"
         pullPolicy: Always
 
       env:
@@ -542,7 +542,7 @@ The Helm values consolidate every console and the API on `gamma.localhost`, poin
       enabled: true
       image:
         repository: graviteeio/gamma-ui
-        tag: "4.12"
+        tag: "4.13"
         pullPolicy: Always
       app:
         # URL the Gamma console uses to reach the Gamma API
@@ -636,7 +636,7 @@ If `gamma.enabled` is `false`, Gamma stays off everywhere, and the Gamma console
 
 ### Install with Helm
 
-The chart that includes Gamma ships as a `4.12` pre-release build for the Gamma release.
+The `4.13` chart includes Gamma.
 
 1.  Add the Gravitee Helm repository using the following commands:
 
@@ -644,16 +644,16 @@ The chart that includes Gamma ships as a `4.12` pre-release build for the Gamma 
     helm repo add graviteeio https://helm.gravitee.io
     helm repo update
     ```
-2.  List the available `4.12` pre-release chart versions using the following command:
+2.  List the available `4.13` chart versions using the following command:
 
     ```bash
     helm search repo graviteeio/apim --devel --versions
     ```
-3.  Install the chart with the release name `gamma` using the following command. Replace the version with the `4.12` pre-release you found in the previous step:
+3.  Install the chart with the release name `gamma` using the following command. Replace the version with the `4.13` version you found in the previous step:
 
     ```bash
     helm install gamma graviteeio/apim \
-      --version 4.12.0 \
+      --version 4.13.0 \
       --devel \
       --namespace gravitee-gamma \
       -f values.yaml \
@@ -664,7 +664,7 @@ The chart that includes Gamma ships as a `4.12` pre-release build for the Gamma 
     &#xNAN;**(Enterprise Edition)** If you created the license secret in [Add your license key](vanilla-kubernetes.md#enterprise-edition-only-add-your-license-key) and uncommented the secret lines in your `values.yaml`, the chart mounts the license automatically. No extra flag is needed.
 
 {% hint style="info" %}
-Gamma ships in evolving `4.12` pre-release builds for the Gamma release, so the exact chart version and image tags move. The image tags in `values.yaml` (`4.12`) are the public Docker Hub builds. Pick the current `4.12` chart version from the `helm search` output, and keep the release name `gamma` so the service names in the next step match.
+The image tags in `values.yaml` (`4.13`) are the public Docker Hub builds. Pick the current `4.13` chart version from the `helm search` output, and keep the release name `gamma` so the service names in the next step match.
 {% endhint %}
 
 ## Access the consoles
