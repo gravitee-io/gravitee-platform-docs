@@ -7,6 +7,7 @@
   * [Create your first policy](get-started/create-your-first-policy.md)
   * [Installation guides](https://documentation.gravitee.io/platform-management/install)
   * [Release Notes](https://documentation.gravitee.io/platform-management/gamma-release-notes)
+  * [Breaking Changes and Deprecations](https://documentation.gravitee.io/platform-management/gamma-release-notes/gamma-breaking-changes)
 * [Policy Structure](manage/README.md)
   * [Manage principals](manage/principals/README.md)
     * [Sync principals from Access Management](manage/principals/sync-principals-from-access-management.md)

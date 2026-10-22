@@ -36,18 +36,6 @@ The Management API v2 endpoints change as follows:
 
 Before you upgrade, update any script that reads the environment's form from `GET /subscription-forms` or updates it with `PUT`. After the upgrade, assign each new API to a form. For more information, see [Creating and managing subscription forms](../secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms.md).
 
-**New Developer Portal: API documentation moves to the API at upgrade**
-
-From 4.13.0, the pages, folders, and links of an API in the New Developer Portal belong to the API, not to its navigation item. On the first Management API startup after the upgrade, the documentation stored under API items in earlier versions is moved to its API. The move runs once, changes the items in place, and has the following effects:
-
-* Everything stored under an API item that isn't inside an API Product moves to the API, at any depth. This includes the starter **Overview** pages and the items synced from a source. Items under an API item inside an API Product, and items under a deleted API's item, stay where they are. So does any top-level item under an API item that contains an item managed by the Automation API, with everything inside it. The Management API log says why.
-* A moved item becomes unpublished when its API item or a folder that contains it was unpublished, and private when one of them was private. Nothing becomes more visible than before.
-* When the URL segment of a moved item is already used by an item the API owns, the moved item gets another segment, so its portal URL changes. The log records each rename.
-* Once moved, these items can be edited, deleted, published, and unpublished by any user with the documentation permissions on the API, without environment documentation permissions. A user with the Update documentation permission on an API can also publish the API into a top-level section of the portal navigation. If a portal designer had added the API elsewhere and hidden it, the publish action moves that entry to the chosen section.
-* A folder created by hand for an API at a path that an Automation API or GKO configuration declares, such as `/guides`, now blocks the apply. The apply fails with `Navigation path [/guides] is already occupied by content not managed by the Automation API`. Rename or delete the folder, and then apply again.
-
-Every environment also gets a published **APIs** folder at the top level of the portal navigation. An existing environment without one gets it at the end of its top navigation on the same startup, so its portal shows a new **APIs** entry. Take a backup before you upgrade, because the move can't be rolled back. For more information, see [Manage Portal Navigation and APIs](../developer-portal/new-developer-portal/customize-the-navigation.md#api).
-
 **Kafka Topic Mapping policy: invalid mapping entries now stop an API from deploying**
 
 From 4.13.0, the Kafka Topic Mapping policy checks its mapping entries when the API is deployed. In 4.12 and earlier it checked nothing, so a configuration the policy can't act on deployed and then behaved unpredictably at runtime. An API that deploys today can therefore fail to deploy after the upgrade.
@@ -78,6 +66,12 @@ The policy's configuration schema required both fields before 4.13.0. An affecte
 From 4.13.0, a native Kafka connection writes one log entry per lifecycle event: one when it opens, one when it fails, and, if the API selects the Disconnected event, one when it closes cleanly. In 4.12 and earlier, every entry of a connection carried the connection ID as its request ID, and the Elasticsearch reporter uses the request ID as the document ID, so a later entry replaced the earlier one and each connection kept a single entry.
 
 The request ID is now unique to each entry, in the form `<connection-id>:<sequence>:<status>`. The transaction ID is the connection ID and ties the entries of a connection together. Before you upgrade, review any dashboard or query that counts connection log entries as connections, or that looks up an entry by connection ID through the request ID. For more information, see [Native Kafka API Connection Logs: Concepts and Architecture](../analyze-and-monitor-apis/logging/native-api-connection-logs-concepts-and-architecture.md).
+
+The events an API logs are set by `analytics.connectionEvents` in the API definition, through the Management API v2 or the Automation API. It takes `CONNECTED`, `DISCONNECTED`, and `ERROR`. When it's missing or empty, the API logs `CONNECTED` and `ERROR`, so the Disconnected event is opt-in.
+
+The entry that closes a connection, a Disconnected or error entry, now carries the number of Kafka requests the connection served. `long_native-kafka_request-count` holds the total, and `long_native-kafka_requests_<API_KEY>` holds the count for each Kafka API the connection used, for example `long_native-kafka_requests_PRODUCE`. The fields are left out when the connection served no requests. Before you upgrade, review any reporter pipeline that applies a strict schema to these entries.
+
+The native API logs endpoint of the Management API v2, `GET /environments/{envId}/apis/{apiId}/logs/native`, no longer caps the total count at 10,000. A page that reaches beyond the Elasticsearch result window, set by `analytics.elasticsearch.index.max_result_window` and `10000` by default, returns `400`. Ask for a smaller page, or narrow the time range or the filters. When the total exceeds what can be paged, the API's native logs in the Console show `Showing the first <n> of <total> connections` and page only through the first `<n>`.
 
 **The Gateway resolves the request path before it routes**
 
@@ -169,9 +163,13 @@ Before you upgrade, check the API consumers that read these responses. For more 
 
 **XML Validation policy: Requests that declare a `DOCTYPE` and schema downloads are blocked**
 
-The XML Validation policy that APIM 4.13 bundles rejects a request body that declares a `DOCTYPE`, with the same `400` response as a body that doesn't match the schema. It also no longer downloads a schema that an `xs:import` or `xs:include` names with an `http`, `https`, or `file` URL in its `schemaLocation`. A schema that names such a URL fails to compile, whether **Schema source** is **Inline XSD** or **Schema registry**. Requests fail with `500` and the error key `XML_VALIDATION_SCHEMA_COMPILE_FAILED`, and don't reach the backend. The message is `Unable to compile the XSD schema`. In 4.12, the policy accepted a `DOCTYPE` and downloaded the schemas at those URLs.
+The XML Validation policy that APIM 4.13 bundles rejects a request body that declares a `DOCTYPE`, with the same `400` response as a body that doesn't match the schema. It also no longer downloads a schema that an `xs:import` or `xs:include` names with an `http`, `https`, or `file` URL in its `schemaLocation`, so a schema that does this doesn't compile. In 4.12, the policy accepted a `DOCTYPE` and downloaded the schemas at those URLs.
 
-Before you upgrade, check for API consumers that send a `DOCTYPE`, and for inline schemas that import or include a schema by URL. For more information, see [XML Validation](../create-and-configure-apis/apply-policies/policy-reference/xml-validation.md#errors).
+**XML Validation policy: A schema that doesn't compile now fails requests**
+
+When the policy's schema doesn't compile, requests fail with `500`, the error key `XML_VALIDATION_SCHEMA_COMPILE_FAILED`, and the message `Unable to compile the XSD schema`, and don't reach the backend. This applies whatever the **Schema source**. In 4.12, an inline schema that didn't compile left the policy unapplied, so requests reached the backend without validation.
+
+Before you upgrade, check for API consumers that send a `DOCTYPE`, and for schemas that don't compile, including inline schemas that import or include a schema by URL. For more information, see [XML Validation](../create-and-configure-apis/apply-policies/policy-reference/xml-validation.md#errors).
 
 **Encrypted API properties: The Management API v2 masks values and checks encryption**
 
@@ -197,6 +195,127 @@ A Hybrid Gateway that uses its own OpenTelemetry configuration without this sett
 A Gateway that connects to Gravitee Cloud with a Cloud Token now sends its traces and payload logs to Gravitee Cloud unless it has a `services.opentelemetry` setting. The deprecated `services.tracing` settings don't count. A Hybrid Gateway that still uses them sends its traces to Gravitee Cloud after the upgrade, instead of to its own collector.
 
 Before you upgrade a Hybrid Gateway that traces v2 APIs, set `services.opentelemetry.tracing.v2.enabled` to `true` on it. Setting `services.opentelemetry.tracing.v2.enabled` is itself a `services.opentelemetry` setting: on a Gateway without its own OpenTelemetry configuration, it stops the Gateway from sending to Gravitee Cloud and doesn't turn OpenTelemetry on. Set it only on a Gateway that already exports to your own collector. Move any `services.tracing` settings to `services.opentelemetry`. For more information, see [Tracing for v2 APIs](../analyze-and-monitor-apis/opentelemetry.md#tracing-for-v2-apis).
+
+**Helm: `gateway.kafka.secured` is renamed to `gateway.kafka.probe.secured`**
+
+From 4.13.0, the Helm value that sets whether the Gateway's TCP health probe connects to the Kafka port over TLS is `gateway.kafka.probe.secured`. `gateway.kafka.secured` is deprecated. The chart still reads it when `gateway.kafka.probe.secured` isn't set, and `gateway.kafka.probe.secured` wins when both are set. The value affects only the health probe, not the Kafka server.
+
+Before you upgrade, rename `gateway.kafka.secured` to `gateway.kafka.probe.secured` in your values file.
+
+**Management API: Stricter permission and ownership checks**
+
+From 4.13.0, the Management API checks permissions and ownership on more endpoints. A script or integration that relied on a missing check now gets `403`, `404`, or an empty result. Requests made with the right permissions, on resources of the same environment, are unaffected.
+
+* **Subscriptions.** Subscribing an application to an API plan with `POST /applications/{application}/subscriptions` returns `404` unless you're an organization administrator, a member of the API, or the API is published in a portal. `POST /apis/{api}/subscriptions` returns `404` for a plan of another API or environment, and requires the `APPLICATION_SUBSCRIPTION[CREATE]` permission on the application. Listing subscriptions with `GET /subscriptions?application=` requires `APPLICATION_SUBSCRIPTION[READ]` on the application, and otherwise returns `403`. Pausing, resuming, or changing the status of a subscription of another API or environment returns `404`.
+* **API search.** `POST /apis/_search` returns an empty result to a user who can access no API.
+* **Plans.** Plan endpoints under `/apis/{api}/plans/{plan}` reject a plan that doesn't belong to the API: Management API v1 returns `400`, and Management API v2 returns `404`.
+* **Promotions.** Processing a promotion of a V4 API requires `ENVIRONMENT_API[CREATE]`, or `ENVIRONMENT_API[UPDATE]` for an existing API, on the target environment, and otherwise returns `403`. A promotion of another organization returns `404`, and a promotion that isn't awaiting validation returns `400`. Searching promotions requires `API_DEFINITION[READ]` on the API.
+* **User search.** `GET /organizations/{orgId}/search/users` returns `403` unless you manage members somewhere, for example with `ORGANIZATION_USERS[READ]`, or with `MEMBER[CREATE]` or `MEMBER[UPDATE]` on an API, application, or group.
+* **Roles.** Granting or revoking a role with `PUT /organizations/{orgId}/users/{userId}/roles` requires you to be an organization administrator, or to hold every permission of that role. Otherwise, it returns `403`.
+* **Groups, alerts, documentation, and notifications.** Group invitations and group members of another environment, alert events of an alert that doesn't belong to the API, and API pages that don't belong to the API return `404`. Creating a notification setting requires `ENVIRONMENT_NOTIFICATION[CREATE]` for the current environment, and otherwise returns `403`. Deleting a notification setting that doesn't exist returns `404` instead of `204`.
+* **API import, API Score, and Newt AI.** Importing an API from a URL with `PUT /apis/import` requires `ENVIRONMENT_API[UPDATE]`. API Score and Newt AI require `ENVIRONMENT_API[READ]`, and Newt AI generation returns `429` above 30 calls a minute for each user.
+
+Before you upgrade, review the scripts and integrations that call these endpoints, and the permissions of the accounts they use.
+
+**Users without specific permissions no longer see request logs, other groups' memberships, or shared policy group steps**
+
+From 4.13.0, the Management API checks a specific permission before it returns the following data. The check applies to every role, including the default USER role, so a user who saw this data in 4.12 can lose access to it after the upgrade:
+
+* **Request logs and analytics.** The environment's request logs show only the APIs on which you hold `API_LOG[READ]`. Analytics aggregates require `API_ANALYTICS[READ]` on each API, or `ENVIRONMENT_PLATFORM[READ]` for the whole environment. `ENVIRONMENT_API[READ]` alone no longer gives access to either. A user who can read no data gets an empty result, not `403`.
+* **Group memberships.** `GET /configuration/groups/{group}/memberships` of the Management API v1 returns `403` unless you manage the group: an organization administrator, a group administrator, or a user with `ENVIRONMENT_GROUP[CREATE]`, `ENVIRONMENT_GROUP[UPDATE]`, or `ENVIRONMENT_GROUP[DELETE]`. A member of an API or application can still see the groups attached to it.
+* **Shared policy group steps.** Without `SHARED_POLICY_GROUP[UPDATE]`, the Management API v2 and the Automation API return a shared policy group without its `steps`.
+
+Before you upgrade, review the roles of the users and service accounts that read this data, and grant the permissions they need.
+
+**WS-Security Authentication policy 4.0.0: Requests are checked against OASIS WSS 1.1**
+
+APIM 4.13 bundles version 4.0.0 of the WS-Security Authentication policy, which checks the `wsse:Security` header against OASIS WSS 1.1 SOAP Message Security and the UsernameToken Profile. Requests that version 2.x accepted can now be rejected:
+
+* The policy reads only a `wsse:Security` header in the OASIS 2004 or 2003 namespace that targets the ultimate receiver: with no `actor` in SOAP 1.1, and with no `role` or the `ultimateReceiver` role in SOAP 1.2. The request must carry exactly one such header.
+* The header must hold exactly one `UsernameToken`, with one `Username` and one `Password`. The password must be `PasswordText`. Any other type, such as `PasswordDigest`, is rejected.
+* A `wsu:Timestamp` whose `wsu:Expires` has passed, or whose `wsu:Created` is in the future, is rejected beyond the new **Clock skew (seconds)** option, which defaults to `60`. Times must carry a UTC offset.
+* The new **Require a timestamp** option, off by default, rejects a header with no `wsu:Timestamp` or with no `wsu:Expires`.
+* A request body that declares a `DOCTYPE` is rejected.
+
+Every rejection still returns HTTP `401`, but the error keys and messages change. In 2.x, every failure used `WSSECURITY_AUTH_UNAUTHORIZED` with the message `Unauthorized`. In 4.0.0, the message is the WS-Security fault string:
+
+<table><thead><tr><th>Error key</th><th>Message</th></tr></thead><tbody><tr><td><code>WSSECURITY_AUTH_INVALID</code></td><td><code>An error was discovered processing the wsse:Security header</code> or <code>An invalid security token was provided</code></td></tr><tr><td><code>WSSECURITY_AUTH_UNSUPPORTED</code></td><td><code>An unsupported token was provided</code></td></tr><tr><td><code>WSSECURITY_AUTH_EXPIRED</code></td><td><code>The message has expired</code></td></tr><tr><td><code>WSSECURITY_AUTH_UNAUTHORIZED</code></td><td><code>The security token could not be authenticated or authorized</code></td></tr></tbody></table>
+
+The policy doesn't return a SOAP Fault. To return one, use a response template. Version 4.0.0 also fixes the HTTP authentication provider, which rejected every request with `401` in earlier versions because the policy didn't wait for its answer.
+
+Before you upgrade, review the response templates keyed on `WSSECURITY_AUTH_UNAUTHORIZED`, because malformed requests now use `WSSECURITY_AUTH_INVALID`. For more information, see [WS-Security Authentication](../create-and-configure-apis/apply-policies/policy-reference/ws-security-authentication.md).
+
+**Generate HTTP Signature policy: No empty first line when the payload isn't signed**
+
+From 4.12.21 and 4.13.0, the Generate HTTP Signature policy signs only the configured headers on a request when payload signing is off, as it did in 4.11. From 4.12.0 to 4.12.20, the signed string started with an empty line in place of the payload. A verifier adjusted for the 4.12 signatures now sees a mismatch. When payload signing is on, an empty payload still adds an empty first line.
+
+Before you upgrade, check the verifiers of APIs that use this policy without payload signing. For more information, see [Generate HTTP Signature](../create-and-configure-apis/apply-policies/policy-reference/generate-http-signature.md).
+
+**Timing metrics: The endpoint response time includes the response body**
+
+For v4 APIs whose endpoint is the HTTP proxy, `endpoint-response-time-ms` now runs until the response body is fully proxied, where it previously stopped at the first byte. Two new fields complete it: `endpoint-response-ttfb-ms`, the time to the first byte, and `endpoint-connect-time-ms`, the time to get a connection to the endpoint. The Gateway latency is still the Gateway response time minus the endpoint response time, so the body transfer moves out of `gateway-latency-ms`. The Gateway response time and latency also now include the time the Gateway takes to dispatch the request to the API.
+
+The File and TCP reporters write the new fields as `endpointResponseTtfbMs` and `endpointConnectTimeMs`. The CSV format doesn't carry them. These changes also ship in 4.12.15 and later, and the dispatch time in 4.12.21 and later.
+
+Before you upgrade, review the dashboards and alert thresholds that read endpoint response time or Gateway latency. For more information, see [Reporters](../analyze-and-monitor-apis/reporters/README.md).
+
+**Flows: A path with the `**` wildcard is rejected when you save an API**
+
+Saving or importing a v4 API whose flow has an HTTP selector with the **Equals** operator and a path that contains `**` fails with `400` and the message `The flow [<name>] contains an HTTP selector with an invalid wildcard path`. The **Starts with** operator is checked the same way. This applies to the Console, the Management API v2, the Automation API, the Gravitee Kubernetes Operator, and the Terraform provider. It also applies from 4.12.0.
+
+Before you upgrade, remove `**` from the flow paths of your v4 APIs and from the API definitions your pipelines push.
+
+**Environment logs: The request URI filter matches by prefix**
+
+From 4.13.0, the environment logs search of the Management API v2, `POST /environments/{envId}/logs/search`, filters `URI` with `STARTS_WITH`, which matches the start of the request URI and accepts the `*`, `?`, and `\` wildcards. `EQ` on `URI` is a deprecated alias of `STARTS_WITH`, so a search for an exact URI also returns the requests whose URI starts with it. A saved Console link that filters the URI with equals opens without that filter.
+
+Before you upgrade, check the scripts that search logs with an exact URI, and recreate the saved links that filter on it.
+
+**Rate Limit, Quota, and Spike Arrest policies: A policy without a limit rejects every request**
+
+A Rate Limit, Quota, or Spike Arrest policy needs a limit. When a policy sets neither a static limit nor a dynamic limit, its limit is now `0`, so it rejects every request with `429` and the error key `RATE_LIMIT_TOO_MANY_REQUESTS`, `QUOTA_TOO_MANY_REQUESTS`, or `SPIKE_ARREST_TOO_MANY_REQUESTS`. Previously, such a policy failed every request with `500`. This also applies from 4.12.17.
+
+Before you upgrade, check that every Rate Limit, Quota, and Spike Arrest policy sets a limit, including the policies that the Gravitee Kubernetes Operator, the Terraform provider, and your import pipelines push.
+
+**MCP entrypoint: A `GET` that asks for a Server-Sent Events stream returns `405`**
+
+An MCP Proxy answers a `GET` request whose `Accept` header contains `text/event-stream` with `405`, the error key `MCP_PROXY_METHOD_NOT_ALLOWED`, and a JSON-RPC error that asks the client to send its requests with `POST`. Previously, the request reached the upstream server, and a keyless plan could answer it with a misleading `401`. Paths that start with `/.well-known` or `/.auth/` aren't affected. This also applies from 4.12.13.
+
+{% hint style="info" %}
+**New Developer Portal upgrade notes**
+
+The following changes to the New Developer Portal aren't breaking changes, but they can change what you see or how your automation behaves after the upgrade.
+
+**An "APIs" folder is added to the top navigation bar**
+
+On the first Management API startup after the upgrade, every environment gets a published, public folder named `APIs` at the end of the New Developer Portal's top navigation bar. It isn't added when a top-level folder named `APIs` already exists. The folder is added once, so if you delete it, it doesn't come back.
+
+**Automation API: A hand-made folder blocks an apply at the same path**
+
+From 4.13.0, a folder created for an API in the Console or the portal editor belongs to the API. When an Automation API apply declares a `portalNavigation` path that such a folder already occupies, the apply, and its dry run, fails with `400` and the message `Navigation path [<path>] is already occupied by content not managed by the Automation API`.
+
+Before you upgrade, compare the `portalNavigation` paths of your Automation API configurations, Kubernetes resources, and Terraform configurations with the folders of each API. Rename or remove a conflicting folder to let the apply succeed. For more information, see [API documentation](../developer-portal/new-developer-portal/customize-the-navigation/portal-automation/api-documentation.md).
+
+**Portal capability and application membership settings move to Portal Settings**
+
+From 4.13.0, the **Portal capabilities** and **Application membership** settings of the New Developer Portal are in **Settings** under **Portal Settings**, and no longer in the Console's **Settings**. **Portal Settings** appears in the Console menu when the New Developer Portal is enabled. **Enable the New Developer Portal** stays in the Console's **Settings**. For more information, see [Configure New Developer Portal settings](../developer-portal/new-developer-portal/configure-new-developer-portal-settings.md).
+
+**A private folder can't hold public items**
+
+From 4.13.0, the navigation of the New Developer Portal doesn't let a public item sit under a private folder. An Automation API apply that declares a public item under a private folder fails with `400` and the message `Parent item with id <id> must be PUBLIC to create a public child item.` In the Console and Gravitee Gamma, making a folder private also makes everything inside it private, and an item under a private folder can't be made public.
+
+Before you upgrade, check the visibility of the folders and items your Automation API configurations declare. For more information, see [Customize the navigation](../developer-portal/new-developer-portal/customize-the-navigation.md).
+{% endhint %}
+
+**Automation API and resource imports: Updating an object requires the update permission**
+
+From 4.13.0, an Automation API apply, and the Management API v2 imports that create or update an object, check the update permission when the object already exists. Previously, they checked only the create permission. A service account that holds only the create permission now gets `403` when it applies a change to an existing object.
+
+<table><thead><tr><th>Object</th><th>Create permission</th><th>Update permission</th></tr></thead><tbody><tr><td>API</td><td><code>ENVIRONMENT_API</code></td><td><code>API_DEFINITION</code> on the API</td></tr><tr><td>Application</td><td><code>ENVIRONMENT_APPLICATION</code></td><td><code>APPLICATION_DEFINITION</code> on the application</td></tr><tr><td>Group</td><td><code>ENVIRONMENT_GROUP</code></td><td><code>ENVIRONMENT_GROUP</code></td></tr><tr><td>Shared policy group</td><td><code>ENVIRONMENT_SHARED_POLICY_GROUP</code></td><td><code>ENVIRONMENT_SHARED_POLICY_GROUP</code></td></tr><tr><td>Dictionary</td><td><code>ENVIRONMENT_DICTIONARY</code></td><td><code>ENVIRONMENT_DICTIONARY</code></td></tr><tr><td>Portal, listing, link, and portal documentation</td><td><code>ENVIRONMENT_PORTAL</code></td><td><code>ENVIRONMENT_PORTAL</code></td></tr><tr><td>Theme</td><td><code>ENVIRONMENT_THEME</code></td><td><code>ENVIRONMENT_THEME</code></td></tr><tr><td>API documentation and link</td><td><code>API_DOCUMENTATION</code> on the API</td><td><code>API_DOCUMENTATION</code> on the API</td></tr><tr><td>Subscription</td><td><code>API_SUBSCRIPTION</code> on the API</td><td><code>API_SUBSCRIPTION</code> on the API</td></tr></tbody></table>
+
+Changing the members of an API or application also requires `API_MEMBER[UPDATE]` or `APPLICATION_MEMBER[UPDATE]`. An apply that restates the current members doesn't. `PUT /applications/_import/crd` of the Management API v2 now requires `ENVIRONMENT_APPLICATION[CREATE]` instead of `ENVIRONMENT_API[CREATE]`.
+
+Before you upgrade, review the permissions of the service accounts that the Gravitee Kubernetes Operator, the Terraform provider, and your pipelines use.
 
 #### 4.12.0
 
@@ -397,15 +516,17 @@ Here is the deprecated functionality from 4.X of Gravitee
 
 #### 4.13.0
 
-**v2 APIs are deprecated**
-
-From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [Migrate APIs](../create-and-configure-apis/create-apis/migrate-apis.md).
-
 **MongoDB and Elasticsearch subcharts are deprecated**
 
 From 4.13.0, the `mongodb` and `elasticsearch` subcharts of the APIM Helm chart are deprecated, and APIM 4.15.0 removes them. They run `bitnamilegacy` images that no longer receive security updates. Both subcharts are disabled by default, and a deployment that uses an external MongoDB or Elasticsearch isn't affected.
 
 If you enable either subchart, move your data to a MongoDB or Elasticsearch instance deployed outside the chart before you upgrade to 4.15.0. Point `mongo.*` or `es.*` at the new instance, and then set `mongodb.enabled` or `elasticsearch.enabled` to `false`. For more information, see the installation guide for [Vanilla Kubernetes](../self-hosted-installation-guides/kubernetes/vanilla-kubernetes/README.md), [AWS EKS](../self-hosted-installation-guides/kubernetes/aws-eks.md), [Azure AKS](../self-hosted-installation-guides/kubernetes/azure-aks.md), or [OpenShift](../self-hosted-installation-guides/kubernetes/openshift.md).
+
+**The identity provider tokens returned at login will be hidden by default**
+
+From 4.13.0, four settings decide whether the Management API returns the access token and the ID token of the identity provider when a user logs in to the Console or the Developer Portal with an identity provider: `console.authentication.expose.accessToken`, `console.authentication.expose.idToken`, `portal.authentication.expose.accessToken`, and `portal.authentication.expose.idToken`. In 4.13, each defaults to `true`, which keeps the behavior of earlier versions. APIM 4.14 changes their default to `false`.
+
+If an integration reads these tokens from the login response, set the settings it needs to `true` before you upgrade to 4.14.
 
 #### 4.4.0
 
