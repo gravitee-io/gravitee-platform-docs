@@ -8,7 +8,7 @@ description: Write the pages, folders, and links of a Gamma API proxy on its Doc
 
 The **Documentation** page of an API proxy holds the pages, folders, and links that describe the API in the developer portal. They belong to the API. They appear under the API in every portal that lists it, and they stay with the API when you take it out of the portal. You write them here, and you publish the API when they're ready.
 
-The New Developer Portal shows these items. The same items appear under the API's entry on the **Navigation** page of the Portal Settings, where a portal designer places the API in the portal. See [Manage Portal Navigation and APIs](https://documentation.gravitee.io/apim/developer-portal/new-developer-portal/customize-the-navigation).
+The New Developer Portal shows these items. The same items appear under the API's entry on the **Navigation** page of the Portal Settings, where a portal designer places the API in the portal. See [Manage Portal Navigation and APIs](https://documentation.gravitee.io/apim/developer-portal/new-developer-portal/customize-the-navigation). When the API is also listed inside an API Product, its entry there doesn't show these items.
 
 To open the page, follow these steps:
 
