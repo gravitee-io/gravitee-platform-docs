@@ -36,7 +36,7 @@ The PDP synchronization covers:
 | Data type | Sync behavior |
 |-----------|--------------|
 | **Policies** | Full policy text (GAPL) and metadata (type, target, status) |
-| **Entities** | Principal and resource entities referenced by deployed policies |
+| **Entities** | Every principal and resource entity, whether or not a policy names it, routed by its target gateways like a policy |
 | **Schema** | Each schema document assigned to a PDP gateway or to the **Bootstrap PDP** syncs to the gateways that host it. An unassigned document doesn't sync. |
 | **Scope targets** | Gateway-specific scoping from the `scopeTargets` field |
 
