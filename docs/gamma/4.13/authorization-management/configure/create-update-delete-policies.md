@@ -100,7 +100,7 @@ On a statement card, expand the **Condition** section, which is marked **Optiona
 
 ### Set target gateways
 
-The **Target gateways** picker scopes the policy to specific PDP gateways. Select **\* (all gateways)** to cover every gateway, or pick individual targets from registered PDP gateways.
+The **Target gateways** picker scopes the policy to specific PDP gateways. Select **\* (every registered PDP)** to cover every PDP, or pick individual targets from registered PDP gateways. Left empty, the policy runs only in the default engine of every gateway, not in a named PDP.
 
 ### Save or deploy
 
