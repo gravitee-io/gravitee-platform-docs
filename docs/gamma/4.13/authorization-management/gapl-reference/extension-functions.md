@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: The ip, decimal, datetime, and duration functions of GAPL, the string formats they accept, and the methods of the values they build.
+description: The IP, decimal, datetime, and duration functions of GAPL, the string formats they accept, and the methods of the values they build.
 ---
 
 # Extension functions
@@ -25,7 +25,7 @@ A method is called on the value with `.`, such as `a.isInRange(b)`. It can also 
 
 A string that doesn't match the format of its function is an error, and so is a function or a method name that doesn't exist. In both cases the statement is skipped. Neither is caught when you save. For what skipping means, see [How statements are evaluated](evaluation.md).
 
-## ip
+## `ip`
 
 `ip("...")` accepts the following formats:
 

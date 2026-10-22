@@ -71,7 +71,7 @@ Click **Create Resource**. The entity appears in the Resources table with source
 
 ## Custom types
 
-When you select **Other (custom type)**, a **Custom type** field appears. The policy engine uses the value as the type exactly as you enter it, for example `Webhook` or `HR::Team`. If you enter a type that the dropdown already offers, the console warns you to select it from the dropdown instead, for example: "mcp" is a preset type — pick it from the dropdown instead.
+When you select **Other (custom type)**, a **Custom type** field appears. The policy engine uses the value as the type exactly as you enter it, for example `Webhook` or `HR::Team`. If you enter a type that the dropdown already offers, the console warns you to select it from the dropdown instead, for example: `"mcp" is a preset type — pick it from the dropdown instead.`
 
 ## Next steps
 
