@@ -34,7 +34,7 @@ To create a Terraform service account, complete the following steps:
 6.  From the **Users** screen, click on your service account.
 
     <figure><img src="../.gitbook/assets/03 (1).png" alt="The organization Users page listing an administrator and a service account, with the service account row highlighted."><figcaption></figcaption></figure>
-7.  Ensure that your service account has the ADMIN role on the organization, and the API\_PUBLISHER role on the desired environment.
+7.  Ensure that your service account has the ADMIN role on the organization, and the ADMIN role on the desired environment.
 
     <figure><img src="../.gitbook/assets/04 (2).png" alt="The detail page of a service account, with the organization role set to ADMIN highlighted in two places and the environment role set to API_PUBLISHER."><figcaption></figcaption></figure>
 
