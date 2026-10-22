@@ -211,7 +211,7 @@ However, there are some limitations of APIs compared to folders:
 
 **Documentation that belongs to the API**
 
-A page, folder, or link that you add under an API item belongs to the API rather than to the portal, unless the API item sits inside an API Product. The same applies to a folder that you import from a repository under the API item. The item appears under every item that lists the API and on the **Documentation** page of the API proxy in the Gamma console. It stays when the API item is deleted or unpublished. An API owner can add the same items from the Gamma console, and they appear here under the API item.
+A page, folder, or link that you add under an API item belongs to the API rather than to the portal, unless the API item sits inside an API Product. The same applies to a folder that you import from a repository under the API item. The item appears under the API item and on the **Documentation** page of the API proxy in the Gamma console. It stays when the API item is deleted or unpublished. An API owner can add the same items from the Gamma console, and they appear here under the API item.
 
 Moving an item onto an API item, or into one of its folders, hands the item and everything inside it to that API. Moving it to a portal folder hands it back to the portal. The move is refused when the item, or something inside it, is managed by the Automation API, or when an API or API Product item would end up inside an API's documentation.
 
