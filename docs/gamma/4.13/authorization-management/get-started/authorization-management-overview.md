@@ -25,8 +25,8 @@ GAPL uses Cedar syntax. A policy looks like:
 ```
 permit (
   principal == User::"alice",
-  action == Action::"invoke",
-  resource == MCPTool::"github-create-issue"
+  action == Action::"github.create-issue",
+  resource == MCPTool::"github.create-issue"
 );
 ```
 

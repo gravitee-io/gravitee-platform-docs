@@ -19,6 +19,8 @@ MCP policies target a specific MCP server and govern access to its surfaces. The
 | **Prompts** | Prompt templates on the server |
 | **Resources** | Data resources exposed via MCP |
 
+When an MCP Studio with fine-grained authorization receives a tool call, it asks for a decision with the tool as both the action and the resource, named `<server>.<tool>`. A call to the `search` tool of `demo-hr-mcp` is evaluated as `Action::"demo-hr-mcp.search"` on `MCPTool::"demo-hr-mcp.search"`. To cover every tool of a server, leave `action` unconstrained and match the server with `in`.
+
 ## Example 1: Allow a group to invoke all tools on a server
 
 ```
@@ -27,7 +29,7 @@ MCP policies target a specific MCP server and govern access to its surfaces. The
 
 permit (
   principal in Group::"engineering",
-  action == Action::"invoke",
+  action,
   resource in MCPServer::"demo-hr-mcp"
 );
 ```
@@ -42,7 +44,7 @@ This policy permits any member of the `engineering` group to invoke any tool on 
 
 permit (
   principal == User::"alice",
-  action == Action::"invoke",
+  action == Action::"demo-hr-mcp.search",
   resource == MCPTool::"demo-hr-mcp.search"
 )
 when {
@@ -60,7 +62,7 @@ This policy permits Alice to invoke the `search` tool only during business hours
 
 forbid (
   principal == AgentIdentity::"research-bot",
-  action == Action::"invoke",
+  action == Action::"demo-hr-mcp.get-employee-ssn",
   resource == MCPTool::"demo-hr-mcp.get-employee-ssn"
 );
 ```
@@ -75,7 +77,7 @@ This policy explicitly forbids the `research-bot` agent from invoking a tool tha
 
 permit (
   principal in Group::"admins",
-  action == Action::"invoke",
+  action,
   resource in MCPServer::"demo-hr-mcp"
 )
 when {

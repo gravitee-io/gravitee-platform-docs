@@ -61,8 +61,8 @@ Each policy contains one or more statements. Each statement is built from the fo
 |------|--------------|-------------|
 | **Effect** | Toggle between `permit` and `forbid` | `permit (…)` or `forbid (…)` |
 | **Principal** | Chip picker from the **Principals** tab of the **Entities** page | `principal == User::"alice"` |
-| **Action** | Chip picker from the **Actions** page | `action == Action::"invoke"` |
-| **Resource** | Chip picker scoped by resource group | `resource == MCPTool::"search"` |
+| **Action** | Chip picker from the **Actions** page | `action == Action::"GET"` |
+| **Resource** | Chip picker scoped by resource group | `resource == API::"orders"` |
 | **Agents** | Chip picker of imported agent identities | `context.agent == AgentIdentity::"planner"` |
 | **Condition** | Condition block with snippet insertion | `when { context.time.hour >= 9 }` |
 
@@ -89,8 +89,8 @@ A GAPL principal or resource scope binds a single entity, so the **Principal** a
 ```
 permit (
   principal == User::"alice",
-  action in [Action::"invoke", Action::"read"],
-  resource == MCPTool::"search"
+  action in [Action::"GET", Action::"POST"],
+  resource == API::"orders"
 );
 ```
 

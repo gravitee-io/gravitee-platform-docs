@@ -88,7 +88,7 @@ A generated GAPL policy looks like:
 
 permit (
   principal == User::"alice",
-  action == Action::"invoke",
+  action == Action::"demo-hr-mcp.search",
   resource == MCPTool::"demo-hr-mcp.search"
 )
 when {

@@ -16,7 +16,7 @@ Actions are stored as `RESOURCE` entities with the `action.` prefix in their Ent
 permit (
   principal == User::"alice",
   action == Action::"invoke",
-  resource == MCPTool::"search"
+  resource == Resource::"customer-db"
 );
 ```
 
