@@ -1,0 +1,23 @@
+---
+description: Transfer an active API Management 4.13 subscription to another plan with the same security type. Follow the steps to move it.
+metaLinks:
+  alternates:
+    - transfer-subscriptions.md
+---
+
+# Transfer Subscriptions
+
+API publishers can transfer active subscriptions to a new plan with the same security type:
+
+1. Log in to your APIM Console
+2. Select **APIs** from the left nav
+3. Select the API with the subscription to transfer
+4. Select **Consumers** from the inner left nav
+5. Click the **Subscriptions** header tab
+6. Click the pencil icon of the subscription you want to transfer
+7.  At the bottom of the **Subscription details** section, click Transfer
+
+    <figure><img src="../../.gitbook/assets/subscription_transfer.png" alt="A subscription&#x27;s detail page showing its identifier, plan, accepted status, application, and timestamps, with Transfer, Pause, Change end date, and Close actions."><figcaption><p>Transfer a subscription</p></figcaption></figure>
+8.  Select the plan to transfer the subscription to, then click **Transfer**
+
+    <figure><img src="../../.gitbook/assets/subscription_transfer confirm.png" alt="The Transfer your subscription dialog, listing two API key plans with the second selected."><figcaption><p>Specify and confirm subscription transfer</p></figcaption></figure>

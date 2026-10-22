@@ -1,0 +1,15 @@
+# Files with version-specific content — do NOT sync from previous version
+# Auto-managed by the documentation pipeline
+# Seeded slim at 4.14 creation (4.14 starts as a byte-identical copy of 4.13), so only
+# genuinely version-specific files belong here. Add entries as 4.14 diverges —
+# the Lint Version Overrides check flags divergent 4.14 edits that need one.
+SUMMARY.md
+.gitbook.yaml
+release-information/release-notes/apim-4.13.md
+# AI Workspaces in the New Developer Portal (APIM 4.14.0 feature, PORTAL-147)
+release-information/release-notes/apim-4.14.md
+developer-portal/new-developer-portal/show-ai-workspaces-in-the-developer-portal.md
+developer-portal/new-developer-portal/configure-new-developer-portal-settings.md
+.gitbook/assets/portal-settings-enable-ai-workspaces.png
+.gitbook/assets/portal-my-workspace-list.png
+.gitbook/assets/portal-ai-workspace-details.png
