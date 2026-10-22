@@ -58,7 +58,7 @@ Click the title of a page to open it. The editor shows the content on the left a
 
 <figure><img src="../../.gitbook/assets/gamma-api-documentation-editor.png" alt="The editor of a Gravitee Markdown page, with the page title, its Published and Public badges, the Edit details and Save changes buttons, the Markdown on the left, and the rendered preview on the right."><figcaption><p>The editor shows the content and its preview side by side.</p></figcaption></figure>
 
-Click **Edit details** to change the title or the access. The change applies in every portal that lists the API. A page synced from an external source keeps its title while it keeps the source, and a page inside a synced folder can't be edited at all.
+Click **Edit details** to change the title or the access. A page synced from an external source keeps its title while it keeps the source, and a page inside a synced folder can't be edited at all.
 
 ### Configure the OpenAPI viewer
 
