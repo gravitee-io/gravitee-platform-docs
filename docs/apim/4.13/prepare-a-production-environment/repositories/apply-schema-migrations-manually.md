@@ -45,6 +45,12 @@ APIM isn't the only component that migrates the management database. Each Gamma 
             <td><code>aim_prefix</code></td>
         </tr>
         <tr>
+            <td>Authorization Management</td>
+            <td><code>liquibase/authz/master.yml</code></td>
+            <td><code>{prefix}authz_databasechangelog</code> and <code>{prefix}authz_databasechangeloglock</code></td>
+            <td><code>authz_prefix</code></td>
+        </tr>
+        <tr>
             <td>Edge Management</td>
             <td><code>liquibase/edge/master.yml</code></td>
             <td><code>{prefix}edge_databasechangelog</code> and <code>{prefix}edge_databasechangeloglock</code></td>
@@ -98,9 +104,9 @@ How long a module waits for that lock is the module's own behavior rather than a
 
 Event Stream Management bounds the wait. It waits up to five minutes for the lock and makes three attempts in all. A lock nobody releases therefore holds it up for around fifteen minutes before it gives up, and neither the wait nor the attempt count is configurable.
 
-A module that sets neither of those, as Agent Management and Edge Management do, waits once for the period Liquibase applies by default and gives up on the first attempt. Don't wait fifteen minutes for one of those to clear itself.
+A module that sets neither of those, as Agent Management and Edge Management do, waits once for the period Liquibase applies by default and gives up on the first attempt. So does Authorization Management. Don't wait fifteen minutes for one of those to clear itself.
 
-Either way the module then fails to start, and the Management API logs that it couldn't apply that module's changelogs. For Event Stream Management the line reads `Unable to apply ESM liquibase changelogs`, and for Edge Management it reads `Unable to apply Edge liquibase changelogs`. The rest of the Management API keeps running, but the module doesn't recover on its own. Its pages stay unavailable until you clear the lock and restart the Management API.
+Either way the module then fails to start, and the Management API logs that it couldn't apply that module's changelogs. For Event Stream Management the line reads `Unable to apply ESM liquibase changelogs`, and for Edge Management it reads `Unable to apply Edge liquibase changelogs`. For Authorization Management it reads `Unable to apply authz liquibase changelogs`. The rest of the Management API keeps running, but the module doesn't recover on its own. Its pages stay unavailable until you clear the lock and restart the Management API.
 
 To find out whether a lock is stale, read the component's lock table. With no prefix configured, the Event Stream Management lock table is named `esm_databasechangeloglock`:
 
@@ -133,6 +139,8 @@ That wording is Event Stream Management's own, so match on the table name rather
 A database the Management API can't reach at all reports a different error, which names the table but not the database's address.
 
 For Edge Management, the **Quick Start** and **Configuration** pages show **Failed to load quick start** and **Failed to load configuration**. The error under each one quotes the failed query, which names the missing table, `{prefix}edge_config`, but not the setting that skipped it.
+
+For Authorization Management, each page that lists policies, entities, schema documents, PDP gateways, or SCIM directories shows an error such as **Could not load policies**. The message under it quotes the failed query, which names the missing table, such as `{prefix}authz_policies`, but not the setting that skipped it.
 
 ## Verification
 
