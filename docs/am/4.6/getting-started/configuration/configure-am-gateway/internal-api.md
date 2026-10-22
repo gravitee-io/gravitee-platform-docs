@@ -2,7 +2,7 @@
 description: API and reference documentation for Internal API.
 ---
 
-# Internal API
+# Gateway internal API
 
 ## Overview
 
