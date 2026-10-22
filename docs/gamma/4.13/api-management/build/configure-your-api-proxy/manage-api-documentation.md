@@ -6,7 +6,7 @@ description: Write the pages, folders, and links of a Gamma API proxy on its Doc
 
 # Manage API documentation
 
-The **Documentation** page of an API proxy holds the pages, folders, and links that describe the API in the Developer Portal. They belong to the API. They appear under the API in every portal that lists it, and they stay with the API when you remove it from the portal. You write them on this page, and you publish the API when they're ready.
+The **Documentation** page of an API proxy holds the pages, folders, and links that describe the API in the Developer Portal. They belong to the API. They appear under the API in the Developer Portal, and they stay with the API when you remove it from the portal. You write them on this page, and you publish the API when they're ready.
 
 The New Developer Portal shows these items. The same items appear under the API's entry on the **Navigation** page of the Portal Settings, where a portal designer places the API in the portal. See [Manage Portal Navigation and APIs](https://documentation.gravitee.io/apim/developer-portal/new-developer-portal/customize-the-navigation). When the API is also listed inside an API Product, its entry there doesn't show these items.
 
@@ -156,7 +156,7 @@ To delete an item, follow these steps:
 1. Open the item's row menu, and then click **Delete**.
 2. In the confirmation, click **Delete**. A folder is deleted with everything inside it, and the dialog gives the count.
 
-The item disappears from every portal that lists the API. An item inside an imported folder can't be deleted on its own. When you delete the API, its documentation is deleted with it.
+The item disappears from the Developer Portal. An item inside an imported folder can't be deleted on its own. When you delete the API, its documentation is deleted with it.
 
 ## Verification
 
