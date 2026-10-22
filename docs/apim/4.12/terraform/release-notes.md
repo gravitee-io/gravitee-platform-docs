@@ -148,7 +148,7 @@ Review [Breaking changes & migration](#breaking-changes--migration) before upgra
 
 ### Compatibility & support
 
-Wording follows the style of the platform [support model](https://documentation.gravitee.io/platform-overview/gravitee-platform/support-model) (12-month support per APIM minor).
+Wording follows the style of the platform [support model](https://documentation.gravitee.io/platform-management/support-model) (12-month support per APIM minor).
 
 #### Provider ↔ APIM ↔ Terraform / OpenTofu
 

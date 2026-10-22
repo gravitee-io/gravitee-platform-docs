@@ -24,7 +24,7 @@ Up to 30 days after the control plane upgrade, you can manually upgrade your Clo
 
 ## Hybrid gateway upgrades
 
-The upgrades are released every quarter. All supported gateway versions are compatible with control plane. For more information about supported gateways, see [Support Model](https://documentation.gravitee.io/apim/release-information/support-model).
+The upgrades are released every quarter. All supported gateway versions are compatible with control plane. For more information about supported gateways, see [Support model](https://documentation.gravitee.io/platform-management/support-model).
 
 You can upgrade your Hybrid gateway at any time. Gravitee does not automatically upgrade your gateway.
 

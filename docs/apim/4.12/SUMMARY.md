@@ -600,5 +600,5 @@
   * [Breaking Changes and Deprecations](release-information/breaking-changes-and-deprecations.md)
   * [Release Types](release-information/release-types.md)
   * [Release schedule](release-information/release-schedule.md)
-  * [Support Model](release-information/support-model.md)
-    * [Support for v1 APIs](release-information/support-for-v1-apis.md)
+  * [Support model](https://documentation.gravitee.io/platform-management/support-model)
+  * [Support for v1 APIs](release-information/support-for-v1-apis.md)

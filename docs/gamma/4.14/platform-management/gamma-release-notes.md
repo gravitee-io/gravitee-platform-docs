@@ -4,7 +4,7 @@ description: What the Gamma 4.14 release adds to Edge Management. Browse the new
 
 # Release Notes
 
-Each Gamma version follows the support period of the API Management version it ships with. For release and end-of-life dates, see [Support Model](https://documentation.gravitee.io/apim/release-information/support-model).
+Each Gamma version follows the support period of the API Management version it ships with. For release and end-of-life dates, see [Support model](https://documentation.gravitee.io/platform-management/support-model).
 
 ## 4.14 new features
 
