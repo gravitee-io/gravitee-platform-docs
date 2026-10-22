@@ -12,15 +12,15 @@ Create a resource entity directly in Authorization Management for items not avai
 
 The **Add Resource** dialog provides these presets:
 
-| Type | Canonical prefix | Policy type | Use case |
-|------|-----------------|-------------|----------|
-| **MCP Server** | `mcp` | `MCP` | MCP servers not in the Catalog |
-| **AI Model** | `model` | `MODEL` | Models from providers not in the Catalog |
-| **Agent** | `agent` | `AGENT` | A2A agents not in the Catalog |
-| **API** | `api` | `API` | API proxies |
-| **Event** | `event` | `EVENT` | Event streams and topics |
-| **Generic Resource** | `resource` | — | Any resource without a dedicated category |
-| **Other (custom prefix)** | User-defined | `CUSTOM` | Domain-specific resources |
+| Type | Engine type | Policy type | Use case |
+|------|-------------|-------------|----------|
+| **MCP Server** | `MCPServer` | `MCP` | MCP servers not in the Catalog |
+| **AI Model** | `Model` | `MODEL` | Models from providers not in the Catalog |
+| **Agent** | `Agent` | `AGENT` | A2A agents not in the Catalog |
+| **API** | `API` | `API` | API proxies |
+| **Event** | `Event` | `EVENT` | Event streams and topics |
+| **Generic Resource** | `Resource` | — | Any resource without a dedicated category |
+| **Other (custom type)** | As entered | `CUSTOM` | Domain-specific resources |
 
 {% hint style="info" %}
 If your environment has a published schema, the type dropdown shows the schema-defined resource types instead of the presets. The schema's `appliesTo.resourceTypes` declarations determine which types appear.
@@ -38,17 +38,17 @@ Click **Add Resource**. A slide-out panel opens.
 
 ### 3. Select a type
 
-Choose from the **Type** dropdown. The canonical prefix determines the `<kind>` portion of the Entity ID and maps the entity to the correct policy category page.
+Choose from the **Type** dropdown. The type maps the entity to the correct policy category page.
 
 ### 4. Enter details
 
 | Field | Required | Notes |
 |-------|----------|-------|
 | **Display name** | Yes | Human-readable name for the table and policy chip pickers |
-| **Slug** | Yes | Auto-derived from display name. Must match `[a-z0-9_-]+` |
+| **Entity ID** | Yes | Fills in from the display name (accents removed, lowercase, other characters replaced with dashes). Change it to the ID that requests carry for this resource |
 | **Description** | No | Stored as an attribute |
 
-**Entity ID preview**: `<prefix>.<slug>` (for example, `api.orders-service`)
+The Entity ID carries no type prefix: the type is stored separately. The hint under the field shows how the policy engine sees the resource, for example `API::"orders-service"`. An Entity ID holds at most 255 characters, isn't `.` or `..`, and holds no whitespace, control or formatting character, double quote, backslash, `/`, `%`, `;`, `?`, or `#`.
 
 ### 5. Set parents (optional)
 
@@ -69,17 +69,9 @@ Click **Add attribute** to define custom key-value pairs used in policy conditio
 
 Click **Create Resource**. The entity appears in the Resources table with source label **Local**.
 
-## Custom prefix rules
+## Custom types
 
-When selecting **Other (custom prefix)**:
-
-| Rule | Detail |
-|------|--------|
-| Must start with a letter | `webhook` ✓, `3proxy` ✗ |
-| Lowercase letters, digits, and dashes only | `data-lake` ✓, `Data_Lake` ✗ |
-| Must not match a preset canonical name | The console warns: "mcp" is a preset type — pick it from the dropdown instead |
-
-The custom prefix becomes the `entityType` in PascalCase (for example, prefix `webhook` → type `Webhook`).
+When you select **Other (custom type)**, a **Custom type** field appears. The policy engine uses the value as the type exactly as you enter it, for example `Webhook` or `HR::Team`. If you enter a type that the dropdown already offers, the console warns you to select it from the dropdown instead, for example: "mcp" is a preset type — pick it from the dropdown instead.
 
 ## Next steps
 
