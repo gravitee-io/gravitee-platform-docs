@@ -54,6 +54,14 @@ gateway:
 * If you run the application in a Docker container, set the IP address to 0.0.0.0.
 {% endhint %}
 
+## Limit concurrent scrapes
+
+The metrics endpoint serves up to three scrapes at a time and answers any further scrape with HTTP 429 until a slot is free again. A slot is freed when its scrape completes, fails, or loses its connection, and after 30 seconds at the latest, when the Gateway aborts the scrape and closes its connection. Set `services.metrics.prometheus.concurrencyLimit` to change the number of slots, and `services.metrics.prometheus.timeout` to change the wait in milliseconds.
+
+{% hint style="warning" %}
+APIM 4.12.20 and earlier have no scrape timeout, and the `timeout` setting has no effect there. A scrape that never completes keeps its slot, and once every slot is held that way, the endpoint answers HTTP 429 to every scrape until the Gateway restarts. Upgrade to APIM 4.12.21 or later to get the timeout.
+{% endhint %}
+
 ## Configure labels
 
 {% hint style="warning" %}

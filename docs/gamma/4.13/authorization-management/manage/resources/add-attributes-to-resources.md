@@ -15,8 +15,8 @@ Resource attributes are referenced in policy `when` conditions using the `resour
 ```
 permit (
   principal == User::"alice",
-  action == Action::"invoke",
-  resource == MCPServer::"demo-hr-mcp"
+  action == Action::"demo-hr-mcp.search",
+  resource == MCPTool::"demo-hr-mcp.search"
 )
 when {
   resource.sensitivity != "restricted"

@@ -10,25 +10,12 @@ Understand how action Entity IDs are structured and how the policy engine resolv
 
 ## Entity ID format
 
-Every action Entity ID uses the `action.` prefix followed by a slug:
+An action's Entity ID is the action name exactly as a request carries it, with no prefix. A policy refers to it as `Action::"<Entity ID>"`. For example:
 
-```
-action.<slug>
-```
+* An Authorization PEP policy whose action expression reads the HTTP method sends `GET` or `POST`, so the policy uses `Action::"GET"`.
+* An MCP Studio with fine-grained authorization sends the tool as `<server>.<tool>`, so the policy uses `Action::"weather.get_forecast"`.
 
-For example: `action.invoke`, `action.read`, `action.tools-call`.
-
-The slug must match `[a-z0-9_-]+` — lowercase letters, digits, underscores, and dashes. No dots, no spaces.
-
-## Built-in action constants
-
-The backend defines standard action identifiers used by Gamma's routing layer:
-
-| Constant | Entity ID | Used by |
-|----------|-----------|---------|
-| `TOOLS_CALL_METHOD` | `action.tools-call` | MCP tool invocations |
-
-Additional actions can be defined for any operation your policies need to govern.
+An Entity ID holds at most 255 characters, isn't `.` or `..`, and holds no whitespace, control or formatting character, double quote, backslash, `/`, `%`, `;`, `?`, or `#`.
 
 ## Action scope: GLOBAL vs RESOURCE
 
@@ -46,7 +33,7 @@ Actions themselves are not scoped — they are universal verbs. The scoping happ
 When building a policy in the visual editor, the **Actions** clause uses chip pickers populated from the Actions page. Each action chip shows:
 
 - The action's display name
-- The canonical `Action::"<slug>"` reference
+- The `Action::"<Entity ID>"` reference
 
 The visual editor supports two match modes for action clauses:
 
@@ -60,11 +47,11 @@ The visual editor supports two match modes for action clauses:
 | Pattern | Example | When to use |
 |---------|---------|-------------|
 | Simple verb | `invoke`, `read`, `write` | General-purpose actions |
-| Domain-qualified verb | `tools-call`, `model-query` | Actions specific to a service type |
+| Domain-qualified verb | `model-query` | Actions specific to a service type |
 | CRUD pattern | `create`, `read`, `update`, `delete` | REST-style API actions |
 
 {% hint style="info" %}
-Action names are case-sensitive in GAPL. The Entity ID is always lowercase, and the canonical reference uses `Action::"<slug>"` with the slug from the Entity ID.
+Action names are case-sensitive in GAPL, and the Entity ID is used as it is. `Action::"GET"` doesn't match a request that carries `get`.
 {% endhint %}
 
 ## Next steps
