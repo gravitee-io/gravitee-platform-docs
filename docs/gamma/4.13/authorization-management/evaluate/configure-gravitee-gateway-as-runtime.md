@@ -26,7 +26,7 @@ A PDP gateway is a registered runtime that executes policy decisions. Each gatew
 
 ### 1. Navigate to PDP Gateways
 
-From the Authorization Management sidebar, select **PDP Gateways**. The page shows a table of all registered PDP gateways.
+From the Authorization Management sidebar, select **PDP Gateways**. The page lists the registered PDP gateways on the left, each with its name, Target PDP ID, and sharding tag. Select one to open its details on the right.
 
 ### 2. Register a gateway
 
@@ -36,8 +36,8 @@ Click **Register PDP gateway**. A dialog opens with the following fields:
 |-------|----------|-------------|
 | **Name** | Yes | Human-readable name for this gateway (for example, `EU Gateway`) |
 | **Target PDP ID** | No | The engine identifier. Leave blank to use the default engine — scoped to this tag's gateways when a tag is set, or every gateway when it is not |
-| **Tag** | No | Sharding tag for routing. Leave blank to provision on all gateways |
-| **Create AuthZEN endpoint** | No | Checkbox to create an initial AuthZEN endpoint alongside the gateway |
+| **Sharding tag** | No | Sharding tag for routing. Leave blank to provision on all gateways |
+| **Create AuthZEN endpoint** | No | Creates an initial AuthZEN endpoint alongside the gateway |
 
 ### 3. Set up an AuthZEN endpoint (optional)
 
@@ -47,16 +47,15 @@ If you check **Create AuthZEN endpoint**, an **Endpoint path** field appears. Th
 
 Click **Register**. The PDP gateway appears in the list with the status `PUBLISHED` straight away. The status records the registration only. It doesn't show whether a gateway runs the engine: a PDP gateway whose sharding tag no gateway carries is `PUBLISHED` too.
 
-## PDP Gateways table
+## PDP gateway details
 
-| Column | Description |
-|--------|-------------|
-| **Name** | Gateway display name |
-| **Target PDP ID** | The engine identifier (monospace badge) |
-| **Tag** | Optional sharding tag |
-| **Status** | `PUBLISHED` once registered. It doesn't show whether a gateway runs the engine |
-| **AuthZEN endpoint** | The endpoint URL for this gateway |
-| **Actions** | Endpoint details and delete options |
+The details of a PDP gateway show its name, its target (`<Target PDP ID>@<sharding tag>` for a tagged one), its status, and a **⋮** menu with **Delete**. The status is `PUBLISHED` once registered, and doesn't show whether a gateway runs the engine. The details have the following tabs:
+
+| Tab | Description |
+|-----|-------------|
+| **Policies** | The policies routed to the PDP gateway, with **Create policy** and a button to detach each one. **Attach an existing policy** lists the other policies, and **Entities used by these policies** lists the entities they name, with **Attach all** |
+| **Entities** | The entities routed to the PDP gateway, with **Create entity**. **Attach an existing entity** lists the other entities |
+| **Endpoints** | The AuthZEN endpoint of the PDP gateway and its routes, or **Add endpoint** when it has none |
 
 ## Deleting a gateway
 
