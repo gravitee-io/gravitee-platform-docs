@@ -38,3 +38,5 @@ overview/custom-resource-definitions/group.md
 guides/manage-api-groups-and-members.md
 # ApiDefinition and v2 API deprecation notice (from GKO 4.13.0)
 overview/custom-resource-definitions/apidefinition.md
+# Service account permissions for each resource (APIM 4.13.0 Automation API checks, GKO-3415)
+guides/define-an-apim-service-account-for-gko.md
