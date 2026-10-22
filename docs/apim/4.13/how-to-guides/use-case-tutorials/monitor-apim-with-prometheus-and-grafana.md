@@ -343,7 +343,7 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=admin
 
   management-api:
-    image: graviteeio/apim-management-api:4
+    image: graviteeio/apim-management-api:4.13
     container_name: gravitee-management-api
     depends_on:
       - mongodb
@@ -355,7 +355,7 @@ services:
       - "8083:8083"
 
   gravitee-gateway:
-    image: graviteeio/apim-gateway:4
+    image: graviteeio/apim-gateway:4.13
     container_name: gravitee-gateway
     depends_on:
       - mongodb
@@ -369,7 +369,7 @@ services:
       - "8082:8082"
 
   management-ui:
-    image: graviteeio/apim-management-ui:4
+    image: graviteeio/apim-management-ui:4.13
     container_name: gravitee-management-ui
     ports:
       - "8084:8080"

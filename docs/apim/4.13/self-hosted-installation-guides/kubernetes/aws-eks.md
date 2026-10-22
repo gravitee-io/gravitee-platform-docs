@@ -635,7 +635,7 @@ Before installing Gravitee APIM for [enterprise edition](../../introduction/ente
       replicaCount: 1
       image:
         repository: graviteeio/apim-management-api
-        tag: latest
+        tag: "4.13"
         pullPolicy: Always
 
       env:
@@ -763,7 +763,7 @@ Before installing Gravitee APIM for [enterprise edition](../../introduction/ente
       replicaCount: 1
       image:
         repository: graviteeio/apim-gateway
-        tag: latest
+        tag: "4.13"
         pullPolicy: Always
 
       service:
@@ -811,7 +811,7 @@ Before installing Gravitee APIM for [enterprise edition](../../introduction/ente
       replicaCount: 1
       image:
         repository: graviteeio/apim-management-ui
-        tag: latest
+        tag: "4.13"
         pullPolicy: Always
 
       service:
@@ -856,7 +856,7 @@ Before installing Gravitee APIM for [enterprise edition](../../introduction/ente
       replicaCount: 1
       image:
         repository: graviteeio/apim-portal-ui
-        tag: latest
+        tag: "4.13"
         pullPolicy: Always
 
 
