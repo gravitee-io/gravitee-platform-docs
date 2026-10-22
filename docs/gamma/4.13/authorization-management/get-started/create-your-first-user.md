@@ -57,7 +57,7 @@ The Entity ID is immutable after creation. If an entity with the same ID already
 | **Description** | A short note about what this principal represents |
 | **Parents** | Link this principal to one or more parent entities of the same kind. For example, add a User to a Group. The parent picker searches existing entities by name |
 | **Target gateways** | Scope this principal to specific PDP gateways. Select individual PDPs or `*` for every registered PDP. If no targets are selected, only the default engine of every gateway knows the principal, and a named PDP doesn't |
-| **Attributes** | Key-value pairs the policy engine can reference in conditions. Each attribute has a key, a type (String, Number, Boolean, or Set), and a value |
+| **Attributes** | Key-value pairs the policy engine can reference in conditions. Each attribute has a key, a type, such as **String**, **Integer**, **Boolean**, or **Set&lt;String&gt;**, and a value |
 
 ### 6. Create the principal
 
