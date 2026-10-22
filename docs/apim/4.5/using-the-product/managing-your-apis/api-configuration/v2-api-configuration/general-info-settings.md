@@ -2,7 +2,7 @@
 description: An overview about general info settings.
 ---
 
-# General Info Settings
+# v2 API general settings
 
 {% hint style="info" %}
 Only v2 APIs support the API Quality feature

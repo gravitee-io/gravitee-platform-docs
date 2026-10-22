@@ -2,7 +2,7 @@
 description: Manage user and group access to an individual API Management 4.8 application. Follow the steps to add and remove members.
 ---
 
-# User and Group Access
+# Manage application members and groups
 
 ## Overview
 

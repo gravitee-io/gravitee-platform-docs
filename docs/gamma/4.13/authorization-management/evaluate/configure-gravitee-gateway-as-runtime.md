@@ -14,8 +14,8 @@ A PDP gateway is a registered runtime that executes policy decisions. Each gatew
 
 - Is identified by a **Target PDP ID** that policies are routed to
 - Can be scoped to a **sharding tag** for multi-region or multi-tenant deployments
-- Has a **status** (`PENDING` or `PUBLISHED`) indicating whether the engine is provisioned
-- Exposes one or more **AuthZEN endpoints** for standards-compliant access evaluation
+- Has a **status**, which is `PUBLISHED` from the moment it's registered
+- Can expose an [AuthZEN endpoint](ask-for-a-decision/authzen-endpoint.md) for standards-compliant access evaluation
 
 ## Prerequisites
 
@@ -41,11 +41,11 @@ Click **Register PDP gateway**. A dialog opens with the following fields:
 
 ### 3. Set up an AuthZEN endpoint (optional)
 
-If you check **Create AuthZEN endpoint**, an **Endpoint path** field appears. The path auto-derives from the Target PDP ID (for example, Target PDP ID `eu-prod` → path `/eu-prod/`). You can override the path manually.
+If you check **Create AuthZEN endpoint**, an **Endpoint path** field appears. The path is filled in from the Target PDP ID and the sharding tag (for example, Target PDP ID `eu-prod` with no tag gives `/eu-prod/`, and with the tag `eu` gives `/eu-prod-eu/`). You can override the path manually.
 
 ### 4. Register
 
-Click **Register**. The gateway appears in the table with status `PENDING`. Once the engine provisions, the status transitions to `PUBLISHED`.
+Click **Register**. The PDP gateway appears in the list with the status `PUBLISHED` straight away. The status records the registration only. It doesn't show whether a gateway runs the engine: a PDP gateway whose sharding tag no gateway carries is `PUBLISHED` too.
 
 ## PDP Gateways table
 
@@ -54,19 +54,19 @@ Click **Register**. The gateway appears in the table with status `PENDING`. Once
 | **Name** | Gateway display name |
 | **Target PDP ID** | The engine identifier (monospace badge) |
 | **Tag** | Optional sharding tag |
-| **Status** | `PENDING` (provisioning) or `PUBLISHED` (active) |
+| **Status** | `PUBLISHED` once registered. It doesn't show whether a gateway runs the engine |
 | **AuthZEN endpoint** | The endpoint URL for this gateway |
 | **Actions** | Endpoint details and delete options |
 
 ## Deleting a gateway
 
-1. Click the **⋮** menu on a gateway row → **Delete**
-2. The confirmation dialog warns: "The engine is evicted from its gateway and policies/entities targeting it are unbound"
-3. If the gateway has AuthZEN endpoints, they are listed in the dialog and will also be deleted
-4. Click **Delete** to confirm
+1. Select the PDP gateway, click its **⋮** menu, and then click **Delete**.
+2. The confirmation dialog says that the engine is evicted from its gateway and that its Target PDP ID is removed from every policy and entity that carries it.
+3. The dialog lists the policies for which this PDP gateway is the only target, and the AuthZEN endpoints that are deleted with it.
+4. Click **Delete PDP gateway** to confirm.
 
 {% hint style="warning" %}
-Deleting a PDP gateway removes the engine from the specified gateway. Policies and entities that reference this gateway's Target PDP ID are unbound and no longer enforced on that runtime.
+Deleting a PDP gateway doesn't disable its policies. A policy or an entity whose only target was this PDP gateway is left with no target, so it moves to the default engine of every gateway, and a deployed policy starts applying to every request that the default engine evaluates. To keep such a policy from applying everywhere, detach or disable it before you delete the PDP gateway.
 {% endhint %}
 
 ## Sharding tag patterns

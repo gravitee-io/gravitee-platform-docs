@@ -19,8 +19,9 @@ To configure interception, complete the following steps:
 
 1. [Configure an agent](#configure-an-agent)
 2. [Choose the target API of a route](#choose-the-target-api-of-a-route)
-3. [Understand the route verdicts](#understand-the-route-verdicts)
-4. [Save and deploy](#save-and-deploy)
+3. [Secure a route with an OAuth2 plan](#secure-a-route-with-an-oauth2-plan)
+4. [Understand the route verdicts](#understand-the-route-verdicts)
+5. [Save and deploy](#save-and-deploy)
 
 ## Configure an agent
 
@@ -94,6 +95,46 @@ Three things are decided the moment you click **Create API**:
 * **The API is permissive by design.** It's created with a published keyless plan and accepts every model, so that interception works as soon as the API is deployed. Review both before you deploy it.
 
 For what the created API contains, see [Target API reference](proxy-api-reference.md).
+
+## Secure a route with an OAuth2 plan
+
+Once a route has its target API, choose the plan that the daemons authenticate for. With an OAuth2 plan, each developer signs in with your identity provider, and the gateway knows who is calling. A route of the **Claude Code** preset that has no plan, or a keyless one, reports **Check** even when its target API meets every other requirement.
+
+Edge Management doesn't create the OAuth2 plan, its OAuth2 resource, or the application. Set up the following first:
+
+* A published OAuth2 plan on the target API, which validates tokens with an OAuth2 resource of the API. **Manage the API's plans**, under the route, opens the plans of the API.
+* An application with an accepted subscription to that plan.
+
+To secure a route, complete the following steps:
+
+1. Choose the target API of the route. See [Choose the target API of a route](#choose-the-target-api-of-a-route).
+2. Click the plan list under the API, which reads **No plan chosen**, and select the OAuth2 plan. The list offers the **Keyless** and **OAuth2** plans of the API.
+3. Click **Choose an application**, and select the application subscribed to the plan. When a single application is subscribed, it's selected for you.
+4. Click **Done**, and save the configuration. See [Save and deploy](#save-and-deploy).
+
+<figure><img src="../.gitbook/assets/edge-route-oauth2-plan.png" alt="A route of the Claude Code form with its gateway API, its OAuth2 plan, its subscribed application, and the Forward the agent's own key to the provider and Allow the scopes the daemon requests notes"><figcaption><p>A route secured by an OAuth2 plan.</p></figcaption></figure>
+
+The daemons read the authorization server from the plan's OAuth2 resource, and the client from the application, each time they fetch their configuration.
+
+### Allow the scopes the daemon requests
+
+In your identity provider, allow the client of the application to request `openid` and `offline_access`, together with the scopes the plan requires. Otherwise, the provider answers `invalid_scope`, and the daemon can't sign developers in.
+
+### Forward the agent's own key to the provider
+
+With an OAuth2 plan, the `Authorization` header of a request carries the Gravitee token to the gateway, so the agent's own key needs another way to the AI provider. Set the authentication of the LLM Proxy endpoint to API key, with the header `Authorization` and the following value, or keep a key of the endpoint's own:
+
+```text
+{#request.headers['X-Edge-Vendor-Authorization'] != null ? #request.headers['X-Edge-Vendor-Authorization'][0] : null}
+```
+
+A target API created from the picker already uses this value.
+
+### Serve the target API on the gateway URL
+
+The daemons receive the authorization server and the client only when the target API is served on the **Gateway URL** of the configuration, without a restriction to specific gateway servers. The console checks neither.
+
+For the checks that a secured route adds, see [What a route requires of its target API](proxy-api-reference.md#what-a-route-requires-of-its-target-api).
 
 ## Understand the route verdicts
 

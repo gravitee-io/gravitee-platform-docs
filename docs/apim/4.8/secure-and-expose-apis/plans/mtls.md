@@ -2,7 +2,7 @@
 description: An mTLS plan requires a client certificate when connecting to an API Management 4.8 API. Learn how the certificate is used.
 ---
 
-# mTLS
+# mTLS plan
 
 ## Overview
 

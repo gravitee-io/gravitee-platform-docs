@@ -2,7 +2,7 @@
 description: Every v4 API in API Management 4.8 has general settings on its Configuration page. Learn what you can view and change there.
 ---
 
-# General Settings
+# v4 API general settings
 
 ## Overview
 

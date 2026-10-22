@@ -2,7 +2,7 @@
 description: Integrations connect Gravitee to third-party API gateways and event brokers for API Management 4.8. Learn what they provide.
 ---
 
-# Integrations
+# Manage federation integrations
 
 ## Overview
 

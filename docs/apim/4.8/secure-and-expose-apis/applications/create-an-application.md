@@ -2,7 +2,7 @@
 description: Create an application in the API Management 4.8 Console so a consumer can subscribe to a plan. Follow the steps to set one up.
 ---
 
-# Create an Application
+# Create an application in the Console
 
 ## Overview
 

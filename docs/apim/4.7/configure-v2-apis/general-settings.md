@@ -2,7 +2,7 @@
 description: An overview about general settings.
 ---
 
-# General Settings
+# v2 API general settings
 
 ## Overview
 

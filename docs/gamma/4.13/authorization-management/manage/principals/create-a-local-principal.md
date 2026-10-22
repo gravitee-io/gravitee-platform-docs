@@ -30,13 +30,13 @@ Click **Add Principal**. A slide-out panel opens.
 
 Choose from the **Type** dropdown:
 
-| Type | Canonical prefix | Description |
-|------|-----------------|-------------|
-| **User** | `user` | Individual human identity |
-| **Group** | `group` | Collection of users sharing access |
-| **Service Account** | `serviceaccount` | Machine or application identity |
-| **Agent Identity** | `agent-identity` | AI agent identity (mapped to `AGENT` policy type) |
-| **Other (custom prefix)** | User-defined | Custom principal type for your domain |
+| Type | Engine type | Description |
+|------|-------------|-------------|
+| **User** | `User` | Individual human identity |
+| **Group** | `Group` | Collection of users sharing access |
+| **Service Account** | `ServiceAccount` | Machine or application identity |
+| **Agent Identity** | `AgentIdentity` | AI agent identity (mapped to `AGENT` policy type) |
+| **Other (custom type)** | As entered, for example `Webhook` or `HR::Team` | Custom principal type for your domain |
 
 {% hint style="info" %}
 If your environment has a published schema, the type dropdown shows the schema-defined principal types instead of the presets. The schema's `appliesTo.principalTypes` declarations determine which types appear.
@@ -47,10 +47,10 @@ If your environment has a published schema, the type dropdown shows the schema-d
 | Field | Required | Notes |
 |-------|----------|-------|
 | **Display name** | Yes | Human-readable name shown in the table and policy editor chip pickers |
-| **Slug** | Yes | Auto-derived from the display name (NFD normalization → lowercase → dashes). Must match `[a-z0-9_-]+` |
+| **Entity ID** | Yes | Fills in from the display name (accents removed, lowercase, other characters replaced with dashes). Change it to the ID that requests carry for this principal, such as the subject of the user's token |
 | **Description** | No | Stored as an attribute; visible in the entity detail view |
 
-The **Entity ID** preview shows: `<prefix>.<slug>` (for example, `user.alice`). The maximum Entity ID length is 255 characters.
+The Entity ID carries no type prefix: the type is stored separately. The hint under the field shows how the policy engine sees the principal, for example `User::"alice"`. An Entity ID holds at most 255 characters, isn't `.` or `..`, and holds no whitespace, control or formatting character, double quote, backslash, `/`, `%`, `;`, `?`, or `#`.
 
 ### 5. Set parents (optional)
 
@@ -62,7 +62,7 @@ Parent references are used in `in` clauses in GAPL policies. When a policy says 
 
 ### 6. Set target gateways (optional)
 
-Use the **Target gateways** combobox to scope this principal to specific PDP gateways. Options are populated from registered PDP gateways. Select `*` to target all gateways, or leave empty for universal availability.
+Use the **Target gateways** combobox to scope this principal to specific PDP gateways. Options are populated from registered PDP gateways. Select `*` to target every registered PDP. Left empty, the principal is known only to the default engine of every gateway: a named PDP doesn't know it, or its group memberships, unless you target that PDP or `*`.
 
 ### 7. Add attributes (optional)
 

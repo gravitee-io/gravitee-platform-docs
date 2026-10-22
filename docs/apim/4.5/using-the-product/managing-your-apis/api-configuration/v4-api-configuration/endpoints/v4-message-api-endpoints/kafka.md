@@ -2,7 +2,7 @@
 description: An overview about kafka.
 ---
 
-# Kafka
+# Configure the Kafka endpoint
 
 ## Overview
 

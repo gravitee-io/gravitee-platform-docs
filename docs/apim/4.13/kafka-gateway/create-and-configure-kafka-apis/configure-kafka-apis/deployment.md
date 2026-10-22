@@ -5,7 +5,7 @@ metaLinks:
     - deployment.md
 ---
 
-# Deployment
+# Manage native Kafka API deployment
 
 ## Overview
 

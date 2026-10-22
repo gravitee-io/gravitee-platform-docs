@@ -5,7 +5,7 @@ metaLinks:
     - ./
 ---
 
-# Entrypoints
+# v4 API entrypoints
 
 ## Overview
 

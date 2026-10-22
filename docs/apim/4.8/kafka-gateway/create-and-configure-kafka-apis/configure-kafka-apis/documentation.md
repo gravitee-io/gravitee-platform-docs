@@ -2,7 +2,7 @@
 description: The Documentation section creates Developer Portal pages for a Kafka API in API Management 4.8. Learn how to inform consumers.
 ---
 
-# Documentation
+# Create native Kafka API documentation
 
 ## Overview
 

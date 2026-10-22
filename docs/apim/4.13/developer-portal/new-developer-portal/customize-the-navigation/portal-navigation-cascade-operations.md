@@ -20,12 +20,12 @@ The following table describes the effect of cascade operations on nested items:
 |:-------|:-----------------------|
 | Publish folder | All nested documentation and APIs are published |
 | Unpublish folder | All nested documentation and APIs are unpublished |
-| Publish API section | All nested documentation is published |
-| Unpublish API section | All nested documentation is unpublished |
+| Publish API section | All nested documentation is published, including the documentation that belongs to the API |
+| Unpublish API section | All nested documentation is unpublished, including the documentation that belongs to the API |
 
 ### Cascade Deletion
 
-When you delete a folder or API section, the container and all its descendants are removed recursively. This includes nested folders, documentation pages, and their associated content. After deletion, sibling items at the same level are automatically reordered to maintain a continuous sequence. Deletion is permanent and can't be undone.
+When you delete a folder or API section, the container and all its descendants are removed recursively. This includes nested folders, documentation pages, and their associated content. The documentation that belongs to the API isn't deleted with the API section. It stays with the API and shows under the next item that lists the API. After deletion, sibling items at the same level are automatically reordered to maintain a continuous sequence. Deletion is permanent and can't be undone.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ The following table describes the visibility propagation rules for publish and u
 | Visibility Change | Propagation Behavior |
 |:------------------|:---------------------|
 | `PRIVATE` to `PUBLIC` | No propagation; nested items retain their current visibility |
-| `PUBLIC` to `PRIVATE` | All nested items inherit `PRIVATE` visibility |
+| `PUBLIC` to `PRIVATE` | All nested items inherit `PRIVATE` visibility, except the documentation that belongs to an API, which keeps its own access |
 
 ### Delete Folders and API Sections
 

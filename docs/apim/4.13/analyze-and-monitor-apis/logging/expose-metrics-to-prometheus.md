@@ -2,7 +2,7 @@
 description: Expose API Management 4.13 metrics to Prometheus. Follow the configuration steps needed to make the metrics available to scrape.
 ---
 
-# Expose Metrics to Prometheus
+# Expose metrics to Prometheus
 
 ## Overview
 
@@ -53,6 +53,10 @@ gateway:
 * By default, the internal component API is bound to `localhost` only and must not be invoked outside `localhost`. To widely expose the API, you may need to set the `services.core.http.host` property to the correct network interface.
 * If you run the application in a Docker container, set the IP address to 0.0.0.0.
 {% endhint %}
+
+## Limit concurrent scrapes
+
+The metrics endpoint serves up to three scrapes at a time and answers any further scrape with HTTP 429 until a slot is free again. A slot is freed when its scrape completes, fails, or loses its connection, and after 30 seconds at the latest, when the Gateway aborts the scrape and closes its connection. Set `services.metrics.prometheus.concurrencyLimit` to change the number of slots, and `services.metrics.prometheus.timeout` to change the wait in milliseconds.
 
 ## Configure labels
 

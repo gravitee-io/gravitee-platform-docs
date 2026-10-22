@@ -2,7 +2,7 @@
 description: An overview about oauth2.
 ---
 
-# OAuth2
+# OAuth2 plan
 
 ## Overview
 

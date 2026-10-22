@@ -2,7 +2,7 @@
 description: The Mock endpoint emulates a backend HTTP server so you can test an API Management 4.8 v4 API. Follow the steps to configure it.
 ---
 
-# Mock
+# Mock endpoint
 
 ## Configuration
 

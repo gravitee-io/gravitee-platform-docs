@@ -14,6 +14,13 @@ metaLinks:
 
 ## Image variants
 
+The default `graviteeio/apim-gateway` and `graviteeio/apim-management-api` images are built on Alpine Linux with the Eclipse Temurin 25 JRE. Both also ship as two variants, tagged with a suffix after the version:
+
+* `<version>-debian`, built on Debian 13 with the Eclipse Temurin 25 JRE.
+* `<version>-chainguard`, built on the [Chainguard](https://images.chainguard.dev/) Adoptium OpenJDK 25 JRE image.
+
+The `graviteeio/apim-management-ui` and `graviteeio/apim-portal-ui` images are built on Alpine Linux with Nginx. Both also ship as a `<version>-chainguard` variant, built on the Chainguard Nginx image.
+
 Each component also ships a FIPS variant, for deployments that require FIPS 140-3 validated cryptography. It constrains which keystore formats load, so read the page before switching to it.
 
 * [fips-images.md](fips-images.md "mention")

@@ -2,7 +2,7 @@
 description: An overview about redis.
 ---
 
-# Redis
+# Install Redis for hybrid deployments
 
 ## Overview
 

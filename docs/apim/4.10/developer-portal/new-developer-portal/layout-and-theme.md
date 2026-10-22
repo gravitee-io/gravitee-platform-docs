@@ -2,7 +2,7 @@
 description: Set the layout and theme of the New Developer Portal 4.10, and browse the catalog by category. Learn what you can change.
 ---
 
-# Layout and Theme
+# Style the New Developer Portal
 
 
 ## Update the Category layout

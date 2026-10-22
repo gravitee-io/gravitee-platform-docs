@@ -12,7 +12,7 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permissions, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans, Entrypoint and CORS pages, and advanced endpoint settings. MCP Proxies, MCP Studios, and catalog MCP servers choose their MCP specification versions, including the stateless 2026-07-28 version. AI models gain cache read and cache write prices, which LLM Proxies apply to cached prompt tokens. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository.
+LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permissions, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans, Entrypoint and CORS pages, and advanced endpoint settings. MCP Proxies, MCP Studios, and catalog MCP servers choose their MCP specification versions, including the stateless 2026-07-28 version. AI models gain cache read and cache write prices, which LLM Proxies apply to cached prompt tokens. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository. Its **Logs** and **Dashboards** pages also count the MCP calls of HTTP Proxy APIs and the agent calls of Message APIs.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -205,7 +205,14 @@ LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permiss
 
 * The **Dashboards** page of Agent Management builds dashboards alongside the templates Gravitee ships. **New dashboard** opens an empty draft, and **Duplicate as custom dashboard** turns a read-only template into an editable copy.
 * The editor arranges widgets on a 12-column grid by dragging and resizing them, and edits the dashboard title and description in place.
+* A widget's own filters apply together with the dashboard filters, even on the same property. The editor warns when a widget can never match a locked dashboard filter, and a widget's **Filters** tab offers **Between** for numeric properties.
+* The **JSON** tab rejects filters on properties dashboards can't filter on, such as **Request URI**, which applies to Logs only, and the editor warns about those already on a dashboard. When the environment refuses a save, the editor shows why.
 * See [Build a custom dashboard](../agent-management/observe/dashboards/build-a-custom-dashboard.md).
+
+#### MCP and agent calls of HTTP Proxy APIs and Message APIs
+
+* The **Logs** and **Dashboards** pages of Agent Management include the calls an HTTP Proxy API receives on its `mcp` entrypoint, and the calls a Message API receives on its `agent-to-agent` entrypoint. The other calls of those APIs stay out of Agent Management.
+* The same calls still appear in API Management or Event Stream Management, with every other call of the API.
 
 #### Workflow tools
 
@@ -233,7 +240,7 @@ LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permiss
 
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, a Response Templates page, and an API Score page, and the API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer, and an API proxy can be promoted to another environment through Gravitee Cloud. An API proxy can also be sent for review, and then waits for a reviewer before it starts. The from-scratch wizard also creates TCP Proxy APIs, which the detail pages then show without the HTTP-only screens.
+API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, a Documentation page, a Response Templates page, and an API Score page. The API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer, and an API proxy can be promoted to another environment through Gravitee Cloud. An API proxy can also be sent for review, and then waits for a reviewer before it starts. The from-scratch wizard also creates TCP Proxy APIs, which the detail pages then show without the HTTP-only screens. The filters of the **Logs** page also gain **starts with** for **Request URI**, a list of entrypoints, and **Between** ranges.
 
 #### Import an API proxy
 
@@ -307,6 +314,22 @@ API Management gains a file-based path for building and updating API proxies. Ea
 * The **API Proxies** list includes the federated APIs ingested from integrations once Federation is turned on and the installation has a valid Enterprise Edition license, with **Federated API** in the **API Type** column, the provider in the **Origin** column, and a **Federated API** option in the **API Type** filter. The API Management card of the home page counts them too.
 * A federated API opens on its **Settings** page, whose **Details** panel links to the source integration under **From integration**. Its sidebar keeps only **Settings**, **User Permissions**, **Metadata**, **Documentation**, and **API Score** under **General**, the **Consumers** group, and **Audit Logs** under **Monitoring**.
 * See [Manage general settings](../api-management/build/configure-your-api-proxy/manage-general-settings.md#federated-apis) and [Manage integrations](manage-integrations.md).
+
+#### API documentation for API proxies
+
+* The **General** group of the API proxy sidebar adds a **Documentation** page that holds the pages, folders, and links describing the API in the developer portal. Write a page in the editor, or import it from a `.md`, `.yaml`, `.yml`, or `.json` file. You can also fetch a page from an external source such as a GitHub, GitLab, Git, Bitbucket, or HTTP fetcher, and import a whole repository folder.
+* **Publish** lists the API in a section of the portal's top navigation and publishes its documentation with it. **Unpublish** hides the API and its documentation without deleting anything. Once the API is published, each item can be published or unpublished on its own.
+* The documentation belongs to the API. It appears under the API's entry on the **Navigation** page of the Portal Settings too, where a portal designer places the API. It stays with the API when the entry is hidden or removed.
+* See [Manage API documentation](../api-management/build/configure-your-api-proxy/manage-api-documentation.md).
+
+#### Filters on the Logs page
+
+* The request URI filter is now labeled **Request URI** and offers the **starts with** operator, which matches the start of the URI the client called, query string included. In the value, `*` matches any sequence of characters, `?` matches any single character, and `\` makes the next character literal. It's case-sensitive and narrows the table only.
+* **HTTP Path** now reads the path after the API's context path, without the query string, and matches it exactly. On the **Logs** page, it narrows the histogram only.
+* **Entrypoint** lists the entrypoints that recorded requests went through, then **No entrypoint (refused before routing)**. That item picks the requests recorded without an entrypoint: requests that none of the API's entrypoints accepts, and requests that earlier gateway versions refused before routing. An **Entrypoint** filter keeps only the entrypoints you pick.
+* A request the gateway refuses before routing, such as a call without an API key on an API Key plan, is now recorded under the entrypoint it was sent to.
+* Numeric properties, such as **Status Code**, offer **Between**, with a **Min** and a **Max**, and show the range as one filter.
+* See [View API logs](../api-management/observe/view-api-logs.md#filter-the-logs).
 
 ### Authorization Management
 
@@ -470,7 +493,7 @@ Event Stream Management regroups its sidebar by object and opens on a new Overvi
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment also turns API Score on or off, and can require a review before an API is started or published.
+Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment also turns API Score on or off, and can require a review before an API is started or published. APIM 4.13 Gateways connected to Gravitee Cloud send their traces and payload logs to Gravitee Cloud for the **Tracing** pages.
 
 #### Broadcast messages to environment members
 
@@ -681,7 +704,15 @@ Platform Management adds environment-scoped dictionaries and metadata as reusabl
 * Save a custom observability dashboard in its environment over the Gamma API, so it survives a restart and reaches everyone with read access to that environment's dashboards. Each dashboard carries its title, its filters, its time range, and its widgets.
 * Create, list, read, update, and delete dashboards under `/gamma/organizations/{orgId}/environments/{envId}/observability/dashboards`.
 * Concurrent edits are caught with `ETag` and `If-Match`.
+* Creating or updating a dashboard rejects a dashboard filter that the environment's filter catalog doesn't offer for dashboards, an operator or a value that the filter doesn't accept, and a filter name used twice, each with its own error code.
 * See [Save observability dashboards with the Gamma API](save-observability-dashboards.md).
+
+#### Traces and payload logs from Gateways connected to Gravitee Cloud
+
+* An APIM 4.13 Gateway that connects to Gravitee Cloud with a Cloud Token sends its traces and payload logs to Gravitee Cloud with no OpenTelemetry configuration, and the **Tracing** pages show them. This applies to Gravitee Hosted Gateways and to Hybrid Gateways.
+* The Gateway sends traces for the v4 HTTP proxy APIs that have tracing turned on in their **Reporter Settings**, and payload logs for the ones that also have OpenTelemetry logs turned on.
+* A Gateway with its own OpenTelemetry configuration uses it instead and doesn't send to Gravitee Cloud. This includes a Gravitee Hosted Gateway linked to an OpenTelemetry reporter. A Gateway that still uses the deprecated tracing settings sends to Gravitee Cloud. To keep a Hybrid Gateway's traces and payload logs out of Gravitee Cloud, turn OpenTelemetry off on the Gateway.
+* See [Configure OpenTelemetry tracing and logs](configure-opentelemetry-tracing-and-logs.md#gateways-connected-to-gravitee-cloud).
 
 ## Release Date: June 26, 2026
 

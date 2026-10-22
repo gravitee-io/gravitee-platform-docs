@@ -2,7 +2,7 @@
 description: The Mock policy returns mock responses from API Management 4.8 so you can test without a backend. Learn how to configure the mock.
 ---
 
-# Mock
+# Mock policy
 
 ## Overview
 

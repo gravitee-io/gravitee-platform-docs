@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/mtls
 ---
 
-# mTLS
+# mTLS policy
 
 ### Phase <a href="#user-content-phase" id="user-content-phase"></a>
 

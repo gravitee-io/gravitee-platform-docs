@@ -141,7 +141,22 @@ Each entry of `filters` applies to every widget of the dashboard.
     </tbody>
 </table>
 
-Filter names aren't checked against the environment's filter catalog when the dashboard is saved. A name is stored as given, so a dashboard moves between environments whose available filters differ.
+Creating or updating a dashboard checks each entry of `filters` against the environment's filter catalog, which `GET $GAMMA/filters/definition` returns. The filters inside `widgets` aren't checked. Dashboards query the `ANALYTICS` signal, so each filter has to be one the catalog offers for it. The request is rejected with `400`, and the code below in `technicalCode`, when a filter:
+
+* Names a filter the catalog doesn't have: `observability.filter.unknown_name`.
+* Names a filter whose `signals` don't include `ANALYTICS`, with or without a value: `observability.filter.signal_mismatch`.
+* Uses an operator the filter doesn't offer: `observability.filter.unsupported_operator`.
+* Repeats the name of another filter of the dashboard: `observability.filter.repeated_on_dashboard`. A dashboard holds one filter per name.
+* Carries a value that isn't a scalar or a list of scalars, or a list with a `null` in it: `observability.filter.invalid_value_shape`.
+* Carries several values on an operator that takes one, such as `EQ`: `observability.filter.invalid_arity`.
+* Carries a value outside the filter's fixed list: `observability.filter.unknown_enum_value`.
+* Carries a value that isn't a whole number on a numeric filter: `observability.filter.invalid_number`.
+* Carries a number outside the filter's range: `observability.filter.value_out_of_range`.
+* Carries only blank text on a text filter: `observability.filter.blank_value`.
+
+A filter with an empty `value` skips the checks on values, whatever its `editable` flag. Its name, operator, and repetition are still checked.
+
+A key that a filter object doesn't declare, such as `values` in place of `value`, is rejected with `400` and a message that names it, such as `Property [values] is not recognized as a valid property`. Keys the dashboard object itself doesn't declare are ignored.
 
 ### Time ranges
 

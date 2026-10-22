@@ -5,7 +5,7 @@ metaLinks:
     - integrations.md
 ---
 
-# Integrations
+# Enterprise tool integrations
 
 ## Overview
 
