@@ -242,3 +242,9 @@ self-hosted-installation-guides/docker/README.md
 # API documentation belongs to the API, 4.13 only (PORTAL-203)
 developer-portal/new-developer-portal/customize-the-navigation/portal-automation/api-documentation.md
 developer-portal/new-developer-portal/customize-the-navigation/portal-navigation-cascade-operations.md
+
+# Support model page moved to Platform Management, removed from 4.12 and 4.13 (#2705)
+release-information/support-model.md
+# Service account permissions for each Terraform resource (APIM 4.13.0 Automation API checks, GKO-3415)
+terraform/define-an-apim-service-account-for-terraform.md
+configure-and-manage-the-platform/manage-organizations-and-environments/create-a-service-account.md
