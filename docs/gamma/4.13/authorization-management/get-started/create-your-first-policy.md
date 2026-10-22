@@ -31,7 +31,7 @@ For this guide, select **MCPs**.
 
 ### 2. Create a new policy
 
-Click **Create Policy for MCP**. The policy editor opens as a slide-out panel.
+Click **Create policy**. The **Create MCP policy** wizard opens. This guide builds the statement by hand: click **Switch to manual editor**, pick the MCP server in the **Create policy for MCP** dialog, and then click **Continue**. The policy editor opens as a slide-out panel, in the **Classic** view.
 
 ### 3. Name your policy
 
@@ -43,7 +43,7 @@ For MCP, AI Model, and API policies, you select a **target** — the specific ca
 
 ### 5. Build your first statement
 
-The visual editor starts with one empty `permit` statement. Each statement has four clauses:
+The editor starts with one empty `permit` statement. Each statement has four clauses:
 
 | Clause | What it specifies | GAPL keyword |
 |--------|------------------|--------------|
