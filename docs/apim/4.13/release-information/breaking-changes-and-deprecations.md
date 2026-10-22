@@ -40,7 +40,7 @@ Before you upgrade, update any script that reads the environment's form from `GE
 
 From 4.13.0, the pages, folders, and links of an API in the New Developer Portal belong to the API, not to its navigation item. On the first Management API startup after the upgrade, the documentation stored under API items in earlier versions is moved to its API. The move runs once and changes the items in place:
 
-* Everything stored under an API item that isn't inside an API Product moves to the API, at any depth, including the starter **Overview** pages and the items synced from a source. The items under an API item inside an API Product, the items managed by the Automation API, and the items under a deleted API's item stay where they are. The Management API log says why.
+* Everything stored under an API item that isn't inside an API Product moves to the API, at any depth, including the starter **Overview** pages and the items synced from a source. The items under an API item inside an API Product and the items under a deleted API's item stay where they are, and so does any top-level item under an API item that contains an item managed by the Automation API, with everything inside it. The Management API log says why.
 * A moved item becomes unpublished when its API item or a folder above it was unpublished, and private when one of them was private. Nothing becomes more visible than before.
 * When the URL segment of a moved item is already used by an item the API owns, the moved item gets another segment, so its portal URL changes. The log records each rename.
 * Once moved, the documentation permission on the API is enough to edit or delete these items from the Gamma console, where the environment documentation permission was required before.
