@@ -5,8 +5,22 @@
 # the Lint Version Overrides check flags divergent 4.13 edits that need one.
 SUMMARY.md
 .gitbook.yaml
-# The chart pinning example names the 4.13 chart
+# Install pages and examples use the 4.13 images and chart
 self-hosted-installation-guides/kubernetes/README.md
+self-hosted-installation-guides/docker/docker-cli.md
+self-hosted-installation-guides/docker/docker-compose.md
+self-hosted-installation-guides/kubernetes/aws-eks.md
+self-hosted-installation-guides/kubernetes/azure-aks.md
+self-hosted-installation-guides/kubernetes/vanilla-kubernetes/README.md
+getting-started/vanilla-kubernetes.md
+self-hosted-installation-guides/kubernetes/vanilla-kubernetes/deploy-apim-with-kubernetes-manifest.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/README.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-compose.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-cli.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/link-to-a-hybrid-gateway.md
+kafka-gateway/configure-and-deploy-kafka-console.md
+introduction/enterprise-edition-licensing.md
+how-to-guides/use-case-tutorials/monitor-apim-with-prometheus-and-grafana.md
 release-information/release-notes/apim-4.12.md
 release-information/changelog/apim-4.12.x.md
 terraform/changelog.md

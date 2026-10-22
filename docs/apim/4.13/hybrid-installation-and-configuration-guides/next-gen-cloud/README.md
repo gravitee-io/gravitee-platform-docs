@@ -181,7 +181,7 @@ Pass the environment variable alongside your Cloud Token and license key:
 ```yaml
 services:
   gateway:
-    image: graviteeio/apim-gateway:latest
+    image: graviteeio/apim-gateway:4.13
     environment:
       - gravitee_cloud_token=${CLOUD_TOKEN}
       - gravitee_license_key=${LICENSE_KEY}

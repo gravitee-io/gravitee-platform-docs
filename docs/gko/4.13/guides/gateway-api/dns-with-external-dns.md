@@ -54,7 +54,7 @@ spec:
         spec:
           containers:
           - name: gateway
-            image: graviteeio/apim-gateway
+            image: graviteeio/apim-gateway:4.13
 ```
 
 {% endcode %}
@@ -220,7 +220,7 @@ spec:
         spec:
           containers:
           - name: gateway
-            image: graviteeio/apim-gateway
+            image: graviteeio/apim-gateway:4.13
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: GatewayClass
