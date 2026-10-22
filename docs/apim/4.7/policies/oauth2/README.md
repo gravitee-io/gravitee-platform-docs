@@ -3,7 +3,7 @@ description: An overview about ---.
 hidden: true
 ---
 
-# OAuth2
+# OAuth2 policy
 
 ## Overview
 

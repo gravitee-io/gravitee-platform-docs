@@ -2,7 +2,7 @@
 description: An overview about integrations.
 ---
 
-# Integrations
+# Enterprise tool integrations
 
 ## Overview
 

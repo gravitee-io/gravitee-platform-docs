@@ -2,7 +2,7 @@
 description: An overview about notifications.
 ---
 
-# Notifications
+# Configure application notifications
 
 ## Overview
 

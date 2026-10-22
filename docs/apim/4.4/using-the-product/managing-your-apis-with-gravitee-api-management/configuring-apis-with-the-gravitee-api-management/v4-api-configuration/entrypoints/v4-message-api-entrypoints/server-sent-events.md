@@ -4,7 +4,7 @@ description: >-
   entrypoint
 ---
 
-# Server-sent Events
+# Configure the SSE entrypoint
 
 ## Configuration
 

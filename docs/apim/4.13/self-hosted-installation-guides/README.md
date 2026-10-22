@@ -35,6 +35,8 @@ Gravitee APIM can be installed using the following technology stacks and deploym
 
 ### Linux
 
+The RPM packages are for RPM-based distributions. On other distributions, such as Debian or Ubuntu, install from the `.zip` distribution. To see which operating system each Docker image is built on, see [Image variants](docker/README.md#image-variants).
+
 * [rpm](rpm/ "mention")
 * [.zip.md](.zip.md "mention")
 

@@ -2,7 +2,7 @@
 description: An overview about endpoints.
 ---
 
-# Endpoints
+# Configure native Kafka API endpoints
 
 ## Overview
 

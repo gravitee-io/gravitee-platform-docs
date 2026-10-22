@@ -3,7 +3,7 @@ description: An overview about ---.
 hidden: true
 ---
 
-# API Key
+# API Key policy
 
 ## Overview
 

@@ -2,7 +2,7 @@
 description: Configuration guide for notifications.
 ---
 
-# Notifications
+# Configure notifications for your APIs
 
 ## Introduction
 
