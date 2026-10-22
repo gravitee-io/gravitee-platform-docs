@@ -98,7 +98,7 @@ when {
 
 ### 9. Set target gateways (optional)
 
-Below the header, the **Target gateways** picker lets you scope the policy to specific PDP gateways. Select individual gateways, `*` for all, or leave empty to deploy to all gateways.
+Below the header, the **Target gateways** picker lets you scope the policy to specific PDP gateways. Select individual PDPs, or `*` for every registered PDP. Left empty, the policy runs only in the default engine of every gateway, not in a named PDP.
 
 ### 10. Save or deploy
 

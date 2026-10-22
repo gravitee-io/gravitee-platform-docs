@@ -62,7 +62,7 @@ Parent references are used in `in` clauses in GAPL policies. When a policy says 
 
 ### 6. Set target gateways (optional)
 
-Use the **Target gateways** combobox to scope this principal to specific PDP gateways. Options are populated from registered PDP gateways. Select `*` to target all gateways, or leave empty for universal availability.
+Use the **Target gateways** combobox to scope this principal to specific PDP gateways. Options are populated from registered PDP gateways. Select `*` to target every registered PDP. Left empty, the principal is known only to the default engine of every gateway: a named PDP doesn't know it, or its group memberships, unless you target that PDP or `*`.
 
 ### 7. Add attributes (optional)
 
