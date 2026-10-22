@@ -23,11 +23,23 @@ The Gateway API updates listed on this page are also available in GKO 4.12 start
 
 ## Breaking changes
 
-This release changes how the Gateway API controller handles one existing field.
+This release changes how GKO handles three existing configurations.
 
 ### Gateway infrastructure parameters are rejected
 
 In earlier releases, GKO ignored the `spec.infrastructure.parametersRef` field of a `Gateway` resource. A Gateway that sets `spec.infrastructure.parametersRef` is now rejected: its `Accepted` condition is set to `False`, with a message reporting that the parameters reference isn't supported. Use the `GatewayClassParameters` resource to configure Gravitee-specific settings instead.
+
+### `spec.navigation` of the Portal resource is deprecated
+
+`spec.navigation` of the `Portal` resource is deprecated. Use `spec.structure.topNavbar` instead. A resource that sets `spec.navigation` is accepted with the warning `spec.navigation is deprecated, use spec.structure.topNavbar instead`, and a resource that sets both is rejected with `navigation and structure cannot be used at the same time`. Drift detection compares `spec.structure` and ignores `spec.navigation`, so a resource that uses only `spec.navigation` can be reported as drifted.
+
+Before you upgrade, move each Portal resource from `spec.navigation` to `spec.structure.topNavbar`. For more information, see [Drift detection](../../overview/drift-detection.md).
+
+### Updating an existing resource requires the update permission in APIM
+
+From APIM 4.13.0, the Automation API and the Management API imports that GKO uses check the update permission when a resource already exists in APIM, not only the create permission. A service account that holds only the create permission now gets `403` when GKO applies a change to an existing API, application, group, shared policy group, dictionary, portal resource, documentation page, or subscription. Changing the members of an API or application also requires the member update permission.
+
+Before you upgrade APIM, review the permissions of the service account that GKO uses. For the permission each resource needs, see [Breaking Changes and Deprecations](https://documentation.gravitee.io/apim/release-information/breaking-changes-and-deprecations) in the APIM documentation.
 
 ## New features
 
