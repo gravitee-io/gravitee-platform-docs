@@ -38,7 +38,6 @@ Navigate to **Policy Management → Custom Policies**. The page provides:
 
 | Condition | GAPL |
 |-----------|------|
-| **Corporate IP range** | `context.source.ip.in_cidr("10.0.0.0/8")` |
 | **MFA required** | `context.auth.mfa == true` |
 | **Business hours** | `context.time.hour >= 9 && context.time.hour < 17` |
 | **Owner only** | `resource.owner == principal` |

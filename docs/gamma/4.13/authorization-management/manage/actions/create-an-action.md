@@ -16,7 +16,7 @@ An action is an entity of type `Action`. Its Entity ID is the action name exactl
 permit (
   principal == User::"alice",
   action == Action::"invoke",
-  resource == MCPTool::"search"
+  resource == Resource::"customer-db"
 );
 ```
 

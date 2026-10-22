@@ -70,7 +70,6 @@ Click **Add condition** on any statement card. The editor inserts a `when { }` b
 |---------|------|
 | Business hours | `context.time.hour >= 9 && context.time.hour < 17` |
 | Trusted device | `context.device.trusted == true` |
-| Corporate IP range | `context.source.ip.in_cidr("10.0.0.0/8")` |
 
 ### 7. Add more statements
 
@@ -88,7 +87,7 @@ A generated GAPL policy looks like:
 
 permit (
   principal == User::"alice",
-  action == Action::"invoke",
+  action == Action::"demo-hr-mcp.search",
   resource == MCPTool::"demo-hr-mcp.search"
 )
 when {
@@ -130,4 +129,4 @@ To undeploy, click **Undeploy** in the editor header. The engine writes a `DISAB
 
 * [Create, update, and delete policies](../configure/create-update-delete-policies.md) — Full reference for the policy editor
 * [MCP policy examples](../configure/mcp-policy-examples.md) — Real-world MCP policy patterns
-* [AI policy example](../configure/ai-policy-example.md) — Token budget and cost ceiling examples
+* [AI policy example](../configure/ai-policy-example.md) — Model access and guardrail examples
