@@ -23,6 +23,8 @@ Action Required: If you are currently using this feature, you must transition to
  * Define password policies and link them directly to your Identity Providers.
  * Implement a default password policy at the Domain level.
 
+AM doesn't migrate application-level password policies or warn about them during the upgrade. A `passwordSettings` value sent when you update an application is ignored.
+
 #### **Automation API rejects a data plane change on an existing security domain**
 
 A domain `PUT` to the Automation API that names a different `dataPlaneId` for an existing security domain is now rejected with `400` and the message `Once domain is created, [dataPlaneId] cannot be changed.` Before 4.13, the request succeeded and the new value was ignored.
@@ -43,9 +45,64 @@ Action Required: Before you upgrade AM, move the JWKS endpoint of each trusted i
 
 #### **MongoDB subchart is deprecated**
 
-From 4.13.0, the `mongodb-replicaset` subchart of the AM Helm chart is deprecated, and AM 4.15.0 removes it. It runs a `bitnamilegacy` image that no longer receives security updates. The subchart is disabled by default, and a deployment that uses an external MongoDB isn't affected.
+From 4.13.0, the `mongodb-replicaset` subchart of the AM Helm chart is deprecated, and AM 4.14.0 removes it. It runs a `bitnamilegacy` image that no longer receives security updates. The subchart is disabled by default, and a deployment that uses an external MongoDB isn't affected.
 
-If you enable the subchart, move your data to a MongoDB instance deployed outside the chart before you upgrade to 4.15.0. Point `mongo.*` at the new instance, and then set `mongodb-replicaset.enabled` to `false`. For more information, see [Deploy in Kubernetes](deploy-in-kubernetes.md).
+If you enable the subchart, move your data to a MongoDB instance deployed outside the chart before you upgrade to 4.14.0. Point `mongo.*` at the new instance, and then set `mongodb-replicaset.enabled` to `false`. For more information, see [Deploy in Kubernetes](deploy-in-kubernetes.md).
+
+#### **Trusted issuers become trusted domains**
+
+From 4.13.0, the trusted issuers of token exchange and the SPIFFE trust domains are both managed as trusted domains. In the Console, the **Trust Domains** page is renamed **Trusted Domains**, and the **Trusted Issuers** tab of the token exchange settings is removed. The token exchange settings link to **Trusted Domains** instead. On the first Management API startup after the upgrade, each trusted issuer of a security domain becomes a trusted domain. An issuer longer than 512 characters isn't migrated, and the Management API logs a warning.
+
+The Management API serves trusted domains at `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/trusted-domains`. The `/domains/{domain}/trust-domains` endpoints and the `tokenExchangeSettings.trustedIssuers` field of the security domain are deprecated, and still work:
+
+* A `GET` of the security domain builds `trustedIssuers` from the trusted domains. A trusted domain whose keys are an inline JWK set appears without a key resolution method.
+* A `PUT` or `PATCH` of the security domain with `trustedIssuers` creates, updates, or removes trusted domains to match the list. An issuer left out of the list is no longer trusted. A trusted domain that also serves SPIFFE keeps it, and only its token exchange is turned off. Sending `trustedIssuers` as `null`, or leaving it out, changes nothing.
+
+AM 4.12 Gateways and Management APIs read only the `trustedIssuers` list, so a 4.13 Management API keeps it up to date for them. The list leaves out the trusted domains whose keys are an inline JWK set, so these aren't trusted by a 4.12 Gateway or after a rollback to 4.12.
+
+Action Required: Before you upgrade AM, review the scripts that update `trustedIssuers` with `PUT` or `PATCH`, because an issuer they leave out is no longer trusted. After the upgrade, manage trusted issuers through the trusted domains API or the **Trusted Domains** page. Don't create trusted domains with an inline JWK set until every Gateway runs 4.13.
+
+#### **Claim mappings are removed from token exchange**
+
+The claim mappings that the token exchange settings had in the 4.13 pre-releases are removed, from the security domain and the application settings. To add claims to exchanged tokens, use **Custom claims** on the **Tokens** tab of the application. An upgrade from 4.12 isn't affected, because 4.12 has no claim mappings.
+
+#### **The credentials of the default reporter are always hidden**
+
+From 4.13.0, the configuration of the default reporter always shows `********` in place of its credentials: the `uri` of the **MongoDB Reporter**, and the `password` of the **JDBC Reporter**. In 4.9.33, 4.10.24, 4.11.18, and 4.12.8 and later, the `legacy.reporters.default.plaintextSensitiveData` setting, `true` by default, kept them in plain text. 4.13 ignores this setting.
+
+Action Required: Before you upgrade AM, make sure that no script or process reads the database credentials from the configuration of the default reporter.
+
+#### **The Gateway manages its own database schema with JDBC**
+
+From 4.13.0, the Management API manages only the schema of the management repository. The Gateway manages the schemas of the gateway and OAuth2 repositories with Liquibase. In the Helm chart, `gateway.liquibase.enabled` now defaults to `true`, where it defaulted to `false`.
+
+The `gravitee.yml` of the Gateway distribution still sets `liquibase.enabled` to `false`.
+
+Action Required: Before you upgrade an AM installation that uses a JDBC repository, make sure that Liquibase runs on the Gateway. With Helm, remove any `gateway.liquibase.enabled: false` from your values. Otherwise, set `liquibase.enabled` to `true` in the `gravitee.yml` of the Gateway.
+
+#### **Management API objects of another security domain return `404`**
+
+From 4.13.0, the Management API returns `404` when the path names an object that belongs to another security domain or organization. Before 4.13, some of these requests returned `400` with a message such as `Certificate does not belong to domain`. This applies to reading, updating, and deleting:
+
+* Certificates, at `/domains/{domain}/certificates/{certificate}`, and their keys.
+* Authentication device notifiers, bot detections, device identifiers, extension grants, factors, reporters, scopes, and resources of a security domain.
+* Reporters of an organization, at `/organizations/{organizationId}/reporters/{id}`.
+
+Deleting a reporter that doesn't exist now returns `404`. Before 4.13, the request succeeded.
+
+`GET /organizations/{organizationId}/groups/{group}/members` now returns only the users of that organization, without their `password` field. The responses of `POST /organizations/{organizationId}/users/bulk` also no longer carry a `password` field.
+
+Action Required: Before you upgrade AM, update the scripts that expect `400` for these requests, or that read `password` from these responses.
+
+#### **A 4.13 Management API with 4.12 Gateways broke default identity provider login**
+
+With a MongoDB repository, several data planes, and `repositories.system-cluster` set to `gateway`, a 4.13 Management API running with 4.12 Gateways broke login with the default identity provider. This is fixed.
+
+#### **The trust domains API and the trusted issuers field are deprecated**
+
+From 4.13.0, the `/domains/{domain}/trust-domains` endpoints of the Management API and the `tokenExchangeSettings.trustedIssuers` field of the security domain are deprecated. A later release removes them.
+
+Action Required: Move your scripts to the `/domains/{domain}/trusted-domains` endpoints.
 
 ### 4.12.0
 
