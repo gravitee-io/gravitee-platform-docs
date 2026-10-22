@@ -46,20 +46,15 @@ Both policies and entities support **scope targets** — an array of PDP gateway
 
 | Scope targets value | Behavior |
 |-------------------|----------|
-| `["*"]` | Synced to all gateways |
-| `["eu-prod", "us-prod"]` | Synced only to gateways with matching Target PDP IDs |
-| `[]` (empty) | Synced to all gateways (same as `*`) |
+| `["*"]` | Every registered PDP, and the default engine of every gateway |
+| `["eu-prod", "us-prod"]` | Only the PDPs with matching Target PDP IDs |
+| `[]` (empty) | The default engine of every gateway only. A named PDP doesn't get the item: target it, or use `*` |
 
 ## Monitoring sync status
 
 ### PDP Gateways page
 
-The PDP Gateways table shows the status of each registered gateway:
-
-| Status | Meaning |
-|--------|---------|
-| **PENDING** | The engine is provisioning or has not connected yet |
-| **PUBLISHED** | The engine is active and receiving policy updates |
+Each registered PDP gateway shows the status `PUBLISHED` as soon as it's registered. The status records the registration only. It doesn't show whether a gateway runs the engine: a PDP gateway whose sharding tag no gateway carries is `PUBLISHED` too. To check that a policy is enforced, ask for a decision, for example through the PDP gateway's [AuthZEN endpoint](ask-for-a-decision/authzen-endpoint.md), or read the **Decisions** page.
 
 ### Policy list pages
 
@@ -69,8 +64,7 @@ Each policy row shows the status badge (`Draft`, `Deployed`, or `Disabled`), ind
 
 | Symptom | Possible cause | Resolution |
 |---------|---------------|------------|
-| Policy shows `Deployed` but not enforced | Gateway has not synced yet | Wait 30 seconds, then verify PDP gateway status is `PUBLISHED` |
-| Gateway stays `PENDING` | Gateway cannot reach the control plane | Check network connectivity between the gateway and the control plane |
+| Policy shows `Deployed` but not enforced | Gateway has not synced yet, or no running gateway carries the PDP gateway's sharding tag | Wait 30 seconds. Check that a gateway with the matching sharding tag is running and can reach the control plane |
 | Policy enforced on wrong gateway | Incorrect scope targets | Verify the policy's target gateways match the intended PDP gateway |
 
 ## Next steps

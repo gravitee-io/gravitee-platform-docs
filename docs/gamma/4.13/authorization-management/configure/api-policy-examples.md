@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Govern API proxies, endpoints, and data fields with policy examples for scopes, rate limits, and tenant isolation. Adapt an example to your own APIs.
+description: Govern API proxies, endpoints, and data fields with policy examples for scopes, tenant isolation, and IP ranges. Adapt an example to your own APIs.
 ---
 
 # API policy examples
@@ -51,25 +51,7 @@ when {
 
 This policy permits any principal to read the orders API, but only if their OAuth token includes the `orders:read` scope.
 
-## Example 3: Rate limit per principal
-
-```
-// Policy: rate-limit-orders
-// Target: orders-service
-
-forbid (
-  principal,
-  action,
-  resource in API::"orders-service"
-)
-when {
-  context.rate.per_minute(principal) >= 100
-};
-```
-
-This policy denies access when a principal exceeds 100 requests per minute.
-
-## Example 4: Tenant isolation
+## Example 3: Tenant isolation
 
 ```
 // Policy: tenant-isolation
@@ -87,7 +69,7 @@ when {
 
 This policy ensures principals can only access data for their own tenant.
 
-## Example 5: IP-restricted admin access
+## Example 4: IP-restricted admin access
 
 ```
 // Policy: admin-corporate-only
@@ -99,7 +81,7 @@ permit (
   resource in API::"orders-service"
 )
 when {
-  context.source.ip.in_cidr("10.0.0.0/8")
+  ip(context.source.ip).isInRange(ip("10.0.0.0/8"))
 };
 ```
 
@@ -107,13 +89,11 @@ when {
 
 | Condition | GAPL |
 |-----------|------|
-| **Corporate IP range** | `context.source.ip.in_cidr("10.0.0.0/8")` |
 | **Scope present** | `context.auth.scopes.contains("orders:read")` |
-| **Rate < 100/min** | `context.rate.per_minute(principal) < 100` |
 | **Tenant match** | `context.request.header.x_tenant == principal.tenant` |
 
 ## Next steps
 
-* [AI policy example](ai-policy-example.md) — Token budget and cost ceiling policies
+* [AI policy example](ai-policy-example.md) — Model access and guardrail policies
 * [MCP policy examples](mcp-policy-examples.md) — MCP access control patterns
 * [Create, update, and delete policies](create-update-delete-policies.md) — Full editor reference

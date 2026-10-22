@@ -15,8 +15,8 @@ Every entity in Authorization Management carries an `attributes` map — a set o
 ```
 permit (
   principal == User::"alice",
-  action == Action::"invoke",
-  resource == MCPTool::"search"
+  action == Action::"demo-hr-mcp.search",
+  resource == MCPTool::"demo-hr-mcp.search"
 )
 when {
   principal.department == "engineering"
