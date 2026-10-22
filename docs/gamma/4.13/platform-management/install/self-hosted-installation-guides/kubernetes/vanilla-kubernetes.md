@@ -40,7 +40,7 @@ This deployment includes the components that work together to provide Gamma:
 
 The platform also requires two datastores:
 
-* MongoDB: stores API definitions, configurations, and rate-limiting data.
+* MongoDB, or a JDBC database such as PostgreSQL: stores API definitions, configurations, and rate-limiting data. This guide uses MongoDB.
 * Elasticsearch: provides analytics, logging, and search.
 
 ## Install Gamma
@@ -67,7 +67,7 @@ A dedicated namespace isolates the Gamma resources from other applications in th
 
 ### Deploy MongoDB and Elasticsearch
 
-Gamma needs MongoDB and Elasticsearch. Install both into the `gravitee-gamma` namespace with Helm, then point the chart at them through the `mongo` and `es` settings in your `values.yaml`.
+This guide uses MongoDB and Elasticsearch. Install both into the `gravitee-gamma` namespace with Helm, then point the chart at them through the `mongo` and `es` settings in your `values.yaml`.
 
 1.  Install MongoDB using the following command. For more information, see the [official chart documentation](https://artifacthub.io/packages/helm/bitnami/mongodb).
 
