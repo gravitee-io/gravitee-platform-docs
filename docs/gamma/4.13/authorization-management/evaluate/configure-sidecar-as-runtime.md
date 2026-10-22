@@ -22,10 +22,7 @@ The sidecar gets a sharding tag of its own, and a PDP gateway registered with th
 4. The application sends AuthZEN requests to the endpoint on `localhost`.
 
 {% hint style="warning" %}
-A sharding tag doesn't keep the PDP gateway on the sidecar only. A gateway with no sharding tag gets every PDP gateway, so if your other gateways have no sharding tag, they also get the sidecar's policies and answer its AuthZEN endpoint. A gateway with a different sharding tag doesn't. To keep the sidecar's policies on the sidecar only, either:
-
-* Give your other gateways sharding tags too.
-* Disable Gamma on the gateways that have no sharding tag (`gamma.enabled: false`). Such a gateway gets no authorization policies at all, not even those of the default engine, so the Authorization PEP policy and the AuthZEN endpoints on it never permit a request.
+Gateways with no sharding tag also get the sidecar's policies and answer its AuthZEN endpoint. To keep them on the sidecar only, give your other gateways sharding tags, or set `gamma.enabled: false` on the untagged ones. A gateway with Gamma disabled gets no authorization policies at all.
 {% endhint %}
 
 ## Prerequisites
