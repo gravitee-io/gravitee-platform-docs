@@ -5,6 +5,7 @@
   * [Create your first API](get-started/create-your-first-api.md)
   * [Installation guides](https://documentation.gravitee.io/platform-management/install)
   * [Release Notes](https://documentation.gravitee.io/platform-management/gamma-release-notes)
+  * [Breaking Changes and Deprecations](https://documentation.gravitee.io/platform-management/gamma-release-notes/gamma-breaking-changes)
 * [Migrate](migrate/README.md)
   * [Plan a gateway migration](migrate/plan-a-gateway-migration.md)
   * [Migrate an API estate to Gravitee](migrate/migrate-an-api-estate-to-gravitee.md)
