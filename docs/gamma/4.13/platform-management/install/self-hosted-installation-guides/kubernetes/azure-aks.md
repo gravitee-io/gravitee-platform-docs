@@ -346,7 +346,7 @@ If `gamma.enabled` is `false`, Gamma stays off everywhere, and the Gamma console
 
    ```bash
    helm install gamma graviteeio/apim \
-     --version 4.13.0 --devel \
+     --version 4.13.x --devel \
      --namespace gravitee-gamma \
      -f values.yaml \
      --wait --timeout 10m
