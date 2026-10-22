@@ -1,0 +1,64 @@
+---
+description: High-level API Score statistics appear on the API Score page in API Management 4.13. Follow the steps to reach your dashboard.
+metaLinks:
+  alternates:
+    - view-api-scores.md
+---
+
+# View API Scores
+
+## High-level API Score statistics
+
+High-level API Score statistics are shown on the **API Score** page. To get to your API Score dashboard:
+
+1. Ensure that API Score is enabled. For more information about enabling API Score, see [Enable API Score](enable-api-score.md).
+2. Run at least one evaluation so the dashboard has data to show. For more information about running an evaluation, see [Generate an API Score.](generate-an-api-score.md)
+3. Log in to your APIM Console.
+4.  In the menu, click **API Score**.
+
+    <figure><img src="../../.gitbook/assets/govern-api-score-view-api-scores-207.png" alt="The console dashboard with the API Score tooltip shown over the left navigation item."><figcaption></figcaption></figure>
+
+The **Overview** and **APIs** sections of the **API Score** page provide you with high-level metrics to understand the quality of your APIs. These metrics are:
+
+* The average score of your API
+* The number of errors in your API
+* The number of warnings in your API
+* The number of infos in your API
+* The number of hints in your API
+
+The **Overview** section shows these metrics across all of your APIs.
+
+<figure><img src="../../.gitbook/assets/govern-api-score-view-api-scores-205.png" alt="An API Score overview panel, showing a 50 percent average score with nine errors, 64 warnings, no hints, and four infos."><figcaption></figcaption></figure>
+
+The **APIs** section contains a list of your APIs to show these metrics for each API individually.
+
+<figure><img src="../../.gitbook/assets/govern-api-score-view-api-scores-206.png" alt="An API Score overview panel above a table of APIs, each with its score and its error, warning, info, and hint counts."><figcaption><p>Example API score dashboard</p></figcaption></figure>
+
+## Individual API Score details
+
+To view the API Score details for a specific API, click on the API in the **APIs** section of your API Score dashboard.
+
+<figure><img src="../../.gitbook/assets/00 api 1.png" alt="The second page of the API Score table, listing ten APIs with their scores and issue counts."><figcaption></figcaption></figure>
+
+This brings you to a page that shows the details of API metrics.
+
+<figure><img src="../../.gitbook/assets/00 api 2.png" alt="The API Score page for one API, showing an 82 percent score with tabs for errors, warnings, infos, and hints, above a table of recommendations with their severity, line, and path."><figcaption></figcaption></figure>
+
+### Filter API Score issues
+
+To filter your API's issues by category, select from the tabs of API Score metrics. By default, all issues are shown. If no information exists for a metric, it will be grayed out and you will not be able to select it.
+
+You can also filter issues via the search function. You can search using information from the following columns:
+
+* Severity
+* Recommendation
+* Path
+
+To filter using the search function, type your search query into the **Search** field. The table showing issue details is filtered as you type.
+
+The table has the following columns:
+
+* **Severity:** This gauges the severity of the issue. In order of increasing severity, the options are: hint, info, warning, error.
+* **Line/Column:** The line and column of the issue location are shown in `[line]:[column]` format.
+* **Recommendation:** This column provides a recommendation for how to fix the issue.
+* **Path:** This column shows the path to the issue location.

@@ -1,0 +1,332 @@
+---
+description: Customize New Developer Portal 4.13 navigation and manage which APIs appear in it. Follow the steps to organize the portal.
+---
+
+# Manage Portal Navigation and APIs
+
+## Overview
+
+
+In the New Developer Portal, you can customize the navigation of your Developer Portal by using the **Navigation items** section of the New Developer Portal settings.
+
+You can create the following elements for your navigation:
+
+* **Pages**: Content of your New Developer Portal documentation.
+* **Folders**: Use these to group related pages together into sections.
+* **Links**: Connect your documentation to external sites or other internal resources.
+* **APIs**: List your APIs in the New Developer Portal documentation.
+* **API Products**: List your API Products, with the APIs they include, in the New Developer Portal documentation.
+
+When you add a new page, you can choose **Gravitee Markdown**, **OpenAPI**, or **AsyncAPI** as the page type. Gravitee Markdown is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention"). For OpenAPI pages, see [creating-openapi-documentation-pages.md](customize-the-navigation/creating-openapi-documentation-pages.md). For AsyncAPI pages, see [creating-asyncapi-documentation-pages.md](customize-the-navigation/creating-asyncapi-documentation-pages.md).
+
+For CI/CD-driven declarative management of portal navigation, API listings, and documentation using the Automation API or GKO CRDs, see [Portal automation](customize-the-navigation/portal-automation/README.md).
+
+### Supported documentation page types
+
+| Page type | What it contains | How it is edited in the Console | How it appears in the portal |
+|:----------|:-----------------|:--------------------------------|:-----------------------------|
+| Gravitee Markdown | Markdown content | Markdown editor | Rendered markdown |
+| OpenAPI | OpenAPI specification | Split editor with live preview | Swagger UI or Redoc (configurable) |
+| AsyncAPI | AsyncAPI specification | Split YAML editor with live preview | Interactive AsyncAPI documentation viewer |
+
+### Default navigation items
+
+By default, some pages are already created for you with content. These pages are published and public by default. Here are the following folders, pages, and links that are created by default:
+
+* A folder named Guides, which contains a Getting Started page.
+* A folder Core concepts, which contains a page that describes making your first API call and a page that describes authentication.
+* An empty folder named APIs. It's the section that the Gamma console publishes an API into.
+* A link to Docs that brings you to the Gravitee documentation.
+
+An environment that has no APIs folder gets one, at the end of its top navigation, the first time the Management API starts. If you rename or delete the folder later, the Management API doesn't re-create it.
+
+#### Console view
+
+<figure><img src="../../.gitbook/assets/Screenshot 2025-12-19 at 19.05.51.png" alt="The Manage your navigation page, with a navigation tree on the left, a Markdown editor in the middle, and a live preview of the rendered page on the right."><figcaption></figcaption></figure>
+
+#### Developer portal view
+
+The default navigation appears on your New Developer Portal
+
+<figure><img src="../../.gitbook/assets/Screenshot 2025-12-19 at 19.06.57.png" alt="The developer portal home page, showing a welcome headline, Explore all APIs and Get started buttons, a banner image, and a toolkit section below."><figcaption></figcaption></figure>
+
+Welcome page in the Developer Portal:
+
+<figure><img src="../../.gitbook/assets/devportal-navigation-tree-collapsed.png" alt="A guide page in the developer portal, with the Getting started page open and the Core concepts folder collapsed in the navigation tree."><figcaption></figcaption></figure>
+
+In the portal, the navigation tree starts with its folders, APIs, and API Products collapsed, except the ones that lead to the page it opens.
+
+## Prerequisites
+
+* Enable the New Developer Portal. For more information about enabling the New Developer Portal, see [configure-the-new-portal.md](configure-the-new-portal.md "mention").
+
+## Customizing your navigation
+
+With the New Developer Portal, you can customize your navigation in the following ways:
+
+* [Add a page](customize-the-navigation.md#pages)
+* [Add a folder](customize-the-navigation.md#folders)
+* [Add a link](customize-the-navigation.md#links)
+* [Add an API](customize-the-navigation.md#api)
+* [Add an API Product](customize-the-navigation.md#api-product)
+
+You also link pages to external sources, import a documentation tree from a remote repository with the **Import** button, and import page content from a local file. For more information, see [import-content-from-external-sources.md](customize-the-navigation/import-content-from-external-sources.md "mention").
+
+1.  From the **Dashboard**, click **Settings**.<br>
+
+    <figure><img src="../../.gitbook/assets/EB3744C8-A282-4EC2-9DB6-218361CB3FA7_1_201_a.jpeg" alt="The console dashboard with Settings highlighted in the left navigation, showing 2,711 APIs and 855 applications."><figcaption></figcaption></figure>
+2.  From the **Settings** menu, click **Settings**.<br>
+
+    <figure><img src="../../.gitbook/assets/CF7527D1-5E90-4637-8C70-FF5125AEB0BF_1_201_a.jpeg" alt="The portal Analytics settings with Settings highlighted in the portal menu, listing nine platform dashboards."><figcaption></figcaption></figure>
+3.  Navigate to the **New Developer Portal** section, and then click **Open Settings**. The Portal Settings open in a new tab, on the **Settings** page.<br>
+
+    <figure><img src="../../.gitbook/assets/7C64309D-426F-4F5D-B48D-2224931FC9F3_4_5005_c.jpeg" alt="The portal settings scrolled to the New Developer Portal section, with the portal enabled and the Open Settings button highlighted beside Open Website."><figcaption></figcaption></figure>
+4. Click **Navigation**.
+5. Customize your navigation using the following components:
+
+#### Pages
+
+When you add a page that is not in a folder, the page appears as a root level menu item. When you publish the page, the page appears in the top navigation bar of your New Developer Portal.
+
+**Add a page**
+
+1.  Click **Add**, and then click **Add Page**.<br>
+
+    <figure><img src="../../.gitbook/assets/FB8F0725-08EB-4B68-B365-122337D12C4F_1_201_a.jpeg" alt="The Manage your navigation page with the Add menu open and Add Page highlighted above Add Link and Add Folder."><figcaption></figcaption></figure>
+2. In the **Add page** pop-up screen, select a content source. **Fill in content** opens the editor, **Import from file** uploads a local file, and **Link to external source** fetches the content from a repository or URL. For the import and external source options, see [import-content-from-external-sources.md](customize-the-navigation/import-content-from-external-sources.md "mention").
+3. Click **Continue**.
+4.  Select one of 3 types of pages: Markdown, OpenAPI, or AsyncAPI.<br>
+
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--251.png" alt="The Add page dialog with Markdown selected as the page type, a page title entered, and authentication not required."><figcaption><p>Add page pop-up with Markdown selected</p></figcaption></figure>
+
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--252.png" alt="The Add page dialog with OpenAPI selected as the page type instead of Markdown."><figcaption><p>Add page pop-up with OpenAPI selected</p></figcaption></figure>
+
+    For OpenAPI pages, you can configure Swagger UI or Redoc viewers. For more information, see [Creating OpenAPI Documentation Pages](customize-the-navigation/creating-openapi-documentation-pages.md). For AsyncAPI pages, see [Creating AsyncAPI Documentation Pages](customize-the-navigation/creating-asyncapi-documentation-pages.md).
+5. Type a title for your page.
+6. (Optional) Turn on the **Authentication is required to view this page.** toggle. This toggle ensures that the user must be signed in to the New Developer Portal to see the page.
+7. Click **Add**.
+8. Customize your page. The page contains default content that you can use to customize your new page with unique content. For more information about customizing your page with Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention").
+9. Publish the page by completing either of the following steps:
+
+⚠️ A page can only be published if all of its ancestor folders are published or if it's a top level page.
+
+*   Click **Publish**.<br>
+
+    <figure><img src="../../.gitbook/assets/138D78C1-526C-4741-89DF-C8F9BCF8137D_1_201_a.jpeg" alt="The Manage your navigation page with a new unpublished page selected and the Publish button highlighted."><figcaption></figcaption></figure>
+*   Navigate to the page in the navigation bar, click the **ellipses** (<i class="fa-ellipsis-vertical">:ellipsis-vertical:</i>), and then click **Publish**.<br>
+
+    <figure><img src="../../.gitbook/assets/1A5E08E1-648C-4437-81C6-F4C480F04193_1_201_a.jpeg" alt="The navigation tree with a page&#x27;s context menu open and Publish highlighted above Edit and Delete."><figcaption></figcaption></figure>
+10.  In the confirmation dialog, click **Publish**.<br>
+
+    <figure><img src="../../.gitbook/assets/C52E694A-6761-45A5-B46B-998AE39FF5E1_1_201_a.jpeg" alt="The Publish page dialog, confirming that the page will become visible in the developer portal."><figcaption></figcaption></figure>
+
+#### Folders
+
+Folders group related pages together. A folder is a section on your New Developer Portal. When you add pages to your folder, they appear in the menu for that section instead of the top navigation.
+
+**Add a folder**
+
+1.  Click **Add**, and then click **Add Folder**.<br>
+
+    <figure><img src="../../.gitbook/assets/B4C6D536-2F1D-453D-9269-F80B53854B3F_1_201_a.jpeg" alt="The Manage your navigation page with the Add menu open and Add Folder highlighted."><figcaption></figcaption></figure>
+2. In the **Add folder** **pop-up** menu, type a title for the folder.
+3. (Optional) Turn on the **Authentication is required to view this folder**. toggle. This ensures that the user has to sign in to the New Developer Portal to view the folder.
+4.  Click **Add**.<br>
+
+    <figure><img src="../../.gitbook/assets/46A3BA38-DD28-42B3-8BBC-BA5B2ABABBE2_1_201_a.jpeg" alt="The Add folder dialog, with a folder title entered and authentication not required."><figcaption></figcaption></figure>
+5.  Publish the folder. To publish the folder, complete either of the following steps:
+
+    ⚠️ A folder can be only published if all of its ancestor folders are published or if it's a top level folder.
+
+    *   Click **Publish**.<br>
+
+        <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--89.png" alt="The Manage your navigation page with a new unpublished folder selected, showing empty editor and preview panels and the Publish button highlighted."><figcaption></figcaption></figure>
+    *   Navigate to the folder in the navigation bar, click the **ellipses**, and then click **Publish**.<br>
+
+        <figure><img src="../../.gitbook/assets/FAD5D2FB-4EEE-49B7-8081-F790D1AE0EC4_1_201_a.jpeg" alt="The navigation tree with a folder&#x27;s context menu open and Publish highlighted among the add, edit, and delete actions."><figcaption></figcaption></figure>
+6.  In the confirmation dialog, click **Publish**.<br>
+
+    <figure><img src="../../.gitbook/assets/0C92FAF4-F289-4D79-89D2-62448A9E8FE8_1_201_a.jpeg" alt="The Publish folder dialog, confirming that the folder and its content will become visible in the developer portal."><figcaption></figcaption></figure>
+
+**Unpublishing cascade**
+
+Unpublishing now works by cascade: all navigation items within a folder are unpublished with their parent.
+
+**Add a page to a folder**
+
+When you add a page to a folder, that page becomes a menu item within that section of the New Developer Portal.
+
+1. Navigate to the folder in the **Navigation items** menu.
+2. Click **the ellipsis**.
+3.  Click **Add page**.<br>
+
+    <figure><img src="../../.gitbook/assets/E4576EEE-A99A-40AF-A637-9AC6F6C44D4A.jpeg" alt="The Manage your navigation page with the Add menu open and Add Page highlighted, above a tree containing a page, a folder, and a homepage entry."><figcaption></figcaption></figure>
+
+#### Links
+
+When you add a link, the link appears as a root level menu item. When you publish the link, the page appears in the top navigation bar of your New Developer Portal.
+
+**Add a link**
+
+1.  Click **Add**, and then click **Add Link**.<br>
+
+    <figure><img src="../../.gitbook/assets/26E3BF6E-215F-43C8-850F-752A02323AEF_1_201_a.jpeg" alt="The Manage your navigation page with the Add menu open and Add Link highlighted."><figcaption></figcaption></figure>
+2. In the **Add link** pop-up box, complete the following sub-steps:
+   1. In the **Title** field, type a title for the link.
+   2. In the **Link settings** field, enter the URL for the link.
+   3. (Optional) Turn on the **Authentication is required to view this link**. toggle. This toggle ensures that the user has to sign in to the New Developer Portal to view the link.
+3.  Click **Add**.<br>
+
+    <figure><img src="../../.gitbook/assets/3476293A-507F-401E-855B-1CD3999E207E_1_201_a.jpeg" alt="The Add link dialog, with a link title and an external documentation URL entered and authentication not required."><figcaption></figcaption></figure>
+4.  Publish the page. To publish the page, complete either of the following steps:
+
+    ⚠️ A link can be only published if all of its ancestor folders are published or if it's a top level link.
+
+    *   Click **Publish**.<br>
+
+        <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--90.png" alt="The Manage your navigation page with a new unpublished link selected and the Publish button highlighted."><figcaption></figcaption></figure>
+    *   Navigate to link in the navigation bar, click the **ellipses**, and then click **Publish**.<br>
+
+        <figure><img src="../../.gitbook/assets/D897DBD4-B160-4F29-ACD8-14E5D0959CF5_1_201_a.jpeg" alt="The navigation tree with a link&#x27;s context menu open and Publish highlighted."><figcaption></figcaption></figure>
+5.  In the confirmation dialog, click **Publish**.<br>
+
+    <figure><img src="../../.gitbook/assets/B33EB73A-836D-4E7F-A297-53C23A7AB324_1_201_a.jpeg" alt="The Publish link dialog, confirming that the link will become visible in the developer portal."><figcaption></figcaption></figure>
+
+#### API
+
+API navigation items represent actual APIs that exist in the platform.
+
+{% hint style="info" %}
+Adding APIs to the documentation is **the only way** to make them visible in the New Developer Portal.
+
+Unlike in the Classic Portal, the property `published` of an API is not taken into account in the New Developer Portal.
+{% endhint %}
+
+API navigation items act similarly to folders meaning that they can contain other navigation items like Pages, Folders, and Links.
+
+However, there are some limitations of APIs compared to folders:
+
+* APIs cannot contain other APIs and that on any level of the hierarchy, for example API -> Folder -> API chain is not allowed.
+* APIs also cannot be at the top level of the navigation structure, they have to be inside a folder.
+
+**Documentation that belongs to the API**
+
+A page, folder, or link that you add under an API item belongs to the API rather than to the portal, unless the API item sits inside an API Product. The same applies to a folder that you import from a repository under the API item. The item appears under the API item and on the **Documentation** page of the API proxy in the Gamma console. It stays when the API item is deleted or unpublished. An API owner can add the same items from the Gamma console, and they appear under the API item in the portal navigation.
+
+When you move an item onto an API item, or into one of its folders, the item and everything inside it pass to that API. When you move the item to a portal folder, it passes back to the portal. The move is refused when the item, or something inside it, is managed by the Automation API, or when the move places an API or API Product item inside an API's documentation.
+
+An API item inside an API Product shows only the items added under it there, never the API's own documentation.
+
+**Add an API**
+
+1.  Open the context menu of a folder in which you want to add your API by clicking the **ellipses**, and then click **Add API**.<br>
+
+    <figure><img src="../../.gitbook/assets/devportal-add-api-context-menu.png" alt="Context menu of a folder in the Navigation items tree, with the Add API entry"><figcaption><p>Add API in the folder context menu</p></figcaption></figure>
+2.  In the **Add APIs** dialog, select the APIs that you want to add. To find an API by name, use the **Search** field.<br>
+
+    <figure><img src="../../.gitbook/assets/devportal-add-apis-dialog.png" alt="Add APIs dialog listing the APIs with their path and labels, one API selected, above the Authentication toggle"><figcaption><p>Add APIs dialog</p></figcaption></figure>
+3. (Optional) Turn on the **Authentication is required to view selected APIs.** toggle. This ensures that the user has to sign in to the New Developer Portal to view the APIs.
+4. Click **Add**.
+5. Publish the API. To publish the API, complete either of the following steps:
+
+⚠️ An API can be only published if all of its ancestor folders are published.
+
+* Click **Publish**.
+* Navigate to the folder in the navigation bar, click the **ellipses**, and then click **Publish**.
+
+6.  In the confirmation dialog, click **Publish**. The dialog title shows the name of your API. For example, **Publish "Payments" API?**<br>
+
+    <figure><img src="../../.gitbook/assets/devportal-publish-api-dialog.png" alt="Publish confirmation dialog for an API navigation item, with the Also publish all nested documentation checkbox"><figcaption><p>Publish confirmation dialog for an API</p></figcaption></figure>
+
+**Default Overview page**
+
+When you add an API to the navigation, the New Developer Portal automatically creates a default **Overview** page nested under that API. The page uses [Gravitee Markdown](gravitee-markdown-components.md) templating to display the API's data, such as its name, version, and visibility.
+
+The content of the Overview page depends on the API type:
+
+* For most API types, the Overview page presents the API information alongside guidance on subscribing to a plan, exploring the documentation, and integrating with the API.
+* For MCP Proxy APIs, the Overview page presents Model Context Protocol (MCP) guidance and embeds a one-click installer that helps consumers add the MCP server to AI clients like Cursor, VS Code, and Claude Desktop.
+
+Gravitee creates the Overview page only when the API has no page and no link yet, in its own documentation or under one of its items. Existing pages aren't overwritten. The page is created unpublished. To make it visible in the New Developer Portal, publish it like any other page. You can also edit the Overview page to tailor it for your consumers. For template details, see [API Overview Page Templates](api-overview-page-templates.md). For `<gmd-install-mcp>` attributes, manual authoring, and troubleshooting, see [MCP Server Installation Widget for Portal Pages](../../mcp-server-installation-widget-for-portal-pages.md).
+
+**Add a page to an API**
+
+When you add a page to an API, that page becomes a menu item within that API in the New Developer Portal.
+
+1. Navigate to the folder in the **Navigation items** menu.
+2. Click **the ellipsis**.
+3. Click **Add page**.
+
+**Add a folder to an API**
+
+When you add a folder to an API, that folder becomes nested within that API in the New Developer Portal.
+
+1. Navigate to the folder in the **Navigation items** menu.
+2. Click **the ellipsis**.
+3. Click **Add folder**.
+
+#### API Product
+
+API Product navigation items represent API Products that exist in the platform. For more information about API Products, see [api-products](../../secure-and-expose-apis/api-products/ "mention").
+
+An API Product navigation item acts like a folder. It can contain pages, folders, links, and the APIs that the API Product includes. The following rules apply:
+
+* An API Product can't be at the top level of the navigation. It has to be inside a folder.
+* An API Product can't be inside an API, and it can't be inside another API Product. The **Add API Product** entry doesn't appear on a folder that sits inside an API Product.
+* Each API Product can be in the navigation once. An API Product that's already in the navigation shows **Already added** in the picker.
+* Only the APIs that the API Product includes can be added under the API Product item.
+
+**Add an API Product**
+
+1.  Open the context menu of the folder in which you want to add your API Product by clicking the **ellipses**, and then click **Add API Product**.<br>
+
+    <figure><img src="../../.gitbook/assets/devportal-api-product-add-menu.png" alt="Context menu of the Products folder in the Navigation items tree, with the Add API Product entry"><figcaption><p>Add API Product in the folder context menu</p></figcaption></figure>
+2.  In the **Add API Products** dialog, select the API Products that you want to add. To find an API Product by name, use the **Search** field. The list shows the name, version, and description of each API Product, and the number of APIs it includes.<br>
+
+    <figure><img src="../../.gitbook/assets/devportal-api-product-add-dialog.png" alt="Add API Products dialog listing an API Product with its version, description, and API count, selected, above the Authentication toggle"><figcaption><p>Add API Products dialog</p></figcaption></figure>
+3. (Optional) Turn on the **Authentication is required to view selected API Products.** toggle. A consumer then has to sign in to the New Developer Portal to see the API Product, and sees it only when they're a member of the API Product, directly or through one of the groups of the API Product.
+4. Click **Add**.
+
+The API Product appears in the navigation with its name as the title, and the panel shows **Linked API Product** with the name and version of the API Product. Gravitee creates an API navigation item under the API Product for every API that the API Product includes, sorted by API name, and an unpublished **Overview** page under the API Product and under each of those APIs. The API Product item and its API items are created unpublished. For more information about the **Overview** pages, see [api-overview-page-templates.md](api-overview-page-templates.md "mention").
+
+<figure><img src="../../.gitbook/assets/devportal-api-product-navigation-tree.png" alt="Navigation items tree with an unpublished API Product expanded under a folder, showing its Overview page and its API items with their own Overview pages, and the Linked API Product header in the panel"><figcaption><p>API Product item with its APIs and Overview pages</p></figcaption></figure>
+
+5.  Publish the API Product. Navigate to the API Product in the navigation bar, click the **ellipses**, and then click **Publish**. You can also click **Publish** in the panel.
+6.  In the **Publish "<API Product name>" API Product?** dialog, select **Also publish all nested documentation and APIs** to publish the API items and the pages below the API Product in the same action, and then click **Publish**. Without the checkbox, only the API Product item is published.<br>
+
+    <figure><img src="../../.gitbook/assets/devportal-api-product-publish-dialog.png" alt="Publish confirmation dialog for an API Product, with the Also publish all nested documentation and APIs checkbox"><figcaption><p>Publish confirmation dialog for an API Product</p></figcaption></figure>
+
+⚠️ An API Product can only be published if all of its ancestor folders are published.
+
+**Add an API to an API Product**
+
+Gravitee adds the APIs of the API Product when it creates the API Product item. Use this procedure to add an API that you removed, or an API that joined the API Product later.
+
+1. Navigate to the API Product in the **Navigation items** menu.
+2. Click **the ellipsis**.
+3. Click **Add API**.
+4. In the **Add APIs** dialog, select the APIs that you want to add. Only the APIs that the API Product includes are listed, and an API that's already under the API Product shows **Already added**.
+5. Click **Add**.
+
+**Add a page, a folder, or a link to an API Product**
+
+1. Navigate to the API Product in the **Navigation items** menu.
+2. Click **the ellipsis**.
+3. Click **Add page**, **Add folder**, or **Add link**.
+
+**Edit an API Product item**
+
+1. Navigate to the API Product in the **Navigation items** menu.
+2. Click **the ellipsis**.
+3. Click **Edit**.
+4. In the **API Product Display Name** field, type the title to display in the New Developer Portal. The linked API Product can't be changed.
+5. (Optional) Turn on or off the `Authentication is required to view this api_product.` toggle.
+6. Click **Save**.
+
+## Verification
+
+The content appears on the New Developer Portal. To view the content, complete the following step:
+
+Click **Open Website**.
+
+The new root-level items appear in the navigation bar.
