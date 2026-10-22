@@ -1,0 +1,70 @@
+---
+hidden: true
+noIndex: true
+description: Two automated migrations add a key field to existing API Management 4.13 tags and tenants on upgrade. Learn what each migration does.
+---
+
+# Tag and tenant key migration upgrade procedure
+
+## Overview
+
+When upgrading to APIM 4.12, two automated migrations add a `key` field to all existing tags and tenants. These migrations run once during the platform upgrade and don't require manual intervention.
+
+## What the migration does
+
+### Tag key migration
+
+The tag key migration runs automatically during startup (execution order 716). For each existing tag, it:
+
+1. Reads the current `id` value.
+2. Copies that `id` value into the new `key` field.
+3. Saves the updated tag.
+
+Existing tag IDs aren't changed. This preserves backward compatibility and allows rollback to a previous APIM version without database conflicts.
+
+**Example:**
+
+```text
+Before migration:
+Tag { id: "international", key: null, name: "International" }
+
+After migration:
+Tag { id: "international", key: "international", name: "International" }
+```
+
+Only new tags created after migration receive a UUID as their `id`.
+
+### Tenant key migration
+
+The tenant key migration runs automatically during startup (execution order 717). It follows the same process as the tag key migration: for each existing tenant, the current `id` value is copied into the new `key` field. Existing tenant IDs aren't changed.
+
+**Example:**
+
+```text
+Before migration:
+Tenant { id: "usa", key: null, name: "USA" }
+
+After migration:
+Tenant { id: "usa", key: "usa", name: "USA" }
+```
+
+## Prerequisites
+
+- The database schema includes the `tags.key` column, added automatically via Liquibase migration (`v4_12_0/00_add_tags_key_column.yml`).
+- The database schema includes the `tenants.key` column, added via the same Liquibase migration set.
+
+## Post-migration changes
+
+After migration:
+
+- All tag and tenant REST API endpoints use the `key` in path parameters instead of the `id`. For existing tags and tenants, the `key` equals the old `id`, so existing API calls continue to work.
+- New tags and tenants created via the API require a `key` field in the request body.
+- API clients that create new tags or tenants and store the `id` for later reference need to use the `key` for subsequent operations (GET, PUT, DELETE), not the UUID `id`.
+
+{% hint style="warning" %}
+If either migration fails, the Management API logs the failure, stops, and exits with a non-zero status, so the platform doesn't finish starting.
+
+Migrations that run after the failed one are skipped, so a failure in the tag migration leaves tenants unmigrated. The failure isn't recorded, so the migration runs again the next time the Management API starts.
+
+Both migrations are idempotent, so running them again is safe. Check the logs for the upgrader failure and resolve the underlying problem before you restart.
+{% endhint %}

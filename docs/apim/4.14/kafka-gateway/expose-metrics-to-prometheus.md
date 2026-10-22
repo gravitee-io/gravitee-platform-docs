@@ -1,0 +1,175 @@
+---
+description: Expose the API Management 4.13 Gateway internal API metrics to Prometheus. Follow the steps and verify the metrics arrive.
+metaLinks:
+  alternates:
+  - expose-metrics-to-prometheus.md
+---
+
+# Expose Kafka metrics to Prometheus
+
+## Overview
+
+This guide explains how to expose the Gravitee Gateway's internal API metrics to Prometheus, and then verify that the metrics have been collected correctly.
+
+## Prerequisites
+
+* Administrative access to your Gateway instance to edit the `gravitee.yml` file.
+* A Prometheus server with write access to your `prometheus.yml` file.
+* A Kafka API. For more information about creating a Kafka API, see [create-kafka-apis.md](create-and-configure-kafka-apis/create-kafka-apis.md "mention").
+
+## Expose metrics to Prometheus
+
+To expose the metrics for your Kafka Gateway, complete the following steps:
+
+1. [#enable-prometheus](expose-metrics-to-prometheus.md#enable-prometheus "mention")
+2. [#produce-or-consume-a-kafka-message](expose-metrics-to-prometheus.md#produce-or-consume-a-kafka-message "mention")
+3. [#scrape-the-internal-api-for-metrics](expose-metrics-to-prometheus.md#scrape-the-internal-api-for-metrics "mention")
+
+### Enable Prometheus
+
+Prometheus support is activated and exposed using the internal API.
+
+To enable Prometheus, add the following configuration to your `gravitee.yml` file:
+
+{% code title="gravitee.yml" %}
+```yaml
+services:
+  metrics:
+    enabled: true
+    prometheus:
+      enabled: true
+```
+{% endcode %}
+
+{% hint style="info" %}
+* By default, the internal component API is bound to `localhost`, so the internal API can only be invoked in `localhost`. To widely expose the API, set the `services.core.http.host` property to the correct network interface.
+* If you run the application in a Docker container, set the IP address to `0.0.0.0`.
+{% endhint %}
+
+### Produce or consume a Kafka message
+
+For Prometheus to contain metrics to collect, you must either produce a Kafka message or consume a Kafka message. For more information about producing and consuming Kafka messages, see [#produce-or-consume-a-kafka-message](expose-metrics-to-prometheus.md#produce-or-consume-a-kafka-message "mention").
+
+### Scrape the internal API for metrics
+
+* To scrape the formatted Kafka Gateway metrics that are available in the Gateway internal API, use the following request:
+
+```
+scrape_configs:
+  - job_name: 'gio-gw'
+    basic_auth:
+      username: admin
+      password: adminadmin
+    metrics_path: /_node/metrics/prometheus
+    static_configs:
+      - targets: ['localhost:18082']
+```
+
+{% hint style="info" %}
+By default, the UI is exposed at `http://localhost:9090/graph`.
+{% endhint %}
+
+### Verification
+
+When you access the `/_node/metrics/prometheus` endpoint, it displays the following metrics:
+
+{% code lineNumbers="true" %}
+```bash
+# HELP net_server_active_connections Number of opened connections to the server
+# TYPE net_server_active_connections gauge
+net_server_active_connections{application="gio-apim-gateway",instance="dev",local="0.0.0.0:9092",} 1.0
+# HELP net_client_active_connections Number of connections to the remote host currently opened
+# TYPE net_client_active_connections gauge
+net_client_active_connections{application="gio-apim-gateway",instance="dev",local="?",} 2.0
+
+# HELP kafka_downstream_produce_topic_records_total Number of records produced
+# TYPE kafka_downstream_produce_topic_records_total counter
+kafka_downstream_produce_topic_records_total{application="gio-apim-gateway",instance="dev",} 2.0
+# HELP kafka_downstream_produce_topic_record_bytes Size of produced records in bytes
+# TYPE kafka_downstream_produce_topic_record_bytes summary
+kafka_downstream_produce_topic_record_bytes_count{application="gio-apim-gateway",instance="dev",} 1.0
+kafka_downstream_produce_topic_record_bytes_sum{application="gio-apim-gateway",instance="dev",} 82.0
+# HELP kafka_downstream_produce_topic_record_bytes_max Size of produced records in bytes
+# TYPE kafka_downstream_produce_topic_record_bytes_max gauge
+kafka_downstream_produce_topic_record_bytes_max{application="gio-apim-gateway",instance="dev",} 82.0
+# HELP kafka_upstream_produce_topic_record_bytes_max Size of produced records in bytes
+# TYPE kafka_upstream_produce_topic_record_bytes_max gauge
+kafka_upstream_produce_topic_record_bytes_max{application="gio-apim-gateway",instance="dev",} 82.0
+# HELP kafka_upstream_produce_topic_record_bytes Size of produced records in bytes
+# TYPE kafka_upstream_produce_topic_record_bytes summary
+kafka_upstream_produce_topic_record_bytes_count{application="gio-apim-gateway",instance="dev",} 1.0
+kafka_upstream_produce_topic_record_bytes_sum{application="gio-apim-gateway",instance="dev",} 82.0
+# HELP kafka_upstream_produce_topic_records_total Number of records produced
+# TYPE kafka_upstream_produce_topic_records_total counter
+kafka_upstream_produce_topic_records_total{application="gio-apim-gateway",instance="dev",} 2.0
+```
+{% endcode %}
+
+## Full list of metrics for your Kafka Gateway
+
+Here is a full list of metrics for your Kafka Gateway that are viewable with Prometheus:
+
+| Metric                                            | What it measures                                                      |
+| ------------------------------------------------- | --------------------------------------------------------------------- |
+| net\_server\_active\_connections                  | Count of active Kafka connections opened by clients to the Gateway    |
+| net\_client\_active\_connections                  | Count of active connections from the Gateway to the Kafka brokers     |
+| kafka\_downstream\_produce\_topic\_records\_total | Total number of produced records received by the Gateway from clients |
+| kafka\_downstream\_produce\_topic\_record\_bytes  | Total bytes of produced records received by the Gateway from clients  |
+| kafka\_upstream\_produce\_topic\_records\_total   | Total number of produced records the Gateway sends to brokers         |
+| kafka\_upstream\_produce\_topic\_record\_bytes    | Total bytes of produced records the Gateway sends to brokers          |
+| kafka\_downstream\_fetch\_topic\_records\_total   | Total number of fetched records the Gateway sends to clients          |
+| kafka\_downstream\_fetch\_topic\_record\_bytes    | Total bytes of fetched records the Gateway sends to clients           |
+| kafka\_upstream\_fetch\_topic\_records\_total     | Total number of fetched records the Gateway receives from brokers     |
+| kafka\_upstream\_fetch\_topic\_record\_bytes      | Total bytes of fetched records the Gateway receives from brokers      |
+| kafka\_upstream\_duration\_seconds                 | Time spent on the Gateway before the request is forwarded to the target cluster |
+| kafka\_endpoint\_duration\_seconds                 | Time spent on the endpoint Kafka cluster                              |
+| kafka\_downstream\_duration\_seconds               | Time spent on the Gateway before the response is forwarded to the client |
+| kafka\_upstream\_produce\_topic\_records\_failed\_total | Number of produced records that the broker rejected. Labeled with `error` |
+| kafka\_upstream\_produce\_topic\_record\_bytes\_failed\_total | Bytes of produced records that the broker rejected. Labeled with `error` |
+| kafka\_downstream\_fetch\_errors\_total and kafka\_upstream\_fetch\_errors\_total | Number of fetch responses that failed as a whole. Labeled with `error` |
+| kafka\_downstream\_fetch\_partition\_errors\_total and kafka\_upstream\_fetch\_partition\_errors\_total | Number of partition-level errors in fetch responses. Labeled with `error` |
+| kafka\_active\_connections                       | Number of active client connections per plan, application, and client identity. Disabled by default. See [Kafka active connections](../analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md#kafka-active-connections) |
+
+### Error metrics
+
+The produce and fetch error counters carry an `error` label set to the name of the Kafka error code, for example `NOT_LEADER_OR_FOLLOWER` or `RECORD_TOO_LARGE`.
+
+* The produce failure counters exist on the upstream leg only. They count the records and bytes that the broker rejected. `kafka_upstream_produce_topic_records_total` still counts every record that the Gateway sends to the broker, rejected or not.
+* A fetch response that fails as a whole increments `kafka_<direction>_fetch_errors_total`, and its records aren't counted in the fetch record metrics.
+
+The error counters don't carry the `principal_name` label, while the record totals do. To compute a failure ratio, aggregate the total first, for example:
+
+```
+sum without(principal_name) (rate(kafka_upstream_produce_topic_records_failed_total[5m]))
+  / ignoring(error) group_left
+sum without(principal_name) (rate(kafka_upstream_produce_topic_records_total[5m]))
+```
+
+### Duration metrics
+
+The `kafka_upstream_duration_seconds`, `kafka_endpoint_duration_seconds`, and `kafka_downstream_duration_seconds` metrics measure the latency of the Kafka protocol requests that the Gateway processes. Each duration metric publishes `0.5`, `0.95`, and `0.99` percentile series, and carries an `api_key` label that identifies the Kafka protocol request type, for example `PRODUCE` or `FETCH`. The `api_key` label refers to the Kafka protocol request type, not to a Gravitee API Key plan.
+
+Requests that the Gateway answers without forwarding them to the target cluster, for example requests that a policy rejects, aren't recorded in the duration metrics.
+
+### Add the principal name to duration metrics
+
+By default, duration metrics aren't labeled with the principal that sent the request. To label each duration metric with the name of the authenticated principal, set the `services.metrics.kafka.durations.principalName` property to `true` in your `gravitee.yml` file:
+
+{% code title="gravitee.yml" %}
+```yaml
+services:
+  metrics:
+    enabled: true
+    prometheus:
+      enabled: true
+    kafka:
+      durations:
+        principalName: true
+```
+{% endcode %}
+
+When this property is enabled, each duration metric carries a `principal_name` label. Kafka protocol requests that the Gateway processes before authentication completes, for example API version negotiation and SASL handshake requests, report the value `unknown`. Connections that authenticate anonymously, for example connections to a `PLAINTEXT` listener, report the value `ANONYMOUS`.
+
+{% hint style="warning" %}
+Each distinct principal adds a full set of duration time series, including the percentile series. On Gateways that serve many distinct principals, enabling this property increases the number of time series that the Gateway exposes.
+{% endhint %}

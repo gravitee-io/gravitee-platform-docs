@@ -1,0 +1,61 @@
+---
+description: Create your first API with API Management 4.13, using the Console. Follow the steps to build it, test it, and move to the next stage.
+metaLinks:
+  alternates:
+    - create-an-api.md
+---
+
+# Create an API
+
+## Overview
+
+This guide explains how to create an API with the Gravitee APIM console.
+
+## Create an API
+
+1.  From the Dashboard, click **APIs**.
+
+    <figure><img src="../../.gitbook/assets/0C327947-9B22-4326-A689-3EDB37DED7A1.jpeg" alt="The console dashboard with APIs highlighted in the left navigation, showing no APIs and one application."><figcaption></figcaption></figure>
+2.  Click **+ Add API**.
+
+    <figure><img src="../../.gitbook/assets/28D18F13-E1B9-4FD2-9A3F-48B07C2C4A31.jpeg" alt="The APIs list, empty, with the Add API button highlighted above the table."><figcaption></figcaption></figure>
+3.  Click **Create V4 API**.
+
+    <figure><img src="../../.gitbook/assets/4841C54B-740F-454B-A6FE-0319A8CC46FD.jpeg" alt="The Choose API creation method page with the Create V4 API button highlighted in the Create New API panel."><figcaption></figcaption></figure>
+4.  Enter your API's name and version number, and then click **Validate my API details**. For example, My first API and version 1.
+
+    <figure><img src="../../.gitbook/assets/gs-first-api-create-an-api-60.png" alt="Step 1 of the API creation wizard, with an API name and version number entered and an empty description."><figcaption></figcaption></figure>
+5.  Select **HTTP Proxy**, and then click **Select my entrypoints**
+
+    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-14-2-1.png" alt="Step 2 of the API creation wizard, with HTTP Proxy selected over TCP Proxy as the API entrypoint."><figcaption></figcaption></figure>
+6.  Set a unique **Context-path , and** then click **Validate my entrypoints**. For example, /myfirstapi.
+
+    <figure><img src="../../.gitbook/assets/gs-first-api-create-an-api-61.png" alt="Step 2 of the API creation wizard at the configure stage, with virtual hosts enabled and a context path entered."><figcaption></figcaption></figure>
+7.  In the **Configure your API endpoints access** screen, set the target URL , and then click **Validate my endpoints**. For example, https://jsonplaceholder.typicode.com
+
+    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-21-1.png" alt="The developer portal dashboard, listing the signed-in user&#x27;s applications as cards above a table of their subscriptions."><figcaption></figcaption></figure>
+8.  Click **Validate my plans**. By default, Gravitee adds a **Default keyless plan (UNSECURED)** to your API.
+
+    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-21-2.png" alt="Step 4 of the API creation wizard, listing one default keyless plan in standard mode above a Validate my plans button."><figcaption></figcaption></figure>
+9.  Click **Save & Deploy API**.
+
+    <figure><img src="../../.gitbook/assets/F1F03EEB-D24D-4303-A197-39EB859ACC3D_1_105_c.jpeg" alt="Step 5 of the API creation wizard, summarising the API details, entrypoints, endpoints, and plan, with the Save and Deploy API button highlighted."><figcaption></figcaption></figure>
+
+## Test your API
+
+1. Retrieve the target URL for your API. To retrieve the target URL, complete the following sub-steps:
+   1. From the dashboard, click **APIs**.
+   2. Click the API that you created.
+   3. Click **Endpoints**.
+   4. Click the **pencil** icon.
+   5. Copy the Target URL from the **target URL** field.
+2. Retrieve the context-path for your API. To retrieve the context path, complete the following sub-steps:
+   1. From the **Dashboard,** click **APIs**.
+   2. Click the API that you created.
+   3. Click **Entrypoints**.
+   4. Copy the context-path from the **Context-path** field.
+3. In your browser, enter the target URL and the context path for your API in the following format: `gateway_URL/context_path` . For example, `https://jsonplaceholder.typicode.com/myfirstapi` . You receive an empty response.
+
+## Next steps
+
+Add security to your API with a plan. For more information about adding security to your API, see [add-security.md](add-security.md "mention").
