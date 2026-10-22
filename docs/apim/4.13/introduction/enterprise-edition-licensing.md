@@ -157,5 +157,5 @@ docker run  \
         -v license.key:/opt/graviteeio-gateway/license \
         --name api-gateway  \
         --detach  \
-        graviteeio/apim-gateway:4.11.0
+        graviteeio/apim-gateway:4.13
 ```
