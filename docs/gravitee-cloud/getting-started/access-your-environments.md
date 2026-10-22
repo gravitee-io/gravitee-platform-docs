@@ -38,6 +38,4 @@ To verify that environment access is working as expected, follow these steps:
 1. In Gravitee Cloud, open **Dashboard**.
 2.  The **Environments** section lists the environments you have access to, each with an **APIM Console** button and a **Dev Portal** button. On a trial account, the days remaining in your enterprise trial also appear.
 
-    <!-- TODO: Screenshot of the Dashboard of a trial account, with the Environments section and the days remaining in the trial -->
-
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-cloud-dashboard-environments-trial.png" alt=""><figcaption><p>Dashboard of a trial account</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/cloud-dashboard-environments-trial.png" alt="The Dashboard of a trial account with the Overview heading, the Environments section with a Trial Environment card that has the APIM Console and Dev Portal buttons, the Need more environments? card, and the 13 Days remaining of your enterprise trial panel with the Contact Gravitee button."><figcaption><p>Dashboard of a trial account</p></figcaption></figure>
