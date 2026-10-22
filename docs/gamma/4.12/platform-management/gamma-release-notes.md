@@ -102,7 +102,7 @@ Each Gamma version follows the support period of the API Management version it s
 
 #### GAPL Policy Language
 
-* Policies are written in GAPL (Gravitee Authorization Policy Language), a Cedar-syntax subset optimized for the Gamma visual editor.
+* Policies are written in GAPL (Gravitee Authorization Policy Language), optimized for the Gamma visual editor.
 * Each policy declares an effect (`permit` or `forbid`), a principal, an action, a resource, and optional `when` conditions.
 * Condition support includes time-of-day restrictions, IP range checks, token budgets, cost ceilings, scope checks, PII filter flags, and tenant attribute matching.
 
