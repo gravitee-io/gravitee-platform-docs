@@ -39,7 +39,7 @@ Before you upgrade, move each Portal resource from `spec.navigation` to `spec.st
 
 From APIM 4.13.0, the Automation API and the Management API imports that GKO uses check the update permission when a resource already exists in APIM, not only the create permission. A service account that holds only the create permission now gets `403` when GKO applies a change to an existing API, application, group, shared policy group, dictionary, portal resource, documentation page, or subscription. Changing the members of an API or application also requires the member update permission.
 
-Before you upgrade APIM, review the permissions of the service account that GKO uses. For the permission each resource needs, see [Breaking Changes and Deprecations](https://documentation.gravitee.io/apim/release-information/breaking-changes-and-deprecations) in the APIM documentation.
+Before you upgrade APIM, review the permissions of the service account that GKO uses.
 
 ## New features
 
