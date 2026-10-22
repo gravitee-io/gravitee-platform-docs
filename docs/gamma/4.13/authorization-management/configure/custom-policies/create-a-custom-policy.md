@@ -47,7 +47,7 @@ permit (
 )
 when {
   context.auth.mfa == true &&
-  context.source.ip.in_cidr("10.0.0.0/8")
+  ip(context.source.ip).isInRange(ip("10.0.0.0/8"))
 };
 ```
 
