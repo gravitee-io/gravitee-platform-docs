@@ -64,7 +64,7 @@ If your `values.yaml` enables the `mongodb` or `elasticsearch` subchart, those s
 
    ```bash
    helm upgrade <release-name> graviteeio/apim \
-     --version 4.13.0 --devel \
+     --version 4.13.x --devel \
      --namespace <namespace> \
      -f values.yaml
    ```

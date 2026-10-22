@@ -649,11 +649,11 @@ The `4.13` chart includes Gamma.
     ```bash
     helm search repo graviteeio/apim --devel --versions
     ```
-3.  Install the chart with the release name `gamma` using the following command. Replace the version with the `4.13` version you found in the previous step:
+3.  Install the chart with the release name `gamma` using the following command. The version `4.13.x` installs the latest `4.13` release of the chart:
 
     ```bash
     helm install gamma graviteeio/apim \
-      --version 4.13.0 \
+      --version 4.13.x \
       --devel \
       --namespace gravitee-gamma \
       -f values.yaml \
@@ -664,7 +664,7 @@ The `4.13` chart includes Gamma.
     &#xNAN;**(Enterprise Edition)** If you created the license secret in [Add your license key](vanilla-kubernetes.md#enterprise-edition-only-add-your-license-key) and uncommented the secret lines in your `values.yaml`, the chart mounts the license automatically. No extra flag is needed.
 
 {% hint style="info" %}
-The image tags in `values.yaml` (`4.13`) are the public Docker Hub builds. Pick the current `4.13` chart version from the `helm search` output, and keep the release name `gamma` so the service names in the next step match.
+The image tags in `values.yaml` (`4.13`) are the public Docker Hub builds. Like the `4.13.x` chart version, they follow the latest `4.13` release. Keep the release name `gamma` so the service names in the next step match.
 {% endhint %}
 
 ## Access the consoles
