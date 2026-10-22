@@ -12,7 +12,16 @@ The 4.13 release adds the following capabilities.
 
 ### Agent Management
 
-LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permissions, property import, subscription export, and promotion to another environment. LLM Proxies gain Entrypoints, CORS, Failover, and **Models** pages, plus the **Cost Rate Limit** and **AI Token Compression** policies. They also read images, audio, video, and files in requests. LLM and A2A Proxies gain export, import, and duplicate, and A2A Proxies gain plans, subscriptions, and response templates. MCP Proxies gain JWT and mTLS plans, Entrypoint and CORS pages, and advanced endpoint settings. MCP Proxies, MCP Studios, and catalog MCP servers choose their MCP specification versions, including the stateless 2026-07-28 version. AI models gain cache read and cache write prices, which LLM Proxies apply to cached prompt tokens. Agent Management also adds workflow tools, custom dashboards, and shadow AI agents from Edge Management, and runs on a JDBC management repository. Its **Logs** and **Dashboards** pages also count the MCP calls of HTTP Proxy APIs and the agent calls of Message APIs.
+Agent Management adds the following in 4.13:
+
+* **All proxy types**: LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permissions, property import, subscription export, export, import, duplicate, and promotion to another environment.
+* **LLM Proxies**: Entrypoints, CORS, Failover, and **Models** pages, the **Cost Rate Limit** and **AI Token Compression** policies, and images, audio, video, and files in requests.
+* **MCP Proxies**: JWT and mTLS plans, Entrypoint and CORS pages, advanced endpoint settings, and the **OAuth 2.0 Token Exchange** policy.
+* **A2A Proxies**: plans, subscriptions, and response templates.
+* **MCP specification versions**: MCP Proxies, MCP Studios, and catalog MCP servers choose their versions, including the stateless 2026-07-28 version.
+* **AI model pricing**: negotiated prices, and cache read and cache write prices that LLM Proxies apply to cached prompt tokens.
+* **Catalog and observability**: workflow tools, shadow AI agents from Edge Management, and custom dashboards. The **Logs** and **Dashboards** pages also count the MCP calls of HTTP Proxy APIs and the agent calls of Message APIs.
+* **Deployment**: Agent Management runs on a JDBC management repository, and the Gravitee Kubernetes Operator declares MCP servers and MCP Proxies as resources.
 
 #### API Resources for LLM, MCP, and A2A Proxies
 
@@ -240,7 +249,15 @@ LLM, MCP, and A2A Proxies gain API resources, broadcasts, metadata, user permiss
 
 ### API Management
 
-API Management gains a file-based path for building and updating API proxies. Each API proxy also gains a Metadata page, a Documentation page, a Response Templates page, and an API Score page. The API detail workspace gains a redesigned out-of-sync banner. Its Policy Studio controls are also clearer, and an API proxy can be promoted to another environment through Gravitee Cloud. An API proxy can also be sent for review, and then waits for a reviewer before it starts. The from-scratch wizard also creates TCP Proxy APIs, which the detail pages then show without the HTTP-only screens. The filters of the **Logs** page also gain **starts with** for **Request URI**, a list of entrypoints, and **Between** ranges.
+API Management adds the following in 4.13:
+
+* **Import**: build and update API proxies from a Gravitee v4 API definition, an OpenAPI specification, or a WSDL document.
+* **New API proxy pages**: **Metadata**, **Documentation**, **Response Templates**, and **API Score**.
+* **API detail workspace**: a redesigned out-of-sync banner and clearer Policy Studio controls.
+* **Promotion and review**: promote an API proxy to another environment through Gravitee Cloud, or send it for review before it starts.
+* **TCP Proxy APIs**: the from-scratch wizard creates them, and the detail pages leave out the HTTP-only screens.
+* **Endpoints and federation**: secondary endpoints for HTTP Proxy APIs, and federated APIs in the **API Proxies** list.
+* **Logs filters**: **starts with** for **Request URI**, a list of entrypoints, and **Between** ranges.
 
 #### Import an API proxy
 
@@ -333,7 +350,12 @@ API Management gains a file-based path for building and updating API proxies. Ea
 
 ### Authorization Management
 
-Authorization Management imports principals from SCIM 2.0 directories. A directory reads the users and groups of an identity provider when you sync it or on its schedule. Every sync leaves a report of what it imported, changed, and left out. A new **Testing** group adds the **Policy Simulator** and the **Access Explorer**, which test MCP policies before you deploy them. Authorization Management keeps the schema as documents, and sends each document to the gateways that host the PDP gateway it's assigned to. A new **Observability** group adds the **Dashboards** and **Decisions** pages, which show the decisions your PDP gateways took and why.
+Authorization Management adds the following in 4.13:
+
+* **SCIM directories**: import users and groups from SCIM 2.0 directories as principals, on demand or on a schedule, with a report for every sync.
+* **Testing**: the **Policy Simulator** and **Access Explorer** test MCP policies before you deploy them.
+* **Schema documents**: the schema is kept as documents, each sent to the gateways that host the PDP gateway it's assigned to.
+* **Observability**: the **Dashboards** and **Decisions** pages show the decisions your PDP gateways took and why.
 
 #### SCIM directories
 
@@ -399,7 +421,13 @@ Edge Management can now run on a JDBC management repository.
 
 ### Event Stream Management
 
-Event Stream Management regroups its sidebar by object and opens on a new Overview page. It adds Message APIs, the Kafka Explorer, and an Observability section, and brings Kafka Services to the same management depth as Message APIs: a Security step in the creation wizard, subscriptions, metadata, broadcasts, alerts, API Score, the review workflow, import, export, and duplication. Message APIs connect clients to message backends such as Kafka, MQTT 5.x, Solace, and RabbitMQ. The Kafka Explorer reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
+Event Stream Management adds the following in 4.13:
+
+* **Navigation**: the sidebar is regrouped by object and opens on a new **Overview** page.
+* **Message APIs**: connect clients to message backends such as Kafka, MQTT 5.x, Solace, and RabbitMQ.
+* **Kafka Explorer**: reads the live brokers, topics, consumer groups, and messages of a Kafka target through saved connections.
+* **Kafka Services**: a **Security** step in the creation wizard, subscriptions, metadata, broadcasts, alerts, API Score, the review workflow, import, export, and duplication.
+* **Observability**: a new section with **Dashboards**, **Logs**, and **Tracing**.
 
 #### Sidebar groups and the Overview page
 
@@ -493,7 +521,14 @@ Event Stream Management regroups its sidebar by object and opens on a new Overvi
 
 ### Platform Management
 
-Platform Management adds environment-scoped dictionaries and metadata as reusable assets for APIs and API policies, gateway routing configuration for the organization, and organization-wide user administration. It also adds environment alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board. It adds the organization-wide console settings too, covering console authentication, console behavior, cross-origin access to the Management API, and outbound email. Each environment also turns API Score on or off, and can require a review before an API is started or published. APIM 4.13 Gateways connected to Gravitee Cloud send their traces and payload logs to Gravitee Cloud for the **Tracing** pages.
+Platform Management adds the following in 4.13:
+
+* **Reusable assets**: environment-scoped dictionaries and metadata for APIs and API policies.
+* **Organization administration**: gateway routing configuration and organization-wide user administration.
+* **Environment alerts**: alerts on gateway nodes, API traffic, and endpoint health checks, with their notification channels and an activity board.
+* **Console settings**: console authentication, console behavior, cross-origin access to the Management API, and outbound email.
+* **API governance**: each environment turns API Score on or off, and can require a review before an API is started or published.
+* **Cloud tracing**: APIM 4.13 Gateways connected to Gravitee Cloud send their traces and payload logs to Gravitee Cloud for the **Tracing** pages.
 
 #### Broadcast messages to environment members
 
