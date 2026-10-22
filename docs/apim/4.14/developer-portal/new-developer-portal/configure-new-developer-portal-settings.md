@@ -54,7 +54,7 @@ The page groups its settings into the following sections:
         </tr>
         <tr>
             <td><strong>Portal capabilities</strong></td>
-            <td>Appears only with an Enterprise license. For more information, see <a href="configuring-mtls-certificate-management-administrator-guide.md">Configure mTLS certificate management (administrator guide)</a>, <a href="portal-analytics-configuration-reference.md">Portal analytics configuration reference</a>, and <a href="../typo-tolerant-api-search.md">Typo-tolerant API search</a>.</td>
+            <td>Appears only with an Enterprise license. For more information, see <a href="configuring-mtls-certificate-management-administrator-guide.md">Configure mTLS certificate management (administrator guide)</a>, <a href="portal-analytics-configuration-reference.md">Portal analytics configuration reference</a>, <a href="show-ai-workspaces-in-the-developer-portal.md">Show AI Workspaces in the Developer Portal</a>, and <a href="../typo-tolerant-api-search.md">Typo-tolerant API search</a>.</td>
         </tr>
         <tr>
             <td><strong>Application membership</strong></td>
