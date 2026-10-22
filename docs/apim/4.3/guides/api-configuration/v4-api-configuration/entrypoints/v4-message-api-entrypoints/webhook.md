@@ -2,7 +2,7 @@
 description: This page describes the configuration options of the Webhook entrypoint
 ---
 
-# Webhook
+# Configure the Webhook entrypoint
 
 ## Configuration
 

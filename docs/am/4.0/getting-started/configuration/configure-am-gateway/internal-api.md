@@ -2,7 +2,7 @@
 description: API and reference documentation for The AM Gateway.
 ---
 
-# Internal API
+# Gateway internal API
 
 ## Overview
 
