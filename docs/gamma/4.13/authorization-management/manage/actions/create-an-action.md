@@ -10,13 +10,13 @@ Define the verbs your policies grant or forbid. Actions are the vocabulary the p
 
 ## How actions work
 
-Actions are stored as `RESOURCE` entities with the `action.` prefix in their Entity ID. For example, the action "invoke" has Entity ID `action.invoke`. In GAPL, actions appear in the `action` clause:
+An action is an entity of type `Action`. Its Entity ID is the action name exactly as a request carries it, with no prefix, for example `invoke` or `GET`. In GAPL, actions appear in the `action` clause as `Action::"<Entity ID>"`:
 
 ```
 permit (
   principal == User::"alice",
   action == Action::"invoke",
-  resource == MCPTool::"search"
+  resource == Resource::"customer-db"
 );
 ```
 
@@ -32,20 +32,20 @@ Click **Add action**. A dialog opens with the following fields:
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| **Name** | Yes | The action name. This becomes the Entity ID slug (for example, `invoke` → Entity ID `action.invoke`) |
 | **Display name** | Yes | Human-readable label shown in policy chip pickers |
+| **Entity ID** | Yes | The action name a request carries. It fills in from the display name, for example `Approve Refund` → `approve-refund`, and a policy matches it as `Action::"approve-refund"` |
 | **Description** | No | Explains what this action represents |
 
 ### 3. Create
 
-Click **Create**. The action appears in the Actions table.
+Click **Create action**. The action appears in the Actions table.
 
 ## Actions table columns
 
 | Column | Description |
 |--------|-------------|
 | **Action** | Display name |
-| **Entity ID** | Canonical identifier (for example, `action.invoke`). Click the copy icon to copy |
+| **Entity ID** | The action name a request carries (for example, `invoke`). Click the copy icon to copy |
 | **Description** | Optional description text |
 | **Source** | Where the action came from: **Local**, **APIM**, or **Gravitee Catalog** |
 

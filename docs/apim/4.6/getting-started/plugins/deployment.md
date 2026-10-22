@@ -2,7 +2,7 @@
 description: An overview about deployment.
 ---
 
-# Deployment
+# Deploy plugins
 
 ## Overview
 

@@ -2,7 +2,7 @@
 description: Configuration and setup guide for mock.
 ---
 
-# Mock
+# Mock endpoint
 
 ## Configuration
 

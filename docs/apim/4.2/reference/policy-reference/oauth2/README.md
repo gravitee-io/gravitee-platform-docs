@@ -2,7 +2,7 @@
 description: This page provides the technical details of the OAuth2 policy
 ---
 
-# OAuth2
+# OAuth2 policy
 
 ## Overview
 

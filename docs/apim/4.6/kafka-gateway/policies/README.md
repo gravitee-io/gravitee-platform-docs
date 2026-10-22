@@ -2,7 +2,7 @@
 description: Guide on policies and management for policies.
 ---
 
-# Policies
+# Kafka policies
 
 ## Introduction
 

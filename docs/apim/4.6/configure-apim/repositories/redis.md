@@ -2,7 +2,7 @@
 description: This article explains how to configure a Redis repository
 ---
 
-# Redis
+# Redis repository
 
 ## Overview
 

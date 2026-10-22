@@ -2,7 +2,7 @@
 description: This page contains the technical details of the RabbitMQ endpoint plugin
 ---
 
-# RabbitMQ
+# RabbitMQ endpoint reference
 
 {% hint style="warning" %}
 **This feature requires** [**Gravitee's Enterprise Edition**](../../overview/gravitee-apim-enterprise-edition/README.md)**.**

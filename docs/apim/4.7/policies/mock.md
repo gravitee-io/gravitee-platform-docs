@@ -3,7 +3,7 @@ description: An overview about ---.
 hidden: true
 ---
 
-# Mock
+# Mock policy
 
 ## Overview
 

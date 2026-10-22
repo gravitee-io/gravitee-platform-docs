@@ -2,7 +2,7 @@
 description: Configuration and usage guide for oauth2.
 ---
 
-# OAuth2
+# OAuth2 resource
 
 {% tabs %}
 {% tab title="Generic Authorization Server" %}
