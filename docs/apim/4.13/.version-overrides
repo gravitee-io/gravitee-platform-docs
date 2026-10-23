@@ -22,6 +22,7 @@ self-hosted-installation-guides/docker/docker-cli.md
 self-hosted-installation-guides/docker/docker-compose.md
 self-hosted-installation-guides/kubernetes/aws-eks.md
 self-hosted-installation-guides/kubernetes/azure-aks.md
+self-hosted-installation-guides/kubernetes/openshift.md
 self-hosted-installation-guides/kubernetes/vanilla-kubernetes/README.md
 getting-started/vanilla-kubernetes.md
 self-hosted-installation-guides/kubernetes/vanilla-kubernetes/deploy-apim-with-kubernetes-manifest.md

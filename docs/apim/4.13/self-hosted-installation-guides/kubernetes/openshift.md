@@ -121,7 +121,7 @@ Use the mongodb-replicaset only for testing purposes and running locally.
 
 | Parameter                        | Description                           | Default |
 | -------------------------------- | ------------------------------------- | ------- |
-| **`mongodb-replicaset.enabled`** | Enable deployment of Mongo replicaset | `false` |
+| **`mongodb.enabled`**            | Enable deployment of Mongo replicaset | `false` |
 
 {% hint style="info" %}
 You might encounter issues while running this Helm chart on Apple Silicon M1. If you want to deploy MongoDB on M1, use another Helm chart. For more information, go to [Support for ARM64 architecture in Bitnami container images](https://github.com/bitnami/charts/issues/7305).
