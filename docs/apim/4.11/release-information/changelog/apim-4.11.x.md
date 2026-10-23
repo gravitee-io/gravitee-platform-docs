@@ -1,5 +1,26 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.31 - October 23, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Duplicate items across Gravitee pagination pages [#11957](https://github.com/gravitee-io/issues/issues/11957)
+
+**Other**
+
+* DCR application_type case-sensitive comparison causes WEB/NATIVE/BROWSER apps to be classified as SERVICE [#11230](https://github.com/gravitee-io/issues/issues/11230)
+* Double slash after migration to V4 API [#11612](https://github.com/gravitee-io/issues/issues/11612)
+* APIM Gateway not reloading TLS certificate after cert-manager rotation [#11910](https://github.com/gravitee-io/issues/issues/11910)
+* Console requires a client secret for an OIDC identity provider that the Management API accepts without one [#11911](https://github.com/gravitee-io/issues/issues/11911)
+* Broadcast Message not working [#11926](https://github.com/gravitee-io/issues/issues/11926)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.30 - October 14, 2026
 <details>
 
