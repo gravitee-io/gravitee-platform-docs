@@ -238,6 +238,26 @@ When you add a folder to an API, that folder becomes nested within that API in t
 1. Navigate to the folder in the **Navigation items** menu.
 2. Click **the ellipsis**.
 3. Click **Add folder**.
+
+**Change the display name of an API**
+
+When you add an API, its navigation item takes the name of the API. To show a different name in the New Developer Portal, change the display name of the item. The name of the API doesn't change.
+
+1. Navigate to the API in the **Navigation items** menu.
+2. Click **the ellipsis**.
+3. Click **Edit**.
+4.  In the **API Display Name** field, type the name to display in the New Developer Portal. The **Linked API (read-only)** field shows the name of the API.<br>
+
+    <figure><img src="../../.gitbook/assets/devportal-edit-api-display-name.png" alt="Edit dialog of the docbot-pmt-svc-v2 API item, with Payments API in the API Display Name field and docbot-pmt-svc-v2 in the Linked API (read-only) field"><figcaption><p>Edit dialog of an API item</p></figcaption></figure>
+5. Click **Save**.
+
+When you select the API item, the panel shows **Linked API** with the name of the API.
+
+If the API item is already published, the New Developer Portal shows the new name without publishing the item again. The display name appears in the navigation tree and in the breadcrumb. The **Catalog** and the default **Overview** page show the name of the API, and the **Catalog** search doesn't look at the display name.
+
+<figure><img src="../../.gitbook/assets/devportal-api-display-name-navigation.png" alt="The APIs section of the New Developer Portal, with Payments API in the navigation tree and in the breadcrumb, and the Overview page titled docbot-pmt-svc-v2"><figcaption><p>Display name in the New Developer Portal</p></figcaption></figure>
+
+If a [portal listing](customize-the-navigation/portal-automation/portal-listings.md) manages the API item, applying the listing again replaces the display name.
 {% endtab %}
 {% endtabs %}
 
