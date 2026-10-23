@@ -13,13 +13,17 @@ A `TLSContext` with `upstream: true` validates the certificate that the upstream
 
 #### A missing or invalid `TLSContext` now blocks the upstream connection
 
-Previously, when the `tls` field of a `Mapping` named a `TLSContext` that didn't exist or had a configuration error, Ambassador Edge Stack connected to the upstream service without it. It used TLS without the settings of the `TLSContext` when the `service` started with `https://`, and plaintext otherwise. With the default Kubernetes Service Resolver, Ambassador Edge Stack now doesn't connect to the upstream service until the `TLSContext` exists and is valid. Requests to the `Mapping` get a `503` response, and Ambassador Edge Stack logs a warning.
+{% hint style="warning" %}
+Before you upgrade, check for any `TLSContext` that has no certificate and no CA, such as one that only sets `sni` or `min_tls_version`. After the upgrade, requests to a `Mapping` whose `tls` field names it get a `503` response when the `Mapping` uses the default Kubernetes Service Resolver.
+{% endhint %}
+
+Previously, when the `tls` field of a `Mapping` named a `TLSContext` that didn't exist or had a configuration error, Ambassador Edge Stack connected to the upstream service without it. It used TLS without the settings of the `TLSContext` when the `service` started with `https://`, and plaintext otherwise. With the default Kubernetes Service Resolver, Ambassador Edge Stack now doesn't connect to the upstream service until the `TLSContext` exists and is valid. Requests to the `Mapping` get a `503` response, and Ambassador Edge Stack logs a warning. With `KubernetesEndpointResolver` or `ConsulResolver`, Ambassador Edge Stack still connects without the `TLSContext`, as before, unless the `service` is an IP address.
 
 This includes a `TLSContext` with no certificate and no CA, such as one that only sets `sni` or `min_tls_version`, because Ambassador Edge Stack treats it as invalid.
 
 The `tls` field of a `TCPMapping`, an `AuthService`, and a `RateLimitService` now blocks the connection in the same way. For an `AuthService`, requests then get its `status_on_error` response, unless `failure_mode_allow` is `true`. For a `RateLimitService`, requests then go through without rate limiting, unless `failure_mode_deny` is `true`.
 
-To find affected resources before you upgrade, search the Ambassador Edge Stack logs for `Originate-TLS context`.
+To find affected resources before you upgrade, search the Ambassador Edge Stack logs for `Originate-TLS context`. The message says `is not defined` even when the `TLSContext` exists but is invalid. The same search also finds the message `Originate-TLS context ... being used even though service ... lists HTTP`, which isn't related to this change.
 
 ### Version 3.14.4 (October 7, 2026) <a href="#id-3.14.4" id="id-3.14.4"></a>
 
