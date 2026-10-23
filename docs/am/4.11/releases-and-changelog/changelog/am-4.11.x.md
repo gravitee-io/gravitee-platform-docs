@@ -6,6 +6,23 @@ description: >-
 
 # AM 4.11.x
 
+## Gravitee Access Management 4.11.20 - October 23, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.11.19 - October 23, 2026
 
 <details>
