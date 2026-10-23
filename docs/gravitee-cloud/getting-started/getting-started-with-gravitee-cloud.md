@@ -31,3 +31,5 @@ If the email doesn't arrive within a few minutes, check your spam folder.
 You are then directed to the Gravitee Cloud Dashboard, where you can discover your options in Gravitee Cloud UI or go straight into API Management Control Plane by accessing APIM Console or Dev Portal.
 
 <figure><img src="../.gitbook/assets/gravitee-cloud-default-dashboard.png" alt="The Gravitee Cloud dashboard after sign-up, showing a single trial environment and the days remaining on the enterprise trial."><figcaption></figcaption></figure>
+
+For more information about the **Environments** section of the **Dashboard**, see [Access your environments](access-your-environments.md).
