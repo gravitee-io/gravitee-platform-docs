@@ -5,6 +5,19 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.25 - October 23, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* DCR application_type case-sensitive comparison causes WEB/NATIVE/BROWSER apps to be classified as SERVICE [#11230](https://github.com/gravitee-io/issues/issues/11230)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.24 - October 22, 2026
 <details>
 
