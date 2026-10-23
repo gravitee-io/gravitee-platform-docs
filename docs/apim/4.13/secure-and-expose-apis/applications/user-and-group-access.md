@@ -93,6 +93,8 @@ Under the **Members** tab, you can add users or groups as members of your applic
 * Click **+ Add members** to add members to your application. You can search for users by name or email.
 * Use the **Role** drop-down menu to select member roles, which grant specific permissions. For more information on roles, please refer to the [Roles](../../configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md#roles) documentation.
 
+If application members are the only members your roles let you manage, the user search returns only exact matches. Type the full display name or login of the user you want to add.
+
 #### Creating Application Members
 
 1. Click **Add Member** to open the member creation dialog.
@@ -209,6 +211,8 @@ Click **Application member** and use the drop-down menu to select a user who is 
 <figure><img src="../../.gitbook/assets/00 groups added to applications 5.png" alt="The Transfer ownership tab of an application, with Application member selected and the member dropdown open on one name."><figcaption></figcaption></figure>
 
 Click **Other user** to search for someone who is not a member of your application. You can enter either their name or email into the search field. Once you've selected a new primary owner for your application, use the drop-down to assign their role.
+
+If application members are the only members your roles let you manage, this search returns only exact matches. Type the full display name or login of the user you want to make the primary owner.
 
 <figure><img src="../../.gitbook/assets/00 groups added to applications 6.png" alt="The Transfer ownership tab with Other user selected, a user searched, and the new role for the current primary owner set to OWNER."><figcaption></figcaption></figure>
 

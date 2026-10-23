@@ -278,3 +278,6 @@ configure-and-manage-the-platform/manage-organizations-and-environments/create-a
 .gitbook/assets/devportal-edit-api-display-name.png
 .gitbook/assets/devportal-api-display-name-navigation.png
 self-hosted-installation-guides/.zip.md
+# User search: exact matches for application-only member managers, email default in the 4.13 template (APIM-15506)
+secure-and-expose-apis/applications/user-and-group-access.md
+configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers.md
