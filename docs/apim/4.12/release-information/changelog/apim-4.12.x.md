@@ -5,6 +5,65 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.24 - October 22, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Management API leaks closed Vert.x HttpClient and WebSocketClient instances until heap exhaustion [#11900](https://github.com/gravitee-io/issues/issues/11900)
+* HTTP fetcher, Kafka console proxy and debug mode leak one Vert.x HttpClient per call [#11974](https://github.com/gravitee-io/issues/issues/11974)
+* GitHub, GitLab and Bitbucket fetchers leak one Vert.x HttpClient per call [#11977](https://github.com/gravitee-io/issues/issues/11977)
+* Gateway and Management API leak Vert.x HTTP and WebSocket clients on every API redeploy [#11983](https://github.com/gravitee-io/issues/issues/11983)
+
+**Console**
+
+* Duplicate items across Gravitee pagination pages [#11957](https://github.com/gravitee-io/issues/issues/11957)
+
+**Event Stream Management**
+
+* Dynamic properties not working on NATIVE (Kafka) API type [#11860](https://github.com/gravitee-io/issues/issues/11860)
+* Kafka Mesh sends the first cluster’s credentials to every cluster [#11971](https://github.com/gravitee-io/issues/issues/11971)
+* Gateway leaks one Vert.x HttpClient per failed JWKS fetch [#11972](https://github.com/gravitee-io/issues/issues/11972)
+
+**AI Agent Management**
+
+* MCP Studio: passthrough upstream auth doesn't forward the caller's token to HTTP tool backends [#11905](https://github.com/gravitee-io/issues/issues/11905)
+* AIM leaks one Vert.x WebClient per AM management call [#11981](https://github.com/gravitee-io/issues/issues/11981)
+
+**Other**
+
+* Double slash after migration to V4 API [#11612](https://github.com/gravitee-io/issues/issues/11612)
+* Gateway leaks one Vert.x NetClient per health check execution since 4.12 [#11715](https://github.com/gravitee-io/issues/issues/11715)
+* Analytics engine: HTTP_METHOD filter fails with number_format_exception on v4 metrics [#11812](https://github.com/gravitee-io/issues/issues/11812)
+* Gateway that shuts down cleanly is never marked STOPPED, stays UNKNOWN forever [#11882](https://github.com/gravitee-io/issues/issues/11882)
+* APIM Gateway not reloading TLS certificate after cert-manager rotation [#11910](https://github.com/gravitee-io/issues/issues/11910)
+* Console requires a client secret for an OIDC identity provider that the Management API accepts without one [#11911](https://github.com/gravitee-io/issues/issues/11911)
+* Sharding Tag Persists on API preview After Deletion [#11923](https://github.com/gravitee-io/issues/issues/11923)
+* Observability Logs search times out (HTTP 500) due to secondary request-ID sort on historical data [#11924](https://github.com/gravitee-io/issues/issues/11924)
+* Broadcast Message not working [#11926](https://github.com/gravitee-io/issues/issues/11926)
+* ConcurrentModificationException on Request Header Write [#11947](https://github.com/gravitee-io/issues/issues/11947)
+* MCP: resource_metadata URL in 401 returns 404 when context path is not / [#11948](https://github.com/gravitee-io/issues/issues/11948)
+* v4 metrics embed the request log: File and TCP reporters write payloads even when only OTel Logs is enabled [#11970](https://github.com/gravitee-io/issues/issues/11970)
+* Webhook entrypoint leaks Vert.x HTTP clients on every subscription start [#11979](https://github.com/gravitee-io/issues/issues/11979)
+* JsonSchemaForm: array field titles render as section headings
+* Policy Studio actions menus show "Enabled" on disabled steps and flows
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Isolate Management API outbound HTTP clients per organization [#11956](https://github.com/gravitee-io/issues/issues/11956)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.23 - October 14, 2026
 
  
