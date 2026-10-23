@@ -71,8 +71,8 @@ Click **Add attribute** to define custom key-value pairs. Each attribute has:
 | Field | Description |
 |-------|-------------|
 | **Key** | Attribute name (must not conflict with reserved keys like `_displayName`) |
-| **Type** | `String`, `Number`, `Boolean`, or `Set` |
-| **Value** | The attribute value. For Set type, enter comma-separated values |
+| **Type** | One of the types of the **Attribute type** list, such as **String**, **Integer**, **Boolean**, or **Set&lt;String&gt;**. See [Attribute types](add-attributes-to-principals.md#attribute-types) |
+| **Value** | The attribute value. For a **Set&lt;String&gt;**, enter comma-separated values |
 
 Attributes are referenced in policy conditions. For example, `principal.department == "engineering"`.
 
