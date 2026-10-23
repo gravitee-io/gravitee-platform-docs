@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.34 - October 23, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* AM OpenAPI has duplicate tags [#10150](https://github.com/gravitee-io/issues/issues/10150)
+* NPE (500) on domain, application and protected-resource lists when a scoped role carries no matching permission [#11817](https://github.com/gravitee-io/issues/issues/11817)
+* Login hangs when a user has a non-string OIDC claim [#11843](https://github.com/gravitee-io/issues/issues/11843)
+
+</details>
+
+
 ## Gravitee Access Management 4.9.33 - October 5, 2026
 
 <details>

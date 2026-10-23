@@ -10,6 +10,18 @@ This section contains an overview of the new features in Gravitee Cloud's releas
 
 <details>
 
+<summary>22nd October</summary>
+
+**Access your environments from the Dashboard**
+
+From the **Environments** section of the Gravitee Cloud **Dashboard**, open the APIM Console, the Developer Portal, or, when your account has access to Gamma, the Gamma console of an environment. Each one opens in a new browser tab. On a trial account, the **Dashboard** also shows how many days remain in your enterprise trial.
+
+For more information, see [Access your environments](../getting-started/access-your-environments.md).
+
+</details>
+
+<details>
+
 <summary>14th October</summary>
 
 **New sign-in experience**

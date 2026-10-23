@@ -10,14 +10,15 @@ This is the comprehensive reference for the Authorization Management policy edit
 
 ## Policy editor overview
 
-The policy editor opens as a slide-out panel from any policy management page: **MCPs**, **AI Models**, **APIs**, **A2A Agents**, or **Custom Policies**. It provides the following two editing modes:
+The policy editor opens as a slide-out panel from any policy management page: **MCPs**, **AI Models**, **APIs**, **A2A Agents**, or **Custom Policies**. It provides the following editing modes:
 
 | Mode | Description |
 |------|-------------|
-| **Visual** | Build policies using statement cards with chip pickers for principals, actions, and resources |
+| **Visual** | Build policies using statement cards with chip pickers for principals, actions, and resources. For an MCP policy, **Visual** is a tool-based view instead: the effect, one principal, the server's tools, which you can sort A–Z or group by intent, and an optional condition |
+| **Classic** | MCP policies only. The statement cards that the other categories show under **Visual** |
 | **Code** | Edit GAPL directly in a Monaco editor with syntax highlighting |
 
-Toggle between modes using the **Visual / Code** toggle in the editor header. If your GAPL uses features the visual editor cannot represent, the **Visual** toggle is disabled with the explanation: "This policy uses GAPL features that the visual editor cannot represent. Use the Code view to edit it directly."
+Toggle between modes in the editor header: **Visual / Code**, or **Visual / Classic / Code** for an MCP policy. When an MCP policy can't be shown in the tool-based view without losing detail, its **Visual** option is disabled with the explanation: "This policy can't be edited in the Visual editor without losing detail. Use Classic or Code." For the other categories, if your GAPL uses features the visual editor cannot represent, the **Visual** toggle is disabled with the explanation: "This policy uses GAPL the visual editor cannot represent."
 
 ## Create a policy
 
@@ -45,7 +46,16 @@ Navigate to the appropriate page under **Policy Management**. The following tabl
 
 ### Open the editor
 
-On the **MCPs**, **AI Models**, **APIs**, or **A2A Agents** page, click **Create policy**. A **Create policy for** dialog opens so you can pick the catalog entry the policy applies to, and then the editor opens.
+On the **AI Models**, **APIs**, or **A2A Agents** page, click **Create policy**. A **Create policy for** dialog opens so you can pick the catalog entry the policy applies to, and then the editor opens.
+
+On the **MCPs** page, **Create policy** opens the **Create MCP policy** wizard, which builds one rule and applies it to one or more principals in four steps:
+
+1. **MCP**. Choose the MCP server.
+2. **Tools**. Choose **Permit** or **Forbid**, and select the tools of the server, sorted A–Z or grouped by intent, such as **READ** and **WRITE**. Optionally, click **Advanced condition** to add a condition.
+3. **Principals**. Select one or more principals. Each principal gets its own policy. Optionally, under **Only when acting through**, restrict the policies to requests made through an agent identity.
+4. **Review**. Name the policy, check what will be created, and optionally click **Show GAPL preview**. Then click **Create policy** to save it as a draft, or **Create and Deploy policy**.
+
+The wizard writes each tool as both the action and the resource, such as `action == Action::"weather.get_forecast"` and `resource == MCPTool::"weather.get_forecast"`. To build the statements yourself instead, click **Switch to manual editor**: the **Create policy for** dialog opens, and then the editor opens in the **Classic** view.
 
 On the **Custom Policies** page, click **Create Custom Policy**. The editor opens straight away, because a custom policy has no target.
 
