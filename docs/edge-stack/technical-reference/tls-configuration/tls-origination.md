@@ -167,7 +167,7 @@ To use a CA bundle from another path in the container, set the [`AMBASSADOR_SYST
 
 #### Rejected configurations
 
-Ambassador Edge Stack rejects a `TLSContext` in each of these cases:
+Ambassador Edge Stack rejects a `TLSContext` used for TLS origination in each of these cases:
 
 * It sets `upstream: true` and a non-empty `hosts` list.
 * It sets `verify_server_hostname: true` without `upstream: true`.
