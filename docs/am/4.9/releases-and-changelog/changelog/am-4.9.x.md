@@ -6,6 +6,18 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.35 - October 23, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+* This update resolves security fixes.
+
+</details>
+
+
+
 ## Gravitee Access Management 4.9.34 - October 23, 2026
 
 <details>
