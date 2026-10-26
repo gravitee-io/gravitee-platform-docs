@@ -55,6 +55,10 @@ The [MongoDB](https://www.mongodb.org/) repository is included with AM by defaul
 AM has been tested using Mongo DB in version **4.4** up to **8.2**
 {% endhint %}
 
+{% hint style="warning" %}
+AM uses the MongoDB Java driver 5.13, which requires MongoDB **4.2** or later. AM cannot connect to MongoDB 3.6 or 4.0.
+{% endhint %}
+
 ### Configuration
 
 {% tabs %}
@@ -197,6 +201,13 @@ Some databases are almost fully compatible with MongoDB, such as:
 * Azure Cosmos DB for MongoDB (Azure)
 
 However, some features may not be supported, or may exhibit unexpected behavior or performance. Consequently, **MongoDB is currently the only officially supported database**.
+
+The MongoDB driver used by AM rejects databases that expose a MongoDB API older than 4.2. Use the following versions:
+
+* DocumentDB (AWS) 5.0 or later. DocumentDB 3.6 and 4.0 are not supported.
+* Azure Cosmos DB for MongoDB with server version 4.2 or later. Server versions 3.2, 3.6, and 4.0 are not supported.
+
+DocumentDB versions earlier than 8.0.2 do not support retryable writes. Add `retryWrites=false` to the connection URI, or set `retryWrites: false` in the repository configuration.
 {% endhint %}
 
 ## JDBC
