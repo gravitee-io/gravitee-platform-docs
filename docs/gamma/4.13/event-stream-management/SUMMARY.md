@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Get started](get-started/README.md)
+* [Get started with Event Stream Management](get-started/README.md)
   * [Event Stream Management overview](get-started/event-stream-management-overview.md)
   * [Register your first cluster](get-started/register-your-first-cluster.md)
   * [Create your first Kafka Service](get-started/create-your-first-kafka-service.md)

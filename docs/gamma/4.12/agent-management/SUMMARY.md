@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Overview](get-started/README.md)
+* [Get started with Agent Management](get-started/README.md)
   * [LLM Proxy provider support](build/llm-proxy-provider-support.md)
   * [AI resources](build/ai-resources.md)
   * [Release Notes](https://documentation.gravitee.io/platform-management/gamma-release-notes)

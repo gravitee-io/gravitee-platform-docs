@@ -3,7 +3,7 @@
 * [Overview](overview.md)
 * [Release Notes](gamma-release-notes.md)
 * [Support model](https://documentation.gravitee.io/platform-management/support-model)
-* [Get started](get-started/README.md)
+* [Get started with Platform Management](get-started/README.md)
   * [Get started for new users](get-started/get-started-for-new-users/README.md)
     * [Fully self-hosted installation with Vanilla Kubernetes](get-started/get-started-for-new-users/fully-self-hosted-with-vanilla-kubernetes.md)
     * [Fully self-hosted installation with Docker](get-started/get-started-for-new-users/fully-self-hosted-with-docker.md)

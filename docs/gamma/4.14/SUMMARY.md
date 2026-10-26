@@ -7,7 +7,7 @@
 
 ## Edge Management
 
-* [Get started](edge-management/get-started/README.md)
+* [Get started with Edge Management](edge-management/get-started/README.md)
   * [Edge Management overview](edge-management/get-started/edge-management-overview.md)
 * [Configure](edge-management/connect/README.md)
   * [Set up Edge Management](edge-management/connect/set-up-edge-management.md)

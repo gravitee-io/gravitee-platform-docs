@@ -4,7 +4,7 @@ noIndex: false
 description: Agent Management in Gamma, from the roles reference to the MCP Proxy and LLM Proxy quickstarts. Start with the page that fits your task.
 ---
 
-# Get started
+# Get started with Agent Management
 
 New to Agent Management in Gamma? Start with the following pages:
 

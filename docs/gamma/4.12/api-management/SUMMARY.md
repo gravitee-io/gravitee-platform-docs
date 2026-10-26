@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Get started](get-started/README.md)
+* [Get started with API Management](get-started/README.md)
   * [API Management overview](get-started/api-management-overview.md)
   * [Create your first API](get-started/create-your-first-api.md)
   * [Installation guides](https://documentation.gravitee.io/platform-management/install)
