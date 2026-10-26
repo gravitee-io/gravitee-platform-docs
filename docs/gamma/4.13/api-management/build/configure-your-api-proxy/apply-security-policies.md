@@ -79,6 +79,7 @@ Gamma's initial release supports all existing Gravitee APIM policies (40+), incl
 | **Rate Limiting**     | Request            | Limits the number of requests a consumer can make within a time window. |
 | **Transform Headers** | Request / Response | Add, remove, or modify HTTP headers.                                    |
 | **Assign Content**    | Request / Response | Override the request or response body.                                  |
+| **OAuth 2.0 Token Exchange** | Request | Exchanges a token, usually the consumer's access token, for one that a trusted authorization server issues and, by default, writes the issued token to the `Authorization` header. See [OAuth 2.0 Token Exchange](https://documentation.gravitee.io/apim/create-and-configure-apis/apply-policies/policy-reference/oauth2-token-exchange). |
 
 {% hint style="info" %}
 Gamma inherits the existing APIM policy catalog. For the complete list of available policies and their configuration fields, refer to the [API Management policy reference documentation](https://documentation.gravitee.io/apim/guides/policies).
