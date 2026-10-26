@@ -357,17 +357,6 @@ The `Metadata` schema of the Automation API no longer includes the `hidden` prop
 
 The request body of the Create Cluster endpoint of the Management API v2 (`POST /environments/{envId}/clusters`) now requires a `type` property with one of the following values: `KAFKA_CLUSTER_STANDALONE`, `KAFKA_CLUSTER`, or `KAFKA_VIRTUAL_CLUSTER`. In earlier versions, the request body schema didn't include a `type` property. Update any clients or scripts that create clusters to include the `type` property.
 
-**OpenTelemetry tracing: traces identify the Gateway as the service, not the API**
-
-Every trace that the Gateway exports now identifies the Gateway as the service. Before 4.12.0, the traces of an API identified that API as the service:
-
-* `service.name` is now `gio-apim-gateway`. It was the API's name.
-* `service.namespace` is now `gravitee`. It was the kind of API: `API_V4`, `API_V4_TCP`, `API_V2`, or `API_V2_EMULATED`.
-* `service.version` is now the Gateway's version. It was the API's version.
-* `service.instance.id` is now the Gateway node's identifier. It was the API's identifier.
-
-The API identity is carried as the resource attributes `gravitee.api.id`, `gravitee.api.name`, `gravitee.api.type`, `gravitee.org.id`, and `gravitee.env.id` instead. If your tracing backend groups or filters traces by service name, update those views to use `gravitee.api.name` or `gravitee.api.id`. The OpenTelemetry log records that the Gateway exports carry the same `service.name`, so a log record and its trace match on the service. For more information, see [Attribute placement](../analyze-and-monitor-apis/opentelemetry.md#attribute-placement).
-
 #### 4.11.14
 
 **API Key policy: the header name set on a plan takes precedence over the Gateway setting**

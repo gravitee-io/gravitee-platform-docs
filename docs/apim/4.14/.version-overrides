@@ -17,5 +17,3 @@ developer-portal/new-developer-portal/configure-new-developer-portal-settings.md
 create-and-configure-apis/apply-policies/policy-reference/pii-filtering.md
 # OAuth 2.0 Token Exchange policy compatibility matrix (DOC-1954)
 create-and-configure-apis/apply-policies/policy-reference/oauth2-token-exchange.md
-# OpenTelemetry service identity entry under 4.12.0 (DOC-1939)
-release-information/breaking-changes-and-deprecations.md
