@@ -4,7 +4,7 @@ noIndex: false
 description: Event Stream Management in Gamma, from the product overview to the quickstarts for clusters, Kafka Services, and Virtual Clusters. Start where you need.
 ---
 
-# Get started
+# Get started with Event Stream Management
 
 New to Event Stream Management in Gamma? Start with the following pages:
 

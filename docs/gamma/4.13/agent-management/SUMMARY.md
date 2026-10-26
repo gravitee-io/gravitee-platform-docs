@@ -6,7 +6,7 @@
   * [Release Notes](https://documentation.gravitee.io/platform-management/gamma-release-notes)
   * [Breaking Changes and Deprecations](https://documentation.gravitee.io/platform-management/gamma-release-notes/gamma-breaking-changes)
   * [Support model](https://documentation.gravitee.io/platform-management/support-model)
-* [Get started](get-started/README.md)
+* [Get started with Agent Management](get-started/README.md)
   * [Roles and permissions](get-started/roles-and-permissions.md)
   * [Create your first MCP server](get-started/create-your-first-mcp-server.md)
   * [Create your first LLM Proxy](get-started/create-your-llm-proxy.md)
