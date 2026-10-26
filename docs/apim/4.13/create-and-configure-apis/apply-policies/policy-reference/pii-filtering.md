@@ -19,6 +19,25 @@ The policy uses pre-trained AI models to identify PII entities in text. Two mode
 
 Models are loaded into memory at runtime and require write permissions to `$GRAVITEE_HOME/models` for automatic downloads. Each model outputs token-level predictions with confidence scores (0.0–1.0) and entity labels (for example, `B-PER`, `I-LOC`, `EMAIL`).
 
+### Pattern-based detection
+
+Before the model runs, the policy redacts values that match a fixed format. These matches don't depend on the confidence threshold, and a format is only checked when its category is selected in the policy. The following table lists the formats and the category each one counts toward:
+
+| Format | Category |
+|:-------|:---------|
+| Email addresses | `EMAIL` |
+| URLs with one of these schemes: `http`, `https`, `ws`, `wss`, `ftp`, `ftps`, `sftp`, `ldap`, `ldaps`, `ssh`, `telnet`, `postgres`, `postgresql`, `mysql`, `mongodb`, `redis`, `amqp`, `amqps`, `mqtt`, `mqtts`, `rtsp`, `rtsps`, `coap`, or `coaps` | `NETWORK_IDENTIFIER` |
+| IPv4 and IPv6 addresses | `NETWORK_IDENTIFIER` |
+| MAC addresses written with colons, hyphens, or dots | `NETWORK_IDENTIFIER` |
+| Payment card numbers that pass the checksum and belong to Visa, Mastercard, American Express, Discover, Diners Club, JCB, or UnionPay | `FINANCIAL_ACCOUNT` |
+| IBANs that pass the check-digit validation | `FINANCIAL_ACCOUNT` |
+| US ABA routing numbers that pass the checksum | `FINANCIAL_ACCOUNT` |
+| Bitcoin addresses in Bech32 or Bech32m format, starting with `bc1` | `CRYPTOCURRENCY_WALLET` |
+| US Social Security numbers written with hyphens | `GOVERNMENT_ID` |
+| 15-digit IMEI numbers that pass the checksum | `DEVICE_IDENTIFIER` |
+
+Every other category, including `CREDENTIAL`, depends on the model alone. Pattern matches are redacted before the text reaches the model, and they're counted in the same metrics as model detections.
+
 ### Dual-phase redaction
 
 The policy operates in two phases:
@@ -97,7 +116,6 @@ Configure the policy at the API plan level.
 | `resourceName` | Name of the AI Model Token Classification resource | `my-pii-detector` |
 | `categories` | PII categories to detect (see [supported categories](pii-filtering.md#supported-pii-categories)) | `["PERSON", "EMAIL"]` |
 | `threshold` | Minimum AI confidence score (0.0–1.0) to trigger redaction | `0.5` |
-| `customMapping` | Custom label-to-category mappings | `{"CUSTOM_LABEL": "PERSON"}` |
 | `skipResponsePayloadFiltering` | Skip PII filtering for response payload (required for streaming) | `false` |
 
 The policy automatically handles BIO tagging prefixes (B-, I-, S-, E-). When a category is enabled (for example, PERSON), any model label matching that category after prefix stripping (for example, B-PERSON, I-PERSON) is redacted. Isolated I-tokens (tokens with an I- prefix that don't follow a corresponding B- token) are discarded to prevent false positives.
@@ -158,6 +176,11 @@ The following table lists all supported PII categories and their corresponding a
             <td>Bank account numbers, credit card numbers, and financial identifiers</td>
         </tr>
         <tr>
+            <td><code>CRYPTOCURRENCY_WALLET</code></td>
+            <td><code>long_pii_cryptoWallet</code></td>
+            <td>Bitcoin addresses in Bech32 or Bech32m format</td>
+        </tr>
+        <tr>
             <td><code>GOVERNMENT_ID</code></td>
             <td><code>long_pii_governmentId</code></td>
             <td>Passport numbers, national IDs, social security numbers, and similar</td>
@@ -170,7 +193,7 @@ The following table lists all supported PII categories and their corresponding a
         <tr>
             <td><code>CREDENTIAL</code></td>
             <td><code>long_pii_credential</code></td>
-            <td>Passwords, API keys, tokens, and authentication credentials</td>
+            <td>Passwords that the <code>gravitee-io/bert-small-pii-detection</code> model labels as such. API keys and tokens are redacted only when the model classifies them as a password. No pattern covers this category, and <code>dslim/distilbert-NER</code> has no label for it.</td>
         </tr>
         <tr>
             <td><code>DEMOGRAPHIC</code></td>
@@ -187,7 +210,7 @@ The following table lists all supported PII categories and their corresponding a
 
 A total count metric (`long_pii_total`) is also emitted for every detection event.
 
-<!-- Verified from PiiCategory.java:17-55 — all 13 categories and their exact metric key strings. -->
+<!-- Verified from PiiCategory.java:17-58 at gravitee-policy-pii-filtering 3.1.0 (cd38048): all 14 categories and their exact metric key strings. -->
 
 ## Creating a PII Filtering Policy
 
@@ -232,7 +255,14 @@ Without this setting, streaming requests are rejected with a 400 error:
 - AI resource name is required and must reference an existing AI Model Token Classification resource
 - Response filtering is skipped when `skipResponsePayloadFiltering=true` (only request body is redacted)
 - Overlapping PII entities are merged using `BitSet` to prevent double-redaction
-- Custom label mappings override default category mappings
+
+## Limitations
+
+- Both models were trained on English text. The `gravitee-io/bert-small-pii-detection` [model card](https://huggingface.co/gravitee-io/bert-small-pii-detection) states that other languages degrade detection, and `dslim/distilbert-NER` was fine-tuned on the English CoNLL-2003 dataset, as described on its [model card](https://huggingface.co/dslim/distilbert-NER).
+- The policy redacts only the characters that the model labels. When the model labels part of a value, the rest of the value isn't redacted.
+- Lowering the threshold doesn't recover a value that the model didn't label as PII. The threshold filters out model detections with a low confidence score. It doesn't add detections, and pattern-based detection ignores it.
+- The policy treats a threshold of 0 or less as not set and uses 0.5 instead. A threshold above 0 and below 0.01 is raised to 0.01. Neither adjustment causes an error or an execution warning.
+- With `dslim/distilbert-NER`, the model detects only `PERSON`, `ORGANIZATION`, `LOCATION`, and `MISCELLANEOUS`. The other categories rely on pattern-based detection, so `PHONE`, `VEHICLE_ID`, `CREDENTIAL`, and `DEMOGRAPHIC` aren't detected with this model.
 
 ## Related changes
 

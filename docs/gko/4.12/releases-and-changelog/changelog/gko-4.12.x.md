@@ -4,6 +4,20 @@ description: Every patch release in the Gravitee Kubernetes Operator 4.12 series
 
 # GKO 4.12.x
 
+## Gravitee Kubernetes Operator 4.12.24 - October 26, 2026
+
+There is nothing new in version 4.12.24.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.12.23 - October 26, 2026
+
+There is nothing new in version 4.12.23.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
 ## Gravitee Kubernetes Operator 4.12.22 - October 15, 2026
     
 <details>
