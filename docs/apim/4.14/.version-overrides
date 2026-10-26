@@ -13,3 +13,5 @@ developer-portal/new-developer-portal/configure-new-developer-portal-settings.md
 .gitbook/assets/portal-settings-enable-ai-workspaces.png
 .gitbook/assets/portal-my-workspace-list.png
 .gitbook/assets/portal-ai-workspace-details.png
+# PII Filtering: pattern-based detection, CREDENTIAL scope, and limitations (DOC-1955)
+create-and-configure-apis/apply-policies/policy-reference/pii-filtering.md
