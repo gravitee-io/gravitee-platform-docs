@@ -281,3 +281,5 @@ self-hosted-installation-guides/.zip.md
 # User search: exact matches for application-only member managers, email default in the 4.13 template (APIM-15506)
 secure-and-expose-apis/applications/user-and-group-access.md
 configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers.md
+# PII Filtering: pattern-based detection, CREDENTIAL scope, and limitations (DOC-1955)
+create-and-configure-apis/apply-policies/policy-reference/pii-filtering.md
