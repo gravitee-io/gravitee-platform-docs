@@ -341,3 +341,22 @@ You can override the default response with a response template defined at the AP
         </tr>
     </tbody>
 </table>
+
+## Compatibility matrix
+
+The following is the compatibility matrix for APIM and the `oauth2-token-exchange` policy:
+
+<table data-full-width="false">
+    <thead>
+        <tr>
+            <th>Plugin Version</th>
+            <th>Supported APIM versions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1.x</td>
+            <td>4.13.0 and later</td>
+        </tr>
+    </tbody>
+</table>
