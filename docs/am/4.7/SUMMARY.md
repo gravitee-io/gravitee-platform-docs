@@ -129,7 +129,7 @@
   * [Roles](guides/user-management/roles.md)
   * [User Registration](guides/user-management/user-registration.md)
   * [Account Linking](guides/user-management/account-linking.md)
-  * [SCIM 2.0](guides/user-management/scim-2.0.md)
+  * [SCIM 2.0 for users and groups](guides/user-management/scim-2.0.md)
   * [User Consent](guides/user-management/user-consent.md)
   * [Password Policy](guides/user-management/password-policy.md)
   * [Self-service Account Management](guides/user-management/self-service-account-management.md)

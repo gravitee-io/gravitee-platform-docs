@@ -2,7 +2,7 @@
 description: Overview of SCIM.
 ---
 
-# SCIM 2.0
+# SCIM 2.0 for users and groups
 
 AM supports the SCIM 2.0 protocol to perform CRUD operations on users and groups.
 
