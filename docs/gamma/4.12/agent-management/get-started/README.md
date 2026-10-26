@@ -4,7 +4,7 @@ description: >-
   plane. Find the use case you need and the guide that covers it.
 ---
 
-# Overview
+# Get started with Agent Management
 
 Agent Management is Gravitee's product line for governing AI agent traffic. It provides a unified control plane and runtime for every protocol in the agentic stack: LLM calls, MCP tool invocations, and agent-to-agent (A2A) delegations. It adds end-to-end observability, fine-grained authorisation, and identity for every agent that touches your enterprise infrastructure.
 

@@ -4,7 +4,7 @@ noIndex: false
 description: API Management in Gamma, from the overview of its key concepts to the quickstart that builds your first API proxy. Start with the page you need.
 ---
 
-# Get started
+# Get started with API Management
 
 If you're new to API Management in Gamma, start with the following topics:
 

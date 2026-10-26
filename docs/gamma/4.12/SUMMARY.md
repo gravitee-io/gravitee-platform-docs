@@ -7,7 +7,7 @@
 * [Overview](platform-management/overview.md)
 * [Release Notes](platform-management/gamma-release-notes.md)
 * [Support model](https://documentation.gravitee.io/platform-management/support-model)
-* [Get started](platform-management/get-started/README.md)
+* [Get started with Platform Management](platform-management/get-started/README.md)
   * [Get started for new users](platform-management/get-started/get-started-for-new-users/README.md)
     * [Fully self-hosted installation with Vanilla Kubernetes](platform-management/get-started/get-started-for-new-users/fully-self-hosted-with-vanilla-kubernetes.md)
     * [Fully self-hosted installation with Docker](platform-management/get-started/get-started-for-new-users/fully-self-hosted-with-docker.md)
@@ -45,7 +45,7 @@
 
 ## API Management
 
-* [Get started](api-management/get-started/README.md)
+* [Get started with API Management](api-management/get-started/README.md)
   * [API Management overview](api-management/get-started/api-management-overview.md)
   * [Create your first API](api-management/get-started/create-your-first-api.md)
   * [Installation guides](https://documentation.gravitee.io/platform-management/install)
@@ -106,7 +106,7 @@
 
 ## Event Stream Management
 
-* [Get started](event-stream-management/get-started/README.md)
+* [Get started with Event Stream Management](event-stream-management/get-started/README.md)
   * [Event Stream Management overview](event-stream-management/get-started/event-stream-management-overview.md)
   * [Register your first cluster](event-stream-management/get-started/register-your-first-cluster.md)
   * [Create your first Kafka service](event-stream-management/get-started/create-your-first-kafka-service.md)
@@ -130,7 +130,7 @@
   * [AI resources](agent-management/build/ai-resources.md)
   * [Release Notes](https://documentation.gravitee.io/platform-management/gamma-release-notes)
   * [Support model](https://documentation.gravitee.io/platform-management/support-model)
-* [Get started](agent-management/get-started/README.md)
+* [Get started with Agent Management](agent-management/get-started/README.md)
   * [Roles and permissions](agent-management/get-started/roles-and-permissions.md)
   * [Create your first MCP server](agent-management/get-started/create-your-first-mcp-server.md)
   * [Create your first LLM Proxy](agent-management/get-started/create-your-llm-proxy.md)
@@ -275,7 +275,7 @@
 
 ## Edge Management
 
-* [Get started](edge-management/get-started/README.md)
+* [Get started with Edge Management](edge-management/get-started/README.md)
   * [Edge Management overview](edge-management/get-started/edge-management-overview.md)
   * [Installation guides](https://documentation.gravitee.io/platform-management/install)
   * [Release Notes](https://documentation.gravitee.io/platform-management/gamma-release-notes)

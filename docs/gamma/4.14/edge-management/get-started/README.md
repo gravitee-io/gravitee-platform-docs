@@ -4,7 +4,7 @@ noIndex: false
 description: Edge Management in Gamma, starting with what the Edge Daemon does on your managed devices and where each task lives in the console. Start with the overview.
 ---
 
-# Get started
+# Get started with Edge Management
 
 New to Edge Management in Gamma? Start here.
 
