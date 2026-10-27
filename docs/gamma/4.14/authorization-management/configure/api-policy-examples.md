@@ -1,0 +1,99 @@
+---
+hidden: false
+noIndex: false
+description: Govern API proxies, endpoints, and data fields with policy examples for scopes, tenant isolation, and IP ranges. Adapt an example to your own APIs.
+---
+
+# API policy examples
+
+Practical examples of authorization policies for API proxies, endpoints, and data fields.
+
+## API policy structure
+
+API policies target a specific API and govern access at three levels:
+
+| Resource group | Description |
+|---------------|-------------|
+| **API** | The API proxy itself |
+| **Endpoints** | Individual API endpoints |
+| **Data Fields** | Specific fields in API responses |
+
+## Example 1: Allow a group to access an entire API
+
+```
+// Policy: engineering-orders-api
+// Target: orders-service
+
+permit (
+  principal in Group::"engineering",
+  action == Action::"read",
+  resource in API::"orders-service"
+);
+```
+
+The `in` match mode covers the API and all child endpoints and data fields.
+
+## Example 2: Restrict access by OAuth scope
+
+```
+// Policy: require-orders-read-scope
+// Target: orders-service
+
+permit (
+  principal,
+  action == Action::"read",
+  resource == API::"orders-service"
+)
+when {
+  context.auth.scopes.contains("orders:read")
+};
+```
+
+This policy permits any principal to read the orders API, but only if their OAuth token includes the `orders:read` scope.
+
+## Example 3: Tenant isolation
+
+```
+// Policy: tenant-isolation
+// Target: orders-service
+
+permit (
+  principal,
+  action == Action::"read",
+  resource in API::"orders-service"
+)
+when {
+  context.request.header.x_tenant == principal.tenant
+};
+```
+
+This policy ensures principals can only access data for their own tenant.
+
+## Example 4: IP-restricted admin access
+
+```
+// Policy: admin-corporate-only
+// Target: orders-service
+
+permit (
+  principal in Group::"api-admins",
+  action in [Action::"create", Action::"update", Action::"delete"],
+  resource in API::"orders-service"
+)
+when {
+  ip(context.source.ip).isInRange(ip("10.0.0.0/8"))
+};
+```
+
+## Available condition snippets
+
+| Condition | GAPL |
+|-----------|------|
+| **Scope present** | `context.auth.scopes.contains("orders:read")` |
+| **Tenant match** | `context.request.header.x_tenant == principal.tenant` |
+
+## Next steps
+
+* [AI policy example](ai-policy-example.md) — Model access and guardrail policies
+* [MCP policy examples](mcp-policy-examples.md) — MCP access control patterns
+* [Create, update, and delete policies](create-update-delete-policies.md) — Full editor reference
