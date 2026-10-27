@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/docker/docker-cli
 ---
 
-# Docker CLI
+# Self-host with Docker CLI
 
 ### Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 

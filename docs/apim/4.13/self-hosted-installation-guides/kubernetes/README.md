@@ -5,7 +5,7 @@ metaLinks:
     - ./
 ---
 
-# Kubernetes
+# Self-host on Kubernetes
 
 ## Deployment methods
 

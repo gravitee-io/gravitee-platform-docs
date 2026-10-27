@@ -5,7 +5,7 @@ metaLinks:
     - docker-compose.md
 ---
 
-# Docker Compose
+# Run a hybrid Gateway with Docker Compose
 
 ## Overview
 

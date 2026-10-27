@@ -2,7 +2,7 @@
 description: Install a self-hosted API Management 4.8 platform on Kubernetes using the Helm chart. Browse the guides for your target platform.
 ---
 
-# Kubernetes
+# Self-host on Kubernetes
 
 ## Deployment methods
 

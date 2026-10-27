@@ -2,7 +2,7 @@
 description: API Management 4.11 components often need to reach the internet through a corporate proxy. Browse the proxy configuration guides.
 ---
 
-# Proxy Configuration
+# Self-host behind a proxy
 
 ## Overview
 

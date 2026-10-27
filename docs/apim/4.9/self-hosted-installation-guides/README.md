@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides
 ---
 
-# Self-Hosted Installation Guides
+# Self-host the platform
 
 ## Overview
 

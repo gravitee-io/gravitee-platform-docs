@@ -2,7 +2,7 @@
 description: Deploy a Classic Cloud hybrid API Management 4.8 Gateway on Kubernetes. Browse the guides for the cloud provider you use.
 ---
 
-# Kubernetes
+# Run a Classic Gateway on Kubernetes
 
 ## Deployment methods
 

@@ -5,7 +5,7 @@ metaLinks:
     - aws-eks.md
 ---
 
-# AWS EKS
+# Run a hybrid Gateway on AWS EKS
 
 ## Overview
 

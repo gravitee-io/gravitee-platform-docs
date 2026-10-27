@@ -5,7 +5,7 @@ metaLinks:
     - docker-compose.md
 ---
 
-# Docker Compose
+# Self-host with Docker Compose
 
 ### Overview <a href="#overview" id="overview"></a>
 
