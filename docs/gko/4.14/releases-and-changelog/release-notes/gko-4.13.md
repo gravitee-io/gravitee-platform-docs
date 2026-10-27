@@ -1,0 +1,98 @@
+---
+title: Gravitee Kubernetes Operator 4.13 Release Notes
+description: Highlights, breaking changes, and new features in the Gravitee Kubernetes Operator 4.13 release, including multi-domain TLS. See what changed before upgrading.
+---
+
+# GKO 4.13
+
+This page describes the new features, breaking changes, and deprecations introduced in GKO 4.13.
+
+## Highlights
+
+* The Kubernetes Gateway API implementation is upgraded to Gateway API v1.6.1, and GKO is listed upstream as a conformant implementation.
+* A Gateway serves several domains on the same port, each with its own TLS certificate, using Server Name Indication (SNI).
+* HTTPRoute resources support method matching, host rewrite, backend request header modification, and H2C backends.
+* Drift detection checks an update to a resource against the resource's current state in APIM, so a change made in APIM isn't replaced without notice.
+* `CatalogMcpServer` and `McpProxy` resources register MCP servers in the Agent Management Catalog and declare MCP proxies.
+* `AMContext`, `AMSecurityDomain`, `AMIdentityProvider`, `AMCertificate`, and `AMReporter` resources manage Access Management security domains, with their identity providers, certificates, and reporters, from Kubernetes.
+* A `Group` resource sets the default roles of new members, and two annotations leave group members, and the groups of APIs and applications, to APIM.
+
+{% hint style="info" %}
+The Gateway API updates listed on this page are also available in GKO 4.12 starting with version 4.12.11.
+{% endhint %}
+
+## Breaking changes
+
+This release changes how GKO handles three existing configurations.
+
+### Gateway infrastructure parameters are rejected
+
+In earlier releases, GKO ignored the `spec.infrastructure.parametersRef` field of a `Gateway` resource. A Gateway that sets `spec.infrastructure.parametersRef` is now rejected: its `Accepted` condition is set to `False`, with a message reporting that the parameters reference isn't supported. Use the `GatewayClassParameters` resource to configure Gravitee-specific settings instead.
+
+### `spec.navigation` of the Portal resource is deprecated
+
+`spec.navigation` of the `Portal` resource is deprecated. Use `spec.structure.topNavbar` instead. A resource that sets `spec.navigation` is accepted with the warning `spec.navigation is deprecated, use spec.structure.topNavbar instead`, and a resource that sets both is rejected with `navigation and structure cannot be used at the same time`. Drift detection compares `spec.structure` and ignores `spec.navigation`, so a resource that uses only `spec.navigation` can be reported as drifted.
+
+Before you upgrade, move each Portal resource from `spec.navigation` to `spec.structure.topNavbar`. For more information, see [Drift detection](../../overview/drift-detection.md).
+
+### Updating an existing resource requires the update permission in APIM
+
+From APIM 4.13.0, the Automation API and the Management API imports that GKO uses check the update permission when a resource already exists in APIM, not only the create permission. A service account that holds only the create permission now gets `403` when GKO applies a change to an existing API, application, group, shared policy group, dictionary, portal resource, documentation page, or subscription. Changing the members of an API or application also requires the member update permission.
+
+Before you upgrade APIM, review the permissions of the service account that GKO uses.
+
+## Deprecations
+
+### The `ApiDefinition` resource is deprecated
+
+The `ApiDefinition` resource is deprecated, along with the v2 APIs that it manages, and the October 2027 release will remove both. Resources that you create with `ApiDefinition` continue to work until then. Migrate them to the [`ApiV4Definition`](../../overview/custom-resource-definitions/apiv4definition.md) resource. For more information, see [Breaking Changes and Deprecations](https://documentation.gravitee.io/apim/4.13/release-information/breaking-changes-and-deprecations).
+
+## New features
+
+The following features extend the Kubernetes Gateway API support in GKO, and add drift detection for the resources that GKO manages in APIM. GKO also adds resources for Agent Management MCP servers and MCP proxies, and for Access Management security domains. Groups gain default roles for new members, and annotations leave group members and the groups of APIs and applications to APIM.
+
+#### Gateway API v1.6.1
+
+GKO builds against Kubernetes Gateway API v1.6.1 and installs the v1.6.1 standard channel CRDs. It passes every core and extended test in the `GATEWAY-HTTP` conformance profile. The [Gateway API implementations page](https://gateway-api.sigs.k8s.io/implementations/) lists GKO as a conformant implementation. The conformance report for this release is published in the [GKO repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/test/conformance/kubernetes.io/gateway-api/report).
+
+#### Multi-domain TLS with SNI
+
+A Gateway accepts several HTTPS listeners on the same port, each with its own hostname and TLS certificate. The deployed Gateway presents the certificate matching the requested server name through SNI, and requests reach the listener with the most specific matching hostname. For details, see [Configure multi-domain TLS on a Gateway](../../guides/gateway-api/multi-domain-tls.md).
+
+#### HTTPRoute feature coverage
+
+HTTPRoute resources support method matching, host rewrite through `URLRewrite`, backend request header modification on rules that declare a single `backendRef`, and backend Services that advertise `appProtocol: kubernetes.io/h2c`. For details, see [HTTPRoute](../../guides/gateway-api/httproute.md).
+
+#### Client certificate validation on HTTPS listeners
+
+The `spec.tls.frontend` field of a `Gateway` resource configures client certificate validation for HTTPS listeners, with a default configuration and per-port overrides. The CA bundle comes from a ConfigMap that contains a `ca.crt` key, and the deployed Gateway then requires client certificates on the configured port.
+
+#### Cross-route matching
+
+The `gatewayAPI.controller.matchAcrossRoutes` Helm option merges HTTPRoute resources with overlapping context paths on the same Gateway into a single API definition, so matching works across routes. The option is disabled by default. For details, see [HTTPRoute](../../guides/gateway-api/httproute.md).
+
+#### Gateway infrastructure metadata
+
+Labels and annotations set under `spec.infrastructure` of a `Gateway` resource propagate to the Kubernetes resources GKO creates for the Gateway deployment.
+
+#### Drift detection
+
+When you update a resource, GKO can compare it with the resource's current state in APIM, and report the fields that were changed in APIM outside GKO. A policy decides whether the update is rejected, accepted with a warning, or accepted with an entry in the operator logs. Drift detection is disabled by default. Turn it on for every resource with the `manager.driftDetection.enabled` Helm value, or for a single resource with the `gravitee.io/drift-detection` annotation. For details, see [Drift detection](../../overview/drift-detection.md).
+
+Drift detection doesn't cover the deprecated `spec.navigation` field of a `Portal` resource, so a change made to that field in APIM isn't reported. The `spec.structure.topNavbar` field that replaces it is covered.
+
+#### MCP servers and MCP proxies
+
+The `CatalogMcpServer` resource registers an MCP server in the Catalog of Agent Management, and its status lists the tools, prompts, and resources Gravitee discovers. The `McpProxy` resource declares an MCP proxy with its plans, identity providers, and policy flows, either in front of one MCP server or as a Studio that picks tools from `CatalogMcpServer` resources. Both resources require APIM 4.13 with Agent Management. For details, see [CatalogMcpServer](../../overview/custom-resource-definitions/catalogmcpserver.md) and [McpProxy](../../overview/custom-resource-definitions/mcpproxy.md).
+
+#### Access Management security domains
+
+The `AMContext` resource connects GKO to an Access Management organization and environment, through the Automation API and a bearer token. The `AMSecurityDomain` resource declares a security domain, and the `AMIdentityProvider`, `AMCertificate`, and `AMReporter` resources declare an identity provider, a certificate, and a reporter of that domain. GKO validates each resource against Access Management before it's stored, and drift detection covers the four domain resources. A domain created this way starts without a default identity provider, certificate, or reporter: declare them with `system: true` to get the defaults Access Management builds. These resources require Access Management 4.13 with the Automation API turned on. For details, see [AMContext](../../overview/custom-resource-definitions/amcontext.md) and [AMSecurityDomain](../../overview/custom-resource-definitions/amsecuritydomain.md).
+
+#### Default roles for group members
+
+The `defaultMemberRoles` field of a `Group` resource sets the role that a user receives on APIs, applications, and API Products when they join the group, including users who log in through an identity provider that maps them to the group. When the field is omitted, APIM keeps the group's default roles as they are. The field requires APIM 4.13.0 or later. For details, see [Group](../../overview/custom-resource-definitions/group.md#set-default-roles-for-new-members).
+
+#### Members and groups left to APIM
+
+The `gravitee.io/ignore-members` annotation on a `Group` resource stops GKO from adding or removing the group's members, so users who join the group in APIM stay in it. The `gravitee.io/ignore-groups` annotation on an `ApiV4Definition` or `Application` resource keeps the groups that the API or application has in APIM. Both annotations require APIM 4.13.0 or later. Starting with APIM 4.13.0, an update of a `Group` resource also keeps the group settings that only the Console manages. For details, see [Group](../../overview/custom-resource-definitions/group.md#leave-the-members-to-apim) and [Manage API and application groups and members](../../guides/manage-api-groups-and-members.md#leave-the-groups-to-apim).
