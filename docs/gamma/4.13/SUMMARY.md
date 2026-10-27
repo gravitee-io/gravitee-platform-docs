@@ -370,6 +370,10 @@
   * [Screen prompts and answers with Guardian Agents](agent-management/govern/guard-agent-actions-with-guardian-agents.md)
   * [Require human approval for MCP tool calls](agent-management/govern/require-human-approval-for-mcp-tool-calls.md)
   * [Agent activity](agent-management/govern/agent-activity-logs.md)
+* [Cost and value](agent-management/cost-and-value/README.md)
+  * [Agent FinOps](agent-management/cost-and-value/agent-finops.md)
+  * [Read what an agent cost](agent-management/cost-and-value/read-what-an-agent-cost.md)
+  * [Attribute business value to agent runs](agent-management/cost-and-value/attribute-business-value-to-agent-runs.md)
 
 ## Authorization Management
 
