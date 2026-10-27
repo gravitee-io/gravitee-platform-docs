@@ -1,0 +1,143 @@
+---
+hidden: false
+noIndex: false
+description: Configure guardrails, PII filtering, rate limiting, security plans, and structured output on an LLM Proxy. Follow the steps to add each policy.
+---
+
+# Configure an LLM Proxy
+
+After you create an LLM Proxy, configure guardrails, PII filtering, rate limiting, security plans, and policies. This page covers the post-creation configuration options.
+
+## LLM Proxy navigation
+
+The LLM Proxy detail view groups its pages as follows.
+
+* **General**: **Overview**, **Settings**, **User Permissions**, and **Metadata**. The **Overview** page shows a **Connection** card with the gateway URLs of the proxy.
+* **Design**: **Entrypoints**, **Policy Studio**, **Models**, **Failover**, **Resources**, **API Properties**, and **CORS**.
+* **Consumers**: **Plans**, **Subscriptions**, and **Broadcasts**.
+* **Monitoring**: **Notifications** and **Audit Logs**.
+* **Observability**: **Dashboard**, **Logs**, and **Tracing**, each shown when its deep link is available.
+* **Operations**: **Sharding Tags**, **Deployment History**, and **Reporter Settings**.
+
+The page formerly named **LLM Studio** is now **Policy Studio**. A link to the former page redirects to it.
+
+## Models
+
+The **Models** page lists the providers of the LLM Proxy with their models, and changes them after creation. To open it, under **Design**, select **Models**.
+
+Each provider is a collapsible card. Its header shows the provider name, the provider format, the number of models, and **From catalog** when the provider comes from the catalog. Expanded, an inline provider lists its models with their **Query name**, **Aliases**, and **Pricing**, and a catalog provider also shows the **Model** and **Slug** of each one. For an inline provider and a catalog provider, **Pricing** adds the cache read and cache write prices of a model that has them. When the provider hides real model names, the query name is dimmed, because consumers reach the model only through its aliases.
+
+To change the providers, complete the following steps:
+
+1. Select **Add provider** to add an inline provider, or **Add models from catalog** to pick registered models. The cards are the ones of the creation wizard. See [Configure the models](create-an-llm-proxy.md#configure-the-models).
+2. To change a provider, select its edit icon. An inline provider opens in place with its stored values, credentials included, and each valid change is applied to the page as you make it. Select **Done** to close the card, or **Cancel** to restore the values it opened with. A catalog provider opens with its credentials, model governance, and per-model settings, and **Done** applies them.
+3. To remove a provider, select its delete icon.
+4. Click **Save changes**, or **Discard** to drop every pending change.
+
+While a card is open for editing, the other providers can't be edited or removed. The save bar appears as soon as the page differs from what's saved. **Save changes** stays disabled while the open card holds an invalid value, or while no provider is left, and the bar then reads **Finish editing the provider before saving.** or **At least one provider is required.** A save that fails shows **Failed to save providers** with the reason.
+
+Saving replaces the providers of the proxy without deploying them. The **This API is out of sync** banner appears at the top of the detail view. Click **Deploy**, optionally enter a label in the **Deploy your API** dialog, and click **Deploy** to push the change to the gateway.
+
+When the aliases declared by two providers differ, the page shows **Model aliases differ across providers** with the aliases of each provider. An alias routes, and fails over, only across the providers that declare it, so align the aliases for cross-provider failover. The warning doesn't block saving.
+
+<figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-models-page.png" alt="The Models page of an LLM Proxy with one inline provider expanded to its model table and the save bar showing unsaved changes"><figcaption><p>The Models page of an LLM Proxy, with a provider expanded and unsaved changes</p></figcaption></figure>
+
+## Guardrails, PII filtering, and rate limiting
+
+Guardrails, PII filtering, and rate limiting are implemented using standard Gravitee policies. You configure them by attaching policies with the Policy Studio.
+
+The Policy Studio uses the same policy studio as API Management and supports the request and response phases. To attach these controls, complete the following steps:
+
+1. On the LLM Proxy detail page, under **Design**, open **Policy Studio**.
+2. Under **Common Flows**, select the flow you want to govern: **Prompt**, **Embeddings**, or **Models**.
+3. In the **Request Phase** or **Response Phase** section, click **Add policy**. When the phase already holds a policy, click the plus button at the end of the phase instead.
+4. In the list that opens, search for the policy you want, such as **PII Filtering**, **Rate Limit**, or **AI - Prompt Guard Rails**, and then select it. The policy is added to the phase. To read the documentation of a policy before you add it, click **Browse full catalog**, select the policy in the **Add Policy** catalog, and then click **Add to flow**.
+5. Configure the policy properties, and then click **Save**.
+6. When the **This API is out of sync** banner appears, click **Deploy** to push the changes to the API Gateway.
+
+## Resources
+
+Policies that depend on shared infrastructure reference a resource configured on the proxy. The **AI - Prompt Guard Rails** policy references an **AI Model Text Classification** resource, and the **PII Filtering** policy references an **AI Model Token Classification** resource.
+
+To manage the resources of the LLM Proxy, under **Design**, select **Resources**. For the steps to add, edit, or remove a resource, see [Configure resources for your proxies](configure-resources-for-your-proxies.md), and for the resource types themselves, see [AI resources](ai-resources.md).
+
+## Properties
+
+Policies read the key/value properties of the LLM Proxy at runtime through the Expression Language, with the syntax `{#api.properties['key']}`. To manage them, under **General**, select **API Properties**. For the steps to add, import, or sync properties from an HTTP endpoint, see [Configure properties for your proxies](configure-properties-for-your-proxies.md).
+
+## Picture
+
+The picture identifies the LLM Proxy at the start of its row in the **LLM Proxies** list. Until you add one, the list and the **Settings** page show a generated pattern based on the proxy's name.
+
+To add or change the picture, complete the following steps:
+
+1. On the LLM Proxy detail page, under **General**, select **Settings**.
+2. Under **API Picture**, click the picture, and then select an image file. You can also drag an image file onto the picture.
+3. Click **Save changes**.
+
+The image must be a GIF, JPEG, BMP, PNG, or TIFF file of at most 500 KB. A larger file is refused. A file in another format is refused when you save.
+
+To remove the picture, click the cross at the top right of the picture, and then click **Save changes**.
+
+## Entrypoints
+
+The **Entrypoints** page changes the context paths consumers call, switches the proxy to virtual hosts, and edits the options of the LLM Proxy entrypoint plugin after creation. To open it, under **Design**, select **Entrypoints**. For the steps, see [Configure LLM Proxy entrypoints](configure-llm-proxy-entrypoints.md).
+
+## CORS
+
+The **CORS** page lets browser-based clients on other origins call the LLM Proxy. Enable CORS, then set the allowed origins, methods, and request headers, the exposed response headers, credentials, the preflight cache duration, and whether policies run on preflight requests. To open it, under **General**, select **CORS**. For the steps, see [Configure LLM Proxy CORS](configure-llm-proxy-cors.md).
+## Failover
+
+The **Failover** page retries a call on another provider of the proxy when one is slow or failing. It also opens a circuit on a provider that keeps failing, so that provider is left aside for a while. To open it, under **Design**, click **Endpoints**, and then click **Failover**. For the steps, see [Configure LLM Proxy failover](configure-llm-proxy-failover.md).
+
+## Export, import, and duplicate
+
+The **Settings** page carries the following actions that work on the proxy as a whole:
+
+* **Export** downloads the proxy as a Gravitee API definition.
+* **Import** replaces this proxy's configuration from a Gravitee definition, supplied as a file or a remote URL. The proxy keeps its plans and its identity.
+* **Duplicate** creates a copy of the proxy under a new context path and version.
+* **Promote** sends a copy of the proxy to another environment through Gravitee Cloud.
+
+For the steps, see [Export and import an LLM Proxy](export-and-import-an-llm-proxy.md), [Duplicate an LLM Proxy](duplicate-an-llm-proxy.md), and [Promote your proxies to another environment](promote-your-proxies-to-another-environment.md).
+
+## Structured output
+
+Structured output enforces response format constraints on model responses. You can enforce structured output natively by overriding model parameters.
+
+When you add a provider or a model to the LLM Proxy, you can supply a JSON object in the **Parameters Override (JSON)** field of the model. This field supports Expression Language, and the evaluated result must be a JSON object. The connector merges the object into each request before it reaches the upstream provider, so you can transparently enforce formatting such as `{"response_format": { "type": "json_object" }}`. In the LLM Proxy definition, this field is `parametersOverride`.
+
+## Security
+
+Security plans control how consumers authenticate when they send prompts through the LLM Proxy. You can add plans after creation.
+
+To add a security plan, complete the following steps:
+
+1. On the LLM Proxy detail page, under **Consumers**, select **Plans**.
+2. Click **Create plan**, and then select a security type: **Keyless**, **API Key**, **JWT**, **OAuth2**, or **mTLS**.
+3. Complete the **General**, **Configure**, **Restrictions**, and **Review** steps, and then click **Create plan**. A **Keyless** plan has no **Configure** step.
+4. Open the actions menu of the new plan, and then click **Publish**. A plan that you add to an existing LLM Proxy starts in staging, and consumers can't subscribe to it until it's published.
+5. Click **Deploy** on the **This API is out of sync** banner, and then click **Deploy** in the **Deploy your API** dialog.
+
+The actions menu of a plan also offers **Edit** for a plan that isn't closed, **Deprecate** for a published plan, and **Close**. Closing a plan terminates every subscription on it and can't be undone. You set restrictions only when you create a plan, and the security type of a plan can't be changed.
+
+See [Secure your API proxy](https://documentation.gravitee.io/api-management/manage/api-proxies/consumers/secure-your-api-proxy) for detailed plan type descriptions.
+
+## Broadcasts
+
+To send a one-way announcement to the consumers of the LLM Proxy, under **Consumers**, select **Broadcasts**. For the steps to compose and send one, see [Broadcast messages to proxy consumers](broadcast-messages-to-proxy-consumers.md).
+
+## Cost visibility
+
+The LLM Proxy provides real-time per-token cost attribution by provider and model. Every request records the model used, the input and output tokens consumed, and the cost based on the model's configured rate.
+
+The **LLM — Overview** dashboard visualizes this data. It tracks `LLM_PROMPT_TOKEN_TOTAL_COST` alongside widgets such as **Requests by Provider** and **Tokens by Model**.
+
+## Next steps
+
+* [Create an LLM Proxy](create-an-llm-proxy.md). Create a new LLM Proxy if you haven't already, and read the fields of the provider card.
+* [Configure LLM Proxy entrypoints](configure-llm-proxy-entrypoints.md). Add context paths, switch to virtual hosts, or edit the entrypoint options.
+* [Configure LLM Proxy CORS](configure-llm-proxy-cors.md). Let browser-based clients on other origins call the proxy.
+* [Configure LLM Proxy logging and tracing](configure-llm-proxy-logging-and-tracing.md). Control the reported request and response data, and enable OpenTelemetry tracing.
+* [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md). Make the LLM Proxy discoverable.
+* [Monitor AI Gateway usage from employee systems](../observe/monitor-ai-gateway-from-devices.md). View AI traffic from employee devices.
