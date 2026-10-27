@@ -94,3 +94,5 @@ redirects:
  manage/api-proxies/security/manage-user-permissions: build/configure-your-api-proxy/manage-user-permissions.md
  manage/api-products/security: manage/api-products/general/README.md
  manage/api-products/security/manage-members-and-ownership: build/configure-your-api-product/manage-members-and-ownership.md
+ manage/api-proxies/configure-your-api-proxy: manage/api-proxies/README.md
+ manage/api-products/configure-your-api-product: build/api-products.md
