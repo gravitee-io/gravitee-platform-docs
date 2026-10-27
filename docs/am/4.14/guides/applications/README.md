@@ -137,6 +137,8 @@ After you have created the new application, you will be redirected to the applic
 
 <figure><img src="../../.gitbook/assets/guide-applications-readme-82.png" alt="The application Overview page explaining how to integrate authentication, listing the application domain and client ID, the authorization URL that starts the login flow, and the callback URL."><figcaption><p>Application overview</p></figcaption></figure>
 
+Lightweight JWT is disabled by default, so the application issues full tokens. To reduce the access, ID, and refresh tokens that AM returns to the client, turn on **Enable Lightweight JWT** in the **Lightweight JWT** section of the application's OAuth2 token settings. Tokens then keep only the reserved protocol claims, plus any claims you add to the **Allowed access and refresh token claims** and **Allowed ID token claims** lists.
+
 ### Test the application
 
 The quickest way to test your newly created application is to request an OAuth2 access token, as described in [set up your first application](../../getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md). If you manage to retrieve an access token, your application is all set.
@@ -381,6 +383,8 @@ The UPDATE http verb will act as a full overwrite, whereas the PATCH http verb w
 This access token contains a `dcr` scope which can not be obtained, even if you enable the `client_credentials` flow. In addition, rather than using the OpenID registration endpoint together with the `client_id`, the DCR specifications recommend you use the `registration_client_uri` given in the register response instead.
 
 A new registration access token is generated each time the client is updated through the Dynamic Client Registration URI endpoint, which will revoke the previous value.
+
+Updating a client or renewing its secret through the registration endpoint keeps the application's Lightweight JWT settings.
 
 ```sh
 
