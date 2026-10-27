@@ -19,6 +19,12 @@ The **Catalog** group of the Agent Management sidebar holds the **AI Models**, *
 * [**Add a knowledge source**](add-knowledge-source.md). Add a knowledge source so agents can read documentation and reference material as context.
 * [**Upload skills**](upload-skills.md). Upload a skill package so agents can consume it as an MCP resource and you can govern it.
 * [**Manage a registered agent**](manage-a-registered-agent.md). A registered agent's page in the Catalog is the hub for everything Gamma holds and controls for it.
+* [**Give an agent an identity**](give-an-agent-an-identity.md). The Identity page of an agent creates the gateway application that acts for it and gives that application an OAuth identity from Gravitee Access Management.
+* [**Route an agent through an A2A Proxy**](route-an-agent-through-an-a2a-proxy.md). Put an A2A Proxy in front of a registered agent from its Proxies page, or link an existing proxy to it.
+* [**Subscribe an agent to an LLM Proxy**](subscribe-an-agent-to-an-llm-proxy.md). The Models page of an agent lists the models it calls and the LLM Proxies that route them.
+* [**Subscribe an agent to an MCP Proxy**](subscribe-an-agent-to-an-mcp-proxy.md). The Tools page of an agent lists what it calls in Azure AI Foundry and whether those calls go through the gateway.
+* [**Publish your agent to the Developer Portal**](../publish/publish-your-agent-to-the-developer-portal.md). List an agent exposed through a Gamma A2A Proxy in the Developer Portal catalog.
+* [**Agent kill switch**](../build/agent-killswitch.md). Stop an agent in one move from its page in the Catalog, which stops the A2A Proxy in front of it, pauses its gateway subscriptions, and disables it on Azure AI Foundry, or stop a proxy on its own.
 * [**Create an agent identity**](../build/create-an-agent-identity.md). Register an agent as an OAuth client in Gravitee Access Management with a persona that fits how it runs.
 
 <figure><img src="../.gitbook/assets/gamma-aim-dashboard.png" alt="Agent Management Import catalog showing eight entity type cards"><figcaption><p>The Import section of the Agent Management dashboard. Each card links to a Catalog entity type. The full set of import operations — including integrations, API tools, and Event tools — is listed below.</p></figcaption></figure>
