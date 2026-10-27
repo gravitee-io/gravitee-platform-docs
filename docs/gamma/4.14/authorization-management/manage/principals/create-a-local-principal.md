@@ -1,0 +1,91 @@
+---
+hidden: false
+noIndex: false
+description: Create a principal directly in Authorization Management when the identity is not synced or imported. Follow the steps on the Entities page.
+---
+
+# Create a local principal
+
+Create a principal entity directly in Authorization Management when the identity is not synced from Access Management or imported from an external source.
+
+## When to use local principals
+
+Use local principals for:
+- Test users during policy development
+- Service accounts for machine-to-machine access
+- Agent identities for AI agents acting on behalf of users
+- Groups that organize principals for shared access patterns
+
+## Steps
+
+### 1. Open the Entities page
+
+From the Authorization Management sidebar, select **Policy Structure → Entities**. Select the **Principals** tab.
+
+### 2. Add a principal
+
+Click **Add Principal**. A slide-out panel opens.
+
+### 3. Select a type
+
+Choose from the **Type** dropdown:
+
+| Type | Engine type | Description |
+|------|-------------|-------------|
+| **User** | `User` | Individual human identity |
+| **Group** | `Group` | Collection of users sharing access |
+| **Service Account** | `ServiceAccount` | Machine or application identity |
+| **Agent Identity** | `AgentIdentity` | AI agent identity (mapped to `AGENT` policy type) |
+| **Other (custom type)** | As entered, for example `Webhook` or `HR::Team` | Custom principal type for your domain |
+
+{% hint style="info" %}
+If your environment has a published schema, the type dropdown shows the schema-defined principal types instead of the presets. The schema's `appliesTo.principalTypes` declarations determine which types appear.
+{% endhint %}
+
+### 4. Enter identity details
+
+| Field | Required | Notes |
+|-------|----------|-------|
+| **Display name** | Yes | Human-readable name shown in the table and policy editor chip pickers |
+| **Entity ID** | Yes | Fills in from the display name (accents removed, lowercase, other characters replaced with dashes). Change it to the ID that requests carry for this principal, such as the subject of the user's token |
+| **Description** | No | Stored as an attribute; visible in the entity detail view |
+
+The Entity ID carries no type prefix: the type is stored separately. The hint under the field shows how the policy engine sees the principal, for example `User::"alice"`. An Entity ID holds at most 255 characters, isn't `.` or `..`, and holds no whitespace, control or formatting character, double quote, backslash, `/`, `%`, `;`, `?`, or `#`.
+
+### 5. Set parents (optional)
+
+Use the **Parents** combobox to link this principal to existing entities of the same kind. For example:
+- Add a `User` to a `Group`
+- Add a `Group` to another `Group` for nested membership
+
+Parent references are used in `in` clauses in GAPL policies. When a policy says `principal in Group::"engineering"`, it matches all users whose parents include that group.
+
+### 6. Set target gateways (optional)
+
+Use the **Target gateways** combobox to scope this principal to specific PDP gateways. Options are populated from registered PDP gateways. Select `*` to target every registered PDP. Left empty, the principal is known only to the default engine of every gateway: a named PDP doesn't know it, or its group memberships, unless you target that PDP or `*`.
+
+### 7. Add attributes (optional)
+
+Click **Add attribute** to define custom key-value pairs. Each attribute has:
+
+| Field | Description |
+|-------|-------------|
+| **Key** | Attribute name (must not conflict with reserved keys like `_displayName`) |
+| **Type** | One of the types of the **Attribute type** list, such as **String**, **Integer**, **Boolean**, or **Set&lt;String&gt;**. See [Attribute types](add-attributes-to-principals.md#attribute-types) |
+| **Value** | The attribute value. For a **Set&lt;String&gt;**, enter comma-separated values |
+
+Attributes are referenced in policy conditions. For example, `principal.department == "engineering"`.
+
+### 8. Create
+
+Click **Create Principal**. The entity appears in the Principals table with source label **Local**.
+
+## Editing and deleting
+
+- **Edit**: Click the **⋮** menu on any entity row → **Edit**. All entities are editable, including synced and imported ones. For synced principals, source-managed attributes are re-asserted on the next sync.
+- **Remove**: Click the **⋮** menu → **Remove**. A confirmation dialog shows the Entity ID and warns about the impact.
+
+## Next steps
+
+* [Add attributes to principals](add-attributes-to-principals.md) — Attach metadata for condition-based policies
+* [Build principal relationships](build-principal-relationships.md) — Create group memberships and hierarchies
