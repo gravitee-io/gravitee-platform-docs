@@ -1,0 +1,87 @@
+---
+hidden: true
+noIndex: true
+description: Add catalog models to an AI Workspace and control which models its members can call. The first model you add provisions the Default LLM Proxy of the workspace.
+---
+
+# Add models to an AI workspace
+
+The models an AI Workspace holds are the models its members can call. You add them from the AI model catalog on the **Components** page of the workspace.
+
+Adding the first model provisions the Default LLM Proxy of the workspace. Gravitee creates the proxy scoped to the models you selected, attaches it to the workspace, starts it, and deploys it. The proxy is created as a universal LLM Proxy. For the paths and request formats a universal proxy accepts, see [Accepted request formats](accepted-request-formats.md). Adding more models later updates that same proxy and deploys it again.
+
+{% hint style="info" %}
+The models you add come from the AI model catalog. To register a model there first, see [Add an AI model](../import/add-an-ai-model.md).
+{% endhint %}
+
+## Add models
+
+To add models to an AI Workspace, complete the following steps:
+
+1. From the Gamma console sidebar, select **Agent Management**.
+2. Under **Secure**, select **AI Workspaces**.
+3. Select the workspace.
+4. Under **Design**, select **Components**.
+
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-components-empty.png" alt="The Components page of a workspace with no models yet, selected under Design in the workspace menu, with the Add models from catalog and Add models from providers buttons"><figcaption><p>The Components page before the first model is added</p></figcaption></figure>
+
+5. Select **Add models from catalog**.
+6. Select the models to add. Each row carries the model name, its provider, and the query name callers send. Search by any of the three to narrow the list.
+
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-model-picker.png" alt="The Add models from catalog panel listing the catalog models with their provider and query name, a search field, and the Add button"><figcaption><p>The catalog model picker</p></figcaption></figure>
+
+7. Select **Add**.
+8. In the **Provider authentication** panel, enter the credentials for each provider whose models you picked, then submit.
+
+The **Components** page then lists the models grouped by provider, with a **Credentials configured** badge on each provider, and the **Models** card counts the models exposed to the workspace. The **LLM Proxies**, **MCP Proxies**, and **Agents** cards beside it always read `0`.
+
+## Give a model an alias
+
+An alias is another name for a model that members send in their requests. The workspace lists its aliases on the `/models` path, and a routing band routes to an alias like any model. To give a model an alias, complete the following steps:
+
+1. On the **Components** page of the workspace, click **Edit** on the provider of the model.
+2. In **Aliases** for the model, enter the other names for the model. An alias can't contain `:`.
+3. Click **Save changes**.
+
+Saving deploys the change. The **Components** page then lists the aliases of each model in the **Aliases** column.
+
+Members send an alias the way the `/models` path lists it. With **Prefix policy** at its default, **Model names and aliases**, that's the alias with the provider's prefix. To let members send the alias alone, choose **Model names only** or **None** in **Prefix policy** of the same form.
+
+## Remove a model
+
+Removing a model from the **Components** page takes it out of the Default LLM Proxy, so members can no longer call it.
+
+Removing the last model of a provider removes the provider with it. Removing the last model of the workspace goes further. Gravitee detaches the Default LLM Proxy from the workspace and deletes it. The workspace then has no gateway path until you add a model again.
+
+## What members can call
+
+The Default LLM Proxy answers on the gateway path of the workspace, which the **Connection** card of the **Overview** page shows as the entrypoint URL. Members authenticate with their own API key. See [Assign users to an AI workspace](assign-users-to-an-ai-workspace.md).
+
+A request that names a model the workspace doesn't hold is refused on the `/chat/completions`, `/responses`, `/embeddings`, and `/count_tokens` paths. The gateway returns `400` with the following body:
+
+```json
+{
+  "error": {
+    "message": "The requested model does not exist.",
+    "type": "invalid_request_error",
+    "param": "model",
+    "code": "model_not_found"
+  }
+}
+```
+
+Requests on other paths are passed to the upstream provider without model resolution. The `/models` path lists the models the workspace exposes.
+
+When an **AI Routing** step on the **Router** page picks the model for a request, that model replaces the one the request names. A request that names a model the workspace doesn't hold is then served by the band's model, as long as the band routes to a model the workspace holds. See [Configure AI workspace routing](configure-ai-workspace-routing.md).
+
+## Verification
+
+To verify the models are available to the workspace, follow these steps:
+
+1. Open the workspace.
+2. On the **Overview** page, copy the entrypoint URL from the **Connection** card.
+3. Under **Access**, select **Users**, and copy the API key of a member.
+4. Call the `/models` path of the entrypoint URL with that key, and confirm the response lists the models you added.
+5. Call the `/chat/completions` path with a model the workspace doesn't hold, and confirm the gateway returns `400` with the `model_not_found` code.
+
+    <figure><img src="../.gitbook/assets/gamma-aim-ai-workspace-components-models.png" alt="The Components page of a workspace listing four models grouped under the OpenAI and Anthropic providers, with the Aliases column showing the alias fast on GPT-5.4 mini"><figcaption><p>Models grouped by provider on the Components page</p></figcaption></figure>

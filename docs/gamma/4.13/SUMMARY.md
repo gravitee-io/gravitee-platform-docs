@@ -362,6 +362,18 @@
   * [Logs](agent-management/observe/logs/README.md)
     * [Inspect your agent log](agent-management/observe/inspect-your-agent-log.md)
   * [Review audit logs](agent-management/observe/review-audit-logs.md)
+* [Govern](agent-management/govern/README.md)
+  * [Score agent compliance with the EU AI Act framework](agent-management/govern/score-agent-compliance-with-the-eu-ai-act.md)
+  * [Rate an agent's risk level](agent-management/govern/rate-an-agents-risk-level.md)
+  * [Create a custom compliance ruleset](agent-management/govern/create-a-custom-compliance-ruleset.md)
+  * [View the lineage of an agent or a proxy](agent-management/govern/view-agent-lineage.md)
+  * [Screen prompts and answers with Guardian Agents](agent-management/govern/guard-agent-actions-with-guardian-agents.md)
+  * [Require human approval for MCP tool calls](agent-management/govern/require-human-approval-for-mcp-tool-calls.md)
+  * [Agent activity](agent-management/govern/agent-activity-logs.md)
+* [Cost and value](agent-management/cost-and-value/README.md)
+  * [Agent FinOps](agent-management/cost-and-value/agent-finops.md)
+  * [Read what an agent cost](agent-management/cost-and-value/read-what-an-agent-cost.md)
+  * [Attribute business value to agent runs](agent-management/cost-and-value/attribute-business-value-to-agent-runs.md)
 
 ## Authorization Management
 

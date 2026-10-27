@@ -1,0 +1,16 @@
+root: ./
+
+structure:
+  readme: get-started/README.md
+  summary: SUMMARY.md
+
+redirects:
+ build/llm-proxies/configure-an-llm-proxy/configure-llm-proxy-cors: build/configure-llm-proxy-cors.md
+ build/llm-proxies/override-the-model-at-runtime: build/override-the-model-at-runtime.md
+ build/mcp-proxies/configure-your-mcp/gateway: build/mcp-proxies/operations/README.md
+ build/mcp-proxies/configure-your-mcp/gateway/configure-logging-and-tracing: build/configure-your-mcp/configure-logging-and-tracing.md
+ build/mcp-proxies/configure-your-mcp/general/configure-mcp-proxy-notifications: build/configure-mcp-proxy-notifications.md
+ import/create-event-tools: import/README.md
+ overview/ai-resources: build/ai-resources.md
+ overview/llm-proxy-provider-support: build/llm-proxy-provider-support.md
+ overview: get-started/ai-management-overview.md
