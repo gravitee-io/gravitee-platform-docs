@@ -205,3 +205,13 @@ redirects:
  agent-management/build/llm-proxies/configure-an-llm-proxy/consumer-access: agent-management/publish/README.md
  api-management/manage/api-proxies/configure-your-api-proxy: api-management/manage/api-proxies/README.md
  api-management/manage/api-products/configure-your-api-product: api-management/build/api-products.md
+ agent-management/import/integrations/manage-a-registered-agent: agent-management/import/manage-a-registered-agent.md
+ agent-management/import/integrations/manage-a-registered-agent/give-an-agent-an-identity: agent-management/import/give-an-agent-an-identity.md
+ agent-management/import/integrations/manage-a-registered-agent/route-an-agent-through-an-a2a-proxy: agent-management/import/route-an-agent-through-an-a2a-proxy.md
+ agent-management/import/integrations/manage-a-registered-agent/subscribe-an-agent-to-an-llm-proxy: agent-management/import/subscribe-an-agent-to-an-llm-proxy.md
+ agent-management/import/integrations/manage-a-registered-agent/subscribe-an-agent-to-an-mcp-proxy: agent-management/import/subscribe-an-agent-to-an-mcp-proxy.md
+ agent-management/build/a2a-proxies/publish-your-agent-to-the-developer-portal: agent-management/publish/publish-your-agent-to-the-developer-portal.md
+ agent-management/build/agent-killswitch: agent-management/build/agent-killswitch.md
+ agent-management/build/a2a-proxies/let-consumers-subscribe-to-your-agent: agent-management/publish/let-consumers-subscribe-to-your-agent.md
+ agent-management/observe/monitor-agents-spend-and-compliance: agent-management/observe/monitor-agents-spend-and-compliance.md
+ agent-management/observe/monitor-proxy-activity: agent-management/observe/monitor-proxy-activity.md

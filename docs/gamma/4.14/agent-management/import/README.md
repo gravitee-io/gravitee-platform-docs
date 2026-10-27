@@ -18,6 +18,7 @@ The **Catalog** group of the Agent Management sidebar holds the **AI Models**, *
 * [**Create workflow tools**](create-workflow-tools.md). Chain operations from your APIs in API Management into one MCP tool that the gateway runs.
 * [**Add a knowledge source**](add-knowledge-source.md). Add a knowledge source so agents can read documentation and reference material as context.
 * [**Upload skills**](upload-skills.md). Upload a skill package so agents can consume it as an MCP resource and you can govern it.
+* [**Manage a registered agent**](manage-a-registered-agent.md). A registered agent's page in the Catalog is the hub for everything Gamma holds and controls for it.
 * [**Create an agent identity**](../build/create-an-agent-identity.md). Register an agent as an OAuth client in Gravitee Access Management with a persona that fits how it runs.
 
 <figure><img src="../.gitbook/assets/gamma-aim-dashboard.png" alt="Agent Management Import catalog showing eight entity type cards"><figcaption><p>The Import section of the Agent Management dashboard. Each card links to a Catalog entity type. The full set of import operations — including integrations, API tools, and Event tools — is listed below.</p></figcaption></figure>
