@@ -16,3 +16,13 @@ redirects:
  overview: get-started/ai-management-overview.md
  build/a2a-proxies/manage-the-consumers-of-your-a2a-proxy: publish/manage-subscriptions.md
  build/llm-proxies/configure-an-llm-proxy/consumer-access: publish/README.md
+ import/integrations/manage-a-registered-agent: import/manage-a-registered-agent.md
+ import/integrations/manage-a-registered-agent/give-an-agent-an-identity: import/give-an-agent-an-identity.md
+ import/integrations/manage-a-registered-agent/route-an-agent-through-an-a2a-proxy: import/route-an-agent-through-an-a2a-proxy.md
+ import/integrations/manage-a-registered-agent/subscribe-an-agent-to-an-llm-proxy: import/subscribe-an-agent-to-an-llm-proxy.md
+ import/integrations/manage-a-registered-agent/subscribe-an-agent-to-an-mcp-proxy: import/subscribe-an-agent-to-an-mcp-proxy.md
+ build/a2a-proxies/publish-your-agent-to-the-developer-portal: publish/publish-your-agent-to-the-developer-portal.md
+ build/agent-killswitch: build/agent-killswitch.md
+ build/a2a-proxies/let-consumers-subscribe-to-your-agent: publish/let-consumers-subscribe-to-your-agent.md
+ observe/monitor-agents-spend-and-compliance: observe/monitor-agents-spend-and-compliance.md
+ observe/monitor-proxy-activity: observe/monitor-proxy-activity.md
