@@ -139,3 +139,7 @@
   * [Screen prompts and answers with Guardian Agents](govern/guard-agent-actions-with-guardian-agents.md)
   * [Require human approval for MCP tool calls](govern/require-human-approval-for-mcp-tool-calls.md)
   * [Agent activity](govern/agent-activity-logs.md)
+* [Cost and value](cost-and-value/README.md)
+  * [Agent FinOps](cost-and-value/agent-finops.md)
+  * [Read what an agent cost](cost-and-value/read-what-an-agent-cost.md)
+  * [Attribute business value to agent runs](cost-and-value/attribute-business-value-to-agent-runs.md)
