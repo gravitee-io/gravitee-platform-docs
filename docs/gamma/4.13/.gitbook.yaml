@@ -201,3 +201,7 @@ redirects:
  event-stream-management/manage/kafka-explorer/limitations-and-considerations: event-stream-management/kafka-infrastructure/kafka-explorer/limitations-and-considerations.md
  event-stream-management/manage/kafka-explorer/manage-kafka-explorer-connections: event-stream-management/kafka-infrastructure/kafka-explorer/manage-kafka-explorer-connections.md
  event-stream-management/manage/register-your-kafka-clusters: event-stream-management/kafka-infrastructure/clusters/register-your-kafka-clusters.md
+ agent-management/build/a2a-proxies/manage-the-consumers-of-your-a2a-proxy: agent-management/publish/manage-subscriptions.md
+ agent-management/build/llm-proxies/configure-an-llm-proxy/consumer-access: agent-management/publish/README.md
+ api-management/manage/api-proxies/configure-your-api-proxy: api-management/manage/api-proxies/README.md
+ api-management/manage/api-products/configure-your-api-product: api-management/build/api-products.md
