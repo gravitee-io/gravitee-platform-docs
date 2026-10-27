@@ -14,3 +14,5 @@ redirects:
  overview/ai-resources: build/ai-resources.md
  overview/llm-proxy-provider-support: build/llm-proxy-provider-support.md
  overview: get-started/ai-management-overview.md
+ build/a2a-proxies/manage-the-consumers-of-your-a2a-proxy: publish/manage-subscriptions.md
+ build/llm-proxies/configure-an-llm-proxy/consumer-access: publish/README.md
