@@ -11,7 +11,7 @@ In enterprise environments, Gravitee components often communicate through corpor
 | Guide                         | Use Case                                                                                   |
 | ----------------------------- | ------------------------------------------------------------------------------------------ |
 | Hybrid Gateway Proxy          | Configure a Hybrid Gateway to connect to a Bridge Server or Gravitee Cloud through a proxy |
-| System Proxy for Backend APIs | Configure a Gateway to route backend API calls through a system proxy                      |
+| System proxy for a hybrid Gateway | Configure a Gateway to route backend API calls through a system proxy                      |
 
 ## Proxy Types
 

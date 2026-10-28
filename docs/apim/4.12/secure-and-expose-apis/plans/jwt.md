@@ -58,7 +58,7 @@ A JWT plan presents the following configuration options:
 
 In enterprise environments where the Gateway reaches external identity providers through a corporate proxy, enable **Use system proxy** in the JWT plan configuration. This routes outbound JWKS retrieval calls (for example, to Microsoft Entra ID, Google, or Okta) through the system proxy configured at the Gateway level.
 
-To configure the system proxy on the Gateway, see [System Proxy for Backend APIs](../../self-hosted-installation-guides/proxy-configuration/system-proxy-for-backend-apis.md).
+To configure the system proxy on the Gateway, see [System proxy for a self-hosted Gateway](../../self-hosted-installation-guides/proxy-configuration/system-proxy-for-backend-apis.md).
 
 {% hint style="warning" %}
 **Adjust timeouts for proxy environments**
