@@ -12,10 +12,6 @@ Here are the breaking changes for versions 4.X of Gamma, grouped by module. Gamm
 
 #### API Management
 
-**v2 APIs are deprecated**
-
-From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [Migrate APIs](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis/migrate-apis).
-
 **API notifications no longer list review, support, and rating events**
 
 From 4.13.0, the API notification settings in Gamma no longer show the review, support, and rating events, because they serve only the Classic Developer Portal. These events still fire, and the notification settings that already select them keep them. To change them, use the API's notification settings in the Console.
@@ -94,3 +90,15 @@ From 4.13.0, the **Request URI** log filter offers only the starts with operator
 From 4.13.0, the analytics time series request, `POST /gamma/organizations/{orgId}/environments/{envId}/observability/analytics/time-series`, takes `limit` to set how many values to return. `facetSize` is a deprecated alias of `limit`, and `limit` wins when a request sends both. The meaning also changes. In 4.12, `facetSize` capped the values in each time bucket. In 4.13, `limit` picks the top values over the whole time range, so every bucket shows the same values. A `limit` above `100` returns `400`.
 
 Before you upgrade, update the scripts that send `facetSize`, and check the charts that rely on each bucket showing its own top values.
+
+## Deprecated functionality
+
+Here is the deprecated functionality for versions 4.X of Gamma, grouped by module.
+
+### 4.13.0
+
+#### API Management
+
+**v2 APIs are deprecated**
+
+From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [Migrate APIs](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis/migrate-apis).
