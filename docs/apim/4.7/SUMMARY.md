@@ -182,7 +182,7 @@
   * [Manage native Kafka API deployment](kafka-gateway/configure-kafka-apis/deployment.md)
 * [Native Kafka API plans](kafka-gateway/plans.md)
 * [Create an application for Kafka APIs](kafka-gateway/applications.md)
-* [Subscriptions](kafka-gateway/subscriptions.md)
+* [Subscriptions for Kafka APIs](kafka-gateway/subscriptions.md)
 * [Other ways Gravitee supports Kafka](kafka-gateway/other-ways-gravitee-supports-kafka.md)
 
 ## Governance

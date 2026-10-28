@@ -445,7 +445,7 @@
   * [Configure and Deploy Kafka Console](kafka-gateway/configure-and-deploy-kafka-console.md)
   * [Native Kafka API plans](kafka-gateway/plans.md)
   * [Create an application for Kafka APIs](kafka-gateway/applications.md)
-  * [Subscriptions](kafka-gateway/subscriptions.md)
+  * [Subscriptions for Kafka APIs](kafka-gateway/subscriptions.md)
   * [Other Ways Gravitee Supports Kafka](kafka-gateway/other-ways-gravitee-supports-kafka.md)
   * [Expose Kafka metrics to Prometheus](kafka-gateway/expose-metrics-to-prometheus.md)
   * [Expose Metrics to Elasticsearch](kafka-gateway/expose-metrics-to-elasticsearch.md)

@@ -171,7 +171,7 @@
   * [Kafka Topic Mapping](kafka-gateway/policies/kafka-topic-mapping.md)
   * [Kafka Quota](kafka-gateway/policies/kafka-quota.md)
 * [Create an application for Kafka APIs](kafka-gateway/applications.md)
-* [Subscriptions](kafka-gateway/subscriptions.md)
+* [Subscriptions for Kafka APIs](kafka-gateway/subscriptions.md)
 * [Other ways Gravitee supports Kafka](kafka-gateway/other-ways-gravitee-supports-kafka.md)
 
 ## Federation

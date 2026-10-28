@@ -329,7 +329,7 @@
   * [4.9: Create and Configure Kafka Clusters](kafka-gateway/4.9-create-and-configure-kafka-clusters.md)
   * [Native Kafka API plans](kafka-gateway/plans.md)
   * [Create an application for Kafka APIs](kafka-gateway/applications.md)
-  * [Subscriptions](kafka-gateway/subscriptions.md)
+  * [Subscriptions for Kafka APIs](kafka-gateway/subscriptions.md)
   * [Other Ways Gravitee Supports Kafka](kafka-gateway/other-ways-gravitee-supports-kafka.md)
   * [Expose Kafka metrics to Prometheus](kafka-gateway/expose-metrics-to-prometheus.md)
   * [4.9: Configure and Deploy Kafka Console](kafka-gateway/4.9-configure-and-deploy-kafka-console.md)
