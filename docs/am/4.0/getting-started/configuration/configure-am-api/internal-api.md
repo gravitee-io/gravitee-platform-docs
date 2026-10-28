@@ -2,7 +2,7 @@
 description: API and reference documentation for The AM API.
 ---
 
-# Internal API
+# Internal API for Access Management
 
 ## Overview
 

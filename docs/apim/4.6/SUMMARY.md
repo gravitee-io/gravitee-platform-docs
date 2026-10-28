@@ -32,7 +32,7 @@
   * [Deployments](getting-started/production-ready-environment/deployments.md)
   * [Authentication best practices](getting-started/production-ready-environment/authentication.md)
   * [Protections](getting-started/production-ready-environment/protections.md)
-  * [Settings](getting-started/production-ready-environment/settings.md)
+  * [Configure production settings](getting-started/production-ready-environment/settings.md)
 * [Enterprise tool integrations](getting-started/integrations.md)
 * [Plugins](getting-started/plugins/README.md)
   * [Deploy plugins](getting-started/plugins/deployment.md)

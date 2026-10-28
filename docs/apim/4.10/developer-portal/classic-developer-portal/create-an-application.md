@@ -2,7 +2,7 @@
 description: Unless an API has a keyless plan, a consumer registers an application in the Developer Portal 4.10 and subscribes. Follow the steps.
 ---
 
-# Create an Application
+# Create a Classic Developer Portal application
 
 ## Overview
 

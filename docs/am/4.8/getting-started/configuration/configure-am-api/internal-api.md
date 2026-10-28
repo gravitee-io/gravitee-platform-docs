@@ -2,7 +2,7 @@
 description: The Access Management 4.8 API exposes an internal API for monitoring and technical information about the component. Follow the steps to configure it.
 ---
 
-# Internal API
+# Internal API for Access Management
 
 ## Overview
 

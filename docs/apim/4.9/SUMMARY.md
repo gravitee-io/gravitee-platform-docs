@@ -260,7 +260,7 @@
     * [Customize the Classic Developer Portal](developer-portal/classic-developer-portal/layout-and-theme.md)
     * [Manage Users](developer-portal/classic-developer-portal/manage-users.md)
     * [Webhook Subscriptions](developer-portal/classic-developer-portal/webhook-subscriptions.md)
-    * [Create an Application](developer-portal/classic-developer-portal/create-an-application.md)
+    * [Create a Classic Developer Portal application](developer-portal/classic-developer-portal/create-an-application.md)
     * [Create API documentation](developer-portal/classic-developer-portal/api-documentation.md)
 * [Govern APIs](govern-apis/README.md)
   * [Federation](govern-apis/federation/README.md)
