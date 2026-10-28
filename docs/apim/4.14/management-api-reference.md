@@ -12,7 +12,7 @@ metaLinks:
 The Gravitee Management API is the programmatic interface to the [Gravitee APIM](https://www.gravitee.io/platform/api-management) backend. The Management API consists of two main subcomponents:
 
 * The **Management** component. This component exposes the core functionality of APIM. For example, creating APIs, deploying APIs to the gateway, and analytics.
-* The **Portal** component. This component exposes endpoints for listing and managing APIs and applications in Gravitee's Developer Portal UI. You can also use the Portal API endpoints to build a custom developer portal. Build it on the operations outside the **Legacy** sections of the Portal API reference: the **Legacy** operations only serve the classic Developer Portal.
+* The **Portal** component. This component exposes endpoints for listing and managing APIs and applications in Gravitee's Developer Portal UI. Also, you can use the Portal API endpoints to build custom developer portals.
 
 Gravitee V4 and Federated APIs are managed within the **v2** subcomponent of the management API. You can access the v2 subcomponent through the `/management/v2` subpath.
 
@@ -39,4 +39,4 @@ To explore the API documentation, select any of the following endpoint categorie
 * [**/management/v2 subcomponent documentation**](https://apim-api-docs.gravitee.io/?v=4.14&api=mgmt-v2-apis)**:** provides the specification for `management/v2` endpoints. Use this component to complete the following actions:
   * Manage V4 and Federated APIs
   * Configure multi-tenant aspects of APIM such as licenses, plugins, and OEM customization
-* [**/portal component documentation**](https://apim-api-docs.gravitee.io/?v=4.14&api=portal)**:** productize APIs and manage applications and subscriptions
+* [**/portal component documentation**](https://apim-api-docs.gravitee.io/?v=4.14&api=portal-next)**:** productize APIs and manage applications and subscriptions
