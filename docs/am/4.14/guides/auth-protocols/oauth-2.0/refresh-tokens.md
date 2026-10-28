@@ -119,7 +119,7 @@ You can disable the refresh token rotation to reuse refresh tokens until expirat
 
 With this mode, you limit the number of refresh tokens to be issued and force the user to sign in after the refresh token has expired, but you can be exposed to security risk if the refresh token has been compromised as it can be reused.
 
-To disable the refresh token rotation :
+To disable the refresh token rotation:
 
 1. Log in to AM Console.
 2. Click **Applications**.
