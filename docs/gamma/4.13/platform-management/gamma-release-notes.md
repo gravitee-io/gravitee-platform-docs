@@ -18,6 +18,14 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 * **Event Stream Management**: Connect clients to Kafka, MQTT 5.x, Solace, and RabbitMQ with Message APIs, browse live brokers, topics, and messages with the Kafka Explorer, and trace Kafka traffic from new dashboards, logs, and tracing pages.
 * **Platform Management**: Run your organization and environments from the Gamma console, including users, roles, console sign-in, alerts, and SMTP. Gateways connected to Gravitee Cloud send traces and payload logs to Gravitee Cloud with no OpenTelemetry setup.
 
+## Breaking changes and deprecations
+
+#### **v2 APIs are deprecated**
+
+From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [Migrate APIs](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis/migrate-apis).
+
+For the other breaking changes and deprecations in Gamma 4.13, see [Breaking Changes and Deprecations](gamma-breaking-changes.md).
+
 ## New features
 
 ### Agent Management
