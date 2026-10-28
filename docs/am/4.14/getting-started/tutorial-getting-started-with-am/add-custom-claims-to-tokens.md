@@ -25,6 +25,10 @@ You can add custom claims to your Access Tokens or ID Tokens.
 <figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-42.png" alt="The Tokens tab with the access, refresh, and ID token expiry values, and custom claims added to the access token and the ID token."><figcaption><p>Define custom claims</p></figcaption></figure>
 
 {% hint style="info" %}
+With **Enable Lightweight JWT** turned on, AM removes a custom claim from the access token or the ID token unless its name is on the matching allowlist. See [Configure Lightweight JWT](../../guides/auth-protocols/oauth-2.0/lightweight-jwt.md).
+{% endhint %}
+
+{% hint style="info" %}
 The mapping here uses the Gravitee Expression Language to dynamically add custom data. To add more static information, you can also use raw values .
 {% endhint %}
 
