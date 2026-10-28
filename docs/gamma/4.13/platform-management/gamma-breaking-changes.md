@@ -12,6 +12,10 @@ Here are the breaking changes for versions 4.X of Gamma, grouped by module. Gamm
 
 #### API Management
 
+**v2 APIs are deprecated**
+
+From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [Migrate APIs](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis/migrate-apis).
+
 **API notifications no longer list review, support, and rating events**
 
 From 4.13.0, the API notification settings in Gamma no longer show the review, support, and rating events, because they serve only the Classic Developer Portal. These events still fire, and the notification settings that already select them keep them. To change them, use the API's notification settings in the Console.
