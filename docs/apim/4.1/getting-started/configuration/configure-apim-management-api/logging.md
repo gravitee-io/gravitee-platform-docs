@@ -4,7 +4,7 @@ description: >-
   expose metrics to Prometheus
 ---
 
-# Logging
+# Configure Management API logging
 
 ## Management Console logging
 

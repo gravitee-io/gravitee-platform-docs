@@ -63,7 +63,7 @@
     * [Configure Management API settings](getting-started/configuration/configure-apim-management-api/internal-api.md)
     * [User and Management Configuration](getting-started/configuration/configure-apim-management-api/user-and-management-configuration.md)
     * [Internal API](getting-started/configuration/configure-apim-management-api/internal-api-1.md)
-    * [Logging](getting-started/configuration/configure-apim-management-api/logging.md)
+    * [Configure Management API logging](getting-started/configuration/configure-apim-management-api/logging.md)
     * [Security](getting-started/configuration/configure-apim-management-api/security.md)
   * [Configure APIM Console](getting-started/configuration/configure-apim-management-ui.md)
   * [Configure APIM Developer Portal](getting-started/configuration/configure-apim-developer-portal.md)
