@@ -2,7 +2,7 @@
 description: Configure the Solace endpoint for a v4 message API in API Management 4.8. Learn the configuration it needs and how it is implemented.
 ---
 
-# Solace
+# Solace endpoint
 
 ## Overview
 

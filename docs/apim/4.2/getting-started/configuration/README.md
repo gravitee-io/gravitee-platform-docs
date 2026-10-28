@@ -2,7 +2,7 @@
 description: Learn how to configure various Gravitee API Management components
 ---
 
-# Configuration
+# Component configuration
 
 ## Introduction
 

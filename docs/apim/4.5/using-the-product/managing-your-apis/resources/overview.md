@@ -2,7 +2,7 @@
 description: An overview about overview.
 ---
 
-# Overview
+# Default resources
 
 Every API Management installation includes several default resources that are commonly used in standard APIM implementations and can be configured during the API design phase. The recommended configuration method employs the [Policy Studio](../policy-studio/README.md).
 
