@@ -25,6 +25,20 @@ The `tls` field of a `TCPMapping`, an `AuthService`, and a `RateLimitService` no
 
 To find affected resources before you upgrade, search the Ambassador Edge Stack logs for `Originate-TLS context`. The message says `is not defined` even when the `TLSContext` exists but is invalid. The same search also finds the message `Originate-TLS context ... being used even though service ... lists HTTP`, which isn't related to this change.
 
+#### Helm chart: Redis now requires a password by default
+
+{% hint style="warning" %}
+If you deploy with a tool that renders the Helm chart with `helm template`, such as Argo CD, set `redis.auth.password` or `redis.auth.createSecret=false` before you upgrade. Use `helm upgrade --reset-then-reuse-values` instead of `--reuse-values`.
+{% endhint %}
+
+Previously, the Redis instance that the Helm chart creates accepted connections without a password from anything that could reach it. Redis holds OAuth2 sessions and rate limit counters. Starting with chart v8.15.0, the chart generates a random password on the first install, stores it in the `<release-fullname>-redis-auth` Secret, starts Redis with `--requirepass`, and passes the password to Ambassador Edge Stack in `REDIS_PASSWORD` and `REDIS_AUTH`. Each `helm upgrade` reads the password back from the Secret, so it doesn't change.
+
+The first upgrade restarts Redis, so existing OAuth2 sessions and rate limit counters are lost. After the upgrade finishes, run `kubectl rollout restart -n <namespace> deployment/<release-fullname>` so that every Ambassador Edge Stack pod connects to the new Redis instance. External Redis isn't affected. To keep the previous behavior, set `redis.auth.enabled=false`. The YAML manifests still create Redis without a password. For details, including how to add a password to a YAML installation, see [Redis password in the Helm chart](edge-stack-user-guide/deployment/ambassador-edge-stack-and-redis.md#redis-password-in-the-helm-chart).
+
+#### Helm chart: example roles for delegating configuration
+
+Permission to create Ambassador Edge Stack resources, such as `Mapping`, `AuthService`, and `Filter`, is administrator-level access to the gateway, because these resources choose where Ambassador Edge Stack connects from inside the cluster. Kubernetes RBAC decides who has this permission. The Helm chart can now install two example ClusterRoles, `<release-fullname>-admin` and `<release-fullname>-route-editor`, when you set `rbacExamples.create=true`. The chart doesn't bind them to anyone. For more information, see [Controlling Who Can Configure Ambassador Edge Stack](edge-stack-user-guide/deployment/controlling-who-can-configure-ambassador-edge-stack.md).
+
 ### Version 3.14.4 (October 7, 2026) <a href="#id-3.14.4" id="id-3.14.4"></a>
 
 #### Upgrade to Envoy 1.38.4
