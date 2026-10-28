@@ -154,7 +154,7 @@
     * [General Settings](guides/developer-portal/configuration/general-settings.md)
     * [User Management](guides/developer-portal/configuration/user-management.md)
     * [Layout and Theme Customization](guides/developer-portal/configuration/layout-and-theme-customization.md)
-    * [Documentation](guides/developer-portal/configuration/documentation.md)
+    * [Create API documentation](guides/developer-portal/configuration/documentation.md)
   * [Tools and Features](guides/developer-portal/tools-and-features/README.md)
     * [Webhook Subscription Management](guides/developer-portal/tools-and-features/webhook-subscription-management.md)
     * [Manage Developer Portal applications](guides/developer-portal/tools-and-features/applications.md)

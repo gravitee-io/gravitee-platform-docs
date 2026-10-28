@@ -35,14 +35,14 @@
 ## Installation and upgrades
 
 * [Docker](installation-and-upgrades/install-on-docker/README.md)
-  * [Quick Install](installation-and-upgrades/install-on-docker/quick-install-with-docker-compose.md)
+  * [Run a quick install with Docker Compose](installation-and-upgrades/install-on-docker/quick-install-with-docker-compose.md)
   * [Custom Install with Docker Compose](installation-and-upgrades/install-on-docker/custom-install-with-docker-compose.md)
   * [Docker Images Install](installation-and-upgrades/install-on-docker/docker-images-install.md)
   * [Customizing your installation on Docker](installation-and-upgrades/install-on-docker/further-customization.md)
 * [Kubernetes](installation-and-upgrades/install-on-kubernetes.md)
 * [OpenShift](installation-and-upgrades/installing-on-openshift.md)
 * [RPM packages](installation-and-upgrades/installing-with-rpm-packages/README.md)
-  * [Quick install](installation-and-upgrades/installing-with-rpm-packages/installing-with-quick-full-stack-install.md)
+  * [Run a quick install with RPM](installation-and-upgrades/installing-with-rpm-packages/installing-with-quick-full-stack-install.md)
   * [Installing with manual install](installation-and-upgrades/installing-with-rpm-packages/installing-with-manual-install.md)
 * [.ZIP](installation-and-upgrades/install-with-.zip.md)
 * [Installing a Gravitee Gateway with a Hybrid Deployment](installation-and-upgrades/advanced-hybrid-deployment/README.md)

@@ -2,7 +2,7 @@
 description: An application represents a consumer of your API Management 4.8 APIs and holds its subscriptions. Learn how applications work.
 ---
 
-# Applications
+# Configure applications
 
 ## Overview
 

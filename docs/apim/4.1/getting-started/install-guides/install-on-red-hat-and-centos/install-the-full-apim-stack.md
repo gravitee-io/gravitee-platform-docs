@@ -2,7 +2,7 @@
 description: Tutorial on APIM Full Stack Installation.
 ---
 
-# APIM Full Stack Installation
+# Install the full stack on Red Hat
 
 This section describes how to install the full Gravitee API Management (APIM) stack, including all the components and, optionally, dependencies (MongoDB, Elasticsearch).
 
