@@ -6,6 +6,8 @@
 SUMMARY.md
 .gitbook.yaml
 release-information/release-notes/apim-4.13.md
+# Changelogs of older lines are linked from their own space, so keep them out of 4.14
+release-information/changelog/apim-4.13.x.md
 # AI Workspaces in the New Developer Portal (APIM 4.14.0 feature, PORTAL-147)
 release-information/release-notes/apim-4.14.md
 developer-portal/new-developer-portal/show-ai-workspaces-in-the-developer-portal.md
