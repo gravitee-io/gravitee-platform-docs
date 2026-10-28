@@ -2,7 +2,7 @@
 description: Install an API Management 4.8 Gateway on Kubernetes with GCP GKE. Follow the steps to complete a Classic Cloud hybrid deployment.
 ---
 
-# Run a Classic Gateway on GCP GKE
+# GCP GKE Gateway for Classic Cloud
 
 To install a Gravitee Gateway on Kubernetes using GCP GKE, complete the following steps:
 

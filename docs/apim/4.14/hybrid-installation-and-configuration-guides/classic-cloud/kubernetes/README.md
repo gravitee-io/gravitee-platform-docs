@@ -5,7 +5,7 @@ metaLinks:
     - ./
 ---
 
-# Run a Classic Gateway on Kubernetes
+# Kubernetes Gateway for Classic Cloud
 
 ## Deployment methods
 

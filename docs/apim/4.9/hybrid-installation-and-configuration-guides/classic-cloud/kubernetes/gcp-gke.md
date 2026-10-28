@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/classic-cloud/kubernetes/gcp-gke
 ---
 
-# Run a Classic Gateway on GCP GKE
+# GCP GKE Gateway for Classic Cloud
 
 To install a Gravitee Gateway on Kubernetes using GCP GKE, complete the following steps:
 

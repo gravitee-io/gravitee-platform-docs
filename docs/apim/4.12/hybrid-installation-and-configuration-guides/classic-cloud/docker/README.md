@@ -5,7 +5,7 @@ metaLinks:
     - ./
 ---
 
-# Run a Classic Gateway with Docker
+# Docker Gateway for Classic Cloud
 
 ## Deployment methods
 
