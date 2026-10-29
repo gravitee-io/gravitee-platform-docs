@@ -6,7 +6,7 @@ description: Set up the structure, homepage, theme, APIs, documentation, and lin
 
 ## Overview
 
-The Next-Gen Developer Portal supports CI/CD-driven setup of portal structure, homepage, theme, published APIs, documentation, and links through the Automation API. You declare portal configuration, navigation hierarchies, API listings, documentation pages, links, and themes declaratively with Gravitee Kubernetes Operator (GKO) custom resources. APIM reconciles the desired state into the live portal navigation tree.
+The Next-Gen Developer Portal supports CI/CD-driven setup of portal structure, homepage, theme, published APIs, documentation, and links through the Automation API. You declare portal configuration, navigation hierarchies, API listings, documentation pages, links, and themes declaratively with Gravitee Kubernetes Operator (GKO) custom resources or with the Gravitee [Terraform provider](../../../../terraform/README.md). APIM reconciles the desired state into the live portal navigation tree.
 
 The Automation API supports Gravitee Markdown, OpenAPI, and AsyncAPI documentation types. A link opens a URL from the portal navigation or from the documentation of an API.
 
@@ -65,7 +65,7 @@ Navigation paths, listing entries, documentation pages, and links take an option
 
 When `visibility` is omitted, the item takes the visibility of its parent folder, and a top-level item is `PUBLIC`. A public item under a private parent is rejected with `400` and the message `Parent item with id <id> must be PUBLIC to create a public child item.`
 
-The resolution runs on every apply. A documentation page or a link that omits `visibility` follows its folder each time it's applied, including a page that was made private in the Console. Declare `visibility: PRIVATE` on every resource whose item stays private.
+The resolution runs on every apply. A documentation page or a link that omits `visibility` follows its folder each time it's applied, including a page that was made private in the Console. Declare `visibility: PRIVATE` on every resource whose item stays private. With Terraform, each `terraform apply` that updates the resource applies it again.
 
 ### Portal listing
 
@@ -115,6 +115,7 @@ A theme is the look and feel of the New Developer Portal: its colors, font, cust
 * The `ENVIRONMENT_THEME` permission for theme operations, and for changing the active theme of a portal
 * The `API_DOCUMENTATION` permission for API-scoped documentation and API link operations
 * For Kubernetes deployments: Gravitee Kubernetes Operator 4.13.0 or later installed
+* For Terraform: the Gravitee APIM Terraform provider 1.2.0 or later
 
 {% hint style="info" %}
 Resources can reference each other before all dependencies exist. Documentation pages, links, and portal listings tolerate missing navigation paths, API HRIDs, and parent portals. Orphan entries reconnect when the referenced resource is created, so apply order does not matter.
@@ -240,6 +241,39 @@ The GKO controller reconciles the desired state by calling the Automation API. A
 {% hint style="warning" %}
 `spec.navigation` is deprecated. A resource that sets it is accepted with the warning `spec.navigation is deprecated, use spec.structure.topNavbar instead`. A resource that sets both `spec.navigation` and `spec.structure` is rejected with `navigation and structure cannot be used at the same time`.
 {% endhint %}
+
+### Using Terraform
+
+Declare an [`apim_portal`](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/portal) resource with the HRID, display name, and navigation paths under `structure.top_navbar`, and optionally `active_theme_hrid`. Then run `terraform apply`.
+
+**Example Terraform configuration:**
+
+{% code title="portal.tf" %}
+```hcl
+resource "apim_portal" "default-portal" {
+  hrid = "default-portal"
+  name = "Default Portal"
+  structure = {
+    top_navbar = [
+      {
+        path         = "/projects/alpha"
+        display_name = "Alpha"
+      },
+      {
+        path = "/projects/alpha/docs"
+      },
+      {
+        path       = "/projects/beta"
+        visibility = "PRIVATE"
+      }
+    ]
+  }
+  active_theme_hrid = apim_portal_theme.brand-theme.hrid
+}
+```
+{% endcode %}
+
+Omitting `structure` keeps the navigation the portal already has, including after `terraform import`. To clear the top navigation bar, set `top_navbar = []`. Leaving `active_theme_hrid` unset deactivates the theme the portal used, as described in [How themes and portals relate](portal-themes.md#how-themes-and-portals-relate).
 
 ### Navigation path normalization
 

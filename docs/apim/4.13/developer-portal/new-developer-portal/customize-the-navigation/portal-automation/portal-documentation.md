@@ -91,6 +91,31 @@ spec:
 * The GKO admission webhook validates the documentation before apply.
 {% endhint %}
 
+### Using Terraform
+
+Declare an [`apim_documentation_portal`](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/documentation_portal) resource with the portal HRID, and the page's HRID, display name, type, content, and location, and optionally its order, area, and visibility. Then run `terraform apply`.
+
+**Example Terraform configuration:**
+
+{% code title="portal-documentation.tf" %}
+```hcl
+resource "apim_documentation_portal" "getting-started" {
+  portal_hrid = apim_portal.default-portal.hrid
+  hrid        = "getting-started"
+  name        = "Getting Started"
+  type        = "GRAVITEE_MARKDOWN"
+  location    = "/projects/alpha"
+  order       = 1
+  visibility  = "PUBLIC"
+  content     = <<-EOT
+  # Getting Started
+
+  Welcome to the developer portal.
+  EOT
+}
+```
+{% endcode %}
+
 ## Set the portal homepage
 
 A portal page with `area: HOMEPAGE` is the homepage of the portal. The homepage isn't part of the navigation, so it takes no `location`. A portal has one homepage: applying the page replaces the homepage that was created in the Console or seeded with the environment, and a second automation-managed homepage with a different HRID fails with `409` and the message `Homepage already exists`, on an apply and on a dry run. Changing the `area` of an existing page removes its navigation entry and creates a new one in the target area. When you delete the homepage, consumers who open the portal land on the catalog.
@@ -144,3 +169,28 @@ spec:
   area: HOMEPAGE
 ```
 {% endcode %}
+
+### Using Terraform
+
+Declare an [`apim_documentation_portal`](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/documentation_portal) resource with `area = "HOMEPAGE"` and no `location`, and then run `terraform apply`.
+
+**Example Terraform configuration:**
+
+{% code title="portal-homepage.tf" %}
+```hcl
+resource "apim_documentation_portal" "home" {
+  portal_hrid = apim_portal.default-portal.hrid
+  hrid        = "home"
+  name        = "Home"
+  type        = "GRAVITEE_MARKDOWN"
+  area        = "HOMEPAGE"
+  content     = <<-EOT
+  # Welcome
+
+  This page is the developer portal homepage.
+  EOT
+}
+```
+{% endcode %}
+
+Destroying the resource deletes the homepage, and consumers who open the portal land on the catalog.

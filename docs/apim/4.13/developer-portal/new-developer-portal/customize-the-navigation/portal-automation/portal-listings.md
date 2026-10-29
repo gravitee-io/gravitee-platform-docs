@@ -83,6 +83,36 @@ spec:
 - The GKO admission webhook blocks deletion of portals or APIs that are referenced by active listings.
 {% endhint %}
 
+### Using Terraform
+
+Declare an [`apim_portal_listing`](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/portal_listing) resource with the portal HRID and one entry per published API in `apis`. Then run `terraform apply`.
+
+**Example Terraform configuration:**
+
+{% code title="portal-listing.tf" %}
+```hcl
+resource "apim_portal_listing" "alpha-apis" {
+  portal_hrid = apim_portal.default-portal.hrid
+  hrid        = "alpha-apis"
+  apis = [
+    {
+      api_hrid = apim_apiv4.pets-api.hrid
+      location = "/projects/alpha"
+      order    = 1
+    },
+    {
+      api_hrid   = apim_apiv4.orders-api.hrid
+      location   = "/projects/alpha"
+      order      = 2
+      visibility = "PRIVATE"
+    }
+  ]
+}
+```
+{% endcode %}
+
+The Terraform provider calls the Automation API, so a listing tolerates references that don't exist yet, as described in [Automation API vs GKO validation differences](#automation-api-vs-gko-validation-differences).
+
 ### Automation API vs GKO validation differences
 
 The Automation API and GKO CRDs validate references differently:
