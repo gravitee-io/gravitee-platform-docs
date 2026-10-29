@@ -287,3 +287,7 @@ create-and-configure-apis/apply-policies/policy-reference/pii-filtering.md
 upgrade-guides/upgrade-with-rpm.md
 # Gateway Resource Sizing: memory growth from the health check on 4.12.0 to 4.12.15 (DOC-1937)
 prepare-a-production-environment/gateway-resource-sizing-guidelines.md
+# QoS compatibility table: JMS endpoint column (DOC-1899)
+create-and-configure-apis/configure-v4-apis/quality-of-service.md
+# Kafka Gateway: Troubleshoot Kafka client connections (DOC-1890)
+kafka-gateway/troubleshoot-kafka-client-connections.md

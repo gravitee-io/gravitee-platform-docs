@@ -23,3 +23,9 @@ create-and-configure-apis/apply-policies/policy-reference/oauth2-token-exchange.
 prepare-a-production-environment/gateway-resource-sizing-guidelines.md
 # Expression Language: Subscription section at the root level (DOC-1898)
 gravitee-expression-language.md
+# Federation: agent name on the Azure API Management page
+govern-apis/federation/3rd-party-providers/azure-api-management.md
+# QoS compatibility table: JMS endpoint column (DOC-1899)
+create-and-configure-apis/configure-v4-apis/quality-of-service.md
+# Kafka Gateway: Troubleshoot Kafka client connections (DOC-1890)
+kafka-gateway/troubleshoot-kafka-client-connections.md
