@@ -18,3 +18,4 @@ The **Secure** group of the Agent Management sidebar holds the **LLM Proxies**, 
 * [**Manage user permissions for your proxies**](manage-user-permissions-for-your-proxies.md). Add members to an LLM, MCP, or A2A Proxy, manage its groups, and transfer its ownership.
 * [**Manage metadata for your proxies**](manage-metadata-for-your-proxies.md). Manage the metadata of an LLM, MCP, or A2A Proxy from its Metadata page.
 * [**Configure resources for your proxies**](configure-resources-for-your-proxies.md). Create and manage the resources that the policies of an LLM, MCP, or A2A Proxy reference at runtime.
+* [**Monitor proxy and agent activity**](../observe/monitor-proxy-activity.md). Read the 24-hour activity snapshot on the Overview page of an LLM Proxy or MCP Proxy, and the Activity page of an agent.

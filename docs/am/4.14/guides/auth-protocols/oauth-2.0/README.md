@@ -182,6 +182,8 @@ Introspection endpoint URL: `https://am-gateway/{domain}/oauth/introspect`
 
 For a [DPoP-bound](demonstrating-proof-of-possession-dpop.md#discovery-and-introspection) access token, the response includes the `cnf` claim with the `jkt` thumbprint of the key the token is bound to.
 
+For an application with **Enable Lightweight JWT** turned on, the response also carries the claims that AM removed from the lightweight token. See [Configure Lightweight JWT](lightweight-jwt.md).
+
 ### Revocation endpoint
 
 The [revocation endpoint](https://tools.ietf.org/html/rfc7009) allows clients to notify the authorization server that a previously obtained refresh or access token is no longer needed.

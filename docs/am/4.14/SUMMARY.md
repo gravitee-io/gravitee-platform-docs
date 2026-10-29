@@ -71,6 +71,7 @@
     * [Cross App Access](guides/auth-protocols/oauth-2.0/cross-app-access.md)
     * [Dynamic Redirect URI Parameters](guides/auth-protocols/oauth-2.0/dynamic-redirect-uri-parameters.md)
     * [CIMD](guides/auth-protocols/oauth-2.0/cimd.md)
+    * [Configure Lightweight JWT](guides/auth-protocols/oauth-2.0/lightweight-jwt.md)
   * [OpenID Connect](guides/auth-protocols/openid-connect.md)
   * [UMA 2.0](guides/auth-protocols/uma-2.0.md)
   * [SCIM 2.0](guides/auth-protocols/scim-2.0.md)
@@ -190,6 +191,7 @@
 ## Releases & Changelog
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
+  * [AM 4.14](releases-and-changelog/release-notes/am-4.14.md)
   * [AM 4.13](releases-and-changelog/release-notes/am-4.13.md)
   * [AM 4.12](https://documentation.gravitee.io/am/4.12/releases-and-changelog/release-notes/am-4.12)
   * [AM 4.11](https://app.gitbook.com/s/O4b17m2YAjS2X1XTCh88/releases-and-changelog/release-notes/am-4.11)

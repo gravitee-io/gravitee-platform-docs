@@ -52,6 +52,10 @@ The response will contain an access token and a refresh token (+ id\_token if yo
 Be sure to securely store the refresh token as it will be used to get a new access token without user credentials.
 {% endhint %}
 
+{% hint style="info" %}
+With **Enable Lightweight JWT** turned on, the refresh token keeps only its reserved claims and the claims on the **Allowed access and refresh token claims** list. The tokens you get with it are lightweight too. See [Configure Lightweight JWT](lightweight-jwt.md).
+{% endhint %}
+
 ## Use refresh tokens
 
 A refresh token is used to get a new access token without user interaction (i.e. sign-in process).
@@ -115,9 +119,12 @@ You can disable the refresh token rotation to reuse refresh tokens until expirat
 
 With this mode, you limit the number of refresh tokens to be issued and force the user to sign in after the refresh token has expired, but you can be exposed to security risk if the refresh token has been compromised as it can be reused.
 
-To disable the refresh token rotation :
+To disable the refresh token rotation:
 
 1. Log in to AM Console.
-2. Go to **Application → Settings → OAuth 2.0 / OIDC**.
-3. Select **Disable Refresh Token Rotation**.
-4. Press **SAVE**.
+2. Click **Applications**.
+3. Select your application.
+4. Click **Settings**.
+5. Click **OAuth 2.0 / OIDC**.
+6. On the **Grant Flows** tab, turn on **Disable Refresh Token Rotation**.
+7. Click **SAVE**.

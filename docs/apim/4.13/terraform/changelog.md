@@ -8,6 +8,35 @@ metaLinks:
 
 # Changelogs
 <!--INSERT_BELOW-->
+## v1.1.0
+
+### Features
+* feat(apiv4): add portal navigation overlays, tests and guide
+* feat(apiv4,application): add ignore_groups to leave groups to the Console
+* feat(documentation): add documentation resource overlays and acceptance tests
+* feat(group): add default_member_roles and ignore_members
+* feat(portal): add portal resource overlays and acceptance tests
+* feat(portal-listing): add portal listing overlays and acceptance tests
+* feat: bring support for MCP proxies
+
+### Bug Fixes
+* fix(GKO-3100): suppress empty response_templates.headers map drift
+* fix(GKO-3219): align portal listing update locations with portal navigation
+* fix(apiv4): keep the override_access APIM stores when it is not configured
+* fix(apiv4): reject a console notification without events at plan time
+* fix(cloud): validate resource scope against cloud token at apply time
+* fix(dictionary): mark HTTP provider header values as sensitive
+* fix(group,apiv4,application): keep plans and imports clean when the platform owns members or groups
+* fix(mcp): rename connection and send authentication write-only
+* fix: send X-Gravitee-Set-Hrid on Terraform 1.16 export import
+
+### Other
+* docs(examples): add end-to-end next-gen portal use case
+* docs(guides): name the strings a secret URI stands for
+* test(apiv4): ignore override_access on import verification
+* test: add test for groovy policy idempotency
+
+
 ## v1.0.0
 
 ### Features

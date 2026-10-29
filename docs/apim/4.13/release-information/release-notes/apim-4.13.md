@@ -52,6 +52,10 @@ documentation.gravitee.io links for other versions.
 
 ## Breaking Changes and deprecations
 
+#### **v2 APIs are deprecated**
+
+From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [Migrate APIs](../../create-and-configure-apis/create-apis/migrate-apis.md).
+
 #### **The Gateway resolves the request path before it routes**
 
 The `http.pathHandling` Gateway setting now defaults to `NORMALIZE`. In 4.12 and earlier the default was `RAW`. A deployment that upgrades without changing its configuration resolves request paths before it resolves the listener context path, and therefore before it enforces any plan. A request carrying dot segments is routed on the resolved path, so it can reach a different API than it did before. Percent-encoded unreserved characters are decoded, duplicate slashes are merged, and a malformed `%` sequence is answered with `400`. Encoded slashes are never decoded. Set `http.pathHandling: RAW` to restore the previous behavior, which also restores a known authorization bypass, or `http.pathHandling: REJECT` to close the exposure without changing any routing decision. For the upgrade checklist and the limits of each mode, see [Request Path Handling](../../configure-and-manage-the-platform/gravitee-gateway/request-path-handling/README.md). For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
@@ -111,6 +115,10 @@ The Management API v2 now returns `••••••••••••` in plac
 #### **Gateways connected to Gravitee Cloud: Tracing of v2 APIs is off by default, and deprecated tracing settings are overridden**
 
 On a Gateway that connects to Gravitee Cloud with a Cloud Token, `services.opentelemetry.tracing.v2.enabled` now defaults to `false`. A Hybrid Gateway that uses its own OpenTelemetry configuration without this setting therefore stops tracing its v2 APIs after the upgrade. In 4.12, a Gateway with OpenTelemetry turned on traced its v2 APIs by default. A Hybrid Gateway that still uses the deprecated `services.tracing` settings now sends its traces to Gravitee Cloud instead of its own collector. Before you upgrade a Hybrid Gateway that traces v2 APIs, set `services.opentelemetry.tracing.v2.enabled` to `true`, and move any `services.tracing` settings to `services.opentelemetry`. Setting `services.opentelemetry.tracing.v2.enabled` is itself a `services.opentelemetry` setting: on a Gateway without its own OpenTelemetry configuration, it stops the Gateway from sending to Gravitee Cloud and doesn't turn OpenTelemetry on. Set it only on a Gateway that already exports to your own collector. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Management API: Empty the search index directory before you upgrade**
+
+The Management API now uses Lucene 10.5 instead of Lucene 10.1, and Lucene 10.5 can't read a search index that Lucene 10.1 wrote. If the index from 4.12 is still on disk, the Management API doesn't start, and the error is an `IndexFormatTooOldException` that names the `Lucene101` codec. This change affects installations that keep the search index directory across the upgrade. These include zip and RPM installations, and container deployments that mount a persistent volume on the directory. The Helm chart doesn't mount a volume on the directory by default. Before you start the upgraded Management API, empty the search index directory. By default, this directory is `${gravitee.home}/data`. If you set `search.data` in `gravitee.yml`, empty the directory that it points to. The Management API rebuilds the index when it starts. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 ## New Features
 

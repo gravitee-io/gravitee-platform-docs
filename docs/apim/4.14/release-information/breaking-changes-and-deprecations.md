@@ -317,6 +317,18 @@ Changing the members of an API or application also requires `API_MEMBER[UPDATE]`
 
 Before you upgrade, review the permissions of the service accounts that the Gravitee Kubernetes Operator, the Terraform provider, and your pipelines use.
 
+**Management API: Empty the search index directory before you upgrade**
+
+From 4.13.0, the Management API uses Lucene 10.5 instead of Lucene 10.1. Lucene 10.5 can't read a search index that Lucene 10.1 wrote, so the Management API doesn't start if the index from 4.12 is still on disk. The logs show an error similar to the following:
+
+```text
+org.apache.lucene.index.IndexFormatTooOldException: Format version is not supported (resource ...): Could not load codec 'Lucene101'. ... The current classpath supports the following names: [Lucene104]. Did you forget to add lucene-backward-codecs.jar?
+```
+
+This change affects installations that keep the search index directory across the upgrade. These include zip and RPM installations, and container deployments that mount a persistent volume on the directory. The Helm chart doesn't mount a volume on the directory by default.
+
+Before you start the upgraded Management API, empty the search index directory. By default, this directory is `${gravitee.home}/data`. If you set `search.data` in `gravitee.yml`, empty the directory that it points to. The Management API rebuilds the index when it starts.
+
 #### 4.12.0
 
 **JSON Validation policy: response error keys corrected**
@@ -515,6 +527,10 @@ Here is the deprecated functionality for 4.X versions of Gravitee and 3.X versio
 Here is the deprecated functionality from 4.X of Gravitee
 
 #### 4.13.0
+
+**v2 APIs are deprecated**
+
+From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [Migrate APIs](../create-and-configure-apis/create-apis/migrate-apis.md).
 
 **MongoDB and Elasticsearch subcharts are deprecated**
 

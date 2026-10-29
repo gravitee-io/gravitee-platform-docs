@@ -1,0 +1,92 @@
+---
+hidden: false
+noIndex: false
+description: Register a Gravitee Gateway as a Policy Decision Point so authorization decisions are evaluated at the wire level. Follow the steps to register one.
+---
+
+# Configure the Gravitee Gateway as a runtime
+
+Register a Gravitee Gateway instance as a PDP (Policy Decision Point) gateway so the policy engine can evaluate authorization decisions at the wire level.
+
+## How PDP gateways work
+
+A PDP gateway is a registered runtime that executes policy decisions. Each gateway:
+
+- Is identified by a **Target PDP ID** that policies are routed to
+- Can be scoped to a **sharding tag** for multi-region or multi-tenant deployments
+- Has a **status**, which is `PUBLISHED` from the moment it's registered
+- Can expose an [AuthZEN endpoint](ask-for-a-decision/authzen-endpoint.md) for standards-compliant access evaluation
+
+## Prerequisites
+
+* A Gravitee Gateway instance deployed and connected to the control plane
+* The `ENVIRONMENT_AUTHZ_PDP[CREATE]` permission
+
+## Steps
+
+### 1. Navigate to PDP Gateways
+
+From the Authorization Management sidebar, select **PDP Gateways**. The page lists the registered PDP gateways on the left, each with its name, Target PDP ID, and sharding tag. Select one to open its details on the right.
+
+### 2. Register a gateway
+
+Click **Register PDP gateway**. A dialog opens with the following fields:
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| **Name** | Yes | Human-readable name for this gateway (for example, `EU Gateway`) |
+| **Target PDP ID** | No | The engine identifier. Leave blank to use the default engine — scoped to this tag's gateways when a tag is set, or every gateway when it is not |
+| **Sharding tag** | No | Sharding tag for routing. Leave blank to provision on all gateways |
+| **Create AuthZEN endpoint** | No | Creates an initial AuthZEN endpoint alongside the gateway |
+
+### 3. Set up an AuthZEN endpoint (optional)
+
+If you check **Create AuthZEN endpoint**, an **Endpoint path** field appears. The path is filled in from the Target PDP ID and the sharding tag (for example, Target PDP ID `eu-prod` with no tag gives `/eu-prod/`, and with the tag `eu` gives `/eu-prod-eu/`). You can override the path manually.
+
+### 4. Register
+
+Click **Register**. The PDP gateway appears in the list with the status `PUBLISHED` straight away. The status records the registration only. It doesn't show whether a gateway runs the engine: a PDP gateway whose sharding tag no gateway carries is `PUBLISHED` too.
+
+## PDP gateway details
+
+The details of a PDP gateway show its name, its target (`<Target PDP ID>@<sharding tag>` for a tagged one), its status, and a **⋮** menu with **Delete**. The status is `PUBLISHED` once registered, and doesn't show whether a gateway runs the engine. The details have the following tabs:
+
+| Tab | Description |
+|-----|-------------|
+| **Policies** | The policies routed to the PDP gateway, with **Create policy** and a button to detach each one. **Attach an existing policy** lists the other policies, and **Entities used by these policies** lists the entities they name, with **Attach all** |
+| **Entities** | The entities routed to the PDP gateway, with **Create entity**. **Attach an existing entity** lists the other entities |
+| **Endpoints** | The AuthZEN endpoint of the PDP gateway and its routes, or **Add endpoint** when it has none |
+
+## Deleting a gateway
+
+1. Select the PDP gateway, click its **⋮** menu, and then click **Delete**.
+2. The confirmation dialog says that the engine is evicted from its gateway and that its Target PDP ID is removed from every policy and entity that carries it.
+3. The dialog lists the policies for which this PDP gateway is the only target, and the AuthZEN endpoints that are deleted with it.
+4. Click **Delete PDP gateway** to confirm.
+
+{% hint style="warning" %}
+Deleting a PDP gateway doesn't disable its policies. A policy or an entity whose only target was this PDP gateway is left with no target, so it moves to the default engine of every gateway, and a deployed policy starts applying to every request that the default engine evaluates. To keep such a policy from applying everywhere, detach or disable it before you delete the PDP gateway.
+{% endhint %}
+
+## Sharding tag patterns
+
+| Pattern | Tag | Target PDP ID | Effect |
+|---------|-----|--------------|--------|
+| **All gateways** | (blank) | (blank) | Default engine on every gateway |
+| **Regional** | `eu` | `eu-prod` | Dedicated engine on EU-tagged gateways only |
+| **Multi-tenant** | `tenant-a` | `tenant-a-pdp` | Isolated engine per tenant |
+
+## Audit trail
+
+Gravitee records the registration and deletion of a PDP gateway in the audit trail of the environment. To read it, see [Review organization and environment audit logs](../../platform-management/review-audit-logs.md). The **Target** of an event holds the internal ID of the PDP gateway, not its **Target PDP ID**. The event type and type filters of the **Audit** page don't offer these events, so narrow the trail with the time filter instead.
+
+| Change | Event |
+|--------|-------|
+| Register a gateway | `PDP_CREATED` |
+| Delete a gateway | `PDP_DELETED` |
+
+## Next steps
+
+* [Configure a sidecar as runtime](configure-sidecar-as-runtime.md) — Non-gateway deployment pattern
+* [Policy syncs](policy-syncs.md) — How policies reach the gateway
+* [Authorization policy synchronization](../authz-gateway-sync.md) — Sync protocol details

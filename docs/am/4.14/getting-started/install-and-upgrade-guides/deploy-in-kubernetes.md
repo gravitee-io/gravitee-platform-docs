@@ -3,7 +3,7 @@ metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/deploy-in-kubernetes
-description: Deploy Access Management 4.13 on Kubernetes with the Helm chart. Follow the steps to add the repository and install the components.
+description: Deploy Access Management 4.14 on Kubernetes with the Helm chart. Follow the steps to add the repository and install the components.
 ---
 
 # Deploy in Kubernetes
@@ -23,7 +23,8 @@ This chart will deploy the following:
 * Gravitee AM Console
 * Gravitee AM API
 * Gravitee AM Gateway
-* MongoDB replica-set (optional dependency)
+
+The chart doesn't deploy a database. Before you install it, prepare MongoDB or a relational database that AM supports, and configure it in your values. For more information, see [Configure backend](#configure-backend).
 
 ### Add the Helm Chart repo
 
@@ -35,7 +36,7 @@ helm repo add graviteeio https://helm.gravitee.io
 
 ### Install the Helm Chart
 
-Now, install the chart from the Helm repo with the release name `graviteeio-am`.
+Now, install the chart from the Helm repo with the release name `graviteeio-am`. In the following commands, `values.yaml` is your values file, with the database configuration from [Configure backend](#configure-backend).
 
 To prevent potential issues in the future, it is best practice to create a separate namespace for your installation in order to prevent the use of the default Kubernetes namespace. The installation command provided immediately below assumes that such best practice is followed, however this is not a mandatory requirement.
 
@@ -43,14 +44,14 @@ To install the Helm Chart using a dedicated namespace (we use `gravitee-am` as a
 
 {% code overflow="wrap" %}
 ```sh
-helm install graviteeio-am graviteeio/am --create-namespace --namespace gravitee-am
+helm install graviteeio-am graviteeio/am --create-namespace --namespace gravitee-am -f values.yaml
 ```
 {% endcode %}
 
 To install the Helm Chart using the default namespace (not recommended), run the following command:
 
 ```sh
-helm install graviteeio-am graviteeio/am
+helm install graviteeio-am graviteeio/am -f values.yaml
 ```
 
 To install the chart using the chart archive, run:
@@ -120,10 +121,7 @@ For more information about roles, see [Role and ClusterRole](https://kubernetes.
 
 #### **Shared configuration**
 
-To configure common features such as:
-
-* chaos testing (see [chaoskube](https://github.com/kubernetes/charts/tree/master/stable/chaoskube) chart)
-* configuration database (see [mongodb](https://github.com/bitnami/charts/tree/master/bitnami/mongodb)
+To configure chaos testing with the [chaoskube](https://github.com/kubernetes/charts/tree/master/stable/chaoskube) chart, use the parameter in the following table:
 
 | Parameter       | Description       | Default |
 | --------------- | ----------------- | ------- |
@@ -133,7 +131,7 @@ To configure common features such as:
 
 **MongoDB connections**
 
-There are three ways to configure MongoDB connections.
+The chart doesn't deploy MongoDB, so connect it to a MongoDB that runs outside the chart. There are three ways to configure the connection.
 
 The most simple is to provide the [MongoDB URI](https://docs.mongodb.com/manual/reference/connection-string/).
 
@@ -159,16 +157,18 @@ mongo:
 
 If neither `mongo.uri` or `mongo.servers` are provided, you have to define the following configuration options:
 
-| Parameter             | Description                                | Default                    |
-| --------------------- | ------------------------------------------ | -------------------------- |
-| `mongo.rsEnabled`     | Whether Mongo replicaset is enabled or not | `true`                     |
-| `mongo.rs`            | Mongo replicaset name                      | `rs0`                      |
-| `mongo.dbhost`        | Mongo host address                         | `mongo-mongodb-replicaset` |
-| `mongo.dbport`        | Mongo host port                            | `27017`                    |
-| `mongo.dbname`        | Mongo DB name                              | `gravitee`                 |
-| `mongo.auth.enabled`  | Enable Mongo DB authentication             | `false`                    |
-| `mongo.auth.username` | Mongo DB username                          | `null`                     |
-| `mongo.auth.password` | Mongo DB password                          | `null`                     |
+| Parameter             | Description                                | Default                             |
+| --------------------- | ------------------------------------------ | ----------------------------------- |
+| `mongo.rsEnabled`     | Whether Mongo replicaset is enabled or not | `true`                              |
+| `mongo.rs`            | Mongo replicaset name                      | `rs0`                               |
+| `mongo.dbhost`        | Mongo host address                         | `mongo-mongodb-replicaset-headless` |
+| `mongo.dbport`        | Mongo host port                            | `27017`                             |
+| `mongo.dbname`        | Mongo DB name                              | `gravitee`                          |
+| `mongo.auth.enabled`  | Enable Mongo DB authentication             | `false`                             |
+| `mongo.auth.username` | Mongo DB username                          | `null`                              |
+| `mongo.auth.password` | Mongo DB password                          | `null`                              |
+
+Set `mongo.dbhost` to the host of your MongoDB. While `mongo.rsEnabled` is `true`, the chart adds the replica set name from `mongo.rs` to the connection string. If your MongoDB doesn't run as a replica set, set `mongo.rsEnabled` to `false`. While `mongo.auth.enabled` is `true`, the chart adds `mongo.auth.username` and `mongo.auth.password` to the connection string as they are, so URL-encode any character that the [MongoDB URI](https://docs.mongodb.com/manual/reference/connection-string/) format reserves.
 
 **Other keys**
 
@@ -176,24 +176,6 @@ If neither `mongo.uri` or `mongo.servers` are provided, you have to define the f
 | ----------------------- | -------------------------------- | ------- |
 | `mongo.sslEnabled`      | Enable SSL connection to MongoDB | `false` |
 | `mongo.socketKeepAlive` | Enable keep alive for socket     | `false` |
-
-#### **Mongo ReplicaSet**
-
-{% hint style="warning" %}
-The `mongodb-replicaset` subchart is deprecated from AM 4.13.0, and AM 4.15.0 removes it. For more information, see [Breaking Changes for Access Management](breaking-changes-for-access-management.md).
-{% endhint %}
-
-| Parameter                    | Description                           | Default |
-| ---------------------------- | ------------------------------------- | ------- |
-| `mongodb-replicaset.enabled` | Enable deployment of Mongo replicaset | `false` |
-
-See [MongoDB replicaset](https://github.com/bitnami/charts/tree/master/bitnami/mongodb) for detailed documentation on helm chart.
-
-Please be aware that the mongodb-replicaset installed by Gravitee is NOT recommended in production and it is just for testing purpose and running AM locally.
-
-{% hint style="info" %}
-You may encounter issues while running this Helm Charts on Apple Silicon M1 (see [https://github.com/bitnami/charts/issues/7305](https://github.com/bitnami/charts/issues/7305)). If you want to deploy MongoDB on M1 we encourage you to switch to an other Helm Charts for deploying MongoDB.
-{% endhint %}
 
 #### **Proxy configuration for HTTP clients**
 
@@ -373,32 +355,13 @@ httpClient:
 | mongo.auth.source                                                            | string                                | `"admin"`                                                                                                                                                                                                                                                                                                                                                                              |
 | mongo.auth.username                                                          | string                                | `nil`                                                                                                                                                                                                                                                                                                                                                                                  |
 | mongo.connectTimeoutMS                                                       | int                                   | `30000`                                                                                                                                                                                                                                                                                                                                                                                |
-| mongo.dbhost                                                                 | string                                | `"mongo-mongodb-replicaset"`                                                                                                                                                                                                                                                                                                                                                           |
+| mongo.dbhost                                                                 | string                                | `"mongo-mongodb-replicaset-headless"`                                                                                                                                                                                                                                                                                                                                                  |
 | mongo.dbname                                                                 | string                                | `"gravitee"`                                                                                                                                                                                                                                                                                                                                                                           |
 | mongo.dbport                                                                 | int                                   | `27017`                                                                                                                                                                                                                                                                                                                                                                                |
 | mongo.rs                                                                     | string                                | `"rs0"`                                                                                                                                                                                                                                                                                                                                                                                |
 | mongo.rsEnabled                                                              | bool                                  | `true`                                                                                                                                                                                                                                                                                                                                                                                 |
 | mongo.socketKeepAlive                                                        | bool                                  | `false`                                                                                                                                                                                                                                                                                                                                                                                |
 | mongo.sslEnabled                                                             | bool                                  | `false`                                                                                                                                                                                                                                                                                                                                                                                |
-| mongodb-replicaset.auth.adminPassword                                        | string                                | `"password"`                                                                                                                                                                                                                                                                                                                                                                           |
-| mongodb-replicaset.auth.adminUser                                            | string                                | `"username"`                                                                                                                                                                                                                                                                                                                                                                           |
-| mongodb-replicaset.auth.enabled                                              | bool                                  | `false`                                                                                                                                                                                                                                                                                                                                                                                |
-| mongodb-replicaset.auth.key                                                  | string                                | `"keycontent"`                                                                                                                                                                                                                                                                                                                                                                         |
-| mongodb-replicaset.auth.metricsPassword                                      | string                                | `"password"`                                                                                                                                                                                                                                                                                                                                                                           |
-| mongodb-replicaset.auth.metricsUser                                          | string                                | `"metrics"`                                                                                                                                                                                                                                                                                                                                                                            |
-| mongodb-replicaset.configmap                                                 | object                                | `{}`                                                                                                                                                                                                                                                                                                                                                                                   |
-| mongodb-replicaset.enabled                                                   | bool                                  | `false`                                                                                                                                                                                                                                                                                                                                                                                |
-| mongodb-replicaset.image.repository                                          | string                                | `"mongo"`                                                                                                                                                                                                                                                                                                                                                                              |
-| mongodb-replicaset.image.tag                                                 | float                                 | `3.6`                                                                                                                                                                                                                                                                                                                                                                                  |
-| mongodb-replicaset.persistentVolume.accessModes\[0]                          | string                                | `"ReadWriteOnce"`                                                                                                                                                                                                                                                                                                                                                                      |
-| mongodb-replicaset.persistentVolume.enabled                                  | bool                                  | `true`                                                                                                                                                                                                                                                                                                                                                                                 |
-| mongodb-replicaset.persistentVolume.size                                     | string                                | `"1Gi"`                                                                                                                                                                                                                                                                                                                                                                                |
-| mongodb-replicaset.replicaSetName                                            | string                                | `"rs0"`                                                                                                                                                                                                                                                                                                                                                                                |
-| mongodb-replicaset.replicas                                                  | int                                   | `3`                                                                                                                                                                                                                                                                                                                                                                                    |
-| mongodb-replicaset.resources.limits.cpu                                      | string                                | `"500m"`                                                                                                                                                                                                                                                                                                                                                                               |
-| mongodb-replicaset.resources.limits.memory                                   | string                                | `"512Mi"`                                                                                                                                                                                                                                                                                                                                                                              |
-| mongodb-replicaset.resources.requests.cpu                                    | string                                | `"100m"`                                                                                                                                                                                                                                                                                                                                                                               |
-| mongodb-replicaset.resources.requests.memory                                 | string                                | `"256Mi"`                                                                                                                                                                                                                                                                                                                                                                              |
 | smtp.enabled                                                                 | bool                                  | `true`                                                                                                                                                                                                                                                                                                                                                                                 |
 | smtp.from                                                                    | string                                | `"info@example.com"`                                                                                                                                                                                                                                                                                                                                                                   |
 | smtp.host                                                                    | string                                | `"smtp.example.com"`                                                                                                                                                                                                                                                                                                                                                                   |
@@ -609,27 +572,8 @@ oauth2:
 {% endcode %}
 
 {% hint style="warning" %}
-The `mongodb-replicaset` subchart is deprecated from AM 4.13.0, and AM 4.15.0 removes it. For more information, see [Breaking Changes for Access Management](breaking-changes-for-access-management.md).
+If an earlier release of the chart deploys your MongoDB, move your data to a MongoDB that runs outside the chart before you upgrade. For more information, see [Breaking Changes for Access Management](breaking-changes-for-access-management.md#the-helm-chart-no-longer-deploys-mongodb).
 {% endhint %}
-
-If you want to deploy a MongoDB ReplicaSet using the Helm Chart dependency, you simply have to enable it. The **dbhost** has to be defined using the name of the helm installation (in this example **am**) followed by **-mongodb-replicaset**.
-
-{% hint style="danger" %}
-This is not recommended for production environments.
-{% endhint %}
-
-{% code title="MongoDB ReplicaSet" %}
-```yaml
-mongodb-replicaset:
-  enabled: true
-  startupProbe:
-    successThreshold	: 1
-
-mongo:
-  dbhost: am-mongodb-replicaset
-  dbname: gravitee-am
-```
-{% endcode %}
 
 ### RDBMS: Postgres
 
@@ -903,7 +847,7 @@ gateway:
 
 ### Update CORS policies & URL Redirects on AM Management API
 
-Only selected and trusted domains should access AM (e.g. the AM console).
+Recommended: Allow only selected and trusted domains, such as the AM console, to access AM.
 
 CORS and allowed redirections:
 
