@@ -688,7 +688,7 @@ At the Entrypoint Connect phase, where policies run before the Kafka client auth
 `#context.principal`, `#request`, `#response`, and `#message` aren't available in the Entrypoint Connect phase because authentication hasn't occurred and no Kafka protocol request has been received yet. Referencing them in an EL expression evaluated at this phase returns `null` or raises an evaluation error.
 {% endhint %}
 
-### Subscription
+## Subscription
 
 The `{#subscription}` root-level object exposes information about the consumer subscription that authenticated the current API transaction. It's available once the security chain has resolved a subscription in practice, from the Request phase onward for every non-Keyless plan.
 
