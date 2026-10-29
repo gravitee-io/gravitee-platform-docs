@@ -138,7 +138,7 @@
       * [Configure product deployment](api-management/build/configure-your-api-product/configure-product-deployment.md)
     * [Manage API Products with the Management API](api-management/build/configure-your-api-product/manage-api-products-with-the-management-api.md)
     * [API Product configuration reference](api-management/build/configure-your-api-product/api-product-configuration-reference.md)
-* [Observe](api-management/observability/README.md)
+* [API Management observability](api-management/observability/README.md)
   * [Dashboard and metrics](api-management/observe/api-dashboard.md)
   * [Monitor API usage](api-management/observe/monitor-api-usage.md)
   * [View API logs](api-management/observe/view-api-logs.md)

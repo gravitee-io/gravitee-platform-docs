@@ -5,7 +5,7 @@ metaLinks:
     - release-notes.md
 ---
 
-# Release notes
+# Terraform release notes
 
 ## 1.0.0
 

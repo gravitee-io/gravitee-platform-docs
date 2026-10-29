@@ -2,7 +2,7 @@
 description: An overview about overview.
 ---
 
-# Overview
+# Hybrid deployment overview
 
 Hybrid installations use a mix of self-hosted and cloud components to provide flexibility when defining your architecture and deployment. A Gravitee hybrid installation consists of a SaaS control plane and a self-hosted data plane.
 

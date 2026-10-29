@@ -4,7 +4,7 @@ noIndex: false
 description: The Observability group of the API Management sidebar holds the Dashboards, Logs, and Tracing pages. Open the view you need.
 ---
 
-# Observe
+# API Management observability
 
 The **Observability** group of the API Management sidebar holds the **Dashboards**, **Logs**, and **Tracing** pages.
 
