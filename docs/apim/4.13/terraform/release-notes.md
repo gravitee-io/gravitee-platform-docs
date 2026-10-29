@@ -7,6 +7,136 @@ metaLinks:
 
 # Terraform release notes
 
+## 1.2.0
+
+**Terraform Registry:** [gravitee-io/apim](https://registry.terraform.io/providers/gravitee-io/apim/1.2.0)
+
+Version **1.2.0** adds the New Developer Portal to the Gravitee APIM Terraform provider: the portal and its navigation, the APIs it lists, its documentation pages and homepage, its links, and its themes, managed as code through the Automation API. It also adds the APIM 4.13 settings of v4 APIs: analytics path mappings, request validation, Private Network Access for CORS, native Kafka connection events, and tracing redaction.
+
+### Highlights
+
+- **Seven new managed resources** for the New Developer Portal: `apim_portal`, `apim_portal_listing`, `apim_documentation_portal`, `apim_documentation_api`, `apim_portal_link`, `apim_api_link`, and `apim_portal_theme`. Each resource has a matching data source.
+- **`portal_navigation` on `apim_apiv4`:** the API's own documentation folder tree in the New Developer Portal, with the visibility of each folder.
+- **Visibility as code:** `visibility` (`PUBLIC` or `PRIVATE`) on navigation entries, listing entries, documentation pages, and links. When omitted, APIM resolves it from the parent item on every apply: a documentation page or a link made private in the Console becomes public again on the next `terraform apply` that updates it, when its folder is public. Set `visibility = "PRIVATE"` on every item that stays private. For more information, see [Breaking changes and deprecations](../release-information/breaking-changes-and-deprecations.md).
+- **New `apim_apiv4` settings:** `listeners.http.path_mappings`, `listeners.http.request_validation`, `listeners.http.cors.allow_private_network`, `analytics.connection_events`, and `analytics.tracing.redaction`.
+- **APIM 4.13 or later** serves the endpoints and fields these resources and settings use.
+- **No breaking changes:** no attribute is removed or renamed.
+
+### New resources
+
+| Resource | Description | Reference (Terraform Registry) |
+| --- | --- | --- |
+| `apim_portal` | A New Developer Portal of the environment, with its top navigation bar under `structure.top_navbar` and the theme it uses in `active_theme_hrid` | [apim_portal](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/portal) |
+| `apim_portal_listing` | APIs published at locations of the portal navigation, each with an order and a visibility | [apim_portal_listing](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/portal_listing) |
+| `apim_documentation_portal` | A Gravitee Markdown, OpenAPI, or AsyncAPI page of the portal, placed in the top navigation bar or set as the homepage with `area` | [apim_documentation_portal](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/documentation_portal) |
+| `apim_documentation_api` | A documentation page of an API, placed in the API's own navigation tree | [apim_documentation_api](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/documentation_api) |
+| `apim_portal_link` | A link to a URL in the portal navigation | [apim_portal_link](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/portal_link) |
+| `apim_api_link` | A link to a URL in the documentation of an API | [apim_api_link](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/api_link) |
+| `apim_portal_theme` | The colors, font, custom CSS, logo, favicon, and background image of the portal, selected on the portal with `active_theme_hrid` | [apim_portal_theme](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/portal_theme) |
+
+Guides: [End-to-end Next-gen Portal](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/guides/docgen_portal-next-gen) · [API Internal Portal Navigation](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/guides/docgen_v4api-portal-navigation)
+
+Repository mirrors: `examples/use-cases/portal-next-gen/`, `examples/use-cases/v4api-portal-navigation/`.
+
+For how APIM applies each of these objects, see [Portal automation](../developer-portal/new-developer-portal/customize-the-navigation/portal-automation/README.md).
+
+### New and changed fields (by resource)
+
+#### `apim_apiv4` / `apim_apiv4` (data source)
+
+| Attribute path | Type | Notes |
+| --- | --- | --- |
+| `portal_navigation` | list(object) | The API's documentation folder tree in the New Developer Portal, in list order. A folder that isn't listed is created when a listed path needs it |
+| `portal_navigation.path` | string | Slash-separated path. Required on each entry |
+| `portal_navigation.display_name` | string | Label of the folder |
+| `portal_navigation.order` | number | Display order among siblings |
+| `portal_navigation.visibility` | string | `PUBLIC` or `PRIVATE`. When omitted, APIM resolves it from the parent folder |
+| `listeners.http.path_mappings` | list(string) | Path patterns that group analytics by API path. Removing the attribute keeps the current value: set `path_mappings = []` to clear it |
+| `listeners.http.request_validation.reject_null_byte` | bool | Rejects requests whose path or query contains a null byte. Default `false`. Removing the block keeps the current value: set `reject_null_byte = false` to turn it off |
+| `listeners.http.cors.allow_private_network` | bool | Allows Private Network Access requests during the CORS preflight (`Access-Control-Allow-Private-Network`). Default `false` |
+| `analytics.connection_events` | list(string) | Native Kafka APIs only. The connection events the Gateway reports, among `CONNECTED`, `DISCONNECTED`, and `ERROR`. When absent or empty, the Gateway reports `CONNECTED` and `ERROR` |
+| `analytics.tracing.redaction` | object | Masking applied to span attributes before traces are exported: `default_replacement`, and `rules`, each with `attribute_name_pattern`, an optional `value_pattern`, and `masking_strategy` (`type` `FULL` or `PARTIAL`, `replacement`, `prefix_length`, `suffix_length`) |
+
+#### `apim_shared_policy_group` / `apim_shared_policy_group` (data source)
+
+| Attribute path | Type | Notes |
+| --- | --- | --- |
+| `steps` | list(object) | From APIM 4.13, a read returns the steps only to a caller with the `SHARED_POLICY_GROUP` `UPDATE` permission on the environment. A data source read with a token that lacks it returns no steps. For more information, see [Breaking changes and deprecations](../release-information/breaking-changes-and-deprecations.md) |
+
+#### `apim_portal` _(new)_
+
+| Attribute path | Type | Notes |
+| --- | --- | --- |
+| `hrid`, `name` | string | `hrid` requires replacement when changed |
+| `structure.top_navbar` | list(object) | The top navigation bar, in list order. Each entry takes `path`, `display_name`, and `visibility`. Omitting `structure` keeps the current navigation, including after an import. Set `top_navbar = []` to clear it |
+| `active_theme_hrid` | string | HRID of the `apim_portal_theme` the portal uses. Setting it activates that theme and disables the other New Developer Portal themes of the environment. Leaving it unset deactivates the previous theme, and APIM re-enables another theme of the environment, or shows the default theme when there is none |
+| `environment_id`, `organization_id`, `id` | string | `id` computed |
+
+#### `apim_portal_listing` _(new)_
+
+| Attribute path | Type | Notes |
+| --- | --- | --- |
+| `portal_hrid`, `hrid` | string | |
+| `apis` | list(object) | One entry per published API: `api_hrid`, `location`, `order`, and `visibility` |
+
+#### `apim_documentation_portal` and `apim_documentation_api` _(new)_
+
+| Attribute path | Type | Notes |
+| --- | --- | --- |
+| `portal_hrid` or `api_hrid` | string | The portal or the API the page belongs to |
+| `hrid`, `name`, `type`, `content` | string | `type` is `GRAVITEE_MARKDOWN`, `OPENAPI`, or `ASYNCAPI` |
+| `location`, `order` | string, number | Placement in the navigation tree |
+| `area` | string | `TOP_NAVBAR` (default) or `HOMEPAGE`. A portal page with `HOMEPAGE` is the portal's homepage. APIM accepts `HOMEPAGE` on portal pages only |
+| `visibility` | string | `PUBLIC` or `PRIVATE` |
+
+#### `apim_portal_link` and `apim_api_link` _(new)_
+
+| Attribute path | Type | Notes |
+| --- | --- | --- |
+| `portal_hrid` or `api_hrid` | string | The portal or the API the link belongs to |
+| `hrid`, `name`, `href` | string | `href` is the URL the link opens |
+| `location`, `order` | string, number | `location` resolves in the portal navigation for a portal link, and in the API's navigation tree for an API link |
+| `visibility` | string | `PUBLIC` or `PRIVATE` |
+
+#### `apim_portal_theme` _(new)_
+
+| Attribute path | Type | Notes |
+| --- | --- | --- |
+| `hrid`, `name` | string | |
+| `definition` | object | Required. `custom_css`, `font.font_family`, and `color` with `primary`, `secondary`, `tertiary`, `error`, `background.page`, and `background.card` |
+| `logo`, `optional_logo`, `favicon`, `background_image` | string | Inline data URIs |
+
+### Upgrade
+
+```hcl
+terraform {
+  required_providers {
+    apim = {
+      source  = "gravitee-io/apim"
+      version = "~> 1.2.0"
+    }
+  }
+}
+```
+
+Then run:
+
+```bash
+terraform init -upgrade
+terraform plan
+```
+
+### Compatibility
+
+| Provider version | APIM version | Capability |
+| --- | --- | --- |
+| **1.2.x** | 4.13.x | **Full**: supports the New Developer Portal resources, `portal_navigation`, and the new `apim_apiv4` settings. Existing configurations continue to work |
+| **1.2.x** | 4.10.x – 4.12.x | **Compatible**: existing configurations continue to work. These APIM versions don't serve the navigation structure, visibility, links, and themes that the New Developer Portal resources send, or the new `apim_apiv4` settings, so use them with APIM 4.13.x |
+
+### Breaking changes
+
+No resource schema attributes are removed or renamed.
+
 ## 1.1.0
 
 **Terraform Registry:** [gravitee-io/apim](https://registry.terraform.io/providers/gravitee-io/apim/1.1.0)

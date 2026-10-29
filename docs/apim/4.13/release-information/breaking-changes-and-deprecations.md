@@ -305,6 +305,12 @@ From 4.13.0, the **Portal capabilities** and **Application membership** settings
 From 4.13.0, the navigation of the New Developer Portal doesn't let a public item sit under a private folder. An Automation API apply that declares a public item under a private folder fails with `400` and the message `Parent item with id <id> must be PUBLIC to create a public child item.` In the Console and Gravitee Gamma, making a folder private also makes everything inside it private, and an item under a private folder can't be made public.
 
 Before you upgrade, check the visibility of the folders and items your Automation API configurations declare. For more information, see [Customize the navigation](../developer-portal/new-developer-portal/customize-the-navigation.md).
+
+**Automation API: A page or link that omits `visibility` follows its folder on every apply**
+
+From 4.13.0, the Automation API accepts `visibility` on navigation paths, listing entries, documentation pages, and links. A documentation page or a link that omits it takes the visibility of its folder each time it's applied. A page that was made private in the Console becomes public again on the next apply when its folder is public and its resource doesn't declare `visibility: PRIVATE`.
+
+Before you apply, add `visibility: PRIVATE` to every Automation API resource, Kubernetes resource, and Terraform configuration whose item stays private. For more information, see [Portal automation](../developer-portal/new-developer-portal/customize-the-navigation/portal-automation/README.md#visibility).
 {% endhint %}
 
 ## Automation API and resource imports: Updating an object requires the update permission
@@ -538,6 +544,12 @@ Here is the deprecated functionality for 4.X versions of Gravitee and 3.X versio
 Here is the deprecated functionality from 4.X of Gravitee
 
 # 4.13.0
+
+## Automation API: The `navigation` list of a portal is deprecated
+
+From 4.13.0, the portal navigation declared through the Automation API is grouped by area under `structure`, and the flat `navigation` list is deprecated. A request that sets only `navigation` is still accepted and mapped to `structure.topNavbar`. A request that sets both fails with `400` and the message `navigation and structure cannot be used at the same time`. With the Gravitee Kubernetes Operator, a `Portal` resource that sets `spec.navigation` is accepted with the warning `spec.navigation is deprecated, use spec.structure.topNavbar instead`, and a resource that sets both `spec.navigation` and `spec.structure` is rejected.
+
+Move each portal configuration to `structure.topNavbar` before the list is removed. For more information, see [Portal automation](../developer-portal/new-developer-portal/customize-the-navigation/portal-automation/README.md#portal-instance).
 
 ## v2 APIs are deprecated
 
