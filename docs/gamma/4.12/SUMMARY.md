@@ -56,7 +56,7 @@
   * [Migrate an API estate to Gravitee](api-management/migrate/migrate-an-api-estate-to-gravitee.md)
   * [Source gateway reference](api-management/migrate/source-gateway-reference.md)
 * [Deploy](api-management/deploy/README.md)
-  * [Gateway benchmarks](api-management/deploy/gateway-benchmarks.md)
+  * [Gateway benchmarks](https://documentation.gravitee.io/api-management/deploy/gateway-benchmarks)
 * [Manage](api-management/manage/README.md)
   * [API Proxies](api-management/manage/api-proxies/README.md)
     * [Create an API proxy](api-management/build/create-an-api-proxy.md)
