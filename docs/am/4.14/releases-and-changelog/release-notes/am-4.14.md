@@ -1,8 +1,16 @@
 ---
-description: The Access Management 4.14 release notes cover Lightweight JWT, which trims tokens to their reserved and allowlisted claims. Browse the new features.
+description: The Access Management 4.14 release notes cover Lightweight JWT and a breaking change to the Helm chart, which no longer deploys MongoDB. Browse the changes.
 ---
 
 # AM 4.14
+
+## Breaking Changes
+
+Check these changes before you upgrade to AM 4.14.
+
+### The Helm chart no longer deploys MongoDB
+
+* The AM Helm chart drops its `mongodb-replicaset` dependency, so it no longer deploys MongoDB. Before you upgrade an installation whose values set `mongodb-replicaset.enabled` to `true`, move your data to a MongoDB that runs outside the chart, and point the chart at it. See [Breaking Changes for Access Management](../../getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md#the-helm-chart-no-longer-deploys-mongodb).
 
 ## New Features
 
