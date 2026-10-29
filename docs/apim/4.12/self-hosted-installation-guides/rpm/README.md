@@ -5,7 +5,7 @@ metaLinks:
     - ./
 ---
 
-# RPM
+# Self-host with RPM
 
 ## Overview
 

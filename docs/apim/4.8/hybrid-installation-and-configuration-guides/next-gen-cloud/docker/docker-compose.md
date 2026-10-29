@@ -2,7 +2,7 @@
 description: Next-Gen Cloud supports hybrid API Management 4.8 deployments through Docker Compose. Follow the steps to configure the compose file.
 ---
 
-# Docker Compose
+# Run a hybrid Gateway with Docker Compose
 
 ## Overview
 

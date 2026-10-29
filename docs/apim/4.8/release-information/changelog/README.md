@@ -2,7 +2,7 @@
 description: An overview about changelog.
 ---
 
-# Changelog
+# API Management changelog
 
 The Gravitee changelog documentation gives a comprehensive overview of new features, bug fixes, and breaking changes included in all Gravitee releases. For a more in-depth explanation of new features and capabilities, please refer to the [Release Notes section](../release-notes/README.md).
 

@@ -134,7 +134,7 @@
   * [Manage metadata for your proxies](build/manage-metadata-for-your-proxies.md)
   * [Configure resources for your proxies](build/configure-resources-for-your-proxies.md)
   * [Monitor proxy and agent activity](observe/monitor-proxy-activity.md)
-* [Observe](observe/README.md)
+* [Agent Management observability](observe/README.md)
   * [Dashboards](observe/dashboards/README.md)
     * [Monitor your LLM proxy](observe/monitor-your-llm-proxy.md)
     * [Monitor your MCP servers](observe/monitor-your-mcp-servers.md)

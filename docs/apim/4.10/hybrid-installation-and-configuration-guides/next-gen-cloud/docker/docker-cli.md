@@ -5,7 +5,7 @@ metaLinks:
     - docker-cli.md
 ---
 
-# Docker CLI
+# Run a hybrid Gateway with Docker CLI
 
 ## Overview
 

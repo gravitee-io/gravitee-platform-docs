@@ -69,7 +69,7 @@
 
 ## Hybrid Deployment
 
-* [Overview](hybrid-deployment/overview.md)
+* [Hybrid deployment overview](hybrid-deployment/overview.md)
 * [Hybrid Install with Docker](hybrid-deployment/hybrid-install-with-docker.md)
 * [Hybrid Install with Kubernetes](hybrid-deployment/hybrid-install-with-kubernetes.md)
 * [Hybrid Install with .ZIP](hybrid-deployment/hybrid-install-with-.zip.md)
@@ -131,7 +131,7 @@
   * [Kafka](configure-v4-apis/endpoints/kafka.md)
   * [Mock endpoint](configure-v4-apis/endpoints/mock.md)
   * [MQTT5](configure-v4-apis/endpoints/mqtt5.md)
-  * [Solace](configure-v4-apis/endpoints/solace.md)
+  * [Solace endpoint](configure-v4-apis/endpoints/solace.md)
   * [RabbitMQ](configure-v4-apis/endpoints/rabbitmq.md)
 * [User Permissions](configure-v4-apis/user-permissions.md)
 * [Quality of Service](configure-v4-apis/quality-of-service.md)
@@ -191,7 +191,7 @@
 
 ## Policies
 
-* [Overview](policies/overview.md)
+* [Policies overview](policies/overview.md)
 * [Resources](policies/resources.md)
 * [v4 API Policy Studio](policies/v4-api-policy-studio.md)
 * [v2 API Policy Studio](policies/v2-api-policy-studio.md)
@@ -288,7 +288,7 @@
   * [mTLS plan](expose-apis/plans/mtls.md)
 * [Applications](expose-apis/applications/README.md)
   * [Global Settings](expose-apis/applications/global-settings.md)
-  * [User and Group Access](expose-apis/applications/user-and-group-access.md)
+  * [Manage application members and groups](expose-apis/applications/user-and-group-access.md)
   * [Metadata](expose-apis/applications/metadata.md)
   * [Manage application subscriptions](expose-apis/applications/subscriptions.md)
   * [Configure application notifications](expose-apis/applications/notifications.md)

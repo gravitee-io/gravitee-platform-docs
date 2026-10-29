@@ -2,7 +2,7 @@
 description: An overview about user and group access.
 ---
 
-# User and Group Access
+# Manage application members and groups
 
 ## Overview
 

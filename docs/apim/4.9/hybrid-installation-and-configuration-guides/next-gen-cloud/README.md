@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/next-gen-cloud
 ---
 
-# Next-Gen Cloud
+# Next-Gen Cloud hybrid installation
 
 ## Overview
 
