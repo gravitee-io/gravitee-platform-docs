@@ -121,9 +121,7 @@ For more information about roles, see [Role and ClusterRole](https://kubernetes.
 
 #### **Shared configuration**
 
-To configure common features such as:
-
-* chaos testing (see [chaoskube](https://github.com/kubernetes/charts/tree/master/stable/chaoskube) chart)
+To configure chaos testing with the [chaoskube](https://github.com/kubernetes/charts/tree/master/stable/chaoskube) chart, use the parameter in the following table:
 
 | Parameter       | Description       | Default |
 | --------------- | ----------------- | ------- |
@@ -849,7 +847,7 @@ gateway:
 
 ### Update CORS policies & URL Redirects on AM Management API
 
-Recommended: Allow only selected and trusted domains to access AM, for example, the AM console.
+Recommended: Allow only selected and trusted domains, such as the AM console, to access AM.
 
 CORS and allowed redirections:
 
