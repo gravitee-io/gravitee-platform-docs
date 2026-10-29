@@ -32,7 +32,7 @@
   * [AM Gateway](getting-started/configuration/configure-am-gateway/README.md)
     * [Gateway internal API](getting-started/configuration/configure-am-gateway/internal-api.md)
   * [AM API](getting-started/configuration/configure-am-api/README.md)
-    * [Internal API](getting-started/configuration/configure-am-api/internal-api.md)
+    * [Internal API for Access Management](getting-started/configuration/configure-am-api/internal-api.md)
   * [AM Console](getting-started/configuration/configure-am-console.md)
   * [Enable the Automation API](getting-started/configuration/configure-automation-api.md)
   * [Repositories & Data Plane](getting-started/configuration/configure-repositories.md)

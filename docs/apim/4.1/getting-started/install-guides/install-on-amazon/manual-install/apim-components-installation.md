@@ -2,7 +2,7 @@
 description: Tutorial on APIM Components Installation.
 ---
 
-# APIM Components Installation
+# Install components on Amazon
 
 This page describes how to install the individual components of the Gravitee API Management (APIM) stack.
 

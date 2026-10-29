@@ -5,7 +5,7 @@ metaLinks:
     - solace.md
 ---
 
-# Solace
+# Federate APIs from Solace
 
 ## Overview
 

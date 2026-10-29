@@ -2,7 +2,7 @@
 description: Setup and installation guide for quick install.
 ---
 
-# Quick install
+# Run a quick install with RPM
 
 {% hint style="warning" %}
 * RPM install is not supported on distributions with old versions of RPM. For example, SLES 11 and CentOS 5 . If you use an old version of RPM, install Gravitee APIM with .zip instead. For more information about installing Gravitee APIM with .zip, see [install APIM with .zip](../.zip.md).

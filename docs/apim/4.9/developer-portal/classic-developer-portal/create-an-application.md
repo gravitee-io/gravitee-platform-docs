@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/classic-developer-portal/create-an-application
 ---
 
-# Create an Application
+# Create a Classic Developer Portal application
 
 ## Overview
 

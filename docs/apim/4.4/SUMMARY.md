@@ -260,7 +260,7 @@
       * [Creating and editing Applications with the Gravitee Developer Portal](using-the-product/using-the-gravitee-api-management-components/developer-portal-101/creating-and-maintaining-applications-with-the-gravitee-developer-portal/applications.md)
     * [Publishing and managing APIs with the Gravitee Developer Portal](using-the-product/using-the-gravitee-api-management-components/developer-portal-101/publishing-and-managing-apis-with-the-gravitee-developer-portal/README.md)
       * [Publishing your API with the Gravitee Developer Portal](using-the-product/using-the-gravitee-api-management-components/developer-portal-101/publishing-and-managing-apis-with-the-gravitee-developer-portal/publishing-your-api-with-the-gravitee-developer-portal.md)
-      * [Documentation](guides/developer-portal/configuration/documentation.md)
+      * [Create API documentation](guides/developer-portal/configuration/documentation.md)
   * [Configuring the Gravitee API Management configuration](using-the-product/using-the-gravitee-api-management-components/configuration.md)
 * [Creating a production-ready API Management environment](using-the-product/production-ready-apim-environment/README.md)
   * [Preparing a production deployment of Gravitee API Management](using-the-product/production-ready-apim-environment/production-deployments-and-capacity-planning.md)
