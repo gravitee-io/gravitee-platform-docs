@@ -2,7 +2,7 @@
 description: Hybrid API Management 4.13 components often reach Gravitee Cloud through a corporate proxy. Browse the proxy configuration guides.
 ---
 
-# Proxy Configuration
+# Proxies for hybrid deployments
 
 ## Overview
 
@@ -12,7 +12,7 @@ In enterprise environments, Gravitee components often communicate through corpor
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | Configure Cloud Gateway Client | Configure HTTP, proxy, and SSL settings for every component that connects to Gravitee Cloud Gateway from a single namespace |
 | Hybrid Gateway Proxy           | Configure a Hybrid Gateway to connect to a Bridge Server or Gravitee Cloud through a proxy                                  |
-| System Proxy for Backend APIs  | Configure a Gateway to route backend API calls through a system proxy                                                       |
+| System proxy for a hybrid Gateway  | Configure a Gateway to route backend API calls through a system proxy                                                       |
 
 ## Proxy Types
 

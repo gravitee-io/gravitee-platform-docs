@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/kubernetes/vanilla-kubernetes
 ---
 
-# Vanilla Kubernetes
+# Self-host with Helm
 
 {% hint style="warning" %}
 This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.

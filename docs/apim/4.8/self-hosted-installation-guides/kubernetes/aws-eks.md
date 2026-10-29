@@ -2,7 +2,7 @@
 description: Deploy a complete self-hosted API Management 4.8 platform on Amazon Elastic Kubernetes Service. Follow the steps to install with Helm.
 ---
 
-# AWS EKS
+# Self-host on AWS EKS
 
 ## Overview
 

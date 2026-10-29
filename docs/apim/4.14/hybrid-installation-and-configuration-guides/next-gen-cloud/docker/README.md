@@ -5,7 +5,7 @@ metaLinks:
     - ./
 ---
 
-# Docker
+# Run a hybrid Gateway with Docker
 
 ## Deployment Methods
 

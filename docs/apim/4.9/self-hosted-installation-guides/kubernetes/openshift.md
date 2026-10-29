@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/kubernetes/openshift
 ---
 
-# OpenShift
+# Self-host on OpenShift
 
 ## Prerequisites
 
