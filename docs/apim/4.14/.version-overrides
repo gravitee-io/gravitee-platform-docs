@@ -25,3 +25,5 @@ prepare-a-production-environment/gateway-resource-sizing-guidelines.md
 gravitee-expression-language.md
 # Federation: agent name on the Azure API Management page
 govern-apis/federation/3rd-party-providers/azure-api-management.md
+# QoS compatibility table: JMS endpoint column (DOC-1899)
+create-and-configure-apis/configure-v4-apis/quality-of-service.md
