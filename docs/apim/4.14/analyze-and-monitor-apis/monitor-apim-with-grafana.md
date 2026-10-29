@@ -140,12 +140,13 @@ The **Call Logs** dashboard shows calls only for APIs with logging enabled. To e
 | **Node** | In Gateway Fleet & Runtime, restrict panels to one or more Gateway instances |
 | **API name** | In tables and leaderboards, opens the API Drill-down for that API with the same time range |
 | **Gravitee dashboards** menu | Moves between the six dashboards, keeping the time range and selections |
-| **Request ID** | In API Drill-down, opens the call in Call Logs. In Call Logs, shows the call in the **Call detail** section. |
+| **A logged call** | In the **Call logs of this API** section of API Drill-down and in Call Logs, a call's time, URI, or request ID opens its headers and payloads in the **Call detail** section of Call Logs |
+| **Call logs of this API** | At the top of API Drill-down, opens Call Logs filtered on the selected API |
 | **Search** | In Call Logs, a Lucene query on logged calls: payload content with wildcards, for example `*ORD-1234*`, or any field, for example `entrypoint-response.status:503` |
 | **Panel ⓘ icon** | Explains what the panel measures and how to read it |
 | **Inspect > Data** | Shows or exports the data behind a panel as CSV |
 
-A typical investigation: an alert fires, **SLOs & Error Budgets** shows which API burns its budget, and you select it. **API Drill-down** then shows the affected paths and applications, whether the time is spent in the backend or the Gateway, and the failing calls. Select a request ID to see in **Call Logs** what the client sent, what the backend received, and what it returned.
+A typical investigation: an alert fires, **SLOs & Error Budgets** shows which API burns its budget, and you select it. **API Drill-down** then shows the affected paths and applications, whether the time is spent in the backend or the Gateway, and the failing calls. Select a logged call to see in **Call Logs** what the client sent, what the backend received, and what it returned.
 
 ## Dashboard reference
 
@@ -168,7 +169,8 @@ A typical investigation: an alert fires, **SLOs & Error Budgets** shows which AP
 | Traffic & errors | Status classes and codes over time, HTTP methods, error keys, payload sizes |
 | Latency deep-dive | P95 split into total, backend, backend time to first byte, backend connect, and Gateway overhead; response time heatmap; per-path table with calls, P50, P95, max, and 5xx |
 | Consumers of this API | Applications with calls, P95, and errors; traffic by application, plan, country, and client type |
-| Investigate | Latest failed calls and calls slower than 500 ms, with status, method, URI, error key, application, plan, timings, client IP, and request ID. The request ID opens the call in Call Logs. |
+| Investigate | Latest failed calls and calls slower than 500 ms, with request ID, status, method, URI, error key, application, plan, timings, and client IP. When the call was logged, the request ID opens it in Call Logs. |
+| Call logs of this API | Failed calls and latest calls of this API that have a call log. Select a call's time, URI, or request ID to open its headers and payloads in Call Logs. Empty when logging isn't enabled on the API. |
 
 {% hint style="info" %}
 Connect time spikes point to network, DNS, or TLS issues towards the backend. A rising time to first byte with a flat connect time means the backend itself is slow.
