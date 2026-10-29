@@ -93,6 +93,30 @@ spec:
 * An API referenced by active documentation pages cannot be deleted until those pages are removed.
 {% endhint %}
 
+### Using Terraform
+
+Declare an [`apim_documentation_api`](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/documentation_api) resource with the API HRID, and the page's HRID, display name, type, content, and location relative to the API's internal folder tree, and optionally its order and visibility. Then run `terraform apply`. Leave `area` unset: API documentation only accepts `TOP_NAVBAR`.
+
+**Example Terraform configuration:**
+
+{% code title="api-documentation.tf" %}
+```hcl
+resource "apim_documentation_api" "pets-api-overview" {
+  api_hrid = apim_apiv4.pets-api.hrid
+  hrid     = "pets-api-overview"
+  name     = "Pets API overview"
+  type     = "GRAVITEE_MARKDOWN"
+  location = "/docs"
+  order    = 1
+  content  = <<-EOT
+  # Pets API
+
+  This API manages pet records.
+  EOT
+}
+```
+{% endcode %}
+
 ## Configure the API internal documentation tree
 
 Each API declares its own internal documentation folder hierarchy using the `portalNavigation` field, which uses the same navigation path structure as the portal's top-level navigation. Each entry takes a `path`, and optionally a `displayName`, an `order`, and a `visibility`. The `portalNavigation` field is portal-only metadata and is not propagated to the gateway definition.
@@ -148,3 +172,32 @@ spec:
 {% endcode %}
 
 When the API is published through a portal listing, the internal folder tree is materialized under each published API entry, and API-scoped documentation pages are placed relative to this tree. When a documentation page references a location that does not exist yet in the API's internal tree, the page is created as an orphan and reconnects when the folder is added.
+
+### Using Terraform
+
+Set `portal_navigation` on the [`apim_apiv4`](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/apiv4) resource. Each entry takes a `path`, and optionally a `display_name`, an `order`, and a `visibility`.
+
+**Example Terraform configuration:**
+
+{% code title="api-portal-navigation.tf" %}
+```hcl
+resource "apim_apiv4" "pets-api" {
+  hrid = "pets-api"
+  # other API attributes omitted
+  portal_navigation = [
+    {
+      path         = "/docs"
+      display_name = "Documentation"
+      order        = 1
+    },
+    {
+      path = "/docs/guides"
+    },
+    {
+      path       = "/examples"
+      visibility = "PRIVATE"
+    }
+  ]
+}
+```
+{% endcode %}

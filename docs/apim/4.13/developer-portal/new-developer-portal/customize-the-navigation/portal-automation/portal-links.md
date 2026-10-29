@@ -88,6 +88,26 @@ spec:
 ```
 {% endcode %}
 
+### Using Terraform
+
+Declare an [`apim_portal_link`](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/portal_link) resource with the portal HRID, and the link's HRID, display name, and URL, and optionally its location, order, and visibility. Then run `terraform apply`.
+
+**Example Terraform configuration:**
+
+{% code title="portal-link.tf" %}
+```hcl
+resource "apim_portal_link" "external-docs" {
+  portal_hrid = apim_portal.default-portal.hrid
+  hrid        = "external-docs"
+  name        = "External Docs"
+  href        = "https://docs.example.com"
+  location    = "/projects/alpha"
+  order       = 1
+  visibility  = "PUBLIC"
+}
+```
+{% endcode %}
+
 ## Create an API link
 
 ### Using the Automation API
@@ -153,3 +173,22 @@ spec:
 * The GKO admission webhook validates the link before apply using the `dryRun` endpoint.
 * A `Portal` referenced by a `PortalLink` can't be deleted until the link is removed.
 {% endhint %}
+
+### Using Terraform
+
+Declare an [`apim_api_link`](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/api_link) resource with the API HRID, and the link's HRID, display name, and URL, and optionally its location relative to the API's documentation tree, order, and visibility. Then run `terraform apply`.
+
+**Example Terraform configuration:**
+
+{% code title="api-link.tf" %}
+```hcl
+resource "apim_api_link" "pets-api-status-page" {
+  api_hrid = apim_apiv4.pets-api.hrid
+  hrid     = "status-page"
+  name     = "Status page"
+  href     = "https://status.example.com"
+  location = "/docs"
+  order    = 2
+}
+```
+{% endcode %}

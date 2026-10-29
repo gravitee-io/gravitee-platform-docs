@@ -30,6 +30,7 @@ The Gravitee Terraform provider supports the following Gravitee resource types:
 * Subscription
 * Group
 * Dictionary
+* New Developer Portal: portal, portal listing, portal and API documentation, portal and API link, and portal theme (from provider 1.2.0)
 
 Terraform can create, update, or delete these resources as part of its workflow.
 

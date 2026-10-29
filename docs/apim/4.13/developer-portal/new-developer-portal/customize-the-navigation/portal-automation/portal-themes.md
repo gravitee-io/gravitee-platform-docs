@@ -165,3 +165,43 @@ spec:
 * Removing `spec.themeRef` from a `Portal` deactivates the theme, as described in [How themes and portals relate](#how-themes-and-portals-relate).
 * The GKO admission webhook rejects the deletion of a `PortalTheme` that a `Portal` still references.
 {% endhint %}
+
+### Using Terraform
+
+Declare an [`apim_portal_theme`](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/portal_theme) resource with the theme's HRID, display name, and definition, and set `active_theme_hrid` on the [`apim_portal`](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/portal) resource. Then run `terraform apply`.
+
+**Example Terraform configuration:**
+
+{% code title="portal-theme.tf" %}
+```hcl
+resource "apim_portal_theme" "brand-theme" {
+  hrid = "brand-theme"
+  name = "Brand theme"
+  definition = {
+    custom_css = ".portal { padding: 0; }"
+    font = {
+      font_family = "\"Inter\", sans-serif"
+    }
+    color = {
+      primary   = "#123456"
+      secondary = "#654321"
+      tertiary  = "#abcdef"
+      error     = "#ff0000"
+      background = {
+        page = "#ffffff"
+        card = "#f4f4f4"
+      }
+    }
+  }
+  favicon = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxIDEiLz4="
+}
+
+resource "apim_portal" "default-portal" {
+  hrid              = "default-portal"
+  name              = "Default Portal"
+  active_theme_hrid = apim_portal_theme.brand-theme.hrid
+}
+```
+{% endcode %}
+
+Referencing `apim_portal_theme.brand-theme.hrid` makes Terraform create the theme before the portal and destroy the portal before the theme. Removing `active_theme_hrid` from the portal deactivates the theme, as described in [How themes and portals relate](#how-themes-and-portals-relate).
