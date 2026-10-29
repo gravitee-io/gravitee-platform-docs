@@ -15,14 +15,8 @@ services:
   # Be aware that, by disabling it, the Gateway will not be sync with the configuration done through Management API and Management Console
   sync:
     # Synchronization is done each 5 seconds
-    cron: '*/5 * * * * *'
-
-  # Service used to store and cache api-keys from the management repository to avoid direct repository communication
-  # while serving requests.
-  apikeyscache:
-    delay: 10000
+    delay: 5000
     unit: MILLISECONDS
-    threads: 3 # Threads core size used to retrieve api-keys from repository.
 
   # Local registry service.
   # This registry is used to load API Definition with json format from the file system. By doing so, you do not need
@@ -40,7 +34,6 @@ services:
 
   # Endpoint healthcheck service.
   healthcheck:
-    threads: 3 # Threads core size used to check endpoint availability
     jitterInMs: 900 # Random offset (0-5000 ms) applied per API to prevent health checks from firing simultaneously
 ```
 
