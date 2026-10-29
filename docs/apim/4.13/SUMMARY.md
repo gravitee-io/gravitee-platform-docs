@@ -535,6 +535,7 @@
   * [Expose Metrics to Elasticsearch](kafka-gateway/expose-metrics-to-elasticsearch.md)
 * [Prepare a Production Environment](prepare-a-production-environment/README.md)
   * [Gateway Resource Sizing](prepare-a-production-environment/gateway-resource-sizing-guidelines.md)
+  * [Gateway benchmarks](https://documentation.gravitee.io/api-management/deploy/gateway-benchmarks)
   * [Production Best Practices](prepare-a-production-environment/production-best-practices/README.md)
     * [Internal APIs](prepare-a-production-environment/production-best-practices/internal-apis.md)
     * [Deployments](prepare-a-production-environment/production-best-practices/deployments.md)
