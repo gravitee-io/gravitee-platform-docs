@@ -20,7 +20,7 @@ Check these changes before you upgrade to AM 4.14.0.
 
 From 4.14.0, the AM Helm chart no longer deploys MongoDB. It drops its `mongodb-replicaset` dependency, which ran a `bitnamilegacy/mongodb` image by default. If your values don't set `mongodb-replicaset.enabled` to `true`, this change doesn't affect you.
 
-If your values set `mongodb-replicaset.enabled` to `true`, upgrading to 4.14.0 removes the StatefulSet and the services that ran this MongoDB. The chart ignores the `mongodb-replicaset` section. While `mongodb-replicaset.enabled` is still `true`, `helm install` and `helm upgrade` print a warning that starts with `WARNING: The MongoDB subchart (mongodb-replicaset) has been removed`.
+If your values set `mongodb-replicaset.enabled` to `true`, the upgrade to 4.14.0 removes the StatefulSet and the services that ran this MongoDB. The chart ignores the `mongodb-replicaset` section. While `mongodb-replicaset.enabled` is still `true`, `helm install` and `helm upgrade` print a warning that starts with `WARNING: The MongoDB subchart (mongodb-replicaset) has been removed`.
 
 Action Required: Before you upgrade AM, move your data to a MongoDB that runs outside the chart. For the ways to copy the data, see [Backup Methods for a Self-Managed Deployment](https://www.mongodb.com/docs/manual/core/backups/). Point `mongo.uri`, `mongo.servers`, or `mongo.dbhost` at the new MongoDB, and then remove the `mongodb-replicaset` section from your values. For more information, see [Deploy in Kubernetes](deploy-in-kubernetes.md#mongo).
 
