@@ -5,7 +5,7 @@ metaLinks:
     - gcp-gke.md
 ---
 
-# GCP GKE
+# GCP GKE Gateway for Classic Cloud
 
 To install a Gravitee Gateway on Kubernetes using GCP GKE, complete the following steps:
 

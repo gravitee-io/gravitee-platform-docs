@@ -5,7 +5,7 @@ metaLinks:
     - ./
 ---
 
-# Classic Cloud
+# Classic Cloud hybrid installation
 
 ## Deployment methods
 

@@ -5,7 +5,7 @@ metaLinks:
     - openshift.md
 ---
 
-# OpenShift
+# Run a hybrid Gateway on OpenShift
 
 ## Overview
 

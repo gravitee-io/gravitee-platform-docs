@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-cli
 ---
 
-# Docker CLI
+# Run a hybrid Gateway with Docker CLI
 
 ## Overview
 

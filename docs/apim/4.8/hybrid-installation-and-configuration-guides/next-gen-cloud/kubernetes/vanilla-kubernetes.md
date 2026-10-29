@@ -2,7 +2,7 @@
 description: Install a hybrid API Management 4.8 Gateway on Kubernetes and connect it to Next-Gen Cloud. Follow the steps to deploy it.
 ---
 
-# Vanilla Kubernetes
+# Run a hybrid Gateway with Helm
 
 ## Overview
 

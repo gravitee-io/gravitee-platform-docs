@@ -2,7 +2,7 @@
 description: Install a hybrid API Management 4.8 Gateway on Azure Kubernetes Service and connect it to Gravitee Cloud. Follow the steps to deploy.
 ---
 
-# Azure AKS
+# Run a hybrid Gateway on Azure AKS
 
 ## Overview
 

@@ -5,7 +5,7 @@ metaLinks:
     - ./
 ---
 
-# Vanilla Kubernetes
+# Run a hybrid Gateway with Helm
 
 ## Overview
 
