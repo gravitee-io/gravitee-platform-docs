@@ -283,3 +283,5 @@ secure-and-expose-apis/applications/user-and-group-access.md
 configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers.md
 # PII Filtering: pattern-based detection, CREDENTIAL scope, and limitations (DOC-1955)
 create-and-configure-apis/apply-policies/policy-reference/pii-filtering.md
+# RPM upgrade: stop the Management API and empty its search index, Lucene 10.5 from 4.13
+upgrade-guides/upgrade-with-rpm.md
