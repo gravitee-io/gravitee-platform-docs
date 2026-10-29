@@ -17,3 +17,4 @@ getting-started/tutorial-getting-started-with-am/get-user-profile-information.md
 .gitbook/assets/am-application-lightweight-jwt-settings.png
 .gitbook/assets/am-application-lightweight-jwt-reserved-claims.png
 .gitbook/assets/am-application-lightweight-jwt-removed-custom-claims.png
+getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md
