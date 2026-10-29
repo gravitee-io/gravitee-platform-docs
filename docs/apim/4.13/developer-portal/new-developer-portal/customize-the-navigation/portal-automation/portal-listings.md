@@ -6,7 +6,7 @@ description: Portal listings publish APIs to specific locations in Developer Por
 
 ## Create a portal listing
 
-Portal listings publish APIs to specific locations in the portal navigation. Each listing specifies the portal HRID and an array of API entries with their target locations and display order.
+Portal listings publish APIs to specific locations in the portal navigation. Each listing specifies the portal HRID and an array of API entries with their target locations, display order, and visibility. An entry that omits `visibility` takes the visibility of its folder. For more information, see [Visibility](README.md#visibility).
 
 ### Using the Automation API
 
@@ -31,7 +31,8 @@ Authorization: Bearer {token}
     {
       "apiHrid": "orders-api",
       "location": "/projects/alpha",
-      "order": 2
+      "order": 2,
+      "visibility": "PRIVATE"
     }
   ]
 }
@@ -47,7 +48,7 @@ For the full endpoint reference, see [Automation API endpoint reference](README.
 ### Using Kubernetes CRDs
 
 1. Define a `PortalListing` resource with a reference to the parent portal.
-2. List the APIs to publish, each with a reference to an `ApiV4Definition` resource, a location path, and an optional order.
+2. List the APIs to publish, each with a reference to an `ApiV4Definition` resource, a location path, and optionally an order and a visibility.
 3. Apply the manifest with `kubectl apply -f portal-listing.yaml`.
 
 **Example PortalListing custom resource:**
@@ -71,6 +72,7 @@ spec:
         name: orders-api
       location: /projects/alpha
       order: 2
+      visibility: PRIVATE
 ```
 
 {% hint style="warning" %}
@@ -85,7 +87,7 @@ spec:
 
 The Automation API and GKO CRDs validate references differently:
 
-- **Automation API:** A listing tolerates references to API HRIDs and portal HRIDs that do not exist yet. No validation errors are raised for missing references. Orphan entries wait for the referenced resource to be created, so apply order does not matter.
+- **Automation API:** A listing tolerates references to API HRIDs and portal HRIDs that do not exist yet, as long as the environment holds no other portal. No validation errors are raised for missing references. Orphan entries wait for the referenced resource to be created, so apply order does not matter.
 - **GKO admission webhooks:** All referenced APIs must resolve to existing `ApiV4Definition` resources in the cluster and must share the portal's management context. The webhook rejects listings that reference APIs that cannot be found.
 
 This difference means the Automation API supports order-independent applies across multiple resources, while GKO requires APIs and portals to exist before a listing references them.

@@ -17,7 +17,7 @@ A folder created by hand for the same API at a path that the configuration decla
 ### Using the Automation API
 
 1. Send a `PUT` request to `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/documentations` with the documentation specification.
-2. Specify the page's HRID, display name, type, content, location (relative to the API's internal folder tree), and optional order.
+2. Specify the page's HRID, display name, type, content, location (relative to the API's internal folder tree), and optionally its order and visibility.
 3. Retrieve an API documentation page by sending a `GET` request to `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/documentations/{docHrid}`.
 4. Delete an API documentation page by sending a `DELETE` request to the same path.
 
@@ -35,7 +35,8 @@ Authorization: Bearer {token}
   "type": "GRAVITEE_MARKDOWN",
   "content": "# Pets API\nThis API manages pet records.",
   "location": "/docs",
-  "order": 1
+  "order": 1,
+  "visibility": "PUBLIC"
 }
 ```
 {% endcode %}
@@ -50,10 +51,14 @@ When `dryRun` validation fails, the response returns the errors under the `error
 
 These endpoints require the `API_DOCUMENTATION` permission. For the full endpoint reference, see [Automation API endpoint reference](./#automation-api-endpoint-reference).
 
+{% hint style="info" %}
+`area` is always `TOP_NAVBAR` for API documentation. A page attached to an API that sets `area: HOMEPAGE` fails with `400` and the message `API-attached documentation can only be added to TOP_NAVBAR area.` `visibility` takes `PUBLIC` or `PRIVATE`, and a page that omits it follows its folder on every apply. For more information, see [Visibility](README.md#visibility).
+{% endhint %}
+
 ### Using Kubernetes CRDs
 
 1. Define a `Documentation` resource with a reference to the parent API.
-2. Specify the page's name, type, content, location (relative to the API's internal folder tree), and optional order.
+2. Specify the page's name, type, content, location (relative to the API's internal folder tree), and optionally its order and visibility.
 3. Apply the manifest with `kubectl apply -f api-documentation.yaml`.
 
 **Example Documentation custom resource (API-scoped):**
@@ -90,7 +95,7 @@ spec:
 
 ## Configure the API internal documentation tree
 
-Each API declares its own internal documentation folder hierarchy using the `portalNavigation` field, which uses the same navigation path structure as the portal's top-level navigation. The `portalNavigation` field is portal-only metadata and is not propagated to the gateway definition.
+Each API declares its own internal documentation folder hierarchy using the `portalNavigation` field, which uses the same navigation path structure as the portal's top-level navigation. Each entry takes a `path`, and optionally a `displayName`, an `order`, and a `visibility`. The `portalNavigation` field is portal-only metadata and is not propagated to the gateway definition.
 
 ### Using the Automation API
 
@@ -111,7 +116,8 @@ Include the `portalNavigation` field in the API specification when you create or
       "path": "/docs/guides"
     },
     {
-      "path": "/examples"
+      "path": "/examples",
+      "visibility": "PRIVATE"
     }
   ]
 }
@@ -137,6 +143,7 @@ spec:
       order: 1
     - path: /docs/guides
     - path: /examples
+      visibility: PRIVATE
 ```
 {% endcode %}
 
