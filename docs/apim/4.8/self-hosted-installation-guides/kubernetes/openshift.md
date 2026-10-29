@@ -2,7 +2,7 @@
 description: Install API Management 4.8 within OpenShift. Follow the steps to deploy the platform on an OpenShift cluster of your own.
 ---
 
-# OpenShift
+# Self-host on OpenShift
 
 ## Prerequisites
 

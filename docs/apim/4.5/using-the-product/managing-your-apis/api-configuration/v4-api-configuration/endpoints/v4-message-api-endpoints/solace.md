@@ -2,7 +2,7 @@
 description: An overview about solace.
 ---
 
-# Solace
+# Configure the Solace endpoint
 
 ## Overview
 

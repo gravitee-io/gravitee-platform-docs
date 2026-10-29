@@ -5,7 +5,7 @@ metaLinks:
     - azure-aks.md
 ---
 
-# Azure AKS
+# Run a hybrid Gateway on Azure AKS
 
 ## Overview
 

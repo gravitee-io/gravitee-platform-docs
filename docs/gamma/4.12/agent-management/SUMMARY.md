@@ -80,7 +80,7 @@
   * [Manage subscriptions](publish/manage-subscriptions.md)
   * [Publish a proxy to the Developer Portal](publish/publish-a-proxy-to-the-developer-portal.md)
   * [Agent kill switch](build/agent-killswitch.md)
-* [Observe](observe/README.md)
+* [Agent Management observability](observe/README.md)
   * [Dashboards](observe/dashboards/README.md)
     * [Monitor your LLM proxy](observe/monitor-your-llm-proxy.md)
     * [Monitor your MCP servers](observe/monitor-your-mcp-servers.md)

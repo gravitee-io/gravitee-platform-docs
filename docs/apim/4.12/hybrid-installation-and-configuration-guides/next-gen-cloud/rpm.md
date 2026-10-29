@@ -5,7 +5,7 @@ metaLinks:
     - rpm.md
 ---
 
-# RPM
+# Run a hybrid Gateway with RPM
 
 ## Overview
 

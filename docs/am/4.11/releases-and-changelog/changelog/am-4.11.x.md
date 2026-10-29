@@ -6,6 +6,29 @@ description: >-
 
 # AM 4.11.x
 
+## Gravitee Access Management 4.11.21 - October 29, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Kafka reporter NPE on DOMAIN audits without a target [#11846](https://github.com/gravitee-io/issues/issues/11846)
+* JDBC audit reporter retries an unstorable batch forever [#11853](https://github.com/gravitee-io/issues/issues/11853)
+* [JDBC] Concurrent logouts duplicate user attributes rows [#11960](https://github.com/gravitee-io/issues/issues/11960)
+* Deleting a domain does not delete its bot detections [#11969](https://github.com/gravitee-io/issues/issues/11969)
+* Disabled Connect flow aborts loading of the remaining domain flows on gateway startup. [#11990](https://github.com/gravitee-io/issues/issues/11990)
+
+</details>
+
+
 ## Gravitee Access Management 4.11.20 - October 23, 2026
 
 <details>

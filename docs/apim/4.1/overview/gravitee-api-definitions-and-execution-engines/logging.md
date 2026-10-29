@@ -5,7 +5,7 @@ metaLinks:
     https://documentation.gravitee.io/apim/4.1/getting-started/configuration/the-gravitee-api-gateway/logging
 ---
 
-# Logging
+# Execution engine logging
 
 ## Legacy execution engine behavior
 

@@ -2,7 +2,7 @@
 description: An overview about contributing to the gravitee api management developement.
 ---
 
-# Contributing to the Gravitee API Management developement
+# Contribute to development
 
 ## Overview
 

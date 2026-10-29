@@ -2,7 +2,7 @@
 description: Learn how to consume secured APIs
 ---
 
-# Applications
+# Create an application for Kafka APIs
 
 ## Overview
 

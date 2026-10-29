@@ -2,7 +2,7 @@
 description: A sample compose file that sets up a Classic Cloud hybrid API Management 4.8 configuration. Follow the steps to adapt it.
 ---
 
-# Docker Compose
+# Docker Compose Gateway for Classic Cloud
 
 {% hint style="warning" %}
 This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.

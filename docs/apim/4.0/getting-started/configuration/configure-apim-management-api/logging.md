@@ -2,7 +2,7 @@
 description: Tutorial on Logging.
 ---
 
-# Logging
+# Configure Management API logging
 
 ## Introduction
 
