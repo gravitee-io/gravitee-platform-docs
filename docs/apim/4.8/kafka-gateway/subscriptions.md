@@ -2,7 +2,7 @@
 description: A subscription is the contract between a Kafka API publisher and consumer in API Management 4.8. Learn how one is created.
 ---
 
-# Subscriptions
+# Subscriptions for Kafka APIs
 
 ## Overview
 

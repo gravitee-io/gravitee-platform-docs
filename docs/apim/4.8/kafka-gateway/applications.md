@@ -2,7 +2,7 @@
 description: Consumers register an application and subscribe to a plan to reach Kafka APIs in API Management 4.8. Learn what applications do.
 ---
 
-# Applications
+# Create an application for Kafka APIs
 
 ## Overview
 
