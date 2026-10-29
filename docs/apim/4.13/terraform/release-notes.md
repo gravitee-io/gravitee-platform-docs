@@ -11,14 +11,15 @@ metaLinks:
 
 **Terraform Registry:** [gravitee-io/apim](https://registry.terraform.io/providers/gravitee-io/apim/1.2.0)
 
-Version **1.2.0** adds the New Developer Portal to the Gravitee APIM Terraform provider: the portal and its navigation, the APIs it lists, its documentation pages and homepage, its links, and its themes, managed as code through the Automation API.
+Version **1.2.0** adds the New Developer Portal to the Gravitee APIM Terraform provider: the portal and its navigation, the APIs it lists, its documentation pages and homepage, its links, and its themes, managed as code through the Automation API. It also adds the APIM 4.13 settings of v4 APIs: analytics path mappings, request validation, Private Network Access for CORS, native Kafka connection events, and tracing redaction.
 
 ### Highlights
 
 - **Seven new managed resources** for the New Developer Portal: `apim_portal`, `apim_portal_listing`, `apim_documentation_portal`, `apim_documentation_api`, `apim_portal_link`, `apim_api_link`, and `apim_portal_theme`. Each resource has a matching data source.
 - **`portal_navigation` on `apim_apiv4`:** the API's own documentation folder tree in the New Developer Portal, with the visibility of each folder.
-- **Visibility as code:** `visibility` (`PUBLIC` or `PRIVATE`) on navigation entries, listing entries, documentation pages, and links. When omitted, APIM resolves it from the parent item.
-- **APIM 4.13 or later** serves the endpoints and fields these resources use.
+- **Visibility as code:** `visibility` (`PUBLIC` or `PRIVATE`) on navigation entries, listing entries, documentation pages, and links. When omitted, APIM resolves it from the parent item on every apply: a documentation page or a link made private in the Console becomes public again on the next `terraform apply` that updates it, when its folder is public. Set `visibility = "PRIVATE"` on every item that stays private. For more information, see [Breaking changes and deprecations](../release-information/breaking-changes-and-deprecations.md).
+- **New `apim_apiv4` settings:** `listeners.http.path_mappings`, `listeners.http.request_validation`, `listeners.http.cors.allow_private_network`, `analytics.connection_events`, and `analytics.tracing.redaction`.
+- **APIM 4.13 or later** serves the endpoints and fields these resources and settings use.
 - **No breaking changes:** no attribute is removed or renamed.
 
 ### New resources
@@ -50,14 +51,25 @@ For how APIM applies each of these objects, see [Portal automation](../developer
 | `portal_navigation.display_name` | string | Label of the folder |
 | `portal_navigation.order` | number | Display order among siblings |
 | `portal_navigation.visibility` | string | `PUBLIC` or `PRIVATE`. When omitted, APIM resolves it from the parent folder |
+| `listeners.http.path_mappings` | list(string) | Path patterns that group analytics by API path. Removing the attribute keeps the current value: set `path_mappings = []` to clear it |
+| `listeners.http.request_validation.reject_null_byte` | bool | Rejects requests whose path or query contains a null byte. Default `false`. Removing the block keeps the current value: set `reject_null_byte = false` to turn it off |
+| `listeners.http.cors.allow_private_network` | bool | Allows Private Network Access requests during the CORS preflight (`Access-Control-Allow-Private-Network`). Default `false` |
+| `analytics.connection_events` | list(string) | Native Kafka APIs only. The connection events the Gateway reports, among `CONNECTED`, `DISCONNECTED`, and `ERROR`. When absent or empty, the Gateway reports `CONNECTED` and `ERROR` |
+| `analytics.tracing.redaction` | object | Masking applied to span attributes before traces are exported: `default_replacement`, and `rules`, each with `attribute_name_pattern`, an optional `value_pattern`, and `masking_strategy` (`type` `FULL` or `PARTIAL`, `replacement`, `prefix_length`, `suffix_length`) |
+
+#### `apim_shared_policy_group` / `apim_shared_policy_group` (data source)
+
+| Attribute path | Type | Notes |
+| --- | --- | --- |
+| `steps` | list(object) | From APIM 4.13, a read returns the steps only to a caller with the `SHARED_POLICY_GROUP` `UPDATE` permission on the environment. A data source read with a token that lacks it returns no steps. For more information, see [Breaking changes and deprecations](../release-information/breaking-changes-and-deprecations.md) |
 
 #### `apim_portal` _(new)_
 
 | Attribute path | Type | Notes |
 | --- | --- | --- |
 | `hrid`, `name` | string | `hrid` requires replacement when changed |
-| `structure.top_navbar` | list(object) | The top navigation bar, in list order. Each entry takes `path`, `display_name`, and `visibility` |
-| `active_theme_hrid` | string | HRID of the `apim_portal_theme` the portal uses. Setting it activates that theme in the environment, and leaving it unset deactivates the previous one |
+| `structure.top_navbar` | list(object) | The top navigation bar, in list order. Each entry takes `path`, `display_name`, and `visibility`. Omitting `structure` keeps the current navigation, including after an import. Set `top_navbar = []` to clear it |
+| `active_theme_hrid` | string | HRID of the `apim_portal_theme` the portal uses. Setting it activates that theme and disables the other New Developer Portal themes of the environment. Leaving it unset deactivates the previous theme, and APIM re-enables another theme of the environment, or shows the default theme when there is none |
 | `environment_id`, `organization_id`, `id` | string | `id` computed |
 
 #### `apim_portal_listing` _(new)_
@@ -118,8 +130,8 @@ terraform plan
 
 | Provider version | APIM version | Capability |
 | --- | --- | --- |
-| **1.2.x** | 4.13.x | **Full**: supports the New Developer Portal resources and `portal_navigation`. Existing configurations continue to work |
-| **1.2.x** | 4.10.x – 4.12.x | **Compatible**: existing configurations continue to work. These APIM versions don't serve the navigation structure, visibility, links, and themes that the New Developer Portal resources send, so use those resources with APIM 4.13.x |
+| **1.2.x** | 4.13.x | **Full**: supports the New Developer Portal resources, `portal_navigation`, and the new `apim_apiv4` settings. Existing configurations continue to work |
+| **1.2.x** | 4.10.x – 4.12.x | **Compatible**: existing configurations continue to work. These APIM versions don't serve the navigation structure, visibility, links, and themes that the New Developer Portal resources send, or the new `apim_apiv4` settings, so use them with APIM 4.13.x |
 
 ### Breaking changes
 
