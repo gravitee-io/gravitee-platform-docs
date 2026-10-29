@@ -289,3 +289,5 @@ upgrade-guides/upgrade-with-rpm.md
 prepare-a-production-environment/gateway-resource-sizing-guidelines.md
 # QoS compatibility table: JMS endpoint column (DOC-1899)
 create-and-configure-apis/configure-v4-apis/quality-of-service.md
+# Kafka Gateway: Troubleshoot Kafka client connections (DOC-1890)
+kafka-gateway/troubleshoot-kafka-client-connections.md

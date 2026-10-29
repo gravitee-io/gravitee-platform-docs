@@ -533,6 +533,7 @@
   * [Other Ways Gravitee Supports Kafka](kafka-gateway/other-ways-gravitee-supports-kafka.md)
   * [Expose Kafka metrics to Prometheus](kafka-gateway/expose-metrics-to-prometheus.md)
   * [Expose Metrics to Elasticsearch](kafka-gateway/expose-metrics-to-elasticsearch.md)
+  * [Troubleshoot Kafka client connections](kafka-gateway/troubleshoot-kafka-client-connections.md)
 * [Prepare a Production Environment](prepare-a-production-environment/README.md)
   * [Gateway Resource Sizing](prepare-a-production-environment/gateway-resource-sizing-guidelines.md)
   * [Gateway benchmarks](https://documentation.gravitee.io/api-management/deploy/gateway-benchmarks)
