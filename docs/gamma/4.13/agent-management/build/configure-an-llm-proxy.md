@@ -55,6 +55,42 @@ The Policy Studio uses the same policy studio as API Management and supports the
 5. Configure the policy properties, and then click **Save**.
 6. When the **This API is out of sync** banner appears, click **Deploy** to push the changes to the API Gateway.
 
+### PII Filtering
+
+The **PII Filtering** policy replaces personal data in prompts and answers with `[REDACTED]`. It needs an **AI Model Token Classification** resource on the LLM Proxy, so add the resource first. For more information, see [AI resources](ai-resources.md).
+
+Add the policy to the **Prompt** flow. It doesn't run on the **Embeddings** or **Models** flow, so the text of embeddings requests isn't scanned.
+
+The phase you add the policy to decides what it scans:
+
+* In the request phase, it scans every message the user sent, including the earlier messages that a client sends again with each request. System, assistant, and tool messages aren't scanned.
+* In the response phase, it scans the model's answer, including an answer that streams in.
+
+To redact both prompts and answers, add the policy to both phases. If its resource is missing, the call fails instead of passing through without redaction.
+
+The policy has the following settings:
+
+* **AI Resource**: the AI Model Token Classification resource to use. Required.
+* **PII Categories**: the kinds of personal data to redact. Required, with no default.
+* **Confidence Threshold**: the score, from 0 to 1, that a model detection needs before it's redacted. The default is `0.5`. A higher threshold redacts less, and a lower threshold redacts more. A threshold of `0` counts as not set and becomes `0.5`, and a threshold below `0.01` becomes `0.01`.
+* **Skip Response Payload Filtering**: when enabled, the policy doesn't redact answers. It only affects the policy in the response phase. Disabled by default.
+
+Some values are recognized by their format and redacted whatever the threshold, as long as their category is selected. Every other detection comes from the model of the AI Model Token Classification resource. The following table lists how each category is detected:
+
+| PII Categories value | Detected by |
+| --- | --- |
+| `PERSON`, `ORGANIZATION`, `LOCATION` | Either model |
+| `MISCELLANEOUS` | The `dslim/distilbert-NER` model only |
+| `PHONE`, `VEHICLE_ID`, `CREDENTIAL`, `DEMOGRAPHIC` | The `gravitee-io/bert-small-pii-detection` model only |
+| `EMAIL` | Email address format, and the `gravitee-io/bert-small-pii-detection` model |
+| `NETWORK_IDENTIFIER` | URLs with common schemes such as `https`, IP addresses, and MAC addresses, and the `gravitee-io/bert-small-pii-detection` model |
+| `FINANCIAL_ACCOUNT` | Payment card numbers, IBANs, and US routing numbers that pass validation, and the `gravitee-io/bert-small-pii-detection` model |
+| `GOVERNMENT_ID` | US Social Security numbers written with hyphens, and the `gravitee-io/bert-small-pii-detection` model |
+| `DEVICE_IDENTIFIER` | 15-digit IMEI numbers that pass validation, and the `gravitee-io/bert-small-pii-detection` model |
+| `CRYPTOCURRENCY_WALLET` | Bitcoin addresses that start with `bc1` |
+
+Both models were trained on English text, so detection in other languages is less reliable.
+
 ## Resources
 
 Policies that depend on shared infrastructure reference a resource configured on the proxy. The **AI - Prompt Guard Rails** policy references an **AI Model Text Classification** resource, and the **PII Filtering** policy references an **AI Model Token Classification** resource.
