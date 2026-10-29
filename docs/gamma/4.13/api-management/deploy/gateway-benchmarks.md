@@ -179,10 +179,10 @@ Each figure comes from a single run, so small differences between releases fall 
         <tr>
             <th width="225">Scenario</th>
             <th width="72" align="right">TPS</th>
-            <th width="115" align="right">Average (ms)</th>
-            <th width="88" align="right">P95 (ms)</th>
-            <th width="88" align="right">P99 (ms)</th>
-            <th width="85" align="right">CPU (%)</th>
+            <th width="80" align="right">Average<br>(ms)</th>
+            <th width="58" align="right">P95<br>(ms)</th>
+            <th width="58" align="right">P99<br>(ms)</th>
+            <th width="55" align="right">CPU<br>(%)</th>
         </tr>
     </thead>
     <tbody>
@@ -228,10 +228,10 @@ Each figure comes from a single run, so small differences between releases fall 
         <tr>
             <th width="225">Scenario</th>
             <th width="72" align="right">TPS</th>
-            <th width="115" align="right">Average (ms)</th>
-            <th width="88" align="right">P95 (ms)</th>
-            <th width="88" align="right">P99 (ms)</th>
-            <th width="85" align="right">CPU (%)</th>
+            <th width="80" align="right">Average<br>(ms)</th>
+            <th width="58" align="right">P95<br>(ms)</th>
+            <th width="58" align="right">P99<br>(ms)</th>
+            <th width="55" align="right">CPU<br>(%)</th>
         </tr>
     </thead>
     <tbody>
@@ -277,10 +277,10 @@ Each figure comes from a single run, so small differences between releases fall 
         <tr>
             <th width="225">Scenario</th>
             <th width="72" align="right">TPS</th>
-            <th width="115" align="right">Average (ms)</th>
-            <th width="88" align="right">P95 (ms)</th>
-            <th width="88" align="right">P99 (ms)</th>
-            <th width="85" align="right">CPU (%)</th>
+            <th width="80" align="right">Average<br>(ms)</th>
+            <th width="58" align="right">P95<br>(ms)</th>
+            <th width="58" align="right">P99<br>(ms)</th>
+            <th width="55" align="right">CPU<br>(%)</th>
         </tr>
     </thead>
     <tbody>
@@ -326,10 +326,10 @@ Each figure comes from a single run, so small differences between releases fall 
         <tr>
             <th width="225">Scenario</th>
             <th width="72" align="right">TPS</th>
-            <th width="115" align="right">Average (ms)</th>
-            <th width="88" align="right">P95 (ms)</th>
-            <th width="88" align="right">P99 (ms)</th>
-            <th width="85" align="right">CPU (%)</th>
+            <th width="80" align="right">Average<br>(ms)</th>
+            <th width="58" align="right">P95<br>(ms)</th>
+            <th width="58" align="right">P99<br>(ms)</th>
+            <th width="55" align="right">CPU<br>(%)</th>
         </tr>
     </thead>
     <tbody>
@@ -375,10 +375,10 @@ Each figure comes from a single run, so small differences between releases fall 
         <tr>
             <th width="225">Scenario</th>
             <th width="72" align="right">TPS</th>
-            <th width="115" align="right">Average (ms)</th>
-            <th width="88" align="right">P95 (ms)</th>
-            <th width="88" align="right">P99 (ms)</th>
-            <th width="85" align="right">CPU (%)</th>
+            <th width="80" align="right">Average<br>(ms)</th>
+            <th width="58" align="right">P95<br>(ms)</th>
+            <th width="58" align="right">P99<br>(ms)</th>
+            <th width="55" align="right">CPU<br>(%)</th>
         </tr>
     </thead>
     <tbody>
@@ -429,10 +429,10 @@ Each figure comes from a single run, so small differences between releases fall 
         <tr>
             <th width="225">Scenario</th>
             <th width="72" align="right">TPS</th>
-            <th width="115" align="right">Average (ms)</th>
-            <th width="88" align="right">P95 (ms)</th>
-            <th width="88" align="right">P99 (ms)</th>
-            <th width="85" align="right">CPU (%)</th>
+            <th width="80" align="right">Average<br>(ms)</th>
+            <th width="58" align="right">P95<br>(ms)</th>
+            <th width="58" align="right">P99<br>(ms)</th>
+            <th width="55" align="right">CPU<br>(%)</th>
         </tr>
     </thead>
     <tbody>
@@ -478,10 +478,10 @@ Each figure comes from a single run, so small differences between releases fall 
         <tr>
             <th width="225">Scenario</th>
             <th width="72" align="right">TPS</th>
-            <th width="115" align="right">Average (ms)</th>
-            <th width="88" align="right">P95 (ms)</th>
-            <th width="88" align="right">P99 (ms)</th>
-            <th width="85" align="right">CPU (%)</th>
+            <th width="80" align="right">Average<br>(ms)</th>
+            <th width="58" align="right">P95<br>(ms)</th>
+            <th width="58" align="right">P99<br>(ms)</th>
+            <th width="55" align="right">CPU<br>(%)</th>
         </tr>
     </thead>
     <tbody>
