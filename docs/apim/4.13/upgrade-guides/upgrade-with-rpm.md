@@ -43,13 +43,21 @@ Starting in version 4.7, Gravitee APIM requires **Java 21**. If you are deployin
 
 ## Upgrade the full APIM stack
 
-To upgrade your APIM installation, perform the package upgrade, and then restart APIM using the following commands:
+{% hint style="warning" %}
+Stop the Management API before you upgrade its package. The package upgrade empties the search index directory, but a Management API that's still running can write to the index again before it stops. From 4.13, the Management API doesn't start if its search index was written by APIM 4.12 or earlier. For more information, see [Breaking Changes and Deprecations](../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
+To upgrade your APIM installation, stop the Management API, perform the package upgrade, empty the search index directory of the Management API, and then restart APIM using the following commands:
 
 ```bash
+sudo systemctl stop graviteeio-apim-rest-api
 sudo yum upgrade -y graviteeio-apim-4x
+sudo rm -rf /opt/graviteeio/apim/graviteeio-apim-rest-api/data/*
 sudo systemctl daemon-reload
 sudo systemctl restart graviteeio-apim-gateway graviteeio-apim-rest-api nginx
 ```
+
+The Management API rebuilds the search index when it starts. If you set `search.data` in the `gravitee.yml` file of the Management API, empty the directory that it points to instead of `/opt/graviteeio/apim/graviteeio-apim-rest-api/data`.
 
 ## Upgrade the individual components
 
@@ -66,12 +74,20 @@ sudo systemctl restart graviteeio-apim-gateway
 
 ### Upgrade the Management API package
 
+{% hint style="warning" %}
+Stop the Management API before you upgrade its package. The package upgrade empties the search index directory, but a Management API that's still running can write to the index again before it stops. From 4.13, the Management API doesn't start if its search index was written by APIM 4.12 or earlier. For more information, see [Breaking Changes and Deprecations](../release-information/breaking-changes-and-deprecations.md).
+{% endhint %}
+
 To upgrade the Management API package, use the following commands:
 
 ```bash
+sudo systemctl stop graviteeio-apim-rest-api
 sudo yum upgrade -y graviteeio-apim-rest-api-4x
-sudo systemctl restart graviteeio-apim-rest-api
+sudo rm -rf /opt/graviteeio/apim/graviteeio-apim-rest-api/data/*
+sudo systemctl start graviteeio-apim-rest-api
 ```
+
+The Management API rebuilds the search index when it starts. If you set `search.data` in the `gravitee.yml` file of the Management API, empty the directory that it points to instead of `/opt/graviteeio/apim/graviteeio-apim-rest-api/data`.
 
 ### Upgrade the Management Console package
 
