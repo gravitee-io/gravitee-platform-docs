@@ -131,7 +131,7 @@ Load is generated from the load generator cluster and sent to the Gateway, which
 
 ## Results
 
-Select a release to see its results. Each result table reports the following metrics.
+Select a minor version, and then select a maintenance release to see its results. Each result table reports the following metrics.
 
 <table>
     <thead>
@@ -170,6 +170,8 @@ Average, P95, and P99 are total end-to-end response times, measured by the clien
 Each figure comes from a single run, so small differences between releases fall within the range that run-to-run variation can produce. Treat them as a record of each release rather than as a measured trend. Repeat runs are planned for future results.
 {% endhint %}
 
+{% tabs %}
+{% tab title="4.12" %}
 {% tabs %}
 {% tab title="4.12.19" %}
 <table>
@@ -414,6 +416,112 @@ Each figure comes from a single run, so small differences between releases fall 
         </tr>
     </tbody>
 </table>
+{% endtab %}
+
+{% endtabs %}
+{% endtab %}
+
+{% tab title="4.13" %}
+{% tabs %}
+{% tab title="4.13.0" %}
+<table>
+    <thead>
+        <tr>
+            <th width="200">Scenario</th>
+            <th align="right">TPS</th>
+            <th align="right">Average (ms)</th>
+            <th align="right">P95 (ms)</th>
+            <th align="right">P99 (ms)</th>
+            <th align="right">CPU (%)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Keyless</td>
+            <td align="right">16,400</td>
+            <td align="right">4.73</td>
+            <td align="right">5.85</td>
+            <td align="right">9.61</td>
+            <td align="right">79</td>
+        </tr>
+        <tr>
+            <td>API Key</td>
+            <td align="right">16,400</td>
+            <td align="right">4.73</td>
+            <td align="right">5.88</td>
+            <td align="right">9.84</td>
+            <td align="right">78</td>
+        </tr>
+        <tr>
+            <td>OAuth 2.0</td>
+            <td align="right">15,500</td>
+            <td align="right">4.58</td>
+            <td align="right">5.67</td>
+            <td align="right">8.99</td>
+            <td align="right">81</td>
+        </tr>
+        <tr>
+            <td>Keyless with Rate Limit policy</td>
+            <td align="right">13,200</td>
+            <td align="right">5.13</td>
+            <td align="right">6.35</td>
+            <td align="right">9.45</td>
+            <td align="right">77</td>
+        </tr>
+    </tbody>
+</table>
+{% endtab %}
+
+{% tab title="4.13.1" %}
+<table>
+    <thead>
+        <tr>
+            <th width="200">Scenario</th>
+            <th align="right">TPS</th>
+            <th align="right">Average (ms)</th>
+            <th align="right">P95 (ms)</th>
+            <th align="right">P99 (ms)</th>
+            <th align="right">CPU (%)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Keyless</td>
+            <td align="right">16,400</td>
+            <td align="right">4.73</td>
+            <td align="right">5.89</td>
+            <td align="right">9.63</td>
+            <td align="right">78</td>
+        </tr>
+        <tr>
+            <td>API Key</td>
+            <td align="right">16,400</td>
+            <td align="right">4.74</td>
+            <td align="right">5.86</td>
+            <td align="right">9.70</td>
+            <td align="right">79</td>
+        </tr>
+        <tr>
+            <td>OAuth 2.0</td>
+            <td align="right">14,900</td>
+            <td align="right">4.77</td>
+            <td align="right">5.65</td>
+            <td align="right">8.84</td>
+            <td align="right">78</td>
+        </tr>
+        <tr>
+            <td>Keyless with Rate Limit policy</td>
+            <td align="right">13,400</td>
+            <td align="right">5.13</td>
+            <td align="right">6.22</td>
+            <td align="right">9.16</td>
+            <td align="right">77</td>
+        </tr>
+    </tbody>
+</table>
+{% endtab %}
+
+{% endtabs %}
 {% endtab %}
 
 {% endtabs %}
