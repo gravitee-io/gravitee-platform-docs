@@ -40,6 +40,7 @@ documentation.gravitee.io links for other versions.
 * API Products reach the New Developer Portal: publish an API Product in the portal navigation with its APIs and documentation, and consumers discover it in the catalog, subscribe to it, and manage the subscription that covers every API it includes.
 * New Developer Portal navigation pages fetch their content from external sources such as GitHub, GitLab, or an HTTP URL, on demand or on an auto-fetch schedule, and a repository import mirrors a whole documentation tree into a read-only folder.
 * The pages, folders, and links of an API in the New Developer Portal belong to the API. API owners manage them on the **Documentation** page of the API proxy in the Gamma console, and portal designers place the API in the navigation. Every environment gets an **APIs** section to publish into.
+* The homepage, themes, links, and visibility of the New Developer Portal join the Automation API, so the whole consumer portal is managed as code with the Gravitee Kubernetes Operator or direct API calls, next to the navigation, API listings, and documentation that were already automated.
 * Identity provider claims travel into dynamic client registration requests: list the claims to persist on the identity provider, map them to registration request fields on the client registration provider, and the registration provider receives tenant or user context for each application it registers.
 * A Kafka Topic Mapping entry that sets only one of `client` and `broker` becomes a rule that applies to any topic, with the `#topic` expression variable bound to the name being resolved, so one entry can prefix or strip a prefix across every topic.
 * The FIPS images move to a JDK 25 base, where `jks` and `pkcs12` keystores no longer load, so a FIPS deployment converts the Gateway's listener stores to `pem`, or to `bcfks` where a store is read from a file, before upgrading.
@@ -75,6 +76,10 @@ A native Kafka connection now writes one log entry per lifecycle event: one when
 #### **Subscription forms apply only to the APIs they're assigned to**
 
 An environment now holds several subscription forms, and each form applies only to the APIs assigned to it. On the first Management API startup after the upgrade, the existing form of each environment is named **Global Default Form**. If it was visible, it's assigned to every API of the environment. If it was hidden, it's assigned to no API. An API created after the upgrade has no subscription form until you assign it to one, where previously the environment's form applied to every API. New environments start with no subscription form. The Management API v2 `GET /subscription-forms` endpoint now returns a list of forms, and `PUT /subscription-forms/{subscriptionFormId}` requires `name`, `gmdContent`, and `apiIds`. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Automation API: The `navigation` list of a portal is deprecated**
+
+The portal navigation declared through the Automation API is grouped by area under `structure`, and the flat `navigation` list is deprecated. A request that sets only `navigation` is still accepted and mapped to `structure.topNavbar`. A request that sets both fails with `400`. With the Gravitee Kubernetes Operator, `spec.navigation` of the `Portal` resource is deprecated the same way.
 
 #### **New Developer Portal: API documentation moves to the API at upgrade**
 
@@ -232,6 +237,15 @@ The Management API now uses Lucene 10.5 instead of Lucene 10.1, and Lucene 10.5 
 * When you delete an API, its documentation and the content of its pages are now deleted with it.
 * Management API v2 adds the API-scoped documentation operations under `/apis/{apiId}/portal-navigation-items`. They list, create, read, update, delete, fetch, and import the API's items, and they create the API's Overview page. They also read and save the content and the viewer configuration of a page, list the sections the API can be published into, and publish or unpublish the API. They require the documentation permission of the API rather than the environment's.
 * For more information, see [Manage Portal Navigation and APIs](../../developer-portal/new-developer-portal/customize-the-navigation.md#api) and [Manage API documentation](https://documentation.gravitee.io/api-management/manage/api-proxies/general/manage-api-documentation).
+
+#### **Homepage, themes, links, and visibility in New Developer Portal automation**
+
+* The homepage of the New Developer Portal is declared as a portal documentation page with `area` set to `HOMEPAGE`. A portal has one homepage, and applying the page replaces the homepage created in the Console. Deleting it sends consumers to the catalog.
+* Themes are declared under `/portal-themes`, with the colors, font, custom CSS, logo, favicon, and background image of the portal, and the portal's `activeThemeHrid` selects the theme consumers see. Several themes coexist in an environment, and a theme that a portal uses can't be deleted. The Gravitee Kubernetes Operator 4.13 adds the `PortalTheme` resource and `spec.themeRef` on the `Portal` resource.
+* Links are declared under `/portals/{portalHrid}/links` for the portal navigation and under `/apis/{apiHrid}/links` for the documentation of an API, where the link appears under the API wherever it's listed. The Gravitee Kubernetes Operator 4.13 adds the `PortalLink` resource, with `portalRef` or `apiRef`.
+* Navigation paths, listing entries, documentation pages, and links take a `visibility` of `PUBLIC` or `PRIVATE`. A private item is shown to signed-in consumers only. An item that omits `visibility` takes the visibility of its folder on every apply, and a public item under a private folder is rejected.
+* The portal navigation is grouped by area under `structure`, with the top navigation bar under `structure.topNavbar`. The flat `navigation` list is deprecated.
+* For more information, see [Portal automation](../../developer-portal/new-developer-portal/customize-the-navigation/portal-automation/README.md).
 
 #### **Identity provider claims in dynamic client registration requests**
 
