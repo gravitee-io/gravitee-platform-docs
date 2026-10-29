@@ -4,7 +4,7 @@ description: Deploy APIM 4.14 with Prometheus and Grafana using Docker Compose, 
 
 # Monitor APIM with Prometheus and Grafana using Docker Compose
 
-This guide deploys Gravitee API Management (APIM) with Prometheus and Grafana on a single machine using Docker Compose. When you're done, Grafana shows your API traffic, consumers, latency, Gateway health, and SLOs.
+This guide deploys Gravitee API Management (APIM) with Prometheus and Grafana on a single machine using Docker Compose. When you're done, Grafana shows your API traffic, consumers, latency, Gateway health, SLOs, and the headers and payloads of each call.
 
 To add monitoring to an existing installation instead, see [Monitor APIM with Grafana](../../analyze-and-monitor-apis/monitor-apim-with-grafana.md).
 
@@ -19,13 +19,15 @@ API consumers ──► Gateway ──► backend
                     │
                     ├─ internal API :18082 /_node/metrics/prometheus ──► Prometheus ──┐
                     ├─ analytics reporter ──► Elasticsearch  gravitee-v4-metrics-*  ──┼──► Grafana
-                    └─ node monitoring   ──► Elasticsearch  gravitee-monitor-*      ──┘
+                    ├─ node monitoring   ──► Elasticsearch  gravitee-monitor-*      ──┤
+                    └─ API logs          ──► Elasticsearch  gravitee-v4-log-*       ──┘
 ```
 
 Grafana reads two kinds of data:
 
 * **Gateway metrics from Prometheus**: real-time request rates, connections, JVM, and CPU for each Gateway node.
 * **API analytics from Elasticsearch**: one record per API call, with the API, application, plan, status, latency split between the Gateway and the backend, rejection reason, client country, and user agent.
+* **API logs from Elasticsearch**: the headers and payloads of each call, for APIs with logging enabled.
 
 ## Prerequisites
 
@@ -170,6 +172,11 @@ Grafana reads two kinds of data:
         type: elasticsearch
         url: http://elasticsearch:9200
         jsonData: { index: "gravitee-monitor-*", timeField: "@timestamp" }
+      - name: Gravitee Call Logs
+        uid: gravitee-logs
+        type: elasticsearch
+        url: http://elasticsearch:9200
+        jsonData: { index: "gravitee-v4-log-*", timeField: "@timestamp" }
     ```
     {% endcode %}
 5.  Create the dashboard provider in `grafana/provisioning/dashboards/gravitee.yml`:
@@ -184,9 +191,10 @@ Grafana reads two kinds of data:
         options: { path: /etc/grafana/dashboards }
     ```
     {% endcode %}
-6.  Download the [Gravitee Grafana dashboard pack](<DASHBOARD_PACK_URL>), then copy its files into the project:
+6.  Download the [Gravitee Grafana dashboard pack](https://github.com/gravitee-io-labs/gravitee-prometheus-grafana-dashboards), then copy its files into the project:
 
     ```bash
+    curl -sLO https://github.com/gravitee-io-labs/gravitee-prometheus-grafana-dashboards/releases/latest/download/gravitee-grafana-dashboards.zip
     unzip gravitee-grafana-dashboards.zip
     cp gravitee-grafana-dashboards/dashboards/*.json grafana/dashboards/
     mkdir -p prometheus/rules && cp gravitee-grafana-dashboards/prometheus-rules/*.rules.yml prometheus/rules/
@@ -206,7 +214,7 @@ until curl -sf -o /dev/null -u admin:admin http://localhost:8083/management/v2/e
 
 ## Create an API and generate traffic
 
-The Gateway only records analytics for calls to a deployed API. Create a keyless API that proxies the demo backend. The commands keep the top-level `id` of each response:
+The Gateway only records analytics for calls to a deployed API. Create a keyless API that proxies the demo backend and logs the headers and payloads of every call. The commands keep the top-level `id` of each response:
 
 ```bash
 MGMT=http://localhost:8083/management/v2/environments/DEFAULT
@@ -214,7 +222,9 @@ API=$(curl -s -u admin:admin -H 'Content-Type: application/json' -X POST $MGMT/a
   "name": "Demo API", "apiVersion": "1.0", "definitionVersion": "V4", "type": "PROXY",
   "listeners": [{"type": "HTTP", "paths": [{"path": "/demo"}], "entrypoints": [{"type": "http-proxy"}]}],
   "endpointGroups": [{"name": "default", "type": "http-proxy",
-    "endpoints": [{"name": "httpbin", "type": "http-proxy", "configuration": {"target": "http://backend:8080"}}]}]
+    "endpoints": [{"name": "httpbin", "type": "http-proxy", "configuration": {"target": "http://backend:8080"}}]}],
+  "analytics": {"enabled": true, "logging": {"mode": {"entrypoint": true, "endpoint": true},
+    "phase": {"request": true, "response": true}, "content": {"headers": true, "payload": true}}}
 }' | grep -m1 '^  "id"' | cut -d'"' -f4)
 PLAN=$(curl -s -u admin:admin -H 'Content-Type: application/json' -X POST $MGMT/apis/$API/plans \
   -d '{"name": "Keyless", "definitionVersion": "V4", "mode": "STANDARD", "security": {"type": "KEY_LESS"}}' \
@@ -250,6 +260,11 @@ Open Grafana at `http://localhost:3000` (`admin` / `admin`), then open **Dashboa
 | **Consumers, Plans & Tenants** | Which applications and plans drive traffic, with what quality of service? |
 | **Gateway Fleet & Runtime** | Are the Gateway nodes healthy: JVM, GC, CPU, connections, backend pool? |
 | **SLOs & Error Budgets** | Are we meeting the availability objective, and which API is breaching it? |
+| **Call Logs** | What exactly did one call send and receive, on the client side and on the backend side? |
+
+{% hint style="info" %}
+This demo logs every call, which is fine for a test. In production, enable logging per API with a condition, as described in [Monitor APIM with Grafana](../../analyze-and-monitor-apis/monitor-apim-with-grafana.md#enable-api-logging-optional).
+{% endhint %}
 
 {% hint style="info" %}
 The demo API is keyless and every call comes from `localhost`, so some panels stay empty: applications, subscriptions, rate limiting, credential failures, client countries, and custom dimensions. They fill in when you add API key or OAuth plans and receive real client traffic.
