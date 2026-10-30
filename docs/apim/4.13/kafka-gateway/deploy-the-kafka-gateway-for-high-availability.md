@@ -73,9 +73,9 @@ Kafka proxying is bound by connections and throughput, not CPU. Give the gateway
 
 ## Stop routing to a full gateway
 
-Every Gateway instance can bound its client connections with `kafka.maxConnections` or `kafka.maxConnectionsPerGiB`, and refuses new clients above the limit. To stop new connections reaching an instance before it is full, turn on the readiness check and let the orchestrator remove the instance from routing. For the keys and the thresholds, see [Report readiness near the connection limit](configure-the-kafka-client-and-gateway.md#report-readiness-near-the-connection-limit).
+Every gateway instance can bound its client connections with `kafka.maxConnections` or `kafka.maxConnectionsPerGiB`, and refuses new clients above the limit. To stop new connections reaching an instance before it is full, turn on the readiness check and let the orchestrator remove the instance from routing. For the keys and the thresholds, see [Report readiness near the connection limit](configure-the-kafka-client-and-gateway.md#report-readiness-near-the-connection-limit).
 
-Name the `kafka-readiness` probe in the readiness probe path only. The Gateway's health endpoint does not evaluate it unless the `probes` parameter lists it:
+Name the `kafka-readiness` probe in the readiness probe path only. The gateway's health endpoint does not evaluate it unless the `probes` parameter lists it:
 
 ```yaml
 readinessProbe:
@@ -90,22 +90,22 @@ livenessProbe:
     port: 18082
 ```
 
-Port `18082` is the default port of the Gateway technical API. Use the port your deployment configures.
+Port `18082` is the default port of the gateway technical API. Use the port your deployment configures.
 
-Do not name `kafka-readiness` in the liveness probe. A full instance is alive: it only needs to stop receiving new connections, and a failing liveness probe would restart it and drop every open connection.
+Keep `kafka-readiness` out of the liveness probe. A full instance is alive: it only needs to stop receiving new connections, and a failing liveness probe restarts it and drops every open connection.
 
-Readiness is per instance. When one pod reports not ready, the Kubernetes service stops routing new connections to that pod and keeps routing to the others. Existing connections on that pod stay open. Because the load balancer in front of the Gateway pool can take a few seconds to react, leave headroom between the threshold and the limit.
+Readiness is per instance. When one pod reports not ready, the Kubernetes service stops routing new connections to that pod and keeps routing to the others. Existing connections on that pod stay open. Because the load balancer in front of the gateway pool can take a few seconds to react, leave headroom between the threshold and the limit.
 
 ### Size the headroom
 
 Pick `kafka.readiness.notReadyPercent` so that the connections still available when the instance turns not ready cover the connections that arrive before routing stops:
 
-```
+```text
 limit x (100 - notReadyPercent) / 100  >=  new connections per second per pod
                                            x (periodSeconds x failureThreshold + load balancer propagation seconds)
 ```
 
-For example, with a limit of 10000 connections, `notReadyPercent: 90` leaves 1000 connections of headroom. With 50 new connections per second per pod, a probe of `periodSeconds: 5` and `failureThreshold: 2`, and 10 seconds of load balancer propagation, the instance needs 50 x (5 x 2 + 10) = 1000 connections of headroom, which is just enough.
+For example, with a limit of 10000 connections, `notReadyPercent: 90` leaves 1000 connections of headroom. Take 50 new connections per second per pod, a probe of `periodSeconds: 5` and `failureThreshold: 2`, and 10 seconds of load balancer propagation. The instance needs 50 x (5 x 2 + 10) = 1000 connections of headroom, which is just enough.
 
 Keep `readyPercent` well below `notReadyPercent`, so an instance that is back under the limit does not flap in and out of the pool.
 

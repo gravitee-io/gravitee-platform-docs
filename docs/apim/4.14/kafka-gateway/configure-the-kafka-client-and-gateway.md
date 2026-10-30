@@ -294,12 +294,14 @@ By default, the Kafka Gateway accepts any number of client connections. To bound
 | `kafka.maxConnections` | Maximum number of client connections, as an absolute number. |
 | `kafka.maxConnectionsPerGiB` | Maximum number of client connections per GiB of JVM maximum heap. The result is rounded down. |
 
+The following behavior applies to the connection limit:
+
 * When both keys are set, the Gateway applies the lower of the two limits.
 * A value of `0`, or an unset key, turns that limit off. With neither key set, there is no limit.
 * A value that is negative or not an integer fails the Gateway startup with a message naming the key. So does a `kafka.maxConnectionsPerGiB` value that gives less than one connection for the available heap.
-* The Gateway logs the effective limit, the key it comes from and the maximum heap at startup.
+* The Gateway logs the effective limit, the key it comes from, and the maximum heap at startup.
 * The limit applies to the whole Kafka server, in host and port routing modes alike, and is shared by all APIs.
-* Connections over the limit are refused when they are accepted, before the TLS handshake. Connections from the loopback addresses (`127.0.0.1` and `::1`) are exempt.
+* Connections over the limit are refused when they are accepted, before the TLS handshake. Connections from the loopback addresses, `127.0.0.1` and `::1`, are exempt.
 
 ```yaml
 kafka:
@@ -312,6 +314,8 @@ Each connection uses heap memory, so size `kafka.maxConnectionsPerGiB` from the 
 ### Report readiness near the connection limit
 
 When a Gateway instance reaches its connection limit, it refuses new clients. The `kafka-readiness` health probe lets an orchestrator such as Kubernetes stop routing new connections to an instance that is nearly full. Open connections are never closed by the probe.
+
+The following keys configure the readiness check:
 
 | Key | Default | Description |
 | --- | --- | --- |
@@ -328,9 +332,9 @@ kafka:
     readyPercent: 80
 ```
 
-The same settings as environment variables:
+To set the same values with environment variables, use the following:
 
-```
+```bash
 gravitee_kafka_maxconnections=20
 gravitee_kafka_readiness_enabled=true
 gravitee_kafka_readiness_notreadypercent=90
@@ -339,7 +343,7 @@ gravitee_kafka_readiness_readypercent=80
 
 The values must be integers with `1 <= readyPercent < notReadyPercent <= 100`. Otherwise the Gateway fails at startup with a message naming the keys.
 
-The instance reports:
+The instance reports the following states:
 
 * **Not ready** from `ceil(limit x notReadyPercent / 100)` connections.
 * **Ready again** at `floor(limit x readyPercent / 100)` connections or fewer.
