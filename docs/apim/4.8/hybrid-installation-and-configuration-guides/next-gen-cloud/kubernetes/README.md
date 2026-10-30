@@ -2,7 +2,7 @@
 description: Install the self-hosted components of a hybrid API Management 4.8 deployment on Kubernetes. Browse the guides for your provider.
 ---
 
-# Kubernetes
+# Run a hybrid Gateway on Kubernetes
 
 ## Deployment Methods
 

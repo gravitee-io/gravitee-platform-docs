@@ -3,7 +3,7 @@ hidden: false
 noIndex: false
 description: Define a hybrid Gamma Gateway in a compose file and an env file, then bring it up in one command. Follow the steps to write and run them.
 ---
-# Run a hybrid Gamma Gateway with Docker Compose
+# Run a hybrid Gateway with Docker Compose
 
 {% hint style="warning" %}
 This installation guide is for development and quick-start purposes only. Don't use it for production environments. For best practices for production environments, contact your Technical Account Manager.

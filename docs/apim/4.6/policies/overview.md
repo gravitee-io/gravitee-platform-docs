@@ -2,7 +2,7 @@
 description: An overview about overview.
 ---
 
-# Overview
+# Policies overview
 
 Gravitee policies are customizable rules or logic the Gateway executes during an API transaction. A policy modifies the behavior of the request or response handled by the APIM Gateway and ensures that a given business rule is fulfilled during request/response processing.
 

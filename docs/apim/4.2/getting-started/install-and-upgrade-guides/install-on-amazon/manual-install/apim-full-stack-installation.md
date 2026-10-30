@@ -2,7 +2,7 @@
 description: Tutorial on APIM Full Stack Installation.
 ---
 
-# APIM Full Stack Installation
+# Install the full stack on Amazon
 
 This page describes how to install the full APIM stack and its dependencies at once.
 

@@ -2,7 +2,7 @@
 description: Configuration and setup guide for api documentation.
 ---
 
-# API Documentation
+# Create API documentation
 
 ## Site-wide documentation
 

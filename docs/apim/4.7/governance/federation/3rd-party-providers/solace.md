@@ -2,7 +2,7 @@
 description: An overview about solace.
 ---
 
-# Solace
+# Federate APIs from Solace
 
 ## Overview
 

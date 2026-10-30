@@ -5,7 +5,7 @@ metaLinks:
     - openshift.md
 ---
 
-# OpenShift
+# Self-host on OpenShift
 
 ## Prerequisites
 

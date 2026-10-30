@@ -2,7 +2,7 @@
 description: An overview about subscriptions.
 ---
 
-# Subscriptions
+# Subscriptions for Kafka APIs
 
 ## Overview
 

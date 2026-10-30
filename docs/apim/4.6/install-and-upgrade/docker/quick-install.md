@@ -2,7 +2,7 @@
 description: Setup and installation guide for quick install.
 ---
 
-# Quick Install
+# Run a quick install with Docker
 
 {% hint style="warning" %}
 * You cannot install Gravitee API Management (APIM) with custom plugins using this installation method. To install custom plugins, see the [Docker Compose](docker-compose.md) installation guide.

@@ -3,7 +3,7 @@ hidden: false
 noIndex: false
 description: Install a hybrid Gamma Gateway on a vanilla Kubernetes cluster with the Gravitee Helm chart. Follow the steps to deploy the Gateway and Redis.
 ---
-# Install a hybrid Gamma Gateway on Vanilla Kubernetes
+# Run a hybrid Gateway with Helm
 
 {% hint style="warning" %}
 This installation guide is for development and quick-start purposes only. Don't use it for production environments. For best practices for production environments, contact your Technical Account Manager.

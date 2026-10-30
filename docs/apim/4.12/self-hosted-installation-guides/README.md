@@ -5,7 +5,7 @@ metaLinks:
     - ./
 ---
 
-# Self-Hosted Installation Guides
+# Self-host the platform
 
 ## Overview
 

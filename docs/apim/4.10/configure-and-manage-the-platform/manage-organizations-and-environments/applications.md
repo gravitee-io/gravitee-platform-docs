@@ -5,7 +5,7 @@ metaLinks:
     - applications.md
 ---
 
-# Applications
+# Configure applications
 
 ## Overview
 

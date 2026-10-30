@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/next-gen-cloud/rpm
 ---
 
-# RPM
+# Run a hybrid Gateway with RPM
 
 ## Overview
 

@@ -2,7 +2,7 @@
 description: The Docker installation architecture common to each API Management 4.8 install method. Compare the methods available to you.
 ---
 
-# Docker
+# Self-host with Docker
 
 ## Deployment methods
 

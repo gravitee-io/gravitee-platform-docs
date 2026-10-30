@@ -3,7 +3,7 @@ hidden: false
 noIndex: false
 description: Install a hybrid Gamma Gateway on AWS EKS, configuring the load balancer controller for Auto Mode or standard clusters. Follow the steps to deploy.
 ---
-# Install a hybrid Gamma Gateway on AWS EKS
+# Run a hybrid Gateway on AWS EKS
 
 {% hint style="warning" %}
 This installation guide is for development and quick-start purposes only. Don't use it for production environments. For best practices for production environments, contact your Technical Account Manager.

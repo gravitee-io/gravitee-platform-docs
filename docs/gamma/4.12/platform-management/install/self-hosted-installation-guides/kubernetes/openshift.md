@@ -3,7 +3,7 @@ hidden: false
 noIndex: false
 description: Install a fully self-hosted Gamma platform on OpenShift, with MongoDB and Elasticsearch. Follow the steps to deploy it with the Helm chart.
 ---
-# Install Gamma on OpenShift
+# Self-host on OpenShift
 
 {% hint style="warning" %}
 This installation guide is for development and quick-start purposes only. Don't use it for production environments. For best practices for production environments, contact your Technical Account Manager.

@@ -6,7 +6,7 @@ metaLinks:
 ---
 
 
-# Changelogs
+# Terraform changelog
 <!--INSERT_BELOW-->
 ## v1.1.0
 

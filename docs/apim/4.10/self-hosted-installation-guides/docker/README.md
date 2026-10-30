@@ -5,7 +5,7 @@ metaLinks:
     - ./
 ---
 
-# Docker
+# Self-host with Docker
 
 ## Deployment methods
 

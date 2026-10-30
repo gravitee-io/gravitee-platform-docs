@@ -3,7 +3,7 @@ hidden: false
 noIndex: false
 description: Install a hybrid Gamma Gateway on OpenShift, from creating the project to running Redis. Follow the steps to deploy it with the Helm chart.
 ---
-# Install a hybrid Gamma Gateway on OpenShift
+# Run a hybrid Gateway on OpenShift
 
 {% hint style="warning" %}
 This installation guide is for development and quick-start purposes only. Don't use it for production environments. For best practices for production environments, contact your Technical Account Manager.

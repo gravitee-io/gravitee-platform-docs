@@ -2,7 +2,7 @@
 description: Federate event APIs from the Solace Event Portal into API Management 4.8. Learn how the integration works with an event mesh.
 ---
 
-# Solace
+# Federate APIs from Solace
 
 ## Overview
 

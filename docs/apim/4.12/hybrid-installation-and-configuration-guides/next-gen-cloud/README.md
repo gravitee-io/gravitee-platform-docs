@@ -5,7 +5,7 @@ metaLinks:
     - ./
 ---
 
-# Next-Gen Cloud
+# Next-Gen Cloud hybrid installation
 
 ## Overview
 

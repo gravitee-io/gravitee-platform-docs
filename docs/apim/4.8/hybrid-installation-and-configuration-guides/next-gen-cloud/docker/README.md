@@ -2,7 +2,7 @@
 description: Run a Next-Gen Cloud hybrid API Management 4.8 deployment in Docker. Browse the guides for the CLI and Compose approaches.
 ---
 
-# Docker
+# Run a hybrid Gateway with Docker
 
 ## Deployment Methods
 

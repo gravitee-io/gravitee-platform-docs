@@ -6,3 +6,18 @@
 SUMMARY.md
 .gitbook.yaml
 releases-and-changelog/release-notes/am-4.13.md
+# AM 4.14 release notes page (first created in this version)
+releases-and-changelog/release-notes/am-4.14.md
+# Lightweight JWT (AM 4.14.0 feature, AM-7006)
+guides/auth-protocols/oauth-2.0/lightweight-jwt.md
+guides/auth-protocols/oauth-2.0/README.md
+guides/auth-protocols/oauth-2.0/refresh-tokens.md
+getting-started/tutorial-getting-started-with-am/add-custom-claims-to-tokens.md
+getting-started/tutorial-getting-started-with-am/get-user-profile-information.md
+.gitbook/assets/am-application-lightweight-jwt-settings.png
+.gitbook/assets/am-application-lightweight-jwt-reserved-claims.png
+.gitbook/assets/am-application-lightweight-jwt-removed-custom-claims.png
+# Helm chart without the MongoDB subchart (AM 4.14.0, AM-5539)
+getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md
+getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md
+getting-started/install-and-upgrade-guides/quick-install.md
