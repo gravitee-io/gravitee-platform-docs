@@ -1,628 +1,303 @@
 ---
-description: Deploy a Prometheus and Grafana monitoring stack for API Management 4.13 with Docker Compose. Follow the steps to enable the metrics service.
+description: Deploy APIM 4.13 with Prometheus and Grafana using Docker Compose, generate traffic, and explore it with the Gravitee Grafana dashboards.
 ---
 
 # Monitor APIM with Prometheus and Grafana using Docker Compose
 
-This guide walks through deploying a full monitoring stack for Gravitee API Management (APIM) with Docker Compose. The stack scrapes the metrics exposed by the Gravitee Prometheus exporter and visualizes them in Grafana, covering API traffic, JVM health, and host system usage.
+This guide deploys Gravitee API Management (APIM) with Prometheus and Grafana on a single machine using Docker Compose. When you're done, Grafana shows your API traffic, consumers, latency, Gateway health, SLOs, and the headers and payloads of each call.
+
+To add monitoring to an existing installation instead, see [Monitor APIM with Grafana](../../analyze-and-monitor-apis/monitor-apim-with-grafana.md).
 
 {% hint style="info" %}
 This guide uses third-party tools. For their full configuration options, see the [Docker Compose](https://docs.docker.com/compose/), [Prometheus](https://prometheus.io/docs/), and [Grafana](https://grafana.com/docs/) documentation.
 {% endhint %}
 
-## Set up monitoring on an existing Gateway
-
-If you already run a Gravitee Gateway (self-hosted or hybrid), follow these steps to push its metrics to Prometheus and Grafana. To try the full stack on a single machine instead, see the Docker Compose example below.
-
-### Enable the Prometheus metrics service
-
-The Gateway exposes Prometheus-formatted metrics through its internal API. The metrics service is disabled by default. Enable it on the Gateway, then enable the Prometheus output.
-
-{% tabs %}
-{% tab title="Self-hosted (gravitee.yml)" %}
-{% code title="gravitee.yml" %}
-```yaml
-services:
-  metrics:
-    enabled: true
-    prometheus:
-      enabled: true
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="Hybrid (Helm values.yaml)" %}
-{% code title="values.yaml" %}
-```yaml
-gateway:
-  services:
-    metrics:
-      enabled: true
-      prometheus:
-        enabled: true
-        concurrencyLimit: 3
-```
-{% endcode %}
-{% endtab %}
-{% endtabs %}
-
-For the full set of options, including label configuration and Vert.x metric naming versions, see [Expose Metrics to Prometheus](../../analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md).
-
-### Expose and secure the internal API
-
-The metrics endpoint is served by the Gateway internal API. By default this API is bound to `localhost` on port `18082` and protected with basic authentication. To let Prometheus scrape it, make the endpoint reachable and set credentials you control.
-
-{% tabs %}
-{% tab title="Self-hosted (gravitee.yml)" %}
-{% code title="gravitee.yml" %}
-```yaml
-services:
-  core:
-    http:
-      enabled: true
-      port: 18082
-      host: 0.0.0.0
-      authentication:
-        type: basic
-        users:
-          admin: <your-password>
-```
-{% endcode %}
-
-Set `host` to `0.0.0.0` or a specific interface so Prometheus can reach the endpoint from another host. The default is `localhost`, which only accepts local connections.
-{% endtab %}
-
-{% tab title="Hybrid (Helm values.yaml)" %}
-In Kubernetes the Gateway internal API binds to `0.0.0.0` inside the pod by default. To let Prometheus reach it, enable a service for the core API:
-
-{% code title="values.yaml" %}
-```yaml
-gateway:
-  services:
-    core:
-      http:
-        enabled: true
-        port: 18082
-        host: 0.0.0.0
-        authentication:
-          type: basic
-          password: <your-password>
-      service:
-        enabled: true
-        type: ClusterIP
-        externalPort: 18082
-```
-{% endcode %}
-{% endtab %}
-{% endtabs %}
-
-The metrics are exposed at the path `/_node/metrics/prometheus`.
-
-{% hint style="warning" %}
-The default credentials are `admin` / `adminadmin`. Change the password before you expose the endpoint, and restrict network access to the internal API to your monitoring infrastructure.
-{% endhint %}
-
-### Configure Prometheus to scrape the Gateway
-
-Add a scrape job that targets the Gateway internal API. Replace `<gateway-host>` with the host or service that exposes port `18082`, and use the credentials you set above.
-
-{% code title="prometheus.yml" %}
-```yaml
-scrape_configs:
-  - job_name: 'gravitee-gateway'
-    basic_auth:
-      username: admin
-      password: <your-password>
-    metrics_path: /_node/metrics/prometheus
-    static_configs:
-      - targets: ['<gateway-host>:18082']
-```
-{% endcode %}
-
-### Add Prometheus as a Grafana data source
-
-In Grafana, add your Prometheus instance as a data source. For the exact steps, see [Add a data source](https://grafana.com/docs/grafana/latest/datasources/) in the Grafana documentation.
-
-### Import the example dashboard
-
-Gravitee provides an example dashboard to get you started. It includes panels for API traffic, JVM health, and host system usage.
-
-1. In Grafana, import a dashboard and paste the JSON below. For the exact steps, see [Import a dashboard](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/import-dashboards/) in the Grafana documentation.
-2. Select your Prometheus data source when prompted.
-
-```json
-{
-  "annotations": { "list": [] },
-  "editable": true,
-  "schemaVersion": 30,
-  "style": "dark",
-  "time": { "from": "now-15m", "to": "now" },
-  "title": "Gravitee APIM + JVM Dashboard",
-  "panels": [
-    {
-      "type": "graph",
-      "title": "API Requests Rate",
-      "gridPos": { "x": 0, "y": 0, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "rate(http_server_requests_total[1m])", "legendFormat": "{{method}}", "refId": "A", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "HTTP Status Codes",
-      "gridPos": { "x": 12, "y": 0, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "sum by (code) (rate(http_server_requests_total[1m]))", "legendFormat": "{{code}}", "refId": "B", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "Average Response Time",
-      "gridPos": { "x": 0, "y": 6, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "rate(http_server_response_time_seconds_sum[1m]) / rate(http_server_response_time_seconds_count[1m])", "refId": "C", "legendFormat": "Avg", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "Error Rate (5xx)",
-      "gridPos": { "x": 12, "y": 6, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "sum(rate(http_server_requests_total{code=~\"5..\"}[1m])) / sum(rate(http_server_requests_total[1m]))", "refId": "F", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "Active Server Connections",
-      "gridPos": { "x": 0, "y": 12, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "http_server_active_connections", "refId": "G", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "JVM Heap Used",
-      "gridPos": { "x": 12, "y": 12, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "jvm_memory_used_bytes{area=\"heap\"}", "refId": "H", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "JVM Non-Heap Used",
-      "gridPos": { "x": 0, "y": 18, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "jvm_memory_used_bytes{area=\"nonheap\"}", "refId": "I", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "JVM GC Activity",
-      "gridPos": { "x": 12, "y": 18, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "rate(jvm_gc_pause_seconds_sum[1m])", "refId": "J", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "JVM Threads",
-      "gridPos": { "x": 0, "y": 24, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "jvm_threads_live_threads", "refId": "K", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "Process CPU Usage",
-      "gridPos": { "x": 12, "y": 24, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "process_cpu_usage", "refId": "L", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "System CPU Usage",
-      "gridPos": { "x": 0, "y": 30, "w": 24, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "system_cpu_usage", "refId": "M", "nullPointMode": "null" }
-      ]
-    }
-  ]
-}
-```
-
-## Try it locally with Docker Compose
-
-This section deploys a complete monitoring stack with Docker Compose so you can try the integration end to end on a single machine.
-
 ## Architecture
 
-The stack runs the following components as Docker Compose services:
-
-- MongoDB: APIM configuration database
-- Elasticsearch: analytics storage
-- Management API: APIM REST API
-- Gateway: APIM Gateway, which exposes Prometheus metrics on its internal API
-- Management Console: APIM web UI
-- Prometheus: scrapes and stores the Gateway metrics
-- Grafana: visualizes the metrics
-
-Metrics flow from the Gateway internal API to Prometheus, and Grafana queries Prometheus:
-
-```text
-APIM Gateway (internal API) --> Prometheus --> Grafana
 ```
+API consumers ──► Gateway ──► backend
+                    │
+                    ├─ internal API :18082 /_node/metrics/prometheus ──► Prometheus ──┐
+                    ├─ analytics reporter ──► Elasticsearch  gravitee-v4-metrics-*  ──┼──► Grafana
+                    ├─ node monitoring   ──► Elasticsearch  gravitee-monitor-*      ──┤
+                    └─ API logs          ──► Elasticsearch  gravitee-v4-log-*       ──┘
+```
+
+Grafana reads two kinds of data:
+
+* **Gateway metrics from Prometheus**: real-time request rates, connections, JVM, and CPU for each Gateway node.
+* **API analytics from Elasticsearch**: one record per API call, with the API, application, plan, status, latency split between the Gateway and the backend, rejection reason, client country, and user agent.
+* **API logs from Elasticsearch**: the headers and payloads of each call, for APIs with logging enabled.
 
 ## Prerequisites
 
-- Docker
-- Docker Compose
-- Recommended: 4 GB of RAM available to Docker
+* Docker with Docker Compose v2
+* 4 GB of RAM available to Docker
+* Free local ports `3000`, `8082`, `8083`, `8084`, and `9090`
 
-## Enable the metrics service
+## Create the project files
 
-The Gateway exposes Prometheus metrics through its internal API. The Docker Compose file in this guide enables the metrics service with these Gateway environment variables:
+1.  Create a project directory:
 
-```bash
-gravitee_services_metrics_enabled=true
-gravitee_services_metrics_prometheus_enabled=true
-```
+    ```bash
+    mkdir gravitee-prometheus-grafana && cd gravitee-prometheus-grafana
+    mkdir -p prometheus grafana/provisioning/datasources grafana/provisioning/dashboards grafana/dashboards
+    ```
+2.  Create `docker-compose.yml`:
 
-For the full set of options, including label configuration and Vert.x naming versions, see [Expose Metrics to Prometheus](../../analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md).
+    {% code title="docker-compose.yml" %}
+    ```yaml
+    services:
+      mongodb:
+        image: mongo:6
+        volumes: [mongo_data:/data/db]
+        healthcheck:
+          test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+          interval: 10s
+          retries: 12
 
-{% hint style="info" %}
-By default, the internal API binds to `localhost`. If Prometheus runs in a separate container and can't reach the metrics endpoint, set the `services.core.http.host` property to `0.0.0.0` so the endpoint is reachable across containers. See [Expose Metrics to Prometheus](../../analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md).
-{% endhint %}
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:8.11.3
+        environment:
+          - discovery.type=single-node
+          - xpack.security.enabled=false
+          - ES_JAVA_OPTS=-Xms512m -Xmx512m
+        volumes: [es_data:/usr/share/elasticsearch/data]
+        healthcheck:
+          test: ["CMD-SHELL", "curl -fs http://localhost:9200/_cluster/health || exit 1"]
+          interval: 10s
+          retries: 24
 
-## Set up the Docker Compose stack
+      management-api:
+        image: graviteeio/apim-management-api:4.13
+        depends_on:
+          mongodb: { condition: service_healthy }
+          elasticsearch: { condition: service_healthy }
+        environment:
+          - gravitee_ds_mongodb_host=mongodb
+          - gravitee_analytics_elasticsearch_endpoints_0=http://elasticsearch:9200
+        ports: ["8083:8083"]
 
-Create the project files, then start the stack.
+      gateway:
+        image: graviteeio/apim-gateway:4.13
+        depends_on:
+          mongodb: { condition: service_healthy }
+          elasticsearch: { condition: service_healthy }
+        environment:
+          # Management and rate-limit repositories are both built from ds.mongodb.*
+          - gravitee_ds_mongodb_host=mongodb
+          - gravitee_reporters_elasticsearch_endpoints_0=http://elasticsearch:9200
+          # Prometheus metrics
+          - gravitee_services_metrics_enabled=true
+          - gravitee_services_metrics_prometheus_enabled=true
+          # Internal API: listen on all interfaces so the Prometheus container can scrape it
+          - gravitee_services_core_http_host=0.0.0.0
+          - gravitee_services_core_http_port=18082
+          - gravitee_services_core_http_authentication_type=basic
+          - gravitee_services_core_http_authentication_users_admin=adminadmin
+        ports: ["8082:8082"]
 
-### Create a project directory
+      management-ui:
+        image: graviteeio/apim-management-ui:4.13
+        depends_on: [management-api]
+        environment:
+          - MGMT_API_URL=http://localhost:8083/management/organizations/DEFAULT/environments/DEFAULT/
+        ports: ["8084:8080"]
 
-```bash
-mkdir gravitee-prometheus-grafana
-cd gravitee-prometheus-grafana
-```
+      backend:
+        image: mccutchen/go-httpbin:v2.15.0
 
-### Create the Docker Compose file
+      prometheus:
+        image: prom/prometheus:v3.5.0
+        volumes:
+          - ./prometheus:/etc/prometheus:ro
+        command: ["--config.file=/etc/prometheus/prometheus.yml"]
+        ports: ["9090:9090"]
 
-Create a `docker-compose.yml` file with the following content:
+      grafana:
+        image: grafana/grafana:12.2.0
+        environment:
+          - GF_SECURITY_ADMIN_PASSWORD=admin
+        volumes:
+          - ./grafana/provisioning:/etc/grafana/provisioning:ro
+          - ./grafana/dashboards:/etc/grafana/dashboards:ro
+        ports: ["3000:3000"]
 
-```yaml
-version: "3.8"
-
-services:
-
-  mongodb:
-    image: mongo:6
-    container_name: gravitee-mongodb
-    restart: always
-    ports:
-      - "27017:27017"
     volumes:
-      - mongo_data:/data/db
+      mongo_data:
+      es_data:
+    ```
+    {% endcode %}
 
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.3
-    container_name: gravitee-elasticsearch
-    environment:
-      - discovery.type=single-node
-      - xpack.security.enabled=false
-      - ES_JAVA_OPTS=-Xms1g -Xmx1g
-    ports:
-      - "9200:9200"
-    volumes:
-      - es_data:/usr/share/elasticsearch/data
+    {% hint style="warning" %}
+    The internal API exposes node information and metrics. Outside a local test, change the `adminadmin` password and keep port `18082` on a private network.
+    {% endhint %}
+3.  Create `prometheus/prometheus.yml`:
 
-  prometheus:
-    image: prom/prometheus
-    container_name: prometheus
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    {% code title="prometheus/prometheus.yml" %}
+    ```yaml
+    global:
+      scrape_interval: 5s
+      evaluation_interval: 30s
 
-  grafana:
-    image: grafana/grafana
-    container_name: grafana
-    ports:
-      - "3000:3000"
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
+    rule_files:
+      - /etc/prometheus/rules/*.yml
 
-  management-api:
-    image: graviteeio/apim-management-api:4.13
-    container_name: gravitee-management-api
-    depends_on:
-      - mongodb
-      - elasticsearch
-    environment:
-      - gravitee_management_mongodb_uri=mongodb://mongodb:27017/gravitee
-      - gravitee_analytics_elasticsearch_endpoints_0=http://elasticsearch:9200
-    ports:
-      - "8083:8083"
+    scrape_configs:
+      - job_name: gravitee
+        metrics_path: /_node/metrics/prometheus
+        basic_auth: { username: admin, password: adminadmin }
+        static_configs:
+          - targets: ['gateway:18082']
+    ```
+    {% endcode %}
+4.  Create the Grafana data sources in `grafana/provisioning/datasources/datasources.yml`:
 
-  gravitee-gateway:
-    image: graviteeio/apim-gateway:4.13
-    container_name: gravitee-gateway
-    depends_on:
-      - mongodb
-      - elasticsearch
-    environment:
-      - gravitee_management_mongodb_uri=mongodb://mongodb:27017/gravitee
-      - gravitee_reporters_elasticsearch_endpoints_0=http://elasticsearch:9200
-      - gravitee_services_metrics_enabled=true
-      - gravitee_services_metrics_prometheus_enabled=true
-    ports:
-      - "8082:8082"
+    {% code title="grafana/provisioning/datasources/datasources.yml" %}
+    ```yaml
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        uid: prometheus
+        type: prometheus
+        url: http://prometheus:9090
+        isDefault: true
+      - name: Gravitee Analytics
+        uid: gravitee-analytics
+        type: elasticsearch
+        url: http://elasticsearch:9200
+        jsonData: { index: "gravitee-v4-metrics-*", timeField: "@timestamp" }
+      - name: Gravitee Node Monitoring
+        uid: gravitee-monitor
+        type: elasticsearch
+        url: http://elasticsearch:9200
+        jsonData: { index: "gravitee-monitor-*", timeField: "@timestamp" }
+      - name: Gravitee Call Logs
+        uid: gravitee-logs
+        type: elasticsearch
+        url: http://elasticsearch:9200
+        jsonData: { index: "gravitee-v4-log-*", timeField: "@timestamp" }
+    ```
+    {% endcode %}
+5.  Create the dashboard provider in `grafana/provisioning/dashboards/gravitee.yml`:
 
-  management-ui:
-    image: graviteeio/apim-management-ui:4.13
-    container_name: gravitee-management-ui
-    ports:
-      - "8084:8080"
-    depends_on:
-      - management-api
+    {% code title="grafana/provisioning/dashboards/gravitee.yml" %}
+    ```yaml
+    apiVersion: 1
+    providers:
+      - name: gravitee
+        folder: Gravitee
+        type: file
+        options: { path: /etc/grafana/dashboards }
+    ```
+    {% endcode %}
+6.  Download the [Gravitee Grafana dashboard pack](https://github.com/gravitee-io-labs/gravitee-grafana-prometheus), then copy its files into the project:
 
-volumes:
-  mongo_data:
-  es_data:
-```
+    ```bash
+    curl -sLO https://github.com/gravitee-io-labs/gravitee-grafana-prometheus/releases/latest/download/gravitee-grafana-dashboards.zip
+    unzip gravitee-grafana-dashboards.zip
+    cp gravitee-grafana-dashboards/dashboards/*.json grafana/dashboards/
+    mkdir -p prometheus/rules && cp gravitee-grafana-dashboards/prometheus-rules/*.rules.yml prometheus/rules/
+    ```
 
-### Create the Prometheus configuration
-
-Create a `prometheus.yml` file with the following content:
-
-```yaml
-global:
-  scrape_interval: 5s
-
-scrape_configs:
-  - job_name: 'gravitee'
-    basic_auth:
-      username: admin
-      password: adminadmin
-    metrics_path: '/_node/metrics/prometheus'
-    static_configs:
-      - targets: ['gravitee-gateway:18082']
-```
-
-The scrape job targets the Gateway internal API on port `18082` and reads the formatted metrics from the `/_node/metrics/prometheus` endpoint. The default internal API credentials are `admin` / `adminadmin`.
-
-### Start the stack
+## Start the stack
 
 ```bash
 docker compose up -d
 ```
 
-Wait one to two minutes for all services to start.
-
-## Access the services
-
-After the stack starts, the services are available at these URLs:
-
-| Service | URL |
-| --- | --- |
-| Management Console | `http://localhost:8084` |
-| Gateway | `http://localhost:8082` |
-| Prometheus | `http://localhost:9090` |
-| Grafana | `http://localhost:3000` |
-
-The default Console credentials are `admin` / `admin`. The default Grafana credentials are `admin` / `admin`.
-
-## Configure Grafana
-
-Configure Grafana to read from Prometheus, then import the sample dashboard.
-
-### Add the Prometheus data source
-
-1. Open `http://localhost:3000` and sign in with the default credentials.
-2. Open **Connections**.
-3. Click **Data sources**.
-4. Add a **Prometheus** data source.
-5. In the URL field, enter `http://prometheus:9090`.
-6. Save the data source.
-
-{% hint style="info" %}
-For the authoritative data source and dashboard import procedures, see the [Grafana documentation](https://grafana.com/docs/grafana/latest/).
-{% endhint %}
-
-### Import the sample dashboard
-
-1. Open **Dashboards**.
-2. Click **Import**.
-3. Paste the dashboard JSON below.
-4. Select the Prometheus data source.
-5. Import the dashboard.
-
-```json
-{
-  "annotations": { "list": [] },
-  "editable": true,
-  "schemaVersion": 30,
-  "style": "dark",
-  "time": { "from": "now-15m", "to": "now" },
-  "title": "Gravitee APIM + JVM Dashboard",
-  "panels": [
-    {
-      "type": "graph",
-      "title": "API Requests Rate",
-      "gridPos": { "x": 0, "y": 0, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "rate(http_server_requests_total[1m])", "legendFormat": "{{method}}", "refId": "A", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "HTTP Status Codes",
-      "gridPos": { "x": 12, "y": 0, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "sum by (code) (rate(http_server_requests_total[1m]))", "legendFormat": "{{code}}", "refId": "B", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "Average Response Time",
-      "gridPos": { "x": 0, "y": 6, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "rate(http_server_response_time_seconds_sum[1m]) / rate(http_server_response_time_seconds_count[1m])", "refId": "C", "legendFormat": "Avg", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "Error Rate (5xx)",
-      "gridPos": { "x": 12, "y": 6, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "sum(rate(http_server_requests_total{code=~\"5..\"}[1m])) / sum(rate(http_server_requests_total[1m]))", "refId": "F", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "Active Server Connections",
-      "gridPos": { "x": 0, "y": 12, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "http_server_active_connections", "refId": "G", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "JVM Heap Used",
-      "gridPos": { "x": 12, "y": 12, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "jvm_memory_used_bytes{area=\"heap\"}", "refId": "H", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "JVM Non-Heap Used",
-      "gridPos": { "x": 0, "y": 18, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "jvm_memory_used_bytes{area=\"nonheap\"}", "refId": "I", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "JVM GC Activity",
-      "gridPos": { "x": 12, "y": 18, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "rate(jvm_gc_pause_seconds_sum[1m])", "refId": "J", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "JVM Threads",
-      "gridPos": { "x": 0, "y": 24, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "jvm_threads_live_threads", "refId": "K", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "Process CPU Usage",
-      "gridPos": { "x": 12, "y": 24, "w": 12, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "process_cpu_usage", "refId": "L", "nullPointMode": "null" }
-      ]
-    },
-    {
-      "type": "graph",
-      "title": "System CPU Usage",
-      "gridPos": { "x": 0, "y": 30, "w": 24, "h": 6 },
-      "lines": true,
-      "targets": [
-        { "expr": "system_cpu_usage", "refId": "M", "nullPointMode": "null" }
-      ]
-    }
-  ]
-}
-```
-
-## Covered metrics
-
-The sample dashboard visualizes the following metrics.
-
-### API metrics
-
-- Request rate
-- HTTP status codes
-- Average response time
-- Error rate (5xx)
-- Active server connections
-
-### JVM metrics
-
-- Heap memory used
-- Non-heap memory used
-- Garbage collection activity
-- Live threads
-
-### System metrics
-
-- Process CPU usage
-- System CPU usage
-
-## Generate test traffic
-
-To populate the dashboard, send requests through the Gateway:
+The first start takes one to two minutes. Wait until the Management API answers before you create an API:
 
 ```bash
-curl http://localhost:8082
+until curl -sf -o /dev/null -u admin:admin http://localhost:8083/management/v2/environments/DEFAULT/apis; do sleep 5; done
 ```
 
-Repeat the request to generate metrics.
+## Create an API and generate traffic
 
-## Run sample PromQL queries
+The Gateway only records analytics for calls to a deployed API. Create a keyless API that proxies the demo backend and logs the headers and payloads of every call. The commands keep the top-level `id` of each response:
 
-Use these Prometheus queries to explore the metrics in Prometheus or in Grafana panels. The metric names match the sample dashboard.
-
-### Average response time
-
-```promql
-rate(http_server_response_time_seconds_sum[1m]) / rate(http_server_response_time_seconds_count[1m])
+```bash
+MGMT=http://localhost:8083/management/v2/environments/DEFAULT
+API=$(curl -s -u admin:admin -H 'Content-Type: application/json' -X POST $MGMT/apis -d '{
+  "name": "Demo API", "apiVersion": "1.0", "definitionVersion": "V4", "type": "PROXY",
+  "listeners": [{"type": "HTTP", "paths": [{"path": "/demo"}], "entrypoints": [{"type": "http-proxy"}]}],
+  "endpointGroups": [{"name": "default", "type": "http-proxy",
+    "endpoints": [{"name": "httpbin", "type": "http-proxy", "configuration": {"target": "http://backend:8080"}}]}],
+  "analytics": {"enabled": true, "logging": {"mode": {"entrypoint": true, "endpoint": true},
+    "phase": {"request": true, "response": true}, "content": {"headers": true, "payload": true}}}
+}' | grep -m1 '^  "id"' | cut -d'"' -f4)
+PLAN=$(curl -s -u admin:admin -H 'Content-Type: application/json' -X POST $MGMT/apis/$API/plans \
+  -d '{"name": "Keyless", "definitionVersion": "V4", "mode": "STANDARD", "security": {"type": "KEY_LESS"}}' \
+  | grep -m1 '^  "id"' | cut -d'"' -f4)
+curl -s -u admin:admin -X POST $MGMT/apis/$API/plans/$PLAN/_publish > /dev/null
+curl -s -u admin:admin -X POST $MGMT/apis/$API/_start > /dev/null
+curl -s -u admin:admin -H 'Content-Type: application/json' -X POST $MGMT/apis/$API/deployments -d '{}' > /dev/null
+echo "API: $API  Plan: $PLAN"
 ```
 
-### Heap usage percentage
+If either ID is empty, the Management API wasn't ready: rerun the commands. The Gateway picks up the API within a few seconds. Until then, calls return `404`.
 
-```promql
-jvm_memory_used_bytes{area="heap"} / jvm_memory_max_bytes{area="heap"}
+Then send a mix of successful, failing, and slow calls for two minutes:
+
+```bash
+end=$((SECONDS + 120))
+while [ $SECONDS -lt $end ]; do
+  for path in get get get get status/404 status/500 delay/0.5; do
+    curl -s -o /dev/null "http://localhost:8082/demo/$path" &
+  done
+  sleep 0.3
+done
 ```
 
-### Error rate (5xx)
+## Explore the dashboards
 
-```promql
-sum(rate(http_server_requests_total{code=~"5.."}[1m])) / sum(rate(http_server_requests_total[1m]))
+Open Grafana at `http://localhost:3000` (`admin` / `admin`), then open **Dashboards → Gravitee**:
+
+| Dashboard | What it answers |
+| --- | --- |
+| **API Program Overview** | How are all my APIs doing, who calls them, and what does the Gateway reject and why? |
+| **API Drill-down** | What's wrong with one API: which path, which consumer, which call? |
+| **Consumers, Plans & Tenants** | Which applications and plans drive traffic, with what quality of service? |
+| **Gateway Fleet & Runtime** | Are the Gateway nodes healthy: JVM, GC, CPU, connections, backend pool? |
+| **SLOs & Error Budgets** | Are we meeting the availability objective, and which API is breaching it? |
+| **Call Logs** | What exactly did one call send and receive, on the client side and on the backend side? |
+
+{% hint style="info" %}
+This demo logs every call, which is fine for a test. In production, enable logging per API with a condition, as described in [Monitor APIM with Grafana](../../analyze-and-monitor-apis/monitor-apim-with-grafana.md#enable-api-logging-optional).
+{% endhint %}
+
+{% hint style="info" %}
+The demo API is keyless and every call comes from `localhost`, so some panels stay empty: applications, subscriptions, rate limiting, credential failures, client countries, and custom dimensions. They fill in when you add API key or OAuth plans and receive real client traffic.
+{% endhint %}
+
+For a description of every panel and how to use the dashboards, see [Monitor APIM with Grafana](../../analyze-and-monitor-apis/monitor-apim-with-grafana.md).
+
+## Verify
+
+1.  In Prometheus at `http://localhost:9090`, open **Status → Target health**. The `gravitee` target is `UP`.
+2.  In **Status → Rule health**, the `gravitee-slo-*` and `gravitee-gateway` groups are loaded.
+3.  In Grafana, **API Program Overview** shows the calls you generated. **Gateway nodes up** shows `1`.
+
+## Run PromQL queries
+
+The Gateway exposes Vert.x and Micrometer metrics. Filter HTTP server metrics on `local=~".*:8082"`: without it, the results also include Prometheus scraping the internal API on port `18082`.
+
+| Question | PromQL |
+| --- | --- |
+| Request rate by status code | `sum by (code) (rate(http_server_requests_total{local=~".*:8082"}[1m]))` |
+| Average response time | `sum(rate(http_server_response_time_seconds_sum{local=~".*:8082"}[1m])) / sum(rate(http_server_response_time_seconds_count{local=~".*:8082"}[1m]))` |
+| Share of 5xx | `(sum(rate(http_server_requests_total{local=~".*:8082",code=~"5.."}[1m])) or vector(0)) / sum(rate(http_server_requests_total{local=~".*:8082"}[1m]))` |
+| Heap usage | `sum(jvm_memory_used_bytes{area="heap"}) / sum(jvm_memory_max_bytes{area="heap"} > 0)` |
+| Time spent in GC | `sum(rate(jvm_gc_pause_seconds_sum[1m]))` |
+
+{% hint style="info" %}
+G1 reports a maximum of `-1` for its young-generation pools. Sum the heap pools and keep only positive maxima, as above, or the heap ratio is negative.
+{% endhint %}
+
+Percentiles and per-API or per-consumer values aren't available from Prometheus. Query them from the analytics data source, as the dashboards do.
+
+## Clean up
+
+```bash
+docker compose down -v
 ```
-
-## Verification
-
-To verify the monitoring stack is working as expected, follow these steps:
-
-1. Open Prometheus at `http://localhost:9090`.
-2. Open the **Status** menu and confirm the `gravitee` scrape target is reported as up.
-3. Generate traffic through the Gateway with `curl http://localhost:8082`.
-4. Open the imported dashboard in Grafana at `http://localhost:3000`.
-5. Confirm the API, JVM, and system panels display data.
-
-<figure><img src="../../.gitbook/assets/monitor-apim-with-prometheus-and-grafana-dashboard.png" alt="Gravitee APIM and JVM dashboard in Grafana displaying live API traffic, JVM, and system metrics"><figcaption><p>The Gravitee APIM and JVM dashboard displaying live metrics in Grafana</p></figcaption></figure>
