@@ -13,14 +13,19 @@ Use the following variables for the environment of your Ambassador Edge Stack co
 | [`AES_LOG_LEVEL`](ambassador-edge-stack-environment-variables-and-ports.md#aes_log_level)                                                         | `warn`                                                         | Log Level                                                                                                     |
 | [`AES_DISABLE_LICENSE_USAGE_REPORTING`](ambassador-edge-stack-environment-variables-and-ports.md#aes_disable_license_usage_reporting)             | `false`                                                        | Any: `true`=true and unset is false                                                                           |
 | [`AGENT_CONFIG_RESOURCE_NAME`](ambassador-edge-stack-environment-variables-and-ports.md#agent_config_resource_name)                               | `ambassador-agent-cloud-token`                                 | String                                                                                                        |
+| [`AMBASSADOR_ALLOW_INTERNAL_ADMIN_UPSTREAMS`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_allow_internal_admin_upstreams) | `false` | Boolean; `true`=true, any other value=false |
 | [`AMBASSADOR_AMBEX_NO_RATELIMIT`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_ambex_no_ratelimit)                         | `false`                                                        | Boolean: `true`=true, any other value=false                                                                   |
 | [`AMBASSADOR_AMBEX_SNAPSHOT_COUNT`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_ambex_snapshot_count)                     | `30`                                                           | Integer                                                                                                       |
 | [`AMBASSADOR_CLUSTER_ID`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_cluster_id)                                         | Empty                                                          | String                                                                                                        |
 | [`AMBASSADOR_CONFIG_BASE_DIR`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_config_base_dir)                               | `/ambassador`                                                  | String                                                                                                        |
+| [`AMBASSADOR_DIAGD_BIND_ADDRESS`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_diagd_bind_address) | `127.0.0.1` | String; `127.0.0.1` or `::1` |
 | [`AMBASSADOR_DISABLE_ANNOTATION_MAPPINGS`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_disable_annotation_mappings)       | `false`                                                        | Boolean; `true`=true, any other value=false                                                                   |
 | [`AMBASSADOR_DISABLE_FEATURES`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_disable_features)                             | Empty                                                          | Any                                                                                                           |
 | [`AMBASSADOR_DRAIN_TIME`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_drain_time)                                         | `600`                                                          | Integer                                                                                                       |
+| [`AMBASSADOR_DRAIN_STRATEGY`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_drain_strategy) | `immediate` | String Enum; `immediate` or `gradual` |
+| [`AMBASSADOR_ENVOY_ADMIN_TCP`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_envoy_admin_tcp) | `false` | Boolean; `true`=true, any other value=false |
 | [`AMBASSADOR_ENVOY_API_VERSION`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_envoy_api_version)                           | `V3`                                                           | String Enum; `V3` or `V2`                                                                                     |
+| [`AMBASSADOR_ERROR_RESPONSE_ALLOWED_DIRS`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_error_response_allowed_dirs) | `/ambassador/ambassador-errorpages` | Colon-separated list of absolute directories |
 | [`AMBASSADOR_GRPC_METRICS_SINK`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_grpc_metrics_sink)                           | Empty                                                          | String (address:port)                                                                                         |
 | [`AMBASSADOR_HEALTHCHECK_BIND_ADDRESS`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_healthcheck_bind_address)             | `0.0.0.0`                                                      | String                                                                                                        |
 | [`AMBASSADOR_HEALTHCHECK_BIND_PORT`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_healthcheck_bind_port)                   | `8877`                                                         | Integer                                                                                                       |
@@ -30,11 +35,15 @@ Use the following variables for the environment of your Ambassador Edge Stack co
 | [`AMBASSADOR_READY_PORT`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_ready_port)                                         | `8006`                                                         | Integer                                                                                                       |
 | [`AMBASSADOR_READY_LOG`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_ready_log)                                           | `false`                                                        | Boolean; [Go `strconv.ParseBool`](https://golang.org/pkg/strconv/#ParseBool)                                  |
 | [`AMBASSADOR_LABEL_SELECTOR`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_label_selector)                                 | Empty                                                          | String (label=value)                                                                                          |
+| [`AMBASSADOR_MANIFEST_ALLOWED_ENV_VARS`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_manifest_allowed_env_vars) | Empty | Comma-separated list of environment variable names |
 | [`AMBASSADOR_NAMESPACE`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_namespace)                                           | `default` ()                                                   | Kubernetes namespace                                                                                          |
 | [`AMBASSADOR_RECONFIG_MAX_DELAY`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_reconfig_max_delay)                         | `1`                                                            | Integer                                                                                                       |
+| [`AMBASSADOR_SHUTDOWN_DRAIN_TIME`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_shutdown_drain_time) | Half of `AMBASSADOR_SHUTDOWN_TIMEOUT` | Integer (seconds) |
 | [`AMBASSADOR_SINGLE_NAMESPACE`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_single_namespace)                             | Empty                                                          | Boolean; non-empty=true, empty=false                                                                          |
 | [`AMBASSADOR_SNAPSHOT_COUNT`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_snapshot_count)                                 | `4`                                                            | Integer                                                                                                       |
 | [`AMBASSADOR_SYSTEM_ROOT_CERTS_FILE`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_system_root_certs_file)                 | `/etc/ssl/certs/ca-certificates.crt`                           | String (file path)                                                                                            |
+| [`AMBASSADOR_TRACING_ALLOWED_ENV_VARS`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_tracing_allowed_env_vars) | Empty | Comma-separated list of environment variable names |
+| [`AMBASSADOR_TRACING_ENFORCE_ENV_ALLOWLIST`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_tracing_enforce_env_allowlist) | `false` | Boolean; `true`=true, any other value=false |
 | [`AMBASSADOR_VERIFY_SSL_FALSE`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_verify_ssl_false)                             | `false`                                                        | Boolean; `true`=true, any other value=false                                                                   |
 | [`DISABLE_CA_MANAGEMENT`](ambassador-edge-stack-environment-variables-and-ports.md#disable_ca_management)                                         | Not Set                                                        | any value, checks for existence, **Only used by APIExt server**.                                              |
 | [`DISABLE_CRD_MANAGEMENT`](ambassador-edge-stack-environment-variables-and-ports.md#disable_crd_management)                                       | Not Set                                                        | any value, checks for existence, **Only used by APIExt server**.                                              |
@@ -51,10 +60,12 @@ Use the following variables for the environment of your Ambassador Edge Stack co
 | [`_CONSUL_HOST`](ambassador-edge-stack-environment-variables-and-ports.md#_consul_host)                                                           | Empty                                                          | String                                                                                                        |
 | [`_CONSUL_PORT`](ambassador-edge-stack-environment-variables-and-ports.md#_consul_port)                                                           | Empty                                                          | Integer                                                                                                       |
 | [`AMBASSADOR_DISABLE_SNAPSHOT_SERVER`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_disable_snapshot_server)               | `false`                                                        | Boolean; non-empty=true, empty=false                                                                          |
+| [`AMBASSADOR_ENABLE_SNAPSHOT_SERVER`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_enable_snapshot_server) | `false` | Boolean; `true`=true, any other value=false |
 | [`AMBASSADOR_ENVOY_BASE_ID`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_envoy_base_id)                                   | `0`                                                            | Integer                                                                                                       |
 | [`AES_RATELIMIT_PREVIEW`](ambassador-edge-stack-environment-variables-and-ports.md#aes_ratelimit_preview)                                         | `false`                                                        | Boolean; [Go `strconv.ParseBool`](https://golang.org/pkg/strconv/#ParseBool)                                  |
 | [`AES_RATELIMIT_VERBOSE_LOGGING`](ambassador-edge-stack-environment-variables-and-ports.md#aes_ratelimit_verbose_logging)                         | `false`                                                        | Boolean; [Go `strconv.ParseBool`](https://golang.org/pkg/strconv/#ParseBool)                                  |
 | [`AES_AUTH_TIMEOUT`](ambassador-edge-stack-environment-variables-and-ports.md#aes_auth_timeout)                                                   | `4s`                                                           | Duration; [Go `time.ParseDuration`](https://pkg.go.dev/time#ParseDuration)                                    |
+| [`OAUTH2_LOGIN_ATTEMPT_TTL`](ambassador-edge-stack-environment-variables-and-ports.md#oauth2_login_attempt_ttl) | `15m` | Duration; [Go `time.ParseDuration`](https://pkg.go.dev/time#ParseDuration) |
 | [`REDIS_SOCKET_TYPE`](ambassador-edge-stack-environment-variables-and-ports.md#redis_socket_type)                                                 | `tcp`                                                          | Go network such as `tcp` or `unix`; see [Go `net.Dial`](https://golang.org/pkg/net/#Dial)                     |
 | [`REDIS_URL`](ambassador-edge-stack-environment-variables-and-ports.md#redis_url)                                                                 | None, must be set explicitly                                   | Go network address; for TCP this is a `host:port` pair; see [Go `net.Dial`](https://golang.org/pkg/net/#Dial) |
 | [`REDIS_TLS_ENABLED`](ambassador-edge-stack-environment-variables-and-ports.md#redis_tls_enabled)                                                 | `false`                                                        | Boolean; [Go `strconv.ParseBool`](https://golang.org/pkg/strconv/#ParseBool)                                  |
@@ -142,6 +153,12 @@ More license information: [ambassador-edge-stack-licenses.md](../../ambassador-e
 
 Allows overriding the default config\_map/secret that is used for extracting the CloudToken for connecting with Ambassador cloud. It allows all components (and not only the Ambassador Agent) to authenticate requests to Ambassador Cloud. If unset it will just fallback to searching for a config map or secret with the name of `edge-stack-agent-cloud-token`. Note: the secret will take precedence if both a secret and config map are set.
 
+### `AMBASSADOR_ALLOW_INTERNAL_ADMIN_UPSTREAMS`
+
+Starting with 3.15.0, Ambassador Edge Stack rejects a `Mapping`, `TCPMapping`, `AuthService`, `RateLimitService`, `LogService`, or `TracingService` whose upstream is the Ambassador Edge Stack pod itself on one of its internal admin ports: 8001 (Envoy admin), 8003 (ADS), 8004 (diagd), 8005 (external snapshot server), 8877 (admin port), and 9696 (snapshot server), and wherever the `Module`'s `admin_port`, `AMBASSADOR_DIAGD_BIND_PORT`, or `AMBASSADOR_HEALTHCHECK_BIND_PORT` move them. HTTP `Mapping` resources whose `rewrite` (or `prefix`, with an empty `rewrite`) is exactly `/ambassador/v0/check_ready`, `/ambassador/v0/check_alive`, or `/metrics` are still allowed. Set `AMBASSADOR_ALLOW_INTERNAL_ADMIN_UPSTREAMS` to `true` to turn this protection off. This isn't recommended.
+
+More information: [Controlling Who Can Configure Ambassador Edge Stack](controlling-who-can-configure-ambassador-edge-stack.md)
+
 ### `AMBASSADOR_AMBEX_NO_RATELIMIT`
 
 Completely disables ratelimiting Envoy reconfiguration under memory pressure. This can help performance with the endpoint or Consul resolvers, but could make OOMkills more likely with large configurations. The default is `false`, meaning that the rate limiter is active.
@@ -166,6 +183,10 @@ Controls where Ambassador Edge Stack will store snapshots. By default, the lates
 
 More information: [#examine-pod-and-container-contents](../../troubleshooting.md#examine-pod-and-container-contents "mention")
 
+### `AMBASSADOR_DIAGD_BIND_ADDRESS`
+
+The address that the internal `diagd` process binds to. The default is `127.0.0.1`, and the only other accepted value is `::1`. Any other value, such as `0.0.0.0` or a pod IP, is logged as an error and ignored. `diagd` listens on port `8004` unless `AMBASSADOR_DIAGD_BIND_PORT` sets a different valid port that isn't the admin port. Requires Ambassador Edge Stack 3.15.0 or later. This variable replaces the misspelled `AMBASSADOR_DIAGD_BIND_ADDREASS`, which is still honored when `AMBASSADOR_DIAGD_BIND_ADDRESS` isn't set.
+
 ### `AMBASSADOR_DISABLE_ANNOTATION_MAPPINGS`
 
 Defining `Mapping` resources through `getambassador.io/config` annotations on other Kubernetes objects (such as `Service`s) is supported for backwards compatibility, but the recommended approach is to use the `Mapping` CRD directly. When `AMBASSADOR_DISABLE_ANNOTATION_MAPPINGS` is set to `true`, Ambassador Edge Stack stops creating `Mapping` resources defined via annotations and instead surfaces an error on the annotated object in diagnostics, prompting you to migrate to a `Mapping` CRD. Other annotation-based resource types are unaffected.
@@ -184,9 +205,25 @@ At each reconfiguration, Ambassador Edge Stack keeps around the old version of i
 
 More information: [#ambassador\_drain\_time](performance-and-scaling-ambassador-edge-stack.md#ambassador_drain_time "mention")
 
+### `AMBASSADOR_DRAIN_STRATEGY`
+
+The Envoy drain strategy (`--drain-strategy`) used when Ambassador Edge Stack drains Envoy's listeners. With the default, `immediate`, draining connections are closed promptly. With `gradual`, they're closed over the drain period. Requires Ambassador Edge Stack 3.15.0 or later.
+
+More information: [`AMBASSADOR_SHUTDOWN_DRAIN_TIME`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_shutdown_drain_time)
+
+### `AMBASSADOR_ENVOY_ADMIN_TCP`
+
+Starting with 3.15.0, Envoy's admin interface listens on the Unix socket `$AMBASSADOR_CONFIG_BASE_DIR/sockets/envoy-admin.sock` (by default, `/ambassador/sockets/envoy-admin.sock`) instead of `127.0.0.1:8001`. To reach it, use `kubectl exec` and, for example, `curl --unix-socket /ambassador/sockets/envoy-admin.sock http://localhost/ready`. Set `AMBASSADOR_ENVOY_ADMIN_TCP` to `true` to put the admin interface back on `127.0.0.1:8001`, or on the `Module`'s `admin_port`, for example to use `kubectl port-forward`. This gives back part of the protection: a `Mapping` to a hostname that resolves to loopback can then reach Envoy's admin interface.
+
 ### `AMBASSADOR_ENVOY_API_VERSION`
 
 By default, Ambassador Edge Stack will configure Envoy using the [V3 Envoy API](https://www.envoyproxy.io/docs/envoy/latest/api-v3/api). In Ambassador Edge Stack 2.0, you were able switch back to Envoy V2 by setting the `AMBASSADOR_ENVOY_API_VERSION` environment variable to "V2". Ambassador Edge Stack 3.0 has removed support for the V2 API and only the V3 API is used. While this variable cannot be set to another value in 3.0, it may be used when introducing new API versions that are not yet available in Ambassador Edge Stack such as V4.
+
+### `AMBASSADOR_ERROR_RESPONSE_ALLOWED_DIRS`
+
+A colon-separated list of absolute directories from which `error_response_overrides` can serve files with `text_format_source`. The default is `/ambassador/ambassador-errorpages`, or the `ambassador-errorpages` subdirectory of `AMBASSADOR_CONFIG_BASE_DIR` if that is set elsewhere. Set it to an empty string to disable `text_format_source` completely. Allowed directories must hold nothing but error pages and must be read-only to everyone except cluster administrators. Requires Ambassador Edge Stack 3.15.0 or later.
+
+More information: [#file-response-bodies](../../technical-reference/traffic-management/custom-error-responses.md#file-response-bodies "mention")
 
 ### `AMBASSADOR_GRPC_METRICS_SINK`
 
@@ -228,6 +265,10 @@ When `AMBASSADOR_READY_LOG` is set to `true`, the envoy `/ready` endpoint will b
 
 Restricts Ambassador Edge Stack's configuration to only the labelled resources. For example, you could apply a `version-two: true` label to all resources that should be visible to Ambassador Edge Stack, then set `AMBASSADOR_LABEL_SELECTOR=version-two=true` in its Deployment. Resources without the specified label will be ignored.
 
+### `AMBASSADOR_MANIFEST_ALLOWED_ENV_VARS`
+
+Ambassador Edge Stack expands `$VAR` and `${VAR}` references to its own environment variables in its configuration. Starting with 3.15.0, in resources that come from Kubernetes (custom resources and annotations), it doesn't expand variables whose names look like secrets: names that contain `PASSWORD`, `PASSWD`, `PASSPHRASE`, `SECRET`, `TOKEN`, `API_KEY`, `APIKEY`, `ACCESS_KEY`, `CREDENTIAL`, `PRIVATE_KEY`, or `PRIVATEKEY` in any case, and `REDIS_AUTH`, `REDIS_PERSECOND_AUTH`, and `AMBASSADOR_ADMIN_API_KEY`. The reference is left as written, and an error is posted on the resource in the diagnostics. If a resource needs one of these variables, list its name in `AMBASSADOR_MANIFEST_ALLOWED_ENV_VARS`, a comma-separated list of variable names.
+
 ### `AMBASSADOR_NAMESPACE`
 
 Controls namespace configuration for Ambassador.
@@ -237,6 +278,10 @@ More information: [#namespaces](advanced-deployment-configuration.md#namespaces 
 ### `AMBASSADOR_RECONFIG_MAX_DELAY`
 
 Controls up to how long Ambassador will wait to receive changes before doing an Envoy reconfiguration. The unit is in seconds and must be > 0.
+
+### `AMBASSADOR_SHUTDOWN_DRAIN_TIME`
+
+On `SIGTERM`, Ambassador Edge Stack drains Envoy's listeners and reports not ready, waits until Envoy has no active downstream connections or this drain window elapses, and then stops Envoy before it shuts down the AuthService and RateLimitService. The unit is seconds. The default is half of `AMBASSADOR_SHUTDOWN_TIMEOUT`, which is 5 seconds unless `AMBASSADOR_SHUTDOWN_TIMEOUT` is set. Set it to `0` to disable the drain. Set the pod's `terminationGracePeriodSeconds` above `AMBASSADOR_SHUTDOWN_TIMEOUT` so that the shutdown sequence can complete. Requires Ambassador Edge Stack 3.15.0 or later.
 
 ### `AMBASSADOR_SINGLE_NAMESPACE`
 
@@ -253,6 +298,16 @@ The number of snapshots that Ambassador Edge Stack should save.
 The path of the CA bundle that a `TLSContext` with `system_root_certs: true` trusts. The default is `/etc/ssl/certs/ca-certificates.crt`. If no file exists at the path, Ambassador Edge Stack rejects every `TLSContext` that sets `system_root_certs: true`. Requires Ambassador Edge Stack 3.15.0 or later.
 
 More information: [#trust-the-system-ca-bundle](../../technical-reference/tls-configuration/tls-origination.md#trust-the-system-ca-bundle "mention")
+
+### `AMBASSADOR_TRACING_ALLOWED_ENV_VARS`
+
+A comma-separated list of environment variable names, such as `POD_NAME,NODE_NAME`, that `TracingService` `custom_tags` can read with `environment` or `%ENVIRONMENT(...)%`. Starting with 3.15.0, a tag that reads a variable that isn't listed posts a warning in the diagnostics, and a tag that reads a variable whose name looks like a secret (see [`AMBASSADOR_MANIFEST_ALLOWED_ENV_VARS`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_manifest_allowed_env_vars)) is dropped with an error unless it's listed.
+
+More information: [tracing-service.md](../../technical-reference/plug-in-services/tracing-service.md "mention")
+
+### `AMBASSADOR_TRACING_ENFORCE_ENV_ALLOWLIST`
+
+When set to `true`, `TracingService` custom tags that read an environment variable not listed in [`AMBASSADOR_TRACING_ALLOWED_ENV_VARS`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_tracing_allowed_env_vars) are dropped with an error instead of posting a warning. Requires Ambassador Edge Stack 3.15.0 or later.
 
 ### `AMBASSADOR_VERIFY_SSL_FALSE`
 
@@ -352,7 +407,11 @@ More information: [#environment-variables](../ambassador-edge-stack-integrations
 
 ### `AMBASSADOR_DISABLE_SNAPSHOT_SERVER`
 
-Disables the built-in snapshot server
+Disables the external snapshot server on port 8005 when set to any non-empty value, including `false`. It takes precedence over `AMBASSADOR_ENABLE_SNAPSHOT_SERVER`. Starting with 3.15.0, the external snapshot server is off by default.
+
+### `AMBASSADOR_ENABLE_SNAPSHOT_SERVER`
+
+Starting with 3.15.0, the external snapshot server (`:8005/snapshot-external`), whose only consumer was the Ambassador Agent, doesn't start unless `AMBASSADOR_ENABLE_SNAPSHOT_SERVER` is set to `true`. When enabled, it requires the admin API key (`X-Ambassador-Admin-API-Key`) from every caller, including local ones. The internal snapshot server on `localhost:9696` always runs.
 
 ### `AMBASSADOR_ENVOY_BASE_ID`
 
@@ -375,6 +434,10 @@ More information: [rate-limiting-extension.md](../rate-limiting/rate-limiting-ex
 Configures the default timeout in the authentication extension.
 
 More information: [#authentication-extension-configuration](../authentication/authentication-extension.md#authentication-extension-configuration "mention")
+
+### `OAUTH2_LOGIN_ATTEMPT_TTL`
+
+How long the server-side state for an OAuth2 login in progress, and its `ambassador_login` cookie, are kept. The default is `15m`. Values under `1m` are rejected with a warning and fall back to the default. Raise it if your identity provider's sign-in flow can take longer than 15 minutes, for example for multi-factor enrollment or a password reset. Requires Ambassador Edge Stack 3.15.0 or later.
 
 ### `REDIS_SOCKET_TYPE`
 
@@ -717,11 +780,11 @@ Ambassador Edge Stack uses the following ports to listen for HTTP/HTTPS traffic 
 
 | Port | Process    | Function                                                                                                                                                     |
 | ---- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 8001 | envoy      | Admin API providing internal stats, logging, etc.; not exposed outside pod                                                                                   |
+| 8001 | envoy      | Admin API providing internal stats, logging, etc. Starting with 3.15.0, a Unix socket at `/ambassador/sockets/envoy-admin.sock` instead, unless `AMBASSADOR_ENVOY_ADMIN_TCP=true`; not exposed outside pod |
 | 8002 | edge stack | Internal process for handling configuration snapshots; not exposed outside pod                                                                               |
-| 8003 | edge stack | Internal xDS server communicating with Envoy; not exposed outside pod                                                                                        |
-| 8004 | edge stack | Internal process called `diagd` handling diagnostics and snapshots; not exposed outside pod                                                                  |
-| 8005 | edge stack | Exposes a scrubbed Ambassador Edge Stack snapshot outside of the pod, used by Ambassador Agent and Ambassador Cloud; not exposed directly outside of cluster |
+| 8003 | edge stack | Internal xDS server communicating with Envoy. Starting with 3.15.0, a Unix socket under `/ambassador/sockets/` instead; not exposed outside pod                |
+| 8004 | edge stack | Internal process called `diagd` handling diagnostics and snapshots; bound to `127.0.0.1` starting with 3.15.0; not exposed outside pod                      |
+| 8005 | edge stack | Exposes a scrubbed Ambassador Edge Stack snapshot outside of the pod, formerly used by the Ambassador Agent. Off by default starting with 3.15.0 (`AMBASSADOR_ENABLE_SNAPSHOT_SERVER`); not exposed directly outside of cluster |
 | 8080 | envoy      | Default HTTP service port, this will be different if modified quick-start defaults                                                                           |
 | 8443 | envoy      | Default HTTPS service port, this will be different if modified quick-start defaults                                                                          |
 | 8500 | edge stack | Internal port used by Ambassador Edge Stack AuthService and RateLimitService; not exposed outside of pod                                                     |

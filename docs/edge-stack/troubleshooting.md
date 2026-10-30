@@ -96,10 +96,12 @@ Envoy logging is concerned with the actions Envoy is taking for incoming request
 It is possible to enable Envoy logging at boot, but for the most part, it's safer to enable it at runtime, right before sending a request that is known to have problems. To enable Envoy debug logging, use `kubectl exec` to get a shell on the Ambassador Edge Stack pod, then:
 
 ```
-curl -XPOST http://localhost:8001/logging?level=trace && \
+curl -XPOST --unix-socket /ambassador/sockets/envoy-admin.sock http://localhost/logging?level=trace && \
 sleep 10 && \
-curl -XPOST http://localhost:8001/logging?level=warning
+curl -XPOST --unix-socket /ambassador/sockets/envoy-admin.sock http://localhost/logging?level=warning
 ```
+
+Starting with 3.15.0, Envoy's admin interface listens on a Unix socket instead of `localhost:8001`. If you set [`AMBASSADOR_ENVOY_ADMIN_TCP=true`](edge-stack-user-guide/deployment/ambassador-edge-stack-environment-variables-and-ports.md#ambassador_envoy_admin_tcp), or run an earlier version, use `http://localhost:8001/logging?level=...` instead.
 
 This will turn on Envoy debug logging for ten seconds, then turn it off again.
 

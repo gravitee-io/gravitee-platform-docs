@@ -21,15 +21,28 @@ The default configuration of Ambassador Edge Stack includes default [resource li
 
 Ambassador Edge Stack exposes access to Envoy's admin endpoint which can be used to set runtime flags, dump the envoy config, and much more.
 
+Starting with 3.15.0, Envoy's admin endpoint listens on the Unix socket `/ambassador/sockets/envoy-admin.sock` inside the Ambassador Edge Stack container instead of on port 8001, so you reach it with `kubectl exec`:
+
+```
+kubectl exec -n ambassador <POD_NAME> -- curl -s --unix-socket /ambassador/sockets/envoy-admin.sock http://localhost/
+```
+
+If you need `kubectl port-forward`, set [`AMBASSADOR_ENVOY_ADMIN_TCP=true`](ambassador-edge-stack-environment-variables-and-ports.md#ambassador_envoy_admin_tcp) on the Ambassador Edge Stack deployment to put the admin endpoint back on `127.0.0.1:8001`. This also lets a `Mapping` to a hostname that resolves to loopback reach the admin endpoint, so turn it off again when you're done. Then:
+
 1. Port-forward to a Ambassador Edge Stack pod: `kubectl port-forward -n ambassador <POD_NAME> 8001:8001`
 2. In a web browser, visit `http://127.0.0.1:8001/`
 
 ### Dump the Envoy Config
 
-1. Visit `http://127.0.0.1:8001/config_dump`
-   * If you are in Firefox or a similar browser, click on the `Raw Data` button at the top
-2. Right click the page and save the contents as something like `config_dump.json` so you can explore it using an editor of your choice.
-3. There are plenty of other functions in Envoy's Admin interface you can take advantage of while the port-forward is active if you are comfortable exploring and debugging Envoy Proxy. Visit `http://127.0.0.1:19000/` in a web browser to check out some of the other functions.
+1. Save the config dump to a file:
+
+   ```
+   kubectl exec -n ambassador <POD_NAME> -- curl -s --unix-socket /ambassador/sockets/envoy-admin.sock http://localhost/config_dump > config_dump.json
+   ```
+
+   With `AMBASSADOR_ENVOY_ADMIN_TCP=true` and the port-forward active, you can visit `http://127.0.0.1:8001/config_dump` instead. If you are in Firefox or a similar browser, click on the `Raw Data` button at the top, then right click the page and save the contents as something like `config_dump.json`.
+2. Explore `config_dump.json` using an editor of your choice.
+3. There are plenty of other functions in Envoy's Admin interface you can take advantage of if you are comfortable exploring and debugging Envoy Proxy. Request `http://localhost/` through the socket, or visit `http://127.0.0.1:8001/` while the port-forward is active, to check out some of the other functions.
 
 ## Running as non-root
 
