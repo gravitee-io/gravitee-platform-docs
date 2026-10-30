@@ -451,7 +451,6 @@
     * [Enable and Use OpenTelemetry Logs for APIs](analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md)
   * [Execution Transparency Analytics](analyze-and-monitor-apis/execution-transparency-analytics.md)
   * [Gateway Error Key Reference](analyze-and-monitor-apis/gateway-error-key-reference.md)
-  * [Monitor APIM with Grafana](analyze-and-monitor-apis/monitor-apim-with-grafana.md)
 * [Alert Engine](alert-engine/README.md)
   * [Architecture](alert-engine/overview/architecture.md)
   * [Integrations](alert-engine/overview/integrations.md)

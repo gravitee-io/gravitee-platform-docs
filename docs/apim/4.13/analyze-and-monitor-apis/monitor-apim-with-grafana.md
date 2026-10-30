@@ -1,5 +1,5 @@
 ---
-description: Monitor APIM 4.14 APIs, consumers, and Gateways in Grafana with the Gravitee dashboard pack, SLO recording rules, and alerts.
+description: Monitor APIM 4.13 APIs, consumers, and Gateways in Grafana with the Gravitee dashboard pack, SLO recording rules, and alerts.
 ---
 
 # Monitor APIM with Grafana
