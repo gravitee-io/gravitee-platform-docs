@@ -83,6 +83,7 @@ Previously, on every pod restart or scale-down, the AuthService and RateLimitSer
 * Fixed OAuth2 logins failing with `403 "session state does not match"` when two logins overlap in the same browser. Each login attempt now uses its own `ambassador_login.*` cookie, so if you have WAF rules or proxy cookie allowlists, permit it.
 * OAuth2 pending logins now expire after 15 minutes. To change this, set `OAUTH2_LOGIN_ATTEMPT_TTL`.
 * Fixed an open redirect in the OAuth2 Filter's `stateExpireRedirect` handling.
+* Fixed `Mapping` resources that point at the same `https://` service sharing another `Mapping`'s `TLSContext`, which could give a `Mapping` the wrong upstream certificate validation.
 * Fixed External Filter auth checks failing for about 5 seconds when a DNS packet is lost.
 * A format string or header that Envoy refuses, or a malformed added header, is now rejected with an error instead of stopping all configuration updates.
 
