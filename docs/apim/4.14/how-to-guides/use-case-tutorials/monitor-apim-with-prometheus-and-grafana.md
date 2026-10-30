@@ -191,10 +191,10 @@ Grafana reads two kinds of data:
         options: { path: /etc/grafana/dashboards }
     ```
     {% endcode %}
-6.  Download the [Gravitee Grafana dashboard pack](https://github.com/gravitee-io-labs/gravitee-prometheus-grafana-dashboards), then copy its files into the project:
+6.  Download the [Gravitee Grafana dashboard pack](https://github.com/gravitee-io-labs/gravitee-grafana-prometheus), then copy its files into the project:
 
     ```bash
-    curl -sLO https://github.com/gravitee-io-labs/gravitee-prometheus-grafana-dashboards/releases/latest/download/gravitee-grafana-dashboards.zip
+    curl -sLO https://github.com/gravitee-io-labs/gravitee-grafana-prometheus/releases/latest/download/gravitee-grafana-dashboards.zip
     unzip gravitee-grafana-dashboards.zip
     cp gravitee-grafana-dashboards/dashboards/*.json grafana/dashboards/
     mkdir -p prometheus/rules && cp gravitee-grafana-dashboards/prometheus-rules/*.rules.yml prometheus/rules/
