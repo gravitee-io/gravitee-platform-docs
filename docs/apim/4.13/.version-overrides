@@ -209,6 +209,7 @@ create-and-configure-apis/apply-policies/policy-reference/kafka-transform-key.md
 kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md
 kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies.md
 kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md
+kafka-gateway/deploy-the-kafka-gateway-for-high-availability.md
 kafka-gateway/expose-metrics-to-prometheus.md
 kafka-gateway/plans.md
 kafka-gateway/virtual-cluster-broker-addressing.md
