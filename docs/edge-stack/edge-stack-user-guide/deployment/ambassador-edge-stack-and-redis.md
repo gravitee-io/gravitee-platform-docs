@@ -7,6 +7,77 @@ noIndex: true
 
 The Ambassador Edge Stack make use of Redis for several purposes. By default, all components of the Ambassador Edge Stack share a Redis connection pool.
 
+### Redis password in the Helm chart
+
+Redis holds OAuth2 sessions and rate limit counters, so only Ambassador Edge Stack should be able to read and change it. Starting with Helm chart v8.15.0 (Ambassador Edge Stack 3.15.0), the Redis instance that the chart creates requires a password by default.
+
+{% hint style="warning" %}
+**If you deploy with Argo CD, Flux, or another tool that renders the chart with `helm template`, set the password yourself before you upgrade to chart v8.15.0.** The chart generates the password once and then reads it back from the cluster on later upgrades, which isn't possible when the chart is rendered offline. Each offline render generates a new random password: the application never stops showing a difference, every sync rewrites the Secret, and the next Ambassador Edge Stack or Redis pod to start can no longer authenticate, which breaks OAuth2 logins and rate limiting. Before you upgrade, do one of the following:
+
+* Set `redis.auth.password`, for example from your secret store.
+* Create the `<release-fullname>-redis-auth` Secret yourself with a non-empty `password` key, and set `redis.auth.createSecret=false`.
+{% endhint %}
+
+* On the first install, the chart generates a random 32-character password and stores it in a Secret named `<release-fullname>-redis-auth`, under the key `password`, in the release namespace. For a release named `edge-stack`, the Secret is `edge-stack-redis-auth`.
+* The chart starts Redis with `--requirepass`, and gives the password to Ambassador Edge Stack in the `REDIS_PASSWORD` and `REDIS_AUTH` environment variables, both read from the Secret. The password isn't written to a ConfigMap, the pod spec, or the notes that Helm prints after an install or upgrade.
+* On each `helm upgrade`, the chart reads the password back from the existing Secret, so it doesn't change.
+* With the password on, Redis refuses to start if the `password` key of the Secret is empty, for example a Secret that you manage with `redis.auth.createSecret=false` and left empty. Its `check-redis-password` init container exits with an error instead of letting Redis start without a password. Put a non-empty password in the Secret, or set `redis.auth.enabled=false`.
+* The Secret has the `helm.sh/resource-policy: keep` annotation, so `helm uninstall` leaves it in place, and reinstalling a release with the same name and namespace reuses the same password. To rotate the password, or to remove it after you uninstall for good, delete the Secret: `kubectl delete secret -n <namespace> <release-fullname>-redis-auth`. With the password on, the next `helm upgrade` or install generates a new one. Run that upgrade right away, because until the Secret exists again a restarted Redis pod can't start, and then restart Redis and Ambassador Edge Stack as described below.
+* While the chart manages the Secret (`redis.auth.createSecret=true`, the default), it always creates it, with an empty password when Redis has none. This way, a Secret left over from an earlier revision never gives Ambassador Edge Stack an old password for a Redis instance that has none. If a Secret named `<release-fullname>-redis-auth` already exists that the release didn't create, for example one that you created for a YAML installation, `helm install` and `helm upgrade` fail with an ownership error. Set `redis.auth.createSecret=false`, delete the Secret, or adopt it into the release.
+
+The following Helm values control this behavior:
+
+| Value | Default | Description |
+| ----- | ------- | ----------- |
+| `redis.auth.enabled` | `true` | Require a password on the Redis instance that the chart creates. Applies only when `redis.create` is `true` and no external Redis URL is set. Set to `false` to run it without a password, as in chart versions before v8.15.0. |
+| `redis.auth.password` | `""` | Use this password instead of a generated one. Ignored when `redis.auth.createSecret` is `false`. |
+| `redis.auth.createSecret` | `true` | Set to `false` to create and manage the `<release-fullname>-redis-auth` Secret yourself, for example with an external secrets operator. The Secret must contain a non-empty `password` key and exist before the Redis pod starts. |
+
+{% hint style="warning" %}
+Before you upgrade to chart v8.15.0, check the following:
+
+* If you deploy with a tool that renders the chart with `helm template`, follow the instructions at the top of this section.
+* Use `helm upgrade --reset-then-reuse-values` (Helm 3.14 and later) instead of `--reuse-values`. With `--reuse-values`, Helm keeps the previous chart's `emissary-ingress.envRaw`, which doesn't pass the password to Ambassador Edge Stack, so the chart leaves Redis without a password and prints a warning.
+
+The first upgrade restarts Redis with a password and restarts the Ambassador Edge Stack pods. Redis keeps its data in memory, so existing OAuth2 sessions and rate limit counters are lost, as with any Redis restart. An Ambassador Edge Stack pod that starts while the old Redis pod is still running can fail to set up rate limiting, so after the upgrade finishes, restart Ambassador Edge Stack: `kubectl rollout restart -n <namespace> deployment/<release-fullname>`.
+{% endhint %}
+
+The chart leaves Redis without a password, as in earlier versions, in the following cases:
+
+* **You use an external Redis.** If you set `emissary-ingress.redisURL` or `redis.create=false`, the chart doesn't send a password. To authenticate to your own Redis, set `REDIS_PASSWORD` and `REDIS_AUTH` yourself, as shown in [Redis authentication](#redis-authentication-auth). The top-level `redisURL` value isn't passed to Ambassador Edge Stack, so use `emissary-ingress.redisURL`. If you set only the top-level `redisURL`, Ambassador Edge Stack still uses the chart's Redis instance.
+* **You already protect Redis yourself**, with `--requirepass` in `redis.containerArgs`, or with `REDIS_PASSWORD` or `REDIS_AUTH` in `emissary-ingress.env`. The chart leaves your configuration as it is.
+* **You override `emissary-ingress.envRaw`** without the `REDIS_PASSWORD` and `REDIS_AUTH` entries from the chart's default value. The chart prints a warning. To turn on the password, add both entries to your `envRaw`: the rate limit service reads `REDIS_AUTH`, and rate limiting fails without it. The chart turns on the password only when `envRaw` refers to the chart's own `<release-fullname>-redis-auth` Secret.
+* **You turn it off.** Set `redis.auth.enabled=false` to keep the previous behavior. The chart still creates an empty `<release-fullname>-redis-auth` Secret; also set `redis.auth.createSecret=false` to avoid it. This isn't recommended, because anyone who can reach Redis on the network can then read and change OAuth2 sessions and rate limit state.
+
+Keep the following in mind:
+
+* **If you enable `REDIS_PERSECOND`** and point `REDIS_PERSECOND_URL` at the Redis instance that the chart creates, also set `REDIS_PERSECOND_PASSWORD` and `REDIS_PERSECOND_AUTH` from the same Secret.
+* **Ambassador Edge Stack reads the password only when its pods start.** After you change the password, turn `redis.auth.enabled` on or off (including by adding your own `REDIS_PASSWORD`, `REDIS_AUTH`, or `--requirepass`), or run `helm rollback` between revisions that use chart v8.15.0 or later, restart both deployments: `kubectl rollout restart -n <namespace> deployment/<release-fullname>-redis deployment/<release-fullname>`.
+* **Switching an existing release from `redis.auth.createSecret=true` to `false`** leaves the chart's Secret in place, because of `helm.sh/resource-policy: keep`, and the chart stops managing it. Replace its `password` with your own or adopt it into the tool that now manages it, then restart Redis and Ambassador Edge Stack. With `createSecret=false`, the chart never changes the Secret, so if you later turn the password off, empty or delete the Secret yourself.
+* **The password is stored in the Helm release record**, like any Secret that Helm manages. With Helm's default storage driver, the release record is itself a Secret, so only users who can read Secrets in the release namespace can see it.
+
+{% hint style="warning" %}
+The YAML manifests can't include a password that's unique to each installation, so the Redis instance that they create still runs without a password. Until you add one, anyone who can reach the Redis Service can read and change OAuth2 sessions and rate limit state. This includes any workload in the cluster, and anyone who can create a `Mapping` or `TCPMapping` that points at the Redis Service. If you install from the YAML manifests, add a password as described below, or move to the Helm chart.
+{% endhint %}
+
+In the 3.15.0 and later manifests, the Ambassador Edge Stack deployment reads `REDIS_PASSWORD` and `REDIS_AUTH` from an optional `edge-stack-redis-auth` Secret. To add a password to a YAML installation, first upgrade to the 3.15.0 or later manifests, then create the Secret, start Redis with it, and restart Ambassador Edge Stack:
+
+```bash
+kubectl create secret generic -n ambassador edge-stack-redis-auth --from-literal=password="$(openssl rand -hex 24)"
+kubectl patch deployment -n ambassador edge-stack-redis --type=json -p '[
+  {"op":"add","path":"/spec/template/spec/containers/0/env","value":[{"name":"REDIS_PASSWORD","valueFrom":{"secretKeyRef":{"name":"edge-stack-redis-auth","key":"password"}}}]},
+  {"op":"add","path":"/spec/template/spec/containers/0/args","value":["--requirepass","$(REDIS_PASSWORD)"]}]'
+kubectl rollout restart -n ambassador deployment/edge-stack
+```
+
+These commands use the `ambassador` namespace. Use the namespace that you installed into, such as `default` or `emissary` for those manifest variants. In the `-migration` manifests, the Ambassador Edge Stack deployment is named `aes`.
+
+{% hint style="info" %}
+Don't create the Secret without also changing Redis. If the Secret exists but Redis has no password, Ambassador Edge Stack fails to authenticate to Redis after its next restart.
+{% endhint %}
+
+A password protects Redis from clients that can reach it on the network. It doesn't protect Redis from users who can create Ambassador Edge Stack resources, because those users can act with Ambassador Edge Stack's own access. For more information, see [Controlling Who Can Configure Ambassador Edge Stack](controlling-who-can-configure-ambassador-edge-stack.md).
+
 ### Rate Limit Service
 
 The rate limiting service, can be configured to use different connection pools for handling per-second rate limits or connecting to Redis clusters.
