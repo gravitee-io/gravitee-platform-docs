@@ -5,7 +5,7 @@ metaLinks:
     - ./
 ---
 
-# Hybrid Installation & Configuration Guides
+# Run a hybrid Gateway
 
 ## Deployment Methods
 

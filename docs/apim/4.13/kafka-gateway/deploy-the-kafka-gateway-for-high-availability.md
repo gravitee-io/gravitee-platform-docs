@@ -71,6 +71,72 @@ Apply the following when you deploy the gateway pool:
 
 Kafka proxying is bound by connections and throughput, not CPU. Give the gateway network headroom, and watch the file-descriptor limits, because every client connection and every broker connection is an open socket. For baseline resource allocations, see [Gateway Resource Sizing](../prepare-a-production-environment/gateway-resource-sizing-guidelines.md).
 
+## Stop routing to a full gateway
+
+Every gateway instance can bound its client connections with `kafka.maxConnections` or `kafka.maxConnectionsPerGiB`, and refuses new clients above the limit. To stop new connections reaching an instance before it is full, turn on the readiness check and let the orchestrator remove the instance from routing. For the keys and the thresholds, see [Report readiness near the connection limit](configure-the-kafka-client-and-gateway.md#report-readiness-near-the-connection-limit).
+
+Name the `kafka-readiness` probe in the readiness probe path only. The gateway's health endpoint does not evaluate it unless the `probes` parameter lists it:
+
+```yaml
+readinessProbe:
+  httpGet:
+    path: /_node/health?probes=http-server,kafka-server,kafka-readiness
+    port: 18082
+  periodSeconds: 5
+  failureThreshold: 2
+livenessProbe:
+  httpGet:
+    path: /_node/health?probes=http-server,kafka-server
+    port: 18082
+```
+
+Port `18082` is the default port of the gateway technical API. Use the port your deployment configures.
+
+Keep `kafka-readiness` out of the liveness probe. A full instance is alive: it only needs to stop receiving new connections, and a failing liveness probe restarts it and drops every open connection.
+
+Readiness is per instance. When one pod reports not ready, the Kubernetes service stops routing new connections to that pod and keeps routing to the others. Existing connections on that pod stay open. Because the load balancer in front of the gateway pool can take a few seconds to react, leave headroom between the threshold and the limit.
+
+### Size the headroom
+
+Pick `kafka.readiness.notReadyPercent` so that the connections still available when the instance turns not ready cover the connections that arrive before routing stops:
+
+```text
+limit x (100 - notReadyPercent) / 100  >=  new connections per second per pod
+                                           x (periodSeconds x failureThreshold + load balancer propagation seconds)
+```
+
+For example, with a limit of 10000 connections, `notReadyPercent: 90` leaves 1000 connections of headroom. Take 50 new connections per second per pod, a probe of `periodSeconds: 5` and `failureThreshold: 2`, and 10 seconds of load balancer propagation. The instance needs 50 x (5 x 2 + 10) = 1000 connections of headroom, which is just enough.
+
+Keep `readyPercent` well below `notReadyPercent`, so an instance that is back under the limit does not flap in and out of the pool.
+
+### Scale before the limit
+
+Readiness removes an instance from routing but does not add capacity. To add instances before the pool runs out of room, scale on the `kafka_gateway_connection_usage` gauge, which is a ratio from `0` to `1`. The following HorizontalPodAutoscaler assumes the Prometheus adapter exposes the gauge as a pod metric:
+
+```yaml
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: kafka-gateway
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: kafka-gateway
+  minReplicas: 3
+  maxReplicas: 10
+  metrics:
+    - type: Pods
+      pods:
+        metric:
+          name: kafka_gateway_connection_usage
+        target:
+          type: AverageValue
+          averageValue: "700m"
+```
+
+`700m` is a usage of `0.7`. Set the target below `kafka.readiness.readyPercent / 100`, so the pool scales out before any instance turns not ready.
+
 ## Make the whole path redundant
 
 A perfectly redundant gateway still goes down if the rest of the path isn't redundant.
@@ -93,6 +159,7 @@ Confirm each of the following before you call the deployment highly available:
 * An L4 load balancer with TLS passthrough, the SNI hostname preserved, and a long idle timeout.
 * Wildcard DNS that resolves every advertised broker hostname to the load balancer, with a matching wildcard or SAN certificate.
 * Three or more stateless gateway replicas, anti-affinity, and a `PodDisruptionBudget` of `minAvailable: 2`.
+* A connection limit and the `kafka-readiness` probe on the readiness path, with headroom sized for your connection rate.
 * A backend Kafka cluster with a replication factor of 3 or more, `min.insync.replicas=2`, and brokers spread across availability zones.
 * A redundant control plane: two or more Management API instances, a three-node MongoDB replica set, and a three-node Elasticsearch or OpenSearch cluster.
 * Confirmation of whether virtual cluster (MESH) mode is in use, and a distributed cache plugin if it is.

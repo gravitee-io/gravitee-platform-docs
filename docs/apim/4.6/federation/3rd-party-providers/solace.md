@@ -2,7 +2,7 @@
 description: An overview about solace.
 ---
 
-# Solace
+# Federate APIs from Solace
 
 Solace is an advanced event broker that enables an event mesh architecture.
 

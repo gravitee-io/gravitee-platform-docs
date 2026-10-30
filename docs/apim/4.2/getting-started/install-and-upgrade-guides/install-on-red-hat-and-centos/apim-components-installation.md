@@ -2,7 +2,7 @@
 description: Tutorial on APIM Components Installation.
 ---
 
-# APIM Components Installation
+# Install components on Red Hat
 
 {% hint style="info" %}
 **Gravitee dependencies**

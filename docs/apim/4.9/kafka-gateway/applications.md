@@ -5,7 +5,7 @@ metaLinks:
     - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/applications
 ---
 
-# Applications
+# Create an application for Kafka APIs
 
 ## Overview
 

@@ -5,7 +5,7 @@ metaLinks:
     - solace.md
 ---
 
-# Solace
+# Solace endpoint
 
 ## Overview
 

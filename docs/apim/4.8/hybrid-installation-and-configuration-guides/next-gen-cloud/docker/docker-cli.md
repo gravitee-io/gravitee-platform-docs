@@ -2,7 +2,7 @@
 description: Install the API Management 4.8 Data Plane with Docker CLI commands for a Next-Gen Cloud hybrid. Follow the steps to run it.
 ---
 
-# Docker CLI
+# Run a hybrid Gateway with Docker CLI
 
 ## Overview
 

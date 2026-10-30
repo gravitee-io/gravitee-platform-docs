@@ -5,7 +5,7 @@ metaLinks:
     - subscriptions.md
 ---
 
-# Subscriptions
+# Subscriptions for Kafka APIs
 
 ## Overview
 

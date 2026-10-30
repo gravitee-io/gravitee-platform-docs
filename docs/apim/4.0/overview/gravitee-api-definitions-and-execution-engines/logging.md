@@ -2,7 +2,7 @@
 description: This page focuses on legacy logging issues and improvements
 ---
 
-# Logging
+# Execution engine logging
 
 ## Legacy execution engine behavior
 

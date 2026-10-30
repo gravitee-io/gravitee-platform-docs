@@ -2,7 +2,7 @@
 description: Install API Management 4.8 on RPM-based Linux such as Red Hat, CentOS, or Oracle. Follow the steps for your distribution.
 ---
 
-# RPM
+# Self-host with RPM
 
 ## Overview
 

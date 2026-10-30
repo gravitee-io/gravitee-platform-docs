@@ -2,7 +2,7 @@
 description: An overview about settings.
 ---
 
-# Settings
+# Configure production settings
 
 ## Overview
 

@@ -45,7 +45,7 @@
 ## Install and upgrade
 
 * [Docker](install-and-upgrade/docker/README.md)
-  * [Quick Install](install-and-upgrade/docker/quick-install.md)
+  * [Run a quick install with Docker](install-and-upgrade/docker/quick-install.md)
   * [Docker Compose](install-and-upgrade/docker/docker-compose.md)
   * [Docker Images](install-and-upgrade/docker/docker-images.md)
   * [Customize your Installation](install-and-upgrade/docker/customize-your-installation.md)
@@ -53,7 +53,7 @@
 * [Kubernetes](install-and-upgrade/kubernetes.md)
 * [OpenShift](install-and-upgrade/openshift.md)
 * [RPM](install-and-upgrade/rpm/README.md)
-  * [Quick install](install-and-upgrade/rpm/quick-install.md)
+  * [Run a quick install with RPM](install-and-upgrade/rpm/quick-install.md)
   * [Manual install](install-and-upgrade/rpm/manual-install.md)
   * [Troubleshooting](install-and-upgrade/rpm/troubleshooting.md)
   * [Upgrade with RPM](install-and-upgrade/rpm/upgrade-with-rpm.md)
@@ -79,7 +79,7 @@
 
 ## Hybrid Deployment
 
-* [Overview](hybrid-deployment/overview.md)
+* [Hybrid deployment overview](hybrid-deployment/overview.md)
 * [Hybrid Install with Docker](hybrid-deployment/hybrid-install-with-docker.md)
 * [Hybrid Install with Kubernetes](hybrid-deployment/hybrid-install-with-kubernetes.md)
 * [Hybrid Install with .ZIP](hybrid-deployment/hybrid-install-with-.zip.md)
@@ -143,7 +143,7 @@
   * [Kafka](configure-v4-apis/endpoints/kafka.md)
   * [Mock endpoint](configure-v4-apis/endpoints/mock.md)
   * [MQTT5](configure-v4-apis/endpoints/mqtt5.md)
-  * [Solace](configure-v4-apis/endpoints/solace.md)
+  * [Solace endpoint](configure-v4-apis/endpoints/solace.md)
   * [RabbitMQ](configure-v4-apis/endpoints/rabbitmq.md)
 * [User Permissions](configure-v4-apis/user-permissions.md)
 * [Quality of Service](configure-v4-apis/quality-of-service.md)
@@ -181,8 +181,8 @@
   * [Create native Kafka API documentation](kafka-gateway/configure-kafka-apis/documentation.md)
   * [Manage native Kafka API deployment](kafka-gateway/configure-kafka-apis/deployment.md)
 * [Native Kafka API plans](kafka-gateway/plans.md)
-* [Applications](kafka-gateway/applications.md)
-* [Subscriptions](kafka-gateway/subscriptions.md)
+* [Create an application for Kafka APIs](kafka-gateway/applications.md)
+* [Subscriptions for Kafka APIs](kafka-gateway/subscriptions.md)
 * [Other ways Gravitee supports Kafka](kafka-gateway/other-ways-gravitee-supports-kafka.md)
 
 ## Governance
@@ -199,7 +199,7 @@
     * [Confluent Platform](governance/federation/3rd-party-providers/confluent-platform.md)
     * [IBM API Connect](governance/federation/3rd-party-providers/ibm-api-connect.md)
     * [Mulesoft Anypoint](governance/federation/3rd-party-providers/mulesoft-anypoint.md)
-    * [Solace](governance/federation/3rd-party-providers/solace.md)
+    * [Federate APIs from Solace](governance/federation/3rd-party-providers/solace.md)
 * [API Score](governance/api-score/README.md)
   * [Enable API Score](governance/api-score/enable-api-score.md)
   * [View API Scores](governance/api-score/view-api-scores.md)
@@ -208,7 +208,7 @@
 
 ## Policies
 
-* [Overview](policies/overview.md)
+* [Policies overview](policies/overview.md)
 * [Resources](policies/resources.md)
 * [v4 API Policy Studio](policies/v4-api-policy-studio.md)
 * [v2 API Policy Studio](policies/v2-api-policy-studio.md)
@@ -305,7 +305,7 @@
   * [mTLS plan](expose-apis/plans/mtls.md)
 * [Applications](expose-apis/applications/README.md)
   * [Global Settings](expose-apis/applications/global-settings.md)
-  * [User and Group Access](expose-apis/applications/user-and-group-access.md)
+  * [Manage application members and groups](expose-apis/applications/user-and-group-access.md)
   * [Metadata](expose-apis/applications/metadata.md)
   * [Manage application subscriptions](expose-apis/applications/subscriptions.md)
   * [Configure application notifications](expose-apis/applications/notifications.md)
@@ -350,8 +350,8 @@
   * [Customize the Classic Developer Portal](developer-portal/classic-developer-portal/layout-and-theme.md)
   * [Manage Users](developer-portal/classic-developer-portal/manage-users.md)
   * [Webhook Subscriptions](developer-portal/classic-developer-portal/webhook-subscriptions.md)
-  * [Create an Application](developer-portal/classic-developer-portal/create-an-application.md)
-  * [API Documentation](developer-portal/classic-developer-portal/api-documentation.md)
+  * [Create a Classic Developer Portal application](developer-portal/classic-developer-portal/create-an-application.md)
+  * [Create API documentation](developer-portal/classic-developer-portal/api-documentation.md)
 * [New Developer Portal](developer-portal/new-developer-portal/README.md)
   * [Configure the New Portal](developer-portal/new-developer-portal/configure-the-new-portal.md)
   * [Style the New Developer Portal](developer-portal/new-developer-portal/layout-and-theme.md)

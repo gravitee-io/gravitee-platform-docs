@@ -3,7 +3,7 @@
 ## Overview
 
 * [Introduction to Gravitee API Management](README.md)
-  * [Overview](overview/readme/overview.md)
+  * [Platform overview](overview/readme/overview.md)
   * [Architecture](overview/readme/architecture.md)
 * [Plugins and API definitions](overview/plugins-and-api-definitions/README.md)
   * [Plugins](overview/plugins-and-api-definitions/plugins/README.md)
@@ -35,14 +35,14 @@
 ## Installation and upgrades
 
 * [Docker](installation-and-upgrades/install-on-docker/README.md)
-  * [Quick Install](installation-and-upgrades/install-on-docker/quick-install-with-docker-compose.md)
+  * [Run a quick install with Docker Compose](installation-and-upgrades/install-on-docker/quick-install-with-docker-compose.md)
   * [Custom Install with Docker Compose](installation-and-upgrades/install-on-docker/custom-install-with-docker-compose.md)
   * [Docker Images Install](installation-and-upgrades/install-on-docker/docker-images-install.md)
   * [Customizing your installation on Docker](installation-and-upgrades/install-on-docker/further-customization.md)
 * [Kubernetes](installation-and-upgrades/install-on-kubernetes.md)
 * [OpenShift](installation-and-upgrades/installing-on-openshift.md)
 * [RPM packages](installation-and-upgrades/installing-with-rpm-packages/README.md)
-  * [Quick install](installation-and-upgrades/installing-with-rpm-packages/installing-with-quick-full-stack-install.md)
+  * [Run a quick install with RPM](installation-and-upgrades/installing-with-rpm-packages/installing-with-quick-full-stack-install.md)
   * [Installing with manual install](installation-and-upgrades/installing-with-rpm-packages/installing-with-manual-install.md)
 * [.ZIP](installation-and-upgrades/install-with-.zip.md)
 * [Installing a Gravitee Gateway with a Hybrid Deployment](installation-and-upgrades/advanced-hybrid-deployment/README.md)
@@ -116,14 +116,14 @@
           * [Azure Service Bus](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/azure-service-bus.md)
           * [Configure the Kafka endpoint](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/kafka.md)
           * [Configure the MQTT5 endpoint](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mqtt5.md)
-          * [Solace](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace.md)
+          * [Configure the Solace endpoint](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace.md)
           * [Configure the RabbitMQ endpoint](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/rabbitmq.md)
           * [Mock endpoint](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md)
         * [Health-check](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/health-check.md)
         * [Endpoint Reference](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/README.md)
           * [Kafka endpoint reference](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/kafka.md)
           * [MQTT5 endpoint reference](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/mqtt5.md)
-          * [Solace](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/solace.md)
+          * [Solace endpoint reference](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/solace.md)
           * [RabbitMQ endpoint reference](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/rabbitmq.md)
       * [Quality of Service](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/quality-of-service.md)
       * [v4 API general settings](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/general-info-settings.md)
@@ -132,7 +132,7 @@
       * [Version History](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/version-history.md)
       * [Add v4 API documentation](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/documentation.md)
   * [Resources](using-the-product/managing-your-apis/resources/README.md)
-    * [Overview](using-the-product/managing-your-apis/resources/overview.md)
+    * [Default resources](using-the-product/managing-your-apis/resources/overview.md)
     * [Creating a resource](using-the-product/managing-your-apis/resources/creating-a-resource.md)
     * [Cache resources](using-the-product/managing-your-apis/resources/cache.md)
     * [OAuth2 resource](using-the-product/managing-your-apis/resources/oauth2.md)
@@ -296,8 +296,8 @@
 * [Community](community-and-support/community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
-  * [Contributing to the Gravitee API Management developement](community-and-support/community/contributing-to-the-gravitee-api-management-developement.md)
-* [Contributing to the Gravitee API Management developement](community-and-support/contributing-to-the-gravitee-api-management-developement.md)
+  * [How to contribute](community-and-support/community/contributing-to-the-gravitee-api-management-developement.md)
+* [Contribute to development](community-and-support/contributing-to-the-gravitee-api-management-developement.md)
 
 ## Reference
 

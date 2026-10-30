@@ -146,7 +146,7 @@ The agent requires a Service Principal with Contributor role for authentication.
 
 ### Run the Azure API Management federation agent
 
-You can deploy the Apigee X federation agent using either of the following installation methods:
+You can deploy the Azure API Management federation agent using either of the following installation methods:
 
 * [#docker-compose](azure-api-management.md#docker-compose "mention")
 * [#helm](azure-api-management.md#helm "mention")

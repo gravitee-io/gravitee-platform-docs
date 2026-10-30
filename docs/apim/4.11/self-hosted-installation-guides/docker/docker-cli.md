@@ -5,7 +5,7 @@ metaLinks:
     - docker-cli.md
 ---
 
-# Docker CLI
+# Self-host with Docker CLI
 
 ### Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
@@ -377,4 +377,4 @@ gravitee_system_proxy_https_host=<proxy-host>
 gravitee_system_proxy_https_port=<proxy-port>
 ```
 
-For the full configuration reference including proxy authentication, see [System Proxy for Backend APIs](../proxy-configuration/system-proxy-for-backend-apis.md). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/README.md).
+For the full configuration reference including proxy authentication, see [System proxy for a self-hosted Gateway](../proxy-configuration/system-proxy-for-backend-apis.md). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/README.md).

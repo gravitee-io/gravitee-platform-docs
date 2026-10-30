@@ -5,7 +5,7 @@ metaLinks:
     - ./
 ---
 
-# Kubernetes
+# Run a hybrid Gateway on Kubernetes
 
 ## Deployment Methods
 

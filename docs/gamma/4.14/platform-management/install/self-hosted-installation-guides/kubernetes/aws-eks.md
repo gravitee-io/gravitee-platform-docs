@@ -3,7 +3,7 @@ hidden: false
 noIndex: false
 description: Run the full Gamma stack on AWS EKS, with the load balancer controller plus the MongoDB and Elasticsearch datastores. Follow the steps to deploy it.
 ---
-# Install Gamma on AWS EKS
+# Self-host on AWS EKS
 
 {% hint style="warning" %}
 This installation guide is for development and quick-start purposes only. Don't use it for production environments. For best practices for production environments, contact your Technical Account Manager.

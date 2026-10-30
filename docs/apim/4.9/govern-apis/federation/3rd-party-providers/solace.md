@@ -6,7 +6,7 @@ metaLinks:
       https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/3rd-party-providers/solace
 ---
 
-# Solace
+# Federate APIs from Solace
 
 ## Overview
 

@@ -2,7 +2,7 @@
 description: An overview about create an application.
 ---
 
-# Create an Application
+# Create a Classic Developer Portal application
 
 ## Overview
 
