@@ -285,6 +285,87 @@ To configure the APIM Console to use the Kafka domain and port values for your O
 
     <figure><img src="../.gitbook/assets/00 kafka 1.png" alt="The Entrypoints tab of a Kafka API, with a host prefix entered and the resulting domain and port highlighted beside it."><figcaption></figcaption></figure>
 
+### Limit client connections
+
+By default, the Kafka Gateway accepts any number of client connections. To bound it, set one or both of the following keys in `gravitee.yml`:
+
+| Key | Description |
+| --- | --- |
+| `kafka.maxConnections` | Maximum number of client connections, as an absolute number. |
+| `kafka.maxConnectionsPerGiB` | Maximum number of client connections per GiB of JVM maximum heap. The result is rounded down. |
+
+The following behavior applies to the connection limit:
+
+* When both keys are set, the Gateway applies the lower of the two limits.
+* A value of `0`, or an unset key, turns that limit off. With neither key set, there is no limit.
+* A value that is negative or not an integer fails the Gateway startup with a message naming the key. So does a `kafka.maxConnectionsPerGiB` value that gives less than one connection for the available heap.
+* The Gateway logs the effective limit, the key it comes from, and the maximum heap at startup.
+* The limit applies to the whole Kafka server, in host and port routing modes alike, and is shared by all APIs.
+* Connections over the limit are refused when they are accepted, before the TLS handshake. Connections from the loopback addresses, `127.0.0.1` and `::1`, are exempt.
+
+```yaml
+kafka:
+  maxConnections: 20000
+  maxConnectionsPerGiB: 5000
+```
+
+Each connection uses heap memory, so size `kafka.maxConnectionsPerGiB` from the memory you give each Gateway instance. With `-Xmx2g` and `kafka.maxConnectionsPerGiB: 5000`, the limit is 10000 connections.
+
+### Report readiness near the connection limit
+
+When a Gateway instance reaches its connection limit, it refuses new clients. The `kafka-readiness` health probe lets an orchestrator such as Kubernetes stop routing new connections to an instance that is nearly full. Open connections are never closed by the probe.
+
+The following keys configure the readiness check:
+
+| Key | Default | Description |
+| --- | --- | --- |
+| `kafka.readiness.enabled` | `false` | Turns the capacity check on. |
+| `kafka.readiness.notReadyPercent` | `90` | Percentage of the connection limit at which the instance reports not ready. |
+| `kafka.readiness.readyPercent` | `80` | Percentage of the connection limit at or below which the instance reports ready again. |
+
+```yaml
+kafka:
+  maxConnections: 20
+  readiness:
+    enabled: true
+    notReadyPercent: 90
+    readyPercent: 80
+```
+
+To set the same values with environment variables, use the following:
+
+```bash
+gravitee_kafka_maxconnections=20
+gravitee_kafka_readiness_enabled=true
+gravitee_kafka_readiness_notreadypercent=90
+gravitee_kafka_readiness_readypercent=80
+```
+
+The values must be integers with `1 <= readyPercent < notReadyPercent <= 100`. Otherwise the Gateway fails at startup with a message naming the keys.
+
+The instance reports the following states:
+
+* **Not ready** from `ceil(limit x notReadyPercent / 100)` connections.
+* **Ready again** at `floor(limit x readyPercent / 100)` connections or fewer.
+* **The last state** between the two thresholds, so the instance does not flip on every connection.
+
+For example, with a limit of 20, the defaults give not ready at 18 connections and ready again at 16. At 17 connections, the instance keeps its last state.
+
+The check does nothing, and the probe always reports ready, when `kafka.readiness.enabled` is `false` or when no connection limit is set. If the Gateway cannot read the connection count, it reports ready and logs a warning.
+
+The `kafka-readiness` probe is a real-time probe and is not part of the default health check. It is only evaluated when a health call names it with the `probes` query parameter. See [Deploy the Kafka Gateway for High Availability](deploy-the-kafka-gateway-for-high-availability.md#stop-routing-to-a-full-gateway).
+
+#### Capacity metrics
+
+When a connection limit is set and Gateway metrics are on, the Gateway exposes two gauges:
+
+| Metric | Description |
+| --- | --- |
+| `kafka_gateway_connection_limit` | The effective connection limit, as a count. |
+| `kafka_gateway_connection_usage` | Open client connections divided by the limit, as a ratio from `0` to `1`. It is not a count. |
+
+With a limit of 20 and 15 open connections, `kafka_gateway_connection_usage` is `0.75`. It reads `1` when the Gateway refuses connections. The gauges are exposed whether or not `kafka.readiness.enabled` is set.
+
 ## Configure the Kafka client
 
 To use the Kafka Gateway, you use a regular Kafka client. There are many implementations of the Kafka client, and you can use any client that supports the full Kafka protocol.
@@ -459,6 +540,17 @@ kafka:
   # SASL mechanisms accepted on API Key plans. Default is PLAIN, SCRAM-SHA-256, SCRAM-SHA-512.
   api-key:
     securityMechanisms: PLAIN, SCRAM-SHA-256, SCRAM-SHA-512
+
+  # Connection limit. Both keys are optional; 0 or unset turns a limit off.
+  # When both are set, the lower limit applies.
+  #maxConnections: 20000          # Maximum number of client connections
+  #maxConnectionsPerGiB: 5000     # Maximum number of client connections per GiB of JVM max heap
+
+  # Readiness on connection capacity. Inert when disabled or when no connection limit is set.
+  readiness:
+    enabled: false                 # Default is false
+    notReadyPercent: 90            # Report not ready from this percentage of the limit. Default is 90
+    readyPercent: 80               # Report ready again at or below this percentage. Default is 80
 
   instances: 0             # Event-loop instances. Default is 0, which uses the Vert.x default (twice the number of CPU cores)
   requestTimeout: 35000    # Default is 35000 ms
