@@ -9,7 +9,7 @@ description: What Edge Management does, how the Edge Daemon captures the AI traf
 Edge Management puts the Gravitee gateway between the AI coding agents that run on your managed devices and the AI providers they call. An Edge Daemon installed on each device intercepts the agents you choose and forwards their traffic to a target API on the gateway, where your policies, quotas, and analytics apply. The same daemon reports the AI providers that a device reaches directly, without the gateway.
 
 {% hint style="warning" %}
-**Edge Management is a preview feature, and it isn't production-ready.** It's under active development. By default, the Edge Reactor listener is plain HTTP, and the Edge API that Edge Management publishes for an environment serves the daemons through a keyless plan. That traffic is then neither encrypted by the reactor nor authenticated. Until you secure it, don't expose these endpoints over networks you don't trust. Restrict them to a private network, a VPN, or an IP-allowlisted corporate network. See [Secure the Edge Reactor listener](../connect/secure-the-edge-reactor-listener.md) and [Configure daemon authentication](../connect/configure-daemon-authentication.md).
+**Edge Management is a preview feature, and it isn't production-ready.** It's under active development. By default, the Edge Reactor listener is plain HTTP, and keyless is on in daemon authentication. The traffic between the daemons and the Edge Reactor is then neither encrypted by the reactor nor authenticated. Until you secure it, don't expose these endpoints over networks you don't trust. Restrict them to a private network, a VPN, or an IP-allowlisted corporate network. See [Secure the Edge Reactor listener](../connect/secure-the-edge-reactor-listener.md) and [Configure daemon authentication](../connect/configure-daemon-authentication.md).
 {% endhint %}
 
 ## How the traffic flows
@@ -41,7 +41,7 @@ A target API is a standard API on your gateway. Pick one you already have, or le
 
 Shadow AI detection has its own configuration: a list of provider domains to watch. Watching a domain and intercepting it are independent. A detection tells you that a device reached a provider directly, and nothing is routed.
 
-Daemon authentication decides how the daemons identify themselves to the Edge Reactor: through a keyless plan, through an mTLS plan that matches the certificates of your fleet, or through both. See [Configure daemon authentication](../connect/configure-daemon-authentication.md).
+Daemon authentication decides how the daemons identify themselves to the Edge Reactor: keyless, mTLS with the certificates of your fleet, or both. See [Configure daemon authentication](../connect/configure-daemon-authentication.md).
 
 ## Where things live in the console
 

@@ -51,7 +51,7 @@ https://download.gravitee.io/graviteeio-ai/gravitee-gamma-edge-daemon/gravitee-g
 
 ## Create the Kandji Custom App
 
-Under **Kandji Custom App**, the page generates a post-install script prefilled with the Gateway URL and the Reactor URL of the environment. Once the mTLS plan is published, the script also passes the certificate of your fleet and its private key. It looks like the following example:
+Under **Kandji Custom App**, the page generates a post-install script with the Gateway URL and the Reactor URL of the environment filled in. Once mTLS is on, on the **Daemon authentication** page, the script also passes the certificate of your fleet and its private key. It looks like the following example:
 
 ```bash
 #!/bin/bash
@@ -69,7 +69,7 @@ To deploy the script, complete the following steps:
 
 1. In the Kandji admin console, create a new **Custom App**.
 2. Configure the app to extract the daemon package to `/tmp`.
-3. If the mTLS plan is published, add the certificate of your fleet and its private key to the Custom App zip, next to `install.sh`, as `client.crt` and `client.key`. If your daemons need `--reactor-ca`, add that certificate as `reactor-ca.crt` too, and uncomment the last line of the script. See [Configure daemon authentication](configure-daemon-authentication.md#publish-the-mtls-plan).
+3. If mTLS is on, add the certificate of your fleet and its private key to the Custom App zip, next to `install.sh`, as `client.crt` and `client.key`. If your daemons need `--reactor-ca`, add that certificate as `reactor-ca.crt` too, and uncomment the last line of the script. See [Configure daemon authentication](configure-daemon-authentication.md#turn-on-mtls).
 4. Paste the generated script as the post-install script.
 5. Enable **Restart after successful install** so that the environment variables set by the installer take effect immediately.
 6. Assign the Custom App to the appropriate device blueprints. Kandji then distributes and installs the Edge Daemon on all assigned devices.
