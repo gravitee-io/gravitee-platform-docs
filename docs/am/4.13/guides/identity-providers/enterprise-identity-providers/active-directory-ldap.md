@@ -17,7 +17,7 @@ You can authenticate and manage users in AM using Enterprise Active Directory or
 1. Log in to AM Console.
 2. Click **Settings > Providers**.
 3. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png).
-4. Select **HTTP** as your identity provider type and click **Next**.
+4. Select **LDAP** as your identity provider type and click **Next**.
 5. Give your identity provider a name.
 6. Configure the settings.
 7. Click **Create**.

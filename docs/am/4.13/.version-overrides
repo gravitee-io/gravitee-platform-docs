@@ -91,3 +91,5 @@ guides/applications/spiffe-workload-identity-and-agent-applications-overview.md
 .gitbook/assets/am-extension-grant-cross-app-access.png
 .gitbook/assets/am-pep-authzen-policy-token-flow.png
 .gitbook/assets/am-spiffe-workload-identity-settings.png
+# Active Directory/LDAP: identity provider type to select (DOC-1961)
+guides/identity-providers/enterprise-identity-providers/active-directory-ldap.md
