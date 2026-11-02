@@ -150,7 +150,7 @@ Publishing a plan, closing a plan, and changing the security settings of a publi
 
 The proxy deploys only while it has at least one published plan.
 
-To deploy the proxy, click **Deploy** on the **This API is out of sync** banner. In the **Deploy your API** dialog, optionally enter a label, and then click **Deploy**.
+To deploy the proxy, click **Deploy** on the **This MCP proxy is out of sync** banner. In the **Deploy your MCP proxy** dialog, optionally enter a label, and then click **Deploy**.
 
 ## Verification
 

@@ -72,14 +72,14 @@ Policies that reference the removed resource fail until they're updated. The **R
 
 ## Deploy the change
 
-Saving a resource change doesn't deploy it. The proxy shows the **This API is out of sync** banner until the change is deployed. Click **Deploy** on the banner, and then confirm to push the configuration to the gateway.
+Saving a resource change doesn't deploy it. The proxy shows the **This LLM proxy is out of sync** banner, with the type of proxy you opened, until the change is deployed. Click **Deploy** on the banner, and then confirm to push the configuration to the gateway.
 
 ## Verification
 
 To verify a resource is configured as expected, follow these steps:
 
 1. Add a resource, and leave it enabled.
-2. Click **Deploy** on the **This API is out of sync** banner, and then confirm.
+2. Click **Deploy** on the **This LLM proxy is out of sync** banner, and then confirm.
 3. Return to the **Resources** page. The resource is listed with its **Status** set to **Enabled**, and the out-of-sync banner is gone.
 
 <figure><img src="../.gitbook/assets/gamma-aim-proxy-resources-verification.png" alt="The Resources table after deployment, with the out-of-sync banner no longer present."><figcaption><p>The deployed resource</p></figcaption></figure>

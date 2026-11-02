@@ -32,7 +32,7 @@ Before you begin, confirm that you have the following:
 
     <figure><img src="../.gitbook/assets/gamma-aim-cost-rate-limit-configuration.png" alt="The Cost Rate Limit configuration panel showing the Strategy dropdown set to count exactly"><figcaption></figcaption></figure>
 6. Click **Save**.
-7. When the "This deployable is out of sync" message appears, click **Deploy** to push the change to the AI Gateway.
+7. When the **This LLM proxy is out of sync** banner appears, click **Deploy** to push the change to the AI Gateway.
 
 ## Settings
 
