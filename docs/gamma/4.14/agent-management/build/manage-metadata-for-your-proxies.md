@@ -147,4 +147,4 @@ To verify a metadata entry is in effect, follow these steps:
 2. Reload the **Metadata** page. The entry is listed with the key generated from the name, and without a **Global** badge.
 3. Select the type of proxy you opened, for example **LLM proxy**, in the source list. The entry is still listed, because the environment doesn't define its key.
 
-<figure><img src="../.gitbook/assets/gamma-aim-proxy-metadata-api-filter.png" alt="The Metadata page with the source list set to API, listing only the Support contact entry the proxy owns"><figcaption><p>The entry the proxy owns, listed under the API source</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-proxy-metadata-api-filter.png" alt="The Metadata page with the source list set to A2A proxy, listing only the Support contact entry the proxy owns"><figcaption><p>The entry the proxy owns, listed under the A2A proxy source</p></figcaption></figure>

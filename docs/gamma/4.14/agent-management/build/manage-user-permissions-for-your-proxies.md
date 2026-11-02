@@ -20,7 +20,7 @@ To open the page, follow these steps:
 2. Select the proxy to configure.
 3. Under **General**, select **User Permissions**.
 
-<figure><img src="../.gitbook/assets/gamma-aim-proxy-user-permissions.png" alt="The User Permissions page of an LLM Proxy, with Notify members when they are added to the API turned on, three members holding the Primary Owner, OWNER, and USER roles, and one group under Group Inherited Members"><figcaption><p>The User Permissions page of an LLM Proxy</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-proxy-user-permissions.png" alt="The User Permissions page of an LLM Proxy, with Notify members when they are added to the LLM proxy turned on, three members holding the Primary Owner, OWNER, and USER roles, and one group under Group Inherited Members"><figcaption><p>The User Permissions page of an LLM Proxy</p></figcaption></figure>
 
 The **Members** list holds the people with a role directly on the proxy. The person who owns the proxy carries the **Primary Owner** badge, and their row has no actions menu. When a group owns the proxy, no member carries the badge, and the group is listed under **Group Inherited Members**.
 
@@ -100,7 +100,7 @@ To transfer ownership, follow these steps:
 3. In **New role for current Primary Owner**, select the role the current primary owner is reassigned to.
 4. Click **Transfer**.
 
-<figure><img src="../.gitbook/assets/gamma-aim-proxy-user-permissions-transfer-ownership.png" alt="The Transfer ownership panel on the API Member tab, with a member selected and OWNER selected in New role for current Primary Owner"><figcaption><p>The Transfer ownership panel</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-proxy-user-permissions-transfer-ownership.png" alt="The Transfer ownership panel on the LLM proxy member tab, with a member selected and OWNER selected in New role for current Primary Owner"><figcaption><p>The Transfer ownership panel</p></figcaption></figure>
 
 Note the following points when you transfer ownership:
 
