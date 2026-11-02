@@ -30,7 +30,7 @@ The **Members** list holds the people with a role directly on the proxy. The per
 
 ## Notify the people you add
 
-**Notify members when they are added to the API** is on by default. While it's on, each person you add to the proxy receives an email that names the proxy. Turn it off to add people without an email. The change saves as soon as you turn the switch.
+The **Notify members when they are added to the LLM proxy** switch, named after the type of proxy you opened, is on by default. While it's on, each person you add to the proxy receives an email that names the proxy. Turn it off to add people without an email. The change saves as soon as you turn the switch.
 
 The email goes out only when emailing is turned on and the person has an email address. See [Configure the SMTP mail server](https://documentation.gravitee.io/platform-management/organization/system-and-security/configure-smtp).
 
@@ -83,7 +83,7 @@ To choose the groups associated with the proxy, follow these steps:
 
 * With **Hybrid** or **Group** as the API primary owner mode, a group that owns the proxy stays associated, even when you clear it.
 * A group in which someone holds the API primary owner role is left out without an error, unless that person owns the proxy.
-* With **Group** as the API primary owner mode, saving the groups of a proxy that a person owns also associates a qualifying group: the owner's, or else one of yours. Without one, the save fails with **Could not save changes**. The same applies when you turn **Notify members when they are added to the API**. See [Configure primary owner mode](https://documentation.gravitee.io/platform-management/environment/system-and-security/configure-primary-owner-mode).
+* With **Group** as the API primary owner mode, saving the groups of a proxy that a person owns also associates a qualifying group: the owner's, or else one of yours. Without one, the save fails with an error message. The same applies when you turn **Notify members when they are added to the LLM proxy**. See [Configure primary owner mode](https://documentation.gravitee.io/platform-management/environment/system-and-security/configure-primary-owner-mode).
 
 Members who hold an API role in an associated group appear under **Group Inherited Members** with that role.
 
@@ -95,8 +95,8 @@ To transfer ownership, follow these steps:
 
 1. Click **Transfer ownership**.
 2. In the **Transfer ownership** panel, choose the new owner in one of the following ways:
-    * On the **API Member** tab, select a member of the proxy in **Select API member**.
-    * On the **Other User** tab, search for the person by name or email, and then select them.
+    * On the **LLM proxy member** tab, named after the type of proxy you opened, select a member of the proxy in **Select LLM proxy member**.
+    * On the **Other user** tab, search for the person by name or email, and then select them.
 3. In **New role for current Primary Owner**, select the role the current primary owner is reassigned to.
 4. Click **Transfer**.
 
@@ -106,7 +106,7 @@ Note the following points when you transfer ownership:
 
 * A role the new owner held as a member of the proxy is replaced by the primary owner role.
 * **New role for current Primary Owner** starts on the first role in alphabetical order, like the **Role** list of the **Add member** panel.
-* The search of the **Other User** tab works like the search of the **Add member** panel.
+* The search of the **Other user** tab works like the search of the **Add member** panel.
 * Ownership goes to a person only. The panel offers no group.
 * When a group owns the proxy, the transfer removes that group from the groups associated with the proxy. The role you select in **New role for current Primary Owner** then goes to nobody.
 

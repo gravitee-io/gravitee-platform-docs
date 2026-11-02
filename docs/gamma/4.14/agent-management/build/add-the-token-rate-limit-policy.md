@@ -29,7 +29,7 @@ Before you begin, confirm that you have the following:
     <figure><img src="../.gitbook/assets/gamma-aim-token-rate-limit-add-to-flow.png" alt="The Token Rate Limit policy open in the Add Policy catalog, with the Add to flow button"><figcaption></figcaption></figure>
 5. Configure the policy using the settings in [Settings](#settings).
 6. Click **Save**.
-7. When the "This deployable is out of sync" message appears, click **Deploy** to push the change to the AI Gateway.
+7. When the **This LLM proxy is out of sync** banner appears, click **Deploy** to push the change to the AI Gateway.
 
 ## Settings
 
