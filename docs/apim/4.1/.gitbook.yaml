@@ -143,7 +143,7 @@ redirects:
  configure-and-manage-the-platform/management-api/native-api-connection-logs-management-api-reference: README.md
  configure-and-manage-the-platform/management-api/portal-analytics-management-api-reference: README.md
  configure-and-manage-the-platform/management-api/settings: getting-started/configuration/configure-apim-management-api/user-and-management-configuration.md
- configure-and-manage-the-platform/node-logging-configuration: getting-started/configuration/configure-apim-management-api/logging.md
+ configure-and-manage-the-platform/node-logging-configuration: getting-started/configuration/the-gravitee-api-gateway/logging.md
  configure-apim/apim-components: getting-started/install-guides/install-on-red-hat-and-centos/apim-components/README.md
  configure-apim/apim-components/apim-console: getting-started/configuration/configure-apim-management-ui.md
  configure-apim/apim-components/developer-portal: getting-started/quickstart-guide/developer-portal-101.md
@@ -459,6 +459,7 @@ redirects:
  getting-started/configuration/configure-apim-gateway/sharding-tags: getting-started/configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md
  getting-started/configuration/configure-apim-gateway/tenants: getting-started/configuration/the-gravitee-api-gateway/tenants.md
  getting-started/configuration/configure-apim-management-api/general-configuration: getting-started/configuration/configure-apim-management-api/internal-api.md
+ getting-started/configuration/configure-apim-management-api/logging: getting-started/configuration/the-gravitee-api-gateway/logging.md
  getting-started/configuration/configure-notifications: getting-started/configuration/configure-alerts-and-notifications.md
  getting-started/configuration/http-reverse-proxy: getting-started/configuration/configure-http-reverse-proxy.md
  getting-started/configuration/notifications: getting-started/configuration/configure-alerts-and-notifications.md

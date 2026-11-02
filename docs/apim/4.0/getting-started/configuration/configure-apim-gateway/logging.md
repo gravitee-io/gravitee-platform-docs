@@ -100,3 +100,7 @@ scrape_configs:
 #### Prometheus UI
 
 By default when running Prometheus, the UI is exposed at `http://localhost:9090/graph`
+
+### Collect metrics from the Management API
+
+The Management API exposes the same metrics on its own internal API. To collect them, enable the metrics service in the Management API's `gravitee.yml` file with the same `services.metrics` settings, and then add a scrape job that targets the Management API. Its internal API listens on port `18083` by default, and the metrics path is `/_node/metrics/prometheus`.

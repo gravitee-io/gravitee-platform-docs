@@ -452,6 +452,7 @@ redirects:
  getting-started/configuration/components/the-gravitee-api-gateway: getting-started/configuration/configure-apim-gateway/README.md
  getting-started/configuration/configure-alerts-and-notifications: getting-started/configuration/configure-notifications.md
  getting-started/configuration/configure-apim-management-api/internal-api-1: getting-started/configuration/configure-apim-management-api/internal-api.md
+ getting-started/configuration/configure-apim-management-api/logging: getting-started/configuration/configure-apim-gateway/logging.md
  getting-started/configuration/configure-apim-management-api/metrics: getting-started/configuration/README.md
  getting-started/configuration/configure-apim-management-ui: getting-started/configuration/configure-apim-console.md
  getting-started/configuration/configure-authentication/connect-with-apim-repository: getting-started/configuration/README.md
