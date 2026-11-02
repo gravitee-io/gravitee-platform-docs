@@ -31,3 +31,7 @@ create-and-configure-apis/configure-v4-apis/quality-of-service.md
 kafka-gateway/troubleshoot-kafka-client-connections.md
 # Gateway Services: sync delay and unit, no apikeyscache or health-check threads (DOC-1903)
 configure-and-manage-the-platform/gravitee-gateway/services.md
+# AWS Lambda and Data Cache on LLM proxy APIs (AIAM-730)
+create-and-configure-apis/apply-policies/README.md
+create-and-configure-apis/apply-policies/policy-reference/aws-lambda.md
+create-and-configure-apis/apply-policies/policy-reference/data-cache.md

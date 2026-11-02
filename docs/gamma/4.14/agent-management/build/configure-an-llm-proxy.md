@@ -93,7 +93,7 @@ Both models were trained on English text, so detection in other languages is les
 
 ## Resources
 
-Policies that depend on shared infrastructure reference a resource configured on the proxy. The **AI - Prompt Guard Rails** policy references an **AI Model Text Classification** resource, and the **PII Filtering** policy references an **AI Model Token Classification** resource.
+Policies that depend on shared infrastructure reference a resource configured on the proxy. The **AI - Prompt Guard Rails** policy references an **AI Model Text Classification** resource, and the **PII Filtering** policy references an **AI Model Token Classification** resource. **Data Cache Policy** reads, writes, and removes values in a cache resource that you select in its **Cache resource** field. Until the proxy has a cache resource, that field shows **No matching resources on this API**.
 
 To manage the resources of the LLM Proxy, under **Design**, select **Resources**. For the steps to add, edit, or remove a resource, see [Configure resources for your proxies](configure-resources-for-your-proxies.md), and for the resource types themselves, see [AI resources](ai-resources.md).
 
