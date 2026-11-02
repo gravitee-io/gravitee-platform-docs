@@ -21,3 +21,5 @@ getting-started/tutorial-getting-started-with-am/get-user-profile-information.md
 getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md
 getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md
 getting-started/install-and-upgrade-guides/quick-install.md
+# Active Directory/LDAP: identity provider type to select (DOC-1961)
+guides/identity-providers/enterprise-identity-providers/active-directory-ldap.md
