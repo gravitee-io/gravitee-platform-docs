@@ -1,5 +1,5 @@
 ---
-description: What the Gamma 4.14 release adds to Edge Management. Browse the new features and changes.
+description: What the Gamma 4.14 release adds to Agent Management and Edge Management. Browse the new features and changes.
 ---
 
 # Release Notes
@@ -9,6 +9,16 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 ## 4.14 new features
 
 The 4.14 release adds the following capabilities.
+
+### Agent Management
+
+Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies.
+
+#### AWS Lambda and Data Cache for LLM Proxies
+
+* In the **Policy Studio** of an LLM Proxy, you can add the **AWS Lambda** and **Data Cache Policy** policies to the request and response phases.
+* **AWS Lambda** invokes an AWS Lambda function. It isn't included in the default distribution, so [download](https://download.gravitee.io/#graviteeio-apim/plugins/policies/gravitee-policy-aws-lambda/) version 3.5.0 or later of its plugin and [deploy it](https://documentation.gravitee.io/apim/plugins/deployment) first.
+* **Data Cache Policy** reads, writes, and removes values in a cache resource of the LLM Proxy, so add a cache resource on the **Resources** page first. See [Resources](../agent-management/build/configure-an-llm-proxy.md#resources).
 
 ### Edge Management
 

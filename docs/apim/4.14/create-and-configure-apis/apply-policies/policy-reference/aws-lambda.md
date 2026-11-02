@@ -12,7 +12,11 @@ A Lambda can be defined through IAM roles instead of providing a client secret. 
 
 {% hint style="warning" %}
 You can apply this policy to v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. You cannot apply it to v4 TCP proxy APIs.&#x20;
+
+You can also apply it to v4 MCP proxy APIs and v4 LLM proxy APIs. For v4 LLM proxy APIs, use version 3.5.0 or later of the plugin.
 {% endhint %}
+
+The AWS Lambda policy isn't included in the default APIM distribution. To use it, [download](https://download.gravitee.io/#graviteeio-apim/plugins/policies/gravitee-policy-aws-lambda/) and [deploy](../../../plugins/deployment.md) the plugin.
 
 ## Examples
 

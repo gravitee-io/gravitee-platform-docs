@@ -231,6 +231,8 @@ request:
 | --------- | ---------- | ---------------- | ----------------- |
 | X         | X          |                  |                   |
 
+You can apply this policy to the request and response phases of v4 HTTP proxy APIs and v4 LLM proxy APIs. On v4 MCP proxy APIs, you can apply it to the request phase only.
+
 ### Description <a href="#user-content-description" id="user-content-description"></a>
 
 Policy to get/set arbitrary key-value pairs in the cache resource.
