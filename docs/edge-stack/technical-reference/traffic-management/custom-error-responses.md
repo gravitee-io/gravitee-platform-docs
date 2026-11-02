@@ -15,7 +15,7 @@ They can be configured either on the Ambassador Edge Stack `Module` or on an `Ma
   * `text_format`: A string whose value will be used as the new response body. `Content-Type` will default to `text/plain` if unspecified.
   * `json_format`: A config object whose keys and values will be serialized as JSON and used as the new response body.
   * `text_format_source`: Describes a file to be used as the response. If used, `filename` must be set and the file must exist on the Ambassador Edge Stack pod.
-    * `filename`: A file path on the Ambassador Edge Stack pod that will be used as the new response body.
+    * `filename`: An absolute file path on the Ambassador Edge Stack pod that will be used as the new response body. Starting with 3.15.0, the file must be inside an allowed directory. See [File response bodies](custom-error-responses.md#file-response-bodies).
 
 Only one of `text_format`, `json_format`, or `text_format_source` may be provided.
 
@@ -36,8 +36,10 @@ would render as
 for a request that resulted in a response code of 401.
 
 {% hint style="warning" %}
-If the `%` symbol is not escaped as above (`%%`), it may only be as part of an [AccessLog substitution](https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log/usage#config-access-log-format-strings), for example `%RESPONSE_CODE%` or `%PROTOCOL%`. If a `%` is neither part of a valid substitution nor an escape, Ambassador Edge Stack will ignore the custom error response.
+If the `%` symbol is not escaped as above (`%%`), it may only be as part of an [AccessLog substitution](https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log/usage#config-access-log-format-strings), for example `%RESPONSE_CODE%` or `%PROTOCOL%`. If a `%` is neither part of a valid substitution nor an escape, Ambassador Edge Stack rejects the custom error response rule with an error in the diagnostics.
 {% endhint %}
+
+Starting with 3.15.0, response bodies are parsed exactly as Envoy parses them, and every substitution must be on Ambassador Edge Stack's allowlist. `%ENVIRONMENT(...)%`, `%COALESCE(...)%`, `%FILE_CONTENT(...)%`, `%SECRET(...)%`, `%CEL(...)%`, and `%TYPED_CEL(...)%` are always rejected. Request, response, metadata, and filter state substitutions such as `%REQ(x-foo)%`, `%METADATA(ROUTE:ns:key)%`, `%DYNAMIC_METADATA(ns)%`, and `%FILTER_STATE(key)%` are allowed.
 
 ### Simple response bodies
 
@@ -66,6 +68,10 @@ spec:
 ### File response bodies
 
 For more complex response bodies a file can be returned as the response. This could be used for a customer friendly HTML document for example. Use `text_format_source` with a `filename` set as a path on the Ambassador Edge Stack pod. `content_type` should be used set the specific file type, such as `text/html`.
+
+{% hint style="warning" %}
+Starting with 3.15.0, after symlinks are resolved, the file must be a regular, UTF-8 file inside `/ambassador/ambassador-errorpages`, or inside the `ambassador-errorpages` subdirectory of `AMBASSADOR_CONFIG_BASE_DIR` if that is set elsewhere. Relative paths and paths that contain `.`, `..`, or `//` are rejected. A `Mapping` with an invalid rule is rejected and stops routing; on the `Module`, only that rule is dropped. To allow other directories, set [`AMBASSADOR_ERROR_RESPONSE_ALLOWED_DIRS`](../../edge-stack-user-guide/deployment/ambassador-edge-stack-environment-variables-and-ports.md#ambassador_error_response_allowed_dirs) to a colon-separated list of absolute directories. Allowed directories must hold nothing but error pages and must be read-only to everyone except cluster administrators. A ConfigMap volume, as in the following example, is ideal.
+{% endhint %}
 
 First configure the Ambassador Edge Stack module:
 

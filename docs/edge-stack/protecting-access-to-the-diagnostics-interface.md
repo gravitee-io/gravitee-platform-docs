@@ -19,18 +19,14 @@ spec:
       enabled: false
 ```
 
-After applying this module, the diagnostics interface are no longer accessible from the outside world. We should not, however, exclude actual administrators from using these interfaces, so to create a more managed endpoint for them to use, create a `Mapping` to expose the endpoint:
+After applying this module, the diagnostics interface are no longer accessible from the outside world. Administrators can still reach it with Kubernetes port forwarding, which is limited to users who have permission to port-forward to the Ambassador Edge Stack pods:
 
-```yaml
-apiVersion: getambassador.io/v3alpha1
-kind: Mapping
-metadata:
-  name: diag-mapping
-spec:
-  host: diag.example.com
-  prefix: /diag/
-  rewrite: /diag/
-  service: localhost:8777
+```
+kubectl port-forward -n ambassador deploy/edge-stack 8877
 ```
 
-Now, administrators can connect to the diagnostic interface using the `diag.example.com` hostname, and the `Mapping` settings can be appropriately configured to better control access to these services. To learn more about Ambassador `Module` configurations, see [the-module-resource.md](technical-reference/using-custom-resources/the-module-resource.md "mention").
+Then visit `http://localhost:8877/ambassador/v0/diag/`. Use the namespace and deployment name of your installation.
+
+{% hint style="info" %}
+Starting with 3.15.0, Ambassador Edge Stack rejects a `Mapping` that routes to its own admin port (8877) unless the `Mapping` can only reach the readiness, liveness, or `/metrics` endpoints, so you can't expose the diagnostics interface with a `Mapping`.
+{% endhint %} To learn more about Ambassador `Module` configurations, see [the-module-resource.md](technical-reference/using-custom-resources/the-module-resource.md "mention").

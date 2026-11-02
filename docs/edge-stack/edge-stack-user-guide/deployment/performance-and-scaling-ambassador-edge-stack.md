@@ -131,6 +131,12 @@ $ kubectl exec -n ambassador -it ${POD} curl localhost:8877/debug
 
 Ambassador Edge Stack exposes endpoints at `localhost:8877/debug/pprof` to run Golang profiles to aid in live debugging. The endpoints are equivalent to those found in the [http/pprof](https://pkg.go.dev/net/http/pprof) package. `/debug/pprof/` returns an HTML page listing the available profiles.
 
+Starting with 3.15.0, these endpoints require the admin API key in the `X-Ambassador-Admin-API-Key` header, even from localhost. Configure the key with the `AMBASSADOR_ADMIN_API_KEY` environment variable or an `ambassador-edge-stack-admin-api-key` Secret in the Ambassador Edge Stack namespace, then, for example:
+
+```
+kubectl exec -n ambassador ${POD} -- curl -s -H "X-Ambassador-Admin-API-Key: <key>" localhost:8877/debug/pprof/heap > heap.pprof
+```
+
 The following are the different types of profiles you can run:
 
 | Profile                   | Function                                                                                                                                      |

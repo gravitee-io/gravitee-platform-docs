@@ -257,7 +257,7 @@ A common reason to try using this property is if you are using gRPC with TLS and
 
 **Envoy's admin port**
 
-* `admin_port` specifies the port where Ambassador Edge Stack's Envoy will listen for low-level admin requests. The default is 8001; it should almost never need changing.
+* `admin_port` specifies the port where Ambassador Edge Stack's Envoy will listen for low-level admin requests. The default is 8001; it should almost never need changing. Starting with 3.15.0, Envoy's admin interface listens on the Unix socket `/ambassador/sockets/envoy-admin.sock` instead, and `admin_port` applies only when [`AMBASSADOR_ENVOY_ADMIN_TCP=true`](../../edge-stack-user-guide/deployment/ambassador-edge-stack-environment-variables-and-ports.md#ambassador_envoy_admin_tcp) is set.
 
 **Lua scripts**
 

@@ -116,6 +116,10 @@ custom_tags:
       default_value: "unknown"  # optional
 ```
 
+{% hint style="warning" %}
+An `environment` tag sends the value of an environment variable of the Ambassador Edge Stack process to your tracing collector. Starting with 3.15.0, such a tag posts a warning in the diagnostics unless the variable is listed in [`AMBASSADOR_TRACING_ALLOWED_ENV_VARS`](../../edge-stack-user-guide/deployment/ambassador-edge-stack-environment-variables-and-ports.md#ambassador_tracing_allowed_env_vars), for example `SERVER_ID` in the example above. A tag that reads a variable whose name looks like a secret, such as one containing `PASSWORD`, `TOKEN`, or `SECRET`, is dropped with an error unless it's listed. Set [`AMBASSADOR_TRACING_ENFORCE_ENV_ALLOWLIST=true`](../../edge-stack-user-guide/deployment/ambassador-edge-stack-environment-variables-and-ports.md#ambassador_tracing_enforce_env_allowlist) to drop every tag that reads an unlisted variable. A custom tag that Envoy would refuse, for example one without exactly one tag kind or without a tag name, is dropped with an error.
+{% endhint %}
+
 ### Zipkin Driver Configurations
 
 * `collector_endpoint` gives the API endpoint of the Zipkin service where the spans will be sent. The default value is `/api/v2/spans`

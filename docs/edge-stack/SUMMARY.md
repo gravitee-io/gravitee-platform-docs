@@ -17,6 +17,7 @@
     * [Ambassador Edge Stack Environment Variables and Ports](edge-stack-user-guide/deployment/ambassador-edge-stack-environment-variables-and-ports.md)
     * [Ambassador Edge Stack and APIExt](edge-stack-user-guide/deployment/ambassador-edge-stack-and-apiext.md)
     * [Ambassador Edge Stack and Redis](edge-stack-user-guide/deployment/ambassador-edge-stack-and-redis.md)
+    * [Controlling Who Can Configure Ambassador Edge Stack](edge-stack-user-guide/deployment/controlling-who-can-configure-ambassador-edge-stack.md)
     * [Ambassador Edge Stack with AWS](edge-stack-user-guide/deployment/ambassador-edge-stack-with-aws.md)
     * [Ambassador Edge Stack with GKE](edge-stack-user-guide/deployment/ambassador-edge-stack-with-gke.md)
     * [Advanced Deployment Configuration](edge-stack-user-guide/deployment/advanced-deployment-configuration.md)

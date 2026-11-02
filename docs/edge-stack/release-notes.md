@@ -5,7 +5,39 @@ noIndex: true
 
 # Release Notes
 
-### Version 3.15.0 <a href="#id-3.15.0" id="id-3.15.0"></a>
+### Version 3.15.0 (October 30, 2026) <a href="#id-3.15.0" id="id-3.15.0"></a>
+
+#### Helm chart: Redis now requires a password
+
+{% hint style="warning" %}
+If you deploy with Argo CD, Flux, or anything else that renders the chart with `helm template`, set `redis.auth.password` before you upgrade, or create the `<release-fullname>-redis-auth` Secret yourself and set `redis.auth.createSecret: false`. Otherwise every render generates a new password and OAuth2 and rate limiting break. For this upgrade, use `helm upgrade --reset-then-reuse-values`, then run `kubectl rollout restart deployment/<release-fullname>`.
+{% endhint %}
+
+The Redis instance that the Helm chart creates, which holds OAuth2 sessions and rate limit state, previously accepted unauthenticated connections. Chart v8.15.0 generates a random password on the first install, stores it in the `<release-fullname>-redis-auth` Secret, and reuses it on every upgrade. The Secret is kept on `helm uninstall`. The first upgrade restarts Redis, so existing sessions and rate limit counters are reset. Redis refuses to start if the password is empty. To keep the previous behavior, set `redis.auth.enabled: false`. The published YAML manifests still run Redis without a password. To add one, see [Redis password in the Helm chart](edge-stack-user-guide/deployment/ambassador-edge-stack-and-redis.md#redis-password-in-the-helm-chart).
+
+#### Ambassador Edge Stack's internal admin interfaces are locked down
+
+Anyone who could create a `Mapping` could previously reach Ambassador Edge Stack's internal admin interfaces through it. In this release:
+
+* A `Mapping` or `TCPMapping` that targets Ambassador Edge Stack's admin ports (8001, 8003, 8004, 8005, 8877, 9696) on `localhost`, the pod IP, or its own Service is rejected. Rewrites to `/ambassador/v0/check_ready`, `/ambassador/v0/check_alive`, and `/metrics` are still allowed, so Linkerd health checks and Prometheus scraping keep working. `AMBASSADOR_ALLOW_INTERNAL_ADMIN_UPSTREAMS=true` turns the check off.
+* Envoy's admin interface and ADS listen on Unix sockets. Use `curl --unix-socket /ambassador/sockets/envoy-admin.sock http://localhost/<path>` inside the pod, including in `preStop` hooks. `AMBASSADOR_ENVOY_ADMIN_TCP=true` restores TCP.
+* The external snapshot server on port 8005 is off by default. Set `AMBASSADOR_ENABLE_SNAPSHOT_SERVER=true` to turn it on. It now requires credentials.
+* diagd binds to `127.0.0.1` and no longer trusts a client-supplied `X-Ambassador-Diag-IP` header.
+* Internal endpoints such as `/debug/pprof/` and `/rlconfig` require a per-pod token that Ambassador Edge Stack passes to itself. Operators can use the admin API key in `X-Ambassador-Admin-API-Key` instead. The plugin filter metrics port (8878) no longer serves the Go profiler.
+
+Permission to create Ambassador Edge Stack resources is still administrator-level access to the gateway, and Kubernetes RBAC decides who has it. The Helm chart can now install example ClusterRoles (`rbacExamples.create: true`). For more information, see [Controlling who can configure Ambassador Edge Stack](edge-stack-user-guide/deployment/controlling-who-can-configure-ambassador-edge-stack.md).
+
+**Before you upgrade:** update anything that uses `localhost:8001` (including `preStop` hooks), port 8005, or a `Mapping` to one of these ports.
+
+#### Resources can no longer read the gateway's secrets or files
+
+* `${VAR}` references in Kubernetes resources no longer expand variables whose names look like secrets, such as those containing `PASSWORD`, `SECRET`, `TOKEN`, or `API_KEY`. To allow specific names, set `AMBASSADOR_MANIFEST_ALLOWED_ENV_VARS`.
+* The Envoy format operators `%ENVIRONMENT%`, `%COALESCE%`, `%FILE_CONTENT%`, `%SECRET%`, `%CEL%`, and `%TYPED_CEL%` are rejected in `Mapping` and health check headers, error response bodies, and `AuthService` `add_auth_headers`. Built-in operators such as `%REQ(header)%`, `%PATH(NQ)%`, and `%QUERY_PARAM(name)%` cover most uses of CEL. An `AuthService` with a rejected header answers every request with `500` until it's fixed.
+* Files in `error_response_overrides` (`text_format_source`) must be under `/ambassador/ambassador-errorpages`, or a directory listed in `AMBASSADOR_ERROR_RESPONSE_ALLOWED_DIRS`. For more information, see [Custom error responses](technical-reference/traffic-management/custom-error-responses.md#file-response-bodies).
+* `TracingService` `environment` tags now post a warning, and tags that read secret-looking variables are dropped. To allow specific variables, set `AMBASSADOR_TRACING_ALLOWED_ENV_VARS`.
+* The Developer Portal no longer sends its internal access secret to documentation URLs or other backends.
+
+**Before you upgrade:** check the diagnostics for resources rejected by these checks.
 
 #### Upstream server certificate validation
 
@@ -21,9 +53,45 @@ Previously, when the `tls` field of a `Mapping` named a `TLSContext` that didn't
 
 This includes a `TLSContext` with no certificate and no CA, such as one that only sets `sni` or `min_tls_version`, because Ambassador Edge Stack treats it as invalid.
 
-The `tls` field of a `TCPMapping`, an `AuthService`, and a `RateLimitService` now blocks the connection in the same way. For an `AuthService`, requests then get its `status_on_error` response, unless `failure_mode_allow` is `true`. For a `RateLimitService`, requests then go through without rate limiting, unless `failure_mode_deny` is `true`.
+The `tls` field of a `TCPMapping`, an `AuthService`, and a `RateLimitService` now blocks the connection in the same way. For an `AuthService`, every request other than the liveness and readiness probes then gets a `500` response, regardless of `failure_mode_allow`. For a `RateLimitService`, requests then go through without rate limiting, unless `failure_mode_deny` is `true`.
 
 To find affected resources before you upgrade, search the Ambassador Edge Stack logs for `Originate-TLS context`. The message says `is not defined` even when the `TLSContext` exists but is invalid. The same search also finds the message `Originate-TLS context ... being used even though service ... lists HTTP`, which isn't related to this change.
+
+#### WebApplicationFirewall: Coraza 3.8.1 and more complete inspection
+
+The WAF now inspects the final frame of request and response bodies, and runs phase 2 rules for requests with no body, such as most `GET` requests. Previously these were skipped, which allowed a WAF bypass. The Coraza engine is upgraded from 3.3.3 to 3.8.1, which resolves 12 security advisories, including a rule bypass and a crash. Inspection is stricter: for example, invalid JSON bodies set `REQBODY_ERROR`, and `SecResponseBodyLimitAction Reject` returns `500` instead of `413`. Also fixed: a memory leak on WAF configuration reloads, and WAF and filter metrics being capped at 2000 series.
+
+**Before you upgrade:** traffic that passed the WAF before can now be blocked; validate your rules with `SecRuleEngine DetectionOnly` or in staging first.
+
+#### Removed the Ambassador Agent
+
+Ambassador Cloud is no longer available, so the `ambassador-agent` deployment is no longer installed by the Helm chart or included in the YAML manifests. `helm upgrade` removes it. For YAML installations, run the following commands, using the namespace that you installed into:
+
+```bash
+kubectl delete -n ambassador deployment/edge-stack-agent serviceaccount/edge-stack-agent role/edge-stack-agent-config rolebinding/edge-stack-agent-config service/edge-stack-agent --ignore-not-found
+kubectl delete clusterrolebinding/edge-stack-agent clusterrole/edge-stack-agent clusterrole/edge-stack-agent-pods clusterrole/edge-stack-agent-deployments clusterrole/edge-stack-agent-endpoints clusterrole/edge-stack-agent-configmaps clusterrole/edge-stack-agent-rollouts clusterrole/edge-stack-agent-applications --ignore-not-found
+```
+
+**After you upgrade:** for YAML installations, delete the agent resources with the commands above. Don't delete your Cloud Connect token ConfigMaps or Secrets.
+
+#### Graceful shutdown no longer drops requests
+
+Previously, on every pod restart or scale-down, the AuthService and RateLimitService stopped while Envoy kept serving, so requests failed with `403` or `504 UAEX` until Envoy was killed. On `SIGTERM`, Envoy now drains first and reports not ready, and the AuthService and RateLimitService keep serving until it's done. `AMBASSADOR_SHUTDOWN_DRAIN_TIME` and `AMBASSADOR_DRAIN_STRATEGY` tune the drain. The published YAML manifests no longer set `terminationGracePeriodSeconds: 0`, so the sequence can complete. If you install from a copy of an older manifest, remove that setting.
+
+#### OAuth2, External Filter, and configuration fixes
+
+* Fixed OAuth2 logins failing with `403 "session state does not match"` when two logins overlap in the same browser. Each login attempt now uses its own `ambassador_login.*` cookie, so if you have WAF rules or proxy cookie allowlists, permit it.
+* OAuth2 pending logins now expire after 15 minutes. To change this, set `OAUTH2_LOGIN_ATTEMPT_TTL`.
+* Fixed an open redirect in the OAuth2 Filter's `stateExpireRedirect` handling.
+* Fixed `Mapping` resources that point at the same `https://` service sharing another `Mapping`'s `TLSContext`, which could give a `Mapping` the wrong upstream certificate validation.
+* Fixed External Filter auth checks failing for about 5 seconds when a DNS packet is lost.
+* A format string or header that Envoy refuses, or a malformed added header, is now rejected with an error instead of stopping all configuration updates.
+
+#### Go 1.26.10, Redis 8.6.8, and dependency security updates
+
+Ambassador Edge Stack is now built with Go 1.26.10. Because of a Go 1.26 change, path-cleaning redirects issued by `amb-sidecar` now use `307` instead of `301`. The bundled Redis is upgraded to 8.6.8. This release also includes security updates to gRPC, `golang.org/x/net`, `golang.org/x/crypto`, go-git, OpenTelemetry, lego, klauspost/compress, and diagd's Python dependencies (`certifi`, `urllib3`, `idna`, `werkzeug`).
+
+**Before you upgrade:** rebuild custom `Plugin` Filters with Go 1.26.10.
 
 ### Version 3.14.4 (October 7, 2026) <a href="#id-3.14.4" id="id-3.14.4"></a>
 
