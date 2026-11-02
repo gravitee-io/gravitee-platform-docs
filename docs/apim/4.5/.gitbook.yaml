@@ -75,6 +75,7 @@ redirects:
  api-analytics/api-quality: using-the-product/managing-your-apis/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md
  api-analytics/audit-trail: using-the-product/managing-your-apis/api-measurement-tracking-and-analytics/audit-trail.md
  api-analytics/dashboards: using-the-product/managing-your-apis/api-measurement-tracking-and-analytics/create-a-dashboard.md
+ community-and-support/community/contributing-to-the-gravitee-api-management-developement: community-and-support/contributing-to-the-gravitee-api-management-developement.md
  community-and-support/developer-contributions: community-and-support/contributing-to-the-gravitee-api-management-developement.md
  community-and-support/enterprise-support: overview/gravitee-apim-enterprise-edition/enterprise-support.md
  community/community-forum: README.md
