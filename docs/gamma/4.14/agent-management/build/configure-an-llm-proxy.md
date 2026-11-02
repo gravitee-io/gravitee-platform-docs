@@ -13,7 +13,7 @@ After you create an LLM Proxy, configure guardrails, PII filtering, rate limitin
 The LLM Proxy detail view groups its pages as follows.
 
 * **General**: **Overview**, **Settings**, **User Permissions**, and **Metadata**. The **Overview** page shows a **Connection** card with the gateway URLs of the proxy.
-* **Design**: **Entrypoints**, **Policy Studio**, **Models**, **Failover**, **Resources**, **API Properties**, and **CORS**.
+* **Design**: **Entrypoints**, **Policy Studio**, **Models**, **Failover**, **Resources**, **Properties**, and **CORS**.
 * **Consumers**: **Plans**, **Subscriptions**, and **Broadcasts**.
 * **Monitoring**: **Notifications** and **Audit Logs**.
 * **Observability**: **Dashboard**, **Logs**, and **Tracing**, each shown when its deep link is available.
@@ -99,7 +99,7 @@ To manage the resources of the LLM Proxy, under **Design**, select **Resources**
 
 ## Properties
 
-Policies read the key/value properties of the LLM Proxy at runtime through the Expression Language, with the syntax `{#api.properties['key']}`. To manage them, under **General**, select **API Properties**. For the steps to add, import, or sync properties from an HTTP endpoint, see [Configure properties for your proxies](configure-properties-for-your-proxies.md).
+Policies read the key/value properties of the LLM Proxy at runtime through the Expression Language, with the syntax `{#api.properties['key']}`. To manage them, under **Design**, select **Properties**. For the steps to add, import, or sync properties from an HTTP endpoint, see [Configure properties for your proxies](configure-properties-for-your-proxies.md).
 
 ## Picture
 

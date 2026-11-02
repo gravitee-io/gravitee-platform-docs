@@ -10,7 +10,7 @@ The two are separate steps. The gateway application is enough for API Key plans.
 
 ## Open the Identity page
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **Agents**.
 3. Click the agent's name.
 4. In the **Agent** section of the agent's sidebar, click **Identity**.

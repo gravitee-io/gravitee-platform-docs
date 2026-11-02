@@ -10,7 +10,7 @@ Lineage is read from the gateway's analytics, and it keeps the top talkers of ea
 
 ## Open the Lineage page
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Govern** section of the sidebar, select **Lineage**.
 3. Under **Time window**, select **Last hour**, **Last 24 hours**, **Last 7 days**, or **Last 30 days**. The page opens on the last 24 hours. Changing the window clears the starting point.
 4. In **Choose a starting point…**, pick an agent or a proxy. The list holds only the agents and proxies that carried traffic in the window, grouped under **Agents**, **LLM proxies**, **MCP proxies**, and **A2A proxies**, each with its request count.

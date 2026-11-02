@@ -77,7 +77,7 @@ The agent is named after the domain. A run reads at most 500 domains, and treats
 
 ## Find shadow AI agents in the list
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **Agents**.
 
 In the **Agents** list, the source reads under each agent's name: **Shadow AI** for a detected domain, **Manual** for an agent registered from the console, and the platform's name for an imported one. To list the detected domains alone, open the **Source** filter and select **Shadow AI**. A detected domain reads **Not on the gateway** in the **Gateway state** column, **No owner** in the **Owner** column, and **Discovered** in the **Governance** column. The **Compliance** column reads **Not assessed** until an activated framework applies to the domain, **Passed** when it meets every applicable framework, and **Failed** otherwise.

@@ -11,7 +11,7 @@ A consumer gets access to an agent by subscribing an application to a plan of th
 
 ## Create and publish a plan
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Secure** section of the sidebar, select **A2A Proxies**.
 3. Click the proxy's name.
 4. Under **Consumer Access**, click **Plans**. The page lists the proxy's plans with their **Name**, **Security**, **Created** date, and **Status**.

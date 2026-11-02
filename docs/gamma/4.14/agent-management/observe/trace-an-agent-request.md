@@ -14,7 +14,7 @@ The Trace Explorer lists the OpenTelemetry traces recorded for one proxy at a ti
 
 ## Open the traces of a proxy
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Observability** section of the sidebar, select **Tracing**.
 3. In **Select an API…**, pick the proxy. Until you pick one, the table reads **Select an API above to view its traces.**
 4. Optional: Change the time range with the time range picker.

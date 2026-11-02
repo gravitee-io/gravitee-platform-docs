@@ -18,7 +18,7 @@ No additional import steps are required. The resources appear in the Catalog as 
 
 To review cataloged resources:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Navigate to the **Catalog** → **Resources** list.
 3. Select any resource to view its URI, MIME Type, and Entity ID.
 

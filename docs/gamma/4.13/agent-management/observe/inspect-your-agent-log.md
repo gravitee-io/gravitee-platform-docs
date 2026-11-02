@@ -47,7 +47,7 @@ Each node in the lineage is a clickable span that expands to show the full detai
 
 ## Access the agent log
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Navigate to **Observe** → **Agent Log**.
 3. Select a trace to view the lineage.
 

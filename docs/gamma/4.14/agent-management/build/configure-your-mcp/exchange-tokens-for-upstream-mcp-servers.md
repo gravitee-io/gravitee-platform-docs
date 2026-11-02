@@ -40,7 +40,7 @@ For an **External Authorization Server** plan, the creation wizard declares an *
 
 To exchange tokens through an **OAuth2 / OpenID Connect Provider** resource, set its token exchange endpoint first:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**, and then select your MCP Proxy.
 3. Under **Design**, select **Resources**.
 4. Open the actions menu of the resource, and then click **Edit**.

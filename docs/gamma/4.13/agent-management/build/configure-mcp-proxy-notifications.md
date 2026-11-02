@@ -10,7 +10,7 @@ The **Notifications** page controls which API events send notifications and wher
 
 To open the page, follow these steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**.
 3. Select your MCP Proxy.
 4. Under **Monitoring**, select **Notifications**.

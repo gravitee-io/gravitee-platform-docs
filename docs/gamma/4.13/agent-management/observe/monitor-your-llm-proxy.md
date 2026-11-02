@@ -56,7 +56,7 @@ You can open the dashboard across every LLM Proxy in the environment, or pre-fil
 
 ### Across all LLM Proxies
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Observability** section of the sidebar, select **Dashboards**.
 3. Select the **LLM — Overview** dashboard.
 
@@ -64,7 +64,7 @@ The dashboard opens scoped to LLM traffic only. It opens on a short relative tim
 
 ### For a single LLM Proxy
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Select **LLM Proxies**, then select your proxy.
 3. In the **Observability** group of the proxy sidebar, select **Dashboard**.
 

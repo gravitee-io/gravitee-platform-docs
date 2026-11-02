@@ -37,7 +37,7 @@ An MCP Proxy records the versions you select and doesn't negotiate the version i
 
 ### After creation
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**, and then open the MCP Proxy.
 3. Under **Design**, select **Entrypoint**.
 4. In the **MCP specification versions** card, select the versions under **Clients may connect with**, and then click **Save versions**.
@@ -67,7 +67,7 @@ Each source of the Studio uses the versions set on its catalog MCP server, so on
 
 ### After creation
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**, and then open the MCP Studio.
 3. Under **Design**, select **Entrypoint**.
 4. In the **MCP specification versions** card, select the versions under **Clients may connect with**, and then click **Save versions**.
@@ -81,7 +81,7 @@ The **Source MCP versions** card lists the versions each source uses. Change the
 
 A catalog MCP server starts with the version it reported when you verified its URL. When the gateway doesn't support that version, the server starts with 2025-11-25.
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Catalog**, select **MCP Servers**, and then select the server. The **Overview** card shows the versions in use as **MCP versions used by the gateway**, and the version the server reported as **Discovered protocol version**.
 3. Click **Configure**.
 4. In the **MCP specification versions** card, under **The gateway talks to this server with**, select the versions the server supports.

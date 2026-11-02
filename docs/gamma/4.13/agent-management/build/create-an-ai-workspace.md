@@ -14,7 +14,7 @@ The name does more than label the workspace. The gateway path of the Default LLM
 
 To create an AI Workspace, complete the following steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **AI Workspaces**.
 3. Select **+ Create AI workspace**.
 
@@ -104,7 +104,7 @@ The **General** page of a workspace edits its name, description, and version aft
 
 To verify the AI Workspace was created as expected, follow these steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **AI Workspaces**.
 3. Confirm the workspace appears in the list.
 4. Select the workspace.

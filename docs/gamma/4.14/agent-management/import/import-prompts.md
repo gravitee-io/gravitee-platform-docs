@@ -28,7 +28,7 @@ No additional import steps are required. The prompts appear in the Catalog as pa
 
 To review cataloged prompts:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Navigate to the **Catalog** → **Prompts** list.
 3. Select any prompt to view its Entity ID, source details, and description.
 

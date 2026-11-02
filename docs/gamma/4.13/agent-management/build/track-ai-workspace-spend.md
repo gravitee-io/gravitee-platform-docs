@@ -14,7 +14,7 @@ The page counts the LLM traffic that runs through the workspace. For charts of t
 
 To open the **Spend** page of a workspace, complete the following steps:
 
-1. From the Gamma console sidebar, open **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, open **AI Workspaces**.
 3. Select the workspace.
 4. Under **Observability**, click **Spend**.

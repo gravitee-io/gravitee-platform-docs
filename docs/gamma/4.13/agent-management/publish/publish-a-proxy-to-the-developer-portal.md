@@ -22,7 +22,7 @@ So a freshly created proxy is public but unpublished. It's reachable on the gate
 
 Categories are the environment's portal categories, the ones configured in the APIM Console. They're the one portal field you set from Agent Management.
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Secure** section of the sidebar, select **LLM Proxies**, **MCP Proxies**, or **A2A Proxies**.
 3. Select the proxy.
 4. In the **General** section of the proxy sidebar, select **General**. For an MCP Proxy, select **Settings** instead.

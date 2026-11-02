@@ -20,7 +20,7 @@ The authoring actions (**New dashboard**, **Edit**, **Duplicate**, and **Delete*
 
 The **Dashboards** page also appears in **API Management**, where it lists the dashboard templates that module ships. Building and saving your own dashboards is an Agent Management capability.
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Observability** section of the sidebar, select **Dashboards**.
 
 <figure><img src="../../.gitbook/assets/gamma-aim-dashboards-list.png" alt="The Dashboards list of the Agent Management Observability section, with the custom dashboard Docbot traffic watch carrying a Custom badge above the MCP, LLM, and A2A Overview templates carrying Template badges, and the New dashboard button in the top right"><figcaption><p>The Dashboards list</p></figcaption></figure>

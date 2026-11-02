@@ -14,7 +14,7 @@ Every workspace starts with one budget named `Default`, created from the values 
 
 To create a budget, complete the following steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **AI Workspaces**.
 3. Select the workspace.
 4. Under **Access**, select **Budgets**.

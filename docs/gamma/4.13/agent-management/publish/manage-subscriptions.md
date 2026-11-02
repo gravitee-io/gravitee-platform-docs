@@ -10,7 +10,7 @@ Consumers access your LLM Proxies, MCP Proxies, and A2A Proxies by subscribing t
 
 ## Open the Consumers page
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **LLM Proxies**, **MCP Proxies**, or **A2A Proxies**.
 3. Select the proxy.
 4. Under **Consumers**, select **Subscriptions**.

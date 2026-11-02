@@ -13,7 +13,7 @@ This is a different surface from the **Overview** page of a single proxy, which 
 
 ## Open the Overview page
 
-1. From the Gamma console sidebar, select **Agent Management**. The module opens on **Overview**.
+1. In the Gamma console, open **Agent Management**. The module opens on **Overview**.
 2. To return to it from anywhere in the module, find the **General** group in the sidebar and select **Overview**.
 
 The line beside the page title reports when the figures were last updated. Select **Refresh** to read them again.
