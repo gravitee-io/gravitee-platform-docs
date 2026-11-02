@@ -33,7 +33,7 @@ The percentage of controls met is counted over the assessed controls only. The r
 
 ## Activate the framework
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Govern** section of the sidebar, select **Compliance**. The page lists the frameworks and the custom rulesets of the environment with their **Type**, **Result**, **Controls met**, and whether each one is **Active**.
 3. Click **EU AI Act**. The framework's page opens.
 4. Turn on the **Active** switch.

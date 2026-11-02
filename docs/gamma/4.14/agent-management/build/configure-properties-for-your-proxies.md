@@ -6,17 +6,17 @@ description: API properties are key and value pairs Gamma policies read at runti
 
 # Configure properties for your proxies
 
-Each LLM Proxy, MCP Proxy, and A2A Proxy detail view includes an **API Properties** page. A property is a key/value pair that policies read at runtime through the Expression Language, with the syntax `{#api.properties['key']}`. Properties externalize configuration such as timeouts, feature flags, and secrets, so a policy reads the value instead of embedding it.
+Each LLM Proxy, MCP Proxy, and A2A Proxy detail view includes a **Properties** page. A property is a key/value pair that policies read at runtime through the Expression Language, with the syntax `{#api.properties['key']}`. Properties externalize configuration such as timeouts, feature flags, and secrets, so a policy reads the value instead of embedding it.
 
 You can add properties one at a time, import a list of them, or sync them from an HTTP endpoint on a schedule.
 
-## Open the API Properties page
+## Open the Properties page
 
 1. Under **Secure** in the module sidebar, select **LLM Proxies**, **MCP Proxies**, or **A2A Proxies**.
 2. Select the proxy you want to configure.
-3. Under **General**, select **API Properties**.
+3. Under **Design**, select **Properties**.
 
-<figure><img src="../.gitbook/assets/gamma-aim-api-properties-import.png" alt="The API Properties page of an A2A proxy with three properties listed and the Import properties panel open on the right"><figcaption><p>The API Properties page with the Import properties panel</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-api-properties-import.png" alt="The Properties page of an A2A proxy with three properties listed and the Import properties panel open on the right"><figcaption><p>The Properties page with the Import properties panel</p></figcaption></figure>
 
 Until the proxy has a property, the page shows a **Why define properties?** card instead of the table.
 

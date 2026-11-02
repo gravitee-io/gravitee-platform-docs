@@ -13,7 +13,7 @@ The agent's gateway application is the application that acts for the agent at th
 
 ## Open the Tools page
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **Agents**.
 3. Click the agent's name.
 4. In the **Agent** section of the agent's sidebar, click **Tools**.

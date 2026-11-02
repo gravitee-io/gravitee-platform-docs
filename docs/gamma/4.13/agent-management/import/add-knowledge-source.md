@@ -27,7 +27,7 @@ For Remote fetch, you can configure the **Document type**:
 
 ## Add a knowledge source
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Navigate to the **Catalog** → **Knowledge** list.
 3. Select **Add Knowledge Source**.
 4. Select the **Family** (e.g., Documents).

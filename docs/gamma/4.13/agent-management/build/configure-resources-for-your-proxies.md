@@ -12,7 +12,7 @@ For the AI resource types that the AI policies call, and how the AI Gateway load
 
 ## Open the Resources page
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **LLM Proxies**, **MCP Proxies**, or **A2A Proxies**.
 3. Select the proxy you want to configure.
 4. Under **Design**, select **Resources**.

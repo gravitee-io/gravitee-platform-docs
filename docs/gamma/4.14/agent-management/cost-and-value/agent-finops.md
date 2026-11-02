@@ -18,7 +18,7 @@ Cost attributes live on the catalog items that incur them.
 
 To price an MCP tool, follow these steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **Tools**.
 3. Click the tool's name.
 4. Next to **Reference cost**, click the edit button, enter the amount in US dollars per call, and save. Leave the field blank to leave the tool unpriced. A negative amount is refused.

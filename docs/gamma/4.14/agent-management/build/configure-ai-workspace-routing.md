@@ -54,7 +54,7 @@ If the step itself fails, the request goes to the model it asked for. A band tha
 
 To open the **Router** page of a workspace, complete the following steps:
 
-1. From the Gamma console sidebar, open **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, open **AI Workspaces**.
 3. Select the workspace.
 4. Under **Access**, click **Router**.

@@ -12,7 +12,7 @@ The AI Workspace Overview dashboard charts the LLM traffic of AI Workspaces: req
 
 To open the dashboard for one workspace, complete the following steps:
 
-1. From the Gamma console sidebar, open **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, open **AI Workspaces**.
 3. Select the workspace.
 4. Under **Observability**, click **Dashboard**.
@@ -27,7 +27,7 @@ The **Open in dashboard** button of the **Spend** page opens the same dashboard 
 
 To open the dashboard from the **Dashboards** list, complete the following steps:
 
-1. From the Gamma console sidebar, open **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Observability**, click **Dashboards**.
 3. Click the AI Workspace Overview dashboard. The list marks it as a **Template**.
 

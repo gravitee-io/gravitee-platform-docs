@@ -17,7 +17,7 @@ Four screens make up the feature. Rules and the inbox live under **HITL** in the
 
 Rules don't hold anything on their own. A proxy holds its tool calls only once human approval is turned on for it.
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**.
 3. Select the proxy.
 4. On the **Overview** page, in the **Human approval** card, turn on **Enable human approval**.

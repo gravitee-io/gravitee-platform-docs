@@ -55,7 +55,7 @@ The shadow AI panel is the starting point for the MDM feedback loop: identify un
 
 ## Access the dashboard
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Navigate to **Observe** → **Edge Management**.
 3. The dashboard displays the fleet overview, with tabs for metrics, shadow AI, and system health.
 

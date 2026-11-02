@@ -20,7 +20,7 @@ This bridge means that the enterprise APIs you've already built and governed—i
 
 ## Create an API tool
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Catalog** section, select **Tools**.
 3. Select **Create tool**, and then choose **API tool**.
 4. On the **Pick sources** step, search for one or more APIs that have OpenAPI documentation to shape the tool. Selected APIs display their version and their published security plans.

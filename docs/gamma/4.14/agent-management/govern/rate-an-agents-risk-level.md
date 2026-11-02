@@ -17,7 +17,7 @@ Once set, a rating can be changed to another value and can't be cleared back to 
 
 ## Rate an agent
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **Agents**.
 3. Click the agent's name. Its **Overview** page opens.
 4. In the **Registry** column of the card that describes the agent, find the **Classification** row and click the rating. The rating is a button when you can update Catalog items, and a plain badge otherwise.

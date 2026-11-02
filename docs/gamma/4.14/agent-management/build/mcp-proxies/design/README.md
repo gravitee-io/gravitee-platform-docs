@@ -6,7 +6,7 @@ description: Configure the entrypoint, policies, endpoint, and CORS of an MCP Pr
 
 # Design
 
-The **Design** group of an MCP Proxy holds its **Entrypoint**, **Policy Studio**, **Endpoint**, **Resources**, **API Properties**, and **CORS** pages. An MCP Studio shows **Tools** in place of **Endpoint**. The shared [Configure resources for your proxies](../../configure-resources-for-your-proxies.md) and [Configure properties for your proxies](../../configure-properties-for-your-proxies.md) guides cover the **Resources** and **API Properties** pages.
+The **Design** group of an MCP Proxy holds its **Entrypoint**, **Policy Studio**, **Endpoint**, **Resources**, **Properties**, and **CORS** pages. An MCP Studio shows **Tools** in place of **Endpoint**. The shared [Configure resources for your proxies](../../configure-resources-for-your-proxies.md) and [Configure properties for your proxies](../../configure-properties-for-your-proxies.md) guides cover the **Resources** and **Properties** pages.
 
 * [**Configure the MCP Proxy entrypoint**](../../configure-mcp-proxy-entrypoint.md). Change the context path that MCP clients call, and copy the URL it gives.
 * [**Configure MCP specification versions**](../../configure-your-mcp/configure-mcp-specification-versions.md). Choose the MCP specification versions clients may connect with, and the versions the gateway uses with the upstream server.

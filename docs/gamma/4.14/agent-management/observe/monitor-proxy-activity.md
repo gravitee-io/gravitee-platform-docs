@@ -68,7 +68,7 @@ A registered agent's **Activity** page reports what the agent did: the model and
 
 ### Open the Activity page
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **Agents**.
 3. Click the agent's name.
 4. In the **Operations** section of the agent's sidebar, click **Activity**.

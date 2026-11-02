@@ -14,7 +14,7 @@ The value is declared, not measured, and the tile that shows it is labelled as d
 
 A tool's value is a **Reference value** in US dollars per successful call, set inline on the tool's page in the Catalog. For a tool that settles a claim, that value is the handling cost a human would otherwise incur. It's independent of the tool's **Reference cost**: a tool can carry either, both, or neither.
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **Tools**.
 3. Click the tool's name.
 4. Next to **Reference value**, click the edit button, enter the amount in US dollars per successful call, and save. Leave the field blank to declare no value. A negative amount is refused.

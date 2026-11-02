@@ -20,7 +20,7 @@ For a complete reference on all configuration options, see [Create an LLM Proxy]
 
 ## Step 1: Open the LLM Proxy wizard
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **LLM Proxies**.
 3. Select **+ Create LLM proxy**.
 

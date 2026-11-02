@@ -18,7 +18,7 @@ Add at least one model before adding users. Until the workspace holds a model, i
 
 To add users to an AI Workspace, complete the following steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **AI Workspaces**.
 3. Select the workspace.
 4. Under **Access**, select **Users**.
