@@ -22,15 +22,15 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies.
 
 ### Edge Management
 
-Edge Management secures the calls of the Edge Daemons with Gravitee plans. The daemons identify themselves to the Edge Reactor through a keyless plan, an mTLS plan that matches the certificates of your fleet, or both. The routes of an intercepted agent take an OAuth2 plan of their target API, so that each developer signs in with your identity provider.
+Edge Management decides how the Edge Daemons identify themselves to the Edge Reactor: keyless, mTLS with the certificates of your fleet, or both. The routes of an intercepted agent take an OAuth2 plan of their target API, so that each developer signs in with your identity provider.
 
 #### Daemon authentication
 
 * The new **Daemon authentication** page, in the **Configuration** group, and the new **Authentication** step of the guided setup decide how the daemons of an environment identify themselves to the Edge Reactor.
-* The **Keyless** plan serves daemons that present no certificate, and it's published by default. The **mTLS** plan serves daemons that present one of the certificates enrolled on the page, issued by your own PKI. Gravitee never sees a private key.
-* Closing the keyless plan makes authentication mandatory. It closes once the mTLS plan is published, a certificate is active, and the fleet subscription is accepted.
-* The Edge Reactor listener runs over TLS and asks the daemons for a client certificate once you configure it to. By default, it stays plain HTTP. See [Secure the Edge Reactor listener](../edge-management/connect/secure-the-edge-reactor-listener.md).
-* An environment configured before 4.14 has no fleet application yet. The next **Save & Deploy** from any configuration page of Edge Management creates it, along with the **Keyless** and **mTLS** plans if either is missing. Until you close it, the keyless plan keeps serving the daemons.
+* **Keyless** serves daemons that present no certificate, and every daemon while mTLS is off. It's on by default. **mTLS** serves daemons that present one of the active certificates enrolled on the page, issued by your own PKI. Gravitee never sees a private key. Both can be on at the same time, and at least one always stays on.
+* Turning keyless off makes authentication mandatory. Keyless can be turned off once mTLS is on and an enrolled certificate is active.
+* The Edge Reactor listener runs over TLS and asks the daemons for a client certificate once you configure it to. By default, it stays plain HTTP. When the listener requires a certificate, a certificate that it doesn't trust fails at the TLS handshake. It trusts the enrolled certificates, and mTLS only accepts a certificate in the environment that enrolled it. See [Secure the Edge Reactor listener](../edge-management/connect/secure-the-edge-reactor-listener.md).
+* After the upgrade, the Edge Reactor refuses every call from the daemons of an environment configured before 4.14, until its Edge API is deployed again. Any change that you save in Edge Management for that environment deploys it, for example enrolling a certificate. The redeployed Edge API has keyless on, as by default.
 * See [Configure daemon authentication](../edge-management/connect/configure-daemon-authentication.md).
 
 #### OAuth2 plans on intercepted routes
