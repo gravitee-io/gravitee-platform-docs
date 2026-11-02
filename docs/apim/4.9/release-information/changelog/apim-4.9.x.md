@@ -7,6 +7,20 @@ metaLinks:
 
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.39 - November 2, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* V4→V2 rollback refused by the plan check leaves the API half-converted, and the Console API list returns 500 for the whole environment [#11931](https://github.com/gravitee-io/issues/issues/11931)
+* Async rate-limit flush fails with Redis timeouts when many keys are pending [#11980](https://github.com/gravitee-io/issues/issues/11980)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.9.38 - October 23, 2026
 <details>
 
