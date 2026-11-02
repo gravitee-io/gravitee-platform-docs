@@ -31,9 +31,10 @@ Gamma doesn't host Kafka clusters. It governs them. A Cluster stores the connect
 4. In the **Identity** step, enter a **Name** and an optional **Description**. The name is required and accepts up to 255 characters.
 5. Select **Next: Configuration**.
 6. In the **Configuration** step, select **Add** to add an entry to the **Kafka Cluster Connections** list. Add one entry for each connection that you want the Cluster to expose, and complete the fields of each entry. See [Connection fields](#connection-fields).
-7. Select **Next: Review**.
-8. In the **Review** step, check the summary. Secrets are masked.
-9. Select **Create Cluster**.
+7. Optional: in **Backend metadata max age (seconds)**, below the list, enter a whole number of seconds from `0` to `3600`. Leave the field empty to apply the gateway default. See [Set the backend metadata max age](manage-a-cluster.md#set-the-backend-metadata-max-age).
+8. Select **Next: Review**.
+9. In the **Review** step, check the summary. Secrets are masked.
+10. Select **Create Cluster**.
 
 The console confirms with **Cluster created** and opens the **Overview** page of the Cluster. A new Cluster is **Undeployed**: it appears in the **Clusters** list, but the gateway doesn't know it yet, and Kafka Services and Virtual Clusters can't use it.
 

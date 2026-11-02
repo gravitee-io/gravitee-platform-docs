@@ -54,6 +54,24 @@ When you save a **Deployed** Virtual Cluster, or one with **Pending changes**, w
 
 The Management API saves the empty configuration. The Virtual Cluster moves to **Pending changes**, the gateway keeps serving the previously deployed backends, and **Deploy changes** stays disabled until you add a backend. To stop the traffic, stop the Kafka Services bound to the Virtual Cluster, then select **Undeploy**.
 
+## Set the backend metadata max age
+
+After it authenticates to a backend on a new client connection, the gateway sends its own request for the metadata of every topic of that backend. By default, every new client connection of every Kafka Service bound to the Virtual Cluster sends that request to each backend. The Virtual Cluster can let each gateway instance reuse its last request to each backend instead:
+
+1. Open the Virtual Cluster.
+2. In the **General** group of the sidebar, select **Configuration**.
+3. In **Backend metadata max age (seconds)**, below the backends, enter a whole number of seconds from `0` to `3600`, or leave the field empty to apply the gateway default.
+4. At the bottom of the page, select **Save changes**.
+5. Select **Deploy changes** above the page.
+
+<figure><img src="../../.gitbook/assets/gamma-esm-virtual-cluster-backend-metadata-max-age.png" alt="The Configuration page of a Virtual Cluster, with one backend in the composer and Backend metadata max age (seconds) set to 20 below it"><figcaption><p>The backend metadata max age of a Virtual Cluster</p></figcaption></figure>
+
+The value applies to every backend of the Virtual Cluster, whatever their own Clusters set. Once the changes are deployed, it applies to the new connections of every Kafka Service bound to the Virtual Cluster, without a new deployment of the Kafka Services. A value that isn't a whole number of seconds from `0` to `3600` shows **Enter a whole number of seconds, from 0 to 3600.** and disables **Save changes**. The creation wizard doesn't offer the field: set it after you create the Virtual Cluster.
+
+With `0`, every new client connection sends the request to each backend, as before. With a value above `0`, each gateway instance sends it at most about once per that many seconds and per backend, whatever the number of clients. With `30`, each backend serves about one such request per gateway instance every 30 to 60 seconds. A topic that a gateway instance hasn't seen yet is looked up on its backend the first time a client names it by ID. That request waits for the lookup, for at most 3 seconds.
+
+Without permission to change the configuration, the read-only **Configuration** card shows a **Backend metadata max age** row. It reads **Gateway default**, **Off** for `0`, or the value, for example **20 s**.
+
 ## Read the Kafka Mesh constraints
 
 Below the backends, the **Configuration** page shows a **Kafka Mesh** card with the runtime constraints of the gateway. Its badge shows the number of backends, such as **1 backend** or **2 backends**.

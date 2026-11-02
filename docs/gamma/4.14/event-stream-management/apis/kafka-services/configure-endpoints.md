@@ -44,7 +44,7 @@ The new group goes to the bottom of the list. **Back to list** leaves the form w
 
 ## Manage the groups
 
-* To rename a group, click its **Edit** button, change **Group name**, then click **Save group**.
+* To rename a group, click its **Edit** button, change **Group name**, then click **Save group**. For a **Standalone** group, the same form holds **Backend metadata max age (seconds)** and the security its endpoints can inherit. See [Set the backend metadata max age of a Standalone group](#set-the-backend-metadata-max-age-of-a-standalone-group).
 * To reorder the groups, click the up and down arrows of a group. The group at the top is the **Default** group that the gateway uses.
 * To delete a group, click its delete icon, then click **Delete** in the **Delete endpoint group?** dialog. A Kafka Service keeps at least one endpoint group, so the delete icon is disabled while only one remains.
 
@@ -93,6 +93,23 @@ The **Security** settings of a **Standalone** endpoint use the same form as a re
 * Select the security protocol, for example `PLAINTEXT`, `SASL_PLAINTEXT`, `SASL_SSL`, or `SSL`, then complete the SASL or SSL settings that appear.
 * An SSL truststore or key store set to **None** means that the endpoint has no truststore or no key store.
 * A truststore in PEM format, given by its path or its content, needs no password.
+
+## Set the backend metadata max age of a Standalone group
+
+After it authenticates to the brokers on a new client connection, the gateway sends its own request for the metadata of every topic. By default, every new client connection sends that request. A **Standalone** group can let each gateway instance reuse its last request to the group's brokers instead:
+
+1. Click the **Edit** button of the group.
+2. In **Backend metadata max age (seconds)**, enter a whole number of seconds from `0` to `3600`, or leave the field empty to apply the gateway default.
+3. Click **Save group**.
+4. Deploy the Kafka Service.
+
+<figure><img src="../../.gitbook/assets/gamma-esm-kafka-service-group-backend-metadata-max-age.png" alt="The edit form of a Standalone endpoint group, with Backend metadata max age (seconds) set to 30 between the group name and the security settings"><figcaption><p>The backend metadata max age of a Standalone group</p></figcaption></figure>
+
+The group then shows a **Metadata max age** badge with the value, for example **Metadata max age 30 s**, or **Metadata max age off** for `0`. Without a value, the group shows no badge, and the gateway default applies: off, unless the gateway configuration sets another value. A value that isn't a whole number of seconds from `0` to `3600` shows **Enter a whole number of seconds, from 0 to 3600.** and disables **Save group**.
+
+With `0`, every new client connection sends the request, as before. With a value above `0`, each gateway instance sends it at most about once per that many seconds, whatever the number of clients. With `30`, the brokers serve about one such request per gateway instance every 30 to 60 seconds. A topic that a gateway instance hasn't seen yet is looked up on the brokers the first time a client names it by ID. That request waits for the lookup, for at most 3 seconds. With the `DELEGATE_TO_BROKER` mechanism, the clients of each account share one request, and with a SASL mechanism other than `PLAIN` the setting only applies when the gateway instances share a distributed cache.
+
+A **Managed Cluster** or **Virtual Cluster** group has no such field: the Cluster or the Virtual Cluster sets the max age for every Kafka Service bound to it. See [Set the backend metadata max age](../../kafka-infrastructure/clusters/manage-a-cluster.md#set-the-backend-metadata-max-age) of a Cluster and [Set the backend metadata max age](../../kafka-infrastructure/virtual-clusters/manage-a-virtual-cluster.md#set-the-backend-metadata-max-age) of a Virtual Cluster.
 
 ## Verification
 

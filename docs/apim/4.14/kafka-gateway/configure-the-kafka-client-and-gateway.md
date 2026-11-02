@@ -169,7 +169,7 @@ kafka:
     defaultPort: 9092
 ```
 
-Every API is then reachable on each domain: `api1.mycompany.org:9092` **and** `api1.mycompany.com:9092`, with the matching broker hostnames `broker-0-api1.mycompany.org`, `broker-0-api1.mycompany.com`, and so on.
+Every API is then reachable on each domain: `api1.mycompany.org:9092` **and** `api1.mycompany.com:9092`, with the matching broker hostnames `broker-0-api1.mycompany.org`, `broker-0-api1.mycompany.com`, and the same for every other broker.
 
 Each domain needs its own wildcard DNS entry, and the Gateway must be able to present a certificate matching it — either one certificate per domain or a single certificate carrying all of them as SANs. Routing is done on SNI, so the name the client asks for is the name that has to be served.
 
@@ -366,6 +366,28 @@ When a connection limit is set and Gateway metrics are on, the Gateway exposes t
 
 With a limit of 20 and 15 open connections, `kafka_gateway_connection_usage` is `0.75`. It reads `1` when the Gateway refuses connections. The gauges are exposed whether or not `kafka.readiness.enabled` is set.
 
+### Set the default backend metadata max age
+
+After it authenticates to the brokers on a new client connection, the gateway sends its own request for the metadata of every topic of the backend. The brokers answer it with one authorization check per topic. By default, every new client connection sends that request. `kafka.backendMetadataMaxAge` sets, in seconds, how long each gateway instance reuses its last request to a backend instead. It applies to every native Kafka API endpoint group, Kafka cluster, and Virtual Cluster that sets no max age of its own:
+
+```yaml
+kafka:
+  # How long, in seconds (0 to 3600), a gateway instance reuses its own all-topics metadata request to a backend
+  # before its next connection to that backend sends it again. Default is 0: every new client connection sends it.
+  # Applies to the endpoint groups, Kafka clusters, and Virtual Clusters that set no backendMetadataMaxAge of their own.
+  backendMetadataMaxAge: 0
+  mesh:
+    # Whether the metadata refreshes of a Virtual Cluster reuse one connection per backend instead of opening one
+    # per refresh. Only applies when the backend metadata max age is above 0. Default is true.
+    refreshConnectionReuse: true
+```
+
+* `0`, the default, keeps one request per new client connection.
+* A value from `1` to `3600` sends the request at most about once per that many seconds, per gateway instance and backend. With `30`, a backend serves about one such request per gateway instance every 30 to 60 seconds, whatever the number of clients.
+* A value outside `0` to `3600`, or one that isn't a whole number, is ignored: the gateway logs an error and uses `0`.
+
+An endpoint group, a Kafka cluster, or a Virtual Cluster that sets its own **Backend metadata max age (seconds)** overrides this default. See [Bound the gateway's own metadata requests](create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md#bound-the-gateways-own-metadata-requests). With the Helm chart, set `gateway.kafka.backendMetadataMaxAge` and `gateway.kafka.mesh.refreshConnectionReuse`.
+
 ## Configure the Kafka client
 
 To use the Kafka Gateway, you use a regular Kafka client. There are many implementations of the Kafka client, and you can use any client that supports the full Kafka protocol.
@@ -554,6 +576,11 @@ kafka:
 
   instances: 0             # Event-loop instances. Default is 0, which uses the Vert.x default (twice the number of CPU cores)
   requestTimeout: 35000    # Default is 35000 ms
+
+  # Gateway-originated metadata requests. See Set the default backend metadata max age above.
+  backendMetadataMaxAge: 0 # Seconds (0 to 3600) a gateway instance reuses its own all-topics metadata request to a backend. Default is 0: every new client connection sends it
+  mesh:
+    refreshConnectionReuse: true # Virtual Cluster metadata refreshes reuse one connection per backend when the max age is above 0. Default is true
 
   # Kafka metrics
   metrics:

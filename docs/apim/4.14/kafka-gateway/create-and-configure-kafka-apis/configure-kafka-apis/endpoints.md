@@ -35,7 +35,7 @@ An endpoint with an empty or null tenant list is considered shared and always ma
 
 ## Security protocols
 
-Gravitee Kafka APIs support **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, or **SSL** as the security protocol to connect to the Kafka cluster.
+Gravitee Kafka APIs support `PLAINTEXT`, `SASL_PLAINTEXT`, `SASL_SSL`, or `SSL` as the security protocol to connect to the Kafka cluster.
 
 ### SASL mechanisms
 
@@ -101,9 +101,9 @@ Gravitee assigns each Kafka API endpoint group the default name **Default Broker
     <figure><img src="../../../.gitbook/assets/select-configuration-tab-endpoint-group.png" alt="The endpoint group editor with the Configuration tab selected and highlighted, showing the security protocol set to PLAINTEXT."><figcaption></figcaption></figure>
 4.  Select one of the security protocols from the drop-down menu, and then configure the associated settings to define your Kafka authentication flow.
 
-    <figure><img src="../../../.gitbook/assets/supported-endpoint-security-protocol.png" alt="The endpoint group Configuration tab with the security protocol dropdown open on PLAINTEXT, SASL_PLAINTEXT, SASL_SSL, and SSL."><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/supported-endpoint-security-protocol.png" alt="The endpoint group Configuration tab with the security protocol dropdown open, listing the four security protocols."><figcaption></figcaption></figure>
 
-* **PLAINTEXT:** No further security configuration is necessary.
+* **`PLAINTEXT`:** No further security configuration is necessary.
 * **SASL\_PLAINTEXT:** Choose NONE, AWS\_MSK\_IAM, GSSAPI, OAUTHBEARER, OAUTHBEARER\_TOKEN, PLAIN, SCRAM-SHA-256, SCRAM-SHA-512, or DELEGATE\_TO\_BROKER.
   * **NONE:** No additional security configuration required.
   * **AWS\_MSK\_IAM:** Enter the JAAS login context parameters.
@@ -123,6 +123,24 @@ Gravitee assigns each Kafka API endpoint group the default name **Default Broker
   * **PEM with content:** Enter binary content as base64. No truststore password is needed: PEM doesn't support one.
   * **PEM with path:** Enter the truststore file path. No truststore password is needed: PEM doesn't support one.
 * **SASL\_SSL:** Configure both SASL authentication and SSL encryption, choose a **SASL** mechanism from the options listed under **SASL\_PLAINTEXT**, and then configure **SSL** settings as described in the **SSL** section.
+
+### Bound the gateway's own metadata requests
+
+After it authenticates to the brokers on a new client connection, the gateway sends its own request for the metadata of every topic. The brokers answer it with one authorization check per topic. By default, every new client connection sends that request. On the **Configuration** tab of the endpoint group, **Backend metadata max age (seconds)** lets each gateway instance reuse its last request to the brokers of the group instead. The same field is on the **Configuration** step when you create an endpoint group.
+
+<figure><img src="../../../.gitbook/assets/kafka-endpoint-group-backend-metadata-max-age.png" alt="The Configuration tab of a native Kafka endpoint group, with the security protocol set to PLAINTEXT and Backend metadata max age (seconds) set to 30."><figcaption></figcaption></figure>
+
+* Leave the field empty to apply the gateway-wide default. That default is `0` unless the gateway configuration sets another value. See [Set the default backend metadata max age](../../configure-the-kafka-client-and-gateway.md#set-the-default-backend-metadata-max-age).
+* Enter `0` to send the request on every new client connection, as before.
+* Enter a whole number of seconds from `1` to `3600` to send it at most about once per that many seconds, per gateway instance. With `30`, the brokers serve about one such request per gateway instance every 30 to 60 seconds, whatever the number of clients.
+
+With a value above `0`, the following also applies:
+
+* A topic that a gateway instance hasn't seen yet is looked up on the brokers the first time a client names it by ID. The lookup uses the security settings of the endpoint group, or the client's own credentials with `DELEGATE_TO_BROKER`. The client's request waits for the lookup, for at most 3 seconds.
+* Gateway instances that share a distributed cache share the topics they learn. See [Deploy the Kafka Gateway for High Availability](../../deploy-the-kafka-gateway-for-high-availability.md#why-the-kafka-gateway-scales-horizontally).
+* With `DELEGATE_TO_BROKER`, the clients of each account share one request. With a SASL mechanism other than `PLAIN`, the setting only applies when the gateway instances share a distributed cache.
+
+An endpoint that doesn't inherit the configuration of its group uses the value set on its own **Configuration** tab, or the value of its group when it sets none. Deploy the API for a change to take effect.
 
 ## Edit the endpoint
 
