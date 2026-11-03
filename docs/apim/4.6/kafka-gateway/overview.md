@@ -8,7 +8,7 @@ The Gravitee Kafka Gateway applies Gravitee's API management capabilities direct
 
 * Apply [policies](policies/README.md) on Kafka topics at runtime
 * [Document](configure-kafka-apis/documentation.md) how clients can connect to Kafka, and publish that information to the Developer Portal
-* Manage [subscriptions](subscriptions.md) to Kafka topics via the Developer Portal in a self-service manner
+* Manage [subscriptions](../expose-apis/subscriptions.md) to Kafka topics via the Developer Portal in a self-service manner
 
 Policies that can be applied at runtime on native Kafka topics are designed for Kafka-specific use cases. For example:
 
