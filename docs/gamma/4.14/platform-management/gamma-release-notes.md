@@ -1,5 +1,5 @@
 ---
-description: What the Gamma 4.14 release adds to Agent Management and Edge Management. Browse the new features and changes.
+description: What the Gamma 4.14 release adds to Agent Management, Edge Management, and Platform Management. Browse the new features and changes.
 ---
 
 # Release Notes
@@ -45,3 +45,14 @@ Edge Management decides how the Edge Daemons identify themselves to the Edge Rea
 
 * If the Edge Reactor listener can't start, the gateway doesn't start either, for example when the port of the listener is already in use, or when its keystore or truststore can't be read. Before 4.14, the gateway started without the listener.
 * The setting for the port of the Edge Reactor listener has a new name. The previous name still works, and the gateway logs a warning at startup. See [Rename the port setting](../edge-management/connect/secure-the-edge-reactor-listener.md#rename-the-port-setting).
+
+### Platform Management
+
+Platform Management encrypts the sensitive values of environment dictionaries.
+
+#### Encrypted dictionary properties
+
+* On the detail page of a dictionary, turn on **Encrypt on save** when you add a property, or select **Encrypt** in the actions menu of an existing property, and then select **Save**. A dictionary holds encrypted and unencrypted properties side by side.
+* The console masks an encrypted value and never shows it again, while policies still read the original value at runtime. To change an encrypted value in a manual dictionary, select **Replace value**.
+* A dynamic dictionary encrypts every value that it fetches from its provider when you select **Encrypt fetched values** while you create or edit it.
+* See [Encrypt property values](manage-dictionaries.md#encrypt-property-values).
