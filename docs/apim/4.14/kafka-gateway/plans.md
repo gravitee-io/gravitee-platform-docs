@@ -70,6 +70,15 @@ To close a plan, click on the 'x' icon:
 
 <figure><img src="../.gitbook/assets/plan_close.png" alt="The Plans tab with the STAGING filter selected and the Close the plan tooltip shown over the cross icon for an OAuth2 plan."><figcaption><p>Close a plan</p></figcaption></figure>
 
+## When access changes take effect
+
+The Gateway checks a client's plan and subscription when the client connects, and again each time the client re-authenticates. If you close a subscription or revoke an API key, the client can't open new connections, but a connection that's already open keeps working:
+
+* With a JWT plan, the client re-authenticates before its token expires, and at least once an hour. To change this limit, set `kafka.oauthbearer.maxTokenLifetime` in `gravitee.yml`, in milliseconds. The client loses access when it re-authenticates.
+* With any other plan, the client keeps access until it disconnects.
+
+To cut off access straight away, redeploy the API. Redeploying closes every open connection to the API.
+
 ## Plan selection rules
 
 Unlike with HTTP APIs, there is only ever one set of policies per plan. Once the plan is defined, you can add one set of policies on that plan, but you can only remove it or edit it. The plan is selected based on the credential defined by the client in their connection properties.

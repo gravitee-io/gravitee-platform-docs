@@ -170,7 +170,6 @@
   * [Kafka ACL](kafka-gateway/policies/kafka-acl.md)
   * [Kafka Topic Mapping](kafka-gateway/policies/kafka-topic-mapping.md)
   * [Kafka Quota](kafka-gateway/policies/kafka-quota.md)
-* [Subscriptions for Kafka APIs](kafka-gateway/subscriptions.md)
 * [Other ways Gravitee supports Kafka](kafka-gateway/other-ways-gravitee-supports-kafka.md)
 
 ## Federation

@@ -810,6 +810,7 @@ redirects:
  kafka-gateway/policies/kafka-quota: kafka-gateway/configure-kafka-apis/policies/kafka-quota.md
  kafka-gateway/policies/kafka-topic-mapping: kafka-gateway/configure-kafka-apis/policies/kafka-topic-mapping.md
  kafka-gateway/produce-and-consume-kafka-messages-with-gravitee-cloud: kafka-gateway/other-ways-gravitee-supports-kafka.md
+ kafka-gateway/subscriptions: expose-apis/subscriptions.md
  management-api-reference: management-api/management-api-reference.md
  management-api/internal-api: management-api/mapi-internal-api.md
  mcp-server-installation-widget-for-portal-pages: README.md
