@@ -562,6 +562,7 @@
     * [Redis](prepare-a-production-environment/repositories/redis.md)
   * [Configure your HTTP Server](prepare-a-production-environment/configure-your-http-server.md)
   * [Timeout Management](prepare-a-production-environment/timeout-management.md)
+  * [DNS Resolution](prepare-a-production-environment/dns-resolution.md)
   * [Sensitive Data Management](prepare-a-production-environment/sensitive-data-management/README.md)
     * [Configure Secrets](prepare-a-production-environment/sensitive-data-management/configure-secrets/README.md)
       * [Configuration file secrets quick start](prepare-a-production-environment/sensitive-data-management/configure-secrets/quick-start.md)
