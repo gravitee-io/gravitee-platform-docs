@@ -1,25 +1,23 @@
 ---
-description: Configure a system proxy so a hybrid API Management 4.12 Gateway can reach your backend APIs. Follow the steps to set it up.
+description: Configure a system proxy so the API Management 4.13 Gateway can reach backend APIs. Follow the steps to set the proxy up.
 ---
 
-# System proxy for a hybrid Gateway
+# System proxy for backend APIs
 
 ## Overview
 
-This guide explains how to configure a system proxy that the Gravitee Gateway uses to communicate with backend APIs. Use this configuration in the following scenarios:
+This guide explains how to configure a **System Proxy** that the Gravitee Gateway uses to communicate with backend APIs. This is useful when:
 
-* Your Gateway needs to reach external backend APIs through a corporate proxy
-* You want a central proxy configuration for all API endpoints
-* APIs are configured with `useSystemProxy: true` in their endpoint settings
+* Your Gateway needs to reach external backend APIs through a corporate proxy.
+* You want a central proxy configuration for all API endpoints.
+* APIs are configured with `useSystemProxy:true` in their endpoint settings.
 
-### How It Works
+## How it Works
 
-Follow these steps to configure the system proxy:
-
-1. Configure the system proxy in the Gateway
-2. Create an API with an endpoint pointing to your backend
-3. Enable `Use System Proxy` in the API endpoint configuration
-4. The Gateway routes all backend calls for that API through the system proxy
+1. Configure the system proxy in the Gateway.
+2. Create an API with an endpoint pointing to your backend.
+3. Enable `useSystemProxy` on each endpoint that should route through the proxy.
+4. The Gateway routes all backend calls for that API through the system proxy.
 
 {% hint style="info" %}
 **Selective Proxy Usage**
@@ -35,19 +33,11 @@ The system proxy also applies to JWT plan JWKS retrieval when **Use system proxy
 
 ## Prerequisites
 
-Before configuring the system proxy, ensure you have the following:
-
-* Kubernetes cluster with [Helm](https://helm.sh/docs/intro/install/) installed.
-* Corporate proxy server hostname and port.
-* Proxy authentication credentials.
+* Kubernetes cluster with Helm installed
+* Corporate proxy server hostname and port
+* Proxy authentication credentials
 
 ## Configuration
-
-To configure the system proxy, complete the following steps:
-
-* [#create-kubernetes-secrets](system-proxy-for-backend-apis.md#create-kubernetes-secrets "mention")
-* [#configure-helm-values](system-proxy-for-backend-apis.md#configure-helm-values "mention")
-* [#deploy-with-helm](system-proxy-for-backend-apis.md#deploy-with-helm "mention")
 
 ### Create Kubernetes Secrets
 
@@ -66,7 +56,7 @@ kubectl create secret generic system-proxy-credentials \
 
 ### Configure Helm Values
 
-The Helm values file defines the system proxy settings that the Gateway uses at runtime. Create a `values.yaml` file with the following system proxy configuration:
+The Helm values file defines the system proxy settings that the Gateway uses at runtime. Create a `values.yaml` file with the system proxy configuration using the following configuration:
 
 {% tabs %}
 {% tab title="Helm values.yaml" %}
@@ -165,11 +155,9 @@ helm install gravitee-apim gravitee/apim \
   --wait
 ```
 
-## Configuration Reference
+### Configuration Reference
 
-This section provides reference information for system proxy configuration:
-
-### System Proxy Environment Variables
+#### System Proxy Environment Variables
 
 The following table describes the available environment variables for configuring the system proxy:
 
@@ -186,7 +174,7 @@ The following table describes the available environment variables for configurin
 
 ## Configure APIs to Use System Proxy
 
-After deploying the Gateway with the system proxy configured, you enable it for each API that should route traffic through the proxy.
+After deploying the Gateway with the system proxy configured, you must enable it on each API endpoint that should route traffic through the proxy. Each endpoint has a `useSystemProxy` setting that defaults to false.
 
 ### Management Console UI
 
@@ -241,6 +229,8 @@ kubectl logs -n gravitee-apim -l app.kubernetes.io/component=gateway | grep -i "
 ```
 
 #### Test API Through Proxy
+
+Validate that traffic flows through the proxy by creating a test API:
 
 1. Create a test API pointing to an external backend:
    * Context path: `/test-proxy`
