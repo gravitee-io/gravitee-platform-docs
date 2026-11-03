@@ -782,6 +782,7 @@ redirects:
  introduction/enterprise-edition: README.md
  introduction/integrations: README.md
  kafka-gateway: kafka-gateway/overview.md
+ kafka-gateway/applications: expose-apis/applications/README.md
  kafka-gateway/configure-and-deploy-kafka-console: kafka-gateway/create-kafka-apis.md
  kafka-gateway/configure-the-kafka-client-and-gateway: kafka-gateway/configure-the-kafka-gateway-and-client.md
  kafka-gateway/configuring-kafka-port-routing-gateway-and-console: kafka-gateway/overview.md
