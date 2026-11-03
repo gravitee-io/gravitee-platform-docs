@@ -10,7 +10,7 @@ Each LLM Proxy, MCP Proxy, and A2A Proxy detail view includes a **Broadcasts** p
 
 ## Open the Broadcasts page
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **LLM Proxies**, **MCP Proxies**, or **A2A Proxies**.
 3. Select the proxy whose consumers you want to reach.
 4. Under **Consumers**, select **Broadcasts**.

@@ -16,7 +16,7 @@ An agent that you expose through an A2A Proxy can be listed in the Developer Por
 
 A registered agent's **Marketplace** page lists the agent in the Developer Portal without leaving the Gamma console. It needs an A2A Proxy linked to the agent, because consumers reach a listed agent through the proxy and subscribe to its plans.
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **Agents**.
 3. Click the agent's name.
 4. In the **Operations** section of the agent's sidebar, click **Marketplace**.

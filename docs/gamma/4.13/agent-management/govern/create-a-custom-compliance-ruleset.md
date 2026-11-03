@@ -11,7 +11,7 @@ A custom ruleset checks an agent's metadata or the policies on the proxies it de
 
 ## Create a ruleset
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Govern** section of the sidebar, select **Compliance**.
 3. Click **Add a custom ruleset**.
 4. Enter a **Name**.

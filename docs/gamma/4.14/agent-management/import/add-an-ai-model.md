@@ -27,7 +27,7 @@ Each AI model in the Catalog records the following metadata:
 
 To add new AI models to your catalog, connect a provider and import them:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **AI Models**.
 3. Select **Add AI Model**.
 4. **Choose source type**: Select an LLM provider or Azure AI Foundry to import deployed models.

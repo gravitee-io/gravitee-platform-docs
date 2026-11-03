@@ -21,7 +21,7 @@ The **Integrations** page lists the providers this environment connected, with a
 
 ## Connect a platform
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **Integrations**.
 3. Click **Add integration**.
 4. Under **Provider**, select the provider.

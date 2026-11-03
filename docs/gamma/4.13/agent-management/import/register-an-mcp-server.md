@@ -12,7 +12,7 @@ This is the most common way to bring external MCP servers into Gamma's governanc
 
 ## Step 1: Start the import
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Catalog**, select **MCP Servers**.
 3. Select **Add MCP server**.
 4. **Select server**: Enter the Streamable HTTP endpoint URL of your MCP server (e.g., `https://mcp.example.com/mcp`).
@@ -63,7 +63,7 @@ The **Advanced settings** of a registered MCP server set how the gateway connect
 
 To change the settings, follow these steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Catalog**, select **MCP Servers**.
 3. Select the server.
 4. Click **Configure**.

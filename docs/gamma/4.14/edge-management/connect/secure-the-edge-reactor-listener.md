@@ -10,9 +10,9 @@ description: The Gamma Edge Reactor listener is plain HTTP by default. Learn how
 
 The Edge Reactor listens on its own port on the gateway, `18093` by default, separate from the port that serves your APIs. By default, the listener is plain HTTP and asks no daemon for a certificate.
 
-The mTLS plan of daemon authentication only matches a daemon whose certificate reaches the Edge Reactor. Run the listener over TLS and ask the daemons for a certificate, or, when TLS ends at a proxy in front of the gateway, have that proxy forward the certificate. See [Configure daemon authentication](configure-daemon-authentication.md).
+mTLS, in daemon authentication, only authenticates a daemon whose certificate reaches the Edge Reactor. Run the listener over TLS and ask the daemons for a certificate, or, when TLS ends at a proxy in front of the gateway, have that proxy forward the certificate. See [Configure daemon authentication](configure-daemon-authentication.md).
 
-Once the listener runs over TLS, the daemons reach it at an `https://` **Reactor URL**, and each daemon must trust the listener's certificate. When a private certificate authority signs that certificate, or when it's self-signed, install the daemons with `--reactor-ca`. See [Configure daemon authentication](configure-daemon-authentication.md#publish-the-mtls-plan).
+Once the listener runs over TLS, the daemons reach it at an `https://` **Reactor URL**, and each daemon must trust the listener's certificate. When a private certificate authority signs that certificate, or when it's self-signed, install the daemons with `--reactor-ca`. See [Configure daemon authentication](configure-daemon-authentication.md#turn-on-mtls).
 
 The listener reads its settings from the `edge` block of the gateway's `gravitee.yml`, or from `gateway.edge` in the Helm chart.
 
@@ -31,9 +31,6 @@ edge:
       certificates:
         - cert: ${gravitee.home}/security/edge-server.pem
           key: ${gravitee.home}/security/edge-server.key
-    truststore:
-      type: pem
-      path: ${gravitee.home}/security/edge-fleet-ca.pem
 ```
 
 The following table describes each field:
@@ -49,7 +46,7 @@ The following table describes each field:
 | `ssl.keystore.certificates` | The certificate and key files, as `cert` and `key` pairs, for the `pem` type.                                                                                                                            | -         |
 | `ssl.keystore.password`     | The password of the keystore.                                                                                                                                                                            | -         |
 | `ssl.truststore.type`       | The format of the truststore: `jks`, `pem`, or `pkcs12`.                                                                                                                                                 | `jks`     |
-| `ssl.truststore.path`       | The truststore file, which holds the certificate authority of your fleet. See [Trust the certificate authority of your fleet](#trust-the-certificate-authority-of-your-fleet).                         | -         |
+| `ssl.truststore.path`       | Optional. A truststore file, which changes which certificates complete the TLS handshake. See [Trust the enrolled certificates](#trust-the-enrolled-certificates).                                    | -         |
 | `ssl.truststore.password`   | The password of the truststore.                                                                                                                                                                          | -         |
 
 ## Configure the listener with Helm
@@ -69,12 +66,9 @@ gateway:
         certificates:
           - cert: /opt/graviteeio-gateway/security/edge-server.pem
             key: /opt/graviteeio-gateway/security/edge-server.key
-      truststore:
-        type: pem
-        path: /opt/graviteeio-gateway/security/edge-fleet-ca.pem
 ```
 
-Mount the keystore and the truststore files into the gateway pods, or point `ssl.keystore.secret` and `ssl.truststore.secret` at Kubernetes secrets instead of files, for example `secret://kubernetes/apim-gateway-edge-tls`.
+Mount the keystore files, and the truststore file if you use one, into the gateway pods, or point `ssl.keystore.secret` and `ssl.truststore.secret` at Kubernetes secrets instead of files, for example `secret://kubernetes/apim-gateway-edge-tls`.
 
 To expose the listener outside the cluster, see [Configure Edge Ingress](configure-edge-ingress.md).
 
@@ -82,25 +76,29 @@ To expose the listener outside the cluster, see [Configure Edge Ingress](configu
 
 `ssl.clientAuth` decides what happens to a daemon, depending on the certificate it presents:
 
-| Value      | Outcome                                                                                                                                                                                                                                                                                                       |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `none`     | The listener never asks for a certificate, so the mTLS plan matches no daemon. While the keyless plan is published, it serves every daemon, even one that holds an enrolled certificate. Once the keyless plan is closed, every daemon is refused.                                                           |
-| `request`  | The listener asks for a certificate and accepts a daemon that has none. A daemon that presents no certificate is served by the keyless plan while it's published. A daemon that presents an enrolled certificate is served by the mTLS plan. A daemon that presents a certificate that isn't enrolled is refused, even while the keyless plan is published. |
-| `required` | The TLS handshake fails for a daemon that presents no certificate, so the keyless plan serves no daemon. A daemon that presents an enrolled certificate is served by the mTLS plan, and one that presents a certificate that isn't enrolled is refused.                                                       |
+| Value      | Outcome                                                                                                                                                                                                                                                                                                                   |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `none`     | The listener never asks for a certificate. Unless a proxy forwards the certificate in a header, mTLS authenticates no daemon, even one that holds an enrolled certificate. While keyless is on, every daemon is then served, and while mTLS is the only method on, every daemon is refused.                              |
+| `request`  | The listener asks for a certificate and accepts a daemon that has none. A daemon that presents no certificate is served while keyless is on. While mTLS is on, a daemon that presents a certificate is served only when that certificate is enrolled in the environment and active, even while keyless is on.             |
+| `required` | The TLS handshake fails for a daemon that presents no certificate, even while keyless is on. It also fails for a certificate that the listener doesn't trust, and that daemon gets no HTTP answer. See [Trust the enrolled certificates](#trust-the-enrolled-certificates). While mTLS is on, a daemon that completes the handshake is served only when its certificate is enrolled in the environment and active. |
 
 Gravitee recommends `request` on development and test environments, and `required` in production.
 
 When the settings let no client certificate reach the listener, the gateway logs a warning at startup that begins with `No client certificate can ever reach the Edge server`.
 
-## Trust the certificate authority of your fleet
+## Trust the enrolled certificates
 
-The truststore holds the certificate authority that signs the certificates of your fleet, not the enrolled certificates themselves. TLS checks that a daemon's certificate chains to that authority, and the mTLS plan then matches the exact certificate against the ones enrolled on the **Daemon authentication** page.
+The listener trusts the certificates enrolled on the **Daemon authentication** page of every environment that the gateway serves, and no other certificate by default. Each certificate is trusted from the start of its validity until its end, and a replacement is trusted before the certificate it replaces is removed. Without a truststore, the listener trusts no certificate until an enrolled certificate is active, so with `required`, every daemon is refused at the TLS handshake until then.
 
-Recommended: Use a dedicated intermediate certificate authority for your fleet. With a corporate-wide one, more certificates complete the TLS handshake with the listener.
+Without a truststore, completing the handshake only proves that a certificate is enrolled in one of the environments. While mTLS is on in the environment that the daemon calls, each call is then served only when the certificate is enrolled in that environment and active. While mTLS is off there, the certificate is ignored.
+
+A truststore is optional. With `required`, a certificate that one of its certificate authorities signed also completes the handshake, even when it isn't enrolled, and the call is then refused while mTLS is on. With `request`, a truststore makes the handshake fail for a certificate that neither the truststore nor the enrolled certificates trust.
+
+Recommended: Leave out the truststore, or use a dedicated intermediate certificate authority for your fleet. With a corporate-wide one, more certificates complete the TLS handshake with the listener.
 
 ## Terminate TLS in front of the gateway
 
-When a proxy in front of the gateway ends TLS, such as an Ingress or a load balancer, the daemon's certificate stops at that proxy. For the mTLS plan to match it, have the proxy forward the certificate in a request header, and name that header in the gateway's HTTP settings with `http.ssl.clientAuthHeader.name`. Only a header in the form that NGINX sets works.
+When a proxy in front of the gateway ends TLS, such as an Ingress or a load balancer, the daemon's certificate stops at that proxy. For mTLS to authenticate the daemon, have the proxy forward the certificate in a request header, and name that header in the gateway's HTTP settings with `http.ssl.clientAuthHeader.name`. A header in the form that Nginx sets works.
 
 The Edge Reactor reads the certificate from the same header as the rest of the gateway. Set it only when the proxy writes that header on every request, so that no daemon sends its own.
 

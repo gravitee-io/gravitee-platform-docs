@@ -35,7 +35,7 @@ Every decision is written down as a decision event that the gateway's reporters 
 
 ## Find the guardians of your environment
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **Guardians**.
 
 The **Guardians** page lists the agents of the environment that expose a guardian entrypoint. It's a live search over your agents, so an agent you can't see in API Management is absent from it, and the search box narrows the list on the name and the paths.

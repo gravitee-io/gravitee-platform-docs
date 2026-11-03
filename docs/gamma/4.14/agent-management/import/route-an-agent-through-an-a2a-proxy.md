@@ -15,7 +15,7 @@ The link is one to one. An agent is fronted by at most one A2A Proxy, and a prox
 
 ## Open the Proxies page
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **Agents**.
 3. Click the agent's name.
 4. In the **Agent** section of the agent's sidebar, click **Proxies**.
@@ -75,7 +75,7 @@ Removing the agent from the Catalog detaches the proxy in the same way before th
 
 The A2A Proxy wizard under **Secure** can link the proxy as it creates it, in the same way as the card on the agent's page.
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **A2A Proxies**.
 3. Click **Create A2A proxy**.
 4. Complete the **Define** and **Secure** steps.

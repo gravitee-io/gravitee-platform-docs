@@ -29,7 +29,7 @@ Gamma supports two categories of integrations for model discovery:
 
 You connect an integration by importing models from it.
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Navigate to the **Catalog** → **AI Models** list.
 3. Select **Add provider**.
 4. **Choose source type**: Select the provider you want to integrate with such as Azure AI Foundry or OpenAI.

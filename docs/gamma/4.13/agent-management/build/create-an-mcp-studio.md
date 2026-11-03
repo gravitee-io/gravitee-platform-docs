@@ -34,7 +34,7 @@ Studio doesn't directly ingest APIs or Kafka topics. Instead, REST APIs are firs
 
 ## Create a Composite MCP Server
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **MCP Proxies**.
 3. Click **+ Create MCP proxy**, select **Create from scratch**, and then select **Studio mode**.
 4. **Define**: Provide a Name, Description, and a Context path for the Composite MCP Server.

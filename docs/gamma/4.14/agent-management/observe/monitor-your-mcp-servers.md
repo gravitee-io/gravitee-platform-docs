@@ -22,7 +22,7 @@ The AI Gateway emits observability data for every tool invocation through an MCP
 
 ## View MCP server metrics
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Navigate to **Observe** → **MCP Servers**.
 3. Select an MCP Proxy to view its metrics dashboard.
 

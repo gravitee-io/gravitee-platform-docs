@@ -10,7 +10,7 @@ When you register an agent, the Gamma console opens the agent's page in the Cata
 
 Right after you click **Register agent** on the registration form, the console opens the new agent's page for you. To return to it later, follow these steps:
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **Agents**.
 3. Click the agent's name. Optional: To find it in a long list, type part of its name or description in the search box above the list, or filter by **Classification**.
 

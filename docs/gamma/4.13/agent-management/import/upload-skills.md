@@ -27,7 +27,7 @@ skill-name/
 
 ## Upload a skill
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Navigate to the **Catalog** → **Skills** list.
 3. Select **Upload Skill**.
 4. Under **Skill zip**, upload a `.zip` file containing your `SKILL.md` manifest and supporting files.

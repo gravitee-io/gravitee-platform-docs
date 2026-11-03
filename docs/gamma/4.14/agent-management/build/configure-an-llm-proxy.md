@@ -13,7 +13,7 @@ After you create an LLM Proxy, configure guardrails, PII filtering, rate limitin
 The LLM Proxy detail view groups its pages as follows.
 
 * **General**: **Overview**, **Settings**, **User Permissions**, and **Metadata**. The **Overview** page shows a **Connection** card with the gateway URLs of the proxy.
-* **Design**: **Entrypoints**, **Policy Studio**, **Models**, **Failover**, **Resources**, **API Properties**, and **CORS**.
+* **Design**: **Entrypoints**, **Policy Studio**, **Models**, **Failover**, **Resources**, **Properties**, and **CORS**.
 * **Consumers**: **Plans**, **Subscriptions**, and **Broadcasts**.
 * **Monitoring**: **Notifications** and **Audit Logs**.
 * **Observability**: **Dashboard**, **Logs**, and **Tracing**, each shown when its deep link is available.
@@ -93,13 +93,13 @@ Both models were trained on English text, so detection in other languages is les
 
 ## Resources
 
-Policies that depend on shared infrastructure reference a resource configured on the proxy. The **AI - Prompt Guard Rails** policy references an **AI Model Text Classification** resource, and the **PII Filtering** policy references an **AI Model Token Classification** resource.
+Policies that depend on shared infrastructure reference a resource configured on the proxy. The **AI - Prompt Guard Rails** policy references an **AI Model Text Classification** resource, and the **PII Filtering** policy references an **AI Model Token Classification** resource. **Data Cache Policy** reads, writes, and removes values in a cache resource that you select in its **Cache resource** field. Until the proxy has a cache resource, that field shows **No matching resources on this API**.
 
 To manage the resources of the LLM Proxy, under **Design**, select **Resources**. For the steps to add, edit, or remove a resource, see [Configure resources for your proxies](configure-resources-for-your-proxies.md), and for the resource types themselves, see [AI resources](ai-resources.md).
 
 ## Properties
 
-Policies read the key/value properties of the LLM Proxy at runtime through the Expression Language, with the syntax `{#api.properties['key']}`. To manage them, under **General**, select **API Properties**. For the steps to add, import, or sync properties from an HTTP endpoint, see [Configure properties for your proxies](configure-properties-for-your-proxies.md).
+Policies read the key/value properties of the LLM Proxy at runtime through the Expression Language, with the syntax `{#api.properties['key']}`. To manage them, under **Design**, select **Properties**. For the steps to add, import, or sync properties from an HTTP endpoint, see [Configure properties for your proxies](configure-properties-for-your-proxies.md).
 
 ## Picture
 

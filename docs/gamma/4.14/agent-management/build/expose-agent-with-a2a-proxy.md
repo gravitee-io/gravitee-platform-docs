@@ -18,7 +18,7 @@ When you expose an agent through the A2A Proxy, the proxy provides the following
 
 ## Create an A2A Proxy
 
-1. From the Gamma console sidebar, select **Agent Management**.
+1. In the Gamma console, open **Agent Management**.
 2. Under **Secure**, select **A2A Proxies**.
 3. Select **Create A2A proxy**.
 4. On the **Create an A2A proxy** page, select **Create from scratch** to launch the wizard. To build the proxy from an existing Gravitee definition instead, select **Import**. See [Export and import an A2A Proxy](export-and-import-an-a2a-proxy.md).
