@@ -11,7 +11,7 @@ metaLinks:
 
 **Terraform Registry:** [gravitee-io/apim](https://registry.terraform.io/providers/gravitee-io/apim/1.2.0)
 
-Version **1.2.0** adds the New Developer Portal to the Gravitee APIM Terraform provider: the portal and its navigation, the APIs it lists, its documentation pages and homepage, its links, and its themes, managed as code through the Automation API. It also adds the APIM 4.13 settings of v4 APIs: analytics path mappings, request validation, Private Network Access for CORS, native Kafka connection events, and tracing redaction.
+Version **1.2.0** adds the New Developer Portal to the Gravitee APIM Terraform provider: the portal and its navigation, the APIs it lists, its documentation pages and homepage, its links, and its themes, managed as code through the Automation API. It also adds the APIM 4.13 settings of v4 APIs: analytics path mappings, request validation, Private Network Access for CORS, native Kafka connection events, and tracing redaction. Dictionaries can also hold encrypted values.
 
 ### Highlights
 
@@ -19,6 +19,7 @@ Version **1.2.0** adds the New Developer Portal to the Gravitee APIM Terraform p
 - **`portal_navigation` on `apim_apiv4`:** the API's own documentation folder tree in the New Developer Portal, with the visibility of each folder.
 - **Visibility as code:** `visibility` (`PUBLIC` or `PRIVATE`) on navigation entries, listing entries, documentation pages, and links. When omitted, APIM resolves it from the parent item on every apply: a documentation page or a link made private in the Console becomes public again on the next `terraform apply` that updates it, when its folder is public. Set `visibility = "PRIVATE"` on every item that stays private. For more information, see [Breaking changes and deprecations](../release-information/breaking-changes-and-deprecations.md).
 - **New `apim_apiv4` settings:** `listeners.http.path_mappings`, `listeners.http.request_validation`, `listeners.http.cors.allow_private_network`, `analytics.connection_events`, and `analytics.tracing.redaction`.
+- **Encrypted dictionary values:** `manual.encrypted_properties` on `apim_dictionary` holds secret properties, and `dynamic.encryption.encrypt_on_fetch` encrypts every value a dynamic dictionary fetches.
 - **APIM 4.13 or later** serves the endpoints and fields these resources and settings use.
 - **No breaking changes:** no attribute is removed or renamed.
 
@@ -62,6 +63,16 @@ For how APIM applies each of these objects, see [Portal automation](../developer
 | Attribute path | Type | Notes |
 | --- | --- | --- |
 | `steps` | list(object) | From APIM 4.13, a read returns the steps only to a caller with the `SHARED_POLICY_GROUP` `UPDATE` permission on the environment. A data source read with a token that lacks it returns no steps. For more information, see [Breaking changes and deprecations](../release-information/breaking-changes-and-deprecations.md) |
+
+#### `apim_dictionary` / `apim_dictionary` (data source)
+
+| Attribute path | Type | Notes |
+| --- | --- | --- |
+| `manual.encrypted_properties` | map(object) | Resource only. Secret properties, keyed by the property key, each with a sensitive `value`. APIM encrypts the values and never returns them, so Terraform keeps the values it sent and doesn't detect a change made in the Console. A key can't appear in both `properties` and `encrypted_properties` |
+| `manual.properties` | map(string) | Now optional, so a manual dictionary can hold only secret properties |
+| `dynamic.encryption.encrypt_on_fetch` | bool | Encrypts every value the dictionary fetches from its provider. Default `false`. Omitting `encryption` keeps the current setting. Setting `encrypt_on_fetch = false` turns it off, and values that are already encrypted stay encrypted |
+
+Guide: [Dictionary Encryption](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/guides/docgen_dictionary-encryption). Repository mirror: `examples/use-cases/dictionary-encryption/`. For how APIM encrypts dictionary values, see [Dictionaries](../configure-and-manage-the-platform/gravitee-gateway/dictionaries.md#encrypt-dictionary-properties).
 
 #### `apim_portal` _(new)_
 
@@ -130,8 +141,8 @@ terraform plan
 
 | Provider version | APIM version | Capability |
 | --- | --- | --- |
-| **1.2.x** | 4.13.x | **Full**: supports the New Developer Portal resources, `portal_navigation`, and the new `apim_apiv4` settings. Existing configurations continue to work |
-| **1.2.x** | 4.10.x – 4.12.x | **Compatible**: existing configurations continue to work. These APIM versions don't serve the navigation structure, visibility, links, and themes that the New Developer Portal resources send, or the new `apim_apiv4` settings, so use them with APIM 4.13.x |
+| **1.2.x** | 4.13.x | **Full**: supports the New Developer Portal resources, `portal_navigation`, the new `apim_apiv4` settings, and dictionary encryption. Existing configurations continue to work |
+| **1.2.x** | 4.10.x – 4.12.x | **Compatible**: existing configurations continue to work. These APIM versions don't serve the navigation structure, visibility, links, and themes that the New Developer Portal resources send, the new `apim_apiv4` settings, or dictionary encryption, so use them with APIM 4.13.x |
 
 ### Breaking changes
 
