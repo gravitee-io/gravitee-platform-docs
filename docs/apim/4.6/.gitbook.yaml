@@ -830,6 +830,7 @@ redirects:
  kafka-gateway/expose-metrics-to-elasticsearch: kafka-gateway/create-kafka-apis.md
  kafka-gateway/expose-metrics-to-prometheus: kafka-gateway/create-kafka-apis.md
  kafka-gateway/produce-and-consume-kafka-messages-with-gravitee-cloud: kafka-gateway/other-ways-gravitee-supports-kafka.md
+ kafka-gateway/subscriptions: expose-apis/subscriptions.md
  management-api-reference: management-api/management-api-reference.md
  management-api/mapi-internal-api: management-api/internal-api.md
  mcp-server-installation-widget-for-portal-pages: README.md
