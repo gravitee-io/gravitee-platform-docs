@@ -16,7 +16,7 @@ This installation guide is for only development and quick start purposes. Do not
 
 Before you install a Hybrid Gateway, complete the following steps:
 
-* Ensure that Java 21 is available in the `$PATH`.
+* Ensure that Java 25 is available in the `$PATH`. On Red Hat Enterprise Linux 9 and 10, install `java-25-openjdk-headless`. Red Hat Enterprise Linux 8 doesn't provide a Java 25 package.
 * Ensure that you have outbound internet access over HTTPS (443) to the Gravitee Cloud Gate for your Control Plane geography. For the list of Cloud Gate URLs, see [#architecture](./#architecture "mention").
 * Install Redis.
 * Complete the steps in [#prepare-your-installation](./#prepare-your-installation "mention").
