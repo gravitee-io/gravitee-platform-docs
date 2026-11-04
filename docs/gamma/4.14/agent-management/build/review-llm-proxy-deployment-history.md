@@ -15,7 +15,7 @@ To open the page, follow these steps:
 3.  Under **Operations**, click **Deployment**.
 4.  Click **History**.
 
-    <figure><img src="../.gitbook/assets/gamma-llm-proxy-deployment-history.png" alt="The Deployment History page for LLM Proxy, listing deployments with Version, Date, User and Label columns and a live badge on the newest version"><figcaption><p>The Deployment History page</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-deployment-history.png" alt="The Deployment History page for LLM Proxy, listing deployments with Version, Date, User and Label columns and a live badge on the newest version"><figcaption><p>The Deployment History page</p></figcaption></figure>
 
 The table lists each deployment's **Version**, **Date**, **User**, and **Label** columns. The most recent deployment carries the **live** badge. The label is the optional deployment label entered when the LLM Proxy was deployed. Before the first deployment, the page reads **No deployments yet**, with the description **Deployment records will appear here after the first publish.**
 
@@ -43,9 +43,9 @@ To roll back, follow these steps:
 
 1. Open the target version, either by selecting two versions to open the diff view or by clicking **View definition** on a single version.
 2.  Click **Rollback**, which names the target version.
-3. Confirm in the rollback dialog, which names the target version.
+3. Confirm in the rollback dialog, which names the target version. The dialog's title is **Rollback to v** followed by the target version, for example **Rollback to v3?**.
 
-The rollback restores the LLM Proxy's API definition and its plans to the selected version.
+The rollback restores the LLM Proxy's API definition and its plans to the selected version. Plans that the selected version didn't have are closed immediately, and their subscriptions end.
 
 {% hint style="warning" %}
 The rollback doesn't deploy the LLM Proxy. The restored definition is saved, and the LLM Proxy is left with undeployed changes until you deploy it. The confirmation dialog describes the action as redeploying to the gateway, but no deployment takes place. The action can't be undone.

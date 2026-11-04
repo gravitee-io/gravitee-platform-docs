@@ -20,6 +20,14 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies.
 * **AWS Lambda** invokes an AWS Lambda function. It isn't included in the default distribution, so [download](https://download.gravitee.io/#graviteeio-apim/plugins/policies/gravitee-policy-aws-lambda/) version 3.5.0 or later of its plugin and [deploy it](https://documentation.gravitee.io/apim/plugins/deployment) first.
 * **Data Cache Policy** reads, writes, and removes values in a cache resource of the LLM Proxy, so add a cache resource on the **Resources** page first. See [Resources](../agent-management/build/configure-an-llm-proxy.md#resources).
 
+#### Proxy Pages for LLM, MCP, and A2A Proxies
+
+* On the **Deployment Configuration** page of an LLM Proxy, you choose the proxy's tags in the **Sharding tags** card, and you deploy by clicking **Deploy** in the **This LLM proxy is out of sync** banner, which no longer appears once the deployment succeeds.
+* On the **Deployment History** page of an LLM Proxy, the rollback dialog names the target version, and a rollback restores the proxy's API definition and its plans to that version, so plans that the selected version didn't have are closed immediately and their subscriptions end.
+* When you promote a proxy, the promote panel marks an environment that already has a promotion waiting as pending, shows **Promotion not available** with the reason when a proxy can't be promoted, and warns that the proxy's sharding tags must exist in the target environment.
+* An A2A Proxy has a **Response Templates** page that lists templates by key, content type, and status code, and each proxy has a **Properties** page with an **Import properties** panel and a **Dynamic properties** page for scheduled HTTP sync.
+* A running or published LLM Proxy can't be deleted from its **Settings** page, and when you create a plan for an MCP Proxy you can select only the sharding tags assigned to the proxy.
+
 ### Edge Management
 
 Edge Management decides how the Edge Daemons identify themselves to the Edge Reactor: keyless, mTLS with the certificates of your fleet, or both. The routes of an intercepted agent take an OAuth2 plan of their target API, so that each developer signs in with your identity provider.

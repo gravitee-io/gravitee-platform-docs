@@ -15,7 +15,7 @@ To open the page, follow these steps:
 3.  Select your MCP Proxy.
 4.  Under **Operations**, select **Sharding Tags**.
 
-    <figure><img src="../.gitbook/assets/gamma-mcp-proxy-deployment-configuration.png" alt="The Sharding Tags page of an MCP Proxy, with the internal tag in the Configured Sharding Tags box"><figcaption><p>The Sharding Tags page</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-mcp-proxy-deployment-configuration.png" alt="The Sharding Tags page of an MCP Proxy, with the internal tag in the Configured Sharding Tags box"><figcaption><p>The Sharding Tags page</p></figcaption></figure>
 
 ## Assign sharding tags
 
@@ -27,6 +27,8 @@ The **Sharding tags** card lists the tags defined for your organization. To assi
 4.  Click **Save changes**, or **Discard** to revert.
 
 The **Discard** and **Save changes** buttons appear only once your selection differs from the saved value. A successful save confirms with **Deployment configuration saved**.
+
+When you create a plan for the MCP Proxy, you can select only the sharding tags assigned to the proxy.
 
 When your organization has no tags, the card reads **No sharding tags configured**. Sharding tags are managed at the organization level, on the **Entrypoints & Sharding Tags** page in Platform Management.
 

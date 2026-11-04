@@ -15,7 +15,7 @@ To open the page, follow these steps:
 3.  Under **Operations**, click **Deployment**.
 4.  Click **Configuration**.
 
-    <figure><img src="../.gitbook/assets/gamma-llm-proxy-deployment-configuration.png" alt="The Deployment Configuration page for LLM Proxy, showing the Sharding tags card with one tag selected as a chip and the tag list open"><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-llm-proxy-deployment-configuration.png" alt="The Deployment Configuration page for LLM Proxy, showing the Sharding tags card with one tag selected as a chip and the tag list open"><figcaption><p>The Deployment Configuration page</p></figcaption></figure>
 
 ## Assign sharding tags
 
@@ -48,4 +48,6 @@ To verify the deployment configuration is working as expected, follow these step
 
 1. Assign a sharding tag that one of your gateway instances advertises, and click **Save changes**.
 2. Deploy the LLM Proxy.
+
+   To deploy, click **Deploy** in the **This LLM proxy is out of sync** banner at the top of the page. When the deployment succeeds, the banner no longer appears.
 3. Send a request through a gateway instance advertising the tag. The request is served. Gateway instances without a matching tag don't load the API definition.

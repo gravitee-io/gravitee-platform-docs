@@ -22,7 +22,7 @@ To open the page, follow these steps:
 3. Select your MCP Proxy or MCP Studio.
 4. Under **Design**, select **Entrypoint**.
 
-<figure><img src="../.gitbook/assets/gamma-aim-mcp-proxy-entrypoint.png" alt="The Entrypoint page of an MCP Proxy, with the context path /docbot-mcp in the Entrypoint context path card and its URL in the Exposed entrypoints card"><figcaption><p>The Entrypoint page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-mcp-proxy-entrypoint.png" alt="The Entrypoint page of an MCP Proxy, with the context path /docbot-mcp in the Entrypoint context path card and its URL in the Exposed entrypoints card"><figcaption><p>The Entrypoint page</p></figcaption></figure>
 
 The **Exposed entrypoints** card shows the URL that MCP clients call: the **Default HTTP entrypoint** of your environment followed by the context path. To change the default entrypoint, see [Manage entrypoints and sharding tags](https://documentation.gravitee.io/platform-management/organization/assets/manage-entrypoints-and-sharding-tags).
 

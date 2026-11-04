@@ -70,6 +70,8 @@ The dashboard opens scoped to LLM traffic only. It opens on a short relative tim
 
 The dashboard opens in a new tab with the **API** filter already set to that proxy, so every widget on the page describes that proxy alone. The neighbouring **Logs** and **Tracing** items open the same way, pre-filtered to the same proxy — useful when a widget shows you *that* something went wrong and you need the individual requests that caused it.
 
+On the dashboard, the proxy filter chip reads **LLM proxy**. The **Logs** view you open from the proxy shows the same chip label.
+
 ## What each widget shows
 
 ### Key Metrics

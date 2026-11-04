@@ -28,6 +28,8 @@ Before you begin, confirm that you have the following:
 * The **Lifecycle** of the proxy is `DEPRECATED` or `ARCHIVED`.
 * **Enable API Review** is on for the environment, and a reviewer hasn't accepted the proxy yet. The panel shows **Promotion not available**. For more information, see [Configure API Review](https://documentation.gravitee.io/platform-management/environment/system-and-security/configure-api-review).
 
+In each of these cases, the panel shows **Promotion not available** with the reason the proxy can't be promoted.
+
 To promote a proxy, follow these steps:
 
 1. Under **Secure** in the module sidebar, select **LLM Proxies**, **MCP Proxies**, or **A2A Proxies**.
@@ -36,13 +38,15 @@ To promote a proxy, follow these steps:
 4. Click **Promote**.
 5. In the panel, select the target environment from the **Environment** list.
 
-    <figure><img src="../.gitbook/assets/gamma-aim-proxy-promote-sheet.png" alt="The Promote MCP proxy panel with Docbot Production selected in the Environment list, and the Cancel and Promote buttons"><figcaption><p>The Promote MCP proxy panel</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-aim-proxy-promote-sheet.png" alt="The Promote MCP proxy panel with Docbot Production selected in the Environment list, and the Cancel and Promote buttons"><figcaption><p>The Promote MCP proxy panel</p></figcaption></figure>
 
 6. Click **Promote**.
 
 **Promotion requested** confirms the request. When the request fails, the panel stays open and shows the error.
 
 The **Environment** list holds the environments Gravitee Cloud returns for your installation. An environment that already has a promotion of this proxy waiting shows **(pending)** and can't be selected until that promotion is accepted or rejected.
+
+The panel also warns that the sharding tags of the proxy must exist in the target environment.
 
 {% hint style="info" %}
 When an LLM Proxy uses credentials saved in the Catalog, the panel adds a notice that the target environment needs the same Catalog items. After the promotion is accepted, deploying or starting the proxy in the target environment fails until that environment has a matching provider for each one the proxy uses. Each provider must be visible to the primary owner of the proxy. The error names the providers that are missing.
@@ -58,7 +62,7 @@ To accept or reject a promotion, follow these steps:
 2. In the task's row, click **Review promotion**.
 3. In the **API promotion request** panel, click **Accept**, or click **Reject** and then **Confirm reject**.
 
-    <figure><img src="../.gitbook/assets/gamma-aim-proxy-promotion-request.png" alt="The API promotion request panel for Everything MCP, from Default environment to Docbot Production, with the Open API, Close, Reject, and Accept buttons"><figcaption><p>The API promotion request panel</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-aim-proxy-promotion-request.png" alt="The API promotion request panel for Everything MCP, from Default environment to Docbot Production, with the Open API, Close, Reject, and Accept buttons"><figcaption><p>The API promotion request panel</p></figcaption></figure>
 
 **API promotion accepted.** or **API promotion rejected.** confirms your choice. After a rejection, the environment can be selected again in the **Environment** list.
 
@@ -73,6 +77,6 @@ To verify the promotion is working as expected, follow these steps:
 1. On the **Settings** page of the proxy, click **Promote**.
 2. Open the **Environment** list. The environment you promoted to shows **(pending)** until someone there accepts or rejects the request.
 
-    <figure><img src="../.gitbook/assets/gamma-aim-proxy-promote-pending.png" alt="The Promote MCP proxy panel with the Environment list open, listing Docbot Production and Docbot Staging (pending)"><figcaption><p>An environment with a promotion waiting</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gamma-aim-proxy-promote-pending.png" alt="The Promote MCP proxy panel with the Environment list open, listing Docbot Production and Docbot Staging (pending)"><figcaption><p>An environment with a promotion waiting</p></figcaption></figure>
 
 3. After the request is accepted, open the proxy in the target environment. Under **General**, select **Settings**. **Status** shows **Stopped**.

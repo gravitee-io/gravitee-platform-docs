@@ -40,7 +40,7 @@ Saving replaces the providers of the proxy without deploying them. The **This AP
 
 When the aliases declared by two providers differ, the page shows **Model aliases differ across providers** with the aliases of each provider. An alias routes, and fails over, only across the providers that declare it, so align the aliases for cross-provider failover. The warning doesn't block saving.
 
-<figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-models-page.png" alt="The Models page of an LLM Proxy with one inline provider expanded to its model table and the save bar showing unsaved changes"><figcaption><p>The Models page of an LLM Proxy, with a provider expanded and unsaved changes</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gamma-aim-llm-proxy-models-page.png" alt="The Models page of an LLM Proxy with one inline provider expanded to its model table and the save bar showing unsaved changes"><figcaption><p>The Models page of an LLM Proxy, with a provider expanded and unsaved changes</p></figcaption></figure>
 
 ## Guardrails, PII filtering, and rate limiting
 
@@ -134,6 +134,8 @@ The **Settings** page carries the following actions that work on the proxy as a 
 * **Import** replaces this proxy's configuration from a Gravitee definition, supplied as a file or a remote URL. The proxy keeps its plans and its identity.
 * **Duplicate** creates a copy of the proxy under a new context path and version.
 * **Promote** sends a copy of the proxy to another environment through Gravitee Cloud.
+
+The **Settings** page also carries a card for deleting the proxy. When the proxy can be deleted, the card reads **Permanently deletes this LLM proxy.** A running or published LLM Proxy can't be deleted, and the card then reads **A running or published LLM proxy cannot be deleted.**
 
 For the steps, see [Export and import an LLM Proxy](export-and-import-an-llm-proxy.md), [Duplicate an LLM Proxy](duplicate-an-llm-proxy.md), and [Promote your proxies to another environment](promote-your-proxies-to-another-environment.md).
 
