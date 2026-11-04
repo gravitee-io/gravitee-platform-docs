@@ -138,7 +138,7 @@ With a value above `0`, the following also applies:
 
 * A topic that a gateway instance hasn't seen yet is looked up on the brokers the first time a client names it by ID. The lookup uses the security settings of the endpoint group, or the client's own credentials with `DELEGATE_TO_BROKER`. The client's request waits for the lookup, for at most 3 seconds.
 * Gateway instances that share a distributed cache share the topics they learn. See [Deploy the Kafka Gateway for High Availability](../../deploy-the-kafka-gateway-for-high-availability.md#why-the-kafka-gateway-scales-horizontally).
-* With `DELEGATE_TO_BROKER`, the clients of each account share one request. With a SASL mechanism other than `PLAIN`, the setting only applies when the gateway instances share a distributed cache.
+* With `DELEGATE_TO_BROKER`, the clients of each account share one request. If the clients authenticate with a mechanism other than `PLAIN`, the setting only applies when the gateway instances share a distributed cache. This restriction doesn't apply to the other security settings, where the gateway uses the credentials of the endpoint group.
 
 An endpoint that doesn't inherit the configuration of its group uses the value set on its own **Configuration** tab, or the value of its group when it sets none. Deploy the API for a change to take effect.
 
