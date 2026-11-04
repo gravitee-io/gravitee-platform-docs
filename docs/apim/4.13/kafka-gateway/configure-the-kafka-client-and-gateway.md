@@ -372,7 +372,7 @@ With a limit of 20 and 15 open connections, `kafka_gateway_connection_usage` is 
 Available from APIM 4.13.2.
 {% endhint %}
 
-After it authenticates to the brokers on a new client connection, the gateway sends its own request for the metadata of every topic of the backend. The brokers answer it with one authorization check per topic. By default, every new client connection sends that request. `kafka.backendMetadataMaxAge` sets, in seconds, how long each gateway instance reuses its last request to a backend instead. It applies to every native Kafka API endpoint group, Kafka cluster, and Virtual Cluster that sets no max age of its own. Set it when the brokers hold many topics and many clients connect to them, or reconnect at once after a gateway restart: each of those connections otherwise costs the brokers one authorization check per topic. `30` is a good starting value.
+After it authenticates to the brokers on a new client connection, the gateway sends its own request for the metadata of every topic of the backend. The brokers answer it with one authorization check per topic. By default, every new client connection sends that request. `kafka.backendMetadataMaxAge` sets, in seconds, how long each gateway instance reuses its last request to a backend instead. It applies to every native Kafka API endpoint group, Kafka cluster, and Virtual Cluster that sets no max age of its own. Set it when the brokers hold many topics and many clients connect to them, or reconnect at once after a gateway restart. `30` is a good starting value.
 
 The default is set in the gateway configuration:
 
