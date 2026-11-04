@@ -389,7 +389,7 @@ kafka:
 ```
 
 * `0`, the default, keeps one request per new client connection.
-* A value from `1` to `3600` sends the request at most about once per that many seconds, per gateway instance and backend, whatever the number of clients.
+* A value from `1` to `3600` sends the request at most about once per that many seconds, per gateway instance, API, and backend, whatever the number of clients.
 * A value outside `0` to `3600`, or one that isn't a whole number, is ignored: the gateway logs an error and uses `0`.
 
 An endpoint group, a Kafka cluster, or a Virtual Cluster that sets its own **Backend metadata max age (seconds)** overrides this default. See [Bound the gateway's own metadata requests](create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md#bound-the-gateways-own-metadata-requests). With the Helm chart, set `gateway.kafka.backendMetadataMaxAge` and `gateway.kafka.mesh.refreshConnectionReuse`.

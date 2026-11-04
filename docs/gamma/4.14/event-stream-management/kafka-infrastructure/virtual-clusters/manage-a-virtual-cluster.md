@@ -72,7 +72,7 @@ After it authenticates to a backend on a new client connection, the gateway send
 
 The value applies to every backend of the Virtual Cluster, whatever their own Clusters set. Once the changes are deployed, it applies to the new connections of every Kafka Service bound to the Virtual Cluster, without a new deployment of the Kafka Services. A value that isn't a whole number of seconds from `0` to `3600` shows **Enter a whole number of seconds, from 0 to 3600.** and disables **Save changes**. The creation wizard doesn't offer the field: set it after you create the Virtual Cluster.
 
-With `0`, every new client connection sends the request to each backend, as before. With a value above `0`, each gateway instance sends it at most about once per that many seconds and per backend, whatever the number of clients. A topic that a gateway instance hasn't seen yet is looked up on its backend the first time a client names it by ID.
+With `0`, every new client connection sends the request to each backend, as before. With a value above `0`, each gateway instance sends it at most about once per that many seconds, for each Kafka Service bound to the Virtual Cluster and each backend, whatever the number of clients. A topic that a gateway instance hasn't seen yet is looked up on its backend the first time a client fetches from it.
 
 Without permission to change the configuration, the read-only **Configuration** card shows a **Backend metadata max age** row. It reads **Gateway default**, **Off** for `0`, or the value, for example **20 s**.
 
