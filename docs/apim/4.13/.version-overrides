@@ -306,3 +306,5 @@ developer-portal/new-developer-portal/customize-the-navigation/portal-automation
 developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-themes.md
 developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-links.md
 terraform/example-resource-configurations.md
+# Hybrid Gateway with Helm: run without rate limiting, ratelimit.type none (DOC-1965)
+hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-kubernetes/README.md
