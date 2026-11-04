@@ -109,6 +109,28 @@ A role without the **Configuration** read permission on the Cluster, such as the
 Kafka Services and Virtual Clusters reference a connection by its cross ID. Before you remove a connection or change its cross ID, check the **Used by Kafka Services** page of the Cluster, and the **Configuration** page of your Virtual Clusters.
 {% endhint %}
 
+## Set the backend metadata max age
+
+{% hint style="info" %}
+Available from Gamma 4.13.2.
+{% endhint %}
+
+After it authenticates to the brokers on a new client connection, the gateway sends its own request for the metadata of every topic of the Cluster. By default, every new client connection of every Kafka Service bound to the Cluster sends that request. The Cluster can let each gateway instance reuse its last request instead. Set a value when the brokers hold many topics and many clients connect to them, or reconnect at once after a gateway restart. `30` is a good starting value.
+
+1. Open the Cluster.
+2. In the **General** group of the sidebar, select **Configuration**.
+3. In **Backend metadata max age (seconds)**, below the **Kafka Cluster Connections** list, enter a whole number of seconds from `0` to `3600`, or leave the field empty to apply the gateway default.
+4. At the bottom of the page, select **Save changes**.
+5. Deploy the changes. See [Deploy a cluster or its changes](#deploy-a-cluster-or-its-changes).
+
+<figure><img src="../../.gitbook/assets/gamma-esm-cluster-backend-metadata-max-age.png" alt="The Configuration page of a Cluster, with the one connection of the Kafka Cluster Connections list collapsed and Backend metadata max age (seconds) set to 30 below it"><figcaption><p>The backend metadata max age of a Cluster</p></figcaption></figure>
+
+Once the changes are deployed, the value applies to the new connections of every Kafka Service bound to the Cluster, without a new deployment of the Kafka Services. A Virtual Cluster that uses the Cluster as a backend ignores this value: it applies its own, or the gateway default when it sets none. See [Set the backend metadata max age](../virtual-clusters/manage-a-virtual-cluster.md#set-the-backend-metadata-max-age) of a Virtual Cluster.
+
+With `0`, every new client connection sends the request, as before. With a value above `0`, each gateway instance sends it at most about once per that many seconds, whatever the number of clients. A topic that a gateway instance hasn't seen yet is looked up on the Cluster the first time a client names it by ID, with the credentials of the connection. With the `DELEGATE_TO_BROKER` mechanism, the clients of each account share one request. If they authenticate with a mechanism other than `PLAIN`, the setting only applies when the gateway instances share a distributed cache.
+
+Without permission to change the configuration, the read-only **Configuration** card shows a **Backend metadata max age** row. It reads **Gateway default**, **Off** for `0`, or the value, for example **30 s**. A role without the **Configuration** read permission sees a dash in that row.
+
 ## See which Kafka Services use a cluster
 
 1. Open the Cluster.

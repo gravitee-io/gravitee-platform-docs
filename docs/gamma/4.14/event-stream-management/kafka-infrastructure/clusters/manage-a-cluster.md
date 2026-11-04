@@ -111,6 +111,10 @@ Kafka Services and Virtual Clusters reference a connection by its cross ID. Befo
 
 ## Set the backend metadata max age
 
+{% hint style="info" %}
+Available from Gamma 4.13.2.
+{% endhint %}
+
 After it authenticates to the brokers on a new client connection, the gateway sends its own request for the metadata of every topic of the Cluster. By default, every new client connection of every Kafka Service bound to the Cluster sends that request. The Cluster can let each gateway instance reuse its last request instead. Set a value when the brokers hold many topics and many clients connect to them, or reconnect at once after a gateway restart. `30` is a good starting value.
 
 1. Open the Cluster.

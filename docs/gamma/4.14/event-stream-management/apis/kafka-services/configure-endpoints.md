@@ -96,6 +96,10 @@ The **Security** settings of a **Standalone** endpoint use the same form as a re
 
 ## Set the backend metadata max age of a Standalone group
 
+{% hint style="info" %}
+Available from Gamma 4.13.2.
+{% endhint %}
+
 After it authenticates to the brokers on a new client connection, the gateway sends its own request for the metadata of every topic. By default, every new client connection sends that request. A **Standalone** group can let each gateway instance reuse its last request to the group's brokers instead. Set a value when the brokers hold many topics and many clients connect to them, or reconnect at once after a gateway restart. `30` is a good starting value.
 
 1. Click the **Edit** button of the group.

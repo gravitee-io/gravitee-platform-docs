@@ -124,6 +124,30 @@ Gravitee assigns each Kafka API endpoint group the default name **Default Broker
   * **PEM with path:** Enter the truststore file path. No truststore password is needed: PEM doesn't support one.
 * **SASL\_SSL:** Configure both SASL authentication and SSL encryption, choose a **SASL** mechanism from the options listed under **SASL\_PLAINTEXT**, and then configure **SSL** settings as described in the **SSL** section.
 
+### Bound the gateway's own metadata requests
+
+{% hint style="info" %}
+Available from APIM 4.13.2.
+{% endhint %}
+
+After it authenticates to the brokers on a new client connection, the gateway sends its own request for the metadata of every topic. The brokers answer it with one authorization check per topic. By default, every new client connection sends that request. On the **Configuration** tab of the endpoint group, **Backend metadata max age (seconds)** lets each gateway instance reuse its last request to the brokers of the group instead. The same field is on the **Configuration** step when you create an endpoint group.
+
+Set a value when the brokers hold many topics and many clients connect to them, or reconnect at once after a gateway restart: each of those connections otherwise costs the brokers one authorization check per topic. `30` is a good starting value.
+
+<figure><img src="../../../.gitbook/assets/kafka-endpoint-group-backend-metadata-max-age.png" alt="The Configuration tab of a native Kafka endpoint group, with the security protocol set to PLAINTEXT and Backend metadata max age (seconds) set to 30."><figcaption></figcaption></figure>
+
+* Leave the field empty to apply the gateway-wide default. That default is `0` unless the gateway configuration sets another value. See [Set the default backend metadata max age](../../configure-the-kafka-client-and-gateway.md#set-the-default-backend-metadata-max-age).
+* Enter `0` to send the request on every new client connection, as before.
+* Enter a whole number of seconds from `1` to `3600` to send it at most about once per that many seconds, per gateway instance, whatever the number of clients.
+
+With a value above `0`, the following also applies:
+
+* A topic that a gateway instance hasn't seen yet is looked up on the brokers the first time a client names it by ID. The lookup uses the security settings of the endpoint group, or the client's own credentials with `DELEGATE_TO_BROKER`. The client's request waits for the lookup, for at most 3 seconds.
+* Gateway instances that share a distributed Hazelcast cache share the topics they learn. See [Cache](../../../prepare-a-production-environment/cache.md).
+* With `DELEGATE_TO_BROKER`, the clients of each account share one request. If the clients authenticate with a mechanism other than `PLAIN`, the setting only applies when the gateway instances share a distributed cache. This restriction doesn't apply to the other security settings, where the gateway uses the credentials of the endpoint group.
+
+An endpoint that doesn't inherit the configuration of its group uses the value set on its own **Configuration** tab, or the value of its group when it sets none. Deploy the API for a change to take effect.
+
 ## Edit the endpoint
 
 Gravitee automatically assigns your Kafka API endpoint the name **Default Broker**. The Console endpoint table includes a **Tenants** column displaying comma-separated tenant names for each endpoint. The column is hidden if no endpoint in the group has tenants configured.

@@ -28,4 +28,5 @@ APIM 4.14 adds the following features.
 * The gateway configuration gains a default max age for the endpoint groups, Kafka clusters, and Virtual Clusters that set none of their own, and a setting that lets Virtual Cluster metadata refreshes reuse one connection per backend. Both are also Helm values.
 * With a max age above `0`, a topic that a gateway instance hasn't seen yet is looked up on the brokers the first time a client names it by ID, and gateway instances that share a distributed cache share the topics they learn.
 * In Event Stream Management, a Cluster or a Virtual Cluster sets the same max age for every Kafka Service bound to it.
+* The feature also ships in APIM 4.13.2.
 * For more information, see [Configure native Kafka API endpoints](../../kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md#bound-the-gateways-own-metadata-requests) and [Configure the Kafka Client & Gateway](../../kafka-gateway/configure-the-kafka-client-and-gateway.md#set-the-default-backend-metadata-max-age).
