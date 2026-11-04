@@ -193,7 +193,7 @@
   * [AM 4.13](releases-and-changelog/release-notes/am-4.13.md)
   * [AM 4.12](https://documentation.gravitee.io/am/4.12/releases-and-changelog/release-notes/am-4.12)
   * [AM 4.11](https://app.gitbook.com/s/O4b17m2YAjS2X1XTCh88/releases-and-changelog/release-notes/am-4.11)
-  * [AM 4.10](https://documentation.gravitee.io/am/releases-and-changelog/release-notes/am-4.10)
+  * [AM 4.10](https://documentation.gravitee.io/am/4.10/releases-and-changelog/release-notes/am-4.10)
   * [AM 4.9](https://documentation.gravitee.io/am/4.9/releases-and-changelog/release-notes/am-4.9)
   * [AM 4.8](https://documentation.gravitee.io/am/4.8/releases-and-changelog/release-notes/am-4.8)
   * [AM 4.7](https://documentation.gravitee.io/am/4.7/releases-and-changelog/release-notes/am-4.7)
