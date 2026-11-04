@@ -35,7 +35,7 @@ An endpoint with an empty or null tenant list is considered shared and always ma
 
 ## Security protocols
 
-Gravitee Kafka APIs support `PLAINTEXT`, `SASL_PLAINTEXT`, `SASL_SSL`, or `SSL` as the security protocol to connect to the Kafka cluster.
+Gravitee Kafka APIs support **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, or **SSL** as the security protocol to connect to the Kafka cluster.
 
 ### SASL mechanisms
 
@@ -101,9 +101,9 @@ Gravitee assigns each Kafka API endpoint group the default name **Default Broker
     <figure><img src="../../../.gitbook/assets/select-configuration-tab-endpoint-group.png" alt="The endpoint group editor with the Configuration tab selected and highlighted, showing the security protocol set to PLAINTEXT."><figcaption></figcaption></figure>
 4.  Select one of the security protocols from the drop-down menu, and then configure the associated settings to define your Kafka authentication flow.
 
-    <figure><img src="../../../.gitbook/assets/supported-endpoint-security-protocol.png" alt="The endpoint group Configuration tab with the security protocol dropdown open, listing the four security protocols."><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/supported-endpoint-security-protocol.png" alt="The endpoint group Configuration tab with the security protocol dropdown open on PLAINTEXT, SASL_PLAINTEXT, SASL_SSL, and SSL."><figcaption></figcaption></figure>
 
-* **`PLAINTEXT`:** No further security configuration is necessary.
+* **PLAINTEXT:** No further security configuration is necessary.
 * **SASL\_PLAINTEXT:** Choose NONE, AWS\_MSK\_IAM, GSSAPI, OAUTHBEARER, OAUTHBEARER\_TOKEN, PLAIN, SCRAM-SHA-256, SCRAM-SHA-512, or DELEGATE\_TO\_BROKER.
   * **NONE:** No additional security configuration required.
   * **AWS\_MSK\_IAM:** Enter the JAAS login context parameters.
