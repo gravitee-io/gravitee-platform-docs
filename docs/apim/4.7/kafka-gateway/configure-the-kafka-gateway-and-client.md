@@ -196,7 +196,7 @@ When using [Gravitee Access Management (AM)](https://documentation.gravitee.io/a
 For plan, application, subscription, and resource information, see the following:
 
 * For information on how to create and manage plans, see [Plans](plans.md).
-* To learn how to create an application for a Gravitee plan, see [Applications](applications.md).
+* To learn how to create an application for a Gravitee plan, see [Applications](../expose-apis/applications/README.md).
 * For more information on how subscriptions work in Gravitee, see [Subscriptions](../expose-apis/subscriptions.md).
 * To learn how to create a resource, see [Resources](../policies/resources.md).
 

@@ -71,6 +71,34 @@ Apply the following when you deploy the gateway pool:
 
 Kafka proxying is bound by connections and throughput, not CPU. Give the gateway network headroom, and watch the file-descriptor limits, because every client connection and every broker connection is an open socket. For baseline resource allocations, see [Gateway Resource Sizing](../prepare-a-production-environment/gateway-resource-sizing-guidelines.md).
 
+### Size direct memory for consumers
+
+The gateway holds each Fetch response in direct memory, outside the JVM heap, until the client socket accepts it. A consumer that reads slowly or stops reading keeps about one response per connection in memory until it reads or disconnects. Pipelined Fetch requests on a connection do not add to this, but the gateway has no limit on the total across connections.
+
+Estimate the direct memory that consumers can hold:
+
+```text
+direct memory  =  connections fetching  x  largest Fetch response  x  1.4
+
+largest Fetch response  =  the lower of
+                           fetch.max.bytes
+                           partitions fetched from one broker x max.partition.fetch.bytes
+```
+
+For example, 80 connections that each fetch 12 partitions at the default `max.partition.fetch.bytes` of 1 MiB can hold 80 x 12 MiB x 1.4, which is about 1.3 GiB.
+
+A connection limit bounds this total. See [Limit client connections](configure-the-kafka-client-and-gateway.md#limit-client-connections).
+
+Set the limit explicitly. By default, the JVM allows as much direct memory as the maximum heap, so a pod with a 5 GiB limit and a 3 GiB heap can try to use more direct memory than it has, and the pod is killed. Pass `-XX:MaxDirectMemorySize` in `JAVA_OPTS` so that the heap, direct memory, and the other memory the JVM uses all fit in the pod limit:
+
+```yaml
+env:
+  - name: JAVA_OPTS
+    value: -XX:MaxDirectMemorySize=1536m
+```
+
+When the gateway reaches this limit, it logs out-of-memory errors and keeps running, and some consumers can stop receiving records until their connection closes. A group of consumers starting at the same time can reach the limit briefly. If this happens under normal traffic, add replicas, raise the limit along with the pod memory, or lower `max.partition.fetch.bytes` and `fetch.max.bytes` on the consumers.
+
 ## Stop routing to a full gateway
 
 Every gateway instance can bound its client connections with `kafka.maxConnections` or `kafka.maxConnectionsPerGiB`, and refuses new clients above the limit. To stop new connections reaching an instance before it is full, turn on the readiness check and let the orchestrator remove the instance from routing. For the keys and the thresholds, see [Report readiness near the connection limit](configure-the-kafka-client-and-gateway.md#report-readiness-near-the-connection-limit).
@@ -159,6 +187,7 @@ Confirm each of the following before you call the deployment highly available:
 * An L4 load balancer with TLS passthrough, the SNI hostname preserved, and a long idle timeout.
 * Wildcard DNS that resolves every advertised broker hostname to the load balancer, with a matching wildcard or SAN certificate.
 * Three or more stateless gateway replicas, anti-affinity, and a `PodDisruptionBudget` of `minAvailable: 2`.
+* A `-XX:MaxDirectMemorySize` value that fits in the pod limit, sized for your consumers.
 * A connection limit and the `kafka-readiness` probe on the readiness path, with headroom sized for your connection rate.
 * A backend Kafka cluster with a replication factor of 3 or more, `min.insync.replicas=2`, and brokers spread across availability zones.
 * A redundant control plane: two or more Management API instances, a three-node MongoDB replica set, and a three-node Elasticsearch or OpenSearch cluster.
