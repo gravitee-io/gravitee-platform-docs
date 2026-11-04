@@ -143,7 +143,7 @@ Set a value when the brokers hold many topics and many clients connect to them, 
 With a value above `0`, the following also applies:
 
 * A topic that a gateway instance hasn't seen yet is looked up on the brokers the first time a client fetches from it. The lookup uses the security settings of the endpoint group, or the client's own credentials with `DELEGATE_TO_BROKER`. The client's request waits for the lookup, for at most 3 seconds.
-* Gateway instances that share a Hazelcast cache, clustered across the instances, share the topics they learn. See [Cache](../../../prepare-a-production-environment/cache.md).
+* Gateway instances that share a distributed cache, Hazelcast or Redis, share the topics they learn. See [Cache](../../../prepare-a-production-environment/cache.md).
 * With `DELEGATE_TO_BROKER`, the clients of each account share one request. If the clients authenticate with `AWS_MSK_IAM`, the setting only applies when the gateway instances share a distributed cache. This restriction doesn't apply to the other security settings, where the gateway uses the credentials of the endpoint group.
 
 An endpoint that doesn't inherit the configuration of its group uses the value set on its own **Configuration** tab, or the value of its group when it sets none. Deploy the API for a change to take effect.
