@@ -56,7 +56,7 @@ The Management API saves the empty configuration. The Virtual Cluster moves to *
 
 ## Set the backend metadata max age
 
-After it authenticates to a backend on a new client connection, the gateway sends its own request for the metadata of every topic of that backend. By default, every new client connection of every Kafka Service bound to the Virtual Cluster sends that request to each backend. The Virtual Cluster can let each gateway instance reuse its last request to each backend instead:
+After it authenticates to a backend on a new client connection, the gateway sends its own request for the metadata of every topic of that backend. By default, every new client connection of every Kafka Service bound to the Virtual Cluster sends that request to each backend. The Virtual Cluster can let each gateway instance reuse its last request to each backend instead. Set a value when the backends hold many topics and many clients connect to them, or reconnect at once after a gateway restart. `30` is a good starting value.
 
 1. Open the Virtual Cluster.
 2. In the **General** group of the sidebar, select **Configuration**.

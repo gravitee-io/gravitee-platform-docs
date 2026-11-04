@@ -128,6 +128,8 @@ Gravitee assigns each Kafka API endpoint group the default name **Default Broker
 
 After it authenticates to the brokers on a new client connection, the gateway sends its own request for the metadata of every topic. The brokers answer it with one authorization check per topic. By default, every new client connection sends that request. On the **Configuration** tab of the endpoint group, **Backend metadata max age (seconds)** lets each gateway instance reuse its last request to the brokers of the group instead. The same field is on the **Configuration** step when you create an endpoint group.
 
+Set a value when the brokers hold many topics and many clients connect to them, or reconnect at once after a gateway restart: each of those connections otherwise costs the brokers one authorization check per topic. `30` is a good starting value.
+
 <figure><img src="../../../.gitbook/assets/kafka-endpoint-group-backend-metadata-max-age.png" alt="The Configuration tab of a native Kafka endpoint group, with the security protocol set to PLAINTEXT and Backend metadata max age (seconds) set to 30."><figcaption></figcaption></figure>
 
 * Leave the field empty to apply the gateway-wide default. That default is `0` unless the gateway configuration sets another value. See [Set the default backend metadata max age](../../configure-the-kafka-client-and-gateway.md#set-the-default-backend-metadata-max-age).
