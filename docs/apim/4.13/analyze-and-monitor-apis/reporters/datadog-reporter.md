@@ -21,7 +21,7 @@ If you are installing the Gravitee Gateway via Helm, add the following entry in 
 gateway:
   ...
   additionalPlugins:
-    - https://download.gravitee.io/graviteeio-ee/apim/plugins/reporters/gravitee-reporter-datadog/gravitee-reporter-datadog-7.2.1.zip
+    - https://download.gravitee.io/graviteeio-ee/apim/plugins/reporters/gravitee-reporter-datadog/gravitee-reporter-datadog-8.2.0.zip
 ```
 
 ## Configuration
@@ -126,7 +126,7 @@ You can obscure the value of this API key by using [configuration-level secrets]
 | Datadog Reporter Plugin version | Gravitee APIM version |
 | ------------------------------- | --------------------- |
 | 8.x                             | 4.12.x and later      |
-| 7.x                             | 4.10.x and later      |
+| 7.x                             | 4.10.x to 4.11.x      |
 | 6.x                             | 4.9.x and later       |
 | 5.x                             | 4.8.x and later       |
 | 4.1                             | 4.7.x and later       |

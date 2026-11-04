@@ -707,6 +707,7 @@ redirects:
  introduction/core-concepts: README.md
  introduction/enterprise-edition: README.md
  introduction/integrations: README.md
+ kafka-gateway/applications: secure-and-expose-apis/applications/create-an-application.md
  kafka-gateway/configure-kafka-apis: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/README.md
  kafka-gateway/configure-kafka-apis/configuration: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuration.md
  kafka-gateway/configure-kafka-apis/consumers: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/consumers.md
@@ -731,6 +732,7 @@ redirects:
  kafka-gateway/policies/kafka-acl: create-and-configure-apis/apply-policies/policy-reference/kafka-acl.md
  kafka-gateway/policies/kafka-quota: create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md
  kafka-gateway/policies/kafka-topic-mapping: create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md
+ kafka-gateway/subscriptions: secure-and-expose-apis/subscriptions/README.md
  management-api/internal-api: configure-and-manage-the-platform/gravitee-gateway/gateway-internal-api.md
  management-api/management-api-reference: management-api-reference.md
  management-api/management-settings: configure-and-manage-the-platform/management-api/settings.md

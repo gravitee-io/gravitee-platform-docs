@@ -1,5 +1,5 @@
 ---
-description: What the Gamma 4.14 release adds to Agent Management and Edge Management. Browse the new features and changes.
+description: What the Gamma 4.14 release adds to Agent Management, Edge Management, and Platform Management. Browse the new features and changes.
 ---
 
 # Release Notes
@@ -12,13 +12,22 @@ The 4.14 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies.
+Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
 * In the **Policy Studio** of an LLM Proxy, you can add the **AWS Lambda** and **Data Cache Policy** policies to the request and response phases.
 * **AWS Lambda** invokes an AWS Lambda function. It isn't included in the default distribution, so [download](https://download.gravitee.io/#graviteeio-apim/plugins/policies/gravitee-policy-aws-lambda/) version 3.5.0 or later of its plugin and [deploy it](https://documentation.gravitee.io/apim/plugins/deployment) first.
 * **Data Cache Policy** reads, writes, and removes values in a cache resource of the LLM Proxy, so add a cache resource on the **Resources** page first. See [Resources](../agent-management/build/configure-an-llm-proxy.md#resources).
+
+#### Alerts for MCP Proxies
+
+* A new **Alerts** page in the **Monitoring** group of an MCP Proxy lists its alerts, and adds, edits, enables, disables, and deletes them. Each alert notifies you when the traffic of the proxy matches its rule.
+* Four rules watch the requests of the proxy: a condition on a request metric, no request for a period of time, the aggregated value of a request metric, and the rate of requests that meet a condition. Filters narrow the events that a rule evaluates, and the **Error Key** values include the error keys of the MCP Proxy.
+* Alerts notify through **System email** and the notifiers installed on the platform, such as **Email**, **Slack**, and **Webhook**. Dampening limits how many notifications an alert sends when it fires several times for the same condition, and timeframes limit when it sends them. When you open a saved alert, the secrets of its channels stay masked.
+* The **History** tab of an alert lists its events.
+* Alerts require Alert Engine.
+* See [Configure MCP Proxy alerts](../agent-management/build/configure-mcp-proxy-alerts.md).
 
 ### Edge Management
 
@@ -45,3 +54,14 @@ Edge Management decides how the Edge Daemons identify themselves to the Edge Rea
 
 * If the Edge Reactor listener can't start, the gateway doesn't start either, for example when the port of the listener is already in use, or when its keystore or truststore can't be read. Before 4.14, the gateway started without the listener.
 * The setting for the port of the Edge Reactor listener has a new name. The previous name still works, and the gateway logs a warning at startup. See [Rename the port setting](../edge-management/connect/secure-the-edge-reactor-listener.md#rename-the-port-setting).
+
+### Platform Management
+
+Platform Management encrypts the sensitive values of environment dictionaries.
+
+#### Encrypted dictionary properties
+
+* On the detail page of a dictionary, turn on **Encrypt on save** when you add a property, or select **Encrypt** in the actions menu of an existing property, and then select **Save**. A dictionary holds encrypted and unencrypted properties side by side.
+* The console masks an encrypted value and never shows it again, while policies still read the original value at runtime. To change an encrypted value in a manual dictionary, select **Replace value**.
+* A dynamic dictionary encrypts every value that it fetches from its provider when you select **Encrypt fetched values** while you create or edit it.
+* See [Encrypt property values](manage-dictionaries.md#encrypt-property-values).

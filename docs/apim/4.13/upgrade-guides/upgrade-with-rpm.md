@@ -39,7 +39,11 @@ Failure to backup these files will result in loss of your custom configurations.
 
 ### Java Version Requirement
 
-Starting in version 4.7, Gravitee APIM requires **Java 21**. If you are deploying APIM with RPM or using the distribution bundle, please ensure you upgrade your Java version before proceeding with the APIM upgrade.
+Starting in version 4.13, Gravitee APIM requires **Java 25**. APIM 4.7 to 4.12 run on Java 21 and aren't compatible with Java 25. Install Java 25 and make it the default `java` as part of the upgrade, before you start or restart the 4.13 Gateway and Management API. Don't restart a 4.12 component after you switch.
+
+* On Red Hat Enterprise Linux 9 and 10, install `java-25-openjdk-headless`. On Amazon Linux 2023, install `java-25-amazon-corretto-headless`.
+* Red Hat Enterprise Linux 8 and Amazon Linux 2 don't provide a Java 25 package.
+* Installing Java 25 next to Java 21 doesn't always make it the default `java`. Run `sudo alternatives --config java`, select the Java 25 entry, and then check the result with `java -version`.
 
 ## Upgrade the full APIM stack
 

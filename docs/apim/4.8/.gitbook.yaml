@@ -710,6 +710,7 @@ redirects:
  installation-and-upgrades/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management: release-information/breaking-changes-and-deprecations.md
  installation-and-upgrades/upgrading-gravitee-api-management/upgrade-guide: hybrid-installation-and-configuration-guides/README.md
  installation-and-upgrades/upgrading-gravitee-api-management/upgrading-gravitee-api-management-installed-with-rpm-packages: self-hosted-installation-guides/rpm/README.md
+ kafka-gateway/applications: secure-and-expose-apis/applications/create-an-application.md
  kafka-gateway/configure-and-deploy-kafka-console: kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md
  kafka-gateway/configure-kafka-apis: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/README.md
  kafka-gateway/configure-kafka-apis/configuration: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuration.md
@@ -737,6 +738,7 @@ redirects:
  kafka-gateway/policies/kafka-acl: create-and-configure-apis/apply-policies/policy-reference/kafka-acl.md
  kafka-gateway/policies/kafka-quota: create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md
  kafka-gateway/policies/kafka-topic-mapping: create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md
+ kafka-gateway/subscriptions: secure-and-expose-apis/subscriptions/README.md
  management-api/internal-api: configure-and-manage-the-platform/gravitee-gateway/gateway-internal-api.md
  management-api/management-api-reference: management-api-reference.md
  management-api/management-settings: configure-and-manage-the-platform/management-api/settings.md
