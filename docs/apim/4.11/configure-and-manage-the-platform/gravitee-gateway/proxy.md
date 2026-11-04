@@ -11,6 +11,8 @@ metaLinks:
 
 Gravitee lets you define specific proxies for specific uses cases. Proxy configurations can be defined at the Gateway level or for individual APIs.
 
+To route the Gateway's calls to backend APIs through a corporate proxy, see [System proxy for backend APIs](system-proxy-for-backend-apis.md).
+
 You can define proxy settings for Gravitee using the `values.yaml` file or Gravitee-specific environment variables.
 
 {% hint style="info" %}
