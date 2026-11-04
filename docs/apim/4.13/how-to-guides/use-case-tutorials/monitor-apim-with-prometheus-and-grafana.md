@@ -8,6 +8,8 @@ This guide deploys Gravitee API Management (APIM) with Prometheus and Grafana on
 
 To add monitoring to an existing installation instead, see [Monitor APIM with Grafana](../../analyze-and-monitor-apis/monitor-apim-with-grafana.md).
 
+This guide stores analytics and logs in Elasticsearch. To monitor APIM without Elasticsearch, use the OpenTelemetry edition: see [Monitor without Elasticsearch](../../analyze-and-monitor-apis/monitor-apim-with-grafana.md#monitor-without-elasticsearch).
+
 {% hint style="info" %}
 This guide uses third-party tools. For their full configuration options, see the [Docker Compose](https://docs.docker.com/compose/), [Prometheus](https://prometheus.io/docs/), and [Grafana](https://grafana.com/docs/) documentation.
 {% endhint %}

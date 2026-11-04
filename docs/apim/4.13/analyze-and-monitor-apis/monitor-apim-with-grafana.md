@@ -19,6 +19,10 @@ The Gravitee Grafana dashboard pack gives you six linked dashboards, from the pr
 
 [Download the latest pack](https://github.com/gravitee-io-labs/gravitee-grafana-prometheus/releases/latest/download/gravitee-grafana-dashboards.zip) (`gravitee-grafana-dashboards.zip`). The dashboards, rules, and a Docker Compose demo stack are maintained in the [gravitee-grafana-prometheus](https://github.com/gravitee-io-labs/gravitee-grafana-prometheus) repository under the Apache 2.0 license. To try it on a local Docker Compose stack first, see [Monitor APIM with Prometheus and Grafana using Docker Compose](../how-to-guides/use-case-tutorials/monitor-apim-with-prometheus-and-grafana.md).
 
+{% hint style="info" %}
+Without Elasticsearch or OpenSearch, use the OpenTelemetry edition of the pack. See [Monitor without Elasticsearch](#monitor-without-elasticsearch).
+{% endhint %}
+
 <figure><img src="../.gitbook/assets/grafana-api-program-overview.png" alt="The API Program Overview dashboard, with KPI tiles for calls, availability, error rates, response time and gateway overhead, followed by traffic, latency attribution, leaderboards, policy outcomes, and a world map of calls by country."><figcaption><p>The API Program Overview dashboard</p></figcaption></figure>
 
 ## Data sources
@@ -38,7 +42,7 @@ The dashboards read v4 API analytics. v2 APIs report to the `gravitee-request-*`
 
 ## Prerequisites
 
-* APIM 4.x with the Elasticsearch or OpenSearch reporter enabled (the default)
+* APIM 4.x with the Elasticsearch or OpenSearch reporter enabled (the default). Without it, see [Monitor without Elasticsearch](#monitor-without-elasticsearch).
 * Grafana 10.4 or later
 * Prometheus 2.40 or later, for the Gateway metrics, SLOs, and alerts
 
@@ -261,6 +265,106 @@ To show plan names instead of plan IDs, add the policy to each plan's flow with 
 * **SLO objective**: replace `0.005` in `gravitee-slo.rules.yml`, for example with `0.001` for 99.9%, and in the **Error budget used** calculation of the per-API SLO table.
 * **Colors**: edit a panel and change its **Thresholds**.
 * **Alerts**: edit the conditions in `gravitee-alerts.rules.yml`.
+
+## Monitor without Elasticsearch
+
+The OpenTelemetry edition of the pack gives the same six dashboards without an analytics store. The Gateway sends OpenTelemetry traces and logs to an OpenTelemetry Collector. The collector derives per-API metrics from the spans for Prometheus, stores the traces in Tempo, and stores the logged payloads in Loki.
+
+```
+Gateway ─ OTLP traces + logs ─► OpenTelemetry Collector ─┬─ metrics derived from spans ─► Prometheus
+        │                                                ├─ traces                      ─► Tempo
+        │                                                └─ OpenTelemetry logs          ─► Loki
+        └─ /_node/metrics/prometheus (JVM, CPU, HTTP) ──────────────────────────────────► Prometheus
+```
+
+[Download the OpenTelemetry pack](https://github.com/gravitee-io-labs/gravitee-grafana-prometheus/releases/latest/download/gravitee-grafana-dashboards-otel.zip) (`gravitee-grafana-dashboards-otel.zip`). Its `README.md` contains the complete installation guide, and the [`otel` folder](https://github.com/gravitee-io-labs/gravitee-grafana-prometheus/tree/main/otel) of the repository contains a Docker Compose demo stack.
+
+Every call can be opened as a trace that shows its phases, plan flow, each policy with its duration, and the backend call. The pack also includes per-API SLO recording rules, per-API burn-rate and latency alerts, and alerts on the telemetry pipeline itself.
+
+### Prerequisites
+
+| Component | Version or setting |
+| --- | --- |
+| APIM | 4.13 or later, v4 APIs, with the OpenTelemetry reporter. Validated with an Enterprise license. |
+| OpenTelemetry Collector | *contrib* distribution, for the `spanmetrics` connector. Tested on 0.115. |
+| Prometheus | 2.40 or later |
+| Tempo | 2.7 or later. The trace tables use the `most_recent` search hint. |
+| Loki | 3.0 or later, with structured metadata allowed |
+| Grafana | 10.4 or later |
+
+### Configure APIM
+
+1.  Configure the Gateway to send traces and logs to the collector, enable the OpenTelemetry reporter, and disable the Elasticsearch reporter:
+
+    {% code title="gravitee.yml" %}
+    ```yaml
+    services:
+      opentelemetry:
+        enabled: true
+        exporter:
+          endpoint: http://otel-collector:4317
+          protocol: grpc
+          logsEndpoint: http://otel-collector:4318/v1/logs
+      metrics:
+        enabled: true
+        prometheus:
+          enabled: true
+    reporters:
+      otel:
+        enabled: true
+      elasticsearch:
+        enabled: false
+    ```
+    {% endcode %}
+
+    The `logsEndpoint` always uses OTLP over HTTP. For the Gateway internal API settings, see [Enable the Gateway metrics endpoint](#enable-the-gateway-metrics-endpoint).
+2.  On the Management API, set `repositories.analytics.type` to `none` to run without an analytics store.
+3.  On each API, enable tracing, and enable OpenTelemetry logs where you want payloads. In the Console, open the API's reporter settings. With the Management API, set the `analytics` block of the v4 API:
+
+    ```json
+    "analytics": {
+      "enabled": true,
+      "tracing": { "enabled": true, "verbose": false },
+      "otelLogs": { "enabled": true },
+      "logging": {
+        "mode": { "entrypoint": true, "endpoint": true },
+        "phase": { "request": true, "response": true },
+        "content": { "payload": true },
+        "condition": "{#request.id.hashCode() % 5 == 0}"
+      }
+    }
+    ```
+
+    Tracing must be enabled on every call, because the per-API metrics are computed from the spans. OpenTelemetry logs follow the API's logging settings and condition. For more information, see [OpenTelemetry](opentelemetry.md) and [Enable and use OpenTelemetry logs for APIs](enable-and-use-opentelemetry-logs-for-apis.md).
+
+### Deploy the collector, Prometheus, Tempo, and Loki
+
+1. Run the OpenTelemetry Collector with the pack's `collector/collector.yaml`. It exposes `gravitee_calls_total` and `gravitee_duration_milliseconds` on port `8889`, and sends traces to Tempo and logs to Loki. Adjust the Tempo and Loki addresses.
+2. In Prometheus, add the scrape jobs from `prometheus-rules/scrape-config.example.yml` and load the rule files from `prometheus-rules`.
+3. Deploy Tempo and Loki. The pack's `collector/tempo.yaml` and `collector/loki.yaml` are single-process examples. Loki must allow structured metadata.
+4. In Grafana, add the Prometheus, Tempo, and Loki data sources and import the dashboards. The pack's `grafana-provisioning/datasources/datasources.yml` links traces to logs and logs to traces.
+
+### Differences with the Elasticsearch edition
+
+OpenTelemetry signals don't carry everything the analytics record contains:
+
+| Not available | Closest alternative |
+| --- | --- |
+| Client country, city, and world map | The client IP is on each trace. |
+| User agents and per-path tables | Search traces in Tempo by `span.user_agent.original` or `span.http.target`. As metric labels, they would create too many series. |
+| Plan IDs | Plans appear through their flow name, for example `plan-gold plan`. A plan without a flow isn't counted. |
+| Business dimensions from Assign Metrics | – |
+| Headers in Call Logs | OpenTelemetry logs contain bodies only. The trace shows the call's path through the Gateway. |
+| Rejection reason for plan security failures | The 401 and 403 counts. |
+| Payload sizes, backend connect time, and time to first byte | The backend time from the client span. |
+
+The Gateway overhead is an average, the server span minus the backend span, because percentiles can't be subtracted.
+
+{% hint style="warning" %}
+* Every call is traced, at about 13 spans per call. Size Tempo's retention accordingly.
+* The number of metric series grows with APIs, applications, status codes, and methods. Each dimension added in `collector.yaml` multiplies it.
+* Traces contain client IPs and URLs, and OpenTelemetry logs contain payloads. Restrict access to the Tempo and Loki data sources.
+{% endhint %}
 
 ## Troubleshooting
 
