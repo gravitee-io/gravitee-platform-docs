@@ -132,7 +132,7 @@ After it authenticates to the brokers on a new client connection, the gateway se
 
 * Leave the field empty to apply the gateway-wide default. That default is `0` unless the gateway configuration sets another value. See [Set the default backend metadata max age](../../configure-the-kafka-client-and-gateway.md#set-the-default-backend-metadata-max-age).
 * Enter `0` to send the request on every new client connection, as before.
-* Enter a whole number of seconds from `1` to `3600` to send it at most about once per that many seconds, per gateway instance. With `30`, the brokers serve about one such request per gateway instance every 30 to 60 seconds, whatever the number of clients.
+* Enter a whole number of seconds from `1` to `3600` to send it at most about once per that many seconds, per gateway instance, whatever the number of clients.
 
 With a value above `0`, the following also applies:
 
