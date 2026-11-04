@@ -30,6 +30,13 @@ The TCP reporter has the following configuration parameters:
 | `tls.truststore.type`     | The type of trust-store to use (either PEM, JKS or PFX)                                                                                                               | null          |
 | `tls.truststore.password` | The password to use for the trust-store (only for JKS and PFX types)                                                                                                  | null          |
 | `tls.keystore.certs`      | The list of certificates to trust, when type is PEM                                                                                                                   | null          |
+| `<EVENT_TYPE>.exclude`    | Fields to exclude from the output. Available for `json` and `message_pack` outputs only.                                                                              | none          |
+| `<EVENT_TYPE>.include`    | Fields to include in the output. Available for `json` and `message_pack` outputs and only if excludes have been defined.                                              | none          |
+| `<EVENT_TYPE>.rename`     | Fields to rename when writing the output. Available for `json` and `message_pack` outputs only.                                                                       | none          |
+
+{% hint style="info" %}
+\<EVENT\_TYPE> refers to the kind of event reported by the Gateway, such as `request`, `log`, `v4-log`, or `v4-metrics`. See [Reporters](README.md#configuring-reporters-and-selecting-fields) for the full list.
+{% endhint %}
 
 ## Example
 
