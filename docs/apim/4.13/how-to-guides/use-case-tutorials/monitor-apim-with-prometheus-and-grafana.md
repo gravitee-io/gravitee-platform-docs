@@ -4,6 +4,8 @@ description: Deploy APIM 4.13 with Prometheus and Grafana using Docker Compose, 
 
 # Monitor APIM with Prometheus and Grafana using Docker Compose
 
+## Overview
+
 This guide deploys Gravitee API Management (APIM) with Prometheus and Grafana on a single machine using Docker Compose. When you're done, Grafana shows your API traffic, consumers, latency, Gateway health, SLOs, and the headers and payloads of each call.
 
 To add monitoring to an existing installation instead, see [Monitor APIM with Grafana](../../analyze-and-monitor-apis/monitor-apim-with-grafana.md).
@@ -16,7 +18,7 @@ This guide uses third-party tools. For their full configuration options, see the
 
 ## Architecture
 
-```
+```text
 API consumers ──► Gateway ──► backend
                     │
                     ├─ internal API :18082 /_node/metrics/prometheus ──► Prometheus ──┐
@@ -25,19 +27,30 @@ API consumers ──► Gateway ──► backend
                     └─ API logs          ──► Elasticsearch  gravitee-v4-log-*       ──┘
 ```
 
-Grafana reads two kinds of data:
+Grafana reads the following kinds of data:
 
-* **Gateway metrics from Prometheus**: real-time request rates, connections, JVM, and CPU for each Gateway node.
-* **API analytics from Elasticsearch**: one record per API call, with the API, application, plan, status, latency split between the Gateway and the backend, rejection reason, client country, and user agent.
-* **API logs from Elasticsearch**: the headers and payloads of each call, for APIs with logging enabled.
+* **Gateway metrics from Prometheus**. Prometheus provides real-time request rates, connections, JVM, and CPU for each Gateway node.
+* **API analytics from Elasticsearch**. Elasticsearch holds one record per API call. Each record carries the API, application, plan, status, latency split between the Gateway and the backend, rejection reason, client country, and user agent.
+* **API logs from Elasticsearch**. For APIs with logging enabled, Elasticsearch holds the headers and payloads of each call.
 
 ## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
 
 * Docker with Docker Compose v2
 * 4 GB of RAM available to Docker
 * Free local ports `3000`, `8082`, `8083`, `8084`, and `9090`
 
-## Create the project files
+## Deploy APIM with Prometheus and Grafana
+
+To deploy APIM with Prometheus and Grafana, complete the following steps:
+
+1. [Create the project files](#create-the-project-files)
+2. [Start the stack](#start-the-stack)
+3. [Create an API and generate traffic](#create-an-api-and-generate-traffic)
+4. [Explore the dashboards](#explore-the-dashboards)
+
+### Create the project files
 
 1.  Create a project directory:
 
@@ -193,7 +206,7 @@ Grafana reads two kinds of data:
         options: { path: /etc/grafana/dashboards }
     ```
     {% endcode %}
-6.  Download the [Gravitee Grafana dashboard pack](https://github.com/gravitee-io-labs/gravitee-grafana-prometheus), then copy its files into the project:
+6.  Download the [Gravitee Grafana dashboard pack](https://github.com/gravitee-io-labs/gravitee-grafana-prometheus), and then copy its files into the project:
 
     ```bash
     curl -sLO https://github.com/gravitee-io-labs/gravitee-grafana-prometheus/releases/latest/download/gravitee-grafana-dashboards.zip
@@ -202,7 +215,7 @@ Grafana reads two kinds of data:
     mkdir -p prometheus/rules && cp gravitee-grafana-dashboards/prometheus-rules/*.rules.yml prometheus/rules/
     ```
 
-## Start the stack
+### Start the stack
 
 ```bash
 docker compose up -d
@@ -214,7 +227,7 @@ The first start takes one to two minutes. Wait until the Management API answers 
 until curl -sf -o /dev/null -u admin:admin http://localhost:8083/management/v2/environments/DEFAULT/apis; do sleep 5; done
 ```
 
-## Create an API and generate traffic
+### Create an API and generate traffic
 
 The Gateway only records analytics for calls to a deployed API. Create a keyless API that proxies the demo backend and logs the headers and payloads of every call. The commands keep the top-level `id` of each response:
 
@@ -237,7 +250,7 @@ curl -s -u admin:admin -H 'Content-Type: application/json' -X POST $MGMT/apis/$A
 echo "API: $API  Plan: $PLAN"
 ```
 
-If either ID is empty, the Management API wasn't ready: rerun the commands. The Gateway picks up the API within a few seconds. Until then, calls return `404`.
+If either ID is empty, the Management API wasn't ready: rerun the commands. The Gateway detects the API within a few seconds. Until then, calls return `404`.
 
 Then send a mix of successful, failing, and slow calls for two minutes:
 
@@ -251,38 +264,47 @@ while [ $SECONDS -lt $end ]; do
 done
 ```
 
-## Explore the dashboards
+### Explore the dashboards
 
-Open Grafana at `http://localhost:3000` (`admin` / `admin`), then open **Dashboards → Gravitee**:
+1.  Open Grafana at `http://localhost:3000`. The username and password are both `admin`.
+2.  Open **Dashboards**.
+3.  Open the **Gravitee** folder.
+
+The **Gravitee** folder contains the following dashboards:
 
 | Dashboard | What it answers |
 | --- | --- |
-| **API Program Overview** | How are all my APIs doing, who calls them, and what does the Gateway reject and why? |
+| **API Program Overview** | How are all your APIs doing, who calls them, and what does the Gateway reject and why? |
 | **API Drill-down** | What's wrong with one API: which path, which consumer, which call? |
 | **Consumers, Plans & Tenants** | Which applications and plans drive traffic, with what quality of service? |
 | **Gateway Fleet & Runtime** | Are the Gateway nodes healthy: JVM, GC, CPU, connections, backend pool? |
-| **SLOs & Error Budgets** | Are we meeting the availability objective, and which API is breaching it? |
+| **SLOs & Error Budgets** | Are your APIs meeting the availability objective, and which API is breaching it? |
 | **Call Logs** | What exactly did one call send and receive, on the client side and on the backend side? |
 
 {% hint style="info" %}
-This demo logs every call, which is fine for a test. In production, enable logging per API with a condition, as described in [Monitor APIM with Grafana](../../analyze-and-monitor-apis/monitor-apim-with-grafana.md#enable-api-logging-optional).
+This demo logs every call, which is fine for a test. In production, enable logging per API with a condition, as described in [Monitor APIM with Grafana](../../analyze-and-monitor-apis/monitor-apim-with-grafana.md#enable-api-logging).
 {% endhint %}
 
 {% hint style="info" %}
-The demo API is keyless and every call comes from `localhost`, so some panels stay empty: applications, subscriptions, rate limiting, credential failures, client countries, and custom dimensions. They fill in when you add API key or OAuth plans and receive real client traffic.
+The demo API is keyless and every call comes from `localhost`, so some panels stay empty: applications, subscriptions, rate limiting, credential failures, client countries, and custom dimensions. They populate when you add API key or OAuth plans and receive real client traffic.
 {% endhint %}
 
 For a description of every panel and how to use the dashboards, see [Monitor APIM with Grafana](../../analyze-and-monitor-apis/monitor-apim-with-grafana.md).
 
-## Verify
+## Verification
 
-1.  In Prometheus at `http://localhost:9090`, open **Status → Target health**. The `gravitee` target is `UP`.
-2.  In **Status → Rule health**, the `gravitee-slo-*` and `gravitee-gateway` groups are loaded.
-3.  In Grafana, **API Program Overview** shows the calls you generated. **Gateway nodes up** shows `1`.
+1.  Open Prometheus at `http://localhost:9090`.
+2.  Open **Status**.
+3.  Click **Target health**. The `gravitee` target is `UP`.
+4.  Open **Status**.
+5.  Click **Rule health**. The `gravitee-slo-*` and `gravitee-gateway` groups are loaded.
+6.  In Grafana, **API Program Overview** shows the calls you generated, and **Gateway nodes up** shows `1`.
 
 ## Run PromQL queries
 
 The Gateway exposes Vert.x and Micrometer metrics. Filter HTTP server metrics on `local=~".*:8082"`: without it, the results also include Prometheus scraping the internal API on port `18082`.
+
+The following table lists PromQL queries for common questions:
 
 | Question | PromQL |
 | --- | --- |
@@ -293,12 +315,12 @@ The Gateway exposes Vert.x and Micrometer metrics. Filter HTTP server metrics on
 | Time spent in GC | `sum(rate(jvm_gc_pause_seconds_sum[1m]))` |
 
 {% hint style="info" %}
-G1 reports a maximum of `-1` for its young-generation pools. Sum the heap pools and keep only positive maxima, as above, or the heap ratio is negative.
+G1 reports a maximum of `-1` for its young-generation pools. Sum the heap pools and keep only positive maxima, as in the preceding table, or the heap ratio is negative.
 {% endhint %}
 
 Percentiles and per-API or per-consumer values aren't available from Prometheus. Query them from the analytics data source, as the dashboards do.
 
-## Clean up
+## Remove the stack
 
 ```bash
 docker compose down -v
