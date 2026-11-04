@@ -675,6 +675,7 @@ redirects:
  introduction/core-concepts: README.md
  introduction/enterprise-edition: README.md
  introduction/integrations: README.md
+ kafka-gateway/applications: secure-and-expose-apis/applications/create-an-application.md
  kafka-gateway/configure-kafka-apis: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/README.md
  kafka-gateway/configure-kafka-apis/configuration: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuration.md
  kafka-gateway/configure-kafka-apis/consumers: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/consumers.md
