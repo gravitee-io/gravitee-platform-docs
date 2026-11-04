@@ -8,7 +8,7 @@ description: An MCP Proxy alert watches the traffic of the proxy and notifies yo
 
 An alert watches the requests that an MCP Proxy handles, and notifies you when its rule matches, for example when errors rise, responses slow down, or traffic stops. The **Alerts** page of an MCP Proxy lists its alerts, creates and edits them, and counts how often each one fired.
 
-Alerts require Alert Engine. Your license must include it, alerting must be turned on for your organization, and at least one alert plugin must be installed. When one of them is missing, the **Alerts** page shows **Alerts require Alert Engine**, **Alerting is turned off**, or **No alert plugin is installed**. You then can't add an alert, turn one on or off, or save changes to one. Without the license, the page doesn't list the alerts either.
+Alerts require Alert Engine. Your license must include it, alerting must be turned on for your organization, and at least one alert plugin must be installed. When one of them is missing, the **Alerts** page shows **Alerts require Alert Engine**, **Alerting is turned off**, or **No alert plugin is installed**. **Add alert**, the **Enabled** switches, and **Save** are then disabled. Without the license, the page doesn't list the alerts either.
 
 ## Open the Alerts page
 
@@ -37,9 +37,9 @@ The table lists one row per alert, sorted by name, with the following columns:
 | **Rule**                   | The rule that the alert evaluates.                                                                                                            |
 | **Last 5m / 1h / 1d / 1M** | How many times the alert fired in the last 5 minutes, the last hour, the last day, and the last 30 days. Hover over the counts to see each period spelled out. |
 | **Last alert**             | How long ago the alert last fired, or a dash when it hasn't fired. Hover over it to see the date and time.                               |
-| **Last message**           | The message of the last alert.                                                                    |
+| **Last message**           | The message of the last alert, or a dash when there isn't one.                                    |
 | **Severity**               | **info**, **warning**, or **critical**.                                                                                                       |
-| **Enabled**                | A switch that enables or disables the alert.                                                                                                  |
+| **Enabled**                | A switch that enables or disables the alert. The switch is disabled when you're not allowed to edit alerts.                                   |
 | **Actions**                | A menu with **Edit**, or **View** when you can't edit alerts, and **Delete** when you're allowed to delete alerts.                            |
 
 Click a row to open its alert. Turning the **Enabled** switch on or off saves the alert at once, and **Alert saved with success** confirms it.
@@ -80,6 +80,8 @@ The **Rule** list offers four rules under **MCP PROXY METRICS**. Each rule takes
 | **Alert when the aggregated value of a request metric rises a threshold**         | **Calculate** a **Function** on a **Metric**, then **If result is** an **Operator** and a **Threshold**, **For** a **Duration** and a **Time unit**. |
 | **Alert when the rate of a given condition rises a threshold**                    | **When** a **Metric** meets a **Type** of condition, then **If rate is** an **Operator** and a **Threshold (%)**, **For** a **Duration** and a **Time unit**. |
 
+A tool call that fails inside a successful MCP response returns HTTP 200, so rules on **Status Code** don't catch it. The **Alert when there is no request matching filters received for a period of time** rule also fires while the MCP Proxy is stopped.
+
 ### Set the condition
 
 The **Condition** card shows the fields of the rule. A **Metric** takes a **Type** that depends on the metric, and each type takes its own fields:
@@ -109,7 +111,7 @@ With the **equals to** or **not equals to** operator, these four metrics offer a
 * **Application** lists the applications that have a subscription to the proxy, whatever its status.
 * **Plan** lists the published plans of the proxy.
 
-When a list can't be loaded, for example when you can't see the plans or the subscriptions of the proxy, the field takes a **Pattern** instead.
+A saved value that the list no longer offers, such as a deleted or unpublished plan, shows as its ID followed by **(deleted)**, and is kept when you save. When a list can't be loaded, for example when you can't see the plans or the subscriptions of the proxy, the field takes a **Pattern** instead.
 
 For the aggregation and rate rules, the card ends with an **Aggregation** section. **Set a projection** groups the results by a **Property**: **Status Code**, **Error Key**, **Tenant**, **Application**, or **Plan**. **Remove** clears the projection.
 
@@ -124,7 +126,7 @@ For the aggregation and rate rules, the card ends with an **Aggregation** sectio
 Without a timeframe, the **Timeframes** card reads **No timeframe defined, it will send all the time.** **Add timeframe** adds a **Configure timeframe** card:
 
 * Select at least one day of the week.
-* Optionally, set a start and an end time under **Time range**. Set both or neither, and set the end after the start.
+* Optionally, set a start and an end time under **Time range**. Set both or neither, and set the end after the start. A range can't cross midnight. For an overnight window, add two timeframes: one that ends at 11:59 PM, and one that starts at 12:00 AM on the days that follow.
 * The **Office hours** switch sets the range from 9:00 AM to 6:00 PM, and the **Business day** switch selects every day except the weekend.
 
 A timeframe is evaluated in the time zone of the browser that added it, and the card names that zone. Remove a timeframe with its X.
@@ -144,9 +146,9 @@ The **Notifications** tab holds the **Dampening** and **Notifications** cards.
 
 A new alert starts with **N consecutive true evaluations** and one evaluation. The counts and durations take whole numbers from 1 to 100, and changing the mode clears them.
 
-**Notifications** sends the alert through the channels you add. Click **Add**, select a **Channel**, and fill in the fields of the channel. The channels are **System email**, which is always offered, and the notifiers installed on the platform, such as **Email**, **Slack**, and **Webhook**. Each channel shows its own fields. Changing the channel clears its fields. Remove a channel with its X.
+**Notifications** sends the alert through the channels you add. Click **Add**, select a **Channel**, and fill in the fields of the channel. The channels are **System email**, which is always offered, and the notifiers installed on the platform, such as **Email**, **Slack**, and **Webhook**. Each channel shows its own fields. Changing the channel clears its fields. Remove a channel with its X. A channel whose notifier is no longer installed shows as **Unknown channel**, followed by the ID of the notifier, and its configuration is kept as it is.
 
-When you open a saved alert, the secrets of its channels are masked. Secrets include passwords and tokens, the part of a webhook URL after its host, and the webhook headers that carry credentials. Leave a masked value as it is to keep the saved secret. If you change where a channel sends, such as the mail server or the webhook URL, enter its secrets again. Otherwise, the save fails and names the field to enter again.
+When you open a saved alert, the secrets of its channels are masked. Secrets include passwords and tokens, the part of a webhook URL after its host and port, and the webhook headers that carry credentials. A long webhook URL keeps its last 4 characters visible. Leave a masked value as it is to keep the saved secret. If you change the **Host**, **Port**, **Username**, **Allowed authentication methods**, **Start TLS enabled**, **SSL trust all**, or **SSL key store** of an **Email** channel, enter its secrets again. If you change the **URL** of a **Webhook** channel, enter its headers that carry credentials again. Otherwise, the save fails with a message that names the field, such as `Enter the password of the email-notifier channel again`.
 
 <figure><img src="../.gitbook/assets/gamma-mcp-proxy-alerts-notifications.png" alt="The Notifications tab of the Update alert page with the Dampening card set to N true evaluations out of M total evaluations, and the Notifications card with a System email channel"><figcaption><p>The Notifications tab of an alert</p></figcaption></figure>
 
@@ -158,9 +160,9 @@ To edit an alert, follow these steps:
 2. Change the fields. The **Rule** can't be changed.
 3. Click **Save**.
 
-**Save** and **Discard** appear once you change a field, and **Alert has been saved successfully** confirms the save. **Back to alerts** returns to the list.
+**Save** and **Discard** appear once you change a field, and **Alert has been saved successfully** confirms the save. **Discard** restores the saved values. **Back to alerts** returns to the list.
 
-When the condition of the alert has a **Duration**, saving opens the **Update scheduled alert** dialog, which warns that saving resets the evaluation schedule. Click **Update** to save.
+Saving an alert whose rule has a **Duration**, even to rename it, opens the **Update scheduled alert** dialog, which warns that saving resets the evaluation schedule. Click **Update** to save. The **Enabled** switch in the list saves without the dialog.
 
 When you can't edit alerts, the actions menu offers **View**, and the page opens read-only.
 
