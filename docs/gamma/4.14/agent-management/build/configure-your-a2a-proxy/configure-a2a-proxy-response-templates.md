@@ -115,6 +115,9 @@ The page opens without its editing controls in these cases:
 * **The proxy is managed by the Kubernetes operator.** A banner reads **This API is managed by the Kubernetes operator. It can only be changed from its source definition.** Change the templates in the resource the operator applies.
 * **Gamma can't confirm whether the proxy can be edited here.** The page reads **Could not confirm whether this API can be edited here**, with **Actions are hidden until this is confirmed. Refresh the page to try again.** underneath.
 * **Your role can't update the proxy.** The add, edit, and delete controls aren't offered, and the actions menu offers **View** in place of **Edit**. Opening a template shows it under the title **View Response Template**.
+* **You can't read the proxy definition.** The page reads **Changing response templates needs read access to this API's definition.** This applies even when your role can update response templates, because a save without the definition would replace every template the proxy carries.
+
+When more than one of these applies, the page shows a single notice, and the Kubernetes operator notice takes precedence. While Gamma is still checking the proxy, the page stays read-only and shows no notice.
 
 A reader whose role can't see templates at all gets the page title and **You don't have permission to view response templates.** in place of the list.
 

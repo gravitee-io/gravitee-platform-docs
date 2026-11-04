@@ -12,7 +12,7 @@ The 4.14 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies.
+Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies. Proxy pages also explain why a proxy can't be promoted or why its response templates can't be changed.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
@@ -28,6 +28,14 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and
 * The **History** tab of an alert lists its events.
 * Alerts require Alert Engine.
 * See [Configure MCP Proxy alerts](../agent-management/build/configure-mcp-proxy-alerts.md).
+
+#### Proxy pages explain why you can't promote a proxy or change its response templates
+
+* When a proxy can't be promoted to another environment, the promotion panel shows **Promotion not available** and the reason the proxy can't be promoted.
+* On the response templates page of an A2A Proxy, when you can't read the proxy definition, the page reads "Changing response templates needs read access to this API's definition."
+* This notice applies even when your role can update response templates, because a save without the definition would replace every template the proxy carries.
+* When more than one reason applies, the response templates page shows a single notice, and the Kubernetes operator notice takes precedence.
+* While Gamma is still checking the proxy, the response templates page stays read-only and shows no notice.
 
 ### Edge Management
 

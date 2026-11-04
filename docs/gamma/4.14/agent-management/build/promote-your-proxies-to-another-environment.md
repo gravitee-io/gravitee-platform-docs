@@ -28,6 +28,8 @@ Before you begin, confirm that you have the following:
 * The **Lifecycle** of the proxy is `DEPRECATED` or `ARCHIVED`.
 * **Enable API Review** is on for the environment, and a reviewer hasn't accepted the proxy yet. The panel shows **Promotion not available**. For more information, see [Configure API Review](https://documentation.gravitee.io/platform-management/environment/system-and-security/configure-api-review).
 
+In each of these cases, the panel shows **Promotion not available** and the reason the proxy can't be promoted.
+
 To promote a proxy, follow these steps:
 
 1. Under **Secure** in the module sidebar, select **LLM Proxies**, **MCP Proxies**, or **A2A Proxies**.
