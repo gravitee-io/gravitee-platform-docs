@@ -1,5 +1,5 @@
 ---
-description: What the Gamma 4.14 release adds to Agent Management, Edge Management, and Platform Management. Browse the new features and changes.
+description: What the Gamma 4.14 release adds to Agent Management, Edge Management, Event Stream Management, and Platform Management. Browse the new features and changes.
 ---
 
 # Release Notes
@@ -54,6 +54,18 @@ Edge Management decides how the Edge Daemons identify themselves to the Edge Rea
 
 * If the Edge Reactor listener can't start, the gateway doesn't start either, for example when the port of the listener is already in use, or when its keystore or truststore can't be read. Before 4.14, the gateway started without the listener.
 * The setting for the port of the Edge Reactor listener has a new name. The previous name still works, and the gateway logs a warning at startup. See [Rename the port setting](../edge-management/connect/secure-the-edge-reactor-listener.md#rename-the-port-setting).
+
+### Event Stream Management
+
+Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtual Cluster bound the metadata requests that the gateway sends to its brokers on its own.
+
+#### Backend metadata max age
+
+* **Backend metadata max age (seconds)** is a new field of the form that the **Edit** button of a **Standalone** endpoint group opens, of the **Configuration** step and page of a Cluster, and of the **Configuration** page of a Virtual Cluster. Empty, the field applies the gateway default. `0` keeps one request per new client connection, as before. A value from `1` to `3600` lets each gateway instance send that request at most about once per that many seconds, whatever the number of clients.
+* A Standalone group with a value shows a **Metadata max age** badge in the **Endpoints** list. The read-only **Configuration** card of a Cluster or a Virtual Cluster shows a **Backend metadata max age** row.
+* The value of a Cluster or a Virtual Cluster applies to every Kafka Service bound to it once the changes are deployed, without a new deployment of the Kafka Services. The value of a Virtual Cluster applies to every backend, whatever their own Clusters set.
+* The feature also ships in APIM 4.13.2.
+* See [Set the backend metadata max age of a Standalone group](../event-stream-management/apis/kafka-services/configure-endpoints.md#set-the-backend-metadata-max-age-of-a-standalone-group), [Manage clusters](../event-stream-management/kafka-infrastructure/clusters/manage-a-cluster.md#set-the-backend-metadata-max-age), and [Manage a Virtual Cluster](../event-stream-management/kafka-infrastructure/virtual-clusters/manage-a-virtual-cluster.md#set-the-backend-metadata-max-age).
 
 ### Platform Management
 
