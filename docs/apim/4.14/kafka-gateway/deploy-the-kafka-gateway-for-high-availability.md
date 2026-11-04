@@ -69,7 +69,7 @@ Apply the following when you deploy the gateway pool:
 | Event-loop instances | Leave `kafka.instances` at its default of `0`, which uses the Vert.x default event-loop pool size. Vert.x sizes this at twice the number of available CPU cores. |
 | Disruption budget | A `PodDisruptionBudget` of `minAvailable: 2`, so a drain never reduces the pool to one. |
 | Request timeout | `kafka.requestTimeout` defaults to `35s`. Raise it only if the brokers are genuinely slow. |
-| Rolling updates | `maxUnavailable: 0` and `maxSurge: 1` for clean rolling updates. |
+| Rollouts | `maxUnavailable: 0` and `maxSurge: 1` for clean rolling updates. |
 
 Kafka proxying is bound by connections and throughput, not CPU. Give the gateway network headroom, and watch the file-descriptor limits, because every client connection and every broker connection is an open socket. For baseline resource allocations, see [Gateway Resource Sizing](../prepare-a-production-environment/gateway-resource-sizing-guidelines.md).
 

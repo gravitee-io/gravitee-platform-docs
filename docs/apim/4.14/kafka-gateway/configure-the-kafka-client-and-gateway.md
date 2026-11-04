@@ -169,7 +169,7 @@ kafka:
     defaultPort: 9092
 ```
 
-Every API is then reachable on each domain: `api1.mycompany.org:9092` **and** `api1.mycompany.com:9092`, with the matching broker hostnames `broker-0-api1.mycompany.org`, `broker-0-api1.mycompany.com`, and the same for every other broker.
+Every API is then reachable on each domain: `api1.mycompany.org:9092` **and** `api1.mycompany.com:9092`, with the matching broker hostnames `broker-0-api1.mycompany.org`, `broker-0-api1.mycompany.com`, and so on.
 
 Each domain needs its own wildcard DNS entry, and the Gateway must be able to present a certificate matching it — either one certificate per domain or a single certificate carrying all of them as SANs. Routing is done on SNI, so the name the client asks for is the name that has to be served.
 
