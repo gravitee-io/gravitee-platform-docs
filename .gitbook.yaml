@@ -5,6 +5,7 @@ root: ./
   summary: SUMMARY.md​
 
 redirects:
+  # gravitee-cloud hybrid install pages removed — only fire as GitBook Site redirects (UI); mirrored there 2026-11-04 as 308s to the versionless APIM next-gen-cloud hybrid page
   gravitee-cloud/guides/hybrid/install-on-docker: gravitee-cloud/guides/hybrid.md
   gravitee-cloud/guides/hybrid/install-on-kubernetes: gravitee-cloud/guides/hybrid.md
   # platform-overview section removed in PR #1650 — old URLs redirect into APIM; these URLs belong to a deleted section, so they only fire as GitBook Site redirects (UI) — mirrored there 2026-11-04 as 308s to versionless /apim/... URLs, so no bump is needed at version cutover; keep this block and the UI in sync
@@ -28,7 +29,7 @@ redirects:
   platform-overview/community/enterprise-support: apim/4.12/readme/enterprise-edition.md
   platform-overview/contribute/contribute-to-gravitee-docs: apim/4.12/readme/contribute-to-apim.md
   platform-overview/contribute/contribute-to-the-codebase: apim/4.12/readme/contribute-to-apim.md
-  # apid (API Designer) section migrated into Gravitee Cloud — old URLs redirect into gravitee-cloud/api-designer
+  # apid (API Designer) section migrated into Gravitee Cloud — old URLs redirect into gravitee-cloud/api-designer; only fire as GitBook Site redirects (UI) — mirrored there 2026-11-04 as 308s; keep this block and the UI in sync
   apid: gravitee-cloud/api-designer/README.md
   apid/getting-started/get-started-with-api-designer: gravitee-cloud/api-designer/getting-started/get-started-with-api-designer.md
   apid/guides/api-designer-workspace: gravitee-cloud/api-designer/guides/api-designer-workspace/README.md
@@ -36,7 +37,7 @@ redirects:
   apid/guides/api-designer-workspace/push-interface: gravitee-cloud/api-designer/guides/api-designer-workspace/push-interface.md
   apid/community-and-support/community: gravitee-cloud/community-and-support/community/README.md
   apid/community-and-support/enterprise-support: gravitee-cloud/community-and-support/enterprise-support.md
-  # ae (Alert Engine) section migrated into APIM — old URLs redirect into apim/4.12/alert-engine (bump 4.12 at each version cutover)
+  # ae (Alert Engine) section migrated into APIM — old URLs redirect into apim/4.12/alert-engine; only fire as GitBook Site redirects (UI) — all mirrored there as of 2026-11-04 as 308s to versionless /apim/alert-engine/... URLs, so no bump is needed at version cutover; keep this block and the UI in sync
   ae: apim/4.12/alert-engine/README.md
   ae/overview/architecture: apim/4.12/alert-engine/overview/architecture.md
   ae/overview/integrations: apim/4.12/alert-engine/overview/integrations.md
