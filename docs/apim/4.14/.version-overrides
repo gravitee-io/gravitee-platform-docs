@@ -39,3 +39,5 @@ create-and-configure-apis/apply-policies/policy-reference/data-cache.md
 analyze-and-monitor-apis/reporters/datadog-reporter.md
 # Hybrid Gateway with Helm: run without rate limiting, ratelimit.type none (DOC-1965)
 hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-kubernetes/README.md
+# MiniLMv2 toxicity model max sequence (DOC-1963)
+create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md
