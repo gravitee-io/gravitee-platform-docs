@@ -7,7 +7,7 @@ root: ./
 redirects:
   gravitee-cloud/guides/hybrid/install-on-docker: gravitee-cloud/guides/hybrid.md
   gravitee-cloud/guides/hybrid/install-on-kubernetes: gravitee-cloud/guides/hybrid.md
-  # platform-overview section removed in PR #1650 — old URLs redirect into APIM (bump 4.12 at each version cutover)
+  # platform-overview section removed in PR #1650 — old URLs redirect into APIM; these URLs belong to a deleted section, so they only fire as GitBook Site redirects (UI) — mirrored there 2026-11-04 as 308s to versionless /apim/... URLs, so no bump is needed at version cutover; keep this block and the UI in sync
   platform-overview: apim/4.12/README.md
   platform-overview/gravitee-platform/gravitee-core-concepts: apim/4.12/readme/core-concepts.md
   platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee: apim/4.12/readme/enterprise-edition.md
