@@ -299,3 +299,10 @@ self-hosted-installation-guides/rpm/README.md
 # Hybrid Gateway prerequisites: Java 25 from 4.13
 hybrid-installation-and-configuration-guides/next-gen-cloud/rpm.md
 hybrid-installation-and-configuration-guides/next-gen-cloud/.zip.md
+# New Developer Portal automation: homepage, themes, links, and visibility (EXT-152)
+developer-portal/new-developer-portal/customize-the-navigation/portal-automation/README.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-listings.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-documentation.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-themes.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-links.md
+terraform/example-resource-configurations.md
