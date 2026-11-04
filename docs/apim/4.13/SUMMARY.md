@@ -367,6 +367,8 @@
         * [Portal listings](developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-listings.md)
         * [Portal documentation](developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-documentation.md)
         * [Automate API-scoped documentation](developer-portal/new-developer-portal/customize-the-navigation/portal-automation/api-documentation.md)
+        * [Automate portal themes](developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-themes.md)
+        * [Automate portal and API links](developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-links.md)
     * [Creating and Managing Templated Portal Pages](developer-portal/new-developer-portal/customize-the-navigation/creating-and-managing-templated-portal-pages.md)
     * [Gravitee Markdown Components](developer-portal/new-developer-portal/gravitee-markdown-components.md)
     * [MCP Server Installation Widget for Portal Pages](mcp-server-installation-widget-for-portal-pages.md)
