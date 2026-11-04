@@ -12,13 +12,22 @@ The 4.14 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies.
+Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
 * In the **Policy Studio** of an LLM Proxy, you can add the **AWS Lambda** and **Data Cache Policy** policies to the request and response phases.
 * **AWS Lambda** invokes an AWS Lambda function. It isn't included in the default distribution, so [download](https://download.gravitee.io/#graviteeio-apim/plugins/policies/gravitee-policy-aws-lambda/) version 3.5.0 or later of its plugin and [deploy it](https://documentation.gravitee.io/apim/plugins/deployment) first.
 * **Data Cache Policy** reads, writes, and removes values in a cache resource of the LLM Proxy, so add a cache resource on the **Resources** page first. See [Resources](../agent-management/build/configure-an-llm-proxy.md#resources).
+
+#### Alerts for MCP Proxies
+
+* A new **Alerts** page in the **Monitoring** group of an MCP Proxy lists its alerts, and adds, edits, enables, disables, and deletes them. Each alert notifies you when the traffic of the proxy matches its rule.
+* Four rules watch the requests of the proxy: a condition on a request metric, no request for a period of time, the aggregated value of a request metric, and the rate of requests that meet a condition. Filters narrow the events that a rule evaluates, and the **Error Key** values include the error keys of the MCP Proxy.
+* Alerts notify through **System email** and the notifiers installed on the platform, such as **Email**, **Slack**, and **Webhook**. Dampening limits how many notifications an alert sends when it fires several times for the same condition, and timeframes limit when it sends them. When you open a saved alert, the secrets of its channels stay masked.
+* The **History** tab of an alert lists its events.
+* Alerts require Alert Engine.
+* See [Configure MCP Proxy alerts](../agent-management/build/configure-mcp-proxy-alerts.md).
 
 ### Edge Management
 
