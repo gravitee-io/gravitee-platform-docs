@@ -129,7 +129,7 @@ Once the changes are deployed, the value applies to the new connections of every
 
 With `0`, every new client connection sends the request, as before. With a value above `0`, each gateway instance sends it at most about once per that many seconds for each Kafka Service bound to the Cluster, whatever the number of clients. A topic that a gateway instance hasn't seen yet is looked up on the Cluster the first time a client fetches from it, with the credentials of the connection, or the client's own credentials with `DELEGATE_TO_BROKER`. With the `DELEGATE_TO_BROKER` mechanism, the clients of each account share one request. If they authenticate with `AWS_MSK_IAM`, the setting only applies when the gateway instances share a distributed cache.
 
-Without permission to change the configuration, the read-only **Configuration** card shows a **Backend metadata max age** row. It reads **Gateway default**, **Off** for `0`, or the value, for example **30 s**. A role without the **Configuration** read permission sees a dash in that row.
+Without permission to change the configuration, the read-only **Configuration** card shows a **Backend metadata max age** row. It reads **Gateway default**, **Off** for `0`, or the value, for example **30 s**.
 
 ## See which Kafka Services use a cluster
 
