@@ -5,6 +5,9 @@ structure:
   summary: SUMMARY.md
 
 redirects:
+ self-hosted-installation-guides/proxy-configuration/system-proxy-for-backend-apis: configure-and-manage-the-platform/gravitee-gateway/system-proxy-for-backend-apis.md
+ hybrid-installation-and-configuration-guides/proxy-configuration/system-proxy-for-backend-apis: configure-and-manage-the-platform/gravitee-gateway/system-proxy-for-backend-apis.md
+ hybrid-installation-and-configuration-guides/system-proxy-for-backend-apis: configure-and-manage-the-platform/gravitee-gateway/system-proxy-for-backend-apis.md
  create-and-configure-apis/configure-v4-apis/entrypoint-connect-phase: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/entrypoint-connect-phase.md
  administration/applications: configure-and-manage-the-platform/manage-organizations-and-environments/applications.md
  administration/authentication: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md
