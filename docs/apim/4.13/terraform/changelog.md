@@ -30,13 +30,11 @@ metaLinks:
 * fix(group,apiv4,application): keep plans and imports clean when the platform owns members or groups
 * fix(mcp): rename connection and send authentication write-only
 * fix: address PR #136 review feedback on portal resources
-* fix: review changes
 * fix: send X-Gravitee-Set-Hrid on Terraform 1.16 export import
 
 ### Other
 * docs(examples): add end-to-end next-gen portal use case
 * docs(guides): name the strings a secret URI stands for
-* docs: refresh CLAUDE.md architecture and CI matrix details
 * test(apiv4): ignore override_access on import verification
 * test: add test for groovy policy idempotency
 
