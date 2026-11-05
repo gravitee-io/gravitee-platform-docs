@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: API properties are key and value pairs Gamma policies read at runtime through the Expression Language. Follow the steps to add and import them.
+description: Properties are key and value pairs Gamma policies read at runtime through the Expression Language. Follow the steps to add and import them.
 ---
 
 # Configure properties for your proxies
@@ -165,7 +165,7 @@ To stop the sync, turn off **Enable dynamic properties**, and then click **Save 
 
 ## Deploy the change
 
-Adding, editing, deleting, or importing a property saves the proxy definition but doesn't deploy it. The proxy shows the **This API is out of sync** banner. Click **Deploy** on the banner, and then confirm in the **Deploy your API** dialog to push the configuration to the gateway.
+Adding, editing, deleting, or importing a property saves the proxy definition but doesn't deploy it. The proxy shows the **This LLM proxy is out of sync** banner, with the type of proxy you opened. Click **Deploy** on the banner, and then confirm in the **Deploy your LLM proxy** dialog, named the same way, to push the configuration to the gateway.
 
 ## Verification
 

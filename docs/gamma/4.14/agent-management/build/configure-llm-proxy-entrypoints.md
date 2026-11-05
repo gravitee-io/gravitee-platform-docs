@@ -94,7 +94,7 @@ An LLM Proxy created before these options existed has none of them set, and remo
 
 A change on the page shows the save bar. Click **Save changes** to apply, or **Discard** to revert. A successful save shows **Entrypoints saved.** The first row is the context path shown in the **Context path** column of the LLM Proxies list.
 
-Saving updates the API definition but doesn't deploy it. The **This API is out of sync** banner appears at the top of the detail view. Click **Deploy**, optionally enter a deployment label in the **Deploy your API** dialog, and click **Deploy** to push the change to the gateway.
+Saving updates the API definition but doesn't deploy it. The **This LLM proxy is out of sync** banner appears at the top of the detail view. Click **Deploy**, optionally enter a deployment label in the **Deploy your LLM proxy** dialog, and click **Deploy** to push the change to the gateway.
 
 ## Preview the exposed entrypoints
 
@@ -107,7 +107,7 @@ A URL is built from the gateway access points of the environment when they're co
 To verify a new context path, follow these steps:
 
 1. Add a context path and click **Save changes**.
-2. Click **Deploy** in the **This API is out of sync** banner, and then click **Deploy** in the **Deploy your API** dialog.
+2. Click **Deploy** in the **This LLM proxy is out of sync** banner, and then click **Deploy** in the **Deploy your LLM proxy** dialog.
 3. Send a prompt to the URL shown in the **Exposed entrypoints** card, as described in [Publish your LLM Proxy](../publish/publish-your-llm-proxy.md). The gateway routes the request to the proxy.
 
 <figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-entrypoints-exposed.png" alt="The Exposed entrypoints card listing one gateway URL per context path, each with a copy button"><figcaption><p>The Exposed entrypoints card</p></figcaption></figure>

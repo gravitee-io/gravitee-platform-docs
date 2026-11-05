@@ -6,7 +6,7 @@ description: Choose which API events send notifications for an A2A Proxy and whe
 
 # Configure A2A Proxy notifications
 
-The **Notifications** page controls which API events send notifications and where they are delivered. Each notification pairs a notifier with the set of events that trigger it.
+The **Notifications** page controls which A2A proxy events send notifications and where they are delivered. Each notification pairs a notifier with the set of events that trigger it.
 
 To open the page, follow these steps:
 
@@ -33,15 +33,15 @@ To add a notification, follow these steps:
 3. Select a **Channel**. The list offers the notifiers configured for your organization, such as **Default Email Notifier**. The channel sets the target field: **Email list** for an email notifier, or **Webhook** for a webhook notifier.
 4. Enter the target. Separate multiple email addresses with a space, a comma, or a semicolon. The field supports Expression Language.
 5. For a webhook, optionally enable **Use system proxy** to route webhook calls through the gateway's configured system proxy.
-6. Under **Events**, select the API events that send a notification. Events are grouped by category, such as **API KEY** and **SUBSCRIPTION**.
+6. Under **Events**, select the A2A proxy events that send a notification. Events are grouped by category, such as **API KEY** and **SUBSCRIPTION**.
 7. Optional: under **Groups**, select the groups the notification applies to. Leave it empty to apply the notification to all groups.
 8. Click **Add notification**.
 
 ## Edit or delete a notification
 
-To change a notification, open its **Actions** menu, and then click **Edit**. You can adjust its target, its selected events, and its groups, and then click **Save**. The channel of an existing notification can't be changed. The form shows it as a read-only **Email** or **Webhook** badge.
+To change a notification, open its actions menu, and then click **Edit**. You can adjust its target, its selected events, and its groups, and then click **Save**. The channel of an existing notification can't be changed. The form shows it as a read-only **Email** or **Webhook** badge.
 
-To delete a notification, open its **Actions** menu, and then click **Delete**. The **Delete this notification?** dialog warns that the notification stops receiving API event notifications, and that the action can't be undone. Click **Delete notification** to confirm.
+To delete a notification, open its actions menu, and then click **Delete**. The **Delete this notification?** dialog warns that the notification stops receiving A2A proxy event notifications, and that the action can't be undone. Click **Delete notification** to confirm.
 
 ## Verification
 

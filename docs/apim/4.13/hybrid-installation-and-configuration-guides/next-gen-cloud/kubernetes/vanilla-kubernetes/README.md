@@ -33,7 +33,11 @@ To install the Gravitee Gateway, complete the following steps:
 
 ### Install Redis
 
-To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information, see [CloudPirates Redis Helm chart](https://artifacthub.io/packages/helm/cloudpirates-redis/redis).
+To support caching and rate-limiting, install Redis into your Kubernetes cluster. For more information, see [CloudPirates Redis Helm chart](https://artifacthub.io/packages/helm/cloudpirates-redis/redis).
+
+{% hint style="info" %}
+Redis is optional. If your APIs don't use rate limiting, you can skip this step. For more information, see [#run-the-gateway-without-rate-limiting](./#run-the-gateway-without-rate-limiting "mention").
+{% endhint %}
 
 {% hint style="warning" %}
 This Redis installation is an example for development and testing. It runs a single Redis instance without TLS. Don't use it in production.
@@ -205,6 +209,17 @@ The configured limits prevent excessive cluster resource consumption, but ensure
 The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtime updates during configuration changes or version upgrades.
 
 </details>
+
+### Run the Gateway without rate limiting
+
+The Gateway uses Redis to store the counters of its rate limiting policies, such as Rate Limit, Quota, and Spike Arrest. If your APIs don't use these policies, you can run the Gateway without a rate limit database. In your `values.yaml` file, remove the `ratelimit` section under `gateway`, and set the `type` field of the top-level `ratelimit` section to `none`:
+
+```yaml
+ratelimit:
+  type: none
+```
+
+With this setting, the Gateway starts without connecting to a rate limit database and stores no rate limit counters, so you don't need to install Redis for it. You can skip the [#install-redis](./#install-redis "mention") step.
 
 ### Ingress Configuration with Custom Domain and Kubernetes Secrets
 
@@ -493,7 +508,7 @@ gateway:
       value: "<proxy-port>"
 ```
 
-For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../../../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../../../proxy-configuration/README.md).
+For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../../../../configure-and-manage-the-platform/gravitee-gateway/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../../../proxy-configuration/README.md).
 
 ## Next steps
 

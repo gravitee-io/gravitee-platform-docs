@@ -710,6 +710,7 @@ redirects:
  installation-and-upgrades/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management: release-information/breaking-changes-and-deprecations.md
  installation-and-upgrades/upgrading-gravitee-api-management/upgrade-guide: hybrid-installation-and-configuration-guides/README.md
  installation-and-upgrades/upgrading-gravitee-api-management/upgrading-gravitee-api-management-installed-with-rpm-packages: self-hosted-installation-guides/rpm/README.md
+ kafka-gateway/applications: secure-and-expose-apis/applications/create-an-application.md
  kafka-gateway/configure-and-deploy-kafka-console: kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md
  kafka-gateway/configure-kafka-apis: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/README.md
  kafka-gateway/configure-kafka-apis/configuration: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuration.md

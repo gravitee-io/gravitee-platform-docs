@@ -64,7 +64,7 @@ A change on the page shows the save bar with **You have unsaved CORS changes.** 
 
 Saving with the **Enable CORS** switch off resets the page: the four lists read back empty, **Max age (seconds)** returns to `-1`, and the switches turn off.
 
-Saving updates the API definition but doesn't deploy it. The **This API is out of sync** banner appears at the top of the detail view. Click **Deploy**, optionally enter a deployment label in the **Deploy your API** dialog, and click **Deploy** to push the change to the gateway.
+Saving updates the API definition but doesn't deploy it. The **This MCP proxy is out of sync** banner appears at the top of the detail view. Click **Deploy**, optionally enter a deployment label in the **Deploy your MCP proxy** dialog, and click **Deploy** to push the change to the gateway.
 
 Once CORS is enabled, the gateway decides the CORS headers of the proxy. A response to an origin that isn't allowed, or to a request without an `Origin` header, loses the `Access-Control-Allow-Origin`, `Access-Control-Allow-Credentials`, and `Access-Control-Expose-Headers` headers that the upstream MCP server set.
 
@@ -72,7 +72,7 @@ Once CORS is enabled, the gateway decides the CORS headers of the proxy. A respo
 
 To verify that the gateway applies the settings, follow these steps:
 
-1. Enable CORS, add the origin `https://app.example.com`, add the `POST` method, and add the `Content-Type` header. Click **Save changes**, and then deploy the proxy from the **This API is out of sync** banner.
+1. Enable CORS, add the origin `https://app.example.com`, add the `POST` method, and add the `Content-Type` header. Click **Save changes**, and then deploy the proxy from the **This MCP proxy is out of sync** banner.
 2. Send a preflight request to the URL of the proxy, as listed in the **Exposed entrypoints** card of the **Entrypoint** page:
 
     ```bash

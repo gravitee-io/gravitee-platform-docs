@@ -229,9 +229,9 @@ In addition to metrics, the gateway can send additional log messages about API e
 
 ## Formats
 
-The same payload can be sent to any of the Gravitee reporters to write the record of events to a particular output. Payload data can be converted to JSON, CSV, or Elasticsearch format, depending on the reporter type:
+The same payload can be sent to any of the Gravitee reporters to write the record of events to a particular output. Payload data can be converted to JSON, MessagePack, CSV, or Elasticsearch format, depending on the reporter type:
 
-<table><thead><tr><th width="192">Reporter</th><th data-type="checkbox">JSON</th><th data-type="checkbox">CSV</th><th data-type="checkbox">Elasticsearch</th></tr></thead><tbody><tr><td>Elasticsearch</td><td>false</td><td>false</td><td>true</td></tr><tr><td>File</td><td>true</td><td>true</td><td>true</td></tr><tr><td>TCP</td><td>true</td><td>true</td><td>true</td></tr><tr><td>Datadog</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
+<table><thead><tr><th width="192">Reporter</th><th data-type="checkbox">JSON</th><th data-type="checkbox">MessagePack</th><th data-type="checkbox">CSV</th><th data-type="checkbox">Elasticsearch</th></tr></thead><tbody><tr><td>Elasticsearch</td><td>false</td><td>false</td><td>false</td><td>true</td></tr><tr><td>File</td><td>true</td><td>true</td><td>true</td><td>true</td></tr><tr><td>TCP</td><td>true</td><td>true</td><td>true</td><td>true</td></tr><tr><td>Datadog</td><td>false</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
 
 The metrics are generated in the various formats stated above depending on the reporter, and depending on the execution engine the API uses . An example of the formats is as below (Datadog has a unique format structure):
 
@@ -504,7 +504,7 @@ The reporters are configured in the `gravitee.yml`configuration file for the **g
 If you wish to use a reporter not included in the default distribution, you must first add the reporter as a plugin. Refer to the [Plugins](../../plugins/README.md) guide to learn more.
 {% endhint %}
 
-Each reporter has a section for configuring field exclusions and, depending on reporter type, field inclusion. Each log and metric section above has a naming convention for how it appears in field inclusion and exclusion lists, which is as follows:
+The File and TCP reporters let you exclude, include, or rename fields for each event type. Each log and metric section above has a naming convention for how it appears in these rules, which is as follows:
 
 | Name               | Purpose                                                                                        |
 | ------------------ | ---------------------------------------------------------------------------------------------- |
@@ -517,13 +517,13 @@ Each reporter has a section for configuring field exclusions and, depending on r
 | v4-message-metrics | Metrics at the message level, driven off of sampling and the logging configuration for the API |
 | v4-message-log     | Logging at the message level captured for v4 message APIs                                      |
 
-You can exclude, include, or rename various metrics based on the reporter type. See the docs for each reporter for details. For example, with the file reporter you can configure the following:
+The Elasticsearch reporter doesn't support these rules. The Datadog reporter has its own settings to exclude metrics, described in [Datadog Reporter](datadog-reporter.md). For example, with the file reporter you can configure the following:
 
 ```yaml
   file:
     enabled: true
     fileName: ${gravitee.home}/metrics/%s-yyyy_mm_dd
-    output: json # Can be csv, json, elasticsearch or message_pack
+    output: json # Can be csv, json, elasticsearch or message_pack. The rules below apply to json and message_pack only
     request:
       exclude:
         - responseTime
@@ -533,3 +533,7 @@ You can exclude, include, or rename various metrics based on the reporter type. 
         application: app
         request.ip: address
 ```
+
+{% hint style="warning" %}
+The `exclude`, `include`, and `rename` rules apply only to the `json` and `message_pack` outputs. With the `csv` or `elasticsearch` output, the File and TCP reporters ignore these rules and write every field.
+{% endhint %}

@@ -40,7 +40,7 @@ A JWT plan presents the following configuration options:
 
       For Docker Compose, set the equivalent values via environment variables (for example, `gravitee_jwt_issuer_my.authorization.server_default=ssh-rsa myValidationKey anEmail@domain.com`). For Helm deployments, the chart doesn't expose these Gateway-side issuer keys natively, so inject them through the `gateway.env` array of your `values.yaml` file.
   * **JWKS\_URL**: Provide a URL ending with `/.well-known/jwks.json` from which the Gateway can retrieve the JWKS
-* **Use system proxy:** When using **JWKS\_URL**, optionally route the JWKS retrieval call through the Gateway's [system proxy](../../self-hosted-installation-guides/proxy-configuration/system-proxy-for-backend-apis.md). Enable this option when the Gateway reaches external identity providers (for example, Microsoft Entra ID, Google, or Okta) through a corporate proxy.
+* **Use system proxy:** When using **JWKS\_URL**, optionally route the JWKS retrieval call through the Gateway's [system proxy](../../configure-and-manage-the-platform/gravitee-gateway/system-proxy-for-backend-apis.md). Enable this option when the Gateway reaches external identity providers (for example, Microsoft Entra ID, Google, or Okta) through a corporate proxy.
 *   **Extract JWT Claims:** Allow claims to be accessed in the `jwt.claims` context attribute during request/response via Gravitee Expression Language (EL), e.g., extract the issuer claim from the JWT:
 
     ```
@@ -58,7 +58,7 @@ A JWT plan presents the following configuration options:
 
 In enterprise environments where the Gateway reaches external identity providers through a corporate proxy, enable **Use system proxy** in the JWT plan configuration. This routes outbound JWKS retrieval calls (for example, to Microsoft Entra ID, Google, or Okta) through the system proxy configured at the Gateway level.
 
-To configure the system proxy on the Gateway, see [System proxy for a self-hosted Gateway](../../self-hosted-installation-guides/proxy-configuration/system-proxy-for-backend-apis.md).
+To configure the system proxy on the Gateway, see [System proxy for a self-hosted Gateway](../../configure-and-manage-the-platform/gravitee-gateway/system-proxy-for-backend-apis.md).
 
 {% hint style="warning" %}
 **Adjust timeouts for proxy environments**
