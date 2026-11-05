@@ -1187,3 +1187,6 @@ redirects:
  using-the-product/using-the-gravitee-api-management-components/general-configuration/tenants: configure-and-manage-the-platform/gravitee-gateway/tenants.md
  create-and-configure-apis/development-tools: create-and-configure-apis/README.md
  create-and-configure-apis/development-tools/enforcing-logging-rules-with-archunit-maven-plugin: create-and-configure-apis/README.md
+ introduction/api-fundamentals: introduction/api-fundamentals/README.md
+ introduction/enterprise-edition/enterprise-edition-installation: introduction/enterprise-edition-installation.md
+ introduction/enterprise-edition/enterprise-edition-licensing: introduction/enterprise-edition-licensing.md
