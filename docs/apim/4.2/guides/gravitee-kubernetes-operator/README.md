@@ -1,7 +1,7 @@
 ---
 description: Learn more about the Gravitee Kubernetes Operator
 metaLinks:
-  canonical: https://documentation.gravitee.io/gravitee-kubernetes-operator-gko
+  canonical: https://documentation.gravitee.io/apim/kubernetes-operator
 ---
 
 # Gravitee Kubernetes Operator
