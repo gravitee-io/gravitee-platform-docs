@@ -52,3 +52,5 @@ developer-portal/classic-developer-portal/create-an-application.md
 hybrid-installation-and-configuration-guides/classic-cloud/docker/docker-compose.md
 hybrid-installation-and-configuration-guides/classic-cloud/.zip.md
 hybrid-installation-and-configuration-guides/classic-cloud/kubernetes/vanilla-kubernetes.md
+# Disaster Recovery (Backup and Restore) page restored from 4.12 (DOC-1967)
+prepare-a-production-environment/disaster-recovery-backup-and-restore.md
