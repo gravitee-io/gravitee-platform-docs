@@ -74,6 +74,7 @@
   * [Multi-tenancy](self-hosted-installation-guides/multi-tenancy.md)
   * [Self-host behind a proxy](self-hosted-installation-guides/proxy-configuration/README.md)
     * [System proxy for backend APIs](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/gravitee-gateway/proxy/system-proxy-for-backend-apis)
+  * [Disaster Recovery (Backup and Restore)](prepare-a-production-environment/disaster-recovery-backup-and-restore.md)
 * [Upgrade Guides](upgrade-guides/README.md)
   * [Upgrade APIM from 4.8.x to 4.10.x](upgrade-guides/upgrade-apim-from-4.8.x-to-4.10.x.md)
   * [Infrastructure Changes for API Product Analytics](upgrade-guides/infrastructure-changes-for-api-product-analytics.md)
