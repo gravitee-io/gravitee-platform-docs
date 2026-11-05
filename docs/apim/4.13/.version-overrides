@@ -306,3 +306,7 @@ developer-portal/new-developer-portal/customize-the-navigation/portal-automation
 developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-themes.md
 developer-portal/new-developer-portal/customize-the-navigation/portal-automation/portal-links.md
 terraform/example-resource-configurations.md
+# Hybrid Gateway with Helm: run without rate limiting, ratelimit.type none (DOC-1965)
+hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-kubernetes/README.md
+# MiniLMv2 toxicity model max sequence (DOC-1963)
+create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md
