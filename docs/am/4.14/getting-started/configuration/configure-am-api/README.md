@@ -701,6 +701,15 @@ domains:
 enabled: false
 ```
 
+The default identity provider stores its users through the system cluster connection described in [Repositories & Data Plane](../configure-repositories.md#system-cluster), and reuses the security domain's data plane when the system cluster is the `gateway` scope. To configure it from the `management` repository settings instead, set `useSystemCluster` to `false`. A Gravitee-managed deployment always uses the system cluster.
+
+```yaml
+domains:
+  identities:
+    default:
+      useSystemCluster: false
+```
+
 ### Default Reporter
 
 AM API on first startup creates default reporter in DB (MongoDB or JDBC) for audit logs. To disable this configure in `gravitee.yml`
