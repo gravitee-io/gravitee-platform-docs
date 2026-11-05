@@ -83,7 +83,7 @@ To choose the groups associated with the proxy, follow these steps:
 
 * With **Hybrid** or **Group** as the API primary owner mode, a group that owns the proxy stays associated, even when you clear it.
 * A group in which someone holds the API primary owner role is left out without an error, unless that person owns the proxy.
-* With **Group** as the API primary owner mode, saving the groups of a proxy that a person owns also associates a qualifying group: the owner's, or else one of yours. Without one, the save fails with an error message. The same applies when you turn **Notify members when they are added to the LLM proxy**. See [Configure primary owner mode](https://documentation.gravitee.io/platform-management/environment/system-and-security/configure-primary-owner-mode).
+* With **Group** as the API primary owner mode, saving the groups of a proxy that a person owns also associates a qualifying group: the owner's, or else one of yours. Without one, the save fails with **Could not save changes**. The same applies when you turn **Notify members when they are added to the LLM proxy**. See [Configure primary owner mode](https://documentation.gravitee.io/platform-management/environment/system-and-security/configure-primary-owner-mode).
 
 Members who hold an API role in an associated group appear under **Group Inherited Members** with that role.
 

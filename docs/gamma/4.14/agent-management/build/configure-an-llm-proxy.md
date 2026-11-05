@@ -53,7 +53,7 @@ The Policy Studio uses the same policy studio as API Management and supports the
 3. In the **Request Phase** or **Response Phase** section, click **Add policy**. When the phase already holds a policy, click the plus button at the end of the phase instead.
 4. In the list that opens, search for the policy you want, such as **PII Filtering**, **Rate Limit**, or **AI - Prompt Guard Rails**, and then select it. The policy is added to the phase. To read the documentation of a policy before you add it, click **Browse full catalog**, select the policy in the **Add Policy** catalog, and then click **Add to flow**.
 5. Configure the policy properties, and then click **Save**.
-6. When the **This LLM proxy is out of sync** banner appears, click **Deploy** to push the changes to the API Gateway.
+6. When the **This LLM proxy is out of sync** banner appears, click **Deploy** to push the changes to the gateway.
 
 ### PII Filtering
 
