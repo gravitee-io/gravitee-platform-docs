@@ -126,7 +126,7 @@ redirects:
  developer-portal/webhook-subscriptions: developer-portal/classic-developer-portal/webhook-subscriptions.md
  expose-apis/applications: secure-and-expose-apis/applications/create-an-application.md
  expose-apis/applications/global-settings: secure-and-expose-apis/applications/global-settings.md
- expose-apis/applications/metadata: secure-and-expose-apis/applications/create-an-application.md
+ expose-apis/applications/metadata: configure-and-manage-the-platform/gravitee-gateway/notifications.md
  expose-apis/applications/notifications: configure-and-manage-the-platform/gravitee-gateway/notifications.md
  expose-apis/applications/subscriptions: secure-and-expose-apis/subscriptions/manage-subscriptions.md
  expose-apis/applications/user-and-group-access: secure-and-expose-apis/applications/user-and-group-access.md

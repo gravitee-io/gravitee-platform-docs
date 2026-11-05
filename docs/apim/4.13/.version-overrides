@@ -311,3 +311,6 @@ hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-k
 # MiniLMv2 toxicity model max sequence (DOC-1963)
 create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md
 analyze-and-monitor-apis/reporters/elasticsearch-reporter.md
+# Application metadata on the Notification settings page (DOC-1934)
+configure-and-manage-the-platform/gravitee-gateway/notifications.md
+developer-portal/classic-developer-portal/create-an-application.md
