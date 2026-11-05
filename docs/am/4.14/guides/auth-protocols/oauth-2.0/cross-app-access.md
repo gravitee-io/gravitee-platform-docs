@@ -75,6 +75,7 @@ On the **Tokens & User Profile** tab:
 * Under **Tokens TTL (seconds)**, the **ID-JAG** field sets the lifetime of an ID-JAG. By default, an ID-JAG is valid for 300 seconds, and it never outlives the subject token it was exchanged for.
 * A custom claim with the **ID_JAG** token type is added to every ID-JAG the application receives. AM ignores custom claims named `iss`, `aud`, `client_id`, `jti`, `exp`, `iat`, or `cnf`.
 
+
 ### Request an ID-JAG
 
 The application calls the token endpoint of the security domain with a token exchange request:
