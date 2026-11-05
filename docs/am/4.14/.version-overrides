@@ -23,3 +23,6 @@ getting-started/install-and-upgrade-guides/breaking-changes-for-access-managemen
 getting-started/install-and-upgrade-guides/quick-install.md
 # Active Directory/LDAP: identity provider type to select (DOC-1961)
 guides/identity-providers/enterprise-identity-providers/active-directory-ldap.md
+# Wildcard search matches all other characters literally (gravitee-io/issues#12007)
+guides/applications/README.md
+reference/application-filtering-cursor-pagination-and-expand-parameters.md
