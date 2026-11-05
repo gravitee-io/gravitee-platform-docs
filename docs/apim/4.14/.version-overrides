@@ -41,3 +41,4 @@ analyze-and-monitor-apis/reporters/datadog-reporter.md
 hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-kubernetes/README.md
 # MiniLMv2 toxicity model max sequence (DOC-1963)
 create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md
+analyze-and-monitor-apis/reporters/elasticsearch-reporter.md
