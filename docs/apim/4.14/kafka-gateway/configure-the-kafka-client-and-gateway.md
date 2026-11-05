@@ -366,6 +366,21 @@ When a connection limit is set and Gateway metrics are on, the Gateway exposes t
 
 With a limit of 20 and 15 open connections, `kafka_gateway_connection_usage` is `0.75`. It reads `1` when the Gateway refuses connections. The gauges are exposed whether or not `kafka.readiness.enabled` is set.
 
+### Set the TLS mode of the port-routing listener
+
+In `port` routing mode, the Kafka listener serves plaintext by default. Set `kafka.routingPortMode.secured` to `true` to serve TLS. In `host` routing mode the listener always serves TLS and SNI, and this key has no effect.
+
+```yaml
+kafka:
+  routingMode: port
+  routingPortMode:
+    secured: true # default is false
+```
+
+The TCP health probe follows this setting, so it connects over TLS exactly when the listener serves TLS. Earlier Gateway versions read `kafka.secured` instead. From 4.14 `kafka.secured` is deprecated: it is still honoured when `kafka.routingPortMode.secured` is unset, and ignored when it is set.
+
+With the Helm chart, set `gateway.kafka.routingPortMode.secured`. The chart renders the key only when you set it. The thresholds `gateway.kafka.readiness.notReadyPercent` and `readyPercent` are rendered only when `gateway.kafka.readiness.enabled` is `true`.
+
 ### Set the default backend metadata max age
 
 {% hint style="info" %}
@@ -549,6 +564,10 @@ kafka:
     # Virtual Cluster API fails to deploy. The same rule applies to 'brokerDomainPattern' when a
     # Virtual Cluster API falls back to it. See Virtual Cluster broker addressing for details.
     # virtualClusterBrokerDomainPattern: "broker{realBrokerId}-c{clusterIndex}-{apiHost}.{domain}"
+
+  # TLS of the listener in port routing mode. Default is false. The TCP probe follows it.
+  # routingPortMode:
+  #   secured: false
 
   # Kafka probe
   probe:
