@@ -11,8 +11,14 @@ metaLinks:
 ## v1.2.0
 
 ### Features
-* feat: manage the next-gen developer portal
-* feat(apiv4): add the APIM 4.13 settings path_mappings, request_validation, cors.allow_private_network, connection_events and tracing.redaction
+* feat(portal): add the apim_portal resource and data source to manage a next-gen developer portal, its top navigation bar and its active theme
+* feat(portal-listing): add the apim_portal_listing resource and data source to publish APIs in the portal navigation
+* feat(documentation-portal): add the apim_documentation_portal resource and data source for portal pages and the homepage
+* feat(documentation-api): add the apim_documentation_api resource and data source for API documentation pages
+* feat(portal-link): add the apim_portal_link resource and data source for links in the portal navigation
+* feat(api-link): add the apim_api_link resource and data source for links in the API documentation
+* feat(portal-theme): add the apim_portal_theme resource and data source
+* feat(apiv4): add portal_navigation and the APIM 4.13 settings path_mappings, request_validation, cors.allow_private_network, connection_events and tracing.redaction
 * feat(dictionary): add encrypted_properties to manual dictionaries and encrypt_on_fetch to dynamic dictionaries
 
 
