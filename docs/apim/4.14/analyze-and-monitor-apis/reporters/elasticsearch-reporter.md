@@ -37,3 +37,55 @@ To present a client certificate to Elasticsearch, configure `reporters.elasticse
 ## Content length mapping in index templates
 
 From APIM 4.11.0, the request and v4 metrics index templates map the `request-content-length` and `response-content-length` fields as `long` instead of `integer`. Index templates apply when an index is created, so existing indices keep their previous mapping until a new index is created.
+
+## Report on applications and plans by name
+
+The reporter records the application and the plan of a request by ID:
+
+* For a v2 API, the reporter writes the application ID to `application` and the plan ID to `plan` in the request index (`gravitee-request-*` by default). It doesn't write the name of either.
+* For a v4 API, the reporter writes the application ID of an HTTP request to `application-id` and the plan ID to `plan-id` in the v4 metrics index (`gravitee-v4-metrics-*` by default). When the request matches a subscription, the reporter also writes the application's name at the time of the request to `application-name`. A request through a Keyless plan doesn't match a subscription, so it has no `application-name`.
+
+A request that isn't tied to an application has the application ID `1`. This applies to a request through a Keyless plan, and to a request that the Gateway rejects because no plan accepts it. The reporter doesn't write a plan's name to any index.
+
+To report on applications and plans by name, use one of the following methods.
+
+### Look up names with the Management API
+
+List the IDs and names of your applications and plans with the Management API, and then match them to the IDs in your reporting tool. Make the calls as an organization administrator, so that the lists include every application and plan in the environment.
+
+*   To list the applications of an environment, make the following call:
+
+    ```http
+    GET /management/organizations/{orgId}/environments/{envId}/applications/_paged
+    ```
+
+    Each item in `data` has the application's `id` and `name`. By default, the list includes active applications only. To list archived applications, add `status=ARCHIVED`. Use `page` and `size` to page through the results, with up to 200 applications per page.
+*   To list the plans of an API, including staging, deprecated, and closed plans, make the following call with the API ID that the reporter writes to `api` for a v2 API, or to `api-id` for a v4 API:
+
+    ```http
+    GET /management/v2/environments/{envId}/apis/{apiId}/plans?statuses=STAGING,PUBLISHED,DEPRECATED,CLOSED
+    ```
+
+    Each item in `data` has the plan's `id` and `name`. Without `statuses`, the list includes published plans only. Use `page` and `perPage` to page through the results.
+*   For a v4 API, a document with an `api-product-id` records a plan of that API Product in `plan-id`. To list the plans of an API Product, make the following call:
+
+    ```http
+    GET /management/v2/environments/{envId}/api-products/{apiProductId}/plans?statuses=STAGING,PUBLISHED,DEPRECATED,CLOSED
+    ```
+
+### Record application names with the Assign metrics policy
+
+For a v2 API that has **Emulate v4 engine** turned on in its [general settings](../../create-and-configure-apis/configure-v2-apis/general-settings.md), the [Assign metrics](../../create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md) policy records the application's name in the request index. The `{#subscription}` object that the metric reads is only available with **Emulate v4 engine** turned on. The policy requires [Gravitee's Enterprise Edition](../../introduction/enterprise-edition.md).
+
+In the [v2 API Policy Studio](../../create-and-configure-apis/apply-policies/v2-api-policy-studio.md), add the **Assign metrics** policy to a flow of the API with the following metric:
+
+* **Name**: `application-name`
+* **Value**: `{#subscription.applicationName}`
+
+For each request that matches a subscription, the reporter then writes the application's name to `custom.application-name` in the request index. A request through a Keyless plan has no application name, so it has no `custom.application-name`.
+
+No Expression Language object exposes a plan's name, so this method records application names only. For more information about `{#subscription}`, see [Subscription](../../gravitee-expression-language.md#subscription).
+
+### Add names in a Logstash pipeline
+
+If your Gateways send analytics to Logstash with the [TCP reporter](tcp-reporter.md), add the names in your Logstash pipeline. Build a lookup of IDs and names with the calls in [Look up names with the Management API](#look-up-names-with-the-management-api), and then add a Logstash filter that adds the matching name for each application and plan ID. With the TCP reporter's `elasticsearch` output, the events use the same field names as the Elasticsearch reporter. For the filters that Logstash provides, see [Filter plugins](https://www.elastic.co/docs/reference/logstash/plugins/filter-plugins) in the Elastic documentation.
