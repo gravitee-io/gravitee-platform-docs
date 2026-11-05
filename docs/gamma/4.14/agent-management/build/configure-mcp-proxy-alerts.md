@@ -183,4 +183,4 @@ The **History** tab of the **Update alert** page lists the events of the alert, 
 
 ## Next steps
 
-* [Configure MCP Proxy notifications](configure-mcp-proxy-notifications.md). Send notifications for the API events of an MCP Proxy.
+* [Configure MCP Proxy notifications](configure-mcp-proxy-notifications.md). Choose which MCP proxy events send notifications and where they're delivered.
