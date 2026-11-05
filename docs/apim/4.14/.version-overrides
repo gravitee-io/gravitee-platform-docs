@@ -44,3 +44,6 @@ create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classifi
 analyze-and-monitor-apis/reporters/elasticsearch-reporter.md
 # Management API Reference: Portal API listed per Developer Portal in the API reference (PORTAL-266)
 management-api-reference.md
+# Application metadata on the Notification settings page (DOC-1934)
+configure-and-manage-the-platform/gravitee-gateway/notifications.md
+developer-portal/classic-developer-portal/create-an-application.md
