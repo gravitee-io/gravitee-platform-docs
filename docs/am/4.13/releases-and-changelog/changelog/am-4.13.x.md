@@ -8,6 +8,27 @@ description: >-
 
 # AM 4.13.x
 
+## Gravitee Access Management 4.13.3 - November 4, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* [Gateway] Race condition in KryoSecureSecretsCache: concurrent reads of the same cached secret fail, domain left without certificate (empty JWKS / 503) [#11992](https://github.com/gravitee-io/issues/issues/11992)
+* Wildcard search does not escape special characters (Mongo and JDBC) [#12007](https://github.com/gravitee-io/issues/issues/12007)
+* Loading all domain scopes exhausts the JDBC pool [#12010](https://github.com/gravitee-io/issues/issues/12010)
+
+</details>
+
+
 ## Gravitee Access Management 4.13.2 - October 29, 2026
 
 <details>
