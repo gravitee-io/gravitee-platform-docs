@@ -64,7 +64,7 @@ If you are a GKO user, you can use CRD templating. This allows you to include se
 * Secrets included in the API definition are stored in ConfigMaps or the database, depending on your GKO setup
 * This is limited to Kubernetes Secrets
 
-{% embed url="https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/templating" %}
+{% embed url="../../kubernetes-operator/guides/templating.md" %}
 
 ## GKO and API-level secrets
 

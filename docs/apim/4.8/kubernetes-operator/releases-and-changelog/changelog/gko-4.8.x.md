@@ -1,0 +1,330 @@
+---
+description: Every patch release in the Gravitee Kubernetes Operator 4.8 series, newest first, with any fixes it shipped. Browse the full changelog.
+---
+
+# GKO 4.8.x
+
+## Gravitee Kubernetes Operator 4.8.32 - July 3, 2026
+
+There is nothing new in version 4.8.32.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.8.31 - June 25, 2026
+
+There is nothing new in version 4.8.31.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+## Gravitee Kubernetes Operator 4.8.30 - June 25, 2026
+
+There is nothing new in version 4.8.30.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+## Gravitee Kubernetes Operator 4.8.29 - June 9, 2026
+
+There is nothing new in version 4.8.29.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.8.28 - June 2, 2026
+
+There is nothing new in version 4.8.28.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.8.27 - May 20, 2026
+
+There is nothing new in version 4.8.27.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.8.26 - May 7, 2026
+
+There is nothing new in version 4.8.26.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+## Gravitee Kubernetes Operator 4.8.25 - May 4, 2026
+
+There is nothing new in version 4.8.25.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+## Gravitee Kubernetes Operator 4.8.24 - April 21, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Impossible to remove API or Application after subscription is updated [#11331](https://github.com/gravitee-io/issues/issues/11331)
+  * Updating ApiV4Definition to change plan generalConditions to a new page HRID causes reconciliation failure (HTTP 500) [#11327](https://github.com/gravitee-io/issues/issues/11327)
+
+  **APIM**
+
+  * Can pass page HRID for plan General Conditions [#11270](https://github.com/gravitee-io/issues/issues/11270)
+
+</details>
+
+## Gravitee Kubernetes Operator 4.8.22 - March 16, 2026
+
+There is nothing new in version 4.8.22.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.8.21 - March 2, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Helm web hook port is not exposed by the service [#11169](https://github.com/gravitee-io/issues/issues/11169)
+
+</details>
+
+
+## Gravitee Kubernetes Operator 4.8.20 - February 16, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Gateway class parameters annotations are not applied to gateway service [#11114](https://github.com/gravitee-io/issues/issues/11114)
+  * CRD export contains null fields and extra properties after GKO deployment [#11031](https://github.com/gravitee-io/issues/issues/11031)
+
+</details>
+
+
+<details>
+<summary>Improvements</summary>
+
+  **GKO**
+
+  * Add archived state to v4 API [#11124](https://github.com/gravitee-io/issues/issues/11124)
+  * Allow to configure autoscaling when deploying gateway-api gateways [#11120](https://github.com/gravitee-io/issues/issues/11120)
+
+  **APIM**
+
+  * Add break glass mode for automation APIs [#11099](https://github.com/gravitee-io/issues/issues/11099)
+
+</details>
+
+
+## Gravitee Kubernetes Operator 4.8.19 - January 30, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Importing a v4 can throw a NoSuchElementException when no default role is associated to a scope [#11098](https://github.com/gravitee-io/issues/issues/11098)
+
+</details>
+
+
+<details>
+<summary>Improvements</summary>
+
+  **GKO**
+
+  * Support deprecated state for v4 APIS [#11068](https://github.com/gravitee-io/issues/issues/11068)
+
+</details>
+
+
+## Gravitee Kubernetes Operator 4.8.18 - January 20, 2026
+
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Fix manager configuration issue when enabling ingress controller
+
+</details>
+
+
+## Gravitee Kubernetes Operator 4.8.17 - December 19, 2025
+
+There is nothing new in version 4.8.17.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.8.16 - December 19, 2025
+
+There is nothing new in version 4.8.16.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.8.15 - December 8, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Applying gateway-api gateway class parameters leads to controller panic
+
+  **APIM**
+
+  * V4 & JSON exports incorrectly embed HTTP-fetcher page content [#10985](https://github.com/gravitee-io/issues/issues/10985)
+
+</details>
+
+## Gravitee Kubernetes Operator 4.8.14 - November 25, 2025
+
+There is nothing new in version 4.8.14.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+## Gravitee Kubernetes Operator 4.8.13 - November 25, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **APIM**
+
+  * K8s Operator does not reconcile already existing APIv4Definitions [#10937](https://github.com/gravitee-io/issues/issues/10937)
+
+</details>
+
+
+## Gravitee Kubernetes Operator 4.8.12 - November 14, 2025
+
+There is nothing new in version 4.8.12.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+## Gravitee Kubernetes Operator 4.8.11 - October 28, 2025
+
+There is nothing new in version 4.8.11.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+## Gravitee Kubernetes Operator 4.8.10 - October 28, 2025
+
+<details>
+
+<summary>Improvements</summary>
+
+**GKO**
+
+* Add support for configuring APIM HTTP client with a custom truststore [#10929](https://github.com/gravitee-io/issues/issues/10929)
+
+</details>
+
+## Gravitee Kubernetes Operator 4.8.9 - October 15, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**APIM**
+
+* Notification settings are showing error in applications [#10879](https://github.com/gravitee-io/issues/issues/10879)
+
+**GKO**
+
+* API controller does not watch group resources [#10574](https://github.com/gravitee-io/issues/issues/10574)
+
+</details>
+
+## Gravitee Kubernetes Operator 4.8.8 - September 29, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**GKO**
+
+* Can't delete SharedPolicyGroup [#10827](https://github.com/gravitee-io/issues/issues/10827)
+* Finalizer of a secret un-referenced by a context don't get removed on update [#10707](https://github.com/gravitee-io/issues/issues/10707)
+
+**APIM**
+
+* Notification settings are not reflected in the UI when inherited from a group [#10700](https://github.com/gravitee-io/issues/issues/10700)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**GKO**
+
+* Add proxy support for HTTP client [#10830](https://github.com/gravitee-io/issues/issues/10830)
+
+</details>
+
+## Gravitee Kubernetes Operator 4.8.6 - September 2, 2025
+
+There is nothing new in version 4.8.6.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+## Gravitee Kubernetes Operator 4.8.5 - September 2, 2025
+
+<details>
+
+<summary>Improvements</summary>
+
+* Implement gateway API reference grants [#10768](https://github.com/gravitee-io/issues/issues/10768)
+
+</details>
+
+## Gravitee Kubernetes Operator 4.8.4 - August 22, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+* Redis Cache resource configuration not fully visible in the console UI [#10672](https://github.com/gravitee-io/issues/issues/10672)
+* GKO-created applications can be deleted through the portal UI [#10651](https://github.com/gravitee-io/issues/issues/10651)
+
+</details>
+
+## Gravitee Kubernetes Operator 4.8.3 - August 4, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+* Unexpected warning is issued for API with notification and group [#10693](https://github.com/gravitee-io/issues/issues/10693)
+* Notification CRD is duplicated in 4.8 release [#10691](https://github.com/gravitee-io/issues/issues/10691)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+* Add ARM support to GKO docker images [#10688](https://github.com/gravitee-io/issues/issues/10688)
+
+</details>
+
+## Gravitee Kubernetes Operator 4.8.2 - July 21, 2025
+
+There is nothing new in version 4.8.2.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+## Gravitee Kubernetes Operator 4.8.1 - July 15, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+* Promotion between multiple clusters fails because of plan IDs duplication [#10641](https://github.com/gravitee-io/issues/issues/10641)
+
+</details>

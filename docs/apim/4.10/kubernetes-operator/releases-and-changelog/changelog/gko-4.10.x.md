@@ -1,0 +1,302 @@
+---
+description: Every patch release in the Gravitee Kubernetes Operator 4.10 series, newest first, with any fixes it shipped. Browse the full changelog.
+---
+
+# GKO 4.10.x
+
+## Gravitee Kubernetes Operator 4.10.35 - November 3, 2026
+
+There is nothing new in version 4.10.35.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.34 - October 26, 2026
+
+There is nothing new in version 4.10.34.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.33 - October 15, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Subscription admission webhook compares ManagementContext names instead of resolved environment, blocking valid cross-context subscriptions [#11647](https://github.com/gravitee-io/issues/issues/11647)
+
+</details>
+
+
+## Gravitee Kubernetes Operator 4.10.32 - October 6, 2026
+
+There is nothing new in version 4.10.32.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.31 - September 24, 2026
+
+There is nothing new in version 4.10.31.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.30 - September 10, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Cron Schedule Not Validated by GKO [#11766](https://github.com/gravitee-io/issues/issues/11766)
+
+</details>
+
+
+## Gravitee Kubernetes Operator 4.10.29 - September 2, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * The GKO admission webhook for ApiV4Definition does not check that an endpoint set to inherit configuration [#11747](https://github.com/gravitee-io/issues/issues/11747)
+
+</details>
+
+
+## Gravitee Kubernetes Operator 4.10.28 - August 12, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **Others**
+
+  * GKO webhook timeout should follow the httpClient timeout [#11720](https://github.com/gravitee-io/issues/issues/11720)
+
+</details>
+
+
+<details>
+<summary>Improvements</summary>
+
+  **Others**
+
+  * GKO docs - document a webhook request roundtrip so that trouble shooting is easier [#11721](https://github.com/gravitee-io/issues/issues/11721)
+
+</details>
+
+
+## Gravitee Kubernetes Operator 4.10.27 - August 11, 2026
+
+There is nothing new in version 4.10.27.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.26 - August 11, 2026
+
+There is nothing new in version 4.10.26.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.25 - July 22, 2026
+
+There is nothing new in version 4.10.25.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.24 - July 17, 2026
+
+There is nothing new in version 4.10.24.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.23 - July 10, 2026
+
+There is nothing new in version 4.10.23.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.22 - July 7, 2026
+
+There is nothing new in version 4.10.22.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.21 - July 3, 2026
+
+There is nothing new in version 4.10.21.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.20 - June 25, 2026
+
+There is nothing new in version 4.10.20.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.18 - June 25, 2026
+
+There is nothing new in version 4.10.18.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.17 - June 9, 2026
+
+There is nothing new in version 4.10.17.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.16 - June 2, 2026
+
+There is nothing new in version 4.10.16.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.15 - May 20, 2026
+
+There is nothing new in version 4.10.15.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.14 - May 7, 2026
+
+There is nothing new in version 4.10.14.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.13 - May 7, 2026
+
+There is nothing new in version 4.10.13.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.12 - May 7, 2026
+
+There is nothing new in version 4.10.12.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.11 - May 7, 2026
+
+There is nothing new in version 4.10.11.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.10 - April 21, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+* Impossible to remove API or Application after subscription is updated [#11331](https://github.com/gravitee-io/issues/issues/11331)
+* Updating ApiV4Definition to change plan generalConditions to a new page HRID causes reconciliation failure (HTTP 500) [#11327](https://github.com/gravitee-io/issues/issues/11327)
+
+  **APIM**
+
+* Can pass page HRID for plan General Conditions [#11270](https://github.com/gravitee-io/issues/issues/11270)
+  
+</details>
+
+## Gravitee Kubernetes Operator 4.10.8 - March 16, 2026
+    
+<details>
+<summary>Improvements</summary>
+
+  **Others**
+
+  * Add LLM and MCP to v4 API types [#11151](https://github.com/gravitee-io/issues/issues/11151)
+
+</details>
+
+
+## Gravitee Kubernetes Operator 4.10.7 - March 2, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Helm web hook port is not exposed by the service [#11169](https://github.com/gravitee-io/issues/issues/11169)
+
+</details>
+
+## Gravitee Kubernetes Operator 4.10.6 - February 16, 2026
+
+There is nothing new in version 4.10.6.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+
+## Gravitee Kubernetes Operator 4.10.5 - February 16, 2026
+
+<details>
+<summary>Improvements</summary>
+
+  **GKO**
+
+  * Add archived state to v4 API [#11124](https://github.com/gravitee-io/issues/issues/11124)
+  * Allow to configure autoscaling when deploying gateway-api gateways [#11120](https://github.com/gravitee-io/issues/issues/11120)
+
+  **APIM**
+
+  * Add break glass mode for automation APIs [#11099](https://github.com/gravitee-io/issues/issues/11099)
+
+</details>
+
+## Gravitee Kubernetes Operator 4.10.4 - February 10, 2026
+
+<details>
+<summary>Improvements</summary>
+
+  **GKO**
+
+  * Support deprecated state for v4 APIS [#11068](https://github.com/gravitee-io/issues/issues/11068)
+  * Gateway class parameters annotations are not applied to gateway service [#11114](https://github.com/gravitee-io/issues/issues/11114)
+  * CRD export contains null fields and extra properties after GKO deployment [#11031](https://github.com/gravitee-io/issues/issues/11031)
+
+</details>
+
+## Gravitee Kubernetes Operator 4.10.3 - January 30, 2026
+
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Importing a v4 can throw a NoSuchElementException when no default role is associated to a scope [#11098](https://github.com/gravitee-io/issues/issues/11098)
+
+</details>
+
+## Gravitee Kubernetes Operator 4.10.2 - January 22, 2026
+
+This version does not introduce any new features or bug fixes.
+
+> This version was generated to keep the Kubernetes Operator in sync with other Gravitee products.
+
+## Gravitee Kubernetes Operator 4.10.1 - January 22, 2026
+
+This version does not introduce any new features or bug fixes.
+
+> This version was generated to keep the Kubernetes Operator in sync with other Gravitee products.
