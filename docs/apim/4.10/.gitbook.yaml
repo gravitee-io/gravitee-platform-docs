@@ -5,6 +5,7 @@ structure:
   summary: SUMMARY.md
 
 redirects:
+ self-hosted-installation-guides/proxy-configuration/system-proxy-for-backend-apis: configure-and-manage-the-platform/gravitee-gateway/system-proxy-for-backend-apis.md
  administration/applications: configure-and-manage-the-platform/manage-organizations-and-environments/applications.md
  administration/authentication: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md
  administration/authentication/authentication-providers: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers.md
@@ -595,6 +596,8 @@ redirects:
  hybrid-deployment/redis: hybrid-installation-and-configuration-guides/classic-cloud/.zip.md
  hybrid-deployment/saas-alert-engine: hybrid-installation-and-configuration-guides/classic-cloud/.zip.md
  hybrid-installation-and-configuration-guides/proxy-configuration/configure-cloud-gateway-client: hybrid-installation-and-configuration-guides/proxy-configuration/README.md
+ hybrid-installation-and-configuration-guides/proxy-configuration/system-proxy-for-backend-apis: configure-and-manage-the-platform/gravitee-gateway/system-proxy-for-backend-apis.md
+ hybrid-installation-and-configuration-guides/system-proxy-for-backend-apis: configure-and-manage-the-platform/gravitee-gateway/system-proxy-for-backend-apis.md
  install-and-upgrade/.zip: hybrid-installation-and-configuration-guides/next-gen-cloud/.zip.md
  install-and-upgrade/breaking-changes-and-deprecations: release-information/breaking-changes-and-deprecations.md
  install-and-upgrade/certificate-renewal-guide: hybrid-installation-and-configuration-guides/classic-cloud/cloud-certificate-renewal.md
@@ -672,6 +675,7 @@ redirects:
  introduction/core-concepts: README.md
  introduction/enterprise-edition: README.md
  introduction/integrations: README.md
+ kafka-gateway/applications: secure-and-expose-apis/applications/create-an-application.md
  kafka-gateway/configure-kafka-apis: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/README.md
  kafka-gateway/configure-kafka-apis/configuration: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuration.md
  kafka-gateway/configure-kafka-apis/consumers: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/consumers.md

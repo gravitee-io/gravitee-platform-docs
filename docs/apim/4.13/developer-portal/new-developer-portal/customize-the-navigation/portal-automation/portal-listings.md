@@ -6,7 +6,7 @@ description: Portal listings publish APIs to specific locations in Developer Por
 
 ## Create a portal listing
 
-Portal listings publish APIs to specific locations in the portal navigation. Each listing specifies the portal HRID and an array of API entries with their target locations and display order.
+Portal listings publish APIs to specific locations in the portal navigation. Each listing specifies the portal HRID and an array of API entries with their target locations, display order, and visibility. An entry that omits `visibility` takes the visibility of its folder. For more information, see [Visibility](README.md#visibility).
 
 ### Using the Automation API
 
@@ -31,7 +31,8 @@ Authorization: Bearer {token}
     {
       "apiHrid": "orders-api",
       "location": "/projects/alpha",
-      "order": 2
+      "order": 2,
+      "visibility": "PRIVATE"
     }
   ]
 }
@@ -47,7 +48,7 @@ For the full endpoint reference, see [Automation API endpoint reference](README.
 ### Using Kubernetes CRDs
 
 1. Define a `PortalListing` resource with a reference to the parent portal.
-2. List the APIs to publish, each with a reference to an `ApiV4Definition` resource, a location path, and an optional order.
+2. List the APIs to publish, each with a reference to an `ApiV4Definition` resource, a location path, and optionally an order and a visibility.
 3. Apply the manifest with `kubectl apply -f portal-listing.yaml`.
 
 **Example PortalListing custom resource:**
@@ -71,6 +72,7 @@ spec:
         name: orders-api
       location: /projects/alpha
       order: 2
+      visibility: PRIVATE
 ```
 
 {% hint style="warning" %}
@@ -81,11 +83,41 @@ spec:
 - The GKO admission webhook blocks deletion of portals or APIs that are referenced by active listings.
 {% endhint %}
 
+### Using Terraform
+
+Declare an [`apim_portal_listing`](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/portal_listing) resource with the portal HRID and one entry per published API in `apis`. Then run `terraform apply`.
+
+**Example Terraform configuration:**
+
+{% code title="portal-listing.tf" %}
+```hcl
+resource "apim_portal_listing" "alpha-apis" {
+  portal_hrid = apim_portal.default-portal.hrid
+  hrid        = "alpha-apis"
+  apis = [
+    {
+      api_hrid = apim_apiv4.pets-api.hrid
+      location = "/projects/alpha"
+      order    = 1
+    },
+    {
+      api_hrid   = apim_apiv4.orders-api.hrid
+      location   = "/projects/alpha"
+      order      = 2
+      visibility = "PRIVATE"
+    }
+  ]
+}
+```
+{% endcode %}
+
+The Terraform provider calls the Automation API, so a listing tolerates references that don't exist yet, as described in [Automation API vs GKO validation differences](#automation-api-vs-gko-validation-differences).
+
 ### Automation API vs GKO validation differences
 
 The Automation API and GKO CRDs validate references differently:
 
-- **Automation API:** A listing tolerates references to API HRIDs and portal HRIDs that do not exist yet. No validation errors are raised for missing references. Orphan entries wait for the referenced resource to be created, so apply order does not matter.
+- **Automation API:** A listing tolerates references to API HRIDs and portal HRIDs that do not exist yet, as long as the environment holds no other portal. No validation errors are raised for missing references. Orphan entries wait for the referenced resource to be created, so apply order does not matter.
 - **GKO admission webhooks:** All referenced APIs must resolve to existing `ApiV4Definition` resources in the cluster and must share the portal's management context. The webhook rejects listings that reference APIs that cannot be found.
 
 This difference means the Automation API supports order-independent applies across multiple resources, while GKO requires APIs and portals to exist before a listing references them.

@@ -6,16 +6,20 @@ description: Portal-scoped documentation pages provide platform-level guides in 
 
 ## Create portal documentation
 
-Portal-scoped documentation pages provide platform-level guides and reference material. Each page attaches to a portal and appears at a specified location in the portal's navigation hierarchy.
+Portal-scoped documentation pages provide platform-level guides and reference material. Each page attaches to a portal and appears at a specified location in the portal's navigation hierarchy, or serves as the portal's homepage. A page declares where it appears with `area`, and who sees it with `visibility`.
 
 {% hint style="info" %}
 When a documentation page references a `location` that does not exist yet in the portal's navigation, the page is created as an orphan and reconnects when the folder appears. Apply order does not matter.
 {% endhint %}
 
+{% hint style="warning" %}
+`visibility` takes `PUBLIC` or `PRIVATE`. A page that omits it takes the visibility of its folder on every apply, including a page that was made private in the Console. Declare `visibility: PRIVATE` on every page that stays private. For more information, see [Visibility](README.md#visibility).
+{% endhint %}
+
 ### Using the Automation API
 
 1. Send a `PUT` request to `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/documentations` with the documentation specification.
-2. Specify the page's HRID, display name, type (Gravitee Markdown, OpenAPI, or AsyncAPI), content, location, and optional order.
+2. Specify the page's HRID, display name, type (Gravitee Markdown, OpenAPI, or AsyncAPI), content, location, and optionally its order, area, and visibility.
 3. Retrieve a documentation page by sending a `GET` request to `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/documentations/{docHrid}`.
 4. Delete a documentation page by sending a `DELETE` request to the same path.
 
@@ -33,7 +37,8 @@ Authorization: Bearer {token}
   "type": "GRAVITEE_MARKDOWN",
   "content": "# Getting Started\nWelcome to the developer portal.",
   "location": "/projects/alpha",
-  "order": 1
+  "order": 1,
+  "visibility": "PUBLIC"
 }
 ```
 {% endcode %}
@@ -53,7 +58,7 @@ For the full endpoint reference, see [Automation API endpoint reference](README.
 ### Using Kubernetes CRDs
 
 1. Define a `Documentation` resource with a reference to the parent portal.
-2. Specify the page's name, type, content, location, and optional order.
+2. Specify the page's name, type, content, location, and optionally its order, area, and visibility.
 3. Apply the manifest with `kubectl apply -f portal-documentation.yaml`.
 
 **Example Documentation custom resource (portal-scoped):**
@@ -85,3 +90,107 @@ spec:
 * Documentation cannot be reassigned from a portal to an API, or from an API to a portal, after creation.
 * The GKO admission webhook validates the documentation before apply.
 {% endhint %}
+
+### Using Terraform
+
+Declare an [`apim_documentation_portal`](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/documentation_portal) resource with the portal HRID, and the page's HRID, display name, type, content, and location, and optionally its order, area, and visibility. Then run `terraform apply`.
+
+**Example Terraform configuration:**
+
+{% code title="portal-documentation.tf" %}
+```hcl
+resource "apim_documentation_portal" "getting-started" {
+  portal_hrid = apim_portal.default-portal.hrid
+  hrid        = "getting-started"
+  name        = "Getting Started"
+  type        = "GRAVITEE_MARKDOWN"
+  location    = "/projects/alpha"
+  order       = 1
+  visibility  = "PUBLIC"
+  content     = <<-EOT
+  # Getting Started
+
+  Welcome to the developer portal.
+  EOT
+}
+```
+{% endcode %}
+
+## Set the portal homepage
+
+A portal page with `area: HOMEPAGE` is the homepage of the portal. The homepage isn't part of the navigation, so it takes no `location`. A portal has one homepage: applying the page replaces the homepage that was created in the Console or seeded with the environment, and a second automation-managed homepage with a different HRID fails with `409` and the message `Homepage already exists`, on an apply and on a dry run. Changing the `area` of an existing page removes its navigation entry and creates a new one in the target area. When you delete the homepage, consumers who open the portal land on the catalog.
+
+To write the homepage in the Console instead, see [Customize the Homepage](../../customize-the-homepage.md).
+
+### Using the Automation API
+
+Send a `PUT` request to `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/documentations` with `area` set to `HOMEPAGE`.
+
+**Example request:**
+
+{% code overflow="wrap" %}
+```http
+PUT /organizations/{orgId}/environments/{envId}/portals/{portalHrid}/documentations?dryRun=false
+Content-Type: application/json
+Authorization: Bearer {token}
+
+{
+  "hrid": "home",
+  "name": "Home",
+  "type": "GRAVITEE_MARKDOWN",
+  "content": "# Welcome\nThis page is the developer portal homepage.",
+  "area": "HOMEPAGE"
+}
+```
+{% endcode %}
+
+### Using Kubernetes CRDs
+
+Define a `Documentation` resource with `area: HOMEPAGE` and a reference to the portal, and then apply it with `kubectl apply -f portal-homepage.yaml`.
+
+**Example Documentation custom resource (homepage):**
+
+{% code title="portal-homepage.yaml" %}
+```yaml
+apiVersion: gravitee.io/v1alpha1
+kind: Documentation
+metadata:
+  name: portal-homepage
+  namespace: gravitee
+spec:
+  name: "Home"
+  type: GRAVITEE_MARKDOWN
+  content: |
+    # Welcome
+
+    This page is the developer portal homepage.
+  portalRef:
+    name: default-portal
+  area: HOMEPAGE
+```
+{% endcode %}
+
+### Using Terraform
+
+Declare an [`apim_documentation_portal`](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/resources/documentation_portal) resource with `area = "HOMEPAGE"` and no `location`, and then run `terraform apply`.
+
+**Example Terraform configuration:**
+
+{% code title="portal-homepage.tf" %}
+```hcl
+resource "apim_documentation_portal" "home" {
+  portal_hrid = apim_portal.default-portal.hrid
+  hrid        = "home"
+  name        = "Home"
+  type        = "GRAVITEE_MARKDOWN"
+  area        = "HOMEPAGE"
+  content     = <<-EOT
+  # Welcome
+
+  This page is the developer portal homepage.
+  EOT
+}
+```
+{% endcode %}
+
+Destroying the resource deletes the homepage, and consumers who open the portal land on the catalog.

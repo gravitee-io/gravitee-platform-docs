@@ -8,20 +8,29 @@ metaLinks:
 
 # Terraform changelog
 <!--INSERT_BELOW-->
+## v1.2.0
+
+### Features
+* feat(portal): add the apim_portal resource and data source to manage a next-gen developer portal, its top navigation bar and its active theme
+* feat(portal-listing): add the apim_portal_listing resource and data source to publish APIs in the portal navigation
+* feat(documentation-portal): add the apim_documentation_portal resource and data source for portal pages and the homepage
+* feat(documentation-api): add the apim_documentation_api resource and data source for API documentation pages
+* feat(portal-link): add the apim_portal_link resource and data source for links in the portal navigation
+* feat(api-link): add the apim_api_link resource and data source for links in the API documentation
+* feat(portal-theme): add the apim_portal_theme resource and data source
+* feat(apiv4): add portal_navigation and the APIM 4.13 settings path_mappings, request_validation, cors.allow_private_network, connection_events and tracing.redaction
+* feat(dictionary): add encrypted_properties to manual dictionaries and encrypt_on_fetch to dynamic dictionaries
+
+
 ## v1.1.0
 
 ### Features
-* feat(apiv4): add portal navigation overlays, tests and guide
 * feat(apiv4,application): add ignore_groups to leave groups to the Console
-* feat(documentation): add documentation resource overlays and acceptance tests
 * feat(group): add default_member_roles and ignore_members
-* feat(portal): add portal resource overlays and acceptance tests
-* feat(portal-listing): add portal listing overlays and acceptance tests
 * feat: bring support for MCP proxies
 
 ### Bug Fixes
 * fix(GKO-3100): suppress empty response_templates.headers map drift
-* fix(GKO-3219): align portal listing update locations with portal navigation
 * fix(apiv4): keep the override_access APIM stores when it is not configured
 * fix(apiv4): reject a console notification without events at plan time
 * fix(cloud): validate resource scope against cloud token at apply time
@@ -31,7 +40,6 @@ metaLinks:
 * fix: send X-Gravitee-Set-Hrid on Terraform 1.16 export import
 
 ### Other
-* docs(examples): add end-to-end next-gen portal use case
 * docs(guides): name the strings a secret URI stands for
 * test(apiv4): ignore override_access on import verification
 * test: add test for groovy policy idempotency
