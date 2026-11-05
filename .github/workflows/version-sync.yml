@@ -4,9 +4,24 @@
 # to docs/{product}/{next_version}/ when files change on main.
 #
 # Creates a PR (instead of pushing directly) to respect branch protection.
+# Every run is a full sync of current -> next: files listed in the next
+# version's .version-overrides (and every .gitbook.yaml) are left alone,
+# Markdown bodies are copied with the next version's front matter kept,
+# and new files are added. Nothing is ever deleted.
 #
-# To use: copy this file to the docs repo at .github/workflows/version-sync.yml
-# and configure the product/version matrix below.
+# Token: the built-in GITHUB_TOKEN. The previous VERSION_SYNC_TOKEN was a
+# personal access token whose owner lost write access, so every run from
+# 2026-08-05 to 2026-11-04 failed at the push with a 403 and no sync PR was
+# created (DOC-1967). The repository allows Actions to create pull requests.
+# Pull requests opened with GITHUB_TOKEN don't trigger the pull_request
+# workflows (Vale, overrides lint), so review the sync PR by eye; it still
+# auto-merges once it has the approving review the branch protection needs.
+#
+# Manual run: Actions > Version Sync > Run workflow does a full sync of every
+# pair in the matrix (use it once after moving the pair).
+#
+# The pair below matches .github/workflows/lint-overrides.yml: move both
+# together at each version cutover.
 
 name: Version Sync
 
@@ -14,9 +29,9 @@ on:
   push:
     branches: [main]
     paths:
-      - 'docs/apim/4.12/**'
-      - 'docs/am/4.12/**'
-      - 'docs/gko/4.12/**'
+      - 'docs/apim/4.13/**'
+      - 'docs/am/4.13/**'
+      - 'docs/gko/4.13/**'
   workflow_dispatch:
 
 # Grant write access so the bot can create branches and PRs
@@ -31,19 +46,18 @@ jobs:
       matrix:
         include:
           - product: apim
-            current: "4.12"
-            next: "4.13"
+            current: "4.13"
+            next: "4.14"
           - product: am
-            current: "4.12"
-            next: "4.13"
+            current: "4.13"
+            next: "4.14"
           - product: gko
-            current: "4.12"
-            next: "4.13"
+            current: "4.13"
+            next: "4.14"
 
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.VERSION_SYNC_TOKEN }}
           fetch-depth: 0  # Full history — GitBook may push multi-commit batches
 
       - name: Get changed files
@@ -52,8 +66,11 @@ jobs:
           # Get files changed in this push (relative to docs/{product}/{version}/)
           PREFIX="docs/${{ matrix.product }}/${{ matrix.current }}/"
           BEFORE="${{ github.event.before }}"
-          # Detect force-push or initial push (before = all-zeros)
-          if [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ -z "$BEFORE" ]; then
+            echo "Manual run — full sync."
+            echo "skip=false" >> $GITHUB_OUTPUT
+          # Detect initial push (before = all-zeros)
+          elif [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
             echo "Initial push detected — skipping sync."
             echo "skip=true" >> $GITHUB_OUTPUT
           else
@@ -112,7 +129,8 @@ jobs:
         id: create-pr
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.VERSION_SYNC_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
           commit-message: "[sync] ${{ matrix.product }}: ${{ matrix.current }} → ${{ matrix.next }}"
           title: "[sync] ${{ matrix.product }}: ${{ matrix.current }} → ${{ matrix.next }}"
           body: |
@@ -124,6 +142,8 @@ jobs:
 
       - name: Enable auto-merge
         if: steps.create-pr.outputs.pull-request-number
+        # The PR is already open at this point: a refusal here only means it has to be merged by hand.
+        continue-on-error: true
         run: gh pr merge ${{ steps.create-pr.outputs.pull-request-number }} --auto --squash
         env:
-          GH_TOKEN: ${{ secrets.VERSION_SYNC_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
