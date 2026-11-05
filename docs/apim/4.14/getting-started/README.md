@@ -17,6 +17,8 @@ Get started with Gravitee using Docker. Choose a quick local setup for developme
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Self-host Install with Docker</td><td><a href="../self-hosted-installation-guides/docker/">docker</a></td></tr><tr><td>Hybrid install with Docker</td><td><a href="../hybrid-installation-and-configuration-guides/next-gen-cloud/docker/">docker</a></td></tr></tbody></table>
 
+If you manage your platform from Kubernetes, the [Gravitee Kubernetes Operator](../kubernetes-operator/README.md) lets you define APIs, applications, subscriptions, and other Gravitee resources as Kubernetes custom resources.
+
 ## Deployment Options
 
 ### Cloud

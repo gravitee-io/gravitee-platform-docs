@@ -166,3 +166,8 @@ kubernetes-operator/releases-and-changelog/README.md
 .gitbook/assets/request-flow-kubernetes-cluster-http-route.png
 configure-and-manage-the-platform/gravitee-gateway/gateway-configuration-for-mtls-certificate-management.md
 secure-and-expose-apis/applications/mtls-certificate-management-for-applications-overview-and-concepts.md
+# Hub pages that point at the Gravitee Kubernetes Operator node (DOC-1964)
+README.md
+getting-started/README.md
+self-hosted-installation-guides/README.md
+terraform/README.md
