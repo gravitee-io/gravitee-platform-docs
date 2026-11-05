@@ -315,3 +315,7 @@ analyze-and-monitor-apis/reporters/elasticsearch-reporter.md
 configure-and-manage-the-platform/gravitee-gateway/notifications.md
 developer-portal/classic-developer-portal/create-an-application.md
 .gitbook/assets/classic-portal-application-metadata-list.png
+# Classic Cloud hybrid guides: Logstash writes to S3, not to Elasticsearch (DOC-1935)
+hybrid-installation-and-configuration-guides/classic-cloud/docker/docker-compose.md
+hybrid-installation-and-configuration-guides/classic-cloud/.zip.md
+hybrid-installation-and-configuration-guides/classic-cloud/kubernetes/vanilla-kubernetes.md
