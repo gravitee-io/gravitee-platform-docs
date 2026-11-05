@@ -48,7 +48,7 @@ The following query parameters are available:
 | `status` | string | — | Filter by status. Values: `enabled`, `disabled` |
 | `owner.email` | string | — | Filter by owner email address |
 | `expand` | array[string] | — | Fields to expand. Supported: `clientId` |
-| `q` | string | — | Search query (supports wildcard `*`) |
+| `q` | string | — | Search query (supports wildcard `*`). All other characters match literally. |
 | `type` | array[string] | — | Filter by type. Values: `WEB`, `NATIVE`, `BROWSER`, `SERVICE`, `RESOURCE_SERVER`, `AGENT` |
 | `limit` | integer | 50 | Maximum results per page |
 | `sort` | string | `updatedAt` | Sort field. Supported: `updatedAt`, `name` |

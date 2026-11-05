@@ -93,3 +93,6 @@ guides/applications/spiffe-workload-identity-and-agent-applications-overview.md
 .gitbook/assets/am-spiffe-workload-identity-settings.png
 # Active Directory/LDAP: identity provider type to select (DOC-1961)
 guides/identity-providers/enterprise-identity-providers/active-directory-ldap.md
+# Wildcard search matches all other characters literally (AM 4.13.3, gravitee-io/issues#12007)
+guides/applications/README.md
+reference/application-filtering-cursor-pagination-and-expand-parameters.md

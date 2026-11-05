@@ -292,7 +292,7 @@ To apply policies to the Stripe MCP server, complete the following steps:
    * Enable **Add response headers** so that responses carry `X-Rate-Limit-Limit`, `X-Rate-Limit-Remaining`, and `X-Rate-Limit-Reset`.
    * Set **Error strategy** to block on internal error where the limit is a control rather than a courtesy.
 5. Add the **PII Filtering** policy to the same request phase. In **AI Resource**, select the AI Model Token Classification resource from the prerequisites. In **PII Categories**, select the categories to redact, for example person, email, phone, location, financial account, and government ID. Leave **Confidence Threshold** at the default of `0.5`. The policy runs in the request phase and still filters the response payload, which is what redacts the tool result on the way back.
-6. Select **Save**, and then deploy the server. The deploy is what updates the Gateway. Until you deploy, the console reports that the deployable is out of sync.
+6. Select **Save**, and then deploy the server. The deploy is what updates the Gateway. Until you deploy, the console shows the **This MCP proxy is out of sync** banner.
 
 {% hint style="info" %}
 To limit one tool rather than the whole server, add a **Condition** to the flow that matches the tool name, for example `{#context.attributes['mcp_tool_name'] == 'stripe_api_read'}`. A tight limit scoped to the tool an iterating agent calls most caps it without constraining the rest. For more information, see [Apply policies to tool invocations](apply-policies-to-tool-invocations.md "mention").

@@ -36,7 +36,7 @@ To change the providers, complete the following steps:
 
 While a card is open for editing, the other providers can't be edited or removed. The save bar appears as soon as the page differs from what's saved. **Save changes** stays disabled while the open card holds an invalid value, or while no provider is left, and the bar then reads **Finish editing the provider before saving.** or **At least one provider is required.** A save that fails shows **Failed to save providers** with the reason.
 
-Saving replaces the providers of the proxy without deploying them. The **This API is out of sync** banner appears at the top of the detail view. Click **Deploy**, optionally enter a label in the **Deploy your API** dialog, and click **Deploy** to push the change to the gateway.
+Saving replaces the providers of the proxy without deploying them. The **This LLM proxy is out of sync** banner appears at the top of the detail view. Click **Deploy**, optionally enter a label in the **Deploy your LLM proxy** dialog, and click **Deploy** to push the change to the gateway.
 
 When the aliases declared by two providers differ, the page shows **Model aliases differ across providers** with the aliases of each provider. An alias routes, and fails over, only across the providers that declare it, so align the aliases for cross-provider failover. The warning doesn't block saving.
 
@@ -53,7 +53,7 @@ The Policy Studio uses the same policy studio as API Management and supports the
 3. In the **Request Phase** or **Response Phase** section, click **Add policy**. When the phase already holds a policy, click the plus button at the end of the phase instead.
 4. In the list that opens, search for the policy you want, such as **PII Filtering**, **Rate Limit**, or **AI - Prompt Guard Rails**, and then select it. The policy is added to the phase. To read the documentation of a policy before you add it, click **Browse full catalog**, select the policy in the **Add Policy** catalog, and then click **Add to flow**.
 5. Configure the policy properties, and then click **Save**.
-6. When the **This API is out of sync** banner appears, click **Deploy** to push the changes to the API Gateway.
+6. When the **This LLM proxy is out of sync** banner appears, click **Deploy** to push the changes to the gateway.
 
 ### PII Filtering
 
@@ -108,7 +108,7 @@ The picture identifies the LLM Proxy at the start of its row in the **LLM Proxie
 To add or change the picture, complete the following steps:
 
 1. On the LLM Proxy detail page, under **General**, select **Settings**.
-2. Under **API Picture**, click the picture, and then select an image file. You can also drag an image file onto the picture.
+2. Under **Picture**, click the picture, and then select an image file. You can also drag an image file onto the picture.
 3. Click **Save changes**.
 
 The image must be a GIF, JPEG, BMP, PNG, or TIFF file of at most 500 KB. A larger file is refused. A file in another format is refused when you save.
@@ -153,7 +153,7 @@ To add a security plan, complete the following steps:
 2. Click **Create plan**, and then select a security type: **Keyless**, **API Key**, **JWT**, **OAuth2**, or **mTLS**.
 3. Complete the **General**, **Configure**, **Restrictions**, and **Review** steps, and then click **Create plan**. A **Keyless** plan has no **Configure** step.
 4. Open the actions menu of the new plan, and then click **Publish**. A plan that you add to an existing LLM Proxy starts in staging, and consumers can't subscribe to it until it's published.
-5. Click **Deploy** on the **This API is out of sync** banner, and then click **Deploy** in the **Deploy your API** dialog.
+5. Click **Deploy** on the **This LLM proxy is out of sync** banner, and then click **Deploy** in the **Deploy your LLM proxy** dialog.
 
 The actions menu of a plan also offers **Edit** for a plan that isn't closed, **Deprecate** for a published plan, and **Close**. Closing a plan terminates every subscription on it and can't be undone. You set restrictions only when you create a plan, and the security type of a plan can't be changed.
 

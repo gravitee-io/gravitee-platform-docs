@@ -131,7 +131,7 @@ Threshold: 0.5
 - **Memory footprint**: Low (~23M parameters)
 - **Relative latency**: Fast
 - **Languages**: English only
-- **Max sequence**: 256 tokens
+- **Max sequence**: 512 tokens
 
 ### Prompt injection detection: Llama Prompt Guard 22M
 

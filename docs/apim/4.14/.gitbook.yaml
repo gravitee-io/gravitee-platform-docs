@@ -126,7 +126,7 @@ redirects:
  developer-portal/webhook-subscriptions: developer-portal/classic-developer-portal/webhook-subscriptions.md
  expose-apis/applications: secure-and-expose-apis/applications/create-an-application.md
  expose-apis/applications/global-settings: secure-and-expose-apis/applications/global-settings.md
- expose-apis/applications/metadata: secure-and-expose-apis/applications/create-an-application.md
+ expose-apis/applications/metadata: configure-and-manage-the-platform/gravitee-gateway/notifications.md
  expose-apis/applications/notifications: configure-and-manage-the-platform/gravitee-gateway/notifications.md
  expose-apis/applications/subscriptions: secure-and-expose-apis/subscriptions/manage-subscriptions.md
  expose-apis/applications/user-and-group-access: secure-and-expose-apis/applications/user-and-group-access.md
@@ -605,6 +605,7 @@ redirects:
  installation-and-upgrades/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management: release-information/breaking-changes-and-deprecations.md
  installation-and-upgrades/upgrading-gravitee-api-management/upgrade-guide: hybrid-installation-and-configuration-guides/README.md
  installation-and-upgrades/upgrading-gravitee-api-management/upgrading-gravitee-api-management-installed-with-rpm-packages: self-hosted-installation-guides/rpm/README.md
+ kafka-gateway/applications: secure-and-expose-apis/applications/create-an-application.md
  kafka-gateway/configure-kafka-apis: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/README.md
  kafka-gateway/configure-kafka-apis/configuration: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuration.md
  kafka-gateway/configure-kafka-apis/consumers: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/consumers.md
@@ -1185,3 +1186,6 @@ redirects:
  using-the-product/using-the-gravitee-api-management-components/general-configuration/tenants: configure-and-manage-the-platform/gravitee-gateway/tenants.md
  create-and-configure-apis/development-tools: create-and-configure-apis/README.md
  create-and-configure-apis/development-tools/enforcing-logging-rules-with-archunit-maven-plugin: create-and-configure-apis/README.md
+ introduction/api-fundamentals: introduction/api-fundamentals/README.md
+ introduction/enterprise-edition/enterprise-edition-installation: introduction/enterprise-edition-installation.md
+ introduction/enterprise-edition/enterprise-edition-licensing: introduction/enterprise-edition-licensing.md

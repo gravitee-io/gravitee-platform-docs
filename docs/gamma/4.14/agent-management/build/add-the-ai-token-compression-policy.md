@@ -31,8 +31,8 @@ Before you begin, confirm that you have a deployed LLM Proxy. For more informati
 
     <!-- TODO: Screenshot of the AI Token Compression step with How much may be lost set to Adds detail that is rarely load-bearing and the Condition left empty. The figure is omitted rather than pointed at a missing asset. -->
 7. Click **Save**.
-8. When **This API is out of sync** appears, click **Deploy**.
-9. In the **Deploy your API** dialog, click **Deploy**.
+8. When **This LLM proxy is out of sync** appears, click **Deploy**.
+9. In the **Deploy your LLM proxy** dialog, click **Deploy**.
 
 ## Settings
 

@@ -36,10 +36,10 @@ An assigned tag that no longer appears in the organization list is still shown a
 
 If the tags can't be loaded, the card reads **Failed to load sharding tags. Please try again.**
 
-To change sharding tags, you need the **API_DEFINITION** permission with the **UPDATE** access level. Without it, the tag list is disabled, the chips lose their remove control, and the card reads **You do not have permission to change sharding tags for this API.**
+To change sharding tags, you need the **API_DEFINITION** permission with the **UPDATE** access level. Without it, the tag list is disabled, and the chips lose their remove control. The card reads **You do not have permission to change the sharding tags of this LLM proxy.**
 
 {% hint style="info" %}
-When the LLM Proxy is managed by the Gravitee Kubernetes Operator (GKO), the card shows **This API is managed by the Kubernetes operator. Sharding tags can only be changed from its source definition.**
+When the LLM Proxy is managed by the Gravitee Kubernetes Operator (GKO), the card shows **This LLM proxy is managed by the Kubernetes operator. Its sharding tags can only be changed from its source definition.**
 {% endhint %}
 
 ## Verification

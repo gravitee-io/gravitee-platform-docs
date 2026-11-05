@@ -133,6 +133,58 @@ gateway:
 
 The type isn't accepted from a Kubernetes secret or configmap location, or from a secret-provider reference. A `bcfks` store configured that way isn't loaded: the Gateway logs `No loader accepted the store configuration, no certificate will be loaded` and the store stays empty. The Redis stores for rate limiting and distributed sync don't accept it either: they take `jks`, `pkcs12`, and `pem`.
 
+## Management API on the FIPS images
+
+### Cloud connection
+
+The Cloud connection of the Management API (`cloud.enabled: true`) reads its own keystore and truststore, under `cloud.connector.ws.ssl`. The stores provided for it are PKCS12, and the Helm chart defaults both `type` values to `pkcs12`. On the FIPS images that keystore doesn't load: the connector logs `PKCS12 not found` on every retry and the Cloud connection is never established, while the Management API itself keeps running.
+
+From APIM 4.13.3, the connector accepts `bcfks` for both stores:
+
+| Store | Accepted on the FIPS images |
+| --- | --- |
+| `keystore` | `bcfks` only, read from a file `path`. It holds the client private key, which neither `pkcs12` nor `jks` can carry under *approved only* mode. The key is read with the keystore password. |
+| `truststore` | `bcfks`, from a file `path` or a base64 `content`, or `pem`. |
+
+Convert the PKCS12 stores to BCFKS before deploying, on a machine with the [BouncyCastle FIPS](https://www.bouncycastle.org/download/bouncy-castle-java-fips/) `bc-fips` JAR. Keep the same password for the store and the key:
+
+```sh
+keytool -importkeystore \
+  -srckeystore keystore.p12 -srcstoretype PKCS12 -srcstorepass <password> \
+  -destkeystore keystore.bcfks -deststoretype BCFKS -deststorepass <password> \
+  -providername BCFIPS \
+  -providerclass org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider \
+  -providerpath bc-fips-<version>.jar
+```
+
+Run the same command for the truststore, or export its CA certificates as PEM instead.
+
+With the Helm chart, put the base64-encoded BCFKS files in `value` and set the two `type` values. The chart mounts each `value` under `/opt/graviteeio-management-api/cloud`, and the file names there don't matter, so the default `path` values keep working:
+
+```yaml
+cloud:
+  enabled: true
+  connector:
+    ws:
+      ssl:
+        keystore:
+          type: bcfks
+          path: /opt/graviteeio-management-api/cloud/keystore.p12
+          value: <base64-encoded BCFKS keystore>
+          password: <password>
+        truststore:
+          type: bcfks
+          path: /opt/graviteeio-management-api/cloud/truststore.p12
+          value: <base64-encoded BCFKS truststore>
+          password: <password>
+```
+
+### Federation and Hazelcast discovery on Kubernetes
+
+With `api.federation.enabled: true`, the Helm chart configures Hazelcast to find the cluster members through the Kubernetes API. Hazelcast builds an in-memory trust store for the Kubernetes API CA, as PKCS12 by default. On the FIPS images, before APIM 4.13.3, both Hazelcast members fail with `PKCS12 KeyStore not available` and the Management API never starts, so the startup probe restarts the pod in a loop.
+
+From APIM 4.13.3, the Hazelcast cluster and cache plugins build that trust store as BCFKS on the FIPS images. The chart's default `hazelcast-cluster.xml` and `hazelcast-cache.xml` work without change. The plugins set the `hazelcast.restclient.ca.storetype` JVM system property only when it isn't already set, so on an earlier 4.13 patch you can start the Management API JVM with `-Dhazelcast.restclient.ca.storetype=BCFKS` instead.
+
 ## Known limitations
 
 Because the non-FIPS BouncyCastle provider isn't present, a few capabilities that ship inside third-party libraries lose their cryptographic backing on the FIPS images. None of them affect Gravitee's own code, and none are enabled by default:

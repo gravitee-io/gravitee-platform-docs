@@ -131,10 +131,9 @@ The following sections of this article assume you are using the `docker-compose.
 
 * All `xxx` values in the sample `docker-compose.yml` above must be replaced by the credentials appropriate to your environment. These can be provided by your Technical Account Manager.
 * Replace `<add_the_gateway_tag>` in the sample `docker-compose.yml` with the gateway version to install. It has to align with the control plane of your Gravitee Cloud.
-* Ensure the Logstash and Redis versions used by your `docker-compose.yml` are supported by Gravitee:
+* Ensure the Redis version used by your `docker-compose.yml` is supported by Gravitee:
   * For supported version of Redis, refer to [Supported databases](../../../prepare-a-production-environment/repositories/redis.md#supported-databases).
-  * For supported version of Logstash, refer to [Compatibility with Elasticsearch](/broken/pages/VnFfvu2Jm1SCuFmCzqpb).
-  * For the installed version of Elasticsearch on the control plane, which Logstash will interact with via an S3 bucket, please reach out to your Technical Account Manager.
+* Logstash sends the Gateway's analytics to an S3 bucket in the control plane, not to Elasticsearch. Gravitee manages the Elasticsearch in the control plane, so you don't need to match your Gateway or Logstash version to an Elasticsearch version.
 
 ## **Gateway service configuration**
 
@@ -185,10 +184,9 @@ Please reach out to your Technical Account Manager for the Bridge Gateway creden
 
 ## **Logstash service configuration**
 
-You can configure Logstash to send data to ElasticSearch.
+Logstash sends the Gateway's analytics to an S3 bucket in the control plane, not to Elasticsearch.
 
 {% hint style="info" %}
-* For support versions, refer to the [compatibility matrix with Elasticsearch](https://www.elastic.co/support/matrix#matrix_compatibility).
 * For more information about configuring Logstash, see [Creating a Logstash Pipeline](https://www.elastic.co/docs/reference/logstash/creating-logstash-pipeline) in the Elastic documentation.
 {% endhint %}
 
