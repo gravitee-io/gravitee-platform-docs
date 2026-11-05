@@ -50,6 +50,8 @@ On the **Configure connection** step, enter the details of your Azure AI Foundry
 | **Inference Endpoint** | Optional. The address where an LLM Proxy sends the calls for this account, for example `https://my-account.openai.azure.com`. Leave it empty to use `https://<account name>.openai.azure.com`. Enter the full address of the account, starting with `https://` or `http://`, not the address of one of its deployments. |
 | **Bearer Token** | An access token for Azure Resource Manager. The step shows the Azure CLI command that generates one. |
 
+<figure><img src="../.gitbook/assets/gamma-aim-azure-foundry-configure-connection.png" alt="The Configure connection step of Add provider for Azure AI Foundry, with the Generate a token with: command, Subscription ID, Resource Group, Account Name, and Bearer Token filled in, and Inference Endpoint left empty"><figcaption><p>The Configure connection step for Azure AI Foundry</p></figcaption></figure>
+
 Gamma uses the token only to list the deployments of the account and to import the ones that you select, and doesn't save it. **Select models** lists the deployments whose provisioning succeeded. Each imported model takes the name of its deployment as its **Query name**. Models imported from Azure AI Foundry have no price, so enter one to attribute their cost. See [Edit model details](#edit-model-details).
 
 When an account with the same **Subscription ID**, **Resource Group**, and **Account Name** is already in the catalog, the following applies:
