@@ -6,6 +6,44 @@ description: The API Management 4.13 changelog lists the bug fixes in each patch
 
 # APIM 4.13.x
  
+## Gravitee API Management 4.13.3 - November 6, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Event Stream Management**
+
+* Solace endpoint cannot connect over TLS on the 4.13 FIPS image [#12018](https://github.com/gravitee-io/issues/issues/12018)
+* Kafka OAUTHBEARER re-authentication never triggered by the Kafka client with OAuth2 plan [#12025](https://github.com/gravitee-io/issues/issues/12025)
+
+**Other**
+
+* 404 response body is truncated when http.errors\[404].message contains non-ASCII characters [#11764](https://github.com/gravitee-io/issues/issues/11764)
+* Renaming an application deletes subscription metadata [#11949](https://github.com/gravitee-io/issues/issues/11949)
+* Webhook entrypoint: a failed publish to the Dead Letter Queue is swallowed without an error log [#12012](https://github.com/gravitee-io/issues/issues/12012)
+* Redis rate limit, quota, and spike arrest do not count calls from an organization flow [#12016](https://github.com/gravitee-io/issues/issues/12016)
+* Management API on the 4.13 FIPS image crash-loops when federation is enabled [#12017](https://github.com/gravitee-io/issues/issues/12017)
+* Alert editor stays 960px wide and clips the threshold-range row on large screens [#12020](https://github.com/gravitee-io/issues/issues/12020)
+* Cloud connection on the 4.13 FIPS image cannot load its PKCS12 keystore [#12024](https://github.com/gravitee-io/issues/issues/12024)
+* Azure Speech Service Websocket call fails with sec-websocket-protocol=USP header [#12027](https://github.com/gravitee-io/issues/issues/12027)
+* \[APIM]\[Documentation] Cannot create root-level pages for v4 APIs (incl. homepage) – “Page parent not found” [#12029](https://github.com/gravitee-io/issues/issues/12029)
+* Elasticsearch reporter drops every document, with a NullPointerException per document, when the ingest pipeline or an index template cannot be created at startup [#12037](https://github.com/gravitee-io/issues/issues/12037)
+* Upgraders issues when deploying APIM with documentdb
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* "Server unreachable" shown for Console log searches that succeed server-side (hardcoded 30s client timeout) [#11997](https://github.com/gravitee-io/issues/issues/11997)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.13.2 - November 2, 2026
 <details>
 
