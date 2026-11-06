@@ -17,7 +17,7 @@ Gravitee API Management 4.12 introduces Redis Cluster support for rate limiting 
 
 | Database | Version tested        |
 | -------- | --------------------- |
-| Redis    | 6.2.x / 7.0.x / 7.2.x / 7.4.x/ 8.0.x |
+| Redis    | 6.2.x / 7.0.x / 7.2.x / 7.4.x / 8.x |
 
 ## Key concepts
 
