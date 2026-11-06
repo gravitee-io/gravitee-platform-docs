@@ -18,7 +18,7 @@ Debug mode is supported by v2 APIs and v4 proxy APIs. You cannot use debug mode 
 {% endhint %}
 
 {% hint style="warning" %}
-v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md).
+v2 APIs are deprecated from APIM 4.13.0. On a hybrid or Gravitee Cloud deployment, migrate your v2 APIs to v4 before September 30, 2027. On a self-hosted deployment, the October 2027 release removes v2 APIs. You can remain on the last version of APIM that supports v2 APIs through its official support window. For more information, see [Support model](https://documentation.gravitee.io/platform-management/support-model) and [v2 API Deprecation and Migration to v4](../../release-information/v2-api-deprecation.md).
 {% endhint %}
 
 Debug mode is a diagnostic tool for v2 and v4 proxy APIs. It provides insights and troubleshooting capabilities so you can complete the following actions:

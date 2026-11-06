@@ -143,7 +143,7 @@ Runtime Logs provide detailed error information for individual API requests. To 
 ### View Execution Transparency Analytics in V2 APIs
 
 {% hint style="warning" %}
-v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../release-information/breaking-changes-and-deprecations.md).
+v2 APIs are deprecated from APIM 4.13.0. On a hybrid or Gravitee Cloud deployment, migrate your v2 APIs to v4 before September 30, 2027. On a self-hosted deployment, the October 2027 release removes v2 APIs. You can remain on the last version of APIM that supports v2 APIs through its official support window. For more information, see [Support model](https://documentation.gravitee.io/platform-management/support-model) and [v2 API Deprecation and Migration to v4](../release-information/v2-api-deprecation.md).
 {% endhint %}
 
 V2 APIs display execution transparency directly in the logs without requiring additional configuration. To view execution transparency for your V2 API, complete the following steps:

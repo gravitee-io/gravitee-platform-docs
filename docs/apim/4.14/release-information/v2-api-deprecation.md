@@ -8,8 +8,11 @@ description: v2 APIs are deprecated from API Management 4.13. Learn the removal 
 
 This page explains the deprecation of v2 APIs in Gravitee API Management (APIM), the timeline for their removal, and how to migrate your v2 APIs to v4.
 
-{% hint style="info" %}
-From 4.13.0 (October 2026), v2 APIs are deprecated. The October 2027 release of APIM removes v2 APIs. Your v2 APIs continue to work and remain supported until they're removed.
+{% hint style="warning" %}
+From 4.13.0 (October 2026), v2 APIs are deprecated. What you need to do depends on how you deploy APIM:
+
+* **Hybrid and Gravitee Cloud:** Migrate your v2 APIs to v4 before September 30, 2027.
+* **Self-hosted:** The October 2027 release of APIM removes v2 APIs. You can remain on the last version of APIM that supports v2 APIs through its official support window. For more information, see [Support model](https://documentation.gravitee.io/platform-management/support-model).
 {% endhint %}
 
 ## What deprecation means
@@ -27,23 +30,23 @@ Deprecation gives you time to plan your migration to v4 APIs before v2 APIs are 
 
 The following table shows the key dates for the deprecation and removal of v2 APIs:
 
-| Date               | Milestone                                                                               |
-| ------------------ | --------------------------------------------------------------------------------------- |
-| October 16, 2025   | APIM 4.9 introduces the v2 to v4 migration tool.                                        |
-| October 2026       | APIM 4.13.0 deprecates v2 APIs.                                                         |
-| September 30, 2027 | Deadline for Gravitee Cloud customers to complete the migration of their v2 APIs to v4. |
-| October 2027       | The October 2027 release of APIM removes v2 APIs.                                       |
+| Date               | Milestone                                                                                          |
+| ------------------ | -------------------------------------------------------------------------------------------------- |
+| October 16, 2025   | APIM 4.9 introduces the v2 to v4 migration tool.                                                   |
+| October 2026       | APIM 4.13.0 deprecates v2 APIs.                                                                    |
+| September 30, 2027 | Deadline for hybrid and Gravitee Cloud customers to complete the migration of their v2 APIs to v4. |
+| October 2027       | The October 2027 release of APIM removes v2 APIs.                                                  |
 
 Migrate your v2 APIs to v4 before you upgrade to the October 2027 release.
 
 The steps that you need to take depend on how you deploy APIM:
 
-* [Gravitee Cloud](v2-api-deprecation.md#gravitee-cloud)
+* [Hybrid and Gravitee Cloud](v2-api-deprecation.md#hybrid-and-gravitee-cloud)
 * [Self-hosted installations](v2-api-deprecation.md#self-hosted-installations)
 
-### Gravitee Cloud
+### Hybrid and Gravitee Cloud
 
-Gravitee upgrades Cloud environments as new releases become available. If you use v2 APIs in Gravitee Cloud, complete your migration to v4 before September 30, 2027, ahead of the October 2027 release.
+Gravitee upgrades Cloud environments as new releases become available. If you use v2 APIs in a hybrid or Gravitee Cloud deployment, complete your migration to v4 before September 30, 2027, ahead of the October 2027 release.
 
 {% hint style="warning" %}
 If you expect that you can't complete your migration before September 30, 2027, contact your Gravitee account manager or customer success manager as early as possible.
