@@ -530,7 +530,7 @@ Here is the deprecated functionality from 4.X of Gravitee
 
 **v2 APIs are deprecated**
 
-From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [Migrate APIs](../create-and-configure-apis/create-apis/migrate-apis.md).
+From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [v2 API Deprecation and Migration to v4](v2-api-deprecation.md) and [Migrate APIs](../create-and-configure-apis/create-apis/migrate-apis.md).
 
 **MongoDB and Elasticsearch subcharts are deprecated**
 

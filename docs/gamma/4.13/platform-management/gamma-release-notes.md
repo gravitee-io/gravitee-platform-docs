@@ -22,7 +22,7 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 
 #### **v2 APIs are deprecated**
 
-From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [Migrate APIs](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis/migrate-apis).
+From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [v2 API Deprecation and Migration to v4](https://documentation.gravitee.io/apim/release-information/v2-api-deprecation) and [Migrate APIs](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis/migrate-apis).
 
 For the other breaking changes and deprecations in Gamma 4.13, see [Breaking Changes and Deprecations](gamma-breaking-changes.md).
 

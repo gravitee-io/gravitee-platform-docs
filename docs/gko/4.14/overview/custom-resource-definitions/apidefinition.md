@@ -5,7 +5,7 @@ description: ApiDefinition declares a v2 API for the Gravitee Kubernetes Operato
 # ApiDefinition
 
 {% hint style="warning" %}
-The `ApiDefinition` resource is deprecated from GKO 4.13.0, along with the v2 APIs that it manages, and the October 2027 release will remove both. For v4 APIs, use the [`ApiV4Definition`](apiv4definition.md) resource. For more information, see [Breaking Changes and Deprecations](https://documentation.gravitee.io/apim/4.13/release-information/breaking-changes-and-deprecations).
+The `ApiDefinition` resource is deprecated from GKO 4.13.0, along with the v2 APIs that it manages. On a hybrid or Gravitee Cloud deployment, migrate your v2 APIs to v4 before September 30, 2027. On a self-hosted deployment, the October 2027 release removes both. You can remain on the last version of APIM that supports v2 APIs through its official support window. For more information, see [Support model](https://documentation.gravitee.io/platform-management/support-model). For v4 APIs, use the [`ApiV4Definition`](apiv4definition.md) resource.
 {% endhint %}
 
 The `ApiDefinition` custom resource represents the configuration for a v2 API on the Gravitee Gateway. GKO also supports the more recent [v4 API definition](apiv4definition.md) with its own CRD.
