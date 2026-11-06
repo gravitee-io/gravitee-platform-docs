@@ -126,7 +126,7 @@ redirects:
  developer-portal/webhook-subscriptions: developer-portal/classic-developer-portal/webhook-subscriptions.md
  expose-apis/applications: secure-and-expose-apis/applications/create-an-application.md
  expose-apis/applications/global-settings: secure-and-expose-apis/applications/global-settings.md
- expose-apis/applications/metadata: secure-and-expose-apis/applications/create-an-application.md
+ expose-apis/applications/metadata: configure-and-manage-the-platform/gravitee-gateway/notifications.md
  expose-apis/applications/notifications: configure-and-manage-the-platform/gravitee-gateway/notifications.md
  expose-apis/applications/subscriptions: secure-and-expose-apis/subscriptions/manage-subscriptions.md
  expose-apis/applications/user-and-group-access: secure-and-expose-apis/applications/user-and-group-access.md
@@ -1186,3 +1186,6 @@ redirects:
  using-the-product/using-the-gravitee-api-management-components/general-configuration/tenants: configure-and-manage-the-platform/gravitee-gateway/tenants.md
  create-and-configure-apis/development-tools: create-and-configure-apis/README.md
  create-and-configure-apis/development-tools/enforcing-logging-rules-with-archunit-maven-plugin: create-and-configure-apis/README.md
+ introduction/api-fundamentals: introduction/api-fundamentals/README.md
+ introduction/enterprise-edition/enterprise-edition-installation: introduction/enterprise-edition-installation.md
+ introduction/enterprise-edition/enterprise-edition-licensing: introduction/enterprise-edition-licensing.md

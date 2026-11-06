@@ -66,13 +66,13 @@ A change on the page shows the save bar with **You have unsaved CORS changes.** 
 
 Saving with the **Enable CORS** switch off empties the saved origins, methods, and headers: they read back empty when you turn CORS on again.
 
-Saving updates the API definition but doesn't deploy it. The **This API is out of sync** banner appears at the top of the detail view. Click **Deploy**, optionally enter a deployment label in the **Deploy your API** dialog, and click **Deploy** to push the change to the gateway.
+Saving updates the API definition but doesn't deploy it. The **This LLM proxy is out of sync** banner appears at the top of the detail view. Click **Deploy**, optionally enter a deployment label in the **Deploy your LLM proxy** dialog, and click **Deploy** to push the change to the gateway.
 
 ## Verification
 
 To verify that the gateway applies the settings, follow these steps:
 
-1. Enable CORS, add the origin `https://app.example.com`, add the `POST` method, and add the `Content-Type` header. Click **Save changes**, and then deploy the proxy from the **This API is out of sync** banner.
+1. Enable CORS, add the origin `https://app.example.com`, add the `POST` method, and add the `Content-Type` header. Click **Save changes**, and then deploy the proxy from the **This LLM proxy is out of sync** banner.
 2. Send a preflight request to a URL of the proxy, as listed in the **Exposed entrypoints** card of the **Entrypoints** page:
 
     ```bash

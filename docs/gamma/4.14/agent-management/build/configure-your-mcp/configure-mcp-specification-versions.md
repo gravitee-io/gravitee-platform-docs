@@ -42,7 +42,7 @@ An MCP Proxy records the versions you select and doesn't negotiate the version i
 3. Under **Design**, select **Entrypoint**.
 4. In the **MCP specification versions** card, select the versions under **Clients may connect with**, and then click **Save versions**.
 5. To change the versions used with the upstream server, under **Design**, select **Endpoint**. In the **MCP specification versions** card, select the versions under **The gateway talks to the upstream server with**, and then click **Save versions**.
-6. Click **Deploy** in the **This API is out of sync** banner.
+6. Click **Deploy** in the **This MCP proxy is out of sync** banner.
 
 The message **MCP versions saved. Deploy to apply them to the gateway.** confirms each save. **Reset** returns the card to the saved versions. When the proxy is managed by the Kubernetes operator, or you don't have the right to change it, the card is read-only and the page says why.
 
@@ -71,7 +71,7 @@ Each source of the Studio uses the versions set on its catalog MCP server, so on
 2. Under **Secure**, select **MCP Proxies**, and then open the MCP Studio.
 3. Under **Design**, select **Entrypoint**.
 4. In the **MCP specification versions** card, select the versions under **Clients may connect with**, and then click **Save versions**.
-5. Click **Deploy** in the **This API is out of sync** banner.
+5. Click **Deploy** in the **This MCP proxy is out of sync** banner.
 
 The **Source MCP versions** card lists the versions each source uses. Change them on the catalog MCP server. As on an MCP Proxy, the card is read-only when the Studio is managed by the Kubernetes operator or you don't have the right to change it.
 
@@ -99,7 +99,7 @@ When you save, every MCP Studio that uses the server takes the new versions. A S
 
 To verify the versions, follow these steps:
 
-1. Under **Design**, select **Entrypoint**. The **MCP specification versions** card shows the versions you saved, and the **This API is out of sync** banner is gone once the deploy is done.
+1. Under **Design**, select **Entrypoint**. The **MCP specification versions** card shows the versions you saved, and the **This MCP proxy is out of sync** banner is gone once the deploy is done.
 2. For an MCP Studio, send a request from an MCP client on a version you didn't select. The Studio answers **Unsupported protocol version** and lists the versions it accepts.
 
 ## Next steps

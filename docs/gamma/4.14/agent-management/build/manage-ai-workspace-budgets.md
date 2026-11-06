@@ -88,7 +88,7 @@ A workspace always keeps at least one budget. Deleting the last remaining budget
 
 ## Deploy a budget change
 
-Creating, editing, and deleting a budget saves the change without pushing it to the gateway. While changes are pending, the **This API is out of sync** banner appears on the workspace pages. Select **Deploy**, optionally enter a **Deployment label** of up to 32 characters, and confirm, so a run of budget edits costs one deployment rather than one each.
+Creating, editing, and deleting a budget saves the change without pushing it to the gateway. While changes are pending, the **This AI workspace is out of sync** banner appears on the workspace pages. Select **Deploy**, optionally fill in **Deployment label (optional)** with up to 32 characters, and confirm, so a run of budget edits costs one deployment rather than one each.
 
 Adding and removing models don't use this banner. Gravitee deploys the Default LLM Proxy as part of the change. See [Add models to an AI workspace](add-models-to-an-ai-workspace.md).
 

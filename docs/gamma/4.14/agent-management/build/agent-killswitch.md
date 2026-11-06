@@ -9,13 +9,13 @@ description: >-
 
 Stopping an agent takes it out of service in one move. The **Stop** button on the agent's page stops the A2A Proxy that fronts it, pauses the accepted subscriptions of its gateway application, and, for an agent imported from an Azure AI Foundry project, asks Foundry to disable the agent where it runs. **Start** puts everything back. Stopping is reversible, and the dialog names everything the switch reaches before you confirm.
 
-A proxy has a stop of its own on its **Configuration** page, which cuts the traffic that proxy carries whoever the consumer is. Both switches are covered here.
+A proxy has a stop of its own on its **Settings** page, which cuts the traffic that proxy carries whoever the consumer is. Both switches are covered here.
 
 ## What the agent switch reaches
 
 The switch pulls up to three levers, and the **Stop this agent?** dialog lists the ones your agent has under **What this stops**, in the order they're pulled:
 
-* **The A2A proxy \<name>, which callers use to reach it**. This lever exists when an A2A Proxy fronts the agent and that proxy still exists. The proxy is stopped on the gateway, the same stop as on its own **Configuration** page, and a proxy that's already stopped is left as it is.
+* **The A2A proxy \<name>, which callers use to reach it**. This lever exists when an A2A Proxy fronts the agent and that proxy still exists. The proxy is stopped on the gateway, the same stop as on its own **Settings** page, and a proxy that's already stopped is left as it is.
 * **Its proxy subscriptions, through application \<id>**. Every accepted subscription of the agent's gateway application is paused. A paused subscription reads **Paused** on the **Consumers** page of the proxy it was made on, and it's resumed, not recreated, when you start the agent again.
 * **The agent itself, at its provider**. This lever exists for an agent imported from an Azure AI Foundry integration whose connection declares the project's agents endpoint. Gamma calls Foundry to disable the agent, and to enable it again on start. The line also reports the provider's own word for the agent's state in brackets, as of the last synchronization.
 
@@ -72,8 +72,8 @@ Stopping a proxy cuts off the traffic it carries. The gateway stops accepting re
 
 1. In the module sidebar, click the list of proxies: **LLM Proxies**, **MCP Proxies**, or **A2A Proxies**.
 2. Click the proxy you want to control.
-3. In the **General** group of the proxy's sidebar, click **Configuration**.
-4. Scroll to the **API Events** card. The card reads **These actions alter the runtime state of your LLM proxy on the gateway.**, with the type of proxy you opened.
+3. In the **General** group of the proxy's sidebar, click **Settings**.
+4. Scroll to the **Runtime** card. The card reads **These actions alter the runtime state of your LLM proxy on the gateway.**, with the type of proxy you opened.
 5. Click the stop action. The button names the type of proxy, so it reads **Stop LLM proxy**, **Stop MCP proxy**, or **Stop A2A proxy**.
 
 The button reads **Stopping…** while the request is in flight. The card states the effect of the action: **Gateway stops accepting requests. Subscriptions are preserved.** When the request completes, the **Status** row of the **Details** panel reads **Stopped**.
@@ -88,7 +88,7 @@ The **Details** panel on the right of the page is read-only. It lists **Owner**,
 
 A stopped proxy is restarted from the same card. To restart it, follow these steps:
 
-1. On the proxy's **Configuration** page, scroll to the **API Events** card.
+1. On the proxy's **Settings** page, scroll to the **Runtime** card.
 2. Click the start action. The button reads **Start LLM proxy**, **Start MCP proxy**, or **Start A2A proxy**.
 
 The button reads **Starting…** while the request is in flight. The card describes the effect as **Gateway starts accepting requests for this proxy.** When the request completes, the **Status** row reads **Started**.
@@ -99,7 +99,7 @@ The button reads **Starting…** while the request is in flight. The card descri
 * **Plans and policies**. The configuration of the proxy is untouched.
 * **The proxy itself**. A stop isn't a delete.
 
-While a proxy is started, the delete action in the **API Events** card is unavailable and the card reads **A running or published proxy cannot be deleted.** Stop the proxy first if you intend to delete it.
+While a proxy is started, the delete action in the **Runtime** card is unavailable. The card reads **A running or published LLM proxy cannot be deleted.**, with the type of proxy you opened. Stop the proxy first if you intend to delete it.
 
 ## Review a proxy stop or start
 

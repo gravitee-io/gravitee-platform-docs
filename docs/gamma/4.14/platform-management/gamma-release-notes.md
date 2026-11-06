@@ -12,7 +12,7 @@ The 4.14 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies.
+Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
@@ -28,6 +28,12 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and
 * The **History** tab of an alert lists its events.
 * Alerts require Alert Engine.
 * See [Configure MCP Proxy alerts](../agent-management/build/configure-mcp-proxy-alerts.md).
+
+#### Proxy pages name the proxy instead of the API
+
+* The pages of an LLM Proxy, MCP Proxy, or A2A Proxy now name the type of proxy where they named an API. The out-of-sync banner reads **This LLM proxy is out of sync**, **This MCP proxy is out of sync**, or **This A2A proxy is out of sync**, and its dialog reads **Deploy your LLM proxy**, **Deploy your MCP proxy**, or **Deploy your A2A proxy**. AI workspaces share the banner and read **This AI workspace is out of sync** and **Deploy your AI workspace**.
+* In the **Design** group of the proxy sidebar, **API Properties** is now **Properties**. On the **Settings** page, **API Picture** and **API Background** are now **Picture** and **Background**, and the **API Events** card is now **Runtime**.
+* The read-only notices, empty states, confirmations, and permission messages of those pages name the type of proxy in the same way, for example the **Select LLM proxy member** field when you transfer ownership.
 
 ### Edge Management
 

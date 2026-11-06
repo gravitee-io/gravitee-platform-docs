@@ -30,7 +30,7 @@ To create a plan flow, follow these steps:
 6. Click **Create**.
 7. In the **Request Phase** or the **Response Phase**, click **Add policy**, select a policy, such as **Rate Limit**, and then configure it.
 8. Click **Save**.
-9. Click **Deploy** on the **This API is out of sync** banner, and then click **Deploy** in the **Deploy your API** dialog.
+9. Click **Deploy** on the **This MCP proxy is out of sync** banner, and then click **Deploy** in the **Deploy your MCP proxy** dialog.
 
 ## How a plan flow runs
 

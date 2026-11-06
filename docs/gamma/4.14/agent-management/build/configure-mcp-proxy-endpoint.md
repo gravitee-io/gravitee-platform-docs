@@ -13,7 +13,7 @@ The **Endpoint** page of an MCP Proxy sets the upstream MCP server that the prox
 Before you begin, confirm that you have the following:
 
 * An MCP Proxy. For more information, see [Create an MCP proxy](create-an-mcp-proxy.md).
-* Permission to update the API definition of the proxy. Without it, the page is read-only and reads **You do not have permission to change the endpoint of this API.**
+* Permission to update the API definition of the proxy. Without it, the page is read-only and reads **You do not have permission to change the endpoint of this MCP proxy.**
 
 To open the page, follow these steps:
 
@@ -46,8 +46,8 @@ The **Advanced settings** section sets how the gateway connects to the upstream 
 To apply your changes, follow these steps:
 
 1. Click **Save changes**. The page confirms with **Connection settings saved.**
-2. In the **This API is out of sync** banner, click **Deploy**.
-3. Optional: In the **Deploy your API** dialog, enter a deployment label.
+2. In the **This MCP proxy is out of sync** banner, click **Deploy**.
+3. Optional: In the **Deploy your MCP proxy** dialog, enter a deployment label.
 4. Click **Deploy**.
 
 **Save changes** stays disabled until you change something and every field is valid. **Reset** brings the saved values back.
@@ -55,7 +55,7 @@ To apply your changes, follow these steps:
 Saving updates the API definition but doesn't deploy it. The gateway keeps the previous settings until you deploy.
 
 {% hint style="info" %}
-An MCP Proxy managed by the Kubernetes operator is read-only on this page, which reads **This API is managed by the Kubernetes operator. Its endpoint can only be changed from its source definition.**
+An MCP Proxy managed by the Kubernetes operator is read-only on this page, which reads **This MCP proxy is managed by the Kubernetes operator. Its endpoint can only be changed from its source definition.**
 {% endhint %}
 
 ## Verification

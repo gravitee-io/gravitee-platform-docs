@@ -1,5 +1,5 @@
 ---
-description: The Gravitee Management API is the programmatic interface to the API Management 4.13 backend. Browse the reference for its two sub-APIs.
+description: The Gravitee Management API is the programmatic interface to the API Management 4.14 backend. Browse the reference for its two sub-APIs.
 metaLinks:
   alternates:
     - management-api-reference.md
@@ -39,4 +39,8 @@ To explore the API documentation, select any of the following endpoint categorie
 * [**/management/v2 subcomponent documentation**](https://apim-api-docs.gravitee.io/?v=4.14&api=mgmt-v2-apis)**:** provides the specification for `management/v2` endpoints. Use this component to complete the following actions:
   * Manage V4 and Federated APIs
   * Configure multi-tenant aspects of APIM such as licenses, plugins, and OEM customization
-* [**/portal component documentation**](https://apim-api-docs.gravitee.io/?v=4.14&api=portal-next)**:** productize APIs and manage applications and subscriptions
+* [**/portal component documentation**](https://apim-api-docs.gravitee.io/?v=4.14&api=portal-next)**:** productize APIs and manage applications and subscriptions. The **API** selector of the reference lists the Portal API twice:
+  * **Next Gen Portal** lists the operations of the New Developer Portal. Build a custom developer portal on this entry.
+  * **Classic Portal** lists the operations of the Classic Developer Portal. Operations that only the Classic Developer Portal uses, for example API ratings, tickets, and application alerts, appear only in this entry.
+  * An operation common to both Developer Portals appears in both entries. A link saved with the single **Portal** entry of earlier versions opens **Next Gen Portal**, unless it points to an operation that only **Classic Portal** lists.
+  * In the Portal API specification, each operation declares the entry it's listed under in its `x-gravitee-portal` field: `classic`, `next`, or `both`.

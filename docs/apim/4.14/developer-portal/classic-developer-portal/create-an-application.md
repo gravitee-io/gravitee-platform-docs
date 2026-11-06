@@ -111,9 +111,6 @@ Once you've created an application, you can click on it and use the header optio
 *   **General information:** View and/or modify the application's configuration.
 
     <figure><img src="../../.gitbook/assets/application_edit.png" alt="The General information tab of an application, with name, description, domain and client ID fields beside an options panel and a list of subscribed APIs."><figcaption><p>General information</p></figcaption></figure>
-*   **Metadata:** Enter a **Name** and **Value** and use the **Format** selector to define metadata for your application. Use the **ADD** and **UPDATE** buttons to modify your entries.
-
-    <figure><img src="../../.gitbook/assets/application_metadata.png" alt="The Metadata tab of an application, listing two metadata entries with their format and value, above Reset and Update buttons."><figcaption><p>Metadata</p></figcaption></figure>
 *   **Subscriptions:** View the APIs your application is subscribed to. Use the **API** drop-down menu to choose a particular API and the **status** drop-down menu to list all APIs with the selected status.
 
     <figure><img src="../../.gitbook/assets/application_subscription info.png" alt="The Subscriptions tab of an application, with API and status filters above a table showing one accepted subscription."><figcaption><p>Subscriptions</p></figcaption></figure>
@@ -136,9 +133,11 @@ Once you've created an application, you can click on it and use the header optio
 *   **Logs:** Use the available filters to view and optionally export refined application analytics. Scroll down to view the logs. The Classic Developer Portal displays application logs for v2 APIs only. To view application logs for v4 APIs, use the [New Developer Portal](../new-developer-portal/application-logs.md).
 
     <figure><img src="../../.gitbook/assets/application_logs.png" alt="The Logs tab of an application, with time-range buttons and advanced filters above export, analytics and search buttons."><figcaption><p>Logs</p></figcaption></figure>
-*   **Notifications:** Specify which of your application's subscription events you would like to be notified of.
+*   **Notifications:** Specify which of your application's subscription events you would like to be notified of. In the **METADATA LIST** section at the bottom of the page, enter a **Name** and **Value** and use the **Format** selector to define metadata for your application. Use the **ADD** and **UPDATE** buttons to modify your entries.
 
     <figure><img src="../../.gitbook/assets/application_alerts.png" alt="The Notifications tab of an application, listing subscription and support events each with a toggle, all switched on."><figcaption><p>Notifications</p></figcaption></figure>
+
+    <figure><img src="../../.gitbook/assets/classic-portal-application-metadata-list.png" alt="The METADATA LIST section, with Key, Name, Format, and Value columns, an empty row with an ADD button, three entries with REMOVE buttons, and RESET and UPDATE buttons."><figcaption><p>Metadata list</p></figcaption></figure>
 *   **Alerts:** Use the fields and drop-down menus to define an alert. After you **ADD AN ALERT**, it will appear in the **ALERTS LIST**. Application members will be notified via email.
 
     <figure><img src="../../.gitbook/assets/application alerts.png" alt="The Alerts tab of an application, showing one configured alert above a form for adding another."><figcaption><p>Alerts</p></figcaption></figure>

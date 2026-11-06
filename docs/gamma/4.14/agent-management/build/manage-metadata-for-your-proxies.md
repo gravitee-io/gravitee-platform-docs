@@ -47,9 +47,9 @@ The list above the table filters the entries by source. It offers the following 
 
 * **All sources**. Every entry in effect for the proxy.
 * **Global**. The entries whose key the environment defines, including the ones the proxy has overridden.
-* **API**. The entries the environment doesn't define, which the proxy holds on its own.
+* **LLM proxy**, **MCP proxy**, or **A2A proxy**, named after the type of proxy you opened. The entries the environment doesn't define, which the proxy holds on its own.
 
-When the proxy has no entry at all, the table reads **No metadata defined for this API yet.** When the selected source matches nothing, it reads **No metadata matches the selected source.**
+When the proxy has no entry at all, the table reads **No metadata defined for this LLM proxy yet.**, with the type of proxy you opened. When the selected source matches nothing, it reads **No metadata matches the selected source.**
 
 ## Add an entry
 
@@ -135,9 +135,9 @@ An entry the proxy only inherits offers neither action, because the proxy holds 
 
 ## Metadata of a proxy the Kubernetes operator manages
 
-A proxy synced from the Kubernetes operator owns its metadata in its source definition, so the page lists the entries and offers no way to change them. The page reads **This API is managed by the Kubernetes operator. It can only be changed from its source definition.**
+A proxy synced from the Kubernetes operator owns its metadata in its source definition, so the page lists the entries and offers no way to change them. The page reads **This LLM proxy is managed by the Kubernetes operator. It can only be changed from its source definition.**, with the type of proxy you opened.
 
-The actions are also hidden while the console can't tell where the proxy's definition comes from. When that read fails, the page reads **Could not confirm whether this API can be edited here** and asks you to refresh.
+The actions are also hidden while the console can't tell where the proxy's definition comes from. When that read fails, the page reads **Could not confirm whether this LLM proxy can be edited here**, with the type of proxy you opened, and asks you to refresh.
 
 ## Verification
 
@@ -145,6 +145,6 @@ To verify a metadata entry is in effect, follow these steps:
 
 1. Add an entry to the proxy, for example a **Mail** entry named `Support contact`.
 2. Reload the **Metadata** page. The entry is listed with the key generated from the name, and without a **Global** badge.
-3. Select **API** in the source list. The entry is still listed, because the environment doesn't define its key.
+3. Select the type of proxy you opened, for example **LLM proxy**, in the source list. The entry is still listed, because the environment doesn't define its key.
 
-<figure><img src="../.gitbook/assets/gamma-aim-proxy-metadata-api-filter.png" alt="The Metadata page with the source list set to API, listing only the Support contact entry the proxy owns"><figcaption><p>The entry the proxy owns, listed under the API source</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-proxy-metadata-api-filter.png" alt="The Metadata page with the source list set to A2A proxy, listing only the Support contact entry the proxy owns"><figcaption><p>The entry the proxy owns, listed under the A2A proxy source</p></figcaption></figure>

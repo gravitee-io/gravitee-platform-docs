@@ -69,7 +69,7 @@ Then add the policy to a common flow, so that it runs on every MCP request:
     * For **RESOURCE**, select the resource in **OAuth2 Resource**, at the end of the form.
     * For **INLINE**, enter the full URL of the token endpoint in **Token endpoint**, and the **Client ID** and **Client secret** of your client. The credentials are sent in a Basic `Authorization` header unless you turn off **Send credentials as a Basic header**.
 10. Click **Save**.
-11. In the **This API is out of sync** banner, click **Deploy**, and then click **Deploy** in the **Deploy your API** dialog.
+11. In the **This MCP proxy is out of sync** banner, click **Deploy**, and then click **Deploy** in the **Deploy your MCP proxy** dialog.
 
 In inline mode, the policy validates the certificate of the token endpoint. Turn on **Trust any certificate** only for an authorization server whose certificate the Gateway can't validate otherwise.
 
