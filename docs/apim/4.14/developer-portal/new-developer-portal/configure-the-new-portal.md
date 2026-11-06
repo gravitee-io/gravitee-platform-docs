@@ -52,7 +52,7 @@ Here is an example of the environmental variables set in a `docker-compose-apim.
 
 ```yaml
   management_ui:
-    image: graviteeio/apim-management-ui:${APIM_VERSION:-4}
+    image: graviteeio/apim-management-ui:${APIM_VERSION:-4.13}
     container_name: gio_apim_management_ui
     restart: always
     ports:
@@ -66,7 +66,7 @@ Here is an example of the environmental variables set in a `docker-compose-apim.
       - frontend
 
   portal_ui:
-    image: graviteeio/apim-portal-ui:${APIM_VERSION:-4}
+    image: graviteeio/apim-portal-ui:${APIM_VERSION:-4.13}
     container_name: gio_apim_portal_ui
     restart: always
     ports:

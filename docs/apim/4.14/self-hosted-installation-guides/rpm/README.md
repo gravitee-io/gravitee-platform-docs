@@ -27,7 +27,7 @@ To install APIM with RPM packages, complete the following steps:
 
 * [#create-a-yum-repository](./#create-a-yum-repository "mention")
 * [#install-nginx](./#install-nginx "mention")
-* [#install-java-21](./#install-java-21 "mention")
+* [#install-java-25](./#install-java-25 "mention")
 * [#install-mongodb](./#install-mongodb "mention")
 * [#install-elasticsearch](./#install-elasticsearch "mention")
 * [#install-and-start-gravitee-api-management-components](./#install-and-start-gravitee-api-management-components "mention")
@@ -86,20 +86,31 @@ To install APIM with RPM packages, complete the following steps:
     sudo ss -lntp "( sport = 80 )"
     ```
 
-### Install Java 21
+### Install Java 25
 
-* Install Java 21 using either of the following commands:
-  *   (**Red Hat, CentOS, and Ubuntu only**) To install Java21, use the following command:
+The Gateway and the Management API require Java 25. The Console and the Developer Portal are static files and don't need Java.
+
+* Install Java 25 using one of the following commands:
+  *   (**Red Hat Enterprise Linux 9 and 10, and compatible distributions**) To install Java 25, use the following commands:
 
       ```bash
-      sudo yum install java-21-openjdk -y
+      sudo yum install java-25-openjdk-headless -y
       java -version
       ```
-  *   (**Amazon only**) To install Java21, use the following command:
+  *   (**Amazon Linux 2023**) To install Java 25, use the following commands:
 
       ```bash
-      sudo amazon-linux-extras enable java-openjdk21
+      sudo dnf install java-25-amazon-corretto-headless -y
+      java -version
       ```
+
+{% hint style="warning" %}
+Red Hat Enterprise Linux 8 doesn't provide a Java 25 package. Its repositories stop at `java-21-openjdk`, which can't run APIM 4.13. Red Hat Enterprise Linux 9 and 10 provide `java-25-openjdk-headless`. Amazon Linux 2 doesn't provide a Java 25 package either.
+{% endhint %}
+
+{% hint style="info" %}
+If another Java version is already installed, `java -version` can still report it after you install Java 25. To make Java 25 the default, run `sudo alternatives --config java` and select the Java 25 entry.
+{% endhint %}
 
 ### Install MongoDB
 

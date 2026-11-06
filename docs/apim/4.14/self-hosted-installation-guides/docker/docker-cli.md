@@ -82,7 +82,7 @@ This installation guide is for only development and quick start purposes. Do not
 6.  Install the API Gateway using the following commands. If you use the Community Edition (CE) of Gravitee APIM, remove the following line: `--volume /gravitee/license.key:/opt/graviteeio-gateway/license/license.key`.
 
     ```shellscript
-    docker pull graviteeio/apim-gateway:latest
+    docker pull graviteeio/apim-gateway:4.13
 
     docker run --publish 8082:8082 \
       --volume /gravitee/apim-gateway/plugins:/opt/graviteeio-gateway/plugins-ext \
@@ -95,14 +95,14 @@ This installation guide is for only development and quick start purposes. Do not
       --env gravitee_plugins_path_1=/opt/graviteeio-gateway/plugins-ext \
       --net storage \
       --name gio_apim_gateway \
-      --detach graviteeio/apim-gateway:latest
+      --detach graviteeio/apim-gateway:4.13
 
     docker network connect frontend gio_apim_gateway
     ```
 7.  Install the Management API using the following commands. If you are installing the CE of Gravitee, remove the following line: `--volume /gravitee/license.key:/opt/graviteeio-management-api/license/license.key` .
 
     ```shellscript
-    docker pull graviteeio/apim-management-api:latest
+    docker pull graviteeio/apim-management-api:4.13
 
     docker run --publish 8083:8083 \
       --publish 8072:8072 \
@@ -116,7 +116,7 @@ This installation guide is for only development and quick start purposes. Do not
       --env gravitee_plugins_path_1=/opt/graviteeio-management-api/plugins-ext \
       --net storage \
       --name mgmtapi \
-      --detach graviteeio/apim-management-api:latest
+      --detach graviteeio/apim-management-api:4.13
 
     docker network connect frontend mgmtapi
     ```
@@ -128,26 +128,26 @@ Port 8072 is exposed for federation agent WebSocket connections. This port is re
 8.  Install the Console using the following commands:
 
     ```shellscript
-    docker pull graviteeio/apim-management-ui:latest
+    docker pull graviteeio/apim-management-ui:4.13
 
     docker run --publish 8084:8080 \
       --volume /gravitee/apim-management-ui/logs:/var/log/nginx \
       --net frontend \
       --name gio_apim_management_ui \
       --env MGMT_API_URL=http://localhost:8083/management/organizations/DEFAULT/environments/DEFAULT/ \
-      --detach graviteeio/apim-management-ui:latest
+      --detach graviteeio/apim-management-ui:4.13
     ```
 9.  Install the Developer portal using the following commands:
 
     ```shellscript
-    docker pull graviteeio/apim-portal-ui:latest
+    docker pull graviteeio/apim-portal-ui:4.13
 
     docker run --publish 8085:8080 \
       --volume /gravitee/apim-portal-ui/logs:/var/log/nginx \
       --net frontend \
       --name gio_apim_portal_ui \
       --env PORTAL_API_URL=http://localhost:8083/portal/environments/DEFAULT \
-      --detach graviteeio/apim-portal-ui:latest
+      --detach graviteeio/apim-portal-ui:4.13
     ```
 
 {% hint style="info" %}
@@ -202,7 +202,7 @@ To enable Federation, complete the following steps:
       --env gravitee_integration_enabled=true \ # activates federation
       --net storage \
       --name mgmtapi \
-      --detach graviteeio/apim-management-api:latest
+      --detach graviteeio/apim-management-api:4.13
     ```
 3.  Reconnect to the frontend network using the following command:
 
@@ -358,7 +358,7 @@ If APIM is running with high availability, you need to set up cluster mode. To s
       --env GRAVITEE_CACHE_HAZELCAST_CONFIGPATH=/opt/graviteeio-management-api/config/hazelcast-cache.xml \
       --net storage \
       --name mgmtapi \
-      --detach graviteeio/apim-management-api:latest
+      --detach graviteeio/apim-management-api:4.13
     ```
 5. Add the following plugins to APIM:
    * https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip

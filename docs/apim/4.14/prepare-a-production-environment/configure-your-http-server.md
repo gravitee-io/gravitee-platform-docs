@@ -902,7 +902,7 @@ Docker Compose can't express the `servers[]` array through flat environment vari
 ```yaml
 services:
   gateway:
-    image: graviteeio/apim-gateway:latest
+    image: graviteeio/apim-gateway:4.13
     volumes:
       - ./gravitee.yml:/opt/graviteeio-gateway/config/gravitee.yml
 ```
