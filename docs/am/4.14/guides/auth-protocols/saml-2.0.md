@@ -86,7 +86,7 @@ docker run  \
         -v license.key:/opt/graviteeio-am-gateway/license \
         -v plugins-dir-ee:/opt/graviteeio-am-gateway/plugins-ee \
         --detach  \
-        graviteeio/am-gateway:latest
+        graviteeio/am-gateway:4.13
 ```
 
 For the AM Management API:
@@ -101,7 +101,7 @@ docker run  \
         -v license.key:/opt/graviteeio-am-management-api/license \
         -v plugins-dir-ee:/opt/graviteeio-am-management-api/plugins-ee \
         --detach  \
-        graviteeio/am-management-api:latest
+        graviteeio/am-management-api:4.13
 ```
 
 Place the `gravitee-am-gateway-handler-saml2-idp-<version>.zip` file in the local `plugins-dir-ee` directory before starting the containers.
