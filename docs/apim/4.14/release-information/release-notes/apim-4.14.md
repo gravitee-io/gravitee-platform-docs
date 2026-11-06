@@ -35,6 +35,10 @@ From 4.14.0, the Gateway reports a message API connection in two documents: one 
 
 From 4.14.0, a path mapping of a v4 API starts with `/`, followed by letters, digits, and the characters `:`, `/`, `.`, `_`, and `-`. The Management API refuses to create, import, or update a v4 API with a path mapping outside these rules, including one the API already holds. In 4.13, it accepted any path mapping that compiled as a regular expression, such as `/users/*`. A v4 API created or updated in 4.13 can hold one, including an API managed with the Gravitee Kubernetes Operator, Terraform, or the Automation API. Fix these path mappings before you upgrade. The same rules block migrating a v2 API whose path mappings all break them, unless its only path mapping is `/`. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
+#### **Terraform provider 1.2.0: Set the WebSocket frame type**
+
+From 4.14.0, APIM stores `"frameType": "BINARY"` in the subscriber settings of a WebSocket entrypoint that doesn't set it. With Terraform provider 1.2.0 or earlier, every `terraform plan` of that `apim_apiv4` resource then shows a change. After you upgrade the Management API, set `subscriber.frameType` in the entrypoint configuration. Later versions of the provider need no change. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md#websocket-entrypoint-set-the-frame-type-in-terraform-configurations).
+
 ## New Features
 
 APIM 4.14 adds the following features.
@@ -101,8 +105,10 @@ APIM 4.14 adds the following features.
 
 #### **WebSocket entrypoint: Text frames**
 
+* APIM 4.14 bundles the WebSocket entrypoint 4.0.0, a new major version of the entrypoint.
 * The WebSocket entrypoint can send messages to the client as text frames. With **TEXT**, each message is sent as one UTF-8 text message.
 * Set it with the **Frame type** field of the subscriber settings, `subscriber.frameType`: **BINARY**, the default, or **TEXT**. Existing APIs keep sending binary frames.
 * A message whose payload isn't valid UTF-8 closes the connection with status 1007 (Invalid payload data). If the endpoint delivers unacknowledged messages again, that message closes every reconnection with status 1007 until it's removed at the source.
 * **TEXT** requires APIM 4.14.0 or later. Upgrade the Management API first: gateways that don't run APIM 4.14 yet keep sending binary frames until they're upgraded.
+* With Terraform provider 1.2.0 or earlier, set `subscriber.frameType` explicitly. Otherwise, once the 4.14 Management API saves the API, every `terraform plan` shows a change. Later versions of the provider need no change. For more information, see [Breaking changes and deprecations](../breaking-changes-and-deprecations.md#websocket-entrypoint-set-the-frame-type-in-terraform-configurations).
 * For more information, see [WebSocket](../../create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md#text-frames).
