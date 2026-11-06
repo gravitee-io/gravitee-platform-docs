@@ -5,7 +5,7 @@ description: Migrate a v1 API to a v2 definition in place with API Management 4.
 # Migrate v1 APIs to v2
 
 {% hint style="warning" %}
-v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../release-information/breaking-changes-and-deprecations.md).
+v2 APIs are deprecated from APIM 4.13.0. On a hybrid or Gravitee Cloud deployment, migrate your v2 APIs to v4 before September 30, 2027. On a self-hosted deployment, the October 2027 release removes v2 APIs. You can remain on the last version of APIM that supports v2 APIs through its official support window. For more information, see [Support model](https://documentation.gravitee.io/platform-management/support-model) and [v2 API Deprecation and Migration to v4](../release-information/v2-api-deprecation.md).
 {% endhint %}
 
 APIM versions 3.20 through 4.11.x include tooling that migrates a v1 API to a v2 definition in place. APIM 4.12.0 and later versions don't include this tooling, so migrate your v1 APIs while your installation runs version 4.11.x or earlier. For more information about how each APIM version handles v1 APIs, see [Support for v1 APIs](../release-information/support-for-v1-apis.md).

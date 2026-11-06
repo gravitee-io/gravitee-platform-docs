@@ -72,6 +72,26 @@ To add a notification, click **+ Add notification** and follow the notification 
 {% endtab %}
 {% endtabs %}
 
+### Manage application metadata
+
+An application's metadata is in the **Notification Template metadata** section of its **Notification settings** page.
+
+To add metadata to an application:
+
+1. Open **Applications**.
+2. Select the application.
+3. Click **Notification settings**.
+4. Scroll to the **Notification Template metadata** section.
+5. Click **Add Notification Template Metadata**.
+6. Enter a **Name**. It can't match the name of another entry in the application, regardless of case.
+7. Select a **Format**: **string**, **numeric**, **boolean**, **date**, **mail**, or **url**.
+8. Enter or select the value.
+9. Click **Save**.
+
+To edit an entry, click its pencil icon. You can change its name and value, but not its format. To delete an entry, click its trash icon, and then click **Delete**.
+
+You can also manage application metadata with the [Management API](../../management-api-reference.md) or the [Gravitee Kubernetes Operator](../../../../gko/4.13/overview/custom-resource-definitions/application.md). If you created the application with the Gravitee Kubernetes Operator, its metadata is read-only in the Console.
+
 ### Notifiers
 
 {% tabs %}

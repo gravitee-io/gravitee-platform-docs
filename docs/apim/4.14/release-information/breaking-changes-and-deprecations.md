@@ -196,11 +196,15 @@ A Gateway that connects to Gravitee Cloud with a Cloud Token now sends its trace
 
 Before you upgrade a Hybrid Gateway that traces v2 APIs, set `services.opentelemetry.tracing.v2.enabled` to `true` on it. Setting `services.opentelemetry.tracing.v2.enabled` is itself a `services.opentelemetry` setting: on a Gateway without its own OpenTelemetry configuration, it stops the Gateway from sending to Gravitee Cloud and doesn't turn OpenTelemetry on. Set it only on a Gateway that already exports to your own collector. Move any `services.tracing` settings to `services.opentelemetry`. For more information, see [Tracing for v2 APIs](../analyze-and-monitor-apis/opentelemetry.md#tracing-for-v2-apis).
 
-**Helm: `gateway.kafka.secured` is renamed to `gateway.kafka.probe.secured`**
+**Helm: `gateway.kafka.probe.secured` is deprecated for `gateway.kafka.secured`**
 
-From 4.13.0, the Helm value that sets whether the Gateway's TCP health probe connects to the Kafka port over TLS is `gateway.kafka.probe.secured`. `gateway.kafka.secured` is deprecated. The chart still reads it when `gateway.kafka.probe.secured` isn't set, and `gateway.kafka.probe.secured` wins when both are set. The value affects only the health probe, not the Kafka server.
+From 4.13.0, `gateway.kafka.probe.secured` is a deprecated alias of `gateway.kafka.secured`. The chart renders both as `kafka.secured` in `gravitee.yml`, and `gateway.kafka.probe.secured` wins when both are set.
 
-Before you upgrade, rename `gateway.kafka.secured` to `gateway.kafka.probe.secured` in your values file.
+`kafka.secured` does not only configure the health probe. In `port` routing mode it is also the TLS setting of the Kafka listener, so changing it changes whether clients connect with TLS. In `host` routing mode the listener always serves TLS.
+
+From APIM 4.14, set the listener TLS setting with `gateway.kafka.routingPortMode.secured`. It is unset by default, and the TCP health probe follows the listener setting. Gateway images before 4.14 ignore `routingPortMode.secured`: with those images, keep using `gateway.kafka.secured`. `helm install` and `helm upgrade` print a warning when `gateway.kafka.probe.secured` is set, or when `routingPortMode.secured` is `true` and the rendered `kafka.secured` is not.
+
+Before you upgrade, move `gateway.kafka.probe.secured` to `gateway.kafka.secured`, or to `gateway.kafka.routingPortMode.secured` on APIM 4.14 and later.
 
 **Management API: Stricter permission and ownership checks**
 
@@ -530,7 +534,7 @@ Here is the deprecated functionality from 4.X of Gravitee
 
 **v2 APIs are deprecated**
 
-From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [Migrate APIs](../create-and-configure-apis/create-apis/migrate-apis.md).
+From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [v2 API Deprecation and Migration to v4](v2-api-deprecation.md) and [Migrate APIs](../create-and-configure-apis/create-apis/migrate-apis.md).
 
 **MongoDB and Elasticsearch subcharts are deprecated**
 
