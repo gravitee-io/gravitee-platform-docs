@@ -49,7 +49,7 @@ To deploy the Kafka Console using Docker Compose, complete the following steps.
 
     ```yaml
     management_api:
-      image: graviteeio/apim-management-api:4.11.0
+      image: graviteeio/apim-management-api:4.13
       environment:
         - gravitee_kafka_console_enabled=true
         - gravitee_kafka_console_server_host=kafkaConsole
@@ -98,7 +98,7 @@ To deploy the Kafka Console using Docker Compose, complete the following steps.
 5.  Start your Docker Compose stack with the correct APIM version by running the following command:
 
     ```bash
-    APIM_VERSION=4.11.0 docker compose up -d
+    APIM_VERSION=4.13 docker compose up -d
     ```
 
 <details>
@@ -193,7 +193,7 @@ services:
       - storage
 
   gateway:
-    image: graviteeio/apim-gateway:${APIM_VERSION:-latest}
+    image: graviteeio/apim-gateway:${APIM_VERSION:-4.13}
     container_name: gio_apim_gateway
     restart: always
     ports:
@@ -219,7 +219,7 @@ services:
       gateway:
 
   management_api:
-    image: graviteeio/apim-management-api:${APIM_VERSION:-latest}
+    image: graviteeio/apim-management-api:${APIM_VERSION:-4.13}
     container_name: gio_apim_management_api
     restart: always
     ports:
@@ -264,7 +264,7 @@ services:
       - kafkaConsole
 
   management_ui:
-    image: graviteeio/apim-management-ui:${APIM_VERSION:-latest}
+    image: graviteeio/apim-management-ui:${APIM_VERSION:-4.13}
     container_name: gio_apim_management_ui
     restart: always
     ports:
@@ -279,7 +279,7 @@ services:
       - frontend
 
   portal_ui:
-    image: graviteeio/apim-portal-ui:${APIM_VERSION:-latest}
+    image: graviteeio/apim-portal-ui:${APIM_VERSION:-4.13}
     container_name: gio_apim_portal_ui
     restart: always
     ports:
@@ -378,7 +378,7 @@ services:
 * Replace the JWT secret `TCkyfrr8F6c75mAGKpRtKPaBHt9LyJ7P` with your own 32-character secret.
 * Replace the included SSL certificates mounted from `./.ssl/` directory with your own.
 * The OAuth/OIDC configuration points to an internal Gravitee test environment. Adjust this for your setup.
-* Launch with `APIM_VERSION=4.11.0 docker compose up -d`.
+* Launch with `APIM_VERSION=4.13 docker compose up -d`.
 
 </details>
 
@@ -434,7 +434,7 @@ kafkaConsole:
 ````
 ```bash
 helm upgrade --install gravitee-apim gravitee/apim \
-  --version 4.11.0 \
+  --version 4.13.x \
   -f values.yml
 ```
 ````

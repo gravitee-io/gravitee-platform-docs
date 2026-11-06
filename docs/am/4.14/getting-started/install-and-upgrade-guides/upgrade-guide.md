@@ -26,7 +26,7 @@ Custom plugins that use `AuthenticationFlowContextService` or `ExtensionGrantPro
 #### Management API gravitee.yml
 
 Remove the `repositories.gateway`, `repositories.oauth2` and `ratelimit` blocks. The Management API now handles only the management scope.
-Set `console.ui.url correctly`, the Console now uses it as the redirect after login, instead of a hard-coded `localhost:4200`.
+Set `console.ui.url` correctly, the Console now uses it as the redirect after login, instead of a hard-coded `localhost:4200`.
 
 `domains.identities.default.useSystemCluster` (default true): behaviour change. A new domain’s default identity provider is now bound to the system cluster instead of copying the management MongoDB URI. Set it to false to keep the 4.12 behaviour. Existing identity providers are not affected.
 
@@ -64,15 +64,6 @@ Check the Management API logs:
 
 * WARN lines for trusted issuers that were not migrated (name too long or already taken).
 * customised consent pages: they still work, but scopes can now be selected one by one; mark scopes required where needed
-
-### Rollback
-
-The schema stays readable by 4.12, but some data written in 4.13 is lost to it:
-
-* new trusted domains (SPIFFE only)
-
-If you created custom claims for the new IDJag token at application level, rollback can only be done on the latest 4.12, 4.11,  4.10 or 4.9.
-
 
 ## 4.12 Upgrade guide
 

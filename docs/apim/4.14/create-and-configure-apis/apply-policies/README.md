@@ -18,7 +18,7 @@ The Gravitee Policy Studio allows you to design flows, which are policy enforcem
 ## v2 APIs and v4 APIs policy support
 
 {% hint style="warning" %}
-v2 APIs are deprecated from APIM 4.13.0, and the October 2027 release removes them. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md).
+v2 APIs are deprecated from APIM 4.13.0. On a hybrid or Gravitee Cloud deployment, migrate your v2 APIs to v4 before September 30, 2027. On a self-hosted deployment, the October 2027 release removes v2 APIs. You can remain on the last version of APIM that supports v2 APIs through its official support window. For more information, see [Support model](https://documentation.gravitee.io/platform-management/support-model) and [v2 API Deprecation and Migration to v4](../../release-information/v2-api-deprecation.md).
 {% endhint %}
 
 Policy support differs based on API definition and type. The following matrix shows which policies are supported by v2 proxy, v4 proxy, v4 message, v4 LLM proxy, v4 MCP proxy, and v4 A2A proxy APIs.

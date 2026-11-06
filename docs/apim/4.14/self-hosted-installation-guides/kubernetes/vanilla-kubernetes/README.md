@@ -430,7 +430,7 @@ Ensure that you have the following sections complete:
       replicaCount: 1
       image:
         repository: graviteeio/apim-management-api
-        tag: latest
+        tag: "4.13"
         pullPolicy: Always
 
       env:
@@ -532,7 +532,7 @@ Ensure that you have the following sections complete:
       replicaCount: 1
       image:
         repository: graviteeio/apim-gateway
-        tag: latest
+        tag: "4.13"
         pullPolicy: Always
 
       service:
@@ -571,7 +571,7 @@ Ensure that you have the following sections complete:
       replicaCount: 1
       image:
         repository: graviteeio/apim-management-ui
-        tag: latest
+        tag: "4.13"
         pullPolicy: Always
 
       service:
@@ -603,7 +603,7 @@ Ensure that you have the following sections complete:
       replicaCount: 1
       image:
         repository: graviteeio/apim-portal-ui
-        tag: latest
+        tag: "4.13"
         pullPolicy: Always
 
       service:

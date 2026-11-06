@@ -620,4 +620,5 @@
   * [Release Types](release-information/release-types.md)
   * [Release schedule](release-information/release-schedule.md)
   * [Support model](https://documentation.gravitee.io/platform-management/support-model)
+  * [v2 API Deprecation and Migration to v4](release-information/v2-api-deprecation.md)
   * [Support for v1 APIs](release-information/support-for-v1-apis.md)
