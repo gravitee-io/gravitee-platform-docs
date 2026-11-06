@@ -110,3 +110,6 @@ create-and-configure-apis/create-apis/migrate-apis.md
 .gitbook/assets/apim-v4-path-mappings-tab.png
 .gitbook/assets/apim-v4-path-mappings-add-path.png
 .gitbook/assets/apim-v4-path-mappings-add-swagger.png
+
+# WebSocket entrypoint Text frames (EXT-200, APIM 4.14.0)
+create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md

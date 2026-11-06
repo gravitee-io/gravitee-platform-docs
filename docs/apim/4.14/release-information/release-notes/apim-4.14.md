@@ -98,3 +98,11 @@ APIM 4.14 adds the following features.
 * A value of an earlier key of the application, even a revoked or expired one, makes that key valid again. A value of a key of another application in the environment, even a revoked or expired one, or the value of the current key, is refused. Every subscription of the application moves to the new key, and the previous key stays valid for two hours.
 * The feature also ships in APIM 4.13.8, 4.12.30, and 4.11.36.
 * For more information, see [Manage application subscriptions](../../secure-and-expose-apis/subscriptions/manage-subscriptions.md#renew-with-a-custom-api-key).
+
+#### **WebSocket entrypoint: Text frames**
+
+* The WebSocket entrypoint can send messages to the client as text frames. With **TEXT**, each message is sent as one UTF-8 text message.
+* Set it with the **Frame type** field of the subscriber settings, `subscriber.frameType`: **BINARY**, the default, or **TEXT**. Existing APIs keep sending binary frames.
+* A message whose payload isn't valid UTF-8 closes the connection with status 1007 (Invalid payload data). If the endpoint delivers unacknowledged messages again, that message closes every reconnection with status 1007 until it's removed at the source.
+* **TEXT** requires APIM 4.14.0 or later. Upgrade the Management API first: gateways that don't run APIM 4.14 yet keep sending binary frames until they're upgraded.
+* For more information, see [WebSocket](../../create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md#text-frames).
