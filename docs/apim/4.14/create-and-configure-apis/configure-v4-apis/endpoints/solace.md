@@ -59,7 +59,7 @@ Enter the path of a file of CA certificates, or paste the PEM text itself. No pa
 {% endtabs %}
 
 {% hint style="info" %}
-On a FIPS Gateway image, the JVM cannot load JKS or PKCS12 stores. Use **PEM with location** or **BCFKS with location** for the truststore and for the client certificate key store. With **None**, the issuers trusted by the JVM are used, unless the Gateway JVM is started with `-Djavax.net.ssl.trustStore`, in which case the Solace client reads the store from that property.
+PEM and BCFKS stores are available from Solace endpoint 4.1.2, shipped in APIM 4.13.3 and later. On a FIPS Gateway image, the JVM cannot load JKS or PKCS12 stores. Use **PEM with location** or **BCFKS with location** for the truststore and for the client certificate key store. With **None**, the issuers trusted by the JVM are used, unless the Gateway JVM is started with `-Djavax.net.ssl.trustStore`, in which case the Solace client reads the store from that property.
 {% endhint %}
 
 #### Client certificate authentication

@@ -27,8 +27,9 @@ security:
   # trustAll: false
   providers:  # authentication providers
     - type: memory
-      # allow search results to display the user email. Be careful, It may be contrary to the user privacy.
-#      allow-email-in-search-results: true
+      # The user search (used to add members) never returns the user email unless this is set to true.
+      # Be careful, it may be contrary to the user privacy.
+      allow-email-in-search-results: false
       # password encoding/hashing algorithm. One of:
       # - bcrypt : passwords are hashed with bcrypt (supports only $2a$ algorithm)
       # - none : passwords are not hashed/encrypted
@@ -124,7 +125,7 @@ extraInMemoryUsers: |
 
 ### Generate a new password
 
-If you use bcrypt to hash passwords, you can generate new passwords with the [htpasswd](https://httpd.apache.org/docs/current/en/programs/htpasswd.html) command line, as shown in the following example (where `new_password` is your new password):
+If you use `bcrypt` to hash passwords, you can generate new passwords with the [htpasswd](https://httpd.apache.org/docs/current/en/programs/htpasswd.html) command line, as shown in the following example (where `new_password` is your new password):
 
 ```bash
 htpasswd -bnBC 10 "" new_password | tr -d ':\n'
@@ -253,6 +254,9 @@ All data source information is retrieved from the Management Repository configur
 security:
   providers:
     - type: gravitee
+      # The user search (used to add members) never returns the user email unless this is set to true.
+      # Be careful, it may be contrary to the user privacy.
+      allow-email-in-search-results: false
 ```
 {% endcode %}
 {% endtab %}
