@@ -339,6 +339,17 @@ This change affects installations that keep the search index directory across th
 
 Before you start the upgraded Management API, empty the search index directory. By default, this directory is `${gravitee.home}/data`. If you set `search.data` in `gravitee.yml`, empty the directory that it points to. The Management API rebuilds the index when it starts.
 
+## Data Cache policy: Requires an Enterprise Edition license
+
+From 4.13.0, the [Data Cache](../create-and-configure-apis/apply-policies/policy-reference/data-cache.md) policy is an Enterprise Edition policy, and it checks the license before an API that uses it is deployed. In 4.12 and earlier, the policy didn't check the license, so it could also be used without an Enterprise Edition license.
+
+Without an Enterprise Edition license:
+
+* The Management API refuses to deploy an API that uses the policy, with an error that says the feature isn't available with your license.
+* A Gateway upgraded to 4.13 doesn't deploy an API that uses the policy, so the API stops answering after the upgrade.
+
+If you use the Data Cache policy without an Enterprise Edition license, contact Gravitee before you upgrade. For more information, see [Enterprise Edition](../introduction/enterprise-edition.md).
+
 # 4.12.0
 
 ## JSON Validation policy: Response error keys corrected
