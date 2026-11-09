@@ -21,6 +21,10 @@ The following table lists the six dashboards and the question each one answers:
 
 Download the latest pack as [`gravitee-grafana-dashboards.zip`](https://github.com/gravitee-io-labs/gravitee-grafana-prometheus/releases/latest/download/gravitee-grafana-dashboards.zip). The dashboards, rules, and a Docker Compose demo stack are maintained in the [gravitee-grafana-prometheus](https://github.com/gravitee-io-labs/gravitee-grafana-prometheus) repository under the Apache 2.0 license. To try it on a local Docker Compose stack first, see [Monitor APIM with Prometheus and Grafana using Docker Compose](../how-to-guides/use-case-tutorials/monitor-apim-with-prometheus-and-grafana.md).
 
+{% hint style="warning" %}
+The dashboard pack is a Gravitee Labs project, provided as templates to adapt to your environment. Gravitee doesn't offer support for it.
+{% endhint %}
+
 {% hint style="info" %}
 Without Elasticsearch or OpenSearch, use the OpenTelemetry edition of the pack. See [Monitor without Elasticsearch](#monitor-without-elasticsearch).
 {% endhint %}
@@ -46,9 +50,13 @@ The dashboards read v4 API analytics. v2 APIs report to the `gravitee-request-*`
 
 Before you begin, ensure you have met the following requirements:
 
-* APIM 4.x with the Elasticsearch or OpenSearch reporter enabled, which is the default. Without it, see [Monitor without Elasticsearch](#monitor-without-elasticsearch).
-* Grafana 10.4 or later
-* Prometheus 2.40 or later, for the Gateway metrics, SLOs, and alerts
+* APIM 4.13 or later with the Elasticsearch or OpenSearch reporter enabled, which is the default. The pack is tested on APIM 4.13.5. Without the reporter, see [Monitor without Elasticsearch](#monitor-without-elasticsearch).
+* Grafana. The pack is tested on Grafana 12.2.
+* Prometheus, for the Gateway metrics, SLOs, and alerts. The pack is tested on Prometheus 3.5.
+
+{% hint style="info" %}
+A few panels use data available only with [Enterprise Edition](../introduction/enterprise-edition.md), for example the business dimensions set by the [Assign Metrics](../create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md) policy. Without it, those panels stay empty and explain how to enable them.
+{% endhint %}
 
 ## Install the dashboards
 
@@ -88,7 +96,7 @@ Port `18082` serves the Gateway internal API. Restrict network access to it to y
 
 ### Configure Prometheus
 
-1. Add a scrape job named `gravitee`. The node count, the node selection, and the `GraviteeGatewayDown` alert select Gateways with `job="gravitee"`.
+1. Add a scrape job named `gravitee`. The node count, the node table, the **Node** selection and every Gateway Fleet & Runtime panel that depends on it, and the Gateway down, heap, GC, CPU, and backend error alerts select Gateways with `job="gravitee"`.
 2. Load the rule files from the pack's `prometheus-rules` folder.
 
 The following `prometheus.yml` example contains the scrape job and the rule files:
@@ -144,7 +152,7 @@ Before you enable logging, consider the following:
 
 * The condition is evaluated in the request phase. It can select on request headers, path, method, or time, for example `{#request.headers['X-Debug'] != null}`, but not on the response status.
 * A logged call with headers and payloads is several times larger than its analytics record. Log only what you need, and keep a short retention on the log index.
-* Logs can contain personal data and credentials. The dashboard hides API key, `Authorization`, and cookie headers, but the index stores them: restrict access to the data source.
+* Logs can contain personal data and credentials. The dashboard hides only the `X-Gravitee-Api-Key`, `Authorization`, `Proxy-Authorization`, `Cookie`, and `Set-Cookie` headers. An API key sent in another header, or credentials inside a payload, stay visible, and the index stores everything. Restrict access to the data source, and add your own header names to the Call Logs panels if needed.
 {% endhint %}
 
 ## Verification
@@ -167,7 +175,7 @@ The following table lists the dashboard controls and their effect:
 | **Gravitee dashboards** menu | Moves between the six dashboards, keeping the time range and selections |
 | **A logged call** | In the **Call logs of this API** section of API Drill-down and in Call Logs, a call's time, URI, or request ID opens its headers and payloads in the **Call detail** section of Call Logs |
 | **Call logs of this API** | In the API Drill-down controls, opens Call Logs filtered on the selected API |
-| **Search (headers & payloads)** | In Call Logs, a Lucene query on logged calls: payload content with wildcards, for example `*ORD-1234*`, or any field, for example `entrypoint-response.status:503` |
+| **Search payloads** | In Call Logs, a Lucene query on logged calls: payload content with wildcards, for example `*ORD-1234*`, or any field, for example `entrypoint-response.status:503` |
 | **Panel ⓘ icon** | Explains what the panel measures and how to read it |
 | **Inspect**, and then **Data** | Shows or exports the data behind a panel as CSV |
 
@@ -268,7 +276,7 @@ Route the alerts with Alertmanager or Grafana alerting. The `gravitee-alerts.rul
 
 ### Add business dimensions
 
-The [Assign Metrics](../create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md) policy adds a value to the analytics record of each call, as `custom.<name>`. The **Consumers, Plans & Tenants** dashboard charts `custom.tenant`, `custom.plan`, and `custom.channel`. Use any other name in the **Filter** bar.
+The [Assign Metrics](../create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md) policy, available with [Enterprise Edition](../introduction/enterprise-edition.md), adds a value to the analytics record of each call, as `custom.<name>`. The **Consumers, Plans & Tenants** dashboard charts `custom.tenant`, `custom.plan`, and `custom.channel`. Use any other name in the **Filter** bar.
 
 ```json
 {
@@ -325,12 +333,12 @@ Before you begin, ensure you have met the following requirements:
 
 | Component | Version or setting |
 | --- | --- |
-| APIM | 4.13 or later, v4 APIs, with the OpenTelemetry reporter. Validated with an Enterprise license. |
+| APIM | 4.13 or later, v4 APIs, with the OpenTelemetry reporter. Tested on 4.13.5. |
 | OpenTelemetry Collector | *contrib* distribution, for the `spanmetrics` connector. Tested on 0.115. |
-| Prometheus | 2.40 or later |
+| Prometheus | Tested on 3.5 |
 | Tempo | 2.7 or later. The trace tables use the `most_recent` search hint. |
 | Loki | 3.0 or later, with structured metadata allowed |
-| Grafana | 10.4 or later |
+| Grafana | Tested on 12.2 |
 
 ### Configure APIM
 
@@ -386,9 +394,9 @@ Before you begin, ensure you have met the following requirements:
 
 ### Differences with the Elasticsearch edition
 
-OpenTelemetry signals don't carry everything the analytics record contains. The following table lists what's missing and the closest alternative:
+OpenTelemetry signals don't carry everything the analytics record contains, and the dashboards don't chart everything the signals carry. The following table lists what isn't charted and the closest alternative:
 
-| Not available | Closest alternative |
+| Not charted | Closest alternative |
 | --- | --- |
 | Client country, city, and world map | The client IP is on each trace. |
 | User agents and per-path tables | Search traces in Tempo by `span.user_agent.original` or `span.http.target`. As metric labels, they create too many series. |
@@ -397,7 +405,8 @@ OpenTelemetry signals don't carry everything the analytics record contains. The 
 | The **Filter (any field)** bar | – |
 | Headers in Call Logs | OpenTelemetry logs contain bodies only. The trace shows the call's path through the Gateway. |
 | Rejection reason for plan security failures | The 401 and 403 counts. |
-| Payload sizes, backend connect time, and time to first byte | The backend time from the client span. |
+| Payload sizes | The server span carries `http.request.body.size` and `http.response.body.size`, from `Content-Length`. They show on each trace. |
+| Backend connect time and time to first byte | The backend time from the client span. |
 
 The Gateway overhead is an average, the server span minus the backend span, because percentiles can't be subtracted.
 
@@ -417,9 +426,9 @@ The following table lists common symptoms and what to check:
 | --- | --- |
 | Analytics panels are empty | The data source uses the `gravitee-v4-metrics-*` index and the `@timestamp` time field. The APIs are v4 APIs with analytics enabled. The time range contains traffic. |
 | **Gateway nodes up** is `0` | The metrics service is enabled, the internal API listens on a reachable interface, the job is named `gravitee`, and the credentials match. To check the target in Prometheus, open **Status**, and then click **Target health**. |
-| Throughput is higher than the API traffic | HTTP server metrics include the scrapes of the internal API. The dashboards keep `local` values ending in `:8082`. If your Gateway listens on another port, update the filter. |
+| Throughput is higher than the API traffic | HTTP server metrics include the scrapes of the internal API. The HTTP server panels, the SLO recording rules, and the `GraviteeHighLatency` alert keep `local` values ending in `:8082`. If your Gateway listens on another port, update the filter in the dashboards, in `gravitee-slo.rules.yml`, and in `gravitee-alerts.rules.yml`. |
 | SLO panels are empty | The recording rules are loaded. The 30-day SLI fills as history accumulates. |
-| Tenant, channel, or plan name panels are empty | These panels need the Assign Metrics policy. |
+| Tenant, channel, or plan name panels are empty | These panels need the Assign Metrics policy, which requires Enterprise Edition. |
 | The map has no background | The basemap loads public Esri tiles. The browser needs access to `services.arcgisonline.com`. |
 | Call Logs is empty | Logging is enabled on the API and its condition matches calls. The data source uses the `gravitee-v4-log-*` index. A request ID opened from API Drill-down shows nothing when that call wasn't logged. |
 | A Call Logs search finds nothing | Payloads are split on spaces only: use wildcards, for example `*EUR*`. Headers are stored but not searchable. |
