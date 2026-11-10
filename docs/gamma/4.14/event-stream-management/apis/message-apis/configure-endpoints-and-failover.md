@@ -40,6 +40,8 @@ A group name and an endpoint name are required, can't contain `:`, and must be u
 
 For **Kafka**, the connection form shows only the producer settings, the consumer settings, or both, depending on what the entrypoints of the Message API need. An entrypoint that receives messages from clients, such as **HTTP POST**, needs a producer. An entrypoint that delivers messages to clients, such as **HTTP GET**, **Server-Sent Events**, or **Webhook**, needs a consumer.
 
+When the security protocol of a Kafka connection is **Protocol SSL** or **Protocol SASL_SSL**, **SSL configuration** includes **Verify Host**. It makes the gateway check that the broker hostname matches its certificate, and it's enabled by default. Disable it only if you trust the network.
+
 ## Manage the groups
 
 * To change a group, click its **Edit** button. Change **Group name**, **Load balancing algorithm**, or the `<connector> connection` form, then click **Save group**.
