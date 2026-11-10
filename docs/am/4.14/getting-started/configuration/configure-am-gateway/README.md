@@ -448,6 +448,16 @@ applications:
       algorithm: PBKDF2WithHmacSHA256
 ```
 
+### Configure the DCR client ID length
+
+When a client registers through Dynamic Client Registration (DCR), the AM Gateway generates its `client_id`. By default, the generated `client_id` is a 43-character URL-safe identifier that uses `A-Z`, `a-z`, `0-9`, `_`, and `-`.
+
+To control the length of the generated `client_id`, uncomment the DCR client ID length setting in `gravitee.yml` and set it to an integer from 8 to 255. The shipped file contains this setting as a commented-out example with the value `30`, which isn't a default. When the setting is set, the generated `client_id` has exactly that length and uses only `A-Z`, `a-z`, and `0-9`. Restart the AM Gateway to apply the change.
+
+The setting applies to every security domain served by the AM Gateway. No per-domain or per-application override is available. When a domain has DCR templates enabled and the request uses `software_id`, the template's `client_id` is replaced with a newly generated one that also uses the configured length.
+
+If the value is out of range or isn't an integer, the AM Gateway reports a configuration error that names the setting, states that the value must be an integer between 8 and 255, and shows the configured value.
+
 ### Configure HTTP clients
 
 HTTP web clients initiate communication with web servers. For example, communication with external identity providers. HTTP web clients can be configured in the `httpClient` section of the `gravitee.yaml` file.
