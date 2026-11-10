@@ -20,13 +20,9 @@ Check these changes before you upgrade to AM 4.14.
 * The introspection endpoint returns the full claim set of a lightweight access token or refresh token. The UserInfo endpoint returns the user claims for the granted scopes, as it does for a full token. As a result, resource servers and API gateways see the same claims as before.
 * During a token exchange, a custom claim expression reads only the claims that a lightweight subject token or actor token carries. See [Configure Lightweight JWT](../../guides/auth-protocols/oauth-2.0/lightweight-jwt.md).
 
-## Improvements
-
-AM 4.14 adds the following improvements.
-
-#### **Configurable Client ID Length for Dynamic Client Registration**
+### Configurable client ID length for Dynamic Client Registration
 
 * By default, Dynamic Client Registration generates a 43-character URL-safe base64 client ID. You can now have it generate an alphanumeric client ID of a fixed length that uses only the characters `A-Z`, `a-z`, and `0-9`.
-* To use it, set the Dynamic Client Registration client ID length in the AM Gateway configuration to an integer from `8` to `255`, inclusive.
-* The setting applies to the whole installation and affects both standard registration and template-based registration. Template-based registration is used when Dynamic Client Registration templates are enabled on the domain and the request contains `software_id`.
-* If the configured value is outside the accepted range or isn't an integer, the AM Gateway reports an error that shows the configured value.
+* To use it, set `handlers.oidc.dcr.clientIdLength` in the AM Gateway configuration to an integer from `8` to `255`, inclusive.
+* The setting applies to the whole installation and affects both standard registration and template-based registration. Template-based registration is used when Dynamic Client Registration templates are enabled on the domain and the request contains `software_id`. Clients that are already registered keep their client ID.
+* If the configured value is outside the accepted range or isn't an integer, the AM Gateway reports an error that shows the configured value. See [Dynamic Client Registration client ID length](../../getting-started/configuration/configure-am-gateway/README.md#dynamic-client-registration-client-id-length).

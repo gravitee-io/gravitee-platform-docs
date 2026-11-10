@@ -515,7 +515,9 @@ handlers:
       clientIdLength: 30
 ```
 
-The setting applies to the whole installation. It affects both standard registration and template-based registration, which is used when DCR templates are enabled on the domain and the request contains `software_id`.
+The shipped `gravitee.yml` contains this setting commented out with the value `30`. That value is an example, not a default. While the setting is commented out, DCR generates the 43-character `client_id`.
+
+The setting applies to the whole installation. It affects both standard registration and template-based registration, which is used when DCR templates are enabled on the domain and the request contains `software_id`. It applies only to clients registered after you set it, and it doesn't change the `client_id` of a client that's already registered.
 
 If the value is outside the accepted range or isn't an integer, the AM Gateway reports the following error, where `<value>` is the configured value:
 
