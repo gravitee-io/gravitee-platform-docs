@@ -25,3 +25,14 @@ Check these changes before you upgrade to AM 4.14.
 * By default, Dynamic Client Registration generates a 43-character URL-safe base64 client ID. You can now have it generate an alphanumeric client ID of a fixed length that uses only the characters `A-Z`, `a-z`, and `0-9`.
 * To use it, set `handlers.oidc.dcr.clientIdLength` in the AM Gateway configuration to an integer from `8` to `255`, inclusive.
 * The setting applies to the whole installation and affects both standard registration and template-based registration. Template-based registration is used when Dynamic Client Registration templates are enabled on the domain and the request contains `software_id`. Clients that are already registered keep their client ID. See [Dynamic Client Registration client ID length](../../getting-started/configuration/configure-am-gateway/README.md#dynamic-client-registration-client-id-length).
+
+## Improvements
+
+AM 4.14 adds the following improvements.
+
+#### **Trusted Root Certificates for WebAuthn Attestation**
+
+* AM ships trusted root certificates for the `android-key`, `apple`, and `android-safetynet` attestation types, and these certificates apply to every security domain.
+* Certificates you upload to a security domain are added on top of the certificates that AM ships. Only certificates uploaded for one of these three attestation types are used, and a certificate uploaded for any other attestation type is ignored.
+* Each certificate only validates attestations of the attestation type it's uploaded for.
+* An expired, not yet valid, or unreadable certificate is skipped, and the security domain still starts. See [Passwordless (W3C WebAuthn)](../../guides/login/passwordless-w3c-webauthn.md).
