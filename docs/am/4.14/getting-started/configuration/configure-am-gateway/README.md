@@ -505,7 +505,7 @@ AM also accepts a proof whose `iat` claim is up to 3 seconds in the future to to
 
 ### Dynamic Client Registration client ID length
 
-By default, Dynamic Client Registration (DCR) generates a 43-character URL-safe base64 `client_id` made of the characters `A-Z`, `a-z`, `0-9`, `-`, and `_`. To generate an alphanumeric `client_id` (`A-Z`, `a-z`, `0-9`) of a fixed length, set `clientIdLength` to an integer from 8 to 255, inclusive:
+By default, Dynamic Client Registration (DCR) generates a 43-character URL-safe base64 `client_id` made of the characters `A-Z`, `a-z`, `0-9`, `-`, and `_`. To generate a fixed-length alphanumeric `client_id` that uses only `A-Z`, `a-z`, and `0-9`, set `clientIdLength` to an integer from `8` to `255`, inclusive:
 
 ```yaml
 handlers:
