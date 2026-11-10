@@ -80,6 +80,10 @@ Define whichever of the following are relevant to your configuration.
 * **JKS with key:** Define the **SSL keystore private key** by defining the **Key** and the **Key password** and the **SSL keystore password** for the keystore file.
 * **PKCS12 with location:** Define the **location of your keystore file** and the **SSL keystore password** for the keystore file.
 * **PKCS12 with key:** Define the **SSL keystore private key** by defining the **Key** and the **Key password** and the **SSL keystore password** for the keystore file.
+
+**Verify Host**
+
+**Verify Host** controls whether the gateway checks that the broker's hostname matches the hostname in the broker's certificate. It's available with the **SSL** and **SASL\_SSL** protocols, not with **PLAINTEXT** or **SASL\_PLAINTEXT**. Verification is on by default, including for existing endpoint configurations that never set this option. Turn it off only if you trust the network between the gateway and the cluster.
 {% endtab %}
 {% endtabs %}
 
@@ -363,9 +367,9 @@ Next, initiate SSE consumption by providing the offsets using the `Last-Event-ID
 # generate the Last-Event-ID
 LAST_ID=$(echo -n "demo1@0#0" | base64)
 # Start the SSE event stream
-curl https://${GATEWAY_HOST}:8082/demo/sse/kafka-advanced/plaintext \ 
+curl https://${GATEWAY_HOST}:8082/demo/sse/kafka-advanced/plaintext \ 
     -H'Accept: text/event-stream' \
-    -H"Last-Event-ID: ${LAST_ID}" 
+    -H"Last-Event-ID: ${LAST_ID}" 
 ```
 
 For the HTTP GET entrypoint, the offset can be provided using the `cursor` query parameter:

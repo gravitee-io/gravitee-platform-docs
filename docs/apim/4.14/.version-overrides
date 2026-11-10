@@ -57,3 +57,4 @@ prepare-a-production-environment/disaster-recovery-backup-and-restore.md
 
 # Kafka Gateway: routingPortMode.secured is 4.14 only (ESM-359)
 kafka-gateway/configure-the-kafka-client-and-gateway.md
+create-and-configure-apis/configure-v4-apis/endpoints/kafka.md
