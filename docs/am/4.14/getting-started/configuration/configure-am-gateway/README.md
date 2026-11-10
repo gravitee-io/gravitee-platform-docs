@@ -519,12 +519,6 @@ The shipped `gravitee.yml` contains this setting commented out with the value `3
 
 The setting applies to the whole installation. It affects both standard registration and template-based registration, which is used when DCR templates are enabled on the domain and the request contains `software_id`. It applies only to clients registered after you set it, and it doesn't change the `client_id` of a client that's already registered.
 
-If the value is outside the accepted range or isn't an integer, the AM Gateway reports the following error, where `<value>` is the configured value:
-
-```
-Property handlers.oidc.dcr.clientIdLength must be an integer between 8 and 255, got '<value>'
-```
-
 ### Synchronization process
 
 If a configuration is updated on the AM Console, it needs to be propagated on the AM Gateway instances.
