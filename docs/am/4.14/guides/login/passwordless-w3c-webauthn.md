@@ -31,6 +31,15 @@ This is the first AM version with WebAuthn support and Relying Party (RP) confor
 
 WebAuthn relies on certificates to authenticate the device. These certificates can expire, so if you are experiencing certificate issues, check you have the latest version of the root certificate provided by your device supplier and if not, upload it to AM. Certificates can be uploaded to the WebAuthn settings page.
 
+The gateway ships with trusted root certificates for the `android-key`, `apple`, and `android-safetynet` attestation types, and uses them for every security domain. Certificates you add in a security domain's WebAuthn settings are trusted on top of these roots for that domain. A root certificate applies only to the attestation type it's set for. Certificates set for any other attestation type are ignored. Provide each certificate as the base64 encoding of its DER form. An expired or unreadable certificate is skipped and doesn't stop the security domain from starting.
+
+If a device's certificate chain doesn't lead to a trusted root, the registration is refused and the user sees the error `Invalid WebAuthn attestation, make sure your device is compliant with the platform requirements`.
+
+{% hint style="info" %}
+The roots that validate the android-key, apple and android-safetynet attestations are now files in the gateway home directory `${gravitee.home}/webauthn/trust-anchors`.
+Every `.pem`, `.crt`, `.cer` or `.der` file of the folder and its sub-directories is loaded at startup (extension case-insensitive, hidden entries and expired certificates skipped). The top-level entry names the format: `apple.pem` applies to apple, `android-key/*.pem` to android-key
+{% endhint %}
+
 1. Log in to AM Console.
 2. Select your **Security Domain**.
 3. Click **Settings**, then click **WebAuthn** in the **Security** section.
@@ -102,6 +111,8 @@ They can update the following options:
 WebAuthn configuration is domain-level only. All applications in a security domain share the domain's WebAuthn settings: origin, relying party name, resident key requirement, user verification, authenticator attachment, attestation conveyance preference, and root certificates. AM doesn't support a separate WebAuthn configuration for each application. An application controls only whether passwordless authentication is offered, through its login settings.
 
 As a workaround, create a separate security domain for each group of applications that needs its own relying-party configuration, and configure WebAuthn in each security domain.
+
+AM supports only the ES256 and RS256 algorithms for WebAuthn credentials. A device that uses any other algorithm can't register.
 
 ## Watch this space
 
