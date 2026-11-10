@@ -77,3 +77,5 @@ Unlike PATCH, PUT requires you to provide all the client metadata. Omitted field
 {% endhint %}
 
 The registration request accepts the `dpop_bound_access_tokens` client metadata. Set it to `true` to require a DPoP proof on every token request from the client. See [Demonstrating Proof of Possession (DPoP)](oauth-2.0/demonstrating-proof-of-possession-dpop.md#require-dpop-for-an-application).
+
+By default, AM generates a 43-character URL-safe base64 `client_id` for each client that registers through dynamic client registration. Administrators can set a fixed length for generated client IDs, from 8 to 255 characters, in the gateway configuration file. Restart the gateway after changing the setting. When a length is set, generated client IDs contain only the characters A-Z, a-z, and 0-9. The setting applies to the whole installation and can't be set per domain or per application. It applies to clients registered from the request payload and to clients registered from a template, and it has no effect on clients that are already registered. If the value isn't an integer from 8 to 255, the gateway reports an error that includes the value found in the configuration.
