@@ -63,7 +63,7 @@ Edge Management decides how the Edge Daemons identify themselves to the Edge Rea
 
 ### Event Stream Management
 
-Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtual Cluster bound the metadata requests that the gateway sends to its brokers on its own.
+Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtual Cluster bound the metadata requests that the gateway sends to its brokers on its own. It also lets you disable the broker hostname verification of a Kafka connection over SSL.
 
 #### Backend metadata max age
 
@@ -72,6 +72,12 @@ Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtua
 * The value of a Cluster or a Virtual Cluster applies to every Kafka Service bound to it once the changes are deployed, without a new deployment of the Kafka Services. The value of a Virtual Cluster applies to every backend, whatever their own Clusters set.
 * The feature also ships in APIM 4.13.2.
 * See [Set the backend metadata max age of a Standalone group](../event-stream-management/apis/kafka-services/configure-endpoints.md#set-the-backend-metadata-max-age-of-a-standalone-group), [Manage clusters](../event-stream-management/kafka-infrastructure/clusters/manage-a-cluster.md#set-the-backend-metadata-max-age), and [Manage a Virtual Cluster](../event-stream-management/kafka-infrastructure/virtual-clusters/manage-a-virtual-cluster.md#set-the-backend-metadata-max-age).
+
+#### Kafka connections can disable broker hostname verification over SSL
+
+* When the security protocol of a Kafka connection is **Protocol SSL** or **Protocol SASL_SSL**, the gateway checks that the broker hostname matches its certificate. This verification stays on by default.
+* **SSL configuration** now includes **Verify Host**, the switch that turns the verification off. Disable it only if you trust the network.
+* See [Configure endpoints and failover](../event-stream-management/apis/message-apis/configure-endpoints-and-failover.md).
 
 ### Platform Management
 
