@@ -17,7 +17,7 @@ Gravitee API Management 4.12 introduces Redis Cluster support for rate limiting 
 
 | Database | Version tested        |
 | -------- | --------------------- |
-| Redis    | 6.2.x / 7.0.x / 7.2.x / 7.4.x / 8.x |
+| Redis    | 6.0.x / 6.2.x / 7.0.x / 7.2.x / 7.4.x / 8.x |
 
 ## Key concepts
 
@@ -45,7 +45,9 @@ Cache policies (Cache and Data Cache) now store response payloads and cached val
 
 * Gravitee API Management 4.12 or later
 * Java 21 runtime (required for Redis cache resource 2.0.0+)
-* Redis 6.0+ (standalone, Sentinel, or Cluster)
+* Redis 6.0 or later (standalone, Sentinel, or Cluster)
+* A Redis user allowed to run Lua scripts, which is the `@scripting` ACL category. Rate limiting and the Redis cache both run Lua scripts.
+* For distributed synchronization only: the Redis query engine, which needs Redis Stack 6.2 or later, or Redis 8 or later. Rate limiting and the Redis cache don't need the query engine.
 * For Redis Cluster: all rate-limited APIs must use the same cluster configuration to avoid CROSSSLOT errors
 
 ## Configure the Rate Limit repository plugin
@@ -248,6 +250,13 @@ Configure gateway-wide connection pool limits for the AI vector store Redis reso
 ### Node cache plugin Redis configuration
 
 Configure the node-level Redis cache (used for distributed caching across gateway instances) in `gravitee.yml`.
+
+The Redis cache plugin, `gravitee-node-cache-plugin-redis`, isn't bundled with APIM. For APIM 4.14, install version 9.17.0 or later of the plugin on each gateway, and then set `cache.type` to `redis`.
+
+The Redis cache applies time to live and time to idle differently from the in-memory and Hazelcast caches:
+
+* When a cache has both a time to live and a time to idle, only the time to live applies. An entry that's never read stays until its time to live ends.
+* When a cache has a time to idle only, each read pushes the entry's expiry back by the idle time. This can keep an entry past its own time to live.
 
 | Property | Description | Default |
 |:---------|:------------|:--------|
