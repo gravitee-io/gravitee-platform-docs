@@ -36,8 +36,7 @@ The gateway ships with trusted root certificates for the `android-key`, `apple`,
 If a device's certificate chain doesn't lead to a trusted root, the registration is refused and the user sees the error `Invalid WebAuthn attestation, make sure your device is compliant with the platform requirements`.
 
 {% hint style="info" %}
-The roots that validate the android-key, apple and android-safetynet attestations are now files in the gateway home directory `${gravitee.home}/webauthn/trust-anchors`.
-Every `.pem`, `.crt`, `.cer` or `.der` file of the folder and its sub-directories is loaded at startup (extension case-insensitive, hidden entries and expired certificates skipped). The top-level entry names the format: `apple.pem` applies to apple, `android-key/*.pem` to android-key
+The roots that validate the `android-key`, `apple`, and `android-safetynet` attestations are now files in the gateway home directory, `${gravitee.home}/webauthn/trust-anchors`. Every `.pem`, `.crt`, `.cer`, or `.der` file in the folder and its subdirectories is loaded at startup. File extensions are case-insensitive, and hidden entries and expired certificates are skipped. The top-level entry names the format: `apple.pem` applies to `apple`, and `android-key/*.pem` applies to `android-key`.
 {% endhint %}
 
 1. Log in to AM Console.

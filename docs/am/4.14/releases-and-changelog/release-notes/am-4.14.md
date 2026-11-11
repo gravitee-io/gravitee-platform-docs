@@ -30,9 +30,9 @@ Check these changes before you upgrade to AM 4.14.
 
 AM 4.14 adds the following improvements.
 
-#### **Trusted Root Certificates for WebAuthn Attestation**
+### Trusted root certificates for WebAuthn attestation
 
-* The gateway ships with trusted root certificates for the `android-key`, `apple`, and `android-safetynet` attestation types and uses them for every security domain, so a device whose certificate chain doesn't lead to a trusted root can't register.
+* The gateway ships with trusted root certificates for the `android-key`, `apple`, and `android-safetynet` attestation types and uses them for every security domain. As a result, a device whose certificate chain doesn't lead to a trusted root can't register.
 * To trust more roots, add certificates in the security domain's WebAuthn settings as the base64 encoding of each certificate's DER form. They're trusted on top of the built-in roots for that domain only, and each certificate applies only to the attestation type it's set for.
 * An expired or unreadable certificate is skipped and doesn't stop the security domain from starting.
 * When a device's certificate chain doesn't lead to a trusted root, the registration is refused and the user sees the error `Invalid WebAuthn attestation, make sure your device is compliant with the platform requirements`.
