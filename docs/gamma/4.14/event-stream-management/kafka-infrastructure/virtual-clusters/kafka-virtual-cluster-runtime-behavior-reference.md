@@ -3,6 +3,7 @@ hidden: false
 noIndex: false
 description: What a Virtual Cluster does on the Event Gateway, from lifecycle rules to topic routing, consumer groups, producers, and refused operations. Browse the full reference.
 ---
+
 # Virtual Cluster runtime behavior
 
 This page describes what happens when a Virtual Cluster is active on the Event Gateway: how the console and the Management API guard its lifecycle, how the gateway routes client requests across the backends, and which Kafka features it refuses.
