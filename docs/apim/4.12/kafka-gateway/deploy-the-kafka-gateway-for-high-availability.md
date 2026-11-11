@@ -108,7 +108,11 @@ A perfectly redundant gateway still goes down if the rest of the path isn't redu
 
 ## Virtual cluster (MESH) mode caveat
 
-Everything above holds for the standard single-cluster deployment, where gateways share nothing. Virtual cluster (MESH) mode is different: it keeps shared state in a distributed cache. A multi-pod gateway deployment that uses MESH requires a distributed cache plugin, either Hazelcast or Redis, for correctness, for example to keep idempotent producers consistent across pods. Without it, each pod falls back to a local in-memory cache and loses cross-pod consistency.
+Everything above holds for the standard single-cluster deployment, where gateways share nothing. Virtual cluster (MESH) mode is different: it keeps shared state in a distributed cache. A multi-pod gateway deployment that uses MESH requires the Hazelcast cache plugin for correctness, for example to keep idempotent producers consistent across pods. Without it, each pod falls back to a local in-memory cache and loses cross-pod consistency.
+
+{% hint style="warning" %}
+The Redis cache plugin doesn't work for MESH. With `cache.type: redis`, the virtual cluster stores stay local to each pod, the same as with no distributed cache.
+{% endhint %}
 
 If MESH is in use, the affinity-free property doesn't automatically hold. Confirm the distributed cache is configured before you rely on the same horizontal-scaling behavior.
 
@@ -122,4 +126,4 @@ Confirm each of the following before you call the deployment highly available:
 * A `-XX:MaxDirectMemorySize` value that fits in the pod limit, sized for your consumers.
 * A backend Kafka cluster with a replication factor of 3 or more, `min.insync.replicas=2`, and brokers spread across availability zones.
 * A redundant control plane: two or more Management API instances, a three-node MongoDB replica set, and a three-node Elasticsearch or OpenSearch cluster.
-* Confirmation of whether virtual cluster (MESH) mode is in use, and a distributed cache plugin if it is.
+* Confirmation of whether virtual cluster (MESH) mode is in use, and the Hazelcast cache plugin if it is.
