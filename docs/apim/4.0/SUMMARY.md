@@ -226,4 +226,4 @@
   * [Test](community-and-support/enterprise-support/test.md)
 * [Community](community-and-support/community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
-  * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
+  * [Announcements & Events](https://www.gravitee.io/events)

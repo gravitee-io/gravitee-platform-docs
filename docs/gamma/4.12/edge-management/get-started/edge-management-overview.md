@@ -8,10 +8,6 @@ description: The Edge Daemon observes AI traffic on employee devices, enforces l
 
 The Edge Daemon is a lightweight process installed on employee devices that observes outgoing AI traffic, enforces local policies, and forwards requests to the Gravitee AI Gateway for enterprise-wide policy enforcement.
 
-{% hint style="warning" %}
-**Preview feature—not production-ready.** Edge Management is under active development. In particular, the connections between the Edge Daemon and the gateway—both the proxied API and LLM traffic and the Edge Reactor control plane—are **not yet secured**. They use plain HTTP, with no transport encryption and no authentication between the daemon and the gateway. Do not expose these endpoints over untrusted networks. Authenticated, TLS-secured connections such as API key, OAuth2/JWT, and mTLS are planned but not yet available.
-{% endhint %}
-
 {% hint style="info" %}
 **Compatibility.** The Edge Daemon is currently available for **macOS only**—Apple Silicon and Intel. It supports traffic interception for Claude Code through the Anthropic API.
 {% endhint %}
