@@ -69,4 +69,4 @@
 * [Enterprise Support](community-and-support/enterprise-support.md)
 * [Community](community-and-support/community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
-  * [Announcements and Events](https://community.gravitee.io/c/announcements/5)
+  * [Announcements and Events](https://www.gravitee.io/events)
