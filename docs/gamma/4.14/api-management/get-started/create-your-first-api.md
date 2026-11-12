@@ -22,9 +22,9 @@ For a complete reference on all creation options, see [Create an API proxy](../b
 <figure><img src="../.gitbook/assets/gamma-apis-list.png" alt="API Proxies list in the Gamma APIM module"><figcaption><p>The API Proxies list. Select <strong>Create New Proxy</strong> (top-right) to open the creation wizard.</p></figcaption></figure>
 
 1. From the Gamma console sidebar, select **API Management**.
-2. Navigate to the **APIs** list.
-3. Select **Create API**.
-4. Choose **Create from scratch** to open the full step-by-step wizard.
+2. Click **API Proxies**.
+3. Select **Create New Proxy**.
+4. Choose **Start from scratch** to open the full step-by-step wizard.
 
 {% hint style="info" %}
 You can also choose a **template** for common patterns. Templates preconfigure security and upstream settings, reducing the wizard to two steps: **Essentials** and **Review & Deploy**. This guide uses the scratch flow to show every configuration step.
@@ -36,7 +36,7 @@ The first wizard step (**API Details**) collects the basic identity of your API.
 
 | Field           | Value                             | Notes                                                    |
 | --------------- | --------------------------------- | -------------------------------------------------------- |
-| **API name**    | `My First API`                    | Required. Identifies the API in the console and Catalog. |
+| **API Name**    | `My First API`                    | Required. Identifies the API in the console and Catalog. |
 | **Version**     | `1.0`                             | Required. Free-text version label.                       |
 | **Description** | `A sample API proxy for testing.` | Optional.                                                |
 
@@ -63,7 +63,7 @@ Select **Next** to proceed.
 
 The third wizard step (**Secure**) attaches a security plan that controls how consumers authenticate.
 
-For this quickstart, select **Keyless**. A keyless plan requires no authentication — any consumer can call the API without credentials. This is the fastest way to verify your proxy works.
+For this quickstart, keep **Keyless (Open)** selected. It's the default. A keyless plan requires no authentication, so any consumer calls the API without credentials. This is the fastest way to verify your proxy works.
 
 {% hint style="warning" %}
 Keyless plans are intended for testing and internal use. For production APIs, use an API Key, JWT, OAuth2, or mTLS plan to authenticate consumers. See [Secure your API proxy](../build/secure-your-api-proxy.md).
@@ -76,8 +76,12 @@ Select **Next** to proceed.
 The final wizard step (**Review & Deploy**) summarizes your configuration.
 
 1. Review the API name, context path, target URL, and plan type.
-2. Enable **Deploy immediately** to publish the API proxy to the API Gateway in one step.
+2. Keep **Deploy and start API immediately** turned on to publish the API proxy to the API Gateway in one step. This option is on by default.
 3. Select **Create & Deploy**.
+
+{% hint style="info" %}
+If API Review is enabled for your environment, this step shows **Ask for a review** instead of **Deploy and start API immediately**, and the button reads **Create & ask for review**. The console saves the API proxy as a draft, and a reviewer must accept it before it can be started. For details, see [Review an API proxy](../build/configure-your-api-proxy/review-an-api-proxy.md).
+{% endhint %}
 
 The console creates the API proxy, attaches the keyless plan, and deploys the configuration to the API Gateway.
 

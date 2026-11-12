@@ -40,7 +40,7 @@ A full .zip distribution with all the components can be downloaded by clicking [
 
 ### Download and extract the `.zip` archive
 
-1. Download the binaries [here](https://download.gravitee.io/graviteeio-am/components/gravitee-am-gateway/gravitee-am-gateway-standalone-4.0.0.zip) or from the [Gravitee download site](https://gravitee.io/downloads/access-management).
+1. Download the binaries [here](https://download.gravitee.io/graviteeio-am/components/gravitee-am-gateway/gravitee-am-gateway-standalone-4.0.0.zip) or from the [Gravitee download site](https://download.gravitee.io/#graviteeio-am/distributions/).
 
 {% code overflow="wrap" %}
 ```sh
@@ -119,7 +119,7 @@ AM API is required to run AM Console UI. You must install AM API first before yo
 
 ### Download and extract the `.zip` archive
 
-1. Download the binaries [here](https://download.gravitee.io/graviteeio-am/components/gravitee-am-management-api/gravitee-am-management-api-standalone-4.0.0.zip) or from the [Gravitee download site](https://gravitee.io/downloads/access-management).
+1. Download the binaries [here](https://download.gravitee.io/graviteeio-am/components/gravitee-am-management-api/gravitee-am-management-api-standalone-4.0.0.zip) or from the [Gravitee download site](https://download.gravitee.io/#graviteeio-am/distributions/).
 
 {% code overflow="wrap" %}
 ```sh
@@ -196,7 +196,7 @@ The following files and folders are in the `$GRAVITEE_HOME` directory, created w
 
 ### Download and extract the .zip archive
 
-1. Download the binaries [here](https://download.gravitee.io/graviteeio-am/components/gravitee-am-webui/gravitee-am-webui-4.0.0.zip) or from the [Gravitee download site](https://gravitee.io/downloads/access-management).
+1. Download the binaries [here](https://download.gravitee.io/graviteeio-am/components/gravitee-am-webui/gravitee-am-webui-4.0.0.zip) or from the [Gravitee download site](https://download.gravitee.io/#graviteeio-am/distributions/).
 
 {% code overflow="wrap" %}
 ```sh
