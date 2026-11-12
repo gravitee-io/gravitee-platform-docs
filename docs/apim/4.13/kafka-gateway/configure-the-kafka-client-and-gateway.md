@@ -394,6 +394,36 @@ kafka:
 
 An endpoint group, a Kafka cluster, or a Virtual Cluster that sets its own **Backend metadata max age (seconds)** overrides this default. See [Bound the gateway's own metadata requests](create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md#bound-the-gateways-own-metadata-requests). With the Helm chart, set `gateway.kafka.backendMetadataMaxAge` and `gateway.kafka.mesh.refreshConnectionReuse`.
 
+### Limit concurrent logins to Kafka clusters
+
+{% hint style="info" %}
+Available from APIM 4.13.4.
+{% endhint %}
+
+Each time a client connects to a native Kafka API whose endpoint uses the `SASL_PLAINTEXT` or `SASL_SSL` security protocol, the Gateway runs a login for the Kafka cluster. With the `OAUTHBEARER` mechanism, that login can call the token endpoint. Each Gateway instance runs these logins on a dedicated pool of threads, separate from the threads that serve client connections and shared by all native Kafka APIs. Endpoints that use the `NONE` or `DELEGATE_TO_BROKER` mechanism don't use the pool.
+
+The following keys size the pool in `gravitee.yml`:
+
+| Key | Default | Description |
+| --- | --- | --- |
+| `kafka.backendLogin.threads` | `4` | Number of logins that run at the same time. |
+| `kafka.backendLogin.queueCapacity` | `64` | Bounds how many logins wait for a thread. |
+
+```yaml
+kafka:
+  backendLogin:
+    threads: 4
+    queueCapacity: 64
+```
+
+The following behavior applies to the pool:
+
+* One API uses at most half of the threads at a time, with a minimum of one thread. Its other logins wait, up to half of the queue capacity.
+* A login beyond these limits is refused. The Gateway closes the client connection and logs a warning that contains `backend login(s) rejected` and says which keys to raise.
+* A value below `1` is ignored. The Gateway logs a warning and uses the default.
+
+Keep the defaults unless the warning appears under your usual load. When the warning says that an API already has its share of logins running and waiting, the login of that API is probably slow or unreachable. Check what it depends on, such as the token endpoint, before you raise `kafka.backendLogin.threads`. With the Helm chart, set `gateway.kafka.backendLogin.threads` and `gateway.kafka.backendLogin.queueCapacity`.
+
 ## Configure the Kafka client
 
 To use the Kafka Gateway, you use a regular Kafka client. There are many implementations of the Kafka client, and you can use any client that supports the full Kafka protocol.
@@ -587,6 +617,11 @@ kafka:
   backendMetadataMaxAge: 0 # Seconds (0 to 3600) a gateway instance reuses its own all-topics metadata request to a backend. Default is 0: every new client connection sends it
   mesh:
     refreshConnectionReuse: true # Virtual Cluster metadata refreshes reuse one connection per backend when the max age is above 0. Default is true
+
+  # Logins to Kafka clusters. See Limit concurrent logins to Kafka clusters above.
+  backendLogin:
+    threads: 4             # Logins that run at the same time. Default is 4
+    queueCapacity: 64      # Bounds how many logins wait for a thread. Default is 64
 
   # Kafka metrics
   metrics:
