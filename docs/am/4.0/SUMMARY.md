@@ -144,5 +144,5 @@
 
 * [Enterprise Support](community-and-support/enterprise-support.md)
 * [Community](community-and-support/community/README.md)
-  * [Support](https://community.gravitee.io/c/support/11)
+  * [Support](https://graviteesource.zendesk.com)
   * [Announcements & Events](https://www.gravitee.io/events)
