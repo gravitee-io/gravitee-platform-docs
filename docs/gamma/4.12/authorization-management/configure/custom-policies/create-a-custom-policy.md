@@ -11,7 +11,7 @@ Create an authorization policy for resources that are not routed through MCP, AP
 ## Prerequisites
 
 * At least one principal and one resource entity exist
-* The `ENVIRONMENT_AUTHZ_POLICY[CREATE]` permission
+* The `ENVIRONMENT_AUTHZ_POLICIES[CREATE]` permission
 
 ## Steps
 
