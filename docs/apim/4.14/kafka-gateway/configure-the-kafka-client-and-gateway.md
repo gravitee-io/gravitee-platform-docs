@@ -412,7 +412,7 @@ An endpoint group, a Kafka cluster, or a Virtual Cluster that sets its own **Bac
 ### Configure the backend login pool
 
 {% hint style="info" %}
-Available from APIM 4.13.4.
+Available from APIM 4.14.0.
 {% endhint %}
 
 When the Gateway connects a client to a Kafka cluster that it authenticates to with the `SASL_PLAINTEXT` or `SASL_SSL` security protocol, it prepares its login to that cluster. With the `OAUTHBEARER` mechanism, this step can call the token endpoint. Each Gateway instance runs this step on a dedicated pool of threads, separate from the threads that serve client connections and shared by all native Kafka APIs. Connections that use the `NONE` or `DELEGATE_TO_BROKER` mechanism don't use the pool. Neither do the other connections that the Gateway opens to a Kafka cluster, for example to read the metadata of a Virtual Cluster.
