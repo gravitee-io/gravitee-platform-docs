@@ -291,20 +291,20 @@ To configure the APIM Console to use the Kafka domain and port values for your O
 
     <figure><img src="../.gitbook/assets/00 kafka 1.png" alt="The Entrypoints tab of a Kafka API, with a host prefix entered and the resulting domain and port highlighted beside it."><figcaption></figcaption></figure>
 
-### Limit concurrent logins to Kafka clusters
+### Configure the backend login pool
 
 {% hint style="info" %}
 Available from APIM 4.12.27.
 {% endhint %}
 
-Each time a client connects to a native Kafka API whose endpoint uses the `SASL_PLAINTEXT` or `SASL_SSL` security protocol, the Gateway runs a login for the Kafka cluster. With the `OAUTHBEARER` mechanism, that login can call the token endpoint. Each Gateway instance runs these logins on a dedicated pool of threads, separate from the threads that serve client connections and shared by all native Kafka APIs. Endpoints that use the `NONE` or `DELEGATE_TO_BROKER` mechanism don't use the pool.
+When the Gateway connects a client to a Kafka cluster that it authenticates to with the `SASL_PLAINTEXT` or `SASL_SSL` security protocol, it prepares its login to that cluster. With the `OAUTHBEARER` mechanism, this step can call the token endpoint. Each Gateway instance runs this step on a dedicated pool of threads, separate from the threads that serve client connections and shared by all native Kafka APIs. Connections that use the `NONE` or `DELEGATE_TO_BROKER` mechanism don't use the pool. Neither do the other connections that the Gateway opens to a Kafka cluster, for example to read the metadata of a Virtual Cluster.
 
 The following keys size the pool in `gravitee.yml`:
 
 | Key | Default | Description |
 | --- | --- | --- |
-| `kafka.backendLogin.threads` | `4` | Number of logins that run at the same time. |
-| `kafka.backendLogin.queueCapacity` | `64` | Bounds how many logins wait for a thread. |
+| `kafka.backendLogin.threads` | `4` | Number of threads in the pool. |
+| `kafka.backendLogin.queueCapacity` | `64` | Capacity of the queue where logins wait for a thread. |
 
 ```yaml
 kafka:
@@ -315,11 +315,11 @@ kafka:
 
 The following behavior applies to the pool:
 
-* One API uses at most half of the threads at a time, with a minimum of one thread. Its other logins wait, up to half of the queue capacity.
-* A login beyond these limits is refused. The Gateway closes the client connection and logs a warning that contains `backend login(s) rejected` and says which keys to raise.
+* One API uses at most half of the threads at a time, and keeps at most half of the queue capacity waiting. Each half is at least one.
+* A login beyond these limits is refused, and the Gateway closes the client connection. The Gateway reports refused logins in a warning that contains `backend login(s) rejected`. The warning is rate limited, and it carries the number of logins refused and the key or keys to raise.
 * A value below `1` is ignored. The Gateway logs a warning and uses the default.
 
-Keep the defaults unless the warning appears under your usual load. When the warning says that an API already has its share of logins running and waiting, the login of that API is probably slow or unreachable. Check what it depends on, such as the token endpoint, before you raise `kafka.backendLogin.threads`. With the Helm chart, set `gateway.kafka.backendLogin.threads` and `gateway.kafka.backendLogin.queueCapacity`.
+Keep the defaults unless the warning appears under your usual load. With the Helm chart, set `gateway.kafka.backendLogin.threads` and `gateway.kafka.backendLogin.queueCapacity`.
 
 ## Configure the Kafka client
 
@@ -470,10 +470,10 @@ kafka:
     #      myapi-broker1.mycompany.org        myapi-broker1.mycompany.com
     #      ...
 
-  # Logins to Kafka clusters. See Limit concurrent logins to Kafka clusters above.
+  # Backend login pool. See Configure the backend login pool above.
   backendLogin:
-    threads: 4             # Logins that run at the same time. Default is 4
-    queueCapacity: 64      # Bounds how many logins wait for a thread. Default is 64
+    threads: 4             # Threads in the pool. Default is 4
+    queueCapacity: 64      # Capacity of the queue where logins wait for a thread. Default is 64
 
   # SSL configuration
   #ssl:
