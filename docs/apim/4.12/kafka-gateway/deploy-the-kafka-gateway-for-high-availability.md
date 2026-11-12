@@ -111,7 +111,7 @@ A perfectly redundant gateway still goes down if the rest of the path isn't redu
 Everything above holds for the standard single-cluster deployment, where gateways share nothing. Virtual cluster (MESH) mode is different: it keeps shared state in a distributed cache. A multi-pod gateway deployment that uses MESH requires the Hazelcast cache plugin for correctness, for example to keep idempotent producers consistent across pods. Without it, each pod falls back to a local in-memory cache and loses cross-pod consistency.
 
 {% hint style="warning" %}
-The Redis cache plugin doesn't work for MESH. With `cache.type: redis`, the virtual cluster stores stay local to each pod, the same as with no distributed cache.
+From APIM 4.12.27, with `cache.type: redis`, MESH virtual cluster stores aren't shared across pods: each pod keeps them in memory, and the gateway logs a warning. Use the Hazelcast cache plugin for multi-pod MESH. On APIM 4.12.26 and earlier, native Kafka APIs don't deploy when `cache.type` is `redis`.
 {% endhint %}
 
 If MESH is in use, the affinity-free property doesn't automatically hold. Confirm the distributed cache is configured before you rely on the same horizontal-scaling behavior.
