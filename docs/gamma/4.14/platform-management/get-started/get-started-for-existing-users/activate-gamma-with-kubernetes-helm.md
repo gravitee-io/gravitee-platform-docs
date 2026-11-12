@@ -48,14 +48,24 @@ If your `values.yaml` enables the `mongodb` or `elasticsearch` subchart, those s
        - name: gravitee_http_cookie_secure
          value: "false"
    ```
-4. Expose the Gamma endpoint of the Management API at `/gamma`. The Gamma ingress is off by default. Add the following under the same `api` key as the previous step:
+4. Expose the Gamma endpoint of the Management API at `/gamma`. The Gamma ingress is off by default, and it has its own host settings, so it doesn't inherit the host of your management ingress. Add the following under the same `api` key as the previous step. Replace `<your host>` with your hostname, and set `ingressClassName` and `tls` to match your `api.ingress.management` settings:
 
    ```yaml
    api:
      ingress:
        gamma:
          enabled: true
+         ingressClassName: nginx
+         path: /gamma
+         hosts:
+           - <your host>
+         # tls:
+         #   - hosts:
+         #       - <your host>
+         #     secretName: <your TLS secret>
    ```
+
+   If you leave `hosts` out, the Gamma ingress uses the chart default, `apim.example.com`, and requests to `/gamma` on your own host return a 404.
 
    If you route traffic with the Kubernetes Gateway API, add an HTTPRoute in place of the ingress. Replace `<your gateway>` with the name of your Gateway resource, and `<your host>` with your hostname:
 
@@ -70,7 +80,7 @@ If your `values.yaml` enables the `mongodb` or `elasticsearch` subchart, those s
          hostnames:
            - <your host>
    ```
-5. Add the Gamma console:
+5. Add the Gamma console. Replace `<your Gamma API URL>` with the full URL of the Gamma endpoint from the previous step, including the scheme, for example `https://apim.example.com/gamma`:
 
    ```yaml
    gammaUi:
@@ -79,7 +89,7 @@ If your `values.yaml` enables the `mongodb` or `elasticsearch` subchart, those s
        repository: graviteeio/gamma-ui
        tag: "4.14"
      app:
-       gammaBaseURL: "<your host>/gamma"
+       gammaBaseURL: "<your Gamma API URL>"
      env:
        - name: GAMMA_CONSOLE_BASE_HREF
          value: /
