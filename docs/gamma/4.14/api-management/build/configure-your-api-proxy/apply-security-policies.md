@@ -72,7 +72,7 @@ For more details on the full policy language and all service categories, see [Cr
 
 ## Common policy types
 
-Gamma's initial release supports all existing Gravitee APIM policies (40+), including common policies like rate limiting, transform headers, assign content, authentication, validation, and traffic control. Policy behavior and configuration fields are identical to API Management.
+Gamma uses the Gravitee APIM policies, including common policies like rate limiting, transform headers, assign content, authentication, validation, and traffic control. The Policy Studio offers only the policies that are compatible with your API proxy's type, so some policies don't appear for every API proxy. TCP Proxy APIs don't support policy flows. Policy behavior and configuration fields are identical to API Management.
 
 | Policy                | Phase              | Description                                                             |
 | --------------------- | ------------------ | ----------------------------------------------------------------------- |

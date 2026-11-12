@@ -11,8 +11,9 @@ The API usage dashboard provides real-time and historical metrics for your API p
 
 To access the analytics dashboard for your HTTP Proxy APIs:
 1. From the Gamma console sidebar, select **API Management**.
-2. Navigate to your API proxy.
-3. In the sidebar under **Monitoring**, select **Observability**.
+2. Click **API Proxies**.
+3. Select your API proxy.
+4. In the sidebar, under **Observability**, click **Dashboard**. The dashboard opens in a new tab.
 
 By default, the dashboard displays metrics for the last **7 days** using a relative time range. You can adjust the time window using the time-range selector.
 

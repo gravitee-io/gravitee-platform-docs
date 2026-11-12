@@ -14,9 +14,10 @@ The Endpoint Health Check Dashboard provides real-time visibility into the avail
 
 ## View the health check dashboard
 
-1. From the Gamma console sidebar, select **API Management**, then navigate to **APIs**.
-2. Select an API from the list to view its detail page.
-3. In the API sub-navigation menu, select **Endpoints**, then select the **Health Check Dashboard** tab.
+1. From the Gamma console sidebar, select **API Management**.
+2. Click **API Proxies**.
+3. Select an API proxy from the list to view its detail page.
+4. In the sidebar, under **Monitoring**, click **Health Check Dashboard**.
 
 ## Dashboard metrics
 
