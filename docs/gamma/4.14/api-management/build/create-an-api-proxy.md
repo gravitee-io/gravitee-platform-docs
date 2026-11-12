@@ -242,7 +242,7 @@ The following table describes the fields for an mTLS plan:
 **Use case:** Machine-to-machine communication, zero-trust network environments, internal service mesh.
 
 {% hint style="info" %}
-The wizard creates one plan. After creation, add more plans to the same API proxy from the **Plans** page in the **Consumers** group, and set their order with the **Move up** and **Move down** arrows in the plans table. The API Gateway evaluates plans in that order and uses the first plan that matches the consumer's credentials. A TCP Proxy API accepts Keyless plans only.
+The wizard creates one plan. After creation, add more plans to the same API proxy from the **Plans** page in the **Consumers** group. The API Gateway evaluates plans in an order set by each plan's security type, not by their order on the **Plans** page, and uses the first plan that matches the consumer's credentials. For details, see [Plan evaluation order](secure-your-api-proxy.md#plan-evaluation-order). A TCP Proxy API accepts Keyless plans only.
 {% endhint %}
 
 ## Step 4: Review and deploy
