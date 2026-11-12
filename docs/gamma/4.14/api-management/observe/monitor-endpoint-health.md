@@ -21,22 +21,38 @@ The Endpoint Health Check Dashboard provides real-time visibility into the avail
 
 ## Dashboard metrics
 
-The dashboard displays several key metrics and visualizations:
+The dashboard covers the period selected in **Timeframe**: **Last minute**, **Last hour**, **Last day**, **Last week**, or **Last month**. The default is **Last day**. To reload the data for the same period, click **Refresh data**.
 
-* **Global Metrics**: High-level summary of availability, average response time, and total failures over the selected timeframe.
-* **Availability by Field**: A table breaking down availability statistics by specific endpoint or group.
-* **Response Time Trend**: A chart displaying the historical trend of endpoint response times.
+The following table describes each section of the dashboard:
 
-Use the timeframe filter at the top of the dashboard to adjust the monitoring window (for example, last hour or last 24 hours).
+| Section                                      | What it shows                                                                                                   |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Global availability over selected period** | The share of successful health checks across all endpoints.                                                     |
+| **Global average response time**             | The average health check response time across all endpoints.                                                    |
+| **Global response time trend**               | The response time of endpoints to health checks over the period. To change the chart, select **Line**, **Area**, or **Bar**. |
+| **Availability per endpoint**                | The availability and response time of each endpoint that has health checks enabled.                            |
+| **Availability per gateway**                 | The availability and response time recorded by each gateway that runs health checks.                          |
+| **Failed health checks**                     | The health checks that failed during the period. See [View failed health checks](#view-failed-health-checks).   |
 
 ## View failed health checks
 
-The **Failed Health Checks** table lists all unsuccessful endpoint verification attempts within the selected timeframe.
+The **Failed health checks** table lists the health checks that failed during the selected period. The following table describes its columns:
 
-1. Locate the **Failed Health Checks** table at the bottom of the dashboard.
-2. Review the list of failures, which includes the timestamp, endpoint name, HTTP status, and error message.
-3. Select the **Details** icon next to a failed check to open the log detail sheet.
-4. Review the raw request and response data in the log detail sheet to diagnose the root cause of the failure.
+| Column            | Description                                  |
+| ----------------- | -------------------------------------------- |
+| **Timestamp**     | When the health check ran.                   |
+| **Endpoint**      | The endpoint that the health check called.   |
+| **Gateway**       | The gateway that ran the health check.       |
+| **Response Time** | How long the endpoint took to respond.       |
+
+To find out why a health check failed, complete the following steps:
+
+1. In the **Failed health checks** table, find the failed health check.
+2. Click **View failure details**. The **Health check detail** panel opens.
+3. Review the **Status**, **Endpoint**, **Gateway**, and **Response time** of the health check.
+4. Review the request and response captured during each step of the health check to find the cause of the failure.
+
+When a health check captured no details, **View failure details** is unavailable, and its tooltip reads **No details available for this probe**.
 
 
 ## Next steps

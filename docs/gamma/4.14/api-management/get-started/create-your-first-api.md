@@ -63,7 +63,7 @@ Select **Next** to proceed.
 
 The third wizard step (**Secure**) attaches a security plan that controls how consumers authenticate.
 
-For this quickstart, select **Keyless**. A keyless plan requires no authentication — any consumer can call the API without credentials. This is the fastest way to verify your proxy works.
+For this quickstart, keep **Keyless (Open)** selected. It's the default. A keyless plan requires no authentication, so any consumer calls the API without credentials. This is the fastest way to verify your proxy works.
 
 {% hint style="warning" %}
 Keyless plans are intended for testing and internal use. For production APIs, use an API Key, JWT, OAuth2, or mTLS plan to authenticate consumers. See [Secure your API proxy](../build/secure-your-api-proxy.md).
