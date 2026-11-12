@@ -53,7 +53,7 @@ To create an application, complete the following steps:
 Select an application from the list to open its detail page, which contains the following sections:
 
 * **Overview**. A setup checklist for the application and a snapshot of its subscription counts.
-* **General**. The application name, description, domain, images, owner, creation date, type, API key mode, client ID, and mTLS client certificates. This section also holds the action that archives the application.
+* **Settings**. The application details, OAuth client configuration, and mTLS client certificates. The details include the application name, description, domain, images, owner, creation date, type, API key mode, and client ID. This section also holds the action that archives the application.
 * **User Permissions**. Manage direct members, configure group access, and transfer application ownership.
 * **Subscriptions**. The plans this application subscribes to. Create a subscription, filter by API and status, search by API key, and review each subscription's status and dates.
 * **Notifications**. Configure the events that trigger a notifier for this application, using either the default email notifier or the default webhook notifier. This section also holds the custom metadata available in notification templates. The metadata editor rejects a duplicate key and reports that the metadata already exists.
