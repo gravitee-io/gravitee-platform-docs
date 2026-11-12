@@ -56,8 +56,7 @@ To generate an account token, complete the following steps:
 6. Click **Generate**.
 7. Next to **Account token**, click **Copy**, and store the token somewhere safe. The token isn't shown again after you close the panel.
 
-    <!-- TODO: Screenshot of the Copy your account token panel of Account Management in the Gamma console, with the Account token and Example values -->
-    <figure><img src="../.gitbook/assets/PLACEHOLDER-account-tokens-gamma-console-copy-token.png" alt="The Copy your account token panel with the Account token and Example values, each with a Copy button."><figcaption><p>Copy your account token panel</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/account-tokens-gamma-console-copy-token.png" alt="The Copy your account token panel with the Account token and Example values, each with a Copy button."><figcaption><p>Copy your account token panel</p></figcaption></figure>
 8. Optional: Next to **Example**, click **Copy** to get a request that calls the Gravitee Cloud REST API with the token.
 9. Click **`I've copied it`**.
 
@@ -82,5 +81,4 @@ To verify that your account token works, follow these steps:
 1. Run the **Example** request that you copied when you generated the token. The request returns the details of your account.
 2. Reload the **Account Tokens** page. The **Last used** value of the token changes from **No recorded use** to the date and time of the request.
 
-<!-- TODO: Screenshot of the Account Tokens page of Account Management in the Gamma console, with a token that has a Last used date -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-account-tokens-gamma-console-page.png" alt="The Account Tokens page of Account Management with the Account ID, the Generate Account Token button, and the list of tokens with the Name, Date created, Last used, and Created by columns."><figcaption><p>Account Tokens page of Account Management</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/account-tokens-gamma-console-page.png" alt="The Account Tokens page of Account Management with the Account ID, the Generate Account Token button, and the list of tokens with the Name, Date created, Last used, and Created by columns."><figcaption><p>Account Tokens page of Account Management</p></figcaption></figure>
