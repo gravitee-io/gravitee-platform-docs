@@ -23,6 +23,7 @@
   * [Add an AI model](import/add-an-ai-model.md)
   * [Add an MCP Registry](import/add-an-mcp-registry.md)
   * [Register an MCP server](import/register-an-mcp-server.md)
+  * [Import an MCP server manually](import/import-an-mcp-server-manually.md)
   * [Import prompts](import/import-prompts.md)
   * [Add MCP resources](import/add-mcp-resources.md)
   * [Create API tools](import/create-api-tools.md)
