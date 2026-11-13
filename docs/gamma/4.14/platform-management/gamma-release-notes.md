@@ -18,7 +18,7 @@ The 4.14 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API.
+Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
@@ -40,6 +40,15 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and
 * The pages of an LLM Proxy, MCP Proxy, or A2A Proxy now name the type of proxy where they named an API. The out-of-sync banner reads **This LLM proxy is out of sync**, **This MCP proxy is out of sync**, or **This A2A proxy is out of sync**, and its dialog reads **Deploy your LLM proxy**, **Deploy your MCP proxy**, or **Deploy your A2A proxy**. AI workspaces share the banner and read **This AI workspace is out of sync** and **Deploy your AI workspace**.
 * In the **Design** group of the proxy sidebar, **API Properties** is now **Properties**. On the **Settings** page, **API Picture** and **API Background** are now **Picture** and **Background**, and the **API Events** card is now **Runtime**.
 * The read-only notices, empty states, confirmations, and permission messages of those pages name the type of proxy in the same way, for example the **Select LLM proxy member** field when you transfer ownership.
+
+#### Manual import of MCP servers
+
+* The **Add MCP server** wizard of the Catalog now offers two ways to add a server. **Import from discovery** is selected when the wizard opens. **Import manually** adds a server in a private network that the control plane can't reach, from the `tools/list`, `prompts/list`, and `resources/list` responses that you collect and then paste or upload.
+* When **Verify URL** ends with **Connection failed.**, the wizard offers **Import capabilities manually instead** and keeps the URL.
+* The **MCP Servers**, **Tools**, **Prompts**, and **MCP Resources** lists have a new **Import** column, which reads **Remote** or **Manual**. The **Overview** card of a server, tool, prompt, or resource shows the same value.
+* A manual import has **Update capabilities** in place of **Re-sync**. It replaces the tools, prompts, and resources of the server with the list responses you supply.
+* The module's REST API validates list responses, imports a catalog entry, and exports one. An exported entry imports into another environment.
+* See [Import an MCP server manually](../agent-management/import/import-an-mcp-server-manually.md).
 
 ### Edge Management
 
