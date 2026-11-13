@@ -20,7 +20,7 @@ From 4.14.0, a JWT plan that you create in Gamma for an MCP Proxy or MCP Studio 
 
 Plans created before the upgrade keep their behavior. When you edit a plan that kept the header, **Propagate Authorization header** is on.
 
-After you upgrade, turn on **Propagate Authorization header** in the **Advanced settings** of a new JWT plan when the upstream or a policy reads the consumer's token from the `Authorization` header. The token exchange in [Exchange tokens for upstream MCP servers](../agent-management/build/configure-your-mcp/exchange-tokens-for-upstream-mcp-servers.md) reads it there. For more information, see [Configure a JWT plan](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md#configure-a-jwt-plan).
+After you upgrade, check each new JWT plan. Turn on **Propagate Authorization header** in its **Advanced settings** when the upstream or a policy reads the consumer's token from the `Authorization` header. The token exchange in [Exchange tokens for upstream MCP servers](../agent-management/build/configure-your-mcp/exchange-tokens-for-upstream-mcp-servers.md) reads it there. For more information, see [Configure a JWT plan](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md#configure-a-jwt-plan).
 
 ### 4.13.0
 
