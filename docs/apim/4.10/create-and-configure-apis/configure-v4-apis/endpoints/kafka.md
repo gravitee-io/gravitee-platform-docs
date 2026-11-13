@@ -52,6 +52,10 @@ Define the following:
 {% tab title="SSL" %}
 Define whichever of the following are relevant to your configuration.
 
+**Verify Host**
+
+**Verify Host** checks that the broker hostname matches its certificate. It applies to the **SSL** and **SASL\_SSL** protocols and is enabled by default. Disable it only if you trust the network.
+
 **Truststore**
 
 * **PEM with location:** Define the **location of your truststore file**.
