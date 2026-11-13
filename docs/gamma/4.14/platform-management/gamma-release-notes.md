@@ -8,9 +8,9 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 
 ## 4.14 breaking changes and deprecations
 
-#### **New JWT plans of MCP Proxies and MCP Studios remove the `Authorization` header**
+#### **JWT plans created in the Gamma console for MCP Proxies and MCP Studios remove the `Authorization` header**
 
-From 4.14.0, a JWT plan that you create in Gamma for an MCP Proxy or MCP Studio starts with **Propagate Authorization header** off. After the gateway validates the token, it removes the `Authorization` header, so the policies that follow and the upstream don't receive it. In 4.13, a new JWT plan kept the header. Plans created before the upgrade keep their behavior. To keep the header on a new plan, turn on **Propagate Authorization header**. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md).
+From 4.14.0, a JWT plan that you create in the Gamma console for an MCP Proxy or MCP Studio starts with **Propagate Authorization header** off. After the gateway validates the token, it removes the `Authorization` header, so the policies that follow and the upstream don't receive it. In 4.13, a new JWT plan kept the header. Plans created before the upgrade keep their behavior. To keep the header on a new plan, turn on **Propagate Authorization header**. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md).
 
 #### **Alpine Linux images of the Gateway and the Management API are deprecated**
 
