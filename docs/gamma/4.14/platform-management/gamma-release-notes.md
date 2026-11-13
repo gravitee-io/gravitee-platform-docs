@@ -96,7 +96,7 @@ Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtua
 
 ### Platform Management
 
-Platform Management encrypts the sensitive values of environment dictionaries.
+Platform Management encrypts the sensitive values of environment dictionaries. The design system that the Gamma console is built with defines where a test id lands on each of its base components.
 
 #### Encrypted dictionary properties
 
@@ -104,3 +104,11 @@ Platform Management encrypts the sensitive values of environment dictionaries.
 * The console masks an encrypted value and never shows it again, while policies still read the original value at runtime. To change an encrypted value in a manual dictionary, select **Replace value**.
 * A dynamic dictionary encrypts every value that it fetches from its provider when you select **Encrypt fetched values** while you create or edit it.
 * See [Encrypt property values](manage-dictionaries.md#encrypt-property-values).
+
+#### Test ids on the base components of the design system
+
+* The Gamma console is built with Gravitee's design system, whose base components ship in the `@gravitee/graphene-core` package. The design system now defines where the `data-testid` attribute that you set on a base component lands, and a test checks every base component.
+* Several components build the ids of the controls that they render themselves from yours. For example, when the content of a dialog has the id `plan-dialog`, its built-in close button has the id `plan-dialog-close`.
+* A base component renders no test id until you set one.
+* To give a success, error, warning, or info toast an id, pass the `testId` option when you show it. A `data-testid` on `Toaster` reaches no element.
+* See the [Graphene Storybook](https://graphene.gravitee.io/), where the page of each component under **Base** says where its id lands.
