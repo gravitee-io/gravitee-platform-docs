@@ -251,7 +251,7 @@ Configure gateway-wide connection pool limits for the AI vector store Redis reso
 
 Configure the node-level Redis cache (used for distributed caching across gateway instances) in `gravitee.yml`.
 
-The Redis cache plugin, `gravitee-node-cache-plugin-redis`, isn't bundled with APIM. Install the plugin version that matches your APIM version: for APIM 4.14, that's version 9.17.0. To use it, complete the following steps:
+The Redis cache plugin, `gravitee-node-cache-plugin-redis`, isn't bundled with APIM. Install the plugin version that matches the `gravitee-node` version of your gateway: for APIM 4.14.0, that's version 9.17.0. To use it, complete the following steps:
 
 1. Download [version 9.17.0 of the Redis cache plugin](https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-redis/gravitee-node-cache-plugin-redis-9.17.0.zip).
 2. Deploy the plugin on each gateway. For more information, see [Deploy plugins](../../plugins/deployment.md).
