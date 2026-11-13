@@ -56,6 +56,21 @@ In APIM 4.14, the reporter doesn't write to Elastic Cloud Serverless, and it doe
 
 From APIM 4.14, the reporter authenticates with an API key when `reporters.elasticsearch.security.api_key` is set. An API key and a username and password are mutually exclusive. When the cluster rejects the credentials with a `401` response, the reporter logs `Elasticsearch authentication failed (401)` and names the settings to check. For more information, see [Authenticate with an API key](../../prepare-a-production-environment/repositories/elasticsearch.md#authenticate-with-an-api-key).
 
+## Message API connections
+
+From APIM 4.14, the Gateway reports a message API connection in two documents in the v4 metrics and v4 log indices:
+
+* When the connection opens, a document with the ID `<request-id>:open` and the field `connection-phase` set to `open`.
+* When the connection ends, a document with the request ID. In the v4 metrics index, it has `connection-phase` set to `end`.
+
+The Management API reads both documents as one connection:
+
+* Counts, for example the number of requests, include a connection from its opening. A connection that's still open is counted.
+* Durations, for example the response time, are read from the end of the connection. A connection that's still open has no duration yet, instead of a duration of 0 ms.
+* The logs list a connection once: by its opening while it's open, and by its end after it ends.
+
+Connections reported before APIM 4.14 have one document only, and the Management API reads them as before. The index templates of APIM 4.14 map `connection-phase` as a `keyword`. For more information, see [APIM 4.14 Elasticsearch Index Template Changes](../../upgrade-guides/apim-4.14-elasticsearch-index-template-changes.md).
+
 ## Attach index lifecycle policies
 
 The reporter attaches no index lifecycle policy by default. To attach policies to the index templates that the reporter creates, configure the following settings in the Gateway `gravitee.yml` file:

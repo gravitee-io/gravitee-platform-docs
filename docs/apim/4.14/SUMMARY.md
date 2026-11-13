@@ -84,6 +84,7 @@
   * [MongoDB Index Management](upgrade-guides/mongodb-index-management.md)
   * [APIM 4.9 Elasticsearch Index Template Changes](upgrade-guides/apim-4.9-elasticsearch-index-template-changes.md)
   * [APIM 4.12 Elasticsearch Index Template Changes](upgrade-guides/apim-4.12-elasticsearch-index-template-changes.md)
+  * [APIM 4.14 Elasticsearch Index Template Changes](upgrade-guides/apim-4.14-elasticsearch-index-template-changes.md)
   * [Migrate v1 APIs to v2](upgrade-guides/migrate-v1-apis-to-v2.md)
   * [Tag and Tenant Key Migration](upgrade-guides/tag-key-migration-upgrade-procedure.md)
 * [How-To Guides](how-to-guides/README.md)

@@ -65,3 +65,6 @@ self-hosted-installation-guides/docker/README.md
 # Elasticsearch: API keys, Elastic Cloud Serverless, and data stream reads (FOUND-426)
 prepare-a-production-environment/repositories/elasticsearch.md
 prepare-a-production-environment/repositories/elasticsearch-data-streams.md
+
+# Message API connections in two documents: 4.14 index template changes (FOUND-465)
+upgrade-guides/apim-4.14-elasticsearch-index-template-changes.md
