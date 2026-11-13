@@ -19,13 +19,13 @@ The `targets` of an `AuthzPolicy` name the PDP gateways it's deployed to. Each t
 
 Without targets, the policy is deployed to the default engine on every Gateway. An MCP proxy asks the default engine only, so leave a policy for an MCP server or an MCP tool without targets, or include `default` or `*` in them.
 
-In `policyText`, name an MCP server as `MCPServer::"<id>"` and an MCP tool as `MCPTool::"<id>"`, where `<id>` is the entity ID of the server or the tool in the Catalog without its `mcp-server.` or `mcp-tool.` prefix. A policy that keeps the prefix is accepted with a warning, and doesn't match the requests of an MCP proxy.
+A policy that names an MCP server or an MCP tool by its Catalog entity ID, which starts with `mcp-server.` or `mcp-tool.`, is accepted with a warning. The warning gives the name to write instead.
 
-GKO checks the resource against the platform before it's admitted, then applies it. An `AuthzPolicy` with a `pdpRef` isn't applied until that `AuthzPdp` has synced. Until then, its `ResolvedRefs` condition is `False`, and GKO tries again later. Run `kubectl get authzpolicies` to see each policy's entity ID and status.
+GKO checks the resource against the platform before it's admitted, then applies it. An `AuthzPolicy` whose `pdpRef` names an `AuthzPdp` that hasn't synced yet is admitted with a warning and without that check, and isn't applied until the `AuthzPdp` has synced. Until then, its `ResolvedRefs` condition is `False`, and GKO tries again later. Run `kubectl get authzpolicies` to see each policy's entity ID and status.
 
 Deleting the resource removes the policy from its PDP gateways and deletes it. The entities it names are kept.
 
-Applying an `AuthzPolicy`, and deleting one that is deployed, takes one more permission than the other Authorization Management resources. See [Limit the permissions of the service account](../../guides/define-an-apim-service-account-for-gko.md#limit-the-permissions-of-the-service-account).
+Applying an `AuthzPolicy`, and deleting one that's deployed, requires an extra permission. See [Limit the permissions of the service account](../../guides/define-an-apim-service-account-for-gko.md#limit-the-permissions-of-the-service-account).
 
 ## Example
 
@@ -47,20 +47,6 @@ spec:
         name: orders-eu
 ```
 
-A policy for an MCP tool has no targets, and names the tool without the `mcp-tool.` prefix of its entity ID, `mcp-tool.github.create_issue`:
-
-```yaml
-  entityId: policy.github.create-issue
-  name: Engineering creates GitHub issues
-  policyType: MCP
-  policyText: |
-    permit(
-      principal in Group::"engineering",
-      action == Action::"github.create_issue",
-      resource == MCPTool::"github.create_issue"
-    );
-```
-
 ## Key fields
 
 | Field | Description |
@@ -79,4 +65,5 @@ A policy for an MCP tool has no targets, and names the tool without the `mcp-too
 * An `entityId` that another policy of the environment already has is refused, and the error names that policy.
 * A `policyText` that doesn't parse is refused. So is a policy template, which uses `?principal` or `?resource`.
 * Each target sets `pdpRef` or `scope`, not both. A `pdpRef` names an `AuthzPdp` that uses the same `ManagementContext`.
+* A `scope` that isn't `default`, `*`, or the routing scope of a registered PDP gateway is refused.
 * A policy that doesn't match the schema document of a PDP gateway in strict mode is refused.

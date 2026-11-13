@@ -47,7 +47,7 @@ Click **Create action**. The action appears in the Actions table.
 | **Action** | Display name |
 | **Entity ID** | The action name a request carries (for example, `invoke`). Click the copy icon to copy |
 | **Description** | Optional description text |
-| **Source** | Where the action came from: **Local**, **APIM**, **Gravitee Catalog**, or `automation` for an action declared through the Automation API |
+| **Source** | Where the action came from: **Local**, **APIM**, **Gravitee Catalog**, or **automation** for an action declared through the Automation API |
 
 ## Searching and filtering
 

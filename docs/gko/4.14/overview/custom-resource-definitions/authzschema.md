@@ -17,7 +17,7 @@ The `target` of an `AuthzSchema` names the PDP gateway that enforces the documen
 
 A PDP gateway holds one schema document: a target that another schema document already has is refused. Without `target`, the document is stored and reaches no PDP gateway.
 
-GKO checks the resource against the platform before it's admitted, then applies it. An `AuthzSchema` whose `pdpRef` names an `AuthzPdp` isn't applied until that `AuthzPdp` has synced. Until then, its `ResolvedRefs` condition is `False`, and GKO tries again later.
+GKO checks the resource against the platform before it's admitted, then applies it. An `AuthzSchema` whose `pdpRef` names an `AuthzPdp` that hasn't synced yet is admitted with a warning and without that check, and isn't applied until the `AuthzPdp` has synced. Until then, its `ResolvedRefs` condition is `False`, and GKO tries again later.
 
 The status reports the routing scope the document is published to. Run `kubectl get authzschemas` to see it.
 
@@ -67,5 +67,6 @@ A schema document for a PDP gateway that no `AuthzPdp` declares names it by rout
 * `spec.target` sets `pdpRef` or `scope`, not both.
 * `spec.target.scope` can't be `*`.
 * `pdpRef` names an `AuthzPdp` that uses the same `ManagementContext`.
+* A `scope` that isn't `default` or the routing scope of a registered PDP gateway is refused.
 * A schema text that doesn't parse is refused.
-* A declaration that conflicts with a schema document composed on the same PDP gateway is refused.
+* A document that conflicts with the schema document of another PDP gateway with the same `targetPdpId` is refused.
