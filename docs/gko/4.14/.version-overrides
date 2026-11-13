@@ -6,3 +6,14 @@
 SUMMARY.md
 .gitbook.yaml
 releases-and-changelog/release-notes/gko-4.13.md
+# Authorization Management resources: AuthzPdp, AuthzSchema, AuthzEntity, and AuthzPolicy (AUTHZ-8)
+overview/custom-resource-definitions/authzpdp.md
+overview/custom-resource-definitions/authzschema.md
+overview/custom-resource-definitions/authzentity.md
+overview/custom-resource-definitions/authzpolicy.md
+overview/custom-resource-definitions/README.md
+overview/drift-detection.md
+overview/admission-validation.md
+guides/define-an-apim-service-account-for-gko.md
+README.md
+releases-and-changelog/release-notes/gko-4.14.md
