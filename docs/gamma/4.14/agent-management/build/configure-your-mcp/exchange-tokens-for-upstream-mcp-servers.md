@@ -14,7 +14,7 @@ Before you add the policy, confirm the following:
 
 * Your license includes the **OAuth 2.0 Token Exchange** policy.
 * Consumers call the MCP Proxy with an access token in the `Authorization` header, for example through an **OAuth 2.0** or a **JWT** plan.
-* For a **JWT** plan, **Propagate Authorization header** is on. A new JWT plan starts with it off, and the gateway then removes the header before the policy runs. See [Configure a JWT plan](manage-mcp-proxy-plans.md#configure-a-jwt-plan).
+* For a **JWT** plan, **Propagate Authorization header** is on. A new JWT plan starts with it off, and the Gateway then removes the header before the policy runs. See [Configure a JWT plan](manage-mcp-proxy-plans.md#configure-a-jwt-plan).
 * Your authorization server supports token exchange, and it has a client that's allowed to use the `urn:ietf:params:oauth:grant-type:token-exchange` grant type.
 * The Gateway can reach the token endpoint of the authorization server.
 * On the **Endpoint** page of the MCP Proxy, **Upstream authentication** is set to **No upstream auth**. A static credential sent in the `Authorization` header replaces the exchanged token.

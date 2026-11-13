@@ -68,7 +68,7 @@ To configure a JWT plan, follow these steps:
     * **Check required scopes**. Turn it on to reject a token that misses a required scope, and then add each scope under **Required scopes**. The gateway reads the scopes from the `scope` claim of the token, or from its `scp` claim.
     * **Strict mode**. It's on by default, so a token needs every required scope. Turn it off to accept a token that has any one of them.
     * **Extract JWT claims**. Turn it on to put the claims of the token on the `jwt.claims` context attribute, for the policies that follow. It's off by default.
-    * **Propagate Authorization header**. A new plan starts with it off. After the gateway validates the token, it removes the `Authorization` header, so the policies that follow and the upstream don't receive it. Turn it on to keep the header on the request.
+    * **Propagate Authorization header**. A new plan starts with it off. After the gateway validates the token, it removes the `Authorization` header, so the policies that follow and the upstream don't receive it. Turn it on to keep the header on the request. On an MCP Studio, a source set to `Passthrough (forward caller token)` forwards the header only while this switch is on.
 
 The gateway fetches a JWKS URL directly, without a proxy server and without following redirects, and stops waiting after 2 seconds.
 
