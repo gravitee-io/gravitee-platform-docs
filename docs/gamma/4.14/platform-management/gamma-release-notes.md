@@ -6,6 +6,12 @@ description: What the Gamma 4.14 release adds to Agent Management, Edge Manageme
 
 For release and end-of-life dates, see [Support Model](https://documentation.gravitee.io/apim/release-information/support-model).
 
+## 4.14 breaking changes and deprecations
+
+#### **Alpine Linux images of the Gateway and the Management API are deprecated**
+
+From 4.14.0, the `graviteeio/apim-gateway` and `graviteeio/apim-management-api` images are also published with `-alpine` tags, which point to the same images as the tags without a suffix. The March 2027 release of APIM moves the tags without a suffix, including `latest`, to the Debian image. The June 2027 release stops publishing Alpine Linux images of these two components. To stay on Alpine Linux until then, switch to the `-alpine` tags. To move to Debian, use the `-debian` tags, and check how the Debian image differs before you switch. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#alpine-linux-images-of-the-gateway-and-the-management-api-are-deprecated).
+
 ## 4.14 new features
 
 The 4.14 release adds the following capabilities.
