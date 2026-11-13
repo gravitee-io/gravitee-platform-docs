@@ -8,6 +8,20 @@ description: The breaking changes and deprecations in Gamma 4.13 and 4.14 that c
 
 Here are the breaking changes for versions 4.X of Gamma, grouped by module. Gamma runs on API Management, so the changes to the Gateway, the Management API, the Automation API, the Developer Portal, and the Helm chart also apply to Gamma. For those changes, see the API Management [Breaking Changes and Deprecations](https://documentation.gravitee.io/apim/release-information/breaking-changes-and-deprecations) page.
 
+### 4.14.0
+
+The following breaking change applies from Gamma 4.14.0.
+
+#### Agent Management
+
+**JWT plans created in the Gamma console for MCP Proxies and MCP Studios remove the `Authorization` header**
+
+From 4.14.0, a JWT plan that you create in the Gamma console for an MCP Proxy or MCP Studio starts with **Propagate Authorization header** off. This applies to the plan that a creation wizard makes for the **JWT** method and to a plan that you create on the **Plans** page. After the Gateway validates the token, it removes the `Authorization` header from the request, so the policies that follow and the upstream don't receive it. In 4.13, a new JWT plan had no such setting and kept the header.
+
+Plans created before the upgrade keep their behavior. When you edit a plan that kept the header, **Propagate Authorization header** is on.
+
+After you upgrade, check each new JWT plan. Turn on **Propagate Authorization header** in its **Advanced settings** when the upstream or a policy reads the consumer's token from the `Authorization` header. The token exchange in [Exchange tokens for upstream MCP servers](../agent-management/build/configure-your-mcp/exchange-tokens-for-upstream-mcp-servers.md) reads it there. On an MCP Studio, a source set to `Passthrough (forward caller token)` forwards the header only while the switch is on. For more information, see [Configure a JWT plan](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md#configure-a-jwt-plan).
+
 ### 4.13.0
 
 #### API Management
