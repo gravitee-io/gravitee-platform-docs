@@ -57,3 +57,7 @@ prepare-a-production-environment/disaster-recovery-backup-and-restore.md
 
 # Kafka Gateway: routingPortMode.secured is 4.14 only (ESM-359)
 kafka-gateway/configure-the-kafka-client-and-gateway.md
+
+# Alpine Linux images of the Gateway and the Management API deprecated from 4.14.0 (FOUND-452)
+release-information/breaking-changes-and-deprecations.md
+self-hosted-installation-guides/docker/README.md

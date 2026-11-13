@@ -14,6 +14,8 @@ MCP Resources are not created manually. Instead, they are automatically discover
 
 When you register an MCP server (see [Register an MCP server](register-an-mcp-server.md)), Gamma inspects the server's exposed capabilities. If the server exposes resources (such as database schemas, application logs, or files), Gamma automatically catalogs them. 
 
+For a server that you import manually, the resources come from the `resources/list` response you supply, and the **MCP Resources** list shows **Manual** in their **Import** column. See [Import an MCP server manually](import-an-mcp-server-manually.md).
+
 No additional import steps are required. The resources appear in the Catalog as part of the MCP server registration flow.
 
 To review cataloged resources:

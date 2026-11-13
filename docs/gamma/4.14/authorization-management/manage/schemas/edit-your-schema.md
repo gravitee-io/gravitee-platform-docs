@@ -21,9 +21,9 @@ Before you create a document, make sure of the following:
 | Create a document with **New document** | `ENVIRONMENT_AUTHZ_SCHEMA[CREATE]` |
 | Edit and save a document | `ENVIRONMENT_AUTHZ_SCHEMA[UPDATE]` |
 | Delete a document | `ENVIRONMENT_AUTHZ_SCHEMA[DELETE]` |
-| List PDP gateways in **PDP gateway** | `ENVIRONMENT_AUTHORIZATION[READ]` |
+| List PDP gateways in **PDP gateway** | `ENVIRONMENT_AUTHZ_PDP[READ]` |
 
-Without `ENVIRONMENT_AUTHORIZATION[READ]`, **PDP gateway** offers only **Unassigned** and the **Bootstrap PDP**.
+Without `ENVIRONMENT_AUTHZ_PDP[READ]`, **PDP gateway** offers only **Unassigned** and the **Bootstrap PDP**.
 
 ## Create a schema document
 

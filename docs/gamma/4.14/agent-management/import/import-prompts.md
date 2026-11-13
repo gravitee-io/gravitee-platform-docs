@@ -14,6 +14,8 @@ Prompt templates are not created manually in Gamma. Instead, they are automatica
 
 When you register an MCP server (see [Register an MCP server](register-an-mcp-server.md)), Gamma automatically discovers any Prompt templates it exposes according to the Model Context Protocol.
 
+For a server that you import manually, the prompts come from the `prompts/list` response you supply, and the **Prompts** list shows **Manual** in their **Import** column. See [Import an MCP server manually](import-an-mcp-server-manually.md).
+
 Each cataloged prompt records:
 
 | Field                  | Description                                                                                                  |
