@@ -1,5 +1,5 @@
 ---
-description: The Elasticsearch connector for API Management 4.13 uses the HTTP API that Elasticsearch instances expose. Learn how to configure it.
+description: The Elasticsearch connector for API Management 4.14 uses the HTTP API that Elasticsearch instances expose. Learn how to configure it.
 ---
 
 # ElasticSearch
@@ -32,7 +32,7 @@ The following prerequisites are required for OpenSearch or Elasticsearch integra
 
 ### APIM API configuration
 
-The ElasticSearch client does not support URL schemes in the format `http://USERNAME:PASSWORD@server.org`. You must provide the username and password using the `analytics.elasticsearch.security.username` and `analytics.elasticsearch.security.password` properties.
+The Elasticsearch client does not support URL schemes in the format `http://USERNAME:PASSWORD@server.org`. You must provide the username and password using the `analytics.elasticsearch.security.username` and `analytics.elasticsearch.security.password` properties, or an API key using the `analytics.elasticsearch.security.api_key` property.
 
 ```yaml
 analytics:
@@ -41,10 +41,12 @@ analytics:
     endpoints:
       - http://localhost:9200
 #    index: gravitee
-#    index_mode: daily    # "daily" indexes, suffixed with date. Or "ilm" managed indexes, without date
+#    index_mode: daily    # "daily" indexes, suffixed with date. Or "ilm" managed indexes, or "data_stream" data streams, both without date
+#    flavor: auto         # "auto" detects Elastic Cloud Serverless from the cluster. Or "classic", or "serverless"
 #    security:
 #       username:
 #       password:
+#       api_key:          # Instead of username and password. Do not set both.
 #    ssl:                        # for https es connection
 #      keystore:
 #        type: jks               # required. also valid values are "pem", "pfx"
@@ -64,6 +66,7 @@ reporters:
       - http://${ds.elastic.host}:${ds.elastic.port}
 #    index: gravitee
 #    index_mode: daily    # "daily" indexes, suffixed with date. Or "ilm" managed indexes, without date
+#    flavor: auto         # "auto" detects Elastic Cloud Serverless from the cluster. Or "classic", or "serverless"
 #    cluster: elasticsearch
 #    bulk:
 #      actions: 1000           # Number of requests action before flush
@@ -75,6 +78,10 @@ reporters:
 #    pipeline:
 #      plugins:
 #        ingest: geoip
+#    security:
+#      username:
+#      password:
+#      api_key:           # Instead of username and password. Do not set both.
 #    ssl:                        # for https es connection
 #      keystore:
 #        type: jks               # required. also valid values are "pem", "pfx"
@@ -83,6 +90,58 @@ reporters:
 #        certs: 'path/to/cert'      # only for pems
 #        keys: 'path/to/key'        # only for pems
 ```
+
+## Authenticate with an API key
+
+From APIM 4.14, the Gateway reporter and the Management API can authenticate to Elasticsearch with an API key instead of a username and password. For example, use an API key for Elastic Cloud Serverless.
+
+* Set the encoded value of the API key, as Elasticsearch returns it in the `encoded` field, in `reporters.elasticsearch.security.api_key` for the Gateway and in `analytics.elasticsearch.security.api_key` for the Management API.
+* An API key and a username and password are mutually exclusive. When both are configured, the Gateway and the Management API don't start.
+* The OpenTelemetry traces and logs readers of the Management API accept the same `security.api_key` setting in their own `elasticsearch` configuration.
+
+With Helm, set `es.security.apiKey`. The chart renders it as `security.api_key` for both the Gateway reporter and the Management API, whatever the value of `es.security.enabled`, and it doesn't render `es.security.username` and `es.security.password`. For the OpenTelemetry readers, set `api.otelTraces.elasticsearch.security.apiKey` and `api.otelLogs.elasticsearch.security.apiKey`.
+
+{% hint style="warning" %}
+The chart writes the value of `es.security.apiKey` in clear text in the ConfigMap of each component. It doesn't read the API key from a Kubernetes Secret.
+{% endhint %}
+
+## Elastic Cloud Serverless
+
+From APIM 4.14, the Gateway reporter and the Management API detect whether they connect to Elastic Cloud Serverless or to a classic cluster, and adapt to it. This is the cluster flavor.
+
+### Set the flavor
+
+The `flavor` setting accepts the following values:
+
+| Value | Behavior |
+| ----- | -------- |
+| `auto` | Default. The flavor is read from the `build_flavor` that the cluster returns. `serverless` means Elastic Cloud Serverless. Any other value means a classic cluster. |
+| `classic` | The cluster is treated as a classic Elasticsearch or OpenSearch cluster, without detection. |
+| `serverless` | The cluster is treated as Elastic Cloud Serverless, without detection. |
+
+Set it in `reporters.elasticsearch.flavor` for the Gateway and in `analytics.elasticsearch.flavor` for the Management API. With any other value, the Gateway reporter stays inactive and logs an error, and the Management API doesn't start.
+
+### Gateway reporter on Elastic Cloud Serverless
+
+{% hint style="danger" %}
+In APIM 4.14, the Elasticsearch reporter doesn't write to Elastic Cloud Serverless. When the cluster is Elastic Cloud Serverless, the reporter stays inactive: the Gateway serves API traffic, but it doesn't report analytics to Elasticsearch. To send analytics to Elastic Cloud Serverless, use another writer, for example the [TCP reporter](../../analyze-and-monitor-apis/reporters/tcp-reporter.md) with Logstash. For more information, see [Read analytics from data streams](elasticsearch-data-streams.md).
+{% endhint %}
+
+For the startup checks of the reporter, see [Elasticsearch Reporter](../../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#cluster-flavor-and-startup-checks).
+
+### Management API on Elastic Cloud Serverless
+
+On Elastic Cloud Serverless, the Management API always reads analytics from data streams, whatever the value of `analytics.elasticsearch.index_mode`. When `index_mode` is set to `daily` or `ilm`, the Management API ignores it and logs a warning. To remove the warning, remove the setting or set it to `data_stream`.
+
+Elastic Cloud Serverless doesn't expose the `_mapping/field` API. In data stream mode, the Management API reads field types with the `_field_caps` API instead.
+
+## Read analytics from data streams
+
+From APIM 4.14, the Management API can read analytics from data streams instead of dated or ILM-managed indices. This works on Elastic Cloud Serverless and on classic Elasticsearch and OpenSearch clusters. Set `analytics.elasticsearch.index_mode` to `data_stream`. On Elastic Cloud Serverless, this mode applies by default.
+
+In this mode, the Management API reads the data stream named `<index>-<type>` for each type of analytics, for example `gravitee-v4-metrics`. The `{orgId}` and `{envId}` placeholders in `analytics.elasticsearch.index` are replaced as in the other modes.
+
+The Gateway reporter doesn't write to data streams. The data streams must be filled by another writer. For the setup and the limitations, see [Read analytics from data streams](elasticsearch-data-streams.md).
 
 ## Index management with ES Curator
 
