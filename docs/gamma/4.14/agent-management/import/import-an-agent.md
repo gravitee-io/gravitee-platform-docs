@@ -13,9 +13,9 @@ Agents in the Catalog represent autonomous systems that perform tasks. You can r
 You can register any agent that exposes its capabilities via an A2A-compliant Agent Card (`/.well-known/agent-card.json`).
 
 1. In the Gamma console, open **Agent Management**.
-2. Navigate to the **Catalog** → **Agents** list.
-3. Select **Add Agent**.
-4. Enter the **Endpoint URL** for the agent (e.g., `https://agents.example.com/a2a/flight-status`).
+2. In the sidebar, under **Catalog**, click **Agents**.
+3. Click **Register agent**.
+4. Enter the **Endpoint URL** for the agent (for example, `https://agents.example.com/a2a/flight-status`).
 5. Select **Fetch card** to automatically retrieve the agent's capabilities, skills, and metadata.
    - *Note: If the agent endpoint requires authentication to fetch the card, you can supply transient credentials under the **Authentication** section (Header or OAuth client credentials). These credentials are only used to fetch the card and are never stored on the agent in the catalog.*
 6. Review the pre-filled fields:
