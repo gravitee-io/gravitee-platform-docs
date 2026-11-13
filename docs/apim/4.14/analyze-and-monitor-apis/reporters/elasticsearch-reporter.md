@@ -1,5 +1,5 @@
 ---
-description: Send API Management 4.13 Gateway events to Elasticsearch with the Elasticsearch reporter. Find the configuration details you need.
+description: Send API Management 4.14 Gateway events to Elasticsearch with the Elasticsearch reporter. Find the configuration details you need.
 metaLinks:
   alternates:
     - elasticsearch-reporter.md
@@ -22,6 +22,39 @@ To diagnose and resolve the state:
 * After you resolve the cluster-side issue, restart the Gateway. The reporter registers the pipeline only at startup.
 
 To stop the warnings while you investigate, set `reporters.elasticsearch.enabled` to `false` in the Gateway `gravitee.yml` file. This setting disables all analytics reporting to Elasticsearch until you re-enable it and restart the Gateway.
+
+## Cluster flavor and startup checks
+
+From APIM 4.14, the reporter reads the flavor of the cluster at startup: a classic Elasticsearch or OpenSearch cluster, or Elastic Cloud Serverless. By default, `reporters.elasticsearch.flavor` is `auto` and the reporter detects the flavor from the cluster. Set it to `classic` or `serverless` to skip the detection. For more information, see [Elastic Cloud Serverless](../../prepare-a-production-environment/repositories/elasticsearch.md#elastic-cloud-serverless).
+
+When it starts, the reporter writes one `INFO` line that summarizes its configuration:
+
+```
+Elasticsearch reporter: flavor [classic] (detected), authentication [api_key], index mode [daily], disabled by the flavor [none]
+```
+
+* `flavor`: `classic` or `serverless`, followed by `detected` or `configured`.
+* `authentication`: `api_key`, `basic`, or `none`.
+* `index mode`: the index mode the reporter applies.
+* `disabled by the flavor`: the settings the flavor ignores. On Elastic Cloud Serverless, these are the index settings (`number_of_shards`, `number_of_replicas`, `refresh_interval`) and the lifecycle policies.
+
+The reporter stays inactive, and logs an `ERROR` line that names the setting at fault, in the following cases:
+
+| Case | Error |
+| ---- | ----- |
+| `reporters.elasticsearch.flavor` has a value other than `auto`, `classic`, or `serverless` | Unknown value for `reporters.elasticsearch.flavor` |
+| `reporters.elasticsearch.index_mode` is `data_stream` on a classic cluster | `data_stream` is only supported on Elastic Cloud Serverless |
+| `reporters.elasticsearch.index_mode` is `daily` or `ilm` on Elastic Cloud Serverless | Elastic Cloud Serverless manages indices itself |
+| A `reporters.elasticsearch.lifecycle.policies.*` setting is set on Elastic Cloud Serverless | Elastic Cloud Serverless manages data retention itself |
+| Any other configuration on Elastic Cloud Serverless | The Elastic Cloud Serverless index setup isn't available in this version |
+
+{% hint style="danger" %}
+In APIM 4.14, the reporter doesn't write to Elastic Cloud Serverless, and it doesn't write to data streams on a classic cluster. When the reporter is inactive, the Gateway serves API traffic but doesn't report analytics to Elasticsearch. To fill data streams, use another writer. For more information, see [Read Analytics from Data Streams](../../prepare-a-production-environment/repositories/elasticsearch-data-streams.md).
+{% endhint %}
+
+## Authenticate with an API key
+
+From APIM 4.14, the reporter authenticates with an API key when `reporters.elasticsearch.security.api_key` is set. An API key and a username and password are mutually exclusive. When the cluster rejects the credentials with a `401` response, the reporter logs `Elasticsearch authentication failed (401)` and names the settings to check. For more information, see [Authenticate with an API key](../../prepare-a-production-environment/repositories/elasticsearch.md#authenticate-with-an-api-key).
 
 ## Attach index lifecycle policies
 

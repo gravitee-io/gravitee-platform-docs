@@ -556,6 +556,7 @@
     * [Hazelcast Rate-Limit Repository Restrictions and Known Limitations](prepare-a-production-environment/repositories/hazelcast-rate-limit-repository-restrictions-and-known-limitations.md)
     * [MongoDB](prepare-a-production-environment/repositories/mongodb.md)
     * [ElasticSearch](prepare-a-production-environment/repositories/elasticsearch.md)
+    * [Read Analytics from Data Streams](prepare-a-production-environment/repositories/elasticsearch-data-streams.md)
     * [JDBC](prepare-a-production-environment/repositories/jdbc.md)
     * [Apply schema migrations manually](prepare-a-production-environment/repositories/apply-schema-migrations-manually.md)
     * [Redis](prepare-a-production-environment/repositories/redis.md)

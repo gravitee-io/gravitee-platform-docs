@@ -29,6 +29,16 @@ APIM 4.14 adds the following features.
 * A user becomes a member when an administrator adds them to an AI Workspace in Agent Management.
 * For more information, see [Show AI Workspaces in the Developer Portal](../../developer-portal/new-developer-portal/show-ai-workspaces-in-the-developer-portal.md).
 
+#### **Elasticsearch: API keys, Elastic Cloud Serverless, and data streams**
+
+* The Gateway reporter and the Management API authenticate to Elasticsearch with an API key, set in `security.api_key`, or in `es.security.apiKey` with Helm. An API key and a username and password are mutually exclusive.
+* The Gateway reporter and the Management API detect Elastic Cloud Serverless from the cluster. The `flavor` setting forces the detection with `classic` or `serverless`. At startup, the reporter logs one line with its flavor, authentication, and index mode.
+* The Management API reads analytics from data streams named `<index>-<type>` with `analytics.elasticsearch.index_mode: data_stream`, on Elastic Cloud Serverless, where this mode applies by default, and on classic clusters. With Helm, `api.analytics.elasticsearch.index_mode` sets this mode for the Management API alone.
+* The `gravitee-apim-distribution-es-index-mappings` ZIP file publishes data stream index templates in its `serverless/` folder.
+* The Gateway reporter doesn't write to data streams. It stays inactive on Elastic Cloud Serverless, and rejects `data_stream` on classic clusters. Data streams must be filled by another writer, for example Logstash.
+* APIM doesn't migrate existing analytics to data streams, and the Management API doesn't read dated indices and data streams together. On Elastic Cloud Serverless, APIM doesn't set the retention of the data streams.
+* For more information, see [Read Analytics from Data Streams](../../prepare-a-production-environment/repositories/elasticsearch-data-streams.md) and [ElasticSearch](../../prepare-a-production-environment/repositories/elasticsearch.md).
+
 #### **Kafka Gateway**
 
 * A native Kafka API endpoint group can set **Backend metadata max age (seconds)** on its **Configuration** tab. With a value above `0`, each gateway instance sends its own all-topics metadata request to the brokers at most about once per that many seconds, instead of on every new client connection. The field is empty by default, which applies the gateway-wide default of `0`: one request per connection, as before.

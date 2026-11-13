@@ -61,3 +61,7 @@ kafka-gateway/configure-the-kafka-client-and-gateway.md
 # Alpine Linux images of the Gateway and the Management API deprecated from 4.14.0 (FOUND-452)
 release-information/breaking-changes-and-deprecations.md
 self-hosted-installation-guides/docker/README.md
+
+# Elasticsearch: API keys, Elastic Cloud Serverless, and data stream reads (FOUND-426)
+prepare-a-production-environment/repositories/elasticsearch.md
+prepare-a-production-environment/repositories/elasticsearch-data-streams.md
