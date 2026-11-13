@@ -19,6 +19,8 @@ The default `graviteeio/apim-gateway` and `graviteeio/apim-management-api` image
 * `<version>-debian`, built on Debian 13 with the Eclipse Temurin 25 JRE.
 * `<version>-chainguard`, built on the [Chainguard](https://images.chainguard.dev/) Adoptium OpenJDK 25 JRE image.
 
+The default images are also tagged `<version>-alpine`. The Alpine Linux images of the Gateway and the Management API are deprecated: the March 2027 release moves the tags without a suffix to the Debian image. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md#alpine-linux-images-of-the-gateway-and-the-management-api-are-deprecated).
+
 The `graviteeio/apim-management-ui` and `graviteeio/apim-portal-ui` images are built on Alpine Linux with Nginx. Both also ship as a `<version>-chainguard` variant, built on the Chainguard Nginx image.
 
 Each component also ships a FIPS variant, for deployments that require FIPS 140-3 validated cryptography. It constrains which keystore formats load, so read the page before switching to it.

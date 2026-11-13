@@ -100,6 +100,8 @@ To re-sync a server, follow these steps:
 
 The action reads **Re-syncing…** while the request is in flight. On success the console reports the server name and how many tools it found.
 
+A server that you imported manually has no **Re-sync** action, because the control plane doesn't connect to it. Its actions menu and its detail page show **Update capabilities** in its place. See [Update the capabilities of a manual import](import-an-mcp-server-manually.md#update-the-capabilities-of-a-manual-import).
+
 Re-sync fails and changes nothing in the following cases:
 
 * No MCP server was imported for that source.

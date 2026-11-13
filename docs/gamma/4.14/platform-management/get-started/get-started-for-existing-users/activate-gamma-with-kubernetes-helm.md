@@ -8,7 +8,7 @@ description: Activate Gamma on an existing Kubernetes deployment of Gravitee wit
 Gravitee Gamma is Gravitee's next-generation unified control plane. It brings API Management, Event Management, Agent Management, Authorization Management, and Platform Management together in a single console, so you manage your APIs, Kafka streams, AI agents and MCP servers, and authorization policies from one place.
 
 {% hint style="warning" %}
-Gamma ships in 4.13. Activating Gamma moves your deployment to that build. Use this for development and quick-start purposes only. For best practices for production environments, contact your Technical Account Manager.
+Gamma is available from APIM 4.12. These steps use the 4.14 build, and activating Gamma moves your deployment to it. Use this for development and quick-start purposes only. For best practices for production environments, contact your Technical Account Manager.
 {% endhint %}
 
 ## Overview
@@ -19,11 +19,13 @@ If you already run Gravitee API Management with the Helm chart, you turn Gamma o
 
 Add the following to your existing `values.yaml`, then run `helm upgrade`.
 
+Gamma needs the Management API, so keep `apim.dbLess` set to `false`, which is the default. If `apim.dbLess` is `true`, the chart deploys neither the Gamma ingress nor the Gamma console.
+
 {% hint style="warning" %}
 If your `values.yaml` enables the `mongodb` or `elasticsearch` subchart, those subcharts are deprecated from APIM 4.13.0, and APIM 4.15.0 removes them. For more information, see [Breaking Changes and Deprecations](https://documentation.gravitee.io/apim/release-information/breaking-changes-and-deprecations).
 {% endhint %}
 
-1. Use the Gamma build. Set the image tags for `api`, `gateway`, `ui`, and `portal` to `4.13`.
+1. Use the Gamma build. Set the image tags for `api`, `gateway`, `ui`, and `portal` to `4.14`.
 2. Turn on Gamma:
 
    ```yaml
@@ -46,25 +48,57 @@ If your `values.yaml` enables the `mongodb` or `elasticsearch` subchart, those s
        - name: gravitee_http_cookie_secure
          value: "false"
    ```
-4. Add the Gamma console:
+4. Expose the Gamma endpoint of the Management API at `/gamma`. The Gamma ingress is off by default, and it has its own host settings, so it doesn't inherit the host of your management ingress. Add the following under the same `api` key as the previous step. Replace `<your host>` with your hostname, and set `ingressClassName` and `tls` to match your `api.ingress.management` settings:
+
+   ```yaml
+   api:
+     ingress:
+       gamma:
+         enabled: true
+         ingressClassName: nginx
+         path: /gamma
+         hosts:
+           - <your host>
+         # tls:
+         #   - hosts:
+         #       - <your host>
+         #     secretName: <your TLS secret>
+   ```
+
+   If you leave `hosts` out, the Gamma ingress uses the chart default, `apim.example.com`, and requests to `/gamma` on your own host return a 404.
+
+   If you route traffic with the Kubernetes Gateway API, add an HTTPRoute in place of the ingress. Replace `<your gateway>` with the name of your Gateway resource, and `<your host>` with your hostname:
+
+   ```yaml
+   api:
+     httpRoute:
+       gamma:
+         enabled: true
+         gatewayName: <your gateway>
+         pathMatchType: PathPrefix
+         path: /gamma
+         hostnames:
+           - <your host>
+   ```
+5. Add the Gamma console. Replace `<your Gamma API URL>` with the full URL of the Gamma endpoint from the previous step, including the scheme, for example `https://apim.example.com/gamma`:
 
    ```yaml
    gammaUi:
      enabled: true
      image:
        repository: graviteeio/gamma-ui
-       tag: "4.13"
+       tag: "4.14"
      app:
-       gammaBaseURL: "<your host>/gamma"
+       gammaBaseURL: "<your Gamma API URL>"
      env:
        - name: GAMMA_CONSOLE_BASE_HREF
          value: /
    ```
-5. Apply the change. Replace `<release-name>` and `<namespace>`:
+6. Apply the change. Replace `<release-name>` and `<namespace>`:
 
    ```bash
    helm upgrade <release-name> graviteeio/apim \
-     --version 4.13.x --devel \
+     --version 4.14.x --devel \
      --namespace <namespace> \
      -f values.yaml
    ```
@@ -72,7 +106,7 @@ If your `values.yaml` enables the `mongodb` or `elasticsearch` subchart, those s
 {% hint style="warning" %}
 **Gamma uses two Helm flags**
 
-* `gamma.enabled` is the global master switch (default `false`). It turns Gamma on in the Management API and unlocks the Gamma ingress and the Gamma console deployment.
+* `gamma.enabled` is the global master switch (default `false`). It turns Gamma on in the Management API and unlocks the Gamma ingress and the Gamma console deployment. The Gamma ingress also needs `api.ingress.gamma.enabled: true`.
 * `gammaUi.enabled` is the per-component switch for the Gamma console (default `false`). It deploys the `graviteeio/gamma-ui` console.
 
 When `gamma.enabled` is `true`, you choose which components to deploy:

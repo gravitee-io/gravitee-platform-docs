@@ -394,6 +394,36 @@ kafka:
 
 An endpoint group, a Kafka cluster, or a Virtual Cluster that sets its own **Backend metadata max age (seconds)** overrides this default. See [Bound the gateway's own metadata requests](create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md#bound-the-gateways-own-metadata-requests). With the Helm chart, set `gateway.kafka.backendMetadataMaxAge` and `gateway.kafka.mesh.refreshConnectionReuse`.
 
+### Configure the backend login pool
+
+{% hint style="info" %}
+Available from APIM 4.13.4.
+{% endhint %}
+
+When the Gateway connects a client to a Kafka cluster that it authenticates to with the `SASL_PLAINTEXT` or `SASL_SSL` security protocol, it prepares its login to that cluster. With the `OAUTHBEARER` mechanism, this step can call the token endpoint. Each Gateway instance runs this step on a dedicated pool of threads, separate from the threads that serve client connections and shared by all native Kafka APIs. Connections that use the `NONE` or `DELEGATE_TO_BROKER` mechanism don't use the pool. Neither do the other connections that the Gateway opens to a Kafka cluster, for example to read the metadata of a Virtual Cluster.
+
+The following keys size the pool in `gravitee.yml`:
+
+| Key | Default | Description |
+| --- | --- | --- |
+| `kafka.backendLogin.threads` | `4` | Number of threads in the pool. |
+| `kafka.backendLogin.queueCapacity` | `64` | Capacity of the queue where logins wait for a thread. |
+
+```yaml
+kafka:
+  backendLogin:
+    threads: 4
+    queueCapacity: 64
+```
+
+The following behavior applies to the pool:
+
+* One API uses at most half of the threads at a time, and keeps at most half of the queue capacity waiting. Each half is at least one.
+* A login beyond these limits is refused, and the Gateway closes the client connection. The Gateway reports refused logins in a warning that contains `backend login(s) rejected`. The warning is rate limited, and it carries the number of logins refused and the key or keys to raise.
+* A value below `1` is ignored. The Gateway logs a warning and uses the default.
+
+Keep the defaults unless the warning appears under your usual load. With the Helm chart, set `gateway.kafka.backendLogin.threads` and `gateway.kafka.backendLogin.queueCapacity`.
+
 ## Configure the Kafka client
 
 To use the Kafka Gateway, you use a regular Kafka client. There are many implementations of the Kafka client, and you can use any client that supports the full Kafka protocol.
@@ -587,6 +617,11 @@ kafka:
   backendMetadataMaxAge: 0 # Seconds (0 to 3600) a gateway instance reuses its own all-topics metadata request to a backend. Default is 0: every new client connection sends it
   mesh:
     refreshConnectionReuse: true # Virtual Cluster metadata refreshes reuse one connection per backend when the max age is above 0. Default is true
+
+  # Backend login pool. See Configure the backend login pool above.
+  backendLogin:
+    threads: 4             # Threads in the pool. Default is 4
+    queueCapacity: 64      # Capacity of the queue where logins wait for a thread. Default is 64
 
   # Kafka metrics
   metrics:
