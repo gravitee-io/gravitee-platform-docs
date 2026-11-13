@@ -129,7 +129,7 @@ A message confirms **Closed** followed by the plan name, and the plan moves to t
 
 ## Deploy the change
 
-Publishing or closing a plan marks the proxy out of sync. Creating, renaming, or deprecating a plan doesn't. The proxy shows the **This API is out of sync** banner until you deploy it. Click **Deploy** on the banner, optionally enter a **Deployment label**, and then click **Deploy** in the **Deploy your API** dialog.
+Publishing or closing a plan marks the proxy out of sync. Creating, renaming, or deprecating a plan doesn't. The proxy shows the **This A2A proxy is out of sync** banner until you deploy it. Click **Deploy** on the banner, fill in **Deployment label (optional)** if you want one, and then click **Deploy** in the **Deploy your A2A proxy** dialog.
 
 ## Verification
 

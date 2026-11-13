@@ -18,6 +18,8 @@ This is the most common way to bring external MCP servers into Gamma's governanc
 4. **Select server**: Enter the Streamable HTTP endpoint URL of your MCP server (e.g., `https://mcp.example.com/mcp`).
 5. Click **Verify URL** to verify the endpoint and discover its available capabilities.
 
+The wizard opens with **Import from discovery** selected, and these steps follow it. For a server in a private network that the control plane can't reach, select **Import manually** and follow [Import an MCP server manually](import-an-mcp-server-manually.md). When **Verify URL** ends with **Connection failed.**, click **Import capabilities manually instead** to switch to the manual import. The wizard keeps the URL you entered.
+
 ## Step 2: Configure connection
 
 If your server requires authentication to discover its capabilities, select an authentication method:
@@ -56,6 +58,13 @@ The MCP server appears in the Catalog with its metadata:
 | **Last sync**         | Timestamp of the most recent catalog refresh.                                             |
 
 The **Overview** card of the server's detail page shows the versions the gateway uses with it as **MCP versions used by the gateway**. It shows the version the server reported as **Discovered protocol version**. To change the versions, click **Configure**. See [Configure MCP specification versions](../build/configure-your-mcp/configure-mcp-specification-versions.md).
+
+The **MCP Servers** list and the **Overview** card show how the server reached the Catalog as **Import**:
+
+* **Remote**. The control plane read the server through discovery, and **Re-sync** refreshes it.
+* **Manual**. You supplied its capabilities, and nothing keeps them in sync with the server. The **Overview** card shows **Declared protocol version** in place of **Discovered protocol version**. See [Import an MCP server manually](import-an-mcp-server-manually.md).
+
+The **Tools**, **Prompts**, and **MCP Resources** lists show the same **Import** value for the items of the server.
 
 ## Change the connection settings of a registered server
 

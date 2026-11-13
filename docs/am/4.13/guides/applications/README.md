@@ -52,7 +52,7 @@ The Application list endpoint supports the following query parameters for filter
 | `status` | string | — | Filter by status. Values: `enabled`, `disabled` |
 | `owner.email` | string | — | Filter by owner email address. Requires `ORGANIZATION_USER[READ]` permission. |
 | `expand` | array[string] | — | Fields to expand. Supported: `clientId` |
-| `q` | string | — | Search query (supports wildcard `*`) |
+| `q` | string | — | Search query (supports wildcard `*`). From AM 4.13.3, all other characters match literally. |
 | `type` | array[string] | — | Filter by type. Values: `WEB`, `NATIVE`, `BROWSER`, `SERVICE`, `RESOURCE_SERVER`, `AGENT` |
 | `limit` | integer | 50 | Maximum results per page |
 | `sort` | string | `updatedAt` | Sort field. Supported: `updatedAt`, `name` |

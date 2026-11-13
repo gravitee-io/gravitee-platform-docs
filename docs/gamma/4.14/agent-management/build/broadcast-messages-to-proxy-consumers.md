@@ -19,7 +19,7 @@ Each LLM Proxy, MCP Proxy, and A2A Proxy detail view includes a **Broadcasts** p
 
 Until you compose a broadcast, the page shows an introduction to broadcasts instead of the form.
 
-The **Broadcasts** item appears in the proxy sidebar only when you're allowed to read broadcasts. The **Compose broadcast** button appears only when you're allowed to send them. Without the send permission, the page shows **You do not have permission to send broadcast messages for this API.**
+The **Broadcasts** item appears in the proxy sidebar only when you're allowed to read broadcasts. The **Compose broadcast** button appears only when you're allowed to send them. Without the send permission, the page shows **You do not have permission to send broadcast messages for this LLM proxy.**, with the type of proxy you opened.
 
 ## Send a broadcast
 

@@ -85,8 +85,8 @@ To route requests by the share of budget spent, complete the following steps:
 
 9. For the **Weighted - share out by the weights below** strategy, set the **Weight** of each model.
 10. Click **Save**.
-11. In the **This API is out of sync** banner, click **Deploy**.
-12. In the **Deploy your API** dialog, click **Deploy**.
+11. In the **This AI workspace is out of sync** banner, click **Deploy**.
+12. In the **Deploy your AI workspace** dialog, click **Deploy**.
 
 Saving writes the router to every budget of the workspace, and a budget you create later starts with it. Saving doesn't deploy, so the change reaches the gateway only when you deploy the workspace.
 

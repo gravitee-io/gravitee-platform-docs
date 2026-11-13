@@ -55,7 +55,7 @@ documentation.gravitee.io links for other versions.
 
 #### **v2 APIs are deprecated**
 
-From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [Migrate APIs](../../create-and-configure-apis/create-apis/migrate-apis.md).
+From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [v2 API Deprecation and Migration to v4](../v2-api-deprecation.md) and [Migrate APIs](../../create-and-configure-apis/create-apis/migrate-apis.md).
 
 #### **The Gateway resolves the request path before it routes**
 
@@ -427,3 +427,11 @@ The Management API now uses Lucene 10.5 instead of Lucene 10.1, and Lucene 10.5 
 * The Gateway reports `long_llm-proxy_tokens-cached`, `long_llm-proxy_tokens-cache-write`, `double_llm-proxy_cached-cost`, and `double_llm-proxy_cache-write-cost` when the provider reports the counts, and sets the matching `llmproxy.usage.*` context attributes for policies such as Assign Metrics. They're part of `tokens-sent` and `sent-cost`, not additions to them.
 * The GenAI span of a request carries the `gen_ai.usage.cache_read.input_tokens` and `gen_ai.usage.cache_creation.input_tokens` OpenTelemetry attributes when the provider reports the counts.
 * For more information, see [Reporters](../../analyze-and-monitor-apis/reporters/README.md) and [Assign Metrics](../../create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md#metrics-on-llm-proxy-apis).
+
+#### **Kafka Gateway: Backend metadata max age**
+
+* From APIM 4.13.2, a native Kafka API endpoint group can set **Backend metadata max age (seconds)** on its **Configuration** tab. With a value above `0`, each gateway instance sends its own all-topics metadata request to the brokers at most about once per that many seconds, instead of on every new client connection. The field is empty by default, which applies the gateway-wide default of `0`: one request per connection, as before.
+* The gateway configuration gains `kafka.backendMetadataMaxAge`, the default max age for the endpoint groups, Kafka clusters, and Virtual Clusters that set none of their own, and `kafka.mesh.refreshConnectionReuse`, which lets Virtual Cluster metadata refreshes reuse one connection per backend. Both are also Helm values.
+* With a max age above `0`, a topic that a gateway instance hasn't seen yet is looked up on the brokers the first time a client fetches from it, and gateway instances that share a distributed cache, Hazelcast or Redis, share the topics they learn.
+* In Gamma Event Stream Management, a Cluster or a Virtual Cluster sets the same max age for every Kafka Service bound to it.
+* For more information, see [Configure native Kafka API endpoints](../../kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md#bound-the-gateways-own-metadata-requests) and [Configure the Kafka Client & Gateway](../../kafka-gateway/configure-the-kafka-client-and-gateway.md#set-the-default-backend-metadata-max-age).

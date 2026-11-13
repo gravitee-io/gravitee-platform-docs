@@ -7,7 +7,7 @@ description: Deploy the Gateway as an ingress runtime with the Gravitee Kubernet
 ## Overview
 
 {% hint style="danger" %}
-The Gravitee Ingress Controller creates v2 API definitions, which are being deprecated. For new deployments, use the [Kubernetes Gateway API](gateway-api/README.md) with HTTPRoute resources instead. The Gateway API controller creates v4 API definitions and is the recommended path forward.
+The Gravitee Ingress Controller creates v2 API definitions, which are deprecated from 4.13.0. For new deployments, use the [Kubernetes Gateway API](gateway-api/README.md) with HTTPRoute resources instead. It creates v4 API definitions.
 
 Existing Ingress-based deployments continue to function, but Gravitee doesn't plan to migrate the Ingress controller to v4 APIs.&#x20;
 {% endhint %}

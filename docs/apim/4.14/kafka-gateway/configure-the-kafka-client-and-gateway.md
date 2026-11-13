@@ -238,6 +238,12 @@ The Gateway enforces four conflict rules within each environment to prevent port
 
 Conflict detection runs before plan creation or update and blocks operations that would violate these rules.
 
+### Health probe in port routing mode
+
+In `port` routing mode, the Gateway opens no default listener. Each Kafka API opens its own ports, so there is no fixed port for the `kafka-server` health probe to connect to. The probe reports healthy and returns the message `Port routing: no default listener to check, each API opens its own ports`, so a Gateway with no Kafka API deployed yet is not marked unhealthy.
+
+In `host` routing mode, the probe still connects to the listener on `kafka.port` (default `9092`).
+
 ### Configure mTLS authentication
 
 {% hint style="info" %}
@@ -365,6 +371,79 @@ When a connection limit is set and Gateway metrics are on, the Gateway exposes t
 | `kafka_gateway_connection_usage` | Open client connections divided by the limit, as a ratio from `0` to `1`. It is not a count. |
 
 With a limit of 20 and 15 open connections, `kafka_gateway_connection_usage` is `0.75`. It reads `1` when the Gateway refuses connections. The gauges are exposed whether or not `kafka.readiness.enabled` is set.
+
+### Set the TLS mode of the port-routing listener
+
+In `port` routing mode, the Kafka listener serves plaintext by default. Set `kafka.routingPortMode.secured` to `true` to serve TLS. In `host` routing mode the listener always serves TLS and SNI, and this key has no effect.
+
+```yaml
+kafka:
+  routingMode: port
+  routingPortMode:
+    secured: true # default is false
+```
+
+The TCP health probe follows this setting, so it connects over TLS exactly when the listener serves TLS. Earlier Gateway versions read `kafka.secured` instead. From 4.14 `kafka.secured` is deprecated: it is still honoured when `kafka.routingPortMode.secured` is unset, and ignored when it is set.
+
+With the Helm chart, set `gateway.kafka.routingPortMode.secured`. The chart renders the key only when you set it. The thresholds `gateway.kafka.readiness.notReadyPercent` and `readyPercent` are rendered only when `gateway.kafka.readiness.enabled` is `true`.
+
+### Set the default backend metadata max age
+
+{% hint style="info" %}
+Available from APIM 4.13.2.
+{% endhint %}
+
+After it authenticates to the brokers on a new client connection, the gateway sends its own request for the metadata of every topic of the backend. The brokers answer it with one authorization check per topic. By default, every new client connection sends that request. `kafka.backendMetadataMaxAge` sets, in seconds, how long each gateway instance reuses its last request to a backend instead. It applies to every native Kafka API endpoint group, Kafka cluster, and Virtual Cluster that sets no max age of its own. Set it when the brokers hold many topics and many clients connect to them, or reconnect at once after a gateway restart. `30` is a good starting value.
+
+The default is set in the gateway configuration:
+
+```yaml
+kafka:
+  # How long, in seconds (0 to 3600), a gateway instance reuses its own all-topics metadata request to a backend
+  # before its next connection to that backend sends it again. Default is 0: every new client connection sends it.
+  # Applies to the endpoint groups, Kafka clusters, and Virtual Clusters that set no backendMetadataMaxAge of their own.
+  backendMetadataMaxAge: 0
+  mesh:
+    # Whether the metadata refreshes of a Virtual Cluster reuse one connection per backend instead of opening one
+    # per refresh. Only applies when the backend metadata max age is above 0. Default is true.
+    refreshConnectionReuse: true
+```
+
+* `0`, the default, keeps one request per new client connection.
+* A value from `1` to `3600` sends the request at most about once per that many seconds, per gateway instance, API, and backend, whatever the number of clients.
+* A value outside `0` to `3600`, or one that isn't a whole number, is ignored: the gateway logs an error and uses `0`.
+
+An endpoint group, a Kafka cluster, or a Virtual Cluster that sets its own **Backend metadata max age (seconds)** overrides this default. See [Bound the gateway's own metadata requests](create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md#bound-the-gateways-own-metadata-requests). With the Helm chart, set `gateway.kafka.backendMetadataMaxAge` and `gateway.kafka.mesh.refreshConnectionReuse`.
+
+### Configure the backend login pool
+
+{% hint style="info" %}
+Available from APIM 4.14.0.
+{% endhint %}
+
+When the Gateway connects a client to a Kafka cluster that it authenticates to with the `SASL_PLAINTEXT` or `SASL_SSL` security protocol, it prepares its login to that cluster. With the `OAUTHBEARER` mechanism, this step can call the token endpoint. Each Gateway instance runs this step on a dedicated pool of threads, separate from the threads that serve client connections and shared by all native Kafka APIs. Connections that use the `NONE` or `DELEGATE_TO_BROKER` mechanism don't use the pool. Neither do the other connections that the Gateway opens to a Kafka cluster, for example to read the metadata of a Virtual Cluster.
+
+The following keys size the pool in `gravitee.yml`:
+
+| Key | Default | Description |
+| --- | --- | --- |
+| `kafka.backendLogin.threads` | `4` | Number of threads in the pool. |
+| `kafka.backendLogin.queueCapacity` | `64` | Capacity of the queue where logins wait for a thread. |
+
+```yaml
+kafka:
+  backendLogin:
+    threads: 4
+    queueCapacity: 64
+```
+
+The following behavior applies to the pool:
+
+* One API uses at most half of the threads at a time, and keeps at most half of the queue capacity waiting. Each half is at least one.
+* A login beyond these limits is refused, and the Gateway closes the client connection. The Gateway reports refused logins in a warning that contains `backend login(s) rejected`. The warning is rate limited, and it carries the number of logins refused and the key or keys to raise.
+* A value below `1` is ignored. The Gateway logs a warning and uses the default.
+
+Keep the defaults unless the warning appears under your usual load. With the Helm chart, set `gateway.kafka.backendLogin.threads` and `gateway.kafka.backendLogin.queueCapacity`.
 
 ## Configure the Kafka client
 
@@ -522,6 +601,10 @@ kafka:
     # Virtual Cluster API falls back to it. See Virtual Cluster broker addressing for details.
     # virtualClusterBrokerDomainPattern: "broker{realBrokerId}-c{clusterIndex}-{apiHost}.{domain}"
 
+  # TLS of the listener in port routing mode. Default is false. The TCP probe follows it.
+  # routingPortMode:
+  #   secured: false
+
   # Kafka probe
   probe:
     # tcp (default): the probe only checks that the Kafka port accepts a TCP connection.
@@ -554,6 +637,16 @@ kafka:
 
   instances: 0             # Event-loop instances. Default is 0, which uses the Vert.x default (twice the number of CPU cores)
   requestTimeout: 35000    # Default is 35000 ms
+
+  # Gateway-originated metadata requests. See Set the default backend metadata max age above.
+  backendMetadataMaxAge: 0 # Seconds (0 to 3600) a gateway instance reuses its own all-topics metadata request to a backend. Default is 0: every new client connection sends it
+  mesh:
+    refreshConnectionReuse: true # Virtual Cluster metadata refreshes reuse one connection per backend when the max age is above 0. Default is true
+
+  # Backend login pool. See Configure the backend login pool above.
+  backendLogin:
+    threads: 4             # Threads in the pool. Default is 4
+    queueCapacity: 64      # Capacity of the queue where logins wait for a thread. Default is 64
 
   # Kafka metrics
   metrics:

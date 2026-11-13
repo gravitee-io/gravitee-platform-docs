@@ -22,7 +22,7 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 
 #### **v2 APIs are deprecated**
 
-From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [Migrate APIs](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis/migrate-apis).
+From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [v2 API Deprecation and Migration to v4](https://documentation.gravitee.io/apim/release-information/v2-api-deprecation) and [Migrate APIs](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis/migrate-apis).
 
 For the other breaking changes and deprecations in Gamma 4.13, see [Breaking Changes and Deprecations](gamma-breaking-changes.md).
 
@@ -536,6 +536,13 @@ Event Stream Management adds the following in 4.13:
 * The **Reporter Settings** page of a Kafka Service turns **Aggregated metrics** and **Connection events** on or off, and picks which connection events the gateway records: **Connected**, **Disconnected**, and **Errors**.
 * When the environment enables API Score, the **Observability** group also holds **API Score**, with a **Dashboard** tab and a **Rulesets** tab.
 * See [Observability](../event-stream-management/observability/README.md) and [Configure reporter settings](../event-stream-management/observability/configure-reporter-settings.md).
+
+#### Backend metadata max age
+
+* From APIM 4.13.2, **Backend metadata max age (seconds)** is a new field of the form that the **Edit** button of a **Standalone** endpoint group opens, of the **Configuration** step and page of a Cluster, and of the **Configuration** page of a Virtual Cluster. It bounds the metadata requests that the gateway sends to the brokers on its own. Empty, the field applies the gateway default. `0` keeps one request per new client connection, as before. A value from `1` to `3600` lets each gateway instance send that request at most about once per that many seconds, whatever the number of clients.
+* A Standalone group with a value shows a **Metadata max age** badge in the **Endpoints** list. The read-only **Configuration** card of a Cluster or a Virtual Cluster shows a **Backend metadata max age** row.
+* The value of a Cluster or a Virtual Cluster applies to every Kafka Service bound to it once the changes are deployed, without a new deployment of the Kafka Services. The value of a Virtual Cluster applies to every backend, whatever their own Clusters set.
+* See [Set the backend metadata max age of a Standalone group](../event-stream-management/apis/kafka-services/configure-endpoints.md#set-the-backend-metadata-max-age-of-a-standalone-group), [Manage clusters](../event-stream-management/kafka-infrastructure/clusters/manage-a-cluster.md#set-the-backend-metadata-max-age), and [Manage a Virtual Cluster](../event-stream-management/kafka-infrastructure/virtual-clusters/manage-a-virtual-cluster.md#set-the-backend-metadata-max-age).
 
 ### Platform Management
 

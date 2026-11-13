@@ -13,7 +13,7 @@ The **Entrypoint** page of an MCP Proxy or an MCP Studio sets the context path t
 Before you begin, confirm that you have the following:
 
 * An MCP Proxy or an MCP Studio. For more information, see [Create an MCP proxy](create-an-mcp-proxy.md) and [Create an MCP Studio](create-an-mcp-studio.md).
-* Permission to update the API definition of the proxy. Without it, the page is read-only and reads **You do not have permission to change the entrypoints of this API.**
+* Permission to update the API definition of the proxy. Without it, the page is read-only and reads **You do not have permission to change the entrypoints of this MCP proxy.**
 
 To open the page, follow these steps:
 
@@ -32,8 +32,8 @@ To change the context path, follow these steps:
 
 1. In the **Entrypoint context path** card, enter the new path.
 2. Click **Save changes**. The page confirms with **Entrypoint saved.**
-3. In the **This API is out of sync** banner, click **Deploy**.
-4. Optional: In the **Deploy your API** dialog, enter a deployment label.
+3. In the **This MCP proxy is out of sync** banner, click **Deploy**.
+4. Optional: In the **Deploy your MCP proxy** dialog, enter a deployment label.
 5. Click **Deploy**.
 
 **Save changes** stays disabled until the path differs from the saved one and passes its checks. **Reset** brings the saved path back.
@@ -51,13 +51,13 @@ The page checks the path as you type. A path that breaks a rule shows one of the
 
 Saving changes the context path in the API definition but doesn't deploy it:
 
-* The **This API is out of sync** banner appears, and the gateway keeps answering on the previous path until you deploy.
+* The **This MCP proxy is out of sync** banner appears, and the gateway keeps answering on the previous path until you deploy.
 * The **Exposed entrypoints** card shows the URL with the new path as soon as you save.
 
 When the MCP Proxy or MCP Studio was created with **Gravitee as Authorization Server**, saving also updates Gravitee Access Management. The MCP server it holds for the proxy moves to the new path. Access Management takes the new path when you save, and the gateway takes it when you deploy, so deploy right after you save. If the save is refused, Gravitee tries to point Access Management back at the previous path.
 
 {% hint style="info" %}
-An MCP Proxy managed by the Kubernetes operator is read-only on this page, which reads **This API is managed by the Kubernetes operator. Its entrypoints can only be changed from its source definition.**
+An MCP Proxy managed by the Kubernetes operator is read-only on this page, which reads **This MCP proxy is managed by the Kubernetes operator. Its entrypoints can only be changed from its source definition.**
 {% endhint %}
 
 ## Verification
@@ -65,7 +65,7 @@ An MCP Proxy managed by the Kubernetes operator is read-only on this page, which
 To verify the context path is working as expected, follow these steps:
 
 1. Change the context path, click **Save changes**, and then deploy the proxy.
-2. Under **Design**, select **Entrypoint**. The **Exposed entrypoints** card shows the URL with the new path, and the **This API is out of sync** banner is gone.
+2. Under **Design**, select **Entrypoint**. The **Exposed entrypoints** card shows the URL with the new path, and the **This MCP proxy is out of sync** banner is gone.
 3. Connect an MCP client to that URL. The proxy answers on the new path.
 
 ## Next steps

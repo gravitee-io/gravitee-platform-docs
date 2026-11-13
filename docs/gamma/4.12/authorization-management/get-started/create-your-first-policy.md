@@ -12,7 +12,7 @@ This guide walks you through creating and deploying your first authorization pol
 
 * At least one principal created or synced (see [Create your first user](create-your-first-user.md))
 * At least one resource imported or created (see [Import your first resource from the AI Catalog](import-your-first-resource-from-agent-catalog.md))
-* The `ENVIRONMENT_AUTHZ_POLICY[CREATE]` permission
+* The `ENVIRONMENT_AUTHZ_POLICIES[CREATE]` permission
 
 ## Steps
 

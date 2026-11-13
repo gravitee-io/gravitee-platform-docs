@@ -144,7 +144,7 @@ Replace `/path/to/your/license.key` with the actual path to your Gravitee licens
           - storage
 
       gateway:
-        image: graviteeio/apim-gateway:latest
+        image: graviteeio/apim-gateway:4.13
         container_name: gio_apim_gateway
         restart: always
         ports:
@@ -167,7 +167,7 @@ Replace `/path/to/your/license.key` with the actual path to your Gravitee licens
           - frontend
 
       management_api:
-        image: graviteeio/apim-management-api:latest
+        image: graviteeio/apim-management-api:4.13
         container_name: mgmtapi
         restart: always
         ports:
@@ -194,7 +194,7 @@ Replace `/path/to/your/license.key` with the actual path to your Gravitee licens
           - frontend
 
       management_ui:
-        image: graviteeio/apim-management-ui:latest
+        image: graviteeio/apim-management-ui:4.13
         container_name: gio_apim_management_ui
         restart: always
         ports:
@@ -209,7 +209,7 @@ Replace `/path/to/your/license.key` with the actual path to your Gravitee licens
           - frontend
 
       portal_ui:
-        image: graviteeio/apim-portal-ui:latest
+        image: graviteeio/apim-portal-ui:4.13
         container_name: gio_apim_portal_ui
         restart: always
         ports:
@@ -285,7 +285,7 @@ To enable Federation, complete the following steps:
 
     ```yaml
     management_api:
-        image: graviteeio/apim-management-api:latest-debian
+        image: graviteeio/apim-management-api:4.13-debian
         container_name: mgmtapi
         restart: always
         ports:
@@ -433,7 +433,7 @@ This example shows configuration for Confluent Platform integration. For Solace 
           - storage
 
       gateway:
-        image: graviteeio/apim-gateway:latest
+        image: graviteeio/apim-gateway:4.13
         container_name: gio_apim_gateway
         restart: always
         ports:
@@ -456,7 +456,7 @@ This example shows configuration for Confluent Platform integration. For Solace 
           - frontend
 
       management_api:
-        image: graviteeio/apim-management-api:latest
+        image: graviteeio/apim-management-api:4.13
         container_name: mgmtapi
         restart: always
         ports:
@@ -524,7 +524,7 @@ This example shows configuration for Confluent Platform integration. For Solace 
           - storage
 
       management_ui:
-        image: graviteeio/apim-management-ui:latest
+        image: graviteeio/apim-management-ui:4.13
         container_name: gio_apim_management_ui
         restart: always
         ports:
@@ -539,7 +539,7 @@ This example shows configuration for Confluent Platform integration. For Solace 
           - frontend
 
       portal_ui:
-        image: graviteeio/apim-portal-ui:latest
+        image: graviteeio/apim-portal-ui:4.13
         container_name: gio_apim_portal_ui
         restart: always
         ports:

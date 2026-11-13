@@ -37,3 +37,30 @@ create-and-configure-apis/apply-policies/policy-reference/aws-lambda.md
 create-and-configure-apis/apply-policies/policy-reference/data-cache.md
 # Datadog Reporter Helm example and 7.x compatibility row (DOC-1962)
 analyze-and-monitor-apis/reporters/datadog-reporter.md
+# Hybrid Gateway with Helm: run without rate limiting, ratelimit.type none (DOC-1965)
+hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-kubernetes/README.md
+# MiniLMv2 toxicity model max sequence (DOC-1963)
+create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md
+analyze-and-monitor-apis/reporters/elasticsearch-reporter.md
+# Management API Reference: Portal API listed per Developer Portal in the API reference (PORTAL-266)
+management-api-reference.md
+# Application metadata on the Notification settings page (DOC-1934)
+configure-and-manage-the-platform/gravitee-gateway/notifications.md
+developer-portal/classic-developer-portal/create-an-application.md
+.gitbook/assets/classic-portal-application-metadata-list.png
+# Classic Cloud hybrid guides: Logstash writes to S3, not to Elasticsearch (DOC-1935)
+hybrid-installation-and-configuration-guides/classic-cloud/docker/docker-compose.md
+hybrid-installation-and-configuration-guides/classic-cloud/.zip.md
+hybrid-installation-and-configuration-guides/classic-cloud/kubernetes/vanilla-kubernetes.md
+# Disaster Recovery (Backup and Restore) page restored from 4.12 (DOC-1967)
+prepare-a-production-environment/disaster-recovery-backup-and-restore.md
+
+# Kafka Gateway: routingPortMode.secured is 4.14 only (ESM-359)
+kafka-gateway/configure-the-kafka-client-and-gateway.md
+
+# Alpine Linux images of the Gateway and the Management API deprecated from 4.14.0 (FOUND-452)
+release-information/breaking-changes-and-deprecations.md
+self-hosted-installation-guides/docker/README.md
+
+# Redis cache plugin install and TTL/TTI behavior for APIM 4.14 (FOUND-382)
+prepare-a-production-environment/repositories/redis.md

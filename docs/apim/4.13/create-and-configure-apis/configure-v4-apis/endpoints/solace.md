@@ -34,7 +34,7 @@ You will define more Gravitee Gateway-specific security settings later on, but t
 
 1. Enter the username and password used for authentication.
 2. Choose whether to ignore SSL expiration.
-3. Choose between **None**, **JKS with location**, and **PKCS12 with location**.
+3. Choose between **None**, **JKS with location**, **PKCS12 with location**, **BCFKS with location**, and **PEM with location**.
 
 {% tabs %}
 {% tab title="None" %}
@@ -48,7 +48,30 @@ Enter the truststore file's location and SSL password.
 {% tab title="PKCS12 with location" %}
 Enter the truststore file's location and SSL password.
 {% endtab %}
+
+{% tab title="BCFKS with location" %}
+Enter the truststore file's location and SSL password.
+{% endtab %}
+
+{% tab title="PEM with location" %}
+Enter the path of a file of CA certificates, or paste the PEM text itself. No password is needed.
+{% endtab %}
 {% endtabs %}
+
+{% hint style="info" %}
+PEM and BCFKS stores are available from Solace endpoint 4.1.2, shipped in APIM 4.13.3 and later. On a FIPS Gateway image, the JVM cannot load JKS or PKCS12 stores. Use **PEM with location** or **BCFKS with location** for the truststore and for the client certificate key store. With **None**, the issuers trusted by the JVM are used, unless the Gateway JVM is started with `-Djavax.net.ssl.trustStore`, in which case the Solace client reads the store from that property.
+{% endhint %}
+
+#### Client certificate authentication
+
+To authenticate with a client certificate (mTLS), set **Authentication type** to the client certificate option, use a `tcps://` URL, and configure **Key store (client certificate)**. The key store accepts the same types as the truststore:
+
+* **JKS with location**, **PKCS12 with location** and **BCFKS with location**: enter the key store file location and its password. Enter the key password if it differs, and the alias if the store holds more than one private key.
+* **PEM with location**: enter the location of one file holding the private key and its certificate chain. The key must be unencrypted PKCS#8, PKCS#1 RSA or SEC1 EC; encrypted keys are rejected and no key password is used.
+
+{% hint style="warning" %}
+A PEM or BCFKS store cannot be used when the Gateway JVM is started with `-Djavax.net.ssl.trustStore` or `-Djavax.net.ssl.keyStore`: the connector rejects that combination.
+{% endhint %}
 
 ### 4. Role settings
 

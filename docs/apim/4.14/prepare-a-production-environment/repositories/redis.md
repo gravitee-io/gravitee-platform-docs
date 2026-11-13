@@ -17,7 +17,7 @@ Gravitee API Management 4.12 introduces Redis Cluster support for rate limiting 
 
 | Database | Version tested        |
 | -------- | --------------------- |
-| Redis    | 6.2.x / 7.0.x / 7.2.x / 7.4.x/ 8.0.x |
+| Redis    | 6.2.x / 7.0.x / 7.2.x / 7.4.x / 8.x |
 
 ## Key concepts
 
@@ -45,7 +45,9 @@ Cache policies (Cache and Data Cache) now store response payloads and cached val
 
 * Gravitee API Management 4.12 or later
 * Java 21 runtime (required for Redis cache resource 2.0.0+)
-* Redis 6.0+ (standalone, Sentinel, or Cluster)
+* Redis 6.0 or later (standalone, Sentinel, or Cluster)
+* A Redis user allowed to run Lua scripts, which is the `@scripting` ACL category. Rate limiting and the Redis cache plugin, `gravitee-node-cache-plugin-redis`, both run Lua scripts.
+* For distributed synchronization and the AI vector store Redis resource: the Redis query engine, which needs Redis Stack 6.2 or later, or Redis 8 or later. The AI vector store Redis resource also stores documents as JSON, which Redis Stack and Redis 8 include. Rate limiting and the Redis cache plugin don't need the query engine.
 * For Redis Cluster: all rate-limited APIs must use the same cluster configuration to avoid CROSSSLOT errors
 
 ## Configure the Rate Limit repository plugin
@@ -248,6 +250,17 @@ Configure gateway-wide connection pool limits for the AI vector store Redis reso
 ### Node cache plugin Redis configuration
 
 Configure the node-level Redis cache (used for distributed caching across gateway instances) in `gravitee.yml`.
+
+The Redis cache plugin, `gravitee-node-cache-plugin-redis`, isn't bundled with APIM. Install the plugin version that matches the `gravitee-node` version of your gateway: for APIM 4.14.0, that's version 9.17.0. To use it, complete the following steps:
+
+1. Download [version 9.17.0 of the Redis cache plugin](https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-redis/gravitee-node-cache-plugin-redis-9.17.0.zip).
+2. Deploy the plugin on each gateway. For more information, see [Deploy plugins](../../plugins/deployment.md).
+3. Set `cache.type` to `redis` in `gravitee.yml`.
+
+The Redis cache plugin applies time to live and time to idle differently from the in-memory and Hazelcast cache plugins. These differences apply to the caches that the gateway and its plugins create, not to the time to live of a Cache policy:
+
+* When a cache has both a time to live and a time to idle, only the time to live applies. An entry that's never read stays until its time to live ends.
+* When a cache has a time to idle only, an entry expires after the idle time and each read pushes its expiry back. An entry written with its own time to live can then outlive it.
 
 | Property | Description | Default |
 |:---------|:------------|:--------|

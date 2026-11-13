@@ -196,11 +196,15 @@ A Gateway that connects to Gravitee Cloud with a Cloud Token now sends its trace
 
 Before you upgrade a Hybrid Gateway that traces v2 APIs, set `services.opentelemetry.tracing.v2.enabled` to `true` on it. Setting `services.opentelemetry.tracing.v2.enabled` is itself a `services.opentelemetry` setting: on a Gateway without its own OpenTelemetry configuration, it stops the Gateway from sending to Gravitee Cloud and doesn't turn OpenTelemetry on. Set it only on a Gateway that already exports to your own collector. Move any `services.tracing` settings to `services.opentelemetry`. For more information, see [Tracing for v2 APIs](../analyze-and-monitor-apis/opentelemetry.md#tracing-for-v2-apis).
 
-## Helm: `gateway.kafka.secured` is renamed to `gateway.kafka.probe.secured`
+## Helm: `gateway.kafka.probe.secured` is deprecated for `gateway.kafka.secured`
 
-From 4.13.0, the Helm value that sets whether the Gateway's TCP health probe connects to the Kafka port over TLS is `gateway.kafka.probe.secured`. `gateway.kafka.secured` is deprecated. The chart still reads it when `gateway.kafka.probe.secured` isn't set, and `gateway.kafka.probe.secured` wins when both are set. The value affects only the health probe, not the Kafka server.
+From 4.13.0, `gateway.kafka.probe.secured` is a deprecated alias of `gateway.kafka.secured`. The chart renders both as `kafka.secured` in `gravitee.yml`, and `gateway.kafka.probe.secured` wins when both are set.
 
-Before you upgrade, rename `gateway.kafka.secured` to `gateway.kafka.probe.secured` in your values file.
+`kafka.secured` does not only configure the health probe. In `port` routing mode it is also the TLS setting of the Kafka listener, so changing it changes whether clients connect with TLS. In `host` routing mode the listener always serves TLS.
+
+From APIM 4.14, set the listener TLS setting with `gateway.kafka.routingPortMode.secured`. It is unset by default, and the TCP health probe follows the listener setting. Gateway images before 4.14 ignore `routingPortMode.secured`: with those images, keep using `gateway.kafka.secured`.
+
+Before you upgrade, move `gateway.kafka.probe.secured` to `gateway.kafka.secured`, or to `gateway.kafka.routingPortMode.secured` on APIM 4.14 and later.
 
 ## Management API: Stricter permission and ownership checks
 
@@ -334,6 +338,17 @@ org.apache.lucene.index.IndexFormatTooOldException: Format version is not suppor
 This change affects installations that keep the search index directory across the upgrade. These include zip and RPM installations, and container deployments that mount a persistent volume on the directory. The Helm chart doesn't mount a volume on the directory by default.
 
 Before you start the upgraded Management API, empty the search index directory. By default, this directory is `${gravitee.home}/data`. If you set `search.data` in `gravitee.yml`, empty the directory that it points to. The Management API rebuilds the index when it starts.
+
+## Data Cache policy: Requires an Enterprise Edition license
+
+From 4.13.0, the [Data Cache](../create-and-configure-apis/apply-policies/policy-reference/data-cache.md) policy is an Enterprise Edition policy, and it checks the license before an API that uses it is deployed. In 4.12 and earlier, the policy didn't check the license, so it could also be used without an Enterprise Edition license.
+
+Without an Enterprise Edition license:
+
+* The Management API refuses to deploy an API that uses the policy, with an error that says the feature isn't available with your license.
+* A Gateway upgraded to 4.13 doesn't deploy an API that uses the policy, so the API stops answering after the upgrade.
+
+If you use the Data Cache policy without an Enterprise Edition license, contact Gravitee before you upgrade. For more information, see [Enterprise Edition](../introduction/enterprise-edition.md).
 
 # 4.12.0
 
@@ -553,7 +568,7 @@ Move each portal configuration to `structure.topNavbar` before the list is remov
 
 ## v2 APIs are deprecated
 
-From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [Migrate APIs](../create-and-configure-apis/create-apis/migrate-apis.md).
+From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [v2 API Deprecation and Migration to v4](v2-api-deprecation.md) and [Migrate APIs](../create-and-configure-apis/create-apis/migrate-apis.md).
 
 ## MongoDB and Elasticsearch subcharts are deprecated
 

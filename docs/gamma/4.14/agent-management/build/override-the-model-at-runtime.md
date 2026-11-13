@@ -33,7 +33,7 @@ Before you begin, confirm that you have the following:
    1. In the **Name** field, enter `llmproxy.model.override`.
    2. In the **Value** field, enter the name of the model to use, or an Expression Language expression that resolves to it.
 6. Click **Save**.
-7. When the "This deployable is out of sync" message appears, click **Deploy** to push the change to the AI Gateway.
+7. When the **This LLM proxy is out of sync** banner appears, click **Deploy** to push the change to the AI Gateway.
 
 ## Resolve the model at runtime
 

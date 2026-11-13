@@ -49,7 +49,7 @@ A proxy that carries no templates opens on an empty state titled **No Response T
 
 The console reports **Configuration successfully saved!** and returns to the list.
 
-Saving a template changes the API definition, so the proxy is left out of sync until you deploy it. The banner at the top reads **This API is out of sync**, with **Your latest changes are not live yet. Deploy to push them to the gateway.** Select **Deploy** on the banner, and then confirm in the **Deploy your API** dialog.
+Saving a template changes the API definition, so the proxy is left out of sync until you deploy it. The banner at the top reads **This A2A proxy is out of sync**, with **Your latest changes are not live yet. Deploy to push them to the gateway.** Select **Deploy** on the banner, and then confirm in the **Deploy your A2A proxy** dialog.
 
 <!-- TODO: Screenshot of the Create a new Response Template form -->
 <figure><img src="../../.gitbook/assets/PLACEHOLDER-gamma-a2a-response-template-form.png" alt="The Create a new Response Template form, with the Template key selector, the Accept header to match field, the Status code field beside the status name, the HTTP Headers rows, the Body field, and the Add template key to logs switch"><figcaption><p>Creating a response template on an A2A Proxy</p></figcaption></figure>
@@ -112,8 +112,8 @@ The console confirms that the template was deleted.
 
 The page opens without its editing controls in these cases:
 
-* **The proxy is managed by the Kubernetes operator.** A banner reads **This API is managed by the Kubernetes operator. It can only be changed from its source definition.** Change the templates in the resource the operator applies.
-* **Gamma can't confirm whether the proxy can be edited here.** The page reads **Could not confirm whether this API can be edited here**, with **Actions are hidden until this is confirmed. Refresh the page to try again.** underneath.
+* **The proxy is managed by the Kubernetes operator.** A banner reads **This A2A proxy is managed by the Kubernetes operator. Its response templates can only be changed from its source definition.** Change the templates in the resource the operator applies.
+* **Gamma can't confirm whether the proxy can be edited here.** The page reads **The A2A proxy's definition could not be loaded, so its response templates cannot be changed here. Refresh the page to try again.**
 * **Your role can't update the proxy.** The add, edit, and delete controls aren't offered, and the actions menu offers **View** in place of **Edit**. Opening a template shows it under the title **View Response Template**.
 
 A reader whose role can't see templates at all gets the page title and **You don't have permission to view response templates.** in place of the list.

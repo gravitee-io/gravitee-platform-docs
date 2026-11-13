@@ -1,5 +1,5 @@
 ---
-description: The changes in Gamma 4.13 that can break an existing configuration, script, or integration. Review them before you upgrade.
+description: The breaking changes and deprecations in Gamma 4.13 and 4.14 that can affect an existing configuration, script, or integration. Review them before you upgrade.
 ---
 
 # Breaking Changes and Deprecations
@@ -95,10 +95,29 @@ Before you upgrade, update the scripts that send `facetSize`, and check the char
 
 Here is the deprecated functionality for versions 4.X of Gamma, grouped by module.
 
+### 4.14.0
+
+#### API Management
+
+**Alpine Linux images of the Gateway and the Management API are deprecated**
+
+From 4.14.0, the `graviteeio/apim-gateway` and `graviteeio/apim-management-api` images are also published with an `-alpine` suffix: `<version>-alpine`, `<major>.<minor>-alpine`, and, for the latest release, `<major>-alpine` and `latest-alpine`. Each `-alpine` tag points to the same image as the matching tag without a suffix.
+
+The March 2027 release of APIM moves the tags without a suffix, including `<major>` and `latest`, to the Debian image that the `-debian` tags already publish. The June 2027 release stops publishing Alpine Linux images of the Gateway and the Management API. The APIM Console and Developer Portal images aren't affected and stay on Alpine Linux.
+
+To stay on Alpine Linux until then, replace each tag without a suffix with its `-alpine` tag, for example `graviteeio/apim-gateway:4.14-alpine`. To move to Debian, use the `-debian` tags, which the APIM Helm chart already uses by default. Before you switch, check how the Debian image differs:
+
+* `JAVA_HOME` isn't set. The JRE is in `/usr/lib/jvm/temurin-25-jre-<arch>`, for example `/usr/lib/jvm/temurin-25-jre-amd64`, instead of `/opt/java/openjdk`.
+* The Java truststore is `/etc/ssl/certs/adoptium/cacerts`. It's regenerated from the system certificates by `update-ca-certificates`.
+* `jattach`, `ps`, `wget`, and fonts aren't installed. `curl` is.
+* The image is about 40 MB larger to download and about 185 MB larger on disk.
+
+For more information about the image variants, see [Self-host with Docker](https://documentation.gravitee.io/apim/self-hosted-installation-guides/docker#image-variants) in the API Management documentation.
+
 ### 4.13.0
 
 #### API Management
 
 **v2 APIs are deprecated**
 
-From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [Migrate APIs](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis/migrate-apis).
+From 4.13.0, v2 APIs are deprecated. The October 2027 release of APIM removes them. Migrate your v2 APIs to v4 before you upgrade to that release. For more information, see [v2 API Deprecation and Migration to v4](https://documentation.gravitee.io/apim/release-information/v2-api-deprecation) and [Migrate APIs](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis/migrate-apis).
