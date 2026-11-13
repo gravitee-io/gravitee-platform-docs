@@ -6,6 +6,33 @@ description: The API Management 4.13 changelog lists the bug fixes in each patch
 
 # APIM 4.13.x
  
+## Gravitee API Management 4.13.4 - November 13, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Portal**
+
+* Classic portal pages show "Page not found" on refresh or direct link when New Developer Portal is the default [#11854](https://github.com/gravitee-io/issues/issues/11854)
+* Portal does not show an error when an application update uses a client ID that already exists [#11935](https://github.com/gravitee-io/issues/issues/11935)
+* New Developer Portal: internal documentation links (absolute paths) return a 404 [#12003](https://github.com/gravitee-io/issues/issues/12003)
+* AI Semantic Caching policy wipes the additional metrics reported by other policies [#12061](https://github.com/gravitee-io/issues/issues/12061)
+
+**Other**
+
+* V4 health check: POST body not sent to the backend [#12023](https://github.com/gravitee-io/issues/issues/12023)
+* OAS Validation (OAS 3.1) rejects query parameters declared via $ref as “Unexpected query parameters” [#12038](https://github.com/gravitee-io/issues/issues/12038)
+* V4 HTTP health check: default values (assertion, thresholds, overrideEndpointPath) no longer applied when omitted, so endpoints are always marked down (4.13 regression) [#12048](https://github.com/gravitee-io/issues/issues/12048)
+* Upgrade failure on graviteeio-apim-rest-api-4x (4.13.1 to 4.13.3) due to false version detection in preinstall script [#12054](https://github.com/gravitee-io/issues/issues/12054)
+* Policy Studio: new Avro to Protobuf step with inline schemas can't be saved
+* Policy Studio cannot save an Avro to Protobuf step that uses a Schema Registry
+* Policy Studio blocks Save on Avro JSON Transformation steps with a mapping turned off
+* Gateway Redis cache never overwrites an entry, `containsKey` always returns false, and the cache's time to live is ignored
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.13.3 - November 6, 2026
 <details>
 
