@@ -8,6 +8,10 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 
 ## 4.14 breaking changes and deprecations
 
+#### **New JWT plans of MCP Proxies and MCP Studios remove the `Authorization` header**
+
+From 4.14.0, a JWT plan that you create in Gamma for an MCP Proxy or MCP Studio starts with **Propagate Authorization header** off. After the gateway validates the token, it removes the `Authorization` header, so the policies that follow and the upstream don't receive it. In 4.13, a new JWT plan kept the header. Plans created before the upgrade keep their behavior. To keep the header on a new plan, turn on **Propagate Authorization header**. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md).
+
 #### **Alpine Linux images of the Gateway and the Management API are deprecated**
 
 From 4.14.0, the `graviteeio/apim-gateway` and `graviteeio/apim-management-api` images are also published with `-alpine` tags, which point to the same images as the tags without a suffix. The March 2027 release of APIM moves the tags without a suffix, including `latest`, to the Debian image. The June 2027 release stops publishing Alpine Linux images of these two components. To stay on Alpine Linux until then, switch to the `-alpine` tags. To move to Debian, use the `-debian` tags, and check how the Debian image differs before you switch. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#alpine-linux-images-of-the-gateway-and-the-management-api-are-deprecated).
@@ -18,7 +22,7 @@ The 4.14 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply.
+Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply. JWT plans of MCP Proxies and MCP Studios gain two settings, for the claims of the token and for the `Authorization` header.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
@@ -49,6 +53,13 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and
 * A manual import has **Update capabilities** in place of **Re-sync**. It replaces the tools, prompts, and resources of the server with the list responses you supply.
 * The module's REST API validates list responses, imports a catalog entry, and exports one. An exported entry imports into another environment.
 * See [Import an MCP server manually](../agent-management/import/import-an-mcp-server-manually.md).
+
+#### JWT plan settings for MCP Proxies and MCP Studios
+
+* The **Advanced settings** of a JWT plan on an MCP Proxy or MCP Studio have two new switches. They appear in the **Secure** step of the MCP Proxy and MCP Studio creation wizards, and in the **Security** step of a plan.
+* **Extract JWT claims** puts the claims of the token on the `jwt.claims` context attribute, for the policies that follow. It's off by default.
+* **Propagate Authorization header** keeps the `Authorization` header on the request after the gateway validates the token. A new plan starts with it off.
+* See [Configure a JWT plan](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md#configure-a-jwt-plan).
 
 ### Edge Management
 
