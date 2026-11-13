@@ -62,6 +62,10 @@ Instead of the ADMIN role on the organization, give the service account roles th
 | A `PortalLink` or `Documentation` of an API | API `DOCUMENTATION`: Create | API `DOCUMENTATION`: Update | API `DOCUMENTATION`: Delete | API `DOCUMENTATION`: Read |
 | `McpProxy` | Environment `API`: Create | Environment `API`: Update | Environment `API`: Delete | Environment `API`: Read |
 | `CatalogMcpServer` | Environment `AI_CATALOG`: Create | Environment `AI_CATALOG`: Update | Environment `AI_CATALOG`: Delete | Environment `AI_CATALOG`: Read |
+| `AuthzPdp` | Environment `AUTHZ_PDP`: Create | Environment `AUTHZ_PDP`: Update | Environment `AUTHZ_PDP`: Delete | Environment `AUTHZ_PDP`: Read |
+| `AuthzSchema` | Environment `AUTHZ_SCHEMA`: Create | Environment `AUTHZ_SCHEMA`: Update | Environment `AUTHZ_SCHEMA`: Delete | Environment `AUTHZ_SCHEMA`: Read |
+| `AuthzEntity` | Environment `AUTHZ_ENTITIES`: Create | Environment `AUTHZ_ENTITIES`: Update | Environment `AUTHZ_ENTITIES`: Delete | Environment `AUTHZ_ENTITIES`: Read |
+| `AuthzPolicy` | Environment `AUTHZ_POLICIES`: Create | Environment `AUTHZ_POLICIES`: Update | Environment `AUTHZ_POLICIES`: Delete | Environment `AUTHZ_POLICIES`: Read |
 
 Some changes require more than the table shows:
 
@@ -69,6 +73,8 @@ Some changes require more than the table shows:
 * **A deleted application.** Applying an `Application` again after you deleted it requires the ADMIN role on the organization.
 * **A closed subscription.** Applying a `Subscription` again after its subscription was closed also requires Application `SUBSCRIPTION`: Create on the application.
 * **The portal theme.** Applying a `Portal` that changes the active theme also requires Environment `THEME`: Update. A `Portal` that references no theme changes it when a theme is active.
+* **An authorization policy.** Applying an `AuthzPolicy` also requires Environment `AUTHZ_PDP`: Update, because every apply deploys the policy. So does deleting an `AuthzPolicy` whose policy is deployed.
+* **Strict mode.** Applying an `AuthzPdp` that changes `strict`, or that sets `strict: true` on the first PDP gateway of its `targetPdpId`, also requires Environment `AUTHZ_PDP`: Update and Read.
 
 GKO reads a resource from APIM only to detect drift, so the **Read** column applies only when drift detection is on. For more information, see [Drift detection](../overview/drift-detection.md).
 

@@ -31,6 +31,7 @@ The Gravitee Terraform provider supports the following Gravitee resource types:
 * Group
 * Dictionary
 * New Developer Portal: portal, portal listing, portal and API documentation, portal and API link, and portal theme (from provider 1.2.0)
+* Authorization Management: PDP gateway, schema document, entity, and policy (requires APIM 4.14 or later)
 
 Terraform can create, update, or delete these resources as part of its workflow.
 
