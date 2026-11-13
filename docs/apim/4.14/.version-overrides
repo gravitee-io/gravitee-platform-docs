@@ -64,3 +64,6 @@ self-hosted-installation-guides/docker/README.md
 
 # Redis cache plugin install and TTL/TTI behavior for APIM 4.14 (FOUND-382)
 prepare-a-production-environment/repositories/redis.md
+
+# Terraform resource list: Authorization Management resources (AUTHZ-8)
+terraform/example-resource-configurations.md

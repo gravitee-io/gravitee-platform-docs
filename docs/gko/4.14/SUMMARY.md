@@ -28,6 +28,10 @@
   * [AMIdentityProvider](overview/custom-resource-definitions/amidentityprovider.md)
   * [AMCertificate](overview/custom-resource-definitions/amcertificate.md)
   * [AMReporter](overview/custom-resource-definitions/amreporter.md)
+  * [AuthzPdp](overview/custom-resource-definitions/authzpdp.md)
+  * [AuthzSchema](overview/custom-resource-definitions/authzschema.md)
+  * [AuthzEntity](overview/custom-resource-definitions/authzentity.md)
+  * [AuthzPolicy](overview/custom-resource-definitions/authzpolicy.md)
 * [Admission validation](overview/admission-validation.md)
 * [Drift detection](overview/drift-detection.md)
 * [Example Architecture](overview/example-architecture.md)
@@ -78,6 +82,7 @@
 ## RELEASES & CHANGELOG
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
+  * [GKO 4.14](releases-and-changelog/release-notes/gko-4.14.md)
   * [GKO 4.13](releases-and-changelog/release-notes/gko-4.13.md)
   * [GKO 4.12](releases-and-changelog/release-notes/gko-4.12.md)
   * [GKO 4.11](releases-and-changelog/release-notes/gko-4.11.md)
