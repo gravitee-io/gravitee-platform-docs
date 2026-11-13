@@ -1,5 +1,5 @@
 ---
-description: What the Gamma 4.14 release adds to Agent Management, Edge Management, Event Stream Management, and Platform Management. Browse the new features and changes.
+description: What the Gamma 4.14 release adds to Agent Management, Authorization Management, Edge Management, Event Stream Management, and Platform Management. Browse the new features and changes.
 ---
 
 # Release Notes
@@ -60,6 +60,17 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and
 * **Extract JWT claims** puts the claims of the token on the `jwt.claims` context attribute, for the policies that follow. It's off by default.
 * **Propagate Authorization header** keeps the `Authorization` header on the request after the gateway validates the token. A new plan starts with it off.
 * See [Configure a JWT plan](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md#configure-a-jwt-plan).
+
+### Authorization Management
+
+Authorization Management manages its PDP gateways, schema documents, entities, and policies as code: through the Automation API, as Kubernetes resources, and with Terraform.
+
+#### PDP gateways, schema documents, entities, and policies as code
+
+* The Automation API creates or updates a PDP gateway, a schema document, an entity, or a policy from a specification, and reads or deletes it. A dry run validates a specification and reports its findings without saving anything.
+* The Gravitee Kubernetes Operator declares them with `AuthzPdp`, `AuthzSchema`, `AuthzEntity`, and `AuthzPolicy` resources.
+* The Gravitee Terraform provider declares them with `apim_authz_pdp`, `apim_authz_schema`, `apim_authz_entity`, and `apim_authz_policy` resources.
+* See [Custom Resource Definitions](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/overview/custom-resource-definitions) and [Gravitee Resources](https://documentation.gravitee.io/apim/terraform/example-resource-configurations).
 
 ### Edge Management
 

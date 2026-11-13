@@ -66,10 +66,16 @@ Drift detection applies to the following resources:
 | `AMIdentityProvider` | Supported                                                        |
 | `AMCertificate`     | Supported                                                         |
 | `AMReporter`        | Supported                                                         |
+| `AuthzPdp`          | Supported                                                         |
+| `AuthzSchema`       | Supported                                                         |
+| `AuthzEntity`       | Supported                                                         |
+| `AuthzPolicy`       | Supported                                                         |
 
 On a `Portal`, the deprecated `spec.navigation` field isn't compared, so a change made to it in APIM isn't reported. The `spec.structure.topNavbar` field that replaces it is compared.
 
 For the Access Management resources, a resource that Access Management hasn't accepted yet isn't compared. Neither is an `AMIdentityProvider`, `AMCertificate`, or `AMReporter` whose security domain isn't created in Access Management yet. A value that Access Management returns masked, such as a password in `configuration`, counts as unchanged when your resource holds a value for it. Lists that Access Management stores without an order, such as the `tags` of a domain and the origins, methods, and headers of its CORS settings, are compared whatever their order.
+
+For the Authorization Management resources, a resource that the platform hasn't received yet isn't compared. Neither is an `AuthzEntity` or an `AuthzPolicy` whose last apply the platform refused, or an `AuthzSchema`, `AuthzEntity`, or `AuthzPolicy` whose previous `pdpRef` no longer resolves, for example after its `AuthzPdp` is deleted. The parents and targets of an `AuthzEntity`, and the targets of an `AuthzPolicy`, are compared whatever their order. A policy disabled in the console isn't reported, and the next apply deploys it again. A change of `strict` made through another `AuthzPdp` with the same `targetPdpId` is reported on the next update of an `AuthzPdp` that declares the previous value.
 
 Drift detection doesn't apply to other resources, such as an `ApiDefinition` (v2 API), a `ManagementContext`, an `AMContext`, or an `ApiResource`. These resources, and subscriptions to a v2 API, ignore the annotation.
 
