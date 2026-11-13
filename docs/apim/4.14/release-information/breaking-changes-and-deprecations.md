@@ -558,6 +558,23 @@ Here is the deprecated functionality for 4.X versions of Gravitee and 3.X versio
 
 Here is the deprecated functionality from 4.X of Gravitee
 
+# 4.14.0
+
+## Alpine Linux images of the Gateway and the Management API are deprecated
+
+From 4.14.0, the `graviteeio/apim-gateway` and `graviteeio/apim-management-api` images are also published with an `-alpine` suffix: `<version>-alpine`, `<major>.<minor>-alpine`, and, for the latest release, `<major>-alpine` and `latest-alpine`. Each `-alpine` tag points to the same image as the matching tag without a suffix.
+
+The March 2027 release of APIM moves the tags without a suffix, including `<major>` and `latest`, to the Debian image that the `-debian` tags already publish. The June 2027 release stops publishing Alpine Linux images of the Gateway and the Management API. The Console and Developer Portal images aren't affected and stay on Alpine Linux.
+
+To stay on Alpine Linux until then, replace each tag without a suffix with its `-alpine` tag, for example `graviteeio/apim-gateway:4.14-alpine`. To move to Debian, use the `-debian` tags, which the APIM Helm chart already uses by default. Before you switch, check how the Debian image differs:
+
+* `JAVA_HOME` isn't set. The JRE is in `/usr/lib/jvm/temurin-25-jre-<arch>`, for example `/usr/lib/jvm/temurin-25-jre-amd64`, instead of `/opt/java/openjdk`.
+* The Java truststore is `/etc/ssl/certs/adoptium/cacerts`. It's regenerated from the system certificates by `update-ca-certificates`.
+* `jattach`, `ps`, `wget`, and fonts aren't installed. `curl` is.
+* The image is about 40 MB larger to download and about 185 MB larger on disk.
+
+For more information about the image variants, see [Self-host with Docker](../self-hosted-installation-guides/docker/README.md#image-variants).
+
 # 4.13.0
 
 ## Automation API: The `navigation` list of a portal is deprecated
