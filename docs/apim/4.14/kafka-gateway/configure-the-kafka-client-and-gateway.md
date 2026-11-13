@@ -238,6 +238,12 @@ The Gateway enforces four conflict rules within each environment to prevent port
 
 Conflict detection runs before plan creation or update and blocks operations that would violate these rules.
 
+### Health probe in port routing mode
+
+In `port` routing mode, the Gateway opens no default listener. Each Kafka API opens its own ports, so there is no fixed port for the `kafka-server` health probe to connect to. The probe reports healthy and returns the message `Port routing: no default listener to check, each API opens its own ports`, so a Gateway with no Kafka API deployed yet is not marked unhealthy.
+
+In `host` routing mode, the probe still connects to the listener on `kafka.port` (default `9092`).
+
 ### Configure mTLS authentication
 
 {% hint style="info" %}
