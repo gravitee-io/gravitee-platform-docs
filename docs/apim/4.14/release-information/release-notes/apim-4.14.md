@@ -39,3 +39,11 @@ APIM 4.14 adds the following features.
 * A link saved with the single **Portal** entry of earlier versions opens **Next Gen Portal**, unless it points to an operation that only **Classic Portal** lists.
 * In the Portal API specification, each operation declares the entry it's listed under in its `x-gravitee-portal` field: `classic`, `next`, or `both`.
 * For more information, see [Management API Reference](../../management-api-reference.md).
+
+#### **WebSocket entrypoint: Text frames**
+
+* The WebSocket entrypoint can send messages to the client as text frames. With **TEXT**, each message is sent as one UTF-8 text message.
+* Set it with the **Frame type** field of the subscriber settings, `subscriber.frameType`: **BINARY**, the default, or **TEXT**. Existing APIs keep sending binary frames.
+* A message whose payload isn't valid UTF-8 closes the connection with status 1007 (Invalid payload data).
+* **TEXT** requires APIM 4.14.0 or later. Upgrade the Management API first: gateways that don't run APIM 4.14 yet keep sending binary frames until they're upgraded.
+* For more information, see [WebSocket](../../create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md#text-frames).
