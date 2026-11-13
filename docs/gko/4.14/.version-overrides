@@ -15,3 +15,5 @@ overview/custom-resource-definitions/README.md
 overview/drift-detection.md
 overview/admission-validation.md
 guides/define-an-apim-service-account-for-gko.md
+README.md
+releases-and-changelog/release-notes/gko-4.14.md

@@ -82,6 +82,7 @@
 ## RELEASES & CHANGELOG
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
+  * [GKO 4.14](releases-and-changelog/release-notes/gko-4.14.md)
   * [GKO 4.13](releases-and-changelog/release-notes/gko-4.13.md)
   * [GKO 4.12](releases-and-changelog/release-notes/gko-4.12.md)
   * [GKO 4.11](releases-and-changelog/release-notes/gko-4.11.md)
