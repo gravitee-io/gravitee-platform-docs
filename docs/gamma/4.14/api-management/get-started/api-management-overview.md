@@ -24,7 +24,7 @@ API Management provides the following key capabilities:
 
 <figure><img src="../.gitbook/assets/gamma-home.png" alt="Gamma platform home page showing the Get Started quick actions and six application modules"><figcaption><p>The Gamma platform home page. The Get Started section offers quick-action cards for common tasks. The Applications section provides access to the six modules: Agent Management, API Management, Platform Management, Authorization Management, Event Stream Management, and Edge Management.</p></figcaption></figure>
 
-Gamma unifies four product lines under a shared platform: API Management, Event Stream Management, Agent Management, and Authorization Management. All four share the following foundations:
+Gamma brings its modules together in one console, including API Management, Event Stream Management, Agent Management, Authorization Management, Developer Portals, Edge Management, and Platform Management. API Management, Event Stream Management, Agent Management, and Authorization Management share the following foundations:
 
 1. **A common Catalog** of assets, such as APIs, events, tools, agents, MCP servers, and models
 2. **A common authorization engine** that defines fine-grained policies against those cataloged assets

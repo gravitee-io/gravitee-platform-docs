@@ -11,8 +11,9 @@ The API usage dashboard provides real-time and historical metrics for your API p
 
 To access the analytics dashboard for your HTTP Proxy APIs:
 1. From the Gamma console sidebar, select **API Management**.
-2. Navigate to your API proxy.
-3. In the sidebar under **Monitoring**, select **Observability**.
+2. Click **API Proxies**.
+3. Select your API proxy.
+4. In the sidebar, under **Observability**, click **Dashboard**. The dashboard opens in a new tab.
 
 By default, the dashboard displays metrics for the last **7 days** using a relative time range. You can adjust the time window using the time-range selector.
 
@@ -26,12 +27,12 @@ The Observability dashboard for HTTP proxies includes several specialized widget
 * **Response Time**: The Average, P95, and Max response times observed by consumers.
 
 ### Traffic Analysis
-* **Requests by HTTP Method**: A stacked bar chart of request volume per method overlaid with the P95 response time.
-* **Status Distribution**: A doughnut chart visualizing the share of responses by HTTP status code group (e.g., 2xx, 4xx, 5xx).
+* **Requests by HTTP Method + P95**: A stacked bar chart of request volume per method overlaid with the P95 response time.
+* **Status Distribution**: A doughnut chart visualizing the share of responses by HTTP status code group, for example 2xx, 4xx, and 5xx.
 * **Status Over Time**: Response status groups stacked over time to identify temporal error spikes.
 
 ### Performance & Latency
-* **Gateway Latency Percentiles**: P90, P95, and P99 charts showing internal gateway processing time.
+* **Gateway Latency — Percentiles**: P90, P95, and P99 charts showing internal gateway processing time.
 * **Endpoint vs Gateway Response Time**: Compares average backend response time with the total gateway response time.
 * **Requests vs Avg Response Time**: Correlates request volume with average gateway response time.
 

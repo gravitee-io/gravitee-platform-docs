@@ -18,8 +18,10 @@ Gamma supports two flow execution modes for API Proxies:
 * **Best match (`BEST_MATCH`)**: The Gateway evaluates all flows and executes only the *single* flow that is the closest match to the incoming request. This is useful when you have mutually exclusive behaviors defined on overlapping paths or conditions.
 
 
+By default, if no flow matches a request, the Gateway still processes it. To reject unmatched requests instead, turn on **Match required** in the Policy Studio, or set `flowExecution.matchRequired` to `true` in the API definition. The Gateway then returns a `404` response when no flow matches. A request counts as matched when an API flow, a plan flow, or an API Product plan flow matches it.
+
 > [!NOTE]
-> V2 API definition proxies support the same flow execution semantics via their legacy `flowMode` configuration, which is fully compatible with the new Policy Studio interface.
+> The Gamma console doesn't list v2 APIs, and the Policy Studio shows the flows of a v2 API as read-only.
 
 
 ## Configure flow execution
@@ -27,8 +29,10 @@ Gamma supports two flow execution modes for API Proxies:
 To change the flow execution mode for your API:
 
 1. In the Gamma console, navigate to **API Management**.
-2. Select your API proxy from the APIs list.
+2. Select your API proxy from the **API Proxies** list.
 3. In the sidebar, select **Policy Studio**.
-4. Adjust the **Flow Execution** setting to either `DEFAULT` or `BEST_MATCH`.
-5. Click **Save** to persist your changes.
+4. Click **Flow execution settings**.
+5. In **Mode**, select **Default** or **Best match**.
+6. Optional: To reject requests that match no flow, turn on **Match required**.
+7. Click **Save** to persist your changes.
 

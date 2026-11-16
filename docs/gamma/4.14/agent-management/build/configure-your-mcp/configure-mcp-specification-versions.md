@@ -79,10 +79,10 @@ The **Source MCP versions** card lists the versions each source uses. Change the
 
 ## Set the versions of a catalog MCP server
 
-A catalog MCP server starts with the version it reported when you verified its URL. When the gateway doesn't support that version, the server starts with 2025-11-25.
+A catalog MCP server starts with the version it reported when you verified its URL. When the gateway doesn't support that version, the server starts with 2025-11-25. A server that you import manually starts with the versions you select under **MCP protocol versions** in the wizard.
 
 1. In the Gamma console, open **Agent Management**.
-2. Under **Catalog**, select **MCP Servers**, and then select the server. The **Overview** card shows the versions in use as **MCP versions used by the gateway**, and the version the server reported as **Discovered protocol version**.
+2. Under **Catalog**, select **MCP Servers**, and then select the server. The **Overview** card shows the versions in use as **MCP versions used by the gateway**, and the version the server reported as **Discovered protocol version**. For a manual import, that row reads **Declared protocol version**.
 3. Click **Configure**.
 4. In the **MCP specification versions** card, under **The gateway talks to this server with**, select the versions the server supports.
 5. Click **Save**.

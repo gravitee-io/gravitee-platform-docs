@@ -28,6 +28,4 @@ This page shows the Service Level Agreements (SLAs) and service regulation compl
 
 ### Compliance <a href="#compliance" id="compliance"></a>
 
-* SOC 2 Type I certified
-* SOC 2 Type II under review
-* ISO27001
+For Information Security certificates and related documents, go to the [Gravitee Trust Center](http://trust.gravitee.io).

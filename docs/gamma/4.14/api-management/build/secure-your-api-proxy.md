@@ -190,9 +190,7 @@ Each plan moves through a defined lifecycle:
 
 ## Plan evaluation order
 
-When multiple plans are attached to an API proxy, the Gateway evaluates them in the order shown on the **Plans** page. The first plan whose authentication mechanism matches the incoming request is used. If no plan matches, the request is rejected.
-
-To change the evaluation order, use the **Move up** and **Move down** arrows in the plans table. The first plan's **Move up** arrow and the last plan's **Move down** arrow are disabled.
+When multiple plans are attached to an API proxy, the Gateway evaluates them in an order set by each plan's security type, not by the order on the **Plans** page. If the API proxy is part of an API Product, the Gateway evaluates the API Product's plans before the API proxy's own plans. The first plan whose authentication mechanism matches the incoming request is used. If no plan matches, the request is rejected.
 
 ## Next steps
 

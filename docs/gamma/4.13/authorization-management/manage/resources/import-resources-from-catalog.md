@@ -24,7 +24,7 @@ For MCP servers, the import also fetches associated tools from the Catalog and c
 
 * The Agent Identity Module (AIM) must be installed
 * At least one item published in the AI Catalog
-* The `ENVIRONMENT_AUTHZ_ENTITY[CREATE]` permission
+* The `ENVIRONMENT_AUTHZ_ENTITIES[CREATE]` permission
 
 ## Steps
 

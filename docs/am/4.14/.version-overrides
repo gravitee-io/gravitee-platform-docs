@@ -27,3 +27,4 @@ guides/identity-providers/enterprise-identity-providers/active-directory-ldap.md
 guides/applications/README.md
 reference/application-filtering-cursor-pagination-and-expand-parameters.md
 getting-started/configuration/configure-am-gateway/README.md
+guides/login/passwordless-w3c-webauthn.md

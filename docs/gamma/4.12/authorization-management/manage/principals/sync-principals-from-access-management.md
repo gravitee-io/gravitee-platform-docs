@@ -11,7 +11,7 @@ Synchronize users and groups from Gravitee Access Management (AM) into Authoriza
 ## Prerequisites
 
 * An Access Management connection configured in **Platform → Access Management**
-* The `ENVIRONMENT_AUTHZ_ENTITY[CREATE]` permission
+* The `ENVIRONMENT_AUTHZ_ENTITIES[CREATE]` permission
 
 {% hint style="info" %}
 If no AM connection is configured, the **Sync from AM** button is disabled with the hint: "Connect Access Management first — configure the AM connection in Platform → Access Management."

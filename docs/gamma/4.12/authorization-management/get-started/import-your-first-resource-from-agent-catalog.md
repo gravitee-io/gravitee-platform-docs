@@ -12,7 +12,7 @@ This guide walks you through importing a resource from the AI Catalog into Autho
 
 * At least one item published in the AI Catalog (an MCP server, AI model, or agent)
 * The Agent Identity Module (AIM) must be installed. If it is not available, the **Import from Context Catalog** option is disabled with the hint: "The Agent Identity module must be installed to import from the AI Catalog."
-* The `ENVIRONMENT_AUTHZ_ENTITY[CREATE]` permission
+* The `ENVIRONMENT_AUTHZ_ENTITIES[CREATE]` permission
 
 ## Steps
 

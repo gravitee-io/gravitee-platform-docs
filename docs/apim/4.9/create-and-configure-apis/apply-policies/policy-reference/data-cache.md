@@ -18,7 +18,7 @@ The Data Cache policy allows you to get, set, and expire arbitrary key-value pai
 
 ## Basic Usage
 
-* First, you create a [cache resource](https://github.com/gravitee-io/gravitee-platform-docs/blob/6f69d3d43334c5f35db35e34f1d23832790b9725/docs/apim/4.6/policies/resources.md) for the policy to use.
+* First, you create a [cache resource](../resources.md#cache) for the policy to use.
 * You specify the cache key to use for getting, setting, or expiring. The key name is dynamic and can be set using expression language.
 * When using the `SET` operation, you specify the `value` to set in the cache. The value is also dynamic and supports expression language.
 

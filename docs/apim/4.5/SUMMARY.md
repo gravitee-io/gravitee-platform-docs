@@ -294,8 +294,8 @@
 ## Community & Support
 
 * [Community](community-and-support/community/README.md)
-  * [Support](https://community.gravitee.io/c/support/11)
-  * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
+  * [Support](https://graviteesource.zendesk.com)
+  * [Announcements & Events](https://www.gravitee.io/events)
 * [Contribute to development](community-and-support/contributing-to-the-gravitee-api-management-developement.md)
 
 ## Reference

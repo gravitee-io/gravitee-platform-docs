@@ -11,7 +11,7 @@ This guide walks you through creating a local principal in Authorization Managem
 ## Prerequisites
 
 * Access to Authorization Management in the Gamma console
-* The `ENVIRONMENT_AUTHZ_ENTITY[CREATE]` permission
+* The `ENVIRONMENT_AUTHZ_ENTITIES[CREATE]` permission
 
 ## Steps
 

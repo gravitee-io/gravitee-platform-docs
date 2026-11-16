@@ -22,7 +22,7 @@
   * [Install on Amazon](getting-started/install-and-upgrade-guides/install-on-amazon.md)
   * [Deploy in Kubernetes](getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md)
   * [Configure a Production-ready AM Environment](getting-started/install-and-upgrade-guides/configure-a-production-ready-am-environment.md)
-  * [4.5 Upgrade Guide](getting-started/install-and-upgrade-guides/upgrade-guide.md)
+  * [Upgrade Guide](getting-started/install-and-upgrade-guides/upgrade-guide.md)
   * [4.7 Upgrade Guide](getting-started/install-and-upgrade-guides/4.7-upgrade-guide.md)
   * [Configure Gateway Resilience Mode](getting-started/install-and-upgrade-guides/configure-gateway-resilience-mode.md)
   * [Configure Multiple Data Planes](getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md)
@@ -182,6 +182,5 @@
 
 * [Enterprise Support](community-and-support/enterprise-support.md)
 * [Community](community-and-support/community/README.md)
-  * [Support](https://community.gravitee.io/c/support/11)
-  * [Roadmap & Feedback](https://www.gravitee.io/user-feedback)
-  * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
+  * [Support](https://graviteesource.zendesk.com)
+  * [Announcements & Events](https://www.gravitee.io/events)
