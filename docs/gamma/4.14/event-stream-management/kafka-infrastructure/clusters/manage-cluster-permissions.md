@@ -35,6 +35,14 @@ These roles decide what the Management API lets a user do to one Cluster. The `C
 
 The console also checks the role on the Cluster before it offers an edit: the **Settings** page is editable only with the **Definition** update permission, and the **Configuration** page only with the **Configuration** update permission. See [Manage clusters](manage-a-cluster.md#edit-the-settings).
 
+## Bind APIs to a cluster
+
+Only the members of a Cluster bind a Kafka Service or a Message API to it, or change the connection that an API uses. A member holds a role on the Cluster with read access to its **Definition**, such as **User** or **Owner**, directly or through one of the groups that have access to the Cluster. Organization administrators bind to every Cluster.
+
+The Cluster lists of the Kafka Service and Message API forms offer these Clusters, plus the Cluster that the API already uses, and a save that binds an API to another Cluster is refused with a message that names the Cluster. To let a user bind APIs to the Cluster, add them as a member.
+
+An API keeps the bindings that it already has, whoever edits it, and removing a binding needs no membership. Binding a Kafka Service to a Virtual Cluster doesn't need membership of the Virtual Cluster or of its Clusters.
+
 ## Add members
 
 1. Select **Add members**.

@@ -74,6 +74,8 @@ Each selected endpoint shows two configuration forms, both built from the connec
 
 For **Kafka**, **Connection** shows only the producer settings, the consumer settings, or both, depending on the entrypoints you selected. An entrypoint that receives messages from clients, such as **HTTP POST**, needs a producer. An entrypoint that delivers messages to clients, such as **HTTP GET**, **Server-Sent Events**, or **Webhook**, needs a consumer. When you go back and change the entrypoints, the settings that they no longer need are dropped.
 
+**Kafka** also asks where its connection comes from. **Direct**, the default, uses the bootstrap servers and the security that you enter in the forms. **Registered cluster** uses a connection of a Cluster registered in Event Stream Management: select the **Cluster**, then, under **Endpoint settings**, the **Connection** that the endpoint uses. That connection also becomes the default connection of the group, and **Connection** has no security settings with **Registered cluster**. See [Connect a Kafka group to a registered cluster](configure-endpoints-and-failover.md#connect-a-kafka-group-to-a-registered-cluster).
+
 Each endpoint that you select becomes its own endpoint group, named `Default <connector> group`, that holds one endpoint named `Default <connector>`.
 
 ### Security

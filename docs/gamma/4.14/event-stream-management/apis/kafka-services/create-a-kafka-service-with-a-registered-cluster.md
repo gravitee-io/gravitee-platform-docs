@@ -110,7 +110,7 @@ The **Endpoint binding** step decides how the Kafka Service reaches Kafka. Selec
     </tbody>
 </table>
 
-Only deployed clusters and Virtual Clusters are listed. **Managed Cluster** lists the deployed clusters with connections. **Virtual Cluster** lists the Virtual Clusters in the **Deployed** state, so a Virtual Cluster that is undeployed, or has changes waiting to be deployed, doesn't appear. With none to pick, the step shows **No deployed Clusters. Deploy a Kafka cluster first, then bind to it here.** or **No deployed Virtual Clusters. Deploy a Virtual Cluster first, then bind to it here.**
+Only deployed clusters and Virtual Clusters are listed. **Managed Cluster** lists the deployed clusters that you're a member of, or all of them for an organization administrator, and shows **You are not a member of any deployed Cluster. Ask an owner of a Cluster to add you as a member, then bind to it here.** when there's none. See [Bind APIs to a cluster](../../kafka-infrastructure/clusters/manage-cluster-permissions.md#bind-apis-to-a-cluster). **Virtual Cluster** lists the Virtual Clusters in the **Deployed** state, so a Virtual Cluster that is undeployed, or has changes waiting to be deployed, doesn't appear. With none to pick, the step shows **No deployed Clusters. Deploy a Kafka cluster first, then bind to it here.** or **No deployed Virtual Clusters. Deploy a Virtual Cluster first, then bind to it here.**
 
 In the **Standalone** security settings, an SSL truststore or key store set to **None** means that the Kafka Service has no truststore or no key store. A truststore in PEM format needs no password.
 

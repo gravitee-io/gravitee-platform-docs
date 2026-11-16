@@ -6,7 +6,7 @@ description: Find Virtual Clusters, change their backends, deploy or undeploy th
 
 # Manage a Virtual Cluster
 
-The **Virtual Clusters** page lists the Virtual Clusters of the environment, separately from the **Clusters** page. A Virtual Cluster opens on the same detail pages as a Cluster: **Overview**, **Settings**, **Configuration**, and **User Permissions** in the **General** group, and **Used by Kafka Services** in the **Usage** group.
+The **Virtual Clusters** page lists the Virtual Clusters of the environment, separately from the **Clusters** page. A Virtual Cluster opens on the same detail pages as a Cluster: **Overview**, **Settings**, **Configuration**, and **User Permissions** in the **General** group, and **APIs** in the **Usage** group.
 
 This page covers what differs for a Virtual Cluster. For the settings, the lifecycle actions, and the deletion, see [Manage clusters](../clusters/manage-a-cluster.md). For the members, see [Manage cluster permissions](../clusters/manage-cluster-permissions.md).
 
@@ -43,7 +43,7 @@ New backends go to the end of the list. The order of the backends is the configu
 Without either permission, the **Configuration** card reads **Your role can't change this configuration.** and lists the backends read-only, with their **Cluster cross ID** and **Connection cross ID**. A role without the **Configuration** read permission, such as the built-in **User** role, sees **No backends configured.**
 
 {% hint style="warning" %}
-Removing a backend from a deployed Virtual Cluster affects the clients that use topics on that backend once you deploy the change. Check the **Used by Kafka Services** page first, and confirm the impact before you change a Virtual Cluster in production.
+Removing a backend from a deployed Virtual Cluster affects the clients that use topics on that backend once you deploy the change. Check the **APIs** page first, and confirm the impact before you change a Virtual Cluster in production.
 {% endhint %}
 
 ### Remove every backend
@@ -98,8 +98,9 @@ For the details of each behavior, see [Virtual Cluster runtime behavior referenc
 The lifecycle actions of a Virtual Cluster are the same as for a Cluster. See [Cluster lifecycle](../clusters/manage-a-cluster.md#cluster-lifecycle). The following rules are specific to a Virtual Cluster:
 
 * **Deploy** requires at least one backend. The button is disabled, and its tooltip reads **A Virtual Cluster needs at least one backend before it can be deployed.**
-* **Undeploy** is refused while a started Kafka Service is bound to the Virtual Cluster. The **Undeploy Virtual Cluster?** dialog names these Kafka Services, each with a link. To confirm, select **Undeploy Virtual Cluster**. Stop them first.
-* A Kafka Service bound to the Virtual Cluster can start only while the Virtual Cluster is **Deployed** or has **Pending changes**.
+* **Deploy** is refused while the Cluster of a backend isn't deployed, or the deployed Cluster doesn't have the connection of the backend. The console shows the reason in a notification.
+* **Undeploy** is refused while a started Kafka Service is bound to the Virtual Cluster. The **Undeploy Virtual Cluster?** dialog names these Kafka Services, each with a link, and **Undeploy Virtual Cluster** stays disabled until you stop them.
+* A Kafka Service bound to the Virtual Cluster can start only while the Virtual Cluster is **Deployed** or has **Pending changes**, and the Cluster of each backend is deployed with the connection of the backend.
 
 ## Delete a Virtual Cluster
 
@@ -112,9 +113,9 @@ You delete a Virtual Cluster like a Cluster. See [Delete a cluster](../clusters/
 ## See which Kafka Services use a Virtual Cluster
 
 1. Open the Virtual Cluster.
-2. In the **Usage** group of the sidebar, select **Used by Kafka Services**.
+2. In the **Usage** group of the sidebar, select **APIs**.
 
-The page lists the Kafka Services bound to the Virtual Cluster, with their **Name**, **Version**, **State**, and **Binding**. Select a name to open the Kafka Service.
+The page lists the Kafka Services bound to the Virtual Cluster, started or not, with the same columns and search as the **APIs** page of a Cluster. See [See which APIs use a cluster](../clusters/manage-a-cluster.md#see-which-apis-use-a-cluster).
 
 ## Verification
 
