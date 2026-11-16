@@ -8,6 +8,29 @@ description: >-
 
 # AM 4.13.x
 
+## Gravitee Access Management 4.13.4 - November 16, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+**Gateway**
+
+* Token exchange with User Binding Mappings can cause NPE with postgresdb [#11850](https://github.com/gravitee-io/issues/issues/11850)
+
+
+
+
+**Other**
+
+* [AM Gateway] Support X-Forwarded-* headers for virtual host routing behind a proxy [#12006](https://github.com/gravitee-io/issues/issues/12006)
+
+</details>
+
+
 ## Gravitee Access Management 4.13.3 - November 4, 2026
 
 <details>
