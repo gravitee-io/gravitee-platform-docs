@@ -246,6 +246,10 @@ Conflict detection runs before plan creation or update and blocks operations tha
 
 ### Health probe in port routing mode
 
+{% hint style="info" %}
+Available from APIM 4.12.27.
+{% endhint %}
+
 In `port` routing mode, the Gateway opens no default listener. Each Kafka API opens its own ports, so there is no fixed port for the `kafka-server` health probe to connect to. The probe reports healthy and returns the message `Port routing: no default listener to check, each API opens its own ports`, so a Gateway with no Kafka API deployed yet is not marked unhealthy.
 
 In `host` routing mode, the probe still connects to the listener on `kafka.port` (default `9092`).
