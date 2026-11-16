@@ -6,13 +6,14 @@ description: Register an existing Kafka cluster with Gamma so Kafka Services and
 
 # Register your Kafka clusters
 
-When you register a Kafka cluster with Gamma, it becomes a **Cluster** of Event Stream Management. Once it's deployed, Kafka Services can bind to one of its connections, and Virtual Clusters can use its connections as backends.
+When you register a Kafka cluster with Gamma, it becomes a **Cluster** of Event Stream Management. Once it's deployed, Kafka Services and Message APIs can bind to its connections, and Virtual Clusters can use its connections as backends.
 
 ## Why register a cluster
 
 Gamma doesn't host Kafka clusters. It governs them. A Cluster stores the connection details of an existing Kafka cluster once, so that the following objects can reuse them:
 
 * **Kafka Services**, which add plans, policies, and access control on top of one of the Cluster's connections. In the Kafka Service wizard, this binding mode is called **Managed Cluster**.
+* **Message APIs**, whose Kafka endpoint groups use the Cluster's connections instead of their own bootstrap servers and security. In the endpoint group form, this option is called **Registered cluster**.
 * **Virtual Clusters**, which present one or more connections of your Clusters to clients as a single Kafka cluster.
 * **Kafka Explorer connections**, which read the brokers, topics, consumer groups, and messages of a Cluster. Kafka Explorer doesn't need the Cluster to be deployed.
 
@@ -52,6 +53,8 @@ A Cluster needs at least one connection. Each connection carries the following f
 | **Security protocol** | Required. One of `PLAINTEXT`, `SASL_PLAINTEXT`, `SASL_SSL`, or `SSL`. Defaults to `PLAINTEXT`.                              |
 
 The `SASL_PLAINTEXT` and `SASL_SSL` protocols add a **SASL Configuration** section, where **Select SASL mechanism** offers `NONE`, `AWS_MSK_IAM`, `GSSAPI`, `OAUTHBEARER`, `OAUTHBEARER_TOKEN`, `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`, and `DELEGATE_TO_BROKER`. The `SASL_SSL` and `SSL` protocols add the SSL options, with the truststore and the key store.
+
+Any value of the security settings, such as a password, the **SASL JAAS Config**, or the content of a store, accepts a reference to a secret in your secret manager instead of the value itself. The Cluster stores only the reference, and the value is read from the secret manager when a Kafka Service, a Message API, or a Virtual Cluster uses the Cluster. Kafka Explorer doesn't resolve the reference. For the syntax, see [Reference Secrets in APIs](https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis).
 
 Gamma derives the Cluster's own cross ID from its name. A second Cluster whose name yields the same cross ID in the environment is refused.
 

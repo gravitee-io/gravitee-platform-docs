@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Find, edit, deploy, undeploy, and delete the Clusters of Event Stream Management, and see which Kafka Services use each one. Follow the steps to manage a Cluster.
+description: Find, edit, deploy, undeploy, and delete the Clusters of Event Stream Management, and see which APIs use each one. Follow the steps to manage a Cluster.
 ---
 
 # Manage clusters
@@ -9,7 +9,7 @@ description: Find, edit, deploy, undeploy, and delete the Clusters of Event Stre
 The **Clusters** page lists the Kafka clusters registered in the environment. Each Cluster opens on a detail page whose sidebar holds the following entries:
 
 * **General**: **Overview**, **Settings**, **Configuration**, and **User Permissions**.
-* **Usage**: **Used by Kafka Services**.
+* **Usage**: **APIs**, with the number of APIs that use the Cluster.
 
 A Virtual Cluster has the same list layout and the same detail pages. Only its **Configuration** page differs. See [Manage a Virtual Cluster](../virtual-clusters/manage-a-virtual-cluster.md).
 
@@ -72,7 +72,9 @@ When you deploy changes to a Cluster that backs Virtual Clusters, the gateway re
 2. Select **Undeploy**.
 3. In the **Undeploy Cluster?** dialog, select **Undeploy Cluster**.
 
-The console confirms with **Cluster undeployed**, and the status changes to **Undeployed**. The dialog warns that traffic to the Cluster stops until you deploy it again. Unlike the dialog of a Virtual Cluster, it doesn't list Kafka Services. If the undeployment fails, the dialog shows **Undeploy failed** with the reason and stays open.
+The console confirms with **Cluster undeployed**, and the status changes to **Undeployed**. The dialog warns that the APIs that use the Cluster can't start until you deploy it again. If the undeployment fails, the dialog shows **Undeploy failed** with the reason and stays open.
+
+A Cluster can't be undeployed while started Kafka Services or Message APIs use it. A Kafka Service that reaches the Cluster through a deployed Virtual Cluster counts too, and stopped APIs don't. The dialog then lists the started APIs, each with a link, under a title such as **2 started APIs use this Cluster**, and **Undeploy Cluster** stays disabled. Stop the APIs, then undeploy the Cluster. A list of more than five APIs shows the first five, and a button such as **Show all 7** lists the rest.
 
 ## Read the overview
 
@@ -105,8 +107,10 @@ You can edit the connections only with the `CLUSTER` **Update** permission of yo
 
 A role without the **Configuration** read permission on the Cluster, such as the built-in **User** role, gets no configuration from the Management API. For that role, the page reads **No connections configured.**, and the **Clusters** list and the **Overview** page count 0 connections.
 
+A save or a deployment that removes a connection that started APIs use is refused. A Kafka Service that uses the connection through a deployed Virtual Cluster counts too. **Save changes** then lists those APIs above the save bar, each with a link, under a title such as **1 started API uses connection 'orders'**, and doesn't save. Stop the APIs, then save again. Changing the cross ID of a connection counts as removing it.
+
 {% hint style="warning" %}
-Kafka Services and Virtual Clusters reference a connection by its cross ID. Before you remove a connection or change its cross ID, check the **Used by Kafka Services** page of the Cluster, and the **Configuration** page of your Virtual Clusters.
+Kafka Services, Message APIs, and Virtual Clusters reference a connection by its cross ID. Before you remove a connection or change its cross ID, check the **APIs** page of the Cluster, and the **Configuration** page of your Virtual Clusters.
 {% endhint %}
 
 ## Set the backend metadata max age
@@ -131,14 +135,23 @@ With `0`, every new client connection sends the request, as before. With a value
 
 Without permission to change the configuration, the read-only **Configuration** card shows a **Backend metadata max age** row. It reads **Gateway default**, **Off** for `0`, or the value, for example **30 s**.
 
-## See which Kafka Services use a cluster
+## See which APIs use a cluster
 
 1. Open the Cluster.
-2. In the **Usage** group of the sidebar, select **Used by Kafka Services**.
+2. In the **Usage** group of the sidebar, select **APIs**.
 
-The page lists the Kafka Services whose endpoint references the Cluster, with their **Name**, **Version**, **State**, and **Binding**. Select a name to open the Kafka Service. When no Kafka Service references the Cluster, the page reads **No Kafka Services reference this Cluster yet.**
+The page lists the Kafka Services and the Message APIs that use the Cluster, started or not, 10 per page by default. A Kafka Service that reaches the Cluster through a deployed Virtual Cluster is listed too. Each row shows the following columns:
 
-The list covers the Kafka Services bound to the Cluster directly, with the **Managed Cluster** binding mode. A Kafka Service that reaches the Cluster through a Virtual Cluster is listed on the Virtual Cluster's own **Used by Kafka Services** page. The console builds the list in the browser from every Kafka Service of the environment.
+| Column | Description |
+| --- | --- |
+| **Name** | The name and the version of the API. Select it to open the API. An API that you don't have access to shows **No access** next to its name, without a link. |
+| **Type** | **Kafka Service** or **Message API**. |
+| **State** | The state of the API, for example **Started** or **Stopped**. |
+| **Connection** | The connections of the Cluster that the API uses. For a Kafka Service that reaches the Cluster through a Virtual Cluster, the name of the Virtual Cluster follows **via**. |
+
+To find an API, type part of its name in **Search APIs…**. When no API uses the Cluster, the page reads **No API uses this Cluster.**
+
+<figure><img src="../../.gitbook/assets/gamma-esm-cluster-apis.png" alt="The APIs page of a Cluster, with the APIs item of the Usage group showing 2, and a started Message API and a stopped Kafka Service with their connections"><figcaption><p>The <strong>APIs</strong> page of a Cluster</p></figcaption></figure>
 
 ## Delete a cluster
 
@@ -154,7 +167,7 @@ The console confirms with **Cluster deleted**. If the deletion fails, the dialog
 The delete actions require the `CLUSTER` **Delete** permission of your environment role.
 
 {% hint style="warning" %}
-Kafka Services and Virtual Clusters that reference a deleted Cluster stop working. Check the **Used by Kafka Services** page before you delete a Cluster.
+Kafka Services, Message APIs, and Virtual Clusters that reference a deleted Cluster stop working. Check the **APIs** page before you delete a Cluster.
 {% endhint %}
 
 ## Verification

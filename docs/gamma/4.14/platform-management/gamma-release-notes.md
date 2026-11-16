@@ -12,6 +12,10 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 
 From 4.14.0, the `graviteeio/apim-gateway` and `graviteeio/apim-management-api` images are also published with `-alpine` tags, which point to the same images as the tags without a suffix. The March 2027 release of APIM moves the tags without a suffix, including `latest`, to the Debian image. The June 2027 release stops publishing Alpine Linux images of these two components. To stay on Alpine Linux until then, switch to the `-alpine` tags. To move to Debian, use the `-debian` tags, and check how the Debian image differs before you switch. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#alpine-linux-images-of-the-gateway-and-the-management-api-are-deprecated).
 
+#### **Event Stream Management guards the Clusters that APIs use**
+
+From 4.14.0, only the members of a Cluster bind a Kafka Service or a Message API to it. A Cluster that started APIs use can't be undeployed, deleted, or lose a connection that they use. Starting a Kafka Service and deploying a Virtual Cluster are refused while a Cluster that they use isn't deployed, or doesn't have their connection. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md).
+
 ## 4.14 new features
 
 The 4.14 release adds the following capabilities.
@@ -85,7 +89,18 @@ Edge Management decides how the Edge Daemons identify themselves to the Edge Rea
 
 ### Event Stream Management
 
-Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtual Cluster bound the metadata requests that the gateway sends to its brokers on its own. It also lets you disable the broker hostname verification of a Kafka connection over SSL.
+Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtual Cluster bound the metadata requests that the gateway sends to its brokers on its own. It also lets you disable the broker hostname verification of a Kafka connection over SSL. Message APIs now use the connections of registered Clusters, and each Cluster lists the APIs that use it.
+
+#### Registered Clusters for Message APIs
+
+* The Kafka endpoint group of a Message API now offers **Registered cluster** next to **Direct**, in the creation wizard and on the **Endpoints** page. The group uses a **Cluster** and a **Default connection**, and each endpoint uses one connection of the Cluster, which holds the bootstrap servers and the security.
+* A connection that Message APIs can't use shows **(not supported)** after its name, with the reason in its tooltip.
+* A Message API follows the changes that you deploy on its Cluster, such as new credentials, without a new deployment of the Message API.
+* The **Used by Kafka Services** page of a Cluster and of a Virtual Cluster is now **APIs**. It lists the Kafka Services and the Message APIs that use the Cluster, started or not, with their type, state, and connection, and a search by name. The **APIs** item of the sidebar shows how many APIs use the Cluster.
+* When you undeploy or delete a Cluster, or save a **Configuration** that removes a connection, the console lists the started APIs that block the change, each with a link.
+* The values of the security settings of a Cluster connection accept a reference to a secret in your secret manager. The Cluster stores only the reference.
+* Only the members of a Cluster bind an API to it, and the Cluster lists of Kafka Services and Message APIs offer those Clusters, plus the Cluster that the API already uses.
+* See [Connect a Kafka group to a registered cluster](../event-stream-management/apis/message-apis/configure-endpoints-and-failover.md#connect-a-kafka-group-to-a-registered-cluster), [Manage clusters](../event-stream-management/kafka-infrastructure/clusters/manage-a-cluster.md#see-which-apis-use-a-cluster), and [Bind APIs to a cluster](../event-stream-management/kafka-infrastructure/clusters/manage-cluster-permissions.md#bind-apis-to-a-cluster).
 
 #### Backend metadata max age
 
