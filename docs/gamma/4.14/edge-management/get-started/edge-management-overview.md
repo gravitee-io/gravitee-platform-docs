@@ -69,6 +69,8 @@ The daemon connects to two endpoints on the gateway side. Both must be reachable
 
 The Edge Reactor listener is separate from the gateway's main HTTP port, so it must be exposed explicitly. On Kubernetes, see [Configure Edge Ingress](../connect/configure-edge-ingress.md).
 
+One gateway serves the Edge Management configuration of several environments, and keeps each environment's configuration apart. See [Serve several environments from one gateway](../connect/secure-the-edge-reactor-listener.md#serve-several-environments-from-one-gateway).
+
 ## Compatibility
 
 The Edge Daemon is available for macOS only, on Apple Silicon and Intel. It supports interception for Claude Code through the Anthropic API.
