@@ -102,6 +102,34 @@ When a proxy in front of the gateway ends TLS, such as an Ingress or a load bala
 
 The Edge Reactor reads the certificate from the same header as the rest of the gateway. Set it only when the proxy writes that header on every request, so that no daemon sends its own.
 
+## Serve several environments from one gateway
+
+One gateway serves the Edge API of every environment that it deploys, and keeps the configuration of each environment apart. A daemon installed with the ID of its environment, as the Kandji script of the **Daemon deployment** page installs it, gets the configuration of that environment only. When that environment has no Edge API on the gateway, the Edge Reactor answers the daemon with `404`, and never serves another environment instead.
+
+A daemon installed without an environment ID, such as a daemon installed with a 4.13 script, doesn't name its environment. `edge.server.default_environment`, in the `gravitee.yml` of the gateway, decides which environment serves it:
+
+```yaml
+edge:
+  server:
+    default_environment: <environment ID>
+```
+
+The following table describes each value:
+
+| Value             | Environment that serves the daemons installed without an environment ID                                                                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Not set (default) | The only environment whose Edge API the gateway deploys. Once the gateway deploys the Edge API of several environments, the environment whose ID is `DEFAULT`. |
+| An environment ID | That environment only.                                                                                                                                       |
+| `""`              | None. The Edge Reactor answers these daemons with `404`.                                                                                                     |
+
+When the environment that the setting selects has no Edge API on the gateway, the Edge Reactor answers these daemons with `404`, and the gateway logs a warning that begins with `Unscoped Edge requests resolve to environment`.
+
+The Helm chart doesn't render `edge.server.default_environment` from `gateway.edge`.
+
+## Deploy the Edge API on gateways with sharding tags
+
+The Edge API of each environment carries the `gravitee-edge-configuration` sharding tag. A gateway that deploys only the APIs of some sharding tags deploys the Edge API when `gravitee-edge-configuration` is one of them. Add it to the sharding tags of each such gateway that serves the Edge Reactor. Without it, that gateway doesn't deploy the Edge API, and its Edge Reactor answers the daemons with `404`. A gateway without sharding tags deploys every API, the Edge API included. See [Configure sharding tags for your internal and external Gateways](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/gravitee-gateway/sharding-tags#configure-sharding-tags-for-your-internal-and-external-gateways).
+
 ## Rename the port setting
 
 `edge.server.port` is deprecated. Use `edge.port`. The gateway still reads `edge.server.port` when `edge.port` isn't set, and logs a warning at startup. When both are set, `edge.port` wins. In the Helm chart, use `gateway.edge.port` instead of `gateway.edge.server.port`.
