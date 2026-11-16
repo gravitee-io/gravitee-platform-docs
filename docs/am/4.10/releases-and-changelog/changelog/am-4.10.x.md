@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.10.x
 
+## Gravitee Access Management 4.10.28 - November 16, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* [Gateway] Race condition in KryoSecureSecretsCache: concurrent reads of the same cached secret fail, domain left without certificate (empty JWKS / 503) [#11992](https://github.com/gravitee-io/issues/issues/11992)
+* [AM Gateway] Support X-Forwarded-* headers for virtual host routing behind a proxy [#12006](https://github.com/gravitee-io/issues/issues/12006)
+* Wildcard search does not escape special characters (Mongo and JDBC) [#12007](https://github.com/gravitee-io/issues/issues/12007)
+* Loading all domain scopes exhausts the JDBC pool [#12010](https://github.com/gravitee-io/issues/issues/12010)
+
+</details>
+
+
 ## Gravitee Access Management 4.10.27 - October 29, 2026
 
 <details>
