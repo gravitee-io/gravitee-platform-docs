@@ -8,10 +8,6 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 
 ## 4.14 breaking changes and deprecations
 
-#### **JWT plans created in the Gamma console for MCP Proxies and MCP Studios remove the `Authorization` header**
-
-From 4.14.0, a JWT plan that you create in the Gamma console for an MCP Proxy or MCP Studio starts with **Propagate Authorization header** off. After the gateway validates the token, it removes the `Authorization` header, so the policies that follow and the upstream don't receive it. In 4.13, a new JWT plan kept the header. Plans created before the upgrade keep their behavior. To keep the header on a new plan, turn on **Propagate Authorization header**. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md).
-
 #### **Alpine Linux images of the Gateway and the Management API are deprecated**
 
 From 4.14.0, the `graviteeio/apim-gateway` and `graviteeio/apim-management-api` images are also published with `-alpine` tags, which point to the same images as the tags without a suffix. The March 2027 release of APIM moves the tags without a suffix, including `latest`, to the Debian image. The June 2027 release stops publishing Alpine Linux images of these two components. To stay on Alpine Linux until then, switch to the `-alpine` tags. To move to Debian, use the `-debian` tags, and check how the Debian image differs before you switch. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#alpine-linux-images-of-the-gateway-and-the-management-api-are-deprecated).
