@@ -56,6 +56,8 @@ The `SASL_PLAINTEXT` and `SASL_SSL` protocols add a **SASL Configuration** secti
 
 Any value of the security settings, such as a password, the **SASL JAAS Config**, or the content of a store, accepts a reference to a secret in your secret manager instead of the value itself. The Cluster stores only the reference, and the value is read from the secret manager when a Kafka Service, a Message API, or a Virtual Cluster uses the Cluster. Kafka Explorer doesn't resolve the reference. For the syntax, see [Reference Secrets in APIs](https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis).
 
+To have the gateway use a rotated secret without a new deployment of the Cluster, add both the `renewable=true` and `reloadOnChange=true` options to the reference. `renewable=true` makes the gateway renew the value, and `reloadOnChange=true` makes it reload the Cluster when the renewed value differs. Without `renewable=true`, the gateway doesn't renew the value. How often the gateway renews secrets is set in its configuration. See [Secret renewal](https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis#secret-renewal).
+
 Gamma derives the Cluster's own cross ID from its name. A second Cluster whose name yields the same cross ID in the environment is refused.
 
 ## Deploy the cluster
