@@ -22,7 +22,7 @@ The 4.14 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply. JWT plans of MCP Proxies and MCP Studios gain two settings, for the claims of the token and for the `Authorization` header.
+Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply. JWT plans of MCP Proxies and MCP Studios gain two settings, for the claims of the token and for the `Authorization` header. The endpoint of an MCP Proxy tunes its HTTP/2 connections.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
@@ -60,6 +60,14 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and
 * **Extract JWT claims** puts the claims of the token on the `jwt.claims` context attribute, for the policies that follow. It's off by default.
 * **Propagate Authorization header** keeps the `Authorization` header on the request after the gateway validates the token. A new plan starts with it off.
 * See [Configure a JWT plan](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md#configure-a-jwt-plan).
+
+#### MCP Proxy endpoints tune their HTTP/2 connections
+
+* With the **HTTP version** set to **HTTP/2**, the **HTTP configuration** of an MCP Proxy endpoint sets the **HTTP/2 multiplexing limit**, which is the maximum number of concurrent streams per connection, the **HTTP/2 max frame size (bytes)**, the **HTTP/2 connection window size (bytes)**, and the **HTTP/2 stream window size (bytes)**.
+* The console checks each of these values against its accepted range, and **Save changes** stays disabled while one is out of range.
+* **Allow h2c clear-text upgrade** appears only when the **HTTP version** is **HTTP/2**. When the **HTTP version** is **HTTP/1.1**, the HTTP/2 options, including **Allow h2c clear-text upgrade**, aren't saved.
+* The endpoint page is read-only when the definition of the proxy fails to load. It explains why, disables its fields, and doesn't show **Reset** or **Save changes**.
+* See [Configure the MCP Proxy endpoint](../agent-management/build/configure-mcp-proxy-endpoint.md).
 
 ### Edge Management
 

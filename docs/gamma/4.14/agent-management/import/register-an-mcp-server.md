@@ -96,6 +96,7 @@ The following also applies to the settings of a server:
 * Until you save the **Advanced settings** of a server for the first time, the Studios that use it keep the connection settings they already have. After that, the settings of the server replace those of the Studios each time the URL, the MCP specification versions, or the settings of the server change.
 * Once saved, the settings stay with the server. The page changes them but doesn't clear them.
 * The page doesn't show the proxy **Password** again after you save it. Leave the field empty to keep the saved password while the proxy **Host**, **Port**, and **Username** stay the same. If you change any of the three, enter the password again.
+* When **HTTP version** is **HTTP/1.1**, the HTTP/2 options, including **Allow h2c clear-text upgrade**, aren't saved.
 * A Studio source built from an API in API Management or from a workflow tool doesn't use these settings.
 * **Re-sync** keeps the settings.
 * **Remove** doesn't change the MCP Studios that use the server. They keep calling its last URL.
