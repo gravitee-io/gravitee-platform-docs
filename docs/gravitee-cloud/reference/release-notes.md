@@ -6,6 +6,21 @@ description: New features in each Gravitee Cloud release, listed newest first by
 
 This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:
 
+## November 2026
+
+<!-- TODO: CJ-5113 held draft. Set the month heading and the date to the day the Members page of Account Management reaches Gravitee Cloud. -->
+<details>
+
+<summary>17th November</summary>
+
+**Manage account members in the Gamma console**
+
+**Account Management** in the Gamma console has a new **Members** page. Invite people to your Gravitee Cloud account there, change the role of a member, delete a member, or transfer the ownership of the account. The page also shows when each member was last active.
+
+For more information, see [Manage account members in the Gamma console](../guides/manage-account-members.md).
+
+</details>
+
 ## October 2026
 
 <details>
