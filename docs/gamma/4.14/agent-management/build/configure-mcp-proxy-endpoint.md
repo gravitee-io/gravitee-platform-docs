@@ -34,7 +34,7 @@ To set the credentials that the gateway injects into its calls to the upstream s
 
 The **Advanced settings** section sets how the gateway connects to the upstream MCP server. Click a section to open it:
 
-* **HTTP configuration**. Timeouts, the connection pool, the **HTTP version**, and how the gateway handles keep-alive, pipelining, redirects, compression, and the client's `Accept-Encoding` and `Host` headers. **Propagate client Accept-Encoding header** turns on only while **Enable compression (`gzip`, `deflate`)** is off, and **Allow h2c clear-text upgrade** appears only when the **HTTP version** is **HTTP/2**.
+* **HTTP configuration**. Timeouts, the connection pool, the **HTTP version**, and how the gateway handles keep-alive, pipelining, redirects, compression, and the client's `Accept-Encoding` and `Host` headers. **Propagate client Accept-Encoding header** turns on only while **Enable compression (`gzip`, `deflate`)** is off, and **Allow h2c clear-text upgrade** appears only when the **HTTP version** is **HTTP/2**. With the **HTTP version** set to **HTTP/2**, you can also tune the **HTTP/2 multiplexing limit**, which is the maximum number of concurrent streams per connection, the **HTTP/2 max frame size (bytes)**, the **HTTP/2 connection window size (bytes)**, and the **HTTP/2 stream window size (bytes)**. The console checks each of these values against its accepted range, and **Save changes** stays disabled while one is out of range.
 * **Proxy**. Turn on **Enable proxy** to route the calls to the upstream server through a proxy. Either turn on **Use system proxy** to use the proxy settings of the gateway, or select a **Proxy type** of **HTTP**, **SOCKS4**, or **SOCKS5** and enter its **Host** and **Port**, plus a **Username** and **Password** when the proxy needs them. Without a host, the section shows **Proxy host is required when proxy is enabled.** Without a port, or with a port that isn't a number above zero, it shows **Proxy port is required when proxy is enabled.** **Save changes** stays disabled until you fix it.
 * **SSL / TLS**. **Hostname verifier** checks that the certificate of the upstream server matches its host name, and **Trust all certificates** accepts any certificate. The page doesn't edit trust stores or key stores, and saving keeps the ones that the proxy already has.
 * **HTTP headers**. The headers that the gateway sends with every call to the upstream server. Click **Add header**, and then enter a **Header name** and a **Value**. A value accepts the Gravitee Expression Language, including the attributes of the incoming request and secrets. A row without a name isn't saved. A header whose value is empty, or whose expression fails or resolves to nothing, isn't sent. The gateway waits for the values no longer than the **Read timeout (ms)**: past it, the call fails with status `504` and doesn't reach the upstream server.
@@ -56,6 +56,8 @@ Saving updates the API definition but doesn't deploy it. The gateway keeps the p
 
 {% hint style="info" %}
 An MCP Proxy managed by the Kubernetes operator is read-only on this page, which reads **This MCP proxy is managed by the Kubernetes operator. Its endpoint can only be changed from its source definition.**
+
+The page is also read-only when the definition of the proxy fails to load. A read-only page explains why, disables its fields, and doesn't show **Reset** or **Save changes**.
 {% endhint %}
 
 ## Verification
