@@ -679,6 +679,12 @@ If you were using environment variable to provide database settings remember to:
 * add the settings for the gateway scope\
   `GRAVITEE_GATEWAY_TYPE=... => GRAVITEE_REPOSITORIES_GATEWAY_TYPE=...`
 
+#### User consents
+
+The `userId` attribute of a user consent is no longer a string containing the user internalId. It is now an object with the user internalId (`id`), the user externalId (`externalId`), and the identity provider identifier (`source`).
+
+This change affects the user consents endpoints of the Management API (`/users/{user}/consents`), the Gateway Users API (`/{domain}/users/{userId}/consents`), and the Gateway Self-service Account API (`/{domain}/account/api/consent`). If your clients read `userId` as a string, update them to read `userId.id`.
+
 </details>
 
 <details>
