@@ -105,7 +105,7 @@ The plan must name a resource declared on the proxy when you create it and when 
 
 With **Require a subscription** on, the gateway accepts a token only when its client ID belongs to an application subscribed to the plan. A consumer subscribes to the plan with an application whose client ID matches the client ID in the token. See [Manage subscriptions](../../publish/manage-subscriptions.md). A call whose client has no valid subscription to the plan receives a `401` response, unless another plan accepts it. The plan list shows a **Subscription required** badge on the plan.
 
-When you turn on **Require a subscription** for a published or deprecated plan, the **Require a subscription?** dialog opens. Click **Require a subscription** to confirm. Subscribe the applications of your clients to the plan before you deploy the proxy, so that they keep their access.
+When you turn on **Require a subscription** for a published or deprecated plan, the **Require a subscription?** dialog opens. Click **Require a subscription** to confirm. On a published plan, subscribe the applications of your clients to the plan before you deploy the proxy, so that they keep their access. A deprecated plan accepts no new subscriptions, so once you deploy the proxy, it accepts only the clients whose application is already subscribed to it.
 
 ### Configure an mTLS plan
 
