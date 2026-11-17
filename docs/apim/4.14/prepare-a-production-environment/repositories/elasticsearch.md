@@ -67,7 +67,16 @@ reporters:
     endpoints:
       - http://${ds.elastic.host}:${ds.elastic.port}
 #    index: gravitee
-#    index_mode: daily    # "daily" indexes, suffixed with date. Or "ilm" managed indexes, without date
+#    index_mode: daily    # "daily" indexes, suffixed with date. Or "ilm" managed indexes, without date. Or "data_stream"
+                          # data streams named <index>-<type>, on Elasticsearch 7.9+ or OpenSearch
+#    lifecycle:
+#      retention:         # data_stream mode on Elasticsearch 8.14+: data stream lifecycle, for the types without a policy
+#        monitor: 7d
+#        request: 30d
+#        health: 3d
+#        log: 7d
+#        event_metrics: 30d
+#        decisions: 30d
 #    flavor: auto         # "auto" detects Elastic Cloud Serverless from the cluster. Or "classic", or "serverless"
 #    cluster: elasticsearch
 #    bulk:
@@ -143,7 +152,7 @@ From APIM 4.14, the Management API can read analytics from data streams instead 
 
 In this mode, the Management API reads the data stream named `<index>-<type>` for each type of analytics, for example `gravitee-v4-metrics`. The `{orgId}` and `{envId}` placeholders in `analytics.elasticsearch.index` are replaced as in the other modes.
 
-The Gateway reporter doesn't write to data streams. The data streams must be filled by another writer. For the setup and the limitations, see [Read analytics from data streams](elasticsearch-data-streams.md).
+On Elasticsearch 7.9 or later and on OpenSearch, the Gateway reporter writes the data streams with `reporters.elasticsearch.index_mode: data_stream`. For more information, see [Write analytics to data streams](../../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#write-analytics-to-data-streams). On Elastic Cloud Serverless, the data streams must be filled by another writer. For the setup and the limitations, see [Read analytics from data streams](elasticsearch-data-streams.md).
 
 ## Index management with ES Curator
 
