@@ -15,7 +15,7 @@ Gamma doesn't host Kafka clusters. It governs them. A Cluster stores the connect
 * **Kafka Services**, which add plans, policies, and access control on top of one of the Cluster's connections. In the Kafka Service wizard, this binding mode is called **Managed Cluster**.
 * **Message APIs**, whose Kafka endpoint groups use the Cluster's connections instead of their own bootstrap servers and security. In the endpoint group form, this option is called **Registered cluster**.
 * **Virtual Clusters**, which present one or more connections of your Clusters to clients as a single Kafka cluster.
-* **Kafka Explorer connections**, which read the brokers, topics, consumer groups, and messages of a Cluster. Kafka Explorer doesn't need the Cluster to be deployed.
+* **Kafka Explorer connections**, which read the brokers, topics, consumer groups, and messages of a Cluster. Kafka Explorer doesn't need the Cluster to be deployed. It reads a connection only when the connection uses no SASL mechanism, or `PLAIN`, `SCRAM-SHA-256`, or `SCRAM-SHA-512`.
 
 ## Prerequisites
 
