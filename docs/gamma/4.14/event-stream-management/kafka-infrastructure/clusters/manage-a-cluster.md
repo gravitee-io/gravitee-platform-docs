@@ -49,7 +49,7 @@ A Cluster is in one of three states:
 
 | Status | Meaning | Lifecycle actions |
 | --- | --- | --- |
-| **Undeployed** | The gateway doesn't know the Cluster. Kafka Services and Virtual Clusters can't use it. A new Cluster starts in this state. | **Deploy**, and **Delete** |
+| **Undeployed** | The gateway doesn't know the Cluster. APIs and Virtual Clusters can't use it. A new Cluster starts in this state. | **Deploy**, and **Delete** |
 | **Deployed** | The gateway runs the saved configuration of the Cluster. | **Undeploy** |
 | **Pending changes** | The Cluster was edited after its last deployment. The gateway keeps running the previously deployed configuration until you deploy the changes. | **Deploy changes**, **Undeploy** |
 
@@ -64,7 +64,7 @@ The lifecycle actions are above every page of the Cluster, and in the row menu o
 
 The console confirms with **Cluster deployed**, and the status changes to **Deployed**. If the deployment fails, the console shows the reason in a notification.
 
-When you deploy changes to a Cluster that backs Virtual Clusters, the gateway rebuilds the Virtual Clusters that use it.
+When you deploy changes to a Cluster that backs Virtual Clusters, the gateway rebuilds the Virtual Clusters that use it. Message APIs that use the Cluster pick up the deployed changes, such as new credentials, without a new deployment.
 
 ### Undeploy a cluster
 
