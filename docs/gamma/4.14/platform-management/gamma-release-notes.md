@@ -1,5 +1,5 @@
 ---
-description: What the Gamma 4.14 release adds to Agent Management, Edge Management, Event Stream Management, and Platform Management. Browse the new features and changes.
+description: What the Gamma 4.14 release adds to Agent Management, Authorization Management, Edge Management, Event Stream Management, and Platform Management. Browse the new features and changes.
 ---
 
 # Release Notes
@@ -61,6 +61,17 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and
 * **Propagate Authorization header** keeps the `Authorization` header on the request after the gateway validates the token. A new plan starts with it off.
 * See [Configure a JWT plan](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md#configure-a-jwt-plan).
 
+### Authorization Management
+
+Authorization Management manages its PDP gateways, schema documents, entities, and policies as code: through the Automation API, as Kubernetes resources, and with Terraform.
+
+#### PDP gateways, schema documents, entities, and policies as code
+
+* The Automation API creates or updates a PDP gateway, a schema document, an entity, or a policy from a specification, and reads or deletes it. A dry run validates a specification and reports its findings without saving anything.
+* The Gravitee Kubernetes Operator declares them with `AuthzPdp`, `AuthzSchema`, `AuthzEntity`, and `AuthzPolicy` resources.
+* The Gravitee Terraform provider declares them with `apim_authz_pdp`, `apim_authz_schema`, `apim_authz_entity`, and `apim_authz_policy` resources.
+* See [Custom Resource Definitions](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/overview/custom-resource-definitions) and [Gravitee Resources](https://documentation.gravitee.io/apim/terraform/example-resource-configurations).
+
 ### Edge Management
 
 Edge Management decides how the Edge Daemons identify themselves to the Edge Reactor: keyless, mTLS with the certificates of your fleet, or both. The routes of an intercepted agent take an OAuth2 plan of their target API, so that each developer signs in with your identity provider.
@@ -89,7 +100,7 @@ Edge Management decides how the Edge Daemons identify themselves to the Edge Rea
 
 ### Event Stream Management
 
-Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtual Cluster bound the metadata requests that the gateway sends to its brokers on its own. It also lets you disable the broker hostname verification of a Kafka connection over SSL. Message APIs now use the connections of registered Clusters, and each Cluster lists the APIs that use it.
+Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtual Cluster bound the metadata requests that the gateway sends to its brokers on its own. It also lets you disable the broker hostname verification of a Kafka connection over SSL. Message APIs can now use the connections of registered Clusters, and each Cluster lists the APIs that use it.
 
 #### Registered Clusters for Message APIs
 
@@ -97,8 +108,10 @@ Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtua
 * A connection that Message APIs can't use shows **(not supported)** after its name, with the reason in its tooltip.
 * A Message API follows the changes that you deploy on its Cluster, such as new credentials, without a new deployment of the Message API.
 * The **Used by Kafka Services** page of a Cluster and of a Virtual Cluster is now **APIs**. It lists the Kafka Services and the Message APIs that use the Cluster, started or not, with their type, state, and connection, and a search by name. The **APIs** item of the sidebar shows how many APIs use the Cluster.
-* When you undeploy or delete a Cluster, or save a **Configuration** that removes a connection, the console lists the started APIs that block the change, each with a link.
-* The values of the security settings of a Cluster connection accept a reference to a secret in your secret manager. The Cluster stores only the reference.
+* When you undeploy a Cluster, or save a **Configuration** that removes a connection, the console lists the started APIs that block the change, each with a link.
+* The values of the security settings of a Cluster connection accept a reference to a secret in your secret manager. The Cluster stores only the reference. With the `renewable=true` and `reloadOnChange=true` options, the gateway uses a rotated secret without a new deployment of the Cluster.
+* Cluster connections authenticate with every SASL mechanism that the form offers, including `OAUTHBEARER`, `OAUTHBEARER_TOKEN`, `GSSAPI`, and `AWS_MSK_IAM`, and with JKS, PKCS12, and PEM stores given by path or by content, for Kafka Services, Message APIs, and Virtual Clusters.
+* The requests and connections that go through a Cluster carry the ID of the Cluster and of the connection in their analytics.
 * Only the members of a Cluster bind an API to it, and the Cluster lists of Kafka Services and Message APIs offer those Clusters, plus the Cluster that the API already uses.
 * See [Connect a Kafka group to a registered cluster](../event-stream-management/apis/message-apis/configure-endpoints-and-failover.md#connect-a-kafka-group-to-a-registered-cluster), [Manage clusters](../event-stream-management/kafka-infrastructure/clusters/manage-a-cluster.md#see-which-apis-use-a-cluster), and [Bind APIs to a cluster](../event-stream-management/kafka-infrastructure/clusters/manage-cluster-permissions.md#bind-apis-to-a-cluster).
 

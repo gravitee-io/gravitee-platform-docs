@@ -58,7 +58,7 @@ A Kafka endpoint group takes its connection from one of two places: **Direct**, 
 
 The first endpoint of the new group uses the default connection. To connect an existing Kafka group, click its **Edit** button, follow steps 3 to 6, then click **Save group**.
 
-The **Cluster** list offers the deployed Clusters that you're a member of, directly or through a group that has access to the Cluster, and every deployed Cluster to an organization administrator. When it has none to offer, the form shows **No deployed Clusters. Deploy a Kafka cluster first, then bind to it here.** or **You are not a member of any deployed Cluster. Ask an owner of a Cluster to add you as a member, then bind to it here.** See [Manage cluster permissions](../../kafka-infrastructure/clusters/manage-cluster-permissions.md).
+The **Cluster** list offers the deployed Clusters that you're a member of, directly or through a group that has access to the Cluster, and every deployed Cluster to an organization administrator. When it has none to offer, the form says why: none is deployed, or you aren't a member of any. See [Manage cluster permissions](../../kafka-infrastructure/clusters/manage-cluster-permissions.md).
 
 The connections offered are those of the Cluster as it was last deployed. After you add a connection to a Cluster, deploy the Cluster to offer it here.
 
@@ -85,13 +85,13 @@ In the list of endpoints, the **Bootstrap servers** column of the group becomes 
 
 <figure><img src="../../.gitbook/assets/gamma-esm-message-api-cluster-endpoints.png" alt="The Endpoints page of a Message API whose Kafka group uses a registered Cluster, with the warning that its endpoints use different cluster connections and the Connection column showing Orders Kafka and the connection of each endpoint"><figcaption><p>The endpoints of a group connected to a registered cluster</p></figcaption></figure>
 
-The form checks each Cluster and connection that you pick against the Cluster as it was last deployed. A connection that the deployed Cluster no longer has, or that Message APIs can't use, shows the reason under the field, and the form doesn't save until you pick another one.
+A connection that the deployed Cluster no longer has shows the reason under the field, and the form doesn't save until you pick another one.
 
 When the Message API already uses a Cluster that you're not a member of, the form keeps that Cluster, shows **You are not a member of the Cluster \<name\>**, and offers only the connections that the Message API already uses. To use another connection of that Cluster, ask an owner of the Cluster to add you as a member.
 
 ### Start and update a Message API that uses a Cluster
 
-A Message API that uses a Cluster follows the changes that you deploy on the Cluster, such as new credentials, without a new deployment of the Message API. New requests use the changes right away. When the deployment changes the connection that an endpoint uses, the connections opened before it keep working for a short time, then close.
+A Message API that uses a Cluster follows the changes that you deploy on the Cluster, such as new credentials, without a new deployment of the Message API. New requests use the changes once the Cluster is deployed. When the deployment changes the connection that an endpoint uses, the connections opened before it keep working for a short time, then close. The analytics of each request carry the ID of the Cluster and of the connection.
 
 The Message API doesn't start, and its deployment is refused, while its Cluster isn't deployed, the deployed Cluster doesn't have the connection of an endpoint, or Message APIs can't use that connection. The console shows the reason in a notification. The Message API stays editable. See [Manage clusters](../../kafka-infrastructure/clusters/manage-a-cluster.md).
 

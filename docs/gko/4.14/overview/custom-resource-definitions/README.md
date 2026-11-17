@@ -27,6 +27,8 @@ The Gravitee Kubernetes Operator (GKO) comes with several custom resource defini
 * [`AMContext`](amcontext.md) connects GKO to an Access Management organization and environment
 * [`AMSecurityDomain`](amsecuritydomain.md) declares an Access Management security domain
 * [`AMIdentityProvider`](amidentityprovider.md), [`AMCertificate`](amcertificate.md), and [`AMReporter`](amreporter.md) declare an identity provider, a certificate, and a reporter of a security domain
+* [`AuthzPdp`](authzpdp.md) declares a PDP gateway of Authorization Management, with its AuthZEN endpoint
+* [`AuthzSchema`](authzschema.md), [`AuthzEntity`](authzentity.md), and [`AuthzPolicy`](authzpolicy.md) declare a schema document, an entity, and a policy of Authorization Management
 
 {% hint style="info" %}
 Sample CRDs are available in the GKO GitHub [repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/4.8.x/examples).
