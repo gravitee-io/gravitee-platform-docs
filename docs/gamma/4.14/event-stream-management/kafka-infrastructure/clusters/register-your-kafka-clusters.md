@@ -1,7 +1,7 @@
 ---
 hidden: false
 noIndex: false
-description: Register an existing Kafka cluster with Gamma so Kafka Services and Virtual Clusters can be built on it. Follow the steps to register and deploy one.
+description: Register an existing Kafka cluster with Gamma so Kafka Services, Message APIs, and Virtual Clusters can be built on it. Follow the steps to register and deploy one.
 ---
 
 # Register your Kafka clusters
@@ -15,7 +15,7 @@ Gamma doesn't host Kafka clusters. It governs them. A Cluster stores the connect
 * **Kafka Services**, which add plans, policies, and access control on top of one of the Cluster's connections. In the Kafka Service wizard, this binding mode is called **Managed Cluster**.
 * **Message APIs**, whose Kafka endpoint groups use the Cluster's connections instead of their own bootstrap servers and security. In the endpoint group form, this option is called **Registered cluster**.
 * **Virtual Clusters**, which present one or more connections of your Clusters to clients as a single Kafka cluster.
-* **Kafka Explorer connections**, which read the brokers, topics, consumer groups, and messages of a Cluster. Kafka Explorer doesn't need the Cluster to be deployed. For the SASL mechanisms that it reads, see [What the explorer can't read](../kafka-explorer/limitations-and-considerations.md#what-the-explorer-cant-read).
+* **Kafka Explorer connections**, which read the brokers, topics, consumer groups, and messages of a Cluster. Kafka Explorer doesn't need the Cluster to be deployed. It reads only the connections with `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`, or no authentication, not `OAUTHBEARER` or `OAUTHBEARER_TOKEN`. See [What the explorer can't read](../kafka-explorer/limitations-and-considerations.md#what-the-explorer-cant-read).
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ Gamma doesn't host Kafka clusters. It governs them. A Cluster stores the connect
 9. In the **Review** step, check the summary. Secrets are masked.
 10. Select **Create Cluster**.
 
-The console confirms with **Cluster created** and opens the **Overview** page of the Cluster. A new Cluster is **Undeployed**: it appears in the **Clusters** list, but the gateway doesn't know it yet, and Kafka Services and Virtual Clusters can't use it.
+The console confirms with **Cluster created** and opens the **Overview** page of the Cluster. A new Cluster is **Undeployed**: it appears in the **Clusters** list, but the gateway doesn't know it yet, and Kafka Services, Message APIs, and Virtual Clusters can't use it.
 
 If the creation fails, the wizard shows **Create failed** with the reason, and keeps what you entered.
 
@@ -54,9 +54,19 @@ A Cluster needs at least one connection. Each connection carries the following f
 
 The `SASL_PLAINTEXT` and `SASL_SSL` protocols add a **SASL Configuration** section, where **Select SASL mechanism** offers `NONE`, `AWS_MSK_IAM`, `GSSAPI`, `OAUTHBEARER`, `OAUTHBEARER_TOKEN`, `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`, and `DELEGATE_TO_BROKER`. With `OAUTHBEARER`, the gateway calls the **OAuth token url** of the connection to get a token, so the gateway must reach that URL. The `SASL_SSL` and `SSL` protocols add the SSL options, with the truststore and the key store.
 
+Kafka Services, Message APIs, and Virtual Clusters authenticate with every mechanism that the form offers, and with the JKS, PKCS12, and PEM stores, given by path or by content. Message APIs can't use every connection: see [Connect a Kafka group to a registered cluster](../../apis/message-apis/configure-endpoints-and-failover.md#connect-a-kafka-group-to-a-registered-cluster). Saving a connection is refused in the following cases, with a message that names the connection:
+
+* The **SASL JAAS Config** of `GSSAPI` doesn't use the `com.sun.security.auth.module.Krb5LoginModule` login module, or the one of `AWS_MSK_IAM` doesn't use `software.amazon.msk.auth.iam.IAMLoginModule`.
+* The **OAuth token url** of `OAUTHBEARER` isn't an `http` or `https` URL.
+* A SASL extension key of `OAUTHBEARER` or `OAUTHBEARER_TOKEN` isn't made of letters only, after an optional `extension_` prefix, or is `auth`.
+
+Only the login module is imposed. The other options of the **SASL JAAS Config**, such as a Kerberos key tab or an AWS role, and the stores given by path, are read from the gateway host with the gateway's identity: give the permission to edit Cluster connections only to the users that you trust with it.
+
+By default, the gateway calls the **OAuth token url** of any connection. To limit the token endpoints that the gateway calls, set the `org.apache.kafka.sasl.oauthbearer.allowed.urls` JVM system property of the gateway to a comma-separated list of URLs. The gateway then refuses every other token endpoint.
+
 Any value of the security settings, such as a password, the **SASL JAAS Config**, or the content of a store, accepts a reference to a secret in your secret manager instead of the value itself. The Cluster stores only the reference, and the value is read from the secret manager when a Kafka Service, a Message API, or a Virtual Cluster uses the Cluster. Kafka Explorer doesn't resolve the reference. For the syntax, see [Reference Secrets in APIs](https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis).
 
-To have the gateway use a rotated secret without a new deployment of the Cluster, add both the `renewable=true` and `reloadOnChange=true` options to the reference. `renewable=true` makes the gateway renew the value, and `reloadOnChange=true` makes it reload the Cluster when the renewed value differs. Without `renewable=true`, the gateway doesn't renew the value. How often the gateway renews secrets is set in its configuration. See [Secret renewal](https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis#secret-renewal).
+To have the gateway pick up a rotated secret without a new deployment of the Cluster, add `?renewable=true&reloadOnChange=true` to the reference, for example `{#secrets.get('/vault/secret/kafka:password?renewable=true&reloadOnChange=true')}`. Without these options, the gateway keeps the value that it read when the Cluster was deployed. The gateway configuration sets how often it renews secrets. See [Secret renewal](https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis#secret-renewal).
 
 Gamma derives the Cluster's own cross ID from its name. A second Cluster whose name yields the same cross ID in the environment is refused.
 
@@ -66,7 +76,7 @@ Gamma derives the Cluster's own cross ID from its name. A second Cluster whose n
 
     Alternatively, in the **Clusters** list, open the row menu (**⋯**) of the Cluster and select **Deploy**.
 
-The console confirms with **Cluster deployed**, and the Cluster's status changes to **Deployed**. The gateway now knows the Cluster, and its connections are offered to Kafka Services and Virtual Clusters.
+The console confirms with **Cluster deployed**, and the Cluster's status changes to **Deployed**. The gateway now knows the Cluster, and its connections are offered to Kafka Services, Message APIs, and Virtual Clusters.
 
 The **Deploy** action requires the `CLUSTER` **Update** permission of your environment role.
 
@@ -79,7 +89,8 @@ To verify that the Cluster is ready to use, follow these steps:
 
 ## Next steps
 
-* **Manage the Cluster**. Edit its settings and connections, deploy your changes, and see which Kafka Services use it. See [Manage clusters](manage-a-cluster.md).
+* **Manage the Cluster**. Edit its settings and connections, deploy your changes, and see which APIs use it. See [Manage clusters](manage-a-cluster.md).
 * **Decide who can manage it**. See [Manage cluster permissions](manage-cluster-permissions.md).
 * **Create a Kafka Service**. Build a governed Kafka Service on one of the Cluster's connections. See [Create a Kafka Service with a registered cluster](../../apis/kafka-services/create-a-kafka-service-with-a-registered-cluster.md).
+* **Connect a Message API**. Use the Cluster's connections in the Kafka endpoint group of a Message API. See [Connect a Kafka group to a registered cluster](../../apis/message-apis/configure-endpoints-and-failover.md#connect-a-kafka-group-to-a-registered-cluster).
 * **Compose a Virtual Cluster**. Present one or more connections to clients as a single Kafka cluster. See [Establish a Virtual Cluster](../virtual-clusters/establish-a-virtual-cluster.md).
