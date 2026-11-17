@@ -167,7 +167,7 @@ The console confirms with **Cluster deleted**. If the deletion fails, the dialog
 The delete actions require the `CLUSTER` **Delete** permission of your environment role.
 
 {% hint style="warning" %}
-Kafka Services, Message APIs, and Virtual Clusters that reference a deleted Cluster stop working. Check the **APIs** page before you delete a Cluster.
+Stopped APIs that reference a deleted Cluster can't start until you bind them to another Cluster. Check the **APIs** page before you delete a Cluster.
 {% endhint %}
 
 ## Verification

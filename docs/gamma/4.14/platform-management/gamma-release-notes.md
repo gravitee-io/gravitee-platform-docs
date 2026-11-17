@@ -89,7 +89,7 @@ Edge Management decides how the Edge Daemons identify themselves to the Edge Rea
 
 ### Event Stream Management
 
-Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtual Cluster bound the metadata requests that the gateway sends to its brokers on its own. It also lets you disable the broker hostname verification of a Kafka connection over SSL. Message APIs now use the connections of registered Clusters, and each Cluster lists the APIs that use it.
+Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtual Cluster bound the metadata requests that the gateway sends to its brokers on its own. It also lets you disable the broker hostname verification of a Kafka connection over SSL. Message APIs can now use the connections of registered Clusters, and each Cluster lists the APIs that use it.
 
 #### Registered Clusters for Message APIs
 
@@ -97,7 +97,7 @@ Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtua
 * A connection that Message APIs can't use shows **(not supported)** after its name, with the reason in its tooltip.
 * A Message API follows the changes that you deploy on its Cluster, such as new credentials, without a new deployment of the Message API.
 * The **Used by Kafka Services** page of a Cluster and of a Virtual Cluster is now **APIs**. It lists the Kafka Services and the Message APIs that use the Cluster, started or not, with their type, state, and connection, and a search by name. The **APIs** item of the sidebar shows how many APIs use the Cluster.
-* When you undeploy or delete a Cluster, or save a **Configuration** that removes a connection, the console lists the started APIs that block the change, each with a link.
+* When you undeploy a Cluster, or save a **Configuration** that removes a connection, the console lists the started APIs that block the change, each with a link.
 * The values of the security settings of a Cluster connection accept a reference to a secret in your secret manager. The Cluster stores only the reference.
 * Only the members of a Cluster bind an API to it, and the Cluster lists of Kafka Services and Message APIs offer those Clusters, plus the Cluster that the API already uses.
 * See [Connect a Kafka group to a registered cluster](../event-stream-management/apis/message-apis/configure-endpoints-and-failover.md#connect-a-kafka-group-to-a-registered-cluster), [Manage clusters](../event-stream-management/kafka-infrastructure/clusters/manage-a-cluster.md#see-which-apis-use-a-cluster), and [Bind APIs to a cluster](../event-stream-management/kafka-infrastructure/clusters/manage-cluster-permissions.md#bind-apis-to-a-cluster).
