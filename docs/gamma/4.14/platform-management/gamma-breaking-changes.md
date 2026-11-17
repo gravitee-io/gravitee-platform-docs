@@ -20,7 +20,7 @@ An API keeps the bindings that it already has, whoever edits it. Before you upgr
 
 **A Cluster that started APIs use can't be undeployed, deleted, or lose a connection**
 
-From 4.14.0, undeploying or deleting a Cluster is refused while a started Kafka Service or Message API uses it, including a Kafka Service that reaches it through a deployed Virtual Cluster. A save or a deployment of the Cluster that removes a connection that such an API uses is refused too. Stopped APIs don't block these actions. In 4.13, a Cluster could be undeployed, then deleted, and lose a connection, while Kafka Services used it. Stop the APIs first. See [Manage clusters](../event-stream-management/kafka-infrastructure/clusters/manage-a-cluster.md#undeploy-a-cluster).
+From 4.14.0, undeploying a Cluster, and so deleting it, is refused while a started Kafka Service or Message API uses it, including a Kafka Service that reaches it through a deployed Virtual Cluster. A save or a deployment of the Cluster that removes a connection that such an API uses is refused too. Stopped APIs don't block these actions. In 4.13, a Cluster could be undeployed, then deleted, and lose a connection, while Kafka Services used it. Stop the APIs first. See [Manage clusters](../event-stream-management/kafka-infrastructure/clusters/manage-a-cluster.md#undeploy-a-cluster).
 
 **Starting a Kafka Service or deploying a Virtual Cluster checks its Clusters**
 
