@@ -20,8 +20,6 @@ Users of OpenTofu can use the APIM provider as well: [https://search.opentofu.or
 
 ## Compatibility matrix
 
-As it remains a tech preview, support is done in best effort mode where fixes are mainly done on the latest version or the provider.
-
 {% hint style="info" %}
 Terraform relies on Automation API. On premise Helm Charts users need to configure ingress configuration for `api.ingress.automation`  when using Terraform.
 
