@@ -91,7 +91,7 @@ When the Message API already uses a Cluster that you're not a member of, the for
 
 ### Start and update a Message API that uses a Cluster
 
-A Message API that uses a Cluster follows the changes that you deploy on the Cluster, such as new credentials, without a new deployment of the Message API. New requests use the changes once the Cluster is deployed. When the deployment changes the connection that an endpoint uses, the connections opened before it keep working for a short time, then close.
+A Message API that uses a Cluster follows the changes that you deploy on the Cluster, such as new credentials, without a new deployment of the Message API. New requests use the changes once the Cluster is deployed. When the deployment changes the connection that an endpoint uses, the connections opened before it keep working for a short time, then close. The analytics of each request carry the ID of the Cluster and of the connection.
 
 The Message API doesn't start, and its deployment is refused, while its Cluster isn't deployed, the deployed Cluster doesn't have the connection of an endpoint, or Message APIs can't use that connection. The console shows the reason in a notification. The Message API stays editable. See [Manage clusters](../../kafka-infrastructure/clusters/manage-a-cluster.md).
 

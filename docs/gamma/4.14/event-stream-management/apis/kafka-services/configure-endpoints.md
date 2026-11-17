@@ -73,7 +73,7 @@ Each endpoint has an **Endpoint name**, the fields of the binding mode of its gr
         </tr>
         <tr>
             <td><strong>Managed Cluster</strong></td>
-            <td><strong>Cluster</strong> and <strong>Connection</strong>: both required. Only deployed registered clusters with connections are listed, among those you're a member of, plus the cluster that the endpoint already uses. On a cluster that you're not a member of, only the connections that the Kafka Service already uses are offered. See <a href="../../kafka-infrastructure/clusters/manage-cluster-permissions.md#bind-apis-to-a-cluster">Bind APIs to a cluster</a>. The endpoint uses the security settings of the cluster.</td>
+            <td><strong>Cluster</strong> and <strong>Connection</strong>: both required. Only deployed registered clusters with connections are listed, among those you're a member of, plus the cluster that the endpoint already uses. On a cluster that you're not a member of, only the connections that the Kafka Service already uses are offered. See <a href="../../kafka-infrastructure/clusters/manage-cluster-permissions.md#bind-apis-to-a-cluster">Bind APIs to a cluster</a>. The endpoint uses the security settings of the cluster. A save that points the endpoint at a Cluster that isn't deployed, or at a connection that the deployed Cluster doesn't have, is refused.</td>
         </tr>
         <tr>
             <td><strong>Virtual Cluster</strong></td>
