@@ -40,7 +40,12 @@ Open the actions menu of the property's row:
 * **Renew encryption** replaces the value of an encrypted property. Leave the value empty to keep the current one.
 * **Delete** removes the property.
 
-Dynamic properties show **Managed** instead of an actions menu, because their source sets their values.
+The source of a dynamic property sets its value, so the actions menu of a dynamic property offers its own actions:
+
+* **Encrypt value** encrypts an unencrypted dynamic property and saves it at once. The property then shows **Encrypted** next to **Dynamic**, and later polls keep it encrypted. When the source returns a new value, the new value is stored encrypted.
+* **Remove (re-added on next sync)** removes the property. The next poll that returns its key adds it back, unencrypted unless **Encrypt on fetch** is on.
+
+Once a dynamic property is encrypted, **Remove (re-added on next sync)** is its only action.
 
 ## Import properties
 
@@ -57,11 +62,12 @@ Dynamic properties are fetched on a schedule from an HTTP endpoint that you choo
 1. Click **Manage dynamically**.
 2. Select **Enable dynamic properties**. The other fields become editable.
 3. In **Schedule (cron)**, enter a cron expression of six fields, `sec min hr dom mon dow`, or select a preset in **Quick select:**. The default, `0 */5 * * * *`, polls every five minutes.
-4. Under **Request**, select the HTTP method, then enter the URL of the endpoint. Optional: Select **Use system proxy** to route the request through the system proxy, and add **Request headers** and a **Request body**.
-5. In **JOLT transformation specification**, enter a JOLT specification that turns the response into a list of objects with a `key` and a `value` field.
-6. Optional: Expand **HTTP client options**, **Proxy**, or **SSL / TLS** to tune the HTTP client, route the calls through a proxy, or set the trust store and key store of the connection.
-7. At the top of the form, click **Save changes**. **Save changes** and **Discard** appear once you change a field.
-8. Deploy the Message API. See [Start, stop, and deploy a Message API](start-stop-and-deploy-a-message-api.md).
+4. Optional: Turn on **Encrypt on fetch** to store the fetched values encrypted. A dynamic property that's already stored unencrypted is encrypted the next time it's fetched. Turning the switch off doesn't decrypt the values that are already stored.
+5. Under **Request**, select the HTTP method, then enter the URL of the endpoint. Optional: Select **Use system proxy** to route the request through the system proxy, and add **Request headers** and a **Request body**.
+6. In **JOLT transformation specification**, enter a JOLT specification that turns the response into a list of objects with a `key` and a `value` field.
+7. Optional: Expand **HTTP client options**, **Proxy**, or **SSL / TLS** to tune the HTTP client, route the calls through a proxy, or set the trust store and key store of the connection.
+8. At the top of the form, click **Save changes**. **Save changes** and **Discard** appear once you change a field.
+9. Deploy the Message API. See [Start, stop, and deploy a Message API](start-stop-and-deploy-a-message-api.md).
 
 The Management API starts polling the source once the Message API is deployed while it's started. After a poll that returns the status code 200, the properties that the source returns appear as **Dynamic** properties, except for keys that you defined yourself. The policies read them like any other property. When the Message API has no other undeployed changes, the Management API redeploys it with the new values. Otherwise, they reach the gateway at your next deployment.
 
