@@ -68,11 +68,11 @@ Choose how clients authenticate to the proxy entrypoint. The wizard offers the f
 
 The wizard creates a plan for the method you choose, and publishes it whether you select **Create only** or **Create & deploy**. To add or change plans later, see [Manage MCP Proxy plans](configure-your-mcp/manage-mcp-proxy-plans.md).
 
+<figure><img src="../.gitbook/assets/gamma-aim-mcp-proxy-secure-jwt.png" alt="The JWT method selected in the Secure step, with RS256 (RSA + SHA-256), JWKS URL, and the Advanced settings section open on Authorization servers, Check required scopes, Required scopes, Strict mode, Extract JWT claims, and Propagate Authorization header"><figcaption><p>The JWT method in the Secure step</p></figcaption></figure>
+
 For **Gravitee as Authorization Server** and **External Authorization Server**, the step also shows **Require a subscription**, which is off by default. Turn it on to accept only a token whose client ID belongs to an application subscribed to the plan. No application is subscribed to the new plan yet, so subscribe applications before clients connect. See [Require a subscription](configure-your-mcp/manage-mcp-proxy-plans.md#require-a-subscription).
 
 <figure><img src="../.gitbook/assets/gamma-aim-mcp-proxy-secure-require-subscription.png" alt="Require a subscription turned on in the Secure step, with the message No application is subscribed yet: subscribe applications to the plan before clients connect."><figcaption><p>Require a subscription in the Secure step</p></figcaption></figure>
-
-<figure><img src="../.gitbook/assets/gamma-aim-mcp-proxy-secure-jwt.png" alt="The JWT method selected in the Secure step, with RS256 (RSA + SHA-256), JWKS URL, and the Advanced settings section open on Authorization servers, Check required scopes, Required scopes, Strict mode, Extract JWT claims, and Propagate Authorization header"><figcaption><p>The JWT method in the Secure step</p></figcaption></figure>
 
 ### Connect to the upstream MCP server
 
