@@ -619,6 +619,55 @@ Each figure comes from a single run, so small differences between releases fall 
 </table>
 {% endtab %}
 
+{% tab title="4.13.4" %}
+<table>
+    <thead>
+        <tr>
+            <th width="225">Scenario</th>
+            <th width="72" align="right">TPS</th>
+            <th width="80" align="right">Average<br>(ms)</th>
+            <th width="58" align="right">P95<br>(ms)</th>
+            <th width="58" align="right">P99<br>(ms)</th>
+            <th width="55" align="right">CPU<br>(%)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Keyless</td>
+            <td align="right">16,400</td>
+            <td align="right">4.73</td>
+            <td align="right">5.82</td>
+            <td align="right">9.60</td>
+            <td align="right">80</td>
+        </tr>
+        <tr>
+            <td>API Key</td>
+            <td align="right">16,400</td>
+            <td align="right">4.74</td>
+            <td align="right">5.88</td>
+            <td align="right">9.78</td>
+            <td align="right">80</td>
+        </tr>
+        <tr>
+            <td>OAuth 2.0</td>
+            <td align="right">14,700</td>
+            <td align="right">4.85</td>
+            <td align="right">5.82</td>
+            <td align="right">9.40</td>
+            <td align="right">81</td>
+        </tr>
+        <tr>
+            <td>Keyless with Rate Limit policy</td>
+            <td align="right">12,900</td>
+            <td align="right">5.23</td>
+            <td align="right">6.41</td>
+            <td align="right">9.35</td>
+            <td align="right">80</td>
+        </tr>
+    </tbody>
+</table>
+{% endtab %}
+
 {% endtabs %}
 {% endtab %}
 
