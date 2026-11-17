@@ -74,7 +74,7 @@ When you deploy changes to a Cluster that backs Virtual Clusters, the gateway re
 
 The console confirms with **Cluster undeployed**, and the status changes to **Undeployed**. The dialog warns that the APIs that use the Cluster can't start until you deploy it again. If the undeployment fails, the dialog shows **Undeploy failed** with the reason and stays open.
 
-A Cluster can't be undeployed while started Kafka Services or Message APIs use it. A Kafka Service that reaches the Cluster through a deployed Virtual Cluster counts too, and stopped APIs don't. The dialog then lists the started APIs, each with a link, under a title such as **2 started APIs use this Cluster**, and **Undeploy Cluster** stays disabled. Stop the APIs, then undeploy the Cluster. A list of more than five APIs shows the first five, and a button such as **Show all 7** lists the rest.
+A Cluster can't be undeployed while started Kafka Services or Message APIs use it. A Kafka Service that reaches the Cluster through a deployed Virtual Cluster counts too, and stopped APIs don't. The dialog then lists the started APIs, each with a link, and **Undeploy Cluster** stays disabled. Stop the APIs, then undeploy the Cluster.
 
 ## Read the overview
 
@@ -107,7 +107,7 @@ You can edit the connections only with the `CLUSTER` **Update** permission of yo
 
 A role without the **Configuration** read permission on the Cluster, such as the built-in **User** role, gets no configuration from the Management API. For that role, the page reads **No connections configured.**, and the **Clusters** list and the **Overview** page count 0 connections.
 
-A save or a deployment that removes a connection that started APIs use is refused. A Kafka Service that uses the connection through a deployed Virtual Cluster counts too. **Save changes** then lists those APIs above the save bar, each with a link, under a title such as **1 started API uses connection 'orders'**, and doesn't save. Stop the APIs, then save again. Changing the cross ID of a connection counts as removing it.
+A save or a deployment that removes a connection that started APIs use is refused. A Kafka Service that uses the connection through a deployed Virtual Cluster counts too. **Save changes** then lists those APIs above the save bar, each with a link, and doesn't save. Stop the APIs, then save again. Changing the cross ID of a connection counts as removing it.
 
 {% hint style="warning" %}
 Kafka Services, Message APIs, and Virtual Clusters reference a connection by its cross ID. Before you remove a connection or change its cross ID, check the **APIs** page of the Cluster, and the **Configuration** page of your Virtual Clusters.
@@ -157,7 +157,7 @@ To find an API, type part of its name in **Search APIs…**. When no API uses th
 
 Deleting a Cluster removes its registration from Gamma. The Kafka cluster itself isn't affected.
 
-1. Undeploy the Cluster. The Management API refuses to delete a Cluster that is **Deployed** or has **Pending changes**, so the console disables **Delete Cluster** until then, with the tooltip **Undeploy this Cluster before deleting it.** See [Undeploy a cluster](#undeploy-a-cluster).
+1. Undeploy the Cluster. **Delete Cluster** stays disabled until then. See [Undeploy a cluster](#undeploy-a-cluster).
 2. Select **Delete Cluster** above the Cluster's pages. Alternatively, select **Delete** in the row menu of the **Clusters** list.
 3. In the **Delete Cluster \<name\>?** dialog, type the name of the Cluster.
 4. Select **Delete Cluster**.
