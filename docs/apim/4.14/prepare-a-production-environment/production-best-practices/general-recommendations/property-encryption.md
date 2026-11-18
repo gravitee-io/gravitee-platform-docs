@@ -12,7 +12,7 @@ Gravitee allows attaching properties to an API and offers the capability to stor
 * The secret must be **changed for both Management and Gateway** and have the same value.
 * The secret must be **32 bytes in length**.
 * The secret should ideally be generated with a password generation tool to enforce robustness.
-* If you have several installations (e.g., one for dev, one for prod), make sure to **set up different secrets for each installation**.
+* The secret applies to a whole installation. Every organization and environment of the installation shares the secret, and every Gateway that runs its APIs, including a hybrid Gateway, needs the same value. If you run several installations, for example one for development and one for production, **set up a different secret for each installation**.
 
 ```yaml
 api:

@@ -8,7 +8,7 @@ description: Create, publish, deprecate, and close the plans that set how consum
 
 Each MCP Proxy and MCP Studio has a **Plans** page under **Consumers**. A plan sets how consumers authenticate to the proxy: **Keyless**, **API Key**, **OAuth2**, **JWT**, or **mTLS**. The gateway checks each call against the published plans of the proxy.
 
-On an MCP Proxy, **Keyless** and **OAuth2** plans, and **JWT** plans that list an authorization server, don't need a subscription. A call goes through when the plan authenticates it.
+On an MCP Proxy, **Keyless** plans, **OAuth2** plans with **Require a subscription** off, and **JWT** plans that list an authorization server don't need a subscription. A call goes through when the plan authenticates it.
 
 The creation wizard creates and publishes one plan, for the method you choose in its **Secure** step. Use the **Plans** page to add plans, edit them, and retire them.
 
@@ -89,14 +89,23 @@ Without an authorization server, a consumer subscribes to the plan with an appli
 
 ### Configure an OAuth2 plan
 
-An OAuth2 plan validates tokens with an OAuth2 resource declared on the proxy, and doesn't need a subscription. Declare the resource on the **Resources** page first. See [Configure resources for your proxies](../configure-resources-for-your-proxies.md).
+An OAuth2 plan validates tokens with an OAuth2 resource declared on the proxy, and doesn't need a subscription unless you turn on **Require a subscription**. Declare the resource on the **Resources** page first. See [Configure resources for your proxies](../configure-resources-for-your-proxies.md).
+
+<figure><img src="../../.gitbook/assets/gamma-aim-mcp-proxy-create-plan-oauth2.png" alt="The Security step of a new OAuth2 plan: the Configure OAuth 2.0 card with Keycloak in OAuth2 resource and under Declared on this proxy, the Extract payload, Check required scopes, Strict mode, and Propagate authorization header switches, and the Subscriptions card with Require a subscription turned on"><figcaption><p>The Security step of an OAuth2 plan</p></figcaption></figure>
 
 To configure an OAuth2 plan, follow these steps:
 
 1. In **OAuth2 resource**, enter the name of a resource declared on the proxy, or select it under **Declared on this proxy**. That list shows every resource of the proxy, so select an OAuth2 resource. The field also accepts an expression, which is resolved on each request.
 2. Optional: Turn on **Check required scopes**, and then add at least one scope under **Required scopes**. **Strict mode** is on by default, so a token needs every required scope. Turn it off to accept a token that has any one of them.
+3. Optional: In the **Subscriptions** card, turn on **Require a subscription**. It's off by default.
 
 The plan must name a resource declared on the proxy when you create it and when you publish it. An expression isn't checked until a request reaches the gateway.
+
+#### Require a subscription
+
+With **Require a subscription** on, the gateway accepts a token only when its client ID belongs to an application subscribed to the plan. A consumer subscribes to the plan with an application whose client ID matches the client ID in the token. See [Manage subscriptions](../../publish/manage-subscriptions.md). A call whose client has no valid subscription to the plan receives a `401` response, unless another plan accepts it. The plan list shows a **Subscription required** badge on the plan.
+
+When you turn on **Require a subscription** for a published or deprecated plan, the **Require a subscription?** dialog opens. Click **Require a subscription** to confirm. On a published plan, subscribe the applications of your clients to the plan before you deploy the proxy, so that they keep their access. A deprecated plan accepts no new subscriptions, so once you deploy the proxy, it accepts only the clients whose application is already subscribed to it.
 
 ### Configure an mTLS plan
 
@@ -117,7 +126,7 @@ To edit a plan that isn't closed, click its name, or open its actions menu and c
 
 For a JWT plan with an HMAC algorithm and **Given key (PEM, single key)**, the shared secret isn't shown again. Leave **Public key (PEM)** blank to keep it, as long as the plan keeps **Given key (PEM, single key)** and an HMAC algorithm.
 
-Saving changes to the plan that the creation wizard makes for **Gravitee as Authorization Server** or **External Authorization Server** fails with **Failed to save plan**. To change that plan, create a new OAuth2 plan, and then close the old one.
+For the plan that the creation wizard makes for **Gravitee as Authorization Server** or **External Authorization Server**, the **Security** step has no OAuth2 settings. It offers the **Subscriptions** card and **Additional selection rule** only. To change how that plan validates tokens, create a new OAuth2 plan, and then close the old one.
 
 ## Publish a plan
 

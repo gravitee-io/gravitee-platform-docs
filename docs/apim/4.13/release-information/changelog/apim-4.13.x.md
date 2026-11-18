@@ -31,6 +31,16 @@ description: The API Management 4.13 changelog lists the bug fixes in each patch
 
 </details>
 
+<details>
+
+<summary>Deprecations</summary>
+
+**Docker images**
+
+* Alpine Linux images of the Gateway and the Management API are deprecated. From 4.13.4, the `graviteeio/apim-gateway` and `graviteeio/apim-management-api` images are also published with `-alpine` tags, for example `4.13.4-alpine`, `4.13-alpine`, and `latest-alpine`, which point to the same images as the tags without a suffix. From the March 2027 release of APIM, the tags without a suffix of the new releases, `latest`, and `4` point to the Debian image. The 4.13.x releases keep Alpine Linux under their tags without a suffix. The June 2027 release stops publishing Alpine Linux images of these two components. To stay on Alpine Linux, use the `-alpine` tags. To move to Debian, use the `-debian` tags, which the APIM Helm chart already uses by default. The Debian image doesn't set `JAVA_HOME`, has its JRE in `/usr/lib/jvm/temurin-25-jre-<arch>` and its Java truststore in `/etc/ssl/certs/adoptium/cacerts`, and doesn't include `jattach`, `ps`, or `wget`. The Console and Developer Portal images aren't affected.
+
+</details>
+
 
  
 ## Gravitee API Management 4.13.3 - November 6, 2026

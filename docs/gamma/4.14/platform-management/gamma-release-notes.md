@@ -1,5 +1,5 @@
 ---
-description: What the Gamma 4.14 release adds to Agent Management, Authorization Management, Edge Management, Event Stream Management, and Platform Management. Browse the new features and changes.
+description: What the Gamma 4.14 release adds to Agent Management, API Management, Authorization Management, Edge Management, Event Stream Management, and Platform Management. Browse the new features and changes.
 ---
 
 # Release Notes
@@ -22,7 +22,7 @@ The 4.14 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply. JWT plans of MCP Proxies and MCP Studios gain two settings, for the claims of the token and for the `Authorization` header.
+Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, alerts to MCP Proxies, and HTTP/2 fields to MCP Proxies and Catalog MCP servers. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply. JWT plans of MCP Proxies and MCP Studios gain two settings, for the claims of the token and for the `Authorization` header. OAuth2 plans of MCP Proxies and MCP Studios can require a subscription. The **Properties** page of LLM Proxies, MCP Proxies, and A2A Proxies encrypts dynamic properties.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
@@ -38,6 +38,12 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and
 * The **History** tab of an alert lists its events.
 * Alerts require Alert Engine.
 * See [Configure MCP Proxy alerts](../agent-management/build/configure-mcp-proxy-alerts.md).
+
+#### HTTP/2 fields and the API key header of MCP Proxies
+
+* When the **HTTP version** is **HTTP/2**, the **HTTP configuration** section of the **Advanced settings** on the **Endpoint** page of an MCP Proxy shows four new fields: **HTTP/2 multiplexing limit**, **HTTP/2 max frame size (bytes)**, **HTTP/2 connection window size (bytes)**, and **HTTP/2 stream window size (bytes)**. The **Advanced settings** that **Configure** opens for an MCP server of the Catalog show the same fields.
+* When the API key of an MCP Proxy was saved without a header, the **Endpoint** page shows the **Injection location** as **x-api-key header**, the header the gateway sends the key in, and saving a new key keeps it there. Before 4.14, the page showed **Authorization header**, and saving a new key moved the key to the `Authorization` header.
+* See [Configure the MCP Proxy endpoint](../agent-management/build/configure-mcp-proxy-endpoint.md#adjust-the-advanced-settings) and [Configure Upstream Authentication](../agent-management/build/configure-your-mcp/README.md#configure-upstream-authentication).
 
 #### Proxy pages name the proxy instead of the API
 
@@ -60,6 +66,34 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and
 * **Extract JWT claims** puts the claims of the token on the `jwt.claims` context attribute, for the policies that follow. It's off by default.
 * **Propagate Authorization header** keeps the `Authorization` header on the request after the gateway validates the token. A new plan starts with it off.
 * See [Configure a JWT plan](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md#configure-a-jwt-plan).
+
+#### Require a subscription on OAuth2 plans of MCP Proxies and MCP Studios
+
+* OAuth2 plans of MCP Proxies and MCP Studios have a new **Require a subscription** switch, off by default. With it on, the gateway accepts a token only when its client ID belongs to an application subscribed to the plan. With it off, the plan accepts a valid token without a subscription, as before 4.14.
+* The switch is in the **Subscriptions** card of the plan's **Security** step, and in the **Secure** step of the MCP Proxy and MCP Studio wizards for **Gravitee as Authorization Server** and **External Authorization Server**. Turning it on for a published or deprecated plan asks for confirmation. The plan list shows a **Subscription required** badge on a plan that has it on.
+* See [Require a subscription](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md#require-a-subscription).
+
+#### Encryption of dynamic properties for LLM, MCP, and A2A Proxies
+
+* On the **Properties** page of an LLM Proxy, MCP Proxy, or A2A Proxy, the actions menu of a dynamic property now offers **Encrypt value**, while the property is unencrypted, and **Remove (re-added on next sync)**. It no longer offers **Edit**.
+* An encrypted dynamic property carries the `Encrypted` and `Dynamic` badges, and a sync keeps it encrypted. A dynamic property that you remove comes back at the next sync, unencrypted unless **Encrypt on fetch** is on.
+* The **Dynamic properties** page has a new **Encrypt on fetch** switch, off by default, which stores every synced value encrypted.
+* An import now skips a key that matches a dynamic property, and lists it under **Skipped (synced by the dynamic provider):**.
+* When the proxy is managed by the Kubernetes operator, the **Properties** page is now read-only.
+* See [Encrypt or remove a dynamic property](../agent-management/build/configure-properties-for-your-proxies.md#encrypt-or-remove-a-dynamic-property).
+
+### API Management
+
+API Management encrypts the dynamic properties of API proxies.
+
+#### Encryption of dynamic API properties
+
+* On the **API Properties** page of an API proxy, a dynamic property now has an actions menu. It offers **Encrypt value**, while the property is unencrypted, and **Remove (re-added on next sync)**.
+* An encrypted dynamic property carries the **Encrypted** and **Dynamic** badges, and a sync keeps it encrypted. A dynamic property that you remove comes back at the next sync, unencrypted unless **Encrypt on fetch** is on.
+* The **Dynamic properties** screen has a new **Encrypt on fetch** switch, off by default, which encrypts every fetched value before it's stored.
+* The **Dynamic properties** screen now saves the settings of an HTTP Proxy or TCP Proxy API in the form that the sync reads. Before 4.14, the sync didn't apply the schedule, the JOLT specification, or the HTTP client, proxy, and SSL settings saved from this screen. Settings saved before 4.14 keep the earlier form until you save them again from this screen. To apply them, change a field on the screen, click **Save changes**, and then deploy the API.
+* When the API proxy is managed by the Kubernetes operator, the **API Properties** page is now read-only.
+* See [Configure API properties](../api-management/build/configure-your-api-proxy/configure-api-properties.md#manage-existing-properties).
 
 ### Authorization Management
 
@@ -100,7 +134,7 @@ Edge Management decides how the Edge Daemons identify themselves to the Edge Rea
 
 ### Event Stream Management
 
-Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtual Cluster bound the metadata requests that the gateway sends to its brokers on its own. It also lets you disable the broker hostname verification of a Kafka connection over SSL. Message APIs can now use the connections of registered Clusters, and each Cluster lists the APIs that use it.
+Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtual Cluster bound the metadata requests that the gateway sends to its brokers on its own. It also lets you disable the broker hostname verification of a Kafka connection over SSL. Message APIs can now use the connections of registered Clusters, and each Cluster lists the APIs that use it. The **API Properties** page of Kafka Services and Message APIs encrypts dynamic properties.
 
 #### Registered Clusters for Message APIs
 
@@ -128,6 +162,13 @@ Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtua
 * When the security protocol of a Kafka connection is **Protocol SSL** or **Protocol SASL_SSL**, the gateway checks that the broker hostname matches its certificate. This verification stays on by default.
 * **SSL configuration** now includes **Verify Host**, the switch that turns the verification off. Disable it only if you trust the network.
 * See [Configure endpoints and failover](../event-stream-management/apis/message-apis/configure-endpoints-and-failover.md).
+
+#### Encryption of dynamic API properties for Kafka Services and Message APIs
+
+* On the **API Properties** page of a Kafka Service or a Message API, a dynamic property now has an actions menu where it showed **Managed**. It offers **Encrypt value**, while the property is unencrypted, and **Remove (re-added on next sync)**.
+* An encrypted dynamic property shows **Encrypted** next to **Dynamic**, and later polls keep it encrypted. A dynamic property that you remove comes back at the next poll, unencrypted unless **Encrypt on fetch** is on.
+* The **Dynamic properties** form has a new **Encrypt on fetch** switch, off by default, which stores every fetched value encrypted.
+* See Configure API properties for [Kafka Services](../event-stream-management/apis/kafka-services/configure-api-properties.md#change-a-property) and for [Message APIs](../event-stream-management/apis/message-apis/configure-api-properties.md#change-a-property).
 
 ### Platform Management
 

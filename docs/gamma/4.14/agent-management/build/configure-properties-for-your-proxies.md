@@ -28,9 +28,11 @@ The page shows three counters, **Total properties**, **Encrypted**, and `Dynamic
 | ------------------- | ---------------------------------------------------------------------------------------------------- |
 | **Key**             | The name that policies reference.                                                                    |
 | **Value**           | The value of the property. An encrypted value is shown as dots.                                      |
-| **Characteristics** | `Unencrypted`, `Encrypted`, or `Dynamic` for a property that a sync created.                         |
+| **Characteristics** | `Unencrypted` or `Encrypted`, followed by `Dynamic` for a property that a sync created.              |
 
-Each row ends with an actions menu that offers **Edit** and **Delete**. The search field filters the table by key, and the table shows 10 properties per page by default.
+Each row ends with an actions menu. For a property you defined, it offers **Edit** and **Delete**. For a dynamic property, it offers **Encrypt value**, while the property is unencrypted, and **Remove (re-added on next sync)**. The search field filters the table by key, and the table shows 10 properties per page by default.
+
+When the proxy is managed by the Kubernetes operator, the page is read-only. It shows the properties without **Import**, **Add property**, or an actions menu, and a notice says to change them in the proxy's source definition instead.
 
 ## Add a property
 
@@ -54,6 +56,8 @@ To edit a property, follow these steps:
 
 To delete a property, open its actions menu, click **Delete**, and then click **Remove property** in the **Remove this property?** dialog. Removing a property you defined can't be undone.
 
+A dynamic property has no **Edit** action. See [Encrypt or remove a dynamic property](#encrypt-or-remove-a-dynamic-property).
+
 ## Import properties in bulk
 
 To import a list of properties, follow these steps:
@@ -65,8 +69,9 @@ To import a list of properties, follow these steps:
 The import merges the pasted keys into the existing list, with the following rules:
 
 * A key that doesn't exist yet is added as an unencrypted property.
-* A key that matches an existing unencrypted property replaces the value of that property.
-* A key that matches an existing encrypted property is skipped, and the panel lists it under **Skipped (already encrypted):** as soon as you paste it.
+* A key that matches an unencrypted property you defined replaces the value of that property.
+* A key that matches an encrypted property you defined is skipped, and the panel lists it under **Skipped (already encrypted):** as soon as you paste it.
+* A key that matches a dynamic property is skipped, encrypted or not, and the panel lists it under **Skipped (synced by the dynamic provider):**.
 
 The import never encrypts a value. To encrypt an imported property, edit it and turn on **Encrypt value**.
 
@@ -82,7 +87,7 @@ The page confirms with **Properties imported** and refreshes the list. **Cancel*
 
 The **Manage dynamically** button opens the **Dynamic properties** page. When the sync is enabled, the Management API calls the HTTP endpoint you configure on a cron schedule. It transforms the response into key/value pairs and writes them to the proxy as dynamic properties.
 
-<figure><img src="../.gitbook/assets/gamma-aim-dynamic-properties.png" alt="The Dynamic properties page of an A2A proxy with the sync enabled, the cron schedule and its summary, and the HTTP request settings"><figcaption><p>The Dynamic properties page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gamma-aim-dynamic-properties.png" alt="The Dynamic properties page of an MCP proxy with the sync enabled, the cron schedule and its summary, the Encrypt on fetch switch turned on, and the HTTP request settings"><figcaption><p>The Dynamic properties page</p></figcaption></figure>
 
 Saving the Dynamic properties page doesn't change the proxy definition, so it doesn't require a deployment. The schedule starts as soon as you save.
 
@@ -93,6 +98,7 @@ A sync applies the following rules to the property list:
 * The synced batch replaces every property that a previous sync created. A key that the endpoint stops returning is removed on the next sync.
 * A synced key that matches a property you defined manually is skipped. The manual property keeps its value.
 * A property that a sync created carries the `Dynamic` badge. You can delete it, and the next sync recreates it if the endpoint still returns the key.
+* An encrypted dynamic property stays encrypted. When the endpoint returns the same value, the sync leaves the property as it is. When the endpoint returns a new value, the sync stores the new value encrypted.
 * When the sync changes the property list and the proxy was in sync at that moment, the proxy is deployed automatically. When the proxy was out of sync, it stays out of sync until you deploy it.
 * A failed sync leaves the property list unchanged. The **Last run** card shows **Success** or **Failure**, the time of the last run, and the error message when the run failed.
 
@@ -102,13 +108,14 @@ To configure the sync, follow these steps:
 
 1. Turn on **Enable dynamic properties**. The other fields are editable only when the switch is on.
 2. Enter the **Schedule (cron)** as a 6-field cron expression, in the order `sec min hr dom mon dow`. For example, `0 */5 * * * *` runs every 5 minutes. A summary next to the field describes the schedule. **Quick select** offers **Every 5 minutes**, **Every 10 minutes**, **Every 30 minutes**, **Every hour**, **Every 6 hours**, and **Every day at midnight**. **Reset** restores `0 */5 * * * *`. The schedule can't run more often than every 60 seconds.
-3. Under **Request**, select the HTTP method, **GET**, **POST**, **PUT**, **PATCH**, or **DELETE**, and enter the URL. The URL uses `http` or `https` and resolves to a public address. A host that resolves to a private, loopback, or link-local address is rejected when you save.
-4. Optional: turn on **Use system proxy** to route the request through the system proxy of the Management API.
-5. Under **Request headers**, click **Add header** for each header to send. A header value is stored encrypted and isn't shown again. Leave the value empty to keep the stored value. Header names are unique, without regard to case.
-6. Optional: enter a **Request body**. The form notes that the body applies to the **POST**, **PUT**, and **PATCH** methods.
-7. In **JOLT transformation specification**, enter the JOLT specification that turns the response into an array of `{"key": "k", "value": "v"}` objects. The field starts with the default `[{"operation": "default", "spec": {}}]`, which leaves the response unchanged. Keep it when the endpoint already returns that shape. The field must contain valid JSON. Expand **How dynamic properties work** at the top of the page for an example response and specification.
-8. Optional: expand **HTTP client options**, **Proxy**, and **SSL / TLS** to tune the connection. The settings are described in the following sections.
-9. Click **Save changes**, or **Discard** to revert.
+3. Optional: turn on **Encrypt on fetch** to store the synced values encrypted. A dynamic property that's already stored unencrypted is encrypted the next time it's fetched. Turning the switch off doesn't decrypt the values that are already stored.
+4. Under **Request**, select the HTTP method, **GET**, **POST**, **PUT**, **PATCH**, or **DELETE**, and enter the URL. The URL uses `http` or `https` and resolves to a public address. A host that resolves to a private, loopback, or link-local address is rejected when you save.
+5. Optional: turn on **Use system proxy** to route the request through the system proxy of the Management API.
+6. Under **Request headers**, click **Add header** for each header to send. A header value is stored encrypted and isn't shown again. Leave the value empty to keep the stored value. Header names are unique, without regard to case.
+7. Optional: enter a **Request body**. The form notes that the body applies to the **POST**, **PUT**, and **PATCH** methods.
+8. In **JOLT transformation specification**, enter the JOLT specification that turns the response into an array of `{"key": "k", "value": "v"}` objects. The field starts with the default `[{"operation": "default", "spec": {}}]`, which leaves the response unchanged. Keep it when the endpoint already returns that shape. The field must contain valid JSON. Expand **How dynamic properties work** at the top of the page for an example response and specification.
+9. Optional: expand **HTTP client options**, **Proxy**, and **SSL / TLS** to tune the connection. The settings are described in the following sections.
+10. Click **Save changes**, or **Discard** to revert.
 
 The page confirms with **Dynamic provider saved**.
 
@@ -159,13 +166,25 @@ The **SSL / TLS** section carries the following settings:
 
 A store password and a private key are stored encrypted and never shown again. Leave the field empty to keep the stored value.
 
+### Encrypt or remove a dynamic property
+
+A sync sets the value of a dynamic property, so the actions menu of a dynamic property doesn't offer **Edit**.
+
+To encrypt a dynamic property, open its actions menu, and then click **Encrypt value**. The page confirms with **Property encrypted**. The table shows the value as dots, and the property carries the `Encrypted` and `Dynamic` badges. Once a dynamic property is encrypted, **Remove (re-added on next sync)** is its only action.
+
+<figure><img src="../.gitbook/assets/gamma-aim-properties-encrypted-dynamic-property.png" alt="The Properties page of an MCP proxy with four properties. One dynamic property shows the Unencrypted and Dynamic badges, and another shows the Encrypted and Dynamic badges, with its value as dots"><figcaption><p>Dynamic properties on the Properties page</p></figcaption></figure>
+
+To remove a dynamic property, open its actions menu, click **Remove (re-added on next sync)**, and then click **Remove property** in the **Remove this property?** dialog. The next sync recreates the property if the endpoint still returns the key, unencrypted unless **Encrypt on fetch** is on.
+
+To encrypt every synced value instead of one property at a time, turn on **Encrypt on fetch** when you [configure the sync](#configure-the-sync).
+
 ### Stop the sync
 
 To stop the sync, turn off **Enable dynamic properties**, and then click **Save changes**. The polling stops and the saved settings are kept. The properties that earlier syncs created stay in the list until you delete them.
 
 ## Deploy the change
 
-Adding, editing, deleting, or importing a property saves the proxy definition but doesn't deploy it. The proxy shows the **This LLM proxy is out of sync** banner, with the type of proxy you opened. Click **Deploy** on the banner, and then confirm in the **Deploy your LLM proxy** dialog, named the same way, to push the configuration to the gateway.
+Adding, editing, encrypting, deleting, or importing a property saves the proxy definition but doesn't deploy it. The proxy shows the **This LLM proxy is out of sync** banner, with the type of proxy you opened. Click **Deploy** on the banner, and then confirm in the **Deploy your LLM proxy** dialog, named the same way, to push the configuration to the gateway.
 
 ## Verification
 

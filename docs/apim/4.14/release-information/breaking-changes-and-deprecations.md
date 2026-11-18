@@ -580,7 +580,7 @@ To stay on Alpine Linux until then, replace each tag without a suffix with its `
 
 * `JAVA_HOME` isn't set. The JRE is in `/usr/lib/jvm/temurin-25-jre-<arch>`, for example `/usr/lib/jvm/temurin-25-jre-amd64`, instead of `/opt/java/openjdk`.
 * The Java truststore is `/etc/ssl/certs/adoptium/cacerts`. It's regenerated from the system certificates by `update-ca-certificates`.
-* `jattach`, `ps`, `wget`, and fonts aren't installed. `curl` is.
+* `jattach`, `ps`, and `wget` aren't installed. `curl` is.
 * The image is about 40 MB larger to download and about 185 MB larger on disk.
 
 For more information about the image variants, see [Self-host with Docker](../self-hosted-installation-guides/docker/README.md#image-variants).
