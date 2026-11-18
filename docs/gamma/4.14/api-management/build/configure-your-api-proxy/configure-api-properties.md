@@ -20,6 +20,8 @@ To open the page, follow these steps:
 
 Once properties exist, the page shows three counters, **Total properties**, **Encrypted**, and `Dynamic (auto-synced)`, above the **Defined properties** table. The table lists each property's **Key**, **Value**, and **Characteristics**, and a search field filters properties by key.
 
+When the API proxy is managed by the Kubernetes operator, the page is read-only. It shows the properties without **Import**, **Add property**, or an actions menu, and **Manage dynamically** is disabled.
+
 ## Add a property
 
 To add a property, follow these steps:
@@ -43,7 +45,16 @@ The actions menu of each property row offers the following actions:
 * **Renew encryption**. For an encrypted property, enter a new plaintext value that's re-encrypted on save.
 * **Delete**. Remove the property.
 
-A property synced from a dynamic source carries the **Dynamic** badge, and its only action is **Remove (re-added on next sync)**: the next scheduled sync recreates it.
+A property synced from a dynamic source carries the **Dynamic** badge next to its encryption badge. Each sync sets its value, so its actions menu offers neither **Edit value** nor **Renew encryption**. It offers the following actions:
+
+* **Encrypt value**. Encrypt the value of an unencrypted dynamic property. The table then shows the value as dots, and the property carries the **Encrypted** and **Dynamic** badges. Later syncs keep the property encrypted: when the endpoint returns a new value, the new value is stored encrypted.
+* **Remove (re-added on next sync)**. Remove the property. The next sync that returns its key recreates it, unencrypted unless **Encrypt on fetch** is on.
+
+Once a dynamic property is encrypted, **Remove (re-added on next sync)** is its only action.
+
+<figure><img src="../../.gitbook/assets/gamma-api-properties-dynamic-property-actions.png" alt="The API Properties page of an API proxy with four properties. The actions menu of an unencrypted dynamic property is open and offers Encrypt value and Remove (re-added on next sync). Another dynamic property shows the Encrypted and Dynamic badges, with its value as dots"><figcaption><p>The actions menu of a dynamic property</p></figcaption></figure>
+
+A change made from the actions menu saves the API but doesn't deploy it. To push the change to the gateway, click **Deploy API** on the **This API is out of sync** banner, and then click **Deploy** in the **Deploy your API** dialog.
 
 ## Import properties in bulk
 
@@ -74,6 +85,7 @@ The form carries the following main settings:
 | **Request headers**                    | Headers sent with the poll request.                                                                                |
 | **Request body**                       | Body sent with the poll request. Only applicable to the `POST`, `PUT`, and `PATCH` methods.                        |
 | **JOLT transformation specification**  | A JOLT spec that transforms the upstream JSON response into `[{"key":"k","value":"v"}]` format.                    |
+| **Encrypt on fetch**                   | When enabled, every fetched value is encrypted before it's stored, and an unencrypted dynamic property is encrypted the next time it's fetched. Turning the switch off doesn't decrypt the values that are already stored. The switch is off by default. |
 
 The form also carries HTTP client options (timeouts, keep-alive, compression, and redirect behavior), proxy settings, and SSL settings for the connection to the polled endpoint.
 
