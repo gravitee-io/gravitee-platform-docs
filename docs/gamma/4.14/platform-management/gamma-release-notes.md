@@ -22,7 +22,7 @@ The 4.14 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply. JWT plans of MCP Proxies and MCP Studios gain two settings, for the claims of the token and for the `Authorization` header. OAuth2 plans of MCP Proxies and MCP Studios can require a subscription.
+Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, alerts to MCP Proxies, and HTTP/2 fields to MCP Proxies and Catalog MCP servers. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply. JWT plans of MCP Proxies and MCP Studios gain two settings, for the claims of the token and for the `Authorization` header. OAuth2 plans of MCP Proxies and MCP Studios can require a subscription.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
@@ -38,6 +38,12 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and
 * The **History** tab of an alert lists its events.
 * Alerts require Alert Engine.
 * See [Configure MCP Proxy alerts](../agent-management/build/configure-mcp-proxy-alerts.md).
+
+#### HTTP/2 fields and the API key header of MCP Proxies
+
+* When the **HTTP version** is **HTTP/2**, the **HTTP configuration** section of the **Advanced settings** on the **Endpoint** page of an MCP Proxy shows four new fields: **HTTP/2 multiplexing limit**, **HTTP/2 max frame size (bytes)**, **HTTP/2 connection window size (bytes)**, and **HTTP/2 stream window size (bytes)**. The **Advanced settings** that **Configure** opens for an MCP server of the Catalog show the same fields.
+* When the API key of an MCP Proxy was saved without a header, the **Endpoint** page shows the **Injection location** as **x-api-key header**, the header the gateway sends the key in, and saving a new key keeps it there. Before 4.14, the page showed **Authorization header**, and saving a new key moved the key to the `Authorization` header.
+* See [Configure the MCP Proxy endpoint](../agent-management/build/configure-mcp-proxy-endpoint.md#adjust-the-advanced-settings) and [Configure Upstream Authentication](../agent-management/build/configure-your-mcp/README.md#configure-upstream-authentication).
 
 #### Proxy pages name the proxy instead of the API
 
