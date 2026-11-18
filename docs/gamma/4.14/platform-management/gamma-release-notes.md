@@ -1,10 +1,20 @@
 ---
-description: What the Gamma 4.14 release adds to Agent Management, Edge Management, Event Stream Management, and Platform Management. Browse the new features and changes.
+description: What the Gamma 4.14 release adds to Agent Management, Authorization Management, Edge Management, Event Stream Management, and Platform Management. Browse the new features and changes.
 ---
 
 # Release Notes
 
 For release and end-of-life dates, see [Support Model](https://documentation.gravitee.io/apim/release-information/support-model).
+
+## 4.14 breaking changes and deprecations
+
+#### **Alpine Linux images of the Gateway and the Management API are deprecated**
+
+From 4.14.0, the `graviteeio/apim-gateway` and `graviteeio/apim-management-api` images are also published with `-alpine` tags, which point to the same images as the tags without a suffix. The March 2027 release of APIM moves the tags without a suffix, including `latest`, to the Debian image. The June 2027 release stops publishing Alpine Linux images of these two components. To stay on Alpine Linux until then, switch to the `-alpine` tags. To move to Debian, use the `-debian` tags, and check how the Debian image differs before you switch. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#alpine-linux-images-of-the-gateway-and-the-management-api-are-deprecated).
+
+#### **Event Stream Management guards the Clusters that APIs use**
+
+From 4.14.0, only the members of a Cluster bind a Kafka Service or a Message API to it. A Cluster that started APIs use can't be undeployed, deleted, or lose a connection that they use. Starting a Kafka Service and deploying a Virtual Cluster are refused while a Cluster that they use isn't deployed, or doesn't have their connection. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md).
 
 ## 4.14 new features
 
@@ -12,7 +22,7 @@ The 4.14 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API.
+Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply. JWT plans of MCP Proxies and MCP Studios gain two settings, for the claims of the token and for the `Authorization` header. OAuth2 plans of MCP Proxies and MCP Studios can require a subscription.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
@@ -34,6 +44,39 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and
 * The pages of an LLM Proxy, MCP Proxy, or A2A Proxy now name the type of proxy where they named an API. The out-of-sync banner reads **This LLM proxy is out of sync**, **This MCP proxy is out of sync**, or **This A2A proxy is out of sync**, and its dialog reads **Deploy your LLM proxy**, **Deploy your MCP proxy**, or **Deploy your A2A proxy**. AI workspaces share the banner and read **This AI workspace is out of sync** and **Deploy your AI workspace**.
 * In the **Design** group of the proxy sidebar, **API Properties** is now **Properties**. On the **Settings** page, **API Picture** and **API Background** are now **Picture** and **Background**, and the **API Events** card is now **Runtime**.
 * The read-only notices, empty states, confirmations, and permission messages of those pages name the type of proxy in the same way, for example the **Select LLM proxy member** field when you transfer ownership.
+
+#### Manual import of MCP servers
+
+* The **Add MCP server** wizard of the Catalog now offers two ways to add a server. **Import from discovery** is selected when the wizard opens. **Import manually** adds a server in a private network that the control plane can't reach, from the `tools/list`, `prompts/list`, and `resources/list` responses that you collect and then paste or upload.
+* When **Verify URL** ends with **Connection failed.**, the wizard offers **Import capabilities manually instead** and keeps the URL.
+* The **MCP Servers**, **Tools**, **Prompts**, and **MCP Resources** lists have a new **Import** column, which reads **Remote** or **Manual**. The **Overview** card of a server, tool, prompt, or resource shows the same value.
+* A manual import has **Update capabilities** in place of **Re-sync**. It replaces the tools, prompts, and resources of the server with the list responses you supply.
+* The module's REST API validates list responses, imports a catalog entry, and exports one. An exported entry imports into another environment.
+* See [Import an MCP server manually](../agent-management/import/import-an-mcp-server-manually.md).
+
+#### JWT plan settings for MCP Proxies and MCP Studios
+
+* The **Advanced settings** of a JWT plan on an MCP Proxy or MCP Studio have two new switches. They appear in the **Secure** step of the MCP Proxy and MCP Studio creation wizards, and in the **Security** step of a plan.
+* **Extract JWT claims** puts the claims of the token on the `jwt.claims` context attribute, for the policies that follow. It's off by default.
+* **Propagate Authorization header** keeps the `Authorization` header on the request after the gateway validates the token. A new plan starts with it off.
+* See [Configure a JWT plan](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md#configure-a-jwt-plan).
+
+#### Require a subscription on OAuth2 plans of MCP Proxies and MCP Studios
+
+* OAuth2 plans of MCP Proxies and MCP Studios have a new **Require a subscription** switch, off by default. With it on, the gateway accepts a token only when its client ID belongs to an application subscribed to the plan. With it off, the plan accepts a valid token without a subscription, as before 4.14.
+* The switch is in the **Subscriptions** card of the plan's **Security** step, and in the **Secure** step of the MCP Proxy and MCP Studio wizards for **Gravitee as Authorization Server** and **External Authorization Server**. Turning it on for a published or deprecated plan asks for confirmation. The plan list shows a **Subscription required** badge on a plan that has it on.
+* See [Require a subscription](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md#require-a-subscription).
+
+### Authorization Management
+
+Authorization Management manages its PDP gateways, schema documents, entities, and policies as code: through the Automation API, as Kubernetes resources, and with Terraform.
+
+#### PDP gateways, schema documents, entities, and policies as code
+
+* The Automation API creates or updates a PDP gateway, a schema document, an entity, or a policy from a specification, and reads or deletes it. A dry run validates a specification and reports its findings without saving anything.
+* The Gravitee Kubernetes Operator declares them with `AuthzPdp`, `AuthzSchema`, `AuthzEntity`, and `AuthzPolicy` resources.
+* The Gravitee Terraform provider declares them with `apim_authz_pdp`, `apim_authz_schema`, `apim_authz_entity`, and `apim_authz_policy` resources.
+* See [Custom Resource Definitions](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/overview/custom-resource-definitions) and [Gravitee Resources](https://documentation.gravitee.io/apim/terraform/example-resource-configurations).
 
 ### Edge Management
 
@@ -63,7 +106,20 @@ Edge Management decides how the Edge Daemons identify themselves to the Edge Rea
 
 ### Event Stream Management
 
-Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtual Cluster bound the metadata requests that the gateway sends to its brokers on its own. It also lets you disable the broker hostname verification of a Kafka connection over SSL.
+Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtual Cluster bound the metadata requests that the gateway sends to its brokers on its own. It also lets you disable the broker hostname verification of a Kafka connection over SSL. Message APIs can now use the connections of registered Clusters, and each Cluster lists the APIs that use it.
+
+#### Registered Clusters for Message APIs
+
+* The Kafka endpoint group of a Message API now offers **Registered cluster** next to **Direct**, in the creation wizard and on the **Endpoints** page. The group uses a **Cluster** and a **Default connection**, and each endpoint uses one connection of the Cluster, which holds the bootstrap servers and the security.
+* A connection that Message APIs can't use shows **(not supported)** after its name, with the reason in its tooltip.
+* A Message API follows the changes that you deploy on its Cluster, such as new credentials, without a new deployment of the Message API.
+* The **Used by Kafka Services** page of a Cluster and of a Virtual Cluster is now **APIs**. It lists the Kafka Services and the Message APIs that use the Cluster, started or not, with their type, state, and connection, and a search by name. The **APIs** item of the sidebar shows how many APIs use the Cluster.
+* When you undeploy a Cluster, or save a **Configuration** that removes a connection, the console lists the started APIs that block the change, each with a link.
+* The values of the security settings of a Cluster connection accept a reference to a secret in your secret manager. The Cluster stores only the reference. With the `renewable=true` and `reloadOnChange=true` options, the gateway uses a rotated secret without a new deployment of the Cluster.
+* Cluster connections authenticate with every SASL mechanism that the form offers, including `OAUTHBEARER`, `OAUTHBEARER_TOKEN`, `GSSAPI`, and `AWS_MSK_IAM`, and with JKS, PKCS12, and PEM stores given by path or by content, for Kafka Services, Message APIs, and Virtual Clusters.
+* The requests and connections that go through a Cluster carry the ID of the Cluster and of the connection in their analytics.
+* Only the members of a Cluster bind an API to it, and the Cluster lists of Kafka Services and Message APIs offer those Clusters, plus the Cluster that the API already uses.
+* See [Connect a Kafka group to a registered cluster](../event-stream-management/apis/message-apis/configure-endpoints-and-failover.md#connect-a-kafka-group-to-a-registered-cluster), [Manage clusters](../event-stream-management/kafka-infrastructure/clusters/manage-a-cluster.md#see-which-apis-use-a-cluster), and [Bind APIs to a cluster](../event-stream-management/kafka-infrastructure/clusters/manage-cluster-permissions.md#bind-apis-to-a-cluster).
 
 #### Backend metadata max age
 

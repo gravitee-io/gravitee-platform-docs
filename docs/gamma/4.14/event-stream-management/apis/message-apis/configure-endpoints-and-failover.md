@@ -42,6 +42,59 @@ For **Kafka**, the connection form shows only the producer settings, the consume
 
 When the security protocol of a Kafka connection is **Protocol SSL** or **Protocol SASL_SSL**, **SSL configuration** includes **Verify Host**. It makes the gateway check that the broker hostname matches its certificate, and it's enabled by default. Disable it only if you trust the network.
 
+## Connect a Kafka group to a registered cluster
+
+A Kafka endpoint group takes its connection from one of two places: **Direct**, the default, uses the bootstrap servers and the security that you enter in the group. **Registered cluster** uses the connections of a Cluster registered in Event Stream Management, which hold the bootstrap servers and the security. See [Register your Kafka clusters](../../kafka-infrastructure/clusters/register-your-kafka-clusters.md).
+
+1. Click **Add endpoint group**.
+2. Under **Endpoint group type**, select **Kafka**.
+3. Select **Registered cluster**.
+4. In **Cluster**, select a Cluster.
+5. In **Default connection**, select one of its connections.
+6. Complete the other settings of the connection form. With **Registered cluster**, the form has no security settings: they come from the connection.
+7. Click **Create endpoint group**.
+
+<figure><img src="../../.gitbook/assets/gamma-esm-message-api-registered-cluster-group.png" alt="The form of a Kafka endpoint group with Registered cluster selected instead of Direct, the Orders Kafka Cluster, the orders-producer Default connection, and the Kafka connection form below them"><figcaption><p>A Kafka endpoint group in Registered cluster mode</p></figcaption></figure>
+
+The first endpoint of the new group uses the default connection. To connect an existing Kafka group, click its **Edit** button, follow steps 3 to 6, then click **Save group**.
+
+The **Cluster** list offers the deployed Clusters that you're a member of, directly or through a group that has access to the Cluster, and every deployed Cluster to an organization administrator. When it has none to offer, the form says why: none is deployed, or you aren't a member of any. See [Manage cluster permissions](../../kafka-infrastructure/clusters/manage-cluster-permissions.md).
+
+The connections offered are those of the Cluster as it was last deployed. After you add a connection to a Cluster, deploy the Cluster to offer it here.
+
+A connection that Message APIs can't use shows **(not supported)** after its name, and can't be selected. Its tooltip gives the reason, for example:
+
+* The security protocol is `SASL_PLAINTEXT` or `SASL_SSL`, without a SASL mechanism or with `NONE`.
+* The SASL mechanism is `DELEGATE_TO_BROKER`. A Message API has no client credentials to pass on to the brokers.
+* The SSL settings trust every certificate instead of using a truststore.
+* The PEM key store is given by a path instead of the content of the key and the certificate.
+
+### Choose the connection of each endpoint
+
+Each endpoint of the group uses one connection of the Cluster. A new endpoint gets the default connection of its group. To give an endpoint another connection, follow these steps:
+
+1. Click the edit icon of the endpoint.
+2. In **Connection**, select a connection.
+3. Click **Save endpoint**.
+
+An endpoint can also use another Cluster, or **Direct**. On the **Group shared configuration** tab of the endpoint, clear **Inherit configuration from the endpoint group**, then choose **Direct** or **Registered cluster**, the **Cluster**, and the **Default connection** of its **Connection override**.
+
+When you switch a group between **Direct** and **Registered cluster**, or change its **Cluster** or its **Default connection**, the endpoints that inherit its configuration follow it, and the form names them with the connection that they'll use. When you switch the group to **Direct**, the form asks for the endpoint configuration that they'll use instead, with its bootstrap servers. An endpoint with its own connection override keeps it.
+
+In the list of endpoints, the **Bootstrap servers** column of the group becomes **Connection**, and shows the name of the Cluster and the name of the connection of each endpoint that uses one. When the endpoints of a group use different connections, the group warns that the same traffic can then reach different brokers and authenticate as different Kafka principals.
+
+<figure><img src="../../.gitbook/assets/gamma-esm-message-api-cluster-endpoints.png" alt="The Endpoints page of a Message API whose Kafka group uses a registered Cluster, with the warning that its endpoints use different cluster connections and the Connection column showing Orders Kafka and the connection of each endpoint"><figcaption><p>The endpoints of a group connected to a registered cluster</p></figcaption></figure>
+
+A connection that the deployed Cluster no longer has shows the reason under the field, and the form doesn't save until you pick another one.
+
+When the Message API already uses a Cluster that you're not a member of, the form keeps that Cluster, shows **You are not a member of the Cluster \<name\>**, and offers only the connections that the Message API already uses. To use another connection of that Cluster, ask an owner of the Cluster to add you as a member.
+
+### Start and update a Message API that uses a Cluster
+
+A Message API that uses a Cluster follows the changes that you deploy on the Cluster, such as new credentials, without a new deployment of the Message API. New requests use the changes once the Cluster is deployed. When the deployment changes the connection that an endpoint uses, the connections opened before it keep working for a short time, then close. The analytics of each request carry the ID of the Cluster and of the connection.
+
+The Message API doesn't start, and its deployment is refused, while its Cluster isn't deployed, the deployed Cluster doesn't have the connection of an endpoint, or Message APIs can't use that connection. The console shows the reason in a notification. The Message API stays editable. See [Manage clusters](../../kafka-infrastructure/clusters/manage-a-cluster.md).
+
 ## Manage the groups
 
 * To change a group, click its **Edit** button. Change **Group name**, **Load balancing algorithm**, or the `<connector> connection` form, then click **Save group**.
@@ -166,5 +219,6 @@ To verify that the endpoints and failover are saved, follow these steps:
 
 1. Reload the **Endpoints** page, and check that each endpoint group lists the endpoints you expect, with their weight and tenants.
 2. Click **Edit** on a group, and check that the connection form shows the settings you entered.
-3. Open **Failover**, and check that **Enable failover** and the values you entered are still set.
-4. Check that the header of the Message API sidebar shows **Out of sync** until you deploy.
+3. For a group connected to a registered cluster, check that the **Connection** column shows the Cluster and the connection of each endpoint.
+4. Open **Failover**, and check that **Enable failover** and the values you entered are still set.
+5. Check that the header of the Message API sidebar shows **Out of sync** until you deploy.

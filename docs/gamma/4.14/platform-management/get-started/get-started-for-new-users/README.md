@@ -17,7 +17,13 @@ If you're new to Gravitee and want to run Gamma, choose the path that fits how y
 
 ## Before you start
 
-Gamma ships in 4.13, so the self-hosted guides use the `4.13` images. Agent Management needs an enterprise license that includes the `agent-management` pack. The other modules work without a license. To get a license, contact your Technical Account Manager.
+Gamma is available from APIM 4.12. The self-hosted guides use the `4.14` images. Agent Management needs an enterprise license that includes the `agent-management` pack. Some features in the other modules also need an enterprise license:
+
+* API Products, in API Management.
+* Federation, which you manage from **Integrations** in Platform Management.
+* **Alerts**, **Audit**, and **Client Registration**, in Platform Management.
+
+To get a license, contact your Technical Account Manager.
 
 ## Next steps
 

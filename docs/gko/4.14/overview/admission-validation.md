@@ -50,12 +50,18 @@ GKO calls each of the following endpoints with `PUT` and `?dryRun=true`, relativ
 | `Portal`            | `/organizations/{orgId}/environments/{envId}/portals`                                                                     |
 | `PortalListing`     | `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/listings`                                               |
 | `Documentation`     | `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/documentations` or `.../portals/{portalHrid}/documentations`   |
+| `AuthzPdp`          | `/organizations/{orgId}/environments/{envId}/authz/pdps`                                                                  |
+| `AuthzSchema`       | `/organizations/{orgId}/environments/{envId}/authz/schemas`                                                               |
+| `AuthzEntity`       | `/organizations/{orgId}/environments/{envId}/authz/entities`                                                              |
+| `AuthzPolicy`       | `/organizations/{orgId}/environments/{envId}/authz/policies`                                                              |
 | `AMSecurityDomain`  | `/organizations/{orgId}/environments/{envId}/domains`, on the Access Management Automation API                             |
 | `AMIdentityProvider` | `/organizations/{orgId}/environments/{envId}/domains/{domainKey}/identities`, on the Access Management Automation API     |
 | `AMCertificate`     | `/organizations/{orgId}/environments/{envId}/domains/{domainKey}/certificates`, on the Access Management Automation API    |
 | `AMReporter`        | `/organizations/{orgId}/environments/{envId}/domains/{domainKey}/reporters`, on the Access Management Automation API       |
 
 The Access Management calls go through the `AMContext` of the security domain. An `AMIdentityProvider`, `AMCertificate`, or `AMReporter` whose security domain doesn't exist, or isn't created in Access Management yet, is admitted with a warning and without a dry-run call. An `AMContext` itself is checked with a call to Access Management when you apply it: an Access Management that can't be reached gives a warning, and any error answer rejects it.
+
+An `AuthzSchema`, `AuthzEntity`, or `AuthzPolicy` whose `pdpRef` names an `AuthzPdp` that doesn't exist, or isn't synced yet, is admitted with a warning and without a dry-run call.
 
 {% hint style="warning" %}
 `ApiDefinition`, the v2 API resource, is the exception. It is validated against the Management API rather than the Automation API, using the same `dryRun` parameter:

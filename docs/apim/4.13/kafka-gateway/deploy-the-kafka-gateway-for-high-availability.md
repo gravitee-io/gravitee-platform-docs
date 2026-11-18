@@ -24,7 +24,7 @@ In a standard single-cluster deployment, a gateway instance holds no state that 
 
 Because nothing is shared and nothing coordinates between instances, you run as many gateway replicas as you like behind a plain TCP load balancer, and you don't need session affinity for correctness.
 
-From APIM 4.13.2, an endpoint group, a Kafka cluster, or a Virtual Cluster can set a **Backend metadata max age (seconds)**. Each instance then refreshes its broker address mapping and its list of topics about once per max age, not on every new client connection. The instances still don't coordinate. An instance that hasn't seen a topic looks it up on the brokers the first time a client fetches from it. Instances that share a distributed cache, Hazelcast or Redis, also share the topics they learn. See [Cache](../prepare-a-production-environment/cache.md) and [Bound the gateway's own metadata requests](create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md#bound-the-gateways-own-metadata-requests).
+From APIM 4.13.2, an endpoint group, a Kafka cluster, or a Virtual Cluster can set a **Backend metadata max age (seconds)**. Each instance then refreshes its broker address mapping and its list of topics about once per max age, not on every new client connection. The instances still don't coordinate. An instance that hasn't seen a topic looks it up on the brokers the first time a client fetches from it. Instances that share a distributed cache also share the topics they learn. The distributed cache can be Hazelcast or, from APIM 4.13.4, Redis. See [Cache](../prepare-a-production-environment/cache.md) and [Bound the gateway's own metadata requests](create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md#bound-the-gateways-own-metadata-requests).
 
 <figure><img src="../.gitbook/assets/kafka-gateway-ha-session-sequence.png" alt="A sequence diagram of a Kafka session, showing the bootstrap phase where the client connects through a load balancer with SNI preserved, the gateway performs a SASL handshake, requests metadata, rewrites the broker addresses, and returns a rewritten broker map, then a per-broker phase where each broker opens its own TCP connection and the gateway proxies produce and fetch calls."><figcaption><p>A single client session through the gateway. The gateway rewrites broker addresses during bootstrap, and any instance in the pool serves each per-broker connection.</p></figcaption></figure>
 
@@ -178,7 +178,11 @@ A perfectly redundant gateway still goes down if the rest of the path isn't redu
 
 ## Virtual cluster (MESH) mode caveat
 
-Everything above holds for the standard single-cluster deployment, where gateways share nothing. Virtual cluster (MESH) mode is different: it keeps shared state in a distributed cache. A multi-pod gateway deployment that uses MESH requires a distributed cache plugin, either Hazelcast or Redis, for correctness, for example to keep idempotent producers consistent across pods. Without it, each pod falls back to a local in-memory cache and loses cross-pod consistency.
+Everything above holds for the standard single-cluster deployment, where gateways share nothing. Virtual cluster (MESH) mode is different: it keeps shared state in a distributed cache. A multi-pod gateway deployment that uses MESH requires a distributed cache plugin for correctness, for example to keep idempotent producers consistent across pods. The plugin can be Hazelcast or, from APIM 4.13.4, Redis. Without it, each pod falls back to a local in-memory cache and loses cross-pod consistency.
+
+{% hint style="warning" %}
+On APIM 4.13.3 and earlier, native Kafka APIs don't deploy when `cache.type` is `redis`. Use the Hazelcast cache plugin for multi-pod MESH on those versions.
+{% endhint %}
 
 If MESH is in use, the affinity-free property doesn't automatically hold. Confirm the distributed cache is configured before you rely on the same horizontal-scaling behavior.
 

@@ -14,6 +14,7 @@ The header of the Kafka Service sidebar shows two badges: **Started** or **Stopp
 
 * Permission to change the Kafka Services of the environment. Without it, the start, stop, and deploy actions don't appear. A Kafka Service managed by the Gravitee Kubernetes Operator offers **Deploy** but not **Start** or **Stop** on its pages. See [Detach a Kubernetes-managed Kafka Service](manage-general-settings.md#detach-a-kubernetes-managed-kafka-service).
 * For a Kafka Service bound to a Virtual Cluster, the Virtual Cluster deployed. See [Start a Kafka Service bound to a Virtual Cluster](#start-a-kafka-service-bound-to-a-virtual-cluster).
+* For a Kafka Service bound to a Cluster, directly or through a Virtual Cluster, each Cluster deployed with the connection that the Kafka Service uses. Otherwise, starting or deploying the Kafka Service is refused, and the console shows the reason in a notification. See [Manage clusters](../../kafka-infrastructure/clusters/manage-a-cluster.md#deploy-a-cluster-or-its-changes).
 
 ## Start or stop a Kafka Service
 

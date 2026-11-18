@@ -254,6 +254,7 @@
   * [Add an AI model](agent-management/import/add-an-ai-model.md)
   * [Add an MCP Registry](agent-management/import/add-an-mcp-registry.md)
   * [Register an MCP server](agent-management/import/register-an-mcp-server.md)
+  * [Import an MCP server manually](agent-management/import/import-an-mcp-server-manually.md)
   * [Import prompts](agent-management/import/import-prompts.md)
   * [Add MCP resources](agent-management/import/add-mcp-resources.md)
   * [Create API tools](agent-management/import/create-api-tools.md)
