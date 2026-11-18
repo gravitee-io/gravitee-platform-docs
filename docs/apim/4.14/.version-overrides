@@ -74,3 +74,7 @@ prepare-a-production-environment/repositories/elasticsearch-data-streams.md
 
 # Message API connections in two documents: 4.14 index template changes (FOUND-465)
 upgrade-guides/apim-4.14-elasticsearch-index-template-changes.md
+
+# Automation API pages name 4.14 and list the Gamma modules 4.14 ships
+automation-api-reference/README.md
+automation-api-reference/automation-api-guide.md

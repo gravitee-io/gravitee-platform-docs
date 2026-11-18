@@ -584,6 +584,8 @@
     * [Implement a schema registry provider](plugins/customization/schema-registry-provider.md)
 * [Gravitee Expression Language](gravitee-expression-language.md)
 * [Management API Reference](management-api-reference.md)
+* [Automation API Reference](automation-api-reference/README.md)
+  * [Automation API guide](automation-api-reference/automation-api-guide.md)
 * [Expose APIM as an MCP Server](expose-apim-as-an-mcp-server.md)
 * [Release Information](release-information/README.md)
   * [API Management release notes](release-information/release-notes/README.md)
