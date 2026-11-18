@@ -61,7 +61,7 @@ Navigation paths define the portal's folder hierarchy using slash-separated stri
 
 ### Visibility
 
-Navigation paths, listing entries, documentation pages, and links take an optional `visibility` of `PUBLIC` or `PRIVATE`. A private item is shown to consumers who are signed in to the portal. An anonymous visitor who opens a private item gets `404`.
+Navigation paths, listing entries, documentation pages, and links take an optional `visibility` of `PUBLIC` or `PRIVATE`. A private navigation path, documentation page, or link is shown to consumers who are signed in to the portal. A private listing entry is shown only to signed-in consumers who are members of the API, directly or through a group, or members of an application with an accepted, pending, or paused subscription to it. An anonymous visitor who opens a private item gets `404`.
 
 When `visibility` is omitted, the item takes the visibility of its parent folder, and a top-level item is `PUBLIC`. A public item under a private parent is rejected with `400` and the message `Parent item with id <id> must be PUBLIC to create a public child item.`
 

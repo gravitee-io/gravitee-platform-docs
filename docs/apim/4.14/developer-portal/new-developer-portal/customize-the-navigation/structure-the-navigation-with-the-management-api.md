@@ -42,7 +42,7 @@ Before you structure your navigation, complete the following steps:
 ### (One time operation) Create a Portal Folder
 
 {% hint style="info" %}
-&#x20;If the folder is `PRIVATE`, the APIs inside it will only be visible to logged-in users, even if the APIs themselves are `PUBLIC`.
+&#x20;If the folder is `PRIVATE`, the APIs inside it are private too. A private API is shown only to signed-in users who are members of the API, directly or through a group, or members of an application with an accepted, pending, or paused subscription to it.
 {% endhint %}
 
 To organise your APIs or general documentation, create a root folder within the environment's Portal Pages, which are not published by default.  This is a one-time operation because you can use APIs and Pages in this folder.&#x20;
