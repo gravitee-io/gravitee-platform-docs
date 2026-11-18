@@ -50,6 +50,10 @@ GKO calls each of the following endpoints with `PUT` and `?dryRun=true`, relativ
 | `Portal`            | `/organizations/{orgId}/environments/{envId}/portals`                                                                     |
 | `PortalListing`     | `/organizations/{orgId}/environments/{envId}/portals/{portalHrid}/listings`                                               |
 | `Documentation`     | `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/documentations` or `.../portals/{portalHrid}/documentations`   |
+| `PortalLink`        | `/organizations/{orgId}/environments/{envId}/apis/{apiHrid}/links` or `.../portals/{portalHrid}/links`                   |
+| `PortalTheme`       | `/organizations/{orgId}/environments/{envId}/portal-themes`                                                               |
+| `McpProxy`          | `/organizations/{orgId}/environments/{envId}/aim/mcp-proxies`                                                             |
+| `CatalogMcpServer`  | `/organizations/{orgId}/environments/{envId}/aim/catalog/mcp-servers`                                                     |
 | `AMSecurityDomain`  | `/organizations/{orgId}/environments/{envId}/domains`, on the Access Management Automation API                             |
 | `AMIdentityProvider` | `/organizations/{orgId}/environments/{envId}/domains/{domainKey}/identities`, on the Access Management Automation API     |
 | `AMCertificate`     | `/organizations/{orgId}/environments/{envId}/domains/{domainKey}/certificates`, on the Access Management Automation API    |
@@ -109,7 +113,7 @@ sequenceDiagram
 Once the resource is persisted, the controller picks it up and replays the same call without `dryRun`, this time outside any admission budget.
 
 {% hint style="info" %}
-The same round trip applies to every kind covered by the validating webhook. Kinds that also have a mutating webhook registered go through the mutation phase first, under its own instance of the outer budget. The following kinds carry a mutating webhook: `managementcontexts`, `subscriptions`, `groups`, `dictionaries`, `portals`, `portallistings`, and `documentations`.
+The same round trip applies to every kind covered by the validating webhook. Kinds that also have a mutating webhook registered go through the mutation phase first, under its own instance of the outer budget. The following kinds carry a mutating webhook: `managementcontexts`, `subscriptions`, `groups`, `dictionaries`, `portals`, `portallistings`, `portallinks`, `documentations`, `portalthemes`, `catalogmcpservers`, and `mcpproxies`.
 {% endhint %}
 
 ## Admission timeouts
@@ -213,16 +217,18 @@ Kubernetes refuses a webhook `timeoutSeconds` above 30. Past 25 seconds of HTTP 
     The output reports the derived webhook timeout for every webhook in the configuration:
 
     ```text
-    25 25 25 25 25 25 25 25 25 25 25 25
+    25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25
     ```
 
 {% hint style="info" %}
-Only the calls to APIM are bound to these budgets: the dry run, and the read of the resource's current state when drift detection is enabled. A resource that carries no context reference is still admitted through the webhook, but validation stays local, so GKO makes no APIM call and the inner budget never opens.
+Only the calls to APIM are bound to these budgets: the dry run, and the read of the resource's current state when drift detection is enabled. A resource that carries no context reference still goes through the webhook, but validation stays local, so GKO makes no APIM call and the inner budget never opens.
 {% endhint %}
 
 ## When the dry-run call is skipped
 
 The dry-run call only happens when the resource references a `ManagementContext`, or reaches Access Management through an `AMContext`. Resources that are not synced to an APIM Control Plane are validated locally only. Examples include a v4 API with no `contextRef`, and a v2 API with `local: true`. This includes [db-less-mode.md](../guides/db-less-mode.md "mention") deployments, where there is no Control Plane to call.
+
+A `Portal`, `PortalTheme`, `McpProxy`, or `CatalogMcpServer` requires a context reference, and the webhook rejects one that has none.
 
 ## What this means in practice
 
