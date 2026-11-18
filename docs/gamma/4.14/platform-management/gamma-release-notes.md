@@ -1,5 +1,5 @@
 ---
-description: What the Gamma 4.14 release adds to Agent Management, Edge Management, Event Stream Management, and Platform Management. Browse the new features and changes.
+description: What the Gamma 4.14 release adds to Agent Management, Authorization Management, Edge Management, Event Stream Management, and Platform Management. Browse the new features and changes.
 ---
 
 # Release Notes
@@ -22,7 +22,7 @@ The 4.14 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply. JWT plans of MCP Proxies and MCP Studios gain two settings, for the claims of the token and for the `Authorization` header.
+Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, alerts to MCP Proxies, and HTTP/2 fields to MCP Proxies and Catalog MCP servers. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply. JWT plans of MCP Proxies and MCP Studios gain two settings, for the claims of the token and for the `Authorization` header. OAuth2 plans of MCP Proxies and MCP Studios can require a subscription.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
@@ -38,6 +38,12 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and
 * The **History** tab of an alert lists its events.
 * Alerts require Alert Engine.
 * See [Configure MCP Proxy alerts](../agent-management/build/configure-mcp-proxy-alerts.md).
+
+#### HTTP/2 fields and the API key header of MCP Proxies
+
+* When the **HTTP version** is **HTTP/2**, the **HTTP configuration** section of the **Advanced settings** on the **Endpoint** page of an MCP Proxy shows four new fields: **HTTP/2 multiplexing limit**, **HTTP/2 max frame size (bytes)**, **HTTP/2 connection window size (bytes)**, and **HTTP/2 stream window size (bytes)**. The **Advanced settings** that **Configure** opens for an MCP server of the Catalog show the same fields.
+* When the API key of an MCP Proxy was saved without a header, the **Endpoint** page shows the **Injection location** as **x-api-key header**, the header the gateway sends the key in, and saving a new key keeps it there. Before 4.14, the page showed **Authorization header**, and saving a new key moved the key to the `Authorization` header.
+* See [Configure the MCP Proxy endpoint](../agent-management/build/configure-mcp-proxy-endpoint.md#adjust-the-advanced-settings) and [Configure Upstream Authentication](../agent-management/build/configure-your-mcp/README.md#configure-upstream-authentication).
 
 #### Proxy pages name the proxy instead of the API
 
@@ -60,6 +66,23 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and
 * **Extract JWT claims** puts the claims of the token on the `jwt.claims` context attribute, for the policies that follow. It's off by default.
 * **Propagate Authorization header** keeps the `Authorization` header on the request after the gateway validates the token. A new plan starts with it off.
 * See [Configure a JWT plan](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md#configure-a-jwt-plan).
+
+#### Require a subscription on OAuth2 plans of MCP Proxies and MCP Studios
+
+* OAuth2 plans of MCP Proxies and MCP Studios have a new **Require a subscription** switch, off by default. With it on, the gateway accepts a token only when its client ID belongs to an application subscribed to the plan. With it off, the plan accepts a valid token without a subscription, as before 4.14.
+* The switch is in the **Subscriptions** card of the plan's **Security** step, and in the **Secure** step of the MCP Proxy and MCP Studio wizards for **Gravitee as Authorization Server** and **External Authorization Server**. Turning it on for a published or deprecated plan asks for confirmation. The plan list shows a **Subscription required** badge on a plan that has it on.
+* See [Require a subscription](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md#require-a-subscription).
+
+### Authorization Management
+
+Authorization Management manages its PDP gateways, schema documents, entities, and policies as code: through the Automation API, as Kubernetes resources, and with Terraform.
+
+#### PDP gateways, schema documents, entities, and policies as code
+
+* The Automation API creates or updates a PDP gateway, a schema document, an entity, or a policy from a specification, and reads or deletes it. A dry run validates a specification and reports its findings without saving anything.
+* The Gravitee Kubernetes Operator declares them with `AuthzPdp`, `AuthzSchema`, `AuthzEntity`, and `AuthzPolicy` resources.
+* The Gravitee Terraform provider declares them with `apim_authz_pdp`, `apim_authz_schema`, `apim_authz_entity`, and `apim_authz_policy` resources.
+* See [Custom Resource Definitions](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/overview/custom-resource-definitions) and [Gravitee Resources](https://documentation.gravitee.io/apim/terraform/example-resource-configurations).
 
 ### Edge Management
 

@@ -15,6 +15,16 @@ Here are the breaking changes for versions 4.X of Gravitee and versions 3.X of G
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+# 4.14.0
+
+## Message API connections: Two documents per connection
+
+From 4.14.0, the Gateway reports a message API connection in two documents in the v4 metrics and v4 log indices. The opening document has the ID `<request-id>:open`, and its `connection-phase` is `open`. The document reported when the connection ends keeps the request ID, and in the v4 metrics index it has `connection-phase` set to `end`. In 4.13 and earlier, the Gateway reported a connection only when it ended.
+
+The 4.14 Management API counts a connection from its opening document and reads its duration from its end document, so an open connection is counted and has no duration yet. A Management API earlier than 4.14 counts each connection twice and lists it twice in the logs. Upgrade the Management API before or together with the Gateways.
+
+Before you upgrade, review any dashboard, query, or reporter pipeline that reads message API connections from the v4 metrics or v4 log indices. To count connections, exclude the documents whose `connection-phase` is `end`. To read durations, exclude the documents whose `connection-phase` is `open`. For more information, see [Message API connections](../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#message-api-connections) and [APIM 4.14 Elasticsearch Index Template Changes](../upgrade-guides/apim-4.14-elasticsearch-index-template-changes.md).
+
 # 4.13.0
 
 ## Subscription forms apply only to the APIs they're assigned to

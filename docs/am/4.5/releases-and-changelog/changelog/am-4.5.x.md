@@ -11,6 +11,23 @@ When managing deployments using Helm, please note that the default startup, live
 
 ## AM 4.5.x
 
+## Gravitee Access Management 4.5.30 - November 17, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.5.28 - October 10, 2025
 
 <details>
