@@ -92,6 +92,38 @@ If you use the environment variable to provide database settings, complete the f
   `GRAVITEE_GATEWAY_TYPE=... => GRAVITEE_REPOSITORIES_GATEWAY_TYPE=...`
 {% endhint %}
 
+**User consents**
+
+Before this update, the `userId` attribute of a user consent was a string that contained the user internalId.
+
+With this update, `userId` is an object that contains the user internalId, the user externalId, and the identity provider identifier:
+
+```json
+{
+  "userId": {
+    "id": "string",
+    "externalId": "string",
+    "source": "string"
+  }
+}
+```
+
+This change affects the following endpoints:
+
+* Management API:
+  * `GET /management/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/users/{user}/consents`
+  * `GET /management/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/users/{user}/consents/{consent}`
+* Gateway Users API:
+  * `GET /{domain}/users/{userId}/consents`
+  * `GET /{domain}/users/{userId}/consents/{consentId}`
+* Gateway Self-service Account API:
+  * `GET /{domain}/account/api/consent`
+  * `GET /{domain}/account/api/consent/{consentId}`
+
+{% hint style="info" %}
+If your clients read `userId` as a string, update them to read `userId.id`.
+{% endhint %}
+
 ### 4.0.0
 
 **MongoDB index names**
