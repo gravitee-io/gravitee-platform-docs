@@ -54,12 +54,12 @@ The `json-threat-protection` policy can be configured with the following options
 
 ## Limitations
 
-The JSON Threat Protection policy reads the whole request body before it validates it. It isn't available for MCP Proxy, LLM Proxy, or A2A Proxy APIs.
+The JSON Threat Protection policy reads the whole request body before it validates it. It isn't available for MCP Proxy, LLM Proxy, or A2A Proxy APIs. When **Enforce JSON payload** is on, the policy rejects every request whose content type isn't `application/json` with status `415`, including a request that has no body.
 
-The **Platform flows** on the organization's **Policies** page run on MCP Proxy, LLM Proxy, and A2A Proxy APIs too. If a platform flow holds this policy, give that flow a **Condition** that leaves out the context path of each of those APIs. In a condition, the context path ends with `/`. For example, the following condition skips the APIs whose context paths are `/my-mcp-server` and `/my-llm-proxy`:
+The **Platform flows** on the organization's **Policies** page run on MCP Proxy, LLM Proxy, and A2A Proxy APIs too. If a platform flow holds this policy, give that flow a **Condition** that leaves out the context path of each of those APIs. In a condition, the context path ends with `/`. An MCP Proxy API also answers on two paths under its context path, `.auth/initiate/` and `.auth/callback/`. By default, it also answers on `/.well-known/oauth-protected-resource` followed by its context path. Leave those out too. For example, the following condition skips the MCP Proxy API whose context path is `/my-mcp-server` and the LLM Proxy API whose context path is `/my-llm-proxy`:
 
 ```text
-{#request.contextPath != '/my-mcp-server/' && #request.contextPath != '/my-llm-proxy/'}
+{#request.contextPath.startsWith('/my-mcp-server/') == false && #request.contextPath != '/.well-known/oauth-protected-resource/my-mcp-server/' && #request.contextPath != '/my-llm-proxy/'}
 ```
 
 ## Errors

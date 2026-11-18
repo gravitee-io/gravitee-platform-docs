@@ -43,6 +43,18 @@ When you revoke a Cloud token, you terminate the link between the Cloud and your
 
     <figure><img src="../../.gitbook/assets/A9D87A59-C9CE-42BC-9FF9-4AC06738C249_1_201_a.jpeg" alt="The Gateway Deployment Details page with the Cloud Tokens section highlighted, listing one token with its creation and expiry dates."><figcaption></figcaption></figure>
 
+## Rotate a Cloud Token
+
+A Gateway reads its Cloud Token when it starts, and it keeps using that token until it restarts. Up to 10 Cloud Tokens can be active at the same time, so you can generate the new token before you revoke the old one:
+
+1. In Gravitee Cloud, open your hybrid Gateway.
+2. In the **Cloud Tokens** section, click **Generate Cloud Token**.
+3. In the **Copy your Cloud Token** dialog, click **Copy and Close**.
+4. Replace the Cloud Token in your Gateway's configuration with the new token. For more information, see [Link to a Hybrid Gateway](link-to-a-hybrid-gateway.md).
+5. Restart the Gateway.
+6. In the **Cloud Tokens** section, click the bin icon in the row of the old token. The **Date created** column tells the tokens apart.
+7. In the **Revoke Cloud Token** dialog, type `revoke`, and then click **Revoke Token**.
+
 ## Next steps
 
 * (Optional) Link your Cloud token to a hybrid Gateway. For more information about linking to a hybrid Gateway, see [link-to-a-hybrid-gateway.md](link-to-a-hybrid-gateway.md "mention").
