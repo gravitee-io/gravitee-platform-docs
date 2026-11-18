@@ -45,6 +45,8 @@ The source of a dynamic property sets its value, so the actions menu of a dynami
 
 Once a dynamic property is encrypted, **Remove (re-added on next sync)** is its only action.
 
+A change made from the actions menu saves the Kafka Service but doesn't deploy it. The change reaches the gateway at the next deployment.
+
 ## Import properties
 
 1. Click **Import**.

@@ -32,6 +32,8 @@ The page shows three counters, **Total properties**, **Encrypted**, and `Dynamic
 
 Each row ends with an actions menu. For a property you defined, it offers **Edit** and **Delete**. For a dynamic property, it offers **Encrypt value**, while the property is unencrypted, and **Remove (re-added on next sync)**. The search field filters the table by key, and the table shows 10 properties per page by default.
 
+When the proxy is managed by the Kubernetes operator, the page is read-only. It shows the properties without **Import**, **Add property**, or an actions menu, and a notice says to change them in the proxy's source definition instead.
+
 ## Add a property
 
 To add a property, follow these steps:

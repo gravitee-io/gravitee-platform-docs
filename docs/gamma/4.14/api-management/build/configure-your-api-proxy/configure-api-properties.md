@@ -54,6 +54,8 @@ Once a dynamic property is encrypted, **Remove (re-added on next sync)** is its 
 
 <figure><img src="../../.gitbook/assets/gamma-api-properties-dynamic-property-actions.png" alt="The API Properties page of an API proxy with four properties. The actions menu of an unencrypted dynamic property is open and offers Encrypt value and Remove (re-added on next sync). Another dynamic property shows the Encrypted and Dynamic badges, with its value as dots"><figcaption><p>The actions menu of a dynamic property</p></figcaption></figure>
 
+A change made from the actions menu saves the API but doesn't deploy it. To push the change to the gateway, click **Deploy API** on the **This API is out of sync** banner, and then click **Deploy** in the **Deploy your API** dialog.
+
 ## Import properties in bulk
 
 To import a list of properties, follow these steps:
