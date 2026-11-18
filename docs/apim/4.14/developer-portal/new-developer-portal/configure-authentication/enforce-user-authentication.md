@@ -76,6 +76,10 @@ To enforce user authentication, complete the following steps:&#x20;
     <figure><img src="../../../.gitbook/assets/portal-settings-authentication-force-login.png" alt="Force authentication to access portal switched on, with the Discard and Save buttons below it"><figcaption></figcaption></figure>
 4.  Click **Save**.
 
+## Show APIs to every signed-in user
+
+With authentication enforced, visitors who aren't signed in are sent to the sign-in page. To show an API to every signed-in user, add it to a folder that doesn't require authentication, keep the **Authentication is required to view selected APIs.** toggle off, and publish it. With the toggle on, only the API's members and the members of applications that subscribe to it see the API, and administrator rights don't change that. For more information, see [Manage Portal Navigation and APIs](../customize-the-navigation.md#api).
+
 ## Verification&#x20;
 
 *   Log out of your New Developer Portal, and then try to access a page on your New Developer Portal. You are redirected to the login screen. <br>
