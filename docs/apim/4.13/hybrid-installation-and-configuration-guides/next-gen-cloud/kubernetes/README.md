@@ -1,5 +1,5 @@
 ---
-description: Route hybrid API Management 4.13 Gateway traffic through a corporate proxy on Kubernetes. Browse the deployment guides you need.
+description: Run a hybrid API Management 4.13 Gateway on Kubernetes. Browse the deployment guides you need.
 metaLinks:
   alternates:
     - ./
@@ -14,6 +14,22 @@ metaLinks:
 * [azure-aks.md](azure-aks.md "mention")
 * [Openshift](openshift.md)
 * GCP GKE
+
+## Overview
+
+You can use Kubernetes to install the self-hosted components of a Gravitee API Management (APIM) Next-Gen Cloud hybrid architecture. A Kubernetes installation relies on the `values.yaml` configuration file and the Gravitee Helm chart.
+
+The `values.yaml` configuration file serves as the bridge between your local Kubernetes infrastructure and Gravitee Cloud. It contains all of the parameters that define how your hybrid Gateway operates, connects to Gravitee Cloud, and integrates with supporting services like Redis.
+
+The Helm installation process converts your configuration into running Kubernetes resources. These resources provide your API Gateway with the functionality that maintains secure connectivity with Gravitee Cloud.
+
+The following Kubernetes resources are created with the Gravitee Helm chart:
+
+* Deployment objects that manage your Gateway pods
+* Service objects that provide network connectivity
+* ConfigMap objects that store non-sensitive configuration data
+* Secret objects that securely store authentication credentials
+* ServiceAccount objects that provide appropriate cluster permissions
 
 ## Proxy configuration
 
@@ -37,19 +53,3 @@ gateway:
 ```
 
 For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../../../configure-and-manage-the-platform/gravitee-gateway/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../../proxy-configuration/README.md).
-
-## Overview
-
-You can use Kubernetes to install the self-hosted components of a Gravitee API Management (APIM) Next-Gen Cloud hybrid architecture. A Kubernetes installation relies on the `values.yaml` configuration file and the Gravitee Helm chart.
-
-The `values.yaml` configuration file serves as the bridge between your local Kubernetes infrastructure and Gravitee Cloud. It contains all of the parameters that define how your hybrid Gateway operates, connects to Gravitee Cloud, and integrates with supporting services like Redis.
-
-The Helm installation process converts your configuration into running Kubernetes resources. These resources provide your API Gateway with the functionality that maintains secure connectivity with Gravitee Cloud.
-
-The following Kubernetes resources are created with the Gravitee Helm chart:
-
-* Deployment objects that manage your Gateway pods
-* Service objects that provide network connectivity
-* ConfigMap objects that store non-sensitive configuration data
-* Secret objects that securely store authentication credentials
-* ServiceAccount objects that provide appropriate cluster permissions
