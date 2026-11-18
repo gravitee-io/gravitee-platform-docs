@@ -225,7 +225,7 @@ An API item inside an API Product shows only the items added under it there, nev
 2.  In the **Add APIs** dialog, select the APIs that you want to add. To find an API by name, use the **Search** field.<br>
 
     <figure><img src="../../.gitbook/assets/devportal-add-apis-dialog.png" alt="Add APIs dialog listing the APIs with their path and labels, one API selected, above the Authentication toggle"><figcaption><p>Add APIs dialog</p></figcaption></figure>
-3. (Optional) Turn on the **Authentication is required to view selected APIs.** toggle. This ensures that the user has to sign in to the New Developer Portal to view the APIs.
+3. (Optional) Turn on the **Authentication is required to view selected APIs.** toggle. With the toggle on, an API is shown only to signed-in users who are members of the API, directly or through a group, or who are members of an application with an accepted, pending, or paused subscription to it. Organization and environment administrators who aren't members don't see it.
 4. Click **Add**.
 5. Publish the API. To publish the API, complete either of the following steps:
 
