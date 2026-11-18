@@ -328,7 +328,7 @@ Exercise care when using classes or methods. In some cases, giving access to all
 When a script accesses the request or response content while **Read content** is disabled, the script fails. The API consumer receives status `500` with the body `Internal Server Error` and the error key `GROOVY_EXECUTION_FAILURE`, and the Gateway log records `An error occurred while executing Groovy script` with the reason `Accessing request content must be enabled in the policy configuration`, or the response equivalent. The same `500` behavior applies when a script calls a method that isn't on the allowlist: the Gateway log records a security error with the reason `Failed to resolve method` and the method signature.
 
 {% hint style="info" %}
-In v2 APIs, the policy has no **Read content** option. To read the request body in a v2 API, put the script in **On-request content script**. To read the response body, put it in **On-response content script**.
+In v2 APIs and in the **Platform flows** on the organization's **Policies** page, the policy has no **Read content** option. To read the request body there, put the script in **On-request content script**. To read the response body, put it in **On-response content script**. The value that a content script returns replaces the body, so a script that only reads the body ends with `return request.content`, or with `return response.content` in **On-response content script**.
 {% endhint %}
 
 ## Examples
