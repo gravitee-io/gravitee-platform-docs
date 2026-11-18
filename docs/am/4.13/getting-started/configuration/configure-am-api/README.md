@@ -507,9 +507,9 @@ Gravitee AM provides a notification mechanism to inform about certificates and c
 
 * the frequency on which the certificates expiry dates are evaluate
 * the number of days before the certificate expiry
-* the number of days to wait before a notification is going to be resent
+* each later threshold, which sends a reminder until the expiry date
 
-All the settings here after have to be defined into the `services` section of the `gravitee.yaml` file.
+All the settings here after have to be defined into the `services` section of the `gravitee.yml` file.
 
 {% code overflow="wrap" %}
 ```yaml
