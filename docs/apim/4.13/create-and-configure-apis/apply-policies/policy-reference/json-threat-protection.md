@@ -52,6 +52,16 @@ The `json-threat-protection` policy can be configured with the following options
 
 <table><thead><tr><th width="185">Property</th><th width="106" data-type="checkbox">Required</th><th width="227">Description</th><th width="179">Type</th><th>Default</th></tr></thead><tbody><tr><td>maxEntries</td><td>false</td><td>Maximum number of entries allowed for a JSON object. Example: In <code>{ "a":{ "b":1, "c":2, "d":3 }}</code>, <code>a</code> has 3 entries</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxArraySize</td><td>false</td><td>Maximum number of elements allowed in an array</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxDepth</td><td>false</td><td>Maximum depth of JSON structure. Example: <code>{ "a":{ "b":{ "c":true }}}</code> has a depth of 3.</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxNameLength</td><td>false</td><td>Maximum string length allowed for a JSON property name</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxValueLength</td><td>false</td><td>Maximum string length allowed for a JSON property value</td><td>integer (-1 to specify no limit)</td><td>500</td></tr></tbody></table>
 
+## Limitations
+
+The JSON Threat Protection policy reads the whole request body before it validates it. It isn't available for MCP Proxy, LLM Proxy, or A2A Proxy APIs.
+
+The **Platform flows** on the organization's **Policies** page run on MCP Proxy, LLM Proxy, and A2A Proxy APIs too. If a platform flow holds this policy, give that flow a **Condition** that leaves out the context path of each of those APIs. In a condition, the context path ends with `/`. For example, the following condition skips the APIs whose context paths are `/my-mcp-server` and `/my-llm-proxy`:
+
+```text
+{#request.contextPath != '/my-mcp-server/' && #request.contextPath != '/my-llm-proxy/'}
+```
+
 ## Errors
 
 <table data-full-width="false"><thead><tr><th width="196.5">HTTP status code</th><th width="387">Message</th></tr></thead><tbody><tr><td><code>400</code></td><td><ul><li>Invalid JSON structure</li><li>Maximum depth exceeded</li><li>Maximum JSON entries exceeded</li><li>Maximum JSON array size exceeded</li><li>Maximum JSON field name length exceeded</li><li>Maximum JSON field value length exceeded</li></ul></td></tr></tbody></table>
