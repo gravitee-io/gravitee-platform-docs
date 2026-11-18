@@ -26,6 +26,18 @@ Check these changes before you upgrade to AM 4.14.
 * To use it, set `handlers.oidc.dcr.clientIdLength` in the AM Gateway configuration to an integer from `8` to `255`, inclusive.
 * The setting applies to the whole installation and affects both standard registration and template-based registration. Template-based registration is used when Dynamic Client Registration templates are enabled on the domain and the request contains `software_id`. Clients that are already registered keep their client ID. See [Dynamic Client Registration client ID length](../../getting-started/configuration/configure-am-gateway/README.md#dynamic-client-registration-client-id-length).
 
+### Plugin Configuration Encryption
+
+* AM can now store plugin configurations encrypted instead of in clear text. This covers identity providers, reporters, certificates, factors, alert notifiers, authentication device notifiers, bot detections, data planes, device identifiers, extension grants, and service resources.
+* Encryption is off by default. To turn it on, declare an encryption key with an id and a secret on every Management API node and every Gateway node, enable encryption and select the key id on the Management API nodes, and then restart the nodes. The Management API rejects an invalid key setup with a message such as `Encryption key [<id>] is selected to encrypt but is not declared`.
+* Configurations stored in clear text before you enable encryption stay readable and are encrypted the next time they're updated. To encrypt all of them at once, call `POST /_node/encryption/reencrypt` on one Management API node. The same call moves every stored configuration to a newly selected key when you rotate keys, after which you can remove the older keys from every node.
+* A key id can't contain `:`, and you should never reuse an id for another secret. A key that a stored value still uses must stay declared on every Management API and Gateway node. Losing a key, or changing the secret of an existing key id, makes the configurations it encrypted unreadable.
+* You can turn encryption off without removing the keys: new and updated configurations are then stored in clear text, and configurations that are already encrypted stay readable as long as their keys stay declared. See [Encrypt Plugin Configurations](../../getting-started/configuration/encrypt-plugin-configurations.md).
+
+{% hint style="info" %}
+Before enabling this feature, remember to perform a backup so a rollback is possible.
+{% endhint %}
+
 ## Improvements
 
 AM 4.14 adds the following improvements.

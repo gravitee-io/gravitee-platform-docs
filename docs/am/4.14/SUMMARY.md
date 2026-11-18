@@ -43,6 +43,7 @@
     * [Configure Secret Providers](getting-started/configuration/domain-secrets/configure-secret-providers.md)
     * [Apply Secret to Domains](getting-started/configuration/domain-secrets/apply-secret-to-domains.md)
     * [Plugins support](getting-started/configuration/domain-secrets/plugins-support.md)
+  * [Encrypt Plugin Configurations](getting-started/configuration/encrypt-plugin-configurations.md)
 * [Tutorial: Getting Started with AM](getting-started/tutorial-getting-started-with-am/README.md)
   * [Log in to AM Console](getting-started/tutorial-getting-started-with-am/login-to-am-console.md)
   * [Set Up Your First Application](getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md)
