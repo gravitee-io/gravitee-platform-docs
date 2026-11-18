@@ -79,6 +79,7 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, ale
 * An encrypted dynamic property carries the `Encrypted` and `Dynamic` badges, and a sync keeps it encrypted. A dynamic property that you remove comes back at the next sync, unencrypted unless **Encrypt on fetch** is on.
 * The **Dynamic properties** page has a new **Encrypt on fetch** switch, off by default, which stores every synced value encrypted.
 * An import now skips a key that matches a dynamic property, and lists it under **Skipped (synced by the dynamic provider):**.
+* When the proxy is managed by the Kubernetes operator, the **Properties** page is now read-only.
 * See [Encrypt or remove a dynamic property](../agent-management/build/configure-properties-for-your-proxies.md#encrypt-or-remove-a-dynamic-property).
 
 ### API Management
@@ -90,7 +91,7 @@ API Management encrypts the dynamic properties of API proxies.
 * On the **API Properties** page of an API proxy, a dynamic property now has an actions menu. It offers **Encrypt value**, while the property is unencrypted, and **Remove (re-added on next sync)**.
 * An encrypted dynamic property carries the **Encrypted** and **Dynamic** badges, and a sync keeps it encrypted. A dynamic property that you remove comes back at the next sync, unencrypted unless **Encrypt on fetch** is on.
 * The **Dynamic properties** screen has a new **Encrypt on fetch** switch, off by default, which encrypts every fetched value before it's stored.
-* The **Dynamic properties** screen now saves the settings of a v4 API in the form that the sync reads. Before 4.14, the sync didn't apply the schedule, the JOLT specification, or the HTTP client, proxy, and SSL settings saved from this screen. To apply them, change a field on the screen, click **Save changes**, and then deploy the API.
+* The **Dynamic properties** screen now saves the settings of an HTTP Proxy or TCP Proxy API in the form that the sync reads. Before 4.14, the sync didn't apply the schedule, the JOLT specification, or the HTTP client, proxy, and SSL settings saved from this screen. Settings saved before 4.14 keep the earlier form until you save them again from this screen. To apply them, change a field on the screen, click **Save changes**, and then deploy the API.
 * When the API proxy is managed by the Kubernetes operator, the **API Properties** page is now read-only.
 * See [Configure API properties](../api-management/build/configure-your-api-proxy/configure-api-properties.md#manage-existing-properties).
 
