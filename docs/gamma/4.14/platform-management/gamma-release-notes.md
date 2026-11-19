@@ -22,7 +22,7 @@ The 4.14 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, alerts to MCP Proxies, and HTTP/2 fields to MCP Proxies and Catalog MCP servers. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply. JWT plans of MCP Proxies and MCP Studios gain two settings, for the claims of the token and for the `Authorization` header. OAuth2 plans of MCP Proxies and MCP Studios can require a subscription. The **Properties** page of LLM Proxies, MCP Proxies, and A2A Proxies encrypts dynamic properties.
+Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, alerts to MCP Proxies, and HTTP/2 fields to MCP Proxies and Catalog MCP servers. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply. JWT plans of MCP Proxies and MCP Studios gain two settings, for the claims of the token and for the `Authorization` header. OAuth2 plans of MCP Proxies and MCP Studios can require a subscription. The **Properties** page of LLM Proxies, MCP Proxies, and A2A Proxies encrypts dynamic properties. A2A Proxies gain a **CORS** page for calls from web pages on other origins.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
@@ -81,6 +81,14 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, ale
 * An import now skips a key that matches a dynamic property, and lists it under **Skipped (synced by the dynamic provider):**.
 * When the proxy is managed by the Kubernetes operator, the **Properties** page is now read-only.
 * See [Encrypt or remove a dynamic property](../agent-management/build/configure-properties-for-your-proxies.md#encrypt-or-remove-a-dynamic-property).
+
+#### CORS for A2A Proxies
+
+* A new **CORS** page in the **Design** group of an A2A Proxy lets web pages served from other origins call the agent directly from the browser. Agents and back-end services that call the proxy aren't affected.
+* The page sets the allowed origins, methods, and headers, the exposed headers, credentials, private network access, and the preflight cache duration, and whether policies run on preflight requests. CORS is off until you enable it.
+* The **Request validation** card of the page has a **Reject null byte** switch. It applies to every request to the proxy, whether or not CORS is enabled, and a new A2A Proxy starts with it on.
+* On the **CORS** pages of LLM Proxies, MCP Proxies, and A2A Proxies, the page now checks an origin when you add it. A save that changes the CORS settings while CORS is enabled is now refused when it has no allowed origin, no allowed method, a method that isn't an HTTP method name in uppercase or `*`, or **Access-Control-Allow-Credentials** on while `*` is an allowed origin.
+* See [Configure A2A Proxy CORS](../agent-management/build/configure-a2a-proxy-cors.md).
 
 ### API Management
 

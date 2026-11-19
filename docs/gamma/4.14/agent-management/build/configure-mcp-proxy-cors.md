@@ -41,12 +41,14 @@ The **Origins, methods and headers** card carries four list fields. Type a value
 
 For an MCP client in a browser, the page suggests `Mcp-Session-Id` and `MCP-Protocol-Version` under **Access-Control-Allow-Headers**, because the client sends them with its requests. It also suggests `Mcp-Session-Id` and `WWW-Authenticate` under **Access-Control-Expose-Headers**, because the client reads them from the responses of the proxy.
 
-Header names are saved in lowercase, so `Content-Type` reads back as `content-type` after you save. Enter methods in uppercase: the gateway compares the method of a preflight request with the saved values exactly. Add at least one method: with none, the gateway refuses every preflight request.
+Header names are saved in lowercase, so `Content-Type` reads back as `content-type` after you save. Enter methods in uppercase: the gateway compares the method of a preflight request with the saved values exactly.
 
-When you save, a value that reads neither as an origin nor as a valid regular expression is refused. The message names the value, such as **not-an-origin is not valid as an 'allow origin' value**.
+The page checks an origin when you add it. A value that's neither `*`, `null`, an origin without a path such as `https://app.example.com`, nor a valid regular expression stays in the field, with **Enter an origin such as https://app.example.com, without a path, or a regular expression.** or **Not a valid regular expression.** underneath.
+
+When CORS is enabled, a save that changes the CORS settings needs at least one allowed origin and at least one allowed method. Each method is an HTTP method name in uppercase, such as `POST`, or `*`. Otherwise the save is refused, and the page shows the reason, such as **At least one allowed origin is required when CORS is enabled.**
 
 {% hint style="warning" %}
-Adding `*` as an allowed origin shows the **Allowing all origins** alert, because `*` exposes the proxy to any website. Make sure that authentication is enforced. While `*` is listed, the **Access-Control-Allow-Credentials** switch is disabled.
+Adding `*` as an allowed origin shows the **Allowing all origins** alert, because `*` exposes the proxy to any website. Make sure that authentication is enforced. While `*` is listed, a save with **Access-Control-Allow-Credentials** on is refused.
 {% endhint %}
 
 ## Adjust the advanced settings
