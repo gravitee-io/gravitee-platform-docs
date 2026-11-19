@@ -36,6 +36,10 @@ To explore the API documentation, select any of the following endpoint categorie
     * `PUT /applications/{applicationId}/invitations/{invitationId}`. Update an invitation's role.
     * `DELETE /applications/{applicationId}/invitations/{invitationId}`. Delete an invitation.
     * `POST /applications/{applicationId}/invitations/{invitationId}/_resend`. Resend an invitation email.
+  * List alerts using the following endpoints. No endpoint returns a single alert by its ID. To read one alert, list the alerts of its environment, API, or application, and then select the alert by its `id`:
+    * `GET /platform/alerts`. List the alerts of the environment.
+    * `GET /apis/{apiId}/alerts`. List the alerts of an API.
+    * `GET /applications/{applicationId}/alerts`. List the alerts of an application.
 * [**/management/v2 subcomponent documentation**](https://apim-api-docs.gravitee.io/?v=4.14&api=mgmt-v2-apis)**:** provides the specification for `management/v2` endpoints. Use this component to complete the following actions:
   * Manage V4 and Federated APIs
   * Configure multi-tenant aspects of APIM such as licenses, plugins, and OEM customization
