@@ -84,6 +84,25 @@ gateway:
 
 For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../../configure-and-manage-the-platform/gravitee-gateway/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/README.md).
 
+## Trust a private certificate authority
+
+An endpoint of a v2 API or a v4 HTTP proxy API without its own trust store checks the backend's certificate against the Gateway's default Java trust store. This applies unless the endpoint trusts all certificates. To make these endpoints trust a private certificate authority, build a trust store that holds it and every other certificate authority your backends need. Then pass the trust store to Java in the `JAVA_OPTS` environment variable. The Gateway adds the value of `JAVA_OPTS` to the options it starts Java with. For the Java trust store options, see the [Java Secure Socket Extension (JSSE) Reference Guide](https://docs.oracle.com/en/java/javase/25/security/java-secure-socket-extension-jsse-reference-guide.html). If the Gateway runs a FIPS image, see [FIPS images](../docker/fips-images.md) first.
+
+The chart has no value for the Java trust store. Use the following values in the `gateway` section of your `values.yaml`:
+
+* `gateway.extraInitContainers`: init containers added to the Gateway pod, for example one that builds the trust store.
+* `gateway.extraVolumes` and `gateway.extraVolumeMounts`: the volumes that hold the trust store, and where the Gateway container mounts them.
+* `gateway.env`: the environment variables of the Gateway container, including `JAVA_OPTS`.
+
+The following example sets `JAVA_OPTS`. Replace the path with the location where you mount the trust store, and `<truststore-password>` with its password:
+
+```yaml
+gateway:
+  env:
+    - name: JAVA_OPTS
+      value: "-Djavax.net.ssl.trustStore=/opt/graviteeio-gateway/truststore/truststore.p12 -Djavax.net.ssl.trustStorePassword=<truststore-password>"
+```
+
 ## Ingress body size limit
 
 Kubernetes deployments that front APIM components with the NGINX Ingress Controller are subject to a request body size limit enforced by the ingress, not by Gravitee. When a client sends a request larger than this limit, the ingress rejects it with `413 Request Entity Too Large` before the request reaches any Gravitee component.
