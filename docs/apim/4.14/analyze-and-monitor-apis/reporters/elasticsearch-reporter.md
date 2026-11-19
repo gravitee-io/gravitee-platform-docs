@@ -68,7 +68,7 @@ The reporter writes each type of analytics to one data stream named `<index>-<ty
 This section describes a new installation. To move an installation that already writes dated or ILM-managed indices, see [Migrate the Elasticsearch Reporter to Data Streams](migrate-the-elasticsearch-reporter-to-data-streams.md).
 {% endhint %}
 
-### Set up a new installation
+### Configure a new installation
 
 1.  In the `gravitee.yml` file of every Gateway, set `reporters.elasticsearch.index_mode` to `data_stream`:
 
@@ -96,8 +96,8 @@ The reporter attaches no lifecycle to the data streams by default, so their docu
 
 For each key, set one of the following settings, but not both:
 
-* `reporters.elasticsearch.lifecycle.policies.<key>`: the name of an index lifecycle management (ILM) policy that you created in Elasticsearch. The reporter attaches it to the index templates of the data streams, through the index setting set in `reporters.elasticsearch.lifecycle.policy_property_name`.
-* `reporters.elasticsearch.lifecycle.retention.<key>`: the retention of the data stream lifecycle, as an Elasticsearch time value, for example `7d` or `12h`. The reporter writes it to the `data_retention` of the index templates. This setting requires Elasticsearch 8.14 or later.
+* `reporters.elasticsearch.lifecycle.policies.<key>`. This setting holds the name of an index lifecycle management (ILM) policy that you created in Elasticsearch. The reporter attaches it to the index templates of the data streams, through the index setting set in `reporters.elasticsearch.lifecycle.policy_property_name`.
+* `reporters.elasticsearch.lifecycle.retention.<key>`. This setting holds the retention of the data stream lifecycle, as an Elasticsearch time value, for example `7d` or `12h`. The reporter writes it to the `data_retention` of the index templates. It requires Elasticsearch 8.14 or later.
 
 None of these keys has a default value. The reporter reads the `lifecycle.retention` settings only with `index_mode: data_stream`. With `daily` or `ilm`, it ignores them without a warning.
 
@@ -118,20 +118,20 @@ reporters:
         decisions: 30d
 ```
 
-At startup, the reporter checks the lifecycle settings:
+At startup, the reporter applies the following checks to the lifecycle settings:
 
 * When a key has both a policy and a retention, the reporter stops at startup, on every Elasticsearch version. Keep either the policy or the retention.
 * On an Elasticsearch cluster earlier than 8.14, a `lifecycle.retention` setting stops the reporter. Use a lifecycle policy instead.
 * When a key has neither a policy nor a retention, the reporter logs a warning that names the data streams whose documents are never deleted.
 
-The reporter sets the lifecycle in the index templates only, so a change doesn't reach the existing data streams at once:
+The reporter sets the lifecycle in the index templates only, so a change doesn't reach the existing data streams at once. The following rules apply:
 
-* A new lifecycle policy applies to the backing indices created after the change, from the next rollover. A data stream without a lifecycle doesn't roll over by itself: roll it over with the `POST <name>/_rollover` API of Elasticsearch.
+* A new lifecycle policy applies to the backing indices created after the change, from the next rollover. A data stream without a lifecycle doesn't roll over by itself. Roll it over with the `POST <name>/_rollover` API of Elasticsearch.
 * A new retention applies to the data streams created after the change. To change the retention of an existing data stream, update its lifecycle with the `PUT _data_stream/<name>/_lifecycle` API of Elasticsearch.
 
 ### Data streams on OpenSearch
 
-On OpenSearch, Index State Management (ISM) doesn't apply a policy referenced in the index settings of a data stream, and OpenSearch has no data stream retention. With `index_mode: data_stream`, leave the `lifecycle.policies` and `lifecycle.retention` settings unset: the reporter stops at startup when one of them is set. At each startup, the reporter logs a warning that it attaches no lifecycle to the data streams.
+On OpenSearch, Index State Management (ISM) doesn't apply a policy referenced in the index settings of a data stream, and OpenSearch has no data stream retention. With `index_mode: data_stream`, leave the `lifecycle.policies` and `lifecycle.retention` settings unset. The reporter stops at startup when one of them is set. At each startup, the reporter logs a warning that it attaches no lifecycle to the data streams.
 
 To delete the documents, create the ISM policy with an `ism_template` whose `index_patterns` match the data streams, before the data streams are created. The following example deletes the request analytics after 30 days:
 
@@ -154,9 +154,9 @@ PUT _plugins/_ism/policies/hot_delete_request
 
 With the Helm chart, set the following values:
 
-* `es.index_mode`: `data_stream`. The chart renders this value for both the Gateway reporter and the Management API, unless `api.analytics.elasticsearch.index_mode` sets another mode for the Management API.
-* `es.lifecycle.enabled` and `es.lifecycle.policies.<key>`: the lifecycle policies, with the keys `monitor`, `request`, `health`, `log`, `eventMetrics`, and `decisions`. Don't set them on OpenSearch.
-* `es.lifecycle.retention.<key>`: the retention, with the same keys. The chart renders these keys whatever the value of `es.lifecycle.enabled`, only the keys that you set, and none is set by default. Don't set them on OpenSearch.
+* `es.index_mode`. Set this value to `data_stream`. The chart renders this value for both the Gateway reporter and the Management API, unless `api.analytics.elasticsearch.index_mode` sets another mode for the Management API.
+* `es.lifecycle.enabled` and `es.lifecycle.policies.<key>`. These values set the lifecycle policies, with the keys `monitor`, `request`, `health`, `log`, `eventMetrics`, and `decisions`. Leave them unset on OpenSearch.
+* `es.lifecycle.retention.<key>`. These values set the retention, with the same keys. The chart renders these keys whatever the value of `es.lifecycle.enabled`, only the keys that you set, and none is set by default. Leave them unset on OpenSearch.
 
 ```yaml
 es:

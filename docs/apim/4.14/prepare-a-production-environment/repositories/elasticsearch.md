@@ -68,9 +68,9 @@ reporters:
       - http://${ds.elastic.host}:${ds.elastic.port}
 #    index: gravitee
 #    index_mode: daily    # "daily" indexes, suffixed with date. Or "ilm" managed indexes, without date. Or "data_stream"
-                          # data streams named <index>-<type>, on Elasticsearch 7.9+ or OpenSearch
+                          # data streams named <index>-<type>, on Elasticsearch 7.9 or later, or OpenSearch
 #    lifecycle:
-#      retention:         # data_stream mode on Elasticsearch 8.14+: data stream lifecycle, for the types without a policy
+#      retention:         # data_stream mode on Elasticsearch 8.14 or later: data stream lifecycle, for the types without a policy
 #        monitor: 7d
 #        request: 30d
 #        health: 3d

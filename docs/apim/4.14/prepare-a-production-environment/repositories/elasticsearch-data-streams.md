@@ -25,7 +25,7 @@ On Elastic Cloud Serverless, the Elasticsearch reporter stays inactive whatever 
 
 ## Prerequisites
 
-The following prerequisites apply when another writer than the Gateway fills the data streams:
+The following prerequisites apply when a writer other than the Gateway fills the data streams:
 
 * An Elasticsearch cluster that supports data streams, or Elastic Cloud Serverless. For Elastic Cloud Serverless, you can authenticate with an API key. For more information, see [Authenticate with an API key](elasticsearch.md#authenticate-with-an-api-key).
 * A writer that sends the Gateway analytics to the data streams in the document format of the Elasticsearch reporter. For example, the `elasticsearch` output of the [TCP reporter](../../analyze-and-monitor-apis/reporters/tcp-reporter.md) uses the same field names, and Logstash can write its events to the data streams.
