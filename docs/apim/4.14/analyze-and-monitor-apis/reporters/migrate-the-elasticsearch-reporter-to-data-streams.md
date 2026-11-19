@@ -80,6 +80,45 @@ Alternatively, keep the aliases and write the data streams with another `index` 
 
 Follow the same steps. In the reporter configuration, leave the `lifecycle.policies` and `lifecycle.retention` settings unset. With `index_mode: data_stream` on OpenSearch, the reporter stops at startup when one of them is set. The `ism_template` of the ISM policies replaces them.
 
+## Verify the migration
+
+After the switch, send a few API calls through each Gateway, and then check the following points:
+
+1.  The reporter starts in the `data_stream` mode. At startup, the log of each Gateway contains the following lines:
+
+    ```
+    Elasticsearch reporter: flavor [classic] (detected), authentication [...], index mode [data_stream], disabled by the flavor [none]
+    Starting Elastic reporter engine... DONE
+    ```
+
+    No ERROR line contains `The Elasticsearch reporter is disabled`. Such a line names the setting or the alias that stops the reporter. A WARN line that lists data streams whose documents are never deleted means that their types have no lifecycle.
+2.  The data streams exist. Run the following request:
+
+    ```json
+    GET _data_stream/gravitee-*
+    ```
+
+    The response lists the data streams named `<index>-<type>`, for example `gravitee-request` and `gravitee-v4-metrics`. Each data stream is created with the first document of its type. A type without traffic, for example `gravitee-v4-message-metrics`, appears only after its first document.
+3.  The new documents go to the data streams. Run the following request:
+
+    ```json
+    GET gravitee-request/_search?size=1&sort=@timestamp:desc
+    ```
+
+    The `_index` of the hit starts with `.ds-gravitee-request-`. The following request lists no index created after the switch:
+
+    ```json
+    GET _cat/indices/gravitee-request-*?v&h=index,creation.date.string
+    ```
+4.  The lifecycle is attached. Run the following request:
+
+    ```json
+    GET _data_stream/gravitee-request
+    ```
+
+    With a lifecycle policy, the response shows `ilm_policy` with the name of the policy. With a retention, the response shows `lifecycle.data_retention` with its value. On OpenSearch, `GET _plugins/_ism/explain/gravitee-request` shows the `policy_id` of the ISM policy whose `ism_template` matches the data stream.
+5.  The Management Console shows the new analytics. Open the analytics and the logs of an API that received calls after the switch. These calls appear. The calls made before the switch don't appear, because the Management API reads only the data streams.
+
 ## Revert to dated or ILM-managed indices
 
 While the data streams exist, you can't revert to the `daily` or `ilm` mode with the same `index` prefix. Elasticsearch refuses the index templates of these modes, and an alias named like a data stream. To revert, use one of the following methods:
