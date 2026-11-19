@@ -280,6 +280,39 @@ You can customize email templates for an entire security domain or for an indivi
 Each email requires a minimum configuration. You can retrieve contextual documentation on the HTML needed for each type of page by clicking the ![am info icon](../../.gitbook/assets/am-info-icon.png) information icon.
 {% endhint %}
 
+### Translate an email template
+
+To send an email in the language of the user it's sent to, write each text of the template as a `msg` expression that names a translation key:
+
+```html
+<p>${msg('email.reset_password.header.description')}</p>
+```
+
+To insert values in the text, add them after the key. The values replace the numbered placeholders of the translation in order, starting with `{0}` for the first value. For example, the default **Reset password** email greets the user by first name. Its English translation is `Hi {0}, there was a request to reset your password.`, and the template passes the first name after the key:
+
+```html
+<h1>${msg('email.reset_password.header.title', user.firstName)}</h1>
+```
+
+The **Subject** and **From name** of an email template accept `msg` expressions too.
+
+To add your own keys, or to translate the emails into another language, add the translations to the domain. See [Customize translation](#customize-translation).
+
+AM picks the language of the email from the user's profile, in this order:
+
+1. The user's preferred language, `preferredLanguage`, for example set through SCIM or the Management API.
+2. The user's `locale` attribute, for example set through SCIM or added in the **Additional information** section of the user's profile in AM Console.
+3. English, when the profile has neither.
+
+A value such as `fr` or `fr-FR` works for both attributes.
+
+For each key, AM uses the first translation it finds:
+
+1. The domain's translation in the user's language.
+2. The translation that AM provides in that language. AM provides English and French, and uses English for any other language.
+
+When neither has the key, the email shows the key itself.
+
 ### Execution context
 
 Each email template has access to the `Execution Context`, this means you can render the template based on anything in the context including the request or context data.
