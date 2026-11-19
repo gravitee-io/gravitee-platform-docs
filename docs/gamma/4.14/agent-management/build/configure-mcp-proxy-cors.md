@@ -45,10 +45,10 @@ Header names are saved in lowercase, so `Content-Type` reads back as `content-ty
 
 The page checks an origin when you add it. A value that's neither `*`, `null`, an origin without a path such as `https://app.example.com`, nor a valid regular expression stays in the field, with **Enter an origin such as https://app.example.com, without a path, or a regular expression.** or **Not a valid regular expression.** underneath.
 
-When CORS is enabled, a save that changes the CORS settings needs at least one allowed origin and at least one allowed method. Each method is an HTTP method name in uppercase, such as `POST`, or `*`. Otherwise the save is refused, and the page shows the reason, such as **At least one allowed origin is required when CORS is enabled.**
+When CORS is enabled, a save that changes the CORS settings needs at least one allowed origin and at least one allowed method. Each method is `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `HEAD`, `OPTIONS`, `TRACE`, `CONNECT`, or `*`. Otherwise the save is refused, and the page shows the reason, such as **At least one allowed origin is required when CORS is enabled.**
 
 {% hint style="warning" %}
-Adding `*` as an allowed origin shows the **Allowing all origins** alert, because `*` exposes the proxy to any website. Make sure that authentication is enforced. While `*` is listed, a save with **Access-Control-Allow-Credentials** on is refused.
+Adding `*` as an allowed origin shows the **Allowing all origins** alert, because `*` exposes the proxy to any website. Make sure that authentication is enforced. While `*` is listed, a save that changes the CORS settings with **Access-Control-Allow-Credentials** on is refused.
 {% endhint %}
 
 ## Adjust the advanced settings
