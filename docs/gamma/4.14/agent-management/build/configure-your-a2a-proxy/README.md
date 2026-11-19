@@ -28,6 +28,7 @@ When you open an A2A Proxy from the list, the sidebar offers the following group
   * **Policy Studio**. Design your flows and apply policies to agent-to-agent communication. See [Add policies to your A2A Proxy](add-policies-to-a2a-proxy.md).
   * **Resources**. Manage the resources that the policies and the OAuth2 plans of the proxy reference by name. See [Configure resources for your proxies](../configure-resources-for-your-proxies.md).
   * **Properties**. Manage the key/value properties that policies read at runtime, import them in bulk, or sync them from an HTTP endpoint. See [Configure properties for your proxies](../configure-properties-for-your-proxies.md).
+  * **CORS**. Let web pages served from other origins call the agent directly from the browser. See [Configure A2A Proxy CORS](../configure-a2a-proxy-cors.md).
 * **Consumers**:
   * **Plans**. Create, edit, publish, deprecate, and close the plans that control how consumers authenticate. See [Manage A2A Proxy plans](manage-a2a-proxy-plans.md).
   * **Subscriptions**. Create, approve, reject, and close the subscriptions to the plans. See [Manage subscriptions](../../publish/manage-subscriptions.md).
