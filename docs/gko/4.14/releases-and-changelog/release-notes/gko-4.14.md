@@ -11,6 +11,12 @@ This page describes the new features introduced in GKO 4.14.
 
 * `AuthzPdp`, `AuthzSchema`, `AuthzEntity`, and `AuthzPolicy` resources manage the PDP gateways, schema documents, entities, and policies of Authorization Management from Kubernetes.
 
+## Upgrade notes
+
+### Plan order of `ApiV4Definition`
+
+GKO now sends an API's plans sorted by their `order`, so APIM keeps that order. Before, plans were sent sorted by key and `order` had no effect. With drift detection on and set to `deny`, an API whose plans all set `order`, in an order different from their keys, can have its first update after the upgrade refused on the plan order. To fix it, apply a spec change with the annotation `gravitee.io/drift-detection: "false"` set, then remove the annotation. An apply that only adds the annotation doesn't sync the API, so APIM keeps the old order.
+
 ## New features
 
 GKO adds resources for Authorization Management.
