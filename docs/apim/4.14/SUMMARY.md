@@ -436,6 +436,7 @@
   * [Audit Trail](analyze-and-monitor-apis/audit-trail.md)
   * [Reporters](analyze-and-monitor-apis/reporters/README.md)
     * [Elasticsearch Reporter](analyze-and-monitor-apis/reporters/elasticsearch-reporter.md)
+    * [Migrate the Elasticsearch Reporter to Data Streams](analyze-and-monitor-apis/reporters/migrate-the-elasticsearch-reporter-to-data-streams.md)
     * [File Reporter](analyze-and-monitor-apis/reporters/file-reporter.md)
     * [Managing API-Specific Redaction Rules in the Console](analyze-and-monitor-apis/reporters/managing-api-specific-redaction-rules-in-the-console.md)
     * [TCP Reporter](analyze-and-monitor-apis/reporters/tcp-reporter.md)

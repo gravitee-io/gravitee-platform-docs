@@ -14,6 +14,10 @@ Dictionary properties are based on key-value pairs. You can create two types of 
 You can encrypt the value of a dictionary property that holds a sensitive value. A dictionary can hold encrypted and unencrypted properties side by side. For more information, see [Encrypt dictionary properties](dictionaries.md#encrypt-dictionary-properties).
 {% endhint %}
 
+{% hint style="info" %}
+A dictionary property doesn't resolve secret references. When a property's value is `{#secrets.get(...)}`, reading the property returns that text, not the secret. To use a password stored in a secret manager such as AWS Secrets Manager, configure the secret manager for your APIs, and then reference the secret with `{#secrets.get(...)}` in your v4 API. For more information, see [Configure API-level secrets](../../prepare-a-production-environment/sensitive-data-management/api-secrets/configuration.md) and [Reference Secrets in APIs](../../prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis.md).
+{% endhint %}
+
 Dictionaries need to be deployed to the API Gateway before you can use them. You can see the date and time the dictionary was last deployed in the dictionary list:
 
 <figure><img src="../../.gitbook/assets/dictionaries-screenshot-1.png" alt="The Dictionaries page, listing a manual dictionary with one property and a stopped dynamic dictionary with none, each with their last updated and deployment times."><figcaption></figcaption></figure>
