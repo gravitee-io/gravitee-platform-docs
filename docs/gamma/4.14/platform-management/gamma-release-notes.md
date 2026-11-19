@@ -84,10 +84,10 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, ale
 
 #### CORS for A2A Proxies
 
-* A new **CORS** page in the **Design** group of an A2A Proxy lets web pages served from other origins call the agent directly from the browser. Agents and back-end services that call the proxy aren't affected.
-* The page sets the allowed origins, methods, and headers, the exposed headers, credentials, private network access, and the preflight cache duration, and whether policies run on preflight requests. CORS is off until you enable it.
-* The **Request validation** card of the page has a **Reject null byte** switch. It applies to every request to the proxy, whether or not CORS is enabled, and a new A2A Proxy starts with it on.
-* On the **CORS** pages of LLM Proxies, MCP Proxies, and A2A Proxies, the page now checks an origin when you add it. A save that changes the CORS settings while CORS is enabled is now refused when it has no allowed origin, no allowed method, a method that isn't an HTTP method name in uppercase or `*`, or **Access-Control-Allow-Credentials** on while `*` is an allowed origin.
+* A new **CORS** page in the **Design** group of an A2A Proxy lets web pages served from other origins call the agent directly from the browser.
+* The page sets the allowed origins, methods, and headers, the exposed headers, credentials, private network access, and the preflight cache duration, and whether policies run on preflight requests. On a new A2A Proxy, CORS is off until you enable it.
+* The **Request validation** card of the page has a **Reject null byte** switch. It applies to every request to the proxy, whether or not CORS is enabled, and an A2A Proxy that you create starts with it on.
+* On the **CORS** pages of LLM Proxies, MCP Proxies, and A2A Proxies, the page now checks an origin when you add it. A save that changes the CORS settings while CORS is enabled is now refused when it has no allowed origin, no allowed method, a method other than `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `HEAD`, `OPTIONS`, `TRACE`, `CONNECT`, or `*`, or **Access-Control-Allow-Credentials** on while `*` is an allowed origin.
 * See [Configure A2A Proxy CORS](../agent-management/build/configure-a2a-proxy-cors.md).
 
 ### API Management
