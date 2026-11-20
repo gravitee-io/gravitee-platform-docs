@@ -40,7 +40,7 @@ Elasticsearch reporter: flavor [classic] (detected), authentication [api_key], i
 
 On Elastic Cloud Serverless, the line ends with the retention of each lifecycle key:
 
-```
+```text
 Elasticsearch reporter: flavor [serverless] (detected), authentication [api_key], index mode [data_stream], disabled by the flavor [index settings (number_of_shards, number_of_replicas, refresh_interval), lifecycle policies], retention [request=45d, log=7d, monitor=45d, health=45d, event_metrics=45d, decisions=45d]
 ```
 
@@ -239,7 +239,7 @@ The `geoip` ingest processor is accepted on Elastic Cloud Serverless, but it has
 
 On Elastic Cloud Serverless, the reporter sets the retention of each data stream, with the lifecycle keys of [Set the lifecycle of the data streams](#set-the-lifecycle-of-the-data-streams). Set `reporters.elasticsearch.lifecycle.retention.<key>`, where `<key>` is `request`, `log`, `monitor`, `health`, `event_metrics`, or `decisions`. The default is `45d`. A v4 type follows the key of its v2 type, for example `gravitee-v4-log` follows `log`. The reporter writes the retention to the `template.lifecycle.data_retention` of the index template.
 
-Elasticsearch copies the retention of a template to a data stream only when it creates the data stream. At each startup, the reporter compares the retention of each existing data stream with its setting and updates it with the `PUT _data_stream/<name>/_lifecycle` API, as follows:
+Elasticsearch copies the retention of a template to a data stream only when it creates the data stream. At each startup, the reporter compares the retention of each existing data stream with its setting and updates it with the `PUT _data_stream/<name>/_lifecycle` API. The update depends on the following cases:
 
 * A longer retention is applied, and the reporter logs it in an `INFO` line.
 * A shorter retention deletes the documents older than the new retention, so the reporter applies it only when `reporters.elasticsearch.lifecycle.retention.allow_decrease` is `true`. The default is `false`. Otherwise, the data stream keeps its retention, and the reporter logs one `ERROR` line that names the data stream, both retentions, the retention setting, and `allow_decrease`. A data stream without a retention, whose documents are never deleted, counts as a decrease.
@@ -281,7 +281,7 @@ On Elastic Cloud Serverless, the reporter registers one index template per data 
 }
 ```
 
-At each startup, the reporter reads the existing template before it writes its own:
+At each startup, the reporter reads the existing template before it writes its own. The reporter then acts in the following cases:
 
 * When the template was written by the same or an earlier APIM version, the reporter replaces it.
 * When the template was written by a later APIM version, for example during a rolling upgrade, the reporter keeps it, along with the retention of its data stream. It logs this in an `INFO` line.
@@ -289,7 +289,7 @@ At each startup, the reporter reads the existing template before it writes its o
 
 ### Setup at startup
 
-On Elastic Cloud Serverless, the Gateway doesn't wait for the reporter to set up its index templates, pipeline, and retentions. When the setup fails, the reporter logs a `WARN` line with the cause and retries it after 1 second, then after a delay that doubles up to 60 seconds. When Elasticsearch answers `403`, the line names the missing privilege. When it answers `401`, the line states that Elasticsearch rejects the credentials.
+On Elastic Cloud Serverless, the Gateway doesn't wait for the reporter to configure its index templates, pipeline, and retentions. When the setup fails, the reporter logs a `WARN` line with the cause and retries it after 1 second, and then after a delay that doubles up to 60 seconds. When Elasticsearch answers `403`, the line names the missing privilege. When it answers `401`, the line states that Elasticsearch rejects the credentials.
 
 Until the setup succeeds, the reporter drops the analytics documents. Once per minute, it logs the number of documents dropped in a `WARN` line.
 
@@ -300,7 +300,7 @@ The reporter sends the documents to Elasticsearch in bulk requests. From APIM 4.
 | Setting | Default | Description |
 | ------- | ------- | ----------- |
 | `reporters.elasticsearch.bulk.max_concurrent_send` | `100` | The number of bulk requests sent and not yet answered. |
-| `reporters.elasticsearch.bulk.max_memory_size` | `26214400` (25 MB) | The memory, in bytes, of the bulk requests waiting to be sent. Beyond it, the reporter drops new bulk requests. |
+| `reporters.elasticsearch.bulk.max_memory_size` | `26214400`, or 25 MB | The memory, in bytes, of the bulk requests waiting to be sent. Beyond it, the reporter drops new bulk requests. |
 | `reporters.elasticsearch.bulk.retry.max_retries` | `6` | The number of retries of a bulk request before the reporter drops it. |
 | `reporters.elasticsearch.bulk.retry.initial_delay` | `3000` | The delay, in milliseconds, before the first retry. |
 | `reporters.elasticsearch.bulk.retry.max_delay` | `30000` | The maximum delay, in milliseconds, between two retries. |
@@ -317,7 +317,7 @@ reporters:
         max_delay: 30000
 ```
 
-With Helm, set the following values. The chart renders each value only when it's set, so the reporter keeps its defaults otherwise:
+With Helm, the chart renders each value only when it's set, so the reporter keeps its defaults otherwise. The following table maps each Helm value to its setting:
 
 | Helm value | Setting |
 | ---------- | ------- |
@@ -338,7 +338,7 @@ es:
       maxDelay: 30000
 ```
 
-The reporter stays inactive and logs an `ERROR` line that names the setting when `max_concurrent_send` or `max_memory_size` is below 1, when a `retry` setting is negative, or when `retry.max_delay` is below `retry.initial_delay`.
+The reporter stays inactive and logs an `ERROR` line that names the setting when `max_concurrent_send` or `max_memory_size` is below 1 or when a `retry` setting is negative. It does the same when `retry.max_delay` is below `retry.initial_delay`.
 
 When Elasticsearch answers a bulk request, or a document in it, with `429` or a `5xx` status, the reporter retries it with these settings. After the last retry, it drops the documents. Under load, Elastic Cloud Serverless tends to answer more slowly rather than with `429`: in load tests, the 99th percentile of the bulk response time reached about 9 seconds. The requests then stay in flight longer, so `max_concurrent_send` and `max_memory_size` are reached sooner.
 
