@@ -174,6 +174,36 @@ On a virtual-cluster topology the bootstrap connection is not counted: the Gatew
 The connection analytics documents have the same blind spot, so the two agree with each other — but neither reports the true total on those topologies.
 {% endhint %}
 
+## Elasticsearch reporter dropped documents
+
+From APIM 4.14, `reporter_elasticsearch_dropped_documents` counts the analytics documents that the [Elasticsearch reporter](../reporters/elasticsearch-reporter.md#documents-dropped-by-the-reporter) drops instead of writing them to Elasticsearch, on every cluster flavor and index mode. Prometheus exposes it as `reporter_elasticsearch_dropped_documents_total`.
+
+The metric requires the metrics service to be enabled. Each series appears with the first document dropped for its `reason` and `type`, so a Gateway that never dropped a document exposes no series. An absent series means that no document was dropped.
+
+The metric has the following labels:
+
+| Label | Values |
+| ----- | ------ |
+| `reason` | `setup`: the document was reported before the reporter setup succeeded, or after it failed.<br>`overflow`: the bulk requests waiting to be sent exceeded `reporters.elasticsearch.bulk.max_memory_size`.<br>`error`: the bulk request still failed after the last retry.<br>`rejected`: Elasticsearch rejected the document, for example because of a mapping error. |
+| `type` | The report type, for example `request`, `log`, `v4-metrics`, `v4-log`, `v4-message-metrics`, `v4-message-log`, or `topic-event-metrics`. |
+
+For example, when the reporter drops the documents reported before its setup succeeds, a scrape returns the following series:
+
+```text
+reporter_elasticsearch_dropped_documents_total{application="gio-apim-gateway",instance="dev",reason="setup",type="v4-log",} 21.0
+reporter_elasticsearch_dropped_documents_total{application="gio-apim-gateway",instance="dev",reason="setup",type="v4-metrics",} 21.0
+```
+
+In dashboards and alerts, add `or vector(0)` to the query, so that it returns `0` instead of no data while no document was dropped:
+
+```text
+sum(rate(reporter_elasticsearch_dropped_documents_total[5m])) or vector(0)
+```
+
+The metric is exposed on the `/_node/metrics/prometheus` endpoint of the internal API, port `18082` by default, which requires the credentials set in `services.core.http.authentication`. For more information, see [Gateway internal API](../../configure-and-manage-the-platform/gravitee-gateway/gateway-internal-api.md) and [Prometheus configuration](#prometheus-configuration).
+
+Documents lost when a Gateway stops abruptly aren't counted.
+
 ## Prometheus configuration
 
 The following example requests Prometheus to scrape the formatted metrics available in the Gateway internal API:
