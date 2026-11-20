@@ -1,5 +1,18 @@
 # APIM 4.10.x
  
+## Gravitee API Management 4.10.38 - November 20, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Archiving an application doesn’t release its API keys, so their values can never be reused [#12046](https://github.com/gravitee-io/issues/issues/12046)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.10.37 - November 19, 2026
 <details>
 
