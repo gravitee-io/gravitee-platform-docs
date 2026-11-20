@@ -20,6 +20,7 @@
 * [Configure a Custom Domain for a Gateway](guides/custom-domains.md)
 * [Configure a Custom Domain for the Developer Portal](guides/portal-custom-domains.md)
 * [Configure Single Sign On](guides/configure-sso.md)
+* [Manage account members in the Gamma console](guides/manage-account-members.md)
 * [Account Token](guides/account-token.md)
 * [Cloud Tokens](guides/cloud-tokens.md)
 * [Promote APIs](guides/promote-apis.md)
