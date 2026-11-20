@@ -6,6 +6,21 @@ description: The API Management 4.13 changelog lists the bug fixes in each patch
 
 # APIM 4.13.x
  
+## Gravitee API Management 4.13.6 - November 20, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Application group updates do not invalidate cached effective permissions [#11987](https://github.com/gravitee-io/issues/issues/11987)
+* Archiving an application doesn’t release its API keys, so their values can never be reused [#12046](https://github.com/gravitee-io/issues/issues/12046)
+* \[UI] Chart issue [#12071](https://github.com/gravitee-io/issues/issues/12071)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.13.5 - November 19, 2026
 <details>
 
