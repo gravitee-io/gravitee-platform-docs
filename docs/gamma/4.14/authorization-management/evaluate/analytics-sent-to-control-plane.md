@@ -34,6 +34,12 @@ Each record holds at least the following information:
 
 The Elasticsearch reporter of the gateway writes decision records to the `gravitee-decisions-*` data streams, and the pages read them from there. An installation that stores no analytics in Elasticsearch shows empty **Dashboards** and **Decisions** pages. Gateways record decisions by default. To apply an index lifecycle policy to the decision data streams, set its name under `reporters.elasticsearch.lifecycle.policies.decisions` in `gravitee.yml`. With the Helm chart, set `es.lifecycle.enabled` to `true` and `es.lifecycle.policies.decisions` to the name of the policy.
 
+On Elastic Cloud Serverless, the reporter writes the decision records to the `gravitee-decisions` data stream and refuses lifecycle policies. It deletes the records after 45 days by default. To change it, set `reporters.elasticsearch.lifecycle.retention.decisions`, for example to `90d`, or `es.lifecycle.retention.decisions` with the Helm chart. For more information, see [Write analytics to Elastic Cloud Serverless](https://documentation.gravitee.io/apim/4.14/analyze-and-monitor-apis/reporters/elasticsearch-reporter#write-analytics-to-elastic-cloud-serverless) in the APIM documentation.
+
+{% hint style="warning" %}
+The reporter writes decision records on a best-effort basis. When Elasticsearch can't keep up or rejects a record, the reporter drops it, and a gateway that stops abruptly loses the records it holds in memory. The **Dashboards** and **Decisions** pages then miss these decisions. If you need every decision, for example for an audit trail, use a durable pipeline instead. For example, use the TCP reporter with Logstash and a persistent queue, or Kafka. For more information, see [Documents dropped by the reporter](https://documentation.gravitee.io/apim/4.14/analyze-and-monitor-apis/reporters/elasticsearch-reporter#documents-dropped-by-the-reporter) in the APIM documentation.
+{% endhint %}
+
 The pages show the decisions requested on the APIs you can read. When you can't read any API, both pages are empty.
 
 ## Read the decisions
