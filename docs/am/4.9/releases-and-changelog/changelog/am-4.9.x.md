@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.38 - November 20, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Recovery Code factor's selection rule is never evaluated [#12063](https://github.com/gravitee-io/issues/issues/12063)
+
+</details>
+
+
 ## Gravitee Access Management 4.9.37 - November 16, 2026
 
 <details>
