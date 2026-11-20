@@ -6,6 +6,21 @@ description: New features in each Gravitee Cloud release, listed newest first by
 
 This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:
 
+## November 2026
+
+<!-- TODO: CJ-5121 held draft. Set the month heading and the date to the day Account Tokens in Account Management reaches Gravitee Cloud. -->
+<details>
+
+<summary>12th November</summary>
+
+**Account tokens in the Gamma console**
+
+**Account Management** in the Gamma console has a new **Account Tokens** page. List the account tokens of your Gravitee Cloud account there, generate one, or delete one. The page also shows when each token was last used.
+
+For more information, see [Account Token](../guides/account-token.md#manage-account-tokens-in-the-gamma-console).
+
+</details>
+
 ## October 2026
 
 <details>
