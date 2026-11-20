@@ -7,6 +7,9 @@ metaLinks:
 
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.41 - November 20, 2026
+
+ 
 ## Gravitee API Management 4.9.40 - November 20, 2026
 
  
