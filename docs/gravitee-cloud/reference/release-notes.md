@@ -6,6 +6,21 @@ description: New features in each Gravitee Cloud release, listed newest first by
 
 This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:
 
+## November 2026
+
+<!-- TODO: CJ-5111 held draft. Set the date Account Management reaches Gravitee Cloud. -->
+<details>
+
+<summary>3rd November</summary>
+
+**Account Management in the Gamma console**
+
+Open Account Management from the top of the Gamma console to see the environments and gateways of your account, and create an environment.
+
+For more information, see [Use Account Management](../getting-started/use-account-management.md).
+
+</details>
+
 ## October 2026
 
 <details>
