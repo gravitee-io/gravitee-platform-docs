@@ -39,11 +39,11 @@ See the [Usage](groovy.md#usage) section for object attributes and methods.
 | Variable           | Description                    |
 | ------------------ | ------------------------------ |
 | `request.content`  | When "Read content" is enabled |
-| `request.contentAsByteArray` | When "Read content" is enabled |
-| `request.contentAsBase64` | When "Read content" is enabled |
+| `request.contentAsByteArray` | In the request phase, when "Read content" is enabled |
+| `request.contentAsBase64` | In the request phase, when "Read content" is enabled |
 | `response.content` | When "Read content" is enabled |
-| `response.contentAsByteArray` | When "Read content" is enabled |
-| `response.contentAsBase64` | When "Read content" is enabled |
+| `response.contentAsByteArray` | In the response phase, when "Read content" is enabled |
+| `response.contentAsBase64` | In the response phase, when "Read content" is enabled |
 | `message.content`  | Always available               |
 
 ## Usage
@@ -118,15 +118,17 @@ return JsonOutput.toJson(content)
 
 ### Return binary content
 
-In a proxy API with **Override content** enabled, what replaces the content depends on the value that the script returns:
+In a v4 HTTP proxy API with **Read content** and **Override content** enabled, what replaces the content depends on the value that the script returns:
 
 * A `String` is written as text, as in the previous example.
-* A `byte[]` or a `Buffer` is written as those exact bytes, so an image or any other binary body arrives unchanged.
+* A `byte[]` or a `Buffer` is written as those exact bytes, so an image or any other binary body arrives unchanged. To build a `Buffer`, import `io.gravitee.gateway.api.buffer.Buffer`.
 * Any other value is written as its text form.
 
-In a message API, the returned value is written as its text form, so return a `String` there.
+The `Content-Type` header isn't changed, so set it in the script when the new body has another type, as the following example does.
 
-In a v2 API, the `contentAsByteArray` and `contentAsBase64` properties and a binary return work only when **Emulate v4 engine** is turned on in the API's [general settings](../../configure-v2-apis/general-settings.md). With it turned off, read `content` and return a `String`.
+In a v2 API, put the script in **On-request content script** or **On-response content script**. The `contentAsByteArray` and `contentAsBase64` properties and a binary return work there only when **Emulate v4 engine** is turned on in the API's [general settings](../../configure-v2-apis/general-settings.md). With it turned off, read `content` and return a `String`.
+
+In the Publish and Subscribe phases of a message API, the returned value is written as its text form, so return a `String` there.
 
 The following response script reads a JSON body whose `body` field holds a base64-encoded image. It sets the response status and the `Content-Type` header from that JSON, and returns the decoded bytes.
 
@@ -142,7 +144,7 @@ The following response script reads a JSON body whose `body` field holds a base6
 
 **Groovy script**
 
-_Enable **Read content** and **Override content** for this script._
+_Enable **Read content** and **Override content** for this script. In a v2 API, put it in **On-response content script**._
 
 ```groovy
 import groovy.json.JsonSlurper
@@ -370,7 +372,7 @@ Exercise care when using classes or methods. In some cases, giving access to all
 
 | <p>Name<br><code>json name</code></p>                   | <p>Type<br><code>constraint</code></p> | Mandatory | Default | Description                                                                                       |
 | ------------------------------------------------------- | -------------------------------------- | :-------: | ------- | ------------------------------------------------------------------------------------------------- |
-| <p>Override content<br><code>overrideContent</code></p> | boolean                                |           | `false` | Enable to override the content of the request or response with the value returned by your script. For HTTP proxy APIs, the script returns a `String`, a `byte[]`, or a `Buffer`. |
+| <p>Override content<br><code>overrideContent</code></p> | boolean                                |           | `false` | Enable to override the content of the request or response with the value returned by your script. For HTTP proxy APIs, a `byte[]` or a `Buffer` returned by the script is written as bytes. |
 | <p>Read content<br><code>readContent</code></p>         | boolean                                |           | `false` | Enable if your script needs to access the content of the HTTP request or response in your script. |
 | <p>Script<br><code>script</code></p>                    | string                                 |           |         | Groovy script to evaluate.                                                                        |
 
