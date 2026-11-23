@@ -102,8 +102,70 @@ Run the upgrade with your updated values file:
 helm upgrade <release-name> graviteeio/apim -f values.yaml
 ```
 
-Once the Ingress is live, use that host as the **Reactor URL** of the Edge Management configuration, so the daemons installed on your devices reach it.
+Once the Ingress is live, the guided setup of Edge Management proposes its address as the **Reactor URL**. See [Propose the Reactor URL to Edge Management](#propose-the-reactor-url-to-edge-management).
 
 {% hint style="warning" %}
-The **Reactor URL** is locked once the Edge Management configuration is created, and the daemons already installed hold it in their own configuration. Decide the host before you run the setup. See [Set up Edge Management](set-up-edge-management.md).
+Daemons keep the **Reactor URL** they were installed with. A **Reactor URL** changed after the setup only applies to the daemons installed after the change, so decide the host before you install the daemons. See [Change the gateway addresses](set-up-edge-management.md#change-the-gateway-addresses).
 {% endhint %}
+
+## Propose the Reactor URL to Edge Management
+
+Your installation proposes a **Reactor URL** to an environment of Edge Management when one of the following settings gives an address for it. The guided setup fills in an empty **Reactor URL** with it, and the **Gateway** page shows it under the field when it differs from the address in the field. A proposed address never replaces a saved one.
+
+### Propose the address of the Edge ingress
+
+When the chart creates the Edge ingress and the ingress has at least one host, the chart proposes the address of the ingress to every environment. It builds the address from `https://`, the first host of `hosts`, and `path` without its trailing slash, for example `https://apim-edge.example.com`. The chart proposes it only when the same release deploys the gateway and the Management API.
+
+To propose the address with another scheme, set `scheme` on the ingress:
+
+```yaml
+gateway:
+  services:
+    edge:
+      ingress:
+        scheme: http
+```
+
+### Propose an address per environment
+
+To propose a different address to each environment, list the environments under `installation.standalone.edge-reactor` in your `values.yaml`:
+
+```yaml
+installation:
+  standalone:
+    edge-reactor:
+      urls:
+        - envId: DEFAULT
+          url: https://edge.example.com
+        - envId: <environment ID>
+          url: https://edge-prod.example.com
+      url: https://edge.example.com
+```
+
+The following table describes each field:
+
+| Field  | Description                                                                                                         |
+| ------ | ------------------------------------------------------------------------------------------------------------------- |
+| `urls` | The environments, each with the address proposed to it: `envId` is the ID of the environment, and `url` the address. |
+| `url`  | The address proposed to the `DEFAULT` environment when `urls` doesn't list it.                                      |
+
+For each environment, the installation proposes the first address that applies:
+
+1. The `url` of the `urls` entry whose `envId` is the ID of the environment.
+2. `url`, for the `DEFAULT` environment only.
+3. The address of the Edge ingress.
+
+An entry of `urls` without `envId` ends the list, and the entries after it are ignored. The chart doesn't render `installation.standalone.edge-reactor` in a multi-tenant installation.
+
+Without the chart, set the same settings in the `gravitee.yml` of the Management API. There, `installation.edge.reactorUrl` takes the place of the address of the Edge ingress, and is proposed to every environment that `installation.standalone.edge-reactor` doesn't cover:
+
+```yaml
+installation:
+  edge:
+    reactorUrl: https://edge-reactor.example.com
+  standalone:
+    edge-reactor:
+      urls:
+        - envId: DEFAULT
+          url: https://edge-reactor.example.com
+```

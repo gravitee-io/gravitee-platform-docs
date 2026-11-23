@@ -32,7 +32,7 @@ The following table compares an API proxy with an API Product:
 | **Plan wizard steps**  | General, Security, Restrictions                    | General, Security                                                |
 | **Restrictions step**  | Available for rate limit, quota, and resource filtering | Not available                                               |
 | **Plan conditions**    | Page of general conditions and excluded groups     | Not available                                                    |
-| **Flows and policies** | Defined on the API in the Policy Studio            | Not available at product level; define them on the bundled APIs  |
+| **Flows and policies** | Defined on the API in the Policy Studio            | Defined on the product in its Policy Studio, and run on every bundled API before the API's own flows, for requests through the product's plans |
 | **Subscriptions**      | Consumers subscribe to the API directly            | Consumers subscribe to the product; access flows to bundled APIs |
 | **Licensing**          | Not gated by a license feature                     | Requires the `apim-api-products` license feature |
 

@@ -11,7 +11,7 @@ Event Stream Management configures Kafka Services, the native Kafka APIs of the 
 ## Plans and subscriptions
 
 * **One kind of security at a time.** Keyless, mTLS, and authentication plans (API key, JWT, and OAuth2) can't be live together, and a Kafka Service has at most one live Keyless plan. A deprecated plan counts as live. Publishing a plan of another kind closes the live plans that block it, together with their active subscriptions. See [Manage plans](manage-plans.md).
-* **Plan details beyond the plan form.** The plan form has no general conditions and no excluded groups.
+* **General conditions.** The plan form has no field for the general conditions of a plan.
 * **Custom API keys.** The **Custom API key (optional)** field shows for every API key plan, whatever the environment setting for custom API keys.
 * **Subscription metadata.** Values edited on the **Metadata** card of a subscription aren't validated against the subscription form, and the 25-entry limit of the portal form isn't enforced there. See [Manage subscriptions](manage-subscriptions.md).
 
