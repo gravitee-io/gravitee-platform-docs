@@ -41,10 +41,12 @@ The **Origins, methods and headers** card carries four list fields. Type a value
 
 Header names are saved in lowercase, so `Content-Type` reads back as `content-type` after you save. Enter methods in uppercase: the gateway compares the method of a preflight request with the saved values exactly.
 
-An origin is refused when you save if it's neither `*`, `null`, an origin of the form `scheme://host` with an optional port, nor a valid regular expression. The page then shows **`<value>` is not valid as an 'allow origin' value**.
+The page checks an origin when you add it. A value that's neither `*`, `null`, an origin without a path such as `https://app.example.com`, nor a valid regular expression stays in the field, with **Enter an origin such as https://app.example.com, without a path, or a regular expression.** or **Not a valid regular expression.** underneath.
+
+When CORS is enabled, a save that changes the CORS settings needs at least one allowed origin and at least one allowed method. Each method is `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `HEAD`, `OPTIONS`, `TRACE`, `CONNECT`, or `*`. Otherwise the save is refused, and the page shows the reason, such as **At least one allowed origin is required when CORS is enabled.**
 
 {% hint style="warning" %}
-Adding `*` as an allowed origin shows the **Allowing all origins** alert, because `*` exposes the proxy to any website. Make sure that authentication is enforced. While `*` is listed, the **Access-Control-Allow-Credentials** switch is disabled.
+Adding `*` as an allowed origin shows the **Allowing all origins** alert, because `*` exposes the proxy to any website. Make sure that authentication is enforced. While `*` is listed, a save that changes the CORS settings with **Access-Control-Allow-Credentials** on is refused.
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/gamma-aim-llm-proxy-cors-origins.png" alt="The Origins, methods and headers card with one allowed origin, three allowed methods, two allowed request headers, and two exposed response headers"><figcaption><p>The Origins, methods and headers card</p></figcaption></figure>
