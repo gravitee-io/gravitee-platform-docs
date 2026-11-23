@@ -1,5 +1,5 @@
 ---
-description: Run a Groovy script at any stage of request processing through the API Management 4.13 Gateway. Learn how to configure the policy.
+description: Run a Groovy script at any stage of request processing through the API Management 4.14 Gateway. Learn how to configure the policy.
 metaLinks:
   alternates:
     - groovy.md
@@ -197,7 +197,7 @@ The API consumer receives the decoded PNG image, with the status `201` and the `
 | `content` | `String`              |         | Body of the response.                                                                                              |
 | `contentAsByteArray` | `byte[]` |  | Response body bytes. |
 | `contentAsBase64` | `String` |  | Response body bytes as a basic base64 string. |
-| `status`  | `int`                 |         | Response status code.                                                                                              |
+| `status`  | `int`                 |         | Response status code. Set it with `response.status(int)`.                                                          |
 | `reason`  | `String`              |         | Reason for the status.                                                                                             |
 | `headers` | `Map<String, String>` | ✅       | HTTP headers wrapped in a bindable object. For methods, refer to [Headers methods](groovy.md#headers-methods). |
 
