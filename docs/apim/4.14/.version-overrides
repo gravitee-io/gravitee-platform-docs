@@ -86,3 +86,6 @@ create-and-configure-apis/apply-policies/policy-reference/groovy.md
 
 # Default portal replaced by the first Automation API portal (PORTAL-343)
 developer-portal/new-developer-portal/customize-the-navigation/portal-automation/README.md
+
+# API Product flows designed in the Gamma console (APIM-14267)
+secure-and-expose-apis/api-products/restrictions-and-licensing.md
