@@ -39,7 +39,11 @@ See the [Usage](groovy.md#usage) section for object attributes and methods.
 | Variable           | Description                    |
 | ------------------ | ------------------------------ |
 | `request.content`  | When "Read content" is enabled |
+| `request.contentAsByteArray` | When "Read content" is enabled |
+| `request.contentAsBase64` | When "Read content" is enabled |
 | `response.content` | When "Read content" is enabled |
+| `response.contentAsByteArray` | When "Read content" is enabled |
+| `response.contentAsBase64` | When "Read content" is enabled |
 | `message.content`  | Always available               |
 
 ## Usage
@@ -112,6 +116,47 @@ return JsonOutput.toJson(content)
 }
 ```
 
+### Return binary content
+
+In a proxy API with **Override content** enabled, what replaces the content depends on the value that the script returns:
+
+* A `String` is written as text, as in the previous example.
+* A `byte[]` or a `Buffer` is written as those exact bytes, so an image or any other binary body arrives unchanged.
+* Any other value is written as its text form.
+
+In a message API, the returned value is written as its text form, so return a `String` there.
+
+In a v2 API, the `contentAsByteArray` and `contentAsBase64` properties and a binary return work only when **Emulate v4 engine** is turned on in the API's [general settings](../../configure-v2-apis/general-settings.md). With it turned off, read `content` and return a `String`.
+
+The following response script reads a JSON body whose `body` field holds a base64-encoded image. It sets the response status and the `Content-Type` header from that JSON, and returns the decoded bytes.
+
+**Input body content**
+
+```json
+{
+  "statusCode": 201,
+  "headers": { "Content-Type": "image/png" },
+  "body": "<base64-encoded PNG image>"
+}
+```
+
+**Groovy script**
+
+_Enable **Read content** and **Override content** for this script._
+
+```groovy
+import groovy.json.JsonSlurper
+
+def envelope = new JsonSlurper().parseText(response.content)
+response.status(envelope.statusCode)
+response.headers.'Content-Type' = envelope.headers.'Content-Type'
+return envelope.body.decodeBase64()
+```
+
+**Output**
+
+The API consumer receives the decoded PNG image, with the status `201` and the `Content-Type` header `image/png`.
+
 ## Bound objects properties and methods
 
 ### Request
@@ -121,6 +166,8 @@ return JsonOutput.toJson(content)
 | Property           | Type                         | Mutable | Description                                                                                                                                                                |
 | ------------------ | ---------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `content`          | `String`                     |         | Body of the request.                                                                                                                                                       |
+| `contentAsByteArray` | `byte[]` |  | Request body bytes. |
+| `contentAsBase64` | `String` |  | Request body bytes as a basic base64 string. |
 | `transactionId`    | `String`                     |         | Unique identifier for the transaction.                                                                                                                                     |
 | `clientIdentifier` | `String`                     |         | Identifies the client that made the request.                                                                                                                               |
 | `uri`              | `String`                     |         | The complete request URI.                                                                                                                                                  |
@@ -146,6 +193,8 @@ return JsonOutput.toJson(content)
 | Property  | Type                  | Mutable | Description                                                                                                        |
 | --------- | --------------------- | ------- | ------------------------------------------------------------------------------------------------------------------ |
 | `content` | `String`              |         | Body of the response.                                                                                              |
+| `contentAsByteArray` | `byte[]` |  | Response body bytes. |
+| `contentAsBase64` | `String` |  | Response body bytes as a basic base64 string. |
 | `status`  | `int`                 |         | Response status code.                                                                                              |
 | `reason`  | `String`              |         | Reason for the status.                                                                                             |
 | `headers` | `Map<String, String>` | ✅       | HTTP headers wrapped in a bindable object. For methods, refer to [Headers methods](groovy.md#headers-methods). |
@@ -321,7 +370,7 @@ Exercise care when using classes or methods. In some cases, giving access to all
 
 | <p>Name<br><code>json name</code></p>                   | <p>Type<br><code>constraint</code></p> | Mandatory | Default | Description                                                                                       |
 | ------------------------------------------------------- | -------------------------------------- | :-------: | ------- | ------------------------------------------------------------------------------------------------- |
-| <p>Override content<br><code>overrideContent</code></p> | boolean                                |           | `false` | Enable to override the content of the request or response with the value returned by your script. |
+| <p>Override content<br><code>overrideContent</code></p> | boolean                                |           | `false` | Enable to override the content of the request or response with the value returned by your script. For HTTP proxy APIs, the script returns a `String`, a `byte[]`, or a `Buffer`. |
 | <p>Read content<br><code>readContent</code></p>         | boolean                                |           | `false` | Enable if your script needs to access the content of the HTTP request or response in your script. |
 | <p>Script<br><code>script</code></p>                    | string                                 |           |         | Groovy script to evaluate.                                                                        |
 
