@@ -92,7 +92,18 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, ale
 
 ### API Management
 
-API Management encrypts the dynamic properties of API proxies.
+API Management encrypts the dynamic properties of API proxies. API Products gain their own flows, designed in a Policy Studio, and a banner that deploys them.
+
+#### Flows on API Products
+
+* The sidebar of an API Product has a **Policy Studio** item in its **Consumers** group. Its **Plan Flows** apply to the requests of one of the product's plans, and its **Common Flows** to the requests of any of them, in the **Request Phase** and the **Response Phase**.
+* The flows of an API Product run on every API of the product, only for the requests that come through one of its plans. The flows of the product's plan run first, then the product's common flows, then the API's common flows.
+* A rate limit or quota in a flow of an API Product counts the requests of a subscription to every API of the product together.
+* An API Product has its own **Mode** and **Match required** settings for its flows. With **Match required** on, a request that comes through one of its plans and matches none of its flows gets a `404` response.
+* Saving the flows doesn't deploy them. When an API Product is **Out of sync**, its pages show a banner with a **Deploy API Product** button.
+* On every deployment of an API Product, the Gateway also checks the license of the policies in its flows. A Gateway that refuses a version keeps serving the version it already had, while the API Product shows **Synced**.
+* A Gateway earlier than 4.14 runs the plan flows of an API Product but not its common flows, and ignores its **Mode** and **Match required** settings.
+* See [Design API Product flows](../api-management/build/configure-your-api-product/design-api-product-flows.md).
 
 #### Encryption of dynamic API properties
 
