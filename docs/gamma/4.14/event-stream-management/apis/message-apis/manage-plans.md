@@ -110,6 +110,10 @@ The security type of a plan is set when you create it, and it can't change later
             <td><strong>Sharding tags</strong></td>
             <td>Optional. Deploys the plan only on the gateways that carry the selected tags. Only the tags that the Message API carries and that you're allowed to use can be selected. When the organization has no sharding tag, the field says <strong>No sharding tags are configured for this organization.</strong> See <a href="start-stop-and-deploy-a-message-api.md#choose-the-gateways-that-load-the-message-api">Choose the gateways that load the Message API</a>.</td>
         </tr>
+        <tr>
+            <td><strong>Groups excluded</strong></td>
+            <td>Optional. Select the groups whose members don't see the plan in the Developer Portal. When the environment has no group, the form says <strong>No groups are configured for this environment.</strong></td>
+        </tr>
     </tbody>
 </table>
 
@@ -156,7 +160,7 @@ The **Plans** page has no delete action. To retire a plan, deprecate it so that 
 
 ## Edit or reorder plans
 
-* To edit a plan, click its name, or select **Edit** in its actions menu. The name, the security configuration, the subscription validation, the description, the characteristics, the comment settings, and the sharding tags can change. The console confirms with **Plan updated**.
+* To edit a plan, click its name, or select **Edit** in its actions menu. The name, the security configuration, the subscription validation, the description, the characteristics, the comment settings, the sharding tags, and the excluded groups can change. The console confirms with **Plan updated**.
 * To reorder the plans, click the up or down arrow of a row. The arrows are available on every status card and move the plan within the plans of that status.
 
 ## Verification

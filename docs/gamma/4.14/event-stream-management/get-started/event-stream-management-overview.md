@@ -27,7 +27,7 @@ The Event Stream Management sidebar groups these capabilities by object:
 
 ## How Event Stream Management fits into Gamma
 
-Gamma unifies four product lines, API Management, Event Stream Management, Agent Management, and Authorization Management, under a shared platform. All four share the following:
+Gamma unifies its product lines under a shared platform. API Management, Event Stream Management, Agent Management, and Authorization Management share the following:
 
 * **A common Catalog**. This catalog holds APIs, events, tools, agents, MCP servers, and models.
 * **A common authorization engine**. This engine defines fine-grained policies against those cataloged assets.

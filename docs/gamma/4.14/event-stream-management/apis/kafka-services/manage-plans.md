@@ -120,6 +120,10 @@ A deprecated plan still counts as live. These rules apply when you publish a pla
             <td><strong>Sharding tags</strong></td>
             <td>Optional. Deploys the plan only on the gateways that carry the selected tags. You can select only a tag that the Kafka Service carries on its <strong>Sharding Tags</strong> page and that your user may use. When the organization has no tag, the form shows <strong>No sharding tags are configured for this organization.</strong> See <a href="manage-deployments.md#choose-the-gateways-that-load-the-kafka-service">Choose the gateways that load the Kafka Service</a>.</td>
         </tr>
+        <tr>
+            <td><strong>Groups excluded</strong></td>
+            <td>Optional. Select the groups whose members don't see the plan in the Developer Portal. When the environment has no group, the form says <strong>No groups are configured for this environment.</strong></td>
+        </tr>
     </tbody>
 </table>
 
