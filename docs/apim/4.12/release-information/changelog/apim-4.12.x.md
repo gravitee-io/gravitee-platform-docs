@@ -5,6 +5,20 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.29 - November 20, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Application group updates do not invalidate cached effective permissions [#11987](https://github.com/gravitee-io/issues/issues/11987)
+* Archiving an application doesn’t release its API keys, so their values can never be reused [#12046](https://github.com/gravitee-io/issues/issues/12046)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.28 - November 19, 2026
 <details>
 
