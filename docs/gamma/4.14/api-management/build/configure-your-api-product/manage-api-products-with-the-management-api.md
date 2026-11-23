@@ -155,6 +155,8 @@ The call returns `200 OK` with the updated product, including the new `apiIds`. 
 
 The update is partial rather than a wholesale replacement—a field you omit keeps its current value. If you omit `apiIds`, the bundle stays untouched, and if you omit `description`, the existing description stays in place. To detach every API from the product, send `"apiIds": []` explicitly.
 
+A change to `apiIds` sends the new API list to the Gateway without a call to `/deployments`. The other changes saved since the product's last deployment, such as a new plan or new flows, reach the Gateway only at the next deployment.
+
 To read back what is currently bundled, use the product's APIs collection:
 
 ```bash
@@ -301,6 +303,72 @@ curl -s -u "$AUTH" \
 | Update | `PUT .../plans/{planId}` with the full plan definition | `200 OK` with the updated plan. |
 | Delete | `DELETE .../plans/{planId}` | `204 No Content`, in any status. |
 
+## Add flows to the product
+
+An API Product's flows run on every API of the product, for the requests that come through one of its plans. The product's own flows and its flow execution settings are read and replaced together. The flows of each plan are replaced in a separate call. For how the flows run, see [Design API Product flows](design-api-product-flows.md).
+
+Read the product's flows:
+
+```bash
+curl -s -u "$AUTH" "$MGMT/api-products/00000000-0000-0000-0000-000000000000/flows"
+```
+
+The call returns `200 OK` with two fields, `flowExecution` and `flows`. A product that never saved flows returns `DEFAULT` as the `mode` of `flowExecution`, `false` as its `matchRequired`, and an empty `flows` list.
+
+Replace the product's flows and its flow execution settings:
+
+```bash
+curl -s -u "$AUTH" -X PUT "$MGMT/api-products/00000000-0000-0000-0000-000000000000/flows" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "flowExecution": { "mode": "DEFAULT", "matchRequired": false },
+    "flows": [
+      {
+        "name": "Add product header",
+        "enabled": true,
+        "selectors": [{ "type": "HTTP", "path": "/orders", "pathOperator": "STARTS_WITH" }],
+        "request": [
+          {
+            "name": "Transform Headers",
+            "enabled": true,
+            "policy": "transform-headers",
+            "configuration": { "addHeaders": [{ "name": "X-Product", "value": "gold" }] }
+          }
+        ]
+      }
+    ]
+  }'
+```
+
+The call returns `200 OK` with the saved `flowExecution` and `flows`, and gives each new flow an `id`. Note the following details:
+
+* `flows` is required, and `"flows": []` removes every flow of the product.
+* Without `flowExecution`, the product goes back to `DEFAULT` with `matchRequired` set to `false`.
+* Send each existing flow back with the `id` that the read returns. A flow sent without its `id` is saved as a new flow.
+* Steps go in `request` and `response` only. A flow with steps in another phase is rejected with `400 Bad Request`, for example `Flow 'Add product header' has publish or subscribe steps; API Product flows only run in the request and response phases`.
+
+Replace the flows of one or more of the product's plans:
+
+```bash
+curl -s -u "$AUTH" -X PUT "$MGMT/api-products/00000000-0000-0000-0000-000000000000/plans/_flows" \
+  -H 'Content-Type: application/json' \
+  -d '[
+    { "planId": "22222222-2222-2222-2222-222222222222", "flows": [] }
+  ]'
+```
+
+The call returns `204 No Content` and replaces the flows of each plan in the list. Every plan is checked before anything is saved, and nothing is saved when one of them fails:
+
+| Condition | Response |
+| --------- | -------- |
+| A plan is closed | `400 Bad Request`, `Plan '<planId>' is closed; the flows of a closed plan cannot change` |
+| A plan doesn't belong to the product | `404 Not Found`, `Plan [<planId>] cannot be found.` |
+| A plan is listed twice | `400 Bad Request`, `Plan '<planId>' is listed more than once` |
+
+The plan list and the plan `GET` return each plan's `flows`.
+
+Saving flows doesn't deploy them: `deploymentState` moves to `NEED_REDEPLOY` until the next deployment.
+
 ## Deploy the product
 
 Deployment pushes the product and its published plans to the Gateway. Check first that the installation is allowed to deploy products:
@@ -318,6 +386,8 @@ The check returns `200 OK` with an `ok` flag:
 ```
 
 The check is a license check only—it does not inspect the product's APIs or plans, so a product with no APIs attached still verifies as deployable. When the organization's license lacks the `apim-api-products` feature, `ok` is `false` and `reason` reads `API Product deployment requires the apim-api-products feature (Galaxy tier or above).`
+
+Each Gateway also checks the license of the plugins that the product runs, in its plans, its flows, and its resources, when it receives a deployment. A Gateway that refuses a version doesn't serve it, and keeps serving the version it already had.
 
 Trigger the deployment:
 
