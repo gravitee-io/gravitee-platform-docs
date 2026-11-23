@@ -83,3 +83,6 @@ analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md
 
 # Groovy policy: binary request and response bodies (APIM-15701)
 create-and-configure-apis/apply-policies/policy-reference/groovy.md
+
+# Default portal replaced by the first Automation API portal (PORTAL-343)
+developer-portal/new-developer-portal/customize-the-navigation/portal-automation/README.md
