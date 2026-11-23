@@ -6,10 +6,11 @@ description: Create an API Product, then configure it from the groups of its own
 
 # API Products
 
-An API Product has its own sidebar. Its groups are **General**, **Consumers**, and **Operations**.
+An API Product has its own sidebar. Its groups are **General**, **Design**, **Consumers**, and **Operations**. **Design** shows when you can view the product's definition.
 
 * [**Create an API Product**](../../build/api-products.md). API Products bundle multiple API proxies into one consumer-facing product with shared plans.
 * [**General**](general/README.md). Holds the **Overview**, **Settings**, **User Permissions**, and **APIs** pages.
+* [**Design**](design/README.md). Holds the **Resources** page.
 * [**Consumers**](consumers/README.md). Holds the **Plans**, **Policy Studio**, and **Subscriptions** pages.
 * [**Operate**](operations/README.md). Holds the Operate pages.
 * [**Manage API Products with the Management API**](../../build/configure-your-api-product/manage-api-products-with-the-management-api.md). Create an API product, attach APIs, add and publish plans, and deploy it over the v2 Management API.
