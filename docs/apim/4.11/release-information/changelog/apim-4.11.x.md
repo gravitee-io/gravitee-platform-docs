@@ -1,5 +1,37 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.35 - November 20, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Archiving an application doesn’t release its API keys, so their values can never be reused [#12046](https://github.com/gravitee-io/issues/issues/12046)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.11.34 - November 19, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Portal**
+
+* Classic Portal hides the client registration provider's error when it refuses an application's registration [#12072](https://github.com/gravitee-io/issues/issues/12072)
+
+**Other**
+
+* Elasticsearch reporter silently loses documents that Elasticsearch rejects or cannot receive: no retry, no log, no dropped count [#12078](https://github.com/gravitee-io/issues/issues/12078)
+* GitHub fetcher imports files larger than 1 MB as empty content [#12083](https://github.com/gravitee-io/issues/issues/12083)
+* API “Sharding tags” page lists tags the user is not allowed to use (Classic console and Gamma) [#12085](https://github.com/gravitee-io/issues/issues/12085)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.33 - November 13, 2026
 <details>
 
