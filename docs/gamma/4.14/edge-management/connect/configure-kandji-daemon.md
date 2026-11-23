@@ -36,8 +36,7 @@ To deploy the Edge Daemon with Kandji, complete the following steps:
 1. In the Gamma console, open **Edge Management**.
 2. Click **Daemon deployment**.
 
-<!-- TODO: Screenshot of The Daemon deployment page generates the download URL and the Kandji post-install script -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-edge-deploy-kandji.png" alt="The Daemon deployment page with the architecture selector, the download URL, the Kandji Custom App postinstall script, and the Diagnostic commands section"><figcaption><p>The Daemon deployment page generates the download URL and the Kandji post-install script.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-deploy-kandji.png" alt="The Daemon deployment page with the architecture selector, the download URL, the Kandji Custom App postinstall script with the gateway addresses and the environment ID, and the Diagnostic commands section"><figcaption><p>The Daemon deployment page generates the download URL and the Kandji post-install script.</p></figcaption></figure>
 
 ## Select the architecture
 
@@ -51,7 +50,7 @@ https://download.gravitee.io/graviteeio-ai/gravitee-gamma-edge-daemon/gravitee-g
 
 ## Create the Kandji Custom App
 
-Under **Kandji Custom App**, the page generates a post-install script with the Gateway URL and the Reactor URL of the environment filled in. Once mTLS is on, on the **Daemon authentication** page, the script also passes the certificate of your fleet and its private key. It looks like the following example:
+Under **Kandji Custom App**, the page generates a post-install script with the Gateway URL, the Reactor URL, and the ID of the environment filled in. With the ID, each daemon gets the configuration of this environment, even from a gateway that serves several environments. Once mTLS is on, on the **Daemon authentication** page, the script also passes the certificate of your fleet and its private key. It looks like the following example:
 
 ```bash
 #!/bin/bash
@@ -60,10 +59,13 @@ set -euo pipefail
 "/tmp/install.sh" \
   --gateway-url 'https://gateway.example.com' \
   --reactor-url 'https://edge-reactor.example.com:18093' \
+  --environment-id 'DEFAULT' \
   --client-cert '/tmp/client.crt' \
   --client-key '/tmp/client.key' \
   # --reactor-ca '/tmp/reactor-ca.crt'   # only if the reactor certificate is signed by a private CA
 ```
+
+For an environment whose ID holds a character other than letters, digits, hyphens, and underscores, the page shows **This environment cannot be installed from a script** instead of the script. It says that the installer accepts only those characters.
 
 To deploy the script, complete the following steps:
 

@@ -22,7 +22,7 @@ The 4.14 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, alerts to MCP Proxies, and HTTP/2 fields to MCP Proxies and Catalog MCP servers. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply. JWT plans of MCP Proxies and MCP Studios gain two settings, for the claims of the token and for the `Authorization` header. OAuth2 plans of MCP Proxies and MCP Studios can require a subscription. The **Properties** page of LLM Proxies, MCP Proxies, and A2A Proxies encrypts dynamic properties.
+Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, alerts to MCP Proxies, and HTTP/2 fields to MCP Proxies and Catalog MCP servers. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply. JWT plans of MCP Proxies and MCP Studios gain two settings, for the claims of the token and for the `Authorization` header. OAuth2 plans of MCP Proxies and MCP Studios can require a subscription. The **Properties** page of LLM Proxies, MCP Proxies, and A2A Proxies encrypts dynamic properties. A2A Proxies gain a **CORS** page for calls from web pages on other origins.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
@@ -82,6 +82,14 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, ale
 * When the proxy is managed by the Kubernetes operator, the **Properties** page is now read-only.
 * See [Encrypt or remove a dynamic property](../agent-management/build/configure-properties-for-your-proxies.md#encrypt-or-remove-a-dynamic-property).
 
+#### CORS for A2A Proxies
+
+* A new **CORS** page in the **Design** group of an A2A Proxy lets web pages served from other origins call the agent directly from the browser.
+* The page sets the allowed origins, methods, and headers, the exposed headers, credentials, private network access, and the preflight cache duration, and whether policies run on preflight requests. On a new A2A Proxy, CORS is off until you enable it.
+* The **Request validation** card of the page has a **Reject null byte** switch. It applies to every request to the proxy, whether or not CORS is enabled, and an A2A Proxy that you create starts with it on.
+* On the **CORS** pages of LLM Proxies, MCP Proxies, and A2A Proxies, the page now checks an origin when you add it. A save that changes the CORS settings while CORS is enabled is now refused when it has no allowed origin, no allowed method, a method other than `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `HEAD`, `OPTIONS`, `TRACE`, `CONNECT`, or `*`, or **Access-Control-Allow-Credentials** on while `*` is an allowed origin.
+* See [Configure A2A Proxy CORS](../agent-management/build/configure-a2a-proxy-cors.md).
+
 ### API Management
 
 API Management encrypts the dynamic properties of API proxies.
@@ -108,7 +116,7 @@ Authorization Management manages its PDP gateways, schema documents, entities, a
 
 ### Edge Management
 
-Edge Management decides how the Edge Daemons identify themselves to the Edge Reactor: keyless, mTLS with the certificates of your fleet, or both. The routes of an intercepted agent take an OAuth2 plan of their target API, so that each developer signs in with your identity provider.
+Edge Management decides how the Edge Daemons identify themselves to the Edge Reactor: keyless, mTLS with the certificates of your fleet, or both. The routes of an intercepted agent take an OAuth2 plan of their target API, so that each developer signs in with your identity provider. The guided setup fills in the gateway addresses that your installation proposes, the addresses stay editable after the setup, and one gateway serves the Edge Management configuration of several environments.
 
 #### Daemon authentication
 
@@ -127,10 +135,21 @@ Edge Management decides how the Edge Daemons identify themselves to the Edge Rea
 * A target API created from the picker sends the agent's own key to the AI provider through the API key authentication of its endpoint.
 * See [Secure a route with an OAuth2 plan](../edge-management/connect/configure-edge-management.md#secure-a-route-with-an-oauth2-plan).
 
+#### Gateway addresses
+
+* The guided setup fills in the **Gateway URL** and the **Reactor URL** with the addresses that your installation proposes, when it proposes them.
+* The **Gateway** page now saves a change to either address with **Save & Deploy**. A change only applies to the daemons installed after it, and a warning under the changed field says so. Daemons already installed keep the addresses they were installed with.
+* When the installation proposes an address other than the one in the field, the **Gateway** page shows it under the field, with where it comes from.
+* The **Reactor URL** that the installation proposes is the address that you set for the environment, or else the address that you set for every environment, which the Helm chart takes from its Edge ingress. See [Propose the Reactor URL to Edge Management](../edge-management/connect/configure-edge-ingress.md#propose-the-reactor-url-to-edge-management).
+* The Kandji script of the **Daemon deployment** page passes the ID of the environment, so that each daemon gets the configuration of its own environment.
+* See [Change the gateway addresses](../edge-management/connect/set-up-edge-management.md#change-the-gateway-addresses).
+
 #### Changes to the Edge Reactor
 
 * If the Edge Reactor listener can't start, the gateway doesn't start either, for example when the port of the listener is already in use, or when its keystore or truststore can't be read. Before 4.14, the gateway started without the listener.
 * The setting for the port of the Edge Reactor listener has a new name. The previous name still works, and the gateway logs a warning at startup. See [Rename the port setting](../edge-management/connect/secure-the-edge-reactor-listener.md#rename-the-port-setting).
+* One gateway serves the Edge API of every environment that it deploys, and keeps the configuration of each environment apart. A new gateway setting decides which environment serves the daemons installed without an environment ID. See [Serve several environments from one gateway](../edge-management/connect/secure-the-edge-reactor-listener.md#serve-several-environments-from-one-gateway).
+* The Edge API of each environment carries the `gravitee-edge-configuration` sharding tag. An Edge API deployed before the upgrade to 4.14 carries it only once the Edge configuration of its environment is deployed again, for example when you save a change with **Save & Deploy**. A gateway that deploys only the APIs of some sharding tags deploys the Edge API when `gravitee-edge-configuration` is one of them. See [Deploy the Edge API on gateways with sharding tags](../edge-management/connect/secure-the-edge-reactor-listener.md#deploy-the-edge-api-on-gateways-with-sharding-tags).
 
 ### Event Stream Management
 
