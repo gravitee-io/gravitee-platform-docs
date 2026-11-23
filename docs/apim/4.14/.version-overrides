@@ -77,3 +77,6 @@ analyze-and-monitor-apis/reporters/migrate-the-elasticsearch-reporter-to-data-st
 
 # Message API connections in two documents: 4.14 index template changes (FOUND-465)
 upgrade-guides/apim-4.14-elasticsearch-index-template-changes.md
+
+# Elasticsearch reporter: Elastic Cloud Serverless writes and dropped documents metric (FOUND-478)
+analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md

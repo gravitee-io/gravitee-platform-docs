@@ -71,18 +71,26 @@ reporters:
                           # data streams named <index>-<type>, on Elasticsearch 7.9 or later, or OpenSearch
 #    lifecycle:
 #      retention:         # data_stream mode on Elasticsearch 8.14 or later: data stream lifecycle, for the types without a policy
-#        monitor: 7d
+#        monitor: 7d      # On Elastic Cloud Serverless, each type defaults to 45d
 #        request: 30d
 #        health: 3d
 #        log: 7d
 #        event_metrics: 30d
 #        decisions: 30d
+#        allow_decrease: false  # Elastic Cloud Serverless only: true shortens the retention of existing data streams,
+                                # which deletes their older documents
 #    flavor: auto         # "auto" detects Elastic Cloud Serverless from the cluster. Or "classic", or "serverless"
 #    cluster: elasticsearch
 #    bulk:
 #      actions: 1000           # Number of requests action before flush
 #      flush_interval: 5       # Flush interval in seconds
 #      concurrent_requests: 5  # Concurrent requests
+#      max_concurrent_send: 100     # Bulk requests sent and not yet answered
+#      max_memory_size: 26214400    # Memory, in bytes, of the bulk requests waiting to be sent. Beyond it, bulks are dropped
+#      retry:
+#        max_retries: 6             # Retries of a bulk request answered with 429 or 5xx, before it is dropped
+#        initial_delay: 3000        # Delay before the first retry, in milliseconds
+#        max_delay: 30000           # Maximum delay between two retries, in milliseconds
 #    settings:
 #      number_of_shards: 5
 #      number_of_replicas: 1
@@ -134,9 +142,7 @@ Set it in `reporters.elasticsearch.flavor` for the Gateway and in `analytics.ela
 
 ### Gateway reporter on Elastic Cloud Serverless
 
-{% hint style="danger" %}
-In APIM 4.14, the Elasticsearch reporter doesn't write to Elastic Cloud Serverless. When the cluster is Elastic Cloud Serverless, the reporter stays inactive: the Gateway serves API traffic, but it doesn't report analytics to Elasticsearch. To send analytics to Elastic Cloud Serverless, use another writer, for example the [TCP reporter](../../analyze-and-monitor-apis/reporters/tcp-reporter.md) with Logstash. For more information, see [Read analytics from data streams](elasticsearch-data-streams.md).
-{% endhint %}
+From APIM 4.14, the Elasticsearch reporter writes analytics directly to Elastic Cloud Serverless, to one data stream per type named `<index>-<type>`. On Elastic Cloud Serverless, it sets the retention of each data stream, `45d` by default, and manages its index templates. For the API key privileges, the retention, and the documents that the reporter can drop, see [Write analytics to Elastic Cloud Serverless](../../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#write-analytics-to-elastic-cloud-serverless).
 
 For the startup checks of the reporter, see [Elasticsearch Reporter](../../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#cluster-flavor-and-startup-checks).
 
@@ -152,7 +158,7 @@ From APIM 4.14, the Management API can read analytics from data streams instead 
 
 In this mode, the Management API reads the data stream named `<index>-<type>` for each type of analytics, for example `gravitee-v4-metrics`. The `{orgId}` and `{envId}` placeholders in `analytics.elasticsearch.index` are replaced as in the other modes.
 
-On Elasticsearch 7.9 or later and on OpenSearch, the Gateway reporter writes the data streams with `reporters.elasticsearch.index_mode: data_stream`. For more information, see [Write analytics to data streams](../../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#write-analytics-to-data-streams). On Elastic Cloud Serverless, the data streams must be filled by another writer. For the setup and the limitations, see [Read analytics from data streams](elasticsearch-data-streams.md).
+On Elasticsearch 7.9 or later and on OpenSearch, the Gateway reporter writes the data streams with `reporters.elasticsearch.index_mode: data_stream`. For more information, see [Write analytics to data streams](../../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#write-analytics-to-data-streams). On Elastic Cloud Serverless, the Gateway reporter writes the data streams by default. For more information, see [Write analytics to Elastic Cloud Serverless](../../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#write-analytics-to-elastic-cloud-serverless). To fill the data streams with another writer, see [Read analytics from data streams](elasticsearch-data-streams.md).
 
 ## Index management with ES Curator
 
