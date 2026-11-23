@@ -30,6 +30,8 @@ The product Overview page also shows the **APIs in product** count as a snapshot
 
 Detaching an API does not delete the API proxy itself — it only removes it from the product bundle. Existing subscriptions to the product no longer grant access to the detached API.
 
+Attaching or detaching an API sends the new API list to the Gateway without a deployment. The other changes saved since the product's last deployment, such as a new plan or new flows, reach the Gateway only when you deploy the product. See [Deploy an API Product](configure-product-deployment.md#deploy-an-api-product).
+
 ## How product subscriptions grant API access
 
 When a consumer subscribes to an API Product plan:

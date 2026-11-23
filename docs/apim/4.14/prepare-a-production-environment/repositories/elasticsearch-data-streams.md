@@ -11,16 +11,15 @@ From APIM 4.14, the Management API can read analytics from Elasticsearch data st
 The data streams are filled in one of the following ways:
 
 * On Elasticsearch 7.9 or later and on OpenSearch, the Elasticsearch reporter of the Gateway writes them with `reporters.elasticsearch.index_mode: data_stream`, and registers their index templates itself. For a new installation and the lifecycle of the data streams, see [Write analytics to data streams](../../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#write-analytics-to-data-streams). To move an installation from dated or ILM-managed indices, see [Migrate the Elasticsearch Reporter to Data Streams](../../analyze-and-monitor-apis/reporters/migrate-the-elasticsearch-reporter-to-data-streams.md). Then, configure the Management API as described in [Configure the Management API](#configure-the-management-api).
-* On Elastic Cloud Serverless, or when the Gateway doesn't write to the cluster, another writer fills them, for example Logstash. The rest of this page describes this setup.
+* On Elastic Cloud Serverless, the Elasticsearch reporter of the Gateway writes them by default, registers their index templates, and sets their retention. For more information, see [Write analytics to Elastic Cloud Serverless](../../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#write-analytics-to-elastic-cloud-serverless).
+* When the Gateway doesn't write to the cluster, another writer fills them, for example Logstash. The rest of this page describes this setup.
 
 ```
 Gateway ──▶ writer (for example, the TCP reporter and Logstash) ──▶ data streams ◀── Management API
 ```
 
-{% hint style="danger" %}
-**The Gateway reporter doesn't write to Elastic Cloud Serverless**
-
-On Elastic Cloud Serverless, the Elasticsearch reporter stays inactive whatever its configuration. The Gateway serves API traffic but doesn't report analytics to Elasticsearch. For more information, see [Elasticsearch Reporter](../../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#cluster-flavor-and-startup-checks).
+{% hint style="info" %}
+The Elasticsearch reporter writes analytics on a best-effort basis and can drop documents. For analytics without loss, for example for an audit trail, use a durable pipeline, for example the TCP reporter with Logstash and a persistent queue. For more information, see [Documents dropped by the reporter](../../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#documents-dropped-by-the-reporter).
 {% endhint %}
 
 ## Prerequisites
@@ -106,8 +105,7 @@ In data stream mode, the Management API reads field types with the `_field_caps`
 
 | Limitation | Details |
 | ---------- | ------- |
-| The Gateway reporter doesn't write to Elastic Cloud Serverless | On Elastic Cloud Serverless, the data streams must be filled by another writer, for example Logstash. On Elasticsearch 7.9 or later and on OpenSearch, the reporter writes data streams with `index_mode: data_stream`. |
 | No migration of existing analytics | APIM doesn't move the content of dated or ILM-managed indices to data streams. In data stream mode, the Management API reads only the data streams, not the previous indices. Analytics written before the switch don't appear. For the Gateway reporter, see [Migrate the Elasticsearch Reporter to Data Streams](../../analyze-and-monitor-apis/reporters/migrate-the-elasticsearch-reporter-to-data-streams.md). |
-| Retention isn't managed by APIM on Elastic Cloud Serverless | The templates set no `data_retention`, and the reporter's lifecycle policies don't apply. The writer or the cluster administrator sets the retention of each data stream. |
+| Retention isn't managed by APIM when another writer fills the data streams | The templates of the ZIP file set no `data_retention`, and the reporter's lifecycle policies don't apply. The writer or the cluster administrator sets the retention of each data stream. When the Gateway reporter writes to Elastic Cloud Serverless, it sets the retention itself. |
 | GeoIP enrichment has no effect on Elastic Cloud Serverless | Elastic Cloud Serverless accepts an ingest pipeline with the `geoip` processor, but the processor adds no location data. |
 | Index pattern of the templates | The templates match `gravitee-<type>*`. Data streams with other names need the patterns edited before registration. |

@@ -19,7 +19,7 @@ Event Stream Management configures v4 Message APIs. This page lists the network 
 
 The console has no field for the following settings. It keeps the values that a Message API already has, for example from an imported definition.
 
-* **Plan details beyond the plan form.** The general conditions and the excluded groups of a plan.
+* **Plan details beyond the plan form.** The general conditions of a plan.
 
 ## Actions that the console doesn't offer
 

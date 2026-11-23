@@ -12,8 +12,8 @@ The **Configuration** group of the sidebar holds **Gateway**, **Interception**, 
 * [**Configure interception**](configure-edge-management.md). Choose which agents are intercepted, which target API receives each route, and the plan that secures it.
 * [**Target API reference**](proxy-api-reference.md). What an API must be to receive intercepted traffic, and what Edge Management creates for you.
 * [**Configure daemon authentication**](configure-daemon-authentication.md). Decide how the daemons identify themselves to the Edge Reactor, and enrol the certificates of your fleet.
-* [**Secure the Edge Reactor listener**](secure-the-edge-reactor-listener.md). Run the listener over TLS and ask the daemons for a certificate.
-* [**Configure Edge Ingress**](configure-edge-ingress.md). Expose the Edge Reactor port when the gateway runs on Kubernetes.
+* [**Secure the Edge Reactor listener**](secure-the-edge-reactor-listener.md). Run the listener over TLS and ask the daemons for a certificate. Serve several environments from one gateway, and deploy the Edge API on gateways with sharding tags.
+* [**Configure Edge Ingress**](configure-edge-ingress.md). Expose the Edge Reactor port when the gateway runs on Kubernetes, and propose its address to Edge Management.
 * [**Configure Kandji to deploy the Edge Daemon**](configure-kandji-daemon.md). Use Kandji to deploy the Edge Daemon across your device fleet.
 * [**Connect Claude Code to the Edge Daemon**](../connect-claude-code-to-daemon.md). What to do on a device, and how to confirm that interception works.
 
