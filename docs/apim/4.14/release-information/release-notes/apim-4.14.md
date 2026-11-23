@@ -33,6 +33,14 @@ APIM 4.14 adds the following features.
 * A user becomes a member when an administrator adds them to an AI Workspace in Agent Management.
 * For more information, see [Show AI Workspaces in the Developer Portal](../../developer-portal/new-developer-portal/show-ai-workspaces-in-the-developer-portal.md).
 
+#### **Binary bodies in the Groovy policy**
+
+* In a v4 HTTP proxy API with **Read content** enabled, a Groovy script reads the body of its phase as bytes with `contentAsByteArray`, or as a base64 string with `contentAsBase64`.
+* With **Read content** and **Override content** enabled, a script that returns a `byte[]` or a `Buffer` replaces the body with those exact bytes, so binary content such as an image arrives unchanged. A script that returns a `String` works as before.
+* In a v2 API, both work in **On-request content script** and **On-response content script**, with **Emulate v4 engine** turned on. In the Publish and Subscribe phases of a message API, the returned value is still written as text.
+* The feature also ships in APIM 4.13.6 and 4.12.29.
+* For more information, see [Groovy](../../create-and-configure-apis/apply-policies/policy-reference/groovy.md#return-binary-content).
+
 #### **Elasticsearch: API keys, Elastic Cloud Serverless, and data streams**
 
 * The Gateway reporter and the Management API authenticate to Elasticsearch with an API key, set in `security.api_key`, or in `es.security.apiKey` with Helm. An API key and a username and password are mutually exclusive.
