@@ -124,11 +124,20 @@ The following table describes each value:
 
 When the environment that the setting selects has no Edge API on the gateway, the Edge Reactor answers these daemons with `404`, and the gateway logs a warning that begins with `Unscoped Edge requests resolve to environment`.
 
-The Helm chart doesn't render `edge.server.default_environment` from `gateway.edge`.
+The Helm chart doesn't render `edge.server.default_environment` from `gateway.edge`. Set it instead with the `GRAVITEE_EDGE_SERVER_DEFAULT_ENVIRONMENT` environment variable of the gateway, in `gateway.env`:
+
+```yaml
+gateway:
+  env:
+    - name: GRAVITEE_EDGE_SERVER_DEFAULT_ENVIRONMENT
+      value: <environment ID>
+```
+
+With `value: ""`, the setting is `""` rather than not set, and the Edge Reactor answers these daemons with `404`.
 
 ## Deploy the Edge API on gateways with sharding tags
 
-The Edge API of each environment carries the `gravitee-edge-configuration` sharding tag. A gateway that deploys only the APIs of some sharding tags deploys the Edge API when `gravitee-edge-configuration` is one of them. Add it to the sharding tags of each such gateway that serves the Edge Reactor. Without it, that gateway doesn't deploy the Edge API, and its Edge Reactor answers the daemons with `404`. A gateway without sharding tags deploys every API, the Edge API included. See [Configure sharding tags for your internal and external Gateways](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/gravitee-gateway/sharding-tags#configure-sharding-tags-for-your-internal-and-external-gateways).
+The Edge API of each environment carries the `gravitee-edge-configuration` sharding tag. An Edge API deployed before the upgrade to 4.14 carries it only once the Edge configuration of its environment is deployed again, for example when you save a change with **Save & Deploy**. A gateway that deploys only the APIs of some sharding tags deploys the Edge API when `gravitee-edge-configuration` is one of them. Add it to the sharding tags of each such gateway that serves the Edge Reactor. Without it, that gateway doesn't deploy the Edge API, and its Edge Reactor answers the daemons with `404`. A gateway without sharding tags deploys every API, the Edge API included. See [Configure sharding tags for your internal and external Gateways](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/gravitee-gateway/sharding-tags#configure-sharding-tags-for-your-internal-and-external-gateways).
 
 ## Rename the port setting
 
