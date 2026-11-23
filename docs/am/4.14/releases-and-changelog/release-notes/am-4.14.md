@@ -12,11 +12,11 @@ Check these changes before you upgrade to AM 4.14.
 
 * The AM Helm chart drops its `mongodb-replicaset` dependency, so it no longer deploys MongoDB. Before you upgrade an installation whose values set `mongodb-replicaset.enabled` to `true`, move your data to a MongoDB that runs outside the chart, and point the chart at it. See [Breaking Changes for Access Management](../../getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md#the-helm-chart-no-longer-deploys-mongodb).
 
-### **Deprecation: Alpine-based am-gateway and am-management-api images**
+### **Deprecation: Alpine-based and Noble-based am-gateway and am-management-api images**
 
 From 4.14.0, the `graviteeio/am-gateway` and `graviteeio/am-management-api` images are also published with an `-alpine` suffix: `<version>-alpine`, `<major>.<minor>-alpine`, and, for the latest release, `<major>-alpine` and `latest-alpine`. Each `-alpine` tag points to the same image as the matching tag without a suffix.
 
-Starting with the March 2027 release, the tags without suffix (`<version>`, `<major>.<minor>`, `<major>`, `latest`) of `graviteeio/am-gateway` and `graviteeio/am-management-api` will point to the Debian-based image. To stay on Alpine, use the `-alpine` tags explicitly (for example `graviteeio/am-gateway:4.14.0-alpine`). Alpine images will no longer be published from the June 2027 release.
+Starting with the March 2027 release, the tags without suffix (`<version>`, `<major>.<minor>`, `<major>`, `latest`) of `graviteeio/am-gateway` and `graviteeio/am-management-api` will point to the Debian-based image. To stay on Alpine, use the `-alpine` tags explicitly (for example `graviteeio/am-gateway:4.14.0-alpine`). Alpine and Noble images will no longer be published from the June 2027 release.
 
 What differs in the Debian image: no JAVA_HOME variable; the JDK is under `/usr/lib/jvm/temurin-<v>-jre-<arch>`; the truststore is at `/etc/ssl/certs/adoptium/cacerts`; the image is about 140 MB larger.
 
