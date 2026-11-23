@@ -8,20 +8,41 @@ description: >-
 
 # AM 4.13.x
 
+## Gravitee Access Management 4.13.7 - November 23, 2026
+
+<details>
+
+<summary>What's new !</summary>
+
+
+
+</details>
+
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Other**
+
+* This update resolves security fixes.
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.13.6 - November 20, 2026
 
 <details>
 
 <summary>Bug fixes</summary>
 
-
-
-
-
-
-
 **Other**
 
+
+* This update resolves security fixes.
 * Recovery Code factor's selection rule is never evaluated [#12063](https://github.com/gravitee-io/issues/issues/12063)
 * SCIM Audit's Actor field missing [#12065](https://github.com/gravitee-io/issues/issues/12065)
 
@@ -34,12 +55,10 @@ description: >-
 
 <summary>Bug fixes</summary>
 
+**Other**
 
 
-
-
-
-
+* This update resolves security fixes.
 
 
 </details>
