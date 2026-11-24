@@ -1,3 +1,7 @@
+---
+description: Encrypt the plugin configurations Access Management 4.14 stores, declare keys on your nodes, and rotate them. Follow the steps to turn encryption on.
+---
+
 # Encrypt Plugin Configurations
 
 ## Enable plugin configuration encryption
@@ -24,7 +28,7 @@ The following plugin types are encrypted:
 - extension grants
 - service resources
 
-Each stored value records the id of the key that encrypted it. The value is decrypted with the key declared under that id. Follow these rules for every key:
+Each stored value records the id of the key that encrypted it. The value is decrypted with the key declared under that id. Apply the following rules to every key:
 
 - Never reuse an id for another secret.
 - A key id must not contain `:`.
@@ -34,19 +38,19 @@ Each stored value records the id of the key that encrypted it. The value is decr
 
 ### Configure environment variables
 
-1. On every Management API node and every Gateway node, set the key:
-   - `GRAVITEE_ENCRYPTIONKEYS_0_ID`
-   - `GRAVITEE_ENCRYPTIONKEYS_0_SECRET`
-2. On every Management API node only, set:
-   - `GRAVITEE_PLUGINS_PROPERTIES_CONFIGURATION_ENCRYPTION_ENABLED` to `true`
-   - `GRAVITEE_PLUGINS_PROPERTIES_CONFIGURATION_ENCRYPTION_KEY` to the key id
+1. On every Management API node and every Gateway node, set the key using the following environment variables:
+    - `GRAVITEE_ENCRYPTIONKEYS_0_ID`
+    - `GRAVITEE_ENCRYPTIONKEYS_0_SECRET`
+2. On every Management API node only, set the following environment variables:
+    - `GRAVITEE_PLUGINS_PROPERTIES_CONFIGURATION_ENCRYPTION_ENABLED` to `true`
+    - `GRAVITEE_PLUGINS_PROPERTIES_CONFIGURATION_ENCRYPTION_KEY` to the key id
 3. Restart the nodes.
 
 ### Verify encryption is enabled
 
 The Management API rejects an invalid key setup with one of the following messages:
 
-```
+```text
 Encryption is enabled with plugins.properties.configuration.encryption.enabled but no key is selected with plugins.properties.configuration.encryption.key
 Encryption key [<id>] is selected to encrypt but is not declared
 Encryption key [<id>] is declared twice
@@ -54,7 +58,7 @@ Encryption key id [<id>] must be set and must not contain ':'
 Encryption key [<id>] has no secret
 ```
 
-When encryption is on, new and updated plugin configurations are stored encrypted. Configurations stored in clear text before you enabled encryption stay readable. Each one is encrypted the next time it's updated, or all of them are encrypted at once when you call the [reencrypt endpoint](encrypt-plugin-configurations#Rotate encryption keys).
+When encryption is on, new and updated plugin configurations are stored encrypted. Configurations stored in clear text before you enabled encryption stay readable. Each one is encrypted the next time it's updated, or all of them are encrypted at once when you call the [reencrypt endpoint](#rotate-encryption-keys).
 
 ## Rotate encryption keys
 
@@ -64,7 +68,7 @@ To rotate keys, add a new key, select it, and move every stored configuration to
 2. On the Management API, set `plugins.properties.configuration.encryption.key` to the new key id.
 3. Restart the nodes.
 4. Call `POST /_node/encryption/reencrypt` on one Management API node.
-5. Once the endpoint answers `200`, and there is no more configuraiton using the oler keys, you can remove them from every node.
+5. Once the endpoint answers `200` and no stored configuration uses the older keys, remove them from every node.
 
 Without the re-encrypt call, each configuration moves to the new key only when it's updated. Reading a configuration doesn't move it.
 
