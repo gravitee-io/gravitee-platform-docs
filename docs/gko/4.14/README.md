@@ -15,7 +15,7 @@ Resources managed by GKO appear in the APIM Console, the AM Console, the Develop
 GKO manages resources for:
 - API Management: APIs (v2 and v4), applications, subscriptions, groups, shared policy groups, API resources, notifications, dictionaries, and Developer Portal content.
 - AI Management: MCP servers.
-- Access Management: security domains, with their identity providers, certificates and reporters.
+- Access Management: security domains, with their identity providers, certificates, reporters, applications, and client secrets.
 - Authorization Management: PDP gateways, schema documents, entities, and policies.
 - Gateway API and Ingress: standard Kubernetes routing resources (HTTPRoute, KafkaRoute, Ingress), which GKO turns into APIs on the Gravitee Gateway.
 

@@ -62,8 +62,10 @@ GKO calls each of the following endpoints with `PUT` and `?dryRun=true`, relativ
 | `AMIdentityProvider` | `/organizations/{orgId}/environments/{envId}/domains/{domainKey}/identities`, on the Access Management Automation API     |
 | `AMCertificate`     | `/organizations/{orgId}/environments/{envId}/domains/{domainKey}/certificates`, on the Access Management Automation API    |
 | `AMReporter`        | `/organizations/{orgId}/environments/{envId}/domains/{domainKey}/reporters`, on the Access Management Automation API       |
+| `AMApplication`     | `/organizations/{orgId}/environments/{envId}/domains/{domainKey}/applications`, on the Access Management Automation API    |
+| `AMClientSecret`    | `/organizations/{orgId}/environments/{envId}/domains/{domainKey}/applications/{applicationKey}/secrets`, on the Access Management Automation API |
 
-The Access Management calls go through the `AMContext` of the security domain. An `AMIdentityProvider`, `AMCertificate`, or `AMReporter` whose security domain doesn't exist, or isn't created in Access Management yet, is admitted with a warning and without a dry-run call. An `AMContext` itself is checked with a call to Access Management when you apply it: an Access Management that can't be reached gives a warning, and any error answer rejects it.
+The Access Management calls go through the `AMContext` of the security domain. An `AMIdentityProvider`, `AMCertificate`, `AMReporter`, or `AMApplication` whose security domain doesn't exist, or isn't created in Access Management yet, is admitted with a warning and without a dry-run call. So is an `AMClientSecret` whose application doesn't exist or isn't created in Access Management yet, or whose Secret entry doesn't exist or is empty. An `AMContext` itself is checked with a call to Access Management when you apply it: an Access Management that can't be reached gives a warning, and any error answer rejects it.
 
 An `AuthzSchema`, `AuthzEntity`, or `AuthzPolicy` whose `pdpRef` names an `AuthzPdp` that doesn't exist, or isn't synced yet, is admitted with a warning and without a dry-run call.
 
@@ -238,7 +240,7 @@ A `Portal`, `PortalTheme`, `McpProxy`, `CatalogMcpServer`, `AuthzPdp`, `AuthzSch
 
 ## What this means in practice
 
-* **APIM must be reachable when you apply a resource, not just when GKO reconciles it.** Both webhooks are registered with `failurePolicy: Fail`, and a failed dry-run call is treated as a severe error. If APIM is down, unreachable, or the `ManagementContext` credentials are invalid, `kubectl apply` on a context-bound resource is rejected rather than queued. The same applies to Access Management for an `AMSecurityDomain`, and for an `AMIdentityProvider`, `AMCertificate`, or `AMReporter` whose domain is created in Access Management.
+* **APIM must be reachable when you apply a resource, not just when GKO reconciles it.** Both webhooks are registered with `failurePolicy: Fail`, and a failed dry-run call is treated as a severe error. If APIM is down, unreachable, or the `ManagementContext` credentials are invalid, `kubectl apply` on a context-bound resource is rejected rather than queued. The same applies to Access Management for an `AMSecurityDomain`, for an `AMIdentityProvider`, `AMCertificate`, `AMReporter`, or `AMApplication` whose domain is created in Access Management, and for an `AMClientSecret` whose application is created there and whose Secret entry holds a value.
 * **The credentials in the `ManagementContext` need write permissions.** Nothing is written, but the dry run calls the same create and update endpoint as a real apply. See [define-an-apim-service-account-for-gko.md](../guides/define-an-apim-service-account-for-gko.md "mention").
 * **Each resource you apply costs a round trip to APIM.** On bulk applies, this is one call per context-bound resource. When drift detection is enabled, each update to a context-bound resource also reads the resource's current state from APIM.
 * **The calls appear in APIM's logs.** They look like ordinary Automation API requests, and the `dryRun=true` query parameter is what distinguishes them from a real apply.
