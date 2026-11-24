@@ -10,6 +10,9 @@ description: >-
 ## Highlights
 
 * The New Developer Portal lists the AI Workspaces that a user is a member of, with the budget, consumption, endpoint path, API key, and models of each one.
+* Gateway reporters and the Management API authenticate to Elasticsearch with an API key, detect Elastic Cloud Serverless, and read and write analytics as data streams.
+* A Groovy script reads the body of a v4 HTTP proxy API as bytes or as a base64 string, and returns binary content that arrives unchanged.
+* A native Kafka API endpoint group bounds the metadata requests that each Gateway instance sends to the brokers, with **Backend metadata max age (seconds)**.
 * The Management API reference lists the Portal API once per Developer Portal: **Next Gen Portal** for the New Developer Portal, the entry to build a custom developer portal on, and **Classic Portal** for the Classic Developer Portal.
 
 ## Breaking Changes and deprecations
