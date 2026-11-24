@@ -23,6 +23,10 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 
 From 4.14.0, the `graviteeio/apim-gateway` and `graviteeio/apim-management-api` images are also published with `-alpine` tags, which point to the same images as the tags without a suffix. The March 2027 release of APIM moves the tags without a suffix, including `latest`, to the Debian image. The June 2027 release stops publishing Alpine Linux images of these two components. To stay on Alpine Linux until then, switch to the `-alpine` tags. To move to Debian, use the `-debian` tags, and check how the Debian image differs before you switch. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#alpine-linux-images-of-the-gateway-and-the-management-api-are-deprecated).
 
+#### **The Gateway and the Management API verify the Elasticsearch certificate**
+
+From 4.14.0, the Gateway reporter and the Management API verify the certificate of an Elasticsearch cluster that they reach over `https`. A cluster whose certificate is self-signed or signed by an internal authority needs a truststore in `ssl.truststore`, or `ssl.trustAll: true` to keep the previous behavior. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#the-gateway-and-the-management-api-verify-the-elasticsearch-certificate).
+
 #### **Event Stream Management guards the Clusters that APIs use**
 
 From 4.14.0, only the members of a Cluster bind a Kafka Service or a Message API to it. A Cluster that started APIs use can't be undeployed, deleted, or lose a connection that they use. Starting a Kafka Service and deploying a Virtual Cluster are refused while a Cluster that they use isn't deployed, or doesn't have their connection. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md).
