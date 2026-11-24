@@ -6,6 +6,25 @@ description: The API Management 4.13 changelog lists the bug fixes in each patch
 
 # APIM 4.13.x
  
+## Gravitee API Management 4.13.7 - November 24, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Console charts of the AngularJS screens (API analytics, dashboards) render with a black background since 4.13.6 [#12109](https://github.com/gravitee-io/issues/issues/12109)
+
+**Other**
+
+* Shared API key rejected (401) on all gateways after an API redeploy when the key is linked to a CLOSED subscription on the same plan [#11958](https://github.com/gravitee-io/issues/issues/11958)
+* \[UI] Chart issue [#12071](https://github.com/gravitee-io/issues/issues/12071)
+* Shared API key returns 401 after redeploy when a revoked key has the same value [#12081](https://github.com/gravitee-io/issues/issues/12081)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.13.6 - November 20, 2026
 <details>
 
