@@ -6,7 +6,18 @@ description: What the Gamma 4.14 release adds to Agent Management, API Managemen
 
 For release and end-of-life dates, see [Support Model](https://documentation.gravitee.io/apim/release-information/support-model).
 
-## 4.14 breaking changes and deprecations
+## Release Date: TBD
+
+## Highlights
+
+* **Agent Management**: Add the **AWS Lambda** and **Data Cache Policy** policies to LLM Proxies, set up alerts for MCP Proxies, import MCP servers that the control plane can't reach, and encrypt the dynamic properties of LLM, MCP, and A2A Proxies. A2A Proxies gain a **CORS** page.
+* **API Management**: Encrypt the dynamic properties of API proxies, and design flows on API Products in a Policy Studio.
+* **Authorization Management**: Manage PDP gateways, schema documents, entities, and policies as code, through the Automation API, as Kubernetes resources, and with Terraform.
+* **Edge Management**: Choose how Edge Daemons authenticate to the Edge Reactor, apply OAuth2 plans to intercepted routes, and edit gateway addresses after the guided setup.
+* **Event Stream Management**: Use registered Clusters in Message APIs, bound the metadata requests that the gateway sends to its brokers, disable broker hostname verification over SSL, and encrypt the dynamic properties of Kafka Services and Message APIs.
+* **Platform Management**: Encrypt the sensitive values of environment dictionaries.
+
+## Breaking changes and deprecations
 
 #### **Alpine Linux images of the Gateway and the Management API are deprecated**
 
@@ -16,13 +27,20 @@ From 4.14.0, the `graviteeio/apim-gateway` and `graviteeio/apim-management-api` 
 
 From 4.14.0, only the members of a Cluster bind a Kafka Service or a Message API to it. A Cluster that started APIs use can't be undeployed, deleted, or lose a connection that they use. Starting a Kafka Service and deploying a Virtual Cluster are refused while a Cluster that they use isn't deployed, or doesn't have their connection. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md).
 
-## 4.14 new features
+## New features
 
 The 4.14 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, alerts to MCP Proxies, and HTTP/2 fields to MCP Proxies and Catalog MCP servers. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply. JWT plans of MCP Proxies and MCP Studios gain two settings, for the claims of the token and for the `Authorization` header. OAuth2 plans of MCP Proxies and MCP Studios can require a subscription. The **Properties** page of LLM Proxies, MCP Proxies, and A2A Proxies encrypts dynamic properties. A2A Proxies gain a **CORS** page for calls from web pages on other origins.
+Agent Management adds the following in 4.14:
+
+* **LLM Proxies**: the **AWS Lambda** and **Data Cache Policy** policies.
+* **MCP Proxies**: alerts, and HTTP/2 fields, which Catalog MCP servers also gain.
+* **A2A Proxies**: a **CORS** page for calls from web pages on other origins.
+* **All proxy types**: the pages of LLM Proxies, MCP Proxies, and A2A Proxies name the type of proxy instead of the API, and their **Properties** pages encrypt dynamic properties.
+* **MCP Proxies and MCP Studios**: JWT plans gain two settings, for the claims of the token and for the `Authorization` header, and OAuth2 plans can require a subscription.
+* **Catalog**: the Catalog imports an MCP server that the control plane can't reach, from the list responses you supply.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
@@ -92,7 +110,10 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, ale
 
 ### API Management
 
-API Management encrypts the dynamic properties of API proxies. API Products gain their own flows, designed in a Policy Studio, and a banner that deploys them.
+API Management adds the following in 4.14:
+
+* **API proxies**: encryption of dynamic properties.
+* **API Products**: their own flows, designed in a Policy Studio, and a banner that deploys them.
 
 #### Flows on API Products
 
@@ -116,7 +137,9 @@ API Management encrypts the dynamic properties of API proxies. API Products gain
 
 ### Authorization Management
 
-Authorization Management manages its PDP gateways, schema documents, entities, and policies as code: through the Automation API, as Kubernetes resources, and with Terraform.
+Authorization Management adds the following in 4.14:
+
+* **As code**: PDP gateways, schema documents, entities, and policies are managed through the Automation API, as Kubernetes resources, and with Terraform.
 
 #### PDP gateways, schema documents, entities, and policies as code
 
@@ -127,7 +150,11 @@ Authorization Management manages its PDP gateways, schema documents, entities, a
 
 ### Edge Management
 
-Edge Management decides how the Edge Daemons identify themselves to the Edge Reactor: keyless, mTLS with the certificates of your fleet, or both. The routes of an intercepted agent take an OAuth2 plan of their target API, so that each developer signs in with your identity provider. The guided setup fills in the gateway addresses that your installation proposes, the addresses stay editable after the setup, and one gateway serves the Edge Management configuration of several environments.
+Edge Management adds the following in 4.14:
+
+* **Daemon authentication**: Edge Daemons identify themselves to the Edge Reactor keyless, with mTLS and the certificates of your fleet, or both.
+* **OAuth2 plans**: the routes of an intercepted agent take an OAuth2 plan of their target API, so that each developer signs in with your identity provider.
+* **Gateway addresses**: the guided setup fills in the gateway addresses that your installation proposes, the addresses stay editable after the setup, and one gateway serves the Edge Management configuration of several environments.
 
 #### Daemon authentication
 
@@ -164,7 +191,12 @@ Edge Management decides how the Edge Daemons identify themselves to the Edge Rea
 
 ### Event Stream Management
 
-Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtual Cluster bound the metadata requests that the gateway sends to its brokers on its own. It also lets you disable the broker hostname verification of a Kafka connection over SSL. Message APIs can now use the connections of registered Clusters, and each Cluster lists the APIs that use it. The **API Properties** page of Kafka Services and Message APIs encrypts dynamic properties.
+Event Stream Management adds the following in 4.14:
+
+* **Backend metadata max age**: a Standalone endpoint group, a Cluster, or a Virtual Cluster bounds the metadata requests that the gateway sends to its brokers on its own.
+* **Kafka connections**: you can disable the broker hostname verification of a Kafka connection over SSL.
+* **Registered Clusters**: Message APIs can use the connections of registered Clusters, and each Cluster lists the APIs that use it.
+* **Dynamic properties**: the **API Properties** page of Kafka Services and Message APIs encrypts dynamic properties.
 
 #### Registered Clusters for Message APIs
 
@@ -202,7 +234,9 @@ Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtua
 
 ### Platform Management
 
-Platform Management encrypts the sensitive values of environment dictionaries.
+Platform Management adds the following in 4.14:
+
+* **Dictionaries**: encryption of the sensitive values of environment dictionaries.
 
 #### Encrypted dictionary properties
 

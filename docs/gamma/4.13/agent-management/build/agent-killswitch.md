@@ -2,7 +2,7 @@
 description: >-
   Stop an agent in one move from its page in the Catalog, which stops the A2A
   Proxy in front of it, pauses its gateway subscriptions, and disables it on
-  Azure AI Foundry, or stop a proxy on its own. Fol
+  Azure AI Foundry, or stop a proxy on its own.
 ---
 
 # Agent kill switch

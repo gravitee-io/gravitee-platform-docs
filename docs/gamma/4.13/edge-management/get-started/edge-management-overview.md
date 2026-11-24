@@ -82,5 +82,5 @@ The traffic the daemon forwards is captured by the proxy APIs deployed on the AI
 
 Complete the following tasks:
 
-* **Deploy the Edge Daemon.** Use an MDM solution to distribute the Edge Daemon to your device fleet. See [Configure Kandji to deploy the Edge Daemon](../connect/configure-kandji-daemon.md).
+* **Deploy the Edge Daemon.** Use an MDM solution to distribute the Edge Daemon to your device fleet. See [Configure Iru to deploy the Edge Daemon](../connect/configure-kandji-daemon.md).
 * **Connect AI tools.** Route Claude Code through the Edge Daemon. See [Connect Claude Code to the Edge Daemon](../connect-claude-code-to-daemon.md).
