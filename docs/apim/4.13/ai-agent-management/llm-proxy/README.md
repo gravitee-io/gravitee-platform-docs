@@ -626,7 +626,6 @@ Finish reasons follow the configured publisher. For `google`, they match the Gem
 The following OpenAI features are not currently supported by any provider:
 
 * Function/tool calling
-* Video inputs
 * Multiple completion choices (`n` parameter)
 * Logit bias control
 * Log probabilities output
