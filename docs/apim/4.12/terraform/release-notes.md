@@ -38,7 +38,7 @@ Repository mirrors: `examples/use-cases/group-developers/`, `examples/use-cases/
 
 ### New and changed fields (by resource)
 
-Fields below are **new or changed since provider 0.5.x** (last widely used preview line). They are **additive** for Terraform state (no resource `schema_version` upgrade). Minimum APIM versions are indicative: validate against your Automation API deployment.
+Fields below are **new or changed since provider 0.5.x**. They are **additive** for Terraform state (no resource `schema_version` upgrade). Minimum APIM versions are indicative: validate against your Automation API deployment.
 
 #### `apim_apiv4` / `apim_apiv4` (data source)
 
@@ -166,8 +166,6 @@ Wording follows the style of the platform [support model](https://documentation.
 | --- | --- |
 | **1.0.x** | **Standard maintenance**: bug fixes, security patches, and compatibility updates aligned with supported APIM minors. |
 | **0.5.x**, **0.4.x** | **Best effort only**: no guarantee of fixes. Use only while blocked on migration to **1.0.x**. |
-
-> **Note:** Until the [Terraform documentation page](README.md) is updated for GA, the preview disclaimer (“tech preview”, “fixes mainly on latest”) applies to **0.x** lines only. **1.0.x** is the supported GA line.
 
 
 ### Breaking changes & migration

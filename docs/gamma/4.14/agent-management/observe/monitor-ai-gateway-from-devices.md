@@ -43,13 +43,13 @@ Shadow AI detection surfaces AI traffic that bypasses the governance layer — t
 | **Managed/unmanaged ratio** | The percentage of AI traffic under governance vs. shadow traffic.                                 |
 | **Shadow AI detail**        | Per-device breakdown of which tools and providers are being used outside of governance.           |
 
-The shadow AI panel is the starting point for the MDM feedback loop: identify unmanaged traffic → push an MDM configuration to route that traffic through the Edge Daemon → verify the traffic shifts to managed. See [Configure Kandji to deploy the Edge Daemon](../../edge-management/connect/configure-kandji-daemon.md) for the full loop.
+The shadow AI panel is the starting point for the MDM feedback loop: identify unmanaged traffic, push an MDM configuration to route that traffic through the Edge Daemon, and verify the traffic shifts to managed. See [Configure Iru to deploy the Edge Daemon](../../edge-management/connect/configure-kandji-daemon.md) for the full loop.
 
 ### System health
 
 | Metric                  | Description                                                                                                        |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| **MDM connectivity**    | Status of the connection between the Gamma control plane and your MDM provider (Kandji, Jamf, Intune).             |
+| **MDM connectivity**    | Status of the connection between the Gamma control plane and your MDM provider (Iru, Jamf, Intune).             |
 | **Edge Daemon status**  | Aggregate fleet status — how many devices are online, offline, or running outdated Edge Daemon versions.           |
 | **Deployment tracking** | Configuration rollout status — how many devices have received the latest model allowlist and policy configuration. |
 
@@ -61,6 +61,6 @@ The shadow AI panel is the starting point for the MDM feedback loop: identify un
 
 ## Next steps
 
-* [Configure Kandji to deploy the Edge Daemon](../../edge-management/connect/configure-kandji-daemon.md) — Set up Edge Management and deploy the Edge Daemon to your fleet.
+* [Configure Iru to deploy the Edge Daemon](../../edge-management/connect/configure-kandji-daemon.md). Set up Edge Management and deploy the Edge Daemon to your fleet.
 * [Connect Claude Code to the Edge Daemon](../../edge-management/connect-claude-code-to-daemon.md) — Route AI tool traffic through the Edge Daemon.
 * [Inspect your agent log](inspect-your-agent-log.md) — Trace individual invocations at the AI Gateway level.

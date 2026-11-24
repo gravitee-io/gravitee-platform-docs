@@ -41,7 +41,12 @@ The following concepts describe how the Automation API models a portal and its c
 
 ### Portal instance
 
-A portal is a Next-Gen Developer Portal bound to an environment. Each portal has a human-readable ID (HRID) that you provide, a display name, a navigation structure, and optionally the theme it uses. By default, an environment holds one portal: a `PUT` whose HRID differs from the portal that already exists in the environment fails with `400` and the message `hrid does not match the established portal for this environment`. The portal is created on the first successful `PUT` request.
+A portal is a Next-Gen Developer Portal bound to an environment. Each portal has a human-readable ID (HRID) that you provide, a display name, a navigation structure, and optionally the theme it uses. By default, an environment holds one portal. Every environment starts with a default portal, which you edit in the Console. The first successful `PUT` request replaces that default portal with the portal you declare:
+
+* The navigation structure and the active theme of the default portal aren't kept. The `GET` response returns only what you declared.
+* After the first deployment, manage the portal's navigation through the Automation API. The Console can no longer add navigation items to it.
+
+A later `PUT` whose HRID differs from the portal that already exists in the environment fails with `400` and the message `hrid does not match the established portal for this environment`.
 
 The navigation is declared under `structure`, grouped by portal area. `structure.topNavbar` holds the top navigation bar as a flat, ordered list of slash-separated paths. Intermediate folders are created implicitly when they are not listed explicitly. The `GET` response returns `structure` as persisted.
 
@@ -61,7 +66,7 @@ Navigation paths define the portal's folder hierarchy using slash-separated stri
 
 ### Visibility
 
-Navigation paths, listing entries, documentation pages, and links take an optional `visibility` of `PUBLIC` or `PRIVATE`. A private item is shown to consumers who are signed in to the portal. An anonymous visitor who opens a private item gets `404`.
+Navigation paths, listing entries, documentation pages, and links take an optional `visibility` of `PUBLIC` or `PRIVATE`. A private navigation path, documentation page, or link is shown to consumers who are signed in to the portal. A private listing entry is shown only to signed-in consumers who are members of the API, directly or through a group. Members of an application with an accepted, pending, or paused subscription to the API see it too. An anonymous visitor who opens a private item gets `404`.
 
 When `visibility` is omitted, the item takes the visibility of its parent folder, and a top-level item is `PUBLIC`. A public item under a private parent is rejected with `400` and the message `Parent item with id <id> must be PUBLIC to create a public child item.`
 
@@ -203,7 +208,7 @@ Authorization: Bearer {token}
 }
 ```
 
-Retrieve a portal by sending a `GET` request to `/organizations/{orgId}/environments/{envId}/portals/{hrid}`. The response returns the persisted navigation structure. Delete a portal by sending a `DELETE` request to the same path, which returns HTTP 204 on success.
+Retrieve a portal by sending a `GET` request to `/organizations/{orgId}/environments/{envId}/portals/{hrid}`. The response returns the persisted navigation structure. Delete a portal by sending a `DELETE` request to the same path, which returns HTTP 204 on success. The environment receives a new default portal the next time its portal settings are saved. The listings, documentation pages, and links that you created through the Automation API don't move to the new default portal. Delete them through the Automation API.
 
 Changing `activeThemeHrid` activates or deactivates a theme of the environment, so it requires the `ENVIRONMENT_THEME` update permission in addition to the portal permissions. Without it, the request fails with `403`. For more information, see [Automate portal themes](portal-themes.md).
 
@@ -288,6 +293,8 @@ Navigation paths are normalized during processing:
 When you provide a path such as `/a/b/c` and do not list `/a` and `/a/b` explicitly, the intermediate ancestor folders are created implicitly.
 
 ### Automation and Console coexistence
+
+After the first deployment, the Console can't add navigation items to the portal.
 
 When you remove a path from the navigation list, folder sync removes only folders that appeared in the previously persisted navigation list. Folders created through the Console that were not in the previous automation list are preserved. When an automation-managed folder is deleted, its child folders, pages, links, and API entries are deleted as well, but only within the scope of items that automation previously created.
 

@@ -6,6 +6,65 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.39 - November 23, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+**Other**
+
+* Secutiry fixes
+
+
+
+
+</details>
+
+
+## Gravitee Access Management 4.9.38 - November 20, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Secutiry fixes
+* Recovery Code factor's selection rule is never evaluated [#12063](https://github.com/gravitee-io/issues/issues/12063)
+
+</details>
+
+
+## Gravitee Access Management 4.9.37 - November 16, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Wildcard search does not escape special characters (Mongo and JDBC) [#12007](https://github.com/gravitee-io/issues/issues/12007)
+
+</details>
+
+
 ## Gravitee Access Management 4.9.36 - October 29, 2026
 
 <details>

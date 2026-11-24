@@ -65,7 +65,7 @@ Identity standards such as **Client ID Metadata Documents (CIMD)** and **SPIFFE*
 
 ### Edge Management
 
-Edge Management provides visibility and control over AI traffic on employee devices. A lightweight agent, the **Edge Daemon**, is installed using an MDM tool such as Kandji, Jamf, or Intune. It observes outgoing connections to AI providers, reports shadow AI usage, and enforces local policies before traffic leaves the device.
+Edge Management provides visibility and control over AI traffic on employee devices. A lightweight agent, the **Edge Daemon**, is installed using an MDM tool such as Iru (formerly Kandji), Jamf, or Intune. It observes outgoing connections to AI providers, reports shadow AI usage, and enforces local policies before traffic leaves the device.
 
 ### Observability
 

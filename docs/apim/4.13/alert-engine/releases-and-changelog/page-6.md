@@ -10,7 +10,34 @@ The changelog provides in-depth overviews of what's new in Gravitee major, minor
 
 ## Alert Engine changelog
 
-### 3.0.0 (2026-03-13)
+### 3.0.4 (2026-11-23)
+
+_**General**_
+
+* docker image: rebuild on the latest `graviteeio/java:21` base image to pick up OpenJDK 21.0.13.1 (CVE-2026-114938) (CJ-5575)
+* fix: count events whatever the type of the aggregation property (AE-149)
+* fix: contain trigger evaluation failures to the failing trigger (AE-149)
+* update `gravitee-notifier-api` to 1.4.5
+
+### 3.0.3 (2026-10-28)
+
+_**General**_
+
+* docker image: rebuild on the latest `graviteeio/java:21` base image to pick up `brotli-libs` 1.2.1-r0 (CVE-2026-111497) (CJ-5443)
+
+### 3.0.2 (2026-07-24)
+
+_**General**_
+
+* fix: map Kafka event `request.id` from `_id` (v2 reports) and from `request-id` (v4 reports) (CJ-4980)
+
+### 3.0.1 (2026-05-26)
+
+_**General**_
+
+* docker image: change file ownership to `graviteeio:root` for OpenShift compatibility (AE-147)
+
+### 3.0.0 (2026-03-12)
 
 #### Breaking Changes
 

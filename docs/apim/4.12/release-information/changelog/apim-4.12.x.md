@@ -5,6 +5,100 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.29 - November 20, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Application group updates do not invalidate cached effective permissions [#11987](https://github.com/gravitee-io/issues/issues/11987)
+* Archiving an application doesn’t release its API keys, so their values can never be reused [#12046](https://github.com/gravitee-io/issues/issues/12046)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.12.28 - November 19, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Portal**
+
+* Classic Portal hides the client registration provider's error when it refuses an application's registration [#12072](https://github.com/gravitee-io/issues/issues/12072)
+
+**Other**
+
+* Kafka Gateway closes the connection when a broker response arrives after kafka.requestTimeout [#12077](https://github.com/gravitee-io/issues/issues/12077)
+* Elasticsearch reporter silently loses documents that Elasticsearch rejects or cannot receive: no retry, no log, no dropped count [#12078](https://github.com/gravitee-io/issues/issues/12078)
+* GitHub fetcher imports files larger than 1 MB as empty content [#12083](https://github.com/gravitee-io/issues/issues/12083)
+* API “Sharding tags” page lists tags the user is not allowed to use (Classic console and Gamma) [#12085](https://github.com/gravitee-io/issues/issues/12085)
+* the "Cache name" list of the Cache policy does not show the API's cache resources
+
+</details>
+
+
+ 
+## Gravitee API Management 4.12.27 - November 13, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Portal**
+
+* Classic portal pages show "Page not found" on refresh or direct link when New Developer Portal is the default [#11854](https://github.com/gravitee-io/issues/issues/11854)
+* Portal does not show an error when an application update uses a client ID that already exists [#11935](https://github.com/gravitee-io/issues/issues/11935)
+* New Developer Portal: internal documentation links (absolute paths) return a 404 [#12003](https://github.com/gravitee-io/issues/issues/12003)
+* AI Semantic Caching policy wipes the additional metrics reported by other policies [#12061](https://github.com/gravitee-io/issues/issues/12061)
+
+**Event Stream Management**
+
+* Solace endpoint cannot connect over TLS on the 4.13 FIPS image [#12018](https://github.com/gravitee-io/issues/issues/12018)
+* Kafka OAUTHBEARER re-authentication never triggered by the Kafka client with OAuth2 plan [#12025](https://github.com/gravitee-io/issues/issues/12025)
+
+**Other**
+
+* 404 response body is truncated when http.errors\[404].message contains non-ASCII characters [#11764](https://github.com/gravitee-io/issues/issues/11764)
+* Renaming an application deletes subscription metadata [#11949](https://github.com/gravitee-io/issues/issues/11949)
+* Webhook entrypoint: a failed publish to the Dead Letter Queue is swallowed without an error log [#12012](https://github.com/gravitee-io/issues/issues/12012)
+* Redis rate limit, quota, and spike arrest do not count calls from an organization flow [#12016](https://github.com/gravitee-io/issues/issues/12016)
+* Management API on the 4.13 FIPS image crash-loops when federation is enabled [#12017](https://github.com/gravitee-io/issues/issues/12017)
+* Alert editor stays 960px wide and clips the threshold-range row on large screens [#12020](https://github.com/gravitee-io/issues/issues/12020)
+* V4 health check: POST body not sent to the backend [#12023](https://github.com/gravitee-io/issues/issues/12023)
+* Cloud connection on the 4.13 FIPS image cannot load its PKCS12 keystore [#12024](https://github.com/gravitee-io/issues/issues/12024)
+* Azure Speech Service Websocket call fails with sec-websocket-protocol=USP header [#12027](https://github.com/gravitee-io/issues/issues/12027)
+* \[APIM]\[Documentation] Cannot create root-level pages for v4 APIs (incl. homepage) – “Page parent not found” [#12029](https://github.com/gravitee-io/issues/issues/12029)
+* Elasticsearch reporter drops every document, with a NullPointerException per document, when the ingest pipeline or an index template cannot be created at startup [#12037](https://github.com/gravitee-io/issues/issues/12037)
+* OAS Validation (OAS 3.1) rejects query parameters declared via $ref as “Unexpected query parameters” [#12038](https://github.com/gravitee-io/issues/issues/12038)
+* Policy Studio blocks Save on Avro JSON Transformation steps with a mapping turned off
+* Gateway Redis cache never overwrites an entry, `containsKey` always returns false, and the cache's time to live is ignored
+* Upgraders issues when deploying APIM with documentdb
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* "Server unreachable" shown for Console log searches that succeed server-side (hardcoded 30s client timeout) [#11997](https://github.com/gravitee-io/issues/issues/11997)
+
+</details>
+
+<details>
+
+<summary>Deprecations</summary>
+
+**Docker images**
+
+* Alpine Linux images of the Gateway and the Management API are deprecated. From 4.12.27, the `graviteeio/apim-gateway` and `graviteeio/apim-management-api` images are also published with `-alpine` tags, for example `4.12.27-alpine` and `4.12-alpine`, which point to the same images as the tags without a suffix. From the March 2027 release of APIM, the tags without a suffix of the new releases, `latest`, and `4` point to the Debian image. The 4.12.x releases keep Alpine Linux under their tags without a suffix. The June 2027 release stops publishing Alpine Linux images of these two components. To stay on Alpine Linux, use the `-alpine` tags. To move to Debian, use the `-debian` tags, which the APIM Helm chart already uses by default. The Debian image doesn't set `JAVA_HOME`, has its JRE in `/usr/lib/jvm/temurin-21-jre-<arch>` and its Java truststore in `/etc/ssl/certs/adoptium/cacerts`, and doesn't include `jattach`, `ps`, or `wget`. The Console and Developer Portal images aren't affected.
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.26 - November 2, 2026
 <details>
 

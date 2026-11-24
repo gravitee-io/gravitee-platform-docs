@@ -1,24 +1,46 @@
 ---
-description: What the Gamma 4.14 release adds to Agent Management, Edge Management, Event Stream Management, and Platform Management. Browse the new features and changes.
+description: What the Gamma 4.14 release adds to Agent Management, API Management, Authorization Management, Edge Management, Event Stream Management, and Platform Management. Browse the new features and changes.
 ---
 
 # Release Notes
 
 For release and end-of-life dates, see [Support Model](https://documentation.gravitee.io/apim/release-information/support-model).
 
-## 4.14 breaking changes and deprecations
+## Release Date: TBD
+
+## Highlights
+
+* **Agent Management**: Add the **AWS Lambda** and **Data Cache Policy** policies to LLM Proxies, set up alerts for MCP Proxies, import MCP servers that the control plane can't reach, and encrypt the dynamic properties of LLM, MCP, and A2A Proxies. A2A Proxies gain a **CORS** page.
+* **API Management**: Encrypt the dynamic properties of API proxies, and design flows on API Products in a Policy Studio.
+* **Authorization Management**: Manage PDP gateways, schema documents, entities, and policies as code, through the Automation API, as Kubernetes resources, and with Terraform.
+* **Edge Management**: Choose how Edge Daemons authenticate to the Edge Reactor, apply OAuth2 plans to intercepted routes, and edit gateway addresses after the guided setup.
+* **Event Stream Management**: Use registered Clusters in Message APIs, bound the metadata requests that the gateway sends to its brokers, disable broker hostname verification over SSL, and encrypt the dynamic properties of Kafka Services and Message APIs.
+* **Platform Management**: Encrypt the sensitive values of environment dictionaries.
+
+## Breaking changes and deprecations
 
 #### **Alpine Linux images of the Gateway and the Management API are deprecated**
 
 From 4.14.0, the `graviteeio/apim-gateway` and `graviteeio/apim-management-api` images are also published with `-alpine` tags, which point to the same images as the tags without a suffix. The March 2027 release of APIM moves the tags without a suffix, including `latest`, to the Debian image. The June 2027 release stops publishing Alpine Linux images of these two components. To stay on Alpine Linux until then, switch to the `-alpine` tags. To move to Debian, use the `-debian` tags, and check how the Debian image differs before you switch. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#alpine-linux-images-of-the-gateway-and-the-management-api-are-deprecated).
 
-## 4.14 new features
+#### **Event Stream Management guards the Clusters that APIs use**
+
+From 4.14.0, only the members of a Cluster bind a Kafka Service or a Message API to it. A Cluster that started APIs use can't be undeployed, deleted, or lose a connection that they use. Starting a Kafka Service and deploying a Virtual Cluster are refused while a Cluster that they use isn't deployed, or doesn't have their connection. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md).
+
+## New features
 
 The 4.14 release adds the following capabilities.
 
 ### Agent Management
 
-Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and alerts to MCP Proxies. The pages of LLM Proxies, MCP Proxies, and A2A Proxies now name the type of proxy instead of the API. The Catalog imports an MCP server that the control plane can't reach, from the list responses you supply.
+Agent Management adds the following in 4.14:
+
+* **LLM Proxies**: the **AWS Lambda** and **Data Cache Policy** policies.
+* **MCP Proxies**: alerts, and HTTP/2 fields, which Catalog MCP servers also gain.
+* **A2A Proxies**: a **CORS** page for calls from web pages on other origins.
+* **All proxy types**: the pages of LLM Proxies, MCP Proxies, and A2A Proxies name the type of proxy instead of the API, and their **Properties** pages encrypt dynamic properties.
+* **MCP Proxies and MCP Studios**: JWT plans gain two settings, for the claims of the token and for the `Authorization` header, and OAuth2 plans can require a subscription.
+* **Catalog**: the Catalog imports an MCP server that the control plane can't reach, from the list responses you supply.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
@@ -35,6 +57,12 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and
 * Alerts require Alert Engine.
 * See [Configure MCP Proxy alerts](../agent-management/build/configure-mcp-proxy-alerts.md).
 
+#### HTTP/2 fields and the API key header of MCP Proxies
+
+* When the **HTTP version** is **HTTP/2**, the **HTTP configuration** section of the **Advanced settings** on the **Endpoint** page of an MCP Proxy shows four new fields: **HTTP/2 multiplexing limit**, **HTTP/2 max frame size (bytes)**, **HTTP/2 connection window size (bytes)**, and **HTTP/2 stream window size (bytes)**. The **Advanced settings** that **Configure** opens for an MCP server of the Catalog show the same fields.
+* When the API key of an MCP Proxy was saved without a header, the **Endpoint** page shows the **Injection location** as **x-api-key header**, the header the gateway sends the key in, and saving a new key keeps it there. Before 4.14, the page showed **Authorization header**, and saving a new key moved the key to the `Authorization` header.
+* See [Configure the MCP Proxy endpoint](../agent-management/build/configure-mcp-proxy-endpoint.md#adjust-the-advanced-settings) and [Configure Upstream Authentication](../agent-management/build/configure-your-mcp/README.md#configure-upstream-authentication).
+
 #### Proxy pages name the proxy instead of the API
 
 * The pages of an LLM Proxy, MCP Proxy, or A2A Proxy now name the type of proxy where they named an API. The out-of-sync banner reads **This LLM proxy is out of sync**, **This MCP proxy is out of sync**, or **This A2A proxy is out of sync**, and its dialog reads **Deploy your LLM proxy**, **Deploy your MCP proxy**, or **Deploy your A2A proxy**. AI workspaces share the banner and read **This AI workspace is out of sync** and **Deploy your AI workspace**.
@@ -50,9 +78,83 @@ Agent Management adds the AWS Lambda and Data Cache policies to LLM Proxies, and
 * The module's REST API validates list responses, imports a catalog entry, and exports one. An exported entry imports into another environment.
 * See [Import an MCP server manually](../agent-management/import/import-an-mcp-server-manually.md).
 
+#### JWT plan settings for MCP Proxies and MCP Studios
+
+* The **Advanced settings** of a JWT plan on an MCP Proxy or MCP Studio have two new switches. They appear in the **Secure** step of the MCP Proxy and MCP Studio creation wizards, and in the **Security** step of a plan.
+* **Extract JWT claims** puts the claims of the token on the `jwt.claims` context attribute, for the policies that follow. It's off by default.
+* **Propagate Authorization header** keeps the `Authorization` header on the request after the gateway validates the token. A new plan starts with it off.
+* See [Configure a JWT plan](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md#configure-a-jwt-plan).
+
+#### Require a subscription on OAuth2 plans of MCP Proxies and MCP Studios
+
+* OAuth2 plans of MCP Proxies and MCP Studios have a new **Require a subscription** switch, off by default. With it on, the gateway accepts a token only when its client ID belongs to an application subscribed to the plan. With it off, the plan accepts a valid token without a subscription, as before 4.14.
+* The switch is in the **Subscriptions** card of the plan's **Security** step, and in the **Secure** step of the MCP Proxy and MCP Studio wizards for **Gravitee as Authorization Server** and **External Authorization Server**. Turning it on for a published or deprecated plan asks for confirmation. The plan list shows a **Subscription required** badge on a plan that has it on.
+* See [Require a subscription](../agent-management/build/configure-your-mcp/manage-mcp-proxy-plans.md#require-a-subscription).
+
+#### Encryption of dynamic properties for LLM, MCP, and A2A Proxies
+
+* On the **Properties** page of an LLM Proxy, MCP Proxy, or A2A Proxy, the actions menu of a dynamic property now offers **Encrypt value**, while the property is unencrypted, and **Remove (re-added on next sync)**. It no longer offers **Edit**.
+* An encrypted dynamic property carries the `Encrypted` and `Dynamic` badges, and a sync keeps it encrypted. A dynamic property that you remove comes back at the next sync, unencrypted unless **Encrypt on fetch** is on.
+* The **Dynamic properties** page has a new **Encrypt on fetch** switch, off by default, which stores every synced value encrypted.
+* An import now skips a key that matches a dynamic property, and lists it under **Skipped (synced by the dynamic provider):**.
+* When the proxy is managed by the Kubernetes operator, the **Properties** page is now read-only.
+* See [Encrypt or remove a dynamic property](../agent-management/build/configure-properties-for-your-proxies.md#encrypt-or-remove-a-dynamic-property).
+
+#### CORS for A2A Proxies
+
+* A new **CORS** page in the **Design** group of an A2A Proxy lets web pages served from other origins call the agent directly from the browser.
+* The page sets the allowed origins, methods, and headers, the exposed headers, credentials, private network access, and the preflight cache duration, and whether policies run on preflight requests. On a new A2A Proxy, CORS is off until you enable it.
+* The **Request validation** card of the page has a **Reject null byte** switch. It applies to every request to the proxy, whether or not CORS is enabled, and an A2A Proxy that you create starts with it on.
+* On the **CORS** pages of LLM Proxies, MCP Proxies, and A2A Proxies, the page now checks an origin when you add it. A save that changes the CORS settings while CORS is enabled is now refused when it has no allowed origin, no allowed method, a method other than `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `HEAD`, `OPTIONS`, `TRACE`, `CONNECT`, or `*`, or **Access-Control-Allow-Credentials** on while `*` is an allowed origin.
+* See [Configure A2A Proxy CORS](../agent-management/build/configure-a2a-proxy-cors.md).
+
+### API Management
+
+API Management adds the following in 4.14:
+
+* **API proxies**: encryption of dynamic properties.
+* **API Products**: their own flows, designed in a Policy Studio, and a banner that deploys them.
+
+#### Flows on API Products
+
+* The sidebar of an API Product has a **Policy Studio** item in its **Consumers** group. Its **Plan Flows** apply to the requests of one of the product's plans, and its **Common Flows** to the requests of any of them, in the **Request Phase** and the **Response Phase**.
+* The flows of an API Product run on every API of the product, only for the requests that come through one of its plans. The flows of the product's plan run first, then the product's common flows, then the API's common flows.
+* A rate limit or quota in a flow of an API Product counts the requests of a subscription to every API of the product together.
+* An API Product has its own **Mode** and **Match required** settings for its flows. With **Match required** on, a request that comes through one of its plans and matches none of its flows gets a `404` response.
+* Saving the flows doesn't deploy them. When an API Product is **Out of sync**, its pages show a banner with a **Deploy API Product** button.
+* On every deployment of an API Product, the Gateway also checks the license of the policies in its flows. A Gateway that refuses a version keeps serving the version it already had, while the API Product shows **Synced**.
+* A Gateway earlier than 4.14 runs the plan flows of an API Product but not its common flows, and ignores its **Mode** and **Match required** settings.
+* See [Design API Product flows](../api-management/build/configure-your-api-product/design-api-product-flows.md).
+
+#### Encryption of dynamic API properties
+
+* On the **API Properties** page of an API proxy, a dynamic property now has an actions menu. It offers **Encrypt value**, while the property is unencrypted, and **Remove (re-added on next sync)**.
+* An encrypted dynamic property carries the **Encrypted** and **Dynamic** badges, and a sync keeps it encrypted. A dynamic property that you remove comes back at the next sync, unencrypted unless **Encrypt on fetch** is on.
+* The **Dynamic properties** screen has a new **Encrypt on fetch** switch, off by default, which encrypts every fetched value before it's stored.
+* The **Dynamic properties** screen now saves the settings of an HTTP Proxy or TCP Proxy API in the form that the sync reads. Before 4.14, the sync didn't apply the schedule, the JOLT specification, or the HTTP client, proxy, and SSL settings saved from this screen. Settings saved before 4.14 keep the earlier form until you save them again from this screen. To apply them, change a field on the screen, click **Save changes**, and then deploy the API.
+* When the API proxy is managed by the Kubernetes operator, the **API Properties** page is now read-only.
+* See [Configure API properties](../api-management/build/configure-your-api-proxy/configure-api-properties.md#manage-existing-properties).
+
+### Authorization Management
+
+Authorization Management adds the following in 4.14:
+
+* **As code**: PDP gateways, schema documents, entities, and policies are managed through the Automation API, as Kubernetes resources, and with Terraform.
+
+#### PDP gateways, schema documents, entities, and policies as code
+
+* The Automation API creates or updates a PDP gateway, a schema document, an entity, or a policy from a specification, and reads or deletes it. A dry run validates a specification and reports its findings without saving anything.
+* The Gravitee Kubernetes Operator declares them with `AuthzPdp`, `AuthzSchema`, `AuthzEntity`, and `AuthzPolicy` resources.
+* The Gravitee Terraform provider declares them with `apim_authz_pdp`, `apim_authz_schema`, `apim_authz_entity`, and `apim_authz_policy` resources.
+* See [Custom Resource Definitions](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/overview/custom-resource-definitions) and [Gravitee Resources](https://documentation.gravitee.io/apim/terraform/example-resource-configurations).
+
 ### Edge Management
 
-Edge Management decides how the Edge Daemons identify themselves to the Edge Reactor: keyless, mTLS with the certificates of your fleet, or both. The routes of an intercepted agent take an OAuth2 plan of their target API, so that each developer signs in with your identity provider.
+Edge Management adds the following in 4.14:
+
+* **Daemon authentication**: Edge Daemons identify themselves to the Edge Reactor keyless, with mTLS and the certificates of your fleet, or both.
+* **OAuth2 plans**: the routes of an intercepted agent take an OAuth2 plan of their target API, so that each developer signs in with your identity provider.
+* **Gateway addresses**: the guided setup fills in the gateway addresses that your installation proposes, the addresses stay editable after the setup, and one gateway serves the Edge Management configuration of several environments.
 
 #### Daemon authentication
 
@@ -71,14 +173,43 @@ Edge Management decides how the Edge Daemons identify themselves to the Edge Rea
 * A target API created from the picker sends the agent's own key to the AI provider through the API key authentication of its endpoint.
 * See [Secure a route with an OAuth2 plan](../edge-management/connect/configure-edge-management.md#secure-a-route-with-an-oauth2-plan).
 
+#### Gateway addresses
+
+* The guided setup fills in the **Gateway URL** and the **Reactor URL** with the addresses that your installation proposes, when it proposes them.
+* The **Gateway** page now saves a change to either address with **Save & Deploy**. A change only applies to the daemons installed after it, and a warning under the changed field says so. Daemons already installed keep the addresses they were installed with.
+* When the installation proposes an address other than the one in the field, the **Gateway** page shows it under the field, with where it comes from.
+* The **Reactor URL** that the installation proposes is the address that you set for the environment, or else the address that you set for every environment, which the Helm chart takes from its Edge ingress. See [Propose the Reactor URL to Edge Management](../edge-management/connect/configure-edge-ingress.md#propose-the-reactor-url-to-edge-management).
+* The Kandji script of the **Daemon deployment** page passes the ID of the environment, so that each daemon gets the configuration of its own environment.
+* See [Change the gateway addresses](../edge-management/connect/set-up-edge-management.md#change-the-gateway-addresses).
+
 #### Changes to the Edge Reactor
 
 * If the Edge Reactor listener can't start, the gateway doesn't start either, for example when the port of the listener is already in use, or when its keystore or truststore can't be read. Before 4.14, the gateway started without the listener.
 * The setting for the port of the Edge Reactor listener has a new name. The previous name still works, and the gateway logs a warning at startup. See [Rename the port setting](../edge-management/connect/secure-the-edge-reactor-listener.md#rename-the-port-setting).
+* One gateway serves the Edge API of every environment that it deploys, and keeps the configuration of each environment apart. A new gateway setting decides which environment serves the daemons installed without an environment ID. See [Serve several environments from one gateway](../edge-management/connect/secure-the-edge-reactor-listener.md#serve-several-environments-from-one-gateway).
+* The Edge API of each environment carries the `gravitee-edge-configuration` sharding tag. An Edge API deployed before the upgrade to 4.14 carries it only once the Edge configuration of its environment is deployed again, for example when you save a change with **Save & Deploy**. A gateway that deploys only the APIs of some sharding tags deploys the Edge API when `gravitee-edge-configuration` is one of them. See [Deploy the Edge API on gateways with sharding tags](../edge-management/connect/secure-the-edge-reactor-listener.md#deploy-the-edge-api-on-gateways-with-sharding-tags).
 
 ### Event Stream Management
 
-Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtual Cluster bound the metadata requests that the gateway sends to its brokers on its own. It also lets you disable the broker hostname verification of a Kafka connection over SSL.
+Event Stream Management adds the following in 4.14:
+
+* **Backend metadata max age**: a Standalone endpoint group, a Cluster, or a Virtual Cluster bounds the metadata requests that the gateway sends to its brokers on its own.
+* **Kafka connections**: you can disable the broker hostname verification of a Kafka connection over SSL.
+* **Registered Clusters**: Message APIs can use the connections of registered Clusters, and each Cluster lists the APIs that use it.
+* **Dynamic properties**: the **API Properties** page of Kafka Services and Message APIs encrypts dynamic properties.
+
+#### Registered Clusters for Message APIs
+
+* The Kafka endpoint group of a Message API now offers **Registered cluster** next to **Direct**, in the creation wizard and on the **Endpoints** page. The group uses a **Cluster** and a **Default connection**, and each endpoint uses one connection of the Cluster, which holds the bootstrap servers and the security.
+* A connection that Message APIs can't use shows **(not supported)** after its name, with the reason in its tooltip.
+* A Message API follows the changes that you deploy on its Cluster, such as new credentials, without a new deployment of the Message API.
+* The **Used by Kafka Services** page of a Cluster and of a Virtual Cluster is now **APIs**. It lists the Kafka Services and the Message APIs that use the Cluster, started or not, with their type, state, and connection, and a search by name. The **APIs** item of the sidebar shows how many APIs use the Cluster.
+* When you undeploy a Cluster, or save a **Configuration** that removes a connection, the console lists the started APIs that block the change, each with a link.
+* The values of the security settings of a Cluster connection accept a reference to a secret in your secret manager. The Cluster stores only the reference. With the `renewable=true` and `reloadOnChange=true` options, the gateway uses a rotated secret without a new deployment of the Cluster.
+* Cluster connections authenticate with every SASL mechanism that the form offers, including `OAUTHBEARER`, `OAUTHBEARER_TOKEN`, `GSSAPI`, and `AWS_MSK_IAM`, and with JKS, PKCS12, and PEM stores given by path or by content, for Kafka Services, Message APIs, and Virtual Clusters.
+* The requests and connections that go through a Cluster carry the ID of the Cluster and of the connection in their analytics.
+* Only the members of a Cluster bind an API to it, and the Cluster lists of Kafka Services and Message APIs offer those Clusters, plus the Cluster that the API already uses.
+* See [Connect a Kafka group to a registered cluster](../event-stream-management/apis/message-apis/configure-endpoints-and-failover.md#connect-a-kafka-group-to-a-registered-cluster), [Manage clusters](../event-stream-management/kafka-infrastructure/clusters/manage-a-cluster.md#see-which-apis-use-a-cluster), and [Bind APIs to a cluster](../event-stream-management/kafka-infrastructure/clusters/manage-cluster-permissions.md#bind-apis-to-a-cluster).
 
 #### Backend metadata max age
 
@@ -94,9 +225,18 @@ Event Stream Management lets a Standalone endpoint group, a Cluster, or a Virtua
 * **SSL configuration** now includes **Verify Host**, the switch that turns the verification off. Disable it only if you trust the network.
 * See [Configure endpoints and failover](../event-stream-management/apis/message-apis/configure-endpoints-and-failover.md).
 
+#### Encryption of dynamic API properties for Kafka Services and Message APIs
+
+* On the **API Properties** page of a Kafka Service or a Message API, a dynamic property now has an actions menu where it showed **Managed**. It offers **Encrypt value**, while the property is unencrypted, and **Remove (re-added on next sync)**.
+* An encrypted dynamic property shows **Encrypted** next to **Dynamic**, and later polls keep it encrypted. A dynamic property that you remove comes back at the next poll, unencrypted unless **Encrypt on fetch** is on.
+* The **Dynamic properties** form has a new **Encrypt on fetch** switch, off by default, which stores every fetched value encrypted.
+* See Configure API properties for [Kafka Services](../event-stream-management/apis/kafka-services/configure-api-properties.md#change-a-property) and for [Message APIs](../event-stream-management/apis/message-apis/configure-api-properties.md#change-a-property).
+
 ### Platform Management
 
-Platform Management encrypts the sensitive values of environment dictionaries.
+Platform Management adds the following in 4.14:
+
+* **Dictionaries**: encryption of the sensitive values of environment dictionaries.
 
 #### Encrypted dictionary properties
 

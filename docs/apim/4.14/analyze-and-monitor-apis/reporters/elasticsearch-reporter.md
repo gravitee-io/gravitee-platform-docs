@@ -1,5 +1,5 @@
 ---
-description: Send API Management 4.13 Gateway events to Elasticsearch with the Elasticsearch reporter. Find the configuration details you need.
+description: Send API Management 4.14 Gateway events to Elasticsearch with the Elasticsearch reporter. Find the configuration details you need.
 metaLinks:
   alternates:
     - elasticsearch-reporter.md
@@ -23,12 +23,368 @@ To diagnose and resolve the state:
 
 To stop the warnings while you investigate, set `reporters.elasticsearch.enabled` to `false` in the Gateway `gravitee.yml` file. This setting disables all analytics reporting to Elasticsearch until you re-enable it and restart the Gateway.
 
+## Cluster flavor and startup checks
+
+From APIM 4.14, the reporter reads the flavor of the cluster at startup: a classic Elasticsearch or OpenSearch cluster, or Elastic Cloud Serverless. By default, `reporters.elasticsearch.flavor` is `auto` and the reporter detects the flavor from the cluster. Set it to `classic` or `serverless` to skip the detection. For more information, see [Elastic Cloud Serverless](../../prepare-a-production-environment/repositories/elasticsearch.md#elastic-cloud-serverless).
+
+When it starts, the reporter writes one `INFO` line that summarizes its configuration:
+
+```
+Elasticsearch reporter: flavor [classic] (detected), authentication [api_key], index mode [daily], disabled by the flavor [none]
+```
+
+* `flavor`: `classic` or `serverless`, followed by `detected` or `configured`.
+* `authentication`: `api_key`, `basic`, or `none`.
+* `index mode`: the index mode the reporter applies.
+* `disabled by the flavor`: the settings the flavor ignores. On Elastic Cloud Serverless, these are the index settings (`number_of_shards`, `number_of_replicas`, `refresh_interval`) and the lifecycle policies.
+
+On Elastic Cloud Serverless, the line ends with the retention of each lifecycle key:
+
+```text
+Elasticsearch reporter: flavor [serverless] (detected), authentication [api_key], index mode [data_stream], disabled by the flavor [index settings (number_of_shards, number_of_replicas, refresh_interval), lifecycle policies], retention [request=45d, log=7d, monitor=45d, health=45d, event_metrics=45d, decisions=45d]
+```
+
+The reporter stays inactive, and logs an `ERROR` line that names the setting at fault, in the following cases:
+
+| Case | Error |
+| ---- | ----- |
+| `reporters.elasticsearch.flavor` has a value other than `auto`, `classic`, or `serverless` | `Unknown value [<value>] for 'reporters.elasticsearch.flavor': expected one of auto, classic, serverless.` |
+| A `reporters.elasticsearch.bulk.*` setting is out of range: `max_concurrent_send` or `max_memory_size` below 1, `retry.max_retries`, `retry.initial_delay`, or `retry.max_delay` below 0, or `retry.max_delay` below `retry.initial_delay` | The message names the setting and its value |
+| `reporters.elasticsearch.index_mode` is `data_stream` on an Elasticsearch cluster earlier than 7.9 | `data_stream` needs Elasticsearch 7.9 or later |
+| A `reporters.elasticsearch.lifecycle.retention.*` setting is set with `index_mode: data_stream` on an Elasticsearch cluster earlier than 8.14 | The retention needs the data stream lifecycle of Elasticsearch 8.14 or later |
+| With `index_mode: data_stream`, a type has both a `reporters.elasticsearch.lifecycle.policies.*` and a `reporters.elasticsearch.lifecycle.retention.*` setting | The data streams of the type take either the ILM policy or the retention |
+| A `reporters.elasticsearch.lifecycle.policies.*` or `reporters.elasticsearch.lifecycle.retention.*` setting is set with `index_mode: data_stream` on OpenSearch | OpenSearch doesn't apply the setting to data streams |
+| `reporters.elasticsearch.index_mode` is `data_stream` and an alias named `<index>-<type>` exists, as the `ilm` index mode leaves | Elasticsearch would write the documents to the indices of the alias instead of the data stream |
+| `reporters.elasticsearch.index_mode` is `daily` or `ilm` on Elastic Cloud Serverless | Elastic Cloud Serverless manages indices itself |
+| A `reporters.elasticsearch.lifecycle.policies.*` setting is set on Elastic Cloud Serverless | Elastic Cloud Serverless manages data retention itself |
+| A `reporters.elasticsearch.lifecycle.retention.*` setting on Elastic Cloud Serverless isn't a positive Elasticsearch time value, for example `45d` or `12h` | `'<setting>' is set to '<value>', which is not a positive duration Elasticsearch accepts` |
+
+For the data stream cases, see [Write analytics to data streams](#write-analytics-to-data-streams). For the alias case, see [Migrate the Elasticsearch Reporter to Data Streams](migrate-the-elasticsearch-reporter-to-data-streams.md#migrate-from-the-ilm-index-mode). For Elastic Cloud Serverless, see [Write analytics to Elastic Cloud Serverless](#write-analytics-to-elastic-cloud-serverless).
+
+When the reporter is inactive, the Gateway serves API traffic but doesn't report analytics to Elasticsearch.
+
+## Write analytics to data streams
+
+From APIM 4.14, the reporter can write analytics to data streams instead of dated or ILM-managed indices, on Elasticsearch 7.9 or later, including Elasticsearch 8 and 9, and on OpenSearch. `daily` stays the default index mode.
+
+The reporter writes each type of analytics to one data stream named `<index>-<type>`, for example `gravitee-request` or `gravitee-v4-log`. At startup, it registers one index template per data stream, with the same mappings as the templates of the other index modes. The data streams have no date suffix and no rollover alias.
+
+{% hint style="info" %}
+This section describes a new installation. To move an installation that already writes dated or ILM-managed indices, see [Migrate the Elasticsearch Reporter to Data Streams](migrate-the-elasticsearch-reporter-to-data-streams.md).
+{% endhint %}
+
+### Configure a new installation
+
+1.  In the `gravitee.yml` file of every Gateway, set `reporters.elasticsearch.index_mode` to `data_stream`:
+
+    ```yaml
+    reporters:
+      elasticsearch:
+        index: gravitee
+        index_mode: data_stream
+    ```
+2.  In the `gravitee.yml` file of the Management API, set `analytics.elasticsearch.index_mode` to `data_stream`, with the same `index`. For more information, see [Read Analytics from Data Streams](../../prepare-a-production-environment/repositories/elasticsearch-data-streams.md#configure-the-management-api). With Helm, `es.index_mode` sets both. For more information, see [Configure data streams with Helm](#configure-data-streams-with-helm).
+3.  Set the lifecycle of each type with a lifecycle policy or a retention, as described in [Set the lifecycle of the data streams](#set-the-lifecycle-of-the-data-streams). On OpenSearch, create the ISM policies with an `ism_template` instead, as described in [Data streams on OpenSearch](#data-streams-on-opensearch).
+
+### Set the lifecycle of the data streams
+
+The reporter attaches no lifecycle to the data streams by default, so their documents are never deleted. Set the lifecycle per type with the following keys:
+
+| Key | Default data streams |
+| --- | -------------------- |
+| `request` | `gravitee-request`, `gravitee-v4-metrics`, `gravitee-v4-message-metrics` |
+| `log` | `gravitee-log`, `gravitee-v4-log`, `gravitee-v4-message-log` |
+| `monitor` | `gravitee-monitor` |
+| `health` | `gravitee-health` |
+| `event_metrics` | `gravitee-event-metrics` |
+| `decisions` | `gravitee-decisions` |
+
+For each key, set one of the following settings, but not both:
+
+* `reporters.elasticsearch.lifecycle.policies.<key>`. This setting holds the name of an index lifecycle management (ILM) policy that you created in Elasticsearch. The reporter attaches it to the index templates of the data streams, through the index setting set in `reporters.elasticsearch.lifecycle.policy_property_name`.
+* `reporters.elasticsearch.lifecycle.retention.<key>`. This setting holds the retention of the data stream lifecycle, as an Elasticsearch time value, for example `7d` or `12h`. The reporter writes it to the `data_retention` of the index templates. It requires Elasticsearch 8.14 or later.
+
+On a classic cluster, none of these keys has a default value. On Elastic Cloud Serverless, the retention defaults to `45d`. For more information, see [Set the retention on Elastic Cloud Serverless](#set-the-retention-on-elastic-cloud-serverless). The reporter reads the `lifecycle.retention` settings only with `index_mode: data_stream`. With `daily` or `ilm`, it ignores them without a warning.
+
+The following example deletes the requests and logs through ILM policies, and sets a retention on the other types:
+
+```yaml
+reporters:
+  elasticsearch:
+    index_mode: data_stream
+    lifecycle:
+      policies:
+        request: hot_delete_request
+        log: hot_delete_log
+      retention:
+        monitor: 7d
+        health: 3d
+        event_metrics: 30d
+        decisions: 30d
+```
+
+At startup, the reporter applies the following checks to the lifecycle settings:
+
+* When a key has both a policy and a retention, the reporter stops at startup, on every Elasticsearch version. Keep either the policy or the retention.
+* On an Elasticsearch cluster earlier than 8.14, a `lifecycle.retention` setting stops the reporter. Use a lifecycle policy instead.
+* When a key has neither a policy nor a retention, the reporter logs a warning that names the data streams whose documents are never deleted.
+
+The reporter sets the lifecycle in the index templates only, so a change doesn't reach the existing data streams at once. The following rules apply:
+
+* A new lifecycle policy applies to the backing indices created after the change, from the next rollover. A data stream without a lifecycle doesn't roll over by itself. Roll it over with the `POST <name>/_rollover` API of Elasticsearch.
+* A new retention applies to the data streams created after the change. To change the retention of an existing data stream, update its lifecycle with the `PUT _data_stream/<name>/_lifecycle` API of Elasticsearch.
+
+### Data streams on OpenSearch
+
+On OpenSearch, Index State Management (ISM) doesn't apply a policy referenced in the index settings of a data stream, and OpenSearch has no data stream retention. With `index_mode: data_stream`, leave the `lifecycle.policies` and `lifecycle.retention` settings unset. The reporter stops at startup when one of them is set. At each startup, the reporter logs a warning that it attaches no lifecycle to the data streams.
+
+To delete the documents, create the ISM policy with an `ism_template` whose `index_patterns` match the data streams, before the data streams are created. The following example deletes the request analytics after 30 days:
+
+```json
+PUT _plugins/_ism/policies/hot_delete_request
+{
+  "policy": {
+    "description": "Delete the request analytics after 30 days",
+    "default_state": "hot",
+    "states": [
+      { "name": "hot", "actions": [], "transitions": [ { "state_name": "delete", "conditions": { "min_index_age": "30d" } } ] },
+      { "name": "delete", "actions": [ { "delete": {} } ], "transitions": [] }
+    ],
+    "ism_template": [ { "index_patterns": [ "gravitee-request", "gravitee-v4-metrics", "gravitee-v4-message-metrics" ], "priority": 100 } ]
+  }
+}
+```
+
+### Configure data streams with Helm
+
+With the Helm chart, set the following values:
+
+* `es.index_mode`. Set this value to `data_stream`. The chart renders this value for both the Gateway reporter and the Management API, unless `api.analytics.elasticsearch.index_mode` sets another mode for the Management API.
+* `es.lifecycle.enabled` and `es.lifecycle.policies.<key>`. These values set the lifecycle policies, with the keys `monitor`, `request`, `health`, `log`, `eventMetrics`, and `decisions`. Leave them unset on OpenSearch.
+* `es.lifecycle.retention.<key>`. These values set the retention, with the same keys. The chart renders these keys whatever the value of `es.lifecycle.enabled`, only the keys that you set, and none is set by default. Leave them unset on OpenSearch.
+
+```yaml
+es:
+  index_mode: data_stream
+  lifecycle:
+    retention:
+      request: 30d
+      log: 7d
+      monitor: 7d
+      health: 3d
+      eventMetrics: 30d
+      decisions: 30d
+```
+
+{% hint style="warning" %}
+When `es.lifecycle.enabled` is `true`, for example in values kept from APIM 4.13, the chart renders the six `lifecycle.policies` keys. `monitor`, `request`, `health`, and `log` default to `my_policy`. A type with both a policy and a retention stops the reporter at startup, so with `es.lifecycle.retention` set for one of these keys, the reporter stays inactive.
+
+To use `es.lifecycle.retention`, set `es.lifecycle.enabled` to `false`, or set to `""` the policy of each type that has a retention.
+{% endhint %}
+
+## Write analytics to Elastic Cloud Serverless
+
+From APIM 4.14, the reporter writes analytics directly to an Elastic Cloud Serverless project, without Logstash or another writer. On Elastic Cloud Serverless, the index mode is `data_stream`: the reporter writes each type of analytics to the data stream named `<index>-<type>`, for example `gravitee-v4-metrics`, with the `create` action. The `daily` and `ilm` index modes stop the reporter at startup. For the data stream names, see [Data stream names](../../prepare-a-production-environment/repositories/elasticsearch-data-streams.md#data-stream-names).
+
+{% hint style="warning" %}
+The reporter writes analytics on a best-effort basis, and some documents can be lost. If you need every document, for example for an audit trail, see [Documents dropped by the reporter](#documents-dropped-by-the-reporter) before you write directly to Elastic Cloud Serverless.
+{% endhint %}
+
+### Configure the reporter for Elastic Cloud Serverless
+
+1.  Create an API key for the Gateway with the following privileges:
+
+    * The cluster privilege `manage_index_templates`.
+    * On the `gravitee-*` indices, or on the `<index>-*` indices if you change `reporters.elasticsearch.index`: the index privilege `manage_data_stream_lifecycle` and the privileges to write documents, for example `create_doc` and `auto_configure`.
+    * Optional: the cluster privilege `manage_ingest_pipelines`. Without it, the reporter can't register the ingest pipeline, so it logs one `WARN` line and writes the documents without the pipeline.
+
+    The following example creates the API key:
+
+    ```json
+    POST /_security/api_key
+    {
+      "name": "gravitee-gateway",
+      "role_descriptors": {
+        "gravitee-gateway": {
+          "cluster": ["manage_index_templates", "manage_ingest_pipelines"],
+          "indices": [
+            {
+              "names": ["gravitee-*"],
+              "privileges": ["create_doc", "auto_configure", "manage_data_stream_lifecycle"]
+            }
+          ]
+        }
+      }
+    }
+    ```
+2.  In the `gravitee.yml` file of every Gateway, set the endpoint of the project and the encoded API key. Leave `reporters.elasticsearch.index_mode` unset, or set it to `data_stream`:
+
+    ```yaml
+    reporters:
+      elasticsearch:
+        endpoints:
+          - https://my-project.es.eu-west-1.aws.elastic.cloud:443
+        index: gravitee
+        security:
+          api_key: <encoded API key>
+        lifecycle:
+          retention:
+            log: 7d
+    ```
+3.  Configure the Management API to read the data streams. For more information, see [Read Analytics from Data Streams](../../prepare-a-production-environment/repositories/elasticsearch-data-streams.md#configure-the-management-api).
+
+The `geoip` ingest processor is accepted on Elastic Cloud Serverless, but it has no database there, so the geographic fields of the documents stay empty.
+
+### Set the retention on Elastic Cloud Serverless
+
+On Elastic Cloud Serverless, the reporter sets the retention of each data stream, with the lifecycle keys of [Set the lifecycle of the data streams](#set-the-lifecycle-of-the-data-streams). Set `reporters.elasticsearch.lifecycle.retention.<key>`, where `<key>` is `request`, `log`, `monitor`, `health`, `event_metrics`, or `decisions`. The default is `45d`. A v4 type follows the key of its v2 type, for example `gravitee-v4-log` follows `log`. The reporter writes the retention to the `template.lifecycle.data_retention` of the index template.
+
+Elasticsearch copies the retention of a template to a data stream only when it creates the data stream. At each startup, the reporter compares the retention of each existing data stream with its setting and updates it with the `PUT _data_stream/<name>/_lifecycle` API. The update depends on the following cases:
+
+* A longer retention is applied, and the reporter logs it in an `INFO` line.
+* A shorter retention deletes the documents older than the new retention, so the reporter applies it only when `reporters.elasticsearch.lifecycle.retention.allow_decrease` is `true`. The default is `false`. Otherwise, the data stream keeps its retention, and the reporter logs one `ERROR` line that names the data stream, both retentions, the retention setting, and `allow_decrease`. A data stream without a retention, whose documents are never deleted, counts as a decrease.
+
+The following example shortens the retention of the logs to 7 days:
+
+```yaml
+reporters:
+  elasticsearch:
+    lifecycle:
+      retention:
+        log: 7d
+        allow_decrease: true
+```
+
+{% hint style="warning" %}
+With `allow_decrease: true`, a shorter retention deletes the older documents of the data stream at once. Set it back to `false` once the retention is applied.
+{% endhint %}
+
+With Helm, set the retention of each key in `es.lifecycle.retention.<key>`, with the keys `request`, `log`, `monitor`, `health`, `eventMetrics`, and `decisions`, and set `es.lifecycle.retention.allowDecrease`. The chart renders `allowDecrease` as `lifecycle.retention.allow_decrease`, only when it's set. On Elastic Cloud Serverless, keep `es.lifecycle.enabled` set to `false`: with `true`, the chart renders the lifecycle policies, which stop the reporter at startup.
+
+```yaml
+es:
+  lifecycle:
+    retention:
+      log: 7d
+      allowDecrease: true
+```
+
+### Index templates managed by APIM
+
+On Elastic Cloud Serverless, the reporter registers one index template per data stream, named `<index>-<type>`. Each template carries the following `_meta` fields:
+
+```json
+"_meta": {
+  "managed_by": "gravitee-apim",
+  "apim_version": "4.14.0",
+  "data_retention": "45d"
+}
+```
+
+At each startup, the reporter reads the existing template before it writes its own. The reporter then acts in the following cases:
+
+* When the template was written by the same or an earlier APIM version, the reporter replaces it.
+* When the template was written by a later APIM version, for example during a rolling upgrade, the reporter keeps it, along with the retention of its data stream. It logs this in an `INFO` line.
+* When a template has the name of a managed template but no `managed_by: gravitee-apim`, the reporter changes nothing, logs one `ERROR` line that names the template, and stops its setup without retrying. The Gateway serves API traffic, but the reporter drops the analytics. To resolve it, delete the template or set `reporters.elasticsearch.index` to another prefix, and then restart the Gateway.
+
+### Setup at startup
+
+On Elastic Cloud Serverless, the Gateway doesn't wait for the reporter to configure its index templates, pipeline, and retentions. When the setup fails, the reporter logs a `WARN` line with the cause and retries it after 1 second, and then after a delay that doubles up to 60 seconds. When Elasticsearch answers `403`, the line names the missing privilege. When it answers `401`, the line states that Elasticsearch rejects the credentials.
+
+Until the setup succeeds, the reporter drops the analytics documents. Once per minute, it logs the number of documents dropped in a `WARN` line.
+
+## Bulk settings and dropped documents
+
+The reporter sends the documents to Elasticsearch in bulk requests. From APIM 4.14, the following settings control the bulk requests in flight and their retries. They apply to every cluster flavor and index mode, and their defaults are the values of earlier versions:
+
+| Setting | Default | Description |
+| ------- | ------- | ----------- |
+| `reporters.elasticsearch.bulk.max_concurrent_send` | `100` | The number of bulk requests sent and not yet answered. |
+| `reporters.elasticsearch.bulk.max_memory_size` | `26214400`, or 25 MB | The memory, in bytes, of the bulk requests waiting to be sent. Beyond it, the reporter drops new bulk requests. |
+| `reporters.elasticsearch.bulk.retry.max_retries` | `6` | The number of retries of a bulk request before the reporter drops it. |
+| `reporters.elasticsearch.bulk.retry.initial_delay` | `3000` | The delay, in milliseconds, before the first retry. |
+| `reporters.elasticsearch.bulk.retry.max_delay` | `30000` | The maximum delay, in milliseconds, between two retries. |
+
+```yaml
+reporters:
+  elasticsearch:
+    bulk:
+      max_concurrent_send: 100
+      max_memory_size: 26214400
+      retry:
+        max_retries: 6
+        initial_delay: 3000
+        max_delay: 30000
+```
+
+With Helm, the chart renders each value only when it's set, so the reporter keeps its defaults otherwise. The following table maps each Helm value to its setting:
+
+| Helm value | Setting |
+| ---------- | ------- |
+| `es.bulk.maxConcurrentSend` | `reporters.elasticsearch.bulk.max_concurrent_send` |
+| `es.bulk.maxMemorySize` | `reporters.elasticsearch.bulk.max_memory_size` |
+| `es.bulk.retry.maxRetries` | `reporters.elasticsearch.bulk.retry.max_retries` |
+| `es.bulk.retry.initialDelay` | `reporters.elasticsearch.bulk.retry.initial_delay` |
+| `es.bulk.retry.maxDelay` | `reporters.elasticsearch.bulk.retry.max_delay` |
+
+```yaml
+es:
+  bulk:
+    maxConcurrentSend: 100
+    maxMemorySize: 26214400
+    retry:
+      maxRetries: 6
+      initialDelay: 3000
+      maxDelay: 30000
+```
+
+The reporter stays inactive and logs an `ERROR` line that names the setting when `max_concurrent_send` or `max_memory_size` is below 1 or when a `retry` setting is negative. It does the same when `retry.max_delay` is below `retry.initial_delay`.
+
+When Elasticsearch answers a bulk request, or a document in it, with `429` or a `5xx` status, the reporter retries it with these settings. After the last retry, it drops the documents. Under load, Elastic Cloud Serverless tends to answer more slowly rather than with `429`: in load tests, the 99th percentile of the bulk response time reached about 9 seconds. The requests then stay in flight longer, so `max_concurrent_send` and `max_memory_size` are reached sooner.
+
+### Documents dropped by the reporter
+
+The reporter favors the API traffic over the analytics: it doesn't slow down the Gateway or buffer documents on disk when Elasticsearch can't keep up. It drops documents in the following cases:
+
+* During the setup on Elastic Cloud Serverless, before the setup succeeds.
+* When the bulk requests waiting to be sent exceed `max_memory_size`.
+* When a bulk request still fails after the last retry.
+* When Elasticsearch rejects a document, for example because of a mapping error.
+* When a Gateway stops abruptly, for example on a crash. The documents held in memory, waiting to be sent or in flight, are lost, and the reporter doesn't count them.
+
+The reporter logs the dropped documents and counts them in the `reporter_elasticsearch_dropped_documents` metric. For more information, see [Elasticsearch reporter dropped documents](../logging/expose-metrics-to-prometheus.md#elasticsearch-reporter-dropped-documents).
+
+A dropped document is missing from the analytics. For example, for native Kafka APIs, a dropped event metrics document makes the message and byte volumes lower than the actual traffic.
+
+If you need analytics without loss, for example for an audit trail, don't write directly to Elasticsearch. Use a durable pipeline instead, for example the [TCP reporter](tcp-reporter.md) with Logstash and a persistent queue, or Kafka.
+
+## Authenticate with an API key
+
+From APIM 4.14, the reporter authenticates with an API key when `reporters.elasticsearch.security.api_key` is set. An API key and a username and password are mutually exclusive. When the cluster rejects the credentials with a `401` response, the reporter logs `Elasticsearch authentication failed (401)` and names the settings to check. For more information, see [Authenticate with an API key](../../prepare-a-production-environment/repositories/elasticsearch.md#authenticate-with-an-api-key).
+
+## Message API connections
+
+From APIM 4.14, the Gateway reports a message API connection in two documents in the v4 metrics and v4 log indices:
+
+* When the connection opens, a document with the ID `<request-id>:open` and the field `connection-phase` set to `open`.
+* When the connection ends, a document with the request ID. In the v4 metrics index, it has `connection-phase` set to `end`.
+
+The Management API reads both documents as one connection:
+
+* Counts, for example the number of requests, include a connection from its opening. A connection that's still open is counted.
+* Durations, for example the response time, are read from the end of the connection. A connection that's still open has no duration yet, instead of a duration of 0 ms.
+* The logs list a connection once: by its opening while it's open, and by its end after it ends.
+
+Connections reported before APIM 4.14 have one document only, and the Management API reads them as before. The index templates of APIM 4.14 map `connection-phase` as a `keyword`. For more information, see [APIM 4.14 Elasticsearch Index Template Changes](../../upgrade-guides/apim-4.14-elasticsearch-index-template-changes.md).
+
 ## Attach index lifecycle policies
 
 The reporter attaches no index lifecycle policy by default. To attach policies to the index templates that the reporter creates, configure the following settings in the Gateway `gravitee.yml` file:
 
 * `reporters.elasticsearch.lifecycle.policies.monitor`, `reporters.elasticsearch.lifecycle.policies.health`, `reporters.elasticsearch.lifecycle.policies.request`, and `reporters.elasticsearch.lifecycle.policies.log`: the name of the lifecycle policy to attach to the corresponding index template.
 * `reporters.elasticsearch.lifecycle.policy_property_name`: the index setting through which the policy is referenced. The default is `index.lifecycle.name`, which matches Elasticsearch index lifecycle management. If your cluster manages index lifecycles through a different index setting, set this property to the setting your cluster expects. Refer to your cluster vendor's documentation for the setting name.
+
+With `index_mode: data_stream`, these policies apply to the data streams. For more information, see [Set the lifecycle of the data streams](#set-the-lifecycle-of-the-data-streams).
 
 ## Secure the connection with a client keystore
 

@@ -8,6 +8,24 @@ description: The breaking changes and deprecations in Gamma 4.13 and 4.14 that c
 
 Here are the breaking changes for versions 4.X of Gamma, grouped by module. Gamma runs on API Management, so the changes to the Gateway, the Management API, the Automation API, the Developer Portal, and the Helm chart also apply to Gamma. For those changes, see the API Management [Breaking Changes and Deprecations](https://documentation.gravitee.io/apim/release-information/breaking-changes-and-deprecations) page.
 
+### 4.14.0
+
+#### Event Stream Management
+
+**Only the members of a Cluster bind an API to it**
+
+From 4.14.0, binding a Kafka Service or a Message API to a Cluster, or changing the connection that it uses, is limited to the members of the Cluster, directly or through one of its groups, and to organization administrators. In 4.13, permission to edit a Kafka Service was enough to bind it to a Cluster. A save that binds an API to a Cluster that you're not a member of is refused with a message that names the Cluster, and the Cluster lists of the console offer the Clusters that you're a member of, plus the Cluster that the API already uses. This applies to imports and rollbacks too.
+
+An API keeps the bindings that it already has, whoever edits it. Before you upgrade, add the users and the accounts that bind APIs to Clusters as members of those Clusters. See [Bind APIs to a cluster](../event-stream-management/kafka-infrastructure/clusters/manage-cluster-permissions.md#bind-apis-to-a-cluster).
+
+**A Cluster that started APIs use can't be undeployed, deleted, or lose a connection**
+
+From 4.14.0, undeploying a Cluster, and so deleting it, is refused while a started Kafka Service or Message API uses it, including a Kafka Service that reaches it through a deployed Virtual Cluster. A save or a deployment of the Cluster that removes a connection that such an API uses is refused too. Stopped APIs don't block these actions. In 4.13, a Cluster could be undeployed, then deleted, and lose a connection, while Kafka Services used it. Stop the APIs first. See [Manage clusters](../event-stream-management/kafka-infrastructure/clusters/manage-a-cluster.md#undeploy-a-cluster).
+
+**Starting a Kafka Service or deploying a Virtual Cluster checks its Clusters**
+
+From 4.14.0, starting or deploying a Kafka Service is refused while a Cluster that it uses isn't deployed, or the deployed Cluster doesn't have its connection. For a Kafka Service bound to a Virtual Cluster, the Clusters and connections of the backends are checked too. Deploying a Virtual Cluster is refused while the Cluster of one of its backends isn't deployed, or doesn't have the connection of the backend. Saving a Kafka Service whose endpoint you point at such a Cluster or connection is refused too. In 4.13, only the Virtual Cluster of a Kafka Service was checked. Deploy the Cluster, with every connection that your APIs use, before you start them. See [Manage a Virtual Cluster](../event-stream-management/kafka-infrastructure/virtual-clusters/manage-a-virtual-cluster.md#deploy-and-undeploy).
+
 ### 4.13.0
 
 #### API Management
@@ -109,7 +127,7 @@ To stay on Alpine Linux until then, replace each tag without a suffix with its `
 
 * `JAVA_HOME` isn't set. The JRE is in `/usr/lib/jvm/temurin-25-jre-<arch>`, for example `/usr/lib/jvm/temurin-25-jre-amd64`, instead of `/opt/java/openjdk`.
 * The Java truststore is `/etc/ssl/certs/adoptium/cacerts`. It's regenerated from the system certificates by `update-ca-certificates`.
-* `jattach`, `ps`, `wget`, and fonts aren't installed. `curl` is.
+* `jattach`, `ps`, and `wget` aren't installed. `curl` is.
 * The image is about 40 MB larger to download and about 185 MB larger on disk.
 
 For more information about the image variants, see [Self-host with Docker](https://documentation.gravitee.io/apim/self-hosted-installation-guides/docker#image-variants) in the API Management documentation.

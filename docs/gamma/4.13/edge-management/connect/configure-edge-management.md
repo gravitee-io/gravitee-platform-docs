@@ -6,7 +6,7 @@ description: Set the Gateway URLs, proxy routes, and shadow AI monitoring for Ed
 
 ## Overview
 
-Edge Management is configured from a single **Configuration** page in the Gamma console. The page is split into the following sections: Gateway, Proxy, Shadow AI monitoring, and a Daemon Deployment section used to deploy the daemon to devices. For more information about using Kandji to deploy the Edge Daemon, see [Configure Kandji to deploy the Edge Daemon](configure-kandji-daemon.md).
+Edge Management is configured from a single **Configuration** page in the Gamma console. The page is split into the following sections: Gateway, Proxy, Shadow AI monitoring, and a Daemon Deployment section used to deploy the daemon to devices. For more information about using Iru (formerly Kandji) to deploy the Edge Daemon, see [Configure Iru to deploy the Edge Daemon](configure-kandji-daemon.md).
 
 The first time you open the page, there is no configuration. Configure the fields, and then save to create the configuration. When you save the configuration, the corresponding Edge API is published on the Gateway so the daemon's traffic can be captured.
 
@@ -83,5 +83,5 @@ Saving always deploys the configuration. The DNS domains, routes, and shadow AI 
 
 ## Next steps
 
-* **Deploy the Edge Daemon.** See [Configure Kandji to deploy the Edge Daemon](configure-kandji-daemon.md).
+* **Deploy the Edge Daemon.** See [Configure Iru to deploy the Edge Daemon](configure-kandji-daemon.md).
 * **Connect AI tools.** See [Connect Claude Code to the Edge Daemon](../connect-claude-code-to-daemon.md).

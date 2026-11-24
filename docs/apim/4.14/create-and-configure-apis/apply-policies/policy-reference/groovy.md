@@ -1,5 +1,5 @@
 ---
-description: Run a Groovy script at any stage of request processing through the API Management 4.13 Gateway. Learn how to configure the policy.
+description: Run a Groovy script at any stage of request processing through the API Management 4.14 Gateway. Learn how to configure the policy.
 metaLinks:
   alternates:
     - groovy.md
@@ -39,7 +39,11 @@ See the [Usage](groovy.md#usage) section for object attributes and methods.
 | Variable           | Description                    |
 | ------------------ | ------------------------------ |
 | `request.content`  | When "Read content" is enabled |
+| `request.contentAsByteArray` | In the request phase, when "Read content" is enabled |
+| `request.contentAsBase64` | In the request phase, when "Read content" is enabled |
 | `response.content` | When "Read content" is enabled |
+| `response.contentAsByteArray` | In the response phase, when "Read content" is enabled |
+| `response.contentAsBase64` | In the response phase, when "Read content" is enabled |
 | `message.content`  | Always available               |
 
 ## Usage
@@ -112,6 +116,49 @@ return JsonOutput.toJson(content)
 }
 ```
 
+### Return binary content
+
+In a v4 HTTP proxy API with **Read content** and **Override content** enabled, what replaces the content depends on the value that the script returns:
+
+* A `String` is written as text, as in the previous example.
+* A `byte[]` or a `Buffer` is written as those exact bytes, so an image or any other binary body arrives unchanged. To build a `Buffer`, import `io.gravitee.gateway.api.buffer.Buffer`.
+* Any other value is written as its text form.
+
+The `Content-Type` header isn't changed, so set it in the script when the new body has another type, as the following example does.
+
+In a v2 API, put the script in **On-request content script** or **On-response content script**. The `contentAsByteArray` and `contentAsBase64` properties and a binary return work there only when **Emulate v4 engine** is turned on in the API's [general settings](../../configure-v2-apis/general-settings.md). With it turned off, read `content` and return a `String`.
+
+In the Publish and Subscribe phases of a message API, the returned value is written as its text form, so return a `String` there.
+
+The following response script reads a JSON body whose `body` field holds a base64-encoded image. It sets the response status and the `Content-Type` header from that JSON, and returns the decoded bytes.
+
+**Input body content**
+
+```json
+{
+  "statusCode": 201,
+  "headers": { "Content-Type": "image/png" },
+  "body": "<base64-encoded PNG image>"
+}
+```
+
+**Groovy script**
+
+_Enable **Read content** and **Override content** for this script. In a v2 API, put it in **On-response content script**._
+
+```groovy
+import groovy.json.JsonSlurper
+
+def envelope = new JsonSlurper().parseText(response.content)
+response.status(envelope.statusCode)
+response.headers.'Content-Type' = envelope.headers.'Content-Type'
+return envelope.body.decodeBase64()
+```
+
+**Output**
+
+The API consumer receives the decoded PNG image, with the status `201` and the `Content-Type` header `image/png`.
+
 ## Bound objects properties and methods
 
 ### Request
@@ -121,6 +168,8 @@ return JsonOutput.toJson(content)
 | Property           | Type                         | Mutable | Description                                                                                                                                                                |
 | ------------------ | ---------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `content`          | `String`                     |         | Body of the request.                                                                                                                                                       |
+| `contentAsByteArray` | `byte[]` |  | Request body bytes. |
+| `contentAsBase64` | `String` |  | Request body bytes as a basic base64 string. |
 | `transactionId`    | `String`                     |         | Unique identifier for the transaction.                                                                                                                                     |
 | `clientIdentifier` | `String`                     |         | Identifies the client that made the request.                                                                                                                               |
 | `uri`              | `String`                     |         | The complete request URI.                                                                                                                                                  |
@@ -146,7 +195,9 @@ return JsonOutput.toJson(content)
 | Property  | Type                  | Mutable | Description                                                                                                        |
 | --------- | --------------------- | ------- | ------------------------------------------------------------------------------------------------------------------ |
 | `content` | `String`              |         | Body of the response.                                                                                              |
-| `status`  | `int`                 |         | Response status code.                                                                                              |
+| `contentAsByteArray` | `byte[]` |  | Response body bytes. |
+| `contentAsBase64` | `String` |  | Response body bytes as a basic base64 string. |
+| `status`  | `int`                 |         | Response status code. Set it with `response.status(int)`.                                                          |
 | `reason`  | `String`              |         | Reason for the status.                                                                                             |
 | `headers` | `Map<String, String>` | ✅       | HTTP headers wrapped in a bindable object. For methods, refer to [Headers methods](groovy.md#headers-methods). |
 
@@ -321,11 +372,15 @@ Exercise care when using classes or methods. In some cases, giving access to all
 
 | <p>Name<br><code>json name</code></p>                   | <p>Type<br><code>constraint</code></p> | Mandatory | Default | Description                                                                                       |
 | ------------------------------------------------------- | -------------------------------------- | :-------: | ------- | ------------------------------------------------------------------------------------------------- |
-| <p>Override content<br><code>overrideContent</code></p> | boolean                                |           | `false` | Enable to override the content of the request or response with the value returned by your script. |
+| <p>Override content<br><code>overrideContent</code></p> | boolean                                |           | `false` | Enable to override the content of the request or response with the value returned by your script. For HTTP proxy APIs, a `byte[]` or a `Buffer` returned by the script is written as bytes. |
 | <p>Read content<br><code>readContent</code></p>         | boolean                                |           | `false` | Enable if your script needs to access the content of the HTTP request or response in your script. |
 | <p>Script<br><code>script</code></p>                    | string                                 |           |         | Groovy script to evaluate.                                                                        |
 
 When a script accesses the request or response content while **Read content** is disabled, the script fails. The API consumer receives status `500` with the body `Internal Server Error` and the error key `GROOVY_EXECUTION_FAILURE`, and the Gateway log records `An error occurred while executing Groovy script` with the reason `Accessing request content must be enabled in the policy configuration`, or the response equivalent. The same `500` behavior applies when a script calls a method that isn't on the allowlist: the Gateway log records a security error with the reason `Failed to resolve method` and the method signature.
+
+{% hint style="info" %}
+In v2 APIs and in the **Platform flows** on the organization's **Policies** page, the policy has no **Read content** option. To read the request body there, put the script in **On-request content script**. To read the response body, put it in **On-response content script**. The value that a content script returns replaces the body, so a script that only reads the body ends with `return request.content`, or with `return response.content` in **On-response content script**.
+{% endhint %}
 
 ## Examples
 

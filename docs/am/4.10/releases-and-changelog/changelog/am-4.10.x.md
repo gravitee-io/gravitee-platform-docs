@@ -6,6 +6,86 @@ description: >-
 
 # AM 4.10.x
 
+## Gravitee Access Management 4.10.31 - November 23, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+**Other**
+
+* Security fixes
+
+
+
+
+
+</details>
+
+
+## Gravitee Access Management 4.10.30 - November 20, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Security fixes
+* Recovery Code factor's selection rule is never evaluated [#12063](https://github.com/gravitee-io/issues/issues/12063)
+* SCIM Audit's Actor field missing [#12065](https://github.com/gravitee-io/issues/issues/12065)
+
+</details>
+
+
+## Gravitee Access Management 4.10.29 - November 16, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+
+
+</details>
+
+
+## Gravitee Access Management 4.10.28 - November 16, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* [Gateway] Race condition in KryoSecureSecretsCache: concurrent reads of the same cached secret fail, domain left without certificate (empty JWKS / 503) [#11992](https://github.com/gravitee-io/issues/issues/11992)
+* [AM Gateway] Support X-Forwarded-* headers for virtual host routing behind a proxy [#12006](https://github.com/gravitee-io/issues/issues/12006)
+* Wildcard search does not escape special characters (Mongo and JDBC) [#12007](https://github.com/gravitee-io/issues/issues/12007)
+* Loading all domain scopes exhausts the JDBC pool [#12010](https://github.com/gravitee-io/issues/issues/12010)
+
+</details>
+
+
 ## Gravitee Access Management 4.10.27 - October 29, 2026
 
 <details>

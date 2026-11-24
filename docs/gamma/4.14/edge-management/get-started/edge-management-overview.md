@@ -69,6 +69,8 @@ The daemon connects to two endpoints on the gateway side. Both must be reachable
 
 The Edge Reactor listener is separate from the gateway's main HTTP port, so it must be exposed explicitly. On Kubernetes, see [Configure Edge Ingress](../connect/configure-edge-ingress.md).
 
+One gateway serves the Edge Management configuration of several environments, and keeps each environment's configuration apart. See [Serve several environments from one gateway](../connect/secure-the-edge-reactor-listener.md#serve-several-environments-from-one-gateway).
+
 ## Compatibility
 
 The Edge Daemon is available for macOS only, on Apple Silicon and Intel. It supports interception for Claude Code through the Anthropic API.
@@ -76,5 +78,5 @@ The Edge Daemon is available for macOS only, on Apple Silicon and Intel. It supp
 ## Next steps
 
 * **Set up the environment.** Create the configuration through the guided setup. See [Set up Edge Management](../connect/set-up-edge-management.md).
-* **Deploy the Edge Daemon.** Distribute the daemon to your device fleet with Kandji. See [Configure Kandji to deploy the Edge Daemon](../connect/configure-kandji-daemon.md).
+* **Deploy the Edge Daemon.** Distribute the daemon to your device fleet with Iru (formerly Kandji). See [Configure Iru to deploy the Edge Daemon](../connect/configure-kandji-daemon.md).
 * **Connect Claude Code.** Check what, if anything, you have to do on the device. See [Connect Claude Code to the Edge Daemon](../connect-claude-code-to-daemon.md).

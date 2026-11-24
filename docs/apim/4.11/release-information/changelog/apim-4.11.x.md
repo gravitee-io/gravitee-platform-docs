@@ -1,5 +1,79 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.35 - November 20, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Archiving an application doesn’t release its API keys, so their values can never be reused [#12046](https://github.com/gravitee-io/issues/issues/12046)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.11.34 - November 19, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Portal**
+
+* Classic Portal hides the client registration provider's error when it refuses an application's registration [#12072](https://github.com/gravitee-io/issues/issues/12072)
+
+**Other**
+
+* Elasticsearch reporter silently loses documents that Elasticsearch rejects or cannot receive: no retry, no log, no dropped count [#12078](https://github.com/gravitee-io/issues/issues/12078)
+* GitHub fetcher imports files larger than 1 MB as empty content [#12083](https://github.com/gravitee-io/issues/issues/12083)
+* API “Sharding tags” page lists tags the user is not allowed to use (Classic console and Gamma) [#12085](https://github.com/gravitee-io/issues/issues/12085)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.11.33 - November 13, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Portal**
+
+* Classic portal pages show "Page not found" on refresh or direct link when New Developer Portal is the default [#11854](https://github.com/gravitee-io/issues/issues/11854)
+* Portal does not show an error when an application update uses a client ID that already exists [#11935](https://github.com/gravitee-io/issues/issues/11935)
+* New Developer Portal: internal documentation links (absolute paths) return a 404 [#12003](https://github.com/gravitee-io/issues/issues/12003)
+
+**Event Stream Management**
+
+* Kafka OAUTHBEARER re-authentication never triggered by the Kafka client with OAuth2 plan [#12025](https://github.com/gravitee-io/issues/issues/12025)
+
+**Other**
+
+* 404 response body is truncated when http.errors\[404].message contains non-ASCII characters [#11764](https://github.com/gravitee-io/issues/issues/11764)
+* Renaming an application deletes subscription metadata [#11949](https://github.com/gravitee-io/issues/issues/11949)
+* Webhook entrypoint: a failed publish to the Dead Letter Queue is swallowed without an error log [#12012](https://github.com/gravitee-io/issues/issues/12012)
+* Alert editor stays 960px wide and clips the threshold-range row on large screens [#12020](https://github.com/gravitee-io/issues/issues/12020)
+* V4 health check: POST body not sent to the backend [#12023](https://github.com/gravitee-io/issues/issues/12023)
+* Azure Speech Service Websocket call fails with sec-websocket-protocol=USP header [#12027](https://github.com/gravitee-io/issues/issues/12027)
+* \[APIM]\[Documentation] Cannot create root-level pages for v4 APIs (incl. homepage) – “Page parent not found” [#12029](https://github.com/gravitee-io/issues/issues/12029)
+* Elasticsearch reporter drops every document, with a NullPointerException per document, when the ingest pipeline or an index template cannot be created at startup [#12037](https://github.com/gravitee-io/issues/issues/12037)
+* OAS Validation (OAS 3.1) rejects query parameters declared via $ref as “Unexpected query parameters” [#12038](https://github.com/gravitee-io/issues/issues/12038)
+* Upgraders issues when deploying APIM with documentdb
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* "Server unreachable" shown for Console log searches that succeed server-side (hardcoded 30s client timeout) [#11997](https://github.com/gravitee-io/issues/issues/11997)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.32 - November 2, 2026
 <details>
 

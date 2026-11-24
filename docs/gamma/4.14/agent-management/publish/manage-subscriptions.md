@@ -6,7 +6,7 @@ description: Consumers subscribe to the published plans of a Gamma LLM, MCP, or 
 
 # Manage subscriptions
 
-Consumers access your LLM Proxies, MCP Proxies, and A2A Proxies by subscribing to the published plans of the proxy. On an MCP Proxy, Keyless and OAuth2 plans, and JWT plans that list an authorization server, don't need a subscription. See [Manage MCP Proxy plans](../build/configure-your-mcp/manage-mcp-proxy-plans.md). Each proxy detail view includes a **Consumers** page that lists the subscriptions of the proxy, creates new ones, and manages each one through its lifecycle.
+Consumers access your LLM Proxies, MCP Proxies, and A2A Proxies by subscribing to the published plans of the proxy. On an MCP Proxy, Keyless plans, OAuth2 plans with **Require a subscription** off, and JWT plans that list an authorization server don't need a subscription. See [Manage MCP Proxy plans](../build/configure-your-mcp/manage-mcp-proxy-plans.md). Each proxy detail view includes a **Consumers** page that lists the subscriptions of the proxy, creates new ones, and manages each one through its lifecycle.
 
 ## Open the Consumers page
 

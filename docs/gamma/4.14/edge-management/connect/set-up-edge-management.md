@@ -35,10 +35,9 @@ To set up Edge Management, complete the following steps:
 
 1. Open **Edge Management**.
 2. On the **Quick Start** page, click **Set up Edge Management**.
-3. Enter the two addresses that every Edge Daemon of the environment is installed with.
+3. Enter the two addresses that every Edge Daemon of the environment is installed with. When your installation proposes an address, the setup fills in its field with it.
 
-<!-- TODO: Screenshot of Step 1 of the guided setup -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-edge-setup-gateway.png" alt="Step 1 of the guided setup, Gateway, with the Gateway URL and Reactor URL fields filled in"><figcaption><p>Step 1 of the guided setup.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-setup-gateway.png" alt="Step 1 of the guided setup, Gateway, with the Gateway URL and Reactor URL fields filled in"><figcaption><p>Step 1 of the guided setup.</p></figcaption></figure>
 
 The following table describes each field:
 
@@ -50,13 +49,8 @@ The following table describes each field:
 Both addresses are required, and both must start with `http://` or `https://`.
 
 {% hint style="warning" %}
-**These two addresses are locked once the configuration is created.** The daemons already installed hold them in their own configuration, and nothing in the console can reach them to say otherwise. A daemon that can't reach the gateway intercepts nothing. What the devices are installed with is decided on the **Daemon deployment** page.
+**Daemons keep the addresses they were installed with.** Both addresses stay editable on the **Gateway** page, but a change only applies to the daemons installed after it. What the devices are installed with is decided on the **Daemon deployment** page.
 {% endhint %}
-
-Once the configuration exists, the **Gateway** page shows the two addresses and explains what each one does. It has no save action.
-
-<!-- TODO: Screenshot of The Gateway page of a configured environment -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-edge-config-gateway.png" alt="The Gateway page showing the locked Gateway URL and Reactor URL of the environment and the explanation of why they can't change"><figcaption><p>The Gateway page of a configured environment.</p></figcaption></figure>
 
 4. Click **Next**.
 
@@ -135,7 +129,23 @@ If an agent's target API can't serve its route yet, a dialog names the agent, th
 **A deployed configuration intercepts nothing until the devices run the daemon.** Creating the configuration publishes the Edge API on the gateway. It doesn't touch a single device. Installing the daemon is a separate procedure.
 {% endhint %}
 
+## Change the gateway addresses
+
+The **Gateway** page shows the two addresses of the configuration and saves a change to either one. A change only applies to the daemons installed after it. A daemon already installed keeps the addresses it was installed with until you install it again from the **Daemon deployment** page.
+
+1. Open **Edge Management**.
+2. Click **Gateway**.
+3. Change the **Gateway URL**, the **Reactor URL**, or both. Under each address that you change, a warning says that the change applies to new installations only.
+
+<figure><img src="../.gitbook/assets/edge-config-gateway.png" alt="The Gateway page with the Gateway URL and Reactor URL fields, the warning under the changed Reactor URL that the change applies to new installations only, and the Save & Deploy and Reset buttons"><figcaption><p>The Gateway page with a changed Reactor URL.</p></figcaption></figure>
+
+4. Click **Save & Deploy**. This saves both addresses and deploys the Edge API of the environment again. To discard your changes instead, click **Reset**.
+
+When your installation proposes an address other than the one in the field, the page shows the proposed address under the field, with where it comes from. The address you save stays in use, whatever the installation proposes. The **Gateway URL** that the installation proposes is the gateway access point of the environment. Without one, it's the **Default HTTP entrypoint** that the **Entrypoints & Sharding Tags** page sets for the environment, unless that's still the default, `https://api.company.com`. To set the **Reactor URL** that the installation proposes, see [Propose the Reactor URL to Edge Management](configure-edge-ingress.md#propose-the-reactor-url-to-edge-management).
+
+Both addresses are required, and both must start with `http://` or `https://`. Without the permission to update the Edge configuration, the page is read-only.
+
 ## Next steps
 
-* **Install the daemon on your devices.** The **Daemon deployment** page carries the download URL for each architecture, a ready-made post-install script for Kandji, and the commands to check that the daemon runs. See [Configure Kandji to deploy the Edge Daemon](configure-kandji-daemon.md).
+* **Install the daemon on your devices.** The **Daemon deployment** page carries the download URL for each architecture, a ready-made post-install script for Iru (formerly Kandji), and the commands to check that the daemon runs. See [Configure Iru to deploy the Edge Daemon](configure-kandji-daemon.md).
 * **Configure interception.** Map each agent's routes to the target APIs that receive their traffic. See [Configure interception](configure-edge-management.md).

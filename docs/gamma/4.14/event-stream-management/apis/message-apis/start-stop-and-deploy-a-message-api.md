@@ -17,7 +17,7 @@ The actions above every page of a Message API include **Start** while it's stopp
 
 The console confirms with **Message API started** or **Message API stopped**. The same actions are in the row menu of the **Message APIs** list, and in the **Message API events** card of the **Settings** page as **Start Message API** and **Stop Message API**.
 
-A Message API starts only when it has at least one published or deprecated plan. See [Manage plans](manage-plans.md). The first start of a Message API that was never deployed also deploys it.
+A Message API starts only when it has at least one published or deprecated plan. See [Manage plans](manage-plans.md). A Message API whose Kafka group uses a registered Cluster also needs the Cluster deployed with every connection that its endpoints use: otherwise, starting and deploying it are refused. See [Start and update a Message API that uses a Cluster](configure-endpoints-and-failover.md#start-and-update-a-message-api-that-uses-a-cluster). The first start of a Message API that was never deployed also deploys it.
 
 When the environment uses the API review workflow, a Message API can't start until a reviewer accepts it. Until then, the page header and the **Message API events** card don't offer **Start** or **Stop**. A Message API created before the environment turned on the workflow still offers **Start**, but starting it fails until a reviewer accepts it. The actions menu of its row in the **Message APIs** list offers **Start** and **Stop** in every case. See [Publish and review a Message API](publish-and-review-a-message-api.md).
 

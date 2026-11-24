@@ -6,6 +6,98 @@ description: The API Management 4.13 changelog lists the bug fixes in each patch
 
 # APIM 4.13.x
  
+## Gravitee API Management 4.13.7 - November 24, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Console charts of the AngularJS screens (API analytics, dashboards) render with a black background since 4.13.6 [#12109](https://github.com/gravitee-io/issues/issues/12109)
+
+**Other**
+
+* Shared API key rejected (401) on all gateways after an API redeploy when the key is linked to a CLOSED subscription on the same plan [#11958](https://github.com/gravitee-io/issues/issues/11958)
+* \[UI] Chart issue [#12071](https://github.com/gravitee-io/issues/issues/12071)
+* Shared API key returns 401 after redeploy when a revoked key has the same value [#12081](https://github.com/gravitee-io/issues/issues/12081)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.13.6 - November 20, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Application group updates do not invalidate cached effective permissions [#11987](https://github.com/gravitee-io/issues/issues/11987)
+* Archiving an application doesn’t release its API keys, so their values can never be reused [#12046](https://github.com/gravitee-io/issues/issues/12046)
+* \[UI] Chart issue [#12071](https://github.com/gravitee-io/issues/issues/12071)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.13.5 - November 19, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Portal**
+
+* Classic Portal hides the client registration provider's error when it refuses an application's registration [#12072](https://github.com/gravitee-io/issues/issues/12072)
+
+**Other**
+
+* Kafka Gateway closes the connection when a broker response arrives after kafka.requestTimeout [#12077](https://github.com/gravitee-io/issues/issues/12077)
+* Elasticsearch reporter silently loses documents that Elasticsearch rejects or cannot receive: no retry, no log, no dropped count [#12078](https://github.com/gravitee-io/issues/issues/12078)
+* GitHub fetcher imports files larger than 1 MB as empty content [#12083](https://github.com/gravitee-io/issues/issues/12083)
+* API “Sharding tags” page lists tags the user is not allowed to use (Classic console and Gamma) [#12085](https://github.com/gravitee-io/issues/issues/12085)
+* the "Cache name" list of the Cache policy does not show the API's cache resources
+
+</details>
+
+
+ 
+## Gravitee API Management 4.13.4 - November 13, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Portal**
+
+* Classic portal pages show "Page not found" on refresh or direct link when New Developer Portal is the default [#11854](https://github.com/gravitee-io/issues/issues/11854)
+* Portal does not show an error when an application update uses a client ID that already exists [#11935](https://github.com/gravitee-io/issues/issues/11935)
+* New Developer Portal: internal documentation links (absolute paths) return a 404 [#12003](https://github.com/gravitee-io/issues/issues/12003)
+* AI Semantic Caching policy wipes the additional metrics reported by other policies [#12061](https://github.com/gravitee-io/issues/issues/12061)
+
+**Other**
+
+* V4 health check: POST body not sent to the backend [#12023](https://github.com/gravitee-io/issues/issues/12023)
+* OAS Validation (OAS 3.1) rejects query parameters declared via $ref as “Unexpected query parameters” [#12038](https://github.com/gravitee-io/issues/issues/12038)
+* V4 HTTP health check: default values (assertion, thresholds, overrideEndpointPath) no longer applied when omitted, so endpoints are always marked down (4.13 regression) [#12048](https://github.com/gravitee-io/issues/issues/12048)
+* Upgrade failure on graviteeio-apim-rest-api-4x (4.13.1 to 4.13.3) due to false version detection in preinstall script [#12054](https://github.com/gravitee-io/issues/issues/12054)
+* Policy Studio: new Avro to Protobuf step with inline schemas can't be saved
+* Policy Studio cannot save an Avro to Protobuf step that uses a Schema Registry
+* Policy Studio blocks Save on Avro JSON Transformation steps with a mapping turned off
+* Gateway Redis cache never overwrites an entry, `containsKey` always returns false, and the cache's time to live is ignored
+
+</details>
+
+<details>
+
+<summary>Deprecations</summary>
+
+**Docker images**
+
+* Alpine Linux images of the Gateway and the Management API are deprecated. From 4.13.4, the `graviteeio/apim-gateway` and `graviteeio/apim-management-api` images are also published with `-alpine` tags, for example `4.13.4-alpine`, `4.13-alpine`, and `latest-alpine`, which point to the same images as the tags without a suffix. From the March 2027 release of APIM, the tags without a suffix of the new releases, `latest`, and `4` point to the Debian image. The 4.13.x releases keep Alpine Linux under their tags without a suffix. The June 2027 release stops publishing Alpine Linux images of these two components. To stay on Alpine Linux, use the `-alpine` tags. To move to Debian, use the `-debian` tags, which the APIM Helm chart already uses by default. The Debian image doesn't set `JAVA_HOME`, has its JRE in `/usr/lib/jvm/temurin-25-jre-<arch>` and its Java truststore in `/etc/ssl/certs/adoptium/cacerts`, and doesn't include `jattach`, `ps`, or `wget`. The Console and Developer Portal images aren't affected.
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.13.3 - November 6, 2026
 <details>
 
