@@ -1,12 +1,12 @@
 ---
 hidden: false
 noIndex: false
-description: Deploy the Gamma Edge Daemon to your device fleet with Kandji. Follow the steps to generate the download URL and create the Custom App.
+description: Deploy the Gamma Edge Daemon to your device fleet with Iru (formerly Kandji). Follow the steps to generate the download URL and create the Custom App.
 ---
 
-# Configure Kandji to deploy the Edge Daemon
+# Configure Iru to deploy the Edge Daemon
 
-Deploy the Edge Daemon to your device fleet with Kandji. The **Daemon deployment** page of Edge Management generates the download URL of the daemon and the Kandji post-install script for you, with the gateway addresses of the environment filled in.
+Deploy the Edge Daemon to your device fleet with Iru (formerly Kandji). The **Daemon deployment** page of Edge Management generates the download URL of the daemon and the Kandji post-install script for you, with the gateway addresses of the environment filled in.
 
 For an overview of the Edge Daemon, see the [Edge Management overview](../get-started/edge-management-overview.md). To create the configuration of the environment first, see [Set up Edge Management](set-up-edge-management.md).
 
@@ -20,11 +20,11 @@ Ensure the following are in place before continuing:
 
 * Access to a running Gamma console with Edge Management enabled.
 * An Edge Management configuration already created for the environment. See [Set up Edge Management](set-up-edge-management.md).
-* A Kandji account with admin access to your device fleet.
+* An Iru account with admin access to your device fleet.
 * Devices that run macOS.
 * The gateway-side endpoints reachable from your devices. In particular, the Edge Reactor port, `18093` by default, must be exposed. See [Gateway-side requirements](../get-started/edge-management-overview.md#gateway-side-requirements).
 
-To deploy the Edge Daemon with Kandji, complete the following steps:
+To deploy the Edge Daemon with Iru, complete the following steps:
 
 1. [Open the Daemon deployment page](#open-the-daemon-deployment-page)
 2. [Select the architecture](#select-the-architecture)
@@ -69,12 +69,12 @@ For an environment whose ID holds a character other than letters, digits, hyphen
 
 To deploy the script, complete the following steps:
 
-1. In the Kandji admin console, create a new **Custom App**.
+1. In the Iru admin console, create a new **Custom App**.
 2. Configure the app to extract the daemon package to `/tmp`.
 3. If mTLS is on, add the certificate of your fleet and its private key to the Custom App zip, next to `install.sh`, as `client.crt` and `client.key`. If your daemons need `--reactor-ca`, add that certificate as `reactor-ca.crt` too, and uncomment the last line of the script. See [Configure daemon authentication](configure-daemon-authentication.md#turn-on-mtls).
 4. Paste the generated script as the post-install script.
 5. Enable **Restart after successful install** so that the environment variables set by the installer take effect immediately.
-6. Assign the Custom App to the appropriate device blueprints. Kandji then distributes and installs the Edge Daemon on all assigned devices.
+6. Assign the Custom App to the appropriate device blueprints. Iru then distributes and installs the Edge Daemon on all assigned devices.
 
 {% hint style="info" %}
 The page also carries collapsible **Diagnostic commands** and **Uninstall** sections, with the commands to check that the daemon runs, to follow its logs, to stop and start it, and to remove it from a device.

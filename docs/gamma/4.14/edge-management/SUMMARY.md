@@ -12,7 +12,7 @@
   * [Configure daemon authentication](connect/configure-daemon-authentication.md)
   * [Secure the Edge Reactor listener](connect/secure-the-edge-reactor-listener.md)
   * [Configure Edge Ingress](connect/configure-edge-ingress.md)
-  * [Configure Kandji to deploy the Edge Daemon](connect/configure-kandji-daemon.md)
+  * [Configure Iru to deploy the Edge Daemon](connect/configure-kandji-daemon.md)
   * [Connect Claude Code to the Edge Daemon](connect-claude-code-to-daemon.md)
 * [Observe](observe/README.md)
   * [Monitor detected shadow AI](observe/monitor-shadow-ai-traffic.md)

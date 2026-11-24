@@ -10,7 +10,7 @@ Once the Edge Daemon is installed on an employee device, you can route Claude Co
 
 ## Prerequisites
 
-* Edge Daemon installed and running on the device (see [Configure Kandji to deploy the Edge Daemon](connect/configure-kandji-daemon.md))
+* Edge Daemon installed and running on the device (see [Configure Iru to deploy the Edge Daemon](connect/configure-kandji-daemon.md))
 * Claude Code installed on the same device
 * The Edge Daemon is listening on its default local port (`8990`)
 
