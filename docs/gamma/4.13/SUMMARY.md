@@ -468,7 +468,7 @@
   * [Proxy API reference](edge-management/connect/proxy-api-reference.md)
   * [Configure Edge Management](edge-management/connect/configure-edge-management.md)
   * [Configure Edge Ingress](edge-management/connect/configure-edge-ingress.md)
-  * [Configure Kandji to deploy the Edge Daemon](edge-management/connect/configure-kandji-daemon.md)
+  * [Configure Iru to deploy the Edge Daemon](edge-management/connect/configure-kandji-daemon.md)
   * [Connect Claude Code to the Edge Daemon](edge-management/connect-claude-code-to-daemon.md)
 * [Observe](edge-management/observe/README.md)
   * [Monitor your shadow AI traffic](edge-management/observe/monitor-shadow-ai-traffic.md)

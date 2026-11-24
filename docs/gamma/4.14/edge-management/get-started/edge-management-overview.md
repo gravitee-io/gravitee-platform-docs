@@ -78,5 +78,5 @@ The Edge Daemon is available for macOS only, on Apple Silicon and Intel. It supp
 ## Next steps
 
 * **Set up the environment.** Create the configuration through the guided setup. See [Set up Edge Management](../connect/set-up-edge-management.md).
-* **Deploy the Edge Daemon.** Distribute the daemon to your device fleet with Kandji. See [Configure Kandji to deploy the Edge Daemon](../connect/configure-kandji-daemon.md).
+* **Deploy the Edge Daemon.** Distribute the daemon to your device fleet with Iru (formerly Kandji). See [Configure Iru to deploy the Edge Daemon](../connect/configure-kandji-daemon.md).
 * **Connect Claude Code.** Check what, if anything, you have to do on the device. See [Connect Claude Code to the Edge Daemon](../connect-claude-code-to-daemon.md).
