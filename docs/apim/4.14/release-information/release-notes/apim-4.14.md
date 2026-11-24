@@ -33,14 +33,24 @@ APIM 4.14 adds the following features.
 * A user becomes a member when an administrator adds them to an AI Workspace in Agent Management.
 * For more information, see [Show AI Workspaces in the Developer Portal](../../developer-portal/new-developer-portal/show-ai-workspaces-in-the-developer-portal.md).
 
+#### **Binary bodies in the Groovy policy**
+
+* In a v4 HTTP proxy API with **Read content** enabled, a Groovy script reads the body of its phase as bytes with `contentAsByteArray`, or as a base64 string with `contentAsBase64`.
+* With **Read content** and **Override content** enabled, a script that returns a `byte[]` or a `Buffer` replaces the body with those exact bytes, so binary content such as an image arrives unchanged. A script that returns a `String` works as before.
+* In a v2 API, both work in **On-request content script** and **On-response content script**, with **Emulate v4 engine** turned on. In the Publish and Subscribe phases of a message API, the returned value is still written as text.
+* The feature also ships in APIM 4.13.6 and 4.12.29.
+* For more information, see [Groovy](../../create-and-configure-apis/apply-policies/policy-reference/groovy.md#return-binary-content).
+
 #### **Elasticsearch: API keys, Elastic Cloud Serverless, and data streams**
 
 * The Gateway reporter and the Management API authenticate to Elasticsearch with an API key, set in `security.api_key`, or in `es.security.apiKey` with Helm. An API key and a username and password are mutually exclusive.
 * The Gateway reporter and the Management API detect Elastic Cloud Serverless from the cluster. The `flavor` setting forces the detection with `classic` or `serverless`. At startup, the reporter logs one line with its flavor, authentication, and index mode.
 * The Management API reads analytics from data streams named `<index>-<type>` with `analytics.elasticsearch.index_mode: data_stream`, on Elastic Cloud Serverless, where this mode applies by default, and on classic clusters. With Helm, `api.analytics.elasticsearch.index_mode` sets this mode for the Management API alone.
 * The `gravitee-apim-distribution-es-index-mappings` ZIP file publishes data stream index templates in its `serverless/` folder.
-* The Gateway reporter doesn't write to data streams. It stays inactive on Elastic Cloud Serverless, and rejects `data_stream` on classic clusters. Data streams must be filled by another writer, for example Logstash.
-* APIM doesn't migrate existing analytics to data streams, and the Management API doesn't read dated indices and data streams together. On Elastic Cloud Serverless, APIM doesn't set the retention of the data streams.
+* The Gateway reporter writes analytics to data streams named `<index>-<type>` with `reporters.elasticsearch.index_mode: data_stream`, on Elasticsearch 7.9 or later and on OpenSearch. `daily` stays the default. To move an existing installation, switch every Gateway and the Management API at the same time, as described in [Migrate the Elasticsearch Reporter to Data Streams](../../analyze-and-monitor-apis/reporters/migrate-the-elasticsearch-reporter-to-data-streams.md). On Elasticsearch, `lifecycle.policies.<type>` attaches an ILM policy to the data streams, or the new `lifecycle.retention.<type>` settings set their data stream lifecycle retention, on Elasticsearch 8.14 or later. A type takes either a policy or a retention. On OpenSearch, an ISM policy reaches the data streams through its `ism_template`. With Helm, set `es.index_mode: data_stream` and `es.lifecycle.retention`. For more information, see [Write analytics to data streams](../../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#write-analytics-to-data-streams).
+* The Gateway reporter writes analytics directly to Elastic Cloud Serverless, without Logstash, to data streams named `<index>-<type>`. It sets the retention of each data stream with `lifecycle.retention.<type>`, `45d` by default, and shortens an existing retention only with `lifecycle.retention.allow_decrease: true`. It manages its index templates through their `_meta`, and its setup doesn't block the Gateway. For more information, see [Write analytics to Elastic Cloud Serverless](../../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#write-analytics-to-elastic-cloud-serverless).
+* The Gateway reporter exposes its bulk settings under `reporters.elasticsearch.bulk`: `max_concurrent_send`, `max_memory_size`, and `retry.max_retries`, `retry.initial_delay`, and `retry.max_delay`. The defaults are unchanged. The reporter counts the documents it drops in the `reporter_elasticsearch_dropped_documents` metric, by reason and type. For more information, see [Bulk settings and dropped documents](../../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#bulk-settings-and-dropped-documents).
+* APIM doesn't migrate existing analytics to data streams, and the Management API doesn't read dated indices and data streams together.
 * For more information, see [Read Analytics from Data Streams](../../prepare-a-production-environment/repositories/elasticsearch-data-streams.md) and [Elasticsearch](../../prepare-a-production-environment/repositories/elasticsearch.md).
 
 #### **Kafka Gateway**

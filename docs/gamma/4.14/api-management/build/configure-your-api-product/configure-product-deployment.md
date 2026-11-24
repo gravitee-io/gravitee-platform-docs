@@ -64,9 +64,14 @@ The badge has the following meanings:
 
 When no state is available for the product, the **Gateway sync** row shows **&#x2014;** and the sidebar header shows no badge at all.
 
-{% hint style="info" %}
-The API Product screens do not provide a deploy or redeploy action in this release. A product showing **Out of sync** cannot be redeployed from the product detail pages. Deployment is available through the Management API. See [Manage API products with the Management API](manage-api-products-with-the-management-api.md).
-{% endhint %}
+### Deploy an API Product
+
+When the product is **Out of sync**, its pages show a banner that reads **This API Product is out of sync**, for users who can change the product. To push the saved changes to the Gateway, follow these steps:
+
+1. In the banner, click **Deploy API Product**.
+2. In the **Deploy your API Product** dialog, click **Deploy**.
+
+The banner closes, and the badge shows **Synced**. If the deployment fails, an error notification says why.
 
 ## Sharding tags and product plans
 
