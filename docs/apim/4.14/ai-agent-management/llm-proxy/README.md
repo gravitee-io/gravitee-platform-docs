@@ -260,7 +260,7 @@ Token data extracted from Bedrock's usage metadata.
 {% tab title="Message Handling" %}
 * System messages: Each system message becomes separate content object in `system` array
 * User/Assistant messages: Role names preserved (no conversion needed)
-* Content: Text, images, and files. An image or file that the **Images sent by the client** or **Files sent by the client** option allows is sent when the request carries it inline as a `data:` URL, and removed when it's given by a web address. Audio and video that the options allow are removed.
+* Content: Text, images, and files. The **Images sent by the client** and **Files sent by the client** options remove images and files by default. An image or file that its option allows is sent when the request carries it inline as base64 data, and removed when the request refers to it by a URL or a file ID. A system message keeps only its text. Audio and video that the options allow are removed.
 {% endtab %}
 
 {% tab title="Embeddings" %}
@@ -626,6 +626,7 @@ Finish reasons follow the configured publisher. For `google`, they match the Gem
 The following OpenAI features are not currently supported by any provider:
 
 * Function/tool calling
+* Video inputs
 * Multiple completion choices (`n` parameter)
 * Logit bias control
 * Log probabilities output
