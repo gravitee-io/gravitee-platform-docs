@@ -1,5 +1,5 @@
 ---
-description: Manage Access Management 4.13 security domains, identity providers, certificates, reporters, and data planes from Terraform configuration files with the AM Terraform provider.
+description: Manage Access Management 4.14 security domains, identity providers, certificates, reporters, applications, client secrets, and data planes from Terraform configuration files with the AM Terraform provider.
 ---
 
 # Manage AM with Terraform
@@ -7,7 +7,7 @@ description: Manage Access Management 4.13 security domains, identity providers,
 The AM Terraform provider manages Access Management resources from Terraform configuration files. It makes every change through the [Automation API](automation-api.md), so each resource it creates is identified by a key you choose, and a key reaches only a resource that the Automation API created.
 
 {% hint style="warning" %}
-The AM Terraform provider is an alpha release that works with AM 4.13.0. Its version numbers don't follow AM's.
+The AM Terraform provider is an alpha release that works with AM 4.14.0. Its version numbers don't follow AM's.
 {% endhint %}
 
 ## What the provider manages
@@ -21,8 +21,10 @@ The provider manages the following resources:
 | `am_identity_provider` | An identity provider of a security domain. | `domain_key` and `key` |
 | `am_certificate` | A certificate of a security domain. | `domain_key` and `key` |
 | `am_reporter` | A reporter of a security domain. | `domain_key` and `key` |
+| `am_application` | An application of a security domain. | `domain_key` and `key` |
+| `am_client_secret` | A client secret of an application. | `domain_key`, `application_key`, and `key` |
 
-Each resource has a data source of the same name, which reads an existing resource without managing it. For every attribute of each resource and data source, see the [AM provider documentation](https://registry.terraform.io/providers/gravitee-io/am/latest/docs) in the Terraform Registry.
+Each resource except `am_client_secret` has a data source of the same name, which reads an existing resource without managing it. For every attribute of each resource and data source, see the [AM provider documentation](https://registry.terraform.io/providers/gravitee-io/am/latest/docs) in the Terraform Registry.
 
 ## Prerequisites
 
@@ -128,6 +130,8 @@ Terraform applies most changes to the existing resource. The following changes w
 * **A new `key`, or a new `id` or `type` for a data plane.** Terraform deletes the resource and creates it again.
 * **A new `data_plane_id` for a security domain.** Terraform deletes the security domain and creates it again on the other data plane. Deleting a security domain also deletes its applications, identity providers, certificates, reporters, and the rest of its configuration, so read the plan before you apply this change.
 * **A new `type`, or a change to `system`, for an identity provider, a certificate, or a reporter.** AM rejects the change with a message that says the field is immutable, and the resource stays as it is. To change either one, delete the resource and create it again.
+* **A new `type` for an application, to or from `agent`.** AM rejects the change, and the application stays as it is. To change it, delete the application and create it again.
+* **A new `domain_key` or `application_key` for a client secret.** Terraform deletes the client secret and creates it again.
 
 ## How secrets are handled
 
@@ -136,6 +140,7 @@ The Automation API never returns secret values, so the provider handles them as 
 * AM returns each sensitive setting in the `configuration` of an identity provider, a certificate, or a reporter as `********`. The provider treats `********` as equal to the value in your configuration, so a plan shows no change for it, and the Terraform state keeps the value you configured.
 * AM never returns the `configuration` of a data plane. The provider sends the value in your configuration with every change.
 * Terraform can't detect a secret changed outside Terraform. The next apply that changes the resource sends the configured value again.
+* The value of a client secret goes in `value_wo`, a write-only attribute that requires Terraform 1.11 or later. The provider sends it when it creates the client secret, and never stores it in the plan or the state. A client secret can't change, so to change its value, rotate the client secret: add an `am_client_secret` with a new `key` and apply, move your clients to the new value, then remove the previous resource and apply again.
 
 Because the Terraform state holds the secrets you configure, store the state where only the people who manage AM can read it.
 
@@ -163,7 +168,7 @@ import {
 }
 ```
 
-For a security domain, leave out `domain_key`. For a data plane, leave out `domain_key` and replace `key` with `id`. A resource that was created in AM Console or through the Management API has no key, so it can't be imported this way.
+For a client secret, add `application_key`. For a security domain, leave out `domain_key`. For a data plane, leave out `domain_key` and replace `key` with `id`. A resource that was created in AM Console or through the Management API has no key, so it can't be imported this way.
 
 ## Limitations
 

@@ -24,3 +24,11 @@ overview/custom-resource-definitions/portal.md
 # Encrypted dictionary values in the Dictionary resource (EXT-204)
 overview/custom-resource-definitions/managing-dictionaries-via-kubernetes-crd/README.md
 overview/custom-resource-definitions/managing-dictionaries-via-kubernetes-crd/dictionary-management-restrictions-and-validation.md
+
+# Access Management applications and client secrets: AMApplication and AMClientSecret (AM-7180)
+overview/custom-resource-definitions/amapplication.md
+overview/custom-resource-definitions/amclientsecret.md
+overview/custom-resource-definitions/amsecuritydomain.md
+overview/compatibility-and-limitations.md
+overview/custom-resource-definitions/amcertificate.md
+overview/custom-resource-definitions/amidentityprovider.md
