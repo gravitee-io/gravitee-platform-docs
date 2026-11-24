@@ -21,6 +21,10 @@ description: >-
 
 From 4.14.0, the `graviteeio/apim-gateway` and `graviteeio/apim-management-api` images are also published with `-alpine` tags, which point to the same images as the tags without a suffix. The March 2027 release of APIM moves the tags without a suffix, including `latest`, to the Debian image. The June 2027 release stops publishing Alpine Linux images of these two components. To stay on Alpine Linux until then, switch to the `-alpine` tags. To move to Debian, use the `-debian` tags, and check how the Debian image differs before you switch. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
+#### **The Gateway and the Management API verify the Elasticsearch certificate**
+
+From 4.14.0, the Gateway reporter and the Management API verify the certificate of an Elasticsearch cluster that they reach over `https`, including its host name. They use the truststore set in `ssl.truststore`, or the default truststore of the JVM. In 4.13 and earlier, they accepted any certificate. A cluster whose certificate is self-signed or signed by an internal authority needs a truststore, or `ssl.trustAll: true` to keep the previous behavior. With Helm, set `es.ssl.truststore` or `es.ssl.trustAll`. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
 #### **Message API connections are reported in two documents**
 
 From 4.14.0, the Gateway reports a message API connection in two documents: one when the connection opens, and one when it ends. The new `connection-phase` field tells them apart. The Management API counts a connection from its opening and reads its duration from its end. A Management API earlier than 4.14 counts each connection twice, so upgrade it before or together with the Gateways. Dashboards or queries that read the v4 metrics and v4 log indices directly must apply the same rule. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md) and [APIM 4.14 Elasticsearch Index Template Changes](../../upgrade-guides/apim-4.14-elasticsearch-index-template-changes.md).
