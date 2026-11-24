@@ -5,13 +5,15 @@ description: Highlights and new features in the Gravitee Kubernetes Operator 4.1
 
 # GKO 4.14
 
-This page describes the new features introduced in GKO 4.14.
+This page describes the new features and breaking changes introduced in GKO 4.14.
 
 ## Highlights
 
 * `AuthzPdp`, `AuthzSchema`, `AuthzEntity`, and `AuthzPolicy` resources manage the PDP gateways, schema documents, entities, and policies of Authorization Management from Kubernetes.
 
-## Upgrade notes
+## Breaking changes
+
+This release changes how GKO handles an existing configuration.
 
 ### Plan order of `ApiV4Definition`
 
