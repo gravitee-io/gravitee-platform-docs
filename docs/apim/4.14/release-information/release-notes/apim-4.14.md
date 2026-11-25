@@ -15,6 +15,7 @@ description: >-
 * A native Kafka API endpoint group bounds the metadata requests that each Gateway instance sends to the brokers, with **Backend metadata max age (seconds)**.
 * The Management API reference lists the Portal API once per Developer Portal: **Next Gen Portal** for the New Developer Portal, the entry to build a custom developer portal on, and **Classic Portal** for the Classic Developer Portal.
 * The Console and the Management API renew the shared API key of an application with a custom API key.
+* The **Entrypoints** menu of a v4 API that clients reach over HTTP has a **Path Mappings** tab, to group the API's analytics by path template, such as `/orders/:orderId`.
 
 ## Breaking Changes and deprecations
 
@@ -29,6 +30,10 @@ From 4.14.0, the Gateway reporter and the Management API verify the certificate 
 #### **Message API connections are reported in two documents**
 
 From 4.14.0, the Gateway reports a message API connection in two documents: one when the connection opens, and one when it ends. The new `connection-phase` field tells them apart. The Management API counts a connection from its opening and reads its duration from its end. A Management API earlier than 4.14 counts each connection twice, so upgrade it before or together with the Gateways. Dashboards or queries that read the v4 metrics and v4 log indices directly must apply the same rule. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md) and [APIM 4.14 Elasticsearch Index Template Changes](../../upgrade-guides/apim-4.14-elasticsearch-index-template-changes.md).
+
+#### **The Management API refuses a v4 path mapping outside the path mapping rules**
+
+From 4.14.0, a path mapping of a v4 API starts with `/`, followed by letters, digits, and the characters `:`, `/`, `.`, `_`, and `-`. The Management API refuses to create, import, or update a v4 API with a path mapping outside these rules, including one the API already holds. In 4.13, it accepted any path mapping that compiled as a regular expression, such as `/users/*`. A v4 API created or updated in 4.13 can hold one, including an API managed with the Gravitee Kubernetes Operator, Terraform, or the Automation API. Fix these path mappings before you upgrade. The same rules block migrating a v2 API whose path mappings all break them, unless its only path mapping is `/`. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 ## New Features
 
@@ -69,6 +74,14 @@ APIM 4.14 adds the following features.
 * In Event Stream Management, a Cluster or a Virtual Cluster sets the same max age for every Kafka Service bound to it.
 * The feature also ships in APIM 4.13.2.
 * For more information, see [Configure native Kafka API endpoints](../../kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md#bound-the-gateways-own-metadata-requests) and [Configure the Kafka Client & Gateway](../../kafka-gateway/configure-the-kafka-client-and-gateway.md#set-the-default-backend-metadata-max-age).
+
+#### **Path mappings on v4 APIs**
+
+* The **Entrypoints** menu of a v4 API that clients reach over HTTP has a **Path Mappings** tab. Add, edit, and delete the path mappings that group the API's analytics by path template, such as `/orders/:orderId`, or import them from an OpenAPI page of the API on the **Swagger Document** tab of **Add path mapping**.
+* A request whose path matches a path mapping is recorded under that path mapping in the API's analytics data. Path mappings take effect the next time you deploy the API.
+* An OpenAPI import that creates or updates a v4 API sets the API's path mappings from the paths of the specification when **Create the path mapping for analytics** is enabled.
+* Migrating a v2 API to v4 keeps the path mappings that follow the path mapping rules and leaves out the others. When every path mapping of the API breaks the rules, the migration is blocked, and its message lists them. An API whose only path mapping is `/` migrates without path mappings.
+* For more information, see [Configure path mappings](../../create-and-configure-apis/configure-v4-apis/path-mappings.md).
 
 #### **Portal API reference for each Developer Portal**
 
