@@ -108,4 +108,5 @@ The table lists only the requests whose URI starts with that path, and the page 
 
 ## Next steps
 
+* [Use custom metrics in observability](use-custom-metrics-in-observability.md) — Filter, group, and display the values your Assign metrics policy writes.
 * [Monitor API usage](monitor-api-usage.md) — View aggregate metrics and dashboards for your API.

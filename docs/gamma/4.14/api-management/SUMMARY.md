@@ -64,3 +64,4 @@
   * [Dashboard and metrics](observe/api-dashboard.md)
   * [Monitor API usage](observe/monitor-api-usage.md)
   * [View API logs](observe/view-api-logs.md)
+  * [Use custom metrics in observability](observe/use-custom-metrics-in-observability.md)
