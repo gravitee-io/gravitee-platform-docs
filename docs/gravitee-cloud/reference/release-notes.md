@@ -6,6 +6,21 @@ description: New features in each Gravitee Cloud release, listed newest first by
 
 This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:
 
+## November 2026
+
+<!-- TODO: CJ-5531 held draft. Set the month heading and the date to the day the Account Settings page of Account Management reaches Gravitee Cloud. -->
+<details>
+
+<summary>25th November</summary>
+
+**Manage account settings in the Gamma console**
+
+**Account Management** in the Gamma console has a new **Account Settings** page. It shows the account ID, HRID, data residency, and deployment of your Gravitee Cloud account. A primary owner or an account owner also changes the name and the description of the account there.
+
+For more information, see [Manage account settings in the Gamma console](../guides/manage-account-settings.md).
+
+</details>
+
 ## October 2026
 
 <details>

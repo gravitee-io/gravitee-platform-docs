@@ -22,6 +22,7 @@
 * [Configure Single Sign On](guides/configure-sso.md)
 * [Account Token](guides/account-token.md)
 * [Cloud Tokens](guides/cloud-tokens.md)
+* [Manage account settings in the Gamma console](guides/manage-account-settings.md)
 * [Promote APIs](guides/promote-apis.md)
 * [Add Environments](guides/add-environments.md)
 * [Alert Engine](guides/alert-engine.md)
