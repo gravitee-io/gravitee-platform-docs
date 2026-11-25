@@ -323,7 +323,7 @@ With `-Xmx2g` and `kafka.maxConnectionsPerGiB: 100`, the limit is 200 connection
 
 ### Choose the per-GiB value
 
-Each connection uses heap memory, and how much depends on the clients: the consumers' maximum fetch size, how fast they read, and how many partitions they fetch. The fetch size is the most data one fetch response can carry: the consumer's `fetch.max.bytes`, or `max.partition.fetch.bytes` multiplied by the number of partitions in one fetch, whichever is lower. Start from the value that matches the largest fetch size of your consumers, then check it under your own traffic:
+Each connection uses heap memory, and how much depends on the clients: the consumers' maximum fetch size, how fast they read, and how many partitions they fetch. The fetch size is the most data one fetch response can carry: the consumer's `fetch.max.bytes`, or `max.partition.fetch.bytes` multiplied by the number of partitions in one fetch, whichever is lower. Start from the value that matches the largest fetch size of your consumers, and then check it under your own traffic. The following table maps the largest consumer fetch size to a starting value:
 
 | Largest consumer fetch size | `kafka.maxConnectionsPerGiB` |
 | --- | --- |

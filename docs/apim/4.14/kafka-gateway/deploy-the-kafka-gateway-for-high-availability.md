@@ -91,7 +91,7 @@ For example, 80 connections that each fetch 12 partitions at the default `max.pa
 
 A connection limit bounds this total. See [Limit client connections](configure-the-kafka-client-and-gateway.md#limit-client-connections).
 
-Use this estimate to set `-XX:MaxDirectMemorySize`, not the connection limit. In load tests with a 1 GiB heap, 50 consumers reading 4 MB fetches with no pause filled the heap, while the estimate above gives about 280 MB of direct memory for them. Size the connection limit from the heap, as described in [Choose the per-GiB value](configure-the-kafka-client-and-gateway.md#choose-the-per-gib-value).
+Use this estimate to set `-XX:MaxDirectMemorySize`, not the connection limit. In load tests with a 1 GiB heap, 50 consumers reading 4 MB fetches with no pause filled the heap. The preceding estimate gives about 280 MB of direct memory for the same consumers. Size the connection limit from the heap, as described in [Choose the per-GiB value](configure-the-kafka-client-and-gateway.md#choose-the-per-gib-value).
 
 Set the limit explicitly. By default, the JVM allows as much direct memory as the maximum heap, so a pod with a 5 GiB limit and a 3 GiB heap can try to use more direct memory than it has, and the pod is killed. Pass `-XX:MaxDirectMemorySize` in `JAVA_OPTS` so that the heap, direct memory, and the other memory the JVM uses all fit in the pod limit:
 
