@@ -91,6 +91,8 @@ For example, 80 connections that each fetch 12 partitions at the default `max.pa
 
 A connection limit bounds this total. See [Limit client connections](configure-the-kafka-client-and-gateway.md#limit-client-connections).
 
+Use this estimate to set `-XX:MaxDirectMemorySize`, not the connection limit. In load tests with a 1 GiB heap, 50 consumers reading 4 MB fetches with no pause filled the heap. The preceding estimate gives about 280 MB of direct memory for the same consumers. Size the connection limit from the heap, as described in [Choose the per-GiB value](configure-the-kafka-client-and-gateway.md#choose-the-per-gib-value).
+
 Set the limit explicitly. By default, the JVM allows as much direct memory as the maximum heap, so a pod with a 5 GiB limit and a 3 GiB heap can try to use more direct memory than it has, and the pod is killed. Pass `-XX:MaxDirectMemorySize` in `JAVA_OPTS` so that the heap, direct memory, and the other memory the JVM uses all fit in the pod limit:
 
 ```yaml
@@ -135,7 +137,7 @@ limit x (100 - notReadyPercent) / 100  >=  new connections per second per pod
                                            x (periodSeconds x failureThreshold + load balancer propagation seconds)
 ```
 
-For example, with a limit of 10000 connections, `notReadyPercent: 90` leaves 1000 connections of headroom. Take 50 new connections per second per pod, a probe of `periodSeconds: 5` and `failureThreshold: 2`, and 10 seconds of load balancer propagation. The instance needs 50 x (5 x 2 + 10) = 1000 connections of headroom, which is just enough.
+For example, with a limit of 2000 connections, `notReadyPercent: 90` leaves 200 connections of headroom. Take 10 new connections per second per pod, a probe of `periodSeconds: 5` and `failureThreshold: 2`, and 10 seconds of load balancer propagation. The instance needs 10 x (5 x 2 + 10) = 200 connections of headroom, which is just enough.
 
 Keep `readyPercent` well below `notReadyPercent`, so an instance that is back under the limit does not flap in and out of the pool.
 

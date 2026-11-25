@@ -315,11 +315,25 @@ The following behavior applies to the connection limit:
 
 ```yaml
 kafka:
-  maxConnections: 20000
-  maxConnectionsPerGiB: 5000
+  maxConnections: 2000
+  maxConnectionsPerGiB: 100
 ```
 
-Each connection uses heap memory, so size `kafka.maxConnectionsPerGiB` from the memory you give each Gateway instance. With `-Xmx2g` and `kafka.maxConnectionsPerGiB: 5000`, the limit is 10000 connections.
+With `-Xmx2g` and `kafka.maxConnectionsPerGiB: 100`, the limit is 200 connections.
+
+### Choose the per-GiB value
+
+Each connection uses heap memory, and how much depends on the clients: the consumers' maximum fetch size, how fast they read, and how many partitions they fetch. The fetch size is the most data one fetch response can carry: the consumer's `fetch.max.bytes`, or `max.partition.fetch.bytes` multiplied by the number of partitions in one fetch, whichever is lower. Start from the value that matches the largest fetch size of your consumers, and then check it under your own traffic. The following table maps the largest consumer fetch size to a starting value:
+
+| Largest consumer fetch size | `kafka.maxConnectionsPerGiB` |
+| --- | --- |
+| Up to 2 MB | 100 |
+| More than 2 MB, up to 4 MB | 25 |
+| More than 4 MB | Lower than 25, or give the Gateway more heap |
+
+Kafka's default consumer settings, a `max.partition.fetch.bytes` of 1 MiB and a `fetch.max.bytes` of 50 MiB, already give a fetch size above 4 MB when a consumer fetches five or more partitions from one broker. Check these settings before you keep the `100` from the example.
+
+These values come from load tests in which every connection was a consumer reading a backlog with no pause between fetches. In those tests, 50 connections per GiB with a 4 MB fetch filled the heap, and 25 per GiB ran with the heap at 88%. Producers and idle connections need less memory.
 
 ### Report readiness near the connection limit
 
@@ -611,8 +625,8 @@ kafka:
 
   # Connection limit. Both keys are optional; 0 or unset turns a limit off.
   # When both are set, the lower limit applies.
-  #maxConnections: 20000          # Maximum number of client connections
-  #maxConnectionsPerGiB: 5000     # Maximum number of client connections per GiB of JVM max heap
+  #maxConnections: 2000           # Maximum number of client connections
+  #maxConnectionsPerGiB: 100      # Maximum number of client connections per GiB of JVM max heap
 
   # Readiness on connection capacity. Inert when disabled or when no connection limit is set.
   readiness:
