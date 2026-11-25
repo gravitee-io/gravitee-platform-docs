@@ -7,6 +7,13 @@ There is nothing new in version 4.13.7.
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
 
 
+## Gravitee Kubernetes Operator 4.13.6 - November 25, 2026
+
+There is nothing new in version 4.13.6.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
 ## Gravitee Kubernetes Operator 4.13.5 - November 23, 2026
 
 There is nothing new in version 4.13.5.
