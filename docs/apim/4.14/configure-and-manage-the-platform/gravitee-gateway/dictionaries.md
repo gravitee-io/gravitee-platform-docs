@@ -219,9 +219,13 @@ In a manual dictionary manifest for the Automation API, declare encrypted proper
 ```
 
 * Each entry of `encryptedProperties` takes the plain text `value` to encrypt on save.
-* The Automation API never returns the values of encrypted properties. A client that compares a `GET` response with its manifest doesn't see a difference on those values.
+* The Automation API never returns the values of encrypted properties. A read lists each encrypted property under `encryptedProperties` with the value `••••••••••••`.
+* To keep the stored value of an encrypted property, send `••••••••••••` as its value, as a read returns it.
+* Sending `••••••••••••` for a property that has no encrypted value stored is refused with HTTP `400` and the error key `dictionary.property.maskedValue`.
 * A key can't appear in both `properties` and `encryptedProperties`.
-* Moving a key from `encryptedProperties` to `properties` doesn't decrypt it. The property stays encrypted, and its new value is encrypted on save.
+* A key that's stored encrypted can't be listed under `properties`. The request is refused with HTTP `400` and the error key `dictionary.property.encryptedToPlain`. To store the property as plain text again, remove it from `encryptedProperties` and send the manifest, and then add it under `properties` and send the manifest again. Between the two requests, the dictionary doesn't hold the property. When the property is the dictionary's only one, the first request is refused, so add another property first.
+* Moving a key from `properties` to `encryptedProperties` encrypts its value.
+* A dry run, with `dryRun=true`, returns the same refusals.
 * For a dynamic dictionary, set `dynamic.encryption.encryptOnFetch` to `true` to encrypt every fetched value. The default is `false`.
 
 ## Verification

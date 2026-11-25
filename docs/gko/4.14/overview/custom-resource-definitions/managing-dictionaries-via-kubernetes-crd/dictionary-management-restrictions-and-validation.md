@@ -16,7 +16,9 @@ The following rules apply per dictionary type.
 
 **Manual dictionaries:**
 
-* Include at least one property in `manual.properties`.
+* Include at least one property in `manual.properties` or `manual.encryptedProperties`.
+* Don't declare a key in both `manual.properties` and `manual.encryptedProperties`.
+* Declare a key that APIM stores encrypted under `manual.encryptedProperties`, not under `manual.properties`. For more information, see [Encrypt dictionary properties](README.md#encrypt-dictionary-properties).
 * Don't define `dynamic.provider` or `dynamic.trigger`.
 
 **Dynamic dictionaries:**

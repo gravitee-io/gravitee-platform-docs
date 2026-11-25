@@ -93,3 +93,6 @@ secure-and-expose-apis/api-products/restrictions-and-licensing.md
 # Automation API pages exist from 4.14, the first version whose reference includes the Gamma module resources
 automation-api-reference/README.md
 automation-api-reference/automation-api-guide.md
+
+# Encrypted dictionary values in the Automation API: masked reads and refusals (EXT-204)
+configure-and-manage-the-platform/gravitee-gateway/dictionaries.md
