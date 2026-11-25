@@ -4,15 +4,15 @@ description: The API Management 4.13 LLM Proxy accepts OpenAI, Anthropic Message
 
 # Accepted request formats
 
-The Gravitee LLM Proxy accepts inbound requests in three client API formats: OpenAI, Anthropic Messages, and Gemini `generateContent`. OpenAI is the LLM Proxy's internal format, so OpenAI requests pass through with minimal change. Anthropic and Gemini requests are normalized to OpenAI Chat Completions format before the policy chain and the backend provider mapping run. The response is then converted back to the format the client used.
+The Gravitee LLM Proxy accepts inbound requests in three client API formats: OpenAI, Anthropic Messages, and Gemini `generateContent`. The LLM Proxy's internal format is OpenAI Responses. Requests in every format, OpenAI Chat Completions included, are converted to OpenAI Responses format before the policy chain and the backend provider mapping run. The model's answer is then converted back to the format the client used. Requests to `/embeddings` and `/models` aren't converted. For what the policies of the LLM Proxy receive, see [Request and response bodies in policies](#request-and-response-bodies-in-policies).
 
-This means you can point an OpenAI, Anthropic, or Gemini SDK at the same LLM Proxy and get responses in that same format. The backend provider the LLM Proxy calls doesn't change the format you receive.
+This means you can point an OpenAI, Anthropic, or Gemini SDK at the same LLM Proxy and get responses in that same format. The backend provider the LLM Proxy calls doesn't change the format of a successful response.
 
 {% hint style="info" %}
 This page covers the formats you can send requests **in**, on the client side. For how the LLM Proxy maps a request **out** to each backend provider (Gemini, Bedrock, OpenAI, Anthropic, and Vertex AI), see the provider details on the [LLM proxy](README.md) overview page. The **Vertex AI** provider connects to Google Cloud's Gemini Enterprise Agent Platform (formerly Vertex AI).
 {% endhint %}
 
-The LLM Proxy doesn't validate the request body. It matches the request to a client format, normalizes it if needed, and forwards it. Bodies that are empty, malformed, or missing fields are passed through to the provider, which returns its own error. A supported path called with an unsupported HTTP method returns `405`.
+The LLM Proxy doesn't check the request body against a schema. It matches the request to a client format and converts it, except on `/embeddings` and `/models`. On the paths it converts, a JSON body with no model, or with no readable message, is answered with `400` and isn't sent to the provider. A supported path called with an unsupported HTTP method returns `405`.
 
 ## Supported endpoints
 
@@ -33,13 +33,13 @@ A request that sets `Content-Encoding: zstd` is decompressed automatically befor
 
 ## OpenAI format
 
-OpenAI is the LLM Proxy's internal format, so OpenAI requests don't need normalization. The LLM Proxy forwards the body, applying only the targeted changes described in the following sections.
+The LLM Proxy converts `/chat/completions` and `/responses` requests to its internal format, like the Anthropic and Gemini formats, and builds the request it sends to the backend provider from that format. `/embeddings` and `/models` requests aren't converted.
 
-Send the fields the provider expects: `model` and `messages` for `/chat/completions`, and `model` and `input` for `/responses` and `/embeddings`. The LLM Proxy doesn't reject unknown top-level fields, so a field outside the OpenAI specification is forwarded to the provider, which decides whether to accept it.
+Send the fields the provider expects: `model` and `messages` for `/chat/completions`, and `model` and `input` for `/responses` and `/embeddings`. The LLM Proxy doesn't reject unknown top-level fields. They reach the provider only when the LLM Proxy calls it on the same OpenAI API as the client.
 
 ### Chat completions
 
-The `/chat/completions` endpoint forwards the request body unchanged, with one exception. When the request sets `"stream": true`, the LLM Proxy sets `stream_options.include_usage` to the value of the gateway `enforceUsage` setting, which defaults to `false`. This keeps token usage reporting consistent across streaming requests. If the request already includes a `stream_options` object, the LLM Proxy updates `include_usage` within it instead of replacing the object.
+When the request sets `"stream": true` and the LLM Proxy calls the provider's Chat Completions API, the LLM Proxy sets `stream_options.include_usage` to the value of the **Track tokens during stream mode** entrypoint option, which is on by default. If the request already includes a `stream_options` object, the LLM Proxy updates `include_usage` within it instead of replacing the object.
 
 A minimal request body to `POST /chat/completions`:
 
@@ -54,99 +54,101 @@ A minimal request body to `POST /chat/completions`:
 
 ### Responses
 
-The `/responses` endpoint is stateless. The LLM Proxy removes `previous_response_id` from the request before forwarding it and logs a warning. The backend receives a standalone request with no server-side conversation history. To continue a conversation, include the full history in `input`.
+When a `/responses` request carries `previous_response_id`, the conversation continues only when the request reaches the endpoint that created that response, and that endpoint calls its provider's Responses API. Otherwise, the endpoint either removes `previous_response_id` and logs a warning, which is the default, or refuses the request with `400`, depending on its configuration. To continue a conversation without `previous_response_id`, include the full history in `input`.
 
-Every response to a `/responses` request includes the `X-LLM-Proxy-Stateless: true` header.
+A response includes the `X-LLM-Proxy-Stateless: true` header when its id can't be used to continue the conversation.
 
-If the backend returns a Chat Completions response (`"object": "chat.completion"`), the LLM Proxy converts it to Responses API shape before returning it. A response that's already in Responses shape is returned unchanged. The conversion maps the first choice only and maps text content. The output item status comes from the backend finish reason:
+The response comes back in Responses API shape, whatever API the LLM Proxy called. When the backend returns a Chat Completions response, its `finish_reason` sets the `status` of the response:
 
-| Backend `finish_reason` | Output item `status` |
+| Backend `finish_reason` | Response `status` |
 |---|---|
-| `stop` | `completed` |
-| `length` | `incomplete` |
-| `tool_calls` | `requires_action` |
+| `length` or `max_tokens` | `incomplete`, with `incomplete_details.reason` set to `max_output_tokens` |
+| `content_filter` | `incomplete`, with `incomplete_details.reason` set to `content_filter` |
 | Any other value | `completed` |
 
 ### Embeddings and models
 
-The `/embeddings` endpoint forwards the body unchanged. The `/models` endpoint is a `GET` request with no body, and the backend response is returned unchanged.
+The LLM Proxy doesn't convert `/embeddings` requests. The `/models` endpoint is a `GET` request with no body. The LLM Proxy answers it without calling a backend provider, with the models that the endpoints of the LLM Proxy serve.
 
 ## Anthropic Messages format
 
-The LLM Proxy accepts requests in Anthropic Messages format on `/v1/messages` and `/v1/messages/count_tokens`. It normalizes the request to OpenAI Chat Completions format and converts the response back to Anthropic Messages format.
+The LLM Proxy accepts requests in Anthropic Messages format on `/v1/messages` and `/v1/messages/count_tokens`. It converts the request to its internal format and converts the response back to Anthropic Messages format. An Anthropic provider's response to `/v1/messages/count_tokens` is returned as the provider sent it.
 
-A request body requires `model`, `messages`, and `max_tokens`. Unlike the OpenAI endpoints, the Anthropic format allows additional fields. Any field the LLM Proxy doesn't map explicitly is preserved and re-applied to the request sent to the backend.
+A request body requires `model` and `messages`. Fields the LLM Proxy doesn't map reach the backend only when the LLM Proxy calls it in Anthropic Messages format. `top_k` reaches no backend provider.
 
-The LLM Proxy renames these fields during normalization:
+These fields carry over to the internal format as follows:
 
-| Anthropic field | OpenAI pivot field |
+| Anthropic field | Field in the internal format |
 |---|---|
 | `model` | `model` |
 | `stream` | `stream` |
 | `temperature` | `temperature` |
 | `top_p` | `top_p` |
-| `max_tokens` | `max_completion_tokens` |
+| `max_tokens` | `max_output_tokens` |
 | `stop_sequences` | `stop` |
 
-A top-level `system` value becomes the first message with the `system` role. Each entry in `messages` keeps its role. Message content is handled as follows:
+A top-level `system` value becomes `instructions`, without the non-text blocks of a `system` array. Each `user` and `assistant` entry in `messages` keeps its role. Message content is handled as follows:
 
 * A string content value is kept as-is.
-* An array of `text` blocks is joined into a single string with a newline between blocks.
+* Each `text` block of an array stays a separate text part.
 * A mixed content array keeps its `text` blocks. Its `image` and `document` blocks are handled by the **Images sent by the client** and **Files sent by the client** entrypoint options of the LLM Proxy, which remove them by default.
 
-When the response comes back, the LLM Proxy converts a Chat Completions response to Anthropic Messages shape. A response that's already in Anthropic shape is passed through. The stop reason is mapped from the backend finish reason:
+When the response comes back, the LLM Proxy converts it from the internal format to Anthropic Messages shape, whatever the backend provider. The stop reason comes from the first row that matches the response:
 
-| Backend `finish_reason` | Anthropic `stop_reason` |
+| Response | Anthropic `stop_reason` |
 |---|---|
-| `stop` | `end_turn` |
-| `length` | `max_tokens` |
-| `tool_calls` | `tool_use` |
-| Any other value | `end_turn` |
+| Holds a refusal | `refusal` |
+| Is incomplete, for example because it reached the token limit | `max_tokens` |
+| Was cancelled | `end_turn` |
+| Calls a tool | `tool_use` |
+| Any other response | `end_turn` |
 
-Token usage maps `prompt_tokens` to `input_tokens` and `completion_tokens` to `output_tokens`.
+Token usage is returned in `usage.input_tokens` and `usage.output_tokens`.
 
-Streaming Anthropic requests are supported. The LLM Proxy converts the backend Chat Completions event stream into the Anthropic Messages streaming protocol, emitting `message_start`, `content_block_start`, `content_block_delta`, `content_block_stop`, `message_delta`, and `message_stop` events.
+Streaming Anthropic requests are supported. The LLM Proxy converts the streamed response into the Anthropic Messages streaming protocol, with events such as `message_start`, `content_block_start`, `content_block_delta`, `content_block_stop`, `message_delta`, and `message_stop`.
 
 ## Gemini generateContent format
 
-The LLM Proxy accepts requests in Gemini `generateContent` format on `/v1beta/models/{model}:generateContent` and `/v1beta/models/{model}:streamGenerateContent`. It normalizes the request to OpenAI Chat Completions format and converts non-streaming responses back to Gemini format.
+The LLM Proxy accepts requests in Gemini `generateContent` format on `/v1beta/models/{model}:generateContent` and `/v1beta/models/{model}:streamGenerateContent`. It converts the request to its internal format and converts the response back to Gemini format, streamed or not.
 
 The model name comes from the URL path, not the request body. Streaming is determined by the path: a `:streamGenerateContent` path sets `stream` to `true` in the normalized request. Query parameters aren't used to determine streaming.
 
-A request body requires `contents`. The Gemini format allows additional fields, but the LLM Proxy maps only a defined subset and drops the rest during normalization. There's no passthrough for unmapped Gemini fields.
+A request body requires `contents`. The main fields carry over to the internal format as follows:
 
-The LLM Proxy maps these fields:
-
-| Gemini field | OpenAI pivot field |
+| Gemini field | Field in the internal format |
 |---|---|
-| `contents` | `messages` |
-| `systemInstruction` | first `system` message |
-| `generationConfig.maxOutputTokens` | `max_completion_tokens` |
+| `contents` | `input` |
+| `systemInstruction` | `instructions` |
+| `tools` | `tools` |
+| `toolConfig` | `tool_choice` |
+| `generationConfig.maxOutputTokens` | `max_output_tokens` |
 | `generationConfig.temperature` | `temperature` |
 | `generationConfig.topP` | `top_p` |
 | `generationConfig.stopSequences` | `stop` |
+| `generationConfig.seed` | `seed` |
+| `generationConfig.presencePenalty` | `presence_penalty` |
+| `generationConfig.frequencyPenalty` | `frequency_penalty` |
 
 Message handling:
 
-* Each entry in `contents` maps to a message. The `model` role becomes `assistant`. Other roles are kept, and a missing role defaults to `user`.
+* Each entry in `contents` that has a `role` and `parts` is carried into `input`, and the other entries are skipped. The `model` role becomes `assistant`, and any other role becomes `user`.
 * Image, audio, video, and file parts, sent as inline data or file data, are read along with the text parts. The **Images sent by the client**, **Audio sent by the client**, **Video sent by the client**, and **Files sent by the client** entrypoint options decide what happens to them, and remove them by default.
-* The text parts of `systemInstruction` are concatenated into the first `system` message.
+* The text parts of `systemInstruction` are joined into `instructions`, with a newline between parts. Its other parts are dropped.
 
-Fields the LLM Proxy doesn't map are dropped and not sent to the backend. This includes `tools`, `toolConfig`, `safetySettings`, `cachedContent`, and the `generationConfig` fields `topK`, `seed`, `candidateCount`, `responseMimeType`, `presencePenalty`, and `frequencyPenalty`.
+When the backend provider receives the request in Gemini format, it also gets `safetySettings`, `cachedContent`, and `labels`. Other top-level fields that the LLM Proxy doesn't map are dropped and not sent to the backend, and so is `generationConfig.topK`.
 
-For a non-streaming request, the LLM Proxy converts a Chat Completions response to Gemini `generateContent` shape. The finish reason is mapped:
+The LLM Proxy converts the response from the internal format to Gemini `generateContent` shape. The finish reason depends on the response:
 
-| Backend `finish_reason` | Gemini `finishReason` |
+| Response | Gemini `finishReason` |
 |---|---|
-| `stop` | `STOP` |
-| `length` | `MAX_TOKENS` |
-| `tool_calls` | `TOOL_CALLS` |
-| `content_filter` | `SAFETY` |
-| Any other value | `STOP` |
+| Stopped by a content filter | `SAFETY` |
+| Incomplete for another reason, for example because it reached the token limit | `MAX_TOKENS` |
+| Failed | `SAFETY` |
+| Any other response, tool calls included | `STOP` |
 
-The converted response sets `usageMetadata.promptTokenCount` from `prompt_tokens` and `usageMetadata.candidatesTokenCount` from `completion_tokens`. It doesn't include `totalTokenCount`.
+Token usage is returned in `usageMetadata`, with `promptTokenCount`, `candidatesTokenCount`, and `totalTokenCount`. `candidatesTokenCount` leaves out reasoning tokens and is omitted when it's zero.
 
-For a `:streamGenerateContent` request, the LLM Proxy doesn't convert the streaming events. The client receives the backend Chat Completions event stream, with `chat.completion.chunk` events, not Gemini streaming events. A client that requires the Gemini streaming event format can't use the Gemini streaming path through the LLM Proxy.
+For a `:streamGenerateContent` request, the client receives server-sent events whose `data` lines each hold a Gemini `GenerateContentResponse` chunk.
 
 ## Token usage headers
 
@@ -159,10 +161,20 @@ When the LLM Proxy is configured with `injectTokenHeaders` set to `true`, which 
 | `X-LLM-Proxy-Model` | Model name resolved by the LLM Proxy |
 | `X-LLM-Proxy-Dropped-Parameters` | Comma-separated list of request parameters the backend mapper dropped |
 
+## Request and response bodies in policies
+
+The policies of the LLM Proxy read and change the prompt and the model's answer in the OpenAI Responses format, whatever format the client uses:
+
+* Before the request phase, the LLM Proxy converts the request to the OpenAI Responses format. The conversation is in the `input` array. System instructions at the start of the conversation are in `instructions` when they hold only text.
+* Before the response phase, the LLM Proxy converts the model's answer to the OpenAI Responses format. The answer is in the `output` array, and the token counts, when the provider reports them, are in `usage.input_tokens` and `usage.output_tokens`. A streamed answer reaches the response phase as OpenAI Responses streaming events.
+* After the response phase, the LLM Proxy converts the answer to the format the client used.
+
+For example, in the response phase, the answer to a `/chat/completions` request has no `choices` array, so a policy that reads `choices` finds nothing. Write the policies that read or change a body for the OpenAI Responses format.
+
+Requests to `/embeddings` and `/models` aren't converted to the OpenAI Responses format, and neither are their answers. An answer the provider sends with a status of 300 or above isn't converted either. The policies of the response phase and the client receive the provider's own body.
+
 ## Limitations
 
-* The `/responses` conversion maps the first choice and text content only. Tool calls and structured outputs aren't converted.
-* For a `/responses` request with streaming, the event stream passes through from the backend and isn't converted to Responses streaming events.
-* Gemini has no passthrough. Unmapped Gemini fields, including `tools`, `toolConfig`, `safetySettings`, and most `generationConfig` fields, are dropped.
-* Gemini streaming responses aren't converted to Gemini event format. The client receives OpenAI Chat Completions stream events.
-* The Gemini converted response doesn't include `usageMetadata.totalTokenCount`.
+* When the backend returns a Chat Completions response with several choices, only the first one reaches the client.
+* `top_k` in an Anthropic request and `generationConfig.topK` in a Gemini request reach no backend provider.
+* Top-level Gemini fields the LLM Proxy doesn't map are dropped, except `safetySettings`, `cachedContent`, and `labels` when the backend provider receives the request in Gemini format.
