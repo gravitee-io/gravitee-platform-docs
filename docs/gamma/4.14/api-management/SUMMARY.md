@@ -52,6 +52,8 @@
     * [General](manage/api-products/general/README.md)
       * [Manage members and ownership](build/configure-your-api-product/manage-members-and-ownership.md)
       * [Manage product APIs](build/configure-your-api-product/manage-product-apis.md)
+    * [Design](manage/api-products/design/README.md)
+      * [Configure API Product resources](build/configure-your-api-product/configure-api-product-resources.md)
     * [Consumers](manage/api-products/consumers/README.md)
       * [Design API Product flows](build/configure-your-api-product/design-api-product-flows.md)
     * [Operate](manage/api-products/operations/README.md)

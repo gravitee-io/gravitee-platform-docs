@@ -11,7 +11,7 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 ## Highlights
 
 * **Agent Management**: Add the **AWS Lambda** and **Data Cache Policy** policies to LLM Proxies, set up alerts for MCP Proxies, import MCP servers that the control plane can't reach, and encrypt the dynamic properties of LLM, MCP, and A2A Proxies. A2A Proxies gain a **CORS** page.
-* **API Management**: Encrypt the dynamic properties of API proxies, and design flows on API Products in a Policy Studio.
+* **API Management**: Encrypt the dynamic properties of API proxies, design flows on API Products in a Policy Studio, and configure the resources of API Products.
 * **Authorization Management**: Manage PDP gateways, schema documents, entities, and policies as code, through the Automation API, as Kubernetes resources, and with Terraform.
 * **Edge Management**: Choose how Edge Daemons authenticate to the Edge Reactor, apply OAuth2 plans to intercepted routes, and edit gateway addresses after the guided setup.
 * **Event Stream Management**: Use registered Clusters in Message APIs, bound the metadata requests that the gateway sends to its brokers, disable broker hostname verification over SSL, and encrypt the dynamic properties of Kafka Services and Message APIs.
@@ -113,7 +113,7 @@ Agent Management adds the following in 4.14:
 API Management adds the following in 4.14:
 
 * **API proxies**: encryption of dynamic properties.
-* **API Products**: their own flows, designed in a Policy Studio, and a banner that deploys them.
+* **API Products**: their own flows, designed in a Policy Studio, a banner that deploys them, and their own resources.
 
 #### Flows on API Products
 
@@ -134,6 +134,18 @@ API Management adds the following in 4.14:
 * The **Dynamic properties** screen now saves the settings of an HTTP Proxy or TCP Proxy API in the form that the sync reads. Before 4.14, the sync didn't apply the schedule, the JOLT specification, or the HTTP client, proxy, and SSL settings saved from this screen. Settings saved before 4.14 keep the earlier form until you save them again from this screen. To apply them, change a field on the screen, click **Save changes**, and then deploy the API.
 * When the API proxy is managed by the Kubernetes operator, the **API Properties** page is now read-only.
 * See [Configure API properties](../api-management/build/configure-your-api-proxy/configure-api-properties.md#manage-existing-properties).
+
+#### Resources on API Products
+
+* A new **Resources** page, in the new **Design** group of an API Product, adds, edits, enables, disables, and removes the resources that the policies of the product use.
+* An API Product supports 11 resource types: **Cache**, **Cache Redis**, five OAuth2 providers, three authentication providers, and **Content Provider Inline Resource**.
+* A policy in the **Policy Studio** of an API Product uses the product's resources on every API in the product, and the policies of each API keep using that API's resources.
+* Known limitation: the Cache policy can't use a Cache resource of the API Product yet. The Data Cache policy can.
+* Changes to the resources take effect after you deploy the API Product. Deploying a change to the resources restarts them, so a **Cache** resource starts empty.
+* On every deployment of an API Product, the Gateway also checks the license of its enabled resource types. A Gateway that refuses a version keeps serving the version it already had, while the API Product shows **Synced**.
+* A Gateway earlier than 4.14 ignores the resources of an API Product. A policy in a plan flow of the product then uses the API's resource with the same name if the API has one, and otherwise fails as if the resource didn't exist.
+* The Management API saves the resources of an API Product with an update of the product.
+* See [Configure API Product resources](../api-management/build/configure-your-api-product/configure-api-product-resources.md).
 
 ### Authorization Management
 
