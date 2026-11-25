@@ -177,6 +177,53 @@ The response is `200 OK` and paginated. Each entry in `data` is a full API objec
 }
 ```
 
+## Add resources to the product
+
+The resources that the policies of the product use are the `resources` array of the product. Set them with `PUT /api-products/{apiProductId}`. Reading them requires the read permission on the product's definition, and changing them requires the update permission on it. Each resource has a `name`, a `type`, a `configuration` object, and an `enabled` flag:
+
+```bash
+curl -s -u "$AUTH" -X PUT "$MGMT/api-products/00000000-0000-0000-0000-000000000000" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "Partner Platform",
+    "version": "1.0.0",
+    "resources": [
+      {
+        "name": "partner-cache",
+        "type": "cache",
+        "enabled": true,
+        "configuration": {
+          "timeToIdleSeconds": 0,
+          "timeToLiveSeconds": 3600,
+          "maxEntriesLocalHeap": 1000
+        }
+      }
+    ]
+  }'
+```
+
+An update always replaces the product's `analytics` setting, and the example above sets no `analytics`. To keep the product's current setting, send the `analytics` value that `GET /api-products/{apiProductId}` returns in the same request.
+
+The call returns `200 OK` with the updated product, including its `resources`. `GET /api-products/{apiProductId}` returns them too. The list and search responses don't include them.
+
+Omit `resources`, or send `null`, to keep the stored resources. Send an array to replace them, and send `"resources": []` to remove every resource. The create request has no `resources` field, so add resources with an update.
+
+`type` takes one of the following values: `cache`, `cache-redis`, `oauth2`, `oauth2-am-resource`, `oauth2-auth0`, `oauth2-entra-id`, `oauth2-keycloak-resource`, `auth-provider-http-resource`, `auth-provider-inline-resource`, `auth-provider-ldap-resource`, and `content-provider-inline-resource`. The `configuration` of an enabled resource is checked against the schema of its resource plugin. The `configuration` of a disabled resource isn't checked until you enable it.
+
+The following errors return `400 Bad Request` and leave the stored product unchanged:
+
+| Condition | Response message |
+| --------- | ---------------- |
+| A resource's `name` is blank | `An API Product resource requires a name` |
+| Two resources share a `name`, even when one of them is disabled | `Two resources on the same API Product cannot share the name [<name>]` |
+| `type` isn't one of the values above | `Resource type [<type>] is not supported on an API Product` |
+| An enabled resource has no `configuration` | `Resource [<name>] requires a configuration` |
+| The `configuration` of an enabled resource doesn't match the schema of its resource plugin | `Resource [<name>] configuration is not valid` |
+
+The checks run in the order of this table, and the response reports only the first one that fails.
+
+After a change to `resources`, `GET /api-products/{apiProductId}` returns `deploymentState` as `NEED_REDEPLOY` until you deploy the product. The same resources in another order don't count as a change.
+
 ## Create a plan
 
 Consumers subscribe to a product through its plans. Create one with `POST /api-products/{apiProductId}/plans`:

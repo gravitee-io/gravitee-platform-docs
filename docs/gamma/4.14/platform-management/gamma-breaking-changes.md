@@ -10,6 +10,12 @@ Here are the breaking changes for versions 4.X of Gamma, grouped by module. Gamm
 
 ### 4.14.0
 
+#### API Management
+
+**The Gateway and the Management API verify the Elasticsearch certificate**
+
+From 4.14.0, the Gateway reporter and the Management API verify the certificate of an Elasticsearch cluster that they reach over `https`, including its host name. They use the truststore set in `ssl.truststore`, or the default truststore of the JVM. This applies to the analytics, decision records, and OpenTelemetry traces and logs. In 4.13, they accepted any certificate. If the certificate of your cluster is self-signed or signed by an internal authority, set a truststore before you upgrade, or set `ssl.trustAll: true` to keep the previous behavior. With Helm, set `es.ssl.truststore` or `es.ssl.trustAll`. See [Breaking Changes and Deprecations](https://documentation.gravitee.io/apim/4.14/release-information/breaking-changes-and-deprecations#elasticsearch-the-gateway-and-the-management-api-verify-the-cluster-certificate) in the API Management documentation.
+
 #### Event Stream Management
 
 **Only the members of a Cluster bind an API to it**

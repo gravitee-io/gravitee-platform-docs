@@ -50,6 +50,11 @@ analytics:
 #       password:
 #       api_key:          # Instead of username and password. Do not set both.
 #    ssl:                        # for https es connection
+#      trustAll: false           # true accepts any server certificate. Default false: the certificate is verified
+#      truststore:               # authorities that sign the server certificate. Without it, the JVM default truststore applies
+#        type: pem               # "jks", "pkcs12" or "pem"
+#        path: path/to/ca.pem
+#        password: <truststore pass> # only for jks / pkcs12
 #      keystore:
 #        type: jks               # required. also valid values are "pem", "pfx"
 #        path: path/to/jks         # only for only for jks / pkcs12
@@ -102,6 +107,11 @@ reporters:
 #      password:
 #      api_key:           # Instead of username and password. Do not set both.
 #    ssl:                        # for https es connection
+#      trustAll: false           # true accepts any server certificate. Default false: the certificate is verified
+#      truststore:               # authorities that sign the server certificate. Without it, the JVM default truststore applies
+#        type: pem               # "jks", "pkcs12" or "pem"
+#        path: path/to/ca.pem
+#        password: <truststore pass> # only for jks / pkcs12
 #      keystore:
 #        type: jks               # required. also valid values are "pem", "pfx"
 #        path: path/to/jks         # only for only for jks / pkcs12
@@ -123,6 +133,32 @@ With Helm, set `es.security.apiKey`. The chart renders it as `security.api_key` 
 {% hint style="warning" %}
 The chart writes the value of `es.security.apiKey` in clear text in the ConfigMap of each component. It doesn't read the API key from a Kubernetes Secret.
 {% endhint %}
+
+## Verify the certificate of the cluster
+
+From APIM 4.14, the Gateway reporter and the Management API verify the certificate of an Elasticsearch cluster that they reach over `https`. They also check the host name that the certificate was issued for. In 4.13 and earlier, they accepted any certificate. For more information, see [Breaking Changes and Deprecations](../../release-information/breaking-changes-and-deprecations.md).
+
+* A certificate is trusted when it's signed by an authority of the truststore set in `ssl.truststore`: `type` is `jks`, `pkcs12`, or `pem`, `path` is the truststore file, and `password` is required for `jks` and `pkcs12`. A `pem` file can hold several authorities.
+* Without a truststore, the default truststore of the JVM applies. It holds the public certificate authorities, which sign the certificates of Elastic Cloud and Elastic Cloud Serverless.
+* `ssl.trustAll: true` accepts any certificate, as in 4.13. The connection is encrypted, but nothing proves that it reaches your cluster. When `trustAll` is `true`, the truststore is ignored, and a warning is logged.
+* `ssl.keystore` is unrelated: it holds the client certificate that the Gateway or the Management API presents to the cluster.
+
+Set these keys under `reporters.elasticsearch` for the Gateway, and under `analytics.elasticsearch`, `otel-traces.elasticsearch`, and `otel-logs.elasticsearch` for the Management API. An invalid truststore type or a missing path makes the client fail at startup.
+
+With Helm, set `es.ssl.truststore.type`, `es.ssl.truststore.path`, and `es.ssl.truststore.password`, or `es.ssl.trustAll`. The chart renders them for the Gateway reporter and the Management API analytics whenever they're set. `es.ssl.enabled` doesn't affect them: it only renders the keystore. For the OpenTelemetry readers, set the same keys under `api.otelTraces.elasticsearch.ssl` and `api.otelLogs.elasticsearch.ssl`.
+
+A self-managed Elasticsearch 8 cluster generates its certificate authority at its first startup, in the `http_ca.crt` file. To trust it, copy this file to the Gateway and the Management API, and configure the reporter as follows:
+
+```yaml
+reporters:
+  elasticsearch:
+    endpoints:
+      - https://elasticsearch.example.com:9200
+    ssl:
+      truststore:
+        type: pem
+        path: ${gravitee.home}/security/http_ca.crt
+```
 
 ## Elastic Cloud Serverless
 

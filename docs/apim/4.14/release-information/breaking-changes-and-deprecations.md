@@ -17,6 +17,19 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 # 4.14.0
 
+## Elasticsearch: The Gateway and the Management API verify the cluster certificate
+
+From 4.14.0, the Gateway reporter and the Management API verify the certificate of an Elasticsearch cluster that they reach over `https`. They also check the host name that the certificate was issued for. This applies to the analytics repository and to the OpenTelemetry traces and logs readers of the Management API. In 4.13 and earlier, they accepted any certificate.
+
+A certificate is trusted when it's signed by an authority of the truststore set in `ssl.truststore`. Without a truststore, the default truststore of the JVM applies, which holds the public certificate authorities. A cluster whose certificate is signed by a public authority, such as Elastic Cloud and Elastic Cloud Serverless, needs no change.
+
+If the certificate of your cluster is self-signed or signed by an internal authority, the Gateway and the Management API can't connect to the cluster after the upgrade. The Gateway reporter then doesn't write analytics, and the Management API can't read them. Before you upgrade, do one of the following:
+
+* Set `ssl.truststore.type` to `jks`, `pkcs12`, or `pem`, `ssl.truststore.path` to a truststore that holds the authority that signed the certificate, and, for `jks` and `pkcs12`, `ssl.truststore.password`.
+* Set `ssl.trustAll` to `true` to accept any certificate, as in 4.13. The connection is then encrypted, but nothing proves that it reaches your cluster.
+
+Set these keys under `reporters.elasticsearch` for the Gateway, and under `analytics.elasticsearch`, `otel-traces.elasticsearch`, and `otel-logs.elasticsearch` for the Management API. With Helm, set `es.ssl.truststore` or `es.ssl.trustAll`, and `api.otelTraces.elasticsearch.ssl` and `api.otelLogs.elasticsearch.ssl` for the OpenTelemetry readers. For more information, see [Verify the certificate of the cluster](../prepare-a-production-environment/repositories/elasticsearch.md#verify-the-certificate-of-the-cluster).
+
 ## Message API connections: Two documents per connection
 
 From 4.14.0, the Gateway reports a message API connection in two documents in the v4 metrics and v4 log indices. The opening document has the ID `<request-id>:open`, and its `connection-phase` is `open`. The document reported when the connection ends keeps the request ID, and in the v4 metrics index it has `connection-phase` set to `end`. In 4.13 and earlier, the Gateway reported a connection only when it ended.

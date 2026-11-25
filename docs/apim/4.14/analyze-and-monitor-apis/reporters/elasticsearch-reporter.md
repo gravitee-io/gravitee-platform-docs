@@ -386,6 +386,10 @@ The reporter attaches no index lifecycle policy by default. To attach policies t
 
 With `index_mode: data_stream`, these policies apply to the data streams. For more information, see [Set the lifecycle of the data streams](#set-the-lifecycle-of-the-data-streams).
 
+## Verify the certificate of the cluster
+
+From APIM 4.14, the reporter verifies the certificate of an Elasticsearch cluster that it reaches over `https`, including its host name. It uses the truststore set in `reporters.elasticsearch.ssl.truststore`, or the default truststore of the JVM. `reporters.elasticsearch.ssl.trustAll: true` accepts any certificate, as in 4.13. When the reporter can't verify the certificate, it can't connect, and it doesn't write analytics. For more information, see [Verify the certificate of the cluster](../../prepare-a-production-environment/repositories/elasticsearch.md#verify-the-certificate-of-the-cluster).
+
 ## Secure the connection with a client keystore
 
 To present a client certificate to Elasticsearch, configure `reporters.elasticsearch.ssl.keystore.type`, `reporters.elasticsearch.ssl.keystore.path`, and `reporters.elasticsearch.ssl.keystore.password` in the Gateway `gravitee.yml` file. None of these settings has a default value.

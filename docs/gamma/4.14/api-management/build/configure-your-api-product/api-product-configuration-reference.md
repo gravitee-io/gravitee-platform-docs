@@ -18,8 +18,9 @@ An API product has the following properties:
 | `version`     | string     | Yes      | Product version. The create form pre-fills `1.0.0`.                                                                                                                    |
 | `description` | string     | No       | Freeform description of what the product offers to consumers.                                                                                                          |
 | `apiIds`      | string\[]  | No       | IDs of the APIs bundled in the product. Every referenced API must exist, use the v4 API definition, and have `allowedInApiProducts` set to `true`.                      |
+| `resources`   | object\[]  | No       | Resources that the policies of the product use. Each resource has a `name`, a `type`, a `configuration`, and an `enabled` flag. Names are unique within the product. |
 
-`name`, `version`, and `description` map to the **Name**, **Version**, and **Description** fields on both the **Create API Product** form and the product's **General** page. `apiIds` is managed from the product's **APIs** page rather than as a text field.
+`name`, `version`, and `description` map to the **Name**, **Version**, and **Description** fields on both the **Create API Product** form and the product's **General** page. `apiIds` is managed from the product's **APIs** page rather than as a text field. `resources` is managed from the product's **Resources** page. See [Configure API Product resources](configure-api-product-resources.md).
 
 While you type in the **Name** field, the console checks the name against existing products and reports either `Name is available.` or `API Product name '<name>' already exists`. The check is debounced by 400 ms and runs against the trimmed name, so `  Docs Verification Product  ` collides with `Docs Verification Product`, while `docs verification product` does not.
 
