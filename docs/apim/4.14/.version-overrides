@@ -101,3 +101,12 @@ configure-and-manage-the-platform/gravitee-gateway/dictionaries.md
 secure-and-expose-apis/plans/api-key.md
 secure-and-expose-apis/subscriptions/manage-subscriptions.md
 .gitbook/assets/apim-shared-api-key-renew-custom.png
+
+# Path mappings on v4 APIs: Console tab, OpenAPI import option, and migration (APIM-12670)
+create-and-configure-apis/configure-v4-apis/path-mappings.md
+create-and-configure-apis/gravitee-api-definitions/v2-and-v4-api-comparison.md
+create-and-configure-apis/create-apis/import-and-update-v4-apis-from-openapi-and-gravitee-definitions.md
+create-and-configure-apis/create-apis/migrate-apis.md
+.gitbook/assets/apim-v4-path-mappings-tab.png
+.gitbook/assets/apim-v4-path-mappings-add-path.png
+.gitbook/assets/apim-v4-path-mappings-add-swagger.png

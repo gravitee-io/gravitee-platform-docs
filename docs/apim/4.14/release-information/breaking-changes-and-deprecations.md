@@ -38,6 +38,16 @@ The 4.14 Management API counts a connection from its opening document and reads 
 
 Before you upgrade, review any dashboard, query, or reporter pipeline that reads message API connections from the v4 metrics or v4 log indices. To count connections, exclude the documents whose `connection-phase` is `end`. To read durations, exclude the documents whose `connection-phase` is `open`. For more information, see [Message API connections](../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#message-api-connections) and [APIM 4.14 Elasticsearch Index Template Changes](../upgrade-guides/apim-4.14-elasticsearch-index-template-changes.md).
 
+## Path mappings: The Management API refuses a v4 path mapping outside the path mapping rules
+
+From 4.14.0, a path mapping of a v4 API starts with `/`, followed by letters, digits, and the characters `:`, `/`, `.`, `_`, and `-`. The Management API refuses to create, import, or update a v4 API with a path mapping outside these rules. It answers HTTP `400` with a message that names the first such path mapping, for example `Path mappings contain invalid templates: [/users/*]`. The check also covers the path mappings the API already holds, so updating such an API fails until its path mappings are fixed.
+
+In 4.13, the Management API accepted any path mapping that compiled as a regular expression, such as `/`, `/users/*`, or `/users/@me`. A v4 API created or updated through the Management API in 4.13 can hold one, including an API managed with the Gravitee Kubernetes Operator, Terraform, or the Automation API.
+
+Migrating a v2 API to v4 is also blocked when every path mapping of the v2 API is outside these rules, unless its only path mapping is `/`. The migration's message lists those path mappings. In 4.13, the migration dropped every path mapping instead.
+
+Before you upgrade, review the path mappings of your v4 APIs, and replace or remove each one outside the rules. Write a path parameter as `:name`, for example `/users/:userId`. For more information, see [Configure path mappings](../create-and-configure-apis/configure-v4-apis/path-mappings.md).
+
 # 4.13.0
 
 ## Subscription forms apply only to the APIs they're assigned to

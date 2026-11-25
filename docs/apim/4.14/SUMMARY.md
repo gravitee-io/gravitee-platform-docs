@@ -203,6 +203,7 @@
     * [Quality of Service](create-and-configure-apis/configure-v4-apis/quality-of-service.md)
     * [Response Templates](create-and-configure-apis/configure-v4-apis/response-templates.md)
     * [CORS](create-and-configure-apis/configure-v4-apis/cors.md)
+    * [Configure path mappings](create-and-configure-apis/configure-v4-apis/path-mappings.md)
     * [Health-checks](create-and-configure-apis/configure-v4-apis/health-checks.md)
     * [Add v4 API documentation](create-and-configure-apis/configure-v4-apis/documentation.md)
     * [Audit Logs](create-and-configure-apis/configure-v4-apis/audit-logs.md)
