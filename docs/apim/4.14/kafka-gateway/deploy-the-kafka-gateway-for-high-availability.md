@@ -137,7 +137,7 @@ limit x (100 - notReadyPercent) / 100  >=  new connections per second per pod
                                            x (periodSeconds x failureThreshold + load balancer propagation seconds)
 ```
 
-For example, with a limit of 10000 connections, `notReadyPercent: 90` leaves 1000 connections of headroom. Take 50 new connections per second per pod, a probe of `periodSeconds: 5` and `failureThreshold: 2`, and 10 seconds of load balancer propagation. The instance needs 50 x (5 x 2 + 10) = 1000 connections of headroom, which is just enough.
+For example, with a limit of 2000 connections, `notReadyPercent: 90` leaves 200 connections of headroom. Take 10 new connections per second per pod, a probe of `periodSeconds: 5` and `failureThreshold: 2`, and 10 seconds of load balancer propagation. The instance needs 10 x (5 x 2 + 10) = 200 connections of headroom, which is just enough.
 
 Keep `readyPercent` well below `notReadyPercent`, so an instance that is back under the limit does not flap in and out of the pool.
 

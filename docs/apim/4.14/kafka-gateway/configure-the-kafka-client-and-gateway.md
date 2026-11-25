@@ -328,8 +328,10 @@ Each connection uses heap memory, and how much depends on the clients: the consu
 | Largest consumer fetch size | `kafka.maxConnectionsPerGiB` |
 | --- | --- |
 | Up to 2 MB | 100 |
-| 4 MB | 25 |
+| More than 2 MB, up to 4 MB | 25 |
 | More than 4 MB | Lower than 25, or give the Gateway more heap |
+
+Kafka's default consumer settings, a `max.partition.fetch.bytes` of 1 MiB and a `fetch.max.bytes` of 50 MiB, already give a fetch size above 4 MB when a consumer fetches five or more partitions from one broker. Check these settings before you keep the `100` from the example.
 
 These values come from load tests in which every connection was a consumer reading a backlog with no pause between fetches. In those tests, 50 connections per GiB with a 4 MB fetch filled the heap, and 25 per GiB ran with the heap at 88%. Producers and idle connections need less memory.
 
