@@ -6,6 +6,23 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.37 - November 25, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.6.36 - November 20, 2026
 
 <details>
