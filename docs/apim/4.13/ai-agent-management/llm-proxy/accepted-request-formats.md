@@ -4,7 +4,7 @@ description: The API Management 4.13 LLM Proxy accepts OpenAI, Anthropic Message
 
 # Accepted request formats
 
-The Gravitee LLM Proxy accepts inbound requests in three client API formats: OpenAI, Anthropic Messages, and Gemini `generateContent`. The LLM Proxy's internal format is OpenAI Responses. Requests in every format, OpenAI Chat Completions included, are converted to OpenAI Responses format before the policy chain and the backend provider mapping run. The model's answer is then converted back to the format the client used. Requests to `/embeddings` and `/models` aren't converted. For what the policies of the LLM Proxy receive, see [Request and response bodies in policies](#request-and-response-bodies-in-policies).
+The Gravitee LLM Proxy accepts inbound requests in three client API formats: OpenAI, Anthropic Messages, and Gemini `generateContent`. The LLM Proxy's internal format is OpenAI Responses. Requests in every format, OpenAI Chat Completions included, are converted to OpenAI Responses format before the LLM Proxy's own policies and the backend provider mapping run. The model's response is then converted back to the format the client used. Requests to `/embeddings` and `/models` aren't converted. For what the policies of the LLM Proxy receive, see [Request and response bodies in policies](#request-and-response-bodies-in-policies).
 
 This means you can point an OpenAI, Anthropic, or Gemini SDK at the same LLM Proxy and get responses in that same format. The backend provider the LLM Proxy calls doesn't change the format of a successful response.
 
@@ -12,7 +12,7 @@ This means you can point an OpenAI, Anthropic, or Gemini SDK at the same LLM Pro
 This page covers the formats you can send requests **in**, on the client side. For how the LLM Proxy maps a request **out** to each backend provider (Gemini, Bedrock, OpenAI, Anthropic, and Vertex AI), see the provider details on the [LLM proxy](README.md) overview page. The **Vertex AI** provider connects to Google Cloud's Gemini Enterprise Agent Platform (formerly Vertex AI).
 {% endhint %}
 
-The LLM Proxy doesn't check the request body against a schema. It matches the request to a client format and converts it, except on `/embeddings` and `/models`. On the paths it converts, a JSON body with no model, or with no readable message, is answered with `400` and isn't sent to the provider. A supported path called with an unsupported HTTP method returns `405`.
+The LLM Proxy doesn't check the request body against a schema. It matches the request to a client format and converts it, except on `/embeddings` and `/models`. On the paths it converts, a JSON body with no readable message is answered with `400` and isn't sent to the provider, and so is an OpenAI or Anthropic body with no model. A supported path called with an unsupported HTTP method returns `405`.
 
 ## Supported endpoints
 
@@ -68,13 +68,13 @@ The response comes back in Responses API shape, whatever API the LLM Proxy calle
 
 ### Embeddings and models
 
-The LLM Proxy doesn't convert `/embeddings` requests. The `/models` endpoint is a `GET` request with no body. The LLM Proxy answers it without calling a backend provider, with the models that the endpoints of the LLM Proxy serve.
+The LLM Proxy doesn't convert `/embeddings` requests to its internal format. The `/models` endpoint is a `GET` request with no body. The LLM Proxy answers it without calling a backend provider, with the models that the endpoints of the LLM Proxy serve.
 
 ## Anthropic Messages format
 
-The LLM Proxy accepts requests in Anthropic Messages format on `/v1/messages` and `/v1/messages/count_tokens`. It converts the request to its internal format and converts the response back to Anthropic Messages format. An Anthropic provider's response to `/v1/messages/count_tokens` is returned as the provider sent it.
+The LLM Proxy accepts requests in Anthropic Messages format on `/v1/messages` and `/v1/messages/count_tokens`. It converts the request to its internal format and converts the response to a `/v1/messages` request back to Anthropic Messages format. An Anthropic provider's response to `/v1/messages/count_tokens` is returned as the provider sent it.
 
-A request body requires `model` and `messages`. Fields the LLM Proxy doesn't map reach the backend only when the LLM Proxy calls it in Anthropic Messages format. `top_k` reaches no backend provider.
+Send `model` and `messages` in the request body. Fields the LLM Proxy doesn't map reach the backend only when the LLM Proxy calls it in Anthropic Messages format. `top_k` reaches no backend provider.
 
 These fields carry over to the internal format as follows:
 
@@ -87,7 +87,7 @@ These fields carry over to the internal format as follows:
 | `max_tokens` | `max_output_tokens` |
 | `stop_sequences` | `stop` |
 
-A top-level `system` value becomes `instructions`, without the non-text blocks of a `system` array. Each `user` and `assistant` entry in `messages` keeps its role. Message content is handled as follows:
+A top-level `system` string becomes `instructions`. The text blocks of a `system` array become `instructions` too, unless a block carries another field, such as `cache_control`. In that case they stay at the start of `input` with the `system` role. Non-text blocks of a `system` array are dropped. Each `user` and `assistant` entry in `messages` keeps its role. Message content is handled as follows:
 
 * A string content value is kept as-is.
 * Each `text` block of an array stays a separate text part.
@@ -99,7 +99,7 @@ When the response comes back, the LLM Proxy converts it from the internal format
 |---|---|
 | Holds a refusal | `refusal` |
 | Is incomplete, for example because it reached the token limit | `max_tokens` |
-| Was cancelled | `end_turn` |
+| Was cancelled, and isn't streamed | `end_turn` |
 | Calls a tool | `tool_use` |
 | Any other response | `end_turn` |
 
@@ -163,15 +163,15 @@ When the LLM Proxy is configured with `injectTokenHeaders` set to `true`, which 
 
 ## Request and response bodies in policies
 
-The policies of the LLM Proxy read and change the prompt and the model's answer in the OpenAI Responses format, whatever format the client uses:
+The policies of the LLM Proxy read and change the prompt and the model's response in the OpenAI Responses format, whatever format the client uses:
 
-* Before the request phase, the LLM Proxy converts the request to the OpenAI Responses format. The conversation is in the `input` array. System instructions at the start of the conversation are in `instructions` when they hold only text.
-* Before the response phase, the LLM Proxy converts the model's answer to the OpenAI Responses format. The answer is in the `output` array, and the token counts, when the provider reports them, are in `usage.input_tokens` and `usage.output_tokens`. A streamed answer reaches the response phase as OpenAI Responses streaming events.
-* After the response phase, the LLM Proxy converts the answer to the format the client used.
+* Before the request phase, the LLM Proxy converts the request to the OpenAI Responses format. The conversation is in the `input` array. System messages at its start are moved to `instructions` when they hold nothing but text. Otherwise they stay in `input`, and so do developer messages.
+* Before the response phase, the LLM Proxy converts the model's response to the OpenAI Responses format. The response is in the `output` array, and the token counts, when the provider reports them, are in `usage.input_tokens` and `usage.output_tokens`. A streamed response reaches the response phase as OpenAI Responses streaming events.
+* After the response phase, the LLM Proxy converts the response to the format the client used.
 
-For example, in the response phase, the answer to a `/chat/completions` request has no `choices` array, so a policy that reads `choices` finds nothing. Write the policies that read or change a body for the OpenAI Responses format.
+For example, in the response phase, the response to a `/chat/completions` request has no `choices` array, so a policy that reads `choices` finds nothing. Write the policies that read or change a body for the OpenAI Responses format.
 
-Requests to `/embeddings` and `/models` aren't converted to the OpenAI Responses format, and neither are their answers. An answer the provider sends with a status of 300 or above isn't converted either. The policies of the response phase and the client receive the provider's own body.
+Requests to `/embeddings` and `/models` aren't converted to the OpenAI Responses format, and neither are their responses. A response the provider sends with a status of 300 or above isn't converted either. The policies of the response phase and the client receive that response as the provider sent it.
 
 ## Limitations
 
