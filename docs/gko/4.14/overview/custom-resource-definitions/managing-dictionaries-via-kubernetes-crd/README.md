@@ -20,7 +20,7 @@ Provide `manual` when `type` is `MANUAL`, and `dynamic` when `type` is `DYNAMIC`
 
 ## Manual dictionary
 
-A manual dictionary stores static key-value pairs in a `manual.properties` map, which holds at least one entry:
+A manual dictionary stores static key-value pairs in a `manual.properties` map, and secret values in a `manual.encryptedProperties` map, described in [Encrypt dictionary properties](#encrypt-dictionary-properties). The two maps hold at least one entry between them:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -45,6 +45,7 @@ A dynamic dictionary fetches its properties from an external HTTP provider on a 
 
 * `dynamic.provider`: HTTP provider configuration with `type` (`HTTP`), `url`, `method`, and `specification` (JOLT), plus optional `body`, `useSystemProxy`, and `headers`
 * `dynamic.trigger`: Polling schedule with `rate` and `unit` (one of `MICROSECONDS`, `MILLISECONDS`, `SECONDS`, `MINUTES`, `HOURS`, or `DAYS`)
+* `dynamic.encryption.encryptOnFetch`: Optional. Set it to `true` to encrypt every value the dictionary fetches. For more information, see [Encrypt dictionary properties](#encrypt-dictionary-properties).
 
 The JOLT `specification` transforms the HTTP response into a flat key-value structure.
 
@@ -185,6 +186,64 @@ To read the same values from a ConfigMap, use the `configmap` keyword in place o
 ```yaml
 url: "[[ configmap `my-config/provider-url` ]]"
 ```
+
+## Encrypt dictionary properties
+
+APIM encrypts the value of an encrypted property when it stores it, and never returns the value. A policy reads an encrypted property with the same expression as an unencrypted one. It receives the original value when your Gateways use the same encryption secret as your Management API. Otherwise, it doesn't receive the original value.
+
+### Encrypt the properties of a manual dictionary
+
+Declare each secret under `manual.encryptedProperties`, keyed by the property name, with the secret in `value`. Recommended: Take the secret from a Kubernetes Secret, as described in [Reference Secrets and ConfigMaps](#reference-secrets-and-configmaps), so that it stays out of the `Dictionary` resource:
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: backend-creds
+type: Opaque
+stringData:
+  api-key: <your-api-key>
+---
+apiVersion: gravitee.io/v1alpha1
+kind: Dictionary
+metadata:
+  name: manual-dict-encrypted
+spec:
+  contextRef:
+    name: dev-ctx
+    namespace: default
+  name: manual-dict-encrypted
+  type: MANUAL
+  deployed: true
+  manual:
+    properties:
+      url: https://backend.internal
+    encryptedProperties:
+      apiKey:
+        value: "[[ secret `backend-creds/api-key` ]]"
+```
+
+APIM stores the value of `apiKey` encrypted from the first apply. The following rules apply to encrypted properties:
+
+* A key can't appear in both `manual.properties` and `manual.encryptedProperties`. Kubernetes refuses the resource with an error that contains `a key must not appear in both properties and encryptedProperties`.
+* Moving a key from `manual.properties` to `manual.encryptedProperties` encrypts its value.
+* A key that APIM stores encrypted, for example a property encrypted outside GKO, belongs under `manual.encryptedProperties`. When your resource lists it under `manual.properties`, APIM refuses the change with the error key `dictionary.property.encryptedToPlain`.
+* To store an encrypted property as plain text again, apply your resource twice. First, remove the key from `manual.encryptedProperties` and apply the resource. Then, add the key under `manual.properties` and apply the resource again. Between the two applies, the dictionary doesn't hold the key. When the key is the dictionary's only property, the first apply is refused, so add another property first.
+
+### Encrypt the values of a dynamic dictionary
+
+To store every value that a dynamic dictionary fetches encrypted, from the first fetch, set `dynamic.encryption.encryptOnFetch` to `true`:
+
+```yaml
+spec:
+  type: DYNAMIC
+  dynamic:
+    # provider and trigger omitted for brevity
+    encryption:
+      encryptOnFetch: true
+```
+
+Values already stored unencrypted are encrypted the next time they're fetched. Removing the `encryption` block turns `encryptOnFetch` off. When `encryptOnFetch` is off, values already stored encrypted stay encrypted.
 
 ## Status and conditions
 

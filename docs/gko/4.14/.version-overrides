@@ -20,3 +20,7 @@ releases-and-changelog/release-notes/gko-4.14.md
 
 # Default portal replaced by the first Portal resource (PORTAL-343)
 overview/custom-resource-definitions/portal.md
+
+# Encrypted dictionary values in the Dictionary resource (EXT-204)
+overview/custom-resource-definitions/managing-dictionaries-via-kubernetes-crd/README.md
+overview/custom-resource-definitions/managing-dictionaries-via-kubernetes-crd/dictionary-management-restrictions-and-validation.md

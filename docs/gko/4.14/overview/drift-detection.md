@@ -77,6 +77,8 @@ For the Access Management resources, a resource that Access Management hasn't ac
 
 For the Authorization Management resources, a resource that the platform hasn't received yet isn't compared. Neither is an `AuthzEntity` or an `AuthzPolicy` whose last apply the platform refused, or an `AuthzSchema`, `AuthzEntity`, or `AuthzPolicy` whose previous `pdpRef` no longer resolves, for example after its `AuthzPdp` is deleted. The parents and targets of an `AuthzEntity`, and the targets of an `AuthzPolicy`, are compared whatever their order. A policy disabled in the console isn't reported, and the next apply deploys it again. A change of `strict` made through another `AuthzPdp` with the same `targetPdpId` is reported on the next update of an `AuthzPdp` that declares the previous value.
 
+For a `Dictionary`, APIM returns the value of an encrypted property masked. That value counts as unchanged when your resource declares the key under `manual.encryptedProperties`, so a new value set in APIM isn't reported. A key that your resource declares under `manual.encryptedProperties` and APIM stores unencrypted is reported. When your resource doesn't set `dynamic.encryption`, GKO compares `encryptOnFetch` with `false`, so turning it on in APIM is reported.
+
 Drift detection doesn't apply to other resources, such as an `ApiDefinition` (v2 API), a `ManagementContext`, an `AMContext`, or an `ApiResource`. These resources, and subscriptions to a v2 API, ignore the annotation.
 
 ### Changes that are never reported
@@ -90,6 +92,7 @@ A change made in APIM or Access Management to the following fields is never repo
 | `Portal` | `spec.navigation`, which is deprecated |
 | `McpProxy` | The credentials of the upstream authentication: `apiKey.apiKey`, `bearer.token`, `basic.password`, and `oauth2.clientSecret`, under `spec.proxy.upstreamAuth` and under the `auth` of each `spec.studio.upstreamAuth` entry. The `oauth2Generic.clientSecret` of each `spec.identityProviders` entry |
 | `CatalogMcpServer` | `spec.connection.auth.header.value` and `spec.connection.auth.oauth2.clientSecret` |
+| `Dictionary` | The `value` of each `spec.manual.encryptedProperties` entry while APIM stores the key encrypted |
 | `AMSecurityDomain` | `spec.dataPlaneId` when your resource doesn't set it. An algorithm that Access Management adds to `spec.oidc.workloadIdentitySettings.defaultAllowedAlgorithms` |
 | `AMIdentityProvider` and `AMCertificate` | `spec.name`, `spec.type`, and `spec.configuration` when `spec.system` is `true` |
 | `AMReporter` | `spec.name`, `spec.type`, `spec.configuration`, `spec.attributeMappings`, and `spec.attributeMappingEventTypes` when `spec.system` is `true` |
@@ -198,6 +201,7 @@ The report uses the following conventions:
 * **List items** are identified by their index in square brackets, for example `apis[0]:` for an item that is an object, or `tags[1]:` for a single value. When an item exists on one side only, the other side shows an empty value, such as `""` or `0`. A field that isn't set on one side shows `<nil>`.
 * **Map entries** are sorted by key, so the report is the same from one run to the next.
 * **Long values** are cut after 60 characters, followed by the number of hidden characters, for example `(120 chars hidden)`.
+* **Encrypted values** of a `Dictionary` aren't printed. The report names the key and shows `(secret value, not shown)` instead of the values.
 * **Text on several lines** is compared line by line and shown side by side. Runs of identical lines are replaced by a line count, and `!=` marks the first line that differs.
 
 For example, when the second and third lines of the content of a `Documentation` resource differ, the report looks like this:
