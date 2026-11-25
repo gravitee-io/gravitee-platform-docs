@@ -217,9 +217,10 @@ The following errors return `400 Bad Request` and leave the stored product uncha
 | A resource's `name` is blank | `An API Product resource requires a name` |
 | Two resources share a `name`, even when one of them is disabled | `Two resources on the same API Product cannot share the name [<name>]` |
 | `type` isn't one of the values above | `Resource type [<type>] is not supported on an API Product` |
+| An enabled resource has no `configuration` | `Resource [<name>] requires a configuration` |
 | The `configuration` of an enabled resource doesn't match the schema of its resource plugin | `Resource [<name>] configuration is not valid` |
 
-The response reports only the first error found.
+The checks run in the order of this table, and the response reports only the first one that fails.
 
 After a change to `resources`, `GET /api-products/{apiProductId}` returns `deploymentState` as `NEED_REDEPLOY` until you deploy the product. The same resources in another order don't count as a change.
 
