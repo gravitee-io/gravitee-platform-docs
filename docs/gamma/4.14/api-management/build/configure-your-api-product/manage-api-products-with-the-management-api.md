@@ -179,7 +179,7 @@ The response is `200 OK` and paginated. Each entry in `data` is a full API objec
 
 ## Add resources to the product
 
-The resources that the policies of the product use are the `resources` array of the product. Set them with `PUT /api-products/{apiProductId}`. Each resource has a `name`, a `type`, a `configuration` object, and an `enabled` flag:
+The resources that the policies of the product use are the `resources` array of the product. Set them with `PUT /api-products/{apiProductId}`. Reading them requires the read permission on the product's definition, and changing them requires the update permission on it. Each resource has a `name`, a `type`, a `configuration` object, and an `enabled` flag:
 
 ```bash
 curl -s -u "$AUTH" -X PUT "$MGMT/api-products/00000000-0000-0000-0000-000000000000" \
@@ -218,6 +218,8 @@ The following errors return `400 Bad Request` and leave the stored product uncha
 | Two resources share a `name`, even when one of them is disabled | `Two resources on the same API Product cannot share the name [<name>]` |
 | `type` isn't one of the values above | `Resource type [<type>] is not supported on an API Product` |
 | The `configuration` of an enabled resource doesn't match the schema of its resource plugin | `Resource [<name>] configuration is not valid` |
+
+The response reports only the first error found.
 
 After a change to `resources`, `GET /api-products/{apiProductId}` returns `deploymentState` as `NEED_REDEPLOY` until you deploy the product. The same resources in another order don't count as a change.
 

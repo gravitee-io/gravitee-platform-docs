@@ -37,7 +37,7 @@ To add a resource, follow these steps:
     <figure><img src="../../.gitbook/assets/gamma-api-product-resources-select-type.png" alt="The Select Resource Type step of Add Resource, with the All categories, Authentication, Cache, OAuth2, and Others filters above the resource type cards"><figcaption><p>The resource types that an API Product supports</p></figcaption></figure>
 3. Click **Next**.
 4. Enter a **Resource name**. Policies use this name to reach the resource, so keep it once a policy uses it. Two resources of the same API Product can't share a name.
-5. Complete the **Configuration** form. The fields depend on the selected resource type.
+5. Complete the **Configuration** form. The fields depend on the selected resource type. For credentials, such as an LDAP password, an OAuth2 client secret, or a Redis password, use a secret reference such as `{#secrets.get(...)}` instead of a plain value. See [Reference Secrets in APIs](https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis).
 6. Click **Create resource**.
 
 The new resource is enabled.
@@ -47,12 +47,16 @@ The new resource is enabled.
 The actions menu of each resource row offers the following actions:
 
 * **Edit**. Opens **Edit Resource**, where you change the **Resource name** and the **Configuration**. Click **Save changes** to save them.
-* **Disable** or **Enable**. A disabled resource doesn't run, so a policy that uses it behaves as if the resource didn't exist.
+* **Disable** or **Enable**. A disabled resource doesn't run, so a policy that uses it behaves as if the resource didn't exist. It never uses a resource of the same name from one of the product's APIs.
 * **Remove**. Opens the **Remove resource** dialog, which warns that the policies that reference the resource fail until they're updated. Click **Remove** to confirm.
 
 ## Deploy the changes
 
 Changes to the resources of an API Product take effect after you deploy the product. After a change, the API Product shows **This API Product is out of sync**.
+
+Deploying a change to the resources restarts them, so a **Cache** resource starts empty. A deployment that changes only the flows, plans, or settings of the product keeps the running resources.
+
+On every deployment, the Gateway also checks that the license covers each enabled resource type. A Gateway that refuses a version keeps serving the version it already had, while the API Product shows **Synced**.
 
 To deploy the API Product, follow these steps:
 
