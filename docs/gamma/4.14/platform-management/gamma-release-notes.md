@@ -140,6 +140,7 @@ API Management adds the following in 4.14:
 * A new **Resources** page, in the new **Design** group of an API Product, adds, edits, enables, disables, and removes the resources that the policies of the product use.
 * An API Product supports 11 resource types: **Cache**, **Cache Redis**, five OAuth2 providers, three authentication providers, and **Content Provider Inline Resource**.
 * A policy in the **Policy Studio** of an API Product uses the product's resources on every API in the product, and the policies of each API keep using that API's resources.
+* Known limitation: the Cache policy can't use a Cache resource of the API Product yet. The Data Cache policy can.
 * Changes to the resources take effect after you deploy the API Product. Deploying a change to the resources restarts them, so a **Cache** resource starts empty.
 * On every deployment of an API Product, the Gateway also checks the license of its enabled resource types. A Gateway that refuses a version keeps serving the version it already had, while the API Product shows **Synced**.
 * A Gateway earlier than 4.14 ignores the resources of an API Product. A policy in a plan flow of the product then uses the API's resource with the same name if the API has one, and otherwise fails as if the resource didn't exist.
