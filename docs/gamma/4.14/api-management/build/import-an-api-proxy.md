@@ -93,9 +93,10 @@ The console confirms the update and reloads the **General** page with the import
 
 ### What an update keeps
 
-An import replaces the API proxy configuration with the imported file, with the following two exceptions:
+An import replaces the API proxy configuration with the imported file, with the following three exceptions:
 
 * **API properties**. When the imported file declares no API properties and the API proxy already has some, the existing properties are kept.
+* **Path mappings**. An OpenAPI specification imported with **Create the path mapping for analytics** turned off, and a WSDL, keep the existing path mappings.
 * **Plans**. What happens to the plans on the API proxy depends on the imported file, as described in the following table.
 
 | Imported file                                    | Effect on the plans of the API proxy                                                            |
