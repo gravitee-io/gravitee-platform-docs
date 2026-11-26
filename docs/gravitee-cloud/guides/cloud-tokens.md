@@ -56,7 +56,7 @@ To verify your Cloud Token was created successfully, follow these steps:
 
 ## Manage cloud tokens in the Gamma console
 
-In the Gamma console, the **Cloud Tokens** page of **Account Management** lists the cloud tokens that connect a Federation Agent, the Gravitee Kubernetes Operator, or the Terraform provider to your Gravitee Cloud account, and it's where you generate and delete them. A gateway's cloud tokens are on that gateway's page instead. The page works on the same tokens as the steps in [Create a Cloud Token](#create-a-cloud-token), so a token generated in either place appears in both.
+In the Gamma console, the **Cloud Tokens** page of **Account Management** lists the cloud tokens that connect a Federation Agent, the Gravitee Kubernetes Operator, or the Terraform provider to your Gravitee Cloud account, and it's where you generate and delete them. A gateway's cloud tokens are on that gateway's page instead.
 
 **Cloud Tokens** appears in the sidebar of **Account Management** only when your role on the account is **Primary Owner** or **Account Owner**, and the **Deployment** of the account is **Cloud**. To open the Gamma console, see [Access your environments](../getting-started/access-your-environments.md).
 
