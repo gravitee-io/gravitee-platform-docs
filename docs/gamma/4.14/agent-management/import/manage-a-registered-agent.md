@@ -194,7 +194,7 @@ The agent's sidebar has three sections. Each entry is a page of its own.
         <tr>
             <td><strong>Operations</strong></td>
             <td><strong>Targets</strong></td>
-            <td>The thresholds the agent is held to, and who is notified when one is missed. The entry appears only when the host API Management offers performance targets. See <a href="../observe/performance-targets.md">Performance targets</a>.</td>
+            <td>The thresholds the agent is held to, and who is notified when one is missed. The entry appears only when the host API Management offers performance targets.</td>
         </tr>
         <tr>
             <td><strong>Operations</strong></td>

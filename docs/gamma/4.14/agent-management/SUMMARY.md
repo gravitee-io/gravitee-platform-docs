@@ -149,7 +149,6 @@
   * [Tracing](observe/tracing/README.md)
     * [Trace an agent request and view its lineage](observe/trace-an-agent-request.md)
   * [Review audit logs](observe/review-audit-logs.md)
-  * [Performance targets](observe/performance-targets.md)
 * [Govern](govern/README.md)
   * [Rate an agent's risk level](govern/rate-an-agents-risk-level.md)
   * [View the lineage of an agent or a proxy](govern/view-agent-lineage.md)
