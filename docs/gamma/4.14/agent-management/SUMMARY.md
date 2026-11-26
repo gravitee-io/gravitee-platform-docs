@@ -19,7 +19,6 @@
     * [Connect an agent platform](import/connect-an-agent-platform.md)
     * [Connect a Gemini Enterprise Agent Platform provider](import/connect-a-gemini-enterprise-agent-platform-provider.md)
     * [Import an agent from an integration](import/import-an-agent.md)
-    * [Discover shadow AI agents from Edge Management](import/discover-shadow-ai-agents-from-edge-management.md)
   * [Add an AI model](import/add-an-ai-model.md)
   * [Add an MCP Registry](import/add-an-mcp-registry.md)
   * [Register an MCP server](import/register-an-mcp-server.md)
