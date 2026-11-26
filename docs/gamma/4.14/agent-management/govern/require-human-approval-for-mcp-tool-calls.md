@@ -135,7 +135,7 @@ A human decision can carry a price, so the cost of oversight appears next to the
 
 The rate is read when the call is held and fixed on the approval, so a rate you change later doesn't reprice a call already waiting. The price is charged when a person decides. A call that expires costs nothing. Prices are in US dollars.
 
-The price feeds the **Approval cost** figure of the decision insights and the **Human decision** part of an agent's cost. See [Read what an agent cost](../cost-and-value/read-what-an-agent-cost.md).
+The price feeds the **Approval cost** figure of the decision insights.
 
 ## Read the decision insights
 
@@ -152,6 +152,5 @@ Open **Decisions** in the **Govern** section and click **Insights**. Select a pe
 
 ## Next steps
 
-* [Read what an agent cost](../cost-and-value/read-what-an-agent-cost.md). See human decisions next to model and tool spend for one agent.
 * [Agent activity](agent-activity-logs.md). Open the agent's **Activity** page to see the held tool call and the decision taken on it in the same request.
 * [Configure your MCP proxy](../build/configure-your-mcp/README.md). Find the proxy pages the **Human approval** flow lands on.
