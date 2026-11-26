@@ -8,9 +8,9 @@ description: Group the analytics of an API proxy by path, with path mappings suc
 
 Path mappings group the analytics of an API proxy by path. A path mapping such as `/orders/:orderId` groups every request that matches it, such as `/orders/42`, instead of listing each URL. A segment that starts with `:` matches any value in that segment, or none, so `/orders/:orderId` also matches `/orders`. When several path mappings match a request, the one with the fewest `:` segments groups it, so add `/orders` too to keep those requests apart.
 
-The list applies the next time you deploy the API proxy. The **Path Mappings** item shows for an API proxy with an HTTP listener, and not for a TCP proxy.
+The list applies the next time you deploy the API proxy. **Path Mappings** appears in the sidebar of an API proxy with an HTTP listener. It doesn't appear for a TCP proxy.
 
-## Open the Path mappings page
+## Open the Path Mappings page
 
 To open the page, follow these steps:
 
@@ -75,11 +75,10 @@ To deploy the API proxy, follow these steps:
 
 To verify the path mappings are in place, follow these steps:
 
-1. Open the **Path mappings** page of the API proxy.
+1. Open the **Path Mappings** page of the API proxy.
 2. Confirm that each path mapping shows under **Path**.
 
-    <figure><img src="../../.gitbook/assets/gamma-api-path-mappings-page.png" alt="The Path mappings page of an API proxy listing /orders, /orders/:orderId, and /orders/:orderId/items under Path, below the This API is out of sync banner"><figcaption><p>The Path mappings page of an API proxy</p></figcaption></figure>
-3. When the page shows **This API is out of sync**, click **Deploy API**, and then click **Deploy** in the **Deploy your API** dialog.
+    <figure><img src="../../.gitbook/assets/gamma-api-path-mappings-page.png" alt="The Path Mappings page of an API proxy listing /orders, /orders/:orderId, and /orders/:orderId/items under Path, below the This API is out of sync banner"><figcaption><p>The Path Mappings page of an API proxy</p></figcaption></figure>
 
 ## Next steps
 
