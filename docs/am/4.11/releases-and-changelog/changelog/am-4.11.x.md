@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.11.x
 
+## Gravitee Access Management 4.11.26 - November 25, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Gateway leaks every undeployed domain's context because the authorisation engine manager is never stopped [#12108](https://github.com/gravitee-io/issues/issues/12108)
+
+
+
+**Other**
+
+* Role update: checkCanGrant checks every permission in the payload instead of only the added ones [#12099](https://github.com/gravitee-io/issues/issues/12099)
+* Security fixes
+
+</details>
+
+
 ## Gravitee Access Management 4.11.25 - November 23, 2026
 
 <details>
