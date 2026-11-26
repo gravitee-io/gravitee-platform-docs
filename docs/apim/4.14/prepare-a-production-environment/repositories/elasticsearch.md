@@ -52,7 +52,7 @@ analytics:
 #    ssl:                        # for https es connection
 #      trustAll: false           # true accepts any server certificate. Default false: the certificate is verified
 #      truststore:               # authorities that sign the server certificate. Without it, the JVM default truststore applies
-#        type: pem               # "jks", "pkcs12" or "pem"
+#        type: pem               # required: "jks", "pkcs12" or "pem"
 #        path: path/to/ca.pem
 #        password: <truststore pass> # only for jks / pkcs12
 #      keystore:
@@ -109,7 +109,7 @@ reporters:
 #    ssl:                        # for https es connection
 #      trustAll: false           # true accepts any server certificate. Default false: the certificate is verified
 #      truststore:               # authorities that sign the server certificate. Without it, the JVM default truststore applies
-#        type: pem               # "jks", "pkcs12" or "pem"
+#        type: pem               # required: "jks", "pkcs12" or "pem"
 #        path: path/to/ca.pem
 #        password: <truststore pass> # only for jks / pkcs12
 #      keystore:
@@ -143,7 +143,7 @@ From APIM 4.14, the Gateway reporter and the Management API verify the certifica
 * `ssl.trustAll: true` accepts any certificate, as in 4.13. The connection is encrypted, but nothing proves that it reaches your cluster. When `trustAll` is `true`, the truststore is ignored, and a warning is logged.
 * `ssl.keystore` is unrelated: it holds the client certificate that the Gateway or the Management API presents to the cluster.
 
-Set these keys under `reporters.elasticsearch` for the Gateway, and under `analytics.elasticsearch`, `otel-traces.elasticsearch`, and `otel-logs.elasticsearch` for the Management API. An invalid truststore type or a missing path makes the client fail at startup.
+Set these keys under `reporters.elasticsearch` for the Gateway, and under `analytics.elasticsearch`, `otel-traces.elasticsearch`, and `otel-logs.elasticsearch` for the Management API. `type` and `path` are both required, even for a `pem` file: a truststore without one of them, or with another type, makes the client fail at startup.
 
 With Helm, set `es.ssl.truststore.type`, `es.ssl.truststore.path`, and `es.ssl.truststore.password`, or `es.ssl.trustAll`. The chart renders them for the Gateway reporter and the Management API analytics whenever they're set. `es.ssl.enabled` doesn't affect them: it only renders the keystore. For the OpenTelemetry readers, set the same keys under `api.otelTraces.elasticsearch.ssl` and `api.otelLogs.elasticsearch.ssl`.
 

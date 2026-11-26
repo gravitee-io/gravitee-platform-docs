@@ -6,6 +6,28 @@ description: The API Management 4.13 changelog lists the bug fixes in each patch
 
 # APIM 4.13.x
  
+## Gravitee API Management 4.13.8 - November 26, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Portal**
+
+* Switching pages keeps the previous page’s scroll position instead of opening at the top in New Developer Portal [#12022](https://github.com/gravitee-io/issues/issues/12022)
+
+**AI Agent Management**
+
+* MCP Studio: tools/call on API tools never returns structuredContent although tools/list advertises an outputSchema [#12035](https://github.com/gravitee-io/issues/issues/12035)
+
+**Other**
+
+* Emulate v4 engine: rate-limit counters shared across flows when policies use the same key [#11991](https://github.com/gravitee-io/issues/issues/11991)
+* V4 WebSocket proxy: backend frames larger than 64 KiB break the connection (client gets close code 400); backend-side frame limit ignores maxWebSocketFrameSize and is not configurable [#12032](https://github.com/gravitee-io/issues/issues/12032)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.13.7 - November 24, 2026
 <details>
 

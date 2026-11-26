@@ -179,7 +179,7 @@ The agent's sidebar has three sections. Each entry is a page of its own.
         <tr>
             <td><strong>Governance</strong></td>
             <td><strong>Compliance</strong></td>
-            <td>The frameworks and custom rulesets that apply to the agent, and its verdict against each. See <a href="../govern/score-agent-compliance-with-the-eu-ai-act.md">Score agent compliance with the EU AI Act framework</a>.</td>
+            <td>The frameworks and custom rulesets that apply to the agent, and its verdict against each.</td>
         </tr>
         <tr>
             <td><strong>Operations</strong></td>
@@ -189,12 +189,12 @@ The agent's sidebar has three sections. Each entry is a page of its own.
         <tr>
             <td><strong>Operations</strong></td>
             <td><strong>Marketplace</strong></td>
-            <td>The agent as a product in the Developer Portal. See <a href="../publish/publish-your-agent-to-the-developer-portal.md">Publish your agent to the Developer Portal</a>.</td>
+            <td>The agent as a product in the Developer Portal.</td>
         </tr>
         <tr>
             <td><strong>Operations</strong></td>
             <td><strong>Targets</strong></td>
-            <td>The thresholds the agent is held to, and who is notified when one is missed. The entry appears only when the host API Management offers performance targets. See <a href="../observe/performance-targets.md">Performance targets</a>.</td>
+            <td>The thresholds the agent is held to, and who is notified when one is missed. The entry appears only when the host API Management offers performance targets.</td>
         </tr>
         <tr>
             <td><strong>Operations</strong></td>

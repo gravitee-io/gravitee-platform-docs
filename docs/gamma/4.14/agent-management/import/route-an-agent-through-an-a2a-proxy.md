@@ -87,5 +87,4 @@ Picking an agent fills the **Target URL** with the address from the agent's card
 ## Next steps
 
 * [Expose your agent with the A2A Proxy](../build/expose-agent-with-a2a-proxy.md). What the proxy does, and how to give a client access to it.
-* [Publish your agent to the Developer Portal](../publish/publish-your-agent-to-the-developer-portal.md). List the agent in the Developer Portal once a proxy fronts it.
 * [Manage a registered agent](manage-a-registered-agent.md). Find your way around the rest of the agent's page.

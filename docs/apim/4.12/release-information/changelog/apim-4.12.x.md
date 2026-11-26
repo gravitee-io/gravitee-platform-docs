@@ -5,6 +5,30 @@ noIndex: false
 
 # APIM 4.12.x
  
+## Gravitee API Management 4.12.30 - November 26, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Portal**
+
+* Switching pages keeps the previous page’s scroll position instead of opening at the top in New Developer Portal [#12022](https://github.com/gravitee-io/issues/issues/12022)
+
+**AI Agent Management**
+
+* MCP Studio: tools/call on API tools never returns structuredContent although tools/list advertises an outputSchema [#12035](https://github.com/gravitee-io/issues/issues/12035)
+
+**Other**
+
+* Shared API key rejected (401) on all gateways after an API redeploy when the key is linked to a CLOSED subscription on the same plan [#11958](https://github.com/gravitee-io/issues/issues/11958)
+* Emulate v4 engine: rate-limit counters shared across flows when policies use the same key [#11991](https://github.com/gravitee-io/issues/issues/11991)
+* V4 WebSocket proxy: backend frames larger than 64 KiB break the connection (client gets close code 400); backend-side frame limit ignores maxWebSocketFrameSize and is not configurable [#12032](https://github.com/gravitee-io/issues/issues/12032)
+* Shared API key returns 401 after redeploy when a revoked key has the same value [#12081](https://github.com/gravitee-io/issues/issues/12081)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.12.29 - November 20, 2026
 <details>
 
