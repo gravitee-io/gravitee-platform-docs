@@ -387,7 +387,6 @@
   * [Performance targets](agent-management/observe/performance-targets.md)
 * [Govern](agent-management/govern/README.md)
   * [Rate an agent's risk level](agent-management/govern/rate-an-agents-risk-level.md)
-  * [Create a custom compliance ruleset](agent-management/govern/create-a-custom-compliance-ruleset.md)
   * [View the lineage of an agent or a proxy](agent-management/govern/view-agent-lineage.md)
   * [Screen prompts and answers with Guardian Agents](agent-management/govern/guard-agent-actions-with-guardian-agents.md)
   * [Require human approval for MCP tool calls](agent-management/govern/require-human-approval-for-mcp-tool-calls.md)
