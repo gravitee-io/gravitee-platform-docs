@@ -11,7 +11,7 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 ## Highlights
 
 * **Agent Management**: Add the **AWS Lambda** and **Data Cache Policy** policies to LLM Proxies, set up alerts for MCP Proxies, import MCP servers that the control plane can't reach, and encrypt the dynamic properties of LLM, MCP, and A2A Proxies. A2A Proxies gain a **CORS** page.
-* **API Management**: Encrypt the dynamic properties of API proxies, design flows on API Products in a Policy Studio, and configure the resources of API Products.
+* **API Management**: Encrypt the dynamic properties of API proxies, group their analytics with path mappings, design flows on API Products in a Policy Studio, and configure the resources of API Products.
 * **Authorization Management**: Manage PDP gateways, schema documents, entities, and policies as code, through the Automation API, as Kubernetes resources, and with Terraform.
 * **Edge Management**: Choose how Edge Daemons authenticate to the Edge Reactor, apply OAuth2 plans to intercepted routes, and edit gateway addresses after the guided setup.
 * **Event Stream Management**: Use registered Clusters in Message APIs, bound the metadata requests that the gateway sends to its brokers, disable broker hostname verification over SSL, and encrypt the dynamic properties of Kafka Services and Message APIs.
@@ -116,7 +116,7 @@ Agent Management adds the following in 4.14:
 
 API Management adds the following in 4.14:
 
-* **API proxies**: encryption of dynamic properties.
+* **API proxies**: encryption of dynamic properties, and path mappings that group their analytics.
 * **API Products**: their own flows, designed in a Policy Studio, a banner that deploys them, and their own resources.
 
 #### Flows on API Products
@@ -138,6 +138,14 @@ API Management adds the following in 4.14:
 * The **Dynamic properties** screen now saves the settings of an HTTP Proxy or TCP Proxy API in the form that the sync reads. Before 4.14, the sync didn't apply the schedule, the JOLT specification, or the HTTP client, proxy, and SSL settings saved from this screen. Settings saved before 4.14 keep the earlier form until you save them again from this screen. To apply them, change a field on the screen, click **Save changes**, and then deploy the API.
 * When the API proxy is managed by the Kubernetes operator, the **API Properties** page is now read-only.
 * See [Configure API properties](../api-management/build/configure-your-api-proxy/configure-api-properties.md#manage-existing-properties).
+
+#### Path mappings on API proxies
+
+* A new **Path Mappings** page, in the **Monitoring** group of an API proxy with an HTTP listener, adds, edits, and deletes the path mappings that group the analytics of the API proxy by path, such as `/orders/:orderId`.
+* **Import from Swagger** adds the paths of an OpenAPI page of the API proxy's documentation in the next-gen Developer Portal. **Replace existing path mappings** replaces the list with them.
+* The import of an OpenAPI specification gains a **Create the path mapping for analytics** option. On an update, it replaces the existing path mappings. Turned off, an update keeps them.
+* The path mappings apply the next time you deploy the API proxy.
+* See [Configure path mappings](../api-management/build/configure-your-api-proxy/configure-path-mappings.md).
 
 #### Resources on API Products
 

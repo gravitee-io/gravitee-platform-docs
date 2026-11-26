@@ -122,6 +122,7 @@
       * [Establish consumer access](api-management/build/configure-your-api-proxy/establish-consumer-access.md)
       * [Broadcast messages to consumers](api-management/build/configure-your-api-proxy/broadcast-messages-to-consumers.md)
     * [Monitor](api-management/manage/api-proxies/monitoring/README.md)
+      * [Configure path mappings](api-management/build/configure-your-api-proxy/configure-path-mappings.md)
       * [Configure notifications](api-management/build/configure-your-api-proxy/configure-notifications.md)
       * [Review audit logs](api-management/observe/review-audit-logs.md)
       * [Monitor endpoint health](api-management/observe/monitor-endpoint-health.md)
