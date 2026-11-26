@@ -179,7 +179,7 @@ The agent's sidebar has three sections. Each entry is a page of its own.
         <tr>
             <td><strong>Governance</strong></td>
             <td><strong>Compliance</strong></td>
-            <td>The frameworks and custom rulesets that apply to the agent, and its verdict against each. See <a href="../govern/score-agent-compliance-with-the-eu-ai-act.md">Score agent compliance with the EU AI Act framework</a>.</td>
+            <td>The frameworks and custom rulesets that apply to the agent, and its verdict against each.</td>
         </tr>
         <tr>
             <td><strong>Operations</strong></td>

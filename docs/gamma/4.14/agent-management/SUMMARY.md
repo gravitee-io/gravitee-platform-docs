@@ -151,7 +151,6 @@
   * [Review audit logs](observe/review-audit-logs.md)
   * [Performance targets](observe/performance-targets.md)
 * [Govern](govern/README.md)
-  * [Score agent compliance with the EU AI Act framework](govern/score-agent-compliance-with-the-eu-ai-act.md)
   * [Rate an agent's risk level](govern/rate-an-agents-risk-level.md)
   * [Create a custom compliance ruleset](govern/create-a-custom-compliance-ruleset.md)
   * [View the lineage of an agent or a proxy](govern/view-agent-lineage.md)
