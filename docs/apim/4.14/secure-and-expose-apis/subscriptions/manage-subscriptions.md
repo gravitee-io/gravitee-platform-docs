@@ -72,6 +72,30 @@ Click the **x** icon to revoke an API key, or the **Renew** button to renew it. 
 Manage shared API keys from the application. The subscription-level **Renew**, **Revoke**, and **Expire** actions apply only to applications that use the `EXCLUSIVE` API key mode. For the equivalent API operations, see [Modifying shared API keys](../plans/api-key.md#modifying-shared-api-keys).
 {% endhint %}
 
+### Renew with a custom API key
+
+When **Allow custom API Key** is enabled in the environment settings, the **Renew API Key** dialog has a **Custom API Key** field. Enter the value that the application's consumers already send, or leave the field empty to generate a random key. See [API Key generation](../plans/api-key.md#api-key-generation).
+
+To renew the shared API key with a custom API key, complete the following steps:
+
+1. Select **Applications** from the menu.
+2. Select the application.
+3. Select **Subscriptions** from the menu.
+4. Click the **Shared API Keys** tab.
+5. Click **Renew**.
+6. In **Custom API Key**, enter the value of the new key.
+
+    <figure><img src="../../.gitbook/assets/apim-shared-api-key-renew-custom.png" alt="The Renew API Key dialog over the Shared API Keys tab of an application, with docbot-shared-key-2026 entered in the Custom API Key field and the Cancel and Renew buttons"><figcaption><p>Renew the shared API key with a custom API key</p></figcaption></figure>
+7. Click **Renew**.
+
+The custom API key follows these rules:
+
+* It has between 8 and 128 characters, and `^ # % @ \ / ; = ? | ~ ,` and the space character are invalid. Spaces at the start and the end of the value are removed.
+* A value that belongs to another application of the environment, or the application's current key, is refused with `This API key cannot be used`.
+* A value of an earlier key of the application, even a revoked or expired one, makes that key valid again. Any other value creates a new key.
+
+Every subscription of the application moves to the new key, and the previous key stays valid for two hours.
+
 ## API Key plans
 
 Subscriptions to API Key plans include additional security management settings:
