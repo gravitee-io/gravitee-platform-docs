@@ -113,3 +113,8 @@ create-and-configure-apis/create-apis/migrate-apis.md
 
 # WebSocket entrypoint Text frames (EXT-200, APIM 4.14.0)
 create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md
+
+# Data Logging Masking policy on LLM Proxy and MCP Proxy APIs, and streamed bodies (APIM-12798)
+create-and-configure-apis/apply-policies/policy-reference/data-logging-masking.md
+.gitbook/assets/apim-data-logging-masking-llm-proxy-policies.png
+.gitbook/assets/apim-data-logging-masking-mcp-proxy-policies.png
