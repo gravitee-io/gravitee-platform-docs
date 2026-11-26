@@ -104,7 +104,7 @@ The Edge Reactor reads the certificate from the same header as the rest of the g
 
 ## Serve several environments from one gateway
 
-One gateway serves the Edge API of every environment that it deploys, and keeps the configuration of each environment apart. A daemon installed with the ID of its environment, as the Kandji script of the **Daemon deployment** page installs it, gets the configuration of that environment only. When that environment has no Edge API on the gateway, the Edge Reactor answers the daemon with `404`, and never serves another environment instead.
+One gateway serves the Edge API of every environment that it deploys, and keeps the configuration of each environment apart. A daemon installed with the ID of its environment, as the command under **Install script** on the **Daemon deployment** page installs it, gets the configuration of that environment only. When that environment has no Edge API on the gateway, the Edge Reactor answers the daemon with `404`, and never serves another environment instead.
 
 A daemon installed without an environment ID, such as a daemon installed with a 4.13 script, doesn't name its environment. `edge.server.default_environment`, in the `gravitee.yml` of the gateway, decides which environment serves it:
 

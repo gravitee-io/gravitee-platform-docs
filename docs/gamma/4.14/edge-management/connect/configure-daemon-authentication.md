@@ -70,7 +70,7 @@ Install each daemon with the following flags of its installation script:
 * `--client-key`: The private key of that certificate.
 * `--reactor-ca`: The certificate authority that signed the certificate of the Edge Reactor listener, so that the daemon trusts the listener. Pass it only when a private certificate authority signs that certificate. For a self-signed certificate, pass the certificate itself.
 
-Once mTLS is on, the Kandji script of the **Daemon deployment** page passes `--client-cert` and `--client-key`, with `--reactor-ca` commented out on its last line. See [Configure Iru to deploy the Edge Daemon](configure-kandji-daemon.md#create-the-kandji-custom-app).
+Once mTLS is on, the install command under **Install script** on the **Daemon deployment** page passes `--client-cert` and `--client-key`, with `--reactor-ca` commented out on its last line. See [Configure Iru to deploy the Edge Daemon](configure-kandji-daemon.md#create-the-kandji-custom-app).
 
 ## Turn off keyless
 

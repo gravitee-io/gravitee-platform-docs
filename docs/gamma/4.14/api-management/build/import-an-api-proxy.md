@@ -93,9 +93,10 @@ The console confirms the update and reloads the **General** page with the import
 
 ### What an update keeps
 
-An import replaces the API proxy configuration with the imported file, with the following two exceptions:
+An import replaces the API proxy configuration with the imported file, with the following three exceptions:
 
 * **API properties**. When the imported file declares no API properties and the API proxy already has some, the existing properties are kept.
+* **Path mappings**. An OpenAPI specification imported with **Create the path mapping for analytics** turned off, and a WSDL, keep the existing path mappings.
 * **Plans**. What happens to the plans on the API proxy depends on the imported file, as described in the following table.
 
 | Imported file                                    | Effect on the plans of the API proxy                                                            |
@@ -122,6 +123,7 @@ The following table describes each option:
 | ----------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | **Apply REST to SOAP Transformer policy**       | WSDL                | Enabled                                                                                 | Generates the flows from the WSDL operations and applies the REST to SOAP Transformer policy to them.    |
 | **Create documentation page from spec**         | OpenAPI, WSDL       | Enabled for OpenAPI. For WSDL, this option follows **Apply REST to SOAP Transformer policy**. | Adds a published, public documentation page named **Swagger** that holds the specification used for the import. |
+| **Create the path mapping for analytics**       | OpenAPI             | Disabled                                                                                | Creates a path mapping for each path of the specification, with each path parameter such as `{orderId}` written as `:orderId`, and skips a path that isn't a valid path mapping. On an update, the specification's paths replace the existing path mappings. Turned off, an update keeps the existing path mappings. See [Configure path mappings](configure-your-api-proxy/configure-path-mappings.md). |
 | **Add OpenAPI Specification Validation**        | OpenAPI, WSDL       | Enabled for OpenAPI. For WSDL, this option follows **Apply REST to SOAP Transformer policy**. | Adds a flow named **OpenAPI Specification Validation** that validates every request and response against the imported specification. |
 
 Two of these options depend on a policy being installed on the Gateway:
