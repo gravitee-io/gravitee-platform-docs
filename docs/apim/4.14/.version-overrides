@@ -96,3 +96,8 @@ automation-api-reference/automation-api-guide.md
 
 # Encrypted dictionary values in the Automation API: masked reads and refusals (EXT-204)
 configure-and-manage-the-platform/gravitee-gateway/dictionaries.md
+
+# Renew an application's shared API key with a custom API key (APIM-16011)
+secure-and-expose-apis/plans/api-key.md
+secure-and-expose-apis/subscriptions/manage-subscriptions.md
+.gitbook/assets/apim-shared-api-key-renew-custom.png
