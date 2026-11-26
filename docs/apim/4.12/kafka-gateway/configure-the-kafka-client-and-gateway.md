@@ -56,7 +56,7 @@ If you have restrictions on the domain names you can use for APIs, you can overr
 kafka:
   enabled: true
 
-  routingMode: host # default is host. Only host is supported for now.
+  routingMode: host # default is host. Supported values: host, port.
   # Routing Host Mode
   routingHostMode:
     brokerPrefix: "broker-" # default is broker-
@@ -99,7 +99,7 @@ If you have restrictions on the domain names you can use for APIs, you can overr
 kafka:
   enabled: true
 
-  routingMode: host # default is host. Only host is supported for now.
+  routingMode: host # default is host. Supported values: host, port.
   # Routing Host Mode
   routingHostMode:
     brokerPrefix: "broker-" # default is broker-
@@ -432,7 +432,7 @@ The following is the full server configuration for the Kafka Gateway.
 kafka:
   enabled: false
 
-  routingMode: host # default is host. Only host is supported for now.
+  routingMode: host # default is host. Supported values: host, port.
   # Routing Host Mode
   routingHostMode:
     brokerPrefix: broker-          # default is broker-
