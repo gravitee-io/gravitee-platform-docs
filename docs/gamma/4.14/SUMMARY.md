@@ -382,7 +382,6 @@
     * [Trace an agent request and view its lineage](agent-management/observe/trace-an-agent-request.md)
   * [Review audit logs](agent-management/observe/review-audit-logs.md)
 * [Govern](agent-management/govern/README.md)
-  * [Rate an agent's risk level](agent-management/govern/rate-an-agents-risk-level.md)
   * [View the lineage of an agent or a proxy](agent-management/govern/view-agent-lineage.md)
   * [Screen prompts and answers with Guardian Agents](agent-management/govern/guard-agent-actions-with-guardian-agents.md)
   * [Require human approval for MCP tool calls](agent-management/govern/require-human-approval-for-mcp-tool-calls.md)
