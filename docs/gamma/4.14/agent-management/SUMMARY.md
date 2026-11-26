@@ -16,7 +16,7 @@
 * [Catalog](import/README.md)
   * [Integrations](import/integrations/README.md)
     * [Connect integrations](import/connect-integrations.md)
-    * [Connect an agent platform](import/connect-an-agent-platform.md)
+    * [Connect a cloud provider](import/connect-an-agent-platform.md)
     * [Connect a Gemini Enterprise Agent Platform provider](import/connect-a-gemini-enterprise-agent-platform-provider.md)
     * [Import an agent from an integration](import/import-an-agent.md)
   * [Add an AI model](import/add-an-ai-model.md)
