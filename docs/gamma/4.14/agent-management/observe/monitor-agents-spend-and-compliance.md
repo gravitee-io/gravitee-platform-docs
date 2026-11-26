@@ -48,7 +48,7 @@ Switching the window keeps the figures already on screen while the new ones load
 
 Below the count, each active framework and ruleset carries its own verdict, one of **Pass**, **Fail**, or **Not assessed**.
 
-**Open Compliance** opens the Compliance page. See [Score agent compliance with the EU AI Act framework](../govern/score-agent-compliance-with-the-eu-ai-act.md).
+**Open Compliance** opens the Compliance page.
 
 ## Quick links
 

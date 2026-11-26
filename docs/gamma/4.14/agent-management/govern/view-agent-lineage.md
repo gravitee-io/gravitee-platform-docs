@@ -103,4 +103,3 @@ The same data guards deletion. The dialog that removes an MCP Proxy or an A2A Pr
 ## Next steps
 
 * [Inspect your agent log](../observe/inspect-your-agent-log.md). Read a single request span by span.
-* [Score agent compliance with the EU AI Act framework](score-agent-compliance-with-the-eu-ai-act.md). Lineage also feeds the proxy checks of a compliance assessment.
