@@ -40,6 +40,7 @@
       * [Establish consumer access](build/configure-your-api-proxy/establish-consumer-access.md)
       * [Broadcast messages to consumers](build/configure-your-api-proxy/broadcast-messages-to-consumers.md)
     * [Monitor](manage/api-proxies/monitoring/README.md)
+      * [Configure path mappings](build/configure-your-api-proxy/configure-path-mappings.md)
       * [Configure notifications](build/configure-your-api-proxy/configure-notifications.md)
       * [Review audit logs](observe/review-audit-logs.md)
       * [Monitor endpoint health](observe/monitor-endpoint-health.md)
