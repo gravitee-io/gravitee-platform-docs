@@ -20,7 +20,7 @@ To open the page, follow these steps:
 
 The page lists each path mapping under **Path**. Until the API proxy has a path mapping, the page shows a **Why add a path mapping?** card. The card has an **Add path mapping** button unless the page is read-only.
 
-The page is read-only when the API proxy is managed by the Gravitee Kubernetes Operator, or when you can't update the API proxy.
+The page is read-only when the API proxy is managed by the Gravitee Kubernetes Operator, or when you don't have the `api-definition-u` permission.
 
 ## Add a path mapping
 
