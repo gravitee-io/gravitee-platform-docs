@@ -1,6 +1,6 @@
 ---
 hidden: false
-noIndex: true
+noIndex: false
 description: Connect a cloud provider to Agent Discovery and sync its agents into the Catalog. Follow the steps to add a source, run a sync, and read its sync activity.
 ---
 
