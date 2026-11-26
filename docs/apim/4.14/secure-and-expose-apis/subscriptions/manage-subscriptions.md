@@ -74,7 +74,7 @@ Manage shared API keys from the application. The subscription-level **Renew**, *
 
 ### Renew with a custom API key
 
-When **Allow custom API Key** is enabled in the environment settings, the **Renew API Key** dialog has a **Custom API Key** field. Enter the value that the application's consumers already send, or leave the field empty to generate a random key. See [API Key generation](../plans/api-key.md#api-key-generation).
+When **Allow custom API Key** is enabled in the environment settings, the **Renew API Key** dialog has a **Custom API Key** field. **Allow custom API Key** is disabled by default. Enter the value of the new key, or leave the field empty to generate a random key. See [API Key generation](../plans/api-key.md#api-key-generation).
 
 To renew the shared API key with a custom API key, complete the following steps:
 
@@ -91,8 +91,8 @@ To renew the shared API key with a custom API key, complete the following steps:
 The custom API key follows these rules:
 
 * It has between 8 and 128 characters, and `^ # % @ \ / ; = ? | ~ ,` and the space character are invalid. Spaces at the start and the end of the value are removed.
-* A value that belongs to another application of the environment, or the application's current key, is refused with `This API key cannot be used`.
-* A value of an earlier key of the application, even a revoked or expired one, makes that key valid again. Any other value creates a new key.
+* A value of a key of another application in the environment, even a revoked or expired one, or the value of the application's current key, is refused with `This API key cannot be used`.
+* A value of an earlier key of the application, even a revoked or expired one, makes that key valid again, whether **Allow custom API Key reuse** is enabled or not. Any other value creates a new key.
 
 Every subscription of the application moves to the new key, and the previous key stays valid for two hours.
 

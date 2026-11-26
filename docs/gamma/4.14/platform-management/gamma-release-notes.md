@@ -273,5 +273,6 @@ Platform Management adds the following in 4.14:
 #### Shared API keys of applications
 
 * A new **Shared API Keys** page, in the **Access** group of an application that uses a shared API key, lists the keys that every subscription of the application shares. **Renew** gives every subscription a new key, and the previous key stays valid for two hours.
-* When **Allow custom API Key** is turned on, the **Renew API Key** dialog has a **Custom API Key** field for the value that the application's consumers already send. A value of an earlier key of the application, even a revoked or expired one, makes that key valid again.
+* When **Allow custom API Key** is turned on, the **Renew API Key** dialog has a **Custom API Key** field for the value of the new key. A value of an earlier key of the application, even a revoked or expired one, makes that key valid again.
+* The feature also ships in APIM 4.13.8 and 4.12.30.
 * See [Renew the shared API key](manage-applications.md#renew-the-shared-api-key).

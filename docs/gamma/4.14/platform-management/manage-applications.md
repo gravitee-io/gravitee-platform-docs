@@ -61,7 +61,7 @@ Select an application from the list to open its detail page, which contains the 
 
 ## Renew the shared API key
 
-Renewing the shared API key moves every subscription of the application to a new key, and the previous key stays valid for two hours. When **Allow custom API Key** is turned on in [Configure Security Plan Types](configure-security-plan-types.md), the **Renew API Key** dialog has a **Custom API Key** field. Enter the value that the application's consumers already send, or leave the field empty to generate a random key.
+Renewing the shared API key moves every subscription of the application to a new key, and the previous key stays valid for two hours. When **Allow custom API Key** is turned on in [Configure Security Plan Types](configure-security-plan-types.md), the **Renew API Key** dialog has a **Custom API Key** field. **Allow custom API Key** is turned off by default. Enter the value of the new key, or leave the field empty to generate a random key.
 
 The **Renew** button shows when you can manage the subscriptions of the application, and not for an archived application.
 
@@ -80,8 +80,8 @@ To renew the shared API key, complete the following steps:
 A custom API key follows these rules:
 
 * It has between 8 and 128 characters, and `^ # % @ \ / ; = ? | ~ ,` and the space character are invalid. Spaces at the start and the end of the value are removed.
-* A value that belongs to another application of the environment, or the application's current key, is refused with `This API key cannot be used`.
-* A value of an earlier key of the application, even a revoked or expired one, makes that key valid again. Any other value creates a new key.
+* A value of a key of another application in the environment, even a revoked or expired one, or the value of the application's current key, is refused with `This API key cannot be used`.
+* A value of an earlier key of the application, even a revoked or expired one, makes that key valid again, whether **Allow custom API Key reuse** is enabled or not. Any other value creates a new key.
 
 The new key shows in the **API Keys** list with no date under **Revoked/Expired at**, and the previous key shows the time it expires.
 
