@@ -147,5 +147,5 @@ Both addresses are required, and both must start with `http://` or `https://`. W
 
 ## Next steps
 
-* **Install the daemon on your devices.** The **Daemon deployment** page carries the download URL for each architecture, a ready-made post-install script for Iru (formerly Kandji), and the commands to check that the daemon runs. See [Configure Iru to deploy the Edge Daemon](configure-kandji-daemon.md).
+* **Install the daemon on your devices.** The **Daemon deployment** page carries the download link of the daemon for each architecture, its install command, ready to run by hand or as the post-install script of your MDM, and the commands to check that the daemon runs. See [Configure Iru to deploy the Edge Daemon](configure-kandji-daemon.md).
 * **Configure interception.** Map each agent's routes to the target APIs that receive their traffic. See [Configure interception](configure-edge-management.md).
