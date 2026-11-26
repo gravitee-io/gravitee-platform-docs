@@ -189,7 +189,7 @@ The agent's sidebar has three sections. Each entry is a page of its own.
         <tr>
             <td><strong>Operations</strong></td>
             <td><strong>Marketplace</strong></td>
-            <td>The agent as a product in the Developer Portal. See <a href="../publish/publish-your-agent-to-the-developer-portal.md">Publish your agent to the Developer Portal</a>.</td>
+            <td>The agent as a product in the Developer Portal.</td>
         </tr>
         <tr>
             <td><strong>Operations</strong></td>
