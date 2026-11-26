@@ -6,6 +6,21 @@ description: New features in each Gravitee Cloud release, listed newest first by
 
 This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:
 
+## November 2026
+
+<!-- TODO: CJ-5122 held draft. Set the month heading and the date to the day the Cloud Tokens page of Account Management reaches Gravitee Cloud. -->
+<details>
+
+<summary>26th November</summary>
+
+**Manage cloud tokens in the Gamma console**
+
+**Account Management** in the Gamma console has a **Cloud Tokens** page. A **Primary Owner** or an **Account Owner** generates and deletes the cloud tokens that connect a Federation Agent, the Gravitee Kubernetes Operator, or the Terraform provider to Gravitee Cloud there.
+
+For more information, see [Manage cloud tokens in the Gamma console](../guides/cloud-tokens.md#manage-cloud-tokens-in-the-gamma-console).
+
+</details>
+
 ## October 2026
 
 <details>
