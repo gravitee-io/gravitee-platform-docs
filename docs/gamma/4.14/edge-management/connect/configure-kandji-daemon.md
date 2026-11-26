@@ -90,8 +90,13 @@ To deploy the command, complete the following steps:
    ```
 
    The last line removes the fleet certificate and its private key from `/tmp` once the installer has copied them.
-5. Enable **Restart after successful install** so that the environment variables set by the installer take effect immediately.
-6. Assign the Custom App to the appropriate device blueprints. Iru then distributes and installs the Edge Daemon on all assigned devices.
+5. Assign the Custom App to the appropriate device blueprints. Iru then distributes and installs the Edge Daemon on all assigned devices.
+
+{% hint style="warning" %}
+**Tell your users to open a new terminal.** The installer sets `NODE_EXTRA_CA_CERTS` so that Claude Code trusts the certificate authority of the daemon, and needs no restart for it. Terminals and Claude Code sessions already open when the daemon installs don't get the variable. Ask your users to open a new terminal before they use Claude Code. In a terminal opened before the install, Claude Code reports that it "couldn't reach Anthropic to load your organization's settings".
+
+If the shell profile of a user already exports another `NODE_EXTRA_CA_CERTS`, for example the certificate bundle of a security proxy, a new terminal keeps that value, and Claude Code started from it doesn't trust the daemon either.
+{% endhint %}
 
 {% hint style="info" %}
 The page also carries collapsible **Diagnostic commands** and **Uninstall** sections, with the commands to check that the daemon runs, to follow its logs, to stop and start it, and to remove it from a device.
