@@ -14,6 +14,7 @@ description: >-
 * A Groovy script reads the body of a v4 HTTP proxy API as bytes or as a base64 string, and returns binary content that arrives unchanged.
 * A native Kafka API endpoint group bounds the metadata requests that each Gateway instance sends to the brokers, with **Backend metadata max age (seconds)**.
 * The Management API reference lists the Portal API once per Developer Portal: **Next Gen Portal** for the New Developer Portal, the entry to build a custom developer portal on, and **Classic Portal** for the Classic Developer Portal.
+* The Console and the Management API renew the shared API key of an application with a custom API key.
 
 ## Breaking Changes and deprecations
 
@@ -76,3 +77,11 @@ APIM 4.14 adds the following features.
 * A link saved with the single **Portal** entry of earlier versions opens **Next Gen Portal**, unless it points to an operation that only **Classic Portal** lists.
 * In the Portal API specification, each operation declares the entry it's listed under in its `x-gravitee-portal` field: `classic`, `next`, or `both`.
 * For more information, see [Management API Reference](../../management-api-reference.md).
+
+#### **Shared API keys renewed with a custom API key**
+
+* On the **Shared API Keys** tab of an application, **Renew** opens the **Renew API Key** dialog. With **Allow custom API Key** enabled, the dialog has a **Custom API Key** field for the value of the new key. Left empty, the renewal generates a random key.
+* The application-scoped renew operation of the Management API takes the value as `customApiKey` in its body.
+* A value of an earlier key of the application, even a revoked or expired one, makes that key valid again. A value of a key of another application in the environment, even a revoked or expired one, or the value of the current key, is refused. Every subscription of the application moves to the new key, and the previous key stays valid for two hours.
+* The feature also ships in APIM 4.13.8, 4.12.30, and 4.11.36.
+* For more information, see [Manage application subscriptions](../../secure-and-expose-apis/subscriptions/manage-subscriptions.md#renew-with-a-custom-api-key).
