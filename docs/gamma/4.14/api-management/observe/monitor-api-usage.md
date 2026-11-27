@@ -41,7 +41,7 @@ The Observability dashboard for HTTP proxies includes several specialized widget
 * **Top 5 Applications**: The most active consumer applications calling your proxy.
 * **Top 5 Plans**: The most heavily used subscription plans.
 * **Top 5 Paths**: The most-requested paths, after the API's context path and without the query string.
-* **Top 5 Path mappings**: The most-requested path mappings. It counts only the requests that matched a path mapping and passed security, so it leaves out the requests rejected with `401` or `403`. It's empty for an API proxy without path mappings. See [Configure path mappings](../build/configure-your-api-proxy/configure-path-mappings.md).
+* **Top 5 Path mappings**: The most-requested path mappings. It counts only the requests that matched a path mapping and passed security. It's empty for an API proxy without path mappings. See [Configure path mappings](../build/configure-your-api-proxy/configure-path-mappings.md).
 
 ### Data Volume
 * **Request / Response Content Length**: Average request and response payload size in bytes over time.
