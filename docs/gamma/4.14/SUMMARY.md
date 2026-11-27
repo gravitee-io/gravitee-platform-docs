@@ -316,6 +316,7 @@
     * [Duplicate an MCP Proxy](agent-management/build/duplicate-an-mcp-proxy.md)
     * [Configure your MCP proxy](agent-management/build/configure-your-mcp/README.md)
       * [General](agent-management/build/mcp-proxies/general/README.md)
+        * [Review the MCP Proxy API Score](agent-management/build/review-the-mcp-proxy-api-score.md)
       * [Design](agent-management/build/mcp-proxies/design/README.md)
         * [Configure the MCP Proxy entrypoint](agent-management/build/configure-mcp-proxy-entrypoint.md)
         * [Configure MCP specification versions](agent-management/build/configure-your-mcp/configure-mcp-specification-versions.md)
