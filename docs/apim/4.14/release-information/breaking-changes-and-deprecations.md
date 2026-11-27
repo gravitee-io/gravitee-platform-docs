@@ -94,6 +94,61 @@ From 4.14.0, the Data Logging Masking policy masks two kinds of logged bodies di
 
 Before you upgrade, review the logs of v4 APIs whose requests or responses carry JSON that isn't valid, and any tool that reads masked bodies as a series of `*`. For more information, see [Configuration](../create-and-configure-apis/apply-policies/policy-reference/data-logging-masking.md#configuration).
 
+## Kafka Gateway: Clients older than Kafka 2.1 are refused
+
+From 4.14.0, the Kafka Gateway embeds the Apache Kafka 4.4 client libraries and follows the Kafka 4.x protocol baseline, which drops the oldest versions of the Kafka protocol APIs. A client request at a dropped version, such as a produce request below version 3 or a fetch request below version 4, is refused whatever the version of the backend Kafka cluster. The Kafka Gateway closes the connection without an answer. In 4.13 and earlier, the Kafka Gateway didn't refuse these requests.
+
+The Kafka Gateway logs a warning that starts with `Client below the protocol floor, closing the connection:`. It names the request, its version, the client ID, and the client software that the client declared, at most once a minute.
+
+Java clients from Kafka 2.1 aren't affected. Before you upgrade, upgrade the clients older than Kafka 2.1, and the clients of other languages that send requests at the dropped versions. Clients of message APIs connect over HTTP and aren't affected. For the clients that were tested, see [Tested brokers and clients](../kafka-gateway/README.md#tested-brokers-and-clients).
+
+## Kafka ACL policy 4.0.0: More requests need an ACL
+
+From 4.14.0, APIM bundles the Kafka ACL policy 4.0.0. For the same ACLs, the policy refuses requests that it let through in 4.13:
+
+* A request type that the policy has no rule for is refused with `CLUSTER_AUTHORIZATION_FAILED`. In 4.13, such a request wasn't checked. These are request types that brokers and controllers send each other.
+* A `DescribeProducers` request needs **Read** on the topic. In 4.13, it needed **Describe**.
+* A `Metadata` request that would create a missing topic needs **Create** on the cluster or on the topic. Without it, the topic isn't created.
+* A consumer that sets `group.protocol=consumer` and subscribes with a regular expression needs **Describe** on every topic, from an ACL whose **Resource Pattern Type** is `ANY`, or whose **Resource Pattern** is `*` with a type other than `PREFIXED`. Otherwise, the consumer gets `TOPIC_AUTHORIZATION_FAILED`.
+* The description of a consumer group whose members are assigned a topic that the client can't describe is replaced by `TOPIC_AUTHORIZATION_FAILED`.
+* A transaction that adds a partition of a topic that the client can't write to is refused as a whole. That partition gets `TOPIC_AUTHORIZATION_FAILED`, and the other partitions get `OPERATION_NOT_ATTEMPTED`. In 4.13, the other partitions were added to the transaction.
+* Reading the configuration of a consumer group needs **DescribeConfigs** on the group, and changing it needs **AlterConfigs**, two operations that the policy adds for the group resource. In 4.13, the configuration of a group wasn't checked.
+
+Before you upgrade, review the ACLs of your Kafka ACL policies against these cases. For more information, see [Requests that need a specific operation](../create-and-configure-apis/apply-policies/policy-reference/kafka-acl.md#requests-that-need-a-specific-operation).
+
+## Kafka Topic Mapping policy 3.0.0: Subscriptions with a regular expression are refused
+
+From 4.14.0, APIM bundles the Kafka Topic Mapping policy 3.0.0. When the policy has a mapping, a consumer that sets `group.protocol=consumer` and subscribes with a regular expression is refused with `INVALID_REGULAR_EXPRESSION`. The broker would match the expression against the topic names of the backend Kafka cluster, not against the mapped names. In 4.13, the policy left the regular expression unchanged. Before you upgrade, make these consumers subscribe to a list of topic names.
+
+## Kafka Namespace policy 2.0.0: Subscriptions with a regular expression stay in the namespace
+
+From 4.14.0, APIM bundles the Kafka Namespace policy 2.0.0. For a consumer that sets `group.protocol=consumer`, the policy confines a regular expression subscription to the namespace, so the expression matches only the topics of the namespace. In 4.13, the policy left the regular expression unchanged. Before you upgrade, check that no consumer of a namespaced API relies on a regular expression that matches topics outside its namespace.
+
+## Virtual Clusters: Cluster administration requests are refused
+
+From 4.14.0, a Virtual Cluster doesn't advertise the following requests, and refuses them with `UNSUPPORTED_VERSION`, even with a single backend:
+
+* Cluster and quorum administration: partition reassignments, leader elections, replica log directory changes, the description of the quorum and changes to its voters, feature updates, and the removal of a broker.
+* Delegation tokens, client quotas, and SCRAM credentials.
+* Describing and listing transactions.
+
+In 4.13, a Virtual Cluster forwarded these requests to the backend that the connection was bound to. Before you upgrade, move these requests to each backend Kafka cluster. For more information, see [Virtual Clusters](../kafka-gateway/README.md#virtual-clusters).
+
+## Kafka Gateway: A refused produce from an `acks=0` producer closes the connection
+
+From 4.14.0, when a policy refuses the produce request of a producer set to `acks=0`, the Kafka Gateway closes the connection, as a Kafka broker does. In 4.13, the Kafka Gateway dropped the request and kept the connection open. For more information, see [Troubleshoot Kafka client connections](../kafka-gateway/troubleshoot-kafka-client-connections.md#access-is-refused).
+
+## Kafka Gateway: Probe settings that the Gateway doesn't read stop it from starting
+
+From 4.14.0, with the Kafka Gateway enabled, the Gateway doesn't start when its configuration holds a Kafka probe setting that it doesn't read. The error lists each setting after `Invalid Kafka probe configuration:`. These settings are:
+
+* A setting under `services.kafka-gateway-probes`.
+* `kafka.probe.secured`.
+* A setting under `kafka.probe` other than `kafka.probe.protocol` and `kafka.probe.properties`.
+* A `kafka.probe.protocol` other than `tcp` or `kafka`.
+
+In 4.13, the Gateway logged a warning and started. Before you upgrade, remove these settings from `gravitee.yml` and from the `GRAVITEE_` environment variables. For the TLS setting that the TCP probe follows, see [Set the TLS mode of the port-routing listener](../kafka-gateway/configure-the-kafka-client-and-gateway.md#set-the-tls-mode-of-the-port-routing-listener).
+
 # 4.13.0
 
 ## Subscription forms apply only to the APIs they're assigned to

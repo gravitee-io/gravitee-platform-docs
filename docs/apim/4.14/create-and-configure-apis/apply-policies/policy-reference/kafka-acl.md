@@ -63,6 +63,21 @@ The policy has no resource for [delegation tokens](https://docs.confluent.io/pla
 
 The `Transactional ID` resource is used when producers encounter application restarts, and is necessary for exactly once semantics. For more information, see the [Confluent documentation](https://docs.confluent.io/platform/current/security/authorization/acls/overview.html#resources).
 
+## Requests that need a specific operation
+
+The following requests need an operation that their name doesn't suggest, or an operation on more than one resource:
+
+* A `DescribeProducers` request needs **Read** on the topic.
+* A `Metadata` request that would create a missing topic needs **Create** on the cluster or on the topic. Without it, the topic isn't created. A request earlier than version 4 gets `TOPIC_AUTHORIZATION_FAILED` for that topic.
+* A consumer that sets `group.protocol=consumer` and subscribes with a regular expression needs **Describe** on every topic. One ACL grants it: its **Resource Pattern Type** is `ANY`, or its **Resource Pattern** is `*` with a type other than `PREFIXED`. Otherwise, the consumer gets `TOPIC_AUTHORIZATION_FAILED`.
+* Describing a consumer group, a share group, or a streams group needs **Describe** on every topic assigned to its members. Otherwise, the description is replaced by `TOPIC_AUTHORIZATION_FAILED`.
+* A share group consumer needs **Read** on the group and on its topics.
+* A Kafka Streams application that joins its streams group needs **Read** on the group, **Describe** on the topics of its topology, and **Create** on its internal topics or on the cluster.
+* Reading the configuration of a group needs **DescribeConfigs** on the group, and changing it needs **AlterConfigs**.
+* A producer that uses two-phase commit needs **TwoPhaseCommit** on its transactional ID.
+
+The policy refuses the request types that brokers and controllers send each other with `CLUSTER_AUTHORIZATION_FAILED`, whatever the ACLs.
+
 ## In combination with the Kafka Topic Mapping policy
 
 When using the Kafka ACL policy together with the [Kafka Topic Mapping](kafka-topic-mapping.md) policy, order is important. If topic mapping occurs before ACL, the ACL policy must use the broker-side name of the topic mapping. Conversely, if ACL occurs before topic mapping, the ACL policy must use the mapped name, which is the client-side name of the topic mapping.

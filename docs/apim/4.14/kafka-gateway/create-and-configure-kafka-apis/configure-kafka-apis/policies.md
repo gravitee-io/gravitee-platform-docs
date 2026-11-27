@@ -38,6 +38,10 @@ Kafka policies can be applied to these phases in policy chains of arbitrary leng
 
 A policy that interrupts a Kafka API transaction returns a Kafka protocol error code to the client. The Kafka protocol carries that error code alone and has no field for the error key or message the policy sets, so the client receives the code without the detail behind it. A processing error that no policy handles returns `UNKNOWN_SERVER_ERROR`.
 
+When a policy interrupts on a record that a consumer fetches, only the partition of that record fails, from that record on. The consumer receives the records before it and the records of the other partitions. For the failed partition, it receives `CORRUPT_MESSAGE`, or `UNKNOWN_SERVER_ERROR` when the policy set that error code. The Gateway logs a warning that names the partition, the offset, and the error code.
+
+In a share group, a record that a policy refuses doesn't reach the consumer, and the Gateway rejects it for the group. The consumer receives the other records.
+
 Read the Gateway log to identify which policy interrupted the transaction and why.
 
 ## Gravitee Policy Studio

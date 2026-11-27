@@ -21,11 +21,63 @@ You can expose multiple Kafka topics within a single Kafka API, and expose multi
 
 ## Kafka protocol support
 
-The Kafka Gateway embeds the Apache Kafka 3.9 client libraries and supports the Kafka wire protocol APIs that Apache Kafka 3.9 defines.
+The Kafka Gateway embeds the Apache Kafka 4.4 client libraries.
 
-The Kafka Gateway doesn't pin a fixed protocol version range. When a client connects, the Kafka Gateway negotiates the version of each Kafka protocol API dynamically. For each API, the Kafka Gateway advertises the version range that both the backend Kafka cluster and the Kafka Gateway support, and it doesn't advertise APIs that it doesn't recognize. Clients then select a mutually supported version through standard Kafka version negotiation.
+The Kafka Gateway doesn't pin a fixed protocol version range. When a client connects, the Kafka Gateway negotiates the version of each Kafka protocol API dynamically. For each API, the Kafka Gateway advertises the version range that both the backend Kafka cluster and the Kafka Gateway support, and it doesn't advertise APIs that it doesn't serve. Clients then select a mutually supported version through standard Kafka version negotiation.
 
-As a result, the Kafka Gateway is compatible with Kafka clients and brokers whose protocol versions overlap the versions that Apache Kafka 3.9 supports. For client requirements and setup, see [Configure the Kafka Client & Gateway](configure-the-kafka-client-and-gateway.md).
+Share groups, and the streams groups of Kafka Streams applications, go through the Kafka Gateway when the backend Kafka cluster serves them. The policies that act on consumed records also act on the records that share group consumers receive.
+
+For client requirements and setup, see [Configure the Kafka Client & Gateway](configure-the-kafka-client-and-gateway.md).
+
+### Oldest supported clients
+
+The Kafka Gateway follows the Kafka 4.x protocol baseline, which drops the oldest versions of the Kafka protocol APIs. A request at a dropped version, such as a produce request below version 3 or a fetch request below version 4, is refused whatever the version of the backend Kafka cluster. The Kafka Gateway closes the connection without an answer. Java clients from Kafka 2.1 aren't affected. To find the clients that the Kafka Gateway refuses, see [Troubleshoot Kafka client connections](troubleshoot-kafka-client-connections.md#the-client-cant-connect).
+
+### Tested brokers and clients
+
+The Kafka Gateway is tested in front of the following backend Kafka clusters:
+
+| Backend Kafka cluster | Kafka API | Virtual Cluster backend |
+| --- | --- | --- |
+| Kafka 2.1 | Tested | Refused |
+| Kafka 2.8 | Tested | Tested |
+| Kafka 3.6 | Tested | Tested |
+| Kafka 3.9 | Tested | Tested |
+| Kafka 4.4 | Tested | Tested |
+| Azure Event Hubs | Tested | Refused |
+
+A Virtual Cluster backend needs Kafka 2.8 or later. With an older backend, or with Azure Event Hubs, the Kafka Gateway closes the connections of the Virtual Cluster's clients and logs an error that names the backend.
+
+The following clients are tested through the Kafka Gateway:
+
+| Client | Version | Result |
+| --- | --- | --- |
+| Java client | 0.10.2 | Refused |
+| Java client | 2.1.0, 3.9.2, and 4.4.0 | Tested |
+| Java client, consuming in a share group | 4.4.0 | Tested |
+| `librdkafka` | 1.8.2 | Tested |
+| `confluent-kafka-python` | 2.16.2 | Tested |
+| `kafka-python` | 3.0.13 | Tested |
+
+### Virtual Clusters
+
+A Virtual Cluster serves each Kafka protocol API at the versions that every one of its backends serves. Share groups and streams groups therefore need every backend to serve them.
+
+A Virtual Cluster doesn't advertise the following requests, and refuses them with `UNSUPPORTED_VERSION`, even with a single backend:
+
+* Cluster and quorum administration: partition reassignments, leader elections, replica log directory changes, the description of the quorum and changes to its voters, feature updates, and the removal of a broker.
+* Delegation tokens, client quotas, and SCRAM credentials.
+* Describing and listing transactions.
+
+Send these requests to each backend Kafka cluster directly.
+
+A streams group runs on the backend that holds its source topics. The Kafka Gateway refuses the group's topology with `STREAMS_INVALID_TOPOLOGY` in each of these cases:
+
+* Its source topics are on several backends.
+* One of its source topics exists on several backends.
+* One of its internal topics exists on a backend other than the one that holds its source topics.
+
+A Virtual Cluster served by several Gateway instances needs a distributed cache. See [Virtual cluster (MESH) mode caveat](deploy-the-kafka-gateway-for-high-availability.md#virtual-cluster-mesh-mode-caveat).
 
 To learn more about the Kafka Gateway, see the following articles:
 
