@@ -10,10 +10,10 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 
 ## Highlights
 
-* **Agent Management**: Add the **AWS Lambda** and **Data Cache Policy** policies to LLM Proxies, set up alerts for MCP Proxies, import MCP servers that the control plane can't reach, and encrypt the dynamic properties of LLM, MCP, and A2A Proxies. A2A Proxies gain a **CORS** page.
-* **API Management**: Encrypt the dynamic properties of API proxies, group their analytics with path mappings, design flows on API Products in a Policy Studio, and configure the resources of API Products.
+* **Agent Management**: Add the **AWS Lambda** and **Data Cache Policy** policies to LLM Proxies, set up alerts for MCP Proxies, import MCP servers that the control plane can't reach, and encrypt the dynamic properties of LLM, MCP, and A2A Proxies. A2A Proxies gain a **CORS** page, and MCP Proxies an **API Score** page. Human In the Lead holds MCP tool calls until a person approves or rejects them.
+* **API Management**: Encrypt the dynamic properties of API proxies, group their analytics with path mappings, design flows on API Products in a Policy Studio, configure the resources of API Products, and secure API Products with OAuth2 plans.
 * **Authorization Management**: Manage PDP gateways, schema documents, entities, and policies as code, through the Automation API, as Kubernetes resources, and with Terraform.
-* **Edge Management**: Choose how Edge Daemons authenticate to the Edge Reactor, apply OAuth2 plans to intercepted routes, and edit gateway addresses after the guided setup.
+* **Edge Management**: Choose how Edge Daemons authenticate to the Edge Reactor, apply OAuth2 plans to intercepted routes, edit gateway addresses after the guided setup, and install the Edge Daemon on Windows devices.
 * **Event Stream Management**: Use registered Clusters in Message APIs, bound the metadata requests that the gateway sends to its brokers, disable broker hostname verification over SSL, and encrypt the dynamic properties of Kafka Services and Message APIs.
 * **Platform Management**: Encrypt the sensitive values of environment dictionaries, renew the shared API key of an application with a value you choose, and label, describe, and hide the additional and custom metrics of an environment.
 
@@ -52,11 +52,12 @@ The 4.14 release adds the following capabilities.
 Agent Management adds the following in 4.14:
 
 * **LLM Proxies**: the **AWS Lambda** and **Data Cache Policy** policies.
-* **MCP Proxies**: alerts, and HTTP/2 fields, which Catalog MCP servers also gain.
+* **MCP Proxies**: alerts, an **API Score** page, and HTTP/2 fields, which Catalog MCP servers also gain.
 * **A2A Proxies**: a **CORS** page for calls from web pages on other origins.
 * **All proxy types**: the pages of LLM Proxies, MCP Proxies, and A2A Proxies name the type of proxy instead of the API, and their **Properties** pages encrypt dynamic properties.
 * **MCP Proxies and MCP Studios**: JWT plans gain two settings, for the claims of the token and for the `Authorization` header, and OAuth2 plans can require a subscription.
 * **Catalog**: the Catalog imports an MCP server that the control plane can't reach, from the list responses you supply.
+* **Human In the Lead**: approval rules hold the tool calls of MCP Proxies and MCP Studios until a person approves or rejects them, with an inbox, notifications, and a decision history.
 
 #### AWS Lambda and Data Cache for LLM Proxies
 
@@ -72,6 +73,13 @@ Agent Management adds the following in 4.14:
 * The **History** tab of an alert lists its events.
 * Alerts require Alert Engine.
 * See [Configure MCP Proxy alerts](../agent-management/build/configure-mcp-proxy-alerts.md).
+
+#### API Score for MCP Proxies
+
+* A new **API Score** page in the **General** group of an MCP Proxy rates the proxy against the rulesets of its environment, and lists the findings of each asset by severity. The page appears when API Score is turned on for the environment.
+* **Evaluate** starts an evaluation, and the page shows that it's running until it ends. A successful evaluation replaces the previous result. An evaluation requires an installation connected to Gravitee Cloud.
+* On the **API Score** page of Platform Management, the name of an MCP Proxy and **View API-level Score Details** open the **API Score** page of the MCP Proxy in Agent Management.
+* See [Review the MCP Proxy API Score](../agent-management/build/review-the-mcp-proxy-api-score.md).
 
 #### HTTP/2 fields and the API key header of MCP Proxies
 
@@ -124,12 +132,22 @@ Agent Management adds the following in 4.14:
 * On the **CORS** pages of LLM Proxies, MCP Proxies, and A2A Proxies, the page now checks an origin when you add it. A save that changes the CORS settings while CORS is enabled is now refused when it has no allowed origin, no allowed method, a method other than `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `HEAD`, `OPTIONS`, `TRACE`, `CONNECT`, or `*`, or **Access-Control-Allow-Credentials** on while `*` is an allowed origin.
 * See [Configure A2A Proxy CORS](../agent-management/build/configure-a2a-proxy-cors.md).
 
+#### Human In the Lead
+
+* A new **Human In the Lead** group in the Agent Management sidebar holds the **Inbox**, **Rules**, **Notifications**, and **History** pages. It requires a license that includes Human In the Lead.
+* An approval rule names the tool calls that wait for a person: catalog tools or a name pattern, narrowed by argument conditions. It also names the users and groups who decide, and how long they have. A call that nobody decides in time is denied.
+* The **Human approval** card on the **Overview** page of an MCP Proxy or MCP Studio turns human approval on for that proxy.
+* From the **Inbox**, a call is approved for that call only or for a set time, or rejected with a reason that's returned to the agent.
+* Notifications send approval notices by email or webhook, with optional reminders. Their email templates are listed under **Human in the lead** on the **Templates** page of Platform Management.
+* The **History** page lists past decisions and what became of each call, and exports them as CSV or JSON files.
+* See [Human In the Lead](../agent-management/human-in-the-lead/README.md).
+
 ### API Management
 
 API Management adds the following in 4.14:
 
 * **API proxies**: encryption of dynamic properties, and path mappings that group their analytics.
-* **API Products**: their own flows, designed in a Policy Studio, a banner that deploys them, and their own resources.
+* **API Products**: their own flows, designed in a Policy Studio, a banner that deploys them, their own resources, and OAuth2 plans.
 
 #### Flows on API Products
 
@@ -171,6 +189,13 @@ API Management adds the following in 4.14:
 * The Management API saves the resources of an API Product with an update of the product.
 * See [Configure API Product resources](../api-management/build/configure-your-api-product/configure-api-product-resources.md).
 
+#### OAuth2 plans on API Products
+
+* On the **Plans** page of an API Product, **Create plan** now offers **OAuth2**, next to **API Key**, **JWT**, and **mTLS**.
+* The **OAuth2 resource** and the **Cache resource** of the plan name resources on the product's **Resources** page. The plan validates tokens with those resources, never with the resources of the product's APIs. Neither field takes an expression.
+* Publishing the plan, and saving a published or deprecated plan, fails when a resource it names is an expression, isn't on the product's **Resources** page, isn't of the right type, or is disabled.
+* See [OAuth2 plans on an API Product](../api-management/build/configure-your-api-product/api-product-configuration-reference.md#oauth2-plans-on-an-api-product).
+
 ### Authorization Management
 
 Authorization Management adds the following in 4.14:
@@ -191,6 +216,7 @@ Edge Management adds the following in 4.14:
 * **Daemon authentication**: Edge Daemons identify themselves to the Edge Reactor keyless, with mTLS and the certificates of your fleet, or both.
 * **OAuth2 plans**: the routes of an intercepted agent take an OAuth2 plan of their target API, so that each developer signs in with your identity provider.
 * **Gateway addresses**: the guided setup fills in the gateway addresses that your installation proposes, the addresses stay editable after the setup, and one gateway serves the Edge Management configuration of several environments.
+* **Windows devices**: the **Daemon deployment** page has a **Windows** tab, with the download of the Edge Daemon for Windows and its install command.
 
 #### Daemon authentication
 
@@ -215,8 +241,15 @@ Edge Management adds the following in 4.14:
 * The **Gateway** page now saves a change to either address with **Save & Deploy**. A change only applies to the daemons installed after it, and a warning under the changed field says so. Daemons already installed keep the addresses they were installed with.
 * When the installation proposes an address other than the one in the field, the **Gateway** page shows it under the field, with where it comes from.
 * The **Reactor URL** that the installation proposes is the address that you set for the environment, or else the address that you set for every environment, which the Helm chart takes from its Edge ingress. See [Propose the Reactor URL to Edge Management](../edge-management/connect/configure-edge-ingress.md#propose-the-reactor-url-to-edge-management).
-* The Kandji script of the **Daemon deployment** page passes the ID of the environment, so that each daemon gets the configuration of its own environment.
+* The install command of the **Daemon deployment** page passes the ID of the environment, so that each daemon gets the configuration of its own environment.
 * See [Change the gateway addresses](../edge-management/connect/set-up-edge-management.md#change-the-gateway-addresses).
+
+#### Edge Daemon on Windows
+
+* The **Daemon deployment** page has a **macOS** tab and a **Windows** tab. Each tab has the download of the daemon for each architecture of its platform, the install command, and the diagnostic and uninstall commands. The Windows download comes in **x64 (amd64)** and **Arm (arm64)**.
+* On Windows, the install command runs from PowerShell as Administrator, or as a post-install script that your MDM runs as SYSTEM. The installer registers the daemon as a Windows service that starts at boot.
+* The page no longer names Kandji. Run the install command by hand, or as the post-install script of your MDM.
+* See [Install the Edge Daemon on Windows](../edge-management/connect/install-edge-daemon-on-windows.md).
 
 #### Changes to the Edge Reactor
 

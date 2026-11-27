@@ -4,10 +4,6 @@ description: An overview about types of assets.
 
 # Types of Assets
 
-{% hint style="warning" %}
-API Score is a technology preview. This feature is not recommended for production environments.
-{% endhint %}
-
 ## Overview
 
 API score works by analyzing different parts of your APIs and checking them against rulesets. The parts of your API that API Score uses for scoring are called **assets**. The currently supported assets used by API Score are:

@@ -17,7 +17,7 @@ In the Developer Portal catalog, you can easily find an API based on a category 
     <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--200.png" alt="The portal Analytics settings, listing nine platform dashboards with reorder and delete actions above an Add a new platform dashboard button."><figcaption></figcaption></figure>
 4.  Navigate to the **New Developer Portal** section, then click **Open Settings**.
 
-    <figure><img src="../../.gitbook/assets/dev portal settings.png" alt="The New Developer Portal settings, with a tech preview notice, the portal enabled, the Open Settings button highlighted, and a CORS panel showing two masked allowed origins."><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/dev portal settings.png" alt="The New Developer Portal settings, with the portal enabled, the Open Settings button highlighted, and a CORS panel showing two masked allowed origins."><figcaption></figcaption></figure>
 5.  Developer Portal settings open in a new browser tab. Select **Catalog** from the menu.
 
     <figure><img src="../../.gitbook/assets/00 cat2.png" alt="The Catalog customization page, with the category view mode set to Tiles above a table of categories and their API counts."><figcaption></figcaption></figure>

@@ -4,10 +4,6 @@ description: An overview about enable api score.
 
 # Enable API Score
 
-{% hint style="warning" %}
-API Score is a technology preview. This feature is not recommended for production environments.
-{% endhint %}
-
 ## Overview
 
 {% hint style="info" %}
@@ -18,14 +14,14 @@ API Score is only available in Gravitee Cloud. If you are running a self-hosted 
 
 ## Enable API Score in the Console
 
-API Score is a technology preview feature, meaning you must to opt-in to use it. You can opt-in to API Score from the API Management Console:
+You must opt-in to use API Score. You can opt-in to API Score from the API Management Console:
 
 1.  From the home page, click **Settings**.
 
     <figure><img src="../../.gitbook/assets/governance-api-score-enable-api-sco-218.png" alt="The console dashboard with API Score in the left navigation, showing total API and application counts and top API statistics."><figcaption></figcaption></figure>
 2.  In the **Portal** section, click **API Quality**.
 
-    <figure><img src="../../.gitbook/assets/governance-api-score-enable-api-sco-220.png" alt="The API Quality settings, with API Score enabled under a tech preview notice and quality metrics enabled with weighting fields below."><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/governance-api-score-enable-api-sco-220.png" alt="The API Quality settings, with API Score enabled and quality metrics enabled with weighting fields below."><figcaption></figcaption></figure>
 3.  In the **API Score** section, turn on **Enable API Score**.
 
-    <figure><img src="../../.gitbook/assets/governance-api-score-enable-api-sco-221.png" alt="The API Score panel of the API Quality settings, with a tech preview notice and the Enable API Score toggle switched on."><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/governance-api-score-enable-api-sco-221.png" alt="The API Score panel of the API Quality settings, with the Enable API Score toggle switched on."><figcaption></figcaption></figure>

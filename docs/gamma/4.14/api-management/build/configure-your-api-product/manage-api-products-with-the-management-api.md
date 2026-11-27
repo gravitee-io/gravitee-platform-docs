@@ -277,6 +277,9 @@ Product plans use the following security types:
 | `API_KEY` | Pass an empty `configuration` object. |
 | `JWT` | Requires a `configuration` with the signature and key resolution settings, for example `{"signature": "RSA_RS256", "publicKeyResolver": "GIVEN_KEY", "resolverParameter": "..."}`. |
 | `MTLS` | `configuration` can be omitted. |
+| `OAUTH2` | Pass a `configuration` whose `oauthResource` is the name of an OAuth2 resource of the API Product, for example `{"oauthResource": "my-oauth2-resource", "oauthCacheResource": "my-cache"}`. A `configuration` without `oauthResource` returns `400 Bad Request`. A plan created without a `configuration` can't be published. `oauthCacheResource` is optional and names a `cache` or `cache-redis` resource of the API Product. See [Add resources to the product](#add-resources-to-the-product). |
+
+The resources of an `OAUTH2` plan are checked when you publish the plan, and when you update a published or deprecated plan. The call returns `400 Bad Request` when `oauthResource` is empty, or when `oauthResource` or `oauthCacheResource` contains `{#`, names no resource of the API Product, names a resource of another type, or names a disabled resource. Creating a plan, and updating a plan in `STAGING`, don't check the resources.
 
 Keyless plans are rejected outright:
 
@@ -289,10 +292,6 @@ Keyless plans are rejected outright:
   "details" : [ ]
 }
 ```
-
-{% hint style="warning" %}
-`KEY_LESS` is the only security type the Management API blocks. An `OAUTH2` product plan is accepted with `201 Created` and can even be published. However, OAuth2 is not one of the plan types the Gamma console offers for API products. Use `API_KEY`, `JWT`, or `MTLS`.
-{% endhint %}
 
 ## Publish a plan
 
