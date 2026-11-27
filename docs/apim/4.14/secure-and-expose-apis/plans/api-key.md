@@ -45,6 +45,7 @@ You can provide a custom API key when:
 *   Renewing a subscription
 
     <figure><img src="../../.gitbook/assets/plan_renew api key.png" alt="The Renew your API Key dialog open over a subscription, warning that the previous key expires in two hours, with an empty custom key field."><figcaption><p>Renew a subscription</p></figcaption></figure>
+* Renewing the shared API key of an application. See [Renew with a custom API key](../subscriptions/manage-subscriptions.md#renew-with-a-custom-api-key).
 
 #### Custom API key reuse
 
@@ -132,7 +133,7 @@ To migrate applications from another platform without changing the API key that 
 5. Subscribe the application to other API Key plans. Each new subscription reuses the application's existing key, so the custom API key becomes the application's shared API key.
 
 {% hint style="info" %}
-Renewing a shared API key always generates a new random value, and the renew operations don't accept a custom API key. Set the custom value on the first subscription before you switch the application to the `SHARED` mode.
+An application that already uses the `SHARED` mode takes a custom API key when you renew its shared API key from the Console or the Management API. See [Renew with a custom API key](../subscriptions/manage-subscriptions.md#renew-with-a-custom-api-key). The Portal API renew operation doesn't accept a custom API key.
 {% endhint %}
 
 #### Modifying shared API keys
@@ -165,6 +166,12 @@ Invalid operation for API Key mode [SHARED] of application [<applicationId>]
 ```
 
 The rule applies in both directions: an application-scoped operation called against an `EXCLUSIVE` application returns the same error with `[EXCLUSIVE]`. In the Management API, the restriction covers renew, expire, and reactivate as well as revocation.
+
+To renew the shared API key with a custom API key through the Management API, send the value as `customApiKey` in the body of `POST /management/organizations/{orgId}/environments/{envId}/applications/{applicationId}/apikeys/_renew`, for example `{"customApiKey": "<value>"}`. An empty body generates a random key. The value follows the rules in [Renew with a custom API key](../subscriptions/manage-subscriptions.md#renew-with-a-custom-api-key), and a value is refused with an HTTP `400` error when **Allow custom API Key** is disabled:
+
+```text
+You are not allowed to provide a custom API Key
+```
 
 ## Diagnose 401 responses on API Key plans
 
