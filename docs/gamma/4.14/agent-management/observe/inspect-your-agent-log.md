@@ -1,57 +1,64 @@
 ---
 hidden: false
 noIndex: false
-description: Trace every agent invocation through the AI Gateway with spans that record identity, inputs, latency, and cost. Learn how to read the agent log.
+description: Inspect the logs of individual agent calls through the AI Gateway. Open a log entry to read who called, what happened, and which decisions applied.
 ---
 
 # Inspect your agent log
 
-The agent log provides a detailed trace of every agent invocation through the AI Gateway, using OpenTelemetry (OTel) spans. Each span captures the full context of a single operation — who made the call, what tool was invoked, what data was sent and received, how long it took, what policies were evaluated, and what it cost.
+The logs record each call that passes through the AI Gateway to an LLM Proxy, an MCP Proxy, or an A2A Proxy. A log entry shows who made the call, what the gateway did with it, and how long it took. The list holds only the calls of proxies that you have permission to read.
 
-{% hint style="warning" %}
-The Trace Explorer only shows data once the platform-side OpenTelemetry pipeline is wired. The Gateway has to export traces, a Collector has to write them to Elasticsearch, and the Management API has to read from the same indices. All three are off by default. For the settings, see [Configure OpenTelemetry tracing and logs](https://documentation.gravitee.io/platform-management/environment/system-and-security/configure-opentelemetry-tracing-and-logs).
-{% endhint %}
-
-## What a span contains
-
-Each OTel span in the agent log records:
-
-| Field               | Description                                                                        |
-| ------------------- | ---------------------------------------------------------------------------------- |
-| **Agent identity**  | The verified identity of the agent that initiated the invocation.                  |
-| **Tool name**       | The specific tool invoked (for MCP traffic) or model called (for LLM traffic).     |
-| **Inputs**          | The arguments or prompt sent to the tool or model.                                 |
-| **Outputs**         | The response returned by the tool or model.                                        |
-| **Latency**         | End-to-end duration of the invocation.                                             |
-| **Policy decision** | Whether the invocation was permitted or denied, and which policies were evaluated. |
-| **Cost**            | Token cost (for LLM traffic) or invocation cost based on configured rates.         |
-
-## The lineage view
-
-The lineage view provides a navigable trace of an agent's complete execution — from the initial user request through every tool invocation, model call, and sub-agent delegation.
-
-A typical trace might show:
-
-```
-User request
-  └── A2A Proxy → Agent (Customer Success bot)
-        ├── LLM Proxy → Claude Sonnet (reasoning step)
-        ├── MCP Proxy → HubSpot (lookup_contact)
-        ├── MCP Proxy → Jira (create_ticket)
-        └── LLM Proxy → Claude Sonnet (summarize result)
-```
-
-Each node in the lineage is a clickable span that expands to show the full detail (identity, inputs, outputs, latency, policy decision, cost).
-
-## Search and filter
-
-## Access the agent log
+## Open the logs
 
 1. In the Gamma console, open **Agent Management**.
-2. Navigate to **Observe** → **Agent Log**.
-3. Select a trace to view the lineage.
+2. In the **Observability** section of the sidebar, select **Logs**.
+3. Select a log entry to open its detail.
+
+## Read a log entry
+
+A log entry records the following:
+
+* The proxy that handled the call, with its name and type.
+* The time of the call, and the request ID, transaction ID, and trace ID that identify it.
+* The caller, as a client identifier, an application, a plan, and a subscription.
+* The HTTP method, the URI, the status, and the endpoint the gateway called. For an MCP request, it also records the MCP method.
+* The gateway response time.
+* The error and the warnings, when the call raised any.
+* The authorization decision and the guardrail decision, when the call went through them.
+* The custom metrics of the request.
+
+The detail of an entry adds the gateway latency and the endpoint response time. It also holds the size of the request and of the response, and the client's address.
+
+### Read the payloads
+
+The detail holds four payloads: the request and response at the entrypoint, and the request and response at the endpoint. Each one records the method, the URI, the status, the headers, and the body.
+
+### Read the authorization decision
+
+The authorization decision records the following:
+
+* The decision and its outcome, and whether it was enforced.
+* The rules that matched, each with its name, version, and effect.
+* The reasons for the decision.
+* The subject, the action, and the resource the decision applied to.
+* How long the decision took.
+
+### Read the guardrail decision
+
+The guardrail decision records the following:
+
+* The guardrail, its revision, and the checkpoint at which it ran.
+* The outcome and the verdict, and whether it was enforced.
+* The steps of the sequence, in the order they ran. Each step shows the guardrail policy, its verdict, and its reason.
+* The findings, each with its guardrail policy, rule, location, and effect.
+
+## Follow a call into its trace
+
+Each log entry carries the trace ID of its call. To read the spans of that call, open the proxy's trace in the Trace Explorer. See [Trace an agent request and view its lineage](trace-an-agent-request.md).
 
 ## Next steps
 
-* [Monitor your MCP servers](monitor-your-mcp-servers.md) — View aggregate metrics for MCP Proxy traffic.
-* [Monitor AI Gateway usage from employee systems](monitor-ai-gateway-from-devices.md) — View per-device AI traffic from the Edge Management dashboard.
+* [Trace an agent request and view its lineage](trace-an-agent-request.md). Read the spans of a single call in the Trace Explorer.
+* [Configure OpenTelemetry tracing and logs](../../platform-management/configure-opentelemetry-tracing-and-logs.md). Configure the pipeline that feeds the Trace Explorer.
+* [Monitor your MCP servers](monitor-your-mcp-servers.md). View aggregate metrics for MCP Proxy traffic.
+* [Monitor AI Gateway usage from employee systems](monitor-ai-gateway-from-devices.md). View per-device AI traffic from the Edge Management dashboard.
