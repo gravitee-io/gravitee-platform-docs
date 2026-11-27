@@ -469,6 +469,7 @@
   * [Secure the Edge Reactor listener](edge-management/connect/secure-the-edge-reactor-listener.md)
   * [Configure Edge Ingress](edge-management/connect/configure-edge-ingress.md)
   * [Configure Iru to deploy the Edge Daemon](edge-management/connect/configure-kandji-daemon.md)
+  * [Install the Edge Daemon on Windows](edge-management/connect/install-edge-daemon-on-windows.md)
   * [Connect Claude Code to the Edge Daemon](edge-management/connect-claude-code-to-daemon.md)
 * [Observe](edge-management/observe/README.md)
   * [Monitor detected shadow AI](edge-management/observe/monitor-shadow-ai-traffic.md)

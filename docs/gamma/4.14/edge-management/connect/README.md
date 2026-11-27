@@ -15,6 +15,7 @@ The **Configuration** group of the sidebar holds **Gateway**, **Interception**, 
 * [**Secure the Edge Reactor listener**](secure-the-edge-reactor-listener.md). Run the listener over TLS and ask the daemons for a certificate. Serve several environments from one gateway, and deploy the Edge API on gateways with sharding tags.
 * [**Configure Edge Ingress**](configure-edge-ingress.md). Expose the Edge Reactor port when the gateway runs on Kubernetes, and propose its address to Edge Management.
 * [**Configure Iru to deploy the Edge Daemon**](configure-kandji-daemon.md). Use Iru (formerly Kandji) to deploy the Edge Daemon across your device fleet.
+* [**Install the Edge Daemon on Windows**](install-edge-daemon-on-windows.md). Install the Edge Daemon on Windows devices, by hand or through your MDM.
 * [**Connect Claude Code to the Edge Daemon**](../connect-claude-code-to-daemon.md). What to do on a device, and how to confirm that interception works.
 
 Three of these pages have no sidebar item: Secure the Edge Reactor listener, Configure Edge Ingress, and Connect Claude Code to the Edge Daemon.

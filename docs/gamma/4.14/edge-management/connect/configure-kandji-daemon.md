@@ -11,7 +11,7 @@ Deploy the Edge Daemon to your device fleet with Iru (formerly Kandji). The **Da
 For an overview of the Edge Daemon, see the [Edge Management overview](../get-started/edge-management-overview.md). To create the configuration of the environment first, see [Set up Edge Management](set-up-edge-management.md).
 
 {% hint style="info" %}
-**Compatibility.** This page covers macOS devices, on Apple Silicon and Intel. The Edge Daemon supports traffic interception for Claude Code through the Anthropic API.
+**Compatibility.** This page covers macOS devices, on Apple Silicon and Intel. The Edge Daemon supports traffic interception for Claude Code through the Anthropic API. For Windows devices, see [Install the Edge Daemon on Windows](install-edge-daemon-on-windows.md).
 {% endhint %}
 
 ## Prerequisites
@@ -36,7 +36,7 @@ To deploy the Edge Daemon with Iru, complete the following steps:
 1. In the Gamma console, open **Edge Management**.
 2. Click **Daemon deployment**.
 
-<figure><img src="../.gitbook/assets/edge-deploy-kandji.png" alt="The Daemon deployment page with the architecture selector, the download URL, the Kandji Custom App postinstall script with the gateway addresses and the environment ID, and the Diagnostic commands section"><figcaption><p>The Daemon deployment page generates the download URL and the Kandji post-install script.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/edge-deploy-kandji.png" alt="The macOS tab of the Daemon deployment page, with the Download button, the architecture menu, the version of the daemon, the install command with the gateway addresses and the environment ID, and the collapsed Diagnostic commands and Uninstall sections"><figcaption><p>The macOS tab generates the download link and the install command.</p></figcaption></figure>
 
 ## Download the daemon
 
