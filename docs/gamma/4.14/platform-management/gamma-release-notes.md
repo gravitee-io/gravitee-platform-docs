@@ -15,7 +15,7 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 * **Authorization Management**: Manage PDP gateways, schema documents, entities, and policies as code, through the Automation API, as Kubernetes resources, and with Terraform.
 * **Edge Management**: Choose how Edge Daemons authenticate to the Edge Reactor, apply OAuth2 plans to intercepted routes, and edit gateway addresses after the guided setup.
 * **Event Stream Management**: Use registered Clusters in Message APIs, bound the metadata requests that the gateway sends to its brokers, disable broker hostname verification over SSL, and encrypt the dynamic properties of Kafka Services and Message APIs.
-* **Platform Management**: Encrypt the sensitive values of environment dictionaries.
+* **Platform Management**: Encrypt the sensitive values of environment dictionaries, and renew the shared API key of an application with a value you choose.
 
 ## Breaking changes and deprecations
 
@@ -261,6 +261,7 @@ Event Stream Management adds the following in 4.14:
 Platform Management adds the following in 4.14:
 
 * **Dictionaries**: encryption of the sensitive values of environment dictionaries.
+* **Applications**: a **Shared API Keys** page, which renews the shared API key of an application with a value you choose.
 
 #### Encrypted dictionary properties
 
@@ -268,3 +269,10 @@ Platform Management adds the following in 4.14:
 * The console masks an encrypted value and never shows it again, while policies still read the original value at runtime. To change an encrypted value in a manual dictionary, select **Replace value**.
 * A dynamic dictionary encrypts every value that it fetches from its provider when you select **Encrypt fetched values** while you create or edit it.
 * See [Encrypt property values](manage-dictionaries.md#encrypt-property-values).
+
+#### Shared API keys of applications
+
+* A new **Shared API Keys** page, in the **Access** group of an application that uses a shared API key, lists the keys that every subscription of the application shares. **Renew** gives every subscription a new key, and the previous key stays valid for two hours.
+* When **Allow custom API Key** is turned on, the **Renew API Key** dialog has a **Custom API Key** field for the value of the new key. A value of an earlier key of the application, even a revoked or expired one, makes that key valid again.
+* The feature also ships in APIM 4.13.8 and 4.12.30.
+* See [Renew the shared API key](manage-applications.md#renew-the-shared-api-key).

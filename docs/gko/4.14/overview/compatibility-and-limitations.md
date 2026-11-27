@@ -57,7 +57,7 @@ GKO does not manage any **environment-level** objects, such as:
 * Platform-level common policies
 * Developer Portal themes
 
-In Gravitee Access Management, GKO manages security domains, with their identity providers, certificates, and reporters. See [AMSecurityDomain](custom-resource-definitions/amsecuritydomain.md). It doesn't manage the other objects of a security domain, such as applications, users, and flows.
+In Gravitee Access Management, GKO manages security domains, with their identity providers, certificates, reporters, applications, and client secrets. See [AMSecurityDomain](custom-resource-definitions/amsecuritydomain.md). It doesn't manage the other objects of a security domain, such as users and flows.
 
 GKO does not manage other **Gravitee components**, such as:
 

@@ -10,7 +10,7 @@ description: A target API is the gateway API a route of an intercepted agent for
 
 A target API is the API that a route of an intercepted agent forwards to. It's a standard API on your gateway, with its own page, plans, policies, and analytics. Edge Management points at it and doesn't own it.
 
-You can point a route at an API you already have, or have Edge Management create one from the picker. Either way, the route is checked against the requirements below, and the verdict is shown under the route. See [Choose the target API of a route](configure-edge-management.md#choose-the-target-api-of-a-route).
+On a route that the agent's preset declares, the target API is an LLM Proxy that Edge Management creates or reuses for the agent, and the other routes can target any existing API. The route of the preset is checked against the requirements below, and its verdict is shown under the route. See [Choose the target API of a route](configure-edge-management.md#choose-the-target-api-of-a-route).
 
 ## What a route requires of its target API
 
@@ -69,6 +69,7 @@ When you create the target API of the **Claude Code** route from the picker, Edg
 | Plan                    | **Keyless**, published, with automatic validation               |
 | Model list              | `claude-sonnet-4-5`                                             |
 | Model governance        | Model pattern `*`, so every model is accepted                   |
+| Labels                  | `edge-<agentId>`, such as `edge-claude-code`, which is how the picker recognizes the LLM Proxies of the agent |
 | Visibility              | Private                                                         |
 | State                   | Stopped, never deployed                                         |
 
