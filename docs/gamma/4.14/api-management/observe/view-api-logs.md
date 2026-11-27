@@ -95,7 +95,7 @@ Additional metrics are values that a policy or the gateway attaches to a request
 
 ### In the log detail
 
-The **Additional metrics** section of a log's detail lists the additional metrics of the request, in the order of their labels, with their number on the section header. The section is closed by default, and doesn't show for a request that carries none. A metric that the detail already shows elsewhere, such as the MCP method, isn't repeated.
+The **Additional metrics** section of a log's detail lists the additional metrics of the request, in the order of their labels, with their number on the section header. The section is closed by default, and doesn't show for a request that carries none.
 
 Every row has a copy button. A row whose metric has a filter also has a **Filter** button, which filters the logs on that value.
 

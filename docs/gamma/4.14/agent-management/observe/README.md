@@ -1,12 +1,12 @@
 ---
 hidden: false
 noIndex: false
-description: The Observability group of the Agent Management sidebar holds the Dashboards, Logs, and Tracing pages. Open the view you need.
+description: The Observability group of the Agent Management sidebar holds the Dashboards, Logs, Tracing, Decisions, and Settings pages. Open the view you need.
 ---
 
 # Agent Management observability
 
-The **Observability** group of the Agent Management sidebar holds the **Dashboards**, **Logs**, and **Tracing** pages.
+The **Observability** group of the Agent Management sidebar holds the **Dashboards**, **Logs**, **Tracing**, **Decisions**, and **Settings** pages. The **Settings** page lists the additional metrics of the environment, read-only. To change them, see [Configure additional metrics](https://documentation.gravitee.io/platform-management/environment/system-and-security/configure-additional-metrics).
 
 * [**Dashboards**](dashboards/README.md). Read the dashboards that report AI traffic, cost, and tool usage across proxies and employee devices, or build your own.
 * [**Logs**](logs/README.md). Trace an individual invocation through the AI Gateway from its log entry.
