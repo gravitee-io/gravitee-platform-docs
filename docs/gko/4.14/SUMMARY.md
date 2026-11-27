@@ -28,6 +28,8 @@
   * [AMIdentityProvider](overview/custom-resource-definitions/amidentityprovider.md)
   * [AMCertificate](overview/custom-resource-definitions/amcertificate.md)
   * [AMReporter](overview/custom-resource-definitions/amreporter.md)
+  * [AMApplication](overview/custom-resource-definitions/amapplication.md)
+  * [AMClientSecret](overview/custom-resource-definitions/amclientsecret.md)
   * [AuthzPdp](overview/custom-resource-definitions/authzpdp.md)
   * [AuthzSchema](overview/custom-resource-definitions/authzschema.md)
   * [AuthzEntity](overview/custom-resource-definitions/authzentity.md)

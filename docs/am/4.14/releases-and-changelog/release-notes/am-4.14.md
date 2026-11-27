@@ -11,6 +11,7 @@ description: The Access Management 4.14 release notes cover Lightweight JWT and 
 * AM stores plugin configurations encrypted, and moves every stored configuration to a new key when you rotate keys.
 * The gateway ships with trusted root certificates for WebAuthn attestation, and a security domain can trust more roots.
 * The Helm chart no longer deploys MongoDB.
+* The Automation API manages the applications of a security domain and their client secrets.
 
 ## Breaking Changes
 
@@ -55,6 +56,12 @@ The Debian image differs in four ways. It has no `JAVA_HOME` variable. The JDK i
 {% hint style="info" %}
 Back up your data before you enable this feature, so that you can roll back.
 {% endhint %}
+
+#### **Applications and client secrets in the Automation API**
+
+* The Automation API manages the applications of a security domain, under `/domains/<domainKey>/applications`, and their client secrets, under `/applications/<applicationKey>/secrets`. Each one is identified by a key you choose.
+* AM doesn't generate a client secret for an application that the Automation API creates. You declare each client secret with its value. A client secret can't change: to replace one, create a client secret with a new key, move your clients to it, and then delete the previous one.
+* The AM Terraform provider manages them with the `am_application` and `am_client_secret` resources. See [Manage applications](../../guides/automation-api.md#manage-applications), [Manage client secrets](../../guides/automation-api.md#manage-client-secrets), and [Manage AM with Terraform](../../guides/manage-am-with-terraform.md).
 
 ## Improvements
 
