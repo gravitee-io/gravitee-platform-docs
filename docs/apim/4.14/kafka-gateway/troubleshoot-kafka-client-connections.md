@@ -20,6 +20,7 @@ The start of these Gateway warnings says what failed, and the rest of the messag
 | `Upstream broker failure:` | The Gateway couldn't connect to the broker. |
 | `No Kafka endpoint for request:` | No endpoint of the API can take the connection on this Gateway. |
 | `No Kafka acceptor found for SNI` | The Gateway can't match the connection to a Kafka API. |
+| `Client below the protocol floor, closing the connection:` | The client sent a request at a protocol version that the Gateway no longer supports. |
 
 Some failures don't log a warning. The following sections list them with what you see instead.
 
@@ -33,6 +34,8 @@ These failures stop the client from connecting.
 | The connection closes, and the Gateway logs `Client IP <ip> is not allowed to access the API`. | The Native IP Filtering policy refused the client's IP address. | Check the IP addresses in the policy. |
 | The connection closes, and the Gateway logs `Upstream broker failure: <cause>`. | The Gateway couldn't connect to the broker: the connection was refused, the broker host didn't resolve or was unreachable, or the connection timed out. The Gateway connects to the broker for every client connection, including the first one. | Check the bootstrap servers of the API's endpoint, and that the Gateway can reach the brokers on the network. |
 | The connection closes, and the Gateway logs `No Kafka endpoint for request: <cause>`. | No endpoint of the API can serve this Gateway, for example because no endpoint matches the Gateway's tenant. | Check the tenants of the API's endpoints. See [Multi-tenant endpoint support](create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md#multi-tenant-endpoint-support). |
+| The connection closes without an answer, and the Gateway logs `Client below the protocol floor, closing the connection:`, followed by the request and its version. | The client sent a request at a version that the Kafka 4.x protocol baseline dropped, such as a produce request below version 3. The warning names the client ID and the client software that the client declared. It's logged at most once a minute, for the latest client refused. | Upgrade the client. See [Oldest supported clients](README.md#oldest-supported-clients). |
+| The clients of a Virtual Cluster can't connect, and the Gateway logs an error that starts with `Backend '<name>' serves Metadata only up to v<version>`. | The backend runs a Kafka version earlier than 2.8, or it's Azure Event Hubs. | Upgrade the backend to Kafka 2.8 or later, or remove it from the Virtual Cluster. See [Tested brokers and clients](README.md#tested-brokers-and-clients). |
 
 ## Authentication fails
 
@@ -72,7 +75,7 @@ When the Kafka ACL policy or the broker refuses a request, the client gets an er
 | The client receives `TOPIC_AUTHORIZATION_FAILED`, `GROUP_AUTHORIZATION_FAILED`, or `TRANSACTIONAL_ID_AUTHORIZATION_FAILED`, and the API has a Kafka ACL policy. | No ACL in the policy grants the operation on that topic, group, or transactional ID. | Add an ACL that grants the operation on the resource. See [Kafka ACL](../create-and-configure-apis/apply-policies/policy-reference/kafka-acl.md). |
 | The client receives `CLUSTER_AUTHORIZATION_FAILED`, and the API has a Kafka ACL policy. | The policy has no ACL, no ACL grants the operation that the request needs, or the policy doesn't support the type of request, which it refuses whatever its ACLs. | Add the ACLs that the client needs. |
 | A topic is missing from the list of topics that the client receives. | The Kafka ACL policy leaves out the topics that the client isn't allowed to describe. | Add an ACL that grants the **Describe** operation on the topic. |
-| A producer that doesn't wait for acknowledgments gets no error, but its messages don't reach the topic. | The Kafka ACL policy refused the produce request. A producer set to `acks=0` gets no answer, so it never sees the error. | Add an ACL that grants the **Write** operation on the topic. |
+| The connection of a producer that doesn't wait for acknowledgments closes, and its messages don't reach the topic. | The Kafka ACL policy refused the produce request. A producer set to `acks=0` expects no answer, so the Gateway closes the connection instead, as a Kafka broker does. | Add an ACL that grants the **Write** operation on the topic. |
 | The client receives an authorization error, and the Kafka ACL policy grants the operation, or the API has no Kafka ACL policy. | The broker refused the request. The broker authorizes the identity that the Gateway connects with: the credentials in the endpoint's security configuration, or the client's own credentials when the endpoint delegates authentication to the broker. | Check the ACLs on the broker for that identity. |
 
 For the other policies that can interrupt a request, see [Policy failures](create-and-configure-kafka-apis/configure-kafka-apis/policies.md#policy-failures).

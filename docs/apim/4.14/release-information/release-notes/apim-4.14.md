@@ -14,6 +14,7 @@ description: >-
 * A Groovy script reads the body of a v4 HTTP proxy API as bytes or as a base64 string, and returns binary content that arrives unchanged.
 * The Data Logging Masking policy masks the logs of LLM Proxy and MCP Proxy APIs, including streamed responses.
 * A native Kafka API endpoint group bounds the metadata requests that each Gateway instance sends to the brokers, with **Backend metadata max age (seconds)**.
+* The Kafka Gateway and the Kafka endpoint of message APIs use the Apache Kafka 4.4 client libraries, and share groups and the streams groups of Kafka Streams applications go through the Kafka Gateway.
 * The Management API reference lists the Portal API once per Developer Portal: **Next Gen Portal** for the New Developer Portal, the entry to build a custom developer portal on, and **Classic Portal** for the Classic Developer Portal.
 * The Console and the Management API renew the shared API key of an application with a custom API key.
 * The **Entrypoints** menu of a v4 API that clients reach over HTTP has a **Path Mappings** tab, to group the API's analytics by path template, such as `/orders/:orderId`.
@@ -47,6 +48,30 @@ From 4.14.0, in a logged request or response with the `text/event-stream` conten
 #### **Data Logging Masking: More bodies are masked as a whole**
 
 From 4.14.0, on a v4 API, the Data Logging Masking policy masks as a whole a complete JSON body that isn't valid JSON, such as concatenated documents or fields in single quotes, where 4.13 masked only the values that a rule's `path` selected. A body masked as a whole uses the `replacer` of the first rule that sets one, where 4.13 always used `*`. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Kafka Gateway: Clients older than Kafka 2.1 are refused**
+
+From 4.14.0, the Kafka Gateway follows the Kafka 4.x protocol baseline. A client request at a version that the baseline dropped, such as a produce request below version 3 or a fetch request below version 4, closes the connection. The Gateway logs a warning that starts with `Client below the protocol floor` and names the client. Java clients from Kafka 2.1 aren't affected. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Kafka ACL policy 4.0.0: More requests need an ACL**
+
+From 4.14.0, APIM bundles the Kafka ACL policy 4.0.0. For the same ACLs, it refuses requests that 4.13 let through, such as a `DescribeProducers` request without **Read** on the topic, a subscription with a regular expression without **Describe** on every topic, and a `Metadata` request that would create a topic without **Create**. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Kafka Topic Mapping and Kafka Namespace policies: Subscriptions with a regular expression**
+
+From 4.14.0, a consumer that sets `group.protocol=consumer` and subscribes with a regular expression is refused by a Kafka Topic Mapping policy that has a mapping. The Kafka Namespace policy confines such a subscription to the namespace. In 4.13, both policies left the regular expression unchanged. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Virtual Clusters: Cluster administration requests are refused**
+
+From 4.14.0, a Virtual Cluster refuses cluster and quorum administration, delegation tokens, client quotas, SCRAM credentials, and the description and listing of transactions with `UNSUPPORTED_VERSION`, even with a single backend. In 4.13, it forwarded these requests to the backend that the connection was bound to. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Kafka Gateway: A refused produce from an `acks=0` producer closes the connection**
+
+From 4.14.0, when a policy refuses the produce request of a producer set to `acks=0`, the Kafka Gateway closes the connection. In 4.13, it dropped the request and kept the connection open. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Kafka Gateway: Probe settings that the Gateway doesn't read stop it from starting**
+
+From 4.14.0, with the Kafka Gateway enabled, the Gateway doesn't start when its configuration holds a Kafka probe setting that it doesn't read, such as `kafka.probe.secured` or a setting under `services.kafka-gateway-probes`. In 4.13, it logged a warning and started. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
 
 ## New Features
 
@@ -94,6 +119,14 @@ APIM 4.14 adds the following features.
 * In Event Stream Management, a Cluster or a Virtual Cluster sets the same max age for every Kafka Service bound to it.
 * The feature also ships in APIM 4.13.2.
 * For more information, see [Configure native Kafka API endpoints](../../kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md#bound-the-gateways-own-metadata-requests) and [Configure the Kafka Client & Gateway](../../kafka-gateway/configure-the-kafka-client-and-gateway.md#set-the-default-backend-metadata-max-age).
+
+#### **Kafka Gateway and Kafka endpoint on Apache Kafka 4.4**
+
+* The Kafka Gateway and the Kafka endpoint of message APIs use the Apache Kafka 4.4 client libraries that APIM ships, where APIM 4.13 shipped Apache Kafka 3.9.
+* Share groups, and the streams groups of Kafka Streams applications, go through the Kafka Gateway when the backend Kafka cluster serves them. On a Virtual Cluster, every backend needs to serve them. The policies that act on consumed records also act on the records that share group consumers receive.
+* When a policy interrupts on a record that a consumer fetches, only the partition of that record fails, from that record on, and the consumer receives `CORRUPT_MESSAGE` for it. In 4.13, the whole fetch failed. For more information, see [Policy failures](../../kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies.md#policy-failures).
+* The Kafka endpoint of message APIs adds **Linger time (linger.ms)** to its producer settings. Its default, `0`, sends each record at once. For more information, see [Kafka](../../create-and-configure-apis/configure-v4-apis/endpoints/kafka.md#producer-and-consumer-settings).
+* For the backend Kafka clusters and the clients tested with the Kafka Gateway, see [Tested brokers and clients](../../kafka-gateway/README.md#tested-brokers-and-clients).
 
 #### **Path mappings on v4 APIs**
 

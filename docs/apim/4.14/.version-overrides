@@ -118,3 +118,9 @@ create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md
 create-and-configure-apis/apply-policies/policy-reference/data-logging-masking.md
 .gitbook/assets/apim-data-logging-masking-llm-proxy-policies.png
 .gitbook/assets/apim-data-logging-masking-mcp-proxy-policies.png
+
+# Kafka Gateway on Apache Kafka 4.4: protocol baseline, tested versions, Virtual Clusters, policy failures, Kafka ACL 4.0.0, endpoint linger time (ESM-139)
+kafka-gateway/README.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies.md
+create-and-configure-apis/apply-policies/policy-reference/kafka-acl.md
+create-and-configure-apis/configure-v4-apis/endpoints/kafka.md
