@@ -6,6 +6,21 @@ description: New features in each Gravitee Cloud release, listed newest first by
 
 This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:
 
+## November 2026
+
+<!-- TODO: CJ-5139 held draft. Set the month heading and the date to the day the Gateways page of Account Management reaches Gravitee Cloud. -->
+<details>
+
+<summary>27th November</summary>
+
+**Manage gateways in the Gamma console**
+
+**Account Management** in the Gamma console has a **Gateways** page. On a Gravitee Cloud customer account, a **Primary Owner** or an **Account Owner** deploys Gravitee Hosted Gateways, adds Hybrid Gateways and copies their cloud token and license key, renames gateways, changes the tags of a Gravitee Hosted Gateway, and deletes gateways there.
+
+For more information, see [Manage gateways in the Gamma console](../guides/manage-gateways-in-the-gamma-console.md).
+
+</details>
+
 ## October 2026
 
 <details>
