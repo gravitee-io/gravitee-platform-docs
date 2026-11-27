@@ -9,10 +9,6 @@ metaLinks:
 
 ## Overview
 
-{% hint style="warning" %}
-This feature is in private tech preview. Contact your customer team to request access to this feature.
-{% endhint %}
-
 The Gravitee Kafka Console is a standalone application that integrates with APIM to provide a user interface for managing and monitoring Kafka clusters. It is based on Kafbat UI and communicates with the APIM Management API (mAPI) through JWT-based authentication.
 
 The Kafka Console deployment requires coordination between the Management API, which must be configured to enable the Kafka Console integration, and the Kafka Console application, which runs as a separate service that connects to the mAPI.
