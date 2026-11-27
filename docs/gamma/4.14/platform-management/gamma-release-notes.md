@@ -65,7 +65,7 @@ Agent Management adds the following in 4.14:
 #### API Score for MCP Proxies
 
 * A new **API Score** page in the **General** group of an MCP Proxy rates the proxy against the rulesets of its environment, and lists the findings of each asset by severity. The page appears when API Score is turned on for the environment.
-* **Evaluate** starts an evaluation, and the page shows that it's running until the new result replaces the previous one. An evaluation requires an installation connected to Gravitee Cloud.
+* **Evaluate** starts an evaluation, and the page shows that it's running until it ends. A successful evaluation replaces the previous result. An evaluation requires an installation connected to Gravitee Cloud.
 * On the **API Score** page of Platform Management, the name of an MCP Proxy and **View API-level Score Details** open the **API Score** page of the MCP Proxy in Agent Management.
 * See [Review the MCP Proxy API Score](../agent-management/build/review-the-mcp-proxy-api-score.md).
 
