@@ -84,3 +84,4 @@ To verify the path mappings are in place, follow these steps:
 
 * [Import an API proxy](../import-an-api-proxy.md#import-options). Create the path mappings of an API proxy from an OpenAPI specification when you import it.
 * [Manage API documentation](manage-api-documentation.md). Add the OpenAPI pages that **Import from Swagger** lists.
+* [Monitor API usage](../../observe/monitor-api-usage.md). See the most-requested path mappings of the API proxy in **Top 5 Path mappings**, and filter its dashboard by **Path mapping**.
