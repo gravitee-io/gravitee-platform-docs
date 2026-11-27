@@ -44,7 +44,7 @@ This briefing answers six questions:
 | Component | What it does | When to use it |
 | :--- | :--- | :--- |
 | Native OpenTelemetry (4.6+) | Creates spans for each request and exports them over OTLP (gRPC or HTTP). | Distributed tracing on any current version. |
-| Tracer plugins (Jaeger, OpenTelemetry) | The previous tracing mechanism. | Only on versions before 4.6. Not needed for a new setup. |
+| Tracer plugins (Jaeger, OpenTelemetry) | The previous tracing mechanism. | Replaced by native OpenTelemetry in 4.6. Not needed for a new setup. |
 | Reporters (Elasticsearch, file, TCP, Datadog…) | Ship per-request analytics and request/response logs. | Console analytics, log search, shipping logs to Loki. |
 | OpenTelemetry reporter (4.12+) | Sends request/response logs as OTLP log records, carrying the trace and span IDs. Redaction rules for spans don't apply to them. | Payload logs in Loki, linked to their trace. Switched on at the gateway, then per v4 API with tracing on (not message, TCP proxy, or native Kafka APIs). |
 | Prometheus metrics | Exposes gateway and JVM metrics on an endpoint to scrape. | Dashboards and alerting on throughput, latency, errors. |
@@ -160,7 +160,7 @@ Suggested layout for one central instance and one plant instance.
 * **Exporting traces directly** from the gateway to an OTLP endpoint ([Grafana Cloud](https://grafana.com/docs/grafana-cloud/send-data/otlp/) included) also works: TLS and mTLS, custom headers for authentication, `gzip` compression, proxy.
 * **Metrics** aren't exported over OTLP. Scrape the Prometheus endpoint instead. For a full setup, see [Monitor APIM with Prometheus and Grafana using Docker Compose](../how-to-guides/use-case-tutorials/monitor-apim-with-prometheus-and-grafana.md).
 * **For a local start**, the APIM repository ships a ready-made Docker Compose setup, `docker/quick-setup/opentelemetry-jaeger`. Swap Jaeger for Alloy and Tempo to get the Grafana stack.
-* **The Gamma console** also shows these traces on its **Tracing** page. On a self-hosted installation, it reads them from Elasticsearch, not Tempo. For the setup, see [Configure OpenTelemetry tracing and logs](https://documentation.gravitee.io/platform-management/environment/system-and-security/configure-opentelemetry-tracing-and-logs).
+* **The Gamma console** also shows these traces on its **Tracing** page. On a self-hosted installation, it reads them from Elasticsearch, not Tempo. For the setup, see [Configure OpenTelemetry tracing and logs](https://documentation.gravitee.io/platform-management/environment/system-and-security/configure-opentelemetry-tracing-and-logs). A gateway connected to Gravitee Cloud with a Cloud Token sends its traces to Gravitee Cloud only while it has no `services.opentelemetry` setting. The configuration on this page sends them to your collector instead. For more information, see [Gateways connected to Gravitee Cloud](https://documentation.gravitee.io/platform-management/environment/system-and-security/configure-opentelemetry-tracing-and-logs#gateways-connected-to-gravitee-cloud).
 
 ## Replace or duplicate the native log stream?
 
@@ -174,7 +174,7 @@ Suggested layout for one central instance and one plant instance.
 | :--- | :--- | :--- |
 | Content | Analytics records for each request (and each message on message APIs), optional request/response logs, and other records such as health checks | Spans: timing and the chain of calls |
 | Answers | What happened, how often, for which consumer? | Where did the time go, across every hop? |
-| Used by | APIM Console (dashboards, log search), your log stack | Tempo, Jaeger, Grafana |
+| Used by | APIM Console (dashboards, log search), your log stack | Tempo, Jaeger, Grafana, the Gamma console's **Tracing** page |
 | Turn it off? | Yes, but without the Elasticsearch reporter the Console loses its analytics | Yes, globally or per v4 API |
 
 {% hint style="success" %}
