@@ -31,7 +31,7 @@
   * [Upload skills](import/upload-skills.md)
   * [Manage a registered agent](import/manage-a-registered-agent.md)
   * [Give an agent an identity](import/give-an-agent-an-identity.md)
-  * [Route an agent through an A2A Proxy](import/route-an-agent-through-an-a2a-proxy.md)
+  * [Read an agent's endpoints](import/route-an-agent-through-an-a2a-proxy.md)
   * [Subscribe an agent to an LLM Proxy](import/subscribe-an-agent-to-an-llm-proxy.md)
   * [Subscribe an agent to an MCP Proxy](import/subscribe-an-agent-to-an-mcp-proxy.md)
   * [Agent kill switch](build/agent-killswitch.md)
