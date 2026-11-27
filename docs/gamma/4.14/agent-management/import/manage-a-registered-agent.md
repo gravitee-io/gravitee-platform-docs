@@ -4,7 +4,7 @@ description: Manage a registered agent in the Agent Management Catalog. Read its
 
 # Manage a registered agent
 
-When you register an agent, the Gamma console opens the agent's page in the Catalog. The page is the hub for the agent. Its **Overview** shows who owns it and what the Catalog records about it. The sidebar leads to the pages that give it an identity, endpoints, models, tools, and other agents. The actions on the **Overview** page change its state in the Catalog. Come back to it to publish the agent, to change its owner, to route its calls through the AI Gateway, or to remove it.
+When you register an agent, the Gamma console opens the agent's page in the Catalog. The page is the hub for the agent. Its **Overview** shows who owns it, what still needs setting up, and what the Catalog records about it. The sidebar leads to the pages that give it an identity, endpoints, models, tools, and other agents. The actions on the **Overview** page change its state in the Catalog. Come back to it to publish the agent, to change its owner, to route its calls through the AI Gateway, or to remove it.
 
 ## Open an agent's page
 
@@ -20,7 +20,7 @@ The actions menu at the end of each row offers **View agent**, **Edit details**,
 
 ## Read the Overview
 
-The **Overview** is the first page of the agent. Its header carries the following fields:
+The **Overview** is the first page of the agent, under **Agent**. Its header carries the following fields:
 
 <table>
     <thead>
@@ -48,14 +48,83 @@ The **Overview** is the first page of the agent. Its header carries the followin
         </tr>
         <tr>
             <td><strong>Agent identity</strong></td>
-            <td>The OAuth client ID of the agent's identity.</td>
+            <td>The OAuth client ID of the agent's identity, which you can copy. It reads <strong>Not set</strong> when the agent has no client ID.</td>
         </tr>
     </tbody>
 </table>
 
-Under the header, a setup guide lists the steps that connect the agent to the gateway. The steps are to give it an identity, connect models through an LLM Proxy, connect tools through an MCP Proxy, and expose the agent through an A2A Proxy. Each step opens the page that completes it, and **Show steps** and **Hide steps** open and close the guide.
+### Set up this agent
 
-A summary of the agent's connections follows. A **Provider** tile reads **Synced from the provider** for an imported agent. A tile for each of **Models**, **Tools**, and **Related agents** shows how many connections go through the gateway. A tile with no connections reads **No models yet.**, **No tools yet.**, or **No related agents yet.** An exposure tile reads **Exposed** when an A2A Proxy fronts the agent and runs. It reads **Proxy stopped** when the proxy doesn't run, and **No A2A proxy in front of it** when none exists.
+**Set up this agent** sits under the header while setup is unfinished. Open, it reads **Follow these steps in order. An agent reaches models, tools and other agents only through a proxy it subscribes to.** Closed, it reads **Next:** and the title of the next step. The card shows **N of M done**, **Hide steps**, and **Show steps**. It goes away once every step that applies is done.
+
+<table>
+    <thead>
+        <tr>
+            <th width="280">Step</th>
+            <th>Done when</th>
+            <th>Button</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Give the agent an identity</strong></td>
+            <td>The agent has a gateway application.</td>
+            <td><strong>Set up identity</strong>, which opens <strong>Identity</strong>.</td>
+        </tr>
+        <tr>
+            <td><strong>Connect models through an LLM proxy</strong></td>
+            <td>At least one model goes through the gateway.</td>
+            <td><strong>Open LLM Proxies</strong>, or <strong>Open Models</strong> when the user cannot read APIs.</td>
+        </tr>
+        <tr>
+            <td><strong>Connect tools through an MCP proxy</strong></td>
+            <td>At least one tool goes through the gateway.</td>
+            <td><strong>Open MCP Proxies</strong>, or <strong>Open Tools</strong>.</td>
+        </tr>
+        <tr>
+            <td><strong>Expose the agent through an A2A proxy</strong></td>
+            <td>An A2A Proxy fronts the agent.</td>
+            <td><strong>Open Agent Endpoints</strong>.</td>
+        </tr>
+    </tbody>
+</table>
+
+The expose step is included only when that user can read APIs and the agent can be exposed. A custom agent does not get it.
+
+### At a glance
+
+**At a glance** has five tiles.
+
+<table>
+    <thead>
+        <tr>
+            <th width="240">Tile</th>
+            <th>What it shows</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Provider</strong></td>
+            <td>The provider name and <strong>Synced from the provider</strong>, or <strong>No provider</strong> with <strong>Custom</strong> or <strong>Agent Card</strong>.</td>
+        </tr>
+        <tr>
+            <td><strong>Models</strong>, <strong>Tools</strong>, <strong>Related agents</strong></td>
+            <td>The count. <strong>N of M through the gateway</strong> when there are any, otherwise <strong>None connected</strong>. The name opens that page.</td>
+        </tr>
+        <tr>
+            <td><strong>Exposed</strong></td>
+            <td><strong>Exposed</strong> when the A2A Proxy is running, <strong>Proxy stopped</strong> when it is stopped, <strong>Not exposed</strong> with <strong>No A2A proxy in front of it</strong>, or <strong>Unknown</strong> with <strong>Its A2A proxy could not be read</strong>. Opens <strong>Endpoints</strong>.</td>
+        </tr>
+    </tbody>
+</table>
+
+A user who cannot read APIs does not get the **Exposed** tile. When the subscriptions cannot be read, the page shows **Could not load the gateway subscriptions of this agent** and **Retry**, and the three count tiles stay off.
+
+### Connections
+
+**Connections** follows when there is at least one model, tool, or related agent. Its description is **What this agent reaches, and the gateway proxy each call goes through. Without a proxy, calls are not governed by Gravitee.** Each column lists five rows, then **+N more**, with **View all**. A row reads **Direct, not through the gateway**, or **LLM proxy**, **MCP proxy**, or **A2A proxy** plus its name. An empty column reads **No models yet.**, **No tools yet.**, or **No related agents yet.**
+
+### Details
 
 The **Overview** then lists the details the Catalog records:
 
@@ -89,11 +158,11 @@ The **Overview** then lists the details the Catalog records:
         </tr>
         <tr>
             <td><strong>Provider state</strong></td>
-            <td>The provider's own state for the agent. It appears only for an agent synced from a provider.</td>
+            <td><strong>Running</strong>, <strong>Stopped</strong>, or <strong>Unknown</strong>. It appears only for an agent synced from a provider.</td>
         </tr>
         <tr>
             <td><strong>Risk classification</strong></td>
-            <td>The agent's risk rating.</td>
+            <td><strong>Negligible</strong>, <strong>Limited</strong>, <strong>Moderate</strong>, <strong>High</strong>, or <strong>Unclassified</strong>.</td>
         </tr>
         <tr>
             <td><strong>Created</strong></td>
@@ -106,7 +175,7 @@ The **Overview** then lists the details the Catalog records:
     </tbody>
 </table>
 
-When the agent has an A2A card, a summary of it follows, with its **Version**, **Description**, and **Skills**, or **None declared**. **View on Endpoints** opens the **Endpoints** page.
+When the agent has an A2A card, a summary of it follows, with its **Name**, **Version**, **Description**, and **Skills**, or **None declared**. Eight skills are listed, then **+N more**. **View on Endpoints** opens the **Endpoints** page.
 
 ## Find your way around the sidebar
 
@@ -134,27 +203,27 @@ The agent's sidebar has two groups. Each entry is a page of its own.
         <tr>
             <td><strong>Agent</strong></td>
             <td><strong>Endpoints</strong></td>
-            <td>Lists each endpoint of the agent by <strong>Type</strong>, <strong>Endpoint</strong>, and <strong>Gateway proxy</strong>. For an agent registered by hand, it also holds the A2A Agent Card. See <a href="route-an-agent-through-an-a2a-proxy.md">Route an agent through an A2A Proxy</a>.</td>
+            <td>Lists each endpoint of the agent by <strong>Type</strong>, <strong>Endpoint</strong>, and <strong>Gateway proxy</strong>. For an agent registered by hand, it also holds the A2A Agent Card. The A2A Proxy is created under <strong>Secure</strong> → <strong>A2A Proxies</strong>. See <a href="route-an-agent-through-an-a2a-proxy.md">Read an agent's endpoints</a>.</td>
         </tr>
         <tr>
             <td><strong>Access</strong></td>
             <td><strong>Models</strong></td>
-            <td>Every model the agent uses, reported by its source or routed through the gateway, and the LLM Proxies that route them. See <a href="subscribe-an-agent-to-an-llm-proxy.md">Subscribe an agent to an LLM Proxy</a>.</td>
+            <td>Lists the models the source reported and the models a subscription grants. The subscription is created on the proxy, in the Developer Portal, through automation, or a similar path. See <a href="subscribe-an-agent-to-an-llm-proxy.md">Read the models an agent uses</a>.</td>
         </tr>
         <tr>
             <td><strong>Access</strong></td>
             <td><strong>Tools</strong></td>
-            <td>What the agent calls, and whether those calls go through the gateway. See <a href="subscribe-an-agent-to-an-mcp-proxy.md">Subscribe an agent to an MCP Proxy</a>.</td>
+            <td>Lists the tools the source reported and the tools a subscription grants. The subscription is created on the proxy, in the Developer Portal, through automation, or a similar path. See <a href="subscribe-an-agent-to-an-mcp-proxy.md">Read the tools an agent calls</a>.</td>
         </tr>
         <tr>
             <td><strong>Access</strong></td>
             <td><strong>Agents</strong></td>
-            <td>The other agents this one can call through the A2A Proxies it subscribes to on the gateway.</td>
+            <td>Lists the other agents an A2A Proxy subscription grants. A source does not yet report which agents an agent calls.</td>
         </tr>
     </tbody>
 </table>
 
-An agent reaches models, tools, and other agents only through a proxy it subscribes to. An agent whose source declares none of them still lists the **Models** and **Tools** pages, and the page explains which proxy to subscribe to.
+An agent reaches models, tools, and other agents only through a proxy it subscribes to. An agent whose source declares none of them still lists the **Models**, **Tools**, and **Agents** pages.
 
 ## Edit the name and description
 
@@ -213,6 +282,6 @@ The dialog warns that removal can't be undone and that experiences that referenc
 ## Next steps
 
 * [Register an agent](import-an-agent.md). Add another agent to the Catalog from the agent card it publishes.
-* [Route an agent through an A2A Proxy](route-an-agent-through-an-a2a-proxy.md). Put the agent behind the AI Gateway from its **Endpoints** page.
-* [Subscribe an agent to an LLM Proxy](subscribe-an-agent-to-an-llm-proxy.md). Give the agent access to models through its **Models** page.
-* [Subscribe an agent to an MCP Proxy](subscribe-an-agent-to-an-mcp-proxy.md). Give the agent access to tools through its **Tools** page.
+* [Read an agent's endpoints](route-an-agent-through-an-a2a-proxy.md). The A2A Proxy is created under **Secure** → **A2A Proxies**.
+* [Read the models an agent uses](subscribe-an-agent-to-an-llm-proxy.md). The **Models** page lists models. The subscription is created on the proxy, in the Developer Portal, through automation, or a similar path.
+* [Read the tools an agent calls](subscribe-an-agent-to-an-mcp-proxy.md). The **Tools** page lists tools the same way.
