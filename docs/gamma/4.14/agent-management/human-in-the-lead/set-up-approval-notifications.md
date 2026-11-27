@@ -8,6 +8,8 @@ description: Send approval notices by email or webhook when a tool call waits fo
 
 A held call waits for a limited time, and the agent behind it waits too. Approval notices tell people by email or webhook that a call is waiting, is still waiting, was approved or rejected, or expired. The **Notifications** page holds the destinations saved in the environment, and each rule chooses where its notices go.
 
+Human In the Lead requires a license that includes it. Without one, this page reads **Human In the Lead is part of Gravitee Enterprise**, with a **Request an enterprise license** button.
+
 ## Save a notification
 
 To save a notification, follow these steps:
@@ -25,7 +27,7 @@ To save a notification, follow these steps:
 | **Name**             | Required.                                                                                                                    |
 | **Notifier**         | **Default Email Notifier** or **Default Webhook Notifier**.                                                                  |
 | **Email list**       | With the email notifier, up to 20 addresses, separated by a space, a comma, or a semicolon.                                 |
-| **Webhook**          | With the webhook notifier, the URL that Gravitee posts the data to, starting with `http` or `https`. A new or changed URL must resolve to a public address, unless your installation allows private endpoints. |
+| **Webhook**          | With the webhook notifier, the URL that Gravitee posts the data to, starting with `http` or `https`. A new or changed URL must resolve to a public address, unless your installation allows private endpoints. The address is checked again before every notice is sent. |
 | **Use system proxy** | With the webhook notifier, sends the request through the HTTP proxy that your installation uses.                            |
 | **Events**           | The events that send a notice. Choose at least one.                                                                          |
 | **Enabled**          | On by default. A notification that's switched off keeps its settings and is sent nothing, not even the notices it missed. |
@@ -41,6 +43,10 @@ The following events send a notice:
 | **Expired**           | The time to decide ended with no decision.                            |
 
 Each email destination receives one message per notice, with its addresses blind-copied. No email is sent while email is switched off for the environment.
+
+A webhook destination receives each notice as a JSON body. The `X-Gravitee-Event` header names the event, and the `X-Gravitee-Event-Id` header and the `noticeId` field carry the ID of the notice. When a delivery fails, the notice is sent again with the same ID, so your receiver can drop duplicates. Each reminder is a new notice with its own ID.
+
+No notice, by email or webhook, carries the arguments of the call, the reason of the decision, or who decided.
 
 A rule sends to a saved notification only when the rule selects it. To change a saved notification, open its actions menu and select **Edit** or **Delete**. When you delete one, the rules that selected it stop sending to that destination.
 

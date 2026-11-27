@@ -8,6 +8,8 @@ description: The History page lists the decisions taken on held MCP tool calls a
 
 The **History** page lists the approvals that were decided or that expired, newest first, with who decided and what became of each call. You see the approvals of the rules that name you in **Approval ownership**. Administrators see every approval of the environment.
 
+Human In the Lead requires a license that includes it. Without one, this page reads **Human In the Lead is part of Gravitee Enterprise**, with a **Request an enterprise license** button.
+
 ## Open the decision history
 
 To open the history, follow these steps:
