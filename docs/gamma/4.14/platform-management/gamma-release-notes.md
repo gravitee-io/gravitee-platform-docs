@@ -15,7 +15,7 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 * **Authorization Management**: Manage PDP gateways, schema documents, entities, and policies as code, through the Automation API, as Kubernetes resources, and with Terraform.
 * **Edge Management**: Choose how Edge Daemons authenticate to the Edge Reactor, apply OAuth2 plans to intercepted routes, and edit gateway addresses after the guided setup.
 * **Event Stream Management**: Use registered Clusters in Message APIs, bound the metadata requests that the gateway sends to its brokers, disable broker hostname verification over SSL, and encrypt the dynamic properties of Kafka Services and Message APIs.
-* **Platform Management**: Encrypt the sensitive values of environment dictionaries, and renew the shared API key of an application with a value you choose.
+* **Platform Management**: Encrypt the sensitive values of environment dictionaries, renew the shared API key of an application with a value you choose, and label, describe, and hide the additional metrics of an environment.
 
 ## Breaking changes and deprecations
 
@@ -30,6 +30,14 @@ From 4.14.0, the Gateway reporter and the Management API verify the certificate 
 #### **Event Stream Management guards the Clusters that APIs use**
 
 From 4.14.0, only the members of a Cluster bind a Kafka Service or a Message API to it. A Cluster that started APIs use can't be undeployed, deleted, or lose a connection that they use. Starting a Kafka Service and deploying a Virtual Cluster are refused while a Cluster that they use isn't deployed, or doesn't have their connection. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md).
+
+#### **COUNT on the LLM token and cost metrics counts requests**
+
+From 4.14.0, **COUNT** on the six token and cost metrics of LLM traffic gives the number of requests that carry the value, and **SUM** gives the total. In 4.13, **COUNT** gave the total. A custom dashboard widget that reads **COUNT** on one of these metrics shows a number of requests after the upgrade, so select **SUM** under **Measure** to keep the total. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#count-on-the-llm-token-and-cost-metrics-counts-requests).
+
+#### **COUNT on the HTTP errors metric counts error requests only**
+
+From 4.14.0, **COUNT** on the HTTP errors metric counts the requests whose status is from 400 to 599. In 4.13, it counted every request. For more information, see [Breaking Changes and Deprecations](gamma-breaking-changes.md#count-on-the-http-errors-metric-counts-error-requests-only).
 
 ## New features
 
@@ -262,6 +270,7 @@ Platform Management adds the following in 4.14:
 
 * **Dictionaries**: encryption of the sensitive values of environment dictionaries.
 * **Applications**: a **Shared API Keys** page, which renews the shared API key of an application with a value you choose.
+* **Additional metrics**: a **Metrics configuration** page for the values that a policy or the gateway attaches to requests, which the logs and dashboards of API Management and Agent Management now show.
 
 #### Encrypted dictionary properties
 
@@ -276,3 +285,11 @@ Platform Management adds the following in 4.14:
 * When **Allow custom API Key** is turned on, the **Renew API Key** dialog has a **Custom API Key** field for the value of the new key. A value of an earlier key of the application, even a revoked or expired one, makes that key valid again.
 * The feature also ships in APIM 4.13.8 and 4.12.30.
 * See [Renew the shared API key](manage-applications.md#renew-the-shared-api-key).
+
+#### Additional metrics
+
+* A new **Metrics configuration** page, in the **System & Security** group of the **Environment** section, lists the additional metrics of the environment, the values that a policy or the gateway attaches to requests. It sets the label, description, and unit of each one, and whether the filter, column, and widget-editor lists offer it. It also declares a metric before any request carries it.
+* API Management and Agent Management have a new **Settings** page in their **Observability** group, which shows the same list, read-only.
+* On the **Logs** pages of API Management and Agent Management, the detail of a log has an **Additional metrics** section, **View** adds an additional metric as a column of the table, and **Filter by** offers additional metrics, including one that it doesn't list, by its key.
+* In the widget editor of a custom dashboard, **Metric** and **Group by** offer additional metrics, including one that they don't list, by its key.
+* See [Configure additional metrics](configure-additional-metrics.md), [Read additional metrics](../api-management/observe/view-api-logs.md#read-additional-metrics), and [Select the data on the Data tab](../agent-management/observe/dashboards/build-a-custom-dashboard.md#select-the-data-on-the-data-tab).
