@@ -148,6 +148,5 @@
   * [Review audit logs](observe/review-audit-logs.md)
 * [Govern](govern/README.md)
   * [View the lineage of an agent or a proxy](govern/view-agent-lineage.md)
-  * [Screen prompts and answers with Guardian Agents](govern/guard-agent-actions-with-guardian-agents.md)
   * [Require human approval for MCP tool calls](govern/require-human-approval-for-mcp-tool-calls.md)
   * [Agent activity](govern/agent-activity-logs.md)
