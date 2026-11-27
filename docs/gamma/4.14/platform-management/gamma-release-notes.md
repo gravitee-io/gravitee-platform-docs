@@ -15,7 +15,7 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 * **Authorization Management**: Manage PDP gateways, schema documents, entities, and policies as code, through the Automation API, as Kubernetes resources, and with Terraform.
 * **Edge Management**: Choose how Edge Daemons authenticate to the Edge Reactor, apply OAuth2 plans to intercepted routes, and edit gateway addresses after the guided setup.
 * **Event Stream Management**: Use registered Clusters in Message APIs, bound the metadata requests that the gateway sends to its brokers, disable broker hostname verification over SSL, and encrypt the dynamic properties of Kafka Services and Message APIs.
-* **Platform Management**: Encrypt the sensitive values of environment dictionaries, renew the shared API key of an application with a value you choose, and label, describe, and hide the additional metrics of an environment.
+* **Platform Management**: Encrypt the sensitive values of environment dictionaries, renew the shared API key of an application with a value you choose, and label, describe, and hide the additional and custom metrics of an environment.
 
 ## Breaking changes and deprecations
 
@@ -274,7 +274,7 @@ Platform Management adds the following in 4.14:
 
 * **Dictionaries**: encryption of the sensitive values of environment dictionaries.
 * **Applications**: a **Shared API Keys** page, which renews the shared API key of an application with a value you choose.
-* **Additional metrics**: a **Metrics configuration** page for the values that a policy or the gateway attaches to requests, which the logs and dashboards of API Management and Agent Management now show.
+* **Additional metrics**: a **Metrics configuration** page for the values that a policy or the gateway attaches to requests and for the values that the Assign metrics policy writes, which the logs and dashboards of API Management and Agent Management now show.
 
 #### Encrypted dictionary properties
 
@@ -296,4 +296,6 @@ Platform Management adds the following in 4.14:
 * API Management and Agent Management have a new **Settings** page in their **Observability** group, which shows the same list, read-only.
 * On the **Logs** pages of API Management and Agent Management, the detail of a log has an **Additional metrics** section, **View** adds an additional metric as a column of the table, and **Filter by** offers additional metrics, including one that it doesn't list, by its key.
 * In the widget editor of a custom dashboard, **Metric** and **Group by** offer additional metrics, including one that they don't list, by its key.
-* See [Configure additional metrics](configure-additional-metrics.md), [Read additional metrics](../api-management/observe/view-api-logs.md#read-additional-metrics), and [Select the data on the Data tab](../agent-management/observe/dashboards/build-a-custom-dashboard.md#select-the-data-on-the-data-tab).
+* Custom metrics, the values that the Assign metrics policy writes, are listed on the same page with a **Personal data** badge, and take a label, a description, and a visibility setting. The **Logs** pages show them in a **Custom** section of the log detail and under **Custom** in **View** and **Filter by**, and **Group by** of the widget editor offers them.
+* The value suggestions of a text filter list the values that start with what you type, whatever the case.
+* See [Configure additional metrics](configure-additional-metrics.md), [Read additional and custom metrics](../api-management/observe/view-api-logs.md#read-additional-and-custom-metrics), and [Select the data on the Data tab](../agent-management/observe/dashboards/build-a-custom-dashboard.md#select-the-data-on-the-data-tab).

@@ -1,14 +1,14 @@
 ---
 hidden: false
 noIndex: false
-description: Label, describe, and hide the additional metrics of an environment, and declare one before any request carries it, from the Metrics configuration page.
+description: Label, describe, and hide the additional and custom metrics of an environment, and declare one before any request carries it, from the Metrics configuration page.
 ---
 
 # Configure additional metrics
 
-Additional metrics are values that a policy or the gateway attaches to a request. They show in the log detail as soon as requests carry them.
+Additional metrics are values that a policy or the gateway attaches to a request. Custom metrics are the values that the Assign metrics policy writes on a request. Both show in the log detail as soon as requests carry them.
 
-The **Metrics configuration** page lists the additional metrics of an environment. For each one, it sets a label, a description, and a unit, and whether the filter, column, and widget-editor lists of the Observability pages offer it.
+The **Metrics configuration** page lists the additional and custom metrics of an environment. For each one, it sets a label, a description, and, for an additional metric, a unit, and whether the filter, column, and widget-editor lists of the Observability pages offer it.
 
 ## Open the Metrics configuration page
 
@@ -41,7 +41,7 @@ Discovered metrics and **Last seen** times come from the environment's traffic, 
 
 The scan behind the discovered metrics runs from time to time, and the line above the table says when it last ran. It keeps the 200 most recently seen metrics.
 
-To narrow the table, type in **Search by label or key**, or pick values under **Origin**, **Type**, and **Exposed**. **Clear filters** removes them.
+To narrow the table, type in **Search by label or key**, or pick values under **Origin**, **Type**, and **Exposed**. When the table lists custom metrics, **Source** keeps the **Custom** ones or the **Other sources**. **Clear filters** removes the filters.
 
 Built-in metrics can't be edited.
 
@@ -50,7 +50,7 @@ Built-in metrics can't be edited.
 Declaring a metric gives it a label, a description, and a unit before any request carries it. To declare a metric, complete the following steps:
 
 1. Click **Declare a metric**.
-2. Keep **Additional** selected, for a value that a policy or the gateway attaches to requests. **Custom** is for a value that the Assign metrics policy writes.
+2. Keep **Additional** selected, for a value that a policy or the gateway attaches to requests. **Custom** is for a value that the Assign metrics policy writes. See [Describe a custom metric](#describe-a-custom-metric).
 3. Under **Type**, select the type of the values. The type is part of the key and can't change later.
 4. Under **Key**, enter the name of the metric, such as `checkout_basket-value`. **Full key** shows the key it makes, such as `additional-metrics.double_checkout_basket-value`.
 5. Optional: Enter a **Label** and a **Description**.
@@ -129,9 +129,40 @@ Deleting the record of a declared metric removes its label, its description, its
 
 **Record deleted** confirms the deletion.
 
+## Describe a custom metric
+
+The key of a custom metric is `custom.` followed by the name of the metric in the Assign metrics policy, such as `custom.fraud-tier`. Its values are always text, of type **keyword**, and it belongs to no API type. For more information about the policy, see [Assign Metrics](https://documentation.gravitee.io/apim/create-and-configure-apis/apply-policies/policy-reference/assign-metrics).
+
+In the table, a custom metric shows a **Personal data** badge next to its label, and the **Information** panel has a note about custom metrics. Their values can hold personal data, and anyone who can read the analytics can see them and filter on them. Hiding a custom metric keeps it out of the lists, but doesn't hide its values. To stop collecting a value, remove it from the Assign metrics policy.
+
+<figure><img src=".gitbook/assets/gamma-platform-metrics-configuration-custom.png" alt="The Metrics configuration page with the Information panel open on the note about custom rows, the Source filter next to Origin, Type, and Exposed, and three discovered custom metrics, Cart region, Customer tier, and Fraud tier, each with a Personal data badge, keyword type, and a custom. key, above built-in metrics"><figcaption><p>Custom metrics on the Metrics configuration page</p></figcaption></figure>
+
+To declare a custom metric, complete the following steps:
+
+1. Click **Declare a metric**.
+2. Select **Custom**. **Type** shows **keyword**, and **Unit** is unavailable.
+3. Under **Key**, enter the name of the metric in the Assign metrics policy, such as `fraud-tier`. **Full key** shows the key it makes, such as `custom.fraud-tier`. A key entered with `custom.` at the start selects **Custom** and drops `custom.` from the field.
+4. Optional: Enter a **Label** and a **Description**.
+5. Optional: Turn off **Exposed**. See [Hide a metric from the lists](#hide-a-metric-from-the-lists).
+6. Click **Declare**.
+
+<figure><img src=".gitbook/assets/gamma-platform-declare-custom-metric.png" alt="The Declare a metric panel with Custom selected, the note about personal data, Type set to keyword and unavailable, fraud-tier under Key with Full key custom.fraud-tier, Fraud tier under Label, a description, Unit set to No unit and unavailable, and Exposed turned on"><figcaption><p>Declaring a custom metric</p></figcaption></figure>
+
+The label and the description follow the same rules as for an additional metric. The form refuses a name that breaks one of the following rules, and shows the message under the field:
+
+| Rule | Message |
+| ---- | ------- |
+| The name is 256 characters at most. | **Use a name of 256 characters at most.** |
+| The name doesn't start or end with a dot, and has no two dots in a row. | **Use single dots between the parts of the name.** |
+| The name holds none of `"`, `\`, and `*`. | **Leave out ", \ and \* in the name.** |
+| The name holds no control characters and no broken characters. | **Leave out control characters and broken characters in the key.** |
+| The environment doesn't have a record on the key yet. | **Already declared in this environment** |
+
+To edit, hide, or delete the record of a custom metric, follow the steps for an additional metric. A custom metric takes no unit, so **Unit** stays unavailable, and the **Delete this record?** dialog says that the metric loses its label, its description, and its visibility setting. A discovered custom metric whose name breaks these rules is listed, but can't be edited.
+
 ## See the metrics from API Management and Agent Management
 
-API Management and Agent Management list the same metrics, read-only, on the **Settings** page of their **Observability** group. Each module leaves out the metrics that belong only to API types it doesn't manage. To change a metric, come back to the **Metrics configuration** page.
+API Management and Agent Management list the same metrics, read-only, on the **Settings** page of their **Observability** group. Each module leaves out the metrics that belong only to API types it doesn't manage. Custom metrics belong to no API type, so both modules list them. To change a metric, come back to the **Metrics configuration** page.
 
 ## Verification
 
