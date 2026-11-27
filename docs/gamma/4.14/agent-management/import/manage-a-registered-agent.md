@@ -1,146 +1,192 @@
 ---
-description: A registered agent's page in the Catalog is the hub for everything Gamma holds and controls for it. Learn what its Overview, sidebar, and actions bar offer.
+description: Manage a registered agent in the Gamma Catalog, from its Overview to its owner and state. Follow the steps to edit, publish, retire, or remove it.
 ---
 
 # Manage a registered agent
 
-When you register an agent, the Gamma console opens the agent's page in the Catalog. The page is the hub for the agent: its **Overview** reports what still needs attention and what the Catalog holds, the sidebar leads to the pages that govern and operate it, and a bar at the top carries the actions that apply to the agent as a whole. Come back to it to check how the agent is governed, to route its callers through the AI Gateway, to give it access to models and tools, to stop it, or to remove it.
+When you register an agent, the Gamma console opens the agent's page in the Catalog. The page is the hub for the agent. Its **Overview** shows who owns it, what still needs setting up, and what the Catalog records about it. The sidebar leads to the pages that give it an identity, endpoints, models, tools, and other agents. The actions on the **Overview** page change its state in the Catalog. Return to it to publish the agent, change its owner, route its calls through the AI Gateway, or remove it.
 
 ## Open an agent's page
 
-Right after you click **Register agent** on the registration form, the console opens the new agent's page for you. To return to it later, follow these steps:
+Immediately after you register an agent, the console opens the new agent's page for you. To return to it later, follow these steps:
 
 1. In the Gamma console, open **Agent Management**.
 2. In the **Catalog** section of the sidebar, select **Agents**.
-3. Click the agent's name. Optional: To find it in a long list, type part of its name or description in the search box above the list, or filter by **Classification**.
+3. Click the agent's name. Optional: To find it in a long list, type part of its name, description, or skill in the search box.
 
-The **Agents** list shows each agent's name and description, with its source under the name, and its **Gateway state**, **Provider state**, **Proxies**, **Classification**, **Compliance**, **Owner**, and **Governance** columns. The **Targets**, **Entity ID**, **Version**, **URL**, **Imported**, and **Updated** columns are hidden until you turn them on. The actions menu at the end of each row offers **View details**, **Edit** for an agent registered by hand or **Resync** for an imported one, and **Remove**.
+The **Agents** page lists agents added directly or synced from connected providers. By default it shows the **Name**, **Catalog state**, **Entity ID**, **Source**, and **Sponsor** columns. Use **Toggle columns** to show the **Owner**, **Risk classification**, **Last updated**, **Description**, and **Version** columns, and use **Column order** to arrange them. You can switch between **Table view** and **Card view**.
 
-<figure><img src="../.gitbook/assets/gamma-aim-agent-detail.png" alt="The Overview page of a registered agent in Agent Management, with the Edit, Stop, and Remove actions, the Fails the EU AI Act banner, the Governance and Operations cards, and the About section"><figcaption><p>The Overview page of a registered agent</p></figcaption></figure>
+The actions menu at the end of each row offers **View agent**, **Edit details**, **Publish** or **Unpublish**, **Retire agent**, and **Remove**. **Edit details** appears only for an agent registered by hand that isn't retired.
 
 ## Read the Overview
 
-The **Overview** is the first page of the agent, and it answers "is anything wrong" before it lists facts.
-
-### The header and the actions bar
-
-The header carries the agent's name and description, a **Running** or **Stopped** badge, and a governance badge that sums up how far the agent is in hand:
+The **Overview** is the first page of the agent, under **Agent**. Its header carries the following fields:
 
 <table>
     <thead>
         <tr>
-            <th width="180">Badge</th>
-            <th>What it means</th>
+            <th width="220">Field</th>
+            <th>What it shows</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><strong>Governed</strong></td>
-            <td>An A2A Proxy fronts the agent, and the agent has an identity of its own.</td>
+            <td><strong>Name</strong></td>
+            <td>The agent's name. The sidebar header also shows the version as a badge and the Entity ID.</td>
         </tr>
         <tr>
-            <td><strong>Claimed</strong></td>
-            <td>One of the two is in place: a proxy fronts the agent but it has no identity, or it has an identity but no proxy fronts it. Hover over the badge to read which.</td>
+            <td><strong>State</strong></td>
+            <td>The agent's catalog state. See <a href="#change-the-catalog-state">Change the catalog state</a>.</td>
         </tr>
         <tr>
-            <td><strong>Discovered</strong></td>
-            <td>The Catalog knows the agent exists. No proxy fronts it and it has no identity yet.</td>
+            <td><strong>Owner</strong></td>
+            <td>The user who owns the agent.</td>
+        </tr>
+        <tr>
+            <td><strong>Sponsor</strong></td>
+            <td>The user accountable for the agent.</td>
+        </tr>
+        <tr>
+            <td><strong>Agent identity</strong></td>
+            <td>The OAuth client ID of the agent's identity, which you can copy. It reads <strong>Not set</strong> when the agent has no client ID.</td>
         </tr>
     </tbody>
 </table>
 
-Under the badges, an **Owner** row names the agent's owner, or **No owner**. A **Compliance owner** row appears when a compliance framework applied to the agent includes an accountable-human control.
+### Set up this agent
 
-A bar pinned to the top of every page of the agent carries the actions that apply to the agent as a whole: **Edit** for an agent registered by hand or **Resync** for an imported one, **Stop** or **Start**, and **Remove**. The bar appears only for users who can update or delete the Catalog, and it stays empty for an agent that Edge Management detected rather than one somebody registered.
+**Set up this agent** sits under the header while setup is unfinished. Open, it reads **Follow these steps in order. An agent reaches models, tools and other agents only through a proxy it subscribes to.** Closed, it reads **Next:** and the title of the next step. The card shows **N of M done**, **Hide steps**, and **Show steps**. It goes away once every step that applies is done.
 
-### The task banner
-
-When something needs attention, one banner above the cards names the most important task and offers the button that starts it. Compliance comes first, then the proxy, then the identity:
-
-* **Fails the &lt;framework&gt;** when one framework fails, naming up to three of its unmet controls and counting the rest as **and &lt;n&gt; more**. **Fails &lt;n&gt; frameworks** when several fail, counting the unmet controls across them and naming the frameworks rather than the controls. The **Close the gaps** button opens the agent's **Compliance** page.
-* **Route callers through an A2A proxy**, when the agent publishes an A2A address and no proxy fronts it. The **Route it** button opens the agent's **Proxies** page.
-* **Give this agent an identity of its own**, when the agent has no identity. The **Create it** button opens the agent's **Identity** page.
-
-The banner is absent when nothing needs attention.
-
-### The Governance and Operations cards
-
-The **Governance** card reads **Passing**, **Failing**, or **Not fully checked**, and lists four checks. Each check that links somewhere opens the page that can close it. A card earns its green word only when every counted check is green: one amber check is enough to turn **Governance** to **Failing** and **Operations** to **Off target**, for example a framework nobody configured, a call waiting in the HITL inbox, or a call a person refused in the last day.
+The card lists the following steps:
 
 <table>
     <thead>
         <tr>
-            <th width="230">Check</th>
-            <th>What it reports</th>
+            <th width="280">Step</th>
+            <th>Done when</th>
+            <th>Button</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><strong>Compliance</strong></td>
-            <td><strong>Not configured</strong> when no framework applies, the framework met or how many frameworks are met, or the first framework with unmet controls and how many it has, with a badge counting the other failing ones.</td>
+            <td><strong>Give the agent an identity</strong></td>
+            <td>The agent has a gateway application.</td>
+            <td><strong>Set up identity</strong>, which opens <strong>Identity</strong>.</td>
         </tr>
         <tr>
-            <td><strong>Proxies</strong></td>
-            <td>The name of the A2A Proxy that fronts the agent, or <strong>Callers reach it directly</strong>. An agent that publishes no A2A address reads <strong>Publishes no A2A address</strong>, and one that doesn't speak A2A reads <strong>Speaks no A2A</strong>.</td>
+            <td><strong>Connect models through an LLM proxy</strong></td>
+            <td>At least one model goes through the gateway.</td>
+            <td><strong>Open LLM Proxies</strong>, or <strong>Open Models</strong> when you cannot read APIs.</td>
         </tr>
         <tr>
-            <td><strong>Identity</strong></td>
-            <td>The name of the agent's gateway application when it has an identity, or <strong>No identity</strong>.</td>
+            <td><strong>Connect tools through an MCP proxy</strong></td>
+            <td>At least one tool goes through the gateway.</td>
+            <td><strong>Open MCP Proxies</strong>, or <strong>Open Tools</strong>.</td>
         </tr>
         <tr>
-            <td><strong>Human in the loop inbox</strong></td>
-            <td>How many of the agent's calls are waiting for a person in the HITL inbox, which the row opens. It reads <strong>Nothing to read yet</strong> while the agent has no gateway application.</td>
+            <td><strong>Expose the agent through an A2A proxy</strong></td>
+            <td>An A2A Proxy fronts the agent.</td>
+            <td><strong>Open Agent Endpoints</strong>.</td>
         </tr>
     </tbody>
 </table>
 
-The **Operations** card appears only when the host API Management offers performance targets. It reads **On target**, **Off target**, or **Not fully checked**, and lists four checks. **Targets** reads **Not configured** until the agent has target rules, **Not evaluated yet** until one of them has a verdict, the rule that's breached and by how much, or how many rules are met. **Activity** reads **Tracked on &lt;n&gt; proxies** when proxies carry the agent's calls. It reads **No proxy tracks its calls** when none does, or **No application, so calls cannot be attributed** when the agent has no gateway application. **Cost** reads the last day's spend against the day before, for example **$12.40 in 24h, +12%**. The row is badged **Off trend** when spend rose by a tenth or more and **On trend** otherwise. It reads **&lt;spend&gt; in 24h, nothing the day before** when only the last day spent, **No spend in 24h** when neither day spent anything, or **Nothing to read yet** when the agent's cost can't be read at all. The row is advisory, so it never changes the card's verdict, and it links to the agent's **Cost** page. **Decisions** reads the share of the agent's held calls that a person approved over the last day, and links to the decision history. It reads **No decision in 24h** when nobody decided one, or **Nothing to read yet** when the agent has no gateway application.
+The expose step is included only when you can read APIs and the agent can be exposed. A custom agent does not get it.
 
-A check that couldn't be read shows **Could not be read** and, when no check is red or amber, drops the card's verdict to **Not fully checked**. The **Cost** check is the exception: it's advisory, so it never changes the card's word.
+### At a glance
 
-### The About section
-
-The **About** section holds what the Catalog records. For an imported agent it opens with a note that the data is synced from your integration and overwritten on each sync. The note adds that the gateway settings, which can differ, are on the **Proxies** page. For an agent registered by hand it reads **Added manually**, and says that the details are the catalog record and the agent card its creator wrote.
+**At a glance** has the following five tiles:
 
 <table>
     <thead>
         <tr>
-            <th width="230">Column or block</th>
+            <th width="240">Tile</th>
+            <th>What it shows</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Provider</strong></td>
+            <td>The provider name and <strong>Synced from the provider</strong>, or <strong>No provider</strong> with <strong>Custom</strong> or <strong>Agent Card</strong>.</td>
+        </tr>
+        <tr>
+            <td><strong>Models</strong>, <strong>Tools</strong>, <strong>Related agents</strong></td>
+            <td>The count. <strong>N of M through the gateway</strong> when there are any, otherwise <strong>None connected</strong>. The name opens that page.</td>
+        </tr>
+        <tr>
+            <td><strong>Exposed</strong></td>
+            <td><strong>Exposed</strong> when the A2A Proxy is running, <strong>Proxy stopped</strong> when it is stopped, <strong>Not exposed</strong> with <strong>No A2A proxy in front of it</strong>, or <strong>Unknown</strong> with <strong>Its A2A proxy could not be read</strong>. Opens <strong>Endpoints</strong>.</td>
+        </tr>
+    </tbody>
+</table>
+
+If you cannot read APIs, the **Exposed** tile does not appear. When the subscriptions cannot be read, the page shows **Could not load the gateway subscriptions of this agent** and **Retry**, and the three count tiles stay off.
+
+### Connections
+
+**Connections** follows when there is at least one model, tool, or related agent. Its description is **What this agent reaches, and the gateway proxy each call goes through. Without a proxy, calls are not governed by Gravitee.** Each column lists five rows, then **+N more**, with **View all**. A row reads **Direct, not through the gateway**, or **LLM proxy**, **MCP proxy**, or **A2A proxy** plus its name. An empty column reads **No models yet.**, **No tools yet.**, or **No related agents yet.**
+
+### Details
+
+The **Overview** then lists the details the Catalog records:
+
+<table>
+    <thead>
+        <tr>
+            <th width="220">Detail</th>
             <th>What it holds</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><strong>Registry</strong></td>
-            <td><strong>Entity ID</strong>, the stable identifier other Gamma modules use, in the form <code>agent.&lt;slug&gt;</code>, with a copy button. <strong>Source</strong>, the kind of source the agent came from. <strong>Classification</strong>, the risk rating you give the agent. <strong>Created</strong> and <strong>Updated</strong>.</td>
+            <td><strong>Entity ID</strong></td>
+            <td>The stable identifier other Gamma modules use.</td>
         </tr>
         <tr>
-            <td>The platform column</td>
-            <td>Only for an agent a platform describes. It's titled with the platform's name, <strong>Azure AI Foundry</strong> for a Foundry agent, and holds the platform's <strong>State</strong> and <strong>Publication</strong> for the agent, its backing <strong>Model</strong>, the platform's own facts, such as the <strong>Foundry ID</strong> and <strong>Revision</strong>, and a <strong>Tools</strong> row that counts the tools the platform declares and links to the <strong>Tools</strong> page.</td>
+            <td><strong>ID</strong></td>
+            <td>The identifier of the agent in the Catalog.</td>
         </tr>
         <tr>
-            <td>The endpoints column</td>
-            <td>Only for an agent a platform describes. <strong>Addresses</strong> lists each endpoint the platform declares with its protocol, such as <strong>A2A</strong>.</td>
+            <td><strong>Description</strong></td>
+            <td>The agent's description.</td>
         </tr>
         <tr>
-            <td><strong>Agent card</strong></td>
-            <td>The A2A card as a consumer reads it: <strong>URL</strong>, <strong>Version</strong>, <strong>Capabilities</strong> (<strong>Streaming</strong>, <strong>Push notifications</strong>, <strong>State transition history</strong>, or <strong>The card advertises none.</strong>), <strong>Security</strong>, and <strong>Skills</strong>, three at a time with a <strong>See &lt;n&gt; more</strong> link. The block is omitted when the platform declares that the agent doesn't speak A2A.</td>
+            <td><strong>Version</strong></td>
+            <td>The agent's version.</td>
+        </tr>
+        <tr>
+            <td><strong>Source</strong></td>
+            <td>Where the agent came from.</td>
+        </tr>
+        <tr>
+            <td><strong>Provider state</strong></td>
+            <td><strong>Running</strong>, <strong>Stopped</strong>, or <strong>Unknown</strong>. It appears only for an agent synced from a provider.</td>
+        </tr>
+        <tr>
+            <td><strong>Risk classification</strong></td>
+            <td><strong>Negligible</strong>, <strong>Limited</strong>, <strong>Moderate</strong>, <strong>High</strong>, or <strong>Unclassified</strong>.</td>
+        </tr>
+        <tr>
+            <td><strong>Created</strong></td>
+            <td>When the agent was added to the Catalog.</td>
+        </tr>
+        <tr>
+            <td><strong>Last updated</strong></td>
+            <td>When the agent's record last changed.</td>
         </tr>
     </tbody>
 </table>
 
-To rate the agent's risk, click the **Classification** badge in the **Registry** column. The **Classification** panel offers **Negligible risk**, **Limited risk**, **Moderate risk**, and **High risk**. Click **Save**. A **Classification updated** notification appears. A rating can be changed but not cleared.
-
-Two agents can't share a slug. Registering a second agent whose name reduces to the same slug as an existing one is refused with the message **An agent with this name already exists**.
+When the agent has an A2A card, a summary of it follows, with its **Name**, **Version**, **Description**, and **Skills**, or **None declared**. Eight skills are listed, then **+N more**. **View on Endpoints** opens the **Endpoints** page.
 
 ## Find your way around the sidebar
 
-The agent's sidebar has three sections. Each entry is a page of its own.
+The agent's sidebar has two groups. Each entry is a page of its own. The following table lists each entry and what its page does:
 
 <table>
     <thead>
         <tr>
-            <th width="140">Section</th>
+            <th width="140">Group</th>
             <th width="160">Entry</th>
             <th>What the page does</th>
         </tr>
@@ -154,94 +200,92 @@ The agent's sidebar has three sections. Each entry is a page of its own.
         <tr>
             <td><strong>Agent</strong></td>
             <td><strong>Identity</strong></td>
-            <td>Creates the agent's <strong>Gateway application</strong>, the application that acts for the agent at the AI Gateway and holds its subscriptions, sets its <strong>Client ID</strong>, and gives it an OAuth identity.</td>
+            <td>Manages the agent's identity, which it uses to prove who it is, for delegated access, for authorization policies, and for observability. The page shows its <strong>OAuth client ID</strong>, <strong>Agent Identity Provider</strong>, and <strong>Gateway application</strong>.</td>
         </tr>
         <tr>
             <td><strong>Agent</strong></td>
-            <td><strong>Lineage</strong></td>
-            <td>What called the agent and what the agent reached, as observed in gateway traffic. It needs the gateway application to attribute traffic to the agent.</td>
+            <td><strong>Endpoints</strong></td>
+            <td>Lists each endpoint of the agent by <strong>Type</strong>, <strong>Endpoint</strong>, and <strong>Gateway proxy</strong>. For an agent registered by hand, it also holds the A2A Agent Card. The A2A Proxy is created on the <strong>A2A Proxies</strong> page under <strong>Secure</strong>. See <a href="route-an-agent-through-an-a2a-proxy.md">Read an agent's endpoints</a>.</td>
         </tr>
         <tr>
-            <td><strong>Agent</strong></td>
-            <td><strong>Proxies</strong></td>
-            <td>The A2A Proxy that fronts the agent, and the action that creates or links one. See <a href="route-an-agent-through-an-a2a-proxy.md">Route an agent through an A2A Proxy</a>.</td>
-        </tr>
-        <tr>
-            <td><strong>Agent</strong></td>
+            <td><strong>Access</strong></td>
             <td><strong>Models</strong></td>
-            <td>The models the agent calls and the LLM Proxies that route them, with the subscriptions to take or close. See <a href="subscribe-an-agent-to-an-llm-proxy.md">Subscribe an agent to an LLM Proxy</a>.</td>
+            <td>Lists the models the source reported and the models a subscription grants. The subscription is created on the proxy, in the Developer Portal, through automation, or a similar path. See <a href="subscribe-an-agent-to-an-llm-proxy.md">Read the models an agent uses</a>.</td>
         </tr>
         <tr>
-            <td><strong>Agent</strong></td>
+            <td><strong>Access</strong></td>
             <td><strong>Tools</strong></td>
-            <td>The tools the agent's platform declares and the MCP Proxies that front them, with the subscriptions to take or close. See <a href="subscribe-an-agent-to-an-mcp-proxy.md">Subscribe an agent to an MCP Proxy</a>.</td>
+            <td>Lists the tools the source reported and the tools a subscription grants. The subscription is created on the proxy, in the Developer Portal, through automation, or a similar path. See <a href="subscribe-an-agent-to-an-mcp-proxy.md">Read the tools an agent calls</a>.</td>
         </tr>
         <tr>
-            <td><strong>Governance</strong></td>
-            <td><strong>Compliance</strong></td>
-            <td>The frameworks and custom rulesets that apply to the agent, and its verdict against each.</td>
-        </tr>
-        <tr>
-            <td><strong>Operations</strong></td>
-            <td><strong>Activity</strong></td>
-            <td>The model and tool calls made on the agent's behalf, and the requests it handled. See <a href="../observe/monitor-proxy-activity.md">Monitor proxy and agent activity</a>.</td>
-        </tr>
-        <tr>
-            <td><strong>Operations</strong></td>
-            <td><strong>Marketplace</strong></td>
-            <td>The agent as a product in the Developer Portal.</td>
-        </tr>
-        <tr>
-            <td><strong>Operations</strong></td>
-            <td><strong>Targets</strong></td>
-            <td>The thresholds the agent is held to, and who is notified when one is missed. The entry appears only when the host API Management offers performance targets.</td>
-        </tr>
-        <tr>
-            <td><strong>Operations</strong></td>
-            <td><strong>Cost</strong></td>
-            <td>What the agent cost to run, what changed since the period before, and where the money went.</td>
+            <td><strong>Access</strong></td>
+            <td><strong>Agents</strong></td>
+            <td>Lists the other agents an A2A Proxy subscription grants. A source does not yet report which agents an agent calls.</td>
         </tr>
     </tbody>
 </table>
 
-An agent that Edge Management detected from traffic, rather than one somebody registered, lists the same entries, marked **Not declared** or **Not observable**. Its **Overview** is built around having only an address.
+An agent reaches models, tools, and other agents only through a proxy it subscribes to. An agent whose source declares none of them still lists the **Models**, **Tools**, and **Agents** pages.
 
 ## Edit the name and description
 
-Only the name and the description are editable, and only for an agent registered by hand. The endpoint URL and the version are fixed when the agent is registered. To point the Catalog at a different endpoint, register the agent again.
+Only the name and the description are editable, and only for an agent registered by hand that isn't retired. The endpoint URL and the version are shown and can't be changed. To point the Catalog at a different endpoint, register the agent again.
 
-1. In the bar at the top of the agent's page, click **Edit**.
+1. On the **Overview** page of the agent, click **Edit**.
 2. On the **Edit agent** page, change the **Name** or the **Description**.
 3. Click **Save changes**.
 
-**Save changes** stays disabled until you change something, and a blank name can't be saved. An **Agent updated** notification appears, and the console returns to the agent's page. Renaming the agent doesn't change its Entity ID.
+An **Agent updated** notification appears. An imported agent isn't edited here, because its provider declares its details, and the next import would undo the change.
 
-An imported agent isn't edited here, because the next synchronization would write over the change. Its bar offers **Resync** instead, which reads the agent again from its platform and reports **Resynced &lt;agent&gt;**.
+## Change the owner and the sponsor
 
-## Stop and start the agent
+The **Overview** header names the agent's owner and its sponsor. Open the more-actions menu of the agent to assign or transfer the ownership to a user of the organization, or to add, change, or remove the sponsor. A sponsor is the user accountable for the agent. A retired agent takes no new owner or sponsor.
 
-The **Stop** button in the bar takes the agent out of service in one move, in a fixed order. The A2A Proxy that fronts the agent is stopped first, so every caller loses access at once. The subscriptions its gateway application holds are paused at the gateway next. Last, when the platform that hosts the agent allows it, the agent itself is stopped there. **Start** pulls the same levers in reverse.
+## Change the catalog state
 
-1. In the bar at the top of the agent's page, click **Stop**.
-2. In the **Stop this agent?** dialog, read the **What this stops** list.
-3. Click **Stop this agent**.
+An agent is in one of four catalog states: **Registered**, **Published**, **Deprecated**, or **Retired**. A **Deprecated** agent is one whose source no longer reports it, so it can't be published.
 
-An **Agent stopped** notification appears, and the header badge reads **Stopped** until you start the agent again. When part of the move failed, the notification reads **Agent only partly stopped. Check its provider and its subscriptions.** instead. To start the agent, click **Start** in the bar, and then click **Start this agent** in the **Start this agent?** dialog, which lists what it restarts under **What this restarts**. An **Agent started** notification appears.
+The following table lists the actions that change the state:
 
-When the agent has no gateway application, no A2A Proxy fronts it, and its platform can't be told to stop it, the dialog reads **Cannot stop this agent**. It offers **Go to Identity**, where the application is created.
+<table>
+    <thead>
+        <tr>
+            <th width="180">Action</th>
+            <th width="220">Starts from</th>
+            <th>What it does</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Publish</strong></td>
+            <td><strong>Registered</strong></td>
+            <td>Moves the agent to <strong>Published</strong>.</td>
+        </tr>
+        <tr>
+            <td><strong>Unpublish</strong></td>
+            <td><strong>Published</strong></td>
+            <td>Moves the agent back to <strong>Registered</strong>.</td>
+        </tr>
+        <tr>
+            <td><strong>Retire agent</strong></td>
+            <td><strong>Registered</strong>, <strong>Published</strong>, or <strong>Deprecated</strong></td>
+            <td>Moves the agent to <strong>Retired</strong>.</td>
+        </tr>
+    </tbody>
+</table>
 
-The proxy that fronts the agent has a stop of its own on its **Settings** page. See [Agent kill switch](../build/agent-killswitch.md).
+To retire an agent, click **Retire agent** on its **Overview** page. In the **Retire &lt;agent&gt;?** dialog, read the warning, and then click **Retire agent**. A retired agent is no longer published, and its details, owner, and sponsor can no longer change. Its catalog record and history are kept. A retired agent is final and read-only, so you can only remove it.
 
 ## Remove an agent
 
-1. In the bar at the top of the agent's page, click **Remove**.
+1. On the **Overview** page of the agent, click **Remove**.
 2. In the **Remove this agent?** dialog, click **Remove agent**.
 
-Removal is immediate and can't be undone. The agent's gateway application goes with it, which closes every subscription that application held, and so does the identity the agent authenticated as. An A2A Proxy that fronts the agent is detached first and keeps running. A **Removed &lt;agent&gt;** notification appears, and the console returns to the **Agents** list. When the identity couldn't be removed from the identity service, the notification reads **Removed &lt;agent&gt;, but its identity is still in the identity service**. It asks you to remove it there.
+The dialog warns that removal can't be undone and that experiences that reference the agent can no longer use it. A **Remove failed** alert appears when the agent can't be removed.
 
 ## Next steps
 
 * [Register an agent](import-an-agent.md). Add another agent to the Catalog from the agent card it publishes.
-* [Route an agent through an A2A Proxy](route-an-agent-through-an-a2a-proxy.md). Put the agent behind the AI Gateway from its **Proxies** page.
-* [Subscribe an agent to an LLM Proxy](subscribe-an-agent-to-an-llm-proxy.md). Give the agent access to models through its **Models** page.
-* [Subscribe an agent to an MCP Proxy](subscribe-an-agent-to-an-mcp-proxy.md). Give the agent access to tools through its **Tools** page.
+* [Read an agent's endpoints](route-an-agent-through-an-a2a-proxy.md). The A2A Proxy is created on the **A2A Proxies** page under **Secure**.
+* [Read the models an agent uses](subscribe-an-agent-to-an-llm-proxy.md). The **Models** page lists models. The subscription is created on the proxy, in the Developer Portal, through automation, or a similar path.
+* [Read the tools an agent calls](subscribe-an-agent-to-an-mcp-proxy.md). The **Tools** page lists tools the same way.
