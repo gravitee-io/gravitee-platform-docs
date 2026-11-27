@@ -28,7 +28,7 @@ The following table compares an API proxy with an API Product:
 |                        | API proxy                                          | API Product                                                      |
 | ---------------------- | -------------------------------------------------- | ---------------------------------------------------------------- |
 | **Represents**         | A single upstream API with its own endpoints       | A bundle of API proxies                                          |
-| **Plans available**    | API Key, JWT, OAuth2, mTLS, Keyless                | API Key, JWT, mTLS                                               |
+| **Plans available**    | API Key, JWT, OAuth2, mTLS, Keyless                | API Key, JWT, OAuth2, mTLS                                       |
 | **Plan wizard steps**  | General, Security, Restrictions                    | General, Security                                                |
 | **Restrictions step**  | Available for rate limit, quota, and resource filtering | Not available                                               |
 | **Plan conditions**    | Page of general conditions and excluded groups     | Not available                                                    |
@@ -90,8 +90,8 @@ The **Consumer Access** group contains the following tabs:
 
 | Tab           | Description                                                                        |
 | ------------- | ---------------------------------------------------------------------------------- |
-| **Plans**     | Create and manage the product's API Key, JWT, and mTLS subscription plans.         |
-| **Consumers** | Manage subscriptions, approve requests, and handle API keys for product consumers. |
+| **Plans**     | Create and manage the product's API Key, JWT, OAuth2, and mTLS subscription plans. |
+| **Consumers** | Manage subscriptions and approve requests. API Key plans use API keys, and an OAuth2 plan matches a subscription on the client identifier of the application. |
 
 ### Security
 

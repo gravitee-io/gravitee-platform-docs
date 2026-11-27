@@ -77,10 +77,29 @@ An API product supports the following subset of the plan security types availabl
 | **API Key** (`API_KEY`)| Yes         | Yes       | —                                                                                                        |
 | **JWT** (`JWT`)        | Yes         | Yes       | —                                                                                                        |
 | **mTLS** (`MTLS`)      | Yes         | Yes       | —                                                                                                        |
-| **OAuth2** (`OAUTH2`)  | No          | Yes       | Not offered in the product's **Create plan** menu.                                                       |
+| **OAuth2** (`OAUTH2`)  | Yes         | Yes       | The **OAuth2 resource** and the **Cache resource** of the plan are resources of the API Product. See [OAuth2 plans on an API Product](#oauth2-plans-on-an-api-product). |
 | **Keyless** (`KEY_LESS`)| No         | Yes       | Not offered in the product's **Create plan** menu, and rejected by the Management API with `400 Bad Request` and the message `Plan Security Type KeyLess is not allowed.` |
 
-On a product's **Plans** page, **Create plan** opens a menu offering **API Key**, **JWT**, and **mTLS**. The same menu on an API proxy's **Plans** page also offers **OAuth2** and **Keyless**.
+On a product's **Plans** page, **Create plan** opens a menu offering **API Key**, **JWT**, **OAuth2**, and **mTLS**, without the plan types turned off for the environment. The same menu on an API proxy's **Plans** page also offers **Keyless**.
+
+### OAuth2 plans on an API Product
+
+An OAuth2 plan of an API Product validates tokens with the resources of the API Product, never with the resources of its APIs:
+
+* **OAuth2 resource** names an OAuth2 resource on the product's **Resources** page. See [Configure API Product resources](configure-api-product-resources.md).
+* **Cache resource** is optional. When it's set, it names a cache resource on the product's **Resources** page.
+* Neither field takes an expression. Enter the name of the resource as it's saved on the **Resources** page.
+
+The plan doesn't save without an **OAuth2 resource**. The resources themselves are checked when you publish the plan, and when you save a published or deprecated plan. These fail when the **OAuth2 resource** or the **Cache resource** contains `{#`, isn't a resource of the API Product, isn't of the right type, or is disabled.
+
+A subscription to the plan stores the client identifier of the application. The plan matches a token on the `client_id` that introspection returns for it:
+
+* When the API Product has an accepted subscription for that `client_id`, every API of the API Product accepts the token.
+* Without an accepted subscription, every API of the API Product answers the token with **401**, unless a plan of that API accepts it.
+* When an API joins the API Product, the existing subscription covers it. When an API leaves the API Product, that API answers the token with **401**, unless one of its own plans accepts it. Neither change needs a new subscription.
+* With a **Cache resource**, a later call with the same token doesn't call the introspection endpoint again until its cache entry expires.
+
+An OAuth2 plan of an API that belongs to the API Product is unchanged: it validates tokens with the resources of that API.
 
 ## Next steps
 

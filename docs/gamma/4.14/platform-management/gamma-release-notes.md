@@ -11,7 +11,7 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 ## Highlights
 
 * **Agent Management**: Add the **AWS Lambda** and **Data Cache Policy** policies to LLM Proxies, set up alerts for MCP Proxies, import MCP servers that the control plane can't reach, and encrypt the dynamic properties of LLM, MCP, and A2A Proxies. A2A Proxies gain a **CORS** page.
-* **API Management**: Encrypt the dynamic properties of API proxies, group their analytics with path mappings, design flows on API Products in a Policy Studio, and configure the resources of API Products.
+* **API Management**: Encrypt the dynamic properties of API proxies, group their analytics with path mappings, design flows on API Products in a Policy Studio, configure the resources of API Products, and secure API Products with OAuth2 plans.
 * **Authorization Management**: Manage PDP gateways, schema documents, entities, and policies as code, through the Automation API, as Kubernetes resources, and with Terraform.
 * **Edge Management**: Choose how Edge Daemons authenticate to the Edge Reactor, apply OAuth2 plans to intercepted routes, and edit gateway addresses after the guided setup.
 * **Event Stream Management**: Use registered Clusters in Message APIs, bound the metadata requests that the gateway sends to its brokers, disable broker hostname verification over SSL, and encrypt the dynamic properties of Kafka Services and Message APIs.
@@ -117,7 +117,7 @@ Agent Management adds the following in 4.14:
 API Management adds the following in 4.14:
 
 * **API proxies**: encryption of dynamic properties, and path mappings that group their analytics.
-* **API Products**: their own flows, designed in a Policy Studio, a banner that deploys them, and their own resources.
+* **API Products**: their own flows, designed in a Policy Studio, a banner that deploys them, their own resources, and OAuth2 plans.
 
 #### Flows on API Products
 
@@ -158,6 +158,13 @@ API Management adds the following in 4.14:
 * A Gateway earlier than 4.14 ignores the resources of an API Product. A policy in a plan flow of the product then uses the API's resource with the same name if the API has one, and otherwise fails as if the resource didn't exist.
 * The Management API saves the resources of an API Product with an update of the product.
 * See [Configure API Product resources](../api-management/build/configure-your-api-product/configure-api-product-resources.md).
+
+#### OAuth2 plans on API Products
+
+* On the **Plans** page of an API Product, **Create plan** now offers **OAuth2**, next to **API Key**, **JWT**, and **mTLS**.
+* The **OAuth2 resource** and the **Cache resource** of the plan name resources on the product's **Resources** page. The plan validates tokens with those resources, never with the resources of the product's APIs. Neither field takes an expression.
+* Publishing the plan, and saving a published or deprecated plan, fails when a resource it names is an expression, isn't on the product's **Resources** page, isn't of the right type, or is disabled.
+* See [OAuth2 plans on an API Product](../api-management/build/configure-your-api-product/api-product-configuration-reference.md#oauth2-plans-on-an-api-product).
 
 ### Authorization Management
 
