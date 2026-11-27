@@ -67,8 +67,9 @@ To install the daemon by hand, complete the following steps on each device:
 2. If mTLS is on, put the certificate of your fleet and its private key in the extracted folder, next to `install.ps1`, as `client.crt` and `client.key`. If the Edge Reactor uses a private certificate authority, add that certificate as `reactor-ca.crt` too, and uncomment the last line of the command. See [Configure daemon authentication](configure-daemon-authentication.md#turn-on-mtls).
 3. Open PowerShell as Administrator, and go to the extracted folder.
 4. Run the command that you copied from the page.
+5. If you put certificate files in the extracted folder, delete them once the install succeeds. The installer keeps its own copy, which only administrators and the daemon can read.
 
-To install the daemon through your MDM, have it run the command as SYSTEM, as a post-install script, with the paths adapted to where it extracts the package.
+To install the daemon through your MDM, have it run the command as SYSTEM, as a post-install script, with the paths adapted to where it extracts the package. Have the same script delete the certificate files from the device once the install succeeds.
 
 The installer registers the daemon as a Windows service that starts at boot. If the daemon is already installed on the device, the installer keeps its existing configuration. To apply new gateway addresses, another environment, or mTLS to an installed daemon, remove it with the uninstall command, then install it again.
 
@@ -93,13 +94,15 @@ The collapsible **Uninstall** section gives the command that removes the daemon 
 powershell -ExecutionPolicy Bypass -File .\install.ps1 -Uninstall
 ```
 
-## Known limitation
+## Known limitations
 
 On a device that receives NRPT rules through Group Policy, Windows may ignore the DNS rules that the daemon installs. The intercepted domains are then not redirected to the daemon, and the AI traffic of the device bypasses the gateway. When the daemon finds such rules on the device, its log shows the following line:
 
 ```text
 Group Policy defines NRPT rules: Windows may ignore the daemon's local rules, and intercepted domains may not be redirected
 ```
+
+The `curl.exe` that ships with Windows rejects the certificates of the intercepted domains, even though the installer makes the device trust the certificate authority of the daemon. A request to an intercepted domain with `curl.exe` fails while the daemon works. To check the daemon, see [Verification](#verification).
 
 ## Verification
 
