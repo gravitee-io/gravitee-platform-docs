@@ -1,10 +1,10 @@
 ---
-description: Manage a registered agent in the Agent Management Catalog. Read its Overview, change its owner, publish or retire it, and learn what each page offers.
+description: Manage a registered agent in the Gamma Catalog, from its Overview to its owner and state. Follow the steps to edit, publish, retire, or remove it.
 ---
 
 # Manage a registered agent
 
-When you register an agent, the Gamma console opens the agent's page in the Catalog. The page is the hub for the agent. Its **Overview** shows who owns it, what still needs setting up, and what the Catalog records about it. The sidebar leads to the pages that give it an identity, endpoints, models, tools, and other agents. The actions on the **Overview** page change its state in the Catalog. Come back to it to publish the agent, to change its owner, to route its calls through the AI Gateway, or to remove it.
+When you register an agent, the Gamma console opens the agent's page in the Catalog. The page is the hub for the agent. Its **Overview** shows who owns it, what still needs setting up, and what the Catalog records about it. The sidebar leads to the pages that give it an identity, endpoints, models, tools, and other agents. The actions on the **Overview** page change its state in the Catalog. Return to it to publish the agent, change its owner, route its calls through the AI Gateway, or remove it.
 
 ## Open an agent's page
 
@@ -57,6 +57,8 @@ The **Overview** is the first page of the agent, under **Agent**. Its header car
 
 **Set up this agent** sits under the header while setup is unfinished. Open, it reads **Follow these steps in order. An agent reaches models, tools and other agents only through a proxy it subscribes to.** Closed, it reads **Next:** and the title of the next step. The card shows **N of M done**, **Hide steps**, and **Show steps**. It goes away once every step that applies is done.
 
+The card lists the following steps:
+
 <table>
     <thead>
         <tr>
@@ -74,7 +76,7 @@ The **Overview** is the first page of the agent, under **Agent**. Its header car
         <tr>
             <td><strong>Connect models through an LLM proxy</strong></td>
             <td>At least one model goes through the gateway.</td>
-            <td><strong>Open LLM Proxies</strong>, or <strong>Open Models</strong> when the user cannot read APIs.</td>
+            <td><strong>Open LLM Proxies</strong>, or <strong>Open Models</strong> when you cannot read APIs.</td>
         </tr>
         <tr>
             <td><strong>Connect tools through an MCP proxy</strong></td>
@@ -89,11 +91,11 @@ The **Overview** is the first page of the agent, under **Agent**. Its header car
     </tbody>
 </table>
 
-The expose step is included only when that user can read APIs and the agent can be exposed. A custom agent does not get it.
+The expose step is included only when you can read APIs and the agent can be exposed. A custom agent does not get it.
 
 ### At a glance
 
-**At a glance** has five tiles.
+**At a glance** has the following five tiles:
 
 <table>
     <thead>
@@ -118,7 +120,7 @@ The expose step is included only when that user can read APIs and the agent can 
     </tbody>
 </table>
 
-A user who cannot read APIs does not get the **Exposed** tile. When the subscriptions cannot be read, the page shows **Could not load the gateway subscriptions of this agent** and **Retry**, and the three count tiles stay off.
+If you cannot read APIs, the **Exposed** tile does not appear. When the subscriptions cannot be read, the page shows **Could not load the gateway subscriptions of this agent** and **Retry**, and the three count tiles stay off.
 
 ### Connections
 
@@ -179,7 +181,7 @@ When the agent has an A2A card, a summary of it follows, with its **Name**, **Ve
 
 ## Find your way around the sidebar
 
-The agent's sidebar has two groups. Each entry is a page of its own.
+The agent's sidebar has two groups. Each entry is a page of its own. The following table lists each entry and what its page does:
 
 <table>
     <thead>
@@ -203,7 +205,7 @@ The agent's sidebar has two groups. Each entry is a page of its own.
         <tr>
             <td><strong>Agent</strong></td>
             <td><strong>Endpoints</strong></td>
-            <td>Lists each endpoint of the agent by <strong>Type</strong>, <strong>Endpoint</strong>, and <strong>Gateway proxy</strong>. For an agent registered by hand, it also holds the A2A Agent Card. The A2A Proxy is created under <strong>Secure</strong> → <strong>A2A Proxies</strong>. See <a href="route-an-agent-through-an-a2a-proxy.md">Read an agent's endpoints</a>.</td>
+            <td>Lists each endpoint of the agent by <strong>Type</strong>, <strong>Endpoint</strong>, and <strong>Gateway proxy</strong>. For an agent registered by hand, it also holds the A2A Agent Card. The A2A Proxy is created on the <strong>A2A Proxies</strong> page under <strong>Secure</strong>. See <a href="route-an-agent-through-an-a2a-proxy.md">Read an agent's endpoints</a>.</td>
         </tr>
         <tr>
             <td><strong>Access</strong></td>
@@ -242,6 +244,8 @@ The **Overview** header names the agent's owner and its sponsor. Open the more-a
 ## Change the catalog state
 
 An agent is in one of four catalog states: **Registered**, **Published**, **Deprecated**, or **Retired**. A **Deprecated** agent is one whose source no longer reports it, so it can't be published.
+
+The following table lists the actions that change the state:
 
 <table>
     <thead>
@@ -282,6 +286,6 @@ The dialog warns that removal can't be undone and that experiences that referenc
 ## Next steps
 
 * [Register an agent](import-an-agent.md). Add another agent to the Catalog from the agent card it publishes.
-* [Read an agent's endpoints](route-an-agent-through-an-a2a-proxy.md). The A2A Proxy is created under **Secure** → **A2A Proxies**.
+* [Read an agent's endpoints](route-an-agent-through-an-a2a-proxy.md). The A2A Proxy is created on the **A2A Proxies** page under **Secure**.
 * [Read the models an agent uses](subscribe-an-agent-to-an-llm-proxy.md). The **Models** page lists models. The subscription is created on the proxy, in the Developer Portal, through automation, or a similar path.
 * [Read the tools an agent calls](subscribe-an-agent-to-an-mcp-proxy.md). The **Tools** page lists tools the same way.
