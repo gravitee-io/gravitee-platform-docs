@@ -17,7 +17,7 @@ description: Models, Tools, and Agents list what a provider reported and what a 
 
 A subscription is created on the proxy, in the Developer Portal, through automation, or a similar path. These pages list the result. An accepted subscription appears as rows marked **Proxied on Gateway**. A pending subscription reads **waiting for approval**, and a paused one reads **paused**. Their models, tools, or agents appear once the subscription is accepted or resumed.
 
-The **Agents** page adds **Depending on the provider, some of the agents this agent calls may not be listed here.** In 4.14 a source does not yet report which agents its agent calls, so that page lists the subscription rows.
+[Read the tools an agent calls](subscribe-an-agent-to-an-mcp-proxy.md) and [Read the agents an agent calls](read-the-agents-an-agent-calls.md) use the same layout for tools and other agents. The Agents page lists subscription rows. A source does not yet report which agents its agent calls.
 
 ## Open the Models page
 
@@ -84,10 +84,10 @@ The second step is one way in. **Open LLM Proxies**, or **Subscribe to an LLM pr
 
 When the subscriptions cannot be read, the page reads **Could not load the gateway subscriptions of this agent** and offers **Retry**. The empty state then reads **What this agent reaches through the gateway could not be read.**
 
-**Tools** and **Agents** use the same layout. **Tools** points at **MCP Proxies**. **Agents** points at **A2A Proxies**.
-
 ## Next steps
 
+* [Read the tools an agent calls](subscribe-an-agent-to-an-mcp-proxy.md). The same page for tools, through an MCP Proxy.
+* [Read the agents an agent calls](read-the-agents-an-agent-calls.md). The same page for other agents, through an A2A Proxy.
 * [Expose your agent with an LLM Proxy](../build/create-an-llm-proxy.md). Create the proxy the agent subscribes to.
 * [Publish a proxy to the Developer Portal](../publish/publish-a-proxy-to-the-developer-portal.md). Offer the proxy where a consumer can subscribe.
 * [Manage subscriptions](../publish/manage-subscriptions.md). Approve, pause, or close the subscription from the proxy's side.
