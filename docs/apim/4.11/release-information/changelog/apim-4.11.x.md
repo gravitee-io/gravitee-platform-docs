@@ -1,5 +1,23 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.36 - November 26, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Portal**
+
+* Switching pages keeps the previous page’s scroll position instead of opening at the top in New Developer Portal [#12022](https://github.com/gravitee-io/issues/issues/12022)
+
+**Other**
+
+* Shared API key rejected (401) on all gateways after an API redeploy when the key is linked to a CLOSED subscription on the same plan [#11958](https://github.com/gravitee-io/issues/issues/11958)
+* Shared API key returns 401 after redeploy when a revoked key has the same value [#12081](https://github.com/gravitee-io/issues/issues/12081)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.35 - November 20, 2026
 <details>
 

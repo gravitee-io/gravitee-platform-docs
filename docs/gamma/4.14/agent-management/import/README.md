@@ -24,7 +24,6 @@ The **Catalog** group of the Agent Management sidebar holds the **AI Models**, *
 * [**Route an agent through an A2A Proxy**](route-an-agent-through-an-a2a-proxy.md). Put an A2A Proxy in front of a registered agent from its Proxies page, or link an existing proxy to it.
 * [**Subscribe an agent to an LLM Proxy**](subscribe-an-agent-to-an-llm-proxy.md). The Models page of an agent lists the models it calls and the LLM Proxies that route them.
 * [**Subscribe an agent to an MCP Proxy**](subscribe-an-agent-to-an-mcp-proxy.md). The Tools page of an agent lists what it calls in Azure AI Foundry and whether those calls go through the gateway.
-* [**Publish your agent to the Developer Portal**](../publish/publish-your-agent-to-the-developer-portal.md). List an agent exposed through a Gamma A2A Proxy in the Developer Portal catalog.
 * [**Agent kill switch**](../build/agent-killswitch.md). Stop an agent in one move from its page in the Catalog, which stops the A2A Proxy in front of it, pauses its gateway subscriptions, and disables it on Azure AI Foundry, or stop a proxy on its own.
 * [**Create an agent identity**](../build/create-an-agent-identity.md). Register an agent as an OAuth client in Gravitee Access Management with a persona that fits how it runs.
 

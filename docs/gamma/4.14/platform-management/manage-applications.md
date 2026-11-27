@@ -56,7 +56,36 @@ Select an application from the list to open its detail page, which contains the 
 * **Settings**. The application details, OAuth client configuration, and mTLS client certificates. The details include the application name, description, domain, images, owner, creation date, type, API key mode, and client ID. This section also holds the action that archives the application.
 * **User Permissions**. Manage direct members, configure group access, and transfer application ownership.
 * **Subscriptions**. The plans this application subscribes to. Create a subscription, filter by API and status, search by API key, and review each subscription's status and dates.
+* **Shared API Keys**. The API keys that every subscription of the application shares. This section shows only for an application that uses a shared API key. Renew the key, and revoke a key that's still valid. See [Renew the shared API key](#renew-the-shared-api-key).
 * **Notifications**. Configure the events that trigger a notifier for this application, using either the default email notifier or the default webhook notifier. This section also holds the custom metadata available in notification templates. The metadata editor rejects a duplicate key and reports that the metadata already exists.
+
+## Renew the shared API key
+
+Renewing the shared API key moves every subscription of the application to a new key, and the previous key stays valid for two hours. When **Allow custom API Key** is turned on in [Configure Security Plan Types](configure-security-plan-types.md), the **Renew API Key** dialog has a **Custom API Key** field. **Allow custom API Key** is turned off by default. Enter the value of the new key, or leave the field empty to generate a random key.
+
+The **Renew** button shows when you can manage the subscriptions of the application, and not for an archived application.
+
+To renew the shared API key, complete the following steps:
+
+1. Open **Platform Management**.
+2. Click **Applications**.
+3. Select your application.
+4. Click **Shared API Keys** in the **Access** group of the application sidebar.
+5. Click **Renew**.
+6. Optional: In **Custom API Key**, enter the value of the new key.
+
+    <figure><img src=".gitbook/assets/gamma-application-shared-api-key-renew.png" alt="The Renew API Key dialog over the Shared API Keys page of an application, with docbot-shared-key-2026 entered in the Custom API Key field and the Cancel and Renew buttons"><figcaption><p>Renew the shared API key with a custom API key</p></figcaption></figure>
+7. Click **Renew**.
+
+A custom API key follows these rules:
+
+* It has between 8 and 128 characters, and `^ # % @ \ / ; = ? | ~ ,` and the space character are invalid. Spaces at the start and the end of the value are removed.
+* A value of a key of another application in the environment, even a revoked or expired one, or the value of the application's current key, is refused with `This API key cannot be used`.
+* A value of an earlier key of the application, even a revoked or expired one, makes that key valid again, whether **Allow custom API Key reuse** is enabled or not. Any other value creates a new key.
+
+The new key shows in the **API Keys** list with no date under **Revoked/Expired at**, and the previous key shows the time it expires.
+
+<figure><img src=".gitbook/assets/gamma-application-shared-api-keys.png" alt="The Shared API Keys page of an application, listing docbot-shared-key-2026 as valid with no Revoked/Expired at date, and the previous key with a Revoked/Expired at time two hours after the renewal"><figcaption><p>The Shared API Keys page after a renewal</p></figcaption></figure>
 
 ## Next steps
 

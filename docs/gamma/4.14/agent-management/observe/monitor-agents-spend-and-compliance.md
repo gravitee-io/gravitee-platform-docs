@@ -29,7 +29,7 @@ The page carries three sections, each covering the whole environment and each li
 When every agent is fronted by a proxy that's deployed and started, the section reads that they all run through the gateway. Otherwise it breaks out what's wrong:
 
 * Agents that no proxy fronts are reported as bypassing the gateway, with the note that Gravitee can't rate-limit, hold, or stop their calls. **See the agents** opens the catalog filtered to them.
-* Agents that missed a performance target are listed with a link to those agents. See [Performance targets](performance-targets.md).
+* Agents that missed a performance target are listed with a link to those agents.
 * Agents stopped in Gravitee are listed with a link to them.
 
 **Explore all agents** opens the full catalog.
@@ -48,7 +48,7 @@ Switching the window keeps the figures already on screen while the new ones load
 
 Below the count, each active framework and ruleset carries its own verdict, one of **Pass**, **Fail**, or **Not assessed**.
 
-**Open Compliance** opens the Compliance page. See [Score agent compliance with the EU AI Act framework](../govern/score-agent-compliance-with-the-eu-ai-act.md).
+**Open Compliance** opens the Compliance page.
 
 ## Quick links
 

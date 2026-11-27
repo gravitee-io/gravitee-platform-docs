@@ -29,3 +29,7 @@ reference/application-filtering-cursor-pagination-and-expand-parameters.md
 getting-started/configuration/configure-am-gateway/README.md
 guides/login/passwordless-w3c-webauthn.md
 getting-started/configuration/encrypt-plugin-configurations.md
+# Applications and client secrets in the Automation API, Terraform resources (AM 4.14.0 feature, AM-7180)
+guides/automation-api.md
+guides/manage-am-with-terraform.md
+reference/automation-api-reference.md

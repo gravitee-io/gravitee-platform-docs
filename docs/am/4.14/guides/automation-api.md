@@ -6,7 +6,7 @@ description: The Access Management 4.13 Automation API manages resources declara
 
 ## Overview
 
-The Automation API provides a machine-oriented HTTP interface for managing Access Management resources declaratively. It enables infrastructure-as-code workflows by exposing domain, identity provider, certificate, reporter, and data plane resources through a stable, versioned OpenAPI specification served at the configured entrypoint. The API is designed for CI/CD pipelines, Terraform providers, and other automation tools that require idempotent, key-based resource management.
+The Automation API provides a machine-oriented HTTP interface for managing Access Management resources declaratively. It enables infrastructure-as-code workflows by exposing domain, identity provider, certificate, reporter, application, client secret, and data plane resources through a stable, versioned OpenAPI specification served at the configured entrypoint. The API is designed for CI/CD pipelines, Terraform providers, and other automation tools that require idempotent, key-based resource management.
 
 To manage these resources from Terraform configuration files, see [Manage AM with Terraform](manage-am-with-terraform.md).
 
@@ -36,6 +36,8 @@ Data planes are the exception: a data plane is identified by its `id` field inst
 | Identity Provider | Domain | `corporate-ldap` |
 | Certificate | Domain | `signing-cert` |
 | Reporter | Domain | `audit-kafka` |
+| Application | Domain | `mobile-app` |
+| Client Secret | Application | `ci-2026-10` |
 
 ### System resources
 
@@ -220,6 +222,150 @@ The list and every request by plain `id` reach only the data planes the Automati
 
 * A data plane registered through the Management API internal API isn't listed. By plain `id`, a `GET` returns `404`, a `PUT` is rejected with `409`, and a `DELETE` returns `204` and leaves the data plane in place. To read, update, or delete it, prefix its identifier with `id:`, for example `id:dataplane3`. An update by `id:` doesn't add the data plane to the list.
 * A data plane declared in `gravitee.yml` isn't reachable through the Automation API. A `PUT` with its plain identifier is rejected with `400`, and a `GET` or `PUT` with `id:` returns `404`.
+
+## Manage applications
+
+An application is an OAuth 2.0 or OpenID Connect client of a security domain. With the Automation API, declare an application in a security domain, then give it client secrets as described in [Manage client secrets](#manage-client-secrets).
+
+The application endpoints are under `/organizations/<orgId>/environments/<envId>/domains/<domainKey>`:
+
+| Method | Path | Result |
+|:-------|:-----|:-------|
+| `GET` | `/applications` | Lists the applications the Automation API created in the security domain, sorted by key. |
+| `PUT` | `/applications` | Creates the application named by the `key` in the body, or updates it if the Automation API created it. |
+| `GET` | `/applications/<applicationKey>` | Returns one application. |
+| `DELETE` | `/applications/<applicationKey>` | Deletes one application. |
+
+No response includes a client secret.
+
+### Create or update an application
+
+To create an application, send its full definition in a `PUT` request to `/applications`:
+
+```bash
+curl -X PUT \
+  -H "Authorization: Bearer <TOKEN>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "key": "mobile-app",
+    "name": "Mobile app",
+    "type": "native",
+    "certificate": "signing-cert",
+    "identityProviders": [
+      { "identity": "customer-users", "priority": 0 }
+    ],
+    "settings": {
+      "oauth": {
+        "grantTypes": ["authorization_code", "refresh_token"],
+        "redirectUris": ["com.example.app:/callback"],
+        "tokenEndpointAuthMethod": "none",
+        "forcePKCE": true
+      }
+    }
+  }' \
+  "https://<am-host>/automation/organizations/<orgId>/environments/<envId>/domains/example-domain/applications"
+```
+
+The body takes these properties:
+
+| Property | Description | Default | Required |
+|:---------|:------------|:--------|:---------|
+| `key` | Identifier of the application in the security domain, fixed at creation: up to 255 lowercase letters, digits, and hyphens, starting and ending with a letter or a digit. | - | Yes |
+| `name` | Name of the application, up to 255 characters. It's also the client name. | - | Yes |
+| `type` | `web`, `native`, `browser`, `service`, `resource_server`, or `agent`. | - | Yes |
+| `kind` | For an `agent` application, `USER_EMBEDDED`, `HOSTED_DELEGATED`, or `AUTONOMOUS`. Required when `type` is `agent`, and rejected with `400` for any other type. | - | No |
+| `certificate` | The certificate that signs the application's tokens: the key of a certificate of the security domain, or `id:` followed by its identifier. | - | Yes |
+| `identityProviders` | The identity providers users sign in with. Each item names one in `identity`, by key or with `id:`, and sets its `priority`, plus an optional `selectionRule`. | - | No |
+| `clientId` | Client ID of the application, unique in the security domain. | Generated by AM | No |
+| `description` | Description of the application. | - | No |
+| `enabled` | Whether the application is enabled. | `true` | No |
+| `template` | Whether the application is a template for Dynamic Client Registration instead of an application in use. | `false` | No |
+| `metadata` | Free-form metadata of the application. | - | No |
+| `settings` | Settings of the application, such as its OAuth 2.0 settings in `oauth`. For every setting, see the [Automation API Reference](../reference/automation-api-reference.md). | - | No |
+
+AM doesn't check whether the certificate and the identity providers exist. An application can name a certificate or an identity provider before it's created, and the reference resolves as soon as it exists. The scopes that the settings name must exist in the security domain, or the request is rejected with `400`.
+
+A `PUT` with the `key` of an application the Automation API created updates the application:
+
+* The `PUT` carries the full definition. A setting that the request leaves out is reset.
+* The `clientId` can't change. A different `clientId` is rejected with `400`, and a `PUT` without `clientId` keeps the current one.
+* The `type` can change, except to or from `agent`, which is rejected with `400`. To change it, delete the application and create it again. A new `type` first applies the default OAuth 2.0 settings of that type, such as its grant types, response types, and token endpoint authentication method, and then the rest of the request.
+* Setting `enabled` to `false` revokes the application's tokens.
+
+A `PUT` that runs at the same time as another change to the application can be rejected with `409`. Send the same request again.
+
+To check a definition without saving it, add `?dryRun=true` to the `PUT` request. The response then lists the problems it finds in `dryRunErrors`, which is absent when there's none.
+
+### Delete an application
+
+To delete an application, send a `DELETE` request to `/applications/<applicationKey>`. Its client secrets are deleted with it. A `DELETE` for an application that doesn't exist returns `204`.
+
+The list and every request by plain key reach only the applications the Automation API created. To read, update, or delete an application created in AM Console or through the Management API, use `id:` followed by its identifier, as described in [Brownfield resources](#brownfield-resources).
+
+## Manage client secrets
+
+AM doesn't generate a client secret for an application that the Automation API creates. Each client secret is a resource of its own, which you declare with the value of your choice.
+
+The client secret endpoints are under `/organizations/<orgId>/environments/<envId>/domains/<domainKey>/applications/<applicationKey>`:
+
+| Method | Path | Result |
+|:-------|:-----|:-------|
+| `GET` | `/secrets` | Lists the client secrets the Automation API created for the application, sorted by key. |
+| `PUT` | `/secrets` | Creates the client secret named by the `key` in the body. |
+| `GET` | `/secrets/<secretKey>` | Returns one client secret. |
+| `DELETE` | `/secrets/<secretKey>` | Deletes one client secret. |
+
+No response includes the value of a client secret. A response shows its `key` and, when the client secret expires, `expiresAt`.
+
+### Create a client secret
+
+To create a client secret, send its key and value in a `PUT` request to `/secrets`:
+
+```bash
+curl -X PUT \
+  -H "Authorization: Bearer <TOKEN>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "key": "ci-2026-10",
+    "value": "<value>"
+  }' \
+  "https://<am-host>/automation/organizations/<orgId>/environments/<envId>/domains/example-domain/applications/mobile-app/secrets"
+```
+
+The body takes these properties:
+
+| Property | Description | Default | Required |
+|:---------|:------------|:--------|:---------|
+| `key` | Identifier of the client secret in the application, fixed at creation: up to 64 lowercase letters, digits, and hyphens, starting and ending with a letter or a digit. AM also uses it as the name of the client secret. | - | Yes |
+| `value` | The client secret, at least 43 characters. A client secret hashed with BCrypt is at most 72 bytes, and a client secret stored without hashing is at most 374 characters. Your installation sets the hashing, except for an application that uses `client_secret_jwt`, which stores its client secrets without hashing them. See [Configure the client secret hash](../getting-started/configuration/configure-am-api/README.md#configure-the-client-secret-hash). | - | Yes |
+
+A client secret has these constraints:
+
+* **A client secret can't change.** A `PUT` that repeats the key and the value of an existing client secret changes nothing. A `PUT` with the same key and another value is rejected with `400` and the message `Client secret value is immutable; use a new key to rotate`.
+* **A key can't be the name of another client secret.** A `PUT` with a key that's already the name of a client secret of the application, such as one created in AM Console, is rejected with `400`.
+* **The number of client secrets is limited.** By default, an application holds at most 10 client secrets, those created in AM Console included. A `PUT` beyond the limit is rejected with `400`.
+* **The expiry comes from the settings.** AM sets `expiresAt` from the client secret expiry settings of the application, or else of the security domain.
+* **An application that uses `client_secret_jwt` stores its client secrets without hashing them.** A `PUT` of the application that switches it to `client_secret_jwt` while it holds hashed client secrets is rejected with `400`. Delete its client secrets, apply the application, then create the client secrets again.
+
+To check a client secret without saving it, add `?dryRun=true` to the `PUT` request. The response then lists the problems it finds in `dryRunErrors`.
+
+A `PUT` or a `DELETE` that runs at the same time as another change to the application can be rejected with `409`. Send the same request again.
+
+### Rotate a client secret
+
+To rotate a client secret, complete the following steps:
+
+1. Create a client secret with a new key and a new value.
+2. Move your clients to the new value.
+3. Delete the previous client secret.
+
+A client secret renewed in AM Console keeps its key but gets a new value. The next `PUT` of that client secret with the previous value is then rejected with `400`. To recover, rotate the client secret.
+
+### Delete a client secret
+
+To delete a client secret, send a `DELETE` request to `/secrets/<secretKey>`. Deleting the last client secret of an application is allowed. A `DELETE` for a client secret that doesn't exist returns `204`.
+
+The list reaches only the client secrets the Automation API created. To read or delete a client secret created in AM Console, use `id:` followed by its identifier. A `PUT` with `id:` never creates a client secret: it only checks the value against the stored one.
 
 ## Verification
 

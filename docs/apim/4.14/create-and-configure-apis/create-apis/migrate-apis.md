@@ -22,6 +22,10 @@ This guide explains how to migrate your existing V2 APIs to V4 APIs using the Mi
 **Rollback Option**
 
 * Migration is reversible. If the migrated API does not work as expected, you can always roll back to the previous V2 API.
+
+**Path Mappings**
+
+* The v4 API keeps each path mapping of the v2 API that follows the rules of a v4 path mapping, and leaves out the others. For the rules, see [Configure path mappings](../configure-v4-apis/path-mappings.md).
 {% endhint %}
 
 ### Prerequisites
@@ -52,6 +56,7 @@ The system automatically runs a migration compatibility check to verify compatib
 *   **Not Migratable:** The API cannot be migrated, migration blocked: Incompatible elements detected.
 
     * This occurs when the "Emulate V4 Engine" toggle is not enabled in your API settings.
+    * This also occurs when none of the API's path mappings follows the rules of a v4 path mapping, unless the API's only path mapping is `/`. The message lists the path mappings to change.
     * A message explains the reason and suggests what to fix.
 
     <figure><img src="../../.gitbook/assets/migrate-api-to-v4-error-message.png" alt="The Migrate API to v4 dialog reporting that migration is blocked, listing the incompatible element that must be removed first."><figcaption></figcaption></figure>
