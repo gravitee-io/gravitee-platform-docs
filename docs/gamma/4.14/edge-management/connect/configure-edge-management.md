@@ -60,26 +60,37 @@ Requests that match none of the routes above are handled by the **Everything els
 * **Send to an API**. They're forwarded to a target API you pick.
 
 {% hint style="warning" %}
-If you choose **Send to an API**, that API receives every request the routes didn't claim, such as the telemetry and authentication calls that an agent makes on the same domains. It must be built to handle this traffic, and requests it doesn't expect may fail.
+**An API chosen for Everything else or for an Advanced route must be built to handle this traffic.** Edge Management didn't build it for the agent, and requests it doesn't expect may fail. The form shows this warning as soon as you select **Send to an API**, and on an Advanced route once an API is chosen. With **Send to an API**, that API receives every request the routes didn't claim, such as the telemetry and authentication calls that an agent makes on the same domains. When the plan chosen for that API is OAuth2, the API must also pass the agent's own key on to the provider. See [Forward the agent's own key to the provider](#forward-the-agents-own-key-to-the-provider).
 {% endhint %}
 
 ## Choose the target API of a route
 
-The picker under **Gateway API** searches the APIs of the environment.
+What the picker under **Gateway API** offers depends on the route:
 
-1. Click the **Search a gateway API** field of the route and start typing the name of the API. The picker lists one entry per matching API, with the path it exposes. An API that exposes several paths shows how many, and picking it opens its paths as a second level.
-2. Select the API, or the path, that the route forwards to. The name of the API is shown in the field, and its path is shown as a link to the API.
-
-<!-- TODO: Screenshot of The target API picker with the APIs that match the search -->
-<figure><img src="../.gitbook/assets/PLACEHOLDER-edge-api-picker.png" alt="The target API picker open on a route, listing the gateway APIs that match the search and ending with the Create the target API for this route action"><figcaption><p>The target API picker with the APIs that match the search.</p></figcaption></figure>
+* **A recommended route**, one that the preset of the agent declares, such as `/v1/messages` for **Claude Code**, targets an LLM Proxy: the target API that Edge Management creates for the agent and labels as its own. The picker offers the LLM Proxies that Edge Management created for that agent, and no other API.
+* **Everything else** and the routes added under **Advanced** can target any API of the environment. The picker searches them all.
 
 What is stored is the pairing. The path is what the daemon forwards to, and the API is remembered so that its name can be shown again. If the API is later deleted, the route shows the raw path with an **API not found** notice. If the API no longer serves that path, the route asks you to pick a path again.
 
-The picker lists at most 20 APIs per search. When more APIs matched than the list shows, the picker says so and asks you to refine the search. When some matching APIs can't be a target, the picker says how many, and why: a target must be a v4 API that exposes a path on the gateway itself, not on a virtual host.
+### Choose an LLM Proxy for a recommended route
 
-{% hint style="warning" %}
-**An API published on a virtual host can't be intercepted, and its path isn't offered.** A route names a path and nothing else, so it has no way of selecting a virtual host on the gateway. The virtual host disqualifies the path, not the API. An API that exposes one path on a virtual host and another on a plain path stays selectable through the plain one.
-{% endhint %}
+To choose the target API of a recommended route, complete the following steps:
+
+1. Click the **Search a gateway API** field of the route. The picker lists the LLM Proxies created for the agent, with nothing typed, and typing narrows the list. An LLM Proxy that exposes several paths shows how many, and picking it opens its paths as a second level.
+2. Select the LLM Proxy, or the path, that the route forwards to. The name of the API is shown in the field, and its path is shown as a link to the API.
+
+If no LLM Proxy suits the route, click **Create the target API for this route** at the bottom of the picker. The action stays available when LLM Proxies are listed. See [Create the target API from the picker](#create-the-target-api-from-the-picker). If the agent has no LLM Proxy yet and you aren't allowed to create APIs, the picker says **No LLM Proxy created by Edge for this agent yet. Ask someone allowed to create APIs to create it.**
+
+<!-- TODO: Screenshot of The target API picker of a recommended route, with the LLM Proxies created for the agent -->
+<figure><img src="../.gitbook/assets/PLACEHOLDER-edge-api-picker.png" alt="The target API picker open on the Claude Code route, listing the LLM Proxies created for the agent and ending with the Create the target API for this route action"><figcaption><p>The target API picker of a recommended route, with the LLM Proxies created for the agent.</p></figcaption></figure>
+
+Edge Management recognizes the LLM Proxies it created by the label `edge-<agentId>`, where `<agentId>` is the catalog id of the agent, such as `edge-claude-code` for **Claude Code**. If you remove the label from an LLM Proxy, the picker no longer offers it, and a route that already points at it keeps working. See [What Edge Management creates for you](proxy-api-reference.md#what-edge-management-creates-for-you).
+
+An LLM Proxy is listed only if it can be a target, like any other API: a v4 API that exposes a path on the gateway itself.
+
+**Remove agent** doesn't delete the LLM Proxies of the agent. They stay in APIM, and the picker offers them again when you configure the agent anew.
+
+For the plan and the application of the route, see [Secure a route with an OAuth2 plan](#secure-a-route-with-an-oauth2-plan). The plans and resources of an LLM Proxy are configured from its own page in APIM.
 
 ### Create the target API from the picker
 
@@ -95,6 +106,16 @@ Three things are decided the moment you click **Create API**:
 * **The API is permissive by design.** It's created with a published keyless plan and accepts every model, so that interception works as soon as the API is deployed. Review both before you deploy it.
 
 For what the created API contains, see [Target API reference](proxy-api-reference.md).
+
+### Search any API for Everything else and Advanced routes
+
+Click the **Search a gateway API** field and start typing the name of the API. The picker lists one entry per matching API, with the path it exposes. An API that exposes several paths shows how many, and picking it opens its paths as a second level. An Advanced route can't take the path of a recommended route.
+
+The picker lists at most 20 APIs per search. When more APIs matched than the list shows, the picker says so and asks you to refine the search. When some matching APIs can't be a target, the picker says how many, and why: a target must be a v4 API that exposes a path on the gateway itself, not on a virtual host.
+
+{% hint style="warning" %}
+**An API published on a virtual host can't be intercepted, and its path isn't offered.** A route names a path and nothing else, so it has no way of selecting a virtual host on the gateway. The virtual host disqualifies the path, not the API. An API that exposes one path on a virtual host and another on a plain path stays selectable through the plain one.
+{% endhint %}
 
 ## Secure a route with an OAuth2 plan
 
@@ -122,13 +143,15 @@ In your identity provider, allow the client of the application to request `openi
 
 ### Forward the agent's own key to the provider
 
-With an OAuth2 plan, the `Authorization` header of a request carries the Gravitee token to the gateway, so the agent's own key needs another way to the AI provider. Set the authentication of the LLM Proxy endpoint to API key, with the header `Authorization` and the following value, or keep a key of the endpoint's own:
+With an OAuth2 plan, the `Authorization` header of a request carries the Gravitee token to the gateway, so the agent's own key reaches the API in the `X-Edge-Vendor-Authorization` header. An LLM Proxy created from the picker already restores `Authorization` from that header, so a recommended route needs nothing more.
+
+An API chosen for Everything else or for an Advanced route has to do the same: restore `Authorization` from `X-Edge-Vendor-Authorization` before calling the provider. On an API of the LLM Proxy type, set the endpoint authentication to API key, with the header `Authorization` and the following value:
 
 ```text
 {#request.headers['X-Edge-Vendor-Authorization'] != null ? #request.headers['X-Edge-Vendor-Authorization'][0] : null}
 ```
 
-A target API created from the picker already uses this value.
+You can also keep a key of the endpoint's own.
 
 ### Serve the target API on the gateway URL
 

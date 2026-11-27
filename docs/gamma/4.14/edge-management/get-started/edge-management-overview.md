@@ -37,7 +37,7 @@ Interception is configured per intercepted agent. An agent owns the domains it c
 * **Custom agent** lets you declare the domains, the decoder format, the vendor, and the routes yourself.
 * **Codex** is listed as coming soon and can't be configured yet.
 
-A target API is a standard API on your gateway. Pick one you already have, or let Edge Management create one from the picker. See [Target API reference](../connect/proxy-api-reference.md). To identify the developers behind a route, secure the route with an OAuth2 plan of its target API. Each developer then signs in with your identity provider. See [Secure a route with an OAuth2 plan](../connect/configure-edge-management.md#secure-a-route-with-an-oauth2-plan).
+A target API is a standard API on your gateway: on a route that the agent's preset declares, it's an LLM Proxy that Edge Management creates or reuses for the agent, and the other routes can target any existing API. See [Target API reference](../connect/proxy-api-reference.md). To identify the developers behind a route, secure the route with an OAuth2 plan of its target API. Each developer then signs in with your identity provider. See [Secure a route with an OAuth2 plan](../connect/configure-edge-management.md#secure-a-route-with-an-oauth2-plan).
 
 Shadow AI detection has its own configuration: a list of provider domains to watch. Watching a domain and intercepting it are independent. A detection tells you that a device reached a provider directly, and nothing is routed.
 
