@@ -82,10 +82,6 @@ This feature is in tech preview.
 
 #### Kafka Console
 
-{% hint style="warning" %}
-This feature is available in private tech preview. Contact your account manager if you are interested.
-{% endhint %}
-
 * Introduces Gravitee Kafka Console, which integrates with APIM to provide a user interface with which to browse and manage core Kafka resources, such as topics, partitions, and consumer groups, and to produce and consume messages. Kafka Console is based on Kafbat UI and communicates with the APIM Management API through JWT-based authentication. This feature is available only for self-hosted deployments and not compatible with next-gen cloud.
 
 #### Expose APIM as an MCP Server
