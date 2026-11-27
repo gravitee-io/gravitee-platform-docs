@@ -328,9 +328,9 @@ Platform Management adds the following in 4.14:
 #### Additional metrics
 
 * A new **Metrics configuration** page, in the **System & Security** group of the **Environment** section, lists the additional metrics of the environment, the values that a policy or the gateway attaches to requests. It sets the label, description, and unit of each one, and whether the filter, column, and widget-editor lists offer it. It also declares a metric before any request carries it.
-* API Management and Agent Management have a new **Settings** page in their **Observability** group, which shows the same list, read-only.
+* API Management and Agent Management have a new **Settings** page in their **Observability** group, which shows the same list, read-only, for the API types of the module and for the metrics that belong to no API type.
 * On the **Logs** pages of API Management and Agent Management, the detail of a log has an **Additional metrics** section, **View** adds an additional metric as a column of the table, and **Filter by** offers additional metrics, including one that it doesn't list, by its key.
 * In the widget editor of a custom dashboard, **Metric** and **Group by** offer additional metrics, including one that they don't list, by its key.
 * Custom metrics, the values that the Assign metrics policy writes, are listed on the same page with a **Personal data** badge, and take a label, a description, and a visibility setting. The **Logs** pages show them in a **Custom** section of the log detail and under **Custom** in **View** and **Filter by**, and **Group by** of the widget editor offers them.
-* The value suggestions of a text filter list the values that start with what you type, whatever the case.
+* The value suggestions of a filter on a text additional or custom metric list the values that start with what you type, whatever the case.
 * See [Configure additional metrics](configure-additional-metrics.md), [Read additional and custom metrics](../api-management/observe/view-api-logs.md#read-additional-and-custom-metrics), and [Select the data on the Data tab](../agent-management/observe/dashboards/build-a-custom-dashboard.md#select-the-data-on-the-data-tab).
