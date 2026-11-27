@@ -10,7 +10,7 @@ For release and end-of-life dates, see [Support Model](https://documentation.gra
 
 ## Highlights
 
-* **Agent Management**: Add the **AWS Lambda** and **Data Cache Policy** policies to LLM Proxies, set up alerts for MCP Proxies, import MCP servers that the control plane can't reach, and encrypt the dynamic properties of LLM, MCP, and A2A Proxies. A2A Proxies gain a **CORS** page. Human In the Lead holds MCP tool calls until a person approves or rejects them.
+* **Agent Management**: Add the **AWS Lambda** and **Data Cache Policy** policies to LLM Proxies, set up alerts for MCP Proxies, import MCP servers that the control plane can't reach, and encrypt the dynamic properties of LLM, MCP, and A2A Proxies. A2A Proxies gain a **CORS** page, and MCP Proxies an **API Score** page. Human In the Lead holds MCP tool calls until a person approves or rejects them.
 * **API Management**: Encrypt the dynamic properties of API proxies, group their analytics with path mappings, design flows on API Products in a Policy Studio, configure the resources of API Products, and secure API Products with OAuth2 plans.
 * **Authorization Management**: Manage PDP gateways, schema documents, entities, and policies as code, through the Automation API, as Kubernetes resources, and with Terraform.
 * **Edge Management**: Choose how Edge Daemons authenticate to the Edge Reactor, apply OAuth2 plans to intercepted routes, edit gateway addresses after the guided setup, and install the Edge Daemon on Windows devices.
@@ -40,7 +40,7 @@ The 4.14 release adds the following capabilities.
 Agent Management adds the following in 4.14:
 
 * **LLM Proxies**: the **AWS Lambda** and **Data Cache Policy** policies.
-* **MCP Proxies**: alerts, and HTTP/2 fields, which Catalog MCP servers also gain.
+* **MCP Proxies**: alerts, an **API Score** page, and HTTP/2 fields, which Catalog MCP servers also gain.
 * **A2A Proxies**: a **CORS** page for calls from web pages on other origins.
 * **All proxy types**: the pages of LLM Proxies, MCP Proxies, and A2A Proxies name the type of proxy instead of the API, and their **Properties** pages encrypt dynamic properties.
 * **MCP Proxies and MCP Studios**: JWT plans gain two settings, for the claims of the token and for the `Authorization` header, and OAuth2 plans can require a subscription.
@@ -61,6 +61,13 @@ Agent Management adds the following in 4.14:
 * The **History** tab of an alert lists its events.
 * Alerts require Alert Engine.
 * See [Configure MCP Proxy alerts](../agent-management/build/configure-mcp-proxy-alerts.md).
+
+#### API Score for MCP Proxies
+
+* A new **API Score** page in the **General** group of an MCP Proxy rates the proxy against the rulesets of its environment, and lists the findings of each asset by severity. The page appears when API Score is turned on for the environment.
+* **Evaluate** starts an evaluation, and the page shows that it's running until it ends. A successful evaluation replaces the previous result. An evaluation requires an installation connected to Gravitee Cloud.
+* On the **API Score** page of Platform Management, the name of an MCP Proxy and **View API-level Score Details** open the **API Score** page of the MCP Proxy in Agent Management.
+* See [Review the MCP Proxy API Score](../agent-management/build/review-the-mcp-proxy-api-score.md).
 
 #### HTTP/2 fields and the API key header of MCP Proxies
 
