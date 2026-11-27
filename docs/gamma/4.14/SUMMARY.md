@@ -370,6 +370,11 @@
   * [Manage metadata for your proxies](agent-management/build/manage-metadata-for-your-proxies.md)
   * [Configure resources for your proxies](agent-management/build/configure-resources-for-your-proxies.md)
   * [Monitor proxy and agent activity](agent-management/observe/monitor-proxy-activity.md)
+* [Human In the Lead](agent-management/human-in-the-lead/README.md)
+  * [Decide on held tool calls](agent-management/human-in-the-lead/decide-on-held-tool-calls.md)
+  * [Require human approval for MCP tool calls](agent-management/govern/require-human-approval-for-mcp-tool-calls.md)
+  * [Set up approval notifications](agent-management/human-in-the-lead/set-up-approval-notifications.md)
+  * [Review the decision history](agent-management/human-in-the-lead/review-the-decision-history.md)
 * [Agent Management observability](agent-management/observe/README.md)
   * [Dashboards](agent-management/observe/dashboards/README.md)
     * [Monitor your LLM proxy](agent-management/observe/monitor-your-llm-proxy.md)
@@ -385,7 +390,6 @@
 * [Govern](agent-management/govern/README.md)
   * [View the lineage of an agent or a proxy](agent-management/govern/view-agent-lineage.md)
   * [Screen prompts and answers with Guardian Agents](agent-management/govern/guard-agent-actions-with-guardian-agents.md)
-  * [Require human approval for MCP tool calls](agent-management/govern/require-human-approval-for-mcp-tool-calls.md)
   * [Agent activity](agent-management/govern/agent-activity-logs.md)
 
 ## Authorization Management

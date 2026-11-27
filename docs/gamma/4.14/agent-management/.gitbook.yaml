@@ -24,3 +24,4 @@ redirects:
  build/agent-killswitch: build/agent-killswitch.md
  observe/monitor-agents-spend-and-compliance: observe/monitor-agents-spend-and-compliance.md
  observe/monitor-proxy-activity: observe/monitor-proxy-activity.md
+ govern/require-human-approval-for-mcp-tool-calls: govern/require-human-approval-for-mcp-tool-calls.md

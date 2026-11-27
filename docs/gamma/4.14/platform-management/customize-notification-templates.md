@@ -33,6 +33,7 @@ The page groups the templates into the following categories, in this order:
 <tr><td><strong>API Product</strong></td><td>The notifications sent for API Product lifecycle and subscription events.</td></tr>
 <tr><td><strong>Application</strong></td><td>The notifications sent to application members about their subscriptions and support tickets.</td></tr>
 <tr><td><strong>Portal</strong></td><td>The notifications sent for user, group, and Developer Portal events.</td></tr>
+<tr><td><strong>Human in the lead</strong></td><td>The emails sent when a tool call needs a human decision, and when that decision is made or the window ends.</td></tr>
 <tr><td><strong>Templates for action</strong></td><td>The emails the platform sends directly to a person, outside the notification events.</td></tr>
 <tr><td><strong>Templates for alert</strong></td><td>The emails sent when a consumer alert is triggered.</td></tr>
 <tr><td><strong>Templates to include</strong></td><td>The fragments other templates pull in, rather than notifications of their own.</td></tr>
