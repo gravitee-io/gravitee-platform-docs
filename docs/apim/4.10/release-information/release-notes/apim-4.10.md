@@ -49,10 +49,6 @@
 
 #### **New Developer Portal enhancements**
 
-{% hint style="warning" %}
-The New Developer Portal is in tech preview.
-{% endhint %}
-
 **Navigation customization**
 
 * You can customize the navigation of your New Developer Portal. You can customize the top-level navigation items to include individual pages, folders, and links to other pages or content. Also, you can customize navigations for each section by adding pages, links, or sub-folders to a section.

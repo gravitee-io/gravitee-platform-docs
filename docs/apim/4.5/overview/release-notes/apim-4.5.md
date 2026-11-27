@@ -52,10 +52,6 @@ For more information about mTLS Plans, see [mTLS Plans](../../using-the-product/
 
 ## Developer Portal enhancements
 
-{% hint style="info" %}
-The new developer portal is in tech preview. Tech preview features are fully supported for Gravitee’s enterprise customers. The Tech Preview label indicates that the feature is under development, and further changes may occur in an upcoming release.
-{% endhint %}
-
 You can now customize the new Gravitee developer portal with ease, matching your branding and fonts by means of a dedicated application.
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXc2S2cGIxguBfgooGccff4MpbgfKO9YjOGu6T283bqREzXi4faaMICWgAZNvrxpHFnx7SmA1f0auY5WVpaiawCugz4ZRkkeF6sdfqvG30evbGGipak-734EEBco3yZBUsyrbwHl05xdW6dEM-ozL7dBy74?key=PrMp2J0zWBtqrsqO75zcMw" alt=""><figcaption></figcaption></figure>
