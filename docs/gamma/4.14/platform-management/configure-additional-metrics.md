@@ -17,10 +17,9 @@ To open the page, complete the following steps:
 1. At the top of the page, click **Home**, or the name of the product you're working in.
 2. Select **Platform Management**.
 3. Open the **Environment** section. The section names show when you hover over the icons on the left.
-4. Under **System & Security**, click **Metrics configuration**.
+4. Under **System & Security**, click **Metrics configuration**. The **Additional metrics** page opens.
 
-<!-- TODO: Screenshot of the Metrics configuration page, with built-in, declared, and discovered metrics in the table -->
-<figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-metrics-configuration.png" alt=""><figcaption><p>The Metrics configuration page</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-metrics-configuration.png" alt="The Metrics configuration page with the Information panel closed, the Search by label or key field and the Origin, Type, Exposed, and Source filters, and a table that lists Basket value as Declared with the unit €, three custom metrics as Discovered, and built-in metrics such as Received token cost and Sent token cost"><figcaption><p>The Metrics configuration page</p></figcaption></figure>
 
 The page appears only for a role that can read the environment's settings. Without permission to update them, the table is read-only. Opening the **Information** panel above it shows **You do not have permission to modify these settings. Contact your administrator for access.**
 
@@ -39,7 +38,9 @@ The **Additional metrics** table has one row per metric:
 
 Discovered metrics and **Last seen** times come from the environment's traffic, so they show only for a user who can read that traffic, such as the logs of one of its APIs. For other users, every declared metric reads **Not in 30 days**.
 
-The scan behind the discovered metrics runs from time to time, and the line above the table says when it last ran. It keeps the 200 most recently seen metrics.
+The list of discovered metrics is refreshed about every 5 minutes from the requests of the last 30 days, and the line above the table says when it was last refreshed. A new metric reaches this page, and the lists of the Observability pages, a few minutes after the first request that carries it. The log detail shows it at once.
+
+The list keeps the 200 most recently seen discovered metrics, additional and custom together. Built-in and declared metrics are always listed. When discovered metrics are left out, the line above the table ends with **some discovered fields not listed**, and the **Information** panel says how to use one by typing its key in a filter or **Group by** search.
 
 To narrow the table, type in **Search by label or key**, or pick values under **Origin**, **Type**, and **Exposed**. When the table lists custom metrics, **Source** keeps the **Custom** ones or the **Other sources**. **Clear filters** removes the filters.
 
@@ -47,7 +48,7 @@ Built-in metrics can't be edited.
 
 ## Declare a metric
 
-Declaring a metric gives it a label, a description, and a unit before any request carries it. To declare a metric, complete the following steps:
+Declaring a metric gives it a label, a description, and a unit, before or after requests carry it. To declare a metric, complete the following steps:
 
 1. Click **Declare a metric**.
 2. Keep **Additional** selected, for a value that a policy or the gateway attaches to requests. **Custom** is for a value that the Assign metrics policy writes. See [Describe a custom metric](#describe-a-custom-metric).
@@ -58,8 +59,7 @@ Declaring a metric gives it a label, a description, and a unit before any reques
 7. Optional: Turn off **Exposed**. See [Hide a metric from the lists](#hide-a-metric-from-the-lists).
 8. Click **Declare**.
 
-<!-- TODO: Screenshot of the Declare a metric panel, with Additional selected and the Type, Key, Label, Description, Unit, and Exposed fields filled in -->
-<figure><img src=".gitbook/assets/PLACEHOLDER-gamma-platform-declare-a-metric.png" alt=""><figcaption><p>The Declare a metric panel</p></figcaption></figure>
+<figure><img src=".gitbook/assets/gamma-platform-declare-a-metric.png" alt="The Declare a metric panel with Additional selected, double under Type, checkout_basket-value under Key with Full key additional-metrics.double_checkout_basket-value, Basket value under Label, a description, Custom suffix under Unit with the suffix €, and Exposed turned on"><figcaption><p>The Declare a metric panel</p></figcaption></figure>
 
 **Metric declared** confirms the save, and the metric shows as **Declared**. Until a request carries it, its **Last seen** reads **Not in 30 days**.
 
@@ -90,10 +90,13 @@ The **Unit** list offers **No unit**, **Custom suffix**, and the following units
 | **Tokens** | `tokens` |
 | **Currency** | None |
 
+A metric with the **Currency** unit shows its values as numbers with two decimals, without a currency symbol.
+
 The form refuses a value that breaks one of the following rules, and shows the message under the field:
 
 | Rule | Message |
 | ---- | ------- |
+| The key isn't empty. | **Enter a key** |
 | The key holds letters, digits, `-`, `_`, `.`, and `/` only. | **Letters, digits, -, \_, . and / only** |
 | The full key is 256 characters at most. | **The key is longer than 256 characters** |
 | The key doesn't start with `custom_`. | **Keys starting with `custom_` are reserved** |
@@ -102,10 +105,11 @@ The form refuses a value that breaks one of the following rules, and shows the m
 | The label is 64 characters at most. | **Label is longer than 64 characters** |
 | The description is 512 characters at most. | **Description is longer than 512 characters** |
 | The custom suffix is 16 characters at most. | **Unit is longer than 16 characters** |
+| The custom suffix holds printable characters only. | **Unit must be printable characters** |
 
 ## Edit a metric
 
-You can edit a declared or a discovered metric, except one whose key, after its type, starts with `custom_` or `custom.`, which is kept for custom metrics. To edit a metric, complete the following steps:
+You can edit a declared or a discovered metric, except one whose key, after its type, starts with `custom_` or `custom.`, which is kept for custom metrics. A metric whose key starts with `custom_` doesn't open. A declared metric whose key starts with `custom.` opens read-only, with the note **This key is kept for custom metrics, so its record can no longer be changed. Delete the record to remove it.**, and **Delete record** removes its record. To edit a metric, complete the following steps:
 
 1. Click its row.
 2. Change the **Label**, the **Description**, the **Unit**, or **Exposed**. The key and the type can't change.
@@ -115,7 +119,7 @@ Saving a discovered metric creates its record, so it becomes a declared metric. 
 
 ## Hide a metric from the lists
 
-When **Exposed** is off, the metric shows as **Hidden**, and the filter, column, and widget-editor lists of the Observability pages don't offer it. The log detail still shows it, you can still use it by its key, and saved widgets keep working.
+When **Exposed** is off, the metric shows as **Hidden**, and the filter, column, and widget-editor lists of the Observability pages don't offer it. The log detail still shows it, you can still use it by its key, and saved widgets keep working. Outside the **Metrics configuration** page, the log detail shows it under a label made from its key instead of its own label, and without a **Filter** button. An Observability page that's already open can keep offering the metric until you reload the page.
 
 To hide a metric, open it, turn off **Exposed**, and then click **Save** or **Declare**.
 
@@ -152,6 +156,7 @@ The label and the description follow the same rules as for an additional metric.
 
 | Rule | Message |
 | ---- | ------- |
+| The name isn't empty. | **Enter a key** |
 | The name is 256 characters at most. | **Use a name of 256 characters at most.** |
 | The name doesn't start or end with a dot, and has no two dots in a row. | **Use single dots between the parts of the name.** |
 | The name holds none of `"`, `\`, and `*`. | **Leave out ", \ and \* in the name.** |

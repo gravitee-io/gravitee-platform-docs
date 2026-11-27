@@ -91,7 +91,7 @@ Leave **Min** or **Max** empty for an open range. The range shows as one filter,
 
 ## Read additional and custom metrics
 
-Additional metrics are values that a policy or the gateway attaches to a request, and custom metrics are the values that the Assign metrics policy writes. Their labels, units, and visibility are set on the **Metrics configuration** page of Platform Management. See [Configure additional metrics](../../platform-management/configure-additional-metrics.md).
+Additional metrics are values that a policy or the gateway attaches to a request, and custom metrics are the values that the Assign metrics policy writes. Their labels and visibility, and the units of additional metrics, are set on the **Metrics configuration** page of Platform Management. The **Logs** page shows their labels, without units. See [Configure additional metrics](../../platform-management/configure-additional-metrics.md).
 
 ### In the log detail
 
@@ -108,15 +108,15 @@ The detail of a request log also has a **Custom** section, above **Additional me
 To add an additional metric as a column of the table, complete the following steps:
 
 1. Click **View**.
-2. In **Toggle columns**, select the metric. The additional metrics are grouped under **All APIs**, the type of API they belong to, or **Other fields**, and the custom metrics under **Custom**.
+2. In the panel that opens, select the metric. Type in the `Search columns...` field to find it. The built-in columns are grouped under **General**, the additional metrics under **All APIs**, the type of API they belong to, or **Other fields**, and the custom metrics under **Custom**.
 
 The column header shows the label of the metric, and the key when you point at it, with the personal data note for a custom metric. A metric hidden on the **Metrics configuration** page isn't offered.
 
 ### As filters
 
-**Filter by** lists the additional metrics with the other properties, grouped in the same way. A text value suggests the values that start with what you type, whatever the case, a number offers **=**, **≥**, **≤**, and **Between**, and a true or false value offers `true` and `false`.
+**Filter by** lists the additional metrics with the other properties, grouped in the same way. A text value offers **=** and **In** and suggests the values that start with what you type, whatever the case, a number offers **=**, **≥**, **≤**, and **Between**, and a true or false value offers `true` and `false`.
 
-To filter on a metric that **Filter by** doesn't list, type its key, starting with its type, such as `long_failover_count`, or, for a custom metric, `custom.` followed by its name, such as `custom.fraud-tier`. Then select the option that starts with **Use**.
+To filter on a metric that **Filter by** doesn't list, type its key, starting with its type, such as `long_failover_count`, or, for a custom metric, `custom.` followed by its name, such as `custom.fraud-tier`. Then select the option that starts with **Use**. A key you type has no list of values, unless it holds true or false values. Type the value instead, and with **In**, press Enter after each value. A metric hidden on the **Metrics configuration** page still filters when you type its key.
 
 ## Verification
 
