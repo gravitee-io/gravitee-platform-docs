@@ -91,7 +91,7 @@ The **Consumer Access** group contains the following tabs:
 | Tab           | Description                                                                        |
 | ------------- | ---------------------------------------------------------------------------------- |
 | **Plans**     | Create and manage the product's API Key, JWT, OAuth2, and mTLS subscription plans. |
-| **Consumers** | Manage subscriptions, approve requests, and handle API keys for product consumers. |
+| **Consumers** | Manage subscriptions and approve requests. API Key plans use API keys, and an OAuth2 plan matches a subscription on the client identifier of the application. |
 
 ### Security
 

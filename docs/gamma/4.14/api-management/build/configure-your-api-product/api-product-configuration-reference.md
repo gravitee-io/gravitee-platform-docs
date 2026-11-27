@@ -90,7 +90,16 @@ An OAuth2 plan of an API Product validates tokens with the resources of the API 
 * **Cache resource** is optional. When it's set, it names a cache resource on the product's **Resources** page.
 * Neither field takes an expression. Enter the name of the resource as it's saved on the **Resources** page.
 
-The plan doesn't save without an **OAuth2 resource**. The resources themselves are checked when you publish the plan, and when you save a published or deprecated plan. These fail when the **OAuth2 resource** or the **Cache resource** is an expression, isn't a resource of the API Product, isn't of the right type, or is disabled.
+The plan doesn't save without an **OAuth2 resource**. The resources themselves are checked when you publish the plan, and when you save a published or deprecated plan. These fail when the **OAuth2 resource** or the **Cache resource** contains `{#`, isn't a resource of the API Product, isn't of the right type, or is disabled.
+
+A subscription to the plan stores the client identifier of the application. The plan matches a token on the `client_id` that introspection returns for it:
+
+* When the API Product has an accepted subscription for that `client_id`, every API of the API Product accepts the token.
+* Without an accepted subscription, every API of the API Product answers the token with **401**, unless a plan of that API accepts it.
+* When an API joins the API Product, the existing subscription covers it. When an API leaves the API Product, that API answers the token with **401**, unless one of its own plans accepts it. Neither change needs a new subscription.
+* With a **Cache resource**, a later call with the same token doesn't call the introspection endpoint again until its cache entry expires.
+
+An OAuth2 plan of an API that belongs to the API Product is unchanged: it validates tokens with the resources of that API.
 
 ## Next steps
 
