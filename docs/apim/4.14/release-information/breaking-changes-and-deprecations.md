@@ -38,6 +38,62 @@ The 4.14 Management API counts a connection from its opening document and reads 
 
 Before you upgrade, review any dashboard, query, or reporter pipeline that reads message API connections from the v4 metrics or v4 log indices. To count connections, exclude the documents whose `connection-phase` is `end`. To read durations, exclude the documents whose `connection-phase` is `open`. For more information, see [Message API connections](../analyze-and-monitor-apis/reporters/elasticsearch-reporter.md#message-api-connections) and [APIM 4.14 Elasticsearch Index Template Changes](../upgrade-guides/apim-4.14-elasticsearch-index-template-changes.md).
 
+## Path mappings: The Management API refuses a v4 path mapping outside the path mapping rules
+
+From 4.14.0, a path mapping of a v4 API starts with `/`, followed by letters, digits, and the characters `:`, `/`, `.`, `_`, and `-`. The Management API refuses to create, import, or update a v4 API with a path mapping outside these rules. It answers HTTP `400` with a message that names the first such path mapping, for example `Path mappings contain invalid templates: [/users/*]`. The check also covers the path mappings the API already holds, so updating such an API fails until its path mappings are fixed.
+
+In 4.13, the Management API accepted any path mapping that compiled as a regular expression, such as `/`, `/users/*`, or `/users/@me`. A v4 API created or updated through the Management API in 4.13 can hold one, including an API managed with the Gravitee Kubernetes Operator, Terraform, or the Automation API.
+
+Migrating a v2 API to v4 is also blocked when every path mapping of the v2 API is outside these rules, unless its only path mapping is `/`. The migration's message lists those path mappings. In 4.13, the migration dropped every path mapping instead.
+
+Before you upgrade, review the path mappings of your v4 APIs, and replace or remove each one outside the rules. Write a path parameter as `:name`, for example `/users/:userId`. For more information, see [Configure path mappings](../create-and-configure-apis/configure-v4-apis/path-mappings.md).
+
+## WebSocket entrypoint: Set the frame type in Terraform configurations
+
+From 4.14.0, APIM bundles the WebSocket entrypoint 4.0.0. Its subscriber settings add `frameType`, whose default is `BINARY`. When you save an API, APIM writes the defaults of the entrypoint configuration into the stored API definition, so a WebSocket entrypoint that doesn't set `subscriber.frameType` is stored with `"frameType": "BINARY"`. The Gateway behavior doesn't change, and the API keeps sending binary frames.
+
+Terraform provider 1.2.0 and earlier compare the `configuration` of an `apim_apiv4` entrypoint key by key. Once the 4.14 Management API saves an API whose WebSocket entrypoint doesn't set `frameType`, every `terraform plan` shows `frameType = "BINARY"` removed from `subscriber`, and `terraform apply` updates the API without clearing the difference. Later versions of the provider ignore the defaults that APIM adds to the configuration, so their configurations need no change.
+
+With provider 1.2.0 or earlier, after you upgrade the Management API, set `frameType` in the `subscriber` block of each WebSocket entrypoint that your Terraform configurations manage. Don't set it before the upgrade: APIM 4.13 drops the key, and every plan then shows it added. To keep the current behavior, use `BINARY`:
+
+```hcl
+# In listeners[].http of an apim_apiv4 resource
+entrypoints = [
+  {
+    type = "websocket"
+    configuration = jsonencode({
+      publisher = {
+        enabled = true
+      }
+      subscriber = {
+        enabled   = true
+        frameType = "BINARY"
+      }
+    })
+  }
+]
+```
+
+APIM stores the `enabled` keys of `publisher` and `subscriber` the same way, with the default `true`, so set them too. For more information, see [WebSocket](../create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md#text-frames).
+
+## Data Logging Masking policy: A rule with a path masks each event of a stream
+
+From 4.14.0, in a logged request or response with the `text/event-stream` content type, a Data Logging Masking rule that sets a `path` applies to the data of each event. It masks the value that the path selects. In 4.13 and earlier, the policy applied such a rule to the whole body:
+
+* A rule that set only a `path` masked the whole body. From 4.14.0, it masks the values that the path selects in each event, instead of the whole body. It still masks some data as a whole, such as the data of an event that isn't a JSON object or array.
+* A rule that also set a `type` or a `regex` applied that `type` or `regex` to the whole body. From 4.14.0, it masks the value that the path selects as a whole, and no longer applies its `type` or `regex` to the rest of the body. When the body holds no event, such as a JSON error, it masks the whole body.
+
+Before you upgrade, review the rules that set a `path` on APIs whose logged requests or responses are streamed. To keep the `type` or `regex` applied to the whole body, add the same rule without a `path`. For more information, see [Streamed requests and responses](../create-and-configure-apis/apply-policies/policy-reference/data-logging-masking.md#streamed-requests-and-responses).
+
+## Data Logging Masking policy: More bodies are masked as a whole
+
+From 4.14.0, the Data Logging Masking policy masks two kinds of logged bodies differently:
+
+* On a v4 API, a complete JSON body that isn't valid JSON, such as concatenated documents or fields in single quotes, is masked as a whole by the rules that set a `path`. In 4.13 and earlier, the policy read such a body as JSON and masked only the values that the path selected.
+* A body masked as a whole is masked with the `replacer` of the first rule that sets one. In 4.13 and earlier, it was always masked with `*`.
+
+Before you upgrade, review the logs of v4 APIs whose requests or responses carry JSON that isn't valid, and any tool that reads masked bodies as a series of `*`. For more information, see [Configuration](../create-and-configure-apis/apply-policies/policy-reference/data-logging-masking.md#configuration).
+
 # 4.13.0
 
 ## Subscription forms apply only to the APIs they're assigned to

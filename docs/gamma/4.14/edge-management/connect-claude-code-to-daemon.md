@@ -29,7 +29,7 @@ Because interception works per domain, the daemon sees every request that Claude
 {% endhint %}
 
 {% hint style="info" %}
-A Claude Code session that was already open when the daemon was installed isn't intercepted. Start a new session after the installation.
+A Claude Code session that was already open when the daemon was installed isn't intercepted. After the installation, open a new terminal and start Claude Code from it. A new session started from a terminal that was already open doesn't trust the certificate authority of the daemon either, and fails with "couldn't reach Anthropic to load your organization's settings".
 {% endhint %}
 
 ## Sign in on a route secured by OAuth2
