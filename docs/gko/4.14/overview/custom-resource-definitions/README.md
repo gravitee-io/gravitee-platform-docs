@@ -27,6 +27,7 @@ The Gravitee Kubernetes Operator (GKO) comes with several custom resource defini
 * [`AMContext`](amcontext.md) connects GKO to an Access Management organization and environment
 * [`AMSecurityDomain`](amsecuritydomain.md) declares an Access Management security domain
 * [`AMIdentityProvider`](amidentityprovider.md), [`AMCertificate`](amcertificate.md), and [`AMReporter`](amreporter.md) declare an identity provider, a certificate, and a reporter of a security domain
+* [`AMApplication`](amapplication.md) and [`AMClientSecret`](amclientsecret.md) declare an application of a security domain and a client secret of that application
 * [`AuthzPdp`](authzpdp.md) declares a PDP gateway of Authorization Management, with its AuthZEN endpoint
 * [`AuthzSchema`](authzschema.md), [`AuthzEntity`](authzentity.md), and [`AuthzPolicy`](authzpolicy.md) declare a schema document, an entity, and a policy of Authorization Management
 
@@ -42,7 +43,7 @@ The `Application` custom resource represents the configuration for an applicatio
 
 Finally, the purpose of the `ManagementContext` is to provide a connection from GKO to your Gravitee API Management installation. GKO uses this connection to synchronize the resources it manages (APIs, applications, ...) with the Gravitee Console, Developer Portal, and Gateway.
 
-The `AMContext` plays the same role for Gravitee Access Management. GKO uses it to create and update security domains, and their identity providers, certificates, and reporters, through the Access Management Automation API.
+The `AMContext` plays the same role for Gravitee Access Management. GKO uses it to create and update security domains, and their identity providers, certificates, reporters, and applications, and to create client secrets, through the Access Management Automation API.
 
 ## Custom Resource Definition (CRD) Status
 

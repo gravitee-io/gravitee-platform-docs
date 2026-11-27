@@ -96,3 +96,25 @@ automation-api-reference/automation-api-guide.md
 
 # Encrypted dictionary values in the Automation API: masked reads and refusals (EXT-204)
 configure-and-manage-the-platform/gravitee-gateway/dictionaries.md
+
+# Renew an application's shared API key with a custom API key (APIM-16011)
+secure-and-expose-apis/plans/api-key.md
+secure-and-expose-apis/subscriptions/manage-subscriptions.md
+.gitbook/assets/apim-shared-api-key-renew-custom.png
+
+# Path mappings on v4 APIs: Console tab, OpenAPI import option, and migration (APIM-12670)
+create-and-configure-apis/configure-v4-apis/path-mappings.md
+create-and-configure-apis/gravitee-api-definitions/v2-and-v4-api-comparison.md
+create-and-configure-apis/create-apis/import-and-update-v4-apis-from-openapi-and-gravitee-definitions.md
+create-and-configure-apis/create-apis/migrate-apis.md
+.gitbook/assets/apim-v4-path-mappings-tab.png
+.gitbook/assets/apim-v4-path-mappings-add-path.png
+.gitbook/assets/apim-v4-path-mappings-add-swagger.png
+
+# WebSocket entrypoint Text frames (EXT-200, APIM 4.14.0)
+create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md
+
+# Data Logging Masking policy on LLM Proxy and MCP Proxy APIs, and streamed bodies (APIM-12798)
+create-and-configure-apis/apply-policies/policy-reference/data-logging-masking.md
+.gitbook/assets/apim-data-logging-masking-llm-proxy-policies.png
+.gitbook/assets/apim-data-logging-masking-mcp-proxy-policies.png

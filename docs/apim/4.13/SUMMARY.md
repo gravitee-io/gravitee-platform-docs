@@ -449,6 +449,7 @@
     * [View API Logs](analyze-and-monitor-apis/logging/view-api-logs.md)
     * [Expose metrics to Prometheus](analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md)
   * [OpenTelemetry](analyze-and-monitor-apis/opentelemetry.md)
+    * [OpenTelemetry in Gravitee, from ingress to Grafana](analyze-and-monitor-apis/opentelemetry-in-gravitee-from-ingress-to-grafana.md)
     * [OpenTelemetry Logs Integration Overview](analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md)
     * [Configure Gateway for OpenTelemetry Logs](analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md)
     * [Enable and Use OpenTelemetry Logs for APIs](analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md)

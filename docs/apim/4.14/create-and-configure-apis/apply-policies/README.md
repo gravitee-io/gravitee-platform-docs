@@ -155,8 +155,8 @@ Policies cannot currently be applied to v4 TCP proxy APIs
             <td><span data-gb-custom-inline data-tag="emoji" data-code="2705">✅</span></td>
             <td><span data-gb-custom-inline data-tag="emoji" data-code="2705">✅</span></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td><span data-gb-custom-inline data-tag="emoji" data-code="2705">✅</span></td>
+            <td><span data-gb-custom-inline data-tag="emoji" data-code="2705">✅</span></td>
             <td></td>
         </tr>
         <tr>
