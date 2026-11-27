@@ -20,5 +20,8 @@ The following core permissions govern access to Agent Management capabilities wi
 | **API_PLAN** | Controls the ability to list, create, publish, and close the plans of LLM Proxies, MCP Proxies, and A2A Proxies. |
 | **ENVIRONMENT_API** | Controls the ability to create new APIs, including LLM Proxies, MCP Proxies, and A2A Proxies. |
 | **API_DEFINITION** | Controls the ability to update the configuration of existing proxies, including modifying the tool composition of an MCP Studio or overriding parameters. |
+| **HITL_RULES** | Controls the ability to view, create, edit, and delete the approval rules of Human In the Lead, on the **Rules** page. Users see only the rules that name them in **Rule access**. |
+| **HITL_DECISIONS** | Read opens the **Inbox** and **History** pages. Update approves, rejects, and ends time-based approvals. Approving or rejecting a call also requires being in the **Approval ownership** of its rule. The default USER role has read and update. |
+| **HITL_NOTIFICATIONS** | Controls the ability to view, create, edit, and delete the saved notifications of Human In the Lead, on the **Notifications** page. |
 
 To manage roles and assign these permissions to users, navigate to the **Settings > Roles** section of the console.

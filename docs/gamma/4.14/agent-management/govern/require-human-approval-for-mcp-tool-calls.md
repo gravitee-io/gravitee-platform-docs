@@ -6,9 +6,27 @@ description: Turn on human approval for an MCP Proxy or MCP Studio, and create t
 
 Human In the Lead holds a tool call until a person approves or rejects it. Two settings work together. Human approval is turned on for the MCP Proxy or MCP Studio that receives the call, and an enabled approval rule matches the tool and its arguments. A call that no enabled rule matches isn't held.
 
-A held call doesn't run until an approver approves it. Until then, the agent is told that the call needs human approval, and gets the result by sending the same call again once an approver has decided. After an approval, the next identical call runs if the agent sends it within the time to run of the rule. After a rejection, the next call answers that an approver rejected it, with the reason. After the request expires, or once the time to run has passed, the next call answers that the approval request expired.
+A held call doesn't run until an approver approves it. Until then, the agent waits for the decision, as described in [How it works](#how-it-works). After an approval, the next identical call runs if the agent sends it within the time to run of the rule. After a rejection, the next call answers that an approver rejected it, with the reason. After the request expires, or once the time to run has passed, the next call answers that the approval request expired.
 
 Some calls don't run at all. A call that a rule holds doesn't run when its arguments are larger than 256 KiB. A call to a tool that a rule covers doesn't run when its arguments aren't a JSON object. While the environment has approval rules, the proxy also refuses tool calls sent together in one batch, so send each tool call on its own.
+
+## How it works
+
+What the agent sees while a call waits, and what runs once it's approved, depends on its MCP client and on the approval.
+
+### While the call waits
+
+* **MCP clients on protocol version 2026-07-28 or later** ask again by themselves. Each attempt waits up to 20 seconds for a decision. After 8 attempts with no decision, the agent is told to call the tool again with the same arguments.
+* **Older MCP clients** are told that the call needs human approval and hasn't run, and to call the tool again with the same arguments. Each repeat waits up to 20 seconds for a decision.
+
+### Once the call is approved
+
+* **This call only** runs the call once, with the arguments and the credentials that the agent sent. An approver can't change the arguments, and a call with other arguments opens a new request. After the call has run, an older client that sends it again opens a new approval request, and a newer client that asks for it again is told that it already ran.
+* **Later calls too** runs every call with the same tool and arguments, from the same application and end user, without waiting, until the approval ends or the rule changes. An API Key plan identifies the application but not the end user, so on an API Key plan the approval covers every end user of the application.
+
+### When a gateway can't read a rule
+
+A gateway that can't read one of the approval rules of an environment runs none of the tool calls of the MCP Proxies and MCP Studios that have human approval on in that environment. The agent is told that the gateway doesn't receive the approval rules and that the call didn't run.
 
 ## Prerequisites
 

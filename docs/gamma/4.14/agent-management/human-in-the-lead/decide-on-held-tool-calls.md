@@ -8,6 +8,8 @@ description: Approve or reject the MCP tool calls that wait for your decision, f
 
 When a tool call matches an approval rule, the call waits for a decision. The request appears in the **Inbox** of the users and groups that the rule names in **Approval ownership**. A call that nobody decides before its time to decide runs out is denied.
 
+Human In the Lead requires a license that includes it. Without one, this page reads **Human In the Lead is part of Gravitee Enterprise**, with a **Request an enterprise license** button.
+
 ## Open the Inbox
 
 To open the Inbox, follow these steps:
