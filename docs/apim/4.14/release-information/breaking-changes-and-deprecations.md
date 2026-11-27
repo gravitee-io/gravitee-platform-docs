@@ -76,6 +76,24 @@ entrypoints = [
 
 APIM stores the `enabled` keys of `publisher` and `subscriber` the same way, with the default `true`, so set them too. For more information, see [WebSocket](../create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md#text-frames).
 
+## Data Logging Masking policy: A rule with a path masks each event of a stream
+
+From 4.14.0, in a logged request or response with the `text/event-stream` content type, a Data Logging Masking rule that sets a `path` applies to the data of each event. It masks the value that the path selects. In 4.13 and earlier, the policy applied such a rule to the whole body:
+
+* A rule that set only a `path` masked the whole body. From 4.14.0, it masks the values that the path selects in each event, instead of the whole body. It still masks some data as a whole, such as the data of an event that isn't a JSON object or array.
+* A rule that also set a `type` or a `regex` applied that `type` or `regex` to the whole body. From 4.14.0, it masks the value that the path selects as a whole, and no longer applies its `type` or `regex` to the rest of the body. When the body holds no event, such as a JSON error, it masks the whole body.
+
+Before you upgrade, review the rules that set a `path` on APIs whose logged requests or responses are streamed. To keep the `type` or `regex` applied to the whole body, add the same rule without a `path`. For more information, see [Streamed requests and responses](../create-and-configure-apis/apply-policies/policy-reference/data-logging-masking.md#streamed-requests-and-responses).
+
+## Data Logging Masking policy: More bodies are masked as a whole
+
+From 4.14.0, the Data Logging Masking policy masks two kinds of logged bodies differently:
+
+* On a v4 API, a complete JSON body that isn't valid JSON, such as concatenated documents or fields in single quotes, is masked as a whole by the rules that set a `path`. In 4.13 and earlier, the policy read such a body as JSON and masked only the values that the path selected.
+* A body masked as a whole is masked with the `replacer` of the first rule that sets one. In 4.13 and earlier, it was always masked with `*`.
+
+Before you upgrade, review the logs of v4 APIs whose requests or responses carry JSON that isn't valid, and any tool that reads masked bodies as a series of `*`. For more information, see [Configuration](../create-and-configure-apis/apply-policies/policy-reference/data-logging-masking.md#configuration).
+
 # 4.13.0
 
 ## Subscription forms apply only to the APIs they're assigned to

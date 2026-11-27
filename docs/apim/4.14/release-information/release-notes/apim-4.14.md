@@ -12,6 +12,7 @@ description: >-
 * The New Developer Portal lists the AI Workspaces that a user is a member of, with the budget, consumption, endpoint path, API key, and models of each one.
 * Gateway reporters and the Management API authenticate to Elasticsearch with an API key, detect Elastic Cloud Serverless, and read and write analytics as data streams.
 * A Groovy script reads the body of a v4 HTTP proxy API as bytes or as a base64 string, and returns binary content that arrives unchanged.
+* The Data Logging Masking policy masks the logs of LLM Proxy and MCP Proxy APIs, including streamed responses.
 * A native Kafka API endpoint group bounds the metadata requests that each Gateway instance sends to the brokers, with **Backend metadata max age (seconds)**.
 * The Management API reference lists the Portal API once per Developer Portal: **Next Gen Portal** for the New Developer Portal, the entry to build a custom developer portal on, and **Classic Portal** for the Classic Developer Portal.
 * The Console and the Management API renew the shared API key of an application with a custom API key.
@@ -39,6 +40,14 @@ From 4.14.0, a path mapping of a v4 API starts with `/`, followed by letters, di
 
 From 4.14.0, APIM stores `"frameType": "BINARY"` in the subscriber settings of a WebSocket entrypoint that doesn't set it. With Terraform provider 1.2.0 or earlier, every `terraform plan` of that `apim_apiv4` resource then shows a change. After you upgrade the Management API, set `subscriber.frameType` in the entrypoint configuration. Later versions of the provider need no change. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md#websocket-entrypoint-set-the-frame-type-in-terraform-configurations).
 
+#### **Data Logging Masking: A rule with a path masks each event of a stream**
+
+From 4.14.0, in a logged request or response with the `text/event-stream` content type, a Data Logging Masking rule that sets a `path` masks the value that the path selects in each event. In 4.13 and earlier, a rule that set only a `path` masked the whole body, and a rule that also set a `type` or a `regex` applied it to the whole body. To keep the `type` or `regex` applied to the whole body, add the same rule without a `path`. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
+#### **Data Logging Masking: More bodies are masked as a whole**
+
+From 4.14.0, on a v4 API, the Data Logging Masking policy masks as a whole a complete JSON body that isn't valid JSON, such as concatenated documents or fields in single quotes, where 4.13 masked only the values that a rule's `path` selected. A body masked as a whole uses the `replacer` of the first rule that sets one, where 4.13 always used `*`. For more information, see [Breaking Changes and Deprecations](../breaking-changes-and-deprecations.md).
+
 ## New Features
 
 APIM 4.14 adds the following features.
@@ -57,6 +66,13 @@ APIM 4.14 adds the following features.
 * In a v2 API, both work in **On-request content script** and **On-response content script**, with **Emulate v4 engine** turned on. In the Publish and Subscribe phases of a message API, the returned value is still written as text.
 * The feature also ships in APIM 4.13.6 and 4.12.29.
 * For more information, see [Groovy](../../create-and-configure-apis/apply-policies/policy-reference/groovy.md#return-binary-content).
+
+#### **Data Logging Masking on LLM Proxy and MCP Proxy APIs**
+
+* The Data Logging Masking policy runs in the request and response phases of LLM Proxy and MCP Proxy APIs. In the request phase, it masks the values that its rules select in the logged requests, such as the `Authorization` header and the prompts sent to an LLM. In the response phase, it masks them in the logged responses, such as the completions of an LLM and the text that an MCP tool returns. The requests and responses that pass through the Gateway are unchanged.
+* In a logged request or response with the `text/event-stream` content type, a rule that sets a `path` masks the value that the path selects in each event, and the other lines of the events stay as they are.
+* On a v4 API, when the Gateway cuts a logged JSON body at its maximum log size, a rule that sets a `path` masks the values it selects in the part that was logged.
+* For more information, see [Data Logging Masking](../../create-and-configure-apis/apply-policies/policy-reference/data-logging-masking.md#llm-proxy-and-mcp-proxy-apis).
 
 #### **Elasticsearch: API keys, Elastic Cloud Serverless, and data streams**
 
