@@ -1,13 +1,15 @@
 ---
-description: Models, Tools, and Agents list what a provider reported and what a subscription grants the agent. You subscribe on the proxy, in the Developer Portal, through automation, or a similar path.
+description: Read the models an agent uses in Gamma, reported by its provider or routed by an LLM Proxy subscription. Learn how a subscription grants models.
 ---
 
 # Read the models an agent uses
 
-**Models**, **Tools**, and **Agents** sit under **Access** on a registered agent. Each page lists two kinds of entry:
+**Models**, **Tools**, and **Agents** sit under **Access** on a registered agent. Each page lists the following two kinds of entry:
 
 * Models, tools, and agents reported by the provider source.
 * Models, tools, and agents the agent reaches through a subscription on its gateway application.
+
+The following table shows what each page lists from each origin:
 
 | Page | From the provider source | From a subscription |
 | --- | --- | --- |
@@ -30,7 +32,7 @@ The heading is **Models**. The description reads **Every model this agent uses â
 
 ## Read the models
 
-Above the table, a count reads **&lt;n&gt; of &lt;m&gt; models go through the gateway**. **Search model, proxy** filters the rows. **Gateway status** filters them further: **All gateway statuses**, **Through the gateway**, and **Direct to the provider**. **Reset** clears a filter. When nothing matches, the page reads **No matching models** and offers **Clear filters**.
+Before the table, a count reads **&lt;n&gt; of &lt;m&gt; models go through the gateway**. **Search model, proxy** filters the rows. **Gateway status** filters them further: **All gateway statuses**, **Through the gateway**, and **Direct to the provider**. **Reset** clears a filter. When nothing matches, the page reads **No matching models** and offers **Clear filters**.
 
 <table>
     <thead>
@@ -54,7 +56,7 @@ Above the table, a count reads **&lt;n&gt; of &lt;m&gt; models go through the ga
         </tr>
         <tr>
             <td><strong>Gateway proxy</strong></td>
-            <td>The proxy's context path, or its name when it has no context path. It links to the proxy's <strong>Overview</strong> for a user who can read APIs. A model that does not go through the gateway shows a dash.</td>
+            <td>The proxy's context path, or its name when it has no context path. It links to the proxy's <strong>Overview</strong> when you can read APIs. A model that does not go through the gateway shows a dash.</td>
         </tr>
         <tr>
             <td><strong>Source</strong></td>
@@ -65,29 +67,29 @@ Above the table, a count reads **&lt;n&gt; of &lt;m&gt; models go through the ga
 
 Models the source declares come first. A declared model that is linked to an LLM Proxy the agent subscribes to is one row, badged **Proxied on Gateway**. The same name with no link, and also routed by a proxy, stays two rows.
 
-When the agent has models listed and no gateway application yet, the page reads **Gateway subscriptions need a gateway application, which the agent gets with its identity.** **Go to Identity** opens the **Identity** page, for a user who can update the Catalog.
+When the agent has models listed and no gateway application yet, the page reads **Gateway subscriptions need a gateway application, which the agent gets with its identity.** **Go to Identity** opens the **Identity** page when you can update the Catalog.
 
 ## When the agent has no models
 
-The page reads **No models**.
+The page reads **No models**, followed by one of the following messages:
 
-* For an agent synced from a provider: **No models were imported from &lt;source&gt;, and this agent is not subscribed to an LLM proxy. An agent calls models through Gravitee by subscribing to an LLM proxy.**
-* For any other agent: **This agent is not subscribed to an LLM proxy, so it cannot call models through Gravitee. An agent gets its models by subscribing to an LLM proxy.**
+* For an agent synced from a provider, the message reads **No models were imported from &lt;source&gt;, and this agent is not subscribed to an LLM proxy. An agent calls models through Gravitee by subscribing to an LLM proxy.**
+* For any other agent, the message reads **This agent is not subscribed to an LLM proxy, so it cannot call models through Gravitee. An agent gets its models by subscribing to an LLM proxy.**
 
 Three steps follow, under **How to connect**:
 
-1. **Give the agent a gateway application.** Subscriptions belong to an application. Create it on the Identity tab. **Create application on Identity** opens that page, for a user who can update the Catalog.
+1. **Give the agent a gateway application.** Subscriptions belong to an application. Create it on the Identity tab. **Create application on Identity** opens that page when you can update the Catalog.
 2. **Subscribe the agent to an LLM proxy.** **Pick the proxy that routes the models you need. The subscription gives the agent its credential.**
 3. **The proxy's models appear here.** Each model the proxy routes is listed on this tab, marked **Proxied on Gateway**.
 
-The second step is one way in. **Open LLM Proxies**, or **Subscribe to an LLM proxy** once the agent has an application, opens **Secure** â†’ **LLM Proxies**. The same subscription can be created on that proxy, in the Developer Portal, through automation, or a similar path. A user who cannot take the next step reads **Ask an agent administrator to subscribe this agent.**
+The second step is one way in. **Open LLM Proxies**, or **Subscribe to an LLM proxy** once the agent has an application, opens the **LLM Proxies** page under **Secure**. The same subscription can be created on that proxy, in the Developer Portal, through automation, or a similar path. If you cannot take the next step, the page reads **Ask an agent administrator to subscribe this agent.**
 
 When the subscriptions cannot be read, the page reads **Could not load the gateway subscriptions of this agent** and offers **Retry**. The empty state then reads **What this agent reaches through the gateway could not be read.**
 
 ## Next steps
 
-* [Read the tools an agent calls](subscribe-an-agent-to-an-mcp-proxy.md). The same page for tools, through an MCP Proxy.
-* [Read the agents an agent calls](read-the-agents-an-agent-calls.md). The same page for other agents, through an A2A Proxy.
+* [Read the tools an agent calls](subscribe-an-agent-to-an-mcp-proxy.md). Read the same page for tools, which come through an MCP Proxy.
+* [Read the agents an agent calls](read-the-agents-an-agent-calls.md). Read the same page for other agents, which come through an A2A Proxy.
 * [Expose your agent with an LLM Proxy](../build/create-an-llm-proxy.md). Create the proxy the agent subscribes to.
 * [Publish a proxy to the Developer Portal](../publish/publish-a-proxy-to-the-developer-portal.md). Offer the proxy where a consumer can subscribe.
 * [Manage subscriptions](../publish/manage-subscriptions.md). Approve, pause, or close the subscription from the proxy's side.

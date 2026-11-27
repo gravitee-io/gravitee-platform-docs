@@ -1,5 +1,5 @@
 ---
-description: The Tools page lists tools a provider reported and tools an MCP Proxy subscription grants. Subscribing works the same way as on the Models page.
+description: See the tools an agent calls in Gamma, reported by its provider or granted by an MCP Proxy subscription. Find which calls go through the gateway.
 ---
 
 # Read the tools an agent calls
@@ -19,7 +19,9 @@ The heading is **Tools**. The description reads **What this agent calls, and whe
 
 ## Read the tools
 
-Above the table, a count reads **&lt;n&gt; of &lt;m&gt; tools go through the gateway**. **Search name, description, URL, type, proxy** filters the rows. **Gateway status** filters them further: **All gateway statuses**, **Through the gateway**, and **Direct to upstream**. **Reset** clears a filter. When nothing matches, the page reads **No matching tools** and offers **Clear filters**.
+Before the table, a count reads **&lt;n&gt; of &lt;m&gt; tools go through the gateway**. **Search name, description, URL, type, proxy** filters the rows. **Gateway status** filters them further: **All gateway statuses**, **Through the gateway**, and **Direct to upstream**. **Reset** clears a filter. When nothing matches, the page reads **No matching tools** and offers **Clear filters**.
+
+The following table describes the columns:
 
 <table>
     <thead>
@@ -43,7 +45,7 @@ Above the table, a count reads **&lt;n&gt; of &lt;m&gt; tools go through the gat
         </tr>
         <tr>
             <td><strong>Gateway proxy</strong></td>
-            <td>The proxy's context path, or its name when it has no context path. It links to the proxy's <strong>Overview</strong> for a user who can read APIs. A tool that does not go through the gateway shows a dash.</td>
+            <td>The proxy's context path, or its name when it has no context path. It links to the proxy's <strong>Overview</strong> when you can read APIs. A tool that does not go through the gateway shows a dash.</td>
         </tr>
         <tr>
             <td><strong>Source</strong></td>
@@ -56,17 +58,17 @@ Tools the source declares come first. A declared tool that is linked to an MCP P
 
 ## When the agent has no tools
 
-The page reads **No tools**.
+The page reads **No tools**, followed by one of the following messages:
 
-* For an agent synced from a provider: **No tools were imported from &lt;source&gt;, and this agent is not subscribed to an MCP proxy. An agent calls tools through Gravitee by subscribing to an MCP proxy.**
-* For any other agent: **This agent is not subscribed to an MCP proxy, so it cannot call tools through Gravitee. An agent gets its tools by subscribing to an MCP proxy.**
+* For an agent synced from a provider, the message reads **No tools were imported from &lt;source&gt;, and this agent is not subscribed to an MCP proxy. An agent calls tools through Gravitee by subscribing to an MCP proxy.**
+* For any other agent, the message reads **This agent is not subscribed to an MCP proxy, so it cannot call tools through Gravitee. An agent gets its tools by subscribing to an MCP proxy.**
 
-The steps are the same as on **Models**, with the proxy step reading **Subscribe the agent to an MCP proxy** and **Pick the proxy in front of the MCP server whose tools you need.** **Open MCP Proxies**, or **Subscribe to an MCP proxy** once the agent has an application, opens **Secure** → **MCP Proxies**. The last step reads **The proxy's tools appear here.** Each tool behind the proxy is listed on this tab, marked **Proxied on Gateway**.
+The steps are the same as on **Models**. The proxy step reads **Subscribe the agent to an MCP proxy** and **Pick the proxy in front of the MCP server whose tools you need.** **Open MCP Proxies**, or **Subscribe to an MCP proxy** once the agent has an application, opens the **MCP Proxies** page under **Secure**. The last step reads **The proxy's tools appear here.** Each tool behind the proxy is listed on this tab, marked **Proxied on Gateway**.
 
 A pending subscription reads **waiting for approval**, and a paused one reads **paused**. The tools appear once it is accepted or resumed. When the subscriptions cannot be read, the page reads **Could not load the gateway subscriptions of this agent** and offers **Retry**.
 
 ## Next steps
 
-* [Read the models an agent uses](subscribe-an-agent-to-an-llm-proxy.md). The same pages for models, and where a subscription is created.
+* [Read the models an agent uses](subscribe-an-agent-to-an-llm-proxy.md). Read how models work, and where a subscription is created.
 * [Create an MCP proxy](../build/create-an-mcp-proxy.md). Create the proxy the agent subscribes to.
 * [Manage subscriptions](../publish/manage-subscriptions.md). Approve, pause, or close the subscription from the proxy's side.

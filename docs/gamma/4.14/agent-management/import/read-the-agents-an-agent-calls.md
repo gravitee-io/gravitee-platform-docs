@@ -1,5 +1,5 @@
 ---
-description: The Agents page lists other agents an A2A Proxy subscription grants. A provider source does not yet report which agents an agent calls.
+description: See the other agents an agent calls through an A2A Proxy subscription in Gamma. Find the gateway proxy that fronts each one.
 ---
 
 # Read the agents an agent calls
@@ -23,6 +23,8 @@ The heading is **Agents**. The description reads **Other agents this one can cal
 
 **Search name, proxy** filters the rows. When nothing matches, the page reads **No matching related agents** and offers **Clear filters**. Every row goes through the gateway, so the page has no **Gateway status** filter and no count of how many go through the gateway.
 
+The following table describes the columns:
+
 <table>
     <thead>
         <tr>
@@ -45,7 +47,7 @@ The heading is **Agents**. The description reads **Other agents this one can cal
         </tr>
         <tr>
             <td><strong>Gateway proxy</strong></td>
-            <td>The proxy's context path, or its name when it has no context path. It links to the proxy's <strong>Overview</strong> for a user who can read APIs.</td>
+            <td>The proxy's context path, or its name when it has no context path. It links to the proxy's <strong>Overview</strong> when you can read APIs.</td>
         </tr>
         <tr>
             <td><strong>Source</strong></td>
@@ -58,17 +60,17 @@ Several proxies in front of the same Catalog agent are one row. The first subscr
 
 ## When the agent calls no other agent through the gateway
 
-The page reads **No related agents**.
+The page reads **No related agents**, followed by one of the following messages:
 
-* For an agent synced from a provider: **No related agents were imported from &lt;source&gt;, and this agent is not subscribed to an A2A proxy. An agent calls other agents through Gravitee by subscribing to their A2A proxy.**
-* For any other agent: **This agent is not subscribed to an A2A proxy, so it cannot call other agents through Gravitee. Consuming an agent requires subscribing to its A2A proxy.**
+* For an agent synced from a provider, the message reads **No related agents were imported from &lt;source&gt;, and this agent is not subscribed to an A2A proxy. An agent calls other agents through Gravitee by subscribing to their A2A proxy.**
+* For any other agent, the message reads **This agent is not subscribed to an A2A proxy, so it cannot call other agents through Gravitee. Consuming an agent requires subscribing to its A2A proxy.**
 
-The steps are the same as on **Models**, with the proxy step reading **Subscribe the agent to an A2A proxy** and **Pick the proxy in front of the agent you want to call.** **Open A2A Proxies**, or **Subscribe to an A2A proxy** once the agent has an application, opens **Secure** → **A2A Proxies**. The last step reads **The agent appears here.** The agent behind the proxy is listed on this tab, marked **Proxied on Gateway**.
+The steps are the same as on **Models**. The proxy step reads **Subscribe the agent to an A2A proxy** and **Pick the proxy in front of the agent you want to call.** **Open A2A Proxies**, or **Subscribe to an A2A proxy** once the agent has an application, opens the **A2A Proxies** page under **Secure**. The last step reads **The agent appears here.** The agent behind the proxy is listed on this tab, marked **Proxied on Gateway**.
 
 A pending subscription reads **waiting for approval**, and a paused one reads **paused**. The agent appears once it is accepted or resumed. When the subscriptions cannot be read, the page reads **Could not load the gateway subscriptions of this agent** and offers **Retry**.
 
 ## Next steps
 
-* [Read the models an agent uses](subscribe-an-agent-to-an-llm-proxy.md). The same pages for models, and where a subscription is created.
-* [Route an agent through an A2A Proxy](route-an-agent-through-an-a2a-proxy.md). How an A2A Proxy is put in front of an agent.
+* [Read the models an agent uses](subscribe-an-agent-to-an-llm-proxy.md). Read how models work, and where a subscription is created.
+* [Route an agent through an A2A Proxy](route-an-agent-through-an-a2a-proxy.md). See how an A2A Proxy is put in front of an agent.
 * [Manage subscriptions](../publish/manage-subscriptions.md). Approve, pause, or close the subscription from the proxy's side.
